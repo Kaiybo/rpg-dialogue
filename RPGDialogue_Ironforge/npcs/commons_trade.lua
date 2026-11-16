@@ -27,12 +27,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every day, friend, wi' false names an' shill bids an' goods that turn tae lead in the bag. I've caught a few o' the Hidden Circle tryin' tae sell back what they stole from the bidders, an' they didnae enjoy what came after." } },
+      choices = {
+        { text = "A fair market keeps the city honest. I'll respect it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A market's a game, Redmuse. Somebody has to win it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the Stonemantles very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." } },
+      choices = {
+        { text = "Fair rules. I'll keep my darker goods out of your house.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the best things will sell somewhere else, at a better price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Redmuse, auctioneer o' the Ironforge house. What ye list wi' me is seen in Stormwind an' Darnassus as well, so if somebody somewhere wants it, they'll find it." },
         { id = "h_evening", when = { timeOfDay = "night" },
           text = "Evenin's the busy time, when the miners an' the adventurers come in at once an' all want tae sell the same ore. Ye'd do better tae list in the mornin', if ye can wait." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I see ye've been watchin' the bids before ye came over. That's sharp work, an' I'll keep an eye on ye for it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Before ye list anythin', I'll tell ye we dinnae sell soul shards or anythin' else that whispers. That's the rule o' the house." },
       },
       again = {
         { id = "h_again", text = "What else? The ledger's open." },
@@ -44,6 +66,8 @@ P:NPC {
         { text = "What sells best in Ironforge?", next = "sells" },
         { text = "Who's the gnome working beside you?", next = "lympkin" },
         { text = "I'm a crafter. What do buyers want from me?", next = "k_craft", when = { profession = { "Blacksmithing", "Engineering", "Alchemy", "Tailoring", "Leatherworking", "Enchanting" } } },
+        { text = "Do people try to cheat the auction house?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why won't the house sell anything that whispers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good trading, Redmuse.", next = "END" },
       },
     },
@@ -139,10 +163,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Everything that wouldn't fit in a pocket, and some of what would. A few have bought their own books back at the auction since, at twice the price, and I'd call that the saddest sum I've ever done." } },
+      choices = {
+        { text = "Then I'll hunt their lost books down and return them freely.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A book belongs to whoever pays for it, Lympkin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and I hear people whisper about them in the Commons, which seems unkind to a refugee." } },
+      choices = {
+        { text = "Whispers are earned. I'll show the Commons we can be trusted.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them whisper. I'd rather be feared than pitied.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Lympkin, auctioneer, and the fastest pencil in the Commons, if I do say so, which I do. What can I tally for you today?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You'd be amazed how many Gnomeregan mages sold their books in this very house to pay for a bed in Tinker Town, and I tallied every one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Oh my, a warlock. Some of the brightest gnomes of Gnomeregan studied your sort of magic before the fall, you know, so I've stopped being shocked." },
       },
       again = {
         { id = "h_again", text = "Next question! I've a column waiting." },
@@ -154,6 +200,8 @@ P:NPC {
         { text = "Do you miss Gnomeregan?", next = "gnomeregan" },
         { text = "How do I price something sensibly?", next = "price" },
         { text = "I lived through the fall of Gnomeregan too.", next = "k_refugee", when = { origin = "gnome_gnomeregan_refugee" } },
+        { text = "Did the gnome mages lose much in Gnomeregan's fall?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Gnomeregan trained warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Lympkin.", next = "END" },
       },
     },
@@ -244,12 +292,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Twice, an' both times the guards caught a gnome who'd been paid tae carry the bag. The thief himself was long gone, an' that's what galls me, the cowardice o' it." } },
+      choices = {
+        { text = "Using a gnome to take the blame is low. I'd never.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The thief was clever, Bryllia. You have to give him that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ye can, an' it fills the belly, but there's no taste tae it, an' everyone in the Commons knows it. Conjured bread is for the road, an' Ironforge bread is for livin', so buy a loaf an' see." } },
+      choices = {
+        { text = "You're right, Bryllia. Proper bread supports proper bakers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Conjured bread keeps me free of anyone's shop, Bryllia.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Bryllia Ironbrand, general goods, an' I've everythin' an adventurer forgets tae pack. Ye'd be surprised how many brave souls march off tae Loch Modan wi'out a drop o' water." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "Bryllia Ironbrand, general goods, an' I've shot an' arrows by the box, so ye needn't run all the way tae the Military Ward. Keep yer quiver full, for a hunter wi' an empty one is just a person wi' a pet." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I count my stock twice when one o' your kind walks in, an' I'll no' apologise for it, though I'll still sell ye bread." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, so ye'll want water an' bread an' never think ye'll run out. Ye will, an' that's why I keep the good stuff by the door." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, love? There's a queue behind ye." },
@@ -260,6 +330,8 @@ P:NPC {
         { text = "What should a new adventurer carry?", next = "carry" },
         { text = "Where does all your stock come from?", next = "stock" },
         { text = "What's the gossip in the Commons today?", next = "gossip" },
+        { text = "Have rogues robbed you before, Bryllia?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can't a mage simply conjure what they need?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "That's all, thank you.", next = "END" },
       },
     },
@@ -349,10 +421,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Shadows o' this an' Daggers o' that, mostly, an' one lad who wanted tae call his lot the Hidden Circle until I told him it was taken. I'll write down any honest name ye like, but I'll no' register a gang o' cutpurses under the King's seal." } },
+      choices = {
+        { text = "A guild should keep its oath to the city it's founded in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A name's a name, Jondor. What we do is our affair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' half the Commons asked if the Legion had come back. They changed it tae a black candle in the end, an' folk calmed down, which is what a good crest should help them do." } },
+      choices = {
+        { text = "A crest should reassure folk. I'll choose something modest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The burning eye was honest. Let them be frightened.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Jondor Steelbrow, guild master for the Visitor's Center. Every guild that marches out o' Ironforge has its name written in my book first, an' I've written some grand ones." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue wantin' tae found a guild, is it? Ye'll be surprised how many do, an' ye'll be less surprised at the names they pick." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I've written a warlocks' guild into the book before, an' it caused a fair bit o' grumblin' at the Visitor's Center. I'll write yours too, but mind what ye call it." },
       },
       again = {
         { id = "h_again", text = "What else would ye know about runnin' a company o' friends?" },
@@ -363,6 +457,8 @@ P:NPC {
         { text = "How does someone form a guild?", next = "form" },
         { text = "Why would anyone bother with a guild?", next = "why" },
         { text = "What makes a good guild name?", next = "names" },
+        { text = "What sort of names do rogues pick for their guilds?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What happened with the last warlocks' guild?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Jondor.", next = "END" },
       },
     },
@@ -441,10 +537,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only the once, an' he was very apologetic, but he'd been practisin' his fireball in a crowd. I stitch them tae last, but cloth is cloth, an' I'd thank ye tae practise in the Mystic Ward." } },
+      choices = {
+        { text = "I'll practise where it's safe, Lyesa. You have my word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A mage who never practises in a crowd never learns control.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Skulls I'll do, an' flames, for every guild's got those, but I'll no' stitch a demon's sigil onto good Ironforge cloth. I had a lass ask me once, an' she couldnae tell me what it meant, which was worse." } },
+      choices = {
+        { text = "Then I'll ask for nothing you'd be ashamed of.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The sigil was only thread, Lyesa. You'd be well paid for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Lyesa Steelbrow, tabards. Once Jondor's written yer guild in his book an' ye've chosen a crest, I make the tabards tae match, an' I make them tae last." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've a lovely blue that would suit yer guild's tabard, an' I promise it won't catch if ye set somethin' alight beside it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll make ye a tabard, warlock, but I'll no' stitch in anythin' I'd be ashamed for my mother tae see." },
       },
       again = {
         { id = "h_again", text = "What else about crests an' colors can I tell ye?" },
@@ -455,6 +573,8 @@ P:NPC {
         { text = "Why do guilds wear tabards at all?", next = "why" },
         { text = "What makes a good crest?", next = "crest" },
         { text = "Are you kin to Jondor?", next = "kin" },
+        { text = "Do mages often set your tabards alight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What wouldn't you stitch for a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Lyesa.", next = "END" },
       },
     },
@@ -524,10 +644,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Many have tried, an' none have managed it, for the Vault was cut into the mountain by dwarves who knew a thing or two about thieves. The last fellow got as far as the second door an' then asked tae be let out, which we did, intae the guards' arms." } },
+      choices = {
+        { text = "I'd never rob a bank that keeps honest folk's savings.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every vault has a weakness. Nobody's found this one's yet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Old ones, set by the Stonemantles' own mages long before Gnomeregan fell, an' renewed by the gnomes since. I'll no' tell ye more than that, but I'll tell ye the last mage who tested them woke up in the Commons." } },
+      choices = {
+        { text = "Good. Wards like that protect honest savings.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wards are puzzles, and I'd enjoy testing those someday.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Soleil Stonemantle, at yer service. The Stonemantles have kept the Vault o' Ironforge longer than anyone can remember, an' we've never lost so much as a button." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "The Vault's guards have seen ye, rogue, an' they've seen the way ye looked at the doors. I'd look at them less, if I were you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, an' I'll ask ye no' tae blink yerself past the counter. It's been tried, an' the Vault has wards o' its own." },
       },
       again = {
         { id = "h_again", text = "Is there anythin' else about the Vault ye'd like tae know?" },
@@ -538,6 +680,8 @@ P:NPC {
         { text = "How safe is the Vault, truly?", next = "safe" },
         { text = "Are all the bankers here Stonemantles?", next = "family" },
         { text = "Can I store things in Stormwind as well?", next = "stormwind" },
+        { text = "Has anyone ever tried to rob the Vault?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What wards does the Vault have?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Soleil.", next = "END" },
       },
     },

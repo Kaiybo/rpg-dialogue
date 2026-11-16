@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, by a Frostmane scout who took my boots and left his own, which were worse. I've learned to sleep with one eye on the treeline, and I'd guess you never sleep any other way." } },
+      choices = {
+        { text = "I'd never rob a fellow camper. The road's hard enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A camp left unwatched is an invitation, Eric. Lesson learned.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because one day you won't be here, and I'll be up a mountain with damp flint and no idea how to manage. I'll take the spark tonight, gladly, but I'd sooner learn the hard way than lean on magic I can't carry." } },
+      choices = {
+        { text = "That's wise. A traveller should rely on their own hands.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic is a tool like any other. Use what works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -37,6 +55,10 @@ P:NPC {
           text = "Sit close to the fire and stay sat, and you'll feel the rest settle into you. Then come and tell me about it." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest at my fire, good! Out here a prayer for strength is worth a blanket, and two blankets after dark." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You move like someone who's slept in a few hedges they weren't invited into. Pull up a rock by the fire, though I'll keep my pack on my side of it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and just in time, because my flint's gone damp and the fire's sulking. I don't suppose you'd mind?" },
       },
       again = {
         { id = "h_again", text = "More questions? Good, because questions keep you warm." },
@@ -49,6 +71,8 @@ P:NPC {
         { text = "Is it safe out here?", next = "safe" },
         { text = "I work leather. What can I add?", next = "tent", when = { profession = "Leatherworking" } },
         { text = "I've tracked bears through worse snow than this.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "Have you ever had your camp robbed out here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why not let a mage light every fire for you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -152,6 +176,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not many, for most young mages go straight tae the Hall o' Mysteries in the city. The ones who do come through want tae fight the Frostmane wi' fire, an' I tell them the trolls have their own shamans who'll answer in kind." } },
+      choices = {
+        { text = "Then I'll fight beside the recruits and keep them safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The recruits can learn by watching me burn the trolls out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all. Most folk in Coldridge have heard tales o' what warlocks did in the war, so ye'll find them slow tae trust ye." } },
+      choices = {
+        { text = "I'll earn their trust slowly. That's only fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them keep their tales. I've work to do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -162,6 +204,10 @@ P:NPC {
           text = "This mail's fer Talin Keeneye, out by the frozen lake. Mind the troggs on the way, for they don't read." },
         { id = "h_rune", when = { class = "PRIEST", maxLevel = 5 },
           text = "This came fer ye while ye were out: a rune, from Branstock Khalder inside Anvilmar. It's priest business, so go an' see him." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at Anvilmar! The recruits will gawp at ye, so if ye could do it somewhere other than the post, I'd be grateful." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There's a letter in my bag that's been coughin' smoke since ye walked up, an' I'll thank ye tae step back from the post." },
       },
       again = {
         { id = "h_again", text = "What else? There's mail waitin'." },
@@ -174,6 +220,8 @@ P:NPC {
         { text = "A rune for me?", next = "rune", when = { class = "PRIEST", maxLevel = 6 } },
         { text = "Anything for a dwarf who hears the elements?", next = "archaic", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Do many gnomes come through the valley?", next = "k_gnome", when = { race = "Gnome" } },
+        { text = "Do the Coldridge recruits not see many mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would a letter cough smoke near me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll get to it.", next = "END" },
       },
     },
@@ -265,6 +313,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Who leads them, how many there are, an' whether they're plannin' tae come down from the caves. A scout who brings me a count is worth ten who bring me ears, though I'll no' say no tae the ears either." } },
+      choices = {
+        { text = "I'll bring you an honest count, Envoy, and nothing invented.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll bring you whatever the Senate wants to hear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Dangerous enough that I report them tae the Senate by name, an' that's no' somethin' I do lightly. They've a feel for the cold that I'd swear comes from the mountain itself, an' a mage wi' a good fire might change the odds." } },
+      choices = {
+        { text = "I'll drive them back, but only as far as I must.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fire will settle the valley's troll problem for good.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -277,6 +343,10 @@ P:NPC {
           text = "Take my notes to my brother Senir in Kharanos. He'll know what to make of them." },
         { id = "h_journal_back", when = { questDone = TODO_QUEST("The Stolen Journal") },
           text = "My journal, back where it belongs, an' the trolls well in hand. I'll finish the report tonight, if my fingers thaw." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "The Senate could use someone who can creep up on a Frostmane camp wi'out the whole valley hearin'. Ye've the look o' one." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage would be handy against the Frostmane, for their shamans throw ice like snowballs an' I'm tired o' ducking." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Quickly, before the cold gets into my ink." },
@@ -288,6 +358,8 @@ P:NPC {
         { text = "Who sent you out here?", next = "sent" },
         { text = "Who's the gnome by your fire?", next = "felix" },
         { text = "I can read the trolls' tracks for you.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "What would you want a quiet scout to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Are the Frostmane shamans truly dangerous?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
     },
@@ -389,6 +461,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Colder, an' the trolls like it that way, for their witch doctors draw on the cold the way we draw on the forge. I've watched them from the ridge, an' I'll tell ye plainly that a lone mage cornered in there is a dead one." } },
+      choices = {
+        { text = "Then I'll go in with others and watch their backs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go in alone. Nobody slows me down that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Both of ye bargain wi' things that ought tae be left alone, an' both of ye think ye've the better o' the bargain. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold." } },
+      choices = {
+        { text = "Judge me on my deeds, Envoy. I'll give you good ones.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I've the better of my bargain. The trolls don't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -402,6 +492,10 @@ P:NPC {
         { id = "h_brother", when = { metBefore = true }, text = "My brother sent word from the valley, three lines, an' two of them complaints about the cold. The Whitebeards don't waste ink." },
         { id = "h_redstone", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Reports"), days = 5 } },
           text = "Redstone shouted, did he? Good, for the Senate needed a shout. An' ye didn't mention ye'd helped me, I hope?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! If ye're headed toward Frostmane Hold, keep yer fire close, for the caves are cold enough tae freeze a spell before it's cast." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I've seen the troll witch doctors deal wi' spirits, an' I'll tell ye now ye've a touch o' the same smell about ye. That's no compliment, mind." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? I've a report to avoid writin'." },
@@ -414,6 +508,8 @@ P:NPC {
         { text = "Who reads your reports?", next = "reports" },
         { text = "You look cold, envoy.", next = "cold" },
         { text = "I could slip into the hold unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "Is Frostmane Hold as cold as they say?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is a warlock really like a troll witch doctor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go to the hold.", next = "END", fx = { affinity = 1, standing = { kharanos = 1 } } },
       },
     },
@@ -509,6 +605,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Three this winter, an' every one o' them was the good stuff. I'd bet my beard it was rogues wi' a buyer in Ironforge, an' if ye know who, I'd pay ye in ribs tae tell me." } },
+      choices = {
+        { text = "I'll find who took them and drag them back here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good thief deserves a good drink, Ragnar. Let it go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." } },
+      choices = {
+        { text = "Fair enough. I'll leave the creature outside, Ragnar.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hint of brimstone might improve it, Ragnar.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -520,6 +634,10 @@ P:NPC {
         { id = "h_boar", when = { metBefore = true }, text = "A hunter brought in a boar this mornin' so big we named it, an' then we ate it. Don't get attached, I tell the lads, but they never listen." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter! Ye're who I buy my ribs from these days. Bring me good ones an' I'll remember yer name, though I'm bad wi' names, mind." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "If ye're here tae lift a cask, ye're too late; the brewers count them twice a day, an' they're meaner than I am." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in the distillery! I'll pour ye an ale, but if yer wee demon touches the vats, I'll pour the ale over it." },
       },
       again = {
         { id = "h_again", text = "What else? Kegs don't tap themselves, though one did once, an' we don't talk about it." },
@@ -532,6 +650,8 @@ P:NPC {
         { text = "I hear the Dark Irons stole a recipe.", next = "theft", when = { minLevel = 45 } },
         { text = "I cook. Will you share the recipe?", next = "cookrecipe", when = { profession = "Cooking" } },
         { text = "Your supplier joined the army? So did half my company.", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "Have casks gone missing from the distillery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why worry about my demon and your vats?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -647,6 +767,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Right off, an' they took a month tae grow back, which is a long time tae look surprised. He was a gnome out o' Gnomeregan wi' no home tae go back tae, so I forgave him, but I keep the tinderbox now." } },
+      choices = {
+        { text = "I'll leave your hearth alone, Belm. It's your inn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your eyebrows grew back. No harm done, surely.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the miners complain about the smell an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, but I've a whole inn tae keep content." } },
+      choices = {
+        { text = "That's fair. I'll keep my creatures out of sight.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your guests' nightmares aren't my concern, Belm.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -655,6 +793,10 @@ P:NPC {
           text = "Ye've come up from Coldridge, then. Welcome to Kharanos; sit down, for the valley's behind ye now." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Maxan Anvol's upstairs, if it's the Light's lessons ye're after. I've priests, paladins, mages an' a rogue all under my roof, the strangest regulars in Dun Morogh." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Ye'll want a room near the hearth, I expect, though I'd ask ye no' tae light it yerself; the last one singed my eyebrows." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, eh? There's a room for ye, but I'll put ye at the end o' the hall, away from the families an' the brewers." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a tap runnin'." },
@@ -665,6 +807,8 @@ P:NPC {
         { text = "Who's the gnome you toast?", next = "lazlo" },
         { text = "What's Rhapsody Malt?", next = "malt" },
         { text = "Who are all these trainers?", next = "trainers" },
+        { text = "Did a mage really singe your eyebrows?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why put a warlock at the end of the hall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just a room, thanks.", next = "END" },
       },
     },

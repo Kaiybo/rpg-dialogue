@@ -32,6 +32,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because they've been thievin' in my city, an' I'll no' have that, whatever good they think they're doin'. If ye want tae serve Ironforge from the shadows, go after the Dark Iron, for they've a great deal I'd like tae know, an' I'll forget yer friends' names for it." } },
+      choices = {
+        { text = "Then I'll serve the throne, Your Majesty, against the Dark Iron.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Circle serves itself, Your Majesty. So do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "As guests who've earned their place, for the Mystic Ward has never been sharper an' the gnomes fight like dwarves twice their size. I'd only ask them tae stop blowin' holes in my walls when they practise." } },
+      choices = {
+        { text = "Ironforge's kindness deserves loyalty. I'll serve it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Gnomes or dwarves, mages answer to their art first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "More than ye'd guess. Ye listen tae the forest an' we listen tae the mountain, an' the both of us know the world's older than any crown sittin' on it, mine included." } },
       choices = {
@@ -63,6 +81,10 @@ P:NPC {
           text = "I'll hear ye, because a king hears everyone, but I'll no' pretend I'm pleased tae. Out wi' it." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid o' the Cenarion Circle in my throne room! Ye keep the old forests, I'm told, an' I keep the old stone, so we're no' so different as folk think." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "One o' the shadowy sort, in my own throne room. I've had my guards pull yer friends from the Hidden Circle out o' the Commons, so ye'll forgive me if I keep an eye on ye." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, an' welcome. Most o' the mages in my city are gnomes who came tae us wi' nothin' after Gnomeregan fell, an' I'll no' have it said Ironforge turned them away." },
       },
       again = {
         { id = "h_again", text = "What else, then? The court can wait; it's well used tae it." },
@@ -84,6 +106,8 @@ P:NPC {
         { text = "I've come about the fel I carry, Your Majesty.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I served in the Military Ward before I took the road.", next = "soldier", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Darnassus sends its greetings, King Magni.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Why have your guards been arresting the Hidden Circle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How do you see the gnome mages in your city?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
