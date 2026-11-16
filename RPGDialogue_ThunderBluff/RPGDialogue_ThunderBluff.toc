@@ -12,3 +12,4 @@
 
 pack.lua
 npcs\thunderbluff.lua
+npcs\rises.lua

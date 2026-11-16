@@ -12,3 +12,4 @@
 
 pack.lua
 npcs\orgrimmar.lua
+npcs\trainers.lua

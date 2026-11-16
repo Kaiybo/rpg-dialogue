@@ -15,3 +15,4 @@ pools.lua
 npcs\narache.lua
 npcs\bloodhoof.lua
 npcs\gevrek.lua
+npcs\roadside.lua

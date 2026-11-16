@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\crossroads.lua
 npcs\taurajo.lua
+npcs\ratchet.lua
