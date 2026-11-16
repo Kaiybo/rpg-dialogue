@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You ask me that? Your kind made the Horde what it was, and these camps were what came after, so ask your demons who threatens us. I will say only that the ogres, the Witherbark and the men of Stromgarde all look at these walls the way the guards once did." },
+        { id = "xhcast_default", text = "The ogres on their mound, the Witherbark in the hills and the Syndicate on the roads, and the men of Stromgarde, who would gladly chain us all again. Drum Fel thinks the walls will hold, but walls held this camp too, and they held us in." },
+      },
+      choices = {
+        { text = "Then I'll help hold these walls for the Horde.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Walls are cages. Better to strike before they come.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Syndicate cutthroats, who wear black and think it makes them clever, and Witherbark scouts who watch the fort from the trees. And now and then Stromgarde's riders, who look at these walls the way the camp guards used to look at us." } },
+      choices = {
+        { text = "Let them come. I'll meet them at the gate.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find their camps first, and they won't wake.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Ask, then, but they will find nothing in me worth answering. The Warchief says the spirits forgave our people for the demon blood, but I have not forgiven myself for standing in chains while a hero died, and I doubt the spirits can do what I cannot." } },
@@ -39,6 +60,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. Thrall stood in this very camp the night Doomhammer fell, already speaking with the spirits, and I was here to see it, though they have never once answered me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Tor'gan sends healers and shamans and baubles, and none of them mend what was broken in this camp, so pray if you must, but not for me." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. Doomhammer had little use for spell-throwers, and neither did the guards who kept us here, so I don't know what to make of you, and I'm too tired to try." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, standing where Doomhammer fell. It was your kind who fed us the demon's blood, and it was the sickness after it that filled these camps, so do not expect me to look at you kindly." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "You walk quietly, like someone who learned that the loud ones die first, and after what I saw in this camp, I cannot say you are wrong." },
         { id = "h_default", key = true,
           text = "I am Gor'mul. I was chained in this very camp, and I saw the Warchief come for us in his black armor with his hammer raised, and I saw a coward on a horse put a lance through his back. Tell me what use hope is after a thing like that." },
         { id = "h_amulet", when = { questActive = TODO_QUEST("Raising Spirits") },
@@ -57,6 +86,8 @@ P:NPC {
       choices = {
         { text = "Hammerfall bears a warrior's name, Gor'mul. I mean to honor it.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "The spirits haven't abandoned you, Gor'mul. Will you let me ask them?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Who still threatens Hammerfall, Gor'mul?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who walks the roads near Hammerfall that I should watch?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Tell me about that night.", next = "night" },
         { text = "Why did you stay here?", next = "stayed" },
         { text = "What do you think of Tor'gan?", next = "torgan" },
@@ -410,6 +441,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They throw spears and curses both, and I'm not sure which I hate more, because a spear only misses but a curse leaves the wind rider sick for days. Their witch doctors work from the hills around their village, if you've a mind to answer them." } },
+      choices = {
+        { text = "I'll pay those witch doctors a visit, by Drum Fel's leave.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll burn their camp tonight, orders or no.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Letters and orders, mostly, between here and Tarren Mill and the Undercity, and some of them would be worth a great deal to the Syndicate. Twice now a packet has come in with its seal broken and pressed back together, and I would very much like to know who's doing it." } },
+      choices = {
+        { text = "I'll find whoever broke the seals and bring them to Drum Fel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find them, and maybe read a few letters myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "You can try, and I won't stop you, but I've listened to these winds for years and never once heard them say yes. They come off the Thandol Span and the old Stromgarde walls in gusts that knock a rider sideways, so maybe they'll be kinder to someone who asks politely." } },
@@ -423,6 +472,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. Then you'll know what I mean when I say the Highland winds have opinions, and today they're not in a forgiving mood." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. My riders never used to pray before a flight over the Highlands, but some of them have started, and I've stopped laughing at them." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. If you ever slip off one of my wind riders, I'm told your kind can drift down as slow as a leaf, which would make you my favourite passenger." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Wind riders hate the smell of demons, so send yours away before you mount, or you'll be flying sideways the whole way to Tarren Mill." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "A rogue. Keep your fingers out of the saddlebags, because my riders carry letters for Drum Fel, and he has a long memory and a short temper." },
         { id = "h_default", key = true,
           text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -434,6 +491,8 @@ P:NPC {
       choices = {
         { text = "Do wind riders mind sharing the sky with my beast?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Shall I speak to the winds before your riders fly?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the Witherbark do when your riders pass overhead?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Do your riders carry anything worth stealing, Urda?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the winds like here?", next = "winds" },
         { text = "Do the trolls shoot at your riders?", next = "trolls" },

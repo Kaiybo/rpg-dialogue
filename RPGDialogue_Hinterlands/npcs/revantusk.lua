@@ -224,6 +224,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_mage", when = { class = "MAGE" }, text = "You ask me that, smellin' the way you do? Your magic sours my beasts, mon, but even yours be cleaner than what the Vilebranch witch doctors work up at Jintha'Alor, and the wolves near there gone wild from it." },
+        { id = "xhcast_default", text = "The Vilebranch witch doctors' magic, worst of all, because it smell of blood and old gods, and the wolves near Jintha'Alor gone wild from it. The arcane I hate for my own reasons, but that Vilebranch filth be worse, and I don't say that lightly." },
+      },
+      choices = {
+        { text = "I'll ask the village elders before I strike at Jintha'Alor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I need nobody's leave to kill Vilebranch.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Yes, mon, and count them, because I think there be more than last season, and I want to know if the dens be movin' closer to the village. Go downwind, and if a wolf look straight at you, you already too close." } },
+      choices = {
+        { text = "I'll count the dens and leave the pups alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll count them, then poison the dens myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The spirits favor whoever respect them, mon, and the Vilebranch don't respect nothin'. My brother used to say a thanks to the beast after every kill, and I think the wilds still remember him for it." } },
@@ -237,6 +258,12 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman come to Revantusk. The Vilebranch witch doctors be twistin' the spirits up at Jintha'Alor, so a shaman with clean hands be welcome at my fire." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. If you serve the loa, mon, Yayo'jin will want a word with you, and if you serve somethin' else, keep it from frightenin' my beasts." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, mon, and I smell it on you worse than any mage. My beasts won't calm for an hour after you go, so say what you need and be quick." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "You walk soft, mon, like a stalker in the brush. The Silvermane would like you, and that be no compliment." },
         { id = "h_default", key = true,
           text = "Huntsman Markhor, master of the hunt for Revantusk. Many brave trolls been lost to these wilds, and I hunt what hunts us, so the rest of the village can sleep." },
         { id = "h_stalkers", when = { questActive = TODO_QUEST("Stalking the Stalkers") },
@@ -256,6 +283,8 @@ P:NPC {
       },
       choices = {
         { text = "Do the spirits of the wilds favor the hunter or the hunted?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does any magic in these hills trouble your beasts, huntsman?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Want me to scout the Silvermane dens for you, huntsman?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What hunts in these hills?", next = "wilds" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Why hate the gryphons so?", next = "gryphons" },
@@ -477,6 +506,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Them snapjaws, mon, and sometimes Vilebranch scouts who come down to the shore to steal our nets. A troll with a little magic could keep them off the beach, and then everybody fish in peace, which be how it ought to be." } },
+      choices = {
+        { text = "I'll guard the beach. Everyone should fish in peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll guard my own line. The rest can look after theirs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Nobody but Gammerita, mon, and she don't count, because a turtle can't help bein' a turtle. Gorkas eye my bait sometimes, though, when he think I not lookin', because he want that grouper so bad he can taste it." } },
+      choices = {
+        { text = "Gorkas is a neighbor. Share your bait with him.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll swap his bait for rotten bait. That'll teach him.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every single fish, mon, I say a little word before I let it go or put it in the pot. The sea give and the sea take, and the only ones who never say thank you be them snapjaws, which is why the sea don't like them neither." } },
@@ -490,6 +537,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, mon! You go ask the water spirits to send the fish my way, and leave the snapjaws out of it, if you please." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, mon! You say a word to the loa for my line, eh? Not a big prayer, just enough to keep the snapjaws off." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage, mon! You can make your own water, I hear, which be a terrible waste when the sea be right here, full of fish." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, mon? You keep that demon away from the water's edge, because the fish don't like the look of it, and neither do I." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "You sneak like a heron, mon, but the fish still see you comin'. Sit down and be still a while, and maybe you learn somethin'." },
         { id = "h_default", key = true,
           text = "Katoom the Angler. I teach the fishin' and I sell the gear, but mostly I sit right here and fish, which be the most pleasant thing a troll can do." },
         { id = "h_snapjaws", when = { questActive = TODO_QUEST("Snapjaws, Mon!") },
@@ -507,6 +562,8 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever thank the water for what you catch, Katoom?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What troubles this stretch of coast, Katoom?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Anyone in Revantusk who'd steal a good lure, Katoom?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who taught you to fish?", next = "pagle" },
         { text = "What's wrong with the turtles?", next = "snapjaws" },
         { text = "Doesn't the war worry you?", next = "war" },
@@ -585,6 +642,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "One time a Vilebranch witch doctor make Lard's stew bubble green from far away, and nobody would eat it, not even Lard. You stand by the hearth with your magic, and Lard will feel very safe, and the stew will stay brown like stew should." } },
+      choices = {
+        { text = "I'll guard the inn, and the stew, for you, Lard.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Next time, sell the green stew to the Wildhammer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Lard's secret spot is the best, but Lard will not tell you, because then it is not secret. The big rocks behind the inn are second best, and from there you can see the whole beach and nobody can see you, except Lard." } },
+      choices = {
+        { text = "I'll watch for Vilebranch. The village deserves a guard.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll watch the village too. Everyone has secrets.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Lard would like that very much, because the hearth gets sad when it rains and the trolls complain about the smoke. You make it happy, and Lard will cook you a fish, and maybe not burn it this time." } },
@@ -598,6 +673,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "Lard see you are shaman. Lard like shaman, because one time a shaman make the rain stop on Lard's picnic, and Lard never forget it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "Lard see you are priest. You make Lard better when Lard eat too much? Lard ask for a friend, and the friend is Lard." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "Lard see you are mage. Ogre mages have two heads and both heads are grumpy, but you have only one head, so maybe you are only half grumpy." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "Lard see you are warlock. Your little demon can sit by the fire, but it cannot eat Lard's fish, because Lard counted them." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "Lard did not hear you come in! You are very quiet and Lard is very loud, so maybe together we are just right." },
         { id = "h_default", key = true,
           text = "Lard keep the inn for the trolls, and Lard keep the peace, because nobody want to fight when Lard is standin' there. Lard is very big, so it work good." },
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("Lard Lost His Lunch") },
@@ -612,6 +695,8 @@ P:NPC {
       choices = {
         { text = "Got anything I can feed my companion, Lard?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Can I bless the inn's hearth for you, Lard?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is the inn ever troubled by magic, Lard?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where's the best place to watch Revantusk unseen, Lard?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Make this inn my home.", next = "BUSINESS" },
         { text = "An ogre among trolls?", next = "ogre" },
         { text = "Where's your secret spot?", next = "spot" },
@@ -701,6 +786,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Not at the anvil, because I'm old-fashioned about steel and like to earn it with my own arms. What I need is someone to stop the Vilebranch raiding the ore the trolls bring down from the hills, and a few spells would do that faster than I can swing a hammer." } },
+      choices = {
+        { text = "I'll escort the ore and fight any raider openly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll ambush the raiders before they reach the road.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Skulk Rock, mostly, where they hoard anything shiny like magpies, though some of it went up to the temples at Jintha'Alor. You'll find more than my tools if you go looking, and I'd ask you to bring back anything of Revantusk's you see." } },
+      choices = {
+        { text = "I'll return everything to its owners in Revantusk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever I find in Skulk Rock is mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Ask away, but tell it I'm grateful already, because it never let me down, even when the Vilebranch took my tools. The trolls here leave little offerings by the coals, and I've stopped sweeping them up, since the steel's come out cleaner ever since." } },
@@ -714,6 +817,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman at my forge. Fire's the first spirit any smith learns to respect, and I've been talking to mine for twenty years, though it's never once answered me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. If you can mend a body the way I mend a shield, you'll never want for work in Revantusk, because the Vilebranch keep us both busy." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. Don't touch the forge, please, because the last spellcaster who tried to heat my coals faster melted half a good blade." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. I remember what your kind did to the Horde before Thrall, and I won't pretend I don't, but my forge mends any Horde blade, yours included." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "A rogue. I'll sharpen your daggers gladly, but I'll count my tools first, because I've lost them once already and I'm not losing them again." },
         { id = "h_default", key = true,
           text = "Smith Slagtree, and I keep the forge for Revantusk. Nobody leaves this village with a split shield while I've got coals in the forge." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("Vilebranch Hooligans") },
@@ -728,6 +839,8 @@ P:NPC {
       choices = {
         { text = "Can you mend a warrior's armor, Slagtree?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Shall I ask the fire spirit to bless your forge, Slagtree?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could a spellcaster be of use to your forge, smith?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where did the Vilebranch hide the rest of what they stole?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Mend my gear.", next = "BUSINESS" },
         { text = "A gnome gave you tools?", next = "gnome" },
         { text = "What's an orc doing with trolls?", next = "village" },
@@ -805,6 +918,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They got the high elves of Quel'Danil now, mon, and elves always got magic up their sleeves. That be why Otho want the elves gone first, because a dwarf alone be just a dwarf, but a dwarf with an elf friend be trouble." } },
+      choices = {
+        { text = "I'll fight the elves fairly, not leave bodies as messages.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll leave the elves where the dwarves will find them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Close enough to smell the gryphon dung, mon, if you go by the trees and not the road, because the dwarves only look up and never down. The gryphons, though, they look everywhere, so you stay downwind of the roosts and you be fine." } },
+      choices = {
+        { text = "A message should be delivered face to face, Otho.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A message left in the dark frightens more.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I set anything I can against the Wildhammer, mon, and the spirits would be the best weapon of all. Them dwarves claim the storms favor them and their birds, and it would please me very much to see the storms pick a side." } },
@@ -818,6 +949,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, mon! Someday you call the storm down on Aerie Peak, and we see how them dwarves like the lightning on their gryphons." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, mon! You pray to the loa for me, eh, and ask them to send the Wildhammer a bad dream every night this week." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage, mon! I seen what fire do to feathers, and I think them gryphons at Aerie Peak would make a very fine bonfire." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock, mon. The orcs don't like your kind much, but if your demons got any ideas about the Wildhammer, Otho be listenin'." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "A sneaky one, mon! You the perfect messenger, because the best messages be the ones the dwarves find in the mornin' without ever seein' who left them." },
         { id = "h_default", key = true,
           text = "Otho Moji'ko. I sell the spices and the salt and the things a cook can't do without, but what I really want be sendin' the Wildhammer a message they never forget." },
         { id = "h_elves", when = { questActive = TODO_QUEST("Message to the Wildhammer") },
@@ -835,6 +974,8 @@ P:NPC {
       },
       choices = {
         { text = "Would you set the spirits against the Wildhammer, Otho?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the Wildhammer have magic on their side, Otho?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "How close can someone get to Aerie Peak unseen, Otho?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why hate the Wildhammer so much?", next = "dwarves" },
         { text = "What kind of message?", next = "message" },
         { text = "Show me your supplies.", next = "BUSINESS" },
@@ -912,6 +1053,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every time we fly west past Aerie Peak, though the riders keep high and the gryphons don't like the cold up there. A spellcaster riding with us makes the dwarves think twice, because they're happy to shoot at a wind rider but they don't like being shot back at." } },
+      choices = {
+        { text = "I'll fly escort, and fight only if they strike first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll knock a few gryphons down before they get the chance.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Fish, mostly, from the bucket by the pier, and I suspect Katoom, because he's the only troll here who knows a good fish when he sees one. Don't tell him I said so, or he'll stop selling me bait." } },
+      choices = {
+        { text = "Ask him openly. Honest neighbors talk it out.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take some of his catch back for you, quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they mind, they've a funny way of showing it, because they keep the waves calm off this pier and send me nothing but small fry. I think that grouper has a spirit of its own, and it's the stubbornest one on the coast." } },
@@ -925,6 +1084,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. Don't suppose you could ask the sea to send that grouper my way? I've tried asking nicely and it hasn't worked." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Say a prayer for my line while you're here, would you? It doesn't matter to whom, so long as the grouper hears it." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. You can conjure your own food, I hear, so you'd never understand a man who stands on a pier all day for one fish." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Keep the demon off the pier, please, because the wind riders can smell it, and so can the fish, I'll swear." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "A rogue. If you're thinking of borrowing my rod, I'll know, because I know every knot on it by heart." },
         { id = "h_default", key = true,
           text = "Gorkas, wind rider master. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -936,6 +1103,8 @@ P:NPC {
       },
       choices = {
         { text = "Do the sea spirits mind you fishing between flights, Gorkas?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the Wildhammer gryphons trouble your wind riders, Gorkas?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Is anyone stealing from the wind riders' stores, Gorkas?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What grouper?", next = "grouper" },
         { text = "How do the wind riders like the coast?", next = "riders" },

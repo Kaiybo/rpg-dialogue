@@ -270,6 +270,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Master Faranell says the arcane is a crutch for people who can't measure, and I agree with him because agreeing is quicker. Still, the Syndicate's shadow mages are collecting blood for me in the hills, so I suppose the Society uses magic the way it uses everything else, at arm's length." } },
+      choices = {
+        { text = "The Society's methods are sound. I'd follow Faranell's rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Faranell's rules are a crutch too. Use whatever works.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Only Hinott, who pretends not to look into my cellar and fails, and the occasional Southshore spy who drinks the wrong flask and saves me the trouble. I find them in the morning, though Umpi usually finds them first." } },
+      choices = {
+        { text = "I'd rather catch spies with a blade than a trick.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Leave a flask out for the next spy. Poison suits them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I've no idea, shaman, and I suspect you're about to tell me. The water spirits in Hillsbrad's streams are welcome to complain to the Society in writing, though I doubt Master Faranell will read it." } },
@@ -293,6 +311,12 @@ P:NPC {
           text = "A shaman, here among my cauldrons. I'm told you talk to the earth and the water, so please don't tell me what they think of the runoff behind the hut." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Tarren Mill. I suspect you won't approve of my work, tauren, since most of it is about making green things die faster." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. The Light stopped visiting Tarren Mill some time ago, and the loa never came at all, so you'll have to make do with me and Umpi." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. You trade with demons and I trade in poisons, so neither of us gets invited to many dinners, though since I can't eat anymore, I don't much mind." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "One of the sneaking sort. If you've come to steal a vial, take the green ones, because those are the ones I've given up on." },
         { id = "h_default", key = true,
           text = "Lydon, of the Royal Apothecary Society. I make things that hurt, for the Dark Lady's work, and it's the only thing that still makes me feel much of anything, that and Umpi." },
         { id = "h_pain", tags = { "news" }, when = { questActive = TODO_QUEST("Elixir of Pain") },
@@ -318,6 +342,8 @@ P:NPC {
         { text = "Why poison the very land the Horde fights for?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will your plague do my fighting for me, Lydon?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do your poisons do to the spirits of this land?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the Society ever use magic in its work, Lydon?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does anyone in Tarren Mill try to steal your work?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who's Umpi?", next = "umpi" },
         { text = "What are you working on?", next = "work" },
         { text = "Why are you so miserable?", next = "misery" },
@@ -464,6 +490,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The scouts who go down to the Hillsbrad farms, mostly, because the farmers there keep dogs and pitchforks and the Southshore guard is never far off. They come back to my bar complaining that one spell at the right moment would have saved them a long run home." } },
+      choices = {
+        { text = "Then I'll go down with the scouts, by the High Executor's leave.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go down alone and do it my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "The Syndicate send a man through now and then pretending to be a trader, and he tips too well for an honest one. Then there's Zixil the goblin, who sells to both towns and smiles at everyone, which in my experience is the surest sign of a liar." } },
+      choices = {
+        { text = "Point out the Syndicate man. I'll deal with him openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pick his pockets first and read his letters.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they do, nobody's told me, and I'd be the first to hear, since I hear everything at this bar. The old ones say the mill wheel still turns some nights with no water behind it, but the old ones say a great many things." } },
@@ -477,6 +521,14 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman under my roof. The last one who stayed asked me to open the windows for the spirits, and I told him the spirits could pay for a room like everyone else." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Some of my guests used to pray before supper, and now they don't eat supper, so the praying stopped too, but you're welcome to start it up again." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. Please don't conjure your own food and water at my tables, because I've little enough custom as it is." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Your imp can stay, but if it sets fire to my curtains, as somebody's did last month, I'll be charging you for the curtains." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "Someone who walks in without the floorboards noticing. Sit where I can see you, if you don't mind, because the last quiet one left without paying." },
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },
@@ -490,6 +542,8 @@ P:NPC {
       choices = {
         { text = "Is there a place to stable a beast in Tarren Mill?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do the dead of Tarren Mill trouble the spirits here?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Who around Tarren Mill could use a spellcaster's help, Shay?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who drinks here that I should keep an eye on?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "What was Tarren Mill like before?", next = "before" },
         { text = "Who stays here?", next = "guests" },
