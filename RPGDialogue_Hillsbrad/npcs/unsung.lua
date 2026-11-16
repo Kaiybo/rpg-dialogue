@@ -467,7 +467,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "A priest in Southshore, technically, because I left a sack of it outside the chapel during a service and nobody can prove the blessing didn't reach it. Tarren Mill won't buy it, of course, since the Forsaken don't care for holy anything, so you're my only market." } },
       choices = {
         { text = "Selling false blessings is a sin, Zixil.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Folk find comfort either way. Where's the harm?", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Folk find comfort either way, and I see no harm in it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

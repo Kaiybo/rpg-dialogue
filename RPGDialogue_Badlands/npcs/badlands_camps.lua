@@ -206,7 +206,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Aw, come on, it's practically made of charcoal already! Half the Badlands is on fire anyway, so one more little flame for a good cause can't hurt, and the buzzards sure won't complain." } },
       choices = {
-        { text = "Fel fire for buzzard wings? Why not?", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Fel fire for buzzard wings sounds like a fair trade to me.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Demons aren't toys. I keep mine on a short leash.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },

@@ -200,7 +200,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "You'd be amazed, because a bound elemental core sells for a fortune in Gadgetzan, and Lucien caught a goblin sniffing round the sample tray just last week. I've started labelling everything 'explosive', which is only partly true." } },
       choices = {
         { text = "Guard them well, then. Science deserves protecting.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Sell them yourself. Why let the goblins profit?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Sell them yourself, and don't let the goblins take a cut.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Let's talk science instead.", next = "BACK" },
       },
     },

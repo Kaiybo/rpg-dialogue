@@ -2,8 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.6.0 (2026-11-16)
+## 1.7.0 (2026-11-16)
 - Priests and paladins are noticed: 8 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
+
+## 1.6.0 (2026-11-16)
+- A player reply that asked a question while taking a stance now reads as a plain statement.
 
 ## 1.5.0 (2026-11-16)
 - Rogues, mages and warlocks are noticed: named people here greet them as such, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.43.0.

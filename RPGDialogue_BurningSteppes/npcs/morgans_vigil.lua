@@ -882,7 +882,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Would you? Everyone who goes near the quarry comes back singed, but perhaps someone who doesn't glow and doesn't shout would get closer. Just count the fire elementals for me, and if you can tell me where Pyron stands, I'll sleep a little better." } },
       choices = {
         { text = "I'll count them all and come back unsinged.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Scouting costs. What's it worth to the expedition?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Scouting costs, and the expedition will have to pay for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Jalinda.", next = "BACK" },
       },
     },

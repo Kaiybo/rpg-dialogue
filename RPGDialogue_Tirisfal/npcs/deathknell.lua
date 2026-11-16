@@ -422,7 +422,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Speak? No, it never speaks; it burns, and then it answers, and I take the answer as I find it. I envy you a little, shaman, because your spirits tell you what they want, and the Light has never once told me why it stayed." } },
       choices = {
         { text = "Faith without answers is still faith, Aramis. Keep it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If it won't explain itself, why serve it at all?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If it won't explain itself, I see no reason to serve it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
