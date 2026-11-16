@@ -543,8 +543,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They've soured them; there's no better word. Storms rise out of nowhere near the Twilight camps and scatter my supply carts across the dunes, and a windcaller who can't call the wind is, I'm sorry to say, a quartermaster." } },
+      choices = {
+        { text = "Then the summoners must be stopped before the next cart.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The winds will settle on their own. Send more carts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
         { id = "h_default", key = true,
           text = "From this fort we strike at the silithid where they're strongest, and while we hold it, I'm convinced we cannot lose. Provided, of course, the supplies keep coming, which is where I come in." },
         { id = "h_lines", tags = { "news" }, when = { questActive = TODO_QUEST("Securing the Supply Lines") },
@@ -557,6 +567,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. A well-informed soldier eats less of my bread worrying." },
       },
       choices = {
+        { text = "What have the cult's summonings done to the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why are supplies so important here?", next = "supply" },
         { text = "You're certain we'll win?", next = "victory" },
         { text = "The Circle's emissary sent me to you.", next = "emissary", when = { questDone = TODO_QUEST("Taking Back Silithus") } },
@@ -660,8 +671,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every night, up through the floor of this tower and into my teeth. The bugs dig deeper every season, and I don't need eyes to know the ground under the Hold isn't as solid as the Commander likes to think." } },
+      choices = {
+        { text = "Then the Hold must be ready to fight from below.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ground that hollow can't be held. Be ready to leave it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I can hear your totems knocking together from up here, so don't bother sneaking. If the elements have anything useful to say about the hives, I'm listening; if not, the poster's by the door." },
         { id = "h_default", key = true,
           text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door; do I need to draw you a picture?" },
         { id = "h_deathclasp", tags = { "news" }, when = { questActive = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") },
@@ -672,6 +693,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, and be quick about it." },
       },
       choices = {
+        { text = "The hives make the earth itself tremble. Have you felt it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's wrong with the Commander?", next = "cmd" },
         { text = "Tell me about this Deathclasp.", next = "deathclasp" },
         { text = "How do you keep the peace here?", next = "guard" },
@@ -792,8 +814,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Barely, and only because the druids tend it. The sand creeps in a little every week and the silithid dig underneath, so there are mornings the water tastes of the hive, and I boil it twice before I let anyone drink." } },
+      choices = {
+        { text = "Water like this is precious. Guard it closely.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the desert wants the oasis, it'll take it. Water moves on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Oasis Inn? You're welcome, of course, and if you can ask the water here to stay sweet a while longer, I'll be grateful to you and to it." },
         { id = "h_default", key = true,
           text = "Welcome to the Oasis Inn, the only place in Silithus with soft beds and clean water. Rest here as long as you like; the desert will still be there when you're ready, more's the pity." },
         { id = "h_recipe", tags = { "news" }, when = { questActive = TODO_QUEST("Desert Recipe") },
@@ -806,6 +838,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. It's nice to talk to someone who isn't counting arrows." },
       },
       choices = {
+        { text = "Does the oasis water hold out against all this sand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You're a long way from home.", next = "auberdine" },
         { text = "What's there to eat out here?", next = "food" },
         { text = "Your father was a leatherworker?", next = "southwind", when = { profession = { "Leatherworking" } } },
@@ -916,8 +949,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The stingers out here feed on things that ought not to be eaten, and the silithid poison whatever they don't eat. I've tested samples from the edge of Hive'Ashi that would fell a thunder lizard, and the closer to the hives they come from, the worse it gets." } },
+      choices = {
+        { text = "A land this poisoned needs healing, not just antidotes.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Venom that strong must be worth something. Sell it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
         { id = "h_default", key = true,
           text = "My cousin Noggle gathers rare herbs for the alchemists here, or he did until he came back with enough venom in him to drop a kodo. I've slowed it down, but slowing isn't stopping, and I need samples of whatever bit him." },
         { id = "h_venom", tags = { "news" }, when = { questActive = TODO_QUEST("Deadly Desert Venom") },
@@ -932,6 +975,7 @@ P:NPC {
         { id = "h_again2", text = "Go ahead. Noggle's not going anywhere." },
       },
       choices = {
+        { text = "Why is the venom in Silithus so much worse than elsewhere?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How is Noggle doing?", next = "noggle" },
         { text = "What do you brew for the Hold?", next = "work" },
         { text = "I know a little alchemy myself.", next = "alchemist", when = { profession = { "Alchemy" } } },

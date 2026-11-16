@@ -28,8 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Calling them up and binding them with those wind stones, as far as we can tell, and the elements don't like it one bit. Huum says the land screams every time they do it, and Huum doesn't exaggerate, so I believe him, even if all I hear is wind." } },
+      choices = {
+        { text = "Forcing spirits into service is a crime. The cult must answer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bound elements make a fine weapon. Maybe we should learn the trick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ha, a shaman! You'll know better than anyone what those Twilight crazies are doing to the elements out west, and my brother and I would love to hear it from someone who can feel it." },
         { id = "h_default", key = true,
           text = "We've got more than one enemy in Silithus, friend. While everyone's watching the bugs, my big brother and I keep a close eye on the Twilight's Hammer crazies out west, and believe me, they need watching." },
         { id = "h_texts", tags = { "news" }, when = { questActive = TODO_QUEST("Secret Communication") },
@@ -42,6 +52,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away! I like talking more than my brother does." },
       },
       choices = {
+        { text = "What are the Twilight's Hammer doing to the elements out west?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why watch the cult, with the bugs so close?", next = "crazies" },
         { text = "What are these papers the cultists carry?", next = "texts" },
         { text = "Tell me about your brother.", next = "brother" },
@@ -269,8 +280,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not if I've done my work properly, and I have. The stones answer to the cult's medallion and robes, not to the heart beneath them, which tells me whatever speaks through them is either very old or very foolish, and I'd rather not learn which." } },
+      choices = {
+        { text = "Deceiving the elements feels wrong, even against the cult.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good lie in a good cause. Make it convincing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
         { id = "h_default", key = true,
           text = "The Circle has learned many of the earth's secrets, and a craftsman would do well to listen to these druids. I listen, and then I make what they need, which lately has been a great many lies in metal and cloth." },
         { id = "h_sent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Aurel Goldleaf"), days = 3 } },
@@ -285,6 +306,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on. My hands don't need my mouth." },
       },
       choices = {
+        { text = "Can the wind stones tell a cultist from a disguise?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you making?", next = "craft" },
         { text = "Who commands the Twilight's Hammer?", next = "council" },
         { text = "You'd send me in disguise? Is that honourable?", next = "honor" },
@@ -378,8 +400,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Those who built the hives, and what they serve, which is older than the sand itself. A thousand years ago the wall was raised to hold them, and every grain of this desert remembers the price that was paid for it." } },
+      choices = {
+        { text = "Then the wall must hold, whatever it costs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Walls only delay. Better to strike before they wake.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear the land as it was meant to be heard, mortal, and so you know already that it is afraid of what sleeps behind the wall." },
         { id = "h_default", key = true,
           text = "The land around us shudders, and the hive answers. I made a promise a thousand years past, mortal, and the time to keep it draws near, for the sands are shifting once more." },
         { id = "h_tomorrow", tags = { "news" }, when = { questActive = TODO_QUEST("What Tomorrow Brings") },
@@ -390,6 +422,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The hive will not stop for us, but I will." },
       },
       choices = {
+        { text = "What does the land fear behind the Scarab Wall?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are you, really?", next = "who" },
         { text = "What promise did you make?", next = "promise" },
         { text = "Why do you watch the hive?", next = "hive" },

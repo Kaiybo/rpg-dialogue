@@ -23,14 +23,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Wilder, and the elementals that walk its slopes don't stay put, either. I've shot at things on that ridge that took a bullet the way a candle takes a raindrop, so I go round it now, and I'd advise you to do the same." } },
+      choices = {
+        { text = "Fire like that needs binding before it spreads.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave the mountain be. Its fire isn't ours to tame.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell me why the ground in this crater is warm to the touch even at midnight, because nobody else can, and it keeps me awake." },
         { id = "h_default", key = true, text = "Hol'anyee Marshal, Williden's sister and the better shot of the two of us, whatever he tells you. While he plans, I go out and keep the raptors from eating our scholars." },
         { id = "h_c0", when = { class = "HUNTER" }, text = "A hunter! Finally, someone who understands why I sleep with my rifle. The raptors here hunt like nothing else in Azeroth." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Williden will want to ask you about the plants, but I'd rather know whether you can talk the raptors out of eating our scholars." },
       },
       again = { { id = "h_again", text = "What else? I've got a patrol soon." }, { id = "h_again2", text = "Ask away, quickly." } },
       choices = {
+        { text = "Is the Fire Plume as wild as it looks from up here?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are the raptors truly so dangerous?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's it like hunting in the crater?", next = "b1_1" },
         { text = "Tell me about Williden.", next = "b2_1" },
@@ -93,14 +104,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "She speaks louder here, I think, and with less patience. The beasts are larger, the plants hungrier and the mountain breathes fire, as if this were a place she shaped first and never finished taming." } },
+      choices = {
+        { text = "Then we must hunt here with great care and humility.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A wild land rewards the boldest hunter. Take what you can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes into the crater. Then you have felt it too: the land here is young and old at once, and the Earth Mother's breath is very close to the surface." },
         { id = "h_default", key = true, text = "I am Torwa Pathfinder. I came to this crater to learn from its beasts, and the greatest of them, Lar'korwi, has become my teacher and my quarry." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Bait for Lar'korwi") }, text = "Lay the bait where Lar'korwi hunts, and be ready, for he will come quickly and he will not come gently." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid has come to the crater. Then you will understand why I call Lar'korwi my teacher, for nothing here hunts as purely as he does." },
       },
       again = { { id = "h_again", text = "Ask, and I'll answer while I watch the treeline for raptors." }, { id = "h_again2", text = "Speak, hunter." } },
       choices = {
+        { text = "Does the Earth Mother speak differently in this crater?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why hunt your own teacher, Torwa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who is Lar'korwi?", next = "b1_1" },
         { text = "Why come to Un'Goro?", next = "b2_1" },
@@ -155,13 +177,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Heat from below, water from the springs and something in the soil I can't name, all pushing them to grow faster than anything I studied back home. The bloodpetals bite, the vines strangle, and some of the bigger ones get up and walk about, which Larion insists is perfectly natural." } },
+      choices = {
+        { text = "Wild growth needs pruning. Study it, then control it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Life this wild should be left to grow as it will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits ever talk to plants, do you think? Some of my bloodpetals behave as if they're listening, and frankly it's a little unsettling." },
         { id = "h_default", key = true, text = "Muigin, botanist! I study the plants of Un'Goro, especially the bloodpetals, which are as fascinating as they are dangerous. My partner Larion and I have been experimenting with them." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Muigin and Larion") }, text = "Bring me those bloodpetal sprouts, and mind the ones that bite. They're very hungry this time of year." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask me about the plants!" } },
       choices = {
+        { text = "Why do the crater's plants grow so fierce?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are bloodpetals?", next = "b1_1" },
         { text = "Who is Larion?", next = "b2_1" },
         { text = "Do the plants really bite?", next = "b3_1" },
@@ -215,13 +248,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The springs, honestly; I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
+      choices = {
+        { text = "The crater was warning you. You should have turned back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You followed your curiosity. That's no crime.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, oh, thank goodness, can you call up some water, even a little? I've been talking to the rocks myself for two days, and they haven't said a single helpful thing." },
         { id = "h_default", key = true, text = "Ringo, of the Marshal Expedition, or I was until I got lost. I've been wandering for days, and I'm so tired and thirsty I can barely stand." },
         { id = "h_c0", when = { questActive = TODO_QUEST("A Little Help From My Friends") }, text = "You'll take me back to the Refuge? Please, and if I faint, use the water from the spring, it brings me round." },
       },
       again = { { id = "h_again", text = "What else? I'm listening, barely." }, { id = "h_again2", text = "Go on, I'm just resting my eyes." } },
       choices = {
+        { text = "What drove you so far into the crater, Ringo?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you get lost?", next = "b1_1" },
         { text = "Who's Spraggle?", next = "b2_1" },
         { text = "Are you hurt?", next = "b3_1" },
@@ -283,13 +327,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The volcano, mostly, or whatever's under it, pushing heat up through the rock until the water can't sit still. There's minerals in it too, fizzy ones, and I swear a dip in there takes ten years off you, or at least ten layers of skin." } },
+      choices = {
+        { text = "Those springs are sacred water. Don't sell them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Hot water, good health, fair price. Bottle it, Krakle.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, perfect! You talk to water spirits, right? Ask the ones in Golakka what they'd want for exclusive bottling rights, because I'm prepared to negotiate." },
         { id = "h_default", key = true, text = "Krakle's the name, and the hot springs are my game. These springs are boiling with heat and minerals, and somebody's going to figure out how to sell them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Ooh, a druid! Your folks love a good hot spring, right, all that steam and nature? I could use an endorsement once I figure out how to bottle these." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Talk quick, the springs won't wait." } },
       choices = {
+        { text = "What makes the Golakka Hot Springs boil, Krakle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Should the springs really be sold, Krakle?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's special about the springs?", next = "b1_1" },
         { text = "Is it safe here?", next = "b2_1" },

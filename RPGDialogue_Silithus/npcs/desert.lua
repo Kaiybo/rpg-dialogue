@@ -30,8 +30,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because they fell fighting in this desert's wars, old and new, and the sands still carry the hum of what they fought. I think they feel the hives stirring as surely as I do, and they cannot rest while the living stand guard without them." } },
+      choices = {
+        { text = "The dead deserve peace. Help them rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them stay restless. The living may need them yet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes to Valor's Rest. The spirits of the fallen here are restless, {class}, and perhaps they would speak more easily to you than to me." },
         { id = "h_default", key = true,
           text = "The past lives in these wastes, {class}, and we must be careful not to wake it. I am Layo Starstrike, and I keep watch here at Valor's Rest for the Cenarion Circle, over the graves and over the desert beyond them." },
         { id = "h_wasteland", tags = { "news" }, when = { questActive = TODO_QUEST("Wasteland") },
@@ -50,6 +60,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I don't get many visitors who want to talk." },
       },
       choices = {
+        { text = "Why do the dead of Valor's Rest not sleep?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is Valor's Rest?", next = "rest" },
         { text = "What happened at Southwind?", next = "southwind" },
         { text = "Why does the Circle watch Silithus?", next = "watch" },
@@ -424,8 +435,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Glyphs, mostly, carved by hands that weren't troll nor elf, and stonework that runs deeper than any shaft we've sunk. Whatever built under Silithus built big, and I'll wager my beard that's what the bugs are guarding." } },
+      choices = {
+        { text = "Some things are buried for good reason. Leave them be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dig deeper. Whatever's down there should see daylight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
         { id = "h_default", key = true,
           text = "Rutgar Glyphshaper, holding this camp for the Explorers' League while Brann's off somewhere getting himself into trouble. That dwarf didn't get a scrap of his brothers' good sense, and we're onto something huge down here." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
@@ -440,6 +461,7 @@ P:NPC {
         { id = "h_again2", text = "Spit it out, then." },
       },
       choices = {
+        { text = "The ground here hums. What have your digs found under it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Natalia Mar'alith?", next = "natalia" },
         { text = "Where's Brann Bronzebeard?", next = "brann" },
         { text = "What are you digging for?", next = "dig" },
@@ -551,8 +573,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Trouble them? Every time one passes over, friend, the sand lifts and the air goes tight like before a storm, and then nothing, not a drop of rain! Whatever they are, they're watching the hives, and if a dragon's worried, I'm worried twice over." } },
+      choices = {
+        { text = "If dragons are watching, we should watch with them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dragons scheme. Trust them as far as you can throw one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then look up with me, friend, and tell me if ye feel it in the wind, because there's dragons over this desert and I'll not have it said Frankal Stonebridge was the only one who noticed!" },
         { id = "h_default", key = true,
           text = "Look up at the sky, friend! There are dragons over this desert, when not one of the flights has come near Silithus in a thousand years, so the Qiraji are up to something, mark my words." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
@@ -565,6 +597,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, I do like an audience." },
       },
       choices = {
+        { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Natalia, in the end?", next = "natalia" },
         { text = "Dragons? Over Silithus?", next = "skies" },
         { text = "How many languages did you say?", next = "languages" },

@@ -15,13 +15,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Bones, mostly, and old troll stonework that crumbles the moment the air touches it. Once or twice the ground's shifted under me like it was turning over in its sleep, and I'll admit I didn't stay to see it wake." } },
+      choices = {
+        { text = "The earth remembers. Dig with respect, or it'll bury you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Ruins belong to whoever holds the shovel. Dig deep.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? I've no great love for the Horde, but out here the sand's the enemy of us all, so say yer piece and mind the dig." },
         { id = "h_default", key = true, text = "Prospector Ironboot, digger, surveyor and dwarf of Ironforge, out here in the worst sandbox ever made. Tanaris has more buried under the dunes than anyone knows, and I mean to find a bit of it." },
         { id = "h_c0", when = { race = "Dwarf" }, text = "A fellow dwarf! Then ye'll know why I'm here: Explorers' League blood doesn't let a dwarf sit still while there's ruins to dig." },
       },
       again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
+        { text = "The earth here is dry and old. What have your digs disturbed?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's buried out here?", next = "b1_1" },
         { text = "Why Steamwheedle Port?", next = "b2_1" },
         { text = "Is it dangerous?", next = "b3_1" },
@@ -75,13 +86,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The sand is hot on top and cold underneath, and it whispers when the wind runs over it. Tooga does not understand the whispering, but Tooga thinks the desert is lonely, like Tooga." } },
+      choices = {
+        { text = "Every land has its spirits, and every spirit keeps its place.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spirits wander where they like, Tooga, just like you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You smell like rain and stone, and Tooga likes that smell. Can you ask the sky to make a little water for a lost turtle?" },
         { id = "h_default", key = true, text = "Tooga is Tooga, and Tooga is very far from home. Torta is waiting for Tooga in Feralas, but the desert is big and Tooga's legs are small." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Tooga's Quest") }, text = "You will take Tooga to Torta? Tooga is slow, so please be patient, and please do not let the scorpids eat Tooga." },
       },
       again = { { id = "h_again", text = "What else? Tooga listens slowly." }, { id = "h_again2", text = "Tooga is here." } },
       choices = {
+        { text = "What do the sands feel like to an old turtle, Tooga?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you get lost?", next = "b1_1" },
         { text = "Who is Torta?", next = "b2_1" },
         { text = "Are you all right?", next = "b3_1" },
@@ -143,8 +165,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The basilisks certainly do; they bask on the stones at exactly the hour the rock holds the most heat, as if something told them. And the scorpids dig down a full hour before a sandstorm, which is either instinct or, well, a very good informant." } },
+      choices = {
+        { text = "Instinct, nothing more. Your notes will explain it in time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They listen to the land. Scholars should try it sometime.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I've read that your people speak with the elements, which is either superstition or the most fascinating field study in Kalimdor, and I'd dearly like to know which." },
         { id = "h_default", key = true, text = "Curgle Cranklehop, at your service! I study the creatures of Tanaris, from the scorpids to the basilisks, because the desert hides more marvels than anyone in Gadgetzan gives it credit for." },
         { id = "h_c0", when = { race = "Gnome" }, text = "A fellow gnome! Oh, splendid, someone who'll understand when I talk about mechanical reproduction of insect behavior." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -152,6 +184,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? Wonderful!" } },
       choices = {
+        { text = "Do the desert beasts feel the elements the way I do?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What creature in Tanaris fascinates you most, Curgle?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do you study?", next = "b1_1" },
         { text = "Why live in Gadgetzan?", next = "b2_1" },
@@ -206,12 +239,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Depends who's talking. The caravan folk swear the dust devils out past the Noonshade Ruins follow wagons on purpose, and one fellow told me the wind stole his hat and gave it back a mile on, though I sold him a new one anyway, just in case." } },
+      choices = {
+        { text = "The wind keeps its own accounts. Respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dust devils are just hot air, like most travellers' tales.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll be wanting ankhs, and I keep a few under the counter for your sort, priced like everything else here: fair, more or less." },
         { id = "h_default", key = true, text = "Name's Jabbey, and I sell a little of everything: reagents, odds, ends and the occasional thing I can't explain. Gadgetzan's the crossroads of Tanaris, and everything passes through my stall sooner or later." },
       },
       again = { { id = "h_again", text = "What else? Jabbey's always open." }, { id = "h_again2", text = "More? Jabbey loves questions that end in sales." } },
       choices = {
+        { text = "What do travellers say about the desert spirits out there?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What sells best here?", next = "b1_1" },
         { text = "Where do you get your goods?", next = "b2_1" },
         { text = "Do you ever overcharge?", next = "s_1" },
@@ -251,12 +295,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It doesn't, which is how I stay in business. The sand gets into the weave and grinds it thin from the inside, so I double-stitch everything and charge full price for the second stitch." } },
+      choices = {
+        { text = "Double stitches and proper seams. Discipline beats the desert every time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cloth that fights the wind loses. Wear less and move with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, with totems clattering off your belt and a hem the wind's been chewing on. I'd ask the spirits for better tailoring, if I were you." },
         { id = "h_default", key = true, text = "Vizzklick, cloth and thread and the finest tailoring supplies in Tanaris! Desert living is hard on clothes, and I keep half of Gadgetzan dressed, whether they like it or not." },
       },
       again = { { id = "h_again", text = "What else, dearie?" }, { id = "h_again2", text = "Anything more? I've got a needle waiting." } },
       choices = {
+        { text = "The wind here never rests. How does cloth hold up against it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's good cloth for the desert?", next = "b1_1" },
         { text = "Do you sew yourself?", next = "b2_1" },
         { text = "Do clothes really matter out here?", next = "s_1" },

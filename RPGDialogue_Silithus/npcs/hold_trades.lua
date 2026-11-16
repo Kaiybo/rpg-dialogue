@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It does, and I wish it didn't. My dusts settle in strange patterns when the wind blows from the Crystal Vale, and a rod I'd charged before I came here went quite dead within a week of arriving." } },
+      choices = {
+        { text = "The land's power isn't meant to be caught in rods.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then use the crystals. Their hum could charge stronger rods.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems carry a little magic of their own, I think, though not the kind I sell, so look all you like, but please don't let them rattle near the vellum." },
         { id = "h_default", key = true,
           text = "I am Kania, and I sell enchanting supplies to the Hold. Rods, vellum, dusts and a few rare formulae, kept up here in the inn where the sandstorms can't scour them." },
       },
@@ -37,6 +47,7 @@ P:NPC {
         { id = "h_again2", text = "I'm listening, though I'll keep sorting while we talk." },
       },
       choices = {
+        { text = "Does the hum in the crystals here touch your enchanting?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why keep your shop upstairs?", next = "upstairs" },
         { text = "Who needs enchanting out in the desert?", next = "who" },
@@ -163,8 +174,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The ground, I think, because they all go quiet together a moment before the sand shivers. The commander says it's the hives digging, but the wolves all turn their heads the same way, south, and it isn't toward the nearest hive." } },
+      choices = {
+        { text = "Trust the beasts' instincts. They feel what we can't.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep them calm and disciplined. Fear spreads through a stable.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
         { id = "h_default", key = true,
           text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the commander's own mount." },
       },
@@ -173,6 +194,7 @@ P:NPC {
         { id = "h_again2", text = "Please, ask whatever you like. I enjoy the company." },
       },
       choices = {
+        { text = "What unsettles the beasts here at the Hold?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why call yourself a squire?", next = "squire" },
         { text = "What's hard about keeping beasts here?", next = "sand" },

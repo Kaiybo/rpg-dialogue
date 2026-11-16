@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Like a living thing, I'll be honest with you, one that breathes heat and eats anything foolish enough to stand still. The crystals glow, the springs boil and the mountain smokes, and every scholar I've brought down here has a different theory why, which is half the reason I keep coming back." } },
+      choices = {
+        { text = "Treat the crater as a host, not a prize.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Claim it, Williden. Knowledge belongs to whoever's brave enough.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the Refuge! Then perhaps you can tell me what the crater wants, because it's certainly made clear that it doesn't want my base camps." },
         { id = "h_default", key = true,
           text = "Williden Marshal, leader of the Marshal Expedition. My sister and I brought scholars and explorers down into Un'Goro for crystals and rare plants, but the crater had other plans, and we lost our base camps and fell back up here." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -44,6 +54,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Ask away, I've nothing but time and dinosaurs." } },
       choices = {
+        { text = "What does this crater feel like to someone who knows it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's dangerous down there?", next = "danger" },
         { text = "What were you looking for?", next = "purpose" },
         { text = "Your sister?", next = "sister" },
@@ -176,8 +187,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Now there's a thought, because somebody ought to remember it! All I know is I woke in the marsh with my head ringing, and the water there felt friendly, as if it had carried me somewhere on purpose and was waiting to see what I'd do next." } },
+      choices = {
+        { text = "Your memories are yours. Find them, whatever it takes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe the past is best left drowned. Start fresh.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I feel like I've met people who talk to the wind before, though I can't for the life of me remember where, which I suppose is the trouble with everything lately." },
         { id = "h_default", key = true,
           text = "They call me Linken, and I think it's my name. I came to this crater on a mission from somewhere far away, and then my raft broke up in the marsh, something hit my head, and the rest went with the raft." },
         { id = "h_secret", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("It's a Secret to Everybody") }, { questActive = TODO_QUEST("Linken's Sword") } } },
@@ -188,6 +209,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Ask! Quickly, before I forget you asked." } },
       choices = {
+        { text = "Do the spirits here remember what you've forgotten, Linken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does the crater feel strange to you, Linken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do you remember?", next = "memory" },
         { text = "Tell me about your sword.", next = "sword" },
@@ -375,8 +397,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because it moves, or the ground round it does, and the fire walks about at night where you can see it from the ledge. Ringo went that way, and I've watched those lights every night since, wondering which one is him with a torch." } },
+      choices = {
+        { text = "Fear keeps you alive down there. Trust it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fear keeps you in this cave. Go and look for him.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you ask the spirits where Ringo is? I know that's probably not how it works, but I'm asking everybody, and you'd be the first who might actually know." },
         { id = "h_default", key = true,
           text = "Spraggle Frock, Marshal Expedition! I run supplies, or I did before the camps fell, and now I mostly worry, mostly about Ringo. He went off toward the volcano and he hasn't come back." },
         { id = "h_lost", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Lost!") }, { questActive = TODO_QUEST("A Little Help From My Friends") } } },
@@ -388,6 +420,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Sorry, I'm a bit distracted, but I always am." } },
       choices = {
+        { text = "Why does everyone here fear the volcano so much?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is Un'Goro too dangerous for the expedition?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who's Ringo?", next = "ringo" },
         { text = "How do supplies even get here?", next = "supplies" },
