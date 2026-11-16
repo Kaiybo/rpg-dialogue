@@ -18,3 +18,4 @@ npcs\gromgol.lua
 npcs\gromgol_more.lua
 npcs\rebel_camp.lua
 npcs\nesingwary.lua
+npcs\booty_bay_docks.lua

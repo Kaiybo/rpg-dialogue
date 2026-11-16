@@ -12,3 +12,4 @@
 
 pack.lua
 npcs\undercity.lua
+npcs\undercity_quarters.lua

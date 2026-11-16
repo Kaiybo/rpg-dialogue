@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\stonard.lua
 npcs\stonard_more.lua
+npcs\swamp_wilds.lua
