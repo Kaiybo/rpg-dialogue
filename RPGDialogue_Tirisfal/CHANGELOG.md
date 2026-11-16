@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- A player reply that asked a question while taking a stance now reads as a plain statement.
+
 ## 1.10.0 (2026-11-16)
 - Horde shaman and tauren druids get their own conversations with all 22 named people in Tirisfal.
 

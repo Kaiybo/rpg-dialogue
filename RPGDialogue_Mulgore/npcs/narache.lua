@@ -180,7 +180,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Both, if you ask me, and nobody ever does. A shaman who sits by the fire knows less about plainstriders than one who's chased them, and the Bristleback won't wait for a blessing before they raid." } },
       choices = {
         { text = "I'll hunt beside the braves and earn my place there.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the spirits strike from afar. Why risk my own hide?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let the spirits strike from afar. I won't risk my own hide.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
