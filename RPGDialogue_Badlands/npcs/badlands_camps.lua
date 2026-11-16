@@ -75,7 +75,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "I don't know, and I don't much care. Ask someone with a city.",
+    _none = { { id = "tp_none", text = "I don't know, and I don't much care. Ask someone with a city." } },
   },
 }
 
@@ -149,6 +149,6 @@ P:NPC {
   },
 
   topics = {
-    _none = "Dunno, pal. Does it taste good with sauce?",
+    _none = { { id = "tp_none", text = "Dunno, pal. Does it taste good with sauce?" } },
   },
 }

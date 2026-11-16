@@ -82,7 +82,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "I raise rams, friend, and I know nothin' about that. Ask in Kharanos.",
+    _none = { { id = "tp_none", text = "I raise rams, friend, and I know nothin' about that. Ask in Kharanos." } },
   },
 }
 
@@ -166,7 +166,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "No idea, friend, and I've had a lot of quiet hours to think about it.",
+    _none = { { id = "tp_none", text = "No idea, friend, and I've had a lot of quiet hours to think about it." } },
   },
 }
 
@@ -243,7 +243,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "Hmm, not my field. My field is the sky, and that's not in it.",
+    _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, and that's not in it." } },
   },
 }
 
@@ -300,6 +300,6 @@ P:NPC {
   },
 
   topics = {
-    _none = "If it doesnae go bang, I couldnae tell ye about it.",
+    _none = { { id = "tp_none", text = "If it doesnae go bang, I couldnae tell ye about it." } },
   },
 }

@@ -72,6 +72,6 @@ P:NPC {
   },
 
   topics = {
-    _none = "I couldnae tell ye. Ask me about stones, or the Dark Irons.",
+    _none = { { id = "tp_none", text = "I couldnae tell ye. Ask me about stones, or the Dark Irons." } },
   },
 }

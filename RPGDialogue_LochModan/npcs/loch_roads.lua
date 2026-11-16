@@ -82,7 +82,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "Not my concern. Ask someone with less to do.",
+    _none = { { id = "tp_none", text = "Not my concern. Ask someone with less to do." } },
   },
 }
 
@@ -159,7 +159,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "Can't help ye there. Ask in Thelsamar.",
+    _none = { { id = "tp_none", text = "Can't help ye there. Ask in Thelsamar." } },
   },
 }
 
@@ -234,7 +234,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "Can't say I know. I've been up this pass too long to keep up with gossip.",
+    _none = { { id = "tp_none", text = "Can't say I know. I've been up this pass too long to keep up with gossip." } },
   },
 }
 
@@ -311,6 +311,6 @@ P:NPC {
   },
 
   topics = {
-    _none = "Hmm, fascinating, but I have no idea. Ask me again after I've found my notes.",
+    _none = { { id = "tp_none", text = "Hmm, fascinating, but I have no idea. Ask me again after I've found my notes." } },
   },
 }

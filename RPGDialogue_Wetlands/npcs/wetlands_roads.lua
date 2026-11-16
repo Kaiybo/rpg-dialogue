@@ -73,7 +73,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "I know Dark Irons and walls, and naught else these days.",
+    _none = { { id = "tp_none", text = "I know Dark Irons and walls, and naught else these days." } },
   },
 }
 
@@ -147,7 +147,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "No idea, and I've no time to find out. Ask Longbraid.",
+    _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask Longbraid." } },
   },
 }
 
@@ -221,7 +221,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "I couldnae tell ye. All I think about these days is raptors.",
+    _none = { { id = "tp_none", text = "I couldnae tell ye. All I think about these days is raptors." } },
   },
 }
 
@@ -276,6 +276,6 @@ P:NPC {
   },
 
   topics = {
-    _none = "Not my field, I'm afraid. Ask me about stones.",
+    _none = { { id = "tp_none", text = "Not my field, I'm afraid. Ask me about stones." } },
   },
 }

@@ -78,7 +78,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "I do not know, friend. The soil and I keep to ourselves.",
+    _none = { { id = "tp_none", text = "I do not know, friend. The soil and I keep to ourselves." } },
   },
 }
 
@@ -155,7 +155,7 @@ P:NPC {
   },
 
   topics = {
-    _none = "I'm afraid I don't know. I've spent too long lying in the grass to hear the news.",
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. I've spent too long lying in the grass to hear the news." } },
   },
 }
 
@@ -229,6 +229,6 @@ P:NPC {
   },
 
   topics = {
-    _none = "I couldn't say, friend. Ask me about food instead.",
+    _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about food instead." } },
   },
 }
