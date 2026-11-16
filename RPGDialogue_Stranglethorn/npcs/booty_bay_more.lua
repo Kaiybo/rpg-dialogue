@@ -60,7 +60,7 @@ P:NPC {
       lines = {
         { id = "nb_default", text = "Once, over a fish, between the birds and not the masters. The Bruisers fined us both, and Gringer and I have been very polite to each other ever since." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "booty_bay" } } } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     heat = {
       lines = {
@@ -518,7 +518,7 @@ P:NPC {
   title = "Food & Drink",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "cheerful" }, values = { "generous", "greedy" },
-  notices = { "drink", "hunger" },
+  notices = { "drink" },
 
   impression = {
     first = "Nixxrax Fillamug sells food and drink with a sincerity that is half salesmanship and half real pleasure in feeding people. It was hard to tell where one half ended.",

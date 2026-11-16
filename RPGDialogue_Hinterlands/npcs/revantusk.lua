@@ -218,7 +218,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Huntsman Markhor, master of the hunt for Revantusk. Many brave trolls been lost to these wilds, and it be my charge to keep the beasts in check so the rest of us can live here." },
+          text = "Huntsman Markhor, master of the hunt for Revantusk. Many brave trolls been lost to these wilds, and I hunt what hunts us, so the rest of the village can sleep." },
         { id = "h_stalkers", when = { questActive = TODO_QUEST("Stalking the Stalkers") },
           text = "The Silvermane lie low in the brush and wait for a hunter to pass. Hunt them the way they hunt us, slow and quiet, and then all at once." },
         { id = "h_savages", when = { questActive = TODO_QUEST("Hunt the Savages") },
@@ -484,7 +484,7 @@ P:NPC {
     },
     pagle = {
       big = true,
-      lines = { { id = "p_default", text = "Nat Pagle, mon, the greatest angler in the whole world. I owe him my peace of mind, every bit of it. You heard of him?" } },
+      lines = { { id = "p_default", text = "Nat Pagle, mon, and there be no better hand with a rod on any shore. Everything calm in me, I learned sittin' beside him. You know the name?" } },
       choices = {
         { text = "Where is he?", next = "pagle_where" },
         { text = "Fishing is a waste of a good warrior.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
@@ -539,7 +539,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Lard keep peace here, and Lard sell fish too. You want fish, little one?" },
+    { id = "g_default", text = "Hello, little one! Lard has beds, and Lard has fish, and nobody makes trouble while Lard is watchin'." },
     { id = "g_home", when = { homeInn = { "Revantusk Village" } }, text = "Little one come home! Lard keep bed warm for you, and nobody sit on it, because Lard tell them no." },
   },
 
@@ -555,7 +555,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Lard keep the inn for the trolls, and Lard keep the peace, because nobody want to fight when Lard is standin' there. Lard is very big, so it work good." },
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("Lard Lost His Lunch") },
-          text = "Lard was at secret special spot havin' picnic, and mean Vilebranch hit Lard with a stick. Lard run home but forget lunch, and now Lard so hungry it hurt." },
+          text = "Lard's picnic got ruined by Vilebranch with big sticks, and Lard ran so fast he left the whole basket behind. Now Lard's belly is makin' noises like a storm." },
         { id = "h_lunch_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Lard Lost His Lunch"), days = 3 } },
           text = "Lard still thinkin' about that lunch you bring back! It was the best haunch Lard ever ate, and Lard eat many haunches." },
       },
@@ -629,7 +629,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Broken blade? Cracked shield? If it's broke, I can fix it, and you can watch me do it." },
+    { id = "g_default", text = "Broken blade? Cracked shield? Bring it to the anvil, friend, and pull up a stump while I work." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the anvil! Let's see what the Hinterlands did to your gear this time." },
   },
 
@@ -645,7 +645,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Smith Slagtree, and I keep the forge for Revantusk. Don't go fighting in broken weapons and armor when I can mend them while you wait." },
+          text = "Smith Slagtree, and I keep the forge for Revantusk. Nobody leaves this village with a split shield while I've got coals in the forge." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("Vilebranch Hooligans") },
           text = "Those Vilebranch thieves took my tools in the raid, the good set. Try the temples up in the northeast, or Skulk Rock, and bring them back, because they mean the world to me." },
         { id = "h_tools_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Vilebranch Hooligans"), days = 3 } },
