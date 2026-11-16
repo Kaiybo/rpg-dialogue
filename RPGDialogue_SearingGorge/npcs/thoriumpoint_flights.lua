@@ -52,8 +52,19 @@ P:NPC {
         { text = "Something else, Lanie.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Harder than I'd like to say out loud, friend. I was raised on tales of Dark Iron sorcerers and the Firelord's fire, and some nights I lie awake listening to their forges, but they've never once done me wrong, and I think the Light asks me to judge them by that." } },
+      choices = {
+        { text = "Judge them by their deeds, Lanie, not their grandfathers'.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Old blood runs true. Keep watching them closely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light, and a fellow Alliance face besides! Thorium Point's a long way from the Cathedral, so if you've a blessing to spare, my birds and I won't turn it down." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If you're here to read the letters my birds carry, they're sealed, they're dull, and the birds bite." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, flying? Most of your lot teleport off to Ironforge or Stormwind in a flash of light, and leave my birds wondering what they did wrong." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -72,6 +83,7 @@ P:NPC {
         { text = "How do the gryphons stand the Gorge?", next = "ash" },
         { text = "Why fly when I could teleport home, Lanie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Dark Irons here ever try to read your letters?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is it hard keeping faith among the Dark Irons, Lanie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (2026-11-16)
+- Priests and paladins are noticed: Galen Goodward greets an Alliance priest or paladin as one, and has something to ask and argue about.
+
 ## 1.13.0 (2026-11-16)
 - Horde priests are noticed: 9 people greet a Forsaken or troll priest as one and have something to ask and argue about. Some also gain lines for Horde mages, warlocks or rogues where they had none.
 

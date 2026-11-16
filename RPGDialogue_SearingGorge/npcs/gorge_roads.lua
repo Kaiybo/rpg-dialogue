@@ -45,8 +45,30 @@ P:NPC {
         { text = "Something else, Dorius.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Pray for them alive, if ye please, for I've no' given up on them yet. The Dark Irons keep slaves in the Gorge, an' a slave can still be freed, where a dead dwarf cannae." } },
+      choices = {
+        { text = "Hope is a prayer too. I'll pray they're alive.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hope blinds you, Dorius. Prepare for the worst.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Behind them, under them an' all through them, by the League's reckonin'. Thaurissan called Ragnaros up out o' the deep two hundred years gone, an' the Dark Irons have served him in Blackrock ever since, so every slaver in this Gorge answers tae fire in the end." } },
+      choices = {
+        { text = "Some can still be saved. Thorium Point proves it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then they're lost. Strike them down wherever they stand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, thank the Light! I've walked half the Gorge wi' no one tae speak a word over my lost team, an' I'd rest easier knowin' someone would, if it comes tae that." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, in the Searing Gorge! The Dark Irons hereabouts serve the Firelord himself, an' I'd dearly like tae see one o' their sorcerers meet the Light up close." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Gorge! If ye can tell me why the Dark Irons want the Suntara Stones so badly, ye'll have done more than half the scholars in Ironforge." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, an' a quiet one, I hope. The Dark Irons hereabouts sleep wi' one eye open, but they've never once thought tae look up at the ridge, an' that's where ye'll want tae be." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -68,6 +90,8 @@ P:NPC {
         { text = "I'm a dwarf of Ironforge. I'll stand with you.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Could I scout the Dark Iron camps ahead of you, Dorius?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the Dark Irons want the Suntara Stones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should I pray for your missing team, Dorius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the Firelord truly behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Be careful, Dorius.", next = "END" },
       },
     },

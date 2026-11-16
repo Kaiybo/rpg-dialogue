@@ -53,8 +53,30 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Long ago, maybe, when we were one people wi' yer kin in Ironforge. Down in the depths we knelt tae fire because fire could kill us, an' some o' the lads here are still learnin' that a dwarf can kneel tae somethin' that doesnae burn." } },
+      choices = {
+        { text = "Then teach them the Light. A people needs something to kneel to.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them kneel to nothing. That's what freedom means.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Watch the road down tae the Cauldron, an' mind who ye strike. Not every Dark Iron in the Gorge chose the mountain, for some were born tae chains, an' a hammer that cannae tell the slaver from the slave does the Firelord's work for him." } },
+      choices = {
+        { text = "I'll judge each one before I strike, Overseer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "In battle there's no time to ask who chose what.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest o' the Light. We had no priests in the mountain, {class}, only the Firelord's sorcerers, so ye'll forgive the lads if they stare." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Ye'd have been a prize catch for Thaurissan's men, {class}, an' ye're a fine example for my lads o' what a dwarf can serve besides fire." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Our forefathers called the Firelord up out o' the deep places tae win a war, so ye'll forgive me if I watch what ye call up in my camp." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, an' ye'll be eyein' our forges for the enchantments in 'em. We learned that work under the Firelord's eye, an' we keep it for ourselves now." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -79,6 +101,8 @@ P:NPC {
         { text = "The fire spirits here answer to someone, Overseer.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "Your smiths enchant steel. Who taught them, Overseer?", next = "xmage", when = { class = "MAGE" } },
         { text = "What did Thaurissan think he was summoning, Overseer?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Did the Dark Irons ever know the Light, Overseer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you have a paladin do in the Gorge, Overseer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -320,8 +344,19 @@ P:NPC {
         { text = "Something else, Lolo.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Smell it, feel it, call it what ye like, for it sits on ye like sun on a stone. Down in the mountain everythin' that glowed meant fire an' hurt, so it's taken me years tae learn there's a warmth that doesnae bite." } },
+      choices = {
+        { text = "The Light's warmth is for everyone, Captain, Dark Irons included.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light chooses whom it warms. Not everyone earns it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "Plate, an' somethin' else besides, warm like a hearth wi' no smoke in it. That'll be a paladin, I'd wager, an' welcome, for the Point's short on folk who glow without burnin'." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Brimstone! Either there's a warlock standin' in front o' me or the Gorge has finally opened up under my boots, an' I'm hopin' it's the warlock." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Somebody smells o' candle smoke an' cold air, which means a mage, an' a mage means somethin' in my camp is about tae catch fire or freeze." },
         { id = "h_default", key = true,
@@ -342,6 +377,7 @@ P:NPC {
         { text = "I could sneak up on the Point, Captain.", next = "k_rogue", when = { class = { "ROGUE", "DRUID" } } },
         { text = "How can you smell that I'm a mage?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my imp bother you, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You can smell the Light on me, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },

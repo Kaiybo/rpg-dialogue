@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.45.0 (2026-11-16)
+Packs: 21 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.45.0: /reload is enough if you have 0.39.0 or later.
+
+### Priests and paladins from 30 to 60
+- **Alliance priests and paladins get noticed where they were overlooked**: about 170 people in the 30-60 lands greet a priest or paladin as one, ask what the place needs from the Light, and have something to argue about: the Scourge and the dead in the Plaguelands, Southshore and Alterac, the Dark Irons in the Steppes and the Gorge, the Portal's scar at Nethergarde, Theramore and the swamp, Booty Bay and Nesingwary's camp, Desolace's demons, Gadgetzan and Steamwheedle Port, Feralas, Un'Goro, Felwood's corruption, Everlook, Azshara's ruins and the silithid at Cenarion Hold.
+- Goblins, the Argent Dawn, the Cenarion Circle, the Timbermaw and the Thorium Brotherhood talk to Alliance priests this way; Horde priests already had their own lines from 0.44.0.
+
 ## 0.44.0 (2026-11-16)
 Packs: 18 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.44.0: /reload is enough if you have 0.39.0 or later.
 

@@ -28,8 +28,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, an' gladly, though ye'll feel every wingbeat in yer spine. My birds have carried dwarves in plate tae Jintha'Alor an' back, an' they've a fondness for riders who stand their ground when the trolls start throwin' spears." } },
+      choices = {
+        { text = "Then I'll treat your birds as comrades, not mounts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A mount is a mount, however proud it is.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, an' in full plate! The birds'll grumble at the weight, {class}, but they've carried heavier, an' they're proud tae carry one o' the Light's own." },
         { id = "h_default", key = true,
           text = "Guthrum Thunderfist, and I keep the gryphons of Aerie Peak flyin'. The Wildhammer were ridin' these birds before Ironforge ever thought to tame one, and I'll send ye anywhere the wind can carry ye, so long as ye treat 'em with respect." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -51,6 +62,7 @@ P:NPC {
         { text = "I prefer my own feet on the ground.", next = "ground", when = { race = { "Gnome", "Human" } } },
         { text = "Don't you envy a mage's teleport, Guthrum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could you fly me somewhere, no questions asked?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Will your gryphons bear a paladin's weight, Guthrum?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Fair winds.", next = "END" },
       },
     },
