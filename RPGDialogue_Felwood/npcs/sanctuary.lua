@@ -54,6 +54,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I honestly don't know, and that's why I asked. The Circle tends the land through the Emerald Dream and your faith reaches for something else entirely, but every seed I plant here dies of the same poison, so I'm in no position to refuse help." } },
+      choices = {
+        { text = "Anything that heals is worth trying. I'll pray over them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers are for people. Your seeds will have to fend for themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -76,6 +85,7 @@ P:NPC {
           text = "I planted a seed by the sanctuary's edge this morning, and it won't take, but I plant one every morning anyway. One day one will." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, at the Emerald Sanctuary! The druids here mend the soil, but I've always thought a priest mends something deeper, so you are very welcome among my seedlings." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, at the Emerald Sanctuary. You're welcome so long as you help things grow, and I'll confess I'm curious what a prayer might do for my seedlings." },
       },
       again = { { id = "h_again", text = "What else? Softly; the sanctuary listens." } },
       choices = {
@@ -85,6 +95,7 @@ P:NPC {
         { text = "I can feel the sickness in the ground.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Is fel always poison, or only in the wrong hands?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What are the satyrs doing to the land?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could a priest's prayer help your seedlings take root, Eridan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
@@ -212,6 +223,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Demons, and the power that comes with them, which they poured into the ground at Jaedenar until the trees grew teeth. They thought themselves wise the whole while, so any priest who leans on shadow should look long at that place before calling it a tool." } },
+      choices = {
+        { text = "No power is worth what was done to this forest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is only as foul as the hand that holds it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so mind you don't answer it; I've watched stronger spirits than yours bend." },
@@ -233,6 +253,7 @@ P:NPC {
           text = "I keep a stone from Mulgore in my pocket, and when the forest gets too loud, I hold it. It's quiet, the way stones should be." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin of the Alliance, with the Light shining off your armour. The Light is a power too, so I'll say to you what I say to everyone: don't let what's here tempt you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I'll be plain with you: I watch what every spellcaster reaches for in these woods, because the Shadow Council reached too, and Felwood is what they caught." },
       },
       again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
       choices = {
@@ -243,6 +264,7 @@ P:NPC {
         { text = "The power here doesn't frighten me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Have you had trouble with thieves out here?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Shouldn't someone study the corruption to understand it?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What did the Shadow Council reach for, Greta?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
@@ -342,6 +364,15 @@ P:NPC {
         { text = "I'll see what I can gather.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Salves for the sick beasts, clean water for the saplings, and patience for all of it, because the Jadefire satyrs can undo a week's work in a night. A priest's hands are steady ones, and I'd sooner have yours here than out hunting satyrs for their horns." } },
+      choices = {
+        { text = "Then I'll stay and mend for as long as I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the satyrs choke on their own fel. That's quicker mending.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -358,6 +389,7 @@ P:NPC {
           text = "You'll want Arathandris, to the south, who does for the Alliance what I do for the Horde. It's the same forest, and the same work." },
         { id = "h_daily", when = { metBefore = true },
           text = "Every day a little salve, and every day a little less poison. I'll not live to see it all clean, but somebody will." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Good, because mending is what we do here, and you'll understand that better than most. Will you lend Felwood a hand while you're passing through?" },
       },
       again = {
         { id = "h_again", text = "Something more? Ask while my hands are busy; they work better when I'm talking." },
@@ -372,6 +404,7 @@ P:NPC {
         { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
         { text = "Would you really let a warlock help the cleansing?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you need someone to get close to?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What does Felwood need mending most, Maybess?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
@@ -534,6 +567,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The curse is older than your Horde and my Alliance both, and it will happily outlast our quarrels if we let it. I'll take any honest help, though I'll be watching the shadow in you as closely as I watch the shadow in these trees." } },
+      choices = {
+        { text = "Watch all you like. My help is honest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll help where it profits the Horde, and nowhere else.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
@@ -553,6 +595,7 @@ P:NPC {
           text = "A priest of the Alliance, at last! The salve does its work on the plants, but the people who lay it need tending too, and they rarely ask." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I asked the Alliance for help cleansing Felwood and expected archers, so forgive me if I stare a little at all that plate." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
       },
       again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
       choices = {
@@ -563,6 +606,7 @@ P:NPC {
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Stormwind's laws allow warlocks. Why shouldn't the Circle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you accept a Horde priest's help against the curse?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
         { text = "How are your people holding up against the curse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

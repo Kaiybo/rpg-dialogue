@@ -170,6 +170,15 @@ P:NPC {
         { text = "I'll keep my hands off the saddles.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Every time we cross the Jaedenar hills they pull at the reins and won't settle until we're well past. A beast knows a poisoned place better than any shaman does, and I trust their noses more than anyone in this post." } },
+      choices = {
+        { text = "Then I'll say a prayer over them before they fly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're beasts. Fly them where you're told and be done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. My beasts grow calmer when one of your kind is near, which is more than I can say for this forest." },
@@ -179,6 +188,7 @@ P:NPC {
           text = "Hm, a rogue, and I didn't hear you come up the path, which is more than I can say for the satyrs. Want a ride, or did you just want to prove you could sneak up on an old orc?" },
         { id = "h_default", key = true,
           text = "Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My wind riders won't drink from the river and neither should you, so if you've a blessing for clean water, start with the troughs." },
       },
       again = {
         { id = "h_again", text = "What else? The beasts are waiting." },
@@ -191,6 +201,7 @@ P:NPC {
         { text = "How do your wind riders stand it here?", next = "riders" },
         { text = "The power's the same. What matters is who holds the leash.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does anyone try to steal your wind riders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do your wind riders feel the forest's sickness, Brakkar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -271,6 +282,15 @@ P:NPC {
         { text = "I'll leave the hauling to you.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Slowly, and only by hands willing to kneel in it for years. The druids at the Emerald Sanctuary try, and I sell them what they need, but a forest that drank fel this long won't be cured by one prayer, or by a hundred." } },
+      choices = {
+        { text = "Then I'll give it a hundred and one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Felwood is lost. The Horde has better land to defend.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, Earth Mother be thanked. Sit a while, if you can bear it; the ground here weeps, and I think you'll hear it more plainly than I do." },
@@ -280,6 +300,7 @@ P:NPC {
           text = "A mage of the Horde, and far from any city. Could you keep my water cold with a spell, I wonder, or is that a foolish question to ask someone who studies the arcane?" },
         { id = "h_default", key = true,
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it brought in from outside, because nothing that grows in Felwood is fit to eat." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here where nothing grows clean. The Earth Mother would welcome any healing you can give this soil, whatever name you give it in." },
       },
       again = {
         { id = "h_again", text = "Is there something more I can find for you on these shelves, friend?" },
@@ -292,6 +313,7 @@ P:NPC {
         { text = "Why is a tauren out here?", next = "why" },
         { text = "You'd sell goods to a warlock, knowing what fel did here?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why carry all the water in? Can't the springs be cleansed?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Can Felwood's soil be healed at all, Bale?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

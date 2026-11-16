@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Troll and Forsaken priests are greeted as priests by all 11 Nighthaven people.
+- Rogues, mages and warlocks are noticed in Nighthaven for the first time: the Circle is wary of the arcane and of fel magic, and says so.
+
 ## 1.8.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Daeolyn Summerleaf, Malvor, Narianna.
 - New files: exit the game fully and restart.

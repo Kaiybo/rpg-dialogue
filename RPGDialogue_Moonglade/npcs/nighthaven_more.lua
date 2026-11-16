@@ -18,10 +18,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The Circle trusts deeds, not banners or faiths, and it remembers both kinds of deed. Heal the sick lands in Felwood, and the druids will speak your name kindly, whatever it is you pray to." } },
+      choices = {
+        { text = "Then I'll earn it with deeds, in Felwood and beyond.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't need the Circle's trust to do good.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Circle trusts deeds, and a rogue's deeds are usually done where no one can see them, which makes the trusting harder. Cleanse a songflower in Felwood, though, and the druids will remember who did it, quiet or not." } },
+      choices = {
+        { text = "Then I'll do my work where the druids can see.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Deeds done unseen are still deeds, Lorelae.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the arcane borrows from the world and seldom pays it back, and the Circle has watched that debt come due before. A druid's work leaves the land as whole as it found it, and that's the only kind of craft I'm trusted to sell." } },
+      choices = {
+        { text = "There's wisdom in leaving the world whole.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Borrowing is how anything great gets built.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It's been done, I'm told, though not often, and never by talking. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." } },
+      choices = {
+        { text = "Then I'll heal what I can, for the forest's sake.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Forgiveness is their concern. I'll keep my company.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Lorelae, and I keep the Circle's supplies in Nighthaven. Most of what I hold is for friends of the Circle, and friendship, as Remulos says, is grown and not bought." },
         { id = "h_cond", when = { race = "NightElf" }, text = "One of our own, come home to the glade. Walk with Elune, sister or brother, and take your time here." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Circle sells its wares to those it trusts, and trust in Moonglade is grown, not bought, but I'm glad to see what you'll grow." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The Circle's goods are counted twice a day, and I'm the one who counts them, so I'd ask you to keep your hands where I can see them." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Most of what I hold was made by druid hands, without a spark of the arcane in it, and the Circle prefers it that way." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend those who carry the fel." },
       },
       again = {
         { id = "h_again1", text = "Anything else I can help you with?" },
@@ -32,6 +72,10 @@ P:NPC {
         { text = "What does the Circle sell?", next = "goods" },
         { text = "How does one earn the Circle's trust?", next = "trust" },
         { text = "It's good to be in the glade again.", next = "elf", when = { race = "NightElf" } },
+        { text = "Does the Circle trust a priest of the Horde, Lorelae?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does the Circle trust a rogue at all, Lorelae?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why does the Circle prefer goods without the arcane in them?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could a warlock ever earn the Circle's friendship, Lorelae?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thank you, Lorelae.", next = "END" },
       },
     },

@@ -66,6 +66,15 @@ P:NPC {
         { text = "I'll see what I can find.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They'd want their axes and a war song, but they'd take a priest's words too, if that's all we have. Belgrom sent them out here on a fool's bargain, and the least the Horde owes them is to remember their names." } },
+      choices = {
+        { text = "Then I'll speak over them, and the Horde will remember.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Words won't fix Belgrom's mistake. Vengeance might.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -80,6 +89,7 @@ P:NPC {
           text = "So Belgrom finally sent someone who isn't one of his own grunts. The elf's workers are on the bluffs of the northern cliffs, and her camp is somewhere past them; we'll start there." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 7 } },
           text = "The spirits of our dead can rest now, and Belgrom can stop pacing his hall. You did that, {name}, and Valormok won't forget it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've buried a dozen warriors since that elf mage turned on us, and they went into the ground without a proper word said over them." },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I've had nothing but the wind to talk to for weeks." },
@@ -94,6 +104,7 @@ P:NPC {
         { text = "What did Magus Rimtori do here?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you think warlocks shame the Horde?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Who's scouting Valormok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would your fallen want a priest's words, Ag'tor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Lok'tar, Ag'tor.", next = "END", fx = { affinity = 1, standing = { valormok = 1 } } },
       },
     },
@@ -247,6 +258,15 @@ P:NPC {
         { text = "Show me what you have.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Enough Highborne tablets sold to enough fools, and an orc's memory that's shorter than his temper. I said no to the wrong orc and I've had a long time to regret it, though I've never once regretted the no." } },
+      choices = {
+        { text = "Standing by your no is worth something.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "You should've said yes. Pride's a poor trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I can already hear the lecture about respecting dead elves. Save it, because the tablets don't mind where they end up." },
@@ -262,6 +282,7 @@ P:NPC {
           text = "You're taking the last one to the Archmage. Be careful up there; he's human, but he doesn't act like any human I've met, and I've met plenty." },
         { id = "h_paid", when = { questDone = TODO_QUEST("Xylem's Payment to Jediga") },
           text = "He paid, every coin, and didn't even try to turn you into a toad. I don't know whether to be relieved or suspicious, so I'm being both." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here? Don't bother praying for my soul, because it's busy making enough gold to get me out of this forest." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast; I've accounts to keep." },
@@ -277,6 +298,7 @@ P:NPC {
         { text = "I'm an orc mage. These tablets interest me.", next = "mage_jd", when = { race = "Orc", class = "MAGE" } },
         { text = "Who buys Highborne tablets out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Are there demonic tablets among the Highborne ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What would it take to send you home, Jediga?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Good luck, Jediga.", next = "END" },
       },
     },
@@ -408,6 +430,15 @@ P:NPC {
         { text = "I'll keep quiet, then.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The salt gets in their feathers and the naga shriek from the bay all night, and a wind rider wants open plains, not a cursed coast. I don't blame them; I'd sooner be in Durotar myself, but the Horde needs a perch here." } },
+      choices = {
+        { text = "The Horde needs the perch. That's reason enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then fly them somewhere better. Nobody's watching.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman. The beasts like you better than they like me, so maybe you'll calm them before you fly." },
@@ -417,6 +448,7 @@ P:NPC {
           text = "Rogue. You're quiet, which I like, because the wind riders hate noise almost as much as I do." },
         { id = "h_default", key = true,
           text = "Kroum, wind rider master. I can send you home to Orgrimmar or Thunder Bluff, to the Crossroads, to Splintertree in Ashenvale, to Bloodvenom Post in Felwood, or north to Everlook in the snow." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out here in the salt wind. My riders hate it and so do I, so if you've a prayer for it, say it quickly and climb on." },
       },
       again = { { id = "h_again", text = "The wind riders are restless. Say what you need, or climb on." } },
       choices = {
@@ -426,6 +458,7 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Do your wind riders fear demons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you ever fly scouts over the elf camps?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why do your riders hate Azshara so, Kroum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Not today.", next = "END" },
       },
     },

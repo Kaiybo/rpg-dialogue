@@ -63,6 +63,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Inelegant but serviceable, rather like a hammer beside a scalpel. The Highborne studied every kind of power on this coast, shadow included, and you can see from the ruins below how well that ended for them." } },
+      choices = {
+        { text = "Then I'll keep my power simple, and honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Highborne lacked caution. I'll take what they left.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my tower? How quaint. I suppose you've come to tell me the Highborne relics upset the local spirits, and I suppose I'll pretend to listen." },
@@ -86,6 +95,7 @@ P:NPC {
           text = "{name}! Splendid. You're the only person in a hundred miles who listens to the end of my sentences, and I've saved several long ones for you." },
         { id = "h_cool", when = { disposition = { max = 34 } },
           text = "Oh, it's you. Say what you came to say; I'm in the middle of something that will explode if I leave it too long." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in my tower! You've climbed farther than most, figuratively speaking, since Sanath did the climbing for you." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; a thought is cooling on my desk." },
@@ -105,6 +115,7 @@ P:NPC {
         { text = "Jediga sent me with the tablet.", next = "jediga", when = { questActive = TODO_QUEST("Delivery to Archmage Xylem") } },
         { text = "The Highborne's power interests me too. The darker parts.", next = "warlock_xy", when = { class = "WARLOCK" } },
         { text = "My ancestors were Highborne of Eldre'Thalas.", next = "sky_xy", when = { race = "Skyborne" } },
+        { text = "What does an archmage make of a priest's power, Xylem?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },
@@ -373,6 +384,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "My master hates everyone who isn't him, and priests only slightly more, because you insist on being humble. I find humility rather tedious myself, but I suspect it's the only reason your sort survive a visit to the tower." } },
+      choices = {
+        { text = "Humility costs nothing, Sanath. Try it sometime.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'm not humble. I'm patient, and I'm watching.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, smelling of smoke and earth, as your sort always do. My master won't care what you are, so I suppose neither will I." },
@@ -386,6 +406,7 @@ P:NPC {
           text = "Ah, the Archmage asked for someone with your experience, did he? He's expecting you, though I can't imagine why." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, how dreary. I suppose you've come to pray at my master's tower, as if the arcane needed any help from the Light, and as if I needed one more visitor in robes." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Your robes are dreadful and your posture is worse, but I'm obliged to send you up, so do try not to pray at my master; he hates it." },
       },
       again = {
         { id = "h_again", text = "Still here? What else, then?" },
@@ -401,6 +422,7 @@ P:NPC {
         { text = "Has anyone ever tried to rob Xylem's tower?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does Xylem study demonology too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does your master have no use for the Light at all?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does your master hate all priests, Sanath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your sulking.", next = "END" },
       },
     },

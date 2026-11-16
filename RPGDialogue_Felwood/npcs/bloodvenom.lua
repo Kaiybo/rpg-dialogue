@@ -65,6 +65,15 @@ P:NPC {
         { text = "I'll keep my hands out of it, thanks.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Nearly all of it, and isn't that the charm? The Shadow Council soaked Jaedenar in fel until the very dirt forgot what it used to be, and no prayer of yours will make it remember, though you're welcome to try while I take notes. *cackles*" } },
+      choices = {
+        { text = "Some of it can still be mended, and I mean to try.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then let's learn to aim it at the Alliance.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, do tell me what the fire spirits think of my cauldron, because it bubbles in colours I've never seen and I'd love a second opinion. *cackles*" },
@@ -82,6 +91,7 @@ P:NPC {
           text = "One sip of that water and my kitten doubled in size, and it's stronger, somehow! Carry it to the moonwell and let it out beside it, and we'll see what it becomes... *cackles* oh, we'll see!" },
         { id = "h_sabers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Corrupted Sabers"), days = 3 } },
           text = "Look at it, look at the size of it! *cackles* If the corrupted water can do that to one little cat, think what a few dozen like it could do to the Alliance." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Oh, lovely, you can tell me whether a blessing works better before or after a sip of the river. *cackles* Nobody here will volunteer to find out." },
       },
       again = {
         { id = "h_again", text = "*giggles* More questions? I love questions; they're like experiments that talk back." },
@@ -99,6 +109,7 @@ P:NPC {
         { text = "Fel is just another reagent to me.", next = "warlock_w", when = { class = "WARLOCK" } },
         { text = "Your work could poison a whole Alliance camp, couldn't it?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does the corrupted moonwell actually do to the water?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is anything in Felwood beyond mending, Winna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -254,6 +265,15 @@ P:NPC {
         { text = "Watch all you like, then.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Robed cultists of the Shadow Council, more of them every week, chanting over fires that burn green, and orcs among them who ought to have known better. Whatever they mean to call up, Orgrimmar wants it named before it walks out of those hills." } },
+      choices = {
+        { text = "Then I'll help you name it, for the Horde's sake.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Orgrimmar can send its own eyes. I go where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. Orgrimmar's shamans see things a scout misses, and in Felwood I'll take every pair of eyes I can get." },
@@ -271,6 +291,7 @@ P:NPC {
           text = "You've met the alchemist, then. Don't ask me about her, because I don't know what she's doing either, and nobody does; she laughs when you ask." },
         { id = "h_guardians_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Wild Guardians"), days = 3 } },
           text = "Hard work is something I respect, and you've done a great deal of it in the snow. With those owlbeasts out of the way, we can push further into Winterspring." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, out at the edge of the rot. Keep your prayers short and your eyes open, because the cultists at Jaedenar pray too, and you can see what it's bought them." },
       },
       again = {
         { id = "h_again", text = "Anything else? Make it worth writing down." },
@@ -286,6 +307,7 @@ P:NPC {
         { text = "You want eyes? Mine work in the dark.", next = "rogue_tr", when = { class = "ROGUE" } },
         { text = "What have you seen that you can't name?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why watch me? I serve the Horde like you.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What have your eyes seen at Jaedenar, Trull?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll be your eyes too.", next = "END", fx = { affinity = 1, standing = { bloodvenom_post = 1 } } },
       },
     },

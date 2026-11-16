@@ -52,6 +52,15 @@ P:NPC {
         { text = "I'll take some water.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Because a drunk orc on watch is a dead orc, and we've buried enough of those already. Everyone curses me for it, priests included, but I'll be cursed by the living sooner than mourned by the dead." } },
+      choices = {
+        { text = "Sharp eyes keep a camp alive. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little grog never hurt anyone's courage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good, then you'll keep a clear head, which is more than I can say for the warriors who keep asking me for grog." },
@@ -61,6 +70,7 @@ P:NPC {
           text = "A mage. You'll want plenty of water, I expect, since your kind drink it like it's going out of style, and I've got barrels of it." },
         { id = "h_default", key = true,
           text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, so what we need is sharp eyes and full bellies, and that's what I sell." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll take milk with your bread, and no grog, because a priest who can't keep his head is no use to a camp with naga in the water." },
       },
       again = {
         { id = "h_again", text = "Anything else? The bread's going stale while we talk." },
@@ -73,6 +83,7 @@ P:NPC {
         { text = "Where does your food come from?", next = "supply" },
         { text = "Why no grog in your camp?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is it hard to keep the camp supplied?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why no grog in Valormok, Kurll?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -155,6 +166,15 @@ P:NPC {
         { text = "I'll see what you've got.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Curse them, burn them, wither them with that shadow of yours, I don't much care how, so long as they stop. They came here with a mage and a smile, and they left with a camp full of our dead." } },
+      choices = {
+        { text = "I'll defend this camp, but I won't torment anyone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Shadow suits them. I'll make them suffer.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Then you'll swing a mace or an axe with lightning behind it, and I'll make sure the edge is worth the lightning." },
@@ -164,6 +184,7 @@ P:NPC {
           text = "A warlock. You'll want a blade that can take a beating, since your demon does most of the fighting and you're left with whatever's in your hand." },
         { id = "h_default", key = true,
           text = "Gruul Darkblade, weaponsmith for Valormok. Axes, swords, maces, whatever you swing, and I'll have it sharp before you go hunting elves or naga, because both of them are hunting us." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at my forge. You'll not want your mace sharpened, I'd guess, but the elves who killed our warriors won't stop for prayers, so carry something with an edge." },
       },
       again = {
         { id = "h_again", text = "Ask what you came to ask, and I'll keep the whetstone moving while you do." },
@@ -176,6 +197,7 @@ P:NPC {
         { text = "What's the best weapon against naga?", next = "naga" },
         { text = "Do you blame all mages for what Rimtori did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warlocks buy many weapons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you have me curse the Thalassian elves, Gruul?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

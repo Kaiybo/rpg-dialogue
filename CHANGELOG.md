@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.47.0 (2026-11-16)
+Packs: 10 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.47.0: /reload is enough if you have 0.39.0 or later.
+
+### Horde priests in the far south and north, and the capitals' rogues, mages and warlocks
+- **Horde priests are noticed in Kalimdor from 45 to 60**: about 110 Horde and neutral people in Tanaris, Un'Goro, Silithus, Felwood, Winterspring, Azshara and Moonglade greet a troll or Forsaken priest as one, and ask what their land needs from the loa, the Light or the shadow.
+- **Moonglade notices rogues, mages and warlocks** for the first time, and the Cenarion Circle is not shy about what the arcane and the fel once cost the world.
+- **Ironforge and Dun Morogh, Darnassus and Durotar** were thin on rogues, mages and warlocks: about 140 people there now notice them (some 320 new branches). Magni, Tyrande, Fandral and Alathea are among them.
+
+### Fixes
+- Tyrande's warm greeting and Fandral's cold one never showed, because their text had been tangled into the lines above them.
+
 ## 0.46.0 (2026-11-16)
 Packs: 14 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.46.0: /reload is enough if you have 0.39.0 or later.
 

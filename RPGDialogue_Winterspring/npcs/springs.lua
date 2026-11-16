@@ -64,6 +64,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Firewater, brewed from somethin' foul an' poured down their throats till they rage. The Winterfall used tae be a peaceable folk, an' I cannae stand watchin' them turned intae beasts by a drink an' whoever's sellin' it." } },
+      choices = {
+        { text = "Then let's find the source and stop it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mad furbolgs are easier to kill than sane ones.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -82,6 +91,7 @@ P:NPC {
           text = "A gnome's sword, found in a crater, an' ye want me tae temper it? Well, the springs are hot enough, so leave it with me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, an' in this cold! Ye'll want tae see the Winterfall, then, because whatever's in that firewater is eatin' 'em from the inside, an' it's a sorry thing tae watch." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Ye'll want tae see the Winterfall, then, for there's a sickness in 'em that no herb o' mine can reach, an' maybe somethin' o' yours can." },
       },
       again = { { id = "h_again", text = "Aye? The spring's warm; take yer time." } },
       choices = {
@@ -93,6 +103,7 @@ P:NPC {
         { text = "Do you think the firewater is demonic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why sneak into the Winterfall camps?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Are the Winterfall beyond saving, Donova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What sickness do you see in the Winterfall, Donova?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -206,6 +217,15 @@ P:NPC {
         { text = "I'll bring you some E'ko.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Dey reach wherever a troll carry dem, mon, and Mau'ari carry plenty. De cold spirits here be different, sharp and hungry, so Mau'ari give dem respect and a little E'ko, and dey leave her be, mostly." } },
+      choices = {
+        { text = "Then I'll give the cold spirits respect, as you do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spirits are tools, Mau'ari, and hungry ones most of all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -219,6 +239,7 @@ P:NPC {
         { id = "h_luck", when = { any = { { questActive = TODO_QUEST("A Little Luck") }, { questActive = TODO_QUEST("Luck Be With You") } } },
           text = "Luck, you want? Mau'ari got plenty, so bring de right E'ko, and maybe some find its way to you." },
         { id = "h_cold", when = { metBefore = true }, text = "Mau'ari been up here a long time, mon, long enough to stop complainin' about de cold, but not long enough to stop feelin' it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, come up de mountain! Mau'ari can feel de loa on you, or maybe somethin' colder, and either way you be welcome by her fire." },
       },
       again = { { id = "h_again", text = "More questions? Mau'ari got answers, and some of dem even true." } },
       choices = {
@@ -229,6 +250,7 @@ P:NPC {
         { text = "Does my beast carry E'ko too?", next = "hunter_ma", when = { class = "HUNTER", pet = true } },
         { text = "Is your juju so different from my magic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does your juju cost?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the loa reach this far north, Mau'ari?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } },
       },
     },
