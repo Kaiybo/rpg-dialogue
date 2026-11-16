@@ -73,7 +73,7 @@ P:NPC {
     },
     masons = {
       big = true,
-      lines = { { id = "ma_default", text = "Masons, back when they came out here to cut stone for the city. They paid for their ale and sang dreadful songs, and when the city stopped paying them, they stopped coming. Now I hear their names on Gryan's lists." } },
+      lines = { { id = "ma_default", text = "Masons, the first of them to come out from the city after the trouble there. They paid for their ale and sang dreadful songs, and then one week they stopped coming in, and now I hear their names on Gryan's lists." } },
       choices = {
         { text = "The city wronged them first. That should count for something.", next = "BACK", fx = { align = { order = -1 }, learn = { "stonemasons" } } },
         { text = "Whatever they were owed, they chose to become thieves.", next = "BACK", fx = { align = { order = 1 }, learn = { "stonemasons" } } },

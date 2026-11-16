@@ -731,10 +731,10 @@ P:NPC {
     },
     k_tauren = {
       lines = {
-        { id = "xta_default", text = "I cook for anyone who comes in from the swamp, and a tauren eats like three scouts, so I'll be glad of the custom. No meat for you, then? I've roots and swamp greens, and they're better than they sound." },
+        { id = "xta_default", text = "I cook for anyone who comes in from the swamp, and a tauren eats like three scouts, so I'll be glad of the custom. Sit near the hearth, though, because the door frames in Stonard were never built for horns." },
       },
       choices = {
-        { text = "Greens will do fine, thank you.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll mind my horns, Karakul.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
