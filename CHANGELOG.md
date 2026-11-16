@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.39.0 (2026-11-16)
+Packs: 41 content packs have a new version (`python3 tools/version.py` lists them). **New files in 41 packs: exit the game fully, copy the folders in, and start the game again**; /reload won't load them.
+
+### People with nothing to say, until now
+- **240 named people who give no quests and had no conversation** now talk to you: shopkeepers, bankers, auctioneers, guild masters, weapon masters, profession trainers and suppliers, stable and flight masters, and the odd townsperson. Each of them talks about their trade, their town and the people around them, and still opens their shop or training window when you ask.
+- **Stormwind (32)**: the Burnside bankers, Auctioneers Chilton, Fitch and Jaxon, Aldwin Laughlin, Woo Ping, the Wellers' books, the Bouchers' reagents (priests: Kyra knows about your candles and feathers), the Mage Quarter's tailors, wand and curio sellers, the Cordells' enchanting shop, Old Town's leather, bag and recipe sellers, the Moulaines' Righteous Plates, Jenova Stoneshield and Billibub Cogspinner.
+- **Ironforge and the dwarf lands (32)**: the auctioneers and the Vault, the Great Forge's trainers, Tinker Town's shops, the Forlorn Cavern, Kharanos and Anvilmar, Thelsamar and Menethil Harbor.
+- **The night elf lands (31)**: Darnassus's banker, trainers, saber handler and terraces; Dolanaar, Rut'theran, Auberdine, Astranaar, Stonetalon Peak and Nighthaven.
+- **Elwynn, Redridge, Duskwood and Westfall (25)**: Eastvale's lumber camp, the Tower of Azora, the herb house, Lakeshire's market and bridge crew, Darkshire's shops, Grimbooze Thunderbrew.
+- **The towns from 30 to 60 (58)**: Booty Bay's shops and bank, Southshore, Theramore, Feathermoon, Nijel's Point, Aerie Peak, Refuge Pointe, Gadgetzan, Chillwind Camp, Light's Hope, Everlook, Felwood, Marshal's Refuge, Cenarion Hold, Thousand Needles, Thorium Point and Nethergarde.
+- **The Horde (62)**: Orgrimmar's, the Undercity's and Thunder Bluff's bankers, auctioneer, wind riders and trainers; the Valley of Trials, Razor Hill, Sen'jin, Narache, Bloodhoof, Deathknell, Brill, the Sepulcher, the Crossroads, Camp Taurajo and Ratchet.
+
 ## 0.38.0 (2026-11-16)
 Packs: 40 content packs have a new version (`python3 tools/version.py` lists them). **New files in most packs: exit the game fully, copy the folders in, and start the game again**; /reload won't load them.
 

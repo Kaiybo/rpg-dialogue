@@ -1,0 +1,270 @@
+-- Cathedral Square's armourers and the Dwarven District's stable master and engineering
+-- supplier, none with quests. Voice: bibles/unsung.md
+local P = RPGDialogueAPI:Pack("rpgd.stormwind")
+local TODO_NPC = P.TODO_NPC
+
+-- Agustus Moulaine: Righteous Plates; sells armour in the Cathedral's shadow, devout and proud.
+P:NPC {
+  key = "agustus_moulaine", id = TODO_NPC("Agustus Moulaine"), name = "Agustus Moulaine", title = "Armor Merchant",
+  bible = "bibles/unsung.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "devout" }, values = { "faith", "craft" },
+  notices = { "paladin", "kit" },
+  impression = {
+    first = "Agustus Moulaine sells plate and mail at Righteous Plates, just south of the Cathedral, and he speaks of armour as a kind of prayer. He was devout, proud of his stock and a little pompous.",
+    third = "{name} met Agustus Moulaine of Righteous Plates in Cathedral Square.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Righteous Plates. Armour fit for the Light's own defenders, and for anyone else with the coin." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. Has the Light, and my steel, kept you whole?" },
+  },
+  notice = {
+    { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" }, place = "before",
+      text = "A knight of the Silver Hand, under my roof! The Cathedral's paladins have bought their plate here since the square was rebuilt, and I'd be honoured to fit one more." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
+      text = "Your armour's been through something terrible, friend. Have it mended before you face anything else, or it will fail you at the worst moment." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Agustus Moulaine. Theresa sells the robes for the clergy, and I sell the plate and mail for those who stand in front of them. Between us, we dress the whole Cathedral." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, so you'll be wanting mail now and plate when you're seasoned enough to wear it. Come back when you're ready, and I'll have something waiting." },
+        { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, so it's Theresa you want, at the other counter. My plate would only weigh down your prayers." },
+      },
+      again = {
+        { id = "h_again", text = "Ask, friend, while the Cathedral bells are quiet and I can hear you." },
+        { id = "h_again2", text = "Go on, I've time for a customer who asks questions." },
+      },
+      choices = {
+        { text = "Show me your armour.", next = "BUSINESS" },
+        { text = "Why call it Righteous Plates?", next = "name" },
+        { text = "Who buys your armour?", next = "buyers" },
+        { text = "Good day, Agustus.", next = "END" },
+      },
+    },
+    name = {
+      lines = { { id = "n_default", text = "Because armour is a promise, friend: that the one wearing it will stand when others run. I like to think every piece I sell goes out to keep that promise in the Light's name." } },
+      choices = {
+        { text = "Do you bless your armour?", next = "name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name2 = {
+      lines = { { id = "n2_default", text = "I'm no priest, but I say a prayer over every piece before it leaves the shop. Some customers laugh at that, and some come back to tell me it worked." } },
+      choices = {
+        { text = "Faith and good steel are a fine pairing.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "It's the steel that saves them, not the prayer.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "b_default", text = "Paladins, mostly, and the Cathedral's guards, and lately the young nobles who want to look brave at court. They buy the shiniest plate in the shop and never scratch it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I've kept Righteous Plates beside Theresa for many years, under the Cathedral's bells. It's a fine place to sell armour." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend. The Light has not seen fit to tell me." } },
+  },
+}
+
+-- Theresa Moulaine: robes at Righteous Plates; gentle, observant, dresses the clergy.
+P:NPC {
+  key = "theresa_moulaine", id = TODO_NPC("Theresa Moulaine"), name = "Theresa Moulaine", title = "Robe Vendor",
+  bible = "bibles/unsung.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "gentle" }, values = { "faith", "mercy" },
+  notices = { "priest", "kit" },
+  impression = {
+    first = "Theresa Moulaine sells robes to the Cathedral's clergy at Righteous Plates and blessed me as though it were part of the sale. She was gentle and noticed more than she said.",
+    third = "{name} met Theresa Moulaine, who sells robes at Righteous Plates in Cathedral Square.",
+  },
+  greetings = {
+    { id = "g_default", text = "May the Light guide your path and aid you on your journeys. If you need help, I'll be right over here." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The Light has kept you, I see, and I'm glad of it." },
+  },
+  notice = {
+    { id = "n_priest", cat = "priest", when = { class = "PRIEST" }, place = "before",
+      text = "One of the Cathedral's own. I've dressed half the novices who ever knelt in that nave, so let me see if I can't find you something better than the Church's wool." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
+      text = "Your robe is torn nearly to ribbons. Whatever you faced, I'm glad you came back from it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Theresa Moulaine. I sell robes for the clergy and the scholars, and Agustus sells the plate, so between us we dress the faithful from the altar to the front line." },
+        { id = "h_dwarf_priest", when = { race = "Dwarf", class = "PRIEST" }, text = "A dwarf priest! We don't see many of you this far from Ironforge's temple. I'll find you something short enough not to trip over, if you'll forgive me saying so." },
+      },
+      again = {
+        { id = "h_again", text = "Is there anything else you'd like?" },
+        { id = "h_again2", text = "Take your time, because I'm in no hurry at all." },
+      },
+      choices = {
+        { text = "Show me your robes.", next = "BUSINESS" },
+        { text = "Do the priests buy much from you?", next = "priests" },
+        { text = "How do you know Agustus?", next = "agustus" },
+        { text = "Who do you see go out to the front?", next = "front", when = { class = "PRIEST" } },
+        { text = "Light keep you, Theresa.", next = "END" },
+      },
+    },
+    priests = {
+      lines = { { id = "p_default", text = "The novices buy one plain robe and wear it until it falls apart, and the bishops buy three fine ones a year. I'd rather dress the novices, if I'm honest; they need it more." } },
+      choices = {
+        { text = "Do you ever give them robes?", next = "priests2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priests2 = {
+      lines = { { id = "p2_default", text = "Now and again, when one comes in with patched elbows and an empty purse, and Agustus pretends not to notice. Would you think less of a merchant for that?" } },
+      choices = {
+        { text = "No. That's the Light at work.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A shop can't run on charity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    agustus = {
+      lines = { { id = "a_default", text = "We've kept this shop together for a very long time. People often ask what we are to each other, and I find I enjoy letting them guess." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    front = {
+      lines = { { id = "f_default", text = "Young priests, too many of them, buying lined robes for Redridge and Duskwood. I remember their faces, and I pray for every one, and some of them I never see again." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I've sold robes in the Cathedral's shadow for many years, and I hear the bells every hour. It's a good life." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm afraid, but I'll pray you find out." } },
+  },
+}
+
+-- Jenova Stoneshield: dwarf stable master in the Dwarven District; gruff and fond of beasts.
+P:NPC {
+  key = "jenova_stoneshield", id = TODO_NPC("Jenova Stoneshield"), name = "Jenova Stoneshield", title = "Stable Master",
+  bible = "bibles/unsung.md", role = "stablemaster", tier = "service",
+  communities = { "stormwind" }, temper = { "gruff" }, values = { "animals", "loyal" },
+  notices = { "pet", "class" },
+  impression = {
+    first = "Jenova Stoneshield keeps the stables in Stormwind's Dwarven District and talks to the beasts more kindly than to their owners. She was gruff, plain-spoken and plainly good at her work.",
+    third = "{name} met Jenova Stoneshield, the dwarf stable master of Stormwind's Dwarven District.",
+  },
+  greetings = {
+    { id = "g_default", text = "Aye, what is it? If ye've a beast to leave, I've room, and if ye don't, mind the straw." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Yer beast's been fed and brushed, and better behaved than you, I'd wager." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } }, place = "before",
+      text = "Now there's a fine beast. What's {pet} been eating? Never mind, I can see it in the coat; ye've been feeding it scraps." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Jenova Stoneshield, stable master. I keep the hunters' beasts when they've too many to take on the road, and I treat every one as if it were me own." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well met, kin! It's good to hear a proper voice in this district. I came down on the tram from Ironforge with the smiths, and I've kept the stables here ever since." },
+        { id = "h_notHunter", when = { ["not"] = { class = "HUNTER" } }, text = "I keep beasts for hunters, so unless ye've taken up the bow, there's not much I can do for ye. But ye can stay and talk, if ye like." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The ram in the third stall wants his supper." },
+        { id = "h_again2", text = "Aye, go on, then." },
+      },
+      choices = {
+        { text = "I'd like to see the stables.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What's the strangest beast you've kept?", next = "strange" },
+        { text = "Why keep stables in Stormwind?", next = "why" },
+        { text = "Any advice for my pet?", next = "advice", when = { class = "HUNTER" } },
+        { text = "Good day, Jenova.", next = "END" },
+      },
+    },
+    strange = {
+      lines = { { id = "s_default", text = "A night elf brought me a nightsaber once, and it wouldn't eat for a week until I sang to it. Don't ye dare tell anyone in the district that I sing." } },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I can't promise that. It's too good a story.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because hunters come through here on their way to everywhere, and somebody's got to look after the beasts they can't take along. The humans were happy to let a dwarf do it, and I was happy to be asked." } },
+      choices = {
+        { text = "Do you miss Ironforge?", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why2 = {
+      lines = { { id = "w2_default", text = "Every day, {g:lad|lass}, and I'll not lie to ye. But the tram runs both ways, and the beasts here need me more than the ones under the mountain do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    advice = {
+      lines = { { id = "a_default", text = "Feed it what it likes, not what's cheapest, and it'll fight for ye like kin. A hungry beast is an unhappy one, and an unhappy one will leave ye the first chance it gets." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "Born under Ironforge, raised among rams, and keeping stables in Stormwind now. There's worse lives for a dwarf." } },
+    _none = { { id = "tp_none", text = "That's past me, I'm afraid; the rams and wolves in my stalls are all the news I follow." } },
+  },
+}
+
+-- Billibub Cogspinner: gnome engineering supplier; explosive enthusiasm, points to Lilliam.
+P:NPC {
+  key = "billibub", id = TODO_NPC("Billibub Cogspinner"), name = "Billibub Cogspinner", title = "Engineering Supplies",
+  bible = "bibles/unsung.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "excitable" }, values = { "invention", "community" },
+  notices = { "craft", "gnome" },
+  impression = {
+    first = "Billibub Cogspinner sells engineering parts in the Dwarven District and explains how they explode with real delight. He sends anyone who wants them to stay unexploded to Lilliam Sparkspindle.",
+    third = "{name} met Billibub Cogspinner, a gnome who sells engineering supplies in the Dwarven District.",
+  },
+  greetings = {
+    { id = "g_default", text = "Tubes, bolts, blasting powder and flux! Everything a growing engineer needs, and most of it only explodes when you want it to." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and with all your eyebrows! That's a very good sign." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" }, place = "before",
+      text = "An engineer! I can tell by the scorch marks, and I mean that as the highest compliment." },
+    { id = "n_gnome", cat = "gnome", when = { race = "Gnome" }, place = "before",
+      text = "A fellow gnome! Were you out of Gnomeregan before it all went wrong? No, don't answer that, nobody likes to talk about it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Billibub Cogspinner! If you insert tab A into slot B, then of course it goes boom, so let me show you what I have, and then go and ask Lilliam how to put it together so it doesn't." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You'll want blasting powder and a gun stock, I expect, because your people's idea of engineering is something that goes bang very loudly. I approve completely." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've a gyromatic thingamajig that needs looking at." },
+        { id = "h_again2", text = "Ask away, ask away!" },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Does everything you sell explode?", next = "boom" },
+        { text = "Why sell in Stormwind, not Ironforge?", next = "why" },
+        { text = "Good day, Billibub.", next = "END" },
+      },
+    },
+    boom = {
+      lines = { { id = "b_default", text = "Only the good things! Well, and some of the bad things, but those are usually the customer's fault. Lilliam says I shouldn't tell people that, because it frightens the humans." } },
+      choices = {
+        { text = "Should the city allow it so close to homes?", next = "boom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boom2 = {
+      lines = { { id = "b2_default", text = "The guards ask me that every month, and I tell them progress is noisy. What do you think, should a city tolerate a little noise for a lot of progress?" } },
+      choices = {
+        { text = "Yes. Invention is worth a few singed eyebrows.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "No. Safety first, especially in a city.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because Ironforge already has more engineers than it has walls to blow holes in, and Stormwind has hardly any! Besides, the tram brings my stock straight here, and I get to watch the humans flinch." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "Out of Gnomeregan, through Ironforge and down the tram to here, with a cart full of parts and most of my fingers." } },
+    _none = { { id = "tp_none", text = "No idea! But I could build you something that might find out." } },
+  },
+}

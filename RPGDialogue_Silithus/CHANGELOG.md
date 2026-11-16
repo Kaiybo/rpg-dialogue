@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Kania, Khur Hornstriker, Squire Leoren Mal'derath.
+- New files: exit the game fully and restart.
+
 ## 1.2.0 (2026-11-16)
 - New people: Noggle Ficklespragg, Jonathan the Revelator, Krug Skullsplit and Merok Longstride.
 - New files: exit the game fully and restart.

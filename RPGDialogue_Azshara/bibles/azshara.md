@@ -95,3 +95,11 @@ Persuade/Intimidate/Deceive: what a success reveals (authored, not canon, unless
 - Ogtinc (Persuade, `tribe`): his own people went angry and sick, and he left because he would not hunt his brothers; the Circle gave him a way to fight the sickness instead.
 - Loh'atu (Persuade, `trust`): he writes to Thunder Bluff and lets the Sentinels read the letters, which is why they let him stay.
 - Kim'jael (Intimidate, `rune_truth`): he'll sell the rune to whoever pays most, Rimtori's people included.
+
+## Valormok camp hands (0.39.0, npcs/valormok_folk.lua; keys kurll, gruul_darkblade)
+### Sources
+- https://warcraft.wiki.gg/wiki/Kurll (orc food and drink at Valormok, Classic only; NPC 3621), https://warcraft.wiki.gg/wiki/Gruul_Darkblade (orc weaponsmith at Valormok, Classic only; NPC 10361)
+### Their quests
+- none: service NPCs.
+### Voices (authored, not canon)
+- Kurll: stubborn; sells milk and juice and no grog because drunk sentries die (matches Jediga's complaint). Gruul: gruff, every blade is for Rimtori's elves; heavy weapons for naga.

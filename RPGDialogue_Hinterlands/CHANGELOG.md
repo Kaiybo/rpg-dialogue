@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Guthrum Thunderfist, Harggan.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-16)
 - New people: Rin'ji at Quel'Danil Lodge.
 - New files: exit the game fully and restart.

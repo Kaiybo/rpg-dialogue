@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Nyse, Awenasa, Jinky Twizzlefixxit.
+- New files: exit the game fully and restart.
+
 ## 1.9.0 (2026-11-16)
 - New people: Pao'ka Swiftmountain, Kanati Greycloud, Motega Firemane, Razzeric, Daisy and Wizzle Brassbolts.
 - New files: exit the game fully and restart.

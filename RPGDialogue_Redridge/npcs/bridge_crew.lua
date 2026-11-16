@@ -1,0 +1,171 @@
+-- More of Foreman Oslow's crew on the Everstill Bridge: Dmitri and Jess.
+-- Voice: bibles/bridge_crew.md
+local P = RPGDialogueAPI:Pack("rpgd.redridge")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+-- Bridge Worker Dmitri: the crew's careful old hand.
+P:NPC {
+  key = "dmitri", id = TODO_NPC("Bridge Worker Dmitri"), name = "Bridge Worker Dmitri",
+  bible = "bibles/bridge_crew.md", role = "worker", tier = "service",
+  communities = { "lakeshire" }, temper = { "calm" }, values = { "craft", "cautious" },
+  notices = { "craft" },
+  impression = {
+    first = "Bridge Worker Dmitri measures twice before he lifts anything, and he has opinions about every stone in the Everstill Bridge. The younger men on the crew tease him and listen to him anyway.",
+    third = "{name} met Bridge Worker Dmitri, the careful old hand on Foreman Oslow's bridge crew.",
+  },
+  greetings = {
+    { id = "g_default", text = "Careful where you stand, friend. That stone isn't set yet." },
+    { id = "g_back", when = { metBefore = true }, text = "Back on the bridge? Walk down the middle, if you please; the edges are still settling." },
+  },
+  notice = {
+    { id = "n_craft", cat = "craft", when = { profession = { "Engineering", "Blacksmithing" } },
+      text = "You've a builder's eye, I think; you looked at the arch before you looked at me. Tell me honestly, does that keystone look true to you?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Dmitri, and I've built more bridges than anyone on this crew, the foreman included, though I'd not say so in front of him. This one is the hardest, because people keep trying to knock it down while we build it." },
+        { id = "h_tools", when = { questDone = TODO_QUEST("The Lost Tools") }, text = "You brought the foreman's tools up from the lake bottom. Those chisels are older than Jess, and they cut truer than anything we could buy in Stormwind." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf, on my bridge! Your people built the Thandol Span, and I'd give a year's wages to know how they set those foundations." },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! You'll be thinking of some machine to lift these stones, I expect, and I'll tell you now the foreman doesn't trust machines." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
+        { id = "h_again2", text = "Go on. The mortar needs a minute to set anyway." },
+      },
+      choices = {
+        { text = "Why is this bridge the hardest?", next = "hardest" },
+        { text = "How do you build over open water?", next = "how" },
+        { text = "What's the rest of the crew like?", next = "crew" },
+        { text = "Who knocked the bridge down?", next = "who" },
+        { text = "I'll leave you to your stones.", next = "END" },
+      },
+    },
+    hardest = {
+      lines = { { id = "h2_default", fx = { learn = { "everstill_bridge" } }, text = "Because the orcs sank our tools, the gnolls carried off our iron, and the rains will flood the footings if we're not done before they come. A bridge is patient work, and nobody has given us any patience." } },
+      choices = {
+        { text = "Will you finish in time?", next = "hardest_time" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hardest_time = {
+      lines = { { id = "ht_default", text = "The foreman says yes, and he's never been wrong yet. I'd say perhaps, and I've never been disappointed yet, so between us we're usually right." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    how = {
+      lines = { { id = "hw_default", text = "You build a dam of timber round each footing, pump the water out, and lay the stone in the mud as fast as you can before the dam leaks. It always leaks, and that's why we're cold and wet from dawn to dark." } },
+      choices = {
+        { text = "Sounds miserable.", next = "how_misery" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    how_misery = {
+      lines = { { id = "hm_default", text = "It is, but when the last stone goes in and the first cart rolls across, you forget every cold morning. I've walked across bridges I built thirty years ago, and they still feel like mine." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    crew = {
+      lines = { { id = "c_default", text = "Trent's the strongest and grumbles the most, Jess is the youngest and talks the most, and Alex, Daniel and Matthew do the work and keep their heads down. I'm the one who tells them all when they've laid a stone crooked." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    who = {
+      big = true,
+      lines = { { id = "w_default", fx = { learn = { "blackrock" } }, text = "The Blackrock, when they came over the hills. They burned the old span so Lakeshire couldn't send for help, and they'd do it again if they could, which is why we keep an eye on the far shore while we work." } },
+      choices = {
+        { text = "Then the town should wall the bridge and guard it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then strike the Blackrock first, before they strike again.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I've built bridges from Westfall to Redridge, and I came to Lakeshire because this one needed someone who'd done it before." } },
+    advice = { { id = "tp_ad", text = "Measure twice and lift once, friend. It holds for stones and for most other things." } },
+    everstill_bridge = { { id = "tp_bridge", text = "My last bridge, I think, and I mean it to stand longer than I do.", next = "hardest" } },
+    _none = { { id = "tp_none", text = "I wouldn't know. Ask me about stone, or arches, or mortar." } },
+  },
+}
+
+-- Bridge Worker Jess: the youngest on the crew.
+P:NPC {
+  key = "jess", id = TODO_NPC("Bridge Worker Jess"), name = "Bridge Worker Jess",
+  bible = "bibles/bridge_crew.md", role = "worker", tier = "service",
+  communities = { "lakeshire" }, temper = { "eager" }, values = { "loyal", "hardworking" },
+  notices = { "class" },
+  impression = {
+    first = "Bridge Worker Jess is the youngest on Oslow's crew and talks as fast as he works, which is very fast. He seems to think adventurers are the most exciting thing ever to cross the Everstill.",
+    third = "{name} met Bridge Worker Jess, the youngest of Foreman Oslow's bridge crew.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello! Are you here to fight the gnolls? You look like you're here to fight the gnolls." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, so tell me you fought something out there, because I've been dying to know!" },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "Look at that armour! I'd give a month's wages to wear something like that, though I'd probably sink straight to the bottom of the lake in it." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "You're a mage? Could you lift a stone with magic, just a small one? Dmitri says it doesn't work like that, but Dmitri says that about everything." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Jess, and I carry stone for Foreman Oslow, which isn't very exciting, but it's for the bridge, and the bridge is important. Everyone says so, especially the foreman." },
+        { id = "h_bridge", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "You're the one who got our iron back from the gnolls! I told everyone at the inn about it, and I made it sound even better than it was, I hope you don't mind." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Are you one of Lucius's lot from down on the docks? I'm not supposed to know about them, so please forget I asked." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Dmitri's not looking, so I've a minute." },
+        { id = "h_again2", text = "Ask me anything! Well, anything about bridges, I don't know much else." },
+      },
+      choices = {
+        { text = "Why did you join the crew?", next = "why" },
+        { text = "Have you ever seen the Blackrock?", next = "orcs" },
+        { text = "What do you think of Foreman Oslow?", next = "oslow" },
+        { text = "Do you want to be an adventurer?", next = "adventure" },
+        { text = "Back to work, Jess.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because the orcs burned the bridge and I wanted to do something about it, and I'm no good with a sword. The foreman said a strong back was nearly as useful, so here I am." } },
+      choices = {
+        { text = "Nearly as useful?", next = "why_useful" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_useful = {
+      lines = { { id = "wu_default", text = "He said soldiers keep the orcs off the bridge, but somebody has to build it first, or there's nothing for the soldiers to guard. I think that was a compliment, but it's hard to tell with him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orcs = {
+      lines = { { id = "o_default", text = "Only from across the lake, and only once close enough to see their faces. One of them shot an arrow at me, and it went into the plank next to my hand, and Dmitri made me keep the plank so I'd remember to keep my head down." } },
+      choices = {
+        { text = "Were you frightened?", next = "orcs_fear" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } },
+      },
+    },
+    orcs_fear = {
+      lines = { { id = "of_default", text = "I was so frightened I dropped a whole bucket of mortar into the lake. The foreman was angrier about the mortar than the arrow, which made me feel better, somehow." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    oslow = {
+      lines = { { id = "os_default", text = "He shouts a lot, but he's never once let anyone work on the edge without a rope. Trent says he bought him an ale for a straight stone once, and I've been trying to lay a straight one ever since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    adventure = {
+      big = true,
+      lines = { { id = "a_default", text = "Sometimes I do, when I see someone like you come through with a sword and a story. But then I look at the bridge and think, somebody has to stay and build things, don't they?" } },
+      choices = {
+        { text = "Building is braver than fighting. Stay.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Go, while you're young. The bridge will wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I grew up on a farm near Lakeshire and came into town when the orcs came, same as half the crew." } },
+    advice = { { id = "tp_ad", text = "Keep your head down near the water, Dmitri says, and I've never once regretted listening to him." } },
+    everstill_bridge = { { id = "tp_bridge", text = "It's going to be the best bridge in Redridge, and I'll be able to say I carried some of it.", next = "why" } },
+    _none = { { id = "tp_none", text = "Oh, I don't know about that. Ask Dmitri, he knows everything." } },
+  },
+}

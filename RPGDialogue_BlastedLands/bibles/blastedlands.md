@@ -90,3 +90,11 @@ Levels 45-55. The Classic (pre-Cataclysm) zone only: everything below was read o
 - Ardalan (Persuade, `legion_name`): he has heard the orc hero speak of a dreadlord who rules the demons here, and believes it (from A Tale of Sorrow; no name before the player has heard it).
 - Kum'isha (Persuade, `greed_own`): the greed that displaced him was his own (authored).
 - Daio (Intimidate, `daio_price`): what he paid: his name among decent people (authored, deliberately vague).
+
+## Nina Lightbrew (0.39.0, npcs/nethergarde_tower.lua; key nina_lightbrew)
+### Sources
+- https://warcraft.wiki.gg/wiki/Nina_Lightbrew (human, female, alchemy supplies, top floor of the tower in Nethergarde Keep; NPC 8178, a Classic ID, so she stood there in Classic; her sisters Tonya and Sarah are Cataclysm and stay out)
+### Their quests
+- none: service NPC.
+### Voice (authored, not canon)
+- Brisk, practical, complains about the stairs; wears gloves for anything grown in the Portal's soil (firebloom, gromsblood). The Portal is dark and watched; nothing about it opening.
