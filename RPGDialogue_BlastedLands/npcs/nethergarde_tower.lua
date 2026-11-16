@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than you'd think, because the plants here grew up beside the Portal's taint and learned to live with it. The mages downstairs call them corrupted, but I've brewed better salves from Blasted Lands roots than anything that grows in Elwynn." } },
+      choices = {
+        { text = "Then the land isn't lost. Something good still grows.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Tainted things are tainted. I'd rather not risk it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I trust whatever works, and both work, in their way. A soldier with a fever wants a potion, and a soldier who can't sleep beside the Portal wants a priest, and I'd never pretend one could do the other's job." } },
+      choices = {
+        { text = "Both are gifts, but the Light comes first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Well said. Use whatever works and waste no time.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Mana potions, by the crate, because a Watcher who runs dry in the middle of a reading has to start the whole night over. I've told them to sleep more and brew less, and they've told me to sell more and talk less." } },
@@ -52,6 +70,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, up all these stairs! Do try not to practise anything fiery near the shelves, because half of this stock goes bang if you look at it wrongly." },
         { id = "h_default", key = true,
           text = "Nina Lightbrew, alchemy supplies, at the top of the tower where the mages can find me easily. Vials, reagents, a few potions for the soldiers, and a quiet place to brew, as long as nobody downstairs is practicing fire spells." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, up all these stairs! If you're here for holy water, I'm afraid I sell the other kind, the sort that cures fevers instead of driving off demons." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll be after healing potions, I expect, because even a knight of the Light runs short of breath for prayers out in the wastes." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a flask of something cooling on the sill, and it mustn't boil over." },
@@ -64,6 +86,8 @@ P:NPC {
         { text = "What's it like living beside the Dark Portal?", next = "portal" },
         { text = "What do the Watchers buy from you most?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why no poisons, Nina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you trust potions over prayers, Nina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What grows in the Blasted Lands that could heal anyone?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -46,8 +46,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More often than I'd like, and I fly them as fast as the birds will go, because the jungle's fevers don't wait on anybody. I've lost a few on the way, which I don't like to talk about, and the birds always seem to know before I do." } },
+      choices = {
+        { text = "They died on the way home. The Light knows the difference.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You can't save everyone. Keep the birds flying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not much, because the goblins don't care whose bird is whose as long as the fees are paid, and I'd rather pay goblins than fight Bloodsail. Gringer keeps his wind riders on the same ledge, and we get along fine, mostly because our beasts would kill each other if we didn't." } },
+      choices = {
+        { text = "Deal fairly with Gringer. The truce here deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Be friendly with Gringer, and mind what he overhears.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Flying north, I hope, because the birds are restless today and a calm passenger settles them better than any treat, though they'd tell you they want something other than fish." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds like a rider in plate, strange as it sounds, because it sits them steady, though your armor will smell of fish by the time you land." },
         { id = "h_default", key = true,
           text = "Gyll, gryphon master. I fly Alliance folk out of Booty Bay to the north, and I keep my birds fed on fish, which they hate, because the Baron charges a fortune for anything else." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -66,6 +86,8 @@ P:NPC {
         { text = "Your birds could carry me, couldn't they?", next = "x_horde", when = { faction = "Horde" } },
         { text = "Do your gryphons really dislike rogues, Gyll?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do mages ever fly your gryphons, Gyll?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your gryphons ever carry the wounded north, Gyll?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does keeping Alliance birds in a goblin town trouble you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -301,8 +323,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Weigh on me? Only when I'm carrying it, friend, and I hire Bruisers for that. Gold is the one thing in Booty Bay that never lies to you, which is more than I can say for the people who deposit it." } },
+      choices = {
+        { text = "Gold can't love you back, Viznik. Spend some on others.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Gold doesn't lie or betray. That's wiser than most faith.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your coin is welcome in my vault, of course, though I've never yet understood why the faithful keep so little of it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. Your coin is welcome here, and so are you, provided the lightning stays outside the vault." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! The Cartel holds relics for many faiths, all of them insured and none of them guaranteed, and yours would be in very good company." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ah. Your account is welcome here, friend, but my vault has three locks, and I'm the only one with all three keys." },
@@ -326,6 +358,7 @@ P:NPC {
         { text = "Do you ever look in the vaults?", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Has a mage ever tried to rob your vault, Viznik?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why does your vault have wards against demons, Viznik?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does all that gold ever weigh on you, Viznik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -539,8 +572,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I care that they don't break, which is more than most smiths in this town can say. Where they go after they leave my counter is between the buyer and their conscience, and I've found mine sleeps better when I don't ask." } },
+      choices = {
+        { text = "Then ask anyway. A conscience works better awake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A smith sells steel, not judgment. You're right not to ask.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Good customers and better advertisements, frankly, because when a paladin walks out of here swinging one of my hammers, every sailor on the pier wants one. I don't hold with sermons, but I've never met one of you who didn't pay what was owed." } },
+      choices = {
+        { text = "We pay what we owe because our word means something.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Paying debts is just good sense. Honor has little to do with it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, buying steel? I sell to the faithful as readily as anyone, and I'll tell you plainly that a good mace beats a sermon when the Bloodsail board your ship." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, now that's a customer worth having, because you'll actually use what you buy instead of hanging it on a wall to impress the sailors." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want a mace or an axe, then, because I've seen your lot swing both, and you swing them like you mean it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Most of your kind want a mace and an apology, and I only sell the mace." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage in a weaponsmith's? A staff, then, and I'll make it heavy enough to settle an argument after your mana runs dry." },
@@ -560,6 +613,8 @@ P:NPC {
         { text = "Do you sell to a smith?", next = "x_smith", when = { profession = "Blacksmithing" } },
         { text = "Why should I buy new steel instead of salvage, Zarena?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you really make ritual daggers, Zarena?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you care who your blades end up hurting, Zarena?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do you make of the Silver Hand, Zarena?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -796,8 +851,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It's a kind of business, friend, but I'll tell you a secret: I'd do it for nothing if the Baron didn't charge me rent. A sailor off a long voyage looks at a hot plate like it's a miracle, and I suppose that makes me a miracle-seller, at a reasonable price." } },
+      choices = {
+        { text = "A full belly is a blessing. You do the Light's work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A miracle at a price is still just a sale.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down, sit down, because every priest I've ever fed was far too thin, and I can't stand the sight of someone who blesses other people's meals and never eats one of their own." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Come and eat, because I hear calling all those elements works up an appetite like nothing else." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit, eat, and say a blessing if you like; I'll take any help I can get with the fish." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! I'll set out a plate for you and one for whatever's following you, and I'll charge for both." },
@@ -819,6 +884,7 @@ P:NPC {
         { text = "Got anything for the restless dead?", next = "x_scourge", when = { race = "Scourge" } },
         { text = "What do you sell that won't slow a rogue down, Nixxrax?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is your fried fish really better than conjured food, Nixxrax?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is feeding people a kind of blessing, Nixxrax?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'm not hungry.", next = "END" },
       },
     },

@@ -389,8 +389,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "All the time, friend, especially when the fever's going round the docks, and I have to tell them I sell vials, not miracles. The ones with the Stranglethorn Fever need a proper healer, and in this town they mostly end up sweating it out on a cot." } },
+      choices = {
+        { text = "Send the fevered to me. I'll tend whoever I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sell them what they ask for. Their health is their business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Mind the shelves, please, because everything on them is clean and I'd like it to stay that way, though I'll admit a blessing on the bottles couldn't hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll be wanting clean reagents, I expect, and mine are the only clean ones in Booty Bay." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll want holy water vials, I expect, or unholy ones, and I clean both the same way: thoroughly." },
         { id = "h_default", key = true,
@@ -414,6 +424,7 @@ P:NPC {
         { text = "Do you sell many vials for poisons, Glyx?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How do you keep your reagents dry in this jungle, Glyx?", next = "xmage", when = { class = "MAGE" } },
         { text = "Did someone really summon a demon in your shop, Glyx?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do people come to you for cures as well as reagents?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -537,8 +548,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, though I don't say it to the goblins, because they'd think I was angling for more pay. I came south when the work up north dried up, and I still say a prayer for home whenever a ship brings word from Stormwind." } },
+      choices = {
+        { text = "Keep praying for home. The Light hears it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't buy passage. Save your coin instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I sell to anyone the Baron lets through the gate, because that's the rule in Booty Bay and I don't fancy explaining to him why I broke it. I'll not pretend I like it, though, and I've turned away a man or two who bragged about what he'd do with the steel." } },
+      choices = {
+        { text = "Good. Some sales aren't worth the coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sale's a sale. Their deeds are on their own heads.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Not many of your sort need coal and flux, but you're welcome to stand by the forge a while, because the damp in this town gets into your bones." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. That plate wants looking after in this damp, and I sell the oil and the files to do it, though I'd wager you know more about keeping armor than most of my customers." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I've sold iron to a few of yours, and they always ask where it was mined before they buy, which I respect." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, is it? I'll not pretend to know what you pray to, but I sell honest iron, and I'll sell it to you honestly." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've heard tales of where your power comes from, but I'm a supplier, not a judge, so tell me what you need." },
@@ -563,6 +594,8 @@ P:NPC {
         { text = "I'm learning the forge myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Why did you come south to Booty Bay, Jansen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would a mage need iron filings and flux, Jansen?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you miss the north, Jansen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you sell to anyone, even the Bloodsail?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Jansen.", next = "END" },
       },
     },
@@ -978,8 +1011,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not much, I'll grant you, but a spell takes time to say, and a panther doesn't wait for anyone to finish. I've seen priests come back from the jungle with a hatchet on their belt and a look on their face that said they'd rather not discuss it." } },
+      choices = {
+        { text = "The Light is my weapon. I'll trust it over steel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair point. I'll carry something sharp, just in case.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the grip tells you who taught them and whether they listened, which is more than most people will tell you about themselves. A soldier grips tight and a hunter grips loose, and a paladin grips like the weapon belongs to someone else, which I've always found curious." } },
+      choices = {
+        { text = "It does. The Light lends me the strength to swing it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's mine, and I swing it for my own reasons.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out at the hunting camp, and with no axe in sight, which is either brave or foolish, so I'll ask you plainly which it is." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now hold out your hand, because I can tell how a fighter swings by the way they grip, and I'd bet you've swung a hammer more often than an axe." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll end up fighting close sooner or later, like everyone out here, so you'll want an axe with weight behind it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Pray if you want, but carry an axe as well, because the panthers here don't wait for you to finish." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Your fire's fine until a raptor gets inside it, and then you'll wish you'd bought something sharp." },
@@ -1002,6 +1055,8 @@ P:NPC {
         { text = "I'm a hunter. My bow serves me well enough.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Why do you judge customers by how they hold an axe, Jaquilina?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would Nesingwary really mind my demon scaring the game, Jaquilina?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is an axe any use to a priest, Jaquilina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why judge a fighter by their grip, Jaquilina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not right now.", next = "END" },
       },
     },
@@ -1119,8 +1174,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The old ones do, quietly, because they remember long voyages when there was nothing to eat at all. The young ones just shovel it in, and I don't blame them, though I wish they'd say thank you to somebody, even if it isn't me." } },
+      choices = {
+        { text = "Gratitude is a prayer of its own. Teach them that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hungry sailors don't need manners. Let them eat.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Will you bless my pepper pot, then? I'm only half joking, because I've cooked crocolisk in this heat for years and some days it needs all the help it can get." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I hear tauren cooking is all roots and plains game, so you must be dying for a decent fish stew." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do your folk bless food before you eat it? Bless this stew, then, because it needs all the help it can get." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your imp's welcome to the scraps, but it eats on the floor, and I'll not have it singeing my tablecloths." },
@@ -1142,6 +1207,7 @@ P:NPC {
         { text = "Who do you cook for?", next = "cook_for" },
         { text = "Dried clam strips? Are they any good, Kelsey?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does pepper matter so much, Kelsey?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do sailors pray before they eat, Kelsey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll pass, thanks.", next = "END" },
       },
     },

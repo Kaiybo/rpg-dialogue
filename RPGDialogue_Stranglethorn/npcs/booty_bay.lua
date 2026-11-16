@@ -346,8 +346,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Faith in the Light, faith in the tides and a great deal of faith in the Baron's coin, in roughly that order when the weather turns. Most of my crews will pray to anything that listens when the Bloodsail come over the horizon, and they forget all about it the moment the guns go quiet." } },
+      choices = {
+        { text = "Even a forgotten prayer is heard. The Light remembers your crews.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then trust the guns. Prayer won't sink a Bloodsail ship.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Fleet Master.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Easy, my friend: you only rob the people who'd rob you first, and you keep every bargain you strike with the Baron. The Bloodsail break their word as often as they break their masts, and that's the whole difference between us and them, as I see it." } },
+      choices = {
+        { text = "A pirate's still a thief. Honor asks more than kept bargains.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Rob the robbers. That's as honest as the sea allows.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest ashore, ha! Sailors are a superstitious lot, so if you linger in Booty Bay they'll be lining up to have you bless their hulls, though I doubt any of them will pay you in more than rum." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Booty Bay! You'll find more pirates here than honest men, and I'm one of the pirates, but I like to think I'm an honest one, which makes me a rarer beast than anything in the jungle." },
         { id = "h_default", key = true,
           text = "Fleet Master Seahorn, of the Blackwater Raiders! The fleet answers to me, I answer to the Baron, and the Baron answers to his ledger." },
         { id = "h_bloodsail", tags = { "news" }, when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") },
@@ -375,6 +395,8 @@ P:NPC {
         { text = "My ancestors sailed west from the Feralas coast.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "Do the Blackwater Raiders take on rogues, Fleet Master?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have the Blackwater ever used mages against the Bloodsail, Fleet Master?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the Blackwater Raiders put much faith in the Light?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How can a pirate be an honest man, Fleet Master?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
     },
@@ -561,8 +583,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than it admits, I'd say, because every week a crew comes back from the jungle short a few hands and long on nightmares. There's no temple and the Baron won't pay for one, so the sailors make do with rum and each other, and some of them don't make do at all." } },
+      choices = {
+        { text = "I'll tend them without charge. The Light doesn't send bills.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Rum works quicker than prayer on sailors. Let them be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, how nice! I'll note you down under visitors with a conscience, which is a very short list in Booty Bay, and the Baron likes to know who's on it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Thrall's people have been coming through more often since he brought the old ways back, and I keep a note of every one." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Loa or shadow, I don't judge; I only write down which one, because somebody always asks me later." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Ah, a fellow professional. You listen at doors and I listen at bars, so we should compare notes sometime, for a fee." },
@@ -598,6 +630,7 @@ P:NPC {
         { text = "I trade in information too, Krazek.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Where do these humming trinkets come from, Krazek?", next = "xmage", when = { class = "MAGE" } },
         { text = "What deals do you have for warlocks, Krazek?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does Booty Bay have any use for a priest, Krazek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -787,8 +820,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "There's mercy in the interest, friend, because I let a man pay late before I send anyone round. Shaky Phillipe has had more chances than a cat has lives and still he hides from me, so you tell me who's being cruel to whom." } },
+      choices = {
+        { text = "Forgive him, MacKinley. Mercy costs less than you think.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He made his bargain. Let him pay what he owes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? You'll find me a fair man in my way, though if you've come to tell me that forgiving a debt is good for the soul, I've heard that sermon before and I didn't care for the ending." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? You lot talk to dead ancestors, I hear, so you can tell a few of my late debtors I'm still waiting." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? If you're here to pray for my soul, it's fully paid up, which is more than I can say for my customers." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Light fingers on you, I can tell. Pick a pocket in this town and you'll owe the Bruisers, and the Bruisers sell their debts to me." },
@@ -823,6 +866,7 @@ P:NPC {
         { text = "I know a marked deck when I see one, MacKinley.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Has a mage ever cheated you at dice, MacKinley?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why would you rather owe the Bloodsail than a demon, MacKinley?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is there no mercy in your ledger, MacKinley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll keep my purse closed, thanks.", next = "END" },
       },
     },
@@ -964,8 +1008,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Grieve is a strong word, but I think about them, yes, usually while I'm writing the next contract. The trolls don't care whose goods they're taking, and my agents knew the risk, though I'll admit not every one of them knew it quite as well as I did." } },
+      choices = {
+        { text = "Tell your next agents the whole truth. They deserve it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart business. What they don't know won't scare them off.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Wonderful, wonderful, because my last few agents died rather badly in the jungle and nobody said a word over any of them, which I'm told is bad for morale among the next few." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The jungle trolls have witch doctors of their own, so it might do me some good to have someone like you on my side for once." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! If your loa or your shadows can stop the Bloodscalp skinning my agents, I'll make you a partner, a very junior partner." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, excellent. Fire is very persuasive with trolls, and I keep a list of trolls who need persuading." },
@@ -995,6 +1049,7 @@ P:NPC {
         { text = "I hunt tigers myself. You're selling troll tusks as fangs?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "What happened to your last three agents, Kebok?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really hire a demon, Kebok?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you grieve for the agents you lost, Kebok?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Not interested.", next = "END" },
       },
     },
@@ -1131,8 +1186,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, everything, sooner or later, because rum loosens the tongue and nobody remembers I'm listening. I've heard of ships sunk on purpose and cargo gone missing and men who went over the side with a little help, and I keep every word to myself, which is the only reason I'm still pouring." } },
+      choices = {
+        { text = "Men who drowned others should answer for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep the secrets. Silence keeps an innkeeper breathing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Anyone with a warrant in Stormwind, which is a good third of the room on a busy night. They behave themselves here because the Bruisers would throw them off the docks if they didn't, but they still won't sit with their backs to you." } },
+      choices = {
+        { text = "Wanted men belong in Stormwind's cells. I'll remember their faces.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Booty Bay isn't Stormwind. Let them drink in peace.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Salty Sailor, there's a sight. Keep your blessings quiet near the stairs, if you would, because the Baron's men don't care for anything they can't put a price on." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in here? Take a seat by the wall, friend, where you can see the door, because half my customers would sooner not be seen drinking near the Silver Hand." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Salty Sailor. If you can do anything about the damp in my rooms, the first rum is on the house." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the Salty Sailor. Sit where you like, only please don't bless the rum, because the last one who did put the sailors right off it." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock at my bar. Your imp can sit by the fire, but it pays for its own stool like everybody else." },
@@ -1158,6 +1233,8 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Does the Baron really listen at your stairs, Skindle?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is that magic candle still burning, Skindle?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do the sailors confess over their rum, Skindle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who in Booty Bay fears the Silver Hand, Skindle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -1458,8 +1535,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nothing, nothing at all, only I might have borrowed a little from the Sea Wolf, and then a little more to win back the first little, and then the dice turned on me as dice do. Now I sleep with a chair against the door and I don't go near the docks after dark." } },
+      choices = {
+        { text = "Face MacKinley and tell him the truth. It's your best chance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Lie low and take the next ship out. Debts can't swim.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, oh good, good, you'll be the honest sort, so you'll tell me straight whether a large man with a ledger has been asking after me, won't you, because I'd hate to find out from his friends." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman? Oh, good, good. You couldn't ask the spirits whether a big man is coming up the pier, could you? No? Never mind, ha, ha." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest? Oh, could you say a few words over me, just in case? Nothing's going to happen, of course, ha, ha." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! You came up very quietly. Please don't do that, because MacKinley's men walk quietly too, and my heart can't take it." },
@@ -1484,6 +1571,7 @@ P:NPC {
         { text = "Why not just leave Booty Bay?", next = "leave" },
         { text = "MacKinley asked me to check on you.", next = "panic", when = { heardLine = "mackinley.h_default" } },
         { text = "Want me to teach you to hide properly?", next = "hide", when = { class = "ROGUE" } },
+        { text = "You seem afraid for your life, Shaky. What happened?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Your secret's safe. For now.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Pay MacKinley what you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Want me to lean on MacKinley for you?", next = "k_warrior", when = { class = "WARRIOR" } },
@@ -1650,8 +1738,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I hate them the way you hate a leak in the hull, steady and without much fuss, because hating them louder won't plug it. They've sunk friends of mine and robbed every honest trader on this coast, and one day I mean to watch their flagship go down." } },
+      choices = {
+        { text = "Hatred eats a sailor hollow. Fight them, but let the hate go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hold onto it. Hate keeps a sailor sharp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Openly when we can, because a Bloodsail ship at the bottom of the bay can't plot anything. Still, they've spies in every tavern on this coast, so I'm not above a bit of sneaking myself when it gets us the news we need." } },
+      choices = {
+        { text = "Fight them in the open. Let them see who's coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Turn their spies against them. Sneaking wins wars.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Good, because the Bloodsail leave a lot of dead along this coast, and our lads would sooner have a proper word said over the drowned than leave them to the sharks." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Bloodsail fear two things, cannon and the righteous, and you look to have brought the second, so you're welcome on our docks as far as I'm concerned." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you can call up a stiff wind, the Blackwater could use you to run down a Bloodsail sloop or two." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say a few words over the Blackwater dead, would you, and a few curses over the Bloodsail while you're at it." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You've got sneaking feet. Good, because I've got Bloodsail letters that need stealing." },
@@ -1677,6 +1785,8 @@ P:NPC {
         { text = "Stormwind's navy could help against them.", next = "navy", when = { faction = "Alliance" } },
         { text = "The Horde has no love for the Bloodsail either.", next = "horde", when = { faction = "Horde" } },
         { text = "A goblin pirate who hates pirates?", next = "goblin", when = { race = "Goblin" } },
+        { text = "Do you hate the Bloodsail for what they've done?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Bloodsail be fought openly, or undermined?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll find their plan.", next = "END", fx = { affinity = 2, standing = { booty_bay = 1 }, learn = { "bloodsail" } } },
         { text = "I could slip aboard a Bloodsail ship for you.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Do the Bloodsail really have mages, Crazz?", next = "xmage", when = { class = "MAGE" } },
@@ -2011,8 +2121,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Comfort, now there's a sad word for a merry man, but you're not wrong, I suppose. I used to say a good drink was a prayer you could taste, and since the port went missing I've been praying rather a lot, though none of it's been answered yet." } },
+      choices = {
+        { text = "The Light offers better comfort than the bottle, Slim.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A man's entitled to his drink. Raise one for me.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and here's a toast to you, friend! Bless this cup if you'd be so kind, because it's the closest thing to holy I've held since I lost that cask of port." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Pull up a stool and tell me, do the spirits of the earth know where a good cask of port might have rolled off to?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A toast to the priest! To your gods, whoever they are, and may they be the drinking sort!" },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "To the warlock! May your demons stay on their leashes and your glass stay full, and never the other way round." },
@@ -2041,6 +2161,7 @@ P:NPC {
         { text = "Pour me something big. I'm a tauren.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Where exactly did your port go missing, Slim?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can magic really make water taste like port, Slim?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is drink all you have to comfort you, Slim?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Cheers.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -2606,8 +2727,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The ones who smile too much and carry too little, because nobody comes to Stranglethorn with an empty bag unless they mean to fill it with something they shouldn't. The Bloodsail slip spies in on the merchant ships and the Venture Company sends worse, and I can't turn away anyone who pays the docking fee." } },
+      choices = {
+        { text = "Report every suspicious face to the Baron. Order keeps a port safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them come. A free port can't question everyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It's a safe harbor for anyone who pays, which is the Cartel's rule and not mine, though I'll admit some of what walks down my gangplanks makes my skin crawl. The Baron says neutrality keeps the cannons quiet, and so far he's been right." } },
+      choices = {
+        { text = "Some things can't be bought. I'd turn the worst away.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Neutral gold is still gold. The Baron's wise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I see every face that comes off the boats, and yours is the first in a week that didn't look like it was hiding something, so welcome to Booty Bay." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I don't often see the Silver Hand on my docks, and when I do it usually means someone out in the jungle is about to have a very bad day." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman off the Grom'gol road. I watch who comes and goes, and your sort have been coming more often since Orgrimmar was built." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I'll put you down in the book as no trouble, and I'll change it if I need to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The last one through here set fire to a crate, so I'll thank you to keep your hands in your sleeves while you're on my boards." },
@@ -2637,6 +2778,8 @@ P:NPC {
         { text = "My people arrived by sky, not ship, wharfmaster.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "What sort of list have you put me on, Wharfmaster?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you really count demons on the manifest, Wharfmaster?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Who comes through Booty Bay that worries you most?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is Booty Bay a safe harbor for wicked men?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },

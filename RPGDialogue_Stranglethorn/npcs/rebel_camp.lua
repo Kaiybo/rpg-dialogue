@@ -586,8 +586,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Good men taking orders from a mind that wasn't right anymore, and doing things to the trolls and to each other that they'd never have done in Stormwind. I played along to stay alive, and some nights I can't tell whether I was pretending or whether I was one of them for a while." } },
+      choices = {
+        { text = "You pretended to survive. The Light forgives that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You did what you had to. Bury it and keep moving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, though keep your voice down, because I spent too long among Kurzen's men to talk loud anymore, and some of what I saw in there I'd sooner confess to someone than carry." },
         { id = "h_default", key = true,
           text = "Private Thorsen. I spent time inside Kurzen's force, pretending to be one of them, and nearly didn't come out, so I know what they're planning, or some of it." },
         { id = "h_supplies", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies to Private Thorsen") },
@@ -608,6 +618,7 @@ P:NPC {
         { text = "What are they planning?", next = "plans" },
         { text = "Do you know who gave you away?", next = "betrayed" },
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "What did you see inside Kurzen's camp, Thorsen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Kurzen's war isn't mine, Private, and I'll stay out of it.", next = "END", fx = { align = { order = -1 } } },
         { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
