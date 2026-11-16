@@ -52,3 +52,11 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Maybess_Riverbr
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Eridan (Persuade, `seeds_doubt`): most mornings Eridan doubts any seed will take and has never said so in the sanctuary; the planting is hope kept by habit (authored).
+
+## Outpost hands (0.39.0, npcs/felwood_posts.lua; keys mishellena, brakkar, bale)
+### Sources
+- https://warcraft.wiki.gg/wiki/Mishellena (night elf, female, hippogryph master at Talonbranch Glade; NPC 12578), https://warcraft.wiki.gg/wiki/Brakkar (orc wind rider master at Bloodvenom Post, Classic only; NPC 11900), https://warcraft.wiki.gg/wiki/Bale (tauren general goods at Bloodvenom Post, Classic only; NPC 2806)
+### Their quests
+- none: service NPCs.
+### Voices (authored, not canon)
+- Mishellena: soft, grieving, moonwell water only for her birds. Brakkar: gruff, carries clean water to his riders by hand; flies Trull's messages. Bale: slow, gentle tauren; nothing in Felwood fit to eat; the Emerald Sanctuary's druids are his hope.

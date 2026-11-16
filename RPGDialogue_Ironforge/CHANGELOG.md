@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.10.0 (2026-11-16)
+## 1.11.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
+
+## 1.10.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Auctioneer Redmuse, Auctioneer Lympkin, Bryllia Ironbrand, Jondor Steelbrow, Lyesa Steelbrow, Soleil Stonemantle, Bengus Deepforge, Geofram Bouldertoe, Daryl Riknussun, Emrul Riknussun, Nissa Firestone, Gimble Thistlefuzz, Kreg Bilmn, Grawn Thromwyn, Boran Ironclink, Durnan Furcutter, Gearcutter Cogspinner, Springspindle Fizzlegear, Tally Berryfizz, Ulbrek Firehand, Bixi Wobblebonk, Ormyr Flinteye, Grimnur Stonebrand, Tansy Puddlefizz.
+- New files: exit the game fully and restart.
 
 ## 1.9.0 (2026-11-16)
 - New people: Dun Morogh's roads: Rudra Amberstill, Tundra MacGrann, Pilot Bellowfiz and Hegnar Rumbleshot.

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Azshara |cff8a8a8a1.1.0|r
+## Title: RPG Dialogue: Azshara |cff8a8a8a1.2.0|r
 ## Notes: Talrendis Point and Valormok, an archmage's tower over the Highborne ruins, a duke of the Waterlords, a demon hunter on his island and a sea giant who calls himself a god.
 ## Author: RPG Dialogue
-## Version: 1.1.0
+## Version: 1.2.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.azshara
@@ -14,6 +14,7 @@ pack.lua
 pools.lua
 npcs\talrendis_point.lua
 npcs\valormok.lua
+npcs\valormok_folk.lua
 npcs\xylems_tower.lua
 npcs\eldarath.lua
 npcs\bay_of_storms.lua

@@ -170,7 +170,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Can't help ye there. Ask in Thelsamar." } },
+    _none = { { id = "tp_none", text = "Can't help ye there, but somebody in Thelsamar might know." } },
   },
 }
 

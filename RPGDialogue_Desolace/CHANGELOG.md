@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Christi Galvanis, Janet Hommers.
+- New files: exit the game fully and restart.
+
 ## 1.11.0 (2026-11-16)
 - New people: The Gizeltons' caravan, Smeed Scrabblescrew, Dalinda Malem, Vahlarriel Demonslayer and Rexxar.
 - New files: exit the game fully and restart.

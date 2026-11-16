@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.10.0 (2026-11-16)
+## 1.11.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
+
+## 1.10.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Bridge Worker Dmitri, Bridge Worker Jess, Lamar Veisilli, Karen Taylor, Kara Adams, Vernon Hale, Sherman Femmel, Gretchen Vogel.
+- New files: exit the game fully and restart.
 
 ## 1.9.0 (2026-11-16)
 - New people: Ariena Stormfeather, Kimberly Hiett and Henry Chapal in Lakeshire.

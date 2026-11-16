@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.7.0 (2026-11-16)
+## 1.8.0 (2026-11-16)
 - Horde warriors and hunters get their own question and short conversation with several people here.
+
+## 1.7.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Dannal Stern, Dark Cleric Duesten, Joshua Kien, Rupert Boch, Carolai Anise, Nurse Neela, Zachariah Post.
+- New files: exit the game fully and restart.
 
 ## 1.6.0 (2026-11-16)
 - New people: Deathguard Saltain, Novice Elreth, Calvin Montague and Junior Apothecary Holland.

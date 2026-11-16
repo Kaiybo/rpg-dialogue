@@ -287,6 +287,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not my field, I'm afraid. Ask me about stones." } },
+    _none = { { id = "tp_none", text = "That's beyond me, I'm afraid, though I'll talk about old stones all day." } },
   },
 }

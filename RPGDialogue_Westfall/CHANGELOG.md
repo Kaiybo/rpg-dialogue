@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.11.0 (2026-11-16)
+## 1.12.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
+
+## 1.11.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Grimbooze Thunderbrew, Kriggon Talsone.
+- New files: exit the game fully and restart.
 
 ## 1.10.0 (2026-11-16)
 - New people: The Defias Traitor, for the road to Moonbrook.

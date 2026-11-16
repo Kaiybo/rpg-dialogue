@@ -100,3 +100,12 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon)
 - Layo (Persuade, `layo_fear`): he's afraid Southwind's spirits weren't killed by the bugs alone, and that someone opened a door for them.
 - Ortell (Intimidate, `ort_why`): why he joined, and what he saw that made him run.
 - Vish Kozus (Persuade, `vish_cmd`): he has quietly doubled the commander's guard, because a man who loses his wife to madness can be reached through her.
+
+## Hold tradesfolk (0.39.0, npcs/hold_trades.lua; keys kania, khur, leoren)
+### Sources
+- https://warcraft.wiki.gg/wiki/Kania (night elf, female, enchanting supplies upstairs at the inn; added 1.8.0; NPC 15419), https://warcraft.wiki.gg/wiki/Khur_Hornstriker (tauren reagents and poisons; added 1.8.0; NPC 15175), https://warcraft.wiki.gg/wiki/Squire_Leoren_Mal'derath (night elf stable master; added 1.8.0; NPC 15722)
+### Their quests
+- none: service NPCs.
+### Voices (authored, not canon)
+- Kania: precise, hates sand in her dusts; resistance cloaks over pretty ones. Khur: calm tauren who sees no conflict in selling poison against the hives; the "old walls" to the south are as far as he goes. Leoren: young, earnest, proud of the title squire; throws scorpids over the wall rather than killing them.
+- Authored: Khur walked from Mulgore; this is Leoren's first post.

@@ -1,0 +1,344 @@
+-- Kharanos's shopkeepers and Anvilmar's armor merchant: the people who outfit Dun Morogh's new adventurers.
+-- Voices: bibles/kharanos_shops.md
+local P = RPGDialogueAPI:Pack("rpgd.ironforge")
+local TODO_NPC = P.TODO_NPC
+
+-- Kreg Bilmn: general supplies in Kharanos; plain-spoken, knows every traveler on the road.
+P:NPC {
+  key = "dm_kreg", id = TODO_NPC("Kreg Bilmn"), name = "Kreg Bilmn",
+  bible = "bibles/kharanos_shops.md", role = "vendor", tier = "service",
+  communities = { "kharanos" }, temper = { "steady" }, values = { "practical", "honest" },
+  notices = { "weary" },
+
+  impression = {
+    first = "Kreg Bilmn sells general supplies in Kharanos and has watched every new adventurer in Dun Morogh pass his counter. He gives plain advice whether you ask for it or not.",
+    third = "{name} met Kreg Bilmn, who sells general supplies in Kharanos.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Bread, water an' bags, an' a word o' warnin' for free, if ye want it." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive, I see. That's more than I'd have bet on, the first time ye came in." },
+  },
+
+  notice = {
+    { id = "n_cold", cat = "weary", when = { deaths = { min = 3 } },
+      text = "Ye've the look o' someone who's been knocked down more than once out there. Buy some bread an' sit by the fire a while before ye go back." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Kreg Bilmn, general supplies, an' I've kept this shop in Kharanos since before most o' the new recruits were born. Whatever ye forgot tae bring from Anvilmar, I've likely got it." },
+        { id = "h_gnome", when = { race = "Gnome" },
+          text = "Kreg Bilmn, general supplies, an' welcome tae Kharanos, wee one. Yer people have been comin' through here since the city fell, an' I've learned tae stock things a gnome likes, like spare bolts an' very small boots." },
+      },
+      again = {
+        { id = "h_again", text = "Anythin' else? I've a crate tae unpack." },
+        { id = "h_again2", text = "Go on, then." },
+      },
+      choices = {
+        { text = "Let me see what you have.", next = "BUSINESS" },
+        { text = "What's the warning you mentioned?", next = "warn" },
+        { text = "What's Kharanos like?", next = "town" },
+        { text = "Do you see many gnomes come through?", next = "gnomes" },
+        { text = "Thanks, Kreg.", next = "END" },
+      },
+    },
+
+    warn = {
+      lines = {
+        { id = "wa_default", text = "Stay off Shimmer Ridge till ye're stronger, for the Frostmane trolls up there don't take kindly tae visitors. An' don't go near the Gnomeregan road, for there are troggs an' worse along it now." },
+      },
+      choices = {
+        { text = "What's worse than troggs?", next = "warn_worse" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "troggs" } } },
+      },
+    },
+    warn_worse = {
+      lines = {
+        { id = "ww_default", text = "Gnomes that didnae get out in time, an' the poison got intae them. They're no' right in the head anymore, poor things, an' they'll attack anyone who comes near." },
+      },
+      choices = {
+        { text = "They deserve pity, not a blade.", next = "BACK", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "If they attack, they're enemies. Simple as that.", next = "BACK", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
+      },
+    },
+
+    town = {
+      lines = {
+        { id = "to_default", text = "Quiet, mostly, an' warm, if ye stay near the inn. The Thunderbrew Distillery's just across the way, an' that's what most folk come for, though they leave wi' a sore head." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    gnomes = {
+      lines = {
+        { id = "gn_default", text = "Every week, still, for Kharanos is the first proper town on the road from Gnomeregan. Some o' them stay, an' some go on tae Ironforge, an' a few go back out tae try their luck in the ruins." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "I've kept shop in Kharanos my whole life, an' my father before me, an' I've never once seen the snow melt." } },
+    advice = { { id = "tp_ad", text = "Carry more bread than ye think ye need. The cold makes ye hungry." } },
+    _none = { { id = "tp_none", text = "Couldnae say, friend, but Innkeeper Belm across the way hears every rumor in Dun Morogh." } },
+  },
+}
+
+-- Grawn Thromwyn: weaponsmith in Kharanos; proud of honest steel.
+P:NPC {
+  key = "dm_grawn", id = TODO_NPC("Grawn Thromwyn"), name = "Grawn Thromwyn",
+  bible = "bibles/kharanos_shops.md", role = "blacksmith", tier = "service",
+  communities = { "kharanos" }, temper = { "gruff" }, values = { "proud", "practical" },
+  notices = { "kit" },
+
+  impression = {
+    first = "Grawn Thromwyn makes and sells weapons in Kharanos and takes each sale as a promise that the blade will hold. He has little patience for decoration and a great deal for good steel.",
+    third = "{name} met Grawn Thromwyn, a weaponsmith in Kharanos.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Need somethin' with an edge? Ye've come tae the right forge." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. How's that blade holdin' up?" },
+  },
+
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
+      text = "That gear's half fallin' apart, an' I'll wager yer weapon's no' much better. Get it seen tae before ye go back out." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Grawn Thromwyn, weaponsmith. Every blade in this shop was made tae be used, no' hung on a wall, an' I'll take back any that breaks in an honest fight." },
+        { id = "h_warrior", when = { class = "WARRIOR" },
+          text = "Grawn Thromwyn, weaponsmith, an' ye're a warrior by the way ye walk. I've axes, swords an' maces, so take yer pick an' tell me what ye'll be hittin' with it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've steel coolin'." },
+        { id = "h_again2", text = "Ask away." },
+      },
+      choices = {
+        { text = "Let me see your weapons.", next = "BUSINESS" },
+        { text = "Which weapon would you choose?", next = "choose" },
+        { text = "Do you really take back broken blades?", next = "back" },
+        { text = "Why make weapons in Kharanos, not Ironforge?", next = "why" },
+        { text = "Thank you, Grawn.", next = "END" },
+      },
+    },
+
+    choose = {
+      lines = {
+        { id = "ch_default", text = "An axe, every time, for it's a dwarf's weapon an' it'll chop wood as well as trolls. But if ye've a gun an' good aim, ye might never need tae get close enough tae use it." },
+      },
+      choices = {
+        { text = "I prefer to fight up close.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "I'd rather they never get near me.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+      },
+    },
+
+    back = {
+      lines = {
+        { id = "ba_default", text = "In an honest fight, aye. If ye've been usin' it tae pry open crates or chop ice, that's yer own fault, an' I'll know, for I can read a broken blade like a book." },
+      },
+      choices = {
+        { text = "What does a broken blade tell you?", next = "back_read" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    back_read = {
+      lines = {
+        { id = "br_default", text = "Where it struck an' how hard, an' whether the one holdin' it knew what they were doin'. A clean break near the hilt means bad steel, which means me, but a chip near the tip means ye hit a rock, which means you." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    why = {
+      lines = {
+        { id = "wh_default", text = "Because the recruits come through here first, an' they need weapons before they reach the city. An' because I'd rather be a big name in Kharanos than a small one in the Great Forge, an' I'll no' apologize for that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "I learned the craft at the Great Forge an' brought it out here, where the air's cleaner an' the customers are less fussy." } },
+    advice = { { id = "tp_ad", text = "Keep yer blade oiled. Rust kills more weapons than trolls do." } },
+    _none = { { id = "tp_none", text = "I make weapons. If it's no' about that, I'm the wrong dwarf tae ask." } },
+  },
+}
+
+-- Boran Ironclink: armorer in Kharanos; mail and plate for those who stand in front.
+P:NPC {
+  key = "dm_boran", id = TODO_NPC("Boran Ironclink"), name = "Boran Ironclink",
+  bible = "bibles/kharanos_shops.md", role = "blacksmith", tier = "service",
+  communities = { "kharanos" }, temper = { "jovial" }, values = { "practical", "proud" },
+  notices = { "kit" },
+
+  impression = {
+    first = "Boran Ironclink sells armor in Kharanos and clanks a little when he walks, because he wears a sample of his stock. He believes most problems in Dun Morogh can be solved by thicker mail.",
+    third = "{name} met Boran Ironclink, an armorer in Kharanos.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Come in, come in! Ye look like ye could use a bit more iron about ye." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did the mail keep the teeth out?" },
+  },
+
+  notice = {
+    { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
+      text = "By my beard, where's yer armor? Ye cannae go out in the snow like that, an' certainly no' near the trolls." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Boran Ironclink, armorer, an' my armor's kept more recruits alive in Dun Morogh than any priest. Mail, shields, helms, the lot, an' all made tae keep the cold out as well as the claws." },
+        { id = "h_paladin", when = { class = "PALADIN" },
+          text = "Boran Ironclink, armorer, an' ye're a paladin, so ye'll want the heaviest mail I've got. The Light'll protect yer soul, but somebody has tae protect yer ribs, an' that's my job." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend?" },
+        { id = "h_again2", text = "Go on, ask." },
+      },
+      choices = {
+        { text = "Let me see your armor.", next = "BUSINESS" },
+        { text = "Why do you wear your own stock?", next = "wear" },
+        { text = "What's the worst thing out there in Dun Morogh?", next = "worst" },
+        { text = "Is heavy armor worth the weight?", next = "weight" },
+        { text = "Thanks, Boran.", next = "END" },
+      },
+    },
+
+    wear = {
+      lines = {
+        { id = "we_default", text = "So folk can see it works, an' so they can hear me comin'. A dwarf who sells armor an' doesnae wear it is like a brewer who doesnae drink, an' ye'd never trust either o' them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    worst = {
+      lines = {
+        { id = "wo_default", text = "The Frostmane trolls, for they're clever an' they don't fight fair. Then there's the wendigos in the Grizzled Den, which are big an' angry an' don't care how much armor ye've got." },
+      },
+      choices = {
+        { text = "The trolls have lived here a long time, though.", next = "worst_trolls" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worst_trolls = {
+      lines = {
+        { id = "wt_default", text = "Aye, they say this was their land before it was ours, an' maybe it was. But we're here now, an' they keep raidin' our farms, so I'll keep sellin' armor tae the folk who stop them." },
+      },
+      choices = {
+        { text = "Maybe there's room for both peoples here.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Dun Morogh belongs to Ironforge now.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+      },
+    },
+
+    weight = {
+      lines = {
+        { id = "wg_default", text = "Every ounce, if ye're the one standin' in front. A mage can hide behind ye, an' a rogue can hide in the shadows, but a warrior or a paladin has tae stand an' take it, an' that's what my mail's for." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "I made armor for the Ironforge army in the Second War, an' now I make it for recruits, which is a lot less shoutin'." } },
+    advice = { { id = "tp_ad", text = "Keep yer mail dry. Rust is an enemy that never sleeps." } },
+    _none = { { id = "tp_none", text = "That's no' armor, so I couldnae help ye wi' it." } },
+  },
+}
+
+-- Durnan Furcutter: cloth and leather armor at Anvilmar in Coldridge Valley; kind to brand-new recruits.
+P:NPC {
+  key = "dm_durnan", id = TODO_NPC("Durnan Furcutter"), name = "Durnan Furcutter",
+  bible = "bibles/kharanos_shops.md", role = "vendor", tier = "service",
+  communities = { "coldridge" }, temper = { "warm" }, values = { "kind", "practical" },
+  notices = { "greenness" },
+
+  impression = {
+    first = "Durnan Furcutter sells cloth and leather armor at Anvilmar to recruits who have barely learned to hold a sword. He fusses over them like an uncle and worries about the ones who don't come back.",
+    third = "{name} met Durnan Furcutter, who sells armor to new recruits at Anvilmar.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Ye look cold, recruit. Let's find ye somethin' warm before ye catch yer death." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Ye're lookin' tougher already." },
+  },
+
+  notice = {
+    { id = "n_green", cat = "greenness", when = { maxLevel = 5 },
+      text = "First week out o' the barracks, is it? I can always tell, for the new ones still look surprised by the snow." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Durnan Furcutter, cloth an' leather. Every recruit who comes through Anvilmar needs somethin' warmer than what they arrived in, an' I make sure they get it." },
+        { id = "h_mage", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+          text = "Durnan Furcutter, cloth an' leather, an' ye'll be wantin' the cloth, I'd guess. Robes are warm enough, as long as ye stay near a fire, which a spellcaster always seems tae manage somehow." },
+      },
+      again = {
+        { id = "h_again", text = "Anythin' else I can help ye with, recruit?" },
+        { id = "h_again2", text = "Go on, ask." },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "What should a new recruit wear?", next = "wear" },
+        { text = "What's the danger here in Coldridge Valley?", next = "danger" },
+        { text = "Where do recruits go after Anvilmar?", next = "after" },
+        { text = "Thanks, Durnan.", next = "END" },
+      },
+    },
+
+    wear = {
+      lines = {
+        { id = "we_default", text = "Somethin' warm an' somethin' that'll stop a wolf's teeth, an' if ye can find both in one, all the better. Leather's best for that, unless ye're a spellcaster, in which case ye'll just have tae run faster." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    danger = {
+      lines = {
+        { id = "da_default", text = "Troggs in the caves tae the north, an' the Frostmane trolls in the hills, an' the wolves everywhere else. None of it's too much for a careful recruit, but I've seen careless ones carried back on a sledge." },
+      },
+      choices = {
+        { text = "I'll be careful, I promise.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 }, learn = { "troggs" } } },
+        { text = "I'll take my chances.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 }, learn = { "troggs" } } },
+      },
+    },
+
+    after = {
+      lines = {
+        { id = "af_default", text = "Through the tunnel tae Kharanos, where there's a proper inn an' proper shops, an' then on tae Ironforge if ye've the stomach for it. Most come back this way once or twice, an' I'm always glad tae see them." },
+      },
+      choices = {
+        { text = "Do many not come back?", next = "after_lost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    after_lost = {
+      lines = {
+        { id = "al_default", text = "Some, aye, an' I try no' tae count them. I remember the faces, though, an' the coats I sold them, an' I hope wherever they are, they're warm." },
+      },
+      choices = { { text = "I'll come back. You'll see.", next = "BACK", fx = { affinity = 2 } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "I've stitched coats in Anvilmar for twenty years, an' I've lost count o' the recruits I've dressed." } },
+    advice = { { id = "tp_ad", text = "Keep yer feet dry. Cold feet lose more fights than bad swords." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye, recruit. Ask Sten Stoutarm by the door; he knows the valley better than I do." } },
+  },
+}

@@ -31,3 +31,11 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Williden (Persuade, `purpose_truth`): the expedition went down too fast and too sure; he signed off on every lost camp and keeps a cheerful face for the others (authored).
+
+## Refuge hands (0.39.0, npcs/refuge_folk.lua; keys nergal, gryfe)
+### Sources
+- https://warcraft.wiki.gg/wiki/Nergal (dwarf, general goods, meat and drink; at Marshal's Refuge before Cataclysm; NPC 12959), https://warcraft.wiki.gg/wiki/Gryfe (goblin flight master, Marshal's Refuge before Cataclysm; NPC 10583; flights to Gadgetzan and Cenarion Hold)
+### Their quests
+- none: service NPCs.
+### Voices (authored, not canon)
+- Nergal: gruff dwarf burr ("ye"), won't eat crater food, sympathetic to the Marshals. Gryfe: cheerful neutral goblin; pterrordax can't catch his flyers.

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Stormwind |cff8a8a8a1.11.0|r
+## Title: RPG Dialogue: Stormwind |cff8a8a8a1.12.0|r
 ## Notes: The Keep, the Cathedral and City Hall.
 ## Author: RPG Dialogue
-## Version: 1.11.0
+## Version: 1.12.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.stormwind
@@ -31,3 +31,8 @@ npcs\old_town.lua
 npcs\warriors.lua
 npcs\canals.lua
 npcs\city_trades.lua
+npcs\unsung_trade.lua
+npcs\unsung_mage.lua
+npcs\unsung_canals.lua
+npcs\unsung_oldtown.lua
+npcs\unsung_east.lua

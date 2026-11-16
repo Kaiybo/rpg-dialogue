@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Duskwood |cff8a8a8a1.10.0|r
+## Title: RPG Dialogue: Duskwood |cff8a8a8a1.11.0|r
 ## Notes: Darkshire, the Night Watch, Raven Hill and an old murder nobody has stopped thinking about.
 ## Author: RPG Dialogue
-## Version: 1.10.0
+## Version: 1.11.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.duskwood
@@ -23,3 +23,4 @@ npcs\abercrombie.lua
 npcs\darkshire_folk.lua
 npcs\darkshire_more.lua
 npcs\darkshire_trades.lua
+npcs\darkshire_shops.lua

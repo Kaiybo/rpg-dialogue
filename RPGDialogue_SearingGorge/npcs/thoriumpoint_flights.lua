@@ -1,0 +1,140 @@
+-- Thorium Point's two flight masters (0.39.0): an Ironforge dwarf and an orc, both guests of the
+-- Thorium Brotherhood. Voice: bibles/searinggorge.md ("Thorium Point's flight masters")
+local P = RPGDialogueAPI:Pack("rpgd.searinggorge")
+local TODO_NPC = P.TODO_NPC
+
+P:NPC {
+  key = "lanie_reed", id = TODO_NPC("Lanie Reed"), name = "Lanie Reed", title = "Gryphon Master",
+  bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
+  communities = { "thorium_point" }, temper = { "wry" }, values = { "dutiful", "careful" },
+  notices = { "race" },
+
+  impression = {
+    first = "Lanie Reed keeps the Alliance gryphons at Thorium Point, a Bronzebeard dwarf living as a guest among Dark Irons. She's wry about it, careful about it, and honest that it still sits strangely with her.",
+    third = "{name} met Lanie Reed, the dwarf gryphon master at Thorium Point.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Need a bird out of the Gorge? Wise, because there's more ash than air in this place, and the gryphons cough all night." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend. Your orc is just over there with the wind riders, and she'll see you right." },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A Bronzebeard face! I'm glad of it, friend; you'd not believe how strange it is to wake every morning surrounded by Dark Irons who mean you no harm." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Lanie Reed, gryphon master for the Alliance here at Thorium Point. My birds fly to Ironforge and to Morgan's Vigil in the Burning Steppes, and anywhere else the Alliance has a roost, and they're glad to leave every time." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The birds are getting twitchy in this smoke." },
+        { id = "h_again2", text = "Go on, ask. I've nowhere to be but here." },
+      },
+      choices = {
+        { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
+        { text = "A Bronzebeard among Dark Irons?", next = "brotherhood" },
+        { text = "How do the gryphons stand the Gorge?", next = "ash" },
+        { text = "Goodbye.", next = "END" },
+      },
+    },
+    brotherhood = {
+      lines = { { id = "b_default", text = "Aye, and I'll not pretend it was easy. My grandfather told me stories about Dark Irons that would curl your beard, but the Thorium Brotherhood walked away from Thaurissan and his master, and they've treated me fair." },
+        { id = "b_dwarf", when = { race = "Dwarf" }, text = "You'll know the stories as well as I do, the ones about the War of the Three Hammers. But the Thorium Brotherhood walked away from Thaurissan and his fire master, and they've treated me fairer than some of our own." } },
+      choices = {
+        { text = "Can you really trust them?", next = "brotherhood_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brotherhood_trust = {
+      lines = { { id = "bt_default", text = "I trust them to keep their word, because they keep it to each other, and they've not broken it to me yet. I'll not say I'd turn my back on every one of them, but I'd say the same in Ironforge." } },
+      choices = {
+        { text = "People can change. They've proved it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A Dark Iron is a Dark Iron.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ash = {
+      lines = { { id = "a_default", text = "Poorly. The ash gets into their feathers and their lungs, so I brush them out every night and keep them out of the wind when the volcano's grumbling. They fly high over the Gorge, too, well above the smoke and the fire elementals." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "I keep gryphons, and Ironforge sent me where they were needed. That's the long and the short of it." } },
+    advice = { { id = "tp_ad", text = "Tie a wet cloth over your face if you're walking the Gorge for long. Your lungs will thank you." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask one of the Brotherhood; they know this place better than I ever will." } },
+  },
+}
+
+P:NPC {
+  key = "grisha", id = TODO_NPC("Grisha"), name = "Grisha", title = "Wind Rider Master",
+  bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
+  communities = { "thorium_point" }, temper = { "gruff" }, values = { "dutiful", "careful" },
+  notices = { "race" },
+
+  impression = {
+    first = "Grisha keeps the wind riders at Thorium Point and keeps a careful eye on the dwarves around her, Dark Iron or otherwise. She's blunt and wary, and fond of her beasts in a way she doesn't bother to hide.",
+    third = "{name} met Grisha, the orc wind rider master at Thorium Point.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Wind riders are fed and ready. Where are you going, and how fast do you want to get there?" },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance. The dwarf with the gryphons is over there, if you want a bird." },
+  },
+
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Lok'tar, {g:brother|sister}. Good to see another orc face among all these dwarves; it gets lonely being the only one of us in camp." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Grisha, wind rider master for the Horde at Thorium Point. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The riders smell the lava and they want to be gone." },
+        { id = "h_again2", text = "Speak. I'm listening." },
+      },
+      choices = {
+        { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
+        { text = "How do you feel about the dwarves here?", next = "dwarves" },
+        { text = "Do you get along with the gryphon master?", next = "lanie" },
+        { text = "Goodbye.", next = "END" },
+      },
+    },
+    dwarves = {
+      lines = { { id = "d_default", text = "The Brotherhood keeps to their forges and I keep to my riders, and nobody makes trouble. I watch them, mind you, because their kin inside Blackrock Mountain are at war with orcs as we speak." } },
+      choices = {
+        { text = "Which orcs are they fighting?", next = "dwarves_past" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarves_past = {
+      lines = { { id = "dp_default", text = "The Blackrock clan, up in the Spire, while the Dark Irons hold the Depths below them, and neither side cares who gets caught in between. They're no friends of Thrall's, but they're orcs, and the Dark Irons won't ask which clan you belong to. The Brotherhood isn't them, but they came from the same place, and I remember that." } },
+      choices = {
+        { text = "Being careful is wise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You should give them a chance.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lanie = {
+      lines = { { id = "l_default", text = "We don't talk much. She keeps her birds clean and I keep my riders clean, and the Brotherhood made it clear there'd be no fighting here, so there isn't." },
+        { id = "l_dwarf", when = { race = "Dwarf" }, text = "Your kinswoman keeps her birds well, I'll give her that. We don't talk much, and the Brotherhood made it clear there'd be no fighting here, which suits us both." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that is my own business." } },
+    advice = { { id = "tp_ad", text = "Don't walk down into the Gorge without a reason. The Dark Irons down there aren't the friendly kind." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask the dwarves." } },
+  },
+}

@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.2.0 (2026-11-16)
+## 1.3.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
+
+## 1.2.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Nina Lightbrew.
+- New files: exit the game fully and restart.
 
 ## 1.1.0 (2026-11-15)
 - Replies for the classes and races these people would really react to (warriors, hunters, rogues, mages, warlocks, druids, shamans, paladins; every race of the faction, and the Skyborne), each leading somewhere.

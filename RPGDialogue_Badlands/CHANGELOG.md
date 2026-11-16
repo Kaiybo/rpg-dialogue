@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.10.0 (2026-11-16)
+## 1.11.0 (2026-11-16)
 - Horde warriors and hunters get their own question and short conversation with several people here.
+
+## 1.10.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Jazzrik.
+- New files: exit the game fully and restart.
 
 ## 1.9.0 (2026-11-16)
 - New people: Martek the Exiled and Rigglefuzz in their camps.

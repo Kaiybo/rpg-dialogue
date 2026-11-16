@@ -33,3 +33,11 @@
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Kalaran (Persuade, `father_slip`): pressed, he admits he wasn't there and can't say whose hand held the blade, nearly calling the player 'so young' in a way no grieving man would. The claim `kalaran_father` stays false and unexposed here; his nature is never stated.
+
+## Thorium Point's flight masters (0.39.0, npcs/thoriumpoint_flights.lua; keys lanie_reed, grisha)
+### Sources
+- https://warcraft.wiki.gg/wiki/Lanie_Reed (dwarf, female, Alliance gryphon master; NPC 2941), https://warcraft.wiki.gg/wiki/Grisha (orc, female, Horde wind rider master; added 1.5.0; NPC 3305; her gossip is wary of "those dwarves": idea only, never verbatim)
+### Their quests
+- none: service NPCs.
+### Voices (authored, not canon)
+- Lanie: wry Bronzebeard, fair to the Brotherhood and honest it's strange. Grisha: blunt, watchful; the Blackrock orcs and the Dark Irons at war inside the mountain.

@@ -106,3 +106,13 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 - Alexi (Persuade, `hate_truth`): what he can't forgive is that Weldon spared him as one spares a dog while Alexi was still himself inside; the deeds' question stays open (authored feeling, canon spare).
 - Kirsta (Persuade, `job_rest`): Stormwind wants to know what the Crusade keeps behind Mardenholde Keep (Hearthglen is run from it, canon); her reason is authored.
 - Eva (Persuade, `jandice_truth`): she heard Lord Barov promise things to each son in turn, can't say which was meant to inherit, and thinks neither deserves it (authored; keeps the fortune open).
+
+## Chillwind Camp's quiet hands (0.39.0, npcs/chillwind_folk.lua; keys lightspark, leonard_porter)
+### Sources
+- https://warcraft.wiki.gg/wiki/Argent_Quartermaster_Lightspark (gnome, male, Argent Dawn goods at Chillwind Camp; NPC 10857; in Classic he also handled the Mantles of the Dawn quests, not used)
+- https://warcraft.wiki.gg/wiki/Leonard_Porter (human leatherworking supplies, Chillwind Camp; NPC 12942), https://warcraft.wiki.gg/wiki/Chillwind_Camp (NPC list)
+### Their quests
+- none used: built from role and place (scourgestones to Officer Pureheart with the Dawn's commission; plague from Andorhal's grain).
+### Voices (authored, not canon)
+- Lightspark: brisk, tidy, ledger-minded gnome; sells only by Argent Dawn standing and says so kindly. Leonard: dour tanner who burns any hide that smells wrong.
+- Never: the Argent Crusade, Mother Matterly's inn (both later).

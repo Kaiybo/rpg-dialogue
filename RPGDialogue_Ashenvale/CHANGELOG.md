@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- New people with no quests, who had nothing to say until now: Haljan Oakheart, Xai'ander, Aeolynn, Maliynn.
+- New files: exit the game fully and restart.
+
 ## 1.8.0 (2026-11-16)
 - New people: Kayneth Stillwind at Forest Song, Bhaldaran Ravenshade, Karang Amakkar at Zoram'gar and Ruul Snowhoof.
 - New files: exit the game fully and restart.
