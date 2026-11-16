@@ -45,11 +45,35 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They've got a sort of oracle who waves bones at the water and squeals, and every time he does, the cage goes cold. I'm a trader, not a scholar, but I'd take it as a kindness if you dealt with him first." } },
+      choices = {
+        { text = "I'll face the oracle head on.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take him from behind before he can squeal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Somewhere back in the sanctuary, I think, though they dragged it about while I watched. Bring it back unopened, friend, and I'll know if it's been opened, because I always know." } },
+      choices = {
+        { text = "I'll bring it back untouched. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever's in it, I'll take my fee first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can't you just ask the earth to open this cage? No? Well, a strong arm will do just as nicely, I suppose." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Thank the Light. Get me free of these chains and I'll swear never to speak ill of the woods again." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "Oh, Light, you're not exactly who I was praying for, but you're not a murloc, and a man in a cage can't be choosy, so please, friend, just open the door." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage! I don't suppose you could magic this lock open, friend, because I've been glaring at it for days and it hasn't budged." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "That's a demon, isn't it, and it's looking at me through the bars like I'm supper. Please, friend, I'm worth a great deal more to you alive and grateful." },
         { id = "h_default", key = true,
           text = "Galen Goodward, at your service, or I would be if I weren't stuck in here. The murlocs of this sanctuary caught me on the road and threw me in this cage, and they took my strongbox too, which had everything I own in it." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Galen's Escape") },
@@ -63,6 +87,8 @@ P:NPC {
       },
       choices = {
         { text = "Do the murlocs here worship anything, Galen?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the murlocs here use any magic, Galen?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "That strongbox of yours. Where do the murlocs keep it?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why did you come into this swamp alone?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "How did you end up in there?", next = "caught" },
         { text = "What's in this strongbox?", next = "box" },
@@ -167,9 +193,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "More so for you, warlock, for the things that gather there know your kind and will call to you. Do not answer them, whatever they promise." },
+        { id = "xhcast_default", text = "The Portal itself is cold stone now, but the things that gather around it are not, and one of them unmade my regiment. A spellcaster who goes there should guard their mind as closely as their body." },
+      },
+      choices = {
+        { text = "Then I'll go there and avenge your regiment.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stay clear. More dead won't avenge the dead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Beyond the swamp, in the red lands, at a place I will not name until you have earned it. Go and look if you must, but go unseen, for nothing that walks there now would let you leave." } },
+      choices = {
+        { text = "I'll wait until you tell me. Your trust comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find it myself, with or without your word.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear me better than most of the living, then, and you'll know why a spirit cannot rest with its duty undone." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest, on this road. Pray for my soldiers, if your gods will listen, for they will not hear me." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage, on this road. The air toward the Portal is thick with old magic, and you will feel it long before you see the stones, so walk carefully." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. It was your kind who led my people to the blood and through the Portal, and I cannot look at you without remembering it." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "You move like a shadow, and that is no insult from me, for I am one. Walk softly on this road, because what lies beyond it listens." },
         { id = "h_default", key = true,
           text = "I led a regiment of the Horde called Thrall's Grasp, and it was destroyed in the lands beyond this swamp. Nineteen of my soldiers could have been spared, had the orders reached us, and I cannot rest until I know why they did not." },
         { id = "h_quest", when = { questActive = TODO_QUEST("The Disgraced One") },
@@ -181,6 +236,8 @@ P:NPC {
       },
       choices = {
         { text = "Shall I ask the ancestors to give you peace?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is the magic around the Dark Portal still dangerous?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where did your regiment fall? I could scout it.", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What happened to Thrall's Grasp?", next = "grasp" },
         { text = "What orders do you mean?", next = "orders" },
         { text = "What lies in the Blasted Lands?", next = "lands" },

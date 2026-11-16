@@ -37,9 +37,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "None that I know of, though Greshka swears the old warlocks left something of themselves in these stones, and Karakul keeps the old hearth burning, just in case. Me, I keep the meat moving and try not to think about it." } },
+      choices = {
+        { text = "Leave the old stones be. The Warchief would want that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If there's power in those stones, someone should use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Nobody's told me straight, and I suspect Tok'Kar doesn't know either, because his soldiers only ever see the wake of it. If you went and had a quiet look, I'd sleep better, and so would the cook." } },
+      choices = {
+        { text = "I'll report what I see to Ruag first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll handle whatever it is myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. There's enough old history in these stones that I'd wager they've got something to say to you, if you've the patience to listen." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Stonard could use a few prayers, though I've never been sure whose ears they'd reach out here." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. Well, you came through the swamp in one piece, so whatever you're doing must be working." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. I'll not pretend I like it, since the old Horde's warlocks gave the orders when these walls went up, but the Warchief says you serve the Horde now, and I take him at his word." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "You've got a light step, which is a rare thing in this mud, so I'd wager you're either a scout or up to something, and I'm too tired to ask which." },
         { id = "h_default", key = true,
           text = "I'm Dar. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
         { id = "h_meat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lack of Surplus"), days = 3 } },
@@ -51,6 +77,8 @@ P:NPC {
       },
       choices = {
         { text = "What would these old stones say, if they could speak?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the old stones of Stonard hold any magic, Dar?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "What comes up out of the sea at Tok'Kar's beach?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who's Tok'Kar?", next = "tokkar" },
         { text = "Why does Stonard matter, then?", next = "history" },
         { text = "Doesn't it feel like home?", next = "home" },
@@ -184,9 +212,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Mostly crates for Greshka that rattle when nobody's touching them, and the riders hate every one. I fly them anyway, wrapped in oilcloth against the wet, though I sometimes wonder whether it's the wet I'm keeping out or whatever's in there." } },
+      choices = {
+        { text = "Rules are rules. Fly them and don't ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd open one and look, rules or no rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Once in a while a gryphon passes high over the swamp on its way to Nethergarde, and the riders scream at it until it's gone. I'd like to know what it carries, but my riders aren't built for chasing, and neither am I." } },
+      choices = {
+        { text = "Then I'll meet them where they land, weapon drawn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find where they land and steal what they carry.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The riders won't fly over the temple when the wind comes from the east, and maybe you can tell me why." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. The riders cough every morning, so if you've a blessing for wet lungs, they'd take it gladly, and so would I." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. I don't suppose you can dry a wind rider's wings with a spell, but I ask every one of you anyway, because a rider master lives in hope." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Keep the demon well away from the pen, because the riders already hate the swamp, and they'd hate your friend a good deal more." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "Don't sneak up on a wind rider in the mist, because it'll take your arm off before it knows who you are." },
         { id = "h_default", key = true,
           text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay, and they hate every minute of the wet before they leave." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -198,6 +252,8 @@ P:NPC {
       },
       choices = {
         { text = "What spooks your wind riders over the Sunken Temple?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do your riders carry for the spellcasters who come through?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Does the Alliance ever try to watch your pen, Breyk?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders take the swamp?", next = "wet" },
         { text = "Do you hear from the other rider masters?", next = "others" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -269,9 +325,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = {
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You'd like to know, wouldn't you, warlock? Their god answered them, which is more than most demons will do for you, and look where it left them: under the swamp." },
+        { id = "xhcast_default", text = "Closer than Fel'zerul would like to admit. The Atal'ai bargained with a god the way we bargain with demons, and they lost, which is the only lesson any of us needs, if anyone would listen." },
+      },
+      choices = {
+        { text = "Then the Warchief is right to keep warlocks on a leash.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They lost because they were weak, not because they reached.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Everyone who buys them shouldn't, by Fel'zerul's reckoning. I sell to whoever has coin and a Horde face, and if some of them go south to the Portal and don't come back, that's their business, not mine." } },
+      choices = {
+        { text = "You should turn fools away, coin or no coin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A fool's coin spends as well as anyone's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll want to tell me what warlocks did to your people, I expect, so spare me the lecture and buy something or go." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. Shadow or loa, it makes no difference to me, because neither of them buys grimoires, so be brief." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage. You study the arcane and look down on my customers, and they study the fel and look down on you, and I sell to whoever pays." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "Keep your hands off my shelves, because some of these grimoires don't like strangers, and I won't be cleaning up after them." },
         { id = "h_default", key = true,
           text = "I sell grimoires to warlocks, and you aren't one. If you've a question, make it quick, and then go and bother Karakul instead." },
         { id = "h_lock", when = { class = "WARLOCK" },
@@ -283,6 +366,8 @@ P:NPC {
       },
       choices = {
         { text = "Why does Stonard still keep a warlock's shop, after all that?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is the temple's magic anything like your trade, Greshka?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Who buys your grimoires that shouldn't, Greshka?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's in your grimoires?", next = "grimoires" },
         { text = "Why sell to warlocks here, of all places?", next = "why" },
         { text = "Fel'zerul is a warlock too.", next = "felzerul" },
@@ -364,9 +449,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They trust anyone who keeps the ogres off them, and they curse anyone whose fireball lands too close. Stand where they can see you, don't let your spells go wide, and you'll get on fine." } },
+      choices = {
+        { text = "I'll stand where they can see me, and take my share.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll stay hidden and let them draw the ogres.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhrogue = {
+      big = true,
+      lines = { { id = "xhrogue_default", text = "Down the road from the Blasted Lands, from Rockard, which was ours before it was theirs. They come in loud and they come in big, and they never look behind them, which is your sort's favourite kind of enemy." } },
+      choices = {
+        { text = "Then I'll strike them on Ruag's word, not before.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hit them when I choose, not when Ruag says.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hit like a warrior and heal like a priest, and I've never decided whether to train you or envy you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest. You'll be the one patching up my warriors when they fall in the mud, so stand close to the yard and keep your hands warm." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
+          text = "A mage, in cloth robes, in this mud. You'll be face down before the first ogre swings, so stay behind the warriors where you belong." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
+          text = "A warlock. Keep your demon out of my yard, because my warriors have enough trouble with the mud without a voidwalker getting in the way." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
+          text = "A rogue. You fight from behind, which my warriors call cowardly and I call sensible, though I'll never say that in front of them." },
         { id = "h_default", key = true,
           text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet." },
         { id = "h_war", when = { class = "WARRIOR" },
@@ -378,6 +489,8 @@ P:NPC {
       },
       choices = {
         { text = "Do your warriors respect shamans fighting beside them?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do your warriors trust spellcasters at their backs, Malosh?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where do the Dreadmaul ogres come in from, Malosh?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why train in the mud?", next = "mud" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
