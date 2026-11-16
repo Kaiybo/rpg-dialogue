@@ -255,6 +255,6 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I've kept the racks at the Canal Tailor and Fit Shop for years, with Rema at her needle behind me." } },
-    _none = { { id = "tp_none", text = "Not my line, I'm afraid. Ask me about cloth." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid, but I can tell you anything about wool and linen." } },
   },
 }

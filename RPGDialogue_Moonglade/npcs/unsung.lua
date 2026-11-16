@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_default", text = "I am Malvor, and I tend the herbs of Moonglade and teach those who wish to learn herbalism. Everything here grows a little differently, because the grove sits so close to the Dream." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Is there another herb on your mind, or something else entirely?" },
         { id = "h_again2", text = "Go on. I was only listening to the leaves." },
       },
       choices = {

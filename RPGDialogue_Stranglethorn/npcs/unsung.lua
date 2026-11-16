@@ -523,7 +523,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I kept the Cartel's books in Gadgetzan before they sent me here. The ledgers are the same, but the customers carry more knives." } },
-    advice = { { id = "tp_ad", text = "Never carry more gold than you can afford to lose. That's what the bank is for." } },
+    advice = { { id = "tp_ad", text = "Leave your spare coin with us before you go into the jungle. The trolls never bother robbing a vault." } },
     _none = { { id = "tp_none", text = "That's not in my ledgers, friend, and if it's not in the ledgers, I don't know it." } },
   },
 }

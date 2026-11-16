@@ -129,7 +129,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep it short; I've a drill starting." },
-        { id = "h_again2", text = "Ask, and stand straight while you do it." },
+        { id = "h_again2", text = "Your question, then, and keep your chin up while you ask it." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS" },
@@ -699,7 +699,7 @@ P:NPC {
           text = "You'll bleed more than most, given how you fight. I'd learn this before you learn anything else, if I were you." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm in no hurry." },
+        { id = "h_again", text = "Another question? My bandages can wait on the table a while." },
         { id = "h_again2", text = "Go on. My next student is late, as always." },
       },
       choices = {

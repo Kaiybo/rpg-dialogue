@@ -639,7 +639,7 @@ P:NPC {
         { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a great deal of time to practice." },
       },
       again = {
-        { id = "h_again", text = "Something else? Take your time; I'm not going anywhere." },
+        { id = "h_again", text = "Another question? The fish are patient, and so am I." },
         { id = "h_again2", text = "Ask on. The line's still slack." },
       },
       choices = {

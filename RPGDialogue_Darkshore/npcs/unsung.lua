@@ -196,7 +196,7 @@ P:NPC {
         { id = "h_default", text = "I'm Taldan, and I sell drinks in Auberdine: water, milk and the juices from the groves. Nothing strong, I'm afraid, because the Sentinels prefer the docks quiet, and so do I." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Take your time, have a sip." },
+        { id = "h_again", text = "Something more? Sit, have a sip of moonberry juice, and ask." },
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {

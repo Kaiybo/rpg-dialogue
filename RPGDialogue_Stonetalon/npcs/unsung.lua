@@ -36,7 +36,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
-        { id = "h_again2", text = "Ask on. The birds are resting." },
+        { id = "h_again2", text = "Ask whatever you like while the hippogryphs settle their feathers." },
       },
       choices = {
         { text = "I need a flight.", next = "BUSINESS" },
