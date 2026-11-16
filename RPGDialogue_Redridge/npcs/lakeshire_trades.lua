@@ -81,7 +81,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've feathers to trim." },
-        { id = "h_again2", text = "Go on. My hands are busy but my ears aren't." },
+        { id = "h_again2", text = "Ask away, friend; Lakeshire folk learn to talk while they work, and I'm no different." },
       },
       choices = {
         { text = "Show me your arrows.", next = "BUSINESS" },
@@ -138,7 +138,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the powder kegs." },
-        { id = "h_again2", text = "Go on, then. Quietly, if you would." },
+        { id = "h_again2", text = "Go on, then, but quietly, if you would." },
       },
       choices = {
         { text = "Show me your guns.", next = "BUSINESS" },

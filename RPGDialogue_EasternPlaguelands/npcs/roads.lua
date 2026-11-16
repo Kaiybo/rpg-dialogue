@@ -243,7 +243,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Betina Bigglezink, of the Argent Dawn. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
-          text = "You've got the Gambit? Wonderful! Set it in the viewing room in Scholomance, step back, and step back a bit further than that, please." },
+          text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
       },
       choices = {
         { text = "Gnomeregan's loss made us all inventors, didn't it?", next = "gnome", when = { race = "Gnome" } },

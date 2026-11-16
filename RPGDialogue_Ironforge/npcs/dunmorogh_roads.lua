@@ -115,7 +115,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Somethin' else on yer mind? I've nowhere to be." },
-        { id = "h_again2", text = "Go on, the snow's no' goin' anywhere and neither am I." },
+        { id = "h_again2", text = "Ask what ye like, lad; I've a fire goin' and nowhere better to be." },
       },
       choices = {
         { text = "A bear stole your food?", next = "bear" },

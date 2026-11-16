@@ -139,7 +139,7 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well now, a proper dwarf! Ye've no idea how good it is to hear a sensible voice up here among all these tall folk." },
       },
       again = {
-        { id = "h_again", text = "What else, then? Out with it." },
+        { id = "h_again", text = "What else is on your mind, then? Out with it." },
         { id = "h_again2", text = "Still here? Ask away, lad, I've a blade to quench." },
       },
       choices = {

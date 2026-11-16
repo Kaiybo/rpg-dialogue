@@ -29,7 +29,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; the walls have ears." },
-        { id = "h_again2", text = "Go on, then. I'm listenin'." },
+        { id = "h_again2", text = "Speak yer piece, then, and dinnae waste my breath or yers." },
       },
       choices = {
         { text = "How did the Dark Irons take Dun Modr?", next = "fall" },

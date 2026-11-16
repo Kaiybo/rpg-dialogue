@@ -93,7 +93,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "If it doesn't have tracks, I don't follow it." } },
+    _none = { { id = "tp_none", text = "Unless it leaves tracks or wears fur, I've nothing to teach you about it." } },
   },
 }
 

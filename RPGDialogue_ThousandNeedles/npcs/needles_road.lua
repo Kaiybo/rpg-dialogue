@@ -10,7 +10,7 @@ P:NPC {
     third = "{name} met Pao'ka Swiftmountain, a young tauren lost in the canyons of Thousand Needles.",
   },
   greetings = {
-    { id = "g_main", text = "Oh! You're not a centaur. Thank the Earth Mother." },
+    { id = "g_main", text = "Oh, you're not a centaur, thank the Earth Mother!" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I'm still here, sort of, if that's good news." },
   },
   start = "hello",

@@ -43,7 +43,7 @@ P:NPC {
           text = "You've brought the manual! A young engineer answering the call of true engineering, how splendid. Read it all, then sign the pledge, and mean it." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm not going anywhere, alas." },
+        { id = "h_again", text = "More questions? Splendid, it's that or stare at my blueprints of Gnomeregan again." },
         { id = "h_again2", text = "Ask on, ask on! It takes my mind off things." },
       },
       choices = {

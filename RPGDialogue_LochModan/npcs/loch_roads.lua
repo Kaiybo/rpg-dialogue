@@ -31,7 +31,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Speak up." },
-        { id = "h_again2", text = "Go on, then. I've a minute, no more." },
+        { id = "h_again2", text = "Ask yer question, but keep it short; the Loch road needs watchin'." },
       },
       choices = {
         { text = "What's happening at the Silver Stream Mine?", next = "mine" },

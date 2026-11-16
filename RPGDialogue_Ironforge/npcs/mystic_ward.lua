@@ -687,7 +687,7 @@ P:NPC {
           text = "A priest! We'd be lost wi'out yer kind; it's yer lot patchin' up my husband right now. Thank ye, on his behalf, for he'll forget tae." },
       },
       again = {
-        { id = "h_again", text = "What else would ye ask?" },
+        { id = "h_again", text = "Go on, lass or lad; the Light's never too busy fer an honest question." },
         { id = "h_again2", text = "Go on. I've time for an honest question." },
       },
       choices = {

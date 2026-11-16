@@ -152,7 +152,7 @@ P:NPC {
 
     k_hunter = {
       lines = {
-        { id = "xhu_default", text = "Help me track? Ha! Go out and find me the coyote den in the western gullies, then come back and tell me which way the wind was blowing when you found it. If you can do that, we'll talk about helping." },
+        { id = "xhu_default", text = "Help me track, ha! Go find me the coyote den in the western gullies, then come back and tell me which way the wind was blowing when you found it, and if you can do that, we'll talk about helping." },
         { id = "xhu_tauren", when = { race = "Tauren" },
           text = "A tauren hunter, and you'll read this hard ground better than most orcs I've trained, since your people learned tracking on open plains. Don't let it go to your head; the Badlands punish pride." },
       },

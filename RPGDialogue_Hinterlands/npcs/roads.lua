@@ -30,7 +30,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Rin'ji, they call me, and the elves of Quel'Danil caught me in their woods and threw me in this cage. Get me out, and Rin'ji gonna tell you a secret worth more than the trouble." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Rin'ji is Trapped!") },
-          text = "You gonna do it? Good, good. Get me past the elves' bows and out of their woods, and I run the rest of the way myself." },
+          text = "You gonna do it? That be good. Get me past the elves' bows and out of their woods, and I run the rest of the way myself." },
         { id = "h_secret", when = { questActive = TODO_QUEST("Rin'ji's Secret") },
           text = "A promise be a promise, even to a stranger. Take what I told you and go find it before somebody else does." },
       },

@@ -128,7 +128,7 @@ P:NPC {
         { id = "h_default", text = "Kira Songshine, baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "I should be home by now, but there's always one more traveler on the road. Lucky for you it's this one." },
         { id = "h_hogger", when = { questActive = TODO_QUEST("WANTED: \"Hogger\"") },
-          text = "Going after Hogger? Then take two loaves. One for the walk there and one for the walk back, because I'm an optimist." },
+          text = "If you're going after Hogger, take two loaves, one for the walk there and one for the walk back, because I'm an optimist." },
         { id = "h_gnome", when = { race = "Gnome" },
           text = "Ooh, a gnome! The ones I meet always want to know how the oven works. I bake it in Goldshire, I tell them, and it works by being hot." },
       },

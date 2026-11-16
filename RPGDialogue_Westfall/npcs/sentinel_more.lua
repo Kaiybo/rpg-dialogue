@@ -249,7 +249,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_bread", text = "Fresh this morning, or fresh yesterday. On this hill that counts as fresh." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? Good. I bake for two hundred and sell to twenty, and the gulls get the rest." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more? Good, because I bake for two hundred and sell to twenty, and the gulls get the rest." },
   },
   notice = {
     { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.3 } },

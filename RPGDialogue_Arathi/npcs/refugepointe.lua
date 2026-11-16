@@ -241,7 +241,7 @@ P:NPC {
           text = "Those badges you brought back went south in my saddlebags. I don't usually think about what I carry, but I thought about those." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The birds are restless." },
+        { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
       },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -268,7 +268,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Routes and weather. Ask about either." } },
+    knows = { { id = "tp_knows", text = "I know the routes and the weather, so ask me about either one." } },
     background = { { id = "tp_bg", text = "I flew for Stromgarde before the keep fell. I still do, from a tent." } },
     advice = { { id = "tp_ad", text = "Never feed a gryphon from your hand unless you've a spare hand." } },
     _none = { { id = "tp_none", text = "That's for someone on the ground. Ask the Captain." } },

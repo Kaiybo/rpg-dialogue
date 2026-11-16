@@ -20,7 +20,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Tabetha, and yes, I live out here by choice. The marsh is full of mana and short on meddlers, which is exactly how a mage likes her neighborhood." },
         { id = "h_c0", when = { class = "MAGE" }, text = "Another student of the arcane! Then you'll feel it too, the way the ley energy pools in this swamp like rainwater." },
       },
-      again = { { id = "h_again", text = "What else is on your mind?" }, { id = "h_again2", text = "Ask, dear. I've time." } },
+      again = { { id = "h_again", text = "What else, dear? Visitors are so rare out here that I'm glad of every question." }, { id = "h_again2", text = "Ask, dear. I've time." } },
       choices = {
         { text = "Why live out in the swamp?", next = "b1_1" },
         { text = "Do you know Lady Jaina?", next = "b2_1" },
@@ -130,8 +130,8 @@ P:NPC {
     third = "{name} met Ogron, a peaceful ogre in the Dustwallow marsh.",
   },
   greetings = {
-    { id = "g_main", text = "Ogron say hello! You not run away? Good, good." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back! Ogron happy, very happy." },
+    { id = "g_main", text = "Ogron say hello, and you not run away, so that good, very good!" },
+    { id = "g_back", when = { metBefore = true }, text = "You come back, and that make Ogron happy, very happy!" },
   },
   start = "hello",
   nodes = {
@@ -179,7 +179,7 @@ P:NPC {
       choices = { { text = "Anyone can change. I believe you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "An ogre is an ogre. Prove it first.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Ogron not know that. Ogron know fish, though!" } } },
+  topics = { _none = { { id = "tp_none", text = "Ogron not know that, but Ogron know fish!" } } },
 }
 
 P:NPC {
@@ -310,7 +310,7 @@ P:NPC {
     third = "{name} met Draz'Zilb, the ogre mage advisor at Brackenwall Village.",
   },
   greetings = {
-    { id = "g_main", text = "Greetings, traveler. Speak softly, for the overlord does not like competition." },
+    { id = "g_main", text = "Well met, stranger, but speak softly, for the overlord does not like competition." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you have returned. Brackenwall still has need of capable hands." },
   },
   start = "hello",
@@ -320,7 +320,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Draz'Zilb, advisor to Overlord Mok'Morokk. While he leads the Stonemaul with his fists, I lead them with knowledge, and between us we keep Brackenwall standing." },
         { id = "h_c0", when = { class = { "MAGE", "WARLOCK" } }, text = "A fellow student of the arcane. Most ogres think magic is merely a loud kind of club, and it is pleasant to speak with someone who knows better." },
       },
-      again = { { id = "h_again", text = "What else would you know?" }, { id = "h_again2", text = "Ask, and I shall answer if I can." } },
+      again = { { id = "h_again", text = "Draz'Zilb hears you, small one. Ask your next question and be clever about it." }, { id = "h_again2", text = "Ask, and I shall answer if I can." } },
       choices = {
         { text = "Tell me about Brackenwall.", next = "b1_1" },
         { text = "You don't sound like the overlord.", next = "b2_1" },

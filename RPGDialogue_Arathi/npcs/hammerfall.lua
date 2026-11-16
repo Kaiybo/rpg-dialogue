@@ -262,7 +262,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your voice down." },
-        { id = "h_again2", text = "Ask, but quickly. Drum's on the wall." },
+        { id = "h_again2", text = "Ask, but be quick about it, because the drum's already on the wall." },
       },
       choices = {
         { text = "Who is Or'Kalar?", next = "orkalar" },
@@ -317,7 +317,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know what the bones tell me, and a little of what Drum doesn't. Ask carefully." } },
     background = { { id = "tp_bg", text = "Drum's wife, and Hammerfall's augur. The second job is harder.", next = "secret" } },
     advice = { { id = "tp_ad", text = "Never tell a proud orc where his old enemy sleeps. Tell me instead." } },
-    _none = { { id = "tp_none", text = "The bones don't speak of that, and neither will I." } },
+    _none = { { id = "tp_none", text = "I've cast no augury on that, and I'll not waste good bones finding out." } },
   },
 }
 
@@ -334,7 +334,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Need a wind rider? They're saddled and they're restless, so don't keep them waiting." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. The beasts remember you, which is more than they do for most." },
+    { id = "g_back", when = { metBefore = true }, text = "You return to Hammerfall. My wind riders know your scent now, and they don't snap at it." },
   },
 
   notice = {
@@ -379,9 +379,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Winds and routes. Ask me those." } },
+    knows = { { id = "tp_knows", text = "Winds and routes are what I know, so ask me about those." } },
     background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone. Here I am." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the Alterac foothills. The gusts come without warning." } },
-    _none = { { id = "tp_none", text = "Not my business. My business is wings." } },
+    _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings." } },
   },
 }

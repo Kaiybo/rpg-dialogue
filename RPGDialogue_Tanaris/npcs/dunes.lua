@@ -119,7 +119,7 @@ P:NPC {
       choices = { { text = "Wandering is how you see the world.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Stay close to home next time, Tooga.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Tooga does not know. Tooga is a turtle." } } },
+  topics = { _none = { { id = "tp_none", text = "Tooga does not know, because Tooga is a turtle." } } },
 }
 
 P:NPC {
@@ -171,7 +171,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Oh, might it ever! May I take notes? Don't worry, I won't poke it, at least not without asking." } },
+      lines = { { id = "x_1_l", text = "Oh, might it ever! May I take notes? I promise I won't poke it, at least not without asking." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {

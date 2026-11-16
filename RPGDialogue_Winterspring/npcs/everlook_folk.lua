@@ -293,7 +293,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another one wanting something. Speak quickly, or go." },
+    { id = "g_default", text = "Another one wanting something, I see, so speak quickly or go." },
     { id = "g_hide", when = { questActive = TODO_QUEST("Pip Quickwit, At Your Service!") }, text = "You have a hide for me? Show it, and we'll see if it's worth the air you're breathing." },
   },
 
@@ -419,7 +419,7 @@ P:NPC {
           text = "Shy-Rotam is the matriarch of the frostsabers, old and clever, and she will not show herself to just anyone. Prepare well before you face her." },
       },
       again = {
-        { id = "h_again", text = "Ask what you will. The tracks will keep." },
+        { id = "h_again", text = "Ask what you will, for the tracks will keep a while." },
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
@@ -534,7 +534,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I flew for the Horde across the Barrens before they sent me here to freeze. I don't complain much, though the riders do." } },
     advice = { { id = "tp_ad", text = "Wear something warm when you fly. The wind up there bites harder than the riders." } },
-    _none = { { id = "tp_none", text = "I keep wind riders. That's all I know." } },
+    _none = { { id = "tp_none", text = "I keep wind riders, and that's all I know." } },
   },
 }
 

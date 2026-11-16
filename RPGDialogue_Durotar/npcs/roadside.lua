@@ -229,7 +229,7 @@ P:NPC {
         { text = "What makes a good warrior?", next = "good" },
         { text = "I'll be going.", next = "END" },
       },
-      again = { { id = "h_again", text = "Still here? Ask, then, and be quick about it." } },
+      again = { { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." } },
     },
     scars = {
       lines = { { id = "s_default", text = "The Second War, mostly, and a few from the camps' guards when I was too stubborn to sit down. Every one of them taught me something, which is more than I can say for most teachers." } },

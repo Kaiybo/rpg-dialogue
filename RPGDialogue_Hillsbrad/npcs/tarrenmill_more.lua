@@ -283,7 +283,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the town and the road to Dun Garok. Ask." } },
     background = { { id = "tp_bg", text = "Deathguard of Tarren Mill, presently unarmed.", next = "lost" } },
-    advice = { { id = "tp_ad", text = "Keep your gear on. Trust me." } },
+    advice = { { id = "tp_ad", text = "Keep your gear on, and trust me on that." } },
     _none = { { id = "tp_none", text = "I don't know. I don't even know where my sword is." } },
   },
 }
@@ -301,7 +301,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Off to fight the humans? Lucky you. I'm stuck here guarding a door." },
-    { id = "g_back", when = { metBefore = true }, text = "The lucky one returns! How many humans today? Hundreds, I hope." },
+    { id = "g_back", when = { metBefore = true }, text = "The lucky one returns! How many humans did you put down today, hundreds I hope?" },
   },
 
   notice = {
@@ -443,7 +443,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know who's weak. Ask about anything else and I'll decide if you're worth answering." } },
     background = { { id = "tp_bg", text = "Warrior before, warrior after. The middle part was unpleasant." } },
     advice = { { id = "tp_ad", text = "Hit first. The ogres will hit harder." } },
-    _none = { { id = "tp_none", text = "Ask someone who cares. That isn't me." } },
+    _none = { { id = "tp_none", text = "Ask someone who cares, because that isn't me." } },
   },
 }
 
@@ -505,9 +505,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Routes and bats. That's my whole world." } },
+    knows = { { id = "tp_knows", text = "Routes and bats are my whole world, I'm afraid." } },
     background = { { id = "tp_bg", text = "I was something else once. Now I fly bats, and I like it better." } },
-    advice = { { id = "tp_ad", text = "Hold still on landing. They hate a fidget." } },
+    advice = { { id = "tp_ad", text = "Hold still when you land, because the bats hate a fidget." } },
     _none = { { id = "tp_none", text = "Ask somebody on the ground. I'm mostly in the air." } },
   },
 }
@@ -570,6 +570,6 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Stock and prices, and who buys what. Ask." } },
     background = { { id = "tp_bg", text = "I kept a shop before the plague. I keep one after. It's the same shop, nearly." } },
     advice = { { id = "tp_ad", text = "Buy rope. Everyone always needs rope, and nobody ever has it." } },
-    _none = { { id = "tp_none", text = "I don't sell that, and I don't know about it." } },
+    _none = { { id = "tp_none", text = "Not something I carry, I'm afraid, and the Tarren Mill gossip hasn't mentioned it either." } },
   },
 }

@@ -475,7 +475,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anythin' further?" },
-        { id = "h_again2", text = "Go on; I've a moment before the next report." },
+        { id = "h_again2", text = "Be brief, if ye please; the King's reports pile up faster than I can read them." },
       },
       choices = {
         { text = "What does an advisor to the King do?", next = "advisor" },

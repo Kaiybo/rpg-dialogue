@@ -1096,7 +1096,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights over the Steppes are a sight, with the whole mountain glowin' red below ye. Hold on tight, mind; the hot air throws the birds about." },
       },
-      again = { { id = "h_again", text = "Anything else, or are ye flyin'?" } },
+      again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },
       choices = {
         { text = "Where can your gryphons take me?", next = "routes" },
         { text = "How do the birds stand the heat?", next = "heat" },

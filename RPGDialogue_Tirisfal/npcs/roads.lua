@@ -13,7 +13,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fresh", text = "Freshly risen, are you? It shows. Come here, and I'll tell you what you're missing." },
+    { id = "g_fresh", text = "Freshly risen, are you? It shows, so come here and I'll tell you what you're missing." },
   },
 
   notice = {

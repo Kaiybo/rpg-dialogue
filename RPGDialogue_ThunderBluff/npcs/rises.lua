@@ -39,7 +39,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
-        { id = "h_again2", text = "Go on, ask. The pools aren't going anywhere." },
+        { id = "h_again2", text = "Ask what you will, child; the healing waters of the Spirit Rise are patient." },
       },
     },
     why = {

@@ -184,7 +184,7 @@ P:NPC {
           text = "The old recipe needs what the forest around Dolanaar provides, and I've no time to hunt it myself. Bring it, and I'll teach you a taste of home." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The pot won't stir itself." },
+        { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
         { id = "h_again2", text = "Ask away, friend; I can talk and cook at once." },
       },
       choices = {

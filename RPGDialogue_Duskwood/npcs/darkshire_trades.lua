@@ -24,7 +24,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? The birds want their supper." },
-        { id = "h_again2", text = "Go on, then. It's quiet, for once." },
+        { id = "h_again2", text = "Go on, then, since it's quiet in here for once." },
       },
       choices = {
         { text = "I need a flight.", next = "BUSINESS" },

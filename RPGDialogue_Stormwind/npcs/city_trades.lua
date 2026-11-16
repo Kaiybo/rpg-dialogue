@@ -23,7 +23,7 @@ P:NPC {
         { id = "h_cond", when = { race = "NightElf" }, text = "A sister of the forest, so far from home! You will find the herbs here tamer than ours, but they still answer to a gentle hand." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Ask away while I sort these cuttings; the earthroot won't mind waiting." },
         { id = "h_again2", text = "Ask. The trees are patient, and so am I." },
       },
       choices = {
@@ -70,7 +70,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Hold still and watch my hands. Bandaging is easy until you're bleeding." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more lessons? Good. A bandage you can tie is worth a priest you can't find." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more lessons? Good, because a bandage you can tie is worth a priest you can't find." },
   },
   start = "hello",
   nodes = {
@@ -137,7 +137,7 @@ P:NPC {
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! Now here's someone who'll appreciate a well-seasoned stave. Come, feel the draw on this one." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "Ask what you like; I've a moment between passengers, and the ledgers can wait." },
         { id = "h_again2", text = "Go on, friend, I love a good chat." },
       },
       choices = {

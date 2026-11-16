@@ -189,7 +189,7 @@ P:NPC {
         { text = "Thank you, elder.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Something more? The spirits are patient, and so am I." },
+        { id = "h_again", text = "Is there more? The Earth Mother hears every question, and I will hear yours." },
       },
     },
     shaman = {

@@ -44,7 +44,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
-        { id = "h_again2", text = "Go on, I can pour and listen at the same time." },
+        { id = "h_again2", text = "Ask away while I pour; the militia drink faster than they talk, so I've a moment." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },

@@ -79,7 +79,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Jonathan the Revelator, and I have seen what lies beneath these sands. The silithid swarm is only the beginning, and something older and darker stirs below them." },
       },
-      again = { { id = "h_again", text = "What more would you know?" }, { id = "h_again2", text = "Ask, while there is still time!" } },
+      again = { { id = "h_again", text = "Ask while there's still time to ask, for the end draws nearer with every grain of sand!" }, { id = "h_again2", text = "Ask, while there is still time!" } },
       choices = {
         { text = "What lies beneath the sands?", next = "b1_1" },
         { text = "Why should I believe you?", next = "b2_1" },
@@ -178,7 +178,7 @@ P:NPC {
       choices = { { text = "Victory first, grudges later.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I know war, not that." } } },
+  topics = { _none = { { id = "tp_none", text = "If I cannot fight it or sharpen a blade on it, I know nothing about it." } } },
 }
 
 P:NPC {

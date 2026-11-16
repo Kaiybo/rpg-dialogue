@@ -28,7 +28,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Deathstalker Erland, of the Sepulcher. I'm to report to Rane Yorick down the road, but the worgen have been thick along it, and one deathstalker alone is only a meal." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Escorting Erland") },
-          text = "You'll walk with me? Good. Stay close, keep your blade out, and if you hear howling, don't stop to admire it." },
+          text = "You'll walk with me? Good, then stay close, keep your blade out, and if you hear howling, don't stop to admire it." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You're no friend of the Sepulcher, so I'll keep my hand on my knife while we talk. Still, you've not drawn on me, and the worgen won't care which flag either of us flies." },
       },
@@ -152,7 +152,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not my concern. Pyrewood is my concern." } },
+    _none = { { id = "tp_none", text = "That's not my concern, for Pyrewood is my concern." } },
   },
 }
 

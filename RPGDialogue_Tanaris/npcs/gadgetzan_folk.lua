@@ -77,7 +77,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I counted coins in Booty Bay until the Cartel needed a careful pair of hands out here, and careful hands are rare in a desert." } },
-    advice = { { id = "tp_ad", text = "Never carry more across the dunes than you can afford to lose to a bandit." } },
+    advice = { { id = "tp_ad", text = "Out in the dunes, a smart traveler buries half his coin and remembers where." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the peace because peace is good for business, and the vault is where that business ends up." } },
     _none = { { id = "tp_none", text = "That isn't something I can put a price on, so I don't know anything about it." } },
   },
@@ -319,7 +319,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I cooked for pirates, for the Cartel and once for a trogg, who ate the plate. Now I cook for Gadgetzan, which is all of those at once." } },
     advice = { { id = "tp_ad", text = "In the desert, salt the meat and not your wounds. Learn that one the easy way." } },
-    _none = { { id = "tp_none", text = "Can I fry it? No? Then I don't know it." } },
+    _none = { { id = "tp_none", text = "If I can't fry it, then I don't know a thing about it." } },
   },
 }
 

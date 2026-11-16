@@ -71,7 +71,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Mind the wheel, friend. That one's been squeaking since Thunder Axe and I'm not fixing it on the road." },
-    { id = "g_back", when = { metBefore = true }, text = "Back with us? The kodos remember you, which is more than I can say for most travelers." },
+    { id = "g_back", when = { metBefore = true }, text = "Back with the caravan, are you? Good, I'll take any company that helps me watch our tail." },
   },
   start = "hello",
   nodes = {
@@ -140,7 +140,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and I've got the buyers." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap. Then lead the tame ones back here and I'll do the rest." },
       },
-      again = { { id = "h_again", text = "What else? Time is money, and you're spending both." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
+      again = { { id = "h_again", text = "Another question? Fine, but every one of 'em costs me a kodo bone I could be hauling." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
       choices = {
         { text = "Why kodos?", next = "b1_1" },
         { text = "What is the Kombobulator?", next = "b2_1" },
@@ -260,7 +260,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may be worth more than anything we could take by force." },
       },
-      again = { { id = "h_again", text = "What else would you know?" }, { id = "h_again2", text = "Speak. The hunt can wait a moment." } },
+      again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
         { text = "Tell me about the Burning Blade.", next = "b1_1" },
         { text = "Why do they call you Demonslayer?", next = "b2_1" },

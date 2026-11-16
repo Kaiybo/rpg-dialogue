@@ -47,7 +47,7 @@ P:NPC {
           text = "Midnight again. That be the hour they came for him, so the watchers stand double on the walls now, and I stand with them." },
       },
       again = {
-        { id = "h_again", text = "What else, then? Say it quick." },
+        { id = "h_again", text = "What else do you need, then? Say it quick." },
         { id = "h_again2", text = "Go on. The tide be comin' in, but I can listen." },
         { id = "h_again3", when = { questDone = TODO_QUEST("Return to Primal Torntusk") }, text = "Ask what you want, friend of Revantusk." },
       },
@@ -470,7 +470,7 @@ P:NPC {
           text = "Night fishin' be the best fishin', mon. The water goes quiet and the big ones come up to look at the moon." },
       },
       again = {
-        { id = "h_again", text = "What else, mon? The fish be patient." },
+        { id = "h_again", text = "What else you need, mon? The fish be patient with us." },
         { id = "h_again2", text = "Go on, I be listenin' and fishin' both." },
       },
       choices = {
@@ -520,7 +520,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know fish, mon. Ask me about fish." } },
+    knows = { { id = "tp_knows", text = "I know fish, mon, so you ask me about fish." } },
     background = { { id = "tp_bg", text = "I fish. Before that, I wanted to fish. That be my whole story, mon.", next = "pagle" } },
     advice = { { id = "tp_ad", text = "Be patient, mon. The fish know when you be in a hurry." } },
     _none = { { id = "tp_none", text = "No idea, mon. Ask me about fish instead." } },
@@ -561,7 +561,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else little one want? Lard listenin'." },
-        { id = "h_again2", text = "You still here. Good, Lard like company." },
+        { id = "h_again2", text = "You still here, and that good, because Lard like company." },
       },
       choices = {
         { text = "Make this inn my home.", next = "BUSINESS" },
@@ -613,7 +613,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Lard know fish, and beds, and who is fightin'. Ask Lard." } },
     background = { { id = "tp_bg", text = "Lard was ogre in the mountains. Now Lard is ogre by the sea, which is better.", next = "ogre" } },
     advice = { { id = "tp_ad", text = "Always eat lunch before Vilebranch find you. Lard learn that the hard way." } },
-    _none = { { id = "tp_none", text = "Lard not know that. Lard know fish, though!" } },
+    _none = { { id = "tp_none", text = "Lard not know that, but Lard know fish!" } },
   },
 }
 
@@ -652,7 +652,7 @@ P:NPC {
           text = "My tools! I still can't believe you found them. I've been using them all day just to feel the weight of them in my hands again." },
       },
       again = {
-        { id = "h_again", text = "What else? The forge is hot." },
+        { id = "h_again", text = "Speak, then, but these borrowed tools make me short of temper, so keep it plain." },
         { id = "h_again2", text = "Ask away; I can talk and hammer at once." },
       },
       choices = {
@@ -739,7 +739,7 @@ P:NPC {
           text = "I wish I coulda seen their faces, mon! Tell me again how loud the Thane yelled, and don't leave nothin' out." },
       },
       again = {
-        { id = "h_again", text = "What else, mon? Talk fast." },
+        { id = "h_again", text = "What else you need, mon? Talk fast now." },
         { id = "h_again2", text = "Go on. I be thinkin' up the next message anyway." },
       },
       choices = {

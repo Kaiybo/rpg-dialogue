@@ -91,7 +91,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cook", text = "Hey, hey! Hungry? No? Well, you will be, pal, when you smell this." },
+    { id = "g_cook", text = "Hey, hey, you hungry, pal? No? Well, you will be once you smell this." },
   },
 
   start = "hello",
@@ -104,7 +104,7 @@ P:NPC {
           text = "Buzzard wings, as many as you can carry, and don't let 'em go rotten in the sun. The secret's in the sauce, and the sauce needs wings." },
       },
       again = {
-        { id = "h_again", text = "What else, pal? Time's money!" },
+        { id = "h_again", text = "What else can I do for you, pal, since time is money?" },
         { id = "h_again2", text = "Yeah, yeah, what is it?" },
       },
       choices = {

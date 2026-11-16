@@ -80,7 +80,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Torwa Pathfinder. I came to this crater to learn from its beasts, and the greatest of them, Lar'korwi, has become my teacher and my quarry." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Bait for Lar'korwi") }, text = "Lay the bait where Lar'korwi hunts, and be ready, for he will come quickly and he will not come gently." },
       },
-      again = { { id = "h_again", text = "What else would you know?" }, { id = "h_again2", text = "Speak, hunter." } },
+      again = { { id = "h_again", text = "Ask, and I'll answer while I watch the treeline for raptors." }, { id = "h_again2", text = "Speak, hunter." } },
       choices = {
         { text = "Who is Lar'korwi?", next = "b1_1" },
         { text = "Why come to Un'Goro?", next = "b2_1" },

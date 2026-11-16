@@ -36,7 +36,7 @@ P:NPC {
           text = "These are Alliance birds, friend, and they'll not carry you. Your wind riders are round the other side of the ledge, and the walk does you good." },
       },
       again = {
-        { id = "h_again", text = "Anything else, or are we flying?" },
+        { id = "h_again", text = "Anything else? The gryphons hate this salt air, so let's not keep them waiting." },
         { id = "h_again2", text = "Ask away. The birds are digesting." },
       },
       choices = {
@@ -374,7 +374,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Zarena Cromwind. I sell the best steel south of Stormwind and north of nowhere, to anyone who'll pay for it. Sailors rust, pirates break and I get rich, so it's a fair arrangement." },
       },
-      again = { { id = "h_again", text = "Anything else? The forge doesn't heat itself." } },
+      again = { { id = "h_again", text = "Need something more? Mind the sparks, and know the sea air rusts whatever I don't keep hot." } },
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why set up shop in Booty Bay?", next = "why" },

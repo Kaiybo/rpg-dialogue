@@ -123,7 +123,7 @@ P:NPC {
           text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
         { id = "h_again2", text = "Anything more? The riders are waiting, but patiently." },
       },
       choices = {

@@ -1146,7 +1146,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Hungry? Course you are; everyone who comes up that road is. Have a look." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? I'll take that as a compliment to the cooking." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, the stew's hot, and it's the only warm thing this side of the Keep." },
   },
 
   notice = {

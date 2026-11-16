@@ -335,7 +335,7 @@ P:NPC {
         { id = "h_back", when = { metBefore = true }, text = "You're back. Did the last lesson take, or did you burn it?" },
       },
       again = {
-        { id = "h_again", text = "Anything else? The ribs need turning." },
+        { id = "h_again", text = "Anything else? Mind the smoke, because those ribs want me back at the grill." },
         { id = "h_again2", text = "Go on." },
       },
       choices = {

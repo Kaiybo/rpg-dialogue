@@ -383,7 +383,7 @@ P:NPC {
           text = "Klockmort Spannerspan needs help in Gnomeregan, and I can't leave the forge. My heart aches for my friend, so if you go in my place, I'll be in your debt." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk and hammer at the same time." },
+        { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
         { id = "h_again2", text = "Ask away, friend; the iron's still heating." },
       },
       choices = {

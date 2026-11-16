@@ -140,7 +140,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Kindal Moonweaver. The Grimtotem have been trapping the wild creatures of Feralas and caging them, and I mean to see every one of them freed." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Freedom for All Creatures") }, text = "The cages are in the Grimtotem compound. Open them, and the creatures will find their own way home; they know these woods better than we do." },
       },
-      again = { { id = "h_again", text = "What more would you know?" }, { id = "h_again2", text = "Ask, but quietly." } },
+      again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices." }, { id = "h_again2", text = "Ask, but quietly." } },
       choices = {
         { text = "Why do the Grimtotem cage them?", next = "b1_1" },
         { text = "Who are you, Kindal?", next = "b2_1" },

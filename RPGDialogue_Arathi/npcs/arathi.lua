@@ -222,7 +222,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Say it plain; Hammerfall has no time for riddles." },
-        { id = "h_again2", text = "Speak. The walls are listening, and so am I." },
+        { id = "h_again2", text = "Say your piece, but keep it low; there are too many ears in these hills." },
       },
       choices = {
         { text = "Tell me about this place.", next = "history" },

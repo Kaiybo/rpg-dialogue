@@ -1072,7 +1072,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Gretchen Mayberry, Gryphon Master. If you're headed anywhere the Brotherhood holds, I'll have you there before the fog lifts." },
       },
-      again = { { id = "h_again", text = "Anything else? They're getting restless." } },
+      again = { { id = "h_again", text = "Anything else? My gryphons like to be off before the river mist closes in again." } },
       choices = {
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "Gryphons, this far from Ironforge?", next = "gryphons" },

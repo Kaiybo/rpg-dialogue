@@ -55,6 +55,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've walked these roads since before the walls of Stormwind were rebuilt, and I'll walk them after." } },
     defias = { { id = "tp_defias", text = "They robbed me once and left me my boots. I've decided to call that manners." } },
-    _none = { { id = "tp_none", text = "Never heard of it, friend, and I've heard of most things." } },
+    _none = { { id = "tp_none", text = "Can't say I know it, and believe me, a man on this road hears a great deal." } },
   },
 }
