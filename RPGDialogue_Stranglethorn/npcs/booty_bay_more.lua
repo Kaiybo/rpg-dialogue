@@ -102,7 +102,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_ledge", text = "Wind riders, Horde only. Stand clear of the tails; the stingers aren't for show." },
+    { id = "g_ledge", text = "These wind riders carry the Horde and nobody else. Stand clear of the tails, because the stingers aren't for show." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, the beasts like a familiar smell." },
   },
 
@@ -275,7 +275,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_blades", text = "Blades! Sharp ones, old ones, sharp old ones. Have a look, carefully." },
+    { id = "g_blades", text = "Every blade on this wall is sharp, and most of them are old. Look all you like, but keep your hands behind your back." },
   },
 
   notice = {
@@ -357,7 +357,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_forge", text = "New steel, properly forged, priced like it. If you want rust and a story, Jutak's next door." },
+    { id = "g_forge", text = "My steel is new, properly forged and priced to match. If you want rust and a story, Jutak's next door." },
   },
 
   notice = {
@@ -448,7 +448,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hats", text = "Hats! Coats! Everything a fearsome buccaneer needs except the ship and the nerve!" },
+    { id = "g_hats", text = "Come in, come in! I sell everything a fearsome buccaneer needs except the ship and the nerve." },
   },
 
   notice = {
@@ -526,7 +526,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_food", text = "Hungry? Thirsty? Both? Both's my favorite customer!" },
+    { id = "g_food", text = "Are you hungry or thirsty? If it's both, you're my favorite kind of customer!" },
   },
 
   notice = {
@@ -608,7 +608,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cloth", text = "Thread, cloth, patterns! And please don't touch the silk with tar on your hands." },
+    { id = "g_cloth", text = "I've thread, cloth and patterns for anyone who sews, but please don't touch the silk with tar on your hands." },
   },
 
   notice = {
