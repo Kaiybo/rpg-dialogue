@@ -1,4 +1,4 @@
-# Winterspring  (keys: vizzie, umi, gregor, donova, mauari)
+# Winterspring  (keys: vizzie, umi, gregor, donova, mauari, legacki, felnok, jessica, malyfous, storm, yugrek, maethrya)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Everlook (Steamwheedle Cartel trading post at Winterspring's crossroads; no formal leader; Argent Dawn sends Gregor Greystone; Everlook Bruiser guards; Classic NPCs Gregor Greystone, Jessica Redpath, Storm Shadowhoof)
@@ -21,7 +21,7 @@
 - Mau'ari's location named (the source places her at Snowden Chalet, which may be later): she's simply "in the snow".
 - Vizzie's stove gossip, Mau'ari's "have some fun" line, Donova's greeting: never verbatim.
 - The Argent Crusade, Tirion's later role, anything after Year 1.
-- Which goblin friends Umi frightens: the source doesn't name them.
+- Which goblin friends Umi frightens beyond Legacki (the quest's target, 0.37.0): the source names no others.
 
 ## Voices
 - Vizzie: jumpy, friendly goblin innkeeper who hates bugs.
@@ -37,3 +37,26 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Donova (Persuade, `who_guess`): her guess, only a guess, is that the goo smells like Felwood's water, so she'd look south first (no culprit named).
 - Gregor (Persuade, `scarlet_inside`): some Dawn soldiers would rather not welcome the Forsaken and a few flinch at orcs, and he writes that into his reports too (authored, matching his Forsaken line).
+
+## Everlook's other residents (0.37.0, npcs/everlook_folk.lua)
+### Sources
+- https://warcraft.wiki.gg/wiki/Everlook (NPC list: Legacki, Felnok Steelspring, Malyfous Darkhammer <The Thorium Brotherhood>, Yugrek <Wind Rider Master> orc, Maethrya <Hippogryph Master> night elf; Classic: Gregor Greystone, Jessica Redpath, Storm Shadowhoof)
+- https://warcraft.wiki.gg/wiki/Legacki (female goblin in Everlook; scaring her is the objective of Are We There, Yeti? in Classic)
+- https://warcraft.wiki.gg/wiki/Felnok_Steelspring, https://warcraft.wiki.gg/wiki/Chillwind_Horns (goblin; Tinkee Steamboil's Dawn's Gambit chain: Felnok Steelspring, Chillwind Horns (8 uncracked horns), Return to Tinkee; puts on gloves and packs the horns for Tinkee)
+- https://warcraft.wiki.gg/wiki/Jessica_Redpath, https://warcraft.wiki.gg/wiki/Sister_Pamela (human, Argent Dawn; fled Lordaeron before the Scourge; daughter of Joseph Redpath, older sister of Pamela; fears her family died at the Battle of Darrowshire; Sister Pamela starts the Darrowshire chain)
+- https://warcraft.wiki.gg/wiki/Malyfous_Darkhammer (Dark Iron, Thorium Brotherhood; "does not waste time on ants"; proud of his caliber; a pristine hide of the Beast is "one in a million"; Pip Quickwit, At Your Service! opens his catalogue: Breastplate of Bloodthirst, Cap of the Scarlet Savant, Leggings of Arcana)
+- https://warcraft.wiki.gg/wiki/Storm_Shadowhoof (tauren; moved to Everlook in 1.7.0; Ursius of the Shardtooth, Brumeran of the Chillwind, Shy-Rotam, Past Endeavors; unfriendly to the Alliance until 2.3); https://warcraft.wiki.gg/wiki/Shy-Rotam (frostsaber matriarch; frostsabers allied with the night elves since Tyrande saved their leader)
+### Their quests
+- Legacki: none of her own; the target of Are We There, Yeti?.
+- Felnok: Chillwind Horns, Return to Tinkee (turn-in for Felnok Steelspring).
+- Jessica: Sister Pamela.
+- Malyfous: Pip Quickwit, At Your Service! and the catalogue pieces.
+- Storm: Ursius of the Shardtooth, Brumeran of the Chillwind, Shy-Rotam.
+- Yugrek, Maethrya: none (service).
+### Never
+- Jessica learning Pamela's fate from anyone but the player; the rest of the Darrowshire chain told by her.
+- Felnok knowing Tinkee's patron is Vectus.
+- Storm's reasons beyond the hunt (the source gives none); Past Endeavors is not used.
+### Voices (authored, not canon)
+- Legacki: smug gossip, laughs at Umi; her bet with Umi is authored. Felnok: fussy, gloves, counts his springs. Jessica: quiet, guilty survivor. Malyfous: contemptuous, warms only to work. Storm: stern hunter's honour. Yugrek: gruff, his wind riders chew everything. Maethrya: soft-spoken, politely suspicious of the goblins.
+- Existing NPCs deepened: Vizzie on her neighbours and a hunter's offer; Umi on Legacki; Gregor on Jessica.
