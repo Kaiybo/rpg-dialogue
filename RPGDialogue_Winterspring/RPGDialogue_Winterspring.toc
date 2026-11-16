@@ -14,3 +14,4 @@ pack.lua
 pools.lua
 npcs\everlook.lua
 npcs\springs.lua
+npcs\everlook_folk.lua

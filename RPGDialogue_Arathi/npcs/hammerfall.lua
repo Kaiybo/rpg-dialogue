@@ -29,7 +29,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Gor'mul. I was chained in this very camp, and I saw the Warchief come for us in his black armor with his hammer raised, and I saw a coward on a horse put a lance through his back. What hope is left after a thing like that?" },
+          text = "I am Gor'mul. I was chained in this very camp, and I saw the Warchief come for us in his black armor with his hammer raised, and I saw a coward on a horse put a lance through his back. Tell me what use hope is after a thing like that." },
         { id = "h_amulet", when = { questActive = TODO_QUEST("Raising Spirits") },
           text = "Tor'gan sent you with some bauble, didn't he? Polished bone will not mend what was broken here." },
         { id = "h_orb", tags = { "news" }, when = { questActive = TODO_QUEST("Guile of the Raptor") },
@@ -144,7 +144,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I be Tor'gan, shaman of Hammerfall. Thanks to the Warchief, even in the ruins of the old prison some hope remains, and I try to tend it like a small fire in the wind." },
+          text = "I be Tor'gan, shaman of Hammerfall. The Warchief gave our people back their hope, and here in the ruins of the old prison I tend what's left of it like a small fire in the wind." },
         { id = "h_hammerfall", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hammerfall"), days = 2 } },
           text = "Ah, you speak of Gor'mul. He was a captive here when Thrall and Orgrim broke the camp, and he was left behind when the earth shook, and he never found his way out of that night." },
         { id = "h_spirits", when = { questActive = TODO_QUEST("Raising Spirits") },
@@ -301,7 +301,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     auguries = {
-      lines = { { id = "a_default", text = "Bones, smoke, the flight of crows over the Thandol Span. None of it is certain, but it has been right often enough that I've stopped arguing with it." } },
+      lines = { { id = "a_default", text = "Bones, smoke, the flight of crows over the Highlands. None of it is certain, but it has been right often enough that I've stopped arguing with it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xshaman = {
@@ -347,7 +347,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, east to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
+          text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights over the Highlands are cold but quiet. The Witherbark can't aim what they can't see." },
       },
@@ -362,7 +362,7 @@ P:NPC {
       },
     },
     winds = {
-      lines = { { id = "w_default", text = "Rough over the Thandol Span and rougher over Stromgarde's ruins, where the ogres light their fires. The beasts hate the smoke, so I take them wide." } },
+      lines = { { id = "w_default", text = "Rough over the northern hills and rougher over Stromgarde's ruins, where the ogres light their fires. The beasts hate the smoke, so I take them wide." } },
       choices = {
         { text = "Why not fly straight?", next = "winds_straight" },
         { text = "Something else.", next = "BACK" },
@@ -381,7 +381,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Winds and routes. Ask me those." } },
     background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone. Here I am." } },
-    advice = { { id = "tp_ad", text = "Hold on tight over the Span. The gusts come without warning." } },
+    advice = { { id = "tp_ad", text = "Hold on tight over the Alterac foothills. The gusts come without warning." } },
     _none = { { id = "tp_none", text = "Not my business. My business is wings." } },
   },
 }

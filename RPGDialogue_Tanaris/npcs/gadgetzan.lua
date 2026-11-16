@@ -735,18 +735,44 @@ P:NPC {
         { id = "h_sand", when = { metBefore = true }, text = "There's sand in the stew again, so I tell the guests it's seasoning, a very exclusive desert seasoning." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's when Gadgetzan cools off and the Bruisers relax, a little. Hear that? Somebody's arguing about water again." },
       },
-      again = { { id = "h_again", text = "Anything else? Have a drink while you think." } },
+      again = {
+        { id = "h_again", text = "Anything else? Have a drink while you think." },
+        { id = "h_again2", text = "Ask away, friend; the stool's paid for and the gossip's free." },
+      },
       choices = {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "What's the news in town?", next = "news" },
         { text = "Why 'the Road Warrior'?", next = "name" },
         { text = "Do the Sandfury ever drink here?", next = "x_troll", when = { race = "Troll" } },
+        { text = "Who cooks for the Road Warrior?", next = "kitchen" },
+        { text = "Horde and Alliance drink here together?", next = "both", when = { level = { min = 40 } } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },
     news = {
       lines = { { id = "n_default", text = "Water's dear, the Bruisers are grumpy, Marin's elixir made a fellow small for an hour, and someone saw bugs the size of carts out past the dunes, so it's a normal week." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kitchen = {
+      lines = { { id = "k_default", text = "Dirge Quikcleave, the butcher, who'll tell you he's the greatest living chef in Azeroth before you've sat down. He's half right, which for Dirge is a fine average." } },
+      choices = {
+        { text = "Which half is right?", next = "kitchen_half" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kitchen_half = {
+      lines = { { id = "kh_default", text = "The living part, mostly, and the meat's good if you don't ask what it was. Gimblethorn eats there every night, and he's the most careful goblin in Tanaris, so that's a recommendation." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    both = {
+      lines = {
+        { id = "bo_default", text = "Same bar, same stools, same sand in the stew, and the Bruisers stand by the door to keep it that way. Bera and Bulkrek drink at opposite ends and raise their mugs to each other, which is about as warm as it gets." },
+      },
+      choices = {
+        { text = "That's how it should be everywhere.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Goblin peace lasts as long as goblin profit.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     name = {
       lines = { { id = "na_default", text = "Because everyone who walks in has crossed a desert to get here, so every guest's a road warrior, and flattery sells rooms." } },

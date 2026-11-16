@@ -35,17 +35,44 @@ P:NPC {
           text = "People ask why a goblin would run an inn at the top of the world, and it's two words: no bugs. Well, fewer bugs, anyway, because there's still that one beetle, and I know it's in here." },
         { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle, behind the bar! It looked at me and I looked at it, and we've agreed to stay out of each other's way." },
       },
-      again = { { id = "h_again", text = "More? Sit by the fire, then, only not too close, because the beetle lives there." } },
+      again = {
+        { id = "h_again", text = "More? Sit by the fire, then, only not too close, because the beetle lives there." },
+        { id = "h_again2", text = "What else, sugar? I've got gossip and soup, and both are hot." },
+      },
       choices = {
         { text = "A room, please.", next = "BUSINESS", fx = { affinity = 1 } },
         { text = "Who comes through Everlook?", next = "guests" },
         { text = "Why are you so scared of bugs?", next = "bugs" },
+        { text = "Who are your neighbours here?", next = "neighbours" },
+        { text = "I could track that beetle for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
     guests = {
       lines = { { id = "g_default", text = "Traders, mostly, and Argent Dawn folk, with Horde and Alliance at the same tables glaring at each other over the soup. Nobody fights, though; the Bruisers see to that, and so does the soup." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    neighbours = {
+      lines = {
+        { id = "nb_default", text = "Umi's building something furry, Legacki's laughing at it, and Felnok won't let anybody near his bench without gloves. Then there's the Dark Iron fellow, who calls my customers ants and still tips better than any of them." },
+        { id = "nb_yeti", when = { questDone = TODO_QUEST("Are We There, Yeti?") }, text = "Legacki hasn't stopped glaring at the door since that yeti came through it, and Umi hasn't stopped grinning. I serve them at opposite ends of the bar now." },
+      },
+      choices = {
+        { text = "Tell me about the Dark Iron.", next = "neighbours_dark" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours_dark = {
+      lines = { { id = "nd_default", text = "Malyfous, of the Thorium Brotherhood, and he's polite to nobody, but he pays on time and he's never once brought a bug in. In my book that makes him a model guest." } },
+      choices = {
+        { text = "Coin's coin. Whoever pays is welcome.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A Dark Iron should earn his welcome first.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beetle_hunt = {
+      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, because we've got a truce, and if you scare it off it'll only come back angrier with its cousins. Just keep your pet off the bar, sugar, that's all I ask." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     bugs = {
       lines = { { id = "b_default", text = "Ever woken up with one in your ear? I have, in Tanaris, and that's why I live where it snows. Don't laugh... oh, fine, laugh, but quietly." } },
@@ -101,7 +128,10 @@ P:NPC {
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },
           text = "An engineer who wants a yeti of their own? Oh, you have good taste. Let me show you how it's done." },
       },
-      again = { { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." } },
+      again = {
+        { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." },
+        { id = "h_again2", text = "Ask away, but quickly, because something on that bench is ticking." },
+      },
       choices = {
         { text = "Who are you scaring?", next = "prank" },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Engineering" } },
@@ -113,6 +143,8 @@ P:NPC {
     prank = {
       lines = {
         { id = "p_default", text = "My friends, all of them! They've been laughing at my inventions for years, so let's see them laugh when a yeti comes round the corner. They can laugh after." },
+        { id = "p_legacki", when = { questActive = TODO_QUEST("Are We There, Yeti?") }, text = "Legacki first, because she laughs loudest and she bet me a gold piece my last invention would fall apart. Walk the yeti up to her and watch her face, and then come and tell me every detail." },
+        { id = "p_done", when = { questDone = TODO_QUEST("Are We There, Yeti?") }, text = "Did you hear Legacki scream? The whole of Everlook did! She'll be checking behind doors for a month, and I've never been prouder." },
       },
       choices = {
         { text = "Count me in.", next = "BACK", fx = { affinity = 3, trait = { curious = 1 } } },
@@ -186,6 +218,7 @@ P:NPC {
         { text = "Tell me about the Argent Dawn.", next = "dawn" },
         { text = "What does the Dawn want with Winterspring?", next = "why_here" },
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
+        { text = "Jessica Redpath says you're kind to her.", next = "jessica", when = { heardLine = "jessica.h_default" } },
         { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
@@ -230,6 +263,17 @@ P:NPC {
       choices = {
         { text = "Writing it down is a start.", next = "BACK", fx = { affinity = 2, learn = { "argent_dawn" } } },
         { text = "Every banner has its zealots.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jessica = {
+      lines = {
+        { id = "j_default", text = "She waits for news from Darrowshire, and I've had none good enough to give her. I write down every word that comes from the east, in case one of them is her sister's name." },
+        { id = "j_done", when = { questDone = TODO_QUEST("Sister Pamela") }, text = "You went to Darrowshire for her, I hear. Whatever you found there, tell it gently, and then let her sit by Vizzie's fire for a while; I'll see she isn't alone." },
+      },
+      choices = {
+        { text = "She deserves to hear the truth, plainly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some truths are kinder left unsaid.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
