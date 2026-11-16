@@ -44,6 +44,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They knew the ruins better than we did, and they waited in the shadows until we were in the courtyard. I fought my way out alone, and I've wondered every day since who told them we were coming." } },
+      choices = {
+        { text = "Let me find who betrayed you. They should answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The past is done. Fight for the living now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Krusk.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." } },
+      choices = {
+        { text = "Then I'll prove it with my deeds, not my words.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Horde needs every power it can get. Even mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -60,6 +78,8 @@ P:NPC {
           text = "The papers say Gol'dir's held in a Syndicate base north of here, up in Alterac. Find him, and give me the key afterward, because I want to undo his chains with my own hands." },
         { id = "h_goldir_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Gol'dir"), days = 3 } },
           text = "Gol'dir is free. He led us here, and he's been hauling stone for human thieves in Strahnbrad since, and the first thing he asked was who leads us now. I'm ashamed to say it's me." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been with my band at Durnholde, perhaps the humans wouldn't have caught us by surprise, and I'd have more friends left to drink with." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde's warlocks sold us to the demons once, and no orc who remembers the camps has forgotten it, so I'll be watching you." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I sharpen." },
@@ -74,6 +94,8 @@ P:NPC {
         { text = "Who is Gol'dir?", next = "goldir" },
         { text = "I was born in a human camp myself.", next = "camp", when = { origin = { "orc_camp_born", "orc_camp_primer" } } },
         { text = "I'm Forsaken. Speak plainly about us.", next = "scourge", when = { race = "Scourge" } },
+        { text = "How did the Syndicate catch your band at Durnholde, Krusk?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you think warlocks still endanger the Horde, Krusk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll find your brothers.", next = "END", fx = { affinity = 2, standing = { tarren_mill = 1 } } },
       },
     },
@@ -168,6 +190,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Helcular's remains, and the flame he used to channel his power, which those peasants buried with him out of spite. If you brought them to me, I could raise him again, and then Southshore would learn what a lynch mob costs." } },
+      choices = {
+        { text = "Your vengeance isn't my business. I'll keep out of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The mob deserves what's coming. I'll help you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Thaivand.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -178,6 +209,7 @@ P:NPC {
           text = "The yeti took over his ritual lair in the Alterac hills, and one of the brutes must have the rod. Bring it to me before it's chewed into splinters." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helcular's Revenge"), days = 3 } },
           text = "They say Southshore's guards fought something in their churchyard, and that it called up the dead around it. I wish I had been there to see it, but I'll settle for hearing it from you." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You could slip into Southshore far more easily than I can, and there are things buried in their graveyard that belong to my master." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I have rites to study." },
@@ -190,6 +222,7 @@ P:NPC {
         { text = "Where are the pyres?", next = "pyres" },
         { text = "I know something of necromancy myself.", next = "warlock", when = { class = { "WARLOCK", "MAGE" } } },
         { text = "I was a priest of the Light once.", next = "priest", when = { class = "PRIEST", race = "Scourge" } },
+        { text = "What's buried in Southshore's graveyard, Thaivand?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good luck, novice.", next = "END" },
       },
     },
@@ -274,6 +307,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They waited until I was relieving a patrol and crept past my tent in the dark, which I'll admit was well done. Dwarves from Dun Garok are better sneaks than anyone gives them credit for, and now I'm the joke of Tarren Mill." } },
+      choices = {
+        { text = "Then I'll take it back from them, quietly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A guard who loses his gear deserves the jokes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Humbert.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." } },
+      choices = {
+        { text = "Your eyes are enough. Keep watch and you'll be fine.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Use what you have. A demon is a better guard than a dead man.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -284,6 +335,8 @@ P:NPC {
           text = "One of those dwarves at Dun Garok has my sword, but I don't know which one, so you may have to ask a great many of them. Ask firmly." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Humbert's Sword"), days = 3 } },
           text = "My sword! I've been wearing it everywhere, even indoors. Samsa says I'm overdoing it, but Samsa never lost his." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been standing watch with me, perhaps those dwarves wouldn't have walked off with my gear, so I'll not pretend I'm glad to see you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm still on watch, technically." },
@@ -295,6 +348,8 @@ P:NPC {
         { text = "What's at Dun Garok?", next = "dungarok" },
         { text = "What do the others say?", next = "teasing" },
         { text = "A Forsaken without a sword? Shameful.", next = "scourge", when = { race = "Scourge" } },
+        { text = "How did the dwarves steal your gear, Humbert?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would you really trust a demon to guard your tent, Humbert?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -379,6 +434,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because I'm stuck at this post while everyone else gets to fight, and skulls are the closest thing I have to a war story. I've got a dozen now, and I've named most of them, which the others find unsettling." } },
+      choices = {
+        { text = "Collecting skulls is no way to honor a fight.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A trophy is a trophy. I'll bring you more.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, Samsa.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They say they're too busy with the Dark Lady's work to waste reagents on decoration, which I think is very unfriendly of them. I only want one glowing skull, and I'd put it right by the gate where the humans could see." } },
+      choices = {
+        { text = "That's grim work, Samsa. I won't help with it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A glowing skull at the gate would frighten the humans nicely.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -389,6 +462,8 @@ P:NPC {
           text = "Thirty human skulls, that's all I ask, and you'll be fighting humans long enough to find them. Bring them by whenever your bag gets heavy." },
         { id = "h_skulls_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Souvenirs of Death"), days = 3 } },
           text = "Thirty! I've arranged them on the wall behind the inn, and Shay says it puts the customers off. The customers here are dead, Shay." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'd be good at collecting skulls, I think, since you could get close enough to take them without anyone noticing." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you make one of my skulls glow? I've always wanted a lantern with a face, and the apothecaries won't help me." },
       },
       again = {
         { id = "h_again", text = "Anything else? I have nowhere to be." },
@@ -401,6 +476,8 @@ P:NPC {
         { text = "Why aren't you fighting?", next = "post" },
         { text = "What do you think of Humbert?", next = "humbert" },
         { text = "The living Horde find this grim.", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
+        { text = "Why do you collect skulls, Samsa?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why won't the apothecaries help with your skulls, Samsa?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll bring you skulls.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -481,6 +558,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That's what I'd like to know, since they've been moving men around the Arathi Highlands like they mean to finish the orcs off for good. A rogue who came back with their plans would be worth more than a dozen warriors." } },
+      choices = {
+        { text = "I'll find their plans and bring them back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the orcs handle Hammerfall themselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Tallow.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." } },
+      choices = {
+        { text = "Victory is all that matters. Use every weapon.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "The orcs' history deserves respect. I'll fight with my own hands.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -491,6 +586,8 @@ P:NPC {
           text = "The Boulderfist mound northeast of Stromgarde. Kill enough ogres and enforcers there to prove you won't die on the road, then report to Drum Fel in Hammerfall." },
         { id = "h_hammer_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Hammer May Fall") },
           text = "You came back from Arathi on your own legs. Drum Fel must be pleased, or desperate; probably both." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be no use at Hammerfall, where the orcs need shields and axes, but I suppose you could slip past the Stromgarde lines and see what they're planning." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, which is more than most of the soft-skinned ones I'm sent could manage." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it." },
@@ -501,6 +598,8 @@ P:NPC {
         { text = "What's Hammerfall to the Forsaken?", next = "hammerfall" },
         { text = "What's wrong with your axe?", next = "axe" },
         { text = "I'm a warrior. Test me yourself.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "What is Stromgarde planning against Hammerfall, Tallow?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you think demons belong on the Horde's battlefields, Tallow?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -571,6 +670,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a bat hears everything, and loud riders give them headaches, which makes them cranky in the air. You'll get a smoother flight than most, and you'll land where you meant to, which isn't something I can promise the orcs." } },
+      choices = {
+        { text = "I'll treat them gently. They deserve a quiet rider.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A mount is a mount. It goes where I say.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Zarise.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, over Lordamere Lake, and I'll admit I didn't try very hard to find out what happened to him. He'd kicked the bat twice before take-off, and bats remember that sort of thing longer than people do." } },
+      choices = {
+        { text = "He earned it. Respect your mount and it'll respect you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A bat shouldn't decide who lives. That's cruel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
@@ -579,6 +696,8 @@ P:NPC {
           text = "Zarise, bat handler. They fly to the Undercity and to Hammerfall, and over the mountains to Revantusk, and they'll bring you back if you're polite to them." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night is when they like to fly, and so do I, if I'm honest. Southshore's archers can't see a bat in the dark." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The bats like your kind, I've noticed, since you move quietly and don't flap your arms about the way the warriors do." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You could teleport, I suppose, but the bats are cheaper and they don't drop you in the wrong city, unless you've been rude to them." },
       },
       again = {
         { id = "h_again", text = "Anything else? They're restless." },
@@ -588,6 +707,8 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why bats?", next = "bats" },
         { text = "Do they ever drop anyone?", next = "drop" },
+        { text = "Why do bats like quiet folk, Zarise?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Have the bats ever dropped a rude rider, Zarise?", next = "xmage", when = { class = "MAGE" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -647,12 +768,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More flash powder than anything else, since the fields between here and Southshore are full of human patrols. The rogues come back with stories, and I keep them, the way other merchants keep receipts." } },
+      choices = {
+        { text = "I'll bring you a story worth keeping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stories are worthless. Just sell me the powder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kayren.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the apothecaries burn them all night, and the Deathguards like a light at their posts even though they can see perfectly well in the dark. Habit, I suppose, or something they miss from when they were alive." } },
+      choices = {
+        { text = "Keep the candles for them. Some habits are worth keeping.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't need light. Sell them to the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. The Undercity's reagent sellers keep ankhs for your kind, I'm told, and I've never understood why the dead would sell anyone a second life." },
         { id = "h_default", key = true,
           text = "Kayren Soothallow, general goods. The dead need less than the living, but we still need rope, and somebody has to sell it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want rope, I'd guess, and flash powder, and perhaps a little food for the road, since I hear the living still eat." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've a shelf for the living allies, if you're one of them, and a few things for spellcasters, though I'll warn you that candles go faster here than anywhere else." },
       },
       again = {
         { id = "h_again", text = "Anything else on your list?" },
@@ -663,6 +804,8 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What's on the right shelf?", next = "shelf" },
         { text = "Do the dead buy much?", next = "dead" },
+        { text = "Do you sell much to rogues in Tarren Mill, Kayren?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why do candles go so fast in Tarren Mill, Kayren?", next = "xmage", when = { class = "MAGE" } },
         { text = "Nothing today.", next = "END" },
       },
     },

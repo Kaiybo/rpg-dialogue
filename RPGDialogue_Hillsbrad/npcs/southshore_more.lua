@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'm certain of it, though I can't prove it, which is the trouble with being spied on by experts. They want to know what the Kirin Tor will do about Alterac, and frankly, so do I, because nobody has told me yet." } },
+      choices = {
+        { text = "Let me find their spies. Dalaran's business is its own.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe the Syndicate just wants the same answers you do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Emissary.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,6 +47,7 @@ P:NPC {
           text = "Archmage Modera's image waits near the city, beside Lordamere Lake. Go to her and she'll tell you more than I'm permitted to." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("An Alarming Request"), days = 7 } },
           text = "You've been inside the walls, then, and seen what we've been hiding. I'd ask you to keep it to yourself, but I suspect it's far too late for that." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're very quiet, and I've learned to notice quiet people, because the Syndicate keeps sending them to listen at the door when I speak to the Magistrate." },
       },
       again = {
         { id = "h_again", text = "Is there more? Ask it quietly, if you would." },
@@ -51,6 +61,7 @@ P:NPC {
         { text = "I trained in Dalaran's ways. Tell me plainly.", next = "mage", when = { class = "MAGE" } },
         { text = "My order came to the Kirin Tor from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Does Dalaran have room for a warlock's help?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Is the Syndicate spying on Dalaran's envoy, Emissary?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll think on it, Emissary.", next = "END" },
       },
     },
@@ -179,11 +190,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Oh, plenty, from the smugglers who ran Alterac's wine past the old customs house to the Syndicate scouts who stole the town charter the year after the war. We got the charter back, rather damp, and I wrote down every word of how." } },
+      choices = {
+        { text = "A good history should name the thieves. They're part of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Better to write about the people who stopped them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Kundric.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "One says Archimonde shattered the walls with a single blow, another says it took hours, and the third, from a mage who was there, says he was hiding in a cellar and only heard it. I trust the third, because he's the only one honest enough to admit what he didn't see." } },
+      choices = {
+        { text = "History should be honest, even if it's dull.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A grand story inspires people more than a cellar ever could.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kundric Zanden, historian of Southshore. Everyone else in town fishes, farms or fights, and someone has to write down what happened while they were doing it." },
         { id = "h_strahn_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Strahnbrad Mystery"), days = 7 } },
           text = "What you brought me from Strahnbrad has kept me up two nights running. Alterac's old roads still have stories in them, and the Syndicate would rather they stayed buried." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the look of someone who's taken a few things that weren't written down anywhere, and as a historian, I find that both troubling and fascinating." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Then you'll appreciate that I have three accounts of Dalaran's fall, and they disagree on nearly everything except that it was very loud." },
       },
       again = {
         { id = "h_again", text = "What else? I'll keep writing while you think." },
@@ -196,6 +227,8 @@ P:NPC {
         { text = "What about Tarren Mill?", next = "tarren" },
         { text = "Why does history matter, out here?", next = "matter" },
         { text = "Dwarves fought over these hills in the Second War too.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Has Southshore's history ever had thieves worth writing about, Kundric?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How do the accounts of Dalaran's fall disagree, Kundric?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -312,11 +345,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A few each week, and they gossip worse than fishermen, though they think they're being discreet. The latest is that the Kirin Tor are arguing about whether to help the Alliance in Alterac, and half of them want to stay out of it altogether." } },
+      choices = {
+        { text = "The Kirin Tor should stand with the Alliance. Simple as that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dalaran has bled enough. Let them stay out of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kelly.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "He did, and the warlock let him, which I thought showed good sense. Bilger hasn't lifted a sword in years, but he still remembers the old oaths, and I'd not want to be the one who tests them." } },
+      choices = {
+        { text = "The warlock was wise not to fight. Respect the old man.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I wouldn't have run. A broom doesn't scare me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kelly's the name, and I keep the bar. Anderson keeps the beds, Bilger keeps the cellar, and I keep track of who's saying what about whom, which is the real business of any inn." },
         { id = "h_talk_done", when = { questDone = TODO_QUEST("Talk of the Town") },
           text = "You saw to that business of mine, and folk have been talking about you since, so you're part of the talk of the town now. Enjoy it while it lasts." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my bar, and you'll want something warm, I'd guess, since your lot never stop shivering after a ride down from the dome." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my bar? You're braver than most, because the last one who came in here was chased out by Bilger with a broom and a lot of shouting about the Silver Hand." },
       },
       again = {
         { id = "h_again", text = "What else? I'm wiping the same mug, so I'm free." },
@@ -329,6 +382,8 @@ P:NPC {
         { text = "Who drinks here?", next = "regulars" },
         { text = "Is gossip any way to run an inn?", next = "gossip_right" },
         { text = "Gossip's my trade too. Want to compare notes?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do many mages come down from Dalaran to drink, Kelly?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Did Bilger really chase a warlock out with a broom, Kelly?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -421,6 +476,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "What they're brewing, mostly, since the apothecaries at Tarren Mill have been very busy and very secretive lately. I'm worried it's a new plague, and I'd rather find out before it's poured into Southshore's wells." } },
+      choices = {
+        { text = "I'll slip into Tarren Mill and find out for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "This is the Alliance's business. Report it to the Marshal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Phin.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and my friends and I seemed a better place to start." } },
+      choices = {
+        { text = "People matter more than towers. You chose rightly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Kirin Tor's power protects everyone. You abandoned them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -429,6 +502,8 @@ P:NPC {
           text = "My cousin Ray had to put down his dog Stanley. The poor beast grew to an unnatural size and went for anyone who came near, and I don't believe for a moment that happened on its own." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hints of a New Plague?"), days = 7 } },
           text = "So my two troublemakers are alive after all! Ha! Those two are irreplaceable, as friends and as company on the road, and I owe you for both of them." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Good, because my little band has plenty of curiosity and no stealth at all, and the Forsaken up at Tarren Mill always see us coming." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I left the Kirin Tor partly because they were too quick to judge people by their schools of magic, so I'll give you a fair chance, but please keep your demon away from my friends." },
       },
       again = {
         { id = "h_again", text = "What else? I'm sorting Quae's notes, and her handwriting needs a translator." },
@@ -441,6 +516,8 @@ P:NPC {
         { text = "Why did you leave the Kirin Tor?", next = "kirintor" },
         { text = "What should be done about Tarren Mill?", next = "mill" },
         { text = "I studied the arcane too. Why leave the Kirin Tor?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What are you trying to learn about the Forsaken, Phin?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why did you really leave the Kirin Tor, Phin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good hunting, Phin.", next = "END" },
       },
     },
@@ -558,6 +635,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "All the time, an' the Syndicate's the worst of 'em, comin' down from the hills on moonless nights to take whatever they can lead away. I've started sleepin' in the loft, an' my back ain't happy about it." } },
+      choices = {
+        { text = "I'll help you guard the stables. Those horses deserve it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A horse is just a horse. Let the thieves have one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Darren.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." } },
+      choices = {
+        { text = "Fair enough. I'll keep my steed far from your stables.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your horses will learn to share. Times are changing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -568,6 +663,8 @@ P:NPC {
           text = "Now ain't that fine news! Should've found me a proper war hero from the start, and saved myself a dozen good horses." },
         { id = "h_later", when = { questDone = TODO_QUEST("Costly Menace") },
           text = "Ain't lost a single foal since you went up them hills. The horses are sleepin' easier, and so am I." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Now don't you go eyein' my horses, friend, 'cause I count 'em every night an' I'd know if one went missin'." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, eh? Now, I heard tell your kind can call up a horse made o' fire, an' I'll tell you right now, it ain't welcome in my stable." },
       },
       again = {
         { id = "h_again", text = "Something more? You can talk while I brush; the mare won't mind." },
@@ -580,6 +677,8 @@ P:NPC {
         { text = "Tell me about your horses.", next = "horses" },
         { text = "Should we hunt every lion in Alterac?", next = "hunt" },
         { text = "I could tame one of those lions instead of killing it.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Do horse thieves still come after Southshore's stables, Darren?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why not let a fiery horse in your stable, Darren?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -671,12 +770,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the turtles in Lordamere Lake have got scarce, and the ones left are too tough to eat. I suspect the Forsaken have been fouling the water, but nobody listens to a cook, so I just keep my pots warm and hope." } },
+      choices = {
+        { text = "Then let me find out what's fouling the water.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Cook something else. Mourning a soup won't change the lake.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jessen.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "He swore he was keeping it fresh for the evening, and I swore back at him for a good long while. The fishermen still call it the coldest meal in Southshore, and they don't mean it kindly." } },
+      choices = {
+        { text = "Some things should be left to the cook. I'd never interfere.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fresh is fresh. The mage was only being practical.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof. Or it was, when I could make it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Soothing Turtle Bisque"), days = 5 } },
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in my kitchen? Fine, but if you're after the turtle bisque recipe, it's in my head, and I don't sleep with my mouth open." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll forgive me if I don't ask you to cook, because the last mage who tried turned my good stew into a bowl of ice." },
       },
       again = {
         { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
@@ -689,6 +808,8 @@ P:NPC {
         { text = "Do folk really come from Darkshire?", next = "darkshire" },
         { text = "Is good cooking worth risking lives for?", next = "worth" },
         { text = "I hunt. Where are the turtles you need?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Why haven't you made your turtle bisque lately, Jessen?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Did a mage really freeze your stew, Jessen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Smells good. Goodbye.", next = "END" },
       },
     },
@@ -770,6 +891,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I've seen it done, by smooth-talking men with Stormwind papers that turned out to be forged by the Syndicate. I check every buyer now, and if that makes me mad, the Silver Hand were right about me after all." } },
+      choices = {
+        { text = "You're right to be careful. Trust is earned.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A horse sold is a horse sold. You can't control the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Merideth.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." } },
+      choices = {
+        { text = "A bond earned is worth more than one forced. I agree.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A steed is a steed. Mine never tires or dies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -782,6 +921,8 @@ P:NPC {
           text = "Have you got the biscuits, and the gold? Yes, the gold, all of it, because I've earned every coin of it in misery." },
         { id = "h_feed_done", when = { questDone = TODO_QUEST("Manna-Enriched Horse Feed") },
           text = "You paid me for wrongs you didn't commit, paladin. I misjudged you, and I don't say that often, but I'm keeping the money." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're a rogue, and I'll say this plainly: I don't sell horses to those who'd sell them on, and you look like you know exactly what my horses would fetch in Alterac." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, and you'll not need one of my horses, I suppose, since you've got your own fiery beast that doesn't need feeding or brushing." },
       },
       again = {
         { id = "h_again", text = "Anything else? The horses are watching you, and so am I." },
@@ -794,6 +935,8 @@ P:NPC {
         { text = "I need feed for a spirit horse.", next = "feed", when = { class = "PALADIN", minLevel = 60 } },
         { text = "Was the Silver Hand wrong about you?", next = "silverhand" },
         { text = "My people ride nightsabers. Why horses?", next = "xnightelf", when = { race = "NightElf" } },
+        { text = "Do you think rogues would really sell your horses, Merideth?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do warlocks' steeds offend you, Merideth?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Fine horses. Good day.", next = "END" },
       },
     },
@@ -890,6 +1033,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, because both need patience, a good eye and the sense to know when to strike. The difference is that the bay forgives a bad cast, and I don't suppose your marks are so generous." } },
+      choices = {
+        { text = "Patience serves me best. I strike only when I must.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Patience is for fishermen. I make my own moments.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Donald.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the bay gives what it gives, and taking more than your share leaves nothing for the next tide. The murlocs learned that lesson the hard way, and I'd rather not have to teach it to a mage." } },
+      choices = {
+        { text = "The bay deserves respect. I'll fish the honest way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The bay is endless. Take what you can.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -897,6 +1058,8 @@ P:NPC {
         { id = "h_default", text = "Donald Rabonne. I teach fishing, and Lindea there sells the gear, and the bay pays both of us if we're patient. It's been a fishing town longer than anything else, Southshore, and it'll be one after." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
           text = "Someone cleared the Torn Fin off the Western Strand, and the fishermen got their nets back. I thought it'd be the lieutenant, but he's still sulking at the inn." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the patient look of someone who waits for the right moment, and that's half of fishing, so maybe you'd be good at it, if you ever put down the daggers." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be the sort who could freeze a fish out of the water without ever casting a line, I suppose. That's no way to fish, though I'll admit it's quick." },
       },
       again = {
         { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
@@ -908,6 +1071,8 @@ P:NPC {
         { text = "How's the fishing in the bay?", next = "bay" },
         { text = "Do you know Lindea well?", next = "lindea" },
         { text = "What about the murlocs on the coast?", next = "murlocs" },
+        { text = "Is fishing really so much like my trade, Donald?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why not use magic to fish, Donald?", next = "xmage", when = { class = "MAGE" } },
         { text = "Tight lines.", next = "END" },
       },
     },

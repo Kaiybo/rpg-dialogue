@@ -34,6 +34,10 @@ P:NPC {
           text = "Guthrum Thunderfist, and I keep the gryphons of Aerie Peak flyin'. The Wildhammer were ridin' these birds before Ironforge ever thought to tame one, and I'll send ye anywhere the wind can carry ye, so long as ye treat 'em with respect." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Ye've climbed a long way to be turned back, stranger, but no Wildhammer gryphon carries the Horde. Yer own lot keep wind riders with the trolls at Revantusk, down by the coast." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, an' ye still want a gryphon? Good, {class}, for I've never trusted a spell that drops ye in a city wi' no view on the way." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye walked up on my birds without a sound, {class}, an' that's a fine way tae lose a hand around here, for gryphons like tae see who's comin'." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The birds are restless, and so am I." },
@@ -45,7 +49,27 @@ P:NPC {
         { text = "What do you see from the sky here?", next = "sky" },
         { text = "How do you raise a gryphon?", next = "raise" },
         { text = "I prefer my own feet on the ground.", next = "ground", when = { race = { "Gnome", "Human" } } },
+        { text = "Don't you envy a mage's teleport, Guthrum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could you fly me somewhere, no questions asked?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fair winds.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I fly ye where ye pay tae go, an' I don't ask why. But every rider at Aerie Peak knows every bird I send out, so if it's secrecy ye want, ye've picked the gossipiest roost in the Hinterlands." } },
+      choices = {
+        { text = "Then I'll trust your discretion, Guthrum.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Gossip can be bought quiet. Everyone has a price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind. Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Envy? Ye blink tae Ironforge an' miss every peak an' river between. My birds carried the Wildhammer intae the Second War, an' there's no spell I'd trade for an hour on a gryphon's back." } },
+      choices = {
+        { text = "Some things shouldn't be shortcut. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "In war, a shortcut is just good sense.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fair. Let me ask something else.", next = "BACK" },
       },
     },
     wild = {
@@ -139,6 +163,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Harggan, blacksmithing supplies. Every bar of iron and every sack of coal in Aerie Peak came through my door, and most of it came up that mountain path on a cart that nearly went over the edge twice." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye smell o' sulphur, {class}, an' I'd know, for I've hauled enough brimstone up this mountain tae smell it in my sleep. Keep yer fires tae yerself an' we'll get on." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I saw yer eyes go tae my strongbox, {class}, an' I'll tell ye now it's empty, for every copper I have goes on haulin' coal up this mountain." },
       },
       again = {
         { id = "h_again", text = "What else, then?" },
@@ -150,7 +178,27 @@ P:NPC {
         { text = "Who's buying iron at the Peak?", next = "buyers" },
         { text = "Is the road up the mountain dangerous?", next = "road" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "Does a warlock's custom bother the Wildhammer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you lose much on that mountain path?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than I'd like, an' no all of it tae the edge. The Witherbark watch the road from the forest, an' a cart o' iron's worth more tae a troll than the dwarf drivin' it, so a {g:lad|lass} wi' quiet feet ridin' along would earn their keep." } },
+      choices = {
+        { text = "I'd guard your carts for honest coin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Easier to rob the trolls before they rob you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Harggan.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It bothers them plenty, for they remember the Horde's demon fire over these hills, an' some o' them lost kin to it. If ye're buyin' from me, buy it quiet, an' don't summon anythin' in the shop." } },
+      choices = {
+        { text = "Demon fire burned your hills. I won't forget that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fire is fire. The Horde just used it better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll mind my manners. Something else.", next = "BACK" },
       },
     },
     ore = {
