@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- Druids are noticed: nine people at Feathermoon, Camp Mojache and in the wilds greet a druid as one and have something to ask and argue about.
+
 ## 1.11.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Fyldren Moonfeather, Vivianna, Ruw, Kulleg Stonehorn, Sheendra Tallgrass.
 - New files: exit the game fully and restart.

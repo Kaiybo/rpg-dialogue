@@ -15,13 +15,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Better than I treat myself, friend, because a lame kodo out here means a lost caravan. The Kolkar know it too, and they go for the beasts first, every time." } },
+      choices = {
+        { text = "Guard the beasts first. They carry everyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the Kolkar have a kodo. It buys the wagons time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cork Gizelton, and this is the Gizelton caravan, the only honest freight between the Kodo Graveyard and the south road. My brother Rigger runs the back half and I run the front, and the centaurs would happily run off with both." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Bodyguard for Hire") }, text = "You're my bodyguard for this stretch, so stay close to the wagons and watch the ridges, because that's where the Kolkar like to come down from." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, eh? If you can talk to kodos, tell mine to walk faster, because they've never once listened to me." },
       },
       again = { { id = "h_again", text = "What else? Talk fast, the next ridge is a bad one." }, { id = "h_again2", text = "Ask away, but keep one eye on the hills." } },
       choices = {
+        { text = "Are your kodos treated well, Cork?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who's attacking the caravan?", next = "b1_1" },
         { text = "What do you haul?", next = "b2_1" },
         { text = "Tell me about your brother.", next = "b3_1" },
@@ -135,13 +146,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They go to good homes, mostly caravans and the odd tauren who's short a beast of burden. It beats wandering into the Graveyard to die alone, if you ask me, and since you're asking, I'm telling you." } },
+      choices = {
+        { text = "Let the old ones die in peace where they choose.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A working kodo beats a dead one. Fair trade.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and I've got the buyers." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap. Then lead the tame ones back here and I'll do the rest." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid? Look, before you start, the kodos don't mind the Kombobulator, or at least none of them has ever complained to me about it." },
       },
       again = { { id = "h_again", text = "Another question? Fine, but every one of 'em costs me a kodo bone I could be hauling." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
       choices = {
+        { text = "What happens to the kodos you tame?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why kodos?", next = "b1_1" },
         { text = "What is the Kombobulator?", next = "b2_1" },
         { text = "How's business?", next = "b3_1" },
@@ -255,13 +277,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "What they always do: drunk it dry and left the husk. Their warlocks draw on fel power in the fortress and the Mannoroc Coven, and nothing green grows near either." } },
+      choices = {
+        { text = "Free their captives first. Dalinda matters more than revenge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Kill every warlock. Demon-servants deserve no quarter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may be worth more than anything we could take by force." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "Ishnu-alah, druid. The Burning Blade has fouled the earth around Thunder Axe Fortress, and you will feel it in your bones before you see it." },
       },
       again = { { id = "h_again", text = "Ask, but quickly; the Burning Blade does not rest while we talk." }, { id = "h_again2", text = "Speak, then, but briefly; the Burning Blade won't hunt themselves down." } },
       choices = {
+        { text = "What have the demon-worshippers done to this land?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about the Burning Blade.", next = "b1_1" },
         { text = "Why do they call you Demonslayer?", next = "b2_1" },
         { text = "What of Dalinda Malem?", next = "b3_1" },
@@ -315,12 +348,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I am not alone; Misha is with me. Cities make people forget what they owe the land, and out here, nothing lets me forget it." } },
+      choices = {
+        { text = "The Horde needs its champions near its cities.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wilds are freer than any city. You chose well.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Rexxar, Champion of the Horde, though I spend little time near its cities. The wilds suit Misha and me better than walls and politics do." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. Misha likes you, which is more than she says for most who walk these roads." },
       },
       again = { { id = "h_again", text = "Speak your mind." }, { id = "h_again2", text = "Misha's listening too." } },
       choices = {
+        { text = "Why do you walk the wilds alone, Rexxar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why travel alone?", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
         { text = "Is the Horde worth fighting for?", next = "s_1" },

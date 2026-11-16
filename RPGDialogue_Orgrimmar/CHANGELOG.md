@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Druids are noticed: nine people, Thrall and Vol'jin among them (tauren druids) greet a druid as one and have something to ask and argue about.
+
 ## 1.8.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Karus, Auctioneer Thathung, Doras, Urtrun Clanbringer, Overlord Runthak, Ogunaro Wolfrunner, Lumak, Makaru, Saru Steelfury, Nogg, Xon'cha.
 - New files: exit the game fully and restart.

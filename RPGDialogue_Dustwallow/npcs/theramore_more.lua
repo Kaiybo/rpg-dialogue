@@ -28,18 +28,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They do, and they won't fly within a mile of the Wyrmbog no matter how I coax them. I don't blame them, mind; Onyxia's brood nests down there, and a gryphon knows a bigger predator when it smells one." } },
+      choices = {
+        { text = "Train them out of it. A mount must obey.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust their noses. They know the marsh better than we do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Baldruc, and these are the Lady's gryphons, so treat them better than you'd treat yourself. They carry the post, the officers and anyone with coin, and they hate the damp more than I do." },
         { id = "h_rain", when = { timeOfDay = "night" },
           text = "Night flights over the marsh are cold and black as a mine shaft. The birds know the way, so you just keep your head down and hold on." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, is it? If you can talk to beasts, tell my gryphons the damp won't kill them, because they won't believe it from me." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I saddle one?" },
         { id = "h_again2", text = "Ask away; the birds aren't going anywhere till I say so." },
       },
       choices = {
+        { text = "Do your gryphons sense the dragons to the south?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me where they fly.", next = "BUSINESS" },
         { text = "How do gryphons take to a swamp?", next = "birds" },
         { text = "Do you ever fly over Brackenwall?", next = "horde" },

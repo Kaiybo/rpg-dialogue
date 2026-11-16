@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.41.0 (2026-11-16)
+Packs: 20 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.41.0, but if you skipped 0.39.0, exit the game fully and restart.
+
+### Druids from 30 to 60, and the Horde hunter's companion
+- **Druids are noticed across the 30-60 lands and the Horde's home**: about 155 people in Arathi, Hillsbrad and Alterac, the Badlands, Searing Gorge, the Eastern Plaguelands, Dustwallow, Desolace, Thousand Needles, Tanaris, Feralas, Un'Goro, Winterspring, Orgrimmar and Durotar greet a druid as one, and have something to ask and argue about. Alliance towns speak to night elf druids, Horde towns to tauren, and neutral folk to either.
+- **Hunters' beasts get named**: the Horde hunter conversations from 0.40.0 now talk to your companion by name when it's out, and a few people (Urda, Karos Razok, Lard) notice it on sight.
+- **Innkeepers Karakul, Renee, Norman and Bates** have replies for Horde warriors and hunters, like their neighbours.
+
+### Fixes
+- Calvin Montague, a living man, no longer talks about having died.
+
 ## 0.40.0 (2026-11-16)
 Packs: 17 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.40.0, but if you skipped 0.39.0, exit the game fully and restart.
 

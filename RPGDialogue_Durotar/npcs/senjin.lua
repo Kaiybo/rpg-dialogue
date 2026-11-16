@@ -26,6 +26,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The spirits, yes, once Zalazane be dead and his voodoo with him. The trolls he twisted, I don't know, and I pray to the loa every night that I find out." } },
+      choices = {
+        { text = "Then save every troll you can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "His slaves are lost. End them cleanly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -36,8 +44,10 @@ P:NPC {
           text = "Zalazane be my student once, and now he be the shame of my years. End him, and maybe this old man sleep through the night." },
         { id = "h_orgnil", when = { questActive = TODO_QUEST("Report to Orgnil") },
           text = "Orgnil in Razor Hill need strong arms against the Burning Blade. Go to him, and tell him Gadrin say you be useful." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid come to Sen'jin! The loa of the islands and your Earth Mother be old friends, I think, but Zalazane be twisting the spirits on the Echo Isles so bad that they barely know each other now." },
       },
       choices = {
+        { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened on the Echo Isles?", next = "isles" },
         { text = "Vol'jin was your student?", next = "voljin" },
         { text = "I hear a voice, Master, and it isn't a loa.", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },

@@ -105,18 +105,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Not well, if I'm honest. They're mountain birds, built for snow, and every morning I comb a fistful of sand out of their feathers and listen to them sulk about it." } },
+      choices = {
+        { text = "Send them home to the mountains. This is no place for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They'll adapt. Everything out here does, or it dies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Bera Stonehammer, gryphon master for the Alliance in Gadgetzan. I'll get you back to Theramore or Feathermoon, or wherever else your road runs, and if you're Horde, the orc with the wind riders is over there." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "My birds won't carry you, I'm afraid, and they bite strangers anyway. Bulkrek keeps the wind riders a little further on, and he'll see you right." },
+        { id = "h_druidcl", when = { class = "DRUID", race = "NightElf" },
+          text = "A druid of the Circle! You'll be heading for Feathermoon, I expect, since most of your folk do once they've had a taste of this sand." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat." },
         { id = "h_again2", text = "Go on, then, ask; I've a bucket of water to fetch before the gryphons start complaining." },
       },
       choices = {
+        { text = "How do your gryphons manage this desert, Bera?", next = "druid_q", when = { class = "DRUID", race = "NightElf" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "How do gryphons stand the desert?", next = "heat" },
         { text = "You and the orc get along?", next = "bulkrek" },
@@ -176,18 +187,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They hunt well here, scorpids and buzzards and whatever strays too far from the road. But the heat shortens their tempers, and a short-tempered wind rider has a long reach." } },
+      choices = {
+        { text = "Keep them on short tethers, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them hunt. A free beast is a better beast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Bulkrek Ragefist, and I keep the wind riders for the Horde here. They will take you to Orgrimmar, the Crossroads, Camp Mojache and wherever else the Horde flies." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "My riders don't carry the Alliance, and they'd tell you so themselves, louder than I would. Stonehammer keeps your gryphons; go and see her." },
+        { id = "h_druidcl", when = { class = "DRUID", race = "Tauren" },
+          text = "A druid of Thunder Bluff. The riders trust your kind, and they say you smell of the plains." },
       },
       again = {
         { id = "h_again", text = "Speak, then. The riders are fed." },
         { id = "h_again2", text = "More? The heat makes orcs short-tempered, but I will listen." },
       },
       choices = {
+        { text = "Do the wind riders take to the desert?", next = "druid_q", when = { class = "DRUID", race = "Tauren" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do the wind riders take the heat?", next = "riders" },
         { text = "Do you trust the goblins here?", next = "goblins" },
@@ -520,6 +542,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They say the sand remembers the Sandfury, mon, and all the blood they spilled in Zul'Farrak. The old gods leave a stain on the land, and even the desert wind can't scour it clean." } },
+      choices = {
+        { text = "Then the stain must be cleansed, whatever it takes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old gods have power. Perhaps it's worth studying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -534,12 +564,15 @@ P:NPC {
           text = "The egg, mon, the ancient egg! The tablets told us where to look, so be gentle when you find it, because old things break easily." },
         { id = "h_godhakkar", tags = { "news" }, when = { questActive = TODO_QUEST("The God Hakkar") },
           text = "Take the egg into the sunken temple of Atal'Hakkar, and let it drink what it was made to drink. Then bring it back to Yeh'kinya, mon, and we'll keep that power safe together." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, mon. The spirits around you are green and noisy, and Yeh'kinya can hear them even through the drink." },
       },
       again = {
         { id = "h_again", text = "More questions? The spirits don't mind, and neither does Yeh'kinya." },
         { id = "h_again2", text = "Sit, sit. The tide's slow, and so am I." },
       },
       choices = {
+        { text = "What do the spirits of Tanaris say, Yeh'kinya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who is Hakkar?", next = "hakkar" },
         { text = "Why study him at all?", next = "why" },
         { text = "Why live among goblins at a port?", next = "port" },

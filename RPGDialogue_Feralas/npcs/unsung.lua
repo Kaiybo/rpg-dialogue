@@ -28,18 +28,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They do, I think, for Feralas is wetter and the winds off the sea are rough. Still, they carry our letters and our wounded across the water, and the stronghold would wither without them." } },
+      choices = {
+        { text = "Then they serve the stronghold, and that is enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should fly free, not carry our letters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Fyldren Moonfeather, and I keep the hippogryphs of Feathermoon. The isle is cut off from the mainland by water and the coast is thick with naga, so my birds are the stronghold's surest link to the rest of our lands." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "You stand on a Sentinel isle, stranger, and you will find no mount here. Your people keep wind riders at Camp Mojache, to the east past the ogres, and I would go there quickly." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Ah, a druid of the Circle. My hippogryphs can always tell your kind from the others, and they sit calmer for it, though I couldn't tell you why." },
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
         { id = "h_again2", text = "The birds can wait a little longer; what else is on your mind?" },
       },
       choices = {
+        { text = "Do your birds miss the forests of Ashenvale?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me where I can fly.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "Why build a stronghold on an island?", next = "island" },
         { text = "How do you keep the birds in this damp?", next = "birds" },
@@ -216,16 +226,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Less than it did, because the Gordunni strip the groves near their camps and the Grimtotem take whatever they please. I've seen whole hillsides of herbs pulled up by the roots, and they won't grow back for years." } },
+      choices = {
+        { text = "Then the Grimtotem must answer for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the land rest. Anger won't regrow a single root.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Ruw, and I teach the gathering of herbs at Camp Mojache. Feralas is old and green and full of things the Earth Mother grew long before any of us came here, and I can teach you how to take them without harming the land." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know already what I teach the others, that the Earth Mother gives freely only to those who take with care." },
       },
       again = {
         { id = "h_again", text = "What else would you know, little one?" },
         { id = "h_again2", text = "Speak; I am listening, as the grass listens to the wind." },
       },
       choices = {
+        { text = "Does the forest here still give freely, Ruw?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "What grows in Feralas?", next = "grows" },
         { text = "How do you take without harming the land?", next = "harm" },

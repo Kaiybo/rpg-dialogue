@@ -27,6 +27,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I think they wear her name like a stolen cloak. You'd know better than an orc whether the earth still answers them, but I know a traitor when I see one." } },
+      choices = {
+        { text = "They should face judgment before their own elders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Elders talk too much. Let the marsh have them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -47,12 +55,15 @@ P:NPC {
           text = "Grimtotem: tauren who want a war and want the Horde to pay for it. The Warchief will hear of this." },
         { id = "h_justice", when = { questActive = TODO_QUEST("Justice Dispensed") },
           text = "It's done. Whoever wanted war wanted it badly, and they'll have to want it from somewhere else now." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid in Brackenwall, good. You'll know better than I do what the Earth Mother makes of tauren who'd start a war in her name." },
       },
       again = {
         { id = "h_again", text = "What else? Make it useful." },
         { id = "h_again2", text = "Go on. I'm listening, and the marsh isn't." },
       },
       choices = {
+        { text = "Do the Grimtotem shame the Earth Mother, Krog?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do you care about a human inn?", next = "why" },
         { text = "What do we know about the burning?", next = "inn" },
         { text = "Who is Paval Reethe?", next = "reethe" },

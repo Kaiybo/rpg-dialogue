@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "If the Firelord ever stops breathin' under it, aye, maybe. Our forefathers called him up an' burned this land tae ash, so I reckon the Brotherhood owes it somethin', though I couldnae tell ye what." } },
+      choices = {
+        { text = "Then pay that debt by mending what you can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The past is ash. Forge what you need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! We Dark Irons didnae have much use for trees down in the depths, ye understand, but I'll confess the lads have grown fond o' that scrubby bush by the gate." },
         { id = "h_default", key = true,
           text = "Overseer Oilfist, of the Thorium Brotherhood. We're Dark Iron, an' we served Ragnaros in the depths o' that mountain, makin' arms for his armies, until we stopped." },
         { id = "h_kids", when = { metBefore = true },
@@ -40,6 +50,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
+        { text = "Could the Gorge ever heal, Overseer?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How did you escape?", next = "escape" },
         { text = "What does the Brotherhood make?", next = "trade" },
         { text = "And your kin still in the mountain?", next = "kin" },
@@ -145,8 +156,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "The fire elementals, mostly, wanderin' about an' hissin' at the walls. Then there's the Dark Iron down the hill, an' the dragons over in the Steppes, an' Lolo's singin', though I'd never tell him that last one." } },
+      choices = {
+        { text = "Meet them on the wall, and sleep after.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Set a few traps, and let them find those instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. If ye've come tae talk tae the rocks, go ahead, but they'll no' answer, for I've tried on the long nights." },
         { id = "h_default", key = true,
           text = "Hansel Heavyhands. I'm the one Lolo sends when somebody needs a firm word, or a firm fist, an' I'm very firm, an' also very tired." },
         { id = "h_spiders", tags = { "news" }, when = { questActive = TODO_QUEST("Fiery Menace!") },
@@ -158,6 +179,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Aye? Ask quick, I've just got comfy." } },
       choices = {
+        { text = "What keeps you up on those long nights?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why are you always resting?", next = "resting" },
         { text = "What's Lolo like to work for?", next = "lolo" },
         { text = "How big are these lizards?", next = "lizards" },

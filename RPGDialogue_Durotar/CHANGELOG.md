@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- Druids are noticed: eight people in Razor Hill, Sen'jin and on the roads (tauren druids) greet a druid as one and have something to ask and argue about.
+
 ## 1.7.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Frang, Ken'jai, Duokna, Uhgar, Thotar, Kaplak, Tai'jin, Un'Thuwa.
 - New files: exit the game fully and restart.

@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Mages o' old Arathor, so Kryten tells me, an' they did it tae guard somethin' best left buried. Now the Syndicate an' the ogres go pokin' at the stones, an' the bindin's are frayin'." } },
+      choices = {
+        { text = "Then the bindings must hold, whatever they guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spirits shouldn't be chained, whoever forged the chains.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A night elf druid! Ye'll be wantin' a look at the old stone circles in the hills, I expect, though I'll warn ye the things bound in them havenae taken kindly tae visitors." },
         { id = "h_default", key = true,
           text = "Skuerto. Archmage Malin sent me an' the lad Kryten up here tae recover what his old master Trelane left behind when Stromgarde fell. I do the scoutin', Kryten does the readin', an' neither of us gets enough sleep." },
         { id = "h_malin", tags = { "news" }, when = { questRecent = { TODO_QUEST("Malin's Request"), days = 2 } },
@@ -47,6 +57,7 @@ P:NPC {
         { id = "h_again2", text = "Still here? Go on, then." },
       },
       choices = {
+        { text = "Who bound the elementals in those stone circles?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who was Trelane?", next = "trelane" },
         { text = "What's in the tower?", next = "tower" },
         { text = "Why are you so prickly?", next = "prickly" },
@@ -137,8 +148,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Is it true your magic draws nothing from the arcane at all? Archmage Malin says all power comes from somewhere, and I can't decide whether yours comes from the trees or from you." } },
+      choices = {
+        { text = "Magic should be studied and governed, as yours is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Nature isn't something to be studied from a tower.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "Oh, a druid, and from Darnassus, I'd guess! I have a hundred questions about how your magic differs from ours, though Skuerto says I ask too many." },
         { id = "h_default", key = true,
           text = "Apprentice Kryten, in Archmage Malin's service. While Skuerto scouts the tower, I study what I can, and frankly the Witherbark have more to teach a young enchanter than you'd think." },
         { id = "h_gold", when = { questActive = TODO_QUEST("Worth Its Weight in Gold") },
@@ -153,6 +174,7 @@ P:NPC {
         { id = "h_again2", text = "Do go on; I'll take notes, if you don't mind." },
       },
       choices = {
+        { text = "Ask your question, apprentice.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What can trolls teach an enchanter?", next = "witherbark" },
         { text = "Tell me about your master.", next = "malin" },
         { text = "How do you put up with Skuerto?", next = "skuerto" },

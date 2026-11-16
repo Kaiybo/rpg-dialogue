@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They were here before Arathor raised a single stone, and they've never forgiven us for building on their land. My soldiers call them savages, but savages don't hold a hill for three thousand years." } },
+      choices = {
+        { text = "Then Stromgarde's claim must be enforced with steel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps the trolls have the older claim, Captain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of the Kaldorei, here in the Highlands? Stromgarde could use anyone who knows wild country, because the Witherbark know these hills far better than my soldiers do." },
         { id = "h_default", key = true,
           text = "Captain Nials. Stromgarde's keep fell in the Third War, and these tents are most of what our kingdom still holds. We're here to win the rest back." },
         { id = "h_badges", tags = { "news" }, when = { questActive = TODO_QUEST("Stromgarde Badges") },
@@ -42,6 +52,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Keep it brief." }, { id = "h_again2", text = "Go on; the tent can wait, though the hills can't." } },
       choices = {
+        { text = "Why do the Witherbark know these hills so well, Captain?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why not leave and regroup?", next = "leave" },
         { text = "Who holds the keep now?", next = "keep" },
         { text = "Who are the Syndicate?", next = "syndicate" },
@@ -207,8 +218,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Share? The Boulderfist share nothing but their clubs, and they took Stromgarde's ruins before the humans had finished mourning them. When they are gone, the land will have room to breathe, and so will Hammerfall." } },
+      choices = {
+        { text = "Then we break them in open battle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the ogres and the humans bleed each other first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid in Hammerfall! The Earth Mother's children are welcome among us, and so are their claws, for the Boulderfist have plenty of hide to tear." },
         { id = "h_default", key = true,
           text = "I am Drum Fel, and I lead Hammerfall. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
@@ -225,6 +246,7 @@ P:NPC {
         { id = "h_again2", text = "Say your piece, but keep it low; there are too many ears in these hills." },
       },
       choices = {
+        { text = "Must the ogres be driven out, or can the highlands be shared?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about this place.", next = "history" },
         { text = "Who's attacking Hammerfall?", next = "enemies" },
         { text = "Where do their leaders hide?", next = "stromgarde" },
@@ -558,8 +580,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Every morning, when I wake to stone and orc voices instead of wind in the grass. But the Earth Mother is under these hills too, and somebody must keep a fire burning for the warriors who walk them." } },
+      choices = {
+        { text = "Our people belong wherever the Horde needs them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A tauren belongs on the open plains, not in a fort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "One of the Earth Mother's druids, and a tauren besides! Sit by my fire and tell me whether the grass still grows tall in Mulgore." },
         { id = "h_default", key = true,
           text = "I am Innkeeper Adegwa, a tauren among orcs, far from Mulgore's grass. Every fort needs a fire, and this one is mine." },
         { id = "h_grass", when = { metBefore = true }, text = "I keep a little pot of Mulgore grass by the door, and it doesn't like the Highlands, but neither did I, at first. We're both getting used to it." },
@@ -567,6 +599,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
       choices = {
+        { text = "Do you miss Mulgore, Adegwa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How does a tauren fare among orcs?", next = "among" },
         { text = "What do the grunts sing about?", next = "songs" },
         { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },

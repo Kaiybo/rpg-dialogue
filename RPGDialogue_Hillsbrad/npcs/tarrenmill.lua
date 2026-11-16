@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "You tell me, druid, since you are the one who speaks with her. I only know that the soil of these hills took our bodies once and gave them back, and I owe it nothing either way." } },
+      choices = {
+        { text = "She turns away no one who seeks her.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Undeath is against nature. She owes you nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid, among the dead. Your people make their oaths to the Earth Mother, I'm told, and I have yet to decide whether she would count us among her children." },
         { id = "h_default", key = true,
           text = "High Executor Darthalia. I hold Tarren Mill for the Dark Lady and Lord Varimathras, and I push the line against the humans of Southshore. One field at a time, if I must." },
         { id = "h_strike", tags = { "news" }, when = { questActive = TODO_QUEST("Time to Strike") },
@@ -55,6 +65,7 @@ P:NPC {
         { id = "h_again2", text = "Continue. You are not dismissed yet." },
       },
       choices = {
+        { text = "Does the Earth Mother turn her back on the Forsaken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why fight for Southshore?", next = "why" },
         { text = "What are your orders, High Executor?", next = "orders" },
         { text = "What about the Syndicate?", next = "syndicate" },
@@ -259,8 +270,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "We poison what the humans would plant, not what we stand on, or so the Society says. I'll admit the soil around my cauldrons hasn't sprouted anything in months, and only Umpi doesn't seem to mind." } },
+      choices = {
+        { text = "Then keep your poisons far from these hills.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A weapon is a weapon. Use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid at Tarren Mill. I suspect you won't approve of my work, tauren, since most of it is about making green things die faster." },
         { id = "h_default", key = true,
           text = "Lydon, of the Royal Apothecary Society. I make things that hurt, for the Dark Lady's work, and it's the only thing that still makes me feel much of anything, that and Umpi." },
         { id = "h_pain", tags = { "news" }, when = { questActive = TODO_QUEST("Elixir of Pain") },
@@ -283,6 +304,7 @@ P:NPC {
         { id = "h_again2", text = "Go on; Umpi's listening too, since she has nothing better to do." },
       },
       choices = {
+        { text = "Why poison the very land the Horde fights for?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will your plague do my fighting for me, Lydon?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who's Umpi?", next = "umpi" },
         { text = "What are you working on?", next = "work" },
@@ -490,7 +512,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "There's a stall out back that's been empty since the last owner was eaten, so it's yours if you like. Keep the beast quiet at night, because the guards are jumpy with Southshore so close." } },
+      lines = {
+        { id = "xhhunt_default", text = "There's a stall out back that's been empty since the last owner was eaten, so it's yours if you like. Keep the beast quiet at night, because the guards are jumpy with Southshore so close." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? There's a stall out back that's been empty since the last owner was eaten, and it'll suit your friend well enough. Keep it quiet at night, though, because the guards are jumpy with Southshore so close." },
+      },
       choices = {
         { text = "I'll keep it quiet. Thank you, Shay.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It'll make what noise it likes. Let Southshore hear it.", next = "BACK", fx = { align = { honor = -1 } } },

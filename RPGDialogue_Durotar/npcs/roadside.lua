@@ -22,6 +22,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I did at first, and I hunted them until my arms gave out. Now I think they did only what beasts do, and I'm the one who let a boy go hunting alone." } },
+      choices = {
+        { text = "The beasts did only what they must. Forgive them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They took your son. They deserve no forgiveness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -30,8 +38,10 @@ P:NPC {
           text = "The beasts that killed my Kron roam the hills nearby. Bring me back his amulet, so that I have something of him to bury." },
         { id = "h_done", when = { questDone = TODO_QUEST("Lost But Not Forgotten") },
           text = "His amulet hangs by my door now, and I touch it every morning. You did a kindness for an old woman, and I have not forgotten it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "You're a druid, then. Kron used to say the tauren could speak with beasts, and I laughed at him, but I'd give a great deal now to know whether it's true." },
       },
       choices = {
+        { text = "Do you blame the beasts for Kron, Misha?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Kron.", next = "kron" },
         { text = "Why live so far from Razor Hill?", next = "alone" },
         { text = "Who else lives out here?", next = "neighbours" },
@@ -172,12 +182,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That this land was hard long before the orcs came, and that it respects those who don't try to soften it. Your people would plant a grove here, I think, and the land would let it die just to make its point." } },
+      choices = {
+        { text = "Respect the land as it is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Plant anyway. Even hard land can change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Swart, and I teach those the elements will answer. If you have the gift, I can help you hear it; if not, I can still tell you what the spirits say of this land." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, and let us see what the earth has taught you since we last spoke." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar are dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
       },
       choices = {
+        { text = "What do the spirits of Durotar say, Swart?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the spirits say of Durotar?", next = "land" },
         { text = "How did the orcs regain the old ways?", next = "ways" },
         { text = "Farewell, Swart.", next = "END" },

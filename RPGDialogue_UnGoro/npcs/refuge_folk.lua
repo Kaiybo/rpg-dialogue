@@ -26,16 +26,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because half the fruit down there is poison and the other half is guarded by something with teeth. The devilsaurs don't share their hunting grounds, so I'd rather pay to carry bread up the cliff." } },
+      choices = {
+        { text = "The crater would feed you if you respected it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Kill one devilsaur and you'd eat for a month.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Nergal, and I keep the stores for the Refuge. Bread, meat, water and ammunition, all carried up here by people braver than me, so the expedition doesn't have to eat what lives in the crater." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Then you'll be glad to know none of my stores came out of the crater, because I've seen what the raptors eat and I'd rather not join the meal." },
       },
       again = {
         { id = "h_again", text = "Anything more ye need from the stores, friend, before I get back to my crates?" },
         { id = "h_again2", text = "Ask away, but I'll keep stacking while ye do." },
       },
       choices = {
+        { text = "Why not live off the crater, Nergal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why not eat what's in the crater?", next = "crater_food" },
         { text = "What happened to the expedition?", next = "expedition" },
@@ -92,16 +102,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That the silithid breed faster than the Circle can burn them out, and the sand's more hive than desert now. I fly them there and I fly them back, and every month there are fewer to bring home." } },
+      choices = {
+        { text = "The Circle must hold. Silithus can't be allowed to fall.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the Circle handle it. It's their fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Gryfe, flight master for Marshal's Refuge. I'll fly anybody to Gadgetzan or to Cenarion Hold, Horde or Alliance alike, because coin's the same colour whichever side pays it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your Circle keeps watch at Cenarion Hold, and I fly folk there most days, so I hear plenty about the bugs in Silithus." },
       },
       again = {
         { id = "h_again", text = "What else? The flyer's getting twitchy." },
         { id = "h_again2", text = "Go on, ask, but don't take too long." },
       },
       choices = {
+        { text = "What do you hear about Silithus, Gryfe?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS" },
         { text = "Why fly anyone, Horde or Alliance?", next = "neutral" },
         { text = "Is flying over the crater safe?", next = "safe" },

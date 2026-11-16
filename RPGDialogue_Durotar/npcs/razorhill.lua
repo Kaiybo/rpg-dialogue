@@ -26,6 +26,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "We take what it gives and we don't complain, because it's ours and nobody gave it to us. The Warchief named it for his father, and every orc here would bleed into that red dirt before he let it go." } },
+      choices = {
+        { text = "A land won by blood must be held by blood.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A land is held by tending it, not bleeding on it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,8 +46,10 @@ P:NPC {
           text = "Quilboar out of the Barrens are pushing into Durotar. Push harder than they do." },
         { id = "h_wreckage", when = { questActive = TODO_QUEST("From The Wreckage....") },
           text = "There's a wreck on the coast with things worth salvaging. Get there before the sea or the Kul Tirans do." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
       },
       choices = {
+        { text = "How do you endure this land, Commander?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why does Razor Hill matter?", next = "why" },
         { text = "Put me on the wall, commander.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can scout Tiragarde Keep without being seen.", next = "rogue", when = { class = "ROGUE" } },
@@ -128,6 +138,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "It does, though slower than they'd like. Where they work their demon magic the scrub dies and the scorpids go mad, and I've seen the ground around their caves gone black." } },
+      choices = {
+        { text = "Even cultists can be turned back to the Horde.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Root them out, every last one of them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -136,8 +154,10 @@ P:NPC {
           text = "So Gadrin sent you. Good; the old witch doctor has an eye for the useful ones." },
         { id = "h_storms", tags = { "news" }, when = { questActive = TODO_QUEST("Dark Storms") },
           text = "The cultists talk of storms, and not the kind that bring rain. Find out what they mean." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good! The Burning Blade foul everything they touch, and you'll smell their fel stink around Skull Rock long before you see them." },
       },
       choices = {
+        { text = "Does the Burning Blade's magic poison Durotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where do the Blade hide?", next = "hide" },
         { text = "You watch me like I'm one of them, Orgnil.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I could carry false messages to the Blade for you.", next = "rogue", when = { class = "ROGUE" } },
@@ -205,6 +225,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Cactus, mostly, and the peons cut it for the fruit. There's a bit of green down by the coast and up in Thunder Ridge, but nobody who lives here calls this land kind." } },
+      choices = {
+        { text = "Even a hard land deserves care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Kind land makes soft people. This one suits orcs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -213,8 +241,12 @@ P:NPC {
           text = "That bundle is for the right hands only. Get it there, and don't let a peon sit on it." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear the grunts on the wall, singing the old songs? They sing them badly, and I wouldn't change it for anything." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
       },
-      choices = { { text = "Just a meal, thanks.", next = "END" } },
+      choices = {
+        { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Just a meal, thanks.", next = "END" },
+      },
     },
   },
 
@@ -246,6 +278,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That it's never as empty as it looks, because there's always a raptor in the scrub or a quilboar behind the rock. The orcs call it barren, but I've filled three journals with what lives here." } },
+      choices = {
+        { text = "Then it deserves protecting, not just enduring.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever lives here had better learn to fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -254,8 +294,10 @@ P:NPC {
           text = "My journal! I thought the scorpids had it. Every camp I've ever made is written in there, so you have my thanks." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Rest by the fire until your bones stop arguing with you. You'll know when." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, out walking Durotar the same as me. I write down everything I see, and I'd be glad to hear whatever you notice that I've missed." },
       },
       choices = {
+        { text = "What have you noticed about this land, Brakk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why sleep out here?", next = "why" },
         { text = "My beast and I sleep rough too.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do you ever hear the spirits by the fire?", next = "shaman", when = { class = "SHAMAN" } },

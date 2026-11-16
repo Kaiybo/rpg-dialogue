@@ -20,8 +20,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because the Badlands ask nothing of me except that I survive them, and Ironforge asked a great deal more. You of all people should understand wanting a place that doesn't care who you were." } },
+      choices = {
+        { text = "A dwarf belongs with his own kin, Martek.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I understand. Some of us need the wild.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, out here? You'll find no forest in the Badlands, only rock and me, and I've been told I'm poorer company than the rock." },
         { id = "h_default", key = true,
           text = "Martek, they call me, and 'the Exiled' because it's true. I work metal out here where no one tells me how, and the Badlands keep my secrets." },
         { id = "h_letter", when = { questActive = TODO_QUEST("Martek the Exiled") },
@@ -34,6 +44,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I've had no company in weeks." },
       },
       choices = {
+        { text = "Why live alone in a land this harsh, Martek?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why were you exiled?", next = "exile" },
         { text = "What's indurium?", next = "indurium" },
         { text = "How do you live out here?", next = "life" },
@@ -96,8 +107,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Counting this morning? Enough to keep the skies clear over my camp, and not one of 'em has ever complained, which is more than I can say for my customers." } },
+      choices = {
+        { text = "Ease up, or there won't be any buzzards left.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Cook the lot. They're only carrion birds.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! You're not here to give me grief about the buzzards, are you? Because they're the ugliest birds in the Badlands, and somebody has to eat 'em." },
         { id = "h_default", key = true,
           text = "Rigglefuzz's the name, and barbecue's the game! I've got a recipe for buzzard wings that'll make me richer than a Steamwheedle baron." },
         { id = "h_wings", when = { questActive = TODO_QUEST("Barbecued Buzzard Wings") },
@@ -108,6 +129,7 @@ P:NPC {
         { id = "h_again2", text = "Yeah, yeah, what is it?" },
       },
       choices = {
+        { text = "How many buzzards have you cooked, Rigglefuzz?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Buzzard wings? Really?", next = "wings" },
         { text = "Who buys food out here?", next = "buyers" },
         { text = "Isn't it dangerous by the road?", next = "danger" },

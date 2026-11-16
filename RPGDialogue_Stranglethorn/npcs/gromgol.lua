@@ -913,7 +913,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Always, hunter, always. The tigers and raptors are plentiful here, and the grunts eat as though they're feeding three mouths apiece. Bring meat and I'll be your friend for a week." } },
+      lines = {
+        { id = "xhhunt_default", text = "Always, hunter, always. The tigers and raptors are plentiful here, and the grunts eat as though they're feeding three mouths apiece. Bring meat and I'll be your friend for a week." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "Always, hunter, and by the look of {pet}'s muzzle it's been doing some of the hunting already. Bring meat back for the grunts, save a bone for your friend, and I'll be your friend for a week." },
+      },
       choices = {
         { text = "I'll hunt for the camp, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt for my own needs first.", next = "BACK", fx = { align = { order = -1 } } },

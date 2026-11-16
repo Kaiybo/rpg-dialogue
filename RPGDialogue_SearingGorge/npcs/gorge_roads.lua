@@ -19,8 +19,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Green hills an' honest mines, if the old Ironforge records are right, before Thaurissan called up Ragnaros an' set the whole mountain alight. That was more than two hundred years gone, an' the Gorge still hasnae cooled." } },
+      choices = {
+        { text = "It will heal one day, once the fire is out.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "What Thaurissan burned, let his people choke on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, in the Searing Gorge! I'm sorry tae say there's no' a tree within a day's walk that hasnae been burned tae charcoal, an' the ground's still warm besides." },
         { id = "h_default", key = true,
           text = "Dorius Stonetender, of the Explorers' League, an' I came here for the Suntara Stones. My team went ahead an' never came back, an' I'll no' leave the Gorge without them." },
         { id = "h_stones", when = { questActive = TODO_QUEST("Suntara Stones") },
@@ -31,6 +41,7 @@ P:NPC {
         { id = "h_again2", text = "Quickly, friend, ask an' then keep yer eyes on the ridge." },
       },
       choices = {
+        { text = "What did this place look like before, Dorius?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are the Suntara Stones?", next = "stones" },
         { text = "What happened to your team?", next = "team" },
         { text = "Does your brother know you're here?", next = "thorius" },

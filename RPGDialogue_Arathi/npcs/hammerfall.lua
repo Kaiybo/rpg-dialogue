@@ -150,8 +150,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "This ground held a prison, and before that a battlefield, and the stones remember every chain. I be coaxing them back slow, but the Witherbark be singing to their own dark loa just over the hills." } },
+      choices = {
+        { text = "Then we'll heal this ground together, Tor'gan.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the stones remember. Pain is a good teacher.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid of the Earth Mother come to Hammerfall! The spirits here be thin and tired, friend, but they be glad of anyone who listens to them." },
         { id = "h_default", key = true,
           text = "I be Tor'gan, shaman of Hammerfall. The Warchief gave our people back their hope, and here in the ruins of the old prison I tend what's left of it like a small fire in the wind." },
         { id = "h_hammerfall", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hammerfall"), days = 2 } },
@@ -170,6 +180,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. The spirits got patience, and so do I." },
       },
       choices = {
+        { text = "Why are the spirits here so tired, Tor'gan?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Highlands are wide. What should a hunter track first?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why help Gor'mul?", next = "gormul" },
         { text = "What did you find at Northfold Manor?", next = "northfold" },
@@ -217,7 +228,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "The Syndicate scouts, before anything with fur. Raptors will bite you, but Syndicate men will tell Stromgarde where Hammerfall sleeps, and that's worse for all of us." } },
+      lines = {
+        { id = "xhhunt_default", text = "The Syndicate scouts, before anything with fur. Raptors will bite you, but Syndicate men will tell Stromgarde where Hammerfall sleeps, and that's worse for all of us." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} be a fine tracker, mon, I can tell by the way it keeps its nose low. Set it on the Syndicate trails first, because a beast smells a man's fear long before he knows he's been found." },
+      },
       choices = {
         { text = "Then I'll track the Syndicate for Hammerfall.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll track whatever's worth my arrows.", next = "BACK", fx = { align = { order = -1 } } },
@@ -269,8 +283,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "That the ogres are not the only danger in Stromgarde, and that Drum will not live to see the highlands thrive unless he grows more careful. I have not told him, and I am asking you not to." } },
+      choices = {
+        { text = "He deserves to hear the truth from you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some truths are kinder left unspoken.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, on the very day the bones turned up a bear's tooth. I do not believe in chance, tauren, and I would not advise you to either." },
         { id = "h_default", key = true,
           text = "I am Korin, wife of Drum Fel. He leads Hammerfall and I read the auguries for it, and lately the auguries say things I cannot tell him." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("The Real Threat") },
@@ -283,6 +307,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, but be quick about it, because the drum's already on the wall." },
       },
       choices = {
+        { text = "What else have the bones told you, Korin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Forsaken and orcs fight side by side here. Does that sit well?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who is Or'Kalar?", next = "orkalar" },
         { text = "Why hide it from your husband?", next = "secret" },
@@ -352,7 +377,7 @@ P:NPC {
   key = "urda", id = TODO_NPC("Urda"), name = "Urda",
   bible = "bibles/arathi.md", role = "flightmaster", tier = "service",
   communities = { "hammerfall" }, temper = { "brisk" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "pet" },
 
   impression = {
     first = "Urda keeps Hammerfall's wind riders and talks about the Highlands' winds like an old enemy she's learned to respect.",
@@ -367,6 +392,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren. The wind riders are calmer around your kind, so stand near the young one while I check her harness." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Keep {pet} downwind of the roost, hunter, because my riders have been eyeing it since you walked up." },
   },
 
   start = "hello",
@@ -402,7 +429,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "Wind riders mind nothing but their dinner, hunter, and they'll mind your beast if it looks like dinner. Keep it on the ground and away from the roost, and all will go well." } },
+      lines = {
+        { id = "xhhunt_default", text = "Wind riders mind nothing but their dinner, hunter, and they'll mind your beast if it looks like dinner. Keep it on the ground and away from the roost, and all will go well." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}, is it? My wind riders mind nothing but their dinner, and to them your beast looks a lot like dinner, so keep it on the ground and well away from the roost." },
+      },
       choices = {
         { text = "I'll keep it well clear. It means no trouble.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your riders can learn to share the sky.", next = "BACK", fx = { align = { honor = -1 } } },

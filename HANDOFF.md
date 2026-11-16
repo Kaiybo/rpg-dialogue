@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; use `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.40.0)
+## State (0.41.0)
+- 0.41.0 (user: "proceed with release 0.41.0, focus on areas you believe are necessary"): druid hello line + `druid_q` node for ~155 NPCs in 15 packs (Arathi, Hillsbrad, Badlands, Searing Gorge, EPL, Dustwallow, Desolace, Needles, Tanaris, Feralas, Un'Goro, Winterspring, Orgrimmar, Durotar); `xhhunt_pet` line (`pet = { type = "Beast" }`, `{pet}`) in every Horde `xhhunt` node; Karakul/Renee/Norman/Bates got `xhwar`/`xhhunt`. No new files. Lore to confirm: Skuerto's "fraying" Arathi bindings (invented), Dorius's Ragnaros timing, Neeka's Badlands placements, Thrall's centaur line, Vahlarriel tying the Burning Blade to Mannoroc Coven.
 - 0.40.0 (user: "proceed with release 0.40.0"): druid hello line + `druid_q`/`druid_talk` node for ~68 EK NPCs (Ironforge, Loch Modan, Wetlands, Elwynn, south packs); Horde warrior/hunter choice + `xhwar`/`xhhunt` node for 35 EK Horde NPCs (no `pet` condition used yet; Karakul, Renee, Norman, Bates skipped). No new files. Lore to confirm: Wetlands druid lines (Dark Irons/orcs north of Dun Algaz, Karl Boran's raptors, kaldorei in the Second War; Valstag shakiest).
 - 0.39.0 (user: "focus on NPCs that aren't associated with quests, or have any gossip or even any dialogue; make sure the writing is coherent"): 240 named questless NPCs in 41 packs (vendors, bankers, auctioneers, guild/weapon masters, profession trainers, stable/flight masters), files `npcs/unsung*.lua`, `townsfolk.lua`, `*_trades.lua`, `*_shops.lua`, `*_folk.lua`. Most checked against warcraft.wiki.gg; the Horde starting zones were written from memory. Burning Steppes and Swamp of Sorrows got nobody (no confirmed questless NPCs). Core 0.39.0.
 - 0.38.0 (user: "Get people that are between towns and NPCs that were skipped"): ~141 named NPCs in 40 packs, mostly roadside camps, huts, escorts and outposts, plus skipped town vendors/trainers; files named `npcs/roads.lua`, `between.lua`, `wilds.lua` etc. Written from memory; uncertain lore listed below. Core 0.38.0.
@@ -17,7 +18,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - 0.36.0 (user: "more dialogue specific to every race and class, not just priest... another big content push"): every class trainer pool is a full conversation (`pools_roles.lua`, test `tests/classes_spec.lua`); Stormwind's warrior trainers (`npcs/warriors.lua`); ~450 named NPCs gained class/race-gated branches (no new priest content); guard/innkeeper/child/stable/smith/flight pools and all 48 town citizen pools notice classes and races; class advice in `asks.lua`; 39 new origins (`origins/orc.lua`, `troll.lua`, `tauren.lua`, `forsaken.lua`, plus class origins for every Alliance race and Skyborne), used in lines across packs.
 - 0.35.0 recap: citizens, ~100 named NPCs, Blasted Lands/Azshara/Silithus, journal pages, self-writing diary, three 45-60 throughlines.
 - `check_all.py --release` fails until capture data replaces the TODO ids (by design).
-- Known thin spots after 0.40.0: Horde hunter lines don't use the pet condition; Karakul (Stonard), Renee/Norman/Bates (Tirisfal/Undercity) skipped for Horde classes.
+- Known thin spots after 0.41.0: no druid lines yet in Tirisfal, Undercity, Silverpine.
 
 ## Standing decisions (confirm only if the user asks)
 - Lore is Classic-era: no foreshadowing of later expansions (Prestor, Varimathras, Neeru, Lescovar, Longhorn written straight; dramatic irony only).
@@ -29,6 +30,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon.
 
 ## Next step
+0. User installs 0.41.0 (no new files: /reload is enough if 0.39.0+ is installed). Ask whether the pet lines read right with real pet names.
 1. User installs 0.39.0 (new files in 41 packs: exit fully, restart). Ask: do the shopkeepers and trainers read clearly and feel worth a click, and does the trade window still open from them?
 2. Lore to confirm (0.39.0): Classic presence of Hogan Ference, Kriggon Talsone, Gretchen Vogel, Piter Verance, Kelsey Yance, Gnaz Blunderflame, Micha Yance (Southshore), Janet Hommers, Jannos Ironwill; the Horde starting-zone list (Duokna, Jhawna Oatwind, Joshua Kien, Nurse Neela, Edwin Harly, Andrea Boynton, Hula'mahi, Wenna Silkbeard, Omusa Thunderhorn at Taurajo); Stormwind shop placements (Aldwin Laughlin, the Cordells, Lilyssia). Vesprystus sits in the Darnassus pack but Rut'theran is Teldrassil's zone: check he loads there.
 3. Older lists (0.38.0/0.37.0 lore questions, skipped NPCs) are in git: `git show 56fd517:HANDOFF.md`. Then Alterac/Dalaran (Forever) once documented, and lines the user flags.

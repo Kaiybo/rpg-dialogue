@@ -24,8 +24,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I hope so, though I'm not sure I'd want to eat it. Joseph used to say the soil there was the best in the east, and it's hard to think of it full of ghosts and bones instead of barley." } },
+      choices = {
+        { text = "Lay its dead to rest, and it will grow again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn it to the ground and start over.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid. Darrowshire had good fields once, and you might know whether anything could grow there again, now that the dead walk its lanes every night." },
         { id = "h_default", key = true,
           text = "I'm Carlin Redpath, and I was at Darrowshire when the Scourge came. My brother Joseph led the defense, and I lived and he didn't, and I've spent every day since trying to make that mean something." },
         { id = "h_villains", tags = { "news" }, when = { questActive = TODO_QUEST("Villains of Darrowshire") },
@@ -36,6 +46,7 @@ P:NPC {
           text = "You found Pamela, or what's left of her, and she remembered me. I don't know whether to thank you or weep, so I expect I'll do both." },
       },
       choices = {
+        { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've met Marlene on Sorrow Hill. She asks after you.", next = "marlene", when = { questDone = TODO_QUEST("Little Pamela") } },
         { text = "What happened at Darrowshire?", next = "battle" },
         { text = "Tell me about Joseph.", next = "joseph" },
@@ -181,14 +192,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Turns 'em, same as folk, an' the plaguehounds are what's left when it's done. I've seen beasts out by the Plaguewood wi' their hides hangin' off an' still walkin', an' ye'd rather I didnae describe it further." } },
+      choices = {
+        { text = "If there's a cure for them, it's worth the hunt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Kill every turned beast and burn what's left.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Ye'll no' like what's in my pots, I'll warn ye now, but every bit o' it keeps the plague off a soldier's boots, an' I'll no' apologise for that." },
         { id = "h_default", key = true,
           text = "Smokey LaRue's the name, an' Scourge bits are me trade, more's the pity. I brew things for the Dawn that keep the plague off our boots, an' the recipes call for parts you'd rather not carry." },
         { id = "h_compound", tags = { "news" }, when = { questActive = TODO_QUEST("Smokey's Special Compound") },
           text = "Ye've got the bits? Good, toss 'em in the bin, not on me bench. The compound's half done, an' it's a mean thing when it's interrupted." },
       },
       choices = {
+        { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does the compound do?", next = "compound" },
         { text = "Why does everyone call you Smokey?", next = "name" },
         { text = "I'll leave you to it.", next = "END" },
@@ -238,14 +260,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I honestly don't know, and that's what worries me! I test everything on the undead first, of course, but nobody's ever thought to ask a tree." } },
+      choices = {
+        { text = "The Scourge first. Worry about the trees later.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ask the trees, and test carefully before you use it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid! Oh, how lovely. You must tell me whether my holy vapours bother the plants, because I'd hate to make things worse out here." },
         { id = "h_default", key = true,
           text = "Betina Bigglezink, of the Argent Dawn. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
           text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
       },
       choices = {
+        { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Gnomeregan's loss made us all inventors, didn't it?", next = "gnome", when = { race = "Gnome" } },
         { text = "What is Scholomance?", next = "scholo" },
         { text = "What exactly are you building?", next = "gambit" },

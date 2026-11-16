@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-16)
+- Druids are noticed: nine people at Freewind Post, the Raceway and on the roads greet a druid as one and have something to ask and argue about.
+
 ## 1.10.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Nyse, Awenasa, Jinky Twizzlefixxit.
 - New files: exit the game fully and restart.

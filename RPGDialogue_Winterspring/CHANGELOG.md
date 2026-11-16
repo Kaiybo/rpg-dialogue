@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Druids are noticed: nine people in Everlook and the wilds greet a druid as one and have something to ask and argue about.
+
 ## 1.9.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Auctioneer Grizzlin, Wixxrak, Qia, Azzleby, Evie Whirlbrew.
 - New files: exit the game fully and restart.

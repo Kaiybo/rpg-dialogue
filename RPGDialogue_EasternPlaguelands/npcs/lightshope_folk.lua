@@ -26,8 +26,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Badly, and they let me know it with every flight. I wash their feathers every evening and they still come back smelling of the Plaguewood, poor things." } },
+      choices = {
+        { text = "They deserve better. Spare them the worst routes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're war beasts. They fly where they're sent.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
           text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is foul and the birds hate every mile of it, but they'll get you to Chillwind or anywhere else you need to be." },
       },
@@ -36,6 +46,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but don't keep a gryphon waiting in this air." },
       },
       choices = {
+        { text = "How do the gryphons bear the foul air?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly from here?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "How do the gryphons manage the plague?", next = "air" },
         { text = "A Forsaken bat handler right beside you?", next = "georgia" },
@@ -167,8 +178,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Every day, though I try not to say it in front of the soldiers. I keep a pot of herbs on the sill out of stubbornness, and it's the only green thing at Light's Hope that hasn't died on me yet." } },
+      choices = {
+        { text = "Keep that pot growing. Small hopes matter here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hope won't stop the Scourge. Steel will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, at my inn! You'll want a window that faces the hills, I expect, though I'll warn you the view hasn't been green in a long while." },
         { id = "h_default", key = true,
           text = "Jessica Chambers, and this is the inn at Light's Hope, such as it is. I keep the beds clean and the pot full for the Argent Dawn and anyone else who comes in from the plaguelands, and I don't ask anyone's colours." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -179,6 +200,7 @@ P:NPC {
         { id = "h_again2", text = "Stay as long as you like; there's nowhere warmer for miles." },
       },
       choices = {
+        { text = "Do you ever miss green hills, Jessica?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to rest here.", next = "BUSINESS" },
         { text = "How is this place still safe?", next = "safe" },
         { text = "Who comes through here?", next = "guests" },

@@ -168,6 +168,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Everything feels strange to me, friend, but the crater feels strange in a friendly sort of way. The plants grow too big and the beasts are too old, as if this place forgot to keep up with the rest of the world, the way I've forgotten everything." } },
+      choices = {
+        { text = "The crater should be studied and understood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The crater should be left just as it is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -176,9 +184,11 @@ P:NPC {
           text = "You found my things, and my sword! I'd know it anywhere... well, I'd know it here, anyway." },
         { id = "h_adventure", when = { any = { { questActive = TODO_QUEST("Linken's Adventure") }, { questActive = TODO_QUEST("It's Dangerous to Go Alone") } } },
           text = "It's coming back to me: a fire elemental called Blazerunner, and a flame, a golden one, that I was meant to bring home. I think you'd better be the one to finish it, just in case I forget again." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You know, I have the oddest feeling I've met someone who could turn into a beast before, though of course I can't remember a thing about it." },
       },
       again = { { id = "h_again", text = "Ask! Quickly, before I forget you asked." } },
       choices = {
+        { text = "Does the crater feel strange to you, Linken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do you remember?", next = "memory" },
         { text = "Tell me about your sword.", next = "sword" },
         { text = "Who looks after you here?", next = "friends" },
@@ -260,6 +270,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Some of them hum, some of them heal, and some make every plant around them grow twice as big. I honestly don't know whether they're good for the crater or just very, very strange." } },
+      choices = {
+        { text = "Take only what you need and leave the rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dig them all up. The knowledge is worth it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -271,9 +289,11 @@ P:NPC {
         { id = "h_aquementas", when = { questActive = TODO_QUEST("Aquementas") },
           text = "There's a water spirit called Aquementas that may be able to help with what Linken needs. Be polite to it, though, because spirits that old take offense easily." },
         { id = "h_singed", when = { metBefore = true }, text = "I lost an eyebrow this morning, putting a red crystal and a blue one too close together. Worth it, I think, and it'll grow back, I think." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Tell me, can you feel the crystals out there? I've always wondered whether the land itself knows they're doing something odd." },
       },
       again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {
+        { text = "What do the crystals do to the land, J.D.?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the crystals do?", next = "crystals" },
         { text = "Why live in a cave?", next = "cave" },
         { text = "Can you really help Linken?", next = "linken" },
@@ -347,6 +367,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Probably, and I've told Williden so, but he says we've come too far to turn back now. Every time I hear a devilsaur stomping through the jungle, I think he's wrong." } },
+      choices = {
+        { text = "You came to finish the work. Stay the course.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Turn back. No crystal is worth your lives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -356,9 +384,11 @@ P:NPC {
         { id = "h_pterrordax", when = { questActive = TODO_QUEST("Beware of Pterrordax") },
           text = "The pterrordax keep swooping on the supply runs, big angry lizards with wings. Thin them out, please, and the runners can breathe again." },
         { id = "h_ringo", when = { questDone = TODO_QUEST("A Little Help From My Friends") }, text = "Ringo's back and he won't stop talking about how thirsty he was. I've given him eleven canteens, and he's still talking." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Could you, I don't know, ask a bird whether it's seen Ringo? I'm only half joking, because I've tried everything else." },
       },
       again = { { id = "h_again", text = "Anything else? Sorry, I'm a bit distracted, but I always am." } },
       choices = {
+        { text = "Is Un'Goro too dangerous for the expedition?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who's Ringo?", next = "ringo" },
         { text = "How do supplies even get here?", next = "supplies" },
         { text = "Why did you leave Gadgetzan?", next = "gadgetzan" },

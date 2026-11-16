@@ -457,7 +457,10 @@ P:NPC {
     },
     xhhunt = {
       big = true,
-      lines = { { id = "xhhunt_default", text = "When the reagents still have teeth, yes, I'm afraid we do. Half my research waits on things that live in the deep woods of Silverpine, and none of them come when called." } },
+      lines = {
+        { id = "xhhunt_default", text = "When the reagents still have teeth, yes, I'm afraid we do. Half my research waits on things that live in the deep woods of Silverpine, and none of them come when called." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "When the reagents still have teeth, yes, and I see {pet} has teeth enough to match them. Half my research waits on things in the deep woods of Silverpine, and a beast's nose would find them faster than any apprentice of mine." },
+      },
       choices = {
         { text = "Tell me what you need, and I'll fetch it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pay me first, and I'll think about it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -507,8 +510,29 @@ P:NPC {
         { id = "h_chair", when = { metBefore = true }, text = "Your chair's still there, and nobody's taken it. Nobody takes anyone's chair down here; it's the last courtesy we keep." },
       },
       choices = {
+        { text = "Warriors don't sit much, Norman. Why keep chairs?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Is there room in here for my beast, Norman?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Just resting.", next = "END" },
+      },
+    },
+    xhwar = {
+      big = true,
+      lines = { { id = "xhwar_default", text = "Because even warriors stop eventually, friend, and then they want somewhere that's theirs. I've had Deathguard sit in that corner for a week without a word, and they left looking a little more like themselves." } },
+      choices = {
+        { text = "Rest is part of the discipline. I'll take a chair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll rest when the Scourge is ash, not before.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhhunt = {
+      big = true,
+      lines = {
+        { id = "xhhunt_default", text = "There's room, though the rats from the canals might take an interest in it. Keep it off the chairs, if you don't mind, because nobody takes anyone's chair down here, not even a wolf." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. It can have the floor by my feet, but not a chair, because nobody takes anyone's chair down here, not even a beast with manners like that." },
+      },
+      choices = {
+        { text = "It'll stay on the floor, where it belongs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It'll sit where it likes. It's earned that much.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
   },

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.8.0 (2026-11-16)
+- Horde hunters with a beast out hear their companion named by the people who already talked hunting.
+- Innkeeper Norman now has replies for Horde warriors and hunters.
+
 ## 1.7.0 (2026-11-16)
 - Horde warriors and hunters get their own question and short conversation with several people here.
 

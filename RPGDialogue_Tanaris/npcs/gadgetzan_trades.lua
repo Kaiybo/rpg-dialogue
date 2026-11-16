@@ -115,18 +115,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Badly, and quietly, which is worse. A raptor that stops complaining is a raptor that needs a bucket thrown over it, and the Water Company charges me for every bucket." } },
+      choices = {
+        { text = "Then pay it. A keeper's beasts come before his purse.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Ration their water. They'll toughen up soon enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Laziphus, stable master. Hunters leave their beasts with me while they travel, and I keep them fed, watered and out of the sun, which in Tanaris is the hard part." },
         { id = "h_noon", when = { timeOfDay = "day" },
           text = "Come into the shade if you're talking to me, because I'm not standing out in that sun for anybody. The animals have the right idea; they haven't moved since breakfast." },
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid? Then you'll understand when I say every animal in this stable would rather be somewhere wetter, and frankly so would I." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a raptor that wants its lunch." },
         { id = "h_again2", text = "Ask away, but quickly, because the water's warming up while we chat." },
       },
       choices = {
+        { text = "How do the animals bear this heat?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled animals.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you keep animals alive out here?", next = "heat" },
         { text = "What sort of beasts come through?", next = "beasts" },

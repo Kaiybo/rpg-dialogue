@@ -15,13 +15,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "They hunt in packs and they're cleverer than any wolf I've seen, so yes. I know they were here long before us, but I've buried two scholars this season and I'm out of patience with them." } },
+      choices = {
+        { text = "You're in their crater. Learn their ways.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then thin the packs before you lose more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Hol'anyee Marshal, Williden's sister and the better shot of the two of us, whatever he tells you. While he plans, I go out and keep the raptors from eating our scholars." },
         { id = "h_c0", when = { class = "HUNTER" }, text = "A hunter! Finally, someone who understands why I sleep with my rifle. The raptors here hunt like nothing else in Azeroth." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Williden will want to ask you about the plants, but I'd rather know whether you can talk the raptors out of eating our scholars." },
       },
       again = { { id = "h_again", text = "What else? I've got a patrol soon." }, { id = "h_again2", text = "Ask away, quickly." } },
       choices = {
+        { text = "Are the raptors truly so dangerous?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's it like hunting in the crater?", next = "b1_1" },
         { text = "Tell me about Williden.", next = "b2_1" },
         { text = "Why did the camps fall?", next = "b3_1" },
@@ -75,13 +85,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Because that is how the lesson ends, with the student proving what he has learned. I take no pleasure in it, but I will honor him with the hunt and waste nothing he leaves behind." } },
+      choices = {
+        { text = "That is the way of the hunt. Honor him well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A teacher should be thanked, not hunted.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Torwa Pathfinder. I came to this crater to learn from its beasts, and the greatest of them, Lar'korwi, has become my teacher and my quarry." },
         { id = "h_c0", when = { questActive = TODO_QUEST("The Bait for Lar'korwi") }, text = "Lay the bait where Lar'korwi hunts, and be ready, for he will come quickly and he will not come gently." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid has come to the crater. Then you will understand why I call Lar'korwi my teacher, for nothing here hunts as purely as he does." },
       },
       again = { { id = "h_again", text = "Ask, and I'll answer while I watch the treeline for raptors." }, { id = "h_again2", text = "Speak, hunter." } },
       choices = {
+        { text = "Why hunt your own teacher, Torwa?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who is Lar'korwi?", next = "b1_1" },
         { text = "Why come to Un'Goro?", next = "b2_1" },
         { text = "Is it dangerous out here?", next = "b3_1" },
@@ -255,12 +275,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "Everything gets sold eventually, pal, and better me than some Venture Company crew with a drill. I just want the water, and they'd want the whole crater." } },
+      choices = {
+        { text = "Leave the springs alone. Some things aren't for sale.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better you than the Venture Company. Sell away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Krakle's the name, and the hot springs are my game. These springs are boiling with heat and minerals, and somebody's going to figure out how to sell them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Ooh, a druid! Your folks love a good hot spring, right, all that steam and nature? I could use an endorsement once I figure out how to bottle these." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Talk quick, the springs won't wait." } },
       choices = {
+        { text = "Should the springs really be sold, Krakle?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's special about the springs?", next = "b1_1" },
         { text = "Is it safe here?", next = "b2_1" },
         { text = "Should these springs be sold?", next = "s_1" },

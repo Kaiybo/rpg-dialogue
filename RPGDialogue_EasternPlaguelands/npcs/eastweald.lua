@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "I have to believe so, or there is little point in an old man fishing here. The Light can cleanse a soul, but the land wants something slower, and I think it wants us to stop fighting over it first." } },
+      choices = {
+        { text = "It will heal with patience and mercy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It heals when every plague-thing is burned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A druid, by the look of you. I've watched this river run grey with plague for a long while now, and I'd give a great deal to hear from someone who knows whether it will ever run clean." },
         { id = "h_default", key = true,
           text = "Tirion Fordring, once a knight of the Silver Hand and lord of Hearthglen, and now an old man by a river, with a horse and a fishing line. It's a quieter life, though I didn't choose it." },
         { id = "h_food", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Demon Dogs") }, { questActive = TODO_QUEST("Blood Tinged Skies") }, { questActive = TODO_QUEST("Carrion Grubbage") } } },
@@ -46,6 +56,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Sit a while longer; the fish aren't biting anyway." } },
       choices = {
+        { text = "Can these lands heal, Tirion?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened to you?", next = "story" },
         { text = "Tell me about your son.", next = "son" },
         { text = "Do the fish ever bite?", next = "fish" },
@@ -206,8 +217,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    druid_q = {
+      lines = { { id = "dq_default", text = "It troubles me that the Scourge made it and the Dark Lady did not. What the land does after we have won is your concern, druid, not mine." } },
+      choices = {
+        { text = "The land must be healed, whoever wins.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Win first. The trees can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_druidcl", when = { class = "DRUID" },
+          text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for half of them are rotten through and the other half are worse." },
         { id = "h_default", key = true,
           text = "Nathanos, Champion of the Banshee Queen; they call me the Blightcaller. The Scourge, the plaguebats and the Scarlet zealots all crawl over these fields, and I mean to clear them, and you'll help." },
         { id = "h_queen", when = { heardLine = "sylvanas.h_default" },
@@ -220,6 +241,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, though I warn you my patience is thinner than these fields." },
       },
       choices = {
+        { text = "Does the blight trouble you at all, Blightcaller?", next = "druid_q", when = { class = "DRUID" } },
         { text = "This was your home?", next = "home" },
         { text = "Teach me what the elves taught you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "We both woke in the dark, Blightcaller.", next = "x_forsaken", when = { race = "Scourge" } },
