@@ -41,8 +41,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Stubbornness and pay, mostly, and knowing that the caravan doesn't stop for anybody. The Kolkar and the Magram both reckon a kodo train is a gift on legs, so my folk pray in their own fashion, which is loudly and with a crossbow handy." } },
+      choices = {
+        { text = "Faith steadies the hand better than coin. I'll pray with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A crossbow answers faster than any prayer. Keep them armed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Cork.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd say a caravan's as worthy as anything else, because there's grain and cloth and medicine on these kodos, and half of it's going to folk who've got nothing else. Not that I'm asking you for anything, mind, I just want it said." } },
+      choices = {
+        { text = "I'll stand between your drivers and the centaur, and gladly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Make it worth my while, and I'll think about it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, that's a fine thing to see on the Desolace road, because the Kolkar have hit us twice this season, and my drivers would sleep a sight better knowing somebody up front can patch an arrow wound." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, out here on my road! If you're heading the same way as the caravan, the kodos won't mind the company, and the centaurs might think twice before they come down off the ridge." },
         { id = "h_default", key = true, text = "Cork Gizelton, and this is the Gizelton caravan, the only honest freight between the Kodo Graveyard and the south road. My brother Rigger runs the back half and I run the front, and the centaurs would happily run off with both." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Bodyguard for Hire") }, text = "You're my bodyguard for this stretch, so stay close to the wagons and watch the ridges, because that's where the Kolkar like to come down from." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -65,6 +85,8 @@ P:NPC {
         { text = "Why not just pay the centaurs off?", next = "s_1" },
         { text = "Does anyone ever try to rob the caravan from inside, Cork?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have mages guarded the caravan before, Cork?", next = "xmage", when = { class = "MAGE" } },
+        { text = "How do your drivers keep their nerve out here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should a paladin guard a merchant's caravan, Cork?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -262,8 +284,18 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Right, wrong, it's a market, friend, and somebody's going to sell those kodos sooner or later, so it might as well be the goblin with the good rope. The tauren don't like it and the bones out there don't seem to either, though neither has filed a complaint yet." } },
+      choices = {
+        { text = "Let the old ones die in peace, Smeed. That's their right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A live kodo's worth more than a dead one. Sell away.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now don't go looking at me like that, because I'm not robbing any graves, I'm just rounding up the live kodos before they lie down and join the dead ones, which is practically a mercy if you think about it." },
         { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and I've got the buyers." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap. Then lead the tame ones back here and I'll do the rest." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -286,6 +318,7 @@ P:NPC {
         { text = "Graverobbing kodos seems wrong to me.", next = "s_1" },
         { text = "Who are your buyers for these kodos, Smeed?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you really want demons herding your kodos, Smeed?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is it right to sell the kodos that come here to die?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -438,8 +471,28 @@ P:NPC {
         { text = "I'll ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They break them slowly, with fear and fel magic, until the prisoner forgets there was ever a world outside Thunder Axe Fortress. I have seen what comes out of those halls, and it is not always the person who went in." } },
+      choices = {
+        { text = "The Light can mend even that, given time. I believe it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some wounds don't close. Kill the cultists and be done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Thunder Axe Fortress in the north is their stronghold, and there are worse things than cultists down at Mannoroc Coven. Go carefully, because the cult has learned how to fight people who wear the Light like armor." } },
+      choices = {
+        { text = "I'll go in openly, under the Light. Let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll slip in quietly and take them before they call their demons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because where the Burning Blade has been, the people they leave behind need more than a sword, and Dalinda Malem may need it most of all if anyone ever brings her home." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Burning Blade bow to demons in Thunder Axe Fortress, and I have waited a long time for someone who would walk into that place without flinching." },
         { id = "h_default", key = true, text = "Vahlarriel Demonslayer. I hunt the Burning Blade, the cult that bends the knee to demons, and their trail runs straight through Thunder Axe Fortress. One of ours, Dalinda Malem, went missing there." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Return to Vahlarriel") }, text = "Bring Dalinda back to me alive, and whatever she's learned inside that fortress may be worth more than anything we could take by force." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -457,6 +510,8 @@ P:NPC {
         { text = "Can the Burning Blade's followers be saved?", next = "s_1" },
         { text = "How do you get past the Blade's sentries, Vahlarriel?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What kind of magic do the Blade's sorcerers use, Vahlarriel?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What does the Burning Blade do to the people they take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where do the Burning Blade gather in Desolace?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

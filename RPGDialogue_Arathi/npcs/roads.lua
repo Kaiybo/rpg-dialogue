@@ -32,8 +32,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I fear it more than I let Kinelory see, because everyone knows what the plague did to Lordaeron, and nothing I've watched at that farm looks like farming. If it does come, it won't stop at the Highlands, and I don't think Southshore is ready." } },
+      choices = {
+        { text = "The Light will stand against it. We'll stop it here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then strike first and leave nothing. Mercy can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, keep low! If the Forsaken really are brewing plague down at Go'Shek Farm, we'll want someone who knows the Light when it's all over, so please don't get yourself spotted." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Could you not slip into Go'Shek Farm as a cat and see what the Forsaken are hiding? Kinelory would sleep easier, and so would I." },
         { id = "h_default", key = true,
@@ -53,6 +63,7 @@ P:NPC {
         { text = "Phin said you hadn't checked in. He was frantic.", next = "frantic", when = { questActive = TODO_QUEST("Hints of a New Plague?") } },
         { text = "What kind of writing is on the courier's papers?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you fear the plague is coming to the Highlands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Stay low, then. Farewell.", next = "END" },
       },
       again = {
@@ -141,8 +152,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because somebody has to, and Phin trusted me with this, and if I let fear decide for me then I'd never do anything at all. I've been scared since the day we got here, honestly, and I've found I can be scared and still keep walking." } },
+      choices = {
+        { text = "That's true courage. The Light walks with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear is telling you something. Let someone else take him.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He comes the same way every few days and never stops anywhere for long, which tells me he knows someone might be watching. I mean to stop him before he reaches the farm, but I'll admit I'd rather do it in the open than in the dark." } },
+      choices = {
+        { text = "Then we'll stop him in the open, face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Ambush him in the dark. Fair play won't stop a plague.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, that's, well, that's a comfort, because if I'm going after that Forsaken courier I'd rather someone said a prayer over me first, just in case it goes the way Quae thinks it will." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, thank the Light, because I've been working up my courage to go after that courier for days, and it would be a great deal easier with someone in plate walking beside me." },
         { id = "h_default", key = true,
           text = "Kinelory, at your service, if you'll have a nervous one. There's a Forsaken courier who carries papers to Go'Shek Farm, and I mean to take them off him before he gets there." },
         { id = "h_strike", tags = { "news" }, when = { questActive = TODO_QUEST("Kinelory Strikes") },
@@ -159,6 +190,8 @@ P:NPC {
         { text = "Quae says you're braver than you are sensible.", next = "quae" },
         { text = "I'll keep my demon behind you, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Want some help ambushing the Forsaken courier?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You're frightened, Kinelory. Why go after the courier yourself?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do you know of the courier's route?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },

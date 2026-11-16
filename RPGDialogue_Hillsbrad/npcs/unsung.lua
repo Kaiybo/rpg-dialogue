@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Once or twice, to see the refugee boats in after the plague, and they carried children up the pier in their arms as if they weighed nothing. Donald still talks about it, though he pretends he doesn't." } },
+      choices = {
+        { text = "That's what the Light's knights are for, Lindea.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Carrying children was easy. They should have stopped the plague.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The old ones touch the post at the end of the pier and say a word to the Light, and the young ones laugh at them until their first storm. I sell them all the same line, but I notice it's the praying ones who keep coming back for more." } },
+      choices = {
+        { text = "Faith keeps them steady when the sea doesn't.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Good line keeps them alive. The praying's just comfort.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than you'd think, and none of them have ever fished in their lives. Donald says I should ask what it's for, but I find it's better business not to know, and the bay doesn't mind either way." } },
@@ -54,6 +72,10 @@ P:NPC {
           text = "You're the one who cleared the Torn Fin off the strand, aren't you? The nets are coming back full again, and I've sold more line this week than all last month, so you have my thanks." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want fishing line, I suppose, though I suspect you'll use it to trip someone rather than catch a fish, and I'll not ask which." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll not need a pole, I suppose, since your kind just freeze the fish where they swim, and Donald will be very disappointed to hear it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest buying fishing line? Well, I suppose even the Light's servants want a quiet evening, and the docks are the quietest place in Southshore." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, and in all that plate! If you fall off my dock you'll sink like an anchor, so mind the loose board by the third post." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tide waits for no one, but I can." },
@@ -67,6 +89,8 @@ P:NPC {
         { text = "Do the murlocs trouble the docks?", next = "murlocs", when = { questBefore = TODO_QUEST("Down the Coast") } },
         { text = "Do rogues often buy fishing line from you, Lindea?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would Donald really be disappointed in me, Lindea?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the fishermen pray before they sail, Lindea?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did knights of the Silver Hand ever come down to the docks?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },
@@ -288,6 +312,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Hardly any since the Silver Hand broke, and I used to sell more buckles and polish than anything else on the cart. Now it's mostly Stormwind soldiers passing through, and they don't keep their kit half so well." } },
+      choices = {
+        { text = "The order's discipline deserves remembering.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Polish never won a war. The soldiers fight just as well.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The soldiers up north at Chillwind Camp, mostly, and the order grows every month, which tells you all you need to know about how the fighting goes. I pack it myself and I try not to think about it, though I don't always manage." } },
+      choices = {
+        { text = "Every shroud is a soul given proper rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to send more blades and fewer shrouds.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every week, from people who say they've lost their keys, and I tell every one of them to see the Magistrate. Southshore's a small town, and if a lock gets picked, everyone knows who bought the tools." } },
@@ -312,6 +354,10 @@ P:NPC {
           text = "Micha Yance, trade supplies. If you're stitching, tanning, smithing or tinkering, I've got the bits you need, and if I don't, it's on the next cart from Menethil." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want leather, thread and maybe a lockpick or two, though I'll say I only sell the first two, and I'd prefer you didn't ask about the third." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want silk thread and maybe a little dye, since I've noticed your robes need patching after a few weeks in the hills." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! You'll be wanting linen, I expect, because the camp up in the Plaguelands buys it by the bolt for bandages and shrouds, and I can never keep enough of it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! You'll want oil and polish for that plate, I'd wager, because the damp in Hillsbrad will rust a buckle overnight." },
       },
       again = {
         { id = "h_again", text = "Ask on; I've a cart to unload, but my tongue works fine while I do." },
@@ -324,6 +370,8 @@ P:NPC {
         { text = "I'm a tailor. Where's the good cloth?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Has anyone asked you for lockpicks before, Micha?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do many mages buy cloth and dye in Southshore, Micha?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Shrouds by the bolt? Who orders them, Micha?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you outfit many knights these days, Micha?", next = "xapala", when = { class = "PALADIN" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -405,6 +453,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I sell wares to customers, pal, and the customers decide what's a weapon. Tarren Mill buys rope and lamp oil, Southshore buys rope and lamp oil, and what either side does with it is a moral question for folk in better armour than mine." } },
+      choices = {
+        { text = "Arming the Forsaken makes you part of their war.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Rope's rope. A merchant can't answer for every buyer.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A priest in Southshore, technically, because I left a sack of it outside the chapel during a service and nobody can prove the blessing didn't reach it. Tarren Mill won't buy it, of course, since the Forsaken don't care for holy anything, so you're my only market." } },
+      choices = {
+        { text = "Selling false blessings is a sin, Zixil.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Folk find comfort either way. Where's the harm?", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A few scrolls, a lantern that might have been enchanted, and a box of something I bought cheap off a fellow from Dalaran who was in a hurry. I don't ask what my customers do with things, and you shouldn't ask what Southshore does with them either, because that's how I stay in business." } },
@@ -455,6 +521,10 @@ P:NPC {
           text = "Zixil, merchant supplier to the hills, and yes, I was in Southshore an hour ago, and no, I won't tell you what they're up to. A goblin who carries tales doesn't carry goods for long." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a customer who appreciates a good deal and a quiet exchange, and I've got both, if you know what to ask for." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now I've got a few things that might interest you, pal, though I'll ask you not to let the imp near my robots, because it shorted one out last month." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest from the Southshore side! I've holy candles, blessed salt and a very convincing reliquary, and I'll swear on my robots that the salt is blessed." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! I've had knights try to arrest me before, so let's get it out of the way: everything I sell is legal in at least one of the two towns I sell it in." },
       },
       again = {
         { id = "h_again", text = "What else, customer? Talk while you walk; I've a schedule." },
@@ -470,6 +540,8 @@ P:NPC {
         { text = "How did a gnome machine end up guarding you?", next = "gnome", when = { race = "Gnome" } },
         { text = "Do you really sell to both Southshore and Tarren Mill, Zixil?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How did an imp short out your robot, Zixil?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Who blessed your salt, Zixil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you sell weapons to the Forsaken, Zixil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Safe travels.", next = "END" },
       },
     },

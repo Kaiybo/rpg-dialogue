@@ -269,8 +269,28 @@ P:NPC {
         { text = "Let us speak of something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The Light mends what lives, and very little lives here, so I would not ask it to mend the ground itself. The Circle believes Desolace is not dead but sleeping badly, and that its healing will be slow, patient work that outlasts us both." } },
+      choices = {
+        { text = "The Light can reach even here, Keeper. I'll prove it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some places are past saving. Spend the effort where it counts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Keeper.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "There is corruption, certainly, among the demons of Mannoroc Coven and the Burning Blade at Thunder Axe Fortress. The Circle would ask you to judge each thing you meet with care, because not everything frightening in Desolace is wicked." } },
+      choices = {
+        { text = "Evil hiding in the wilds must be rooted out by force.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wild has its own balance. I'll tread carefully.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, so far from the cathedrals. The Circle does not pray as you do, but we tend the same wounded world, and Desolace has more wounds than either of us can count." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here among the centaur and the dust. I hope you have come to protect this land and not only to fight upon it, because Desolace has had more than enough of fighting." },
         { id = "h_default", key = true,
           text = "Keeper Marandis, of the Cenarion Circle. My sisters and I came down from Stonetalon on the Circle's business, and it is not small business." },
         { id = "h_corruption", tags = { "news" }, when = { questActive = TODO_QUEST("Corruption of Earth and Seed") },
@@ -290,6 +310,8 @@ P:NPC {
         { text = "I hunt these lands. The beasts are wrong here.", next = "hunter_md", when = { class = "HUNTER" } },
         { text = "Do the keepers distrust all mages, Keeper?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why does the fel trouble you so much, Keeper?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Can the Light do anything for a land this broken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there evil here a paladin should root out, Keeper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -399,8 +421,28 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More often than I'd like, aye, out by the Kodo Graveyard an' along the old roads where the centaur caught a caravan. I take what's useful an' I bury what's left, though I'll admit I'm no hand at the prayin' part." } },
+      choices = {
+        { text = "Bury them properly, and I'll say the words with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't need their gear. Take it and don't look back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kreldig.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honest enough, I'd say, because what lies in the sand helps nobody, an' what I bring back keeps Nijel's Point in nails an' kettles. Still, I'll no' pretend there's never a night I wonder whose pack I'm carryin'." } },
+      choices = {
+        { text = "Return what you can to the families. That's the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nobody's coming to claim it. Use it and stop fretting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Good, because half o' what I salvage out o' this waste was left behind by folk who didnae make it home, an' it'd sit easier wi' me if someone said a word over them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin o' the Silver Hand, out among the dust an' the demon-lovers! Reclaimers Inc. could use a strong back an' a stronger conscience, an' ye look like ye've brought both." },
         { id = "h_default", key = true,
           text = "Kreldig Ungor, o' Reclaimers Inc., an' we find what others lost an' put it back to use. Desolace has lost a great deal." },
         { id = "h_karnitol", tags = { "news" }, when = { questActive = TODO_QUEST("The Karnitol Shipwreck") },
@@ -424,6 +466,8 @@ P:NPC {
         { text = "Does Reclaimers Inc. ever buy things that are quietly recovered?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What sort of relics are you pulling out of Desolace, Kreldig?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you stock anything a warlock might need, Kreldig?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you ever find the dead along with their belongings?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is salvage from the fallen honest work, Kreldig?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -669,8 +713,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Grief, mostly, and the kind of silence that follows a person to bed. Some have lost companions to the centaur and some have only stared too long at the bones in the Kodo Graveyard, but they all sit closer to the fire than they need to." } },
+      choices = {
+        { text = "Then I'll sit with them tonight. No one should carry that alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grief passes. They need rest and a hot meal, not sermons.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, here at the edge of the dust. Sit by the hearth a while, because the people who come up from Desolace often carry more than dust home with them, and I think you would know what to say to them." },
         { id = "h_default", key = true,
           text = "Innkeeper Lyshaerya. I keep the only warm hearth between Stonetalon and Feralas, and travelers find their way to it eventually." },
         { id = "h_dust", when = { metBefore = true }, text = "Desolace dust gets into everything: the bread, the beds, my hair. I've stopped fighting it, and now I just sweep while I talk." },
@@ -688,6 +742,7 @@ P:NPC {
         { text = "Why keep an inn in Desolace?", next = "why" },
         { text = "Do many shady folk pass through your inn, Lyshaerya?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Has the dust ever beaten your hearth, Lyshaerya?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do travelers bring back up from Desolace?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Just a room, thank you.", next = "END" },
       },
     },

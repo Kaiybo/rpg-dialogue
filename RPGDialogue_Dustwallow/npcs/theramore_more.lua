@@ -195,8 +195,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd never call it holy, but I've seen a lad come in shaking from a night on the walls and leave my table steady, and I can't think of a better use for a ladle. The Light can look after the souls, and I'll look after the bellies." } },
+      choices = {
+        { text = "Feeding the hungry is holy work, whatever you call it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soup's soup. Leave the Light out of the kitchen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit, sit, you'll have a bowl of tortoise soup before you bless anything, because I've never yet seen a prayer go down well on an empty stomach." },
         { id = "h_default", key = true,
           text = "Morgan Stern, and I feed whoever needs feeding on this island, which is everyone. Supplies come by boat when the boats come, so the rest has to come out of the marsh, one way or another." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Mudrock Soup and Bugs") },
@@ -218,6 +228,7 @@ P:NPC {
         { text = "What's the marsh like for a cook?", next = "marsh" },
         { text = "I know a thing or two about stews.", next = "x_cook", when = { profession = "Cooking" } },
         { text = "Troll cooking would put fire in that pot.", next = "x_troll", when = { race = "Troll" } },
+        { text = "Does feeding the soldiers feel like holy work, Morgan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll bring you those tongues.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
         { text = "Do you ever catch thieves in your kitchen, Morgan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },

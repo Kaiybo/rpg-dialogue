@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "For me? Oh, but I'm not the one travelling, it's the package and the cart and John, and I've just got to wait here until they come back. Only it's been such a long wait, and I'm so cold, and I can't remember the last time I slept." } },
+      choices = {
+        { text = "Rest now, Janice. The Light will keep you warm.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You must face what happened before the Light can help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -35,6 +44,8 @@ P:NPC {
           text = "I can see you properly now, and I know what's in the fields, and what I am. It's all right, because soon I'll rest, and I have you to thank for it, stranger." },
         { id = "h_cold", when = { metBefore = true },
           text = "There's so much to do, the cart to pack and the horse to feed and a letter to Emma in Stormwind, and did I write to Emma? Someone should tell her I'm sorry." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "Oh, a priest, how lovely, you've come about the blessing for the cart, haven't you? John said we should have one before the long road, but I can't think where he's put the coin." },
       },
       again = {
         { id = "h_again", text = "You're still here, aren't you, and I'm glad of it, the house is so quiet when nobody talks." },
@@ -47,6 +58,7 @@ P:NPC {
         { text = "Why is it so cold here?", next = "cold" },
         { text = "I met your sister Emma, in Stormwind.", next = "emma", when = { questDone = TODO_QUEST("Good Natured Emma") } },
         { text = "Rest now.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Janice, would you like me to say a blessing for you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Spare me the thanks, because I've ghouls enough to deal with.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { align = { light = -1 } } },
         { text = "Janice, do you know what I am?", next = "x_forsaken", when = { race = "Scourge" } },
       },
@@ -153,6 +165,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Mercy, if it is done quickly and without hatred, because they can't be healed and they suffer every hour they live. I've watched your kind fight the Scourge with joy in their faces, and I'd ask you to do this work with sorrow instead." } },
+      choices = {
+        { text = "Sorrow, then. They deserve a gentle end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A quick end is mercy enough, whatever I feel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Your Light can ease pain, and I won't refuse it, but it can't undo what the plague has woven into my blood. The Earth Mother calls me home, and I'd rather go to her with a clear mind than linger half-alive and become one of the things I came to heal." } },
+      choices = {
+        { text = "Then let me ease your pain until she calls.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fight it a little longer. Give up nothing yet.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -165,6 +195,10 @@ P:NPC {
           text = "(The tauren druid lies unmoving on his bed of straw. His eyes are closed, and for the first time he looks as though he isn't in pain.)" },
         { id = "h_home", when = { metBefore = true },
           text = "I dream of Mulgore, of the grass and the wind and the long sky, and I'm sure the Earth Mother will take me home. I'm less sure of the land I'm leaving behind." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, at my bedside. You need not try to heal me, young one, because the plague is deep in me now, but I'm glad of the company." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. I've heard of your kind, who carry the Light like a hammer, and I wonder whether you'd swing it at the sick beasts outside or kneel beside them." },
       },
       again = {
         { id = "h_again", text = "There is more you would ask? Ask it gently, and I'll answer while I can." },
@@ -178,6 +212,8 @@ P:NPC {
         { text = "Tell me about the wolves.", next = "wolves", when = { ["not"] = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } } } },
         { text = "We're not enemies here, druid.", next = "alliance", when = { faction = "Alliance", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
         { text = "I feel the land's pain too.", next = "druid", when = { class = "DRUID", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
+        { text = "Is there truly nothing the Light can do for you, Mulgris?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it mercy or murder to kill the plagued wolves, Mulgris?", next = "xapala", when = { class = "PALADIN" } },
         { text = "(Leave him in peace.)", next = "END", when = { questDone = TODO_QUEST("Glyphed Oaken Branch") } },
         { text = "Mulgore misses you, Mulgris.", next = "x_tauren", when = { race = "Tauren", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
       },

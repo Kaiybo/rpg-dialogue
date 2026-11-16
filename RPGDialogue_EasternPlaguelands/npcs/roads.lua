@@ -24,6 +24,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To the end and past it, if that's possible, because he stood his ground at Darrowshire when the order could send him no help. I've heard men say the Silver Hand failed Lordaeron, but it didn't fail at Darrowshire, because Joseph was there." } },
+      choices = {
+        { text = "Then his honour is the order's honour still.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "One brave man can't redeem an order that failed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No, and I think of it more than I ought to, because the dead there still walk the lanes every night as if the battle never ended. If the Light has any mercy left for Darrowshire, I pray it reaches those who stayed with the wounded first." } },
+      choices = {
+        { text = "It will. I'll carry the Light to Darrowshire myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy comes after the Scourge is broken, not before.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I hope so, though I'm not sure I'd want to eat it. Joseph used to say the soil there was the best in the east, and it's hard to think of it full of ghosts and bones instead of barley." } },
       choices = {
@@ -48,6 +66,10 @@ P:NPC {
           text = "A mage. Darrowshire had one, {class}, an old fellow who did the fireworks at the harvest fair, and he burned more ghouls than any soldier the night the town fell." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You move like the scouts Joseph sent out the night Darrowshire fell, {class}, the ones who came back too late to tell us how many there were." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest. There were good priests in Darrowshire once, and they stayed with the wounded when the Scourge broke through the gate, and none of them came out again." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Joseph would have liked you, I think, because he always said the Silver Hand was the best of Lordaeron, even after it started to fail." },
       },
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
@@ -57,6 +79,8 @@ P:NPC {
         { text = "Are there others of your family?", next = "family" },
         { text = "Is that why you joined the Argent Dawn, Carlin?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would you have done with more warning?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Were Darrowshire's priests ever laid to rest, Carlin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did Joseph stay loyal to the Silver Hand until the end?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },
@@ -216,6 +240,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Approve? They hold their noses an' sign the requisitions, which is as close as a knight comes tae approvin' o' anythin' that smells. Honour's a fine thing, but it doesnae keep a soldier's feet from rottin' off in a plague bog." } },
+      choices = {
+        { text = "Honour and good sense can share a bench, Smokey.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Results matter more than honour out here.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Desecration, is it? Those parts were already desecrated when the Scourge stitched 'em together, an' I'm only givin' 'em one last use that keeps the plague off a soldier's boots." } },
+      choices = {
+        { text = "The dead deserve better, Smokey, whatever was done to them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better a useful end than a wasted one. Brew on.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Turns 'em, same as folk, an' the plaguehounds are what's left when it's done. I've seen beasts out by the Plaguewood wi' their hides hangin' off an' still walkin', an' ye'd rather I didnae describe it further." } },
       choices = {
@@ -236,6 +278,10 @@ P:NPC {
           text = "A warlock, eh? Ye'll no mind the smell in here, {class}, for I've seen what yer imps leave behind, an' my workshop's cleaner by comparison." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Ye've light fingers, {class}, I can see it from here. Good, for the Scourge bits I need come off the dead quicker if ye know how tae cut a purse." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, is it? Ye'll want tae hold yer nose an' say a wee prayer, because what I brew in here would turn a saint's stomach, an' I've had saints in here before." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Ye'll be wantin' tae smite somethin' after a whiff o' my workshop, an' I'll no' blame ye, but smite it outside, if ye please." },
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
@@ -243,6 +289,8 @@ P:NPC {
         { text = "Why does everyone call you Smokey?", next = "name" },
         { text = "Do you ever use fel in your brews, Smokey?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What exactly do you want cut off the dead?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Isn't brewing with Scourge parts a kind of desecration, Smokey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Dawn's knights approve of your work, Smokey?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
       again = { { id = "h_again", text = "Still here? Fine, but ye're breathin' my smoke." } },
@@ -308,6 +356,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because knights keep going in and not coming out, and a device doesn't leave a widow behind when it fails. I'd much rather send a box full of holy vapour into that place than one more brave person, if I can help it." } },
+      choices = {
+        { text = "Some work only a knight can do.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cleverness saves lives. That's honour enough.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I've measured it as best I can, and the holy water seems to keep its virtue whatever it passes through, though the cultists in Scholomance may say otherwise once they're in a position to complain. Faith and engineering get along better than people think." } },
+      choices = {
+        { text = "The Light works through any honest tool.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Machines are machines. The faith is in the one using it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I honestly don't know, and that's what worries me! I test everything on the undead first, of course, but nobody's ever thought to ask a tree." } },
       choices = {
@@ -328,6 +394,10 @@ P:NPC {
           text = "Oh, a warlock! Please don't let your imp near my bench, {class}, for it'll eat the copper wiring, and I've only got the one spool." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Perfect, {class}, for I've a device that wants an arcane jolt to wake it up, and the last time I used a lightning rod I lost my eyebrows." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Oh, good, because I'm adding holy water to the Gambit, and I'm never quite sure whether the blessing survives being pumped through copper tubing." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Do you think you could look over my Gambit for me? I've tried to make it as holy as a gnome can make anything, and I'd love a second opinion." },
       },
       choices = {
         { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
@@ -337,6 +407,8 @@ P:NPC {
         { text = "How did a gnome end up at Light's Hope?", next = "why" },
         { text = "Could fel power your contraptions, Betina?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What's your device for, Betina?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does a blessing work through gnomish machinery, Betina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why fight the Scholomance with devices instead of knights, Betina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },

@@ -26,6 +26,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Same as I bear the smell o' the Plaguewood, by keepin' my eyes on my birds an' my mind on my work. The Dawn says anyone who fights the Scourge has a place here, an' I'm a dwarf o' my word, though I'll admit I count the bats now an' then." } },
+      choices = {
+        { text = "The Dawn is right. A common enemy makes common cause.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Forsaken are still undead. Trust should have limits.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Aye, they settle the moment they touch down, an' they won't settle anywhere else between here an' Chillwind. The knights say the defenders who died here made the ground holy with their last stand, an' I'll not argue with a gryphon's judgement or a knight's." } },
+      choices = {
+        { text = "That's the Light's own mark on this place.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Birds settle where it's safe. Holiness has little to do with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Badly, and they let me know it with every flight. I wash their feathers every evening and they still come back smelling of the Plaguewood, poor things." } },
       choices = {
@@ -44,6 +62,10 @@ P:NPC {
           text = "A mage who still wants a gryphon, {class}! Good, because a portal can't get you anywhere near Light's Hope, and my birds can." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Sneaking up on a gryphon master, {class}? The birds saw you a mile off, they just didn't think you worth a squawk." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, is it? Then ye'll know why my birds land here and nowhere else in these lands, because the ground at Light's Hope is holy, an' even a gryphon can feel it under its claws." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, flyin' in an' out o' Light's Hope like the knights o' old! The birds like ye lot, I'll say that, because ye never panic in the saddle." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood." },
@@ -56,6 +78,8 @@ P:NPC {
         { text = "A Forsaken bat handler right beside you?", next = "georgia" },
         { text = "Do the gryphons mind flying over the plague?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you keep an eye on Georgia's bats, Khaelyn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can gryphons really feel the chapel's holy ground, Khaelyn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -238,6 +262,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stratholme, mostly, and the ones they left behind there, and sometimes Tirion Fordring, though they lower their voices when they say his name. They argue about whether the Silver Hand could ever be made whole again, and nobody ever wins the argument." } },
+      choices = {
+        { text = "It can be. The Silver Hand will rise again.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's gone. The Dawn is what we have now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some nights I think I hear more confessions than the chaplain does, because a bowl of soup loosens a tongue faster than any prayer. They tell me what they've seen in Stratholme or Darrowshire, and I listen, and I don't know what else to do with it." } },
+      choices = {
+        { text = "Listening is holy work too. You do more than you know.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They need a priest, not a cook. Send them to the chapel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Every day, though I try not to say it in front of the soldiers. I keep a pot of herbs on the sill out of stubbornness, and it's the only green thing at Light's Hope that hasn't died on me yet." } },
       choices = {
@@ -260,6 +302,10 @@ P:NPC {
           text = "A mage, good, {class}, for the well's been tasting of the plaguelands again, and I'd rather not boil it a third time." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Sit with your back to the wall if you like, {class}, everybody does here. I've seen too many soldiers come in shaking to mind a rogue who checks the door." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest, and you'll be wanting a quiet corner, I expect, because the soldiers come in at all hours and some of them need more than soup." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, at Light's Hope. The knights who come through here eat like they've not seen bread in a month, and most of them haven't, so sit down and I'll fetch a bowl." },
       },
       again = {
         { id = "h_again", text = "Anything else I can get you? There's more bread." },
@@ -274,6 +320,8 @@ P:NPC {
         { text = "Does a warlock make the soldiers nervous here?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I could conjure water for the inn, Jessica.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does anyone ever steal from the inn?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the soldiers come to you with more than hunger, Jessica?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the Dawn's knights talk about over supper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -30,6 +30,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, an' that was the trouble, because he charged the Dark Irons like there was honour to be had in it, an' there wasnae. I'm alive because I ran, an' he's not here because he didn't, an' I've had a long while tae wonder which o' us was the fool." } },
+      choices = {
+        { text = "He did right. A charge for honour is never foolish.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You did right, John. A live dwarf can still fight.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It used tae, back when this was Redridge's green neighbour an' the dwarves o' Thaurissan hadn't set the whole mountain alight. Now it's fire below an' Blackrock orcs above, an' the only light I trust comes out o' a lantern, though I'll not stop ye prayin'." } },
+      choices = {
+        { text = "Even here, the Light endures. I'll keep praying.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A lantern and a sharp axe will serve you better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Would ye? *hic* Just a wee frost on the staves, mind, for if ye freeze the brew solid I'll have tae chew it. There's no' a dwarf alive who'd say no tae a cold ale in a land that's on fire, an' I'm a dwarf, last I checked." } },
@@ -62,6 +80,10 @@ P:NPC {
           text = "That poison of yers is bubblin' away in the cask as we speak, and it's going to be the best ale this side of Ironforge. What did ye think I wanted it for, murder?" },
         { id = "h_alive", tags = { "news" }, when = { questRecent = { TODO_QUEST("Jail Break!"), days = 7 } },
           text = "They say Windsor walked out of the Depths with his hammer back and a face like thunder. I'm havin' a drink for him, and another for ye, and a third because I'm thirsty." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest in my cave! Ye've come tae save my soul, I'll wager, an' ye're welcome tae try, but ye'll have tae get past a good deal o' ale first." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Now that's a sight, a knight o' the Light in a goblin camp, an' standin' next tae me, the worst-behaved dwarf in the Steppes." },
       },
       again = {
         { id = "h_again", text = "What else, eh? *hic* I've got nowhere to be, and that's the best thing about this cave." },
@@ -79,6 +101,8 @@ P:NPC {
         { text = "Is your milk for the living or the dead, John?", next = "k_scourge", when = { race = "Scourge" } },
         { text = "Shall I chill your cask, John?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does fel worry you, John?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the Light have any place in the Burning Steppes, John?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did Marshal Windsor fight like a knight, John?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -307,6 +331,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Dangerous, yes, and profitable, which is how I prefer my work. The Dark Irons called up something in the mountain that burned their own city, and anything that survived that fire is worth a fortune to the right collector in Stormwind." } },
+      choices = {
+        { text = "Some things are cursed for a reason. Leave them buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it can be sold, someone will. Better you than them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Whatever glitters, my friend, and whatever's written down, because one makes you rich and the other tells you where to find more. I'd never ask you to break any laws, of course, but I don't believe the Dark Irons have any laws worth mentioning." } },
@@ -329,6 +362,8 @@ P:NPC {
           text = "The Dark Irons keep the Heart in the vault deep in their city, behind a guard who won't show himself until every coffer's open. I tried to buy it, honestly I did, but they wouldn't sell." },
         { id = "h_heart_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Heart of the Mountain"), days = 7 } },
           text = "I take it out every night and just look at it, the size of your fist and twice as beautiful as I imagined. Don't tell anyone where I keep it, and don't ask." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Now there's a fine thing, because the Dark Irons have a great many relics of Thaurissan's old faith, and I could use someone who'll tell me which ones are cursed before I sell them." },
       },
       again = {
         { id = "h_again", text = "What else? Time is money, and I'm generously giving you mine for free." },
@@ -342,6 +377,7 @@ P:NPC {
         { text = "The Royal Historian told me about Thaurissan.", next = "archesonus", when = { heardLine = "archesonus.t_default" } },
         { text = "The Seven's sorcery interests me, Maxwort. Professionally.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would you have me take from the Dark Irons?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Isn't trading in Dark Iron relics dangerous, Maxwort?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good hunting, Maxwort.", next = "END" },
       },
     },
@@ -453,6 +489,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A very generous gentleman who pays very generously and doesn't like his name in anyone's mouth, so I'll just call him my patron. He wants to know about dragonkin, and I want to know about dragonkin, so we get along wonderfully, I'm sure." } },
+      choices = {
+        { text = "A patron who hides his name hides worse. Be careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Gold's gold, Tinkee. Take it and ask no questions.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because if they do, then my patron's experiments are a very different matter, and I'd rather not think about that too long. It's all for science, of course, and science doesn't need to worry about souls, I've been told, quite firmly." } },
+      choices = {
+        { text = "Every soul matters, Tinkee. Science answers to the Light.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your patron's right. Study first, worry later.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "For study, of course, and because my patron wants them kept fresh, very fresh, for reasons he says are scholarly. Frozen eggs don't hatch, you see, which is the only thing that makes collecting them safe at all." } },
@@ -489,6 +543,10 @@ P:NPC {
           text = "Freeze them first, then collect them, never the other way round! My patron's heard you're getting them for me, and he's very eager, very eager indeed." },
         { id = "h_leonid", tags = { "news" }, when = { questActive = TODO_QUEST("Leonid Barthalomew") },
           text = "Why would my master want the eggs sent to you, and not to me? Never mind, just take them to this Leonid and tell him I did everything I was told." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! Do dragons have souls, do you think? I've been meaning to ask someone qualified, and nobody at Flame Crest is qualified for anything." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, all shining and serious! You won't smash my gadgets, will you? They're perfectly harmless, mostly, and the ones that aren't are for dragons." },
       },
       again = {
         { id = "h_again", text = "What else? I'm all ears, and only slightly singed ones." },
@@ -504,6 +562,8 @@ P:NPC {
         { text = "Could a hunter tame one of those whelps?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Why freeze dragon eggs at all, Tinkee?", next = "xmage", when = { class = "MAGE" } },
         { text = "Who else wants your schematics, Tinkee?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why do you care whether dragons have souls, Tinkee?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who is your patron, Tinkee, and what does he want?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -628,6 +688,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A paladin would ask a lot of questions about it first, I'd guess, and I'd answer them honestly, because I've nothing to hide. Ribbly owes the family, the family wants him home, and how he comes home is up to Ribbly." } },
+      choices = {
+        { text = "Justice isn't a family's to buy. I won't hunt him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "He broke faith with his kin. That's his own doing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Family counts for everything, which is exactly why Ribbly has to pay, because he cheated his own kin and ran off to hide with the Dark Irons. A goblin who cheats strangers is a businessman, but a goblin who cheats his family is a debt, and debts get collected." } },
+      choices = {
+        { text = "Forgive him. Mercy costs less than a bounty.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A debt's a debt. Fair is fair, Yuka.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "He's paying it now, a little every month, through his cousin in Booty Bay, with interest. The Screwspigots never forget a debt, friend, and that's why we're still in business while everyone else in Flame Crest is on their third shop." } },
@@ -658,6 +736,10 @@ P:NPC {
           text = "Ribbly's hiding somewhere deep in Blackrock Depths with the Dark Irons. Bring him back to me, or if he won't come along quietly, his head will do nicely." },
         { id = "h_ribbly_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Ribbly Screwspigot"), days = 7 } },
           text = "The Baron's paid, the family's happy, and little Ribbly's never looked so peaceful. You've done the Screwspigots a great service." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! If you're here to pray for Ribbly, don't bother, because the Screwspigot family has already decided what he's owed, and it's not a prayer." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Lovely armour, and very shiny, and if it ever needs bolts or a new hinge, I'm the only shop for leagues that sells them." },
       },
       again = {
         { id = "h_again", text = "Anything else? Browsing's free, but only for so long." },
@@ -672,6 +754,8 @@ P:NPC {
         { text = "I could find Ribbly for you. Quietly.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Did that mage ever pay the bill?", next = "xmage", when = { class = "MAGE" } },
         { text = "Could my imp find Ribbly for you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Doesn't family count for anything with you, Yuka?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would a paladin collect Ribbly's bounty, Yuka?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Yuka.", next = "END" },
       },
     },
@@ -770,6 +854,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stolen's a strong word, my friend, when the alternative is the pups growing up to carry orcs into Lakeshire. I'd call it rescue, and a profitable rescue at that, which is the best kind." } },
+      choices = {
+        { text = "Then it's a rescue. Better a pet than a war beast.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A rescue for profit is still a theft.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "If you get 'em young enough, before the orcs teach 'em to hate, then yes, they're as sweet as hounds. That's the trick with most creatures, I find, and maybe with folk too, though I sell pets, not sermons." } },
+      choices = {
+        { text = "Every creature can be redeemed. The Light sees to that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some things are bred for war. Kindness won't change that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "No? How long does it last, then? Never mind, don't tell me, because I've already promised two, and I'd rather not know what my clients would wake up to. Opus thinks it's funny, but then Opus thinks everything is funny." } },
@@ -800,6 +902,10 @@ P:NPC {
           text = "Spire spider eggs, fifteen of 'em, from wherever the spiders are nastiest. Believe it or not, there are folk who'll pay for the vilest beast you can imagine, as long as it's housebroken." },
         { id = "h_pup_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Kibler's Exotic Pets"), days = 7 } },
           text = "How's the little fella settling in? Feed him twice a day and don't let him near your boots; worgs love boots." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest! You'll bless my little worgs, won't you? They've had a hard start in life up in the Spire, and a blessing couldn't hurt their prospects with the buyers." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Mind the worg cage, if you please, because the pups can smell holy folk, and they get excited about it in a way I haven't worked out yet." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Opus is listening, so mind your language; he'll repeat it to customers." },
@@ -814,6 +920,8 @@ P:NPC {
         { text = "Would your rich clients buy an imp?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "A polymorphed worg won't stay a sheep, Kibler.", next = "xmage", when = { class = "MAGE" } },
         { text = "How do your worg pups always find their way back?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can a Blackrock worg pup really be gentled, Kibler?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it right to sell pups stolen from the Blackrock orcs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
     },

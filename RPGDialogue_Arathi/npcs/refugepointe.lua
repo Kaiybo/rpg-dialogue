@@ -35,8 +35,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No' enough, for plenty o' good soldiers died in these hills when Stromgarde fell, an' most o' them never got their proper words. If ye've a prayer tae spare while ye're out there, I'd no' call it wasted, an' I'm no' a man who says that lightly." } },
+      choices = {
+        { text = "Then I'll say the words. Every soldier deserves them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are past caring. The living need the help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Skuerto.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Quick an' loud, if ye're askin' me, because Kor'gresh has been throwin' ice at his own kin an' I'd as soon he didnae learn any more o' the trick. Malin would have it done quietly, but Malin's in Stormwind an' I'm here." } },
+      choices = {
+        { text = "I'll face him in the open and take it fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better to catch him sleeping. Less risk to the wand.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Well, ye'll be less trouble than most, an' if a Witherbark arrow finds me while I'm scoutin', I'd as soon it was you that pulled it out." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Aye, now that's a face I can work wi', because the Boulderfist won't give up Trelane's wand for a polite word, an' Kryten's no' much use wi' anythin' heavier than a quill." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! Ye'll be wantin' a look at the old stone circles in the hills, I expect, though I'll warn ye the things bound in them havenae taken kindly tae visitors." },
         { id = "h_default", key = true,
@@ -70,6 +90,8 @@ P:NPC {
         { text = "I could carry word to Malin in Stormwind.", next = "priest", when = { race = "Human" } },
         { text = "Do the Witherbark have warlocks of their own?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What did Trelane leave behind, Skuerto?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does anyone pray for the fallen of Stromgarde, Skuerto?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How do you want Kor'gresh's wand taken back?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Off I go.", next = "END" },
       },
     },
@@ -303,8 +325,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When the Captain asks, aye, and she asks more often than I'd like. I fly them south wrapped in Stromgarde's colors, and there's always someone waiting at the other end, which is the worst part of the work by a long way." } },
+      choices = {
+        { text = "That's holy work, Cedrik. The Light flies with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bury them here. The living need the gryphons more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It holds because Captain Nials won't let it do anything else, and because every letter I fly south asks Stromgarde's old allies for more men. Few come, but enough do, and as long as the gryphons keep flying, the Pointe won't be forgotten." } },
+      choices = {
+        { text = "Stromgarde stood with the Alliance. I'll keep faith with it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let Stromgarde's nobles win back their own land.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! If you're flying south, I'll ask you to say a word for the birds before you go, because the Highland wind is a cruel thing and my gryphons have been through enough of it this season." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, good, because my gryphons trust plate and polish more than they trust most riders, and they settle quicker with you on their back than with some nervous courier." },
         { id = "h_default", key = true,
           text = "Cedrik Prose, gryphon master. I fly the Captain's letters south and her soldiers home, and anyone else who needs to be somewhere other than the Highlands." },
         { id = "h_badges", when = { questDone = TODO_QUEST("Stromgarde Badges") },
@@ -323,6 +365,8 @@ P:NPC {
         { text = "Are the skies safe here?", next = "skies" },
         { text = "A teleport can't reach Refuge Pointe, so I'm stuck with you.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you ever carry messages you shouldn't read?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you carry the fallen home as well as the letters?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Refuge Pointe have the strength to hold, Cedrik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -392,8 +436,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Better than they were, though I count the bandages every morning and every morning there are fewer. Witherbark arrows go deep and the ogres don't leave much to mend at all, so the healers we have are worn to the bone." } },
+      choices = {
+        { text = "I'll spend tonight among the wounded. Count me in.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Healers must ration themselves. Not everyone can be saved.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've bandages if you're running short, and I'd take it kindly if you looked in on the wounded before you buy anything, because they're the ones using most of what I stock." },
         { id = "h_default", key = true,
           text = "Vikki Lonsav, general goods. If the Pointe runs out of something, it's my fault, so I make sure it doesn't run out of much." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -413,6 +467,7 @@ P:NPC {
         { text = "I'll pay for anything my imp breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers really eat conjured bread?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has anyone actually stolen from you, Vikki?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "How are the wounded at Refuge Pointe faring, Vikki?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },

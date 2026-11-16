@@ -24,6 +24,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The knights of Lordaeron rode into Alterac when Perenolde betrayed the Alliance, and my people did quieter work on the same traitors. We never shared a table, but we shared an enemy, and that is as close as honour and shadow usually come." } },
+      choices = {
+        { text = "Honour works in the open, my lord, or not at all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sometimes honour needs a knife in the dark.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every house needs prayers, and mine has buried enough of its own to know it. My people do the work the Light's servants would rather not see done, and I sleep well enough, though I won't pretend I've asked the Light's opinion." } },
+      choices = {
+        { text = "The Light sees all work, my lord, even yours.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some work is best kept out of the Light's sight.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -84,6 +102,10 @@ P:NPC {
           text = "Those Syndicate emblems, yes. Every one you cut from a Syndicate cloak is a man who will not be reporting to the Perenoldes tonight, and I count them carefully." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at Ravenholdt. The Kirin Tor's servants do not usually find this house, so I must assume either great skill or a very good guide, and I am curious which." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You are welcome under my roof as any guest is, though my people will watch your shadow more closely than they watch you." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance at Ravenholdt, which is rarer than you might think. My guests seldom ask the Light for anything, and I suspect the Light prefers it that way." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin under my roof. The last knights of the Silver Hand to pass through Alterac came to root out traitors, and I confess I was glad of them, though they never learned my name." },
       },
       choices = {
         { text = "Does your house keep this forest, my lord, or only hide in it?", next = "druid_q", when = { class = "DRUID" } },
@@ -94,6 +116,8 @@ P:NPC {
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Does Ravenholdt have dealings with the Kirin Tor, my lord?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why does Ravenholdt watch warlocks so closely, my lord?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does a house of shadows need a priest's prayers, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Did the Silver Hand ever know of Ravenholdt, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your counsel, my lord.", next = "END" },
       },
       again = {
@@ -170,6 +194,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Perhaps, though we were busy quarrelling over Kel'Thuzad's books while Uther's knights were busy marching. If the two orders had trusted each other sooner, the plague might have been stopped before it reached Andorhal, and I think on that more often than an archmage should." } },
+      choices = {
+        { text = "Then trust each other now, Archmage, while there's still time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Councils fail. People stop plagues, not orders.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some were, and some were never found under the rubble, which troubles me more than I tell my apprentices. Others rose in the Scourge's ranks after Arthas laid siege to the city, and we had to put down our own colleagues with spells meant for lecture halls." } },
+      choices = {
+        { text = "The fallen deserve the Light's peace, whatever school they followed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Spells first, prayers after. The dead must be stopped.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Several, from Syndicate scavengers to plain treasure hunters who heard the vaults were left unguarded. The dome keeps them out, and the ones who try too hard are found in the morning, a little singed and very confused about where they are." } },
@@ -194,6 +236,10 @@ P:NPC {
           text = "Archmage Ansirem Runeweaver of the Kirin Tor, at your service, within reason. Dalaran is closed while we rebuild, and I keep an eye on those who would rather it stayed broken." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing outside Dalaran's dome. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, at Dalaran's very gate. You'll understand if I keep my hand near my staff, because the last of your school I knew well was Kel'Thuzad, and look what came of him." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Light at Dalaran's gate. The Kirin Tor are not a pious order, I'll admit, but we buried a great many of our own after Archimonde came through, and we were glad of every priest who came to say the words." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, here among the mages. Your order and mine never understood each other, but when Lordaeron burned we found ourselves standing on the same ground." },
       },
       choices = {
         { text = "Why is the city sealed?", next = "dome" },
@@ -201,6 +247,8 @@ P:NPC {
         { text = "I studied magic once. Does the Kirin Tor still teach?", next = "teach", when = { class = "MAGE" } },
         { text = "Has anyone tried to sneak inside the dome, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Was Kel'Thuzad really one of the Kirin Tor, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Were the Kirin Tor's dead given proper rites, Archmage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Kirin Tor have stood with the Silver Hand sooner?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },

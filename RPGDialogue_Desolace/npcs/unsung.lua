@@ -46,8 +46,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Most of them come back thinner and quieter, and a few don't come back at all, so I've stopped asking where people are headed. It's easier to sell someone a water skin when you don't know they're walking toward the centaur." } },
+      choices = {
+        { text = "Ask them anyway. Someone should remember who goes down there.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wise. Out here you can't carry everyone's worries.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, I don't stock holy water, but I've got bandages, bread and enough water skins to get you to the bottom of Desolace and back, which round here is about the same as a miracle." },
         { id = "h_default", key = true,
           text = "Christi Galvanis, general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, truly, because in Desolace most thieves can't be bothered to pretend." },
@@ -64,6 +74,7 @@ P:NPC {
         { text = "Why would anyone live at Nijel's Point?", next = "why" },
         { text = "Do you lose much stock to thieves out here, Christi?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you stock anything for mages, Christi?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do many people come back up from Desolace changed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -168,8 +179,28 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They're tired and homesick, and they pretend they're neither because Captain Pentigast is watching. I feed them as well as I can, but bread only goes so far when a lad's lost a friend to a centaur arrow." } },
+      choices = {
+        { text = "I'll sit with them after supper. That's what I'm for.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Soldiers are tough. Keep them fed, and the rest will mend.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honestly, it needs someone the young ones can look up to, because they came out here thinking it would be glory and found it's mostly dust and waiting. You stand a bit straighter than most, and they notice that more than you'd think." } },
+      choices = {
+        { text = "Then I'll drill with them. Discipline keeps a soldier alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should know the truth. Glory is a story told to recruits.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, thank goodness. Half the soldiers here haven't had a proper blessing since they left Stormwind, so if you've a moment after supper, I'd count it a kindness if you sat with them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! You'll eat first, no arguments, because I've never yet seen anybody protect anything on an empty stomach." },
         { id = "h_default", key = true,
           text = "Janet Hommers, and I feed this outpost. Bread, cheese, water and something stronger for the evenings, and I make sure nobody goes down into Desolace on an empty stomach, because it's hard enough on a full one." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -189,6 +220,8 @@ P:NPC {
         { text = "Do many travelers come through?", next = "travelers" },
         { text = "What's wrong with conjured food, Janet?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you get many warlocks at Nijel's Point, Janet?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How are the soldiers at Nijel's Point holding up?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does Nijel's Point need most from someone like me?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

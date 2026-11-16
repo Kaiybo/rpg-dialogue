@@ -336,8 +336,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly, though we argue over whose turn it is to mend the wounded and whose to ward the walls. The Lady wants a city where the arcane and the Light stand together, which is a fine idea, and I only wish it came with more hours in the day." } },
+      choices = {
+        { text = "Without the Light, magic forgets mercy. We keep you honest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. The arcane needs no blessing from me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "On both, and on the Lady's patience, which is greater than anyone else's in Kalimdor. Thrall keeps his word and she keeps hers, but there are hotheads on both sides who'd tear it up tomorrow, so the walls stay manned all the same." } },
+      choices = {
+        { text = "Our word is our wall. It must be kept, even with the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smile at the Horde and keep a blade ready. That's real peace.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive me, I've a meeting with the Lady in a quarter hour and I haven't read half of what I meant to, but I'm always glad to see the Light about the place, because Theramore has a great many mages and not nearly enough healers." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, good! The Lady's peace needs people who can stand in a doorway and not move, and I'm afraid most of us in the tower are better at reading about doorways than standing in them." },
         { id = "h_default", key = true,
           text = "Archmage Tervosh. I advise the Lady, I read more than is good for me, and I tend a garden when the world allows it, which is rarely." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
@@ -363,6 +383,8 @@ P:NPC {
         { text = "Your herbs would grow better by moonlight.", next = "x_nightelf", when = { race = "NightElf" } },
         { text = "Do you fear for your books in Theramore, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Did the Kirin Tor ever study warlock magic, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the mages and the faithful of Theramore get along?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Theramore's peace rest on arms or on trust?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
