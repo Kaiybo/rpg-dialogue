@@ -34,6 +34,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "My people remember what the Well of Eternity did to the world, so yes, I watch your hands when you cast. But I've seen a human mage pin a Defias runner to the coast road with frost, and that was precise work, which I respect." } },
+      choices = {
+        { text = "Magic is a tool, scout, and tools need rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic should be free, whatever your elders fear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What brought you so far from your forests?", next = "kaldorei" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I have, long ago and in another forest, and the things that whisper to you whispered to my people first. Keep your demon away from my maps, and we'll get along well enough." } },
+      choices = {
+        { text = "Their power is mine now, scout, not theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hold it so it can't hold anyone else.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What are you watching for out there?", next = "watchers" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Because the Alliance asked, and because Shandris Feathermoon would not refuse it. The humans paid in blood at Mount Hyjal. I can spare a few seasons in their dust for that." } },
       choices = {
@@ -74,6 +90,8 @@ P:NPC {
         { text = "I could get closer to their camps than you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My beast could follow their trail by scent.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The kaldorei have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Your people distrust magic like mine, don't they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You look at me like you've seen my kind before.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good hunting, scout.", next = "END" },
       },
     },

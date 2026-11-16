@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "That would be a kindness, because I've been sending the Carevin boys and they clatter like a cart full of pans. Write down what you see, not what you think, and bring it back to me." } },
+      choices = {
+        { text = "I'll report what I see, and nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If there's anything worth taking, I'll take it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's happening at Raven Hill?", next = "raven" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I know, and I'll not lecture you, because Jonathan does enough of that for the whole house. But I keep lists of the fed and the missing, and if your walking keeps one name off the second list, I'll be glad of you." } },
+      choices = {
+        { text = "My path serves the living too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My path is my own, not the town's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about your family.", next = "family" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -59,6 +75,8 @@ P:NPC {
         { text = "You speak of walking under the Light.", next = "light", when = { class = "PRIEST" } },
         { text = "About the hermit you sent me to...", next = "hermit_after", when = { questDone = TODO_QUEST("Translation to Ello") } },
         { text = "I walk under the Light too, with a hammer.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I can check those empty houses without being seen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You walk under the Light, Elaine. I walk elsewhere.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { standing = { darkshire = 1 } } },
       },
     },
@@ -218,6 +236,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Worgen, ogres and something in Deadwind Pass that leaves no tracks, though I'd not rule out plain thieves either. If you can find out where my crates go, Nethergarde might eat this month." } },
+      choices = {
+        { text = "I'll find the thieves and bring the crates back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find them, and keep whatever's useful.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's on the road to Deadwind?", next = "road_deadwind" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Then you'll know why the keep matters, and why I lose sleep over every wagon that doesn't arrive. The Portal's dead, they say, but the Kirin Tor didn't build a keep at its feet for nothing." } },
+      choices = {
+        { text = "Then I'll help keep it that way.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power that strong deserves study, not just a wall.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why does the keep matter so much?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -242,6 +276,8 @@ P:NPC {
         { text = "Do you answer to the Night Watch?", next = "watch" },
         { text = "I've walked that road. It's worse than you say.", next = "veteran", when = { questDone = TODO_QUEST("Supplies for Nethergarde") } },
         { text = "Nethergarde's mages. What do they need so badly?", next = "mage", when = { class = "MAGE" } },
+        { text = "Your crates go missing on the road. Who's taking them?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Nethergarde watches the Portal. My kind know its pull.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Safe roads, Watchmaster.", next = "END" },
       },
     },
@@ -373,6 +409,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Hush! Smugglers is a word the Night Watch can hear through walls, friend. Keep it between us, and if you want a bottle, you'll buy it like everyone else, with silver and a wink." } },
+      choices = {
+        { text = "Silver and a wink, then. Fair dealing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Smugglers pay better than winks, Hann.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where does the moonshine come from?", next = "moonshine_where" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Ha! I'll put that on a sign, if Althea lets me. Mind you don't drink it near a candle, because I've seen a man lose his eyebrows and he didn't even have your sort of help." } },
+      choices = {
+        { text = "I'll keep my fire out of your bottles.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A little extra fire never hurt moonshine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who drinks here?", next = "regulars" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hann's the name, and drink's the trade. Milk, juice, spring water for the careful folk, and for everyone else, there's the jug under the counter." },
@@ -391,6 +443,8 @@ P:NPC {
         { text = "Who drinks here, mostly?", next = "regulars" },
         { text = "Does Darkshire need more drink, or less?", next = "drink" },
         { text = "Should a priest be buying moonshine?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I know a few smugglers who'd love your moonshine.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your moonshine is the only thing here that burns hotter than me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not tonight.", next = "END" },
       },
     },
@@ -475,6 +529,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      lines = { { id = "xlo_default", text = "They would, and I'll sell them to you, though Grandmother will turn up a card about it before you've reached the door. Fate's mostly a matter of good locks, I tell her, and so far nobody's broken mine." } },
+      choices = {
+        { text = "Good locks keep bad things out. Keep yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some locks are meant to be opened.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do your grandmother's cards say?", next = "cards" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Alyssa, and yes, Madame Eva is my grandmother. She reads the cards and I sell the candles, and between us we keep half of Darkshire's spellcasters in business." },
@@ -493,6 +555,7 @@ P:NPC {
         { text = "Do you believe in her cards?", next = "cards" },
         { text = "Who buys reagents in a town like this?", next = "trade" },
         { text = "Was her errand about you?", next = "errand", when = { questDone = TODO_QUEST("The Legend of Stalvan") } },
+        { text = "Your reagents would suit my work too, Alyssa.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -586,6 +649,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Oh, I know they would, and I know which alley, because half my stock passed through it on the way here. But I'm a respectable exile now, and respectable exiles sell at the front door." } },
+      choices = {
+        { text = "Respectable it is. Front door only.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Back alleys pay better, Herble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why Darkshire, of all places?", next = "why" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma_default", text = "We agree on one thing, which is that the other lot will blow something up, and we're both usually right. I'll sell you a fuse if you promise not to light it with your finger." },
+        { id = "xma_gnome", when = { race = "Gnome" }, text = "Another gnome who chose spells over spanners! My mother would have despaired of you, and she despaired of me too, so we've that in common already. Promise you won't light my fuses with your fingertip." },
+      },
+      choices = {
+        { text = "Precise work and careful fuses. Agreed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Lighting things with my finger is half the fun.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tell me about Gnomeregan.", next = "gnomeregan" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Herble Baubbletump, purveyor of engineering and mining supplies to the gloomiest town south of the mountains. Finbus teaches the craft down the hall, and I sell the bits he's always running short of." },
@@ -602,6 +684,8 @@ P:NPC {
         { text = "What do you think of Viktori's telescope?", next = "viktori" },
         { text = "Do you miss Gnomeregan?", next = "gnomeregan" },
         { text = "I mine. What sells here?", next = "mining", when = { profession = "Mining" } },
+        { text = "Your parts would sell well in Stormwind's back alleys.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Mages and engineers rarely agree, do they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Mind the shelf. Goodbye.", next = "END" },
       },
     },
@@ -700,6 +784,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Would you? I can't ask it, not with ghouls walking the Raven Hill paths, but I can't stop thinking about the stone. If you go, just tell me whether it's still standing." } },
+      choices = {
+        { text = "I'll look, and touch nothing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The dead won't miss a trinket or two.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where is your father buried?", next = "grave" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Would it? The guards keep telling me lamps don't scare ghouls, and Stormwind keeps sending no guards at all. If you can do what they won't, then at least somebody in this town will have tried." } },
+      choices = {
+        { text = "You should petition the watch properly for an escort.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the guards, Farrin. Waiting is killing you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Who should be guarding the graves?", next = "guards" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Farrin Daris. I've a room here at the Raven, and I walk from it to this table and back, because there's nowhere else in Darkshire a man can safely walk anymore." },
@@ -715,6 +815,8 @@ P:NPC {
         { text = "Why haven't Stormwind's guards come?", next = "guards" },
         { text = "What do you think is coming?", next = "dark" },
         { text = "I could walk you to the cemetery.", next = "escort", when = { minLevel = 25 } },
+        { text = "I could slip past the dead to your father's grave.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A light spell would hold the dead back from the graves.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Take care of yourself, Farrin.", next = "END" },
       },
     },
@@ -803,6 +905,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "They do, and they leave the same way, full, because a stablemaster who steals soon has an empty stable. The beasts know who's honest, and they'd tell me if they could." } },
+      choices = {
+        { text = "Honest hands for honest beasts.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Beasts can't talk, Steven. Lucky for some.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Do the beasts talk to you?", next = "beasts_talk" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "No, they don't, and I'll ask you to stand by the gate, because the grey mare's already pulling at her rope. It isn't personal, friend; they smell the woods on you, and something worse under it." } },
+      choices = {
+        { text = "I'll stay by the gate. They've suffered enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear's a good teacher, even for horses.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What spooks them most?", next = "wolves" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Steven Black, stable master. I keep your animals behind a stout fence and well away from the trees, which is more than I can do for the people." },
@@ -816,6 +934,8 @@ P:NPC {
         { text = "Do you hear the wolves at night?", next = "wolves" },
         { text = "Who else leaves animals with you?", next = "customers" },
         { text = "Can {pet} stay with you while I'm in the woods?", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Travellers' saddlebags must pass through your hands, Steven.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your animals don't like me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

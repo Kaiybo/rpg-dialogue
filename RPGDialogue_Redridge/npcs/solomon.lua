@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "I've had that same unpleasant thought, and it's why I seal every one with wax and my own ring. If someone in Stormwind is reading Lakeshire's mail and doing nothing about it, I'd sooner know it than suspect it." } },
+      choices = {
+        { text = "Then I'll find out quietly who reads them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Seal them and trust the crown. That's proper.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What do the letters say?", next = "letters" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "It was Ilgalar's tower, a wizard dead long before my time, and now a necromancer squats in it. I've written to the Mage Quarter about Morganth twice, and they've answered neither letter." } },
+      choices = {
+        { text = "I'll carry word to the Mage Quarter, properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget Stormwind. I'll deal with Morganth myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who is Morganth?", next = "morganth" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Lakeshire has noticed, I assure you, though Stormwind has yet to read my letters about it. The Blackrock clan cuts what it needs for its war machines and burns the rest. If you can slow them, I will put it in writing to the Keep." } },
       choices = {
@@ -94,6 +110,8 @@ P:NPC {
         { text = "I've been tracking gnolls through your hills.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Morganth's tower. What do you know of his arts?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Gnomeregan knows what it is to lose a city.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Someone in Stormwind may be reading your letters before the nobles do.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Morganth's tower belonged to a wizard once, didn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },

@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Not much, since the last one through here asked about Karazhan and went up the pass, and nobody's seen him since. Drink your juice and don't follow him, and you'll be my favourite sort of mage." } },
+      choices = {
+        { text = "I'll not chase ghosts without good reason.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Karazhan's secrets are worth the risk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do you hear about the murders?", next = "murders" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Morbent Fel's name gets whispered at the bar more nights than not, and I pour a little faster when it does. If you're asking because you mean to stop him, I'll tell you what I hear, and if you're asking for another reason, I'll pour you a juice." } },
+      choices = {
+        { text = "To stop him. Fel's work ends here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "To learn from him, before he's gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What rumours are going round?", next = "rumors" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "The name's Smitts. I pour, I listen, and I keep a record of what this town would rather forget, because somebody should." },
@@ -68,6 +84,8 @@ P:NPC {
         { text = "People tell barkeeps things. Tell me what they don't say.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You serve dwarven stout here, I hope.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "A gnome in Darkshire. Does anyone notice?", next = "gnome", when = { race = "Gnome" } },
+        { text = "What does Darkshire make of mages, Smitts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },
       },
     },

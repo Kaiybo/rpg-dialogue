@@ -29,6 +29,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "If it's Guard iron, I'll know it by the stamp, and I'll not touch it, because Marris needs every scrap. But if it came off a Blackrock camp, I'll ask no questions and work it gladly." } },
+      choices = {
+        { text = "Orc iron only. Nothing from the Guard.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Iron is iron, Verner. Don't fuss.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why is iron so short?", next = "iron_short" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "The forge is hot enough, friend; it's the anvil that's cold for want of iron. You'd do better bringing me ore than fire." } },
+      choices = {
+        { text = "Then ore it is. A proper forge needs proper stock.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll melt down whatever I find, then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do you need most?", next = "iron" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I've heard that, and I've melted Blackrock blades that hissed in the quench like a cat in a bath. Bring me their steel if you like, but I'll be the one deciding what goes in the fire." } },
+      choices = {
+        { text = "Burn the curse out and make it clean steel.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep the hiss. A cursed edge bites deeper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How long have you been smithing?", next = "smith" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "The orcs have chased everything down from the mountains, wolves included. I don't fault the creatures much, but I've a butcher's order to fill, and they keep eating it before it reaches Lakeshire." } },
       choices = {
@@ -71,6 +95,9 @@ P:NPC {
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Will you shoe my warhorse?", next = "warhorse", when = { class = "PALADIN", minLevel = 40 } },
         { text = "I need an edge that won't fold on an orc's skull.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I could find you iron, if you don't ask where from.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could heat your forge with a spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Blackrock steel holds a curse well, they say.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the horses.", next = "END" },
       },
     },

@@ -30,6 +30,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Quietly or loudly, I don't much care how, so long as the Defias in my fields stop sleeping in my bed. I'd do it myself if I were ten years younger and a good deal less tired." } },
+      choices = {
+        { text = "Quietly, then. They won't wake up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll face them, and let them know why.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What happened to your family?", next = "family" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Fire takes the rot and the ground with it, and I'd have nothing left to farm but ash. The forest went dark slowly, and I reckon it'll take its time coming back, if it ever does." } },
+      choices = {
+        { text = "Patience, then. Some things can't be rushed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn it and start fresh, Sven.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What was the forest like before?", next = "green" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Crude or clever, they've kept better folk than you away from him, so I'll not argue craftsmanship with you. If you can break them, break them, and let the Light sort out the rest." } },
+      choices = {
+        { text = "I'll break them for your sake, Sven.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Breaking wards teaches me how to build them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do you know of his wards?", next = "morbent_wards" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "The dead from Raven Hill, and something older too, in the Yorgen farm cellar. I hear things at night that aren't wolves and aren't worgen. I'd sooner face either one than whatever that is." } },
       choices = {
@@ -78,6 +102,9 @@ P:NPC {
         { text = "Let me pray for them with you.", next = "priest", when = { class = "PRIEST" } },
         { text = "I lost a farm too. In Westfall.", next = "farmer", when = { origin = "human_westfall_farmhand" } },
         { text = "The wolves near your camp. Want them thinned?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "The Defias on your land won't hear me coming, Sven.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A fire would clear the rot off your land, Sven.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Morbent Fel's wards are crude work. I could break them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

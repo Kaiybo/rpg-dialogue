@@ -29,6 +29,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Smugglers might, and I'd not ask too many questions if one turned up with a cask of Stormwind ale, I'll tell you that for free. But Bailiff Conacher drinks here, so keep your voice down when you say that word." } },
+      choices = {
+        { text = "I'll keep it quiet. A barkeep needs his ale.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Conacher's right to watch. Laws matter here.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What's the news in Lakeshire?", next = "news" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Your lot in Stormwind drink at the Blue Recluse, I've heard, and argue about spells all night. Here they drink what I've got, which is mostly water and complaints, until the road's open again." } },
+      choices = {
+        { text = "Water's fine. A clear head keeps the spells sharp.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll drink and complain like everyone else.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Why is the bar so dry?", next = "dry" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I didn't think you were, but thanks for saying it out loud, because the regulars were starting to stare. Order something and smile, and they'll forget the glow round your hands quick enough." } },
+      choices = {
+        { text = "I'll smile. These folk have seen enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them stare. Fear keeps people careful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How many guards does Lakeshire have?", next = "guards" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -58,6 +82,9 @@ P:NPC {
         { text = "A dwarf brewed your lager, I hope.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I've been to Darkshire. The moonshine's real.", next = "moonshine", when = { visited = "Darkshire" } },
         { text = "Do you get many kaldorei through Lakeshire?", next = "nightelf", when = { race = "NightElf" } },
+        { text = "The road's cut, but smugglers must still get through.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "This bar could use some of the Blue Recluse's cheer.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "The Blackrock have warlocks, Daniels. I'm not one of theirs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -160,6 +187,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "That's a lovely offer, and the wounded upstairs would thank you for the warmth. Only mind the rafters, because Daniels swears the whole roof is held up by old varnish and good intentions." } },
+      choices = {
+        { text = "Carefully, then. One hearth at a time.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A roaring fire cheers everyone. Let's go big.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How are the wounded?", next = "wounded" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Quiet I can give you, but if your work makes smoke or screaming, I'll ask you to take it out past the stables. There are soldiers upstairs who've seen enough of the Blackrock's shadow magic for one lifetime." } },
+      choices = {
+        { text = "I'll work outside. They need their rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'll survive a little shadow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How is the town holding up?", next = "town" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Brianna. I keep the rooms and Daniels keeps the bar, when he has anything to keep, and between us we keep Lakeshire from losing its mind." },
@@ -175,6 +218,8 @@ P:NPC {
         { text = "Who's Narnie?", next = "narnie" },
         { text = "How's the town holding up?", next = "town" },
         { text = "Are there wounded under your roof?", next = "wounded", when = { class = "PRIEST" } },
+        { text = "I could light every hearth in the inn tonight.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

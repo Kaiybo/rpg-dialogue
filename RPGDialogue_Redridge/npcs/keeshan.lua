@@ -28,6 +28,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "I'd have welcomed it, though the shadowcasters in Stonewatch would have heard you three floors up. Everything I learned in that keep says the Blackrock respect power, and they hate a mage who can match theirs." } },
+      choices = {
+        { text = "I'll face their casters openly and beat them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll pick them off before they see me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How did Stonewatch fall?", next = "fall" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I know, and I'll not pretend I like hearing it, because I spent weeks listening to those casters chant through the walls. But you're on our side of the lake, and I'll take that over clean hands any day." } },
+      choices = {
+        { text = "Then I'll turn their own arts against them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll use as little of it as I must.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "How many did you see in the keep?", next = "numbers" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Ate what the animals ate, slept where they slept, and kept my head down. The land up there doesn't care whose side you're on, and it was the only thing in Redridge that wasn't trying to kill me." } },
       choices = {
@@ -65,6 +81,8 @@ P:NPC {
         { text = "How are you holding up, Corporal?", next = "after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "The Light kept you alive, Corporal. Stand with me.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'll scout ahead. Stay in my shadow.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I'd have burned your cell door off, Corporal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Their shadowcasters and I use the same arts, Corporal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Let's get moving.", next = "END" },
       },
     },

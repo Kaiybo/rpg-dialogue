@@ -16,6 +16,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Pillagers, they call them, and they throw fire about like it costs nothing, which to them it doesn't. Where they learned it I never asked, but they've no love for Stormwind's towers, I'll tell you that for free." } },
+      choices = {
+        { text = "Then they've betrayed the craft as well as the kingdom.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stormwind threw away a lot of good people. That's on the city.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where is VanCleef now?", next = "vancleef" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "You've a whiff of sulphur about you, friend, and I'll be honest, that frightens me some. But the Brotherhood know my face and my name, and you only know my price, so I'll take my chances with you." } },
+      choices = {
+        { text = "Talk straight with me and you've nothing to fear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell me out and you'll learn what I keep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why did you turn on them?", next = "why" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -34,6 +50,8 @@ P:NPC {
         { text = "What's waiting in Moonbrook?", next = "moonbrook" },
         { text = "Tell me about Edwin VanCleef.", next = "vancleef" },
         { text = "I ran with the Brotherhood too, once.", next = "kin", when = { class = "ROGUE" } },
+        { text = "The Brotherhood have spellcasters of their own, don't they?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You fear your old crew more than you fear me.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Let's go.", next = "END" },
       },
     },

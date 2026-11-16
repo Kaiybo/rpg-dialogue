@@ -29,6 +29,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "It covers setting fire to things, citizen, whether you use a torch or a spell. The Magistrate's last ruling on the matter was very clear, and I wrote it down myself." } },
+      choices = {
+        { text = "Laws should bind mages like anyone else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic answers to the Kirin Tor, not a bailiff.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's on the docket now?", next = "docket" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "He does, citizen, and it says that what you summon, you answer for, as though you'd done the deed with your own hands. I'd keep that in mind if anything with horns wanders into town." } },
+      choices = {
+        { text = "Fair ruling. I'll answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Prove it was mine first, Bailiff.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What does justice mean here?", next = "justice" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +71,8 @@ P:NPC {
         { text = "I'm sworn to the Light, Bailiff.", next = "oath", when = { class = "PALADIN" } },
         { text = "Was justice done, Bailiff?", next = "justice", when = { questDone = TODO_QUEST("Solomon's Law") } },
         { text = "I've kept the peace with a sword before, Bailiff.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Does the law in Lakeshire cover spellcraft?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I suppose the Magistrate has a ruling on warlocks too.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Bailiff.", next = "END" },
       },
     },
@@ -167,6 +185,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "You could, and I'd love a proper number for once instead of my guess with fifty added for luck. Come back with the count and your ears still on your head, and I might finally sleep a night through." } },
+      choices = {
+        { text = "I'll count them, and cut a few throats while I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll count them and come back clean.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "How bad is it out there?", next = "bad" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "A blizzard? I'd pay good money to see it, if I had any, since the Shadowhide like the cold no better than I do. Just warn me first, so I'm not standing in the middle of my own count." } },
+      choices = {
+        { text = "Careful aim, Deputy. You'll be well clear.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Gnolls don't wait for warnings, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do you need the numbers?", next = "need" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Deputy Feldon. I watch the south end of the bridge and count gnolls. The count keeps going up, which is not how counting's meant to go." },
@@ -188,6 +222,8 @@ P:NPC {
         { text = "I'm good with numbers. Let me help.", next = "gnome", when = { race = "Gnome" } },
         { text = "I counted them for you. What now?", next = "after", when = { questDone = TODO_QUEST("Assessing the Threat") } },
         { text = "I track things for a living. Want help counting?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I could count the gnolls from inside their camp.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "One blizzard could cut your count in half, Deputy.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
     },
@@ -290,6 +326,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Can you blink past the Blackrock outriders and the gnolls in the hills both? I've walked that road for three years, and the only safe way I've found is eyes open and feet quick." } },
+      choices = {
+        { text = "Eyes open, then. I'll walk it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My way's quicker. I'll trust the spell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's the worst you've seen out there?", next = "worst" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Safer for whom, I'd like to know? There's a girl at the inn who'd never speak to me again if I let something like that near her, so walk your demon on the far side of the road, if you please." } },
+      choices = {
+        { text = "Far side it is. Your girl's safe from it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "She'll get used to it, Parker.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about Darcy.", next = "darcy" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -314,6 +366,8 @@ P:NPC {
         { text = "Darcy made you lunch.", next = "lunch", when = { questActive = TODO_QUEST("A Free Lunch") } },
         { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I came up that road and you never saw me.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I can blink past anything on that road.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your road would be safer with a demon walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Carry on.", next = "END" },
       },
     },
@@ -412,6 +466,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Oh, love, I don't sell it, I give it away, but only the nice parts. The rest I keep under the counter where it can't hurt anybody, and you won't get it out of me with that smile." } },
+      choices = {
+        { text = "Then keep it. Secrets are safe with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everyone has a price, Darcy. Even gossip.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the latest, then?", next = "gossip" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Darcy. I wait tables at the inn and I hear all the gossip, and I pass on only the nice parts, mostly." },
@@ -437,6 +499,7 @@ P:NPC {
         { text = "I delivered the lunch. He ate every bite.", next = "lunch_done", when = { questDone = TODO_QUEST("A Free Lunch") } },
         { text = "Do you like the daffodils?", next = "daffodils", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I could conjure you bread for the tables.", next = "mage", when = { class = "MAGE" } },
+        { text = "You hear all the gossip, Darcy. Any of it worth selling?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -541,6 +604,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "They would, and that's why I grow them down by the lake where I can see them, not by the road. Alma taught me which ones mend and which ones kill, and she made me promise to sell only the first sort." } },
+      choices = {
+        { text = "Every blade needs an edge, Martie.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your promise is a good one. Keep it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What do you grow here?", next = "grow" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "That's a strange thing to say, but I suppose it's true, since the flowers don't know about the orcs. I'll ask you not to stand on the marigolds, though, because something about you makes the bees go quiet." } },
+      choices = {
+        { text = "I'll step carefully. Your garden's worth keeping.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Quiet bees are no great loss.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who buys your flowers?", next = "buyers" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Martie Jainrose. I keep the garden by the lake and grow what the town needs: herbs for the healer, and flowers for nobody in particular." },
@@ -565,6 +644,8 @@ P:NPC {
           fx = { align = { honor = -1 } } },
         { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
         { text = "Could I tame Bellygrub?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Some of your herbs would make fine poisons.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your garden is the only thing in Redridge that isn't frightened.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -672,6 +753,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Conjured food fills a soldier for a march, but it won't warm him like a bowl of my goulash will. Bring me spiders from the hills and I'll do the rest, and you can keep your magic for the orcs." } },
+      choices = {
+        { text = "Your kitchen, your way. I'll fetch spiders.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic's faster. Hungry soldiers won't care.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What goes in the goulash?", next = "goulash" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "My kitchen has a fire that never goes out, and it's called me getting up at four. If you're offering something from wherever your sort draws their fire, I'll thank you kindly and keep cooking on plain wood." } },
+      choices = {
+        { text = "Plain wood suits honest food.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel fire cooks faster, you know.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "How many soldiers do you feed?", next = "count" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Breanna. I feed every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them, and both of those are problems." },
@@ -693,6 +790,8 @@ P:NPC {
         { text = "I cook. Can I lend a hand?", next = "cook", when = { profession = "Cooking" } },
         { text = "Shall I bless the pot?", next = "priest", when = { class = "PRIEST" } },
         { text = "I've eaten army rations. This is a feast.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I could conjure food for your soldiers, Chef.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your kitchen could use a fire that never goes out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
       },
     },

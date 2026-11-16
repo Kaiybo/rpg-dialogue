@@ -25,6 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Mage robes, is it? You'll want the dyed linen, then, since the Stormwind tailors swear the colour holds an enchantment better, though I've never seen a scrap of proof. I'll sell it to you either way, and gladly." } },
+      choices = {
+        { text = "Proof matters. I'll test it before I believe it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If it feels right, it works. That's half of magic.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How's trade on the hill?", next = "thread" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "The darkest I've got is a black from Duskwood that stains your hands for a week, and I'll not ask what it's for. Folk on this hill have enough to fear without me selling the cloth to make them fear it more." } },
+      choices = {
+        { text = "It's for robes, nothing more. Rest easy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear keeps the Defias off this hill too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Do the wagons still get through?", next = "wagons" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Christopher Hewen, trade supplies. I can tell you how Sentinel Hill's doing by what it buys from me, and this month it's all thread and no dye." },
@@ -44,6 +60,8 @@ P:NPC {
         { text = "What does 'all thread and no dye' mean?", next = "thread" },
         { text = "How do your goods get here?", next = "wagons" },
         { text = "I worked these fields before the thieves came.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "I'll need fine thread for robes, Christopher.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'll need dark dye, the darkest you have.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -107,6 +125,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "I'd sell you water if you were thirsty, but I'll not trade good thread for something that vanishes come morning. Bring me silver, which doesn't." } },
+      choices = {
+        { text = "Fair enough. Silver it is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Pity. Conjured coin would've fooled you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why are your prices so high?", next = "price" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gina MacGregor. I sell trade goods, and I sell them for what they cost to bring here, which is more than Christopher charges and exactly what they're worth." },
@@ -126,6 +152,7 @@ P:NPC {
         { text = "Why charge more than Christopher?", next = "price" },
         { text = "Are you kin to William, the bowyer?", next = "william" },
         { text = "Surely you could knock a few coppers off.", next = "haggle", when = { any = { { race = "Dwarf" }, { race = "Gnome" }, { class = "ROGUE" } } } },
+        { text = "Would you take conjured water in trade, Gina?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -183,6 +210,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Then you're quieter than the Defias, who've been trying to rob my stable since spring and never once got past the old grey mare. She bites, and she knows a stranger's step." } },
+      choices = {
+        { text = "I'd never steal a farmer's horse.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Good mare. I'd have tried the back gate.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What beasts do you keep?", next = "beasts" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "No, and I can see why, since there's a smell on you like a struck match and they don't care for it. Stand downwind of the stalls and speak low, and they'll get used to you, same as they got used to me." } },
+      choices = {
+        { text = "I'll stand downwind. They've been through enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'll learn to fear me. That's fine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Can anyone tame the vultures?", next = "beasts_vulture" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kirk Maxwell. I keep the stables, which on this hill means hunters' beasts and the odd militia horse that's seen too much." },
@@ -201,6 +244,8 @@ P:NPC {
         { text = "What beasts do hunters bring you here?", next = "beasts" },
         { text = "A militia horse that's seen too much?", next = "horse" },
         { text = "What would you tame, out here?", next = "tame", when = { class = "HUNTER" } },
+        { text = "Horses don't spook when I sneak up on them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Animals don't like me much, Kirk.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just looking in.", next = "END" },
       },
     },
@@ -257,6 +302,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "So I've heard, and so the soldiers tell me every time they buy a loaf, as if I'd not heard it the first hundred times. Conjured bread has no crust worth the name, and there's no man in Westfall who'll call it a proper loaf." } },
+      choices = {
+        { text = "A proper loaf deserves a proper oven.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bread's bread, Mike. Hunger doesn't care.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Where does your flour come from?", next = "flour" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "One just like it ate a sweet roll off my counter last week, and I'll thank you not to tell me it was a different imp. Keep it on your shoulder and off my shelves." } },
+      choices = {
+        { text = "I'll pay for anything it takes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It was hungry, and your shelves were open.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who buys your bread?", next = "eaters" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mike Miller, bread merchant. Westfall used to feed half the kingdom, and now I bake with flour that comes by wagon from Elwynn. Put that in a song, somebody." },
@@ -276,6 +337,8 @@ P:NPC {
         { text = "Why flour from Elwynn?", next = "flour" },
         { text = "Who eats all this bread?", next = "eaters" },
         { text = "Blessed bread feeds the soul as well. May I bless today's batch?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I can conjure bread, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Don't worry, my imp won't eat your bread.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },

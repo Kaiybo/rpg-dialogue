@@ -25,6 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Brighter, maybe, but I've sold candles to Darkshire for twenty years, and folk like a flame they can blow out themselves. Have a seat, dear, and I'll find you something warm." } },
+      choices = {
+        { text = "Tradition's served you well, Mabel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Change does folk good, even in Darkshire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What sells best here?", next = "sells" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Candles and oil and flour, dear, and nothing darker than burnt toast. If you want that sort of thing, try young Alyssa at Madame Eva's, though you didn't hear it from me." } },
+      choices = {
+        { text = "I'll keep it out of your shop, Mabel.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Darker arts keep this town alive, Mabel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Where do your supplies come from?", next = "supplies" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mabel Solaj, and I keep Darkshire in candles, lamp oil and flour, which is to say I keep it in light and bread. Neither one is easy to come by in this wood, so I don't apologise for my prices." },
@@ -40,6 +56,8 @@ P:NPC {
         { text = "What sells best in Darkshire?", next = "sells" },
         { text = "How do supplies reach you?", next = "supplies" },
         { text = "Why stay in Darkshire?", next = "stay" },
+        { text = "Your candles would burn brighter with a cantrip.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you sell anything for the darker arts, Mabel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good night, Mabel.", next = "END" },
       },
     },
@@ -106,6 +124,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Afraid? I know they are, because I'm short three vials since the new moon and I've no idea where they went. You've got quiet hands yourself, so if you see who it is, I'd be grateful for a name." } },
+      choices = {
+        { text = "I'll bring you a name, Gunder.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Maybe they need the vials more than you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who buys from you?", next = "buyers" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gunder Thornbush, tradesman, and I've stock for every craft in Darkshire, though there are fewer crafts every year. Mabel sells the bread and candles, and I sell everything you'd need to make something of your own." },
@@ -121,6 +147,7 @@ P:NPC {
         { text = "Why are there fewer crafts every year?", next = "crafts" },
         { text = "What do you think of the Night Watch?", next = "watch" },
         { text = "Who buys from you most?", next = "buyers" },
+        { text = "You count your stock aloud. Afraid someone's lifting it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -262,6 +289,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "They did, and that's half the trouble, since every old seam round here has something hiding in it now, worgen or worse. Nobody goes down without wondering who's waiting in the dark." } },
+      choices = {
+        { text = "I'll clear one, and do it openly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hiding in one suits me fine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why did the mining stop?", next = "stopped" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "It is, and that's why it's good for you, since a body that only reads goes soft. Swing a pick for a week, and I'll wager you'll cast the better for it." } },
+      choices = {
+        { text = "Discipline in body and mind. I'll try it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My mind's my pick, Matt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Any advice for a beginner?", next = "advice" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Matt Johnson, and I teach mining, though there's precious little of it done in Duskwood now. Most of the men I worked with put their picks down years ago, and the rest are buried with them." },
@@ -277,6 +320,8 @@ P:NPC {
         { text = "Why did the miners stop?", next = "stopped" },
         { text = "Is there still ore in these hills?", next = "ore" },
         { text = "Any advice for mining in Duskwood?", next = "advice" },
+        { text = "Mines make good hiding places, Matt.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Mining seems hard work for a mage.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -488,6 +533,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "I've thought of it myself, standing here every day watching them shuffle papers. But if I learn they've done nothing, I'll have to go home and tell my wife, and I don't know that I can." } },
+      choices = {
+        { text = "Then I'll ask them openly, beside you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll read their papers tonight, quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What do you want from the council?", next = "council" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I know that, friend; I'm not a fool, and I know it's Morbent Fel and his kind. What I don't know is why the council sits in this hall while he does it." } },
+      choices = {
+        { text = "Then I'll put an end to Fel's work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fel's power could be taken from him and used.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why hasn't Stormwind sent help?", next = "stormwind" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hogan Ference, and I've been coming to this hall every morning for a month to ask the council one question, which is what they mean to do about the undead. I'll keep coming until somebody gives me an answer." },
@@ -503,6 +564,8 @@ P:NPC {
         { text = "Why haven't Stormwind's guards come?", next = "stormwind" },
         { text = "What's happening at Raven Hill?", next = "raven" },
         { text = "I'll see what I can do.", next = "help" },
+        { text = "The council keeps secrets. I could find them out.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The dead walk because someone makes them walk, Hogan.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck, Hogan.", next = "END" },
       },
     },
@@ -579,6 +642,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Three? Then two of them are fakes, my friend, and I'd be happy to sell you the real one at a modest markup. You've a good eye, which I respect, though not so much that I'll lower my prices." } },
+      choices = {
+        { text = "Fine. Show me the real one, honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll buy all three and sell them back to you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Why set up shop out here?", next = "why" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Arcane curios! I've a crystal from up Karazhan way that hums when you hold it, or at least it hummed when I bought it. No refunds, no questions and no casting near the merchandise." } },
+      choices = {
+        { text = "Show me its provenance first, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No questions suits me. Let's see it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What else is in your stock?", next = "stock" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kzixx, purveyor of rare goods to the discerning traveller, and the less discerning ones too. Everything I sell is one of a kind, or at least one of a few, which is still pretty rare." },
@@ -594,6 +673,8 @@ P:NPC {
         { text = "Why sell out here, in Duskwood?", next = "why" },
         { text = "Where do you get your stock?", next = "stock" },
         { text = "Aren't you afraid of the worgen?", next = "worgen" },
+        { text = "Unique, Kzixx? I've seen three of that one.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Any arcane curios in that stock?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll pass.", next = "END" },
       },
     },

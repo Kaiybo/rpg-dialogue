@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "They saw a shadow with a purse that wasn't its own, dearie, and then they saw a choice. I don't tell people which choice they make, because that spoils the cards." } },
+      choices = {
+        { text = "Then I'll choose the honest road.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Purses don't choose; I do, and gladly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Read my cards, then.", next = "cards" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "And frost bolts are only cold air with ambition, by that reckoning. You could study in Stormwind for twenty years, child, and still not know what I know about the man walking up my stairs." } },
+      choices = {
+        { text = "Real magic has rules. Yours doesn't.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair. Some things books can't teach.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What do the cards mean?", next = "mean" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "A name, sometimes, and a green place gone sour. There is a sleeping wood beneath this one, child, and something in its dreams has turned. I do not know more, and I am glad I do not." } },
       choices = {
@@ -75,6 +91,8 @@ P:NPC {
         { text = "The Light doesn't need cards.", next = "priest", when = { class = "PRIEST" } },
         { text = "Deal for me. If you dare.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The spirits speak to me too, madame.", next = "dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "You knew I'd come. Did your cards see my knives too?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Fortune telling isn't magic, Madame. It's guesswork.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

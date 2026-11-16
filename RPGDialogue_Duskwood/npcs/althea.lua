@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "My watch is loud because the wolves hear us coming and some of them run, {class}, and that's saved more lives than any blade. But a quiet pair of eyes out past the Darkened Bank? I'd take that, gladly." } },
+      choices = {
+        { text = "I'll scout and strike before they see me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll scout and report, and leave the fighting to your watch.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What's out in the woods?", next = "woods" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Wards cost silver and mages, and Stormwind sends me neither, so we make do with lamps and loud men. If you can light a lamp that won't go out when the fog rolls in, I'll take that over any ward." } },
+      choices = {
+        { text = "Lamps and good order, then. I'll help.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your watch needs fire, not lamps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who is Mor'Ladim?", next = "morladim" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "The Scythe of Elune broke something here when the Worgen came, and the undead from Raven Hill have done the rest. I am a soldier; I can only hold the line. If there is a cure, it will come from your Circle, not my Watch." } },
       choices = {
@@ -82,6 +98,8 @@ P:NPC {
         { text = "Put me on the roster, Commander. I'll stand a night watch.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I've been tracking the wolves out past the lamps.", next = "hunter", when = { class = "HUNTER" } },
         { text = "You're staring at me, Commander. Say it.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Your watch is loud, Commander. I could scout ahead of them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A few wards around Darkshire would help your watch.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },

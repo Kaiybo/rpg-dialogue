@@ -25,6 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "A barrel lifted is a barrel missed, and a Thunderbrew never forgets his list! I've counted them twice since the Defias came by, so mind your fingers and keep your thirst dry." } },
+      choices = {
+        { text = "I'll pay for my drink, honest as stone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take one the next time you look away.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why brew all the way out here?", next = "why" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "A mage with frost and a mug to fill, now there's a skill to warm the will! But lager wants a cellar's cool and not a spell from some Stormwind school, so thank you kindly, I'll keep my rule." } },
+      choices = {
+        { text = "Tradition knows best. Keep your cellar.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are for cellars. Let me try it anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do the Defias buy from you?", next = "defias" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grimbooze Thunderbrew, brewer and bard, who keeps his still here where the hills are hard. The farmers have gone, but the barley still grows, and where there's good barley, the Thunderbrew goes." },
@@ -43,6 +59,8 @@ P:NPC {
         { text = "Do you always talk in rhyme?", next = "rhyme" },
         { text = "Aren't the Defias a danger to you?", next = "defias" },
         { text = "Barkeep Daniels in Lakeshire needs lager.", next = "daniels", when = { questActive = TODO_QUEST("Dry Times") } },
+        { text = "Your barrels would be easy to lift, you know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could chill your lager in a heartbeat.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your still.", next = "END" },
       },
     },
@@ -122,6 +140,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Nothing hears you coming, I'd wager, but murlocs smell you anyway, and they've noses like the tide. If you're creeping down the Longshore, go upwind and go slow, same as I do with the fish." } },
+      choices = {
+        { text = "I'll clear them quietly, before they know I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd sooner face them head on, Kriggon.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What drives the murlocs up the beach?", next = "murlocs" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "That little red thing? It'd burn my nets first and laugh about it, I reckon. I've fished this shore with nothing but a knife and patience, and the murlocs and I have an understanding, mostly." } },
+      choices = {
+        { text = "Fire settles murlocs, Kriggon. Let it work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep the imp well away from your nets.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Why do you stay on this shore?", next = "stay" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kriggon Talsone, and I fish this shore, same as my father did before the farms went bad. The sea doesn't care who owns Westfall, which is more than I can say for anything else around here." },
@@ -137,6 +171,8 @@ P:NPC {
         { text = "Are the murlocs a danger?", next = "murlocs" },
         { text = "What do you know about the lighthouse?", next = "lighthouse" },
         { text = "Why stay in Westfall at all?", next = "stay" },
+        { text = "The murlocs wouldn't hear me coming.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "My imp would burn those murlocs off your beach.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },

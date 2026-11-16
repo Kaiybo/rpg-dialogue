@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Aye, and a spell might fail on the one night the fog rolls in thick off the Great Sea. I've had years to think about it, {class}, and I trust a flame I can tend myself." } },
+      choices = {
+        { text = "Keep your watch, Captain. It's an honest duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the ships fend for themselves. You've earned your rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How did your ship go down?", next = "ship" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I've no doubt you could try, and I've no doubt it would be a poor trade for both of us. I keep this light burning by my own will, and if you take that from me, it's only a lamp and a dead man." } },
+      choices = {
+        { text = "I'd never bind a soul that keeps a light burning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A bound spirit keeps a flame lit just as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do you stay here?", next = "stay" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Grayson, of a ship that isn't, from a crew that aren't. I mean no harm to the living; I mean only to keep this flame lit." },
@@ -60,6 +76,8 @@ P:NPC {
         { text = "I could help you find rest, captain.", next = "priest", when = { class = "PRIEST" } },
         { text = "We're both dead. Why aren't you bitter?", next = "scourge", when = { race = "Scourge" } },
         { text = "My people scatter the dead to the wind, Captain.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "A spell could keep your lamp lit without you, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Rest easy, captain.", next = "END" },
       },
     },

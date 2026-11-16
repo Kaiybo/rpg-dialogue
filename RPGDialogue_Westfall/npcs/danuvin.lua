@@ -28,6 +28,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "The Defias fight dirty, {class}, and I've buried enough of my lads to know it works. But these are farmers who stood their ground in daylight, and I'll not teach them to knife a man from behind unless there's no other choice left." } },
+      choices = {
+        { text = "Dirty fighting keeps farmers alive, Captain. Pride doesn't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "You're right. Let them keep their daylight courage.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "How do you drill them now?", next = "drill" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "I've seen what a battlemage can do to a pack of Riverpaw, and I'd take a dozen of you if Stormwind would send them. As it is, my farmers have pitchforks and I have you, so stand where I can see you and aim away from the wheat." } },
+      choices = {
+        { text = "I'll keep the fire off the wheat, Captain. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Wheat grows back. I'll burn whatever needs burning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do the gnolls come down here?", next = "gnolls" },
+      },
+    },
+    xlock = {
+      lines = {
+        { id = "xlo_default", text = "I've heard of your sort, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if your demon bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
+        { id = "xlo_gnome", when = { race = "Gnome" }, text = "Small as you are, you've a big shadow following you about, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if your demon bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
+      },
+      choices = {
+        { text = "My demon serves me. That's all you need to know.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll keep it on a short leash around your people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What do the gnolls want here?", next = "gnolls" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Then you're worth ten of my soldiers, and I'll not argue the point. They keep to the hills by day and the coast by night. If you find their camps, mark them, and leave the rest to us." } },
       choices = {
@@ -66,6 +93,9 @@ P:NPC {
         { text = "Let me drill your recruits a while.", next = "teach", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My family farmed out here. I've come back.", next = "home", when = { origin = "human_westfall_farmhand" } },
         { text = "A hunter could teach your recruits to track.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Your farmers fight in the open, Captain. I'd teach them to fight dirty.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A few fire spells would thin the gnolls quickly, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I bargain with darker things than gnolls, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },

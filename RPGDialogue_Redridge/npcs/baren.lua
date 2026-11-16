@@ -29,6 +29,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Ha! If you can creep into a murloc camp and come out with my nets and all your fingers, I'll tell the whole dock it was you. They've taken six nets since the thaw and a rowboat besides, and I'd like the boat back most." } },
+      choices = {
+        { text = "I'll get them back, and take a little extra.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your nets and your boat, nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Why have the murlocs moved inland?", next = "inland" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Freeze Lake Everstill? You'd freeze my boats in with them, and then I'd have to explain to the Magistrate why the mail's sat at the dock till spring. Thin them out on the shore, if you please, and leave my water wet." } },
+      choices = {
+        { text = "Careful work, then. Your boats stay safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A frozen lake would end it faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's wrong with the lake?", next = "lake" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Aye, there is. They come up thin, and the murlocs have taken the good spawning grounds along the east shore. My lads blame the orcs upstream, though nobody's walked up there to check." } },
       choices = {
@@ -66,6 +82,8 @@ P:NPC {
         { text = "I fish. Where's the best water?", next = "fisher", when = { profession = "Fishing" } },
         { text = "I've had my brew. Let's talk.", next = "brew", when = { drunk = { min = 1 } } },
         { text = "My pet could chase the murlocs off your docks.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Murlocs stole your nets. I could steal them back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could freeze the lake around the murlocs.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },

@@ -27,6 +27,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Moved, stolen or borrowed by Councilman Millstipe for one of his letters, it's all the same to my ledger. I'll thank you not to move any more of them, because I've only one good quill left." } },
+      choices = {
+        { text = "Your records are safe from me, clerk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A ledger's only paper, and paper can be changed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Which records are missing?", next = "records_missing" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Would they? Then they'd outlast the people they're about, which in Darkshire isn't much of a feat. The fog gets into everything, mage, so I'd not say no to anything that keeps the damp off." } },
+      choices = {
+        { text = "Records deserve care. They should be kept properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the damp take them. The dead won't mind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do your records hold?", next = "records" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "That's either the most comforting thing anyone's said to me this month or the worst, and I can't decide which. I write missing, presumed wolf, because nobody in this town wants me to write what you just said." } },
+      choices = {
+        { text = "Write the truth, Daltry, even if it frightens them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep writing wolf. Some truths help no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who are the strangers in your book?", next = "strangers" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "That it was called Brightwood before the Worgen, and that every year since, the treeline creeps darker by about a field's width. I keep the numbers. Nobody in Stormwind has asked to see them." } },
       choices = {
@@ -59,6 +83,9 @@ P:NPC {
         { text = "What do you have on Stalvan Mistmantle?", next = "stalvan", when = { topicKnown = "stalvan" } },
         { text = "The Church keeps death registers too.", next = "priest", when = { class = "PRIEST" } },
         { text = "Your ledgers need a proper cross-index.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Some of your missing records were probably just moved.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your records would last longer with a preserving charm.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Some of your missing folk may not be dead, Daltry.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Daltry.", next = "END" },
       },
     },

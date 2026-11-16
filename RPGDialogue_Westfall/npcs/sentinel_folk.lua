@@ -28,6 +28,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Don't you dare, {class}. Half of them are militia who've nothing but those boots, and the other half are travellers who'll never come back if they lose their purse under my roof." } },
+      choices = {
+        { text = "Fair enough. Your roof, your rules.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Only the ones who can spare it, Heather.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who stays here these days?", next = "guests" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "You'd only blow it into the soup, love, and then out to the road, and then straight back in on the next breeze. Westfall dust never leaves; it just changes rooms." } },
+      choices = {
+        { text = "Then I'll sweep it properly, by hand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let it blow. Fighting dust is wasted effort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How long have you kept the inn?", next = "tending" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Thick walls I haven't got, but there's a room at the end where nobody minds odd smells or muttering after dark. I'll ask you not to let anything with horns sit on the beds, because I've only just washed the linens." } },
+      choices = {
+        { text = "My companions stay outside. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They go where I go, I'm afraid.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What's the hill like at night?", next = "hill" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Heather, and I keep the inn on the hill. Most of my guests are militia between watches, and most of them sleep in their boots." },
@@ -53,6 +77,9 @@ P:NPC {
         { text = "Do any of the militia need tending?", next = "tending", when = { class = "PRIEST" } },
         { text = "You said some Defias drank here once?", next = "masons", when = { topicKnown = "defias" } },
         { text = "Any chance of a proper dwarven ale?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Your guests sleep in their boots. Easy pickings, Heather.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Mind if I sweep the dust out with a gust of wind?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'll need a room with thick walls, Heather.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -128,6 +155,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Linen, water and a great deal of wishing, since the reagent wagon from Stormwind gets robbed twice as often as the rest. If you've ever conjured water for a militia patrol, you've done more for this hill than my ledger ever has." } },
+      choices = {
+        { text = "I'll conjure for the patrols. Put it in the ledger.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll conjure for whoever pays best, Lewis.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What goes in the ledger?", next = "ledger" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I'll want to, and I won't, because there's no form for demon damage and I'm not inventing one. Just keep it away from the ammunition crates, since one spark there and Sentinel Hill becomes a crater." } },
+      choices = {
+        { text = "I'll answer for anything it breaks.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it breaks something, write down Defias.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What are all the forms for?", next = "forms" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lewis, quartermaster. I keep Sentinel Hill fed, armed and patched, which is a lot to ask of one ledger and a wagon that keeps getting robbed." },
@@ -146,6 +189,8 @@ P:NPC {
         { text = "What's in the ledger?", next = "ledger" },
         { text = "Got arrows, shot, throwing knives?", next = "ammo", when = { class = { "HUNTER", "ROGUE", "WARRIOR" } } },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Do you stock anything for a mage, Lewis?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You'll want to log whatever my demon breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -235,6 +280,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Every bird I've got has carried somebody who paid in coin with a red bandana stuffed in his pocket, and the gryphons don't care a bit. I do, though, so if you're flying for the wrong sort, fly from somewhere else." } },
+      choices = {
+        { text = "I fly for the Militia, Thor. Count on it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fly for whoever pays, same as your birds.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Where do your routes go?", next = "routes" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Aye, and a spell never brought anyone a ginger cake from Lakeshire or sat on a roof to watch the sunset with them. You go blinking off to Stormwind if you like, and my birds will go on being better company." } },
+      choices = {
+        { text = "Teleports are tidier. No feathers, no fuss.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A free flight beats a spell any day, Thor.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What are their names?", next = "names" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Name's Thor, and I keep the gryphons. They're the fastest way out of Westfall, and the only one the Defias haven't managed to rob, so far." },
@@ -255,6 +316,8 @@ P:NPC {
         { text = "Lewis's note has to reach Stormwind.", next = "message", when = { questActive = TODO_QUEST("Continue to Stormwind") } },
         { text = "Ironforge's gryphons look sturdier than these.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "The winds over Westfall are restless today, Thor.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Your gryphons must carry riders who'd rather not be seen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A gryphon is slower than a teleport, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -335,6 +398,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "It would, and it would show every Defias on that road exactly where I'm standing, which is why I keep my tower dark. If you want to help, put your fire on the riders I point at, not on the lamp." } },
+      choices = {
+        { text = "I'll follow your lead, Riell.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pick my own targets, scout.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What have you seen on the roads?", next = "see" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Can you now? Then tell me what's moving round Moonbrook after midnight, because the lights I've seen there aren't lanterns. Whatever your eyes are borrowed from, I'll take a report from them all the same." } },
+      choices = {
+        { text = "I'll use whatever sight I've got, borrowed or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll trust my own eyes, not the demon's.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What lights did you see?", next = "see_lights" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Riell, scout for the People's Militia. I watch from the tower and tell Gryan what's coming. Lately it's always the same answer: more." },
@@ -356,6 +435,8 @@ P:NPC {
         { text = "Bet I could slip past your watch.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Sentinels keep watches like this at home.", next = "nightelf", when = { race = "NightElf" } },
         { text = "I could scout the hills for you as a cat.", next = "druid", when = { class = "DRUID" } },
+        { text = "A light spell would show you the road at night.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I can see things in the dark that you can't.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -458,6 +539,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Quieter, aye, and a sight shorter, which means you've got to be close enough to smell the Defias before you use it. I make bows so the militia lads never need to get that close." } },
+      choices = {
+        { text = "Close is where the work gets done, William.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Distance is honest. The militia need bows.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What's the best wood for a bow?", next = "best" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "A wand? No, a wand's a stick that's forgotten what it was for. Strings are extra, mind, and wands don't take strings, so I'll leave you to Stormwind's shops on that one." } },
+      choices = {
+        { text = "Craft takes rules and patience, like yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll make do with whatever's lying about.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why is Westfall wood so poor?", next = "wood" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "MacGregor's the name. I make bows for the militia and sell what's left to whoever walks up; Westfall wood's poor, so I make it up with patience." },
@@ -477,6 +574,8 @@ P:NPC {
         { text = "Who gets your best bows?", next = "best" },
         { text = "Gina MacGregor says she sells your strings.", next = "gina", when = { heardLine = "gina.h_default" } },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "A good bow is fine, but a knife is quieter.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would a wand count as competition, William?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

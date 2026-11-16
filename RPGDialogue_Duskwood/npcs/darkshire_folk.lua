@@ -33,6 +33,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "So can the things we hunt, which is why I watch hands before faces. If you mean to come out with my household, you'll stay where I can see you, because a shadow I can't account for gets an arrow." } },
+      choices = {
+        { text = "I'll stay where you can see me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hunt my own way, Carevin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who do you hunt out there?", next = "hunt_who" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "It does, and the Light works better, but I'll not turn away fire from someone willing to stand beside us at Raven Hill. Only keep your flames off the grave markers, because the families still come to read them." } },
+      choices = {
+        { text = "Careful fire, then. I'll spare the markers.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fire doesn't choose. The dead must burn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do you hunt the dead?", next = "hunt" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -67,6 +83,8 @@ P:NPC {
         { text = "I'm a druid, not a beast.", next = "druid", when = { class = "DRUID" } },
         { text = "I wear the Light into battle, Carevin.", next = "paladin", when = { class = "PALADIN" } },
         { text = "My arts could serve your hunt.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I can move past the lamps unseen, Jonathan.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Fire works well on the dead, I hear.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -225,6 +243,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Then you've the sense to stay alive, which is more than half the Watch I served with. Just know the dead at Raven Hill don't turn their backs, so you'll need another trick." } },
+      choices = {
+        { text = "Then I'll face them like a soldier.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There's always another trick.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why did you leave the Watch?", next = "watch" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Spells serve fine until a ghoul gets inside your reach, and then you'll wish you'd learned to swing something. I watched a Stormwind mage go down at the Raven Hill gate because his hands were shaking too hard to cast." } },
+      choices = {
+        { text = "I'll learn the blade too. Discipline matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My hands don't shake, Calor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How do I prove myself to you?", next = "prove" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Say that again in front of Jonathan and you'll have an arrow for an answer, friend. We lay the dead down, and we don't take them up again for ourselves, whatever they teach you in the cellars of Stormwind." } },
+      choices = {
+        { text = "You're right. The dead deserve their rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Laid down or taken up, they're useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about Raven Hill.", next = "ravenhill" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -252,6 +294,9 @@ P:NPC {
         { text = "Do you pray before you hunt?", next = "priest", when = { class = "PRIEST" } },
         { text = "Let me ride out with you.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I've stood a watch or two myself.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "I've swung at plenty, Calor, usually from behind.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I've never needed a blade, Calor. Spells serve me fine.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "The dead at Raven Hill could serve me instead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Later, Calor.", next = "END" },
       },
     },
@@ -396,6 +441,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Easy to take and impossible to find again, since I'm the only one who knows where anything is. If you steal a page from this pile, you'll have stolen the one thing in Darkshire nobody else wants." } },
+      choices = {
+        { text = "Your papers are safe. Knowledge belongs to its keeper.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Knowledge is always worth stealing, scholar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the oldest thing you have?", next = "oldest" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Morbent Fel isn't history yet, more's the pity; he's current events. But the older records speak of others who meddled with the dark in these woods long before Darkshire had a council, and none of them ended well." } },
+      choices = {
+        { text = "Their mistakes were ignorance. I'll do better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll learn from their ends and stay careful.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Tell me Darkshire's history.", next = "history" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Sirra Von'Indi, historian to the town: languages, old scripts and older families. If it happened in Darkshire and someone wrote it down, I've read it twice." },
@@ -428,6 +489,8 @@ P:NPC {
         { text = "I came home from Lordaeron too.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Ironforge's explorers would kill for your library.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll give you a word of my people's tongue.", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "Your papers would be easy to slip a page from.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your histories must mention necromancers. Morbent Fel, for one.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -606,6 +669,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Valuable, delicate and quite useless to anyone who doesn't know the stars, so I'd thank you to keep your hands in your pockets. If you're curious, I'll show you how it works, and that's more than a thief ever gets." } },
+      choices = {
+        { text = "I'm curious, not a thief. Show me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Delicate things fetch the best prices.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What does the device do?", next = "device" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I've read the old warnings, yes, the ones about eyes in the dark between the stars, and I don't care for them. I watch the sky to learn its patterns, not to wave at whatever might be watching back." } },
+      choices = {
+        { text = "Wise. Some things shouldn't be waved at.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever watches back might teach you something.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why study stars here, of all places?", next = "why" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Viktori Prism'Antras, and I study the stars, in Duskwood, yes, I know. Everyone laughs, but then everyone in Duskwood hasn't seen the sun in years, so who's laughing?" },
@@ -635,6 +714,8 @@ P:NPC {
         { text = "Maybe the dark is a matter for faith.", next = "priest", when = { class = "PRIEST" } },
         { text = "I can turn you a true tube.", next = "engineer", when = { profession = "Engineering" } },
         { text = "My people have watched these stars for ages.", next = "nightelf", when = { race = "NightElf" } },
+        { text = "That device of yours looks valuable.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Some of what's up there isn't stars at all.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the fog.", next = "END" },
       },
     },
@@ -770,6 +851,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Ah, now that's a secret, my favourite, and even a quiet one like you won't sneak it out of my kitchen. Let's say it's mostly meat and a little bit of courage, and leave it there." } },
+      choices = {
+        { text = "Your secret's safe. A chef's recipes are his own.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find out the next time you're asleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Is there a secret, then?", next = "secret" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "A perfect loaf! And what would I do then, with my ovens and my flour and my secrets? No, my favourite, keep your magic for the wolves and let me feed the people who come in shivering." } },
+      choices = {
+        { text = "Your kitchen, your rules, Grual.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your loss. Magic bread never burns.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's cooking tonight?", next = "tonight" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grual's the name, and I cook for the Scarlet Raven! It's the best food in Darkshire, and I'll fight anyone who says it's only the best because it's the only food in Darkshire." },
@@ -796,6 +893,8 @@ P:NPC {
         { text = "Cook to cook: what's the trick?", next = "cook", when = { profession = "Cooking" } },
         { text = "I'll bless the stew.", next = "priest", when = { class = "PRIEST" } },
         { text = "I could bring you fresh game from the woods.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What's really in the stew, Grual?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could conjure you a perfect loaf, Grual.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just smelling, thanks.", next = "END" },
       },
     },
@@ -921,6 +1020,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Quieter routes! I've tried the loud ones and the polite ones and the ones with wax seals the size of my palm. If you know a way to put a letter on a nobleman's pillow, I'll pretend I never asked how." } },
+      choices = {
+        { text = "I'll deliver it the proper way, Councilman.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The pillow, then. Nobles read what frightens them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What troubles should Stormwind hear about?", next = "troubles" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "They've been asked, mage, in a letter that's sitting in a drawer in the Mage Quarter alongside a great many others, I suspect. If you've a friend in those towers, tell them Darkshire is still here and still waiting." } },
+      choices = {
+        { text = "I'll carry the message properly, through channels.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Channels failed you. Act without them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who in Stormwind ignores you?", next = "stormwind_who" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "That's a dangerous thing to say in a town hall, and I'm afraid I rather like it. But Darkshire wants soldiers, not more things in the dark, so I'll take your sympathy and leave your offer on the table." } },
+      choices = {
+        { text = "Fear gets answers where letters don't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll stand for Darkshire in the light.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What does the council actually do?", next = "council" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Councilman Millstipe, of the Council of Darkshire. We govern this town, and we'd govern it better if Stormwind ever read our letters past the first line." },
@@ -947,6 +1070,9 @@ P:NPC {
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Ward's dead. Was that justice, or a message?", next = "justice", when = { questDone = TODO_QUEST("Crime and Punishment") } },
         { text = "Have you written to Ironforge as well?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Your letters could reach the nobles by quieter routes.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Stormwind's mages could help Darkshire, if anyone asked them.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your council could use someone who frightens Stormwind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Councilman.", next = "END" },
       },
     },
@@ -1087,6 +1213,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "It suits the worgen too, which is why I tell folk to stay out of the lit doorways and the dark ones both. Sit by the fire with your back to the wall like everybody else, and you'll sleep easier." } },
+      choices = {
+        { text = "I'll take the dark doorway. Nobody sees me there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll sit with the others and watch the door.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Can anyone sleep here?", next = "sleep" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "And when your spell gives out at the second bell, I'll have a room full of guests in the dark and the shutters rattling. Candles I can count, mage, and I count them every night." } },
+      choices = {
+        { text = "Fair. Candles you can count.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A spell holds if you trust it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why check the shutters twice?", next = "sleep_shutters" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "Safer from the worgen, maybe, and a good deal less safe from their own nightmares. I'll thank you to keep whatever it is in your room with the shutters shut, same as everyone else." } },
+      choices = {
+        { text = "In my room, then. Your guests come first.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Nightmares are cheaper than wolves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who stays here?", next = "guests" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Trelayne. Smitts keeps the bar and I keep the beds, and between us we keep people indoors after dark, which is the whole job here." },
@@ -1101,6 +1251,9 @@ P:NPC {
         { text = "How do you sleep here?", next = "sleep" },
         { text = "Who stays here, these days?", next = "guests" },
         { text = "Shall I bless the shutters?", next = "priest", when = { class = "PRIEST" } },
+        { text = "A dark doorway suits me fine, Trelayne.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could light the whole inn without a single candle.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your guests would sleep safer with something of mine at the door.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -1168,6 +1321,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Every blade needs the hammer, whatever size it ends up, and a dagger you didn't beat out properly will snap in a worgen's ribs. Stand back from the sparks and watch how it's done." } },
+      choices = {
+        { text = "I'll learn it properly, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take whatever's sharp and go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How's the work these days?", next = "work" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Then you need a carpenter, not a Gnarltree, though if you've any sense you'll wear a bit of mail under that robe. The worgen don't care how clever you are when they're chewing on you." } },
+      choices = {
+        { text = "Robes are the discipline of my craft.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fine, mail under the robe. Survival comes first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Can anyone sleep, with the worgen so close?", next = "sleep" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Clarise Gnarltree, and I teach the craft. Gavin does the blades and Morg does the armour, so between the three of us there's a Gnarltree for every bit of you." },
@@ -1181,6 +1350,8 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS" },
         { text = "You don't look like you've slept.", next = "sleep" },
         { text = "What do you make, mostly?", next = "work" },
+        { text = "Daggers don't need a heavy hammer, Clarise.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I don't need armour, Clarise. I need a staff.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "Bless you, but conjured bread fills a belly for an hour and leaves a body hungrier after. My pot's got real murloc in it and real carrots, and that'll keep a militia man walking till supper." } },
+      choices = {
+        { text = "A proper kitchen beats any spell. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bread is bread, Salma. Take what magic gives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What's in the pot today?", next = "pot" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I've fed Defias boys and Stormwind soldiers at the same table, so I'll not turn you away for whatever's following at your heel. Only keep it out of my kitchen, because I've a feeling it would sour the milk." } },
+      choices = {
+        { text = "Kindness is its own power, Salma. Keep giving it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Kindness gets farmers killed out here.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do you feed everyone?", next = "fed" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Salma. My husband farms and I cook, and anyone who comes to that door hungry leaves full. That's the rule of this house." },
@@ -62,6 +78,8 @@ P:NPC {
         { text = "You do a priest's work with that ladle.", next = "priest", when = { class = "PRIEST" } },
         { text = "Any tricks for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "Could you spare a scrap for {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "I could conjure bread for your pot, Salma.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does your kindness feed strays like me too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd best be off.", next = "END" },
       },
     },

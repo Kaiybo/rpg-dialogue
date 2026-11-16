@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "That's sweet of you, though Theodore will grumble that he's watching it himself, and he'll be asleep before the moon's up. If you sit out there in the dark, mind Blanchy, because she'll kick at anything she can't see." } },
+      choices = {
+        { text = "I'll guard your family, Verna. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If anyone comes, they won't be leaving.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Is there anything else you need?", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "Oh, she'd like that, she's been shivering since the fog came off the sea. Only go gently, because she's old and frightened of sparks, the poor dear." } },
+      choices = {
+        { text = "Gently, then. Slow and steady.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little fire never hurt a horse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How is Blanchy holding up?", next = "blanchy" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Bless you, if you think there is any to find. The verges have been picked clean by everyone fleeing the farms, and the Defias take the rest. If you know a root that will stretch a stew, I will gladly learn it." } },
       choices = {
@@ -66,6 +82,8 @@ P:NPC {
         { text = "I know animals. Let me look at her.", next = "blanchy_look", when = { class = { "HUNTER", "DRUID" } } },
         { text = "Shall I say a prayer for Blanchy?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Can I help?", next = "BUSINESS" },
+        { text = "I'll watch your wagon tonight. Nobody will see me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could warm Blanchy with a little spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
     },

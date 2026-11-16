@@ -23,6 +23,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      lines = { { id = "xro_default", text = "Then mind you bring back the right ones, because the last lad who fetched for me brought a mallet when I asked for a level. Those gnolls on the south bank don't know a chisel from a chicken bone, but they've taken both." } },
+      choices = {
+        { text = "Just the tools, returned as you left them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fetch them, and pinch a few gnoll trinkets too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What's the hardest part of the work?", next = "hardest" },
+      },
+    },
+    xlock = {
+      lines = { { id = "xlo_default", text = "I'd rather you didn't know that, friend, and I'd rather you didn't tell the crew either, since they're nervous enough with orcs across the water. Every stone on this bridge I've laid true and clean, and that's how it'll stay." } },
+      choices = {
+        { text = "Clean stone is good stone. I'll leave it be.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A cursed stone or two would keep the orcs off.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who's on the crew?", next = "crew" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dmitri, and I've built more bridges than anyone on this crew, the foreman included, though I'd not say so in front of him. This one is the hardest, because people keep trying to knock it down while we build it." },
@@ -39,6 +55,8 @@ P:NPC {
         { text = "How do you build over open water?", next = "how" },
         { text = "What's the rest of the crew like?", next = "crew" },
         { text = "Who knocked the bridge down?", next = "who" },
+        { text = "I could slip past the gnolls and fetch your stolen tools.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Stone holds a curse well, you know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },
@@ -108,6 +126,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      lines = { { id = "xlo_default", text = "Do I want to see it? Light, yes, I do, and also no, because Oslow says the last time something with horns came near the bridge we lost a crate of mortar. Can it carry stone? Because if it can carry stone, Oslow might forgive it." } },
+      choices = {
+        { text = "Nothing with horns belongs near your bridge. I'll send it off.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It answers to me. Best keep your distance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do you want adventure so badly?", next = "adventure" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jess, and I carry stone for Foreman Oslow, which isn't very exciting, but it's for the bridge, and the bridge is important. Everyone says so, especially the foreman." },
@@ -123,6 +149,7 @@ P:NPC {
         { text = "Have you ever seen the Blackrock?", next = "orcs" },
         { text = "What do you think of Foreman Oslow?", next = "oslow" },
         { text = "Do you want to be an adventurer?", next = "adventure" },
+        { text = "Want to see my imp, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Back to work, Jess.", next = "END" },
       },
     },

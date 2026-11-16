@@ -28,6 +28,14 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      lines = { { id = "xma_default", text = "I asked a mage that once, on the road out of Elwynn, and he looked at the axle like I'd asked him to raise the dead. Turns out spells don't come cheap and wheels do, so here we sit." } },
+      choices = {
+        { text = "A proper wheelwright beats any spell, Theodore.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the wagon. Take what you need and walk.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Will you ever go back to the farm?", next = "back" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Stormwind needed timber to rebuild after the orcs burned it, and Westfall had timber to give. They paid us for it, too, for a while. Now the wind blows straight off the sea, and the topsoil goes with it." } },
       choices = {
@@ -66,6 +74,7 @@ P:NPC {
         { text = "I remember your pumpkins. Everyone did.", next = "pumpkins", when = { origin = "human_westfall_farmhand" } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I could get your deed back from the Defias.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Couldn't magic mend your wagon, Theodore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },
