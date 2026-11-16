@@ -170,9 +170,6 @@ P:NPC {
       lines = { { id = "wa_default", text = "To exist without asking anyone's permission. It's a modest ambition, and the world finds it outrageous." } },
       choices = { { text = "...", next = "BACK", fx = { affinity = 1 } } },
     },
-  },
-
-  topics = {
     xhwar = {
       big = true,
       lines = { { id = "xhwar_default", text = "Then you woke with what the Dark Lady needs most, warrior. Prayers can come later, or not at all; the Scarlets won't wait for you to find your faith." } },
@@ -181,6 +178,9 @@ P:NPC {
         { text = "I'll fight for her, and leave the gods out of it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+  },
+
+  topics = {
     knows = {
       { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
     },
