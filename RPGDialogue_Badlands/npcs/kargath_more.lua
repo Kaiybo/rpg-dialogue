@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It might, if it doesn't mind the rocks, though the coyotes out here will think it's one of theirs and come sniffing. Run it down the gullies toward the Gorge and back, and if you beat my best scout, I'll never let her hear the end of it." } },
+      choices = {
+        { text = "I'll run your routes and report back to you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I scout my own way, Neeka, not by your routes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Basilisks in the south, Dustbelcher ogres in the hills, and black dragons circling Lethlor Ravine when they're bored. The beasts I can read, but the dragons answer to nobody I'd care to meet." } },
       choices = {
@@ -40,6 +49,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. You can tell me which way the wind's turning before I see the dust, and that alone makes you worth more than half my scouts." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. You'll be useful, then, if you can run as a cat, because the coyotes out here are faster than any orc I've ever trained." },
         { id = "h_default", key = true,
@@ -60,6 +71,7 @@ P:NPC {
       },
       choices = {
         { text = "What else stalks these gullies, Neeka?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Could my ghost wolf keep pace with your scouts, Neeka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does a head scout do out here?", next = "scouting" },
         { text = "Something's stealing your food?", next = "coyotes" },
         { text = "Helgrum in Stonard speaks well of you.", next = "helgrum" },
@@ -394,8 +406,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ask, and if they listen, I'll owe you, though I've never known the Badlands to do anyone a kindness. The wind comes off the Searing Gorge hot enough to singe a rider's mane, and my beasts sulk in the shade every afternoon until it turns." } },
+      choices = {
+        { text = "I'll ask humbly. The spirits answer respect, not demands.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll command it cooler, and the spirits can grumble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. If you can talk the air into blowing cooler, my riders would love you forever, and I might too." },
         { id = "h_default", key = true,
           text = "Gorrik, wind rider master of Kargath. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
         { id = "h_noon", when = { timeOfDay = "day" },
@@ -406,6 +429,7 @@ P:NPC {
         { id = "h_again2", text = "Ask fast, before that rider bites somebody." },
       },
       choices = {
+        { text = "Shall I ask the air spirits for a cooler wind, Gorrik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do the riders take the heat?", next = "heat" },
         { text = "Which route is the hardest?", next = "routes" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -469,8 +493,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If you can, you'll save me a fortune, because every drop in Kargath comes up the Searing Gorge road or down on a wind rider. The last shaman through here said the earth was angry and dry, and nothing I've seen since has proved him wrong." } },
+      choices = {
+        { text = "Then whatever I find, I'll share with Kargath.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What the spirits give me, I'll keep for myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. Your kind travel light, I'll give you that, because a totem doesn't need feeding and a spirit doesn't drink my water." },
         { id = "h_default", key = true,
           text = "Grawl, general goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, so I don't waste it, and I'd rather you didn't either." },
       },
@@ -480,6 +515,7 @@ P:NPC {
       },
       choices = {
         { text = "I need gear that holds up against Dark Iron hammers.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Could a shaman find water in these Badlands, Grawl?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you keep supplies out here?", next = "supplies" },
         { text = "What sells best in Kargath?", next = "sells" },
         { text = "Show me what you have.", next = "BUSINESS" },

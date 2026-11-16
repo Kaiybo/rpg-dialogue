@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The strongest I know. Lakota'mani has walked the plains so long that the herders say the earth spirits walk with him, and when you face him you face something older than the tauren, so face him with respect." } },
+      choices = {
+        { text = "I'll face them honorably, however old they are.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A spirit's age won't save a beast from a careful hunter.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,8 +47,10 @@ P:NPC {
           text = "Owatanka is the thunderhawk who rules the sky over the southern Barrens. Face it, and you'll have learned something no one can teach." },
         { id = "h_washte", when = { questActive = TODO_QUEST("Washte Pawne") },
           text = "Washte Pawne is a wind serpent out of the old stories. Few hunters ever see it, and fewer come back to describe it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at Taurajo. The Earth Mother speaks to you through the elements and to me through the beasts, and I think we would both tell you to sit quietly and listen." },
       },
       choices = {
+        { text = "Do the great beasts of the Barrens carry strong spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does a hunter learn first?", next = "first" },
         { text = "Teach me the four great beasts, teacher.", next = "hunter", when = { class = "HUNTER" } },
         { text = "How do I know my companion trusts me?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
@@ -140,6 +151,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "*snort* Agamaggan's blood made the thorns, so the earth and the boar god are one thing, and only cow-folk think otherwise. The Bristleback geomancers forgot that, and that is why they are weak." } },
+      choices = {
+        { text = "Every people's spirits deserve respect, even the quilboar's.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your boar god's thorns will burn like any other brush.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -151,8 +171,10 @@ P:NPC {
         { id = "h_betrayal", when = { questActive = TODO_QUEST("Betrayal from Within") },
           text = "*snort* Nak, Kuz and Lok were Mangletooth's own, and they left him to the cow-folk's axes. Now they learn what Mangletooth thinks of that." },
         { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns. Great thorns, taller than the cow-folk's poles. One day Mangletooth goes home to them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "*snort* A spirit-talker. The Razormane have geomancers who talk to the thorns and the earth, and they are stronger than you, so do not wave your little totems at Mangletooth." },
       },
       choices = {
+        { text = "Do the Razormane geomancers serve Agamaggan or the earth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why help us at all?", next = "why" },
         { text = "Who is Agamaggan?", next = "agamaggan" },
         { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
@@ -282,14 +304,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Their laughing troubles me, and that's enough. The camp's shamans say the hyenas out there are hungry rather than cursed, which makes me feel better, though not enough to sleep through it." } },
+      choices = {
+        { text = "Hungry beasts deserve pity more than hatred.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then hunt them until the laughing stops.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, and I make sure they leave rested." },
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon's up. I've never once found it funny." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
       },
-      choices = { { text = "What's Taurajo like?", next = "camp" }, { text = "Just a rest, thanks.", next = "END" } },
+      choices = {
+        { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What's Taurajo like?", next = "camp" },
+        { text = "Just a rest, thanks.", next = "END" },
+      },
     },
     camp = {
       lines = {

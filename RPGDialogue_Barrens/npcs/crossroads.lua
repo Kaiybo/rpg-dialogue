@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I need everything I can get. The Kolkar have their stormers and the quilboar have geomancers who make the thorns move, so if the enemy brings spirits to the fight, I'd be a fool not to bring my own." } },
+      choices = {
+        { text = "Then I'll answer your call, Thork, like the rest of the garrison.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight beside you, but the spirits aren't the Horde's to command.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -39,8 +48,10 @@ P:NPC {
           text = "The raiders took our supplies. Bring back whatever you can find, because every crate is another week we hold." },
         { id = "h_mankrik", when = { heardLine = "mankrik.h_default" },
           text = "So Mankrik told you his story. I'm sorry for his loss, but I won't send soldiers to die for a man who can't see past his anger. Someone has to say no." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Crossroads. Good, because the Barrens are dry as bone, and if you can find water where my scouts can't, you're worth three grunts on my wall." },
       },
       choices = {
+        { text = "Do you need the spirits' help to hold the Crossroads?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
         { text = "What threatens the Crossroads?", next = "threats" },
         { text = "I'm loyal to the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
@@ -130,6 +141,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think everything out here tests us, and I'd rather pass than complain about it. The tauren say the Earth Mother made the Barrens hard so that only the strong would stay, and I've never heard a better reason to stay." } },
+      choices = {
+        { text = "Then I'll meet the test head on.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Out here the clever survive as often as the strong.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -144,8 +164,10 @@ P:NPC {
           text = "Out on the plains is a white savannah cat the hunters call Echeyakee, old and clever and hungry. Call it out the way I showed you, and bring luck." },
         { id = "h_jorn", when = { questActive = TODO_QUEST("Jorn Skyseer") },
           text = "Go and see Jorn Skyseer at Camp Taurajo. He'll teach you things about the Barrens that I never could. Tauren listen to the land better than orcs." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here where the land's still wild! Then you'll feel what I feel, that the Barrens are a test and the spirits are watching to see who passes." },
       },
       choices = {
+        { text = "Do you really think the spirits test us, Sergra?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why do some orcs resent you?", next = "resent" },
         { text = "What does the Barrens need?", next = "need" },
         { text = "My beast and I are ready to hunt.", next = "hunter", when = { class = "HUNTER" } },
@@ -229,6 +251,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "No. Yes. I don't know what I want, shaman, except to stop standing on this wall. If she's dead she'll be angry, and if she's angry she'll be near the quilboar who did it, so look there, and don't come back and tell me she was afraid." } },
+      choices = {
+        { text = "You should grieve her, Mankrik, and not only avenge her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then her killers will pay for every day you've waited.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -239,8 +270,10 @@ P:NPC {
           text = "She's out there somewhere, so find her for me, alive or not. I need to know, because I can't stand on this wall not knowing much longer." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You came back, and you didn't have to. Olgra would have liked you, I think, and she didn't like many people." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You talk to the dead, they say, so if Olgra's spirit has crossed your path out in the grass, I need to hear it, whatever she said." },
       },
       choices = {
+        { text = "Do you want me to listen for Olgra's spirit?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me about Olgra.", next = "olgra" },
         { text = "Revenge won't bring her back.", next = "revenge" },
         { text = "I fight with an axe too. Tell me how she fought.", next = "warrior", when = { class = "WARRIOR" } },
@@ -425,6 +458,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because the elements make poor research partners, and shamans make worse ones, so I have to ask. The tauren at Thunder Bluff look at us as though the ground itself objects to our walking on it, and I would very much like to know whether it does, for my notes." } },
+      choices = {
+        { text = "Undeath breaks the natural order, and the earth feels it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements don't care what walks on them, Helbrim.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful, and a great deal does, it turns out." },
@@ -434,8 +476,10 @@ P:NPC {
           text = "Zamah needs this, up in Thunder Bluff by the Pools of Vision. The tauren don't entirely trust the Society, but they trust Zamah." },
         { id = "h_dizzywig", when = { questActive = TODO_QUEST("Wharfmaster Dizzywig") },
           text = "Dizzywig at Ratchet is to have this delivery. The goblins will move anything for the right price, and some of my shipments need moving very discreetly." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I doubt I have a spirit left worth speaking to, so don't trouble yourself, though I confess I'm curious what the elements make of a man like me." },
       },
       choices = {
+        { text = "Why would an apothecary care what the elements think?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you studying?", next = "study" },
         { text = "Does the Society send you word from Undercity?", next = "forsaken", when = { race = "Scourge" } },
         { text = "My people make medicine from these plants too.", next = "troll", when = { race = "Troll" } },
@@ -504,6 +548,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Once, against Serena's sisters in the hills, and he called up a wind that knocked the harpies out of the sky like rocks. I'll admit it was a good trick, but I still got more kills, and that's what matters." } },
+      choices = {
+        { text = "The kills matter less than winning together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Counting kills keeps everyone sharp, so I'll count mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -516,8 +569,10 @@ P:NPC {
           text = "Serena Bloodfeather is their matriarch. Bring me her head, and then they'll know the Crossroads bites back." },
         { id = "h_jinzil", when = { questActive = TODO_QUEST("Letter to Jin'Zil") },
           text = "This letter goes to my old friend Jin'Zil, a witch doctor out in Stonetalon, and he'll have a use for you. Don't read it; he'll know." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Nice trick with the lightning, but I've killed more harpies with one knife than most shamans have with a whole storm." },
       },
       choices = {
+        { text = "Have you ever fought beside a shaman, Darsok?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are you really the best?", next = "best" },
         { text = "I'm a blade too. Teach me something.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You know Jin'Zil? He's Darkspear, like me.", next = "troll", when = { race = "Troll" } },
@@ -575,6 +630,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I didn't say that, and I'll thank you not to say it so loudly. Though if the spirits did happen to say whether a woman who sends back clean bones means yes, I wouldn't stop you telling me." } },
+      choices = {
+        { text = "Speak to her yourself, Zargh. That's what any spirit would say.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let her wonder a while longer. It works better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Zargh, and I'm the butcher. I sell meat to everyone who passes through the Crossroads, which is everyone, so business is good. Everything else is the Barrens." },
@@ -583,8 +647,10 @@ P:NPC {
         { id = "h_return", when = { questDone = TODO_QUEST("Return to the Crossroads") },
           text = "She liked them, she actually said that? Good, good! If there's a wedding you're invited, but I'm only saying if, mind; I'm not saying there's a wedding." },
         { id = "h_bones", when = { metBefore = true }, text = "Gryshka sent back the bones, picked clean. I don't know what that means, but I've decided it's a good sign." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits know anything about, well, matters of the heart? Never mind, forget I asked, and buy some meat." },
       },
       choices = {
+        { text = "Do you want the spirits' advice about Gryshka, Zargh?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to your finger?", next = "finger" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "I hunt the plains. Want what I bring back?", next = "hunter", when = { class = "HUNTER" } },
@@ -640,6 +706,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not the way they speak to you, but I hear them in the wind riders' grumbling and in the dust before the rains. My grandmother said the oases ran sweeter when she was young, and lately the water tastes wrong, so the spirits must feel it worse than we do." } },
+      choices = {
+        { text = "Then the oases must be healed, and the spirits with them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Barrens have always been harsh. Let them be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough." },
@@ -647,8 +722,10 @@ P:NPC {
           text = "Mankrik's been on that wall since before I got here. He eats when someone puts food in his hands, so I put food in his hands." },
         { id = "h_roof", when = { metBefore = true }, text = "A goblin from Ratchet stayed three nights and tried to sell me a better roof. This roof is fine; it has holes, and that's how the stars get in." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night at the Crossroads is never quiet. Riders coming in, wind riders grumbling on the tower. I'd miss it if it stopped." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman under my roof, and under the holes in it. The Earth Mother sends rain through them now and then, but she sends the stars through more often, so I've never patched a single one." },
       },
       choices = {
+        { text = "Do the spirits of the Barrens speak to you, Boorand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Any news?", next = "news" },
         { text = "I don't really sleep anymore, Boorand.", next = "forsaken", when = { race = "Scourge" } },

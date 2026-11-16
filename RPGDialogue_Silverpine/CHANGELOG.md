@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Horde shaman and tauren druids get their own conversations with all 11 named people in Silverpine.
+
 ## 1.8.0 (2026-11-16)
 - Horde hunters with a beast out hear their companion named by the people who already talked hunting.
 - Innkeeper Bates now has replies for Horde warriors and hunters.

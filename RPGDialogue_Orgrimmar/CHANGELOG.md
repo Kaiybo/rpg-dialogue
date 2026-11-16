@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.0 (2026-11-16)
+- Horde shaman get their own conversation with 16 people across Orgrimmar, from Gryshka's inn to the trainers.
+
 ## 1.9.0 (2026-11-16)
 - Druids are noticed: nine people, Thrall and Vol'jin among them (tauren druids) greet a druid as one and have something to ask and argue about.
 

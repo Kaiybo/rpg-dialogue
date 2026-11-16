@@ -27,8 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every morning, though not in any words your elders would know. I throw back the first fish I catch, because my father did and his father before him, and I haven't drowned yet." } },
+      choices = {
+        { text = "That's an old way worth keeping, Heming.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Throwing back a good fish sounds like a wasted supper.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your folk know water better than most, so I'd wager you can tell a good fishing day before the fish can." },
         { id = "h_default", key = true,
           text = "Name's Heming, and I've fished these waters since before the goblins carved this bay into a town. Every Sunday the Baron holds his fishing tournament, and I like to think I taught half the winners, though none of them ever thank me." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Old Man Heming") },
@@ -39,6 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. An old man likes to be asked." },
       },
       choices = {
+        { text = "Do you ever thank the sea for what it gives you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me about the fishing tournament.", next = "tourney" },
         { text = "What lives in these waters?", next = "fish" },
         { text = "How long have you lived here?", next = "past" },
@@ -135,8 +146,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because spirits get moody and powder doesn't, friend, or not often anyway. Half my customers swear by their totems and the other half swear by my blunderbusses, and the second half complains a lot less." } },
+      choices = {
+        { text = "I trust the elements over powder. They've never misfired on me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll use whatever works. Show me a blunderbuss.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, but it never lands quite where you point it, and that's why I sell guns." },
         { id = "h_default", key = true,
           text = "Mazk Snipeshot, gunsmith to the finest pirates, hunters and lunatics in the South Seas. Everything on this table shoots straight, mostly, and anything that doesn't is on sale." },
       },
@@ -145,6 +166,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else? I've got time, and I've got stock." },
       },
       choices = {
+        { text = "Why would a shaman ever need one of your guns?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who buys guns in Booty Bay?", next = "buyers" },
         { text = "Where do your guns come from?", next = "source" },
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -210,6 +232,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every good stave has something in it, though I'd call it grain and you'd call it a spirit. Either way it fights you if you cut against it, and that's all I need to know." } },
+      choices = {
+        { text = "Work with the grain and respect it. That's the shaman's way too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Wood's just wood. Make it bend however you need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Some do. The sharks follow the trawlers, and the reefs off Jaguero Isle are thinner than when I was a boy. It's no great disaster yet, but I'd like it if someone remembered the sea is not a bottomless pocket." } },
       choices = {
@@ -218,6 +249,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd know the spirits of the wood, then, so ask them to keep the damp out of my staves, because nothing else has worked." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've the sea in your eyes, druid, or the forest anyway, so sit a while if you like, since the water's calm today." },
         { id = "h_default", key = true,
@@ -228,6 +260,7 @@ P:NPC {
         { id = "h_again2", text = "Anything more? I'm only stringing bows." },
       },
       choices = {
+        { text = "Does the jungle's wood carry any spirit in it, do you think?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the sea creatures here suffer from the cartels' fishing?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why a bow over a gun?", next = "bowgun" },
         { text = "How do you work in this damp?", next = "damp" },

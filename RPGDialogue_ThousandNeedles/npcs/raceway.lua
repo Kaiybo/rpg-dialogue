@@ -50,6 +50,7 @@ P:NPC {
           text = "Indurium. The gnomes found it first, which is how they've been beating us, but not for much longer." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at the raceway? Don't tell me the vultures sent you, because I only take the bones they're done with." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk the earth into staying flat? Every rumble on the Shimmering Flats knocks a bolt loose somewhere." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the next heat's in ten minutes." },
@@ -64,6 +65,7 @@ P:NPC {
         { text = "I'm cheering for the goblins.", next = "cheer", when = { faction = "Horde" } },
         { text = "Aren't you worried I'm a gnome spy?", next = "spy", when = { race = "Gnome" } },
         { text = "Could a tauren even fit in one of those cars?", next = "x_tauren", when = { race = "Tauren" } },
+        { text = "Do the earth spirits mind your raceway, Pozzik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -127,6 +129,15 @@ P:NPC {
       choices = {
         { text = "Build it, and I'll ride it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "I'll stay on the ground, thanks.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If they mind, they've never filed a complaint, and I keep the noise down after sundown, mostly. The flats were nothing but empty salt before we came, so I figure we gave the spirits something worth watching." } },
+      choices = {
+        { text = "Respect the land, Pozzik, and it'll put up with the racing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The spirits can watch, and buy a seat like everybody else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -325,6 +336,7 @@ P:NPC {
           text = "Here's the plan: the goblin pit boss gets a stout, on me, which is very generous of me. Tomorrow, his crew's a wee bit slow." },
         { id = "h_gnomes", when = { questActive = TODO_QUEST("Get the Gnomes Drunk") },
           text = "Now the gnomes, for fair's fair. If everybody's slow, nobody's slow, an' I collect on my wager." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? A fella who talks to rocks probably hears things, an' I like a fella who hears things." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quietly, now." },
@@ -340,6 +352,7 @@ P:NPC {
         { text = "The Light frowns on rigged races.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "A dwarf, out here among goblins?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "One schemer to another: what's the angle?", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "What would you pay to hear what the elements know, Kravel?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I didn't hear any of this.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -406,6 +419,15 @@ P:NPC {
       choices = {
         { text = "Cut me in, or I talk to the crews.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'm not working today, Kravel. Relax.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Depends what they know, don't it? If the wind tells you which car's runnin' rough before the heat, that's worth a coin or two, an' nobody needs to know where the tip came from." } },
+      choices = {
+        { text = "The spirits aren't for sale, Kravel, and certainly not to you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Make me an offer, and we'll see what the wind says.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

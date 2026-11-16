@@ -30,8 +30,12 @@ P:NPC {
           text = "I'm Undertaker Mordo. I tend the graves here, and sometimes the graves tend to stir, as you did. Welcome back." },
         { id = "h_rude", tags = { "news" }, when = { questActive = TODO_QUEST("Rude Awakening") },
           text = "Shadow Priest Sarvis will explain the rest. He's in the chapel. Try not to stare at the others; they're new too." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? The earth here's been dug over so often it's half graves, so mind where you set those totems down." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll want to see the old yew by the chapel, I expect; it's the only thing in Deathknell that died and didn't get back up." },
       },
       choices = {
+        { text = "Does the earth mind holding so many dead, Mordo?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could the old yew be brought back, Mordo?", next = "druid_q", when = { class = "DRUID" } },
         { text = "My hands still know a sword. Is that normal?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I remember the Scourge's voice, Mordo.", next = "remember", when = { origin = "forsaken_scourge_remembered" } },
         { text = "What happened to me?", next = "what" },
@@ -58,6 +62,24 @@ P:NPC {
         { id = "w_default", text = "The plague took you, and the Scourge raised you. The Dark Lady broke their hold, so now you're your own again. Mostly." },
       },
       choices = { { text = "Mostly?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I've wondered that myself, though I've never had anyone to ask. I dig a grave and somebody climbs out of it a week later, and if your spirits have any complaint about that, I'd rather they took it up with Sarvis." } },
+      choices = {
+        { text = "Then I'll ask the earth to be patient with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The earth's opinion doesn't matter. The Forsaken need soldiers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I couldn't say, since I bury things and don't grow them. It was planted when the chapel was built, and it went grey the same season the plague came through, and I've left it standing because a graveyard looks wrong without a yew." } },
+      choices = {
+        { text = "Then I'll try, and if it wakes, it wakes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave it dead. Deathknell has enough things climbing out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -100,8 +122,12 @@ P:NPC {
           text = "Rattlecage skeletons wander the fields, Scourge leftovers. Break them; they won't mind." },
         { id = "h_path", when = { questActive = TODO_QUEST("A Difficult Path") },
           text = "A scroll came for you, and it reeks of the Light. Read it over there, please, not here, and then go to Aramis." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here. You talk to spirits, I'm told, and the spirits talk back, which is more than the Light ever did for me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my chapel. You serve the land, I gather, and the land around here has been rather busy serving the Scourge." },
       },
       choices = {
+        { text = "You trust the shadow, Sarvis. Why not the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Can the land here be cleansed, Sarvis?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I woke with a sword arm and no prayers, Sarvis.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who are the Forsaken?", next = "forsaken" },
         { text = "The Light still answers me, Sarvis.", next = "paladin", when = { class = "PALADIN" } },
@@ -178,6 +204,24 @@ P:NPC {
         { text = "I'll fight for her, and leave the gods out of it.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because spirits have opinions, and I've had enough of things with opinions about me. The shadow asks nothing and judges nothing, and after the Light I find that restful; your elements may be kinder, but I'd rather not wait to find out." } },
+      choices = {
+        { text = "The spirits judge fairly. You might be surprised, Sarvis.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. Power that asks nothing is worth having.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Cleansed of what, exactly? Half of what grows in Tirisfal grows in plague and the other half is walking about in us, and I'm not sure I care to be weeded. Do your work, druid, but remember that some of the rot has opinions." } },
+      choices = {
+        { text = "I'll heal what I can, and the Forsaken with it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Forsaken are what's left. I'll fight for you, not the soil.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -221,8 +265,12 @@ P:NPC {
           text = "They send runners between their camps. Whatever those runners carry, I want it, and so will Brill." },
         { id = "h_adventurer", when = { questActive = TODO_QUEST("The Adventurer") },
           text = "You've earned a breath. There's a traveler camped on the road by Brill who claims she's not one of the Crusade, so see what she's about." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Crusade's camp burns well, and I'm told you can call fire." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you fight? Then Deathknell has a use for you." },
       },
       choices = {
+        { text = "Where do you want the lightning, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I fight in claw and fur, Executor. Will that do?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do the Crusaders hate us?", next = "hate" },
         { text = "Give me a post, Executor. I can fight.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
@@ -245,6 +293,24 @@ P:NPC {
     hate = {
       lines = { { id = "ha_default", text = "Because we remind them what the plague did, and it's easier to burn us than to look at us. I don't need them to understand; I need them gone." } },
       choices = { { text = "Then they'll be gone.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 }, learn = { "scarlet_crusade" } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "On the camp to the southeast, on their tents and their wagons. Their runners carry orders between the camps and I want those orders whole, so keep your fire off the runners." } },
+      choices = {
+        { text = "Off the runners, then. Your orders, Executor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fire spreads where it likes. I won't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "If it kills Crusaders, it will do. Go at their camp from the trees, where the sentries never watch, and leave nothing they can carry back to Brill." } },
+      choices = {
+        { text = "From the trees, then. They won't see me coming.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll come at them openly. Let them see what's coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -284,8 +350,12 @@ P:NPC {
           text = "You read the scroll, so your training can begin. Whatever you do, don't turn away from the Light; it hasn't turned away from you." },
         { id = "h_rediscover", when = { any = { { questActive = TODO_QUEST("Rediscovering the Light") }, { questActive = TODO_QUEST("Coming to Terms") } } },
           text = "The pain is a forge. It burns, and what's left is stronger. That's the whole of the lesson, and it takes years." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You keep your own faith in the spirits, and I won't try to turn you from it, because I know what it is to hold to something while others mock it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come into the church. Your people have been kinder to mine than we had any right to expect, so sit, and be welcome." },
       },
       choices = {
+        { text = "Does the Light ever speak to you, Aramis, as the spirits speak to me?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your Light and my Earth Mother, Aramis. Are they so different?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why does the Light still answer us?", next = "why" },
         { text = "Does the pain ever ease, Aramis?", next = "pain", when = { class = "PALADIN" } },
         { text = "I was a knight of the Silver Hand, before.", next = "knight", when = { class = "PALADIN", origin = "forsaken_risen_knight" } },
@@ -345,6 +415,24 @@ P:NPC {
       choices = {
         { text = "It's enough for me too.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
         { text = "It isn't enough for me, and I need more than pain.", next = "BACK", fx = { align = { light = -2 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Speak? No, it never speaks; it burns, and then it answers, and I take the answer as I find it. I envy you a little, shaman, because your spirits tell you what they want, and the Light has never once told me why it stayed." } },
+      choices = {
+        { text = "Faith without answers is still faith, Aramis. Keep it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If it won't explain itself, why serve it at all?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I don't know your Earth Mother, but I've heard your elders mean to find a cure for the Forsaken and ask nothing for it. If she bids you mend what's broken without asking what shape it's in, then I think she and the Light would understand each other." } },
+      choices = {
+        { text = "Then we serve the same mercy under different names.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy is a luxury. I mend what serves the Horde.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

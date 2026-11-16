@@ -33,9 +33,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Harutt Thunderhorn, and I teach the young braves of Narache to stand firm. A tauren is strong from birth, but strength without patience only breaks things." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Your arms are thicker than when you came to me, young one, and your stance is better. Are you ready to learn more?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems on your belt, young one, and that is a heavy load for a brave. Carry it as patiently as you would carry a spear." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Must a shaman be as strong as a warrior, Harutt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does patience have to do with fighting?", next = "patience" },
         { text = "What dangers face the camp?", next = "danger" },
         { text = "Who else trains here?", next = "others" },
@@ -65,6 +67,15 @@ P:NPC {
     others = {
       lines = { { id = "o_default", text = "Meela Dawnstrider teaches the shaman, and Gart Mistrunner the druids, and Lanka Farshot the hunters. Between the four of us, every young tauren learns something before they walk down to Bloodhoof." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Stronger, in the way that matters, because the elements will not be bullied and a shaman must not bend to them either. Strength without patience breaks things, and with the elements it breaks you first." } },
+      choices = {
+        { text = "Then I'll learn patience before I ask for power.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements answer the bold. Patience is for the old.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -158,12 +169,14 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Gart Mistrunner, and I teach the young druids of Narache. We learn to take the shapes of the beasts and to heal the land, as the Earth Mother wishes." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Each time you come back, I can see more of the wild in you. What will you learn this time?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The creatures of Mulgore grow calmer when one of your kind walks among them, and I wonder if you've noticed." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who taught the tauren to be druids?", next = "history" },
         { text = "What does a druid do for Mulgore?", next = "land" },
         { text = "I'm a night elf druid as well.", next = "elf", when = { race = "NightElf" } },
+        { text = "Do the elements and the beasts share the same spirits, Gart?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell, Gart.", next = "END" },
       },
       again = {
@@ -189,6 +202,15 @@ P:NPC {
     elf = {
       lines = { { id = "e_default", text = "Then you are far from your home, but we follow the same path, and you are welcome by my fire. Your people taught mine long ago, so I owe you thanks at the least." } },
       choices = { { text = "Then we're kin in this.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I don't think they do, though they're neighbors on the same land, the way the kodo and the plainstrider are. The beasts answer the Earth Mother through the wild and the elements answer through stone and wind, and both grow restless when the land is hurt." } },
+      choices = {
+        { text = "Each spirit has its place, and the elders are right to keep them there.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spirits mingle freely. Lines the elders draw don't bind them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -223,9 +245,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Krang Stonehoof, and I train the warriors of Bloodhoof Village. Since Cairne joined the Horde, our braves fight beside orcs and trolls, and they must learn to fight as well as any of them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? The orcs taught us that a shaman can fight as hard as any warrior, and I'll expect you to prove it." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How do shamans fight beside the Horde's warriors, Krang?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What threats does Mulgore face?", next = "threats" },
         { text = "What do you think of the Horde?", next = "horde" },
         { text = "I'll go.", next = "END" },
@@ -247,6 +271,15 @@ P:NPC {
     horde = {
       lines = { { id = "h2_default", text = "The orcs saved us from the centaur when we were wandering and dying, and Thrall asked nothing for it but friendship. That's a debt I will pay with my axe until the day I die." } },
       choices = { { text = "That's a good reason to fight.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Close and hard, the way Thrall's own shamans fought when they broke open the internment camps. A shaman who hides behind the braves isn't worth the totems, so plant yours where the fighting is and swing a mace while they work." } },
+      choices = {
+        { text = "I'll stand at the front, where the braves can see me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clever shaman strikes where the enemy isn't looking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -278,8 +311,10 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Mahnott Roughwound, and I sell weapons to the braves of Bloodhoof. Most of what I have is heavy, because a tauren with a little dagger looks like a kodo wearing a hat." },
         { id = "h_small", when = { race = { "Troll", "Scourge" } }, text = "I am Mahnott Roughwound, and I sell weapons, though most of mine are made for tauren hands. Look anyway, because I keep a few smaller ones for our friends from the Horde." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, eh? Then you'll want a good mace or a heavy axe, and I have both, because a totem alone won't stop a charging quilboar." },
       },
       choices = {
+        { text = "What weapon suits a shaman of the plains, Mahnott?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where does your wood and iron come from?", next = "materials" },
         { text = "What weapon would you choose for me?", next = "advice" },
@@ -301,6 +336,15 @@ P:NPC {
         { id = "a_hunter", when = { class = "HUNTER" }, text = "For a hunter, something on the back for when the beast gets too close and the bow is useless. Most hunters forget that until they're bleeding." },
       },
       choices = { { text = "Show me what you'd choose.", next = "BUSINESS" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A mace, and a heavy one, because you'll want the weight of the earth behind every swing. The orc shamans like axes, and I sell those too, though I'll never understand anyone who wants a small one." } },
+      choices = {
+        { text = "A sound mace and a steady hand. That's the honest way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever hits hardest when nobody's looking is the right weapon.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -331,8 +375,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jhawna Oatwind, and I bake for Bloodhoof Village. The wheat comes from the farms around us, and if you have ever wondered why Mulgore smells so sweet in the morning, it's my ovens." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The old ones used to sing over the first wheat of the season, and I always thought the bread tasted better for it." },
       },
       choices = {
+        { text = "Do the old songs over the wheat still matter, Jhawna?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your bread.", next = "BUSINESS" },
         { text = "Where does the wheat come from?", next = "wheat" },
         { text = "What's the news in the village?", next = "news" },
@@ -356,6 +402,15 @@ P:NPC {
     cook = {
       lines = { { id = "c_default", text = "Then you know that good bread needs patience and good flour, and that people only remember the burned loaves. Come by the ovens when you have time, and we can talk recipes." } },
       choices = { { text = "I'd like that.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They matter to me, and to every farmer around the village, because the rains have come strangely this year. Nobody sings over the fields anymore except old Zarlman, and he forgets half the words." } },
+      choices = {
+        { text = "The old songs should be kept, even over something as plain as wheat.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The songs are pretty, but rain matters more than ritual.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

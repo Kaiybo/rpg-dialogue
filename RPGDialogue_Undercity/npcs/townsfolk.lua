@@ -31,12 +31,16 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "William Montague, of the bank of the Undercity. Whatever you leave with me stays in the vaults beneath the old city until you ask for it, and it can be reached from any bank of the Horde." },
         { id = "h_scourge", when = { race = "Scourge" }, text = "Ah, one of us. I'd advise you to keep your valuables here rather than in your pockets; our pockets do tend to fall apart." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your gold is as welcome as anyone's, and I ask only that you keep the lightning away from the vault doors, since the hinges are older than I am." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at the bank. I confess I've never understood what a druid keeps in a vault, since you seem to carry everything in your fur." },
       },
       again = {
         { id = "h_again", text = "Anything further? I have accounts to balance." },
         { id = "h_again2", text = "Ask, by all means. I have been dead for some years and have learned to be patient about interruptions." },
       },
       choices = {
+        { text = "Do you trust the Horde's gold, Mister Montague?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the Forsaken keep in your vaults, Mister Montague?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Open my vault.", next = "BUSINESS" },
         { text = "Were you a banker in life?", next = "life" },
         { text = "What do the dead need with gold?", next = "gold" },
@@ -74,6 +78,24 @@ P:NPC {
       lines = { { id = "va_default", text = "I don't ask, and I'd advise you not to either. The apothecaries were very interested in the old kings, and that's all I'm prepared to say." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I trust gold, which is the only thing in this city that hasn't changed its loyalties since the plague. The Horde's coin spends the same in Orgrimmar as it does here, and I've found the orcs settle their debts more promptly than Lordaeron's nobles ever did." } },
+      choices = {
+        { text = "Then we'll keep our debts paid, and our word with them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts are for the weak. I pay what I must.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Records, chiefly, and the deeds to houses nobody will live in again. Half my vaults are full of Lordaeron's paper, and I keep it in order because somebody ought to remember who owned what, even if every owner is dead or in this city." } },
+      choices = {
+        { text = "Keep the records. Someone ought to remember.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn the old deeds. The Forsaken own what they hold.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -109,9 +131,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Anya Maulray. I keep the stables for the Undercity's hunters, which is harder than it sounds when every animal I care for can smell that I'm dead." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren hunter, so far from the plains. Your beasts are always the calmest ones I get; I think they learn it from you." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my stables. The beasts always settle a little when one of your sort walks in, and I've never known why." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how lovely. The beasts are watching you, see, the way they watch each other, and not the way they watch me." },
       },
       again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would." } },
       choices = {
+        { text = "Shall I ask the beasts' spirits to trust you, Anya?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does it hurt, Anya, that the beasts fear you?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I need the stables.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Do the animals fear you?", next = "fear" },
         { text = "How do the beasts fare underground?", next = "under" },
@@ -140,6 +166,24 @@ P:NPC {
       choices = {
         { text = "It isn't sentimental. It's what keeps you yourself.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The others are right. Sentiment is a weakness.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Would they listen? I've spent every day since I woke teaching wolves and cats that I won't eat them, and it's slow, and some never quite believe me. If the spirits whispered it to them I'd be grateful, but I think I'd rather they learned it from me." } },
+      choices = {
+        { text = "Then I'll leave them be. Trust that's earned is worth more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll ask anyway. Your beasts deserve peace sooner.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Every day, a little, though I've stopped minding it the way I used to. I raised horses near Brill and they'd come to the fence when I called, and now I have to earn every one of them over again, so you don't know how lucky you are to smell alive." } },
+      choices = {
+        { text = "Your patience is a gift. Keep earning them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts follow strength, Anya, not kindness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -180,9 +224,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Archibald, weapon master of the War Quarter. I teach anyone who can pay how to use a weapon they've never held before, and I teach the dead how to hold one with fingers that don't always do what they're told." },
         { id = "h_scourge", when = { race = "Scourge" }, text = "Your joints creak, I can hear it from here. Mine did too, at first. Practise every day until your arms remember what your mind already knows." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Stand up straight, and keep those totems out of my training yard, because the recruits keep saluting them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my yard. You'll want a staff, I expect, since claws can't be bought or sold." },
       },
       again = { { id = "h_again", text = "What else? Be quick; I've recruits at the target butts." } },
       choices = {
+        { text = "Will you teach a shaman the mace, weapon master?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is a staff worth learning, when I fight with claws?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me a new weapon.", next = "BUSINESS" },
         { text = "Were you a soldier in life?", next = "life" },
         { text = "Is it harder for the dead to fight?", next = "dead" },
@@ -211,6 +259,24 @@ P:NPC {
     which = {
       lines = { { id = "w_default", text = "Whatever your trainer and your armour allow, and then the one you'll actually practise. A mediocre warrior with a sword he loves is better than a good one with an axe he resents." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I'll teach anyone who pays and listens, and a shaman with a good mace is worth two who rely on lightning. The Scourge doesn't wait for you to finish calling on anything, so learn to hit things, and learn to hit them first." } },
+      choices = {
+        { text = "I'll drill until my arm remembers, weapon master.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight my own way. Your drills are for soldiers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Everything's worth learning, because one day you'll be caught on two legs with no time to change. A staff kept me alive on the walls of the capital longer than my sword did, and I'd have you know that before you sneer at it." } },
+      choices = {
+        { text = "Then teach me. I'll practise every day.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My claws have never failed me, Archibald.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -249,9 +315,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "James Van Brunt. I teach smithing in the War Quarter, and I make armour for the Deathguard. The work is the same as it ever was; only the smith is different." },
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "A smith, are you? Then you know you can't hurry iron, and dead or alive, that's the only lesson that matters." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. If you've come to bless my forge, don't; it's been burning since before the Dark Lady took the city, and it doesn't need the help." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll have no use for my plate, I expect, since it doesn't change shape when you do." },
       },
       again = { { id = "h_again", text = "What else? The iron's cooling." } },
       choices = {
+        { text = "Could the earth spirits help your smithing, Van Brunt?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does a smith ever tire of the same work, Van Brunt?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
         { text = "Is smithing different when you're dead?", next = "dead" },
         { text = "Where do you get your ore?", next = "ore" },
@@ -279,6 +349,24 @@ P:NPC {
       choices = {
         { text = "The Deathguard deserves the best steel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them scavenge armour from the Scarlets.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The earth gives me ore and the fire gives me heat, and I've never yet had to thank either of them. The orcs say their smiths ask the stone before they cut it, and maybe that's why their axes hold, but the Deathguard need armour faster than I can ask anyone's permission." } },
+      choices = {
+        { text = "Thank the stone, smith. It costs you nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The work's what matters. The spirits can wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Tire? I'm dead, so no, and I can't say I'd want to. The work is the same as it ever was, and that's the only thing in this city that is, so I hold on to it with both hands, even the burnt one." } },
+      choices = {
+        { text = "Steady work is a kind of peace. Keep it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Change would do you good, smith. Try something new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -315,9 +403,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brom Killian, and I teach mining. It's a fitting trade for the Forsaken, I always say, since we've already done the hard part of being put in the ground." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to the earth, they say, so ask it where the good veins are and save us both a lot of digging." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Before you ask, no, I don't think the hills mind the mines, and I've been underground long enough to know their moods." },
       },
       again = { { id = "h_again", text = "Something else? Ask it, then; the rocks will still be there when we're done." } },
       choices = {
+        { text = "Do miners ever thank the earth, Killian?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What moods do the hills have, Killian?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where should I mine near here?", next = "where" },
         { text = "Was this city dug by miners?", next = "city" },
@@ -340,6 +432,24 @@ P:NPC {
       choices = {
         { text = "The dead built their own city. I admire that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Scourge dug it. That's not much to admire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Thank it? I've been buried in it, friend, so I'd say the earth and I have already been as close as two parties can be. I take my copper and I fill in my holes when I remember, and that's all the thanks it's getting from me." } },
+      choices = {
+        { text = "Fill your holes, at least. The earth remembers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take what you need. The earth won't miss it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Sullen, mostly, and wet, and they grumble when you dig too near the Scarlet watchtowers. I'll grant you there's a cave north of Brill where the rock feels wrong, but I put that down to the Scourge, not to the hills having opinions." } },
+      choices = {
+        { text = "The hills do have opinions. Listen to them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Rock is rock. Dig it and sell it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,9 +494,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Lavinia Crowe. I teach enchanting, the art of breaking magic out of one thing and putting it into another. It's delicate work, so I hope your hands are steadier than most." },
         { id = "h_ench", when = { profession = "Enchanting" }, text = "One of mine! Have you been saving your essences, or selling them to the first merchant who asks? I'll know if you've been selling them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You put spirits into your totems, I gather, and I put magic into swords, so we're nearly colleagues, though I do it more tidily." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You change your shape the way I change an item's nature, though you, at least, can change back." },
       },
       again = { { id = "h_again", text = "Something else? Ask, but quietly; the rods hum when people shout." } },
       choices = {
+        { text = "Is my totem craft so different from your enchanting, Lavinia?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could you enchant something to change as I do, Lavinia?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me enchanting.", next = "BUSINESS" },
         { text = "How does enchanting work?", next = "how" },
         { text = "Did you learn this in Dalaran?", next = "dalaran" },
@@ -422,6 +536,24 @@ P:NPC {
     dead = {
       lines = { { id = "de_default", text = "The magic doesn't care whether you're breathing, which surprised everyone. The hard part is the patience, because the dead have time but not always the steadiness, and enchanting forgives nothing." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Very, because I break things down to get my magic, and you ask the spirits to lend theirs. I'd say yours is the more polite art and mine the more reliable, and you may decide which you'd rather have in a fight." } },
+      choices = {
+        { text = "Polite, I'll take. Borrowed power must be respected.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Reliable is better. I'd rather own my power.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Not without destroying it first, and then it's a pinch of dust and no use to anyone. The only thing I ever enchanted that changed back was a cloak, and it changed back into curtains, which was not the effect I was after." } },
+      choices = {
+        { text = "Some things should keep their own nature. Leave them be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Break the rules, Lavinia. That's how new arts are made.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -461,9 +593,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Carolyn Ward. I teach rogues their trade, and in this city a rogue's trade is the Dark Lady's business. If you're not a rogue, I'm not sure why you're in this quarter at all." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "One of mine. Have you learned to move through a crowd without anyone remembering your face? Then you can learn something harder." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Rogues' Quarter. Your totems make more noise than a drunk in a tavern, so don't plant them anywhere I'm working." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my quarter. You've a cat's step, I'll grant you, and I'd like to know how quietly you move when it's properly dark." },
       },
       again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere." } },
       choices = {
+        { text = "Do your rogues ever work with the Horde's shamans, Carolyn?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you take a druid into your trade, Carolyn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What does a rogue do for the Dark Lady?", next = "lady" },
         { text = "What's the most important thing a rogue can learn?", next = "lesson" },
@@ -492,6 +628,24 @@ P:NPC {
     disloyal = {
       lines = { { id = "d_default", text = "The Syndicate, in Alterac, who were living nobles once and sell their knives to anyone now. And a few of ours who forgot whose city this is. We don't speak of those last ones, and neither should you." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Now and then, in Hillsbrad, when a fight we started gets bigger than we meant it to. A shaman who can drop lightning on the Southshore militia while my people slip away is worth having, so long as you understand that the slipping away is the point." } },
+      choices = {
+        { text = "I'll cover your retreat and ask no questions.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I fight my own battles, not your rogues' retreats.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I'd take anyone who can move unseen and keep their mouth shut afterwards, and you've the first part already. The Dark Lady has more work than she has rogues, and a cat in the Southshore stables wouldn't raise anyone's suspicion." } },
+      choices = {
+        { text = "I'll serve the Dark Lady from the shadows.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I prowl for the Horde, not for your quarter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -522,9 +676,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Ezekiel Graves, purveyor of poisons and the things you need to make them. Rogues come to me for powders and vials, and I'm always happy to talk about what goes into them." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "A rogue! You'll want the good things, then: dust of decay, essence of pain, and plenty of empty vials. I keep them all, and in quantity." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I'm told your totems can wash a poison clean out of the blood, which is very bad for business, so please don't do it in front of my customers." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your lot can cure a poison with a touch, I'm told, and I've never been so offended by a profession in my life." },
       },
       again = { { id = "h_again", text = "Something else? Take your time; poisons are patient things." } },
       choices = {
+        { text = "Do your poisons trouble a shaman's work, Graves?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Shouldn't you be glad someone can cure them, Graves?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Who buys poison in this city?", next = "who" },
         { text = "Isn't selling poison wicked?", next = "wicked" },
@@ -553,6 +711,24 @@ P:NPC {
     strange_who = {
       lines = { { id = "sw_default", text = "People who need a guard to forget who walked past him, I imagine. I sell the powder, and the rest is between them and the Dark Lady." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Oh, I should hope so, because a poison a totem can wash away isn't much of a poison. I've been working on a blend the totems can't seem to touch, and I'd be delighted if you'd stand near it while I test the theory." } },
+      choices = {
+        { text = "Poison is a coward's tool. I'll cleanse it wherever I find it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Show me your blend. A weapon is a weapon.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Glad? I suppose I'm glad in the way a smith is glad someone invented shields, which is to say I'm already working on the next thing. Every cure is only a recipe for a better poison, friend, and I do so love a challenge." } },
+      choices = {
+        { text = "Then I'll keep curing, and you'll keep losing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Clever. I'd rather have your poisons on my side.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -593,9 +769,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Mary Edras. I teach first aid, which most of the dead think they don't need, until they find an arrow in their shoulder that's been there since last week. Cloth, clean hands and patience will save your life, or what passes for it." },
         { id = "h_living", when = { ["not"] = { race = "Scourge" } }, text = "One of the living! You'll feel your wounds, at least, which makes you easier to teach. Let's start with linen, shall we?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Then you'll heal with spirits, and you'll still need bandages when the spirits are busy, so sit down." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good. You'll know your herbs, so I won't have to explain why we don't put mud on a wound." },
       },
       again = { { id = "h_again", text = "What else? And sit still while you ask." } },
       choices = {
+        { text = "Do you think my healing makes your bandages useless, Mary?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you ever tend tauren, Mary, or only the Forsaken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why would the dead need bandages?", next = "dead" },
         { text = "Were you a healer in life?", next = "life" },
@@ -625,6 +805,24 @@ P:NPC {
     more = {
       lines = { { id = "m_default", text = "Doctor Gregory Victor, at Hammerfall in the Arathi Highlands. He tests the best of my students on the wounded soldiers there, and if you pass, you'll know more than I do." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Useless? I've seen a shaman run dry halfway through a fight in Hillsbrad, and it was my linen that kept him breathing until his spirits came back. Learn the bandages, love, and save your spirits for the wounds I can't reach." } },
+      choices = {
+        { text = "Spirit or linen, I'll use whatever keeps people alive.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll learn it for my own sake, nobody else's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Whoever comes through that door, love, and a tauren takes three times the linen and complains half as much. I bound a kodo rider's leg last winter and he thanked me in a language I didn't know, and it was the nicest thing anyone's said to me since I died." } },
+      choices = {
+        { text = "Then I'll carry your linen, and bind whoever needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Linen is for my own wounds first, Mary.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -660,9 +858,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Armand Cromwell, and I teach fishing, which the dead are naturally good at. We don't get cold, we don't get bored, and we don't need to go home for supper, so we can sit by the water forever." },
         { id = "h_living", when = { ["not"] = { race = "Scourge" } }, text = "A living angler! You'll actually eat what you catch, which most of my students can't say. Shall I teach you?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You call on the water spirits, I'm told, and I'd be grateful if you'd ask them why nothing in the canals looks like a fish anymore." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come to fish? I'd wager you could just turn into something with flippers and save yourself the trouble." },
       },
       again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
       choices = {
+        { text = "Shall I ask the water spirits about the canals, Armand?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Don't you miss the taste of what you catch, Armand?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing near here?", next = "where" },
         { text = "Why do the dead fish if they don't eat?", next = "why" },
@@ -686,6 +888,24 @@ P:NPC {
       choices = {
         { text = "Everyone deserves some peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Peace is for those who've won their war.", next = "BACK", fx = { align = { light = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I'd rather you didn't, now that I think on it, because then I'd have to know the answer. The apothecaries say it's only runoff from their work, and I've decided to believe them, because it's easier to fish when you're not worried about what's biting." } },
+      choices = {
+        { text = "Some answers are better left alone. I'll leave it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ask anyway. Someone should know what's in there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Every time, friend, but I've made my peace with it. The fish goes to the inn and the apothecaries and I keep the quiet, which is the better half of fishing anyway, and you'll eat what you catch, at least, so do it properly and thank the lake." } },
+      choices = {
+        { text = "I always thank the lake. It's only right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A fish is a fish. I'll eat it and thank no one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

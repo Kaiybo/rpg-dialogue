@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every beast I've taken was a fair fight, an' I've the scars tae prove it, so if their spirits want a word, they know where tae find me. I reckon a tiger respects a hunter more than a farmer, an' that's enough for me." } },
+      choices = {
+        { text = "A fair fight honors the beast. I can respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trophies are trophies. Spirits don't enter into it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "It troubles a great many people, and yet the panthers remain. I take the strong ones and leave the young, and I write down everything I see. Respect, my friend, can come with a rifle." } },
       choices = {
@@ -43,6 +52,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Splendid. You'll appreciate the beasts here more than most, though I daresay we appreciate them rather differently." },
         { id = "h_default", key = true,
@@ -66,6 +76,7 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yerself one an' ask away. Barnil willnae mind, though Barnil always minds." },
       },
       choices = {
+        { text = "Do you ever think about the spirits of what you hunt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You hunt these creatures for sport. That troubles me.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why hunt at all?", next = "why" },
         { text = "What's the most dangerous thing out there?", next = "danger" },
@@ -270,6 +281,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Only that a troll shaman once spooked every raptor out o' the valley wi' a thunderclap, an' the master spent a week cursin' him. He wrote it down, though, which is more respect than he gives most." } },
+      choices = {
+        { text = "I'll hunt fair and keep to the master's rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll hunt my own way, rules or no rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Not for a moment. This jungle grows faster than we can shoot it, and the trolls take more than we ever will. Besides, Hemet keeps count, and he'd stop before he'd see a breed go." } },
       choices = {
@@ -278,6 +298,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman o' the Horde at the master's camp. Well, he says a good hunter's welcome whatever the colors, so mind yer manners an' I'll mind mine." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid in camp, is it? Don't let the boss see you; he'll want to know what you weigh as a cat." },
         { id = "h_default", key = true,
@@ -294,6 +315,7 @@ P:NPC {
         { id = "h_again2", text = "Somethin' else, friend? Ask away, only mind the oil." },
       },
       choices = {
+        { text = "Does Nesingwary's book have anything to say about shamans?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's the book about?", next = "book" },
         { text = "What's he really like, your master?", next = "master" },
@@ -418,8 +440,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "My father did, in his own fashion, and he'd kneel by every kill and say nothing for a while. I used to think he was only tired, but I do it too now, so perhaps it was something your people would understand." } },
+      choices = {
+        { text = "That silence is a kind of prayer. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. Kneeling won't skin it faster.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd hear the jungle better than I can, so tell me if Sin'Dall is prowling close, because I've waited a long while." },
         { id = "h_default", key = true,
           text = "Ajeck Rouack. My father put a bow in my hands before I could read, and taught me tigers before he taught me manners. I teach tiger hunting now, and one day I'll take Sin'Dall." },
         { id = "h_tigers", tags = { "news" }, when = { questActive = TODO_QUEST("Tiger Mastery") },
@@ -433,6 +465,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; I'm still restringing." },
       },
       choices = {
+        { text = "Does a hunter ever ask the beast's spirit for leave?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who is Sin'Dall?", next = "sindall" },
         { text = "Tell me about your father.", next = "father" },
         { text = "How do you track a tiger?", next = "track" },
@@ -560,8 +593,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They fear anything they can't buy, and you can't buy the weather. They'll tell you shamans are warlocks by another name, but I've seen both now, and the difference is plain to anyone honest enough to look." } },
+      choices = {
+        { text = "The warlocks nearly ruined us. Thrall gave us back our souls.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let Stormwind keep its fear. Fear serves the Horde well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. In Stormwind they'd call you a savage, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
         { id = "h_default", key = true,
           text = "I'm Sir Erlgadin. I was a count once, in Stormwind's House of Nobles, but I've stopped answering to that, and I hunt panthers now. Panthers, at least, are honest about what they want." },
         { id = "h_panthers", tags = { "news" }, when = { questActive = TODO_QUEST("Panther Mastery") },
@@ -575,6 +618,7 @@ P:NPC {
         { id = "h_again2", text = "Something further? Ask it, by all means." },
       },
       choices = {
+        { text = "Do Stormwind's nobles fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why did you leave the House of Nobles?", next = "nobles" },
         { text = "Why panthers?", next = "panthers" },
         { text = "What's in the letters they keep sending?", next = "letters", when = { metBefore = true } },

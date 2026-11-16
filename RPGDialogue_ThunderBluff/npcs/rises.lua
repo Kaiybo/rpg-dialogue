@@ -29,12 +29,14 @@ P:NPC {
           text = "I am Apothecary Zamah, and I represent the Royal Apothecary Society here among our tauren friends. Cairne lets us study, and in return we share our cures, mostly." },
         { id = "h_serpent", when = { questActive = TODO_QUEST("Serpentbloom") },
           text = "The serpentbloom grows in the Wailing Caverns, among the druids who've gone wrong down there. Bring me what you can, and mind the fumes." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ah, a shaman. The elements are such fascinating subjects, and so very poor at holding still to be studied." },
       },
       choices = {
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
         { text = "What do you want serpentbloom for?", next = "serpent" },
         { text = "How do the tauren treat you?", next = "tauren" },
         { text = "What does the Society really study?", next = "society", when = { race = "Undead" } },
+        { text = "Do the spirits of the Pools trouble you, Zamah?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -70,6 +72,15 @@ P:NPC {
       lines = { { id = "so_default", text = "Plagues, my dear, and everything that cures them or carries them. One must understand a weapon before one can turn it away, or turn it around." } },
       choices = { { text = "I'll keep that between us.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The tauren say the Pools of Vision show the spirits of their ancestors, and I'll admit some of my samples behave oddly near the water. The dead and the elements are not good neighbors, I find, which is why your elders watch me so closely, and why I smile at them." } },
+      choices = {
+        { text = "The tauren trusted you here, so repay that with honest work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever you find down there, keep it from the elders.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "I'm afraid that falls outside my research, and my interest." } },
@@ -94,10 +105,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Holt Thunderhorn, and I teach the hunters of Thunder Bluff. The Thunderhorns have hunted Mulgore since long before the bluffs had bridges." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your bow has seen use since we last met, hunter. Let me see what you have learned." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise? You're welcome here, though my students will want to know if you can call the wind to steady an arrow." },
       },
       choices = {
         { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
+        { text = "Can a shaman's wind really steady an arrow, Holt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
@@ -115,6 +128,15 @@ P:NPC {
       choices = {
         { text = "The herd comes before the hunter.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A hunter must feed his family first.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "My grandfather swore a shaman did it for him once, on a hunt near the Red Rocks, and he never missed again the rest of that day. I think the spirits helped and I think his own patience helped more, and I've never decided which to thank first." } },
+      choices = {
+        { text = "Thank the spirits first. They gave him the day.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thank his own eye. The spirits get too much credit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -141,10 +163,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Ker Ragetotem, and I train the warriors who guard Thunder Bluff. A tauren's strength is great, so we must learn to use it carefully." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Come for more training, warrior? Good, because the centaur do not rest, and neither should we." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. Your strength comes from outside you, so you must learn to carry it even more carefully than a warrior does." },
       },
       choices = {
         { text = "Who do the warriors fight?", next = "fight" },
         { text = "Why must strength be careful?", next = "careful" },
+        { text = "Does a shaman need a warrior's training, Ker?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },
@@ -162,6 +186,15 @@ P:NPC {
       choices = {
         { text = "Restraint is a warrior's real strength.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Some foes deserve no restraint at all.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every shaman who guards the herd stands close enough to be struck, so yes, learn to take a blow. The Grimtotem out in Stonetalon have shamans of their own, and they won't hesitate to turn the earth on our braves." } },
+      choices = {
+        { text = "I'll learn to stand and take a blow for the herd.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A wise shaman shouldn't be close enough to be hit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

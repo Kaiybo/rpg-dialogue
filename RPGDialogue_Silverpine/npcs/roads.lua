@@ -31,8 +31,12 @@ P:NPC {
           text = "You'll walk with me? Good, then stay close, keep your blade out, and if you hear howling, don't stop to admire it." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You're no friend of the Sepulcher, so I'll keep my hand on my knife while we talk. Still, you've not drawn on me, and the worgen won't care which flag either of us flies." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here! Good, because I'd much rather the worgen were frightened of your lightning than hungry for my legs." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good. You'll smell them before I do, and you'll know a worgen's scent from a wolf's, which I never can." },
       },
       choices = {
+        { text = "Do the worgen fear the storm, Erland?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Are the worgen beasts, Erland, or something worse?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I hunt worgen in these woods. Any advice?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a deathstalker recruit. Tell me what to watch for.", next = "recruit", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "What are the worgen?", next = "worgen" },
@@ -85,6 +89,24 @@ P:NPC {
       lines = { { id = "rc_default", text = "Then you'll know the drill, at least. Watch the tree line, not the road, because the worgen come from the side and never from the front." } },
       choices = { { text = "The tree line. Understood.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They don't fear much, but they don't like loud things they can't bite, and thunder is louder than I am, at least. Walk with me to Yorick's farm, would you, and if you hear howling, call down something bright before they reach us." } },
+      choices = {
+        { text = "I'll stay at your side all the way to Yorick.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go where the worgen are and draw them off.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Worse, because a beast hunts when it's hungry, and they hunt when they're bored. The old foresters say Arugal didn't make them so much as call them from somewhere, and I'd like to know where, so I can avoid it." } },
+      choices = {
+        { text = "Whatever they are, theirs is a curse to be broken.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Cursed or not, I'll kill them like any beast.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -120,8 +142,12 @@ P:NPC {
           text = "Rane Yorick, deathstalker. I watch Pyrewood and the south road for the Sepulcher, and I collect the reports the other scouts bring, when they live long enough to bring them." },
         { id = "h_erland", tags = { "news" }, when = { questDone = TODO_QUEST("Escorting Erland") },
           text = "You got Erland here in one piece, which is more than he usually manages himself. I'll have his report, and then I'll have a word with him about the noise he makes." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are bright enough to be seen from Pyrewood, so plant them somewhere other than under my window." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wondering about Pyrewood, I expect; everyone with fur does." },
       },
       choices = {
+        { text = "Do the worgen fear anything, Yorick?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could the worgen curse be broken, Yorick?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You keep watch alone out here, Yorick?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Do the gnolls trouble you this far south?", next = "gnolls" },
         { text = "What's happening in Pyrewood?", next = "pyrewood" },
@@ -170,6 +196,24 @@ P:NPC {
       lines = { { id = "gn_default", text = "Less than the worgen, because the gnolls are afraid of them too. It's the one thing I'd thank Arugal for, if he were the sort to accept thanks." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Fire, and a deathstalker who doesn't blink. Your lightning might put them off for a night, but a pack that's been put off comes back angrier, so if you mean to fight them, mean it." } },
+      choices = {
+        { text = "Then I'll mean it, and finish what I start.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike and fade. Let them chase shadows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Perhaps, if anyone knew what it was, and nobody in the Sepulcher does. I watch Pyrewood every night, druid, and I've seen a woman bolt her shutters at dusk and a worgen climb out of the same window an hour later." } },
+      choices = {
+        { text = "Then the villagers deserve mercy, if it can be found.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then the village is the danger, and it should burn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -204,8 +248,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Karos Razok, bat handler to the Sepulcher. If you want the Undercity or Tarren Mill, I've a bat for you, and if you want conversation, I've very little." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats can smell a storm coming, and they're smelling one now, so keep your hands still." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can outrun my bats on the flat, I'm told, but you'll not run across Lordamere Lake." },
       },
       choices = {
+        { text = "Do your bats trust the living, Karos?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you trade your bats for a living beast, Karos?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will the bats carry a hunter's beast, Karos?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Where do the bats come from?", next = "bats" },
         { text = "Are the roads really that bad?", next = "roads" },
@@ -235,6 +283,24 @@ P:NPC {
         { id = "ro_default", text = "Worgen at night and gnolls by day, so yes. The bats fly over all of it, which is why I'm the most popular person in the Sepulcher, and the least thanked." },
       },
       choices = { { text = "Thank you, then, Karos.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They trust whoever feeds them and doesn't wave about, and they don't care which side of the grave you're on. Tauren are heavier than they'd like and trolls fidget, but the orcs sit still, I'll give them that, as if they'd ridden worse." } },
+      choices = {
+        { text = "I'll sit still and respect the beast.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A mount should carry whoever pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "No. A living beast would spook at me, and a bat doesn't, and that's all I need from a creature. You'll understand that better than most, druid, since you're half beast yourself on a good day." } },
+      choices = {
+        { text = "Every beast deserves a keeper who cares for it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Use what serves you, Karos. Sentiment slows a keeper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

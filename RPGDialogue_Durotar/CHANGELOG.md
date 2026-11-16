@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- Horde shaman get their own conversation with 19 people in the Valley of Trials, Razor Hill and along the roads.
+
 ## 1.8.0 (2026-11-16)
 - Druids are noticed: eight people in Razor Hill, Sen'jin and on the roads (tauren druids) greet a druid as one and have something to ask and argue about.
 

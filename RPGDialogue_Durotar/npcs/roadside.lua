@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Gornek says the ancestors keep the ones who die well, and Kron died with his axe in his hand, so perhaps they have him. I don't want a ghost, shaman. I only want to know that he isn't lost out in those hills alone." } },
+      choices = {
+        { text = "He died fighting, Misha, so the ancestors will have kept him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are gone, and the spirits won't change that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I did at first, and I hunted them until my arms gave out. Now I think they did only what beasts do, and I'm the one who let a boy go hunting alone." } },
       choices = {
@@ -39,8 +48,10 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("Lost But Not Forgotten") },
           text = "His amulet hangs by my door now, and I touch it every morning. You did a kindness for an old woman, and I have not forgotten it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "You're a druid, then. Kron used to say the tauren could speak with beasts, and I laughed at him, but I'd give a great deal now to know whether it's true." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You speak with the spirits, shaman. Then tell me true, do the dead walk among them, and would my Kron still know his mother's voice?" },
       },
       choices = {
+        { text = "Shall I listen for Kron among the spirits, Misha?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you blame the beasts for Kron, Misha?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Kron.", next = "kron" },
         { text = "Why live so far from Razor Hill?", next = "alone" },
@@ -109,6 +120,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Nothing grows by that cave mouth, not even the thorns, and the stones at the entrance are warm at midnight. I'm no shaman, but I know a wound when I see one, and Skull Rock is bleeding something that isn't blood." } },
+      choices = {
+        { text = "Then I'll go in and close that wound myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them fester, and pick them off as they come out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -117,8 +137,10 @@ P:NPC {
           text = "Down into Skull Rock with you, then, and bring me back what the cultists carry. Proof is what Orgrimmar wants, and proof is what I'll send them." },
         { id = "h_neeru", when = { questActive = TODO_QUEST("Margoz") },
           text = "So Orgrimmar sent you to old Margoz. Good, because I've been waiting for someone with more sword than sense." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The Burning Blade down in Skull Rock spit on everything your kind keeps, so I expect you'll enjoy this work more than most." },
       },
       choices = {
+        { text = "What have the cultists done to the earth around Skull Rock?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "Why watch from out here?", next = "watch" },
         { text = "Who sends you your orders?", next = "orders" },
@@ -239,12 +261,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If you can take a hit and give one back, yes, and a shaman with a shield can do both. The ones who hang back calling lightning are useful too, but they're the ones I end up dragging out of the scrub when the quilboar get behind them." } },
+      choices = {
+        { text = "My place is in the line beside the grunts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll fight where the elements need me, not where I'm told.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. The scars are from the ones who taught me." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back for more lessons, warrior? Good, because the scorpids out there won't wait for you to get better." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman wearing mail, good. Thrall fights in plate with a hammer in his hand, and I've never once seen him wait for the spirits to swing it for him." },
       },
       choices = {
+        { text = "Should a shaman stand in the front line, Tarshaw?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you get those scars?", next = "scars" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "I'll be going.", next = "END" },

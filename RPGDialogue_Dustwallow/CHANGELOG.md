@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (2026-11-16)
+- Horde shaman get their own conversation with 5 people at Brackenwall and in the marsh.
+
 ## 1.13.0 (2026-11-16)
 - Druids are noticed: nine people in Theramore, Brackenwall and the marsh greet a druid as one and have something to ask and argue about.
 

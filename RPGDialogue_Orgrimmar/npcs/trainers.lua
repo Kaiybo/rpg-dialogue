@@ -17,6 +17,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "If you call it to your hand and look your enemy in the eye, yes, and I'll fight anyone who says otherwise. What I won't have is a shaman hiding behind a totem while the grunts bleed for him, because that isn't a fight, it's a hiding place." } },
+      choices = {
+        { text = "I'll call the storm face to face, never from cover.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A wise shaman fights from wherever he's safest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Strength used for the Horde is always honorable, whatever shape it comes in. I only ask that you don't turn into a cat halfway through a duel, because my warriors find that insulting." } },
       choices = {
@@ -30,8 +39,10 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Grezz Ragefist, and I train the Warchief's warriors. The Valley of Honor is named for what we earn here, so don't waste my time with anything less." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Another warrior come for lessons? Good, because the Horde can never have enough strong arms." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid on my training ground? Fine, because a tauren in bear form hits harder than most of my students, and I'm not too proud to say so." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on my training ground! The Warchief swings the Doomhammer and calls the storm with the same arm, so don't tell me your kind are too soft for real fighting." },
       },
       choices = {
+        { text = "Is it honorable to strike with lightning, Grezz?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a druid's strength honorable, Grezz?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does honor mean to you?", next = "honor" },
         { text = "Who else trains in the valley?", next = "valley" },
@@ -74,12 +85,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "You hear its spirits and I read its tracks, and most days we come to the same answer. The difference is that when the earth's angry you ask it why, and I just pack up and hunt somewhere else." } },
+      choices = {
+        { text = "Facing the land's anger is the honest path.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There's no shame in leaving a fight you can't win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Ormak Grimshot, and I teach the hunters of the Horde. Durotar is a hard land for game, so a hunter here learns to track things that would rather not be found." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your companion is with you, good. Now let's see if you've been worthy of it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You've come to the wrong trainer, but stay a while, because your kind and mine both learned long ago that the land watches us back." },
       },
       choices = {
+        { text = "Do shamans and hunters see the land differently?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you choose a companion?", next = "pet" },
         { text = "Where's the best hunting near Orgrimmar?", next = "hunt" },
         { text = "Farewell, Ormak.", next = "END" },
@@ -178,12 +200,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It burned a world and carried us through the Dark Portal, and it cost us everything else, so I suppose that depends on how you count. The Warchief keeps us on a short chain, and I teach my students to remember why, which is more than the Shadow Council ever did." } },
+      choices = {
+        { text = "Nothing the demons gave was worth what it cost us.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power, and only fools refuse a weapon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Zevrost, and I teach those with the will to command what others fear. The Warchief permits us, so long as we remember who serves whom." },
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "Ah, one of mine. Your demon is well leashed, I hope, because the guards above notice when it isn't." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Cleft of Shadow. Your path and mine both began with the shamans of Draenor, though you'd rather forget it, so do try not to glare at my students." },
       },
       choices = {
+        { text = "Your kind traded the elements for demons. Was it worth it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Isn't this the magic that ruined the orcs?", next = "ruin" },
         { text = "What is the Cleft of Shadow?", next = "cleft" },
         { text = "I'll go.", next = "END" },

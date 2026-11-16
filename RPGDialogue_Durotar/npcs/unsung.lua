@@ -29,13 +29,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Better than you would think, and better than they used to. In the old Horde the shamans stood back and the warriors charged and nobody trusted anybody, but Thrall calls the storm with the same hammer he fights with, and the young ones are learning from him." } },
+      choices = {
+        { text = "Shoulder to shoulder with the warriors is the only way to fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the warriors charge. I'll strike where the enemy doesn't expect.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Frang, and I teach the warriors of the Den to fight like the Horde fights, shoulder to shoulder and never turning their backs. Everything else they learn out in the valley, mostly from boars." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back from the valley, are you? Tell me what the quilboar taught you today, and then I will teach you something they cannot." },
         { id = "h_low", when = { maxLevel = 5 }, text = "You are greener than a cactus apple, but everyone starts green. The trick is not to stay that way, so get out there and come back hurt." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
       },
       choices = {
+        { text = "Do warriors and shamans fight well together, Frang?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What does a warrior learn first?", next = "first" },
         { text = "Who else trains in the Den?", next = "den" },
@@ -104,12 +115,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "All the time, mon, like any family. The Loa want respect and the elements want balance, and the shaman who forget either one find out quick, so Ken'jai keep good terms with everybody and mend whoever get burned." } },
+      choices = {
+        { text = "Respect for every spirit is what keeps us whole.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The elements serve my purpose, and the Loa can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Ken'jai, and I teach the priests of the Den to mend what the warriors break. Frang hits them, I fix them, and between us the young ones learn something." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "Every priest who come back from the valley a little stronger make Ken'jai proud, mon. What you need to learn today?" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The spirits and the Loa be cousins, mon, so you and Ken'jai already be family of a sort." },
       },
       choices = {
+        { text = "Do your Loa and my elements ever disagree, Ken'jai?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Where does your healing come from?", next = "power" },
         { text = "What's a troll doing in an orc valley?", next = "troll" },
@@ -175,11 +197,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Everything except the totems, because every one of you thinks the spirits will carry the rest. The spirits won't fill your waterskin, so take one from me and stop asking the river." } },
+      choices = {
+        { text = "Fair enough. Good planning honors the spirits as much as prayer.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land provides when I need it, so I travel light.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Duokna, and I keep the goods for the Den. Most of the young ones walk in with an axe and nothing else, so I make sure they walk out with a waterskin." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are heavy, so I'll ask you what I ask everyone, which is whether you remembered to carry water as well." },
       },
       choices = {
+        { text = "What do shamans usually forget to carry?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What should a recruit carry?", next = "carry" },
         { text = "Where do your goods come from?", next = "supply" },
@@ -238,11 +271,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "A mace, or a staff with iron on the end, because lightning finishes what a heavy head starts. Thrall carries the Doomhammer, and every young shaman in Razor Hill wants a hammer like it, though I tell them to learn to swing a small one first." } },
+      choices = {
+        { text = "A shaman should fight face to face, as the Warchief does.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather end a fight before the enemy ever reaches me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Uhgar, and I sell weapons to the grunts of Razor Hill and anyone else with coin. Durotar is a hard place, and you will want something better than a training axe before you leave town." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
       },
       choices = {
+        { text = "What weapon suits a shaman, Uhgar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What do you recommend?", next = "advice" },
         { text = "Who are Razor Hill's enemies?", next = "enemies" },
@@ -303,6 +347,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They do, and better than most hunters. My raptor would not cross the dry wash south of here for a week, and when I asked old Gadrin about it he said an angry earth spirit had settled there, so now I listen when my beasts refuse a path." } },
+      choices = {
+        { text = "Then the beasts and the spirits both deserve our respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that refuses a path should be made to cross it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Both, and a hunter must know which one the day calls for. A druid wears the beast's very shape, which I think is a closer bond than any of mine, though I would not trade my companion for it." } },
       choices = {
@@ -316,8 +369,10 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Thotar, and I teach the hunters of Razor Hill to read the land and to trust a beast at their side. In Durotar the land is mostly rock and the beasts are mostly angry, so there is plenty to learn." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "You have come for training, I think, and maybe for advice about your companion. Ask, and I will help with both." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, I think, and from Mulgore by the look of you. You will find the beasts of Durotar leaner and meaner than your plainstriders, but they are honest, and they will teach you if you let them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, I think. You and I listen to the same land, though you hear the spirits in it and I hear the beasts, so tell me what Durotar says to you." },
       },
       choices = {
+        { text = "Do your beasts sense the spirits, Thotar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you hunt the beasts or befriend them, Thotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts are worth taming here?", next = "beasts" },
@@ -371,11 +426,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than they'd admit. A shaman who walks soft can call the wind to cover his steps and put frost on a man's legs before he knows he's been seen, and the Burning Blade never hear what's coming for them." } },
+      choices = {
+        { text = "I'd rather the enemy see me coming and fear it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A quiet kill is still a kill, and a quicker one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs fight in the open, but somebody has to handle the work that happens in the dark." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
       },
       choices = {
+        { text = "Do shamans have any use for the quiet arts?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Why train down in a burrow?", next = "burrow" },
         { text = "What work happens in the dark?", next = "work" },
@@ -426,11 +492,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Our shamans talk to the sea and the Loa as much as the elements, because the Echo Isles taught us that. The orcs learned it fresh from Thrall and the old ones who still remember, so they be careful with it, and we be a little more easy, I think." } },
+      choices = {
+        { text = "The spirits deserve care, whichever people calls on them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Careful or easy, power is power, and I'll use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Tai'jin, and I teach the priests of Razor Hill when they come through. The grunts here get cut up by quilboar and Kul Tirans, so my hands stay busy even when the students be few." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you be welcome here, mon. Back home in Sen'jin the shamans and the witch doctors argue all night, but they always share the fire." },
       },
       choices = {
+        { text = "How do Darkspear shamans differ from the orcs'?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Are you from Sen'jin Village?", next = "senjin" },
         { text = "What do the grunts think of a troll healer?", next = "grunts" },
@@ -492,11 +569,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Safer? No, mon, but it be honest about what it costs. You ask the fire for help and maybe it say no, but when I call it there be no asking, and that be the trouble with the arcane, because nobody tell you when to stop." } },
+      choices = {
+        { text = "Power should answer to something, whether spirits or study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nobody should tell a caster when to stop.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Un'Thuwa, and I teach the arcane to trolls, and to orcs brave enough to try it. Most of the village fish or fight, but there be a few of us who rather study." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, come to see a troll do magic the hard way. You ask the elements for help and I make them listen, so let's not argue about which be better." },
       },
       choices = {
+        { text = "Is the arcane any safer than what the spirits give?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Where did a Darkspear learn magic?", next = "learn" },
         { text = "What does the village think of mages?", next = "village" },

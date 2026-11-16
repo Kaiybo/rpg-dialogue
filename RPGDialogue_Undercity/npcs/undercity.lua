@@ -40,8 +40,12 @@ P:NPC {
           text = "Zygand holds Tirisfal against the Crusade, and good; the zealots should learn that the dead have long memories." },
         { id = "h_hamuul", when = { heardLine = "hamuul.h_default" },
           text = "The tauren Arch Druid spoke for the Forsaken before the Horde, when the orcs would have turned us away. Remember that, when you hear the tauren speak of balance." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's people speak of spirits and of balance, and I have heard enough of spirits to last me the rest of my long existence." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren. Your Arch Druid spoke for my people before the Horde, and I have not forgotten it." },
       },
       choices = {
+        { text = "Do the spirits trouble you, my lady?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do you want from the tauren, my lady?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the Forsaken want?", next = "want" },
         { text = "Tell me about Arthas.", next = "arthas" },
         { text = "I carry the Light, my lady, though it burns.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
@@ -154,6 +158,24 @@ P:NPC {
       },
       choices = { { text = "Forgive me, my lady.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I was one, for a time, bound and wailing at Arthas's heel, and nothing about that time was balanced. Turn your elements on the Scourge and I will call you an ally, but do not speak to me of harmony with the dead, because the dead in this city have had their fill of other people's harmony." } },
+      choices = {
+        { text = "The Scourge, then. My elements will answer for your people.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is the Horde's way, my lady, whether it suits you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Their voice in the Horde, and their patience, which they have in greater supply than the orcs. They speak of healing us, and I let them, because a people who wish to heal you will rarely wish to burn you; whether I wish to be healed is a question for another day." } },
+      choices = {
+        { text = "Their hope is honest, my lady. Don't spend it cruelly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Use their hope, then. The Forsaken need allies.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -200,8 +222,12 @@ P:NPC {
           text = "The living cling to Hillsbrad like rats to a ship. Help Darthalia sink it." },
         { id = "h_alliance", when = { questActive = TODO_QUEST("An Unholy Alliance") },
           text = "An alliance between our enemies? How very unholy. Break it before it learns to stand." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Royal Quarter. Your people knelt to my kind once and then changed their minds, which I have always found rather ungrateful." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You smell of grass and wet fur, which is a novelty down here, though not one I'd ask you to repeat." },
       },
       choices = {
+        { text = "Do you miss your hold on my people, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does a dreadlord make of the Emerald Dream?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Your guards are dreadlords, Varimathras. Mine is a shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "How did you come to serve her?", next = "serve" },
         { text = "I command demons too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
@@ -259,6 +285,24 @@ P:NPC {
       lines = { { id = "an_default", text = "That is precisely the answer you're getting. Now go and be useful elsewhere." } },
       choices = { { text = "...", next = "END" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Miss it? My dear shaman, I serve the Dark Lady now, faithfully and gladly, and the Legion's affairs are no concern of mine. Still, I do remember how eagerly your fathers drank, and I wonder now and then how thirsty their children are." } },
+      choices = {
+        { text = "We'll never drink again, dreadlord. Not one drop.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A strong people takes power wherever it finds it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Very little, I'm pleased to say. Dreams are where the weak go to hide from the world, and from what I hear of your Wailing Caverns, even the dreamers have started having nightmares, so do sleep well, druid." } },
+      choices = {
+        { text = "The Dream is sacred. Mock it at your peril.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dreams are for the weak. On that, we agree.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -305,8 +349,12 @@ P:NPC {
           text = "Lydon's colloid, applied correctly, and then a few reagents to wake the mixture! Don't sniff it, though; Lydon sniffed it, and Lydon has been melancholy ever since." },
         { id = "h_lydon", when = { heardLine = "lydon.h_default" },
           text = "Lydon, in Tarren Mill? Yes, yes, a brilliant mind and terrible company. He named his frog, and I told him not to name the frog!" },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, how marvellous, you put your hands into lightning and come out the other side, and I'd simply adore a sample of whatever's left in your blood afterwards." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Bear, cat, seal, whatever you like, all of them so wonderfully alive, so do hold still while I take a few notes, nothing invasive, I swear." },
       },
       choices = {
+        { text = "Could your work and my totems serve the same fight, Faranell?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do your notes say about the living, Faranell?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What use are your potions to a warrior, Faranell?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What are you making?", next = "making" },
         { text = "I need poisons for my blades. Can you help?", next = "rogue", when = { class = "ROGUE" } },
@@ -375,6 +423,24 @@ P:NPC {
       lines = { { id = "o_default", text = "What a suspicious mind you have, and I like it; you'd make a fine apothecary. Now run along." } },
       choices = { { text = "...", next = "END" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The same fight? Of course, of course! You call the earth and the storm against the Scourge, and I call on chemistry, and between us there won't be a corpse left standing that shouldn't be; purely academically, I'd love to know what your earth thinks of my runoff." } },
+      choices = {
+        { text = "The earth thinks it's poison, Faranell. Mind your runoff.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever kills the Scourge, I'll not complain about.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "That you're terribly fragile and endlessly fascinating, and that a tauren's constitution is very nearly the sturdiest I've studied. It's all for the Scourge, naturally, and for the cure your Arch Druid keeps asking after, if there is one, which is a big word, and I'm a careful man." } },
+      choices = {
+        { text = "Take your notes. I trust the Society's purpose.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "No more notes. I'm not your test subject.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -419,8 +485,12 @@ P:NPC {
           text = "It's Thule, truly him. End it, and bring me his head, and the last thing I owe him will be paid." },
         { id = "h_returns_done", when = { questDone = TODO_QUEST("The Prodigal Lich Returns") },
           text = "So he's gone. I thought I'd feel something, but all I felt was the wand in my pocket, and I still carry it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Dalaran's scholars insisted the Horde knew nothing but fel and axes, and I'm glad to see they were wrong about something besides Arugal." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I knew a scholar in Dalaran who studied your Cenarion Circle, and he said druids were the only mages who never wanted more than they were given." },
       },
       choices = {
+        { text = "Is the arcane so different from the elements, Bethor?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does that make druids wiser than mages, Bethor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do mages ever need a hunter, Bethor?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What happened to Thule?", next = "thule" },
         { text = "I studied in Dalaran too. Do you miss it?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
@@ -473,6 +543,24 @@ P:NPC {
       },
       choices = { { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The arcane is taken, shaman, and the elements are asked, and I've seen what happens to men who stop asking. Thule began by taking a little more than his share and ended by selling himself whole, so I'd keep asking your spirits nicely, if I were you." } },
+      choices = {
+        { text = "Power should be asked for, never seized.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Asking is slow, Bethor. Sometimes you must take.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "Wiser than some mages, certainly, and wiser than Thule, which is no great feat. But I've heard of your Druids of the Fang in the Barrens, who dreamed too greedily and woke as something else, so perhaps no school is safe from its own ambition." } },
+      choices = {
+        { text = "Then ambition must be watched, in mages and druids both.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ambition built the Horde. I won't apologise for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -508,8 +596,12 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Name's Norman, and I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours, and that's what I sell, really." },
         { id = "h_chair", when = { metBefore = true }, text = "Your chair's still there, and nobody's taken it. Nobody takes anyone's chair down here; it's the last courtesy we keep." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, under the city! Sit down by the stove, and if the fire starts muttering, I'd rather not hear what it thinks of the damp." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under the city? You'll not find much growing down here, friend, except what's in the canals, and I wouldn't touch that." },
       },
       choices = {
+        { text = "Shall I bless your hearth, Norman, the way we do at home?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you miss the sun, Norman?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Warriors don't sit much, Norman. Why keep chairs?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Is there room in here for my beast, Norman?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
@@ -533,6 +625,24 @@ P:NPC {
       choices = {
         { text = "It'll stay on the floor, where it belongs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It'll sit where it likes. It's earned that much.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Bless it? Nobody's offered that since I died, and the stove smokes something awful, so I'll take help from anyone. Only mind you don't bless the chairs, because nobody takes anyone's chair down here, not even a spirit." } },
+      choices = {
+        { text = "I'll bless the stove and leave the chairs alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spirits sit where they like, Norman. I won't stop them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "I miss the idea of it more than the sun itself, friend, since it hurts our eyes now and makes the skin itch. But I've a pot of mushrooms on the shelf behind the bar that never sees daylight, and I talk to them, which I'd not admit to anyone but a druid." } },
+      choices = {
+        { text = "Talk to them all you like. Growing things listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mushrooms are for eating, Norman, not for talking to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

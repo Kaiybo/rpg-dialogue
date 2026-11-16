@@ -29,6 +29,7 @@ P:NPC {
         { id = "h_c0", when = { questActive = TODO_QUEST("Bodyguard for Hire") }, text = "You're my bodyguard for this stretch, so stay close to the wagons and watch the ridges, because that's where the Kolkar like to come down from." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, eh? If you can talk to kodos, tell mine to walk faster, because they've never once listened to me." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Ask your spirits to keep the centaurs off my kodos, because I'm tired of doing it with a crossbow." },
       },
       again = { { id = "h_again", text = "What else? Talk fast, the next ridge is a bad one." }, { id = "h_again2", text = "Ask away, but keep one eye on the hills." } },
       choices = {
@@ -37,6 +38,7 @@ P:NPC {
         { text = "What do you haul?", next = "b2_1" },
         { text = "Tell me about your brother.", next = "b3_1" },
         { text = "I can hold a line against centaurs.", next = "x_1", when = { class = "WARRIOR" } },
+        { text = "Do the Kolkar and the Magram trouble the caravan often, Cork?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why not just pay the centaurs off?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -69,6 +71,15 @@ P:NPC {
       lines = { { id = "s_1_l", text = "The Magram have hinted they'd take a toll, and some days I'm tempted to pay it and be done with the whole bloody business." } },
       choices = { { text = "A deal is a deal. Pay the toll and keep the road quiet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Pay them once and they'll take everything next time.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every trip, without fail, because the Kolkar hit us on one stretch of road and the Magram on the next, and we're stuck in the middle with the freight. The kodos feel the ground shake before the centaurs come over the hill, so I trust a twitchy kodo over any scout." } },
+      choices = {
+        { text = "Pay the clans for safe passage. Fair dealing saves lives.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Set a trap ahead of them and end it for good.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "Not my cargo, not my concern, friend. Ask me about the road instead." } } },
 }
@@ -90,6 +101,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Rigger Gizelton, the half of the Gizelton caravan that does the counting. Cork shouts at the front and I make sure everything we started with is still here when we stop." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Gizelton Caravan") }, text = "You're guarding us through the Kolkar country, then. Stay by the wagons and don't chase them into the hills, because that's exactly what they want." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I don't suppose the spirits can count, because I could use a second pair of eyes on this ledger." },
       },
       again = { { id = "h_again", text = "Anything else? I've a ledger waiting." }, { id = "h_again2", text = "Go on, I'm listening, and counting." } },
       choices = {
@@ -97,6 +109,7 @@ P:NPC {
         { text = "What's in the ledger?", next = "b2_1" },
         { text = "Is Desolace worth the risk?", next = "b3_1" },
         { text = "I've kept a few ledgers myself.", next = "x_1", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Does the caravan ever carry anything for shamans, Rigger?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever cheat the books?", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -129,6 +142,15 @@ P:NPC {
       lines = { { id = "s_1_l", text = "I've been offered good coin to lose a crate or two on the road, and I've never taken it, though I won't pretend I wasn't tempted." } },
       choices = { { text = "Honest books keep honest roads. You did right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "Out here, a little skimming keeps a family fed.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Sacred stones bound for Shadowprey Village, once, and a crate of totems from the Barrens that nobody ever signed for. I counted them twice and never opened the crate, because I've seen what happens to folk who rattle the wrong box." } },
+      choices = {
+        { text = "Good. Sacred things should arrive untouched.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A quick look inside never hurt anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "That's not in the ledger, friend, so I couldn't tell you." } } },
 }
@@ -160,6 +182,7 @@ P:NPC {
         { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap. Then lead the tame ones back here and I'll do the rest." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid? Look, before you start, the kodos don't mind the Kombobulator, or at least none of them has ever complained to me about it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a kodo over for me? I've got buyers waiting, and the blasted things won't come when I whistle." },
       },
       again = { { id = "h_again", text = "Another question? Fine, but every one of 'em costs me a kodo bone I could be hauling." }, { id = "h_again2", text = "Ask, ask! Every question's free, for now." } },
       choices = {
@@ -168,6 +191,7 @@ P:NPC {
         { text = "What is the Kombobulator?", next = "b2_1" },
         { text = "How's business?", next = "b3_1" },
         { text = "My people do not sell the kodo's last walk.", next = "x_1", when = { race = "Tauren" } },
+        { text = "Why sell the kodos of the Graveyard at all, Smeed?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Graverobbing kodos seems wrong to me.", next = "s_1" },
         { text = "Farewell.", next = "END" },
       },
@@ -199,6 +223,15 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "Wrong's a strong word, friend. I call it recycling, and nobody's ever paid me to leave them where they lie." } },
       choices = { { text = "The dead deserve their rest, even beasts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "A beast that can still walk can still work.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because live kodos fetch a fine price, pal, and the dead ones fetch nothing. Your elders can sing over the bones all they like, but the live ones need a buyer, and I've got the buyers." } },
+      choices = {
+        { text = "The Graveyard is sacred, and its kodos should be left in peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Live kodos are fair game. Money is money.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "Never heard of it, but if it's for sale, I'm interested." } } },
@@ -361,10 +394,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Rexxar, Champion of the Horde, though I spend little time near its cities. The wilds suit Misha and me better than walls and politics do." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. Misha likes you, which is more than she says for most who walk these roads." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's shamans walk with the elements the way I walk with Misha, as partners, so I'll hear you out." },
       },
       again = { { id = "h_again", text = "Speak your mind." }, { id = "h_again2", text = "Misha's listening too." } },
       choices = {
         { text = "Why do you walk the wilds alone, Rexxar?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Do you trust the shamans of the Horde, Rexxar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why travel alone?", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
         { text = "Is the Horde worth fighting for?", next = "s_1" },
@@ -386,6 +421,15 @@ P:NPC {
     s_1 = {
       lines = { { id = "s_1_l", text = "The Horde gave the orcs a home and a future, and Thrall leads it well. Still, I've seen what the old Horde did, and I don't forget it." } },
       choices = { { text = "It's worth fighting for, whatever it was.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Loyalty to a banner is a cage. Trust yourself first.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I trust Thrall, and I trust a shaman who has walked the wilds long enough to know the elements are not servants. The ones who stay in Orgrimmar arguing politics I leave to the cities, because Misha and I have no patience for them." } },
+      choices = {
+        { text = "The Horde needs its shamans in Orgrimmar, guiding the Warchief.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A shaman belongs in the wilds, far from walls and politics.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "I don't know that, and I don't much care to." } } },

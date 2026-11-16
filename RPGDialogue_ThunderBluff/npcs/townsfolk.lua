@@ -29,9 +29,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Chesmu, and I keep the vaults of Thunder Bluff. Whatever you leave here is safe until you return for it, and you may reach the same vault from any bank of the Horde." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "Welcome, child of the Earth Mother. Our grandparents carried everything they owned on a kodo's back, and now we leave it with a stranger on a mesa. The world changes, and we change with it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the earth keeps its treasures deep, and so do I, though mine have locks on them." },
       },
       again = { { id = "h_again", text = "Is there something more you wanted to ask, friend? The vaults have waited this long, so they can wait a little longer." } },
       choices = {
+        { text = "Do shamans keep anything in your vaults, Chesmu?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like my vault.", next = "BUSINESS" },
         { text = "Did the tauren always have banks?", next = "history" },
         { text = "What do tauren keep in their vaults?", next = "keep" },
@@ -61,6 +63,15 @@ P:NPC {
     safe = {
       lines = { { id = "s_default", text = "There's only the lifts up from Mulgore and the bridges between the rises, and the braves watch every one of them. A thief would need wings, and the wind riders would see him first." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Totems wrapped in old hide, mostly, and a few sacred stones the elders won't let anyone else touch. When we wandered, a shaman carried the tribe's whole wealth on her back, and now I carry it in iron, which my back is grateful for." } },
+      choices = {
+        { text = "Sacred things belong in safe hands, and your vault serves the tribe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sacred things belong on the road with the people, not locked away.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -99,9 +110,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Tal, and I keep the wind riders of Thunder Bluff. They will carry you to the Crossroads, Camp Taurajo, Sun Rock Retreat, or anywhere else the Horde keeps a roost you've visited." },
         { id = "h_skyborne", when = { race = "Skyborne" }, text = "One of the Windshapers. Your people know the sky better than mine, I think, but the wind riders will still carry you, if you'll let them do the flying." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then you'll enjoy the flight more than most, because the wind riders say your kind talk to the air the whole way." },
       },
       again = { { id = "h_again", text = "Anything more? The wind won't wait forever." } },
       choices = {
+        { text = "Do the wind riders feel the air spirits, Tal?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Take me somewhere.", next = "BUSINESS" },
         { text = "What is it like to fly?", next = "fly" },
         { text = "Where do the wind riders come from?", next = "beasts" },
@@ -130,6 +143,15 @@ P:NPC {
     bloodhoof = {
       lines = { { id = "bl_default", text = "Because the walk is a good one, and it's short. The plains of Mulgore are worth walking through slowly, friend, so take the lift down and go on foot; you'll thank me." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They feel everything about the wind, and they turn skittish when a storm is brewing over the Barrens long before I see a cloud. I've wondered whether they hear the same spirits you do, and I suspect they're better at listening." } },
+      choices = {
+        { text = "The beasts listen more humbly than we do, so we could learn from them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts sense weather. The spirits speak only to the trained.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -169,9 +191,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Ansekhwa, and I teach the use of weapons to any who can learn them. A weapon is a tool for protecting the herd, and the more tools you carry, the fewer ways the herd can be hurt." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior. You'll want to know every weapon there is, then, because one day the one in your hand will break, and you'll need to pick up whatever lies nearby." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll need a weapon you trust as much as your totems, and I can teach you one." },
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer plainly." } },
       choices = {
+        { text = "Which weapons should a shaman learn, Ansekhwa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "Which weapon do you prefer?", next = "prefer" },
         { text = "Why protect the herd and not conquer?", next = "herd" },
@@ -195,6 +219,15 @@ P:NPC {
       choices = {
         { text = "That's a wise way to fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sometimes the best defence is striking first.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Maces, axes, staves and daggers, and a good shaman learns more than one, because the elements can be slow to answer when a centaur is already at your throat. Every weapon is a promise to protect someone, so choose the one you mean to keep." } },
+      choices = {
+        { text = "One weapon, mastered and kept, like a promise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever weapon is nearest when the centaur come is the right one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -225,9 +258,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Kuna Thunderhorn, and I sell bows, arrows and guns on Hunter Rise. The Thunderhorns have always been hunters, and somebody in the family had to make the bows instead of only using them." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Come and look at the long bows. They're cut from the old trees of Mulgore, and they'll carry an arrow further than anything the orcs make." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise! You'll want a mace more than a bow, I'd wager, but you're welcome to admire the craftsmanship." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time choosing; a bow is a long friendship." } },
       choices = {
+        { text = "Do shamans ever take up the bow, Kuna?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What makes a good bow?", next = "bow" },
         { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
@@ -255,6 +290,15 @@ P:NPC {
       choices = {
         { text = "A bow is more honourable.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Whatever works is the right weapon.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not often, because the elements want you up close, and lightning flies straighter than any arrow I've made. Still, the old shaman who blessed my first bow said the wood remembers the tree, and I've carved every bow since as if that were true." } },
+      choices = {
+        { text = "It is true. Everything made from the land keeps a spirit.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wood is wood. Good craft comes from your own hands.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -295,9 +339,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Kah Mistrunner, and I teach fishing. It's a strange thing to teach on top of a mesa, I know, but the lakes of Mulgore are only a lift and a walk away." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear! Your people fish the sea, and mine fish the lakes. We should trade secrets, you and I." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then maybe you can tell me why the fish bite better after a rain, because I've wondered for years." },
       },
       again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking." } },
       choices = {
+        { text = "Why do you think the fish bite better after rain, Kah?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing in Mulgore?", next = "where" },
         { text = "Why do tauren fish?", next = "why" },
@@ -327,6 +373,15 @@ P:NPC {
     aska = {
       lines = { { id = "a_default", text = "She's my sister, and she'll cook whatever I catch, which is how she ended up teaching cooking. Some days I think I fish only so she has something to complain about." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "My best guess is that the water spirits stir them up, and the fish get hungry and careless. Your guess would be better than mine, but a fisherman learns not to ask too many questions while the line is pulling." } },
+      choices = {
+        { text = "The water spirits deserve thanks for every catch.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A catch is skill and patience, so leave the spirits out of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -362,9 +417,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and those are both worth more than a sharper sword." },
         { id = "h_orc", when = { race = "Orc" }, text = "An orc! Your people eat everything burnt and call it cooked. Sit down, and I'll teach you to roast meat without turning it to charcoal." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and too thin, like all of you who spend your nights talking to campfires instead of cooking on them. Sit, and I'll fix that." },
       },
       again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm." } },
       choices = {
+        { text = "Do shamans cook differently from other tauren, Aska?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What should I cook first?", next = "first" },
         { text = "What's the best food in Mulgore?", next = "best" },
@@ -392,6 +449,15 @@ P:NPC {
       choices = {
         { text = "Sharing food builds trust.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A good meal is just fuel.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Shamans thank the fire before they start cooking, and I've never seen one burn a stew, so there might be something to it. Most of you forget to eat after a long trial, though, which is why I keep a pot ready." } },
+      choices = {
+        { text = "Thanking the fire is good manners, and the old way besides.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A fire is a tool. It doesn't need thanking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -430,9 +496,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Bena Winterhoof, and I teach alchemy. The Earth Mother grows the herbs, and alchemy draws out what she put in them to heal and to strengthen, which is all it should be used for." },
         { id = "h_alch", when = { profession = "Alchemy" }, text = "An alchemist! Tell me you've been making healing draughts, and not anything the Forsaken would be proud of." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because you'll understand that what the Earth Mother grows is meant for healing, whatever the apothecaries on Spirit Rise think." },
       },
       again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over." } },
       choices = {
+        { text = "Should a shaman worry about the Forsaken on Spirit Rise, Bena?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "What do you think of the Forsaken apothecaries?", next = "forsaken" },
         { text = "What potion should I learn first?", next = "first" },
@@ -464,6 +532,15 @@ P:NPC {
           text = "It is, and I'm told you're the one who carried the cleansing totem to it. My clan owes you thanks, so take mine, for what an alchemist's thanks are worth." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I worry enough for the whole bluff, and the elders tell me Cairne has his reasons for letting them stay. The dead brewing poisons beside the Pools of Vision is not what the Earth Mother intended, and I'd like a shaman to tell me the spirits agree." } },
+      choices = {
+        { text = "Healing is what herbs are for, and the spirits know it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A poison has its uses too, against the right enemy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -502,9 +579,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Nida Winterhoof, and I teach herbalism. The Earth Mother grows what we need everywhere, if we only learn to see it, and I teach that seeing." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Then you already know the plants are alive in more ways than one. Come, let me teach you to gather without hurting them." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel how glad the earth is when an herb is gathered properly, with thanks." },
       },
       again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things." } },
       choices = {
+        { text = "Do the earth spirits mind when we gather herbs, Nida?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What herbs grow in Mulgore?", next = "herbs" },
         { text = "Why thank the Earth Mother for weeds?", next = "thanks" },
@@ -534,6 +613,15 @@ P:NPC {
     bena = {
       lines = { { id = "b_default", text = "She's my cousin, and she makes potions from what I gather. We argue about whether the herbs are for healing or for learning, and she always wins, because she's louder." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not when we take only what we need and leave the roots to grow again. The Venture Company tears up whole hillsides in Stonetalon and the spirits there are sick with it, so I teach my students to do the opposite." } },
+      choices = {
+        { text = "Take only what we need, and thank the earth for it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Take what you can, because someone worse will take it otherwise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -569,9 +657,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Una, and I teach leatherworking. Every hide that comes to me was a living beast, and I teach my students to use all of it and waste none, because that's how you honour what was given." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll have hides in your packs, then, and you should learn to work them yourself rather than selling them for a few coppers." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll understand better than most that every hide I work once held a spirit, and that spirit deserves respect." },
       },
       again = { { id = "h_again", text = "Something else? Ask while I stitch." } },
       choices = {
+        { text = "Do the spirits of the beasts stay with their hides, Una?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "What's the best hide in Mulgore?", next = "best" },
         { text = "How do you honour a beast you've skinned?", next = "honour" },
@@ -595,6 +685,15 @@ P:NPC {
       choices = {
         { text = "I'll waste nothing I take.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "A beast is meat and leather, nothing more.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The old shamans said a little of the beast stays, so they sang over the hides before the tanning. I keep that song, though I'm no shaman, because I'd rather honor a spirit that isn't there than shame one that is." } },
+      choices = {
+        { text = "Honoring them costs nothing, so the song should be kept.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A hide is only a hide once the beast is gone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

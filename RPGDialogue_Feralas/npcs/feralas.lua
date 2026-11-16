@@ -627,6 +627,7 @@ P:NPC {
         { id = "h_cobalt_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Gordunni Cobalt"), days = 3 } },
           text = "Twelve samples, all glowing, all mine! Somewhere out there is a buyer who'll pay a pretty penny for these, and I mean to find them before the glow wears off." },
         { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks. Science is mostly waiting to find out." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the earth spirits know anything about the ore the ogres guard up north? Because the rocks under my bed won't tell me." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
@@ -638,6 +639,7 @@ P:NPC {
         { text = "I mine. What should I know about it?", next = "miner", when = { profession = "Mining" } },
         { text = "This is tauren land, goblin.", next = "tauren", when = { race = "Tauren" } },
         { text = "I could lift some cobalt off the ogres quietly.", next = "rogue_or", when = { class = "ROGUE" } },
+        { text = "Should we really be digging up the ogres' ore, Orwin?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll get you some.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -693,6 +695,15 @@ P:NPC {
       },
       choices = { { text = "See that nobody does.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Digging, studying and then selling, in that order, and the ogres haven't the faintest idea what they're guarding. If the earth spirits object, they're welcome to tell me themselves, and I'll gladly take notes." } },
+      choices = {
+        { text = "Ask the earth's leave first, Orwin. It's only courteous.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the ogres can't use it, somebody should profit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -742,6 +753,7 @@ P:NPC {
           text = "Innkeeper Greul. Braves, hunters, traders, all of them pass my fire, and while Mojache keeps travelers safe, I keep them fed." },
         { id = "h_rain", when = { metBefore = true }, text = "Rain again; it always rains in Feralas. The ogres hate it, and that's the only thing I like about it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Earth Mother at my fire! Sit, because the braves say you hear things in Feralas the rest of us miss, and I like a good story with my stew." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman by my fire! Sit down, because the rain in Feralas never stops, and your kind are usually the ones who brought it." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
       choices = {
@@ -749,6 +761,7 @@ P:NPC {
         { text = "Tell me about Mojache.", next = "camp" },
         { text = "Who's the loud orc by the gate?", next = "rok" },
         { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },
+        { text = "Does the rain in Feralas ever stop, Greul?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },
@@ -778,6 +791,15 @@ P:NPC {
         { id = "m_default", text = "The open grass, yes, and the sky with nothing in it. But the Earth Mother is under this wet ground too, so I put my hand on it in the morning, and she's still there." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not that I've seen, and the elders say the forest drinks so deeply because it's older than almost anything else in Kalimdor. The braves complain about wet boots, and I tell them to take it up with the water spirits, and then I send them to you." } },
+      choices = {
+        { text = "The rain feeds the forest, and we should be grateful for it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The forest could stand to dry out. I'm sick of mud.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

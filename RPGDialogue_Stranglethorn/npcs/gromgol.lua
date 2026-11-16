@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The old ones remember, and they don't talk about it much, because the warlocks led us to the demon's blood and called it strength. Thrall brought the shamans back so we'd never need that sort of strength again, and I mean to keep it that way." } },
+      choices = {
+        { text = "The elements give strength without that price. That's the better way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Strength is strength, Commander, however it's bought.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "They fight it, mostly. The jungle bites back, and they bite harder. But I have told them not to burn what they cannot eat, and they listen, because I am the one who feeds them." } },
       choices = {
@@ -37,6 +46,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the far seer can't be everywhere, and my grunts fight harder with the elements at their backs." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid of the tauren. Good. My grunts fight better with one of your kind nearby to mend them." },
         { id = "h_default", key = true,
@@ -55,6 +65,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then, but speak while you walk if you can." },
       },
       choices = {
+        { text = "Do your grunts still remember the shamans from before the warlocks?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your grunts respect this jungle, or only fight it?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "How's the supply line?", next = "road" },
         { text = "What do you need most?", next = "need" },
@@ -463,8 +474,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The spirits remember the Gurubashi, and they remember Hakkar too, so they be slow to trust any troll. But the elements don't care for empires, mon; they listen to anyone who listen first." } },
+      choices = {
+        { text = "Then I'll listen first, and speak softly in their jungle.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The spirits will answer me whether they trust me or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman come to Grom'gol! The spirits be talking loud in this jungle, mon, so you be hearing them better than most." },
         { id = "h_default", key = true,
           text = "Kin'weelay, witch doctor of the Darkspear. Orgrimmar send me to help Nimboya: he use his spear, and I use what can't be seen." },
         { id = "h_reef", when = { questActive = TODO_QUEST("The Vile Reef") },
@@ -488,6 +509,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, mon, Kin'weelay still here, and so be the spirits." },
       },
       choices = {
+        { text = "Do the jungle's spirits trust Horde shamans, or only the Darkspear?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What can't be seen?", next = "unseen" },
         { text = "Why do you want Bloodscalp necklaces?", next = "trophies" },
         { text = "What's down at the Vile Reef?", next = "reef" },
@@ -841,8 +863,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "One of the far seer's students told me how Thrall broke open the internment camps with the elements at his side, and nobody touched their stew till he finished. I'd give a month's bed for another story that good." } },
+      choices = {
+        { text = "Thrall freed us with honor. Those stories should be told.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Old stories don't win new fights, Thulbek.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Sit by the fire and tell me whether the elements have anything to say about the rain, because it hasn't stopped since I got here." },
         { id = "h_default", key = true,
           text = "Innkeeper Thulbek. As long as Grom'gol stands, there's a bed here for you. All I ask is a story of the fighting while you eat." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he wrestled a gorilla. By morning it was two gorillas, and by noon, a gorilla king, which makes a good story and a bad liar." },
@@ -850,6 +882,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
       choices = {
+        { text = "Have any shamans told stories at your fire, Thulbek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does Grom'gol need meat for the cookfire, Thulbek?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I've a story or two.", next = "story" },
         { text = "What's the talk in camp?", next = "talk" },

@@ -32,12 +32,16 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Michael Garrett, bat handler to the Dark Lady's city. The bats carry riders to Tarren Mill and the Sepulcher and wherever else the Forsaken have planted a flag, and they don't mind the dead on their backs, which is more than horses can say." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats don't like the smell of lightning, so mind what you're carrying before you climb on." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can run like a cat, I'm told, but there's no running across Lordamere Lake, so you'll want a bat." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, but bats are patient." },
         { id = "h_again2", text = "Anything more?" },
       },
       choices = {
+        { text = "Do your bats fear the storm, Garrett?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the bats mind a living rider, Garrett?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why bats and not wyverns?", next = "bats" },
         { text = "Were you a handler in life?", next = "life" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -66,6 +70,24 @@ P:NPC {
       choices = {
         { text = "The past is better left buried.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "It's good you remember who you were.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They fear thunder, mostly, and I can't blame them, since it's the only thing louder than they are. I've flown a few shamans to Tarren Mill and they all kept the storm packed away for the flight, and the bats were grateful, and so was I." } },
+      choices = {
+        { text = "I'll keep the storm packed away for the flight.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The bats will have to get used to it, Garrett.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "They mind the smell of your blood, but they'll carry you, and they'll be good about it. A bat's not like a horse, because a horse remembers who it used to belong to, and a bat only remembers who fed it last." } },
+      choices = {
+        { text = "Then I'll feed them myself before I fly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A mount is a mount. Feeding it is your job.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,12 +129,16 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Anastasia Hartwell, of the Magic Quarter. I teach the arcane to those of the Forsaken with the wit to learn it, and to the Dark Lady's allies, when they behave." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Your elements are crude and loud, but I'll grant they're effective, and effective is all I ask of anyone." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I read your Cenarion Circle's writings, the few that reached Dalaran before it fell, and I thought them sentimental." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask it plainly; I have apprentices to correct and little patience left." },
         { id = "h_again2", text = "Anything further?" },
       },
       choices = {
+        { text = "Crude, you say? Have you ever stood in a storm, Anastasia?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Sentimental how, Anastasia?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do the mages ever look down on hunters, Anastasia?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Did death change your magic?", next = "death" },
         { text = "What do you think of Dalaran?", next = "dalaran" },
@@ -156,6 +182,24 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I have, and I've called one, which is rather different from asking for one politely. The arcane doesn't care whether you're dead or living or troll, and I find that fairness restful, whereas your spirits seem to have opinions about everyone." } },
+      choices = {
+        { text = "Spirits with opinions keep a shaman honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. Power shouldn't need permission.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "They write about balance as though the world wants it, when the world wants nothing at all. The Scourge took my life and the Legion took Dalaran, and I've seen no sign that anything out there keeps the scales even, so I keep my own." } },
+      choices = {
+        { text = "Balance is real, Anastasia. Someone has to keep it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then keep your own scales. I'll keep mine.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -194,12 +238,16 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Apothecary Zinge, of the Royal Apothecary Society. We work for the Dark Lady, and the Master Apothecary oversees all of it, so if you've business here, it's his business first." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and I'd rather not explain lightning in my notes." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and living. Stand away from the vats, please, because those vapours aren't kind to lungs that still work, and they're less kind to anything with fur." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
         { id = "h_again2", text = "Ask, and quickly." },
       },
       choices = {
+        { text = "What do your mixtures do to the earth, Zinge?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What are those vapours made for, Zinge?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You test your work on prisoners, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you work on here?", next = "work" },
         { text = "What's Faranell like?", next = "faranell" },
@@ -238,6 +286,24 @@ P:NPC {
         { id = "fa_default", text = "Brilliant, demanding, and never satisfied, which is what a Master Apothecary ought to be. I report to him, and he reports to the Dark Lady, and I'd rather not disappoint either." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Nothing the Scourge hasn't already done to it, I should think. Your spirits may complain, but spirits don't fund research and the Dark Lady does, so they can take it up with the Master Apothecary." } },
+      choices = {
+        { text = "The earth's suffering matters too, Zinge.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Results come first. The earth will recover.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_q = {
+      big = true,
+      lines = { { id = "dq_default", text = "For the Scourge, as the Society requires, and for nothing else I'm prepared to discuss. Your nose is better than mine, I'd imagine, so if it tells you something in here is wrong, do me the courtesy of keeping it to yourself." } },
+      choices = {
+        { text = "Your secrets are your own. I'll keep quiet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My nose says enough. I'll be watching the Society.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

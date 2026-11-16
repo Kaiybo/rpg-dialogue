@@ -26,8 +26,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Ask, then, but they will find nothing in me worth answering. The Warchief says the spirits forgave our people for the demon blood, but I have not forgiven myself for standing in chains while a hero died, and I doubt the spirits can do what I cannot." } },
+      choices = {
+        { text = "Honor him by living, Gor'mul. The spirits would tell you the same.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then keep your grief. I won't trouble the spirits over it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. Thrall stood in this very camp the night Doomhammer fell, already speaking with the spirits, and I was here to see it, though they have never once answered me." },
         { id = "h_default", key = true,
           text = "I am Gor'mul. I was chained in this very camp, and I saw the Warchief come for us in his black armor with his hammer raised, and I saw a coward on a horse put a lance through his back. Tell me what use hope is after a thing like that." },
         { id = "h_amulet", when = { questActive = TODO_QUEST("Raising Spirits") },
@@ -45,6 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "Hammerfall bears a warrior's name, Gor'mul. I mean to honor it.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "The spirits haven't abandoned you, Gor'mul. Will you let me ask them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me about that night.", next = "night" },
         { text = "Why did you stay here?", next = "stayed" },
         { text = "What do you think of Tor'gan?", next = "torgan" },
@@ -398,8 +410,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "You can try, and I won't stop you, but I've listened to these winds for years and never once heard them say yes. They come off the Thandol Span and the old Stromgarde walls in gusts that knock a rider sideways, so maybe they'll be kinder to someone who asks politely." } },
+      choices = {
+        { text = "The winds deserve respect. I'll ask, and heed their answer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The winds can grumble all they like. Your riders fly regardless.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. Then you'll know what I mean when I say the Highland winds have opinions, and today they're not in a forgiving mood." },
         { id = "h_default", key = true,
           text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -410,6 +433,7 @@ P:NPC {
       },
       choices = {
         { text = "Do wind riders mind sharing the sky with my beast?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Shall I speak to the winds before your riders fly?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the winds like here?", next = "winds" },
         { text = "Do the trolls shoot at your riders?", next = "trolls" },
