@@ -191,8 +191,8 @@ commands.tts = function()
     lines[#lines] = lines[#lines] .. (i > 1 and ", " or "") .. tostring(voices[i].voiceID) .. "=" .. tostring(voices[i].name)
   end
   local m, f = C.TTSVoice("male"), C.TTSVoice("female")
-  lines[#lines + 1] = ("men: %s, women: %s, rate %s, volume %s"):format(tostring(m.name), tostring(f.name),
-    tostring(C.TTSRate()), tostring(C.TTSVolume()))
+  lines[#lines + 1] = ("men: %s, women: %s, rate %s, volume %s (game setting %s)"):format(tostring(m.name),
+    tostring(f.name), tostring(C.TTSRate()), tostring(C.TTSVolume()), tostring(C.TTSGameVolume()))
   lines[#lines + 1] = "read aloud in conversations: " .. yes(ns.db.settings.tts)
   if C.TTS.lastError then lines[#lines + 1] = "last error: " .. C.TTS.lastError end
   printList(L.TTS_HEADER, lines)

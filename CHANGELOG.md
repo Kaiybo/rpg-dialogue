@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.64.0 (2026-11-17)
+Core only; no pack changes. No new files: /reload is enough if you have 0.39.0 or later.
+
+### Text to speech fixes
+- **No more silent lines when the game's speech volume was never set.** If the game reports its text-to-speech volume as 0, RPG Dialogue now speaks the line itself at full volume, instead of handing it to the game's own routine, which played it silently.
+- **Quest pages read only what the quest giver says.** Objectives, rewards and required items stay on the page and aren't read out.
+- `/rpgd tts` now also shows the game's own volume setting next to the one we use, so a muted setting is easy to spot.
+
 ## 0.63.0 (2026-11-17)
 Core only; no pack changes. Includes 0.62.0 (tidier settings, journal button). No new files: /reload is enough if you have 0.39.0 or later.
 
