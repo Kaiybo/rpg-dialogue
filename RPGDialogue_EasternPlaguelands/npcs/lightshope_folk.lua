@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "For weeks, and they'll drop you a little too fast over Chillwind to prove it. The Wildhammer say a gryphon remembers every kindness and every slight, and after a year at Light's Hope I'm inclined to agree." } },
+      choices = {
+        { text = "I'll treat the bird as a comrade, not a beast of burden.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A gryphon's a mount. If it sulks, let it sulk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Khaelyn.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They tolerate each other, which in the Plaguelands is practically friendship. The real trouble is Georgia's roost, because my gryphons think her bats are snacks, and her bats think the same of my gryphons." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} well clear of the bat roost, {class}. Georgia's bats scream when anything with teeth comes near, and then my birds start, and nobody in the chapel sleeps." },
+      },
+      choices = {
+        { text = "Then I'll keep my beast clear of both, and keep the peace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them squabble. Beasts sort out their own pecking order.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Khaelyn.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Same as I bear the smell o' the Plaguewood, by keepin' my eyes on my birds an' my mind on my work. The Dawn says anyone who fights the Scourge has a place here, an' I'm a dwarf o' my word, though I'll admit I count the bats now an' then." } },
@@ -66,6 +87,10 @@ P:NPC {
           text = "A priest, is it? Then ye'll know why my birds land here and nowhere else in these lands, because the ground at Light's Hope is holy, an' even a gryphon can feel it under its claws." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, flyin' in an' out o' Light's Hope like the knights o' old! The birds like ye lot, I'll say that, because ye never panic in the saddle." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Mind the bird's wings when you mount, {class}, for you'd be amazed how many soldiers catch a pinion with their shield and then wonder why the gryphon won't speak to them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! The birds always perk up when one of yours comes into the yard, {class}, because hunters smell of fresh meat and open country." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood." },
@@ -80,6 +105,8 @@ P:NPC {
         { text = "Do you keep an eye on Georgia's bats, Khaelyn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can gryphons really feel the chapel's holy ground, Khaelyn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do gryphons hold grudges against careless riders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do gryphons and hunters' beasts get along up here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -153,6 +180,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They can and they do, but they fly lower and grumble louder. I'm told the apothecaries bred them for strength rather than comfort, so you'll arrive with your teeth rattling and your armour full of fur." } },
+      choices = {
+        { text = "I'll fly light, handler. Your bats, your rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My armour stays on. The bat can grumble all it likes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Georgia.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only once, and the cat lost, which surprised its owner a great deal more than it surprised me. Bats are cleverer than people think, and the plague can't touch them, which makes them the healthiest things in these lands." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. It's watching my bats the way a cat watches a larder, {class}, so keep a hand on it, or I'll be writing to the Undercity for a new bat." },
+      },
+      choices = {
+        { text = "I'll keep my beast leashed near the roost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A beast that can't roam freely isn't worth keeping.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Georgia.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -163,6 +211,10 @@ P:NPC {
           text = "A mage. My bats loathe the smell of the arcane, {class}, so stand to windward and try to think about something dull." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue at a bat roost. If you're here to steal a bat, {class}, they'll scream until every knight in the chapel comes running, and I'll let them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. The bats don't care how much metal you wear, {class}, but they'll complain about it the whole way to the Undercity, and so will I." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. My bats can smell beasts on you, {class}, and they don't like it, so stand over there where the wind will take it away." },
       },
       again = {
         { id = "h_again", text = "What else? The bats don't like the daylight, and neither do I." },
@@ -176,6 +228,8 @@ P:NPC {
         { text = "Do your bats mind a demon riding along?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Wouldn't a teleport home be faster than your bats?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does the Dark Lady have her own agents out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can a bat really carry a warrior in full armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do your bats ever fight a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -262,6 +316,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Sleep, mostly, and somebody to listen while they tell me what they saw at Corin's Crossing or Tyr's Hand. I give them soup and a clean blanket, and I've found the ones who talk sleep better than the ones who don't." } },
+      choices = {
+        { text = "Talking helps. I'll share a story if you'll listen.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things are better kept behind the helm, Jessica.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Dawn's wagons bring salt pork up from the south, but fresh meat's as rare as a dry morning here. A hunter who brings in a clean deer is the most popular person in the chapel for a week, and the soldiers cheer them all the way up the stairs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can lie by the hearth tonight, {class}, if it doesn't mind sharing with the inn cat. She's old and terrible and has never once lost a fight." },
+      },
+      choices = {
+        { text = "I'll bring in what clean meat I can for the soldiers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt for myself. The Dawn's wagons can feed the soldiers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Stratholme, mostly, and the ones they left behind there, and sometimes Tirion Fordring, though they lower their voices when they say his name. They argue about whether the Silver Hand could ever be made whole again, and nobody ever wins the argument." } },
@@ -306,6 +381,10 @@ P:NPC {
           text = "A priest, and you'll be wanting a quiet corner, I expect, because the soldiers come in at all hours and some of them need more than soup." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, at Light's Hope. The knights who come through here eat like they've not seen bread in a month, and most of them haven't, so sit down and I'll fetch a bowl." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "Take that helm off before you sit, {class}, please, for the soldiers get hot in here, and a warrior after a week in the Plaguelands is something I'll never get used to." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, good, for you might bring in something fit for the pot, {class}, as long as it's from somewhere the plague hasn't reached." },
       },
       again = {
         { id = "h_again", text = "Anything else I can get you? There's more bread." },
@@ -322,6 +401,8 @@ P:NPC {
         { text = "Does anyone ever steal from the inn?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the soldiers come to you with more than hunger, Jessica?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Dawn's knights talk about over supper?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the soldiers need most when they come in?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where does the inn's meat come from, Jessica?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -407,6 +488,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than anywhere in the kingdom, because every strap and rivet comes up from the south in a wagon the Scourge would dearly love to stop. A soldier who keeps his kit mended saves the Dawn a funeral, so I sell as cheaply as I can, which isn't very cheaply." } },
+      choices = {
+        { text = "Then the price is fair. The drivers earn every copper.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Profiteering's still profiteering, Farlane, however hard the road.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jase.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not as much as I'd like, since the beasts round here are mostly plague and teeth. The best pelts come from the high ground north of the chapel, where the wind's cleaner, but the hunters who go up there don't always come back down." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome in the shop, {class}, so long as it keeps its teeth off the bolts of cloth. I lost a good roll of wool to a hungry wolf last month." },
+      },
+      choices = {
+        { text = "I'll bring what clean hides I find, and trade them fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Scarce hides mean high prices. I'll sell to whoever pays most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jase.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -415,6 +517,10 @@ P:NPC {
           text = "A mage, {class}? Then you'll know the price of good reagents in hard times, and you'll go gently with me about mine." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Every spool on these shelves came a long and ugly way, {class}, so if one goes missing I'll know, and so will the Dawn." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Your kit's been knocked about, {class}, and I've the leather and the thread to set it right, though the price came up the same long road the thread did." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Bring me clean hides and I'll find a crafter who needs them, {class}, though clean hides in the Eastweald are scarcer than honest goblins." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a wagon to unload." },
@@ -426,6 +532,8 @@ P:NPC {
         { text = "What does the Dawn need most?", next = "needs" },
         { text = "Couldn't a mage's portal shorten your supply roads?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does anything go missing on the road to Light's Hope?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What does a warrior's kit cost out here, Jase?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters trade much at Light's Hope?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -23,6 +23,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Men from Andorhal, John said, to march the families south before the sickness reached the fields. You'll wait for the package, won't you, because I can't leave without it, and I can't think why the horse is so quiet." } },
+      choices = {
+        { text = "I'll stand guard here, Janice, for as long as you need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "No army is coming, Janice. Andorhal fell long ago.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They come right up to the door in broad daylight and stare, and they don't run when John shouts, and their eyes have all gone cloudy. I'm sure it's only the cold, it's been terribly cold, but I do wish John would take his bow out and see them off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} won't come any closer, will it? It keeps looking at me so strangely, as if I were the one who'd gone cloudy." },
+      },
+      choices = {
+        { text = "I'll see the foxes off for you, Janice. Rest easy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The foxes are plagued, Janice, like everything here. Like you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "For me? Oh, but I'm not the one travelling, it's the package and the cart and John, and I've just got to wait here until they come back. Only it's been such a long wait, and I'm so cold, and I can't remember the last time I slept." } },
@@ -46,6 +67,10 @@ P:NPC {
           text = "There's so much to do, the cart to pack and the horse to feed and a letter to Emma in Stormwind, and did I write to Emma? Someone should tell her I'm sorry." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "Oh, a priest, how lovely, you've come about the blessing for the cart, haven't you? John said we should have one before the long road, but I can't think where he's put the coin." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "Oh, you're a soldier! Has the army come at last? John said they'd send someone to see the farms safe, and I've been keeping the kettle warm for days." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "Are you a hunter? John used to go after the foxes that came for our hens, though lately the foxes have been ever so strange, and the hens won't lay at all." },
       },
       again = {
         { id = "h_again", text = "You're still here, aren't you, and I'm glad of it, the house is so quiet when nobody talks." },
@@ -61,6 +86,8 @@ P:NPC {
         { text = "Janice, would you like me to say a blessing for you?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Spare me the thanks, because I've ghouls enough to deal with.", next = "END", when = { questDone = TODO_QUEST("Two Halves Become One") }, fx = { align = { light = -1 } } },
         { text = "Janice, do you know what I am?", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "Janice, which soldiers were you expecting?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What's wrong with the foxes, Janice?", next = "xhuntcl", when = { class = "HUNTER" } },
       },
     },
     john = {
@@ -165,6 +192,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No, for the plague has left them nothing but pain, and a clean blow is a mercy. What grieves me is how few who swing the blade ever stop to think of the wolf it was before the Scourge came." } },
+      choices = {
+        { text = "Then I'll strike cleanly and remember what they were.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast is a beast. I can't mourn every wolf I kill.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not these, for the sickness has gone into their bones and their minds both. All a hunter can give them now is a quick end, and I'd rather it came from one who knows how to give it gently." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is healthy, and I thank Cenarius for every clean beast I still see. Keep it away from the Writhing Haunt, {class}, for the sick ones will call to it, and it may answer." },
+      },
+      choices = {
+        { text = "I'll give them a gentle end, as you'd wish.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sick or not, they're prey now. I'll hunt them as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Mercy, if it is done quickly and without hatred, because they can't be healed and they suffer every hour they live. I've watched your kind fight the Scourge with joy in their faces, and I'd ask you to do this work with sorrow instead." } },
@@ -199,6 +247,10 @@ P:NPC {
           text = "A priest, at my bedside. You need not try to heal me, young one, because the plague is deep in me now, but I'm glad of the company." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. I've heard of your kind, who carry the Light like a hammer, and I wonder whether you'd swing it at the sick beasts outside or kneel beside them." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. I've watched soldiers cut their way through these beasts with no thought for what they were, {class}, and I don't blame them, but I grieve all the same." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You know the beasts as I do, {class}, so you'll see what I see out there, and I'm sorry for it." },
       },
       again = {
         { id = "h_again", text = "There is more you would ask? Ask it gently, and I'll answer while I can." },
@@ -216,6 +268,8 @@ P:NPC {
         { text = "Is it mercy or murder to kill the plagued wolves, Mulgris?", next = "xapala", when = { class = "PALADIN" } },
         { text = "(Leave him in peace.)", next = "END", when = { questDone = TODO_QUEST("Glyphed Oaken Branch") } },
         { text = "Mulgore misses you, Mulgris.", next = "x_tauren", when = { race = "Tauren", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
+        { text = "Is a warrior wrong to kill the plagued beasts?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Can the plagued wolves be saved, Mulgris?", next = "xhuntcl", when = { class = "HUNTER" } },
       },
     },
     cure = {
@@ -321,6 +375,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one of them, for they were farmers and millers who'd only borrowed their armour for the day. They stood with Joseph in the square so the rest of us could run, and I've wondered every night since whether Pamela ran fast enough." } },
+      choices = {
+        { text = "They gave their lives well, Marlene, and the Light keeps them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Borrowed armour and good hearts weren't enough. They never are.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -333,6 +396,8 @@ P:NPC {
           text = "Joseph's ring is under his monument among the graves, so take it to the strange gnome in Andorhal, who says she can help him. I don't understand how, but I want so badly to believe her." },
         { id = "h_house", when = { metBefore = true },
           text = "This was a good house once, and Joseph used to stop here on the road to Darrowshire. He'd bring Pamela, and she'd chase the chickens all over the yard, but there are no chickens now." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A soldier. The defenders of Darrowshire wore armour like yours, {class}, and I watched them march down the lane to the square and never saw one of them come back up it." },
       },
       again = {
         { id = "h_again", text = "Is there something more you'd like to know? I don't have many visitors to talk to." },
@@ -345,6 +410,7 @@ P:NPC {
         { text = "Who is this strange gnome?", next = "gnome", when = { questActive = TODO_QUEST("A Strange Historian") } },
         { text = "Shall I say a prayer with you?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I can track a lost child, Marlene.", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "Did you know the soldiers who defended Darrowshire?", next = "xwarcl", when = { class = "WARRIOR" } },
       },
     },
     darrowshire = {
@@ -433,6 +499,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Strong enough that I'm sitting here bleeding instead of reporting from inside. They keep watchmen on the walls day and night and a hall full of knights besides, and every one of them believes the Light personally signed his orders." } },
+      choices = {
+        { text = "Then they need fighting fairly, in the open, steel on steel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strong walls have a weak gate somewhere. I'll find it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kirsta.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Big grey mastiffs, kept hungry, with handlers who know these hills better than I'd like. I lost them by wading half a mile down a freezing stream below Northridge, and I'm still not sure I'll ever be warm again." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'll admit {pet} gave me a start when you walked up, {class}. After those mastiffs, I see teeth and start looking for water." },
+      },
+      choices = {
+        { text = "Dogs are honest hunters. It's their masters I'd fault.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Kill the handlers quietly and the dogs go home.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kirsta.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -447,6 +534,10 @@ P:NPC {
           text = "A warlock? Don't let the Crusade see you, {class}, for they'd burn you quicker than they'd burn me, and they very nearly burned me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage would've been handy at Hearthglen, {class}, for the Crusade lit me up with arrows and a spot of frost would've slowed them nicely." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, and perfect timing. I'd have given my left boot for someone with a shield at Hearthglen, {class}, because the Crusade's archers never seem to run out of arrows." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter? Then you'll understand how I was tracked, {class}, because the Crusade had dogs out after me, and I've never been so glad of a stream in my life." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep it quiet, though, sound carries up here." },
@@ -462,6 +553,8 @@ P:NPC {
         { text = "The Crusade would burn me on sight. Does that bother you?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "Would a warlock even get close to Hearthglen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How bad were Hearthglen's defenses, really?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How strong is Hearthglen's garrison?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Crusade hunts spies with dogs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -610,6 +703,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Those who stood their ground were killed, and those who killed them made use of them afterwards, which is the way of the Scholomance. If you go in, you'll meet faces I once served supper to, and I'd ask you to put them down quickly." } },
+      choices = {
+        { text = "I'll give them a soldier's end, swift and clean.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They served the Barovs by choice. They'll fall like the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mistress Sarkhoff.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every autumn the master rode out with the hounds and half the household, and Lucien and I had a feast waiting when they returned. The hounds are still in the kennels, after a fashion, and I would not go near them if I were you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its hackles up, {class}, and it's quite right to. Animals feel this island, and they never did like the master's guests." },
+      },
+      choices = {
+        { text = "I'll lay the hounds to rest, for your sake and theirs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The kennels aren't my concern, Eva, only the school.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mistress Sarkhoff.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -628,6 +742,10 @@ P:NPC {
           text = "A mage, at Caer Darrow, {class}. The house had many guests of your profession once, and I served them all, and I wish now that I had poisoned the tea." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You walk the halls the way Lucien used to when the master was sleeping, {class}, as if every board might give you away. They will, here, for the house listens." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. The house kept guards at the gate in the old days, {class}, good men, and I've seen several of them since, walking the halls in the wrong colours." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The master's hunting horns still hang in the long gallery, {class}, and on certain nights they sound by themselves, though no one living has blown them in years." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you wish to know? I shall answer as well as I'm able." },
@@ -642,6 +760,8 @@ P:NPC {
         { text = "Did you see the necromancers at work, Eva?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Did you know Kel'Thuzad, Mistress Sarkhoff?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there a quiet way into the Scholomance?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What became of House Barov's guards, Eva?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Did House Barov hunt much, Mistress Sarkhoff?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },

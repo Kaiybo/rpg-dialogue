@@ -301,6 +301,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Each one has a cauldron lord standing over it and a crowd of the dead around it, and the lords carry the keys. You knock them down and I'll see to the dosing, and between your shield and my prayers we'll make a proper mess of their brewing." } },
+      choices = {
+        { text = "My shield is yours, Priestess, and the Light guide us both.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep your prayers. Out there, my shield does the work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Precious little near the fields, though the soldiers swear the deer up in the hills still look healthy. The cauldrons poison everything downwind, so the sooner we dose them, the sooner the beasts can drink without dying of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Don't let it drink from any trough between here and Andorhal, {class}, for I've buried more than one good dog this year and I've no wish to bury yours." },
+      },
+      choices = {
+        { text = "Then I'll put the sick beasts down and pray they rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayer won't cure a wolf, Priestess. An arrow ends it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -323,6 +344,10 @@ P:NPC {
           text = "A mage! Can you boil a cauldron dry, {class}? I've wanted to see one of those foul pots burst for months, and my prayers don't seem to manage it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've a quiet step, {class}, and I've learned not to ask the commander's quiet visitors what they've been up to. The Light sees it anyway, so I needn't." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! The cauldrons are well guarded, {class}, and I've been praying for someone with a shield to stand in front of me while I work." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. Keep that bow handy, {class}, because the wildlife near the cauldrons drinks from the same wells as the farms, and none of it is fit to eat any more." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind? Ask away, I've a jar or two to label while you talk." },
@@ -336,6 +361,8 @@ P:NPC {
         { text = "Poisoning the poisoners? That's my kind of work.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Fire would spread the plague. Isn't that a risk?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Light judge what's done in shadow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What guards the cauldrons, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is any of the wildlife here still clean?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -479,6 +506,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "One of the commander's soldiers turned round to wave goodbye and swept a month's work off the bench with his pauldron. I don't blame him, not really, but I keep the delicate things on the top shelf now, and I flinch whenever anyone shrugs." } },
+      choices = {
+        { text = "I'll mind my armour. Your work matters more than my swagger.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Glass breaks in a war camp. Keep it somewhere safer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Arbington.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "If my books are right, the Scholomance stinks of necromancy to anything with a good nose, so even the plagued wolves give the island a wide berth. I'd trust a wolf's nose over a book, frankly, but the wolves won't sit still to be questioned." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} bristle when the wind comes off Darrowmere, {class}? If it does, please write it down for me, because that's precisely the sort of thing I can't learn from a book." },
+      },
+      choices = {
+        { text = "Trust the beasts. They know evil better than any book.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Books first, Arbington. A beast's nose is only guesswork.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "That the Barovs gave Caer Darrow to the Cult of the Damned, and that the cult teaches necromancy there the way Dalaran once taught arithmetic. They raise the dead as homework, and some of the dead they practise on were knights of your order." } },
@@ -508,6 +556,10 @@ P:NPC {
           text = "Oh, you startled me! Please, {class}, cough or something when you come in, for I've reagents on this table that won't forgive a jogged elbow." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Oh, thank goodness, because every time I open one of these Scholomance texts I feel I ought to have someone holy standing behind me, and the soldiers keep laughing when I ask." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "Oh, you're wearing a great deal of metal, {class}, so please turn very slowly, because my glassware is on both sides of you and there's no more coming from Stormwind." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! I don't suppose you've ever tracked anything onto Caer Darrow, {class}? I've read that the beasts won't go near the island, and I'd love to know if it's true." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I don't mind, really, it's nice to talk to someone who isn't a bone." },
@@ -524,6 +576,8 @@ P:NPC {
         { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
         { text = "What have you read about the Scholomance that frightens you?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do warriors break much of your glassware, Arbington?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why wouldn't the beasts go near Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     xrogue = {
@@ -650,6 +704,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I'd hire a dozen if Valorfist would let me keep them in camp, but the commander says his soldiers aren't for private use. So I keep my own sword under the blanket and sleep very lightly indeed." } },
+      choices = {
+        { text = "I'll guard the camp, Barov, not a frightened man's bedroom.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For the right fee, I'll stand wherever you like, Barov.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Weldon.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "So the rumour goes, and I believe every unpleasant rumour about that island. If you happen to put down one of the Barov hounds, do bring me the collar, because the silver alone was worth a small fortune." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} well away from my tent, would you? I've nothing against beasts, {class}, I simply can't sleep with anything in camp that bites." },
+      },
+      choices = {
+        { text = "I'll put the hounds to rest. The silver can stay with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Silver's silver. I'll bring you every collar I find.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let us talk of something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Caer Darrow, its people and a school full of necromancers, if you must keep accounts. I won't pretend the Barovs were blameless, but neither will I pretend I could have stopped my father's dealings with a sword I barely knew how to hold." } },
@@ -689,6 +764,10 @@ P:NPC {
           text = "A priest. If you've come to pray for my brother's soul, don't trouble yourself, because Alexi sold it to the Cult of the Damned along with the family silver." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, and you'll be looking down your nose at a Barov, I expect. Save yourself the trouble, because Valorfist has already done it twice today." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Splendid, for you're exactly the sort I'd want about if my dead brother came calling, {class}, though I'd want you at the door, not by the bed." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. We kept a fine kennel at Caer Darrow, {class}, and I'm told the hounds still prowl the island, though whose hounds they are now I'd rather not guess." },
       },
       again = {
         { id = "h_again", text = "Well? You're still here, so you must want something else." },
@@ -707,6 +786,8 @@ P:NPC {
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What did your family's bargain cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you really hire a sword against Alexi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Your family's hounds still roam Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     xmage = {
@@ -862,6 +943,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because an Alliance blade and a Horde blade look the same to me but not to each other, and one quick hand on a hilt can undo a month of trust. At the door steel is only steel, and at the table we're only people who fight the dead." } },
+      choices = {
+        { text = "Then I'll leave it there gladly. Trust is worth that much.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A soldier who disarms in the Plaguelands is a fool, officer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than you'd think, because the plague doesn't care which kingdom a wolf belongs to. I've seen a dwarf and a troll share a fire and argue happily all night about tracking, and neither of them reached for a knife once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is welcome here, {class}. The beasts were the first to make peace at this table, for they never cared what colours their masters wore." },
+      },
+      choices = {
+        { text = "A hunt shared is a hunt doubled. I'd welcome the company.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt alone, officer, and I mean to keep it that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, officer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -880,6 +982,10 @@ P:NPC {
           text = "A mage at my table! Alliance or Horde, {class}, your fire burns the dead just the same, and the Dawn is grateful for it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "No knives at this table, {class}, whoever you work for. I keep one place in the Plaguelands where nobody draws steel, and I'd like it to stay that way." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Lay your weapon by the door if you'll sit at my table, {class}, and you'll have it back the moment you stand." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, and your beast is welcome at my table too, {class}, so long as it doesn't take a side either." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The Dawn has no secrets worth keeping from a friend." },
@@ -896,6 +1002,8 @@ P:NPC {
         { text = "Does that hold even for fel magic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do mages of both sides really work together here?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Dawn ever need something done quietly?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why must a soldier's weapon stay by the door?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do Horde and Alliance hunters really work together here?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },
@@ -1037,6 +1145,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Too many to count from the treeline, and they're well armed, because the Crusade feeds its soldiers before it feeds anyone else. My father built that mill to last, so if you fight your way in, mind the support beams, because I'd like something left to come home to." } },
+      choices = {
+        { text = "I'll fight carefully and leave your father's beams standing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the mill comes down on them, so much the better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Nathaniel.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Gone south with the rest of us, or gone under with the plague, and I never learned which. The woods are full of sick wolves now, so if you're out that way, it won't be deer you find." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} would have loved the mill yard when I was a boy, {class}, with sawdust to roll in and the dogs to chase. I hope it's that kind of place again one day." },
+      },
+      choices = {
+        { text = "The woods will come back, Nathaniel. I'll help clear the way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Those woods are dead. Better to burn them and start over.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let us talk of something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Some of them were knights once, and some were farmers who picked up a sword when the plague came, and I'd be glad to share a fire with either sort. But they took the mill from the family that built it and called it purging, and I can't call that anything but theft." } },
@@ -1073,6 +1202,10 @@ P:NPC {
           text = "A priest! My mother would have asked you to bless the mill before I set foot in it again, and I think I'd like that, if we ever get it back." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I'll say it before you do, I've no quarrel with the Light, only with the Crusade sitting in my father's mill and calling it holy ground." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! The Crusade's got a dozen guards at my father's mill, {class}, and I was hoping someone like you might walk in the front door while the termites see to the back." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. There used to be good deer in the woods round Northridge, {class}, and my father traded planks for venison with the trappers every winter." },
       },
       again = {
         { id = "h_again", text = "Something else you wanted to ask? Go ahead, I don't mind talking." },
@@ -1089,6 +1222,8 @@ P:NPC {
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
         { text = "Would you want the mill blessed after the Crusade leaves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Crusaders in Northridge still knights, or only squatters?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How many Crusaders hold the Northridge mill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What became of the Northridge trappers?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     xrogue = {
@@ -1204,6 +1339,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They mind it terribly, and they tell me so all the way to Aerie Peak, but they've never once dropped anyone. I give the big grey one an extra fish whenever he carries a knight, and I think he's started to look forward to it." } },
+      choices = {
+        { text = "I'll thank him properly before I climb aboard, then.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a mount, Bibilfaz. It carries what it's told.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bibilfaz.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mostly, though they think every cat is a chick they've misplaced and every wolf is a rude neighbour. The plague air makes them cross, so I keep pets well away from the roost until the birds have had their breakfast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, and that's {pet}! The grey gryphon's watching it very closely, {class}, so keep it this side of the post until they've been properly introduced." },
+      },
+      choices = {
+        { text = "Rules first, then. I'll keep my beast on this side of the post.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes where I go, and the birds can lump it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bibilfaz.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Safe enough, though the birds won't land there and I don't make them. The Scourge keep clear of the tomb too, which is the best thing anyone's ever said about a grave, I think, and I'd like to think Uther would be pleased." } },
@@ -1236,6 +1392,10 @@ P:NPC {
           text = "A priest! Do you think the Light minds gryphons? Only I've noticed the birds settle down when the chaplains walk past, and I don't think it's just the biscuits they carry." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Light's Hope is the only place up here my gryphons don't mind landing, and the knights there say it's because the ground is holy, which I find very reassuring." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Oh, the gryphons do grumble about the weight of plate, {class}, but they're very brave birds, and they'd carry an anvil if you asked them nicely." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
       choices = {
@@ -1247,6 +1407,8 @@ P:NPC {
         { text = "Could I hitch a ride without signing your ledger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do gryphons feel the Light, do you think?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it safe to fly over Uther's tomb, Bibilfaz?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your gryphons mind carrying heavy armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your gryphons get along with hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
     xrogue = {

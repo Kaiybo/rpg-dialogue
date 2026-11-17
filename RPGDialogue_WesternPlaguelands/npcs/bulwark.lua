@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Andorhal, eventually, but not yet. I've watched too many brave living soldiers march down that road and come back to the Bulwark as Scourge, so I'd sooner you learned the ground first and fought second." } },
+      choices = {
+        { text = "Then I'll learn the ground and take the city properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting breeds rot. I'll go now and cut my own road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the plague doesn't stay in the cauldrons. The wolves carry it out to the farms and the bats carry it over the hills, and every one of them is a map of where the Scourge has been, if anyone bothers to read it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on a short leash past the Bulwark, {class}. A beast that eats one wrong carcass out there will turn on you before the night's out, and I'd rather not have to put down the pair of you." },
+      },
+      choices = {
+        { text = "I'll read their trails and report every one to you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll drive the sick ones toward the Crusade and let them choke.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -48,6 +69,10 @@ P:NPC {
           text = "Our living allies eat three times a day and expect thanks for it. I don't mind, really, since it reminds me what we're guarding." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde, and welcome, {class}. Kel'Thuzad was a magus of the Kirin Tor before he taught the Scourge its craft, so you'll forgive me if I watch what you study." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior of the Horde, and a sound one by the look of that shield. The Deathguard can hold a wall, {class}, but they can't take Andorhal without someone who enjoys the charge." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. The beasts west of here are plagued to the marrow, {class}, so whatever you skin out there, don't eat it, and don't sell it to anyone you like." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it useful, and make it quick." },
@@ -63,6 +88,8 @@ P:NPC {
         { text = "Our warlocks could turn the dead on the Crusade.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "I prefer a knife in the dark to a banner.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Do you hold every mage to account for Kel'Thuzad?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Where do you want another blade, Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do the plagued beasts tell you about Andorhal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
       },
     },
@@ -219,6 +246,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It mends you well enough to stand and fight, which is all the Light ever promised a soldier anyway. It simply doesn't pretend to love you while it does it." } },
+      choices = {
+        { text = "Given the choice, I'll take the Light's kind of healing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't need love from my healer, only my feet under me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Back to the samples, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I've opened three wolves from Felstone Field on that table, and their blood was thicker than tar. Bring me a sample from each cauldron instead, and the apothecaries will learn more in an hour than I learned in a week of cutting." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} stays outside my tent, {class}. It isn't that I dislike beasts, only that I've had the cauldron wolves on my table, and I'd hate to think of yours there." },
+      },
+      choices = {
+        { text = "Then I'll put the sick ones down quickly and spare them that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A wolf on your table teaches more than a dead one. Cut on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I want to ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -235,6 +283,10 @@ P:NPC {
           text = "A mage, and still in possession of all ten fingers, I see. The cauldrons hate fire, {class}, so you may be more useful to me than most of the volunteers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You came in without a sound, {class}, which is either good training or very bad manners. Here, the two are often the same thing." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You'll bleed on my floor and expect me to mend it, {class}, which I will, though the shadow mends rougher than the Light ever did." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. The beasts that drink near the cauldrons die slowly, {class}, and I've wondered whether that's what the samples would do to us." },
       },
       again = {
         { id = "h_again", text = "Is there more? Ask it, then, I've samples waiting." },
@@ -249,6 +301,8 @@ P:NPC {
         { text = "Shadow and fel make good allies, priestess.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Couldn't fire alone destroy the cauldrons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you rather I fetched the samples quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Will your shadow mend a soldier as well as the Light?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Have you studied what the cauldrons do to beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll fetch your samples.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -373,6 +427,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It makes your heart beat as though it were trying to escape, which in my case it would have to restart first. Bring me the reagents and I'll brew you a bottle, though I'd recommend you drink it only once the ghouls are already close." } },
+      choices = {
+        { text = "I'll fight on my own strength and keep the potion for emergencies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll drink it at the gate and charge whatever's waiting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, apothecary.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It recovered, mostly, and it now forecasts rain better than my knee does. The beasts of the Plaguelands are a marvellous record of what the plague does, so if you shoot anything odd, I'll happily take it off your hands." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Might I take the tiniest sample from {pet}, {class}? Only a whisker, purely for comparison, and I promise to give it back if it's still attached." },
+      },
+      choices = {
+        { text = "Nothing I shoot goes in your jars. The beasts deserve better.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Science needs specimens, and I've arrows to spare. I'll bring some.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let us talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -391,6 +466,10 @@ P:NPC {
           text = "A warlock at the Bulwark! Do tell me, {class}, does your imp's blood boil at room temperature, or only when it's cross? I've always wondered." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! Splendid, for I need someone to keep the samples cold, and my knee says it's going to be a warm week. Do you do frost, {class}?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! You'll be wanting the quickener, I expect, {class}, for it puts a spring in a soldier's step that I'm told is quite alarming to watch." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter, how lovely! Don't let anything of yours near the samples, {class}, for the last pet that licked a vial in here barked for three days and then barked backwards." },
       },
       again = {
         { id = "h_again", text = "More questions? Marvelous, I love questions, they're so much tidier than answers." },
@@ -404,6 +483,8 @@ P:NPC {
         { text = "My knee aches too, Apothecary.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "My imp isn't a sample, apothecary.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'm not a cold box, apothecary.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What does your quickener do to a warrior, exactly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What became of that poor pet, apothecary?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -518,6 +599,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Weldon took lessons from the finest fencing master in Lordaeron and spent them admiring his reflection in the blade. Find my deeds, and you'll have done more with a sword in a week than he has in his whole life." } },
+      choices = {
+        { text = "I won't draw steel on a man over an inheritance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sword's worth what it's paid. Name your price, Barov.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Barov.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every autumn, with forty hounds and twice as many servants, and the deer were so tame you could hardly call it hunting. The deer are dead now and the hounds walk on without them, which is about what the Barovs deserve, I suppose." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that beast is {pet}, is it? My father would have offered you good gold for it, {class}, and then had it put down the first time it muddied his boots." },
+      },
+      choices = {
+        { text = "A hunt should be earned. Your father's was only theatre.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Tame deer and easy kills sound like sensible hunting to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let us talk of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -535,6 +637,10 @@ P:NPC {
           text = "A warlock, and of the Horde, which makes you a far better class of guest than my brother. Did you know, {class}, that the Scholomance teaches the shadow arts to anyone with ambition and a strong stomach?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. My family once paid a Kirin Tor tutor more than most villages earn in a year, {class}, and I learned nothing from him but how to look interested." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. My brother sleeps with a sword under his blanket, {class}, as though steel ever saved a Barov from anything, and I'd enjoy watching someone use one properly for once." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. My father kept hounds at Caer Darrow and rode them round the lake every autumn, {class}, and I've never forgiven the plague for the smell it left there instead." },
       },
       again = {
         { id = "h_again", text = "You're still here, I see. Well, go on, amuse me." },
@@ -548,6 +654,8 @@ P:NPC {
         { text = "I could take care of Weldon for you.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Are you suggesting I study there, Barov?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Kel'Thuzad was Kirin Tor. Is that how he found your family?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does your brother even know how to use that sword?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Did your family hunt the woods around Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
@@ -685,6 +793,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I miss knowing every face in the line, but I don't miss what the old Horde fought for. Here a human, a dwarf and an orc hold the same ground against the same dead, and I've never felt cleaner in battle." } },
+      choices = {
+        { text = "Holding the line side by side is all the honour I need.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Lines are for soldiers. I fight best alone, and fast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Garush.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The plague sends the beasts mad, and the mad ones run toward the dead rather than away from them. Follow a sick wolf far enough, and more often than not you'll find a cult camp or a ghoul pit at the end of the trail." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has a keen nose, I can see it. Keep it upwind of the dead, {class}, for once a beast smells a ghoul it never forgets, and some of them never stop shaking." },
+      },
+      choices = {
+        { text = "Then I'll put the mad ones down before I follow their trails.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll let the sick wolves run, and follow them to the nests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -701,6 +830,10 @@ P:NPC {
           text = "A mage, and the Plaguelands need fire more than steel some days. Burn the bodies, {class}, so they don't get up again." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "In the old Horde we called your kind the quiet blades, {class}, and I never knew whether to thank them or watch them. In the Dawn I thank them, for the dead don't care how they're put down." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, good. I was a grunt before I was anything else, {class}, and my old sergeant told me the Scourge never breaks, so you must never break first." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The Dawn needs eyes on these hills, {class}, and the plagued beasts know where the Scourge gathers long before any scout does." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Ask it plain, and I'll answer plain." },
@@ -716,6 +849,8 @@ P:NPC {
         { text = "Then why does the Dawn accept warlocks, Garush?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is fire really the answer to the Scourge?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Dawn have work for a quiet blade?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you miss fighting under the Horde's banner, Garush?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the sick beasts lead you to the Scourge, Garush?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },

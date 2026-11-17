@@ -375,6 +375,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "As a people someone else is spending, the way a merchant spends coin. Rend feeds them to the war and the black dragons feed on what's left, and every warrior who cuts them down only makes the account a little shorter." } },
+      choices = {
+        { text = "A soldier fights the foe in front of him, Helendis.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll strike at the masters and let the pawns scatter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Helendis.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Watched, until we know who arms them, because the Blackrock clan answers to Rend in the Spire and Rend answers to something older that I don't yet understand. To strike blindly at an enemy you don't understand is how wars are lost, and I have lived long enough to see it happen more than once." } },
@@ -428,6 +437,8 @@ P:NPC {
           text = "The worgs on the road are fewer this week. It was a mercy, {name}, whatever it felt like in the Spire." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin of the Light. The Blackrock orcs below would like nothing better than to test your faith, and I would ask you not to let them choose the place." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. The Blackrock orcs have known nothing but war for a generation, and I've wondered whether a soldier of the Alliance sees them as I do, or only as the next foe." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time, and the mountain isn't going anywhere." },
@@ -449,6 +460,7 @@ P:NPC {
         { text = "Does my craft frighten you, Helendis?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You've been watching someone. Who?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Blackrock orcs be fought, or only watched, Helendis?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you see the Blackrock orcs, Helendis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Elune keep you, Helendis.", next = "END" },
       },
     },
@@ -676,6 +688,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Worgs, soldier, and their riders, and anything coming down the slope from the Spire that wasn't there yesterday! Winky says he's seen dragons, too, but Winky also says he's seen my pension, so I'd treat that report with suspicion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this is your second, is it? {pet}, attention! Winky says beasts can't be drilled, soldier, but I see a very fine posture on that one." },
+      },
+      choices = {
+        { text = "I'll report every movement exactly as I see it, sir.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Scouts work best without orders, sir. I'll follow the trail.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Permission to ask something else, sir.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Phase one, soldier: set fire to Dreadmaul Rock. Phase two: set fire to it again, harder, because the ogres don't seem to have noticed the first time, and Winky says they're slow learners." } },
@@ -712,6 +736,8 @@ P:NPC {
           text = "Fifty Blackrock medallions, soldier, to go with my ogre ears, and not a single one fewer. Control says the orcs are carrying them all over the Steppes." },
         { id = "h_goods", when = { questActive = TODO_QUEST("The Good Stuff") },
           text = "Winky swears the Dark Irons in the Depths keep all the good stuff in those little belt-packs of theirs. Bring me twenty and we'll see who's lying." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, reporting! Excellent, soldier; Captain Winky says we need scouts, and Winky is right about twice a year, so this must be one of the times." },
       },
       again = {
         { id = "h_again", text = "Anything else, soldier? Speak up, because Winky's listening and he's a terrible gossip." },
@@ -727,6 +753,7 @@ P:NPC {
         { text = "Does Captain Winky need a rogue on his crew?", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "What would you have your artillery do, sir?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you really enlist my demons, sir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What should a scout watch for, sir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Dismissed, then.", next = "END" },
       },
     },
@@ -877,6 +904,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Overseer Pyron guards the quarry inside the mountain, and he's a fire elemental, and he burned three of my mages before we'd even seen him properly. If you can get close enough to put him out, you'll have done what my whole expedition couldn't." } },
+      choices = {
+        { text = "I'll go in for your mages. Nobody should burn for nothing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll do it, but for my own reasons, not theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jalinda.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It wandered too close to the mountain, and a fire elemental walked straight through it, and there was nothing left but a smell like burnt toffee. I keep thinking I'll get used to the Steppes, but every day they find a new way to frighten me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} all right in this heat? Mind its paws on the ash, because the ground here goes from warm to burning without any warning at all." },
+      },
+      choices = {
+        { text = "I'll guard my beast as carefully as you guard your mages.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast is a tool. If it burns, I'll find another.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jalinda.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Would you? Everyone who goes near the quarry comes back singed, but perhaps someone who doesn't glow and doesn't shout would get closer. Just count the fire elementals for me, and if you can tell me where Pyron stands, I'll sleep a little better." } },
@@ -897,6 +945,10 @@ P:NPC {
           text = "Incendius keeps raising Pyron from the ashes, and they say Incendius serves the one under the mountain. Oh dear, oh dear, I really wish I hadn't said that out loud." },
         { id = "h_rag", tags = { "news" }, when = { questRecent = { TODO_QUEST("Incendius!"), days = 7 } },
           text = "You're sure he said that name as he died? I haven't slept since you told me, and I keep thinking the ground is warmer than it was yesterday." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Oh, good, you look very solid, and solid is exactly what I need between me and Pyron, so please don't go anywhere." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! Oh, do keep your beasts away from the ridge, because everything up there is on fire, and I've already lost the expedition's pack mule to it." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I'm a little scattered today; something exploded earlier, and it wasn't even ours." },
@@ -911,6 +963,8 @@ P:NPC {
         { text = "Let me look at your mages' burns.", next = "priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "My imps don't mind fire, Jalinda.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I could scout Pyron's quarry for you, Jalinda.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Who's Pyron, and why do you need a shield against him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What happened to your mule, Jalinda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Take care, Jalinda.", next = "END" },
       },
     },
@@ -1034,6 +1088,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only the beautiful ones, which rules out most of what the Dark Irons carry today. The old ones, forged before Thaurissan's folly, are works of art, and I'd never let a soldier keep one long enough to use it." } },
+      choices = {
+        { text = "A weapon's made for a soldier's hand, not a rich man's wall.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the Count pays well, I'll find him all the swords he wants.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A black whelp's head would make his year, though I'd settle for a Blackrock worg pelt with the teeth still in. He has a whole room of heads at his house in Stormwind, and he insists on telling guests he shot every one himself." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And does {pet} have a pedigree, I wonder? No, don't tell me, or I'll only start writing it up for the Count, and you'd never get it back." },
+      },
+      choices = {
+        { text = "A trophy should belong to the one who earned it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bring me the Count's coin and I'll bring him his heads.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Only when they come up, and they come up more often than you'd think, since the plague left so many fine things with no one to claim them. The Count pays well for a Silver Hand tabard, and I tell myself it's better in a museum than in a ghoul's hands." } },
@@ -1077,6 +1152,10 @@ P:NPC {
           text = "The Count wrote to me himself, which he never does; he says the clasp is the jewel of the whole museum now. You're a very welcome name in a very old house, {name}." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! The Count would love to meet you, I'm sure, because he collects knights almost as eagerly as he collects jewels, though he's far less careful with the knights." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. The Count does adore a fine sword, and you look like someone who might stumble over one in the ruins and never know what it's worth." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter? How splendid, for the Count is mad about trophies, and I've a standing order for anything from the Steppes with horns, wings or a pedigree." },
       },
       again = {
         { id = "h_again", text = "What else? I'm cataloguing, but I can talk and count at the same time." },
@@ -1093,6 +1172,8 @@ P:NPC {
         { text = "Do the Dark Iron relics still carry enchantments?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has the Count ever bought anything demonic?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you sell relics of the Silver Hand to collectors, Mayara?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Count collect Dark Iron weapons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What sort of trophies does the Count want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with the hunt.", next = "END" },
       },
     },
@@ -1212,6 +1293,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Aye, the Wildhammer do it all the time up in the Hinterlands, but my birds are for the post an' the road home. When the Blackrock come over the ridge, though, I've seen my lads dive at them on their own, an' I've never been so proud o' anythin' wi' feathers." } },
+      choices = {
+        { text = "Leave the fighting to us, Borgus. Your birds have done enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Train them for war. Talons like that are wasted on the post.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Borgus.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Nae a thing, for there's nothin' fit tae eat out there that isnae already cooked or poisoned. I fly in fish from Lakeshire every week, an' they eat better than I do, the spoiled creatures." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a bonny beast. {pet}, is it? Well, keep {pet} on the ground, for my birds think anythin' smaller than a horse is breakfast." },
+      },
+      choices = {
+        { text = "Good birds deserve good food, Borgus. Keep spoiling them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fish from Lakeshire? Feed them worg meat and save the coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Borgus.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "They come for the gryphons, mostly, because a bird downed is a message that never reaches Lakeshire. Marshal Maxwell says we hold the ridge for honour an' for Stormwind, an' I say we hold it for the birds, but it comes tae the same thing." } },
@@ -1260,6 +1362,10 @@ P:NPC {
           text = "A priest! Say a wee word for the birds, would ye? The smoke chokes 'em an' the Blackrock orcs shoot at 'em, an' they deserve a bit o' kindness from somewhere." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Ye'll be wantin' a strong bird, then, for all that plate, an' I've just the one, a big grumpy fellow who doesnae mind the weight." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Mind ye stand still while I saddle ye, for the birds can feel a soldier fidgetin' in his plate, an' it puts them off their flyin'." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, is it? Keep yer beasts clear o' the roost an' all will be well, for my birds are cross enough wi' the smoke as it is." },
       },
       again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },
       choices = {
@@ -1270,6 +1376,8 @@ P:NPC {
         { text = "What happens if I sneak up on a gryphon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you lost many gryphons to the Blackrock, Borgus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Blackrock orcs ever come for the Vigil, Borgus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have your gryphons ever carried soldiers into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your gryphons hunt anything in the Steppes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today, Borgus.", next = "END" },
       },
     },

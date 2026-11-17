@@ -27,6 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only fish these days, and those reluctantly, since the river runs grey and they taste of it. I hunted the hills round Hearthglen when I was young, and there were stags there with antlers like oak branches, before all this." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Keep it close by the river, {class}, because the plagued things in the Eastweald have learned to hunt in packs, and they're fond of a lone beast at the water's edge." },
+      },
+      choices = {
+        { text = "The land will heal one day, and I'll hunt clean woods again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "These woods are lost, Tirion. Better to burn them and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tirion.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I have to believe so, or there is little point in an old man fishing here. The Light can cleanse a soul, but the land wants something slower, and I think it wants us to stop fighting over it first." } },
       choices = {
@@ -59,6 +71,8 @@ P:NPC {
           text = "A mage. I knew a few of the Kirin Tor in better days, {class}, when Dalaran's towers were the brightest thing in Lordaeron, and I miss the sight more than I'd have guessed." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You came down the bank so quietly the fish never noticed, {class}, and neither did I until just now. That's a rare gift, and I hope you use it kindly." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Mirador doesn't startle at you, {class}, which tells me you've a quiet way with beasts, and I've always trusted people the animals trust." },
       },
       again = { { id = "h_again", text = "Sit a while longer; the fish aren't biting anyway." } },
       choices = {
@@ -74,6 +88,7 @@ P:NPC {
         { text = "And what do you see in me, Tirion?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you blame Dalaran for not stopping the plague?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a paladin think less of someone who works unseen?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you still hunt these woods, Tirion?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
@@ -253,6 +268,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Advance, and keep advancing, through the Scarlet camps and the plaguebats alike, without waiting on orders from the Undercity. The Scourge has all the patience in the world, so the only way to beat it is to be faster." } },
+      choices = {
+        { text = "Then I'll press forward and give them no rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Without orders an army's only a mob. I'll wait for the plan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "It troubles me that the Scourge made it and the Dark Lady did not. What the land does after we have won is your concern, druid, not mine." } },
       choices = {
@@ -277,6 +301,8 @@ P:NPC {
           text = "A mage. Dalaran's people were scattered across this kingdom when the plague came, {class}, and a fair number of them now serve the Dark Lady in the Undercity." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. The Banshee Queen's Deathstalkers move as you do, {class}, and I've found them far more useful than soldiers who announce themselves." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. The Banshee Queen has soldiers enough to hold a line, {class}, so I'll want to see whether you can do more than stand where you're put." },
       },
       again = {
         { id = "h_again", text = "More? Ask it quickly, because the plaguebats won't wait on your curiosity." },
@@ -291,6 +317,7 @@ P:NPC {
         { text = "Does the Banshee Queen fear her warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust mages, Blightcaller?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you set me on the Scarlet zealots, Blightcaller?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What more would you have a warrior do, Blightcaller?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
       },

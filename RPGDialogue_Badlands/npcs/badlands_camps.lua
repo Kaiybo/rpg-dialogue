@@ -20,6 +20,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Nothin' a month at my anvil wouldnae fix, but there's nae month tae spare out here. Keep it oiled against the dust an' strike wi' the edge, no' the flat, an' it'll serve ye till ye find a better smith than the one who made it." } },
+      choices = {
+        { text = "I'll mind the blade's care. A weapon's only as good as its upkeep.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A blade's for killing, not coddling. I'll swing it as I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Martek.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Heavy iron, barbed an' hard-tempered, for a basilisk's hide turns a light point aside the way a stone shrugs off rain. I've made a few for hunters passin' through, an' none came back complainin', though one or two didnae come back at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the basilisks' eyes, for I'm told it's no' a good idea. I wouldnae know myself, mind, for I've the sense never tae look." },
+      },
+      choices = {
+        { text = "I'll leave the basilisks be, unless they come for me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every basilisk out there is a hide waiting to be sold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Martek.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Not in words, but I listen all the same, and I hear when a vein's run thin or a seam's about to crack. The troggs dig without listening, and Uldaman's full of things better left buried, so ye might tell the spirits not everyone down here is so careless." } },
@@ -93,6 +114,10 @@ P:NPC {
           text = "A letter from the Shimmering Flats? Fizzle Brassbolts, eh, and he wants my help with his racer. That gnome has nerve, I'll give him that." },
         { id = "h_indurium", when = { questActive = TODO_QUEST("Indurium") },
           text = "Indurium, from the troggs round Uldaman. Bring me enough of it and I'll show ye what real metal can do." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Let's see yer blade, then, an' I'll tell ye who made it an' how badly, for I've yet tae meet a warrior who knew what he was carryin'." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Ye'll find the coyotes an' buzzards out here are tougher than they look, an' the basilisks tougher still, so mind yer arrowheads." },
       },
       again = {
         { id = "h_again", text = "What else? The forge is coolin'." },
@@ -109,6 +134,8 @@ P:NPC {
         { text = "Do you ever miss the cities, Martek?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Indurium takes enchantments well, though, doesn't it?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you still pray out here alone, Martek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's wrong with my blade, Martek?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What arrowheads would you use on a basilisk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Martek.", next = "END" },
       },
     },
@@ -167,6 +194,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Pay? They fight over 'em! Last week an orc and a dwarf nearly came to blows in front of my grill, and I sold 'em both a plate, and they ended up shaking hands over the bones." } },
+      choices = {
+        { text = "Your grill's a better peacemaker than any treaty, Rigglefuzz.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Next time, let them fight and sell tickets.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rigglefuzz.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Off the cliffs round Angor Fortress, mostly, though the Dark Irons up there don't like me poking about. The big ones nest out by Dustwind Gulch, and they're as mean as they are tasty, which is very." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the grill, would you? It's looking at my buzzards the way my customers do, and I can't afford to feed anybody for free." },
+      },
+      choices = {
+        { text = "I'll bring you buzzards, a fair trade for a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell your nesting spots to whoever pays better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Rigglefuzz.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Thank 'em? I'd thank 'em if they flew down here already seasoned. The buzzards out here eat whatever falls over in the heat, so if anybody ought to be thanking somebody, it's them, for me cleaning the place up." } },
@@ -238,6 +286,10 @@ P:NPC {
           text = "Rigglefuzz's the name, and barbecue's the game! I've got a recipe for buzzard wings that'll make me richer than a Steamwheedle baron." },
         { id = "h_wings", when = { questActive = TODO_QUEST("Barbecued Buzzard Wings") },
           text = "Buzzard wings, as many as you can carry, and don't let 'em go rotten in the sun. The secret's in the sauce, and the sauce needs wings." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Big appetite, I bet, and nothing builds an appetite like hitting ogres all day, so how about a plate of wings before you go back out?" },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You must know where the fattest buzzards roost, and if you tell me, I'll owe you a favour forever, or at least till Tuesday." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you, pal, since time is money?" },
@@ -254,6 +306,8 @@ P:NPC {
         { text = "Who wants your sauce recipe that badly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "My imp is not a cooking fire, Rigglefuzz.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Should a priest really bless buzzard wings, Rigglefuzz?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do soldiers really pay for buzzard wings out here?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where do you get your buzzards, Rigglefuzz?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck with the barbecue.", next = "END" },
       },
     },
