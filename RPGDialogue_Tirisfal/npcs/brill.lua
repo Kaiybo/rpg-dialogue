@@ -26,6 +26,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Track them, and bring them down before they reach their camps, because a scout who reports is worth a company to the Crusade. The beasts of the Tirisfal woods have grown fat on Scourge leavings, so mind them as you go." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, and the Crusade's scouts reek of lamp oil and incense. Set it on their trail and they will not reach the monastery roads." },
+      },
+      choices = {
+        { text = "I'll bring them down cleanly, and bring you their orders.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll let one run, and follow him home to his camp.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,6 +50,7 @@ P:NPC {
           text = "Arren sent you with what the Crusade's runners carried? Let me see... yes, this will do nicely." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of the Warchief's lands and into my fields. The Crusade burns anything it can't explain, so they'll aim at you before they aim at me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Crusade's scouts creep through the woods north of Brill, and I would rather they were tracked than merely counted." },
       },
       choices = {
         { text = "Will the Deathguard fight beside the elements, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -48,6 +61,7 @@ P:NPC {
         { text = "I carry the Light, Executor. Does that trouble you?", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "My spells are at the Deathguard's service.", next = "mage", when = { class = "MAGE" } },
         { text = "My demons could break the Crusade's lines, Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Shall I track the Crusade's scouts through the woods, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
@@ -187,6 +201,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Darkhounds trouble the farms and the duskbats trouble everyone, though the gnolls at the graveyard trouble me most of all. Thin any of them and I'll note it in the town's accounts, which is more thanks than most people get from me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} on the far side of the ledgers, please. Our Darkhounds trouble the outlying farms, and if yours could thin them out, I'd note it in the town's accounts." },
+      },
+      choices = {
+        { text = "Then note it. Brill should know who keeps its roads.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your ledger, Magistrate. I hunt for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -199,6 +225,7 @@ P:NPC {
           text = "Here's a ring with an engraving, and someone in this town knows whose it is. Find out who." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my town hall? Do mind the papers, because I've no wish to learn what lightning does to a ledger." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? Brill had a grove once, before the plague, and I've the deeds to it somewhere, though I wouldn't call it a grove now." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my town hall. Do keep your beast off the rugs, {class}; they're the last good ones in Brill." },
       },
       choices = {
         { text = "Brill could use a shaman's totems, Magistrate. Where shall I plant them?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -209,6 +236,7 @@ P:NPC {
         { text = "Does Brill need a warlock's help, Magistrate?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Who keeps Brill's secrets, Magistrate?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does Brill have any use for a mage, Magistrate?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the beasts around Brill trouble the town, Magistrate?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
@@ -314,6 +342,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Escort my samples, mainly, because the Crusade burns whatever it can't understand, and it understands very little. And if a few of my test subjects should arrive bruised rather than dead, I'd be grateful, since corpses make poor results." } },
+      choices = {
+        { text = "I'll guard your samples. The Dark Lady needs that plague.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I won't play nursemaid to bottles, Apothecary.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -328,6 +365,7 @@ P:NPC {
           text = "An experiment wants a subject, and the Crusade has kindly provided one. Fetch what I need." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You speak to the elements, I'm told, and I would dearly like to know whether the elements have opinions about what I keep in these bottles." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how useful! You'll know your herbs better than any errand-runner, and I do hope you won't trample the doom weed." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do stand still, {class}, and keep that blade well away from my bottles, because some of them are only mostly safe." },
       },
       choices = {
         { text = "The earth here is sick, Apothecary. Do your brews make it worse?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -337,6 +375,7 @@ P:NPC {
         { text = "I served the Cult once. I know a plague when I see one.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied in Dalaran. Can I help with the formulae?", next = "mage", when = { class = "MAGE" } },
         { text = "Could your bottles do a rogue's work, Apothecary?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Is there anything here a warrior could do for you, Apothecary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -439,6 +478,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "If you like, though I'll admit I've a soft spot for them, since they've never once asked me to die for their property. They're lean and quick and they run in pairs out there, so watch the one you're not shooting at." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} looks like it would give a Darkhound a fair fight, which is fairer than the Agamands ever gave us. They run in pairs near the mills, so watch the one you're not shooting at." },
+      },
+      choices = {
+        { text = "I'll hunt them fairly, and let the ones that flee go.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A road's a road, Coleman. I'll clear every last one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -449,6 +500,7 @@ P:NPC {
           text = "The mills are haunted, and of course they're haunted; everyone who died there had a reason to stay angry." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Gallows' End! Sit down, friend; the ale's thin, but I'm told the spirits are generous, and I mean the other kind." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? The Agamands kept a little orchard behind the manor, and I'd dearly like to see you turn it into brambles out of spite." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, at the Gallows' End! The Darkhounds roam the fields by the Agamand Mills these days, and I'd say they make better neighbours than the Agamands ever did." },
       },
       choices = {
         { text = "Shall I ask the spirits about the Agamands, Coleman?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -458,6 +510,7 @@ P:NPC {
         { text = "You held the mills like soldiers. I respect that.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Could a mage's fire clear the Agamand Mills?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could set a demon on the Agamands, Coleman.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Should I hunt the Darkhounds near the mills, Coleman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go to the mills.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -549,6 +602,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oh, would you? I remember the first frost on Brightwater Lake and the way the reeds went stiff and white, but I can't remember the cold itself anymore. Tell it slowly, dear, and I'll hold my tea and pretend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like the cold, dear? Tell me how its breath steams on a frosty morning, because I've forgotten what that looks like, and I'd like to remember." },
+      },
+      choices = {
+        { text = "I'll tell it true, Gretchen, cold and all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some things are better forgotten, Gretchen. I'll spare you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -558,6 +623,7 @@ P:NPC {
         { id = "h_cup", when = { metBefore = true }, text = "I still order a cup of tea, though I can't taste it, and I hold it until it goes cold. Some habits are worth the coin." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I've heard your sort can call down frost, and I'd give a good deal to feel a shiver again." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, sitting with me by the fire? I'm told your sort can go about in a bear's fur, and I'll wager that's warm." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, dear? Come and sit, and tell me about the cold places you've tracked through, because I'd like to remember what a frost feels like." },
       },
       choices = {
         { text = "Shall I call the frost for you, Gretchen?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -567,6 +633,7 @@ P:NPC {
         { text = "Let me try something. A mage's fire is hotter.", next = "mage", when = { class = "MAGE" } },
         { text = "I'm good at going unseen, Gretchen. Does that help?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A demon's fire burns hot, Gretchen. Want to feel it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I've tracked through snow, Gretchen. Shall I tell you about it?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -794,6 +861,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Back to the fire and face to the dark, and never let the fire grow so bright that you can't see past it. A good camp is a small fort, {class}, and I've watched soldiers forget that the moment they sit down." } },
+      choices = {
+        { text = "Then I'll take the first watch tonight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather the fire roared, and let whatever comes, come.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The deer by Brightwater Lake, if you can stomach them, though I've learned to look closely at the meat first, because the plague shows in the liver. The wolves aren't worth the trouble, but their pelts make a fine bedroll." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine camp companion, because nothing creeps up on a fire that a beast can smell first. Feed it from the deer by Brightwater Lake, but look closely at the liver, because the plague shows there." },
+      },
+      choices = {
+        { text = "I take only what I'll eat, and waste nothing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I take what I can carry, and sell the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -804,6 +892,8 @@ P:NPC {
           text = "Sit by the fire until you feel rested, properly rested; you'll know it when it comes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out on the Tirisfal road! You'll know more about fire than I do, I expect, though I'd still like to see how you build one." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, a long way from Mulgore! You'll find Tirisfal's woods sadder than your plains, though I've learned to love them a little." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, on the Tirisfal road! You'll know how to stand a watch, I expect, and that's half of keeping a good camp." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Then you know the woods better than most who come down this road, and you'll have eaten well, which is more than I can say." },
       },
       choices = {
         { text = "Do you light your fires with flint, Eleanor, or ask them?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -813,6 +903,8 @@ P:NPC {
         { text = "I'm a long way from the Barrens. Any tips for this damp?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "You notice a great deal for a traveller, Eleanor.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could light your fire with a word, Eleanor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "How does a warrior keep a camp safe, Eleanor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What game is worth taking along this road, Eleanor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Safe travels.", next = "END" },
       },
       again = {

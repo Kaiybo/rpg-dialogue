@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Want it? I'd beg for it, if deathstalkers were allowed to beg. Walk in front where the worgen can see you, and I'll stay behind where they can't, and between us we might reach Yorick with all our limbs." } },
+      choices = {
+        { text = "I'll walk in front. Someone has to take the first blow.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You walk in front, Erland. I'll watch from behind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -33,6 +42,7 @@ P:NPC {
           text = "You're no friend of the Sepulcher, so I'll keep my hand on my knife while we talk. Still, you've not drawn on me, and the worgen won't care which flag either of us flies." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here! Good, because I'd much rather the worgen were frightened of your lightning than hungry for my legs." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good. You'll smell them before I do, and you'll know a worgen's scent from a wolf's, which I never can." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Thank the Dark Lady, because a deathstalker's knife is a fine thing in the dark, but it's no good against a worgen twice my size." },
       },
       choices = {
         { text = "Do the worgen fear the storm, Erland?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -45,6 +55,7 @@ P:NPC {
         { text = "How does a rogue move through Silverpine unseen, Erland?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can fire keep the worgen off, Erland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could a demon track a worgen, Erland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you want a shield beside you on the road, Erland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Good luck on the road.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Speak low; the trees are listening." } },
@@ -175,6 +186,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That they run like wolves and stand like men, and you'll find both kinds of print in the same mud. Where the prints turn upright, they're thinking, and that's when you should leave." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That they run like wolves and stand like men, and your {pet} will smell them before you see either kind of print. Where the prints turn upright, they're thinking, and that's when you should leave." },
+      },
+      choices = {
+        { text = "I'll report what I find, Yorick, and leave it there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll follow the prints wherever they go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -183,6 +206,7 @@ P:NPC {
           text = "You got Erland here in one piece, which is more than he usually manages himself. I'll have his report, and then I'll have a word with him about the noise he makes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are bright enough to be seen from Pyrewood, so plant them somewhere other than under my window." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wondering about Pyrewood, I expect; everyone with fur does." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen worgen tracks on the way in, if you were looking, and they get bigger the closer you come to Pyrewood." },
       },
       choices = {
         { text = "Do the worgen fear anything, Yorick?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -194,6 +218,7 @@ P:NPC {
         { text = "I'm a deathstalker too. Any orders?", next = "deathstalker", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "What do your scouts see of Ambermill's mages, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could send an imp to watch Pyrewood for you.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What can a hunter learn from the worgen tracks, Yorick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Be quick, the light's going." } },
@@ -309,12 +334,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They can, and they will, though they'll sulk about it for a day afterward, and a sulking bat is no fun to feed. Strap your shield down and keep still, and you'll be in Tarren Mill before the worgen notice you've gone." } },
+      choices = {
+        { text = "I'll strap it down and keep still, Karos.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My shield stays on my arm, sulking bat or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Karos Razok, bat handler to the Sepulcher. If you want the Undercity or Tarren Mill, I've a bat for you, and if you want conversation, I've very little." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats can smell a storm coming, and they're smelling one now, so keep your hands still." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can outrun my bats on the flat, I'm told, but you'll not run across Lordamere Lake." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My bats can carry your weight, but they'd rather you left some of that iron behind." },
       },
       choices = {
         { text = "Do your bats trust the living, Karos?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -324,6 +359,7 @@ P:NPC {
         { text = "Are the roads really that bad?", next = "roads" },
         { text = "Can I ride a bat out quietly, Karos?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your bats tolerate a demon riding along?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Can your bats carry a warrior in full mail, Karos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Just passing.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The bats are getting restless." } },

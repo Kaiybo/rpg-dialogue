@@ -28,12 +28,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Heavy ones, and fidgety, because they don't like sitting still while something else does the work. Hold the harness, keep your shield off the bat's wing, and you'll reach the Sepulcher with your dignity and most of your armour." } },
+      choices = {
+        { text = "I'll sit still and trust the bat, Garrett.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather walk. I like my feet on the ground.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They mind it, but they'll do it, so long as the beast doesn't try to bite the wing that's holding it up. Most hunters send their companions off for the flight, and I'd recommend it, for everyone's peace of mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'll tolerate {pet}, though they'd rather it didn't eye them like supper. Most hunters send their companions off for the flight, and I'd recommend it, for everyone's peace of mind." },
+      },
+      choices = {
+        { text = "I'll keep my beast calm for the flight, Garrett.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes as it pleases, Garrett.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Michael Garrett, bat handler to the Dark Lady's city. The bats carry riders to Tarren Mill and the Sepulcher and wherever else the Forsaken have planted a flag, and they don't mind the dead on their backs, which is more than horses can say." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats don't like the smell of lightning, so mind what you're carrying before you climb on." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can run like a cat, I'm told, but there's no running across Lordamere Lake, so you'll want a bat." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The bats carry armour well enough, {class}, though they'll complain about the weight the whole way to Tarren Mill." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats don't love your beasts, but they've learned to put up with them, which is more than the beasts manage in return." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, but bats are patient." },
@@ -47,6 +70,8 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Can a bat drop me somewhere quiet, Garrett?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your bats flinch whenever I come near, Garrett.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do warriors make poor bat riders, Garrett?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do your bats mind carrying a hunter's beast, Garrett?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -151,12 +176,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Some of them do, and they're fools, because every mage who ever lived has owed their life to someone with a shield standing in front of them. I'd trade a lesser student for one steady warrior on a bad day, and I've had a great many bad days." } },
+      choices = {
+        { text = "I'll stand in front. That's what warriors are for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the mages hold their own line for once.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Anastasia Hartwell, of the Magic Quarter. I teach the arcane to those of the Forsaken with the wit to learn it, and to the Dark Lady's allies, when they behave." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Your elements are crude and loud, but I'll grant they're effective, and effective is all I ask of anyone." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I read your Cenarion Circle's writings, the few that reached Dalaran before it fell, and I thought them sentimental." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in the Magic Quarter. Do try not to break anything, {class}, because the furniture is older than you are, and so am I." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask it plainly; I have apprentices to correct and little patience left." },
@@ -171,6 +206,7 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Warlocks study too, Anastasia. Why the contempt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Mages and rogues both deal in secrets, Anastasia.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the mages look down on warriors too, Anastasia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -286,12 +322,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rats, mostly, and the occasional bear when the Master Apothecary is feeling generous. If you bring in a wolf from Silverpine that's been drinking from the wrong stream, though, I'd be very interested in what's in its blood." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not yours, so you needn't hold {pet} so close. Rats, mostly, and the occasional bear, though a wolf from Silverpine that's been drinking from the wrong stream would interest me a great deal." },
+      },
+      choices = {
+        { text = "I won't bring living beasts to your cages, Zinge.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A sick wolf's no loss. I'll bring you one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Apothecary Zinge, of the Royal Apothecary Society. We work for the Dark Lady, and the Master Apothecary oversees all of it, so if you've business here, it's his business first." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and I'd rather not explain lightning in my notes." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and living. Stand away from the vats, please, because those vapours aren't kind to lungs that still work, and they're less kind to anything with fur." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts look healthier than my prisoners, {class}, and I'll admit I've wondered why." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
@@ -305,6 +354,7 @@ P:NPC {
         { text = "What's Faranell like?", next = "faranell" },
         { text = "Could the arcane speed up your experiments, Zinge?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does the Society test anything on demons, Zinge?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you need beasts for your experiments, Zinge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Never mind.", next = "END" },
       },
     },

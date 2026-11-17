@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That they hold when the Scourge comes, and hold again when it comes back, because Arthas never tires and neither may we. Loyalty I expect, {class}, but endurance is what I will remember." } },
+      choices = {
+        { text = "I will hold, my lady, for as long as it takes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hold for the Forsaken, my lady, not for orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "To be patient, to be unseen, and never to let the quarry choose the ground. I taught them that myself, and most of them died on the road to Silvermoon when Arthas came, so learn it better than they could." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To be patient and unseen, and never to let the quarry choose the ground. Your {pet} knows that by instinct, which is more than I could say for many of my rangers." },
+      },
+      choices = {
+        { text = "I'll hunt as your rangers did, my lady, with patience.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt my own way, my lady, as I always have.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -42,6 +63,8 @@ P:NPC {
           text = "The tauren Arch Druid spoke for the Forsaken before the Horde, when the orcs would have turned us away. Remember that, when you hear the tauren speak of balance." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's people speak of spirits and of balance, and I have heard enough of spirits to last me the rest of my long existence." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren. Your Arch Druid spoke for my people before the Horde, and I have not forgotten it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Forsaken need blades that do not break, and I will learn soon enough whether yours is one of them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I led the rangers of Quel'Thalas once, and I still know an archer by the way they carry their shoulders." },
       },
       choices = {
         { text = "Do the spirits trouble you, my lady?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -54,6 +77,8 @@ P:NPC {
         { text = "I served the Cult once, before the end.", next = "cult", when = { race = "Scourge", class = "WARLOCK" } },
         { text = "My people spoke for yours. Was it a mistake?", next = "tauren", when = { race = "Tauren" } },
         { text = "My spells are yours, my lady.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do you ask of your warriors, my lady?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What did the rangers of Quel'Thalas teach their hunters, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -226,6 +251,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Far more than you would think, mortal, for the hunt is only patience and appetite, and I have both in abundance. The Dark Lady's enemies never see either coming, which is the part I find most instructive." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Far more than you would think, and your {pet} would agree, if it could speak. The hunt is only patience and appetite, and the Dark Lady's enemies never see either coming." },
+      },
+      choices = {
+        { text = "I hunt for the Dark Lady, Varimathras, not for appetite.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every hunter hungers, dreadlord. I won't pretend otherwise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -238,6 +275,7 @@ P:NPC {
           text = "An alliance between our enemies? How very unholy. Break it before it learns to stand." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Royal Quarter. Your people knelt to my kind once and then changed their minds, which I have always found rather ungrateful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You smell of grass and wet fur, which is a novelty down here, though not one I'd ask you to repeat." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I have watched a great many mortal hunters stalk their prey, {class}, and I confess I still find it charming." },
       },
       choices = {
         { text = "Do you miss your hold on my people, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -248,6 +286,7 @@ P:NPC {
         { text = "The Light answers me. Does that trouble you?", next = "paladin", when = { class = "PALADIN" } },
         { text = "What does a dreadlord make of the arcane?", next = "mage", when = { class = "MAGE" } },
         { text = "I'd serve the Dark Lady from your shadow, Varimathras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What does a dreadlord know of the hunt, Varimathras?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -366,6 +405,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Need them? I crave them, bear hearts, spider blood, anything with a gland, because every beast in Lordaeron carries a little piece of the plague and I mean to know which piece. Bring them fresh, and for pity's sake don't let them sit in the sun." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Need them? I crave them, and that is a fine {pet} you have there, though I'm only looking, I assure you. Every beast in Lordaeron carries a little of the plague, and I mean to know which bit." },
+      },
+      choices = {
+        { text = "I'll bring them, Faranell. The Scourge must be stopped.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find your own bear hearts. I hunt for myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -378,6 +429,7 @@ P:NPC {
           text = "Lydon, in Tarren Mill? Yes, yes, a brilliant mind and terrible company. He named his frog, and I told him not to name the frog!" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, how marvellous, you put your hands into lightning and come out the other side, and I'd simply adore a sample of whatever's left in your blood afterwards." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Bear, cat, seal, whatever you like, all of them so wonderfully alive, so do hold still while I take a few notes, nothing invasive, I swear." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Oh, splendid, splendid, you'll be bringing me bear hearts and spider blood by the bucket, I can feel it." },
       },
       choices = {
         { text = "Could your work and my totems serve the same fight, Faranell?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -388,6 +440,7 @@ P:NPC {
         { text = "I trained in Dalaran. Your work is a kind of magic.", next = "mage", when = { class = "MAGE" } },
         { text = "Do your brews work on demons?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "My people's elders treat the Forsaken. Do you work with them?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Do you need samples from the beasts I hunt, Faranell?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll leave you to your work.", next = "END" },
       },
       again = {
@@ -500,6 +553,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than most mages would admit, because a lich spends its time guarding against spells and forgets that steel still cuts. Thule always did underestimate anyone who couldn't quote the Kirin Tor's charter, and I'd like to think that will be his undoing." } },
+      choices = {
+        { text = "Then point me at Thule, and I'll remind him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your old friend is your business, Bethor. I fight for pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -514,6 +576,7 @@ P:NPC {
           text = "So he's gone. I thought I'd feel something, but all I felt was the wand in my pocket, and I still carry it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Dalaran's scholars insisted the Horde knew nothing but fel and axes, and I'm glad to see they were wrong about something besides Arugal." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I knew a scholar in Dalaran who studied your Cenarion Circle, and he said druids were the only mages who never wanted more than they were given." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. In Dalaran we used to think a blade a crude thing beside a spell, and I've learned since that a blade, at least, doesn't sell its soul." },
       },
       choices = {
         { text = "Is the arcane so different from the elements, Bethor?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -524,6 +587,7 @@ P:NPC {
         { text = "An orc mage. What does Dalaran's man make of that?", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "I made bargains for power, as Thule did.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Have you ever had a use for a thief, Bethor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would a warrior be any use against a lich, Bethor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {

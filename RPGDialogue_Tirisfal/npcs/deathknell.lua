@@ -24,6 +24,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The duskbats nest in the old houses, and the spiders come down out of Night Web Hollow when they're hungry, though they don't care much for what they find. I'd be glad of fewer of both, because a grave that's been dug twice is a grave I have to fill twice." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of the fresh graves, if you'd be so kind. The spiders from Night Web Hollow come sniffing as it is, and a grave that's been dug twice is a grave I have to fill twice." },
+      },
+      choices = {
+        { text = "I'll keep them off your graves. The dead deserve their rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the beasts dig, Mordo. The dead don't mind anymore.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -32,6 +44,7 @@ P:NPC {
           text = "Shadow Priest Sarvis will explain the rest. He's in the chapel. Try not to stare at the others; they're new too." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? The earth here's been dug over so often it's half graves, so mind where you set those totems down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll want to see the old yew by the chapel, I expect; it's the only thing in Deathknell that died and didn't get back up." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen with an eye for tracks still in your head. The only beasts around Deathknell are the ones that come sniffing at the graves, I'm afraid." },
       },
       choices = {
         { text = "Does the earth mind holding so many dead, Mordo?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -42,6 +55,7 @@ P:NPC {
         { text = "My hands itch for locks and pockets, Mordo.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the dead learn their magic, Mordo?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the risen ever turn to warlockry, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do beasts dig at your graves, Mordo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll find Sarvis.", next = "END" },
       },
       again = {
@@ -151,6 +165,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Scourge's leftovers, mostly, and the spiders in Night Web Hollow, which have grown fat on things I'd rather not name. Hunt them if you like, because nothing out there is going to be mourned, least of all by me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You've a beast at your heel already, I see. {pet} won't be troubled by what lives in Night Web Hollow, I expect, and the spiders there could do with a fright." },
+      },
+      choices = {
+        { text = "I'll clear the Hollow. Deathknell needs safe paths.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt where I please, Sarvis, not where I'm sent.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -163,6 +189,7 @@ P:NPC {
           text = "A scroll came for you, and it reeks of the Light. Read it over there, please, not here, and then go to Aramis." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here. You talk to spirits, I'm told, and the spirits talk back, which is more than the Light ever did for me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my chapel. You serve the land, I gather, and the land around here has been rather busy serving the Scourge." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen and still looking for tracks. The Light never taught anyone to read a trail, so you've kept the more useful habit." },
       },
       choices = {
         { text = "You trust the shadow, Sarvis. Why not the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -173,6 +200,7 @@ P:NPC {
         { text = "I deal in fel and shadow, like you.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied magic in life. Does it still matter?", next = "mage", when = { class = "MAGE" } },
         { text = "I'd rather work from the shadows.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Is there anything worth hunting near Deathknell, Sarvis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll get to work.", next = "END" },
       },
       again = {
@@ -294,6 +322,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Watch it, count them, and shoot the ones who wander off alone. The Crusaders patrol in pairs and talk loudly about the Light, so you'll hear them well before you see them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} low in the grass. The Crusaders patrol in pairs and talk loudly about the Light, so you'll hear them long before your beast has to." },
+      },
+      choices = {
+        { text = "I'll report what I see, and shoot on your word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll shoot first, Executor, and report what's left.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -306,6 +346,7 @@ P:NPC {
           text = "You've earned a breath. There's a traveler camped on the road by Brill who claims she's not one of the Crusade, so see what she's about." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Crusade's camp burns well, and I'm told you can call fire." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you fight? Then Deathknell has a use for you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Crusade's camp sits in open ground, and I want eyes on it from the treeline." },
       },
       choices = {
         { text = "Where do you want the lightning, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -315,6 +356,7 @@ P:NPC {
         { text = "Point me at a Crusade camp, Executor. They won't see me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My fire is yours to aim, Executor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would the Executor take a warlock's help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
       },
       again = {
@@ -420,6 +462,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It has room for anyone who'll bear it, though I won't pretend it's comfortable for any of us. A soldier who stands firm while it burns is learning the same lesson I am, and the pain is a forge whether you pray or not." } },
+      choices = {
+        { text = "Then I'll stand in it, and let it burn.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll stand on my own feet, Aramis, not the Light's.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Patience, I'd say, and the willingness to wait through discomfort for something you can't yet see. I don't hunt, {class}, but I've watched good hunters, and they pray the way I wish more priests did, in silence and without demands." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Patience, I'd say, and loyalty, which your {pet} plainly has in plenty. A beast that stays beside a dead master teaches the rest of us something about faith, whether you meant it to or not." },
+      },
+      choices = {
+        { text = "Then I'll keep that faith, and keep my beast close.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Faith is for priests, Aramis. I hunt to eat.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -430,6 +493,8 @@ P:NPC {
           text = "The pain is a forge. It burns, and what's left is stronger. That's the whole of the lesson, and it takes years." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You keep your own faith in the spirits, and I won't try to turn you from it, because I know what it is to hold to something while others mock it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come into the church. Your people have been kinder to mine than we had any right to expect, so sit, and be welcome." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can still tell a soldier by how they stand, {class}, and you stand like someone who means to stay standing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You walk softly, which is a kindness in a church where most of the risen still stumble into the pews." },
       },
       choices = {
         { text = "Does the Light ever speak to you, Aramis, as the spirits speak to me?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -443,6 +508,8 @@ P:NPC {
         { text = "The arcane doesn't burn me the way your Light burns you.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You hold the Light and I hold demons. We're both mad.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll keep training.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Does the Light still have room for a plain soldier, Aramis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the Light and the hunt have anything in common, Aramis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The Light left me when I died, and I'm done with it.", next = "END", fx = { align = { light = -1 } } },
       },
       again = {

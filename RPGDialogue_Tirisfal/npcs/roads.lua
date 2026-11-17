@@ -23,6 +23,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hides, sinew and anything else a beast will give up, because the Dark Lady's people need boots and bowstrings as much as blades. The spiders in Night Web Hollow give good silk and the scavengers in the fields give good hides, so don't come back with anything half-chewed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the hides once they're down, and we'll get on fine. The Dark Lady's people need boots and bowstrings as much as blades, and I'm not sentimental about where they come from." },
+      },
+      choices = {
+        { text = "I'll bring back every hide. Deathknell comes first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep the best pelts, and you'll have the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -31,6 +43,7 @@ P:NPC {
           text = "Scraps of cloth and old gear, from the houses up the hill. They were somebody's once, and now they're ours, so don't be sentimental about it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? Then you can tell me whether your spirits want anything from those ruined houses, because my people have already stripped them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wanting a look at our fields, I suppose, and I'll tell you now they're no better than they look." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because skins and sinew are worth as much to Deathknell as any scrap of cloth, and you'll know how to get them." },
       },
       choices = {
         { text = "Do you leave anything for the dead, Deathguard?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -42,6 +55,7 @@ P:NPC {
         { text = "Why should I serve the Dark Lady?", next = "lady" },
         { text = "I can find what you need faster unseen, Deathguard.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could you use a mage, Deathguard, or just a pack mule?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you need hides for Deathknell, Deathguard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Time's the one thing we've plenty of, but I'd still not waste it." } },
@@ -155,6 +169,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I believe it is, though I pray over them afterwards, which Sarvis finds very sentimental of me. A clean stroke is kinder than anything they'll find wandering the fields, and I'd rather a warrior did it than a hungry wolf." } },
+      choices = {
+        { text = "Then I'll strike cleanly, and you can say the prayer.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're past mercy, Elreth. I'll just clear the field.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Would you? They wander without purpose, but they always seem to drift back toward the farmsteads, as though some part of them remembers home. If you find Samuel Fowler near the Solliden Farmstead, be gentle with him, for Marla's sake." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you, with {pet} to help? They wander without purpose, but they drift back toward the farmsteads, and a beast's nose will find them before your eyes do." },
+      },
+      choices = {
+        { text = "I'll find them, and you can grant them rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll find them, but I won't waste prayers on them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -165,6 +200,8 @@ P:NPC {
           text = "Marla Fowler's husband, Samuel, rose and wanders mindless near the Solliden Farmstead. Bring his remains back to her grave, so the two of them can rest together." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Sarvis says spirits are only voices, but you've spoken to them, so tell me, do they ever speak of us?" },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Deathknell! I've read that your people tend the land the way we tend the dead, and I'd love to know if that's true." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I hope you'll be gentle with the Damned in the fields, {class}, because they were people once, the same as you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll see the Damned before anyone else does, I expect, and I'd be grateful if you'd tell me where they gather." },
       },
       choices = {
         { text = "Shall I ask the spirits whether the Damned can rest, Elreth?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -175,6 +212,8 @@ P:NPC {
         { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
         { text = "Does Sarvis teach anything a mage could use, Elreth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Shadow and fel aren't so different, Elreth.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is it a mercy to cut the Damned down, Elreth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Shall I track the Damned through the fields for you, Elreth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, Elreth.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I don't mind; I'm meant to be learning patience." } },
@@ -280,6 +319,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Think it? I know it, deadman, because I've been brawling on this road since before you were buried, and you're still learning which end of the sword to hold. Bring your best, and mind your knees, because they look like they'd pop out." } },
+      choices = {
+        { text = "A fair fight, then. No tricks from me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll win however I like, Montague.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -290,6 +338,7 @@ P:NPC {
           text = "Oh, it's you. Yes, you won, you needn't look so pleased, and no, you're not getting a rematch." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here? I'll not wager against anyone who throws lightning, thank you, so put your hands down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? I've heard your lot turn into cats, and I'll not fight a cat, because I've owned one and I know how that ends." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, are you? Splendid, then here's a fair fight at last, and none of the sneaking about that the last deadman tried." },
       },
       choices = {
         { text = "Afraid of a little lightning, Montague?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -301,6 +350,7 @@ P:NPC {
         { text = "What do I win, exactly?", next = "wager" },
         { text = "Would you still want a fight against a mage, Montague?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Keep pushing and you'll fight my demon, not me.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you really think you can beat a warrior, Montague?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Not interested.", next = "END" },
       },
       again = { { id = "h_again", text = "Still talking? I'd rather be fighting, but go on." } },
@@ -417,6 +467,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Muscle? Well, yes, actually, because the Scourge wander through the fields and trample everything, and I can't gather and fight at the same time. Johaan says a proper apothecary shouldn't need guarding, but Johaan doesn't gather his own weed." } },
+      choices = {
+        { text = "I'll guard you while you gather. The work matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gather your own weed, Holland. I've real fights waiting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oh, would you? Johaan keeps the beast samples for himself, so if I had a few of my own, Darkhound blood, say, or duskbat wings, I might finally show him something he didn't think of first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, would you? Keep {pet} away from the bottles, but if you bring me Darkhound blood or duskbat wings of my own, I might finally show Johaan something he didn't think of first." },
+      },
+      choices = {
+        { text = "I'll bring them to Johaan. The Society works together.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll bring them to you, Holland. Let Johaan wonder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -425,6 +496,8 @@ P:NPC {
           text = "Doom weed grows in the fields around the town, and in the graveyard, too, where it's thickest. Gather me a good bundle, and mind the roots; they're the part I want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the elements have any use for doom weed, do you think? I've so much of it, and only one Johaan to give it to." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll know plants better than I do, so tell me honestly, does the doom weed look healthy to you?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do mind the doom weed when you swing that thing, because I've only just got the graveyard patch growing properly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be out in the fields more than I am, so keep an eye out for doom weed, would you? It's the dark one, and the roots are the part I want." },
       },
       choices = {
         { text = "What does the Society really want with all this doom weed?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -435,6 +508,8 @@ P:NPC {
         { text = "What does the Society actually do?", next = "society" },
         { text = "I can collect doom weed quietly, Holland.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does the Society ever study demons, Holland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does the Society need muscle in the fields, Holland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should I bring you anything from the beasts around Brill, Holland?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good day, Holland.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I've a pot about to boil, but talk fast." } },

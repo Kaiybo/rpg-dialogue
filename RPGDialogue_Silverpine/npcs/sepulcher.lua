@@ -167,6 +167,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I need a guard on the shipments, since half of what comes down the road from Brill arrives broken or not at all. And the Rot Hide gnolls carry a sickness someone made deliberately, so if you cut one down, don't cut your own hand on the same blade." } },
+      choices = {
+        { text = "I'll guard the shipments. Your work serves the Dark Lady.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I came to fight gnolls, Apothecary, not carry crates.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -182,6 +191,7 @@ P:NPC {
         { id = "h_samples", when = { metBefore = true }, text = "The samples spoiled again in the damp. Silverpine rots everything, which is ideal for some studies and infuriating for others." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call up any water spirits in here, because the damp is already ruining my samples." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how fortunate. The Moonrage worgen and the spiders near Fenris Isle both interest me, and you'll know them better than my errand-runners." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Do keep your blade sheathed in here, {class}, because the samples are fragile and I am out of patience with this damp." },
       },
       choices = {
         { text = "Could the spirits help trace the Rot Hide sickness, Renferrel?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -191,6 +201,7 @@ P:NPC {
         { text = "The Rot Hide sickness reminds me of the Cult's work.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Could I coat my blades with any of this?", next = "rogue", when = { class = "ROGUE" } },
         { text = "A mage's eye might help with your recipe, Apothecary.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you need a guard for your samples, Apothecary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -283,6 +294,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Carefully, and never at night, because the curse makes them stronger under the moon and cleverer than any wolf has a right to be. They are Arugal's mistake, called up from somewhere he didn't understand, and they don't die as easily as ordinary game." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Carefully, and keep {pet} close, because a worgen will go for your beast first to get at you. The curse makes them stronger under the moon and cleverer than any wolf has a right to be." },
+      },
+      choices = {
+        { text = "Then I'll hunt them by day, as you advise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt them under the moon. That's the real test.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -295,6 +318,7 @@ P:NPC {
           text = "Dalaran's mages are in Ambermill. I want to know why. Bring me what they're carrying, and I'll read it better than they wrote it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Kirin Tor never trusted shamans, and I always thought it was because they couldn't explain what you did, and they hated anything they couldn't explain." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Dalaran's libraries had three shelves on the Cenarion Circle and two of them were wrong, so I'd welcome a correction." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arugal's worgen are beasts only in shape, {class}, and I'd advise you not to treat them like ordinary game." },
       },
       choices = {
         { text = "Can you explain what I do, Archmage?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -305,6 +329,7 @@ P:NPC {
         { text = "An orc mage, Archmage. Go on, laugh.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "I deal with the Nether, Archmage. Spare me the lecture.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Do mages ever trust rogues, Archmage?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "How should I hunt Arugal's worgen, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -413,6 +438,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Very little, I'm afraid, because a watcher must go unnoticed and you could not go unnoticed in a fog. But someone has to deal with what my watchers find, and that, I suspect, is where you come in." } },
+      choices = {
+        { text = "Then show me what they find, and I'll deal with it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I find my own fights. I don't need your watchers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Perhaps, if you can report what you see without adding what you wish you'd seen. Hunters notice beasts and tracks and weather, and a watcher needs all three, so tell me what moves along the roads past Pyrewood, and how many of them come back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Perhaps, and {pet} would make a better watcher than most of mine, because a beast never adds what it wishes it had seen. Tell me what moves along the roads past Pyrewood, and how many of them come back." },
+      },
+      choices = {
+        { text = "I'll report honestly, Shadow Priest, and nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll report what serves me, Shadow Priest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -426,6 +472,8 @@ P:NPC {
         { id = "h_watchers", when = { metBefore = true }, text = "One of my watchers came back from the north with a story I don't believe, and I wrote it down anyway. That's the work." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I heard you were coming, of course, and I heard your spirits were noisy, which I'd ask you to keep in mind near the border." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I heard a tauren had come to Silverpine, and I heard you'd been sniffing about Pyrewood, so I assume you've something to tell me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My watchers saw you coming, {class}, and you're not hard to see, with all that steel catching the light." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You read the forest the way my watchers read people, {class}, and I wonder which of you is the better at it." },
       },
       choices = {
         { text = "What do you want from a shaman, Shadow Priest?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -434,6 +482,8 @@ P:NPC {
         { text = "Demons make fine watchers, Allister.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you want me to learn?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "I'm good in the shadows. Make me one of your watchers.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "What use are warriors to your watchers, Shadow Priest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Could a hunter serve as one of your watchers, Allister?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "A living face could cross the border easier.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
       },
       again = {
