@@ -15,3 +15,7 @@ pools.lua
 npcs\sepulcher.lua
 npcs\roads.lua
 npcs\unsung.lua
+npcs\faerleia.lua
+npcs\quinn.lua
+npcs\podrig.lua
+npcs\wallace.lua

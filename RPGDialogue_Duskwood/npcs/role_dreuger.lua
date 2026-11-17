@@ -49,7 +49,7 @@ P:NPC {
         { text = "What's the council arguing about?", next = "council" },
         { text = "What does the town need most?", next = "needs" },
         { text = "What do you think of Lord Ebonlocke?", next = "ello" },
-        { text = "I hear Dextren Ward still lives in the Stockade.", next = "dextren", when = { heardClaim = "dextren_spared" } },
+        { text = "Lord Ebonlocke has sent me after Dextren Ward.", next = "dextren", when = { questActive = TODO_QUEST("Crime and Punishment") } },
         { text = "Good day, Deputy Mayor.", next = "END" },
       },
     },
@@ -90,7 +90,7 @@ P:NPC {
       choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
     dextren = {
-      lines = { { id = "dx_default", text = "He does, and every councilman in this hall knows it, and nobody will say it aloud. Stormwind's nobles took him off our hands and out of our justice." },
+      lines = { { id = "dx_default", text = "Good. Every councilman in this hall knows he's alive in that Stockade, and nobody will say it aloud, because Stormwind's nobles took him out of our justice." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
