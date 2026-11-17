@@ -675,6 +675,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Free of him, not free, and you surface folk always confuse the two. Ragnaros still burns beneath the mountain, and the Dark Irons who knelt to the Emperor will kneel to the fire next, while the Thorium Brotherhood goes on working metal and keeping its own counsel." } },
+      choices = {
+        { text = "Your people deserve better than the Firelord. Help them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them kneel. Fools choose their own masters.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Did the Brotherhood ever serve the Emperor?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "We served the forge, and the forge sat in his city, so ask yourself how much choice that was. Some of us left his halls for Thorium Point, and I came farther still, to the snow, because the cold is honest and the Emperor never was." } },
+      choices = {
+        { text = "The cold suits you, Malyfous. Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Your fire burns and is gone, ant. A forge's fire goes into the metal and stays there, and the blade remembers it long after the smith is dust, which is the only kind of magic the Brotherhood respects. Bring me ore from the Searing Gorge and I'll show you what fire is for." } },
@@ -761,6 +776,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" }, text = "So the Emperor's dead in his own throne room, ant, and Shadowforge City has no king. The Brotherhood will be drinking to it, and I will be at my forge, because a king dying never made one bar of iron better." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, ant. You spin fire out of nothing and call it craft, and I've spent my life coaxing it from coal and bellows, so don't expect me to be impressed." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -804,6 +820,7 @@ P:NPC {
         { text = "What hides would the Brotherhood want from a hunter?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you feel the mountain's fire up here, Malyfous?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Is a mage's fire really so different from a forge's, Malyfous?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Thaurissan is dead, Malyfous. Your clan is free of him.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
         { text = "Goodbye.", next = "END" },
       },
     },

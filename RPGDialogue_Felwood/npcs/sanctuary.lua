@@ -27,6 +27,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_st = {
+      big = true,
+      lines = { { id = "xcl_st_default", text = "Because Eranikus guarded that temple for Ysera, and he was her consort before he was its jailer. Something in the long watch poisoned his sleep, and a poisoned dreamer reaches into every dream that touches his, which is not so different from what the fel did to these trees." } },
+      choices = {
+        { text = "Then he must be redeemed. A dragon's mind can be healed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A corrupted dragon should be destroyed before he spreads it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Could Felwood be healed the same way?", next = "xcl_st2" },
+      },
+    },
+    xcl_st2 = {
+      lines = { { id = "xcl_st2_default", text = "Slowly, with cleansed water and patient hands, which is the only way anything is healed here. I plant a seed every morning and most of them die, but the ones that live are proof the land remembers what it was." } },
+      choices = {
+        { text = "Then keep planting, and I'll keep fighting.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Thin their numbers, and find out what Xavaric, their leader, is planning, if you can get close enough. Every satyr that falls is a little less poison in the soil, and I'd rather you did it quickly and quietly than with a war band that would trample all my seedlings." } },
@@ -104,6 +119,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "The Dream feels a little less troubled tonight, and they say you went all the way to the bottom of the Sunken Temple. If the green dragons there are less tormented for it, you've done Felwood a kindness without setting foot in it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jadefire", min = 30 } },
           text = "The Jadefire satyrs are fewer, and I swear one of my seedlings sprouted the morning after you came back from their camps. I'll not call it a coincidence." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -151,6 +167,7 @@ P:NPC {
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you truly believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have me do to the Jadefire satyrs, Eridan?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why would the Sunken Temple matter to the Emerald Circle?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },

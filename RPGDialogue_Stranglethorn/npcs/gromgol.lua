@@ -894,6 +894,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Some do, and some never will, because blood spilled for a false god does not sink back into the earth quietly. The Gurubashi bent the jungle's power to feed their Soulflayer, and it will take the shaman of the Horde many years to coax it back to its own nature." } },
+      choices = {
+        { text = "Then we coax it gently. The land deserves patience.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Burn the old shrines and let the jungle heal itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What becomes of the Gurubashi without their god?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "They will scatter, or they will choose a new god, and I fear the second more than the first. The Darkspear left that empire long ago and found a place in the Horde, so perhaps some of the Gurubashi could learn the same lesson, if they live long enough." } },
+      choices = {
+        { text = "Perhaps. Something else, Far Seer.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The elements answer the shaman and the Light answers the paladin, and I have never needed to choose between them. What I wonder is what it asks of you in return, for a power that crosses death must ask a great deal." } },
@@ -961,6 +976,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" }, text = "The beasts of Stranglethorn are calmer tonight, and I felt it before any runner told me. They say you went into Zul'Gurub and silenced the blood god, and the spirits around this fire agree." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The beasts of this jungle carry old power, and you'll feel it if you sit by my fire, though it isn't the kind your prayers were made for." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
@@ -997,6 +1013,7 @@ P:NPC {
         { text = "What power do you draw from the beasts, Far Seer?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a priest's prayers reach the power in these beasts, Far Seer?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light sit well with a far seer, Mok'thardin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Hakkar is dead, Far Seer. Do the spirits rest now?", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "Thank you, far seer.", next = "END" },
       },
     },

@@ -549,6 +549,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zf = {
+      big = true,
+      lines = { { id = "xcl_zf_default", text = "Broken for a season, maybe, and a season is all the Water Company needs to run new pipe out toward the west. The Sandfury have been fouling springs out there since before I owned my first wrench, so you'll forgive me if I wait for the gauges before I celebrate." } },
+      choices = {
+        { text = "Strike now, while they're leaderless. Mercy only gives them time to regroup.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Let the survivors be. A beaten enemy deserves the chance to stay beaten.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Why do the Sandfury foul the springs at all?", next = "xcl_zf2" },
+      },
+    },
+    xcl_zf2 = {
+      lines = { { id = "xcl_zf2_default", text = "Because they figure the water was theirs before the Cartel ever sank a well, and between you and me, they're probably right. That doesn't change the fact that Gadgetzan dies in three days without it, so I keep the pumps running and let the historians argue." } },
+      choices = {
+        { text = "Fair enough. Something else, then.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -634,6 +649,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "You've been to the bottom of Zul'Farrak and come back with your boots on, which is more than Sergeant Bly's crew can say. If Sandscalp's really dead, I can stop doubling the guard on the western pipes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk to water? Because I've got wells that have stopped listening to me, and the Wastewanders are sitting on the ones that still do." },
         { id = "h_default", key = true,
           text = "Water is everything out here. The Water Company keeps Gadgetzan drinking, and the Wastewander bandits keep stealing it. Guess which one of us is having a worse week." },
@@ -673,6 +689,7 @@ P:NPC {
         { text = "Who guards your pumps when the Bruisers won't leave town?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's been getting at the Water Company's pipes, Chief?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Could my magic help with the Wastewanders, Chief Engineer?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Chief Ukorz Sandscalp is dead, Bilgewhizzle. Zul'Farrak is broken.", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
         { text = "Good luck with the pressure.", next = "END" },
       },
     },
@@ -1171,6 +1188,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zf = {
+      big = true,
+      lines = { { id = "xcl_zf_default", text = "Bad? A city with no chief is a city with nobody watching the storerooms, and there are scarabs carved in that place older than Gadgetzan's oldest debt. The trouble is that every goblin in Tanaris heard the same news this morning, and margins don't survive a crowd." } },
+      choices = {
+        { text = "Those relics belong to the dead who carved them. Leave them buried.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dig them up and sell them. The dead don't haggle.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Who buys Sandfury scarabs, anyway?", next = "xcl_zf2" },
+      },
+    },
+    xcl_zf2 = {
+      lines = { { id = "xcl_zf2_default", text = "Collectors in Booty Bay, a few scholars in Ironforge who pretend they don't buy from goblins, and the odd Forsaken who never says what it's for. Each of them thinks the scarabs mean something different, and I let every one of them go on thinking it." } },
+      choices = {
+        { text = "Your secrets are safe with me, Tran'rek.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Depends on the thing and depends on who's asking, and I'm not telling you either. Sandfury blades out of Zul'Farrak fetch good coin up north, and I don't ask whose hand they came out of, so you don't have to tell me." } },
@@ -1266,6 +1298,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Word came off the western road that Sandscalp is dead and the Sandfury are counting their losses, so somebody's going to be selling troll goods by the crate soon. I'd like that somebody to be me, friend, and I'd like to hear what you saw down there." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, yes? I've sold to your kind before, totems and skins and a few odd stones. What you do with them is your business, and what I paid for them is mine." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, and maybe one of my own blood, if that's a troll's face under the hood. I sell what the desert gives up, and I've some Sandfury fetishes you'd do well not to touch." },
         { id = "h_default", key = true,
@@ -1306,6 +1339,7 @@ P:NPC {
         { text = "Very nearly legal, Tran'rek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do you think the fetishes are enchanted, Tran'rek?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is it really charity, Tran'rek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Zul'Farrak's chief is dead. Is that bad for your scarab trade?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
         { text = "I'll bring them.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1405,6 +1439,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zf = {
+      big = true,
+      lines = { { id = "xcl_zf_default", text = "That the Sandfury are pulling back from the road, that the Bruisers are drinking on duty to celebrate, and that a dwarf at table three is selling a map to the chief's treasure. The map's a fake, because I watched him draw it, but he's sold two already." } },
+      choices = {
+        { text = "Tell the Bruisers. A cheat shouldn't drink in your inn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let him sell. Fools pay for their own lessons.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Do the Sandfury ever come into town?", next = "xcl_zf2" },
+      },
+    },
+    xcl_zf2 = {
+      lines = { { id = "xcl_zf2_default", text = "Not through the front gate, and never to drink. The Bruisers say they've seen a few in the dunes at dusk watching the walls, and since tonight's news, I've had more guests asking for rooms on the east side." } },
+      choices = {
+        { text = "Then I'd take an east room myself.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not trouble exactly, just weight, because you lot sit down hard after a week in the dunes. The Bruisers keep the peace, but nobody can keep a table from giving out under a man in full plate who's just found the sand in his stew." } },
@@ -1500,6 +1549,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Half the Road Warrior's talking about you tonight, friend, because word is you went all the way down into Zul'Farrak and came back with the chief's head. I've heard the story told four ways already, and in one of them you wrestled a hydra." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, I'll stop calling the sand in the stew seasoning and start calling it soup." },
         { id = "h_default", key = true,
           text = "Innkeeper Fizzgrimble, of the Road Warrior: the best inn in Gadgetzan, and also the only inn in Gadgetzan, and those two facts are related." },
@@ -1542,6 +1592,7 @@ P:NPC {
         { text = "Do warriors really cause that much trouble at the Road Warrior?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you mind beasts at the Road Warrior, Fizzgrimble?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you get many warlocks at the Road Warrior, Fizzgrimble?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What are people saying about Zul'Farrak tonight?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },

@@ -33,6 +33,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_st = {
+      big = true,
+      lines = { { id = "xcl_st_default", text = "Grim is a fine word for anywhere trolls and dragons share a cellar. The dragonkin down there guard the Atal'ai's mistakes for their mistress, and I find it fascinating that creatures with so much power choose to spend it as jailers." } },
+      choices = {
+        { text = "Guarding a prison is noble work, however dull.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Power wasted on guard duty is power wasted. They should leave.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Why did your apprentice go there, Archmage?", next = "xcl_st2" },
+      },
+    },
+    xcl_st2 = {
+      lines = { { id = "xcl_st2_default", text = "To fetch something for me, naturally, and to prove he didn't need my help fetching it. He was a promising boy with poor instincts, and if I sound cold about it, you may put that down to the tower being very high and the company very thin." } },
+      choices = {
+        { text = "I'll put it down to grief, Archmage.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "I think it is a very useful sort of power for people who don't care to understand how it works, which is to say most people. The Highborne understood magic, and look what became of them, so perhaps ignorance has its virtues, though I shan't be trying it myself." } },
@@ -113,6 +128,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "You've been down to the bottom of the Sunken Temple, I'm told, which means you either found Morphaz or he found you. Either way you came back, which is more than my apprentice managed, poor careless boy." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, in my tower! How novel, since your sort usually prefers to stay on the ground, where the Light can see you more clearly, or so I assume." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -166,6 +182,7 @@ P:NPC {
         { text = "What beasts does your research involve, Archmage?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why study the magic that broke this land?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What does an archmage think of the Light, Xylem?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I've been through the Sunken Temple, Archmage. It was grim.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },

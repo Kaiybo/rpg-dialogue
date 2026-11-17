@@ -35,6 +35,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_st = {
+      big = true,
+      lines = { { id = "xcl_st_default", text = "Ysera set him to guard the temple she drowned, and he was her consort, so she trusted him with it above all others. But the Atal'ai's hunger seeped into his sleep, and the watcher became something that hates what it watches, and the shade below is only the part of him that could not stay away." } },
+      choices = {
+        { text = "He can still be saved. Even a dragon may find his way back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If he's lost, he must be put down before it spreads.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Does Ysera know what became of him?", next = "xcl_st2" },
+      },
+    },
+    xcl_st2 = {
+      lines = { { id = "xcl_st2_default", text = "She knows, as a mother knows a fever in the next room, and it grieves her. The Aspect of Dreams sleeps for the world's sake, little one, so she must watch the one she loves suffer in a dream she cannot wake him from." } },
+      choices = {
+        { text = "That is a heavy grief. Thank you for telling me.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because your people have long listened to the stone, and the stone is slow to speak. If the spirits have found a new voice among the dwarves, perhaps the world is mending in ways even I did not foresee." } },
@@ -141,6 +156,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "Something in the Dream eased tonight, little one, and I think it was your doing. You have walked to the bottom of the Sunken Temple, where Eranikus's green children keep their long and unhappy watch." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde, in my father's glade. The spirits walk with you, little one, and they are welcome here, as you are, though I will not pretend it is a simple thing for me to say." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -193,6 +209,7 @@ P:NPC {
         { text = "Does the Light have a place in Moonglade, Keeper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why is it not simple to welcome a shaman, Keeper?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why should a dwarf's spirits interest you, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What happened to Eranikus, Keeper?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },

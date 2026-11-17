@@ -669,6 +669,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_aq40 = {
+      big = true,
+      lines = { { id = "xcl_aq40_default", text = "My watch was to remain as long as I must, and I find I do not yet know whether I must. The thing in that temple whispered to the Qiraji for longer than your kingdoms have had names, and something that old does not die the way a mortal dies." } },
+      choices = {
+        { text = "Then we keep watching. Patience won this war, not haste.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It's dead. Leave the sands and live your own life.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What did you see here a thousand years ago?", next = "xcl_aq402" },
+      },
+    },
+    xcl_aq402 = {
+      lines = { { id = "xcl_aq402_default", text = "I saw the Scarab Wall rise, and young Valstann Staghelm fall before it, and the dragons bind the swarm behind the wall with their own strength. I remember all of it, because remembering is what I was made for, and today I may finally lay some of it down." } },
+      choices = {
+        { text = "Lay it down, then. You've earned the rest.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "The sands, the hive, and the wall the kaldorei raised to hold back what lies behind it. I was told to remain as long as I must, and so I watch for the day the sands shift again, and I would rather the eyes that watch beside me were patient ones." } },
@@ -746,6 +761,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_aq40", tags = { "news" }, when = { cleared = "Ahn'Qiraj" }, text = "The eye beneath Ahn'Qiraj is closed, and the sands are still in a way I have not felt in a thousand years. You have done what the Brood and the kaldorei together could only delay, mortal." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, mortal, who watches from the edges as I do. We are alike in that, though I have watched for a thousand years, and you, I think, for rather less." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -784,6 +800,7 @@ P:NPC {
         { text = "How does one read the tracks of the hive, Baristolth?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What has a dragon seen of the Light, Baristolth?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What have you watched for a thousand years, Baristolth?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "C'Thun is dead, Baristolth. Is your watch over?", next = "xcl_aq40", when = { cleared = "Ahn'Qiraj" } },
         { text = "Farewell, Baristolth.", next = "END" },
       },
     },

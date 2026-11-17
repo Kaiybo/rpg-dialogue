@@ -653,6 +653,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then an old debt's been paid, though not by any dwarf of my clan. When the Dark Irons' sorceress died at Grim Batol her curse fell on the whole mountain, and my people had to leave it to rot and make a new home in the Hinterlands, and no Wildhammer has forgotten whose sorcery did it." } },
+      choices = {
+        { text = "A debt paid is a debt done. Let the grudge die with him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep the grudge. A people that forgets gets wronged twice.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Do the Wildhammer still want Grim Batol back?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Every Wildhammer dreams of it, but the curse still lies on that place, and the stone there is black and sick. I'd sooner fly a gryphon through a thunderstorm than set foot in Grim Batol before someone cleanses it." } },
+      choices = {
+        { text = "Maybe someday someone will. Something else, Thadius.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, we fight frae the sky, wi' a storm hammer thrown off a gryphon's back, an' the Bronzebeards fight frae behind a wall o' shields an' call it discipline. Both'll kill an orc, mind, but only one o' them has ever seen the orc's face frae above." } },
@@ -699,6 +714,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" }, text = "So the Emperor's dead under the mountain, and the Dark Irons have lost their king in his own throne room! I'm a Wildhammer, mind, and my clan has a long memory where Thaurissan's line is concerned, so you'll forgive me if I pour a dram for it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, eh? Ye've the shoulders for a Wildhammer storm hammer, if ye ever tire o' whatever it is ye're carryin' now." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I find lost things, an' ye find things that werenae lost till ye came along, so in a way we're in the same trade." },
@@ -738,6 +754,7 @@ P:NPC {
         { text = "Could your divination find stolen goods?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is divination a gift or a danger, Thadius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do Wildhammer warriors fight differently from Ironforge's?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Emperor Thaurissan is dead, Thadius. I saw him fall myself.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
     },

@@ -988,6 +988,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zf = {
+      big = true,
+      lines = { { id = "xcl_zf_default", text = "It helps the road, and the caravans will thank you before I do. But a city like that keeps its craft in a handful of old hands, and when the walls break those hands either flee or die, so the very thing I came here to learn might be gone for good." } },
+      choices = {
+        { text = "Find their surviving smiths and offer them a fair trade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Take what's left in the ruins before the goblins do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Would a Sandfury smith ever teach an outsider?", next = "xcl_zf2" },
+      },
+    },
+    xcl_zf2 = {
+      lines = { { id = "xcl_zf2_default", text = "Not in my lifetime, and mine is long. A troll smith would sooner bury his flask with him than hand it to a kaldorei, and if I'm honest, an old elf smith would do the same to a troll." } },
+      choices = {
+        { text = "Then you're more alike than either of you would admit.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It answers patience and nothing else. The Sandfury temper their steel with something darker than fire, and I'd value a shaman's opinion on what that is." } },
@@ -1092,6 +1107,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "You've been to the bottom of Zul'Farrak, I hear, and Ukorz Sandscalp won't be guarding anything again. If the Sandfury smiths scatter now, their temper may scatter with them, and I'm not sure whether to thank you or mourn it." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have known Forsaken whose prayers set my teeth on edge, and trolls whose loa want blood, so forgive me if I wait to hear which kind you are." },
         { id = "h_default", key = true,
@@ -1138,6 +1154,7 @@ P:NPC {
         { text = "What do the Zul'Farrak trolls have that a smith needs?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's wrong with my fletching for the desert wind, Trenton?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the forge's fire answer you, Trenton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Sandscalp is dead, Trenton. Does that help your work or hurt it?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1216,6 +1233,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_st = {
+      big = true,
+      lines = { { id = "xcl_st_default", text = "Then the Atal'ai have fewer voices to sing with, and a god with no singers is a god who sleeps. But listen to Yeh'kinya, mon, because the Gurubashi built more than one altar to the Soulflayer, and the ones in Stranglethorn are older and bigger than that drowned temple." } },
+      choices = {
+        { text = "Then we finish it. Every altar to Hakkar should fall.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power like that shouldn't be wasted. Someone should study it first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why do green dragons guard that temple?", next = "xcl_st2" },
+      },
+    },
+    xcl_st2 = {
+      lines = { { id = "xcl_st2_default", text = "The temple sank because the dragons' mistress drowned it, mon, to punish the Atal'ai for their blood rites. She left her green ones to watch it, but a long watch over a bad place rots the watcher, and some of those dragons dream darker than the trolls they guard." } },
+      choices = {
+        { text = "Some watchers need watching. I'll remember that.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mourn them? No, mon, the Sandfury chose their gods and their gods are not kind, and Zul'Farrak breeds them hard. But a troll is a troll, and Yeh'kinya remembers when his people were more than bandits in the sand." } },
@@ -1301,6 +1333,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "You have been down in the Sunken Temple, mon, all the way to the bottom where the Atal'ai sing, and you came back up. The spirits told Yeh'kinya before you did, and for once they sounded frightened." },
         { id = "h_default", key = true,
           text = "Yeh'kinya, they call me, and I sit here by the water and study the old gods of my people. My eyes are tired and my hands shake from the drink, but the spirits still talk to me, mon." },
         { id = "h_screech_before", when = { minLevel = 42, questBefore = TODO_QUEST("Screecher Spirits") },
@@ -1347,6 +1380,7 @@ P:NPC {
         { text = "What were the old ways of the troll hunters, Yeh'kinya?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why study Hakkar if he's so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are all your people's gods terrible, Yeh'kinya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I've been to the bottom of the Sunken Temple, Yeh'kinya.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "Goodbye.", next = "END" },
       },
     },

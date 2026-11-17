@@ -33,6 +33,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_aq20 = {
+      big = true,
+      lines = { { id = "xcl_aq20_default", text = "Quiet is not empty, and the Circle has learned that lesson in blood. Natalia went out toward those hives to understand them, and I have spent every day since wondering whether the thing you killed ever knew her name." } },
+      choices = {
+        { text = "Grieve later, Commander. The hives must be burned while they're weak.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go and look for her. The Hold can spare you a day.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "What drew your wife to the hives?", next = "xcl_aq202" },
+      },
+    },
+    xcl_aq202 = {
+      lines = { { id = "xcl_aq202_default", text = "Curiosity, at first, because she was the finest scholar in the Hold and the silithid were a puzzle she could not leave alone. Toward the end she spoke of voices under the sand, and I told myself it was only the heat." } },
+      choices = {
+        { text = "Voices under that sand mean nothing good. Be careful, Commander.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Where my wife has gone, and whether she lives. You have walked back from death with the Light in your hands, so perhaps you understand what it is to be lost and found, and perhaps you can tell me whether the Light finds everyone." } },
@@ -101,6 +116,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_aq20", tags = { "news" }, when = { cleared = "Ruins of Ahn'Qiraj" }, text = "They say you went into the Ruins of Ahn'Qiraj and that Ossirian the Unscarred lies broken in the sand. The Hold will sleep easier tonight, and perhaps, for once, so will I." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin of the Alliance, at Cenarion Hold. You are welcome, as is anyone who will stand against the swarm, though I confess I hoped the Light might have answers I have not found." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -149,6 +165,7 @@ P:NPC {
         { text = "How can a hunter best serve the Hold, Commander?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What answers are you looking for, Commander?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What answers do you seek from the Light, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Ossirian is dead, Commander. The Ruins are quiet for now.", next = "xcl_aq20", when = { cleared = "Ruins of Ahn'Qiraj" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
