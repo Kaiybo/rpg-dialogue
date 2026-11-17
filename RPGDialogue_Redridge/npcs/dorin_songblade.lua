@@ -18,12 +18,12 @@ P:NPC {
   greetings = {
     { id = "g_forge", text = "Need somethin' fitted? Get in line behind these girdles; they've been waitin' longer than ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, {g:lad|lass}? Let's see what ye've done tae yer armour this time." },
-    { id = "g_search", when = { questActive = TODO_QUEST("Songblade Search") }, text = "Any word o' Daewyn? No, ye'd have said. Off ye go, then." },
+    { id = "g_search", when = { questActive = TODO_QUEST("Songblade Search") }, text = "Any word o' Daewyn? No, ye'd have said if there was, so off ye go." },
     { id = "g_grief", when = { questDone = TODO_QUEST("Fallen in the Fen") }, text = "Come in, {g:lad|lass}. I'm still workin'; it keeps my hands from shakin'." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the pile o' girdles hasn't shrunk a bit. Good tae see ye." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've filled out yer armour since I first fitted it. I'll need tae let the straps out." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk in Lakeshire speak well o' ye. That's worth more than a good breastplate, an' I should know." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear ye were caught in a lie. A dwarf's word is his armour, {g:lad|lass}; keep yers mended." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "They tell me ye were caught in a lie. A dwarf's word is his armour, {g:lad|lass}; keep yers mended." },
   },
 
   notice = {
@@ -55,7 +55,7 @@ P:NPC {
         { text = "Tell me about Daewyn.", next = "daewyn" },
         { text = "Why does a dwarf keep a forge in Redridge?", next = "redridge" },
         { text = "How do the guards hold up against the orcs?", next = "guards" },
-        { text = "I found your brother. I'm so sorry.", next = "grief", when = { questDone = TODO_QUEST("Fallen in the Fen") } },
+        { text = "I found your brother, Dorin, and I'm so sorry.", next = "grief", when = { questDone = TODO_QUEST("Fallen in the Fen") } },
         { text = "I need my armour seen to.", next = "BUSINESS" },
         { text = "I'll leave you to it.", next = "END" },
       },

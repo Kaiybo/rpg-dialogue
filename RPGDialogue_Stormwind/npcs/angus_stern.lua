@@ -52,7 +52,7 @@ P:NPC {
         { text = "What makes the Blue Recluse special?", next = "recluse" },
         { text = "Tell me about your nephew.", next = "morgan" },
         { text = "Why go to such lengths for one dish?", next = "lengths" },
-        { text = "I cook too. Any secrets?", next = "cook", when = { profession = "Cooking" } },
+        { text = "I cook as well. Have you any secrets to share?", next = "cook", when = { profession = "Cooking" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "I'll leave you to the sauce.", next = "END" },
       },

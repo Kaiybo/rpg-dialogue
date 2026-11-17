@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("A Husband's Last Battle") }, text = "You kept your word to me. I don't forget that, and neither will my clan." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back again. Felwood doesn't let anyone go for long, it seems." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since you first stood here. Good, because this forest eats the weak." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've made enemies at the post. Be careful whose throat you choose to step on here." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word at the post is that you've made enemies. Be careful whose throat you choose to step on here." },
     { id = "g_word_helped", when = { word = "helped" }, text = "They say at the post you've been useful to us. That earns you a word from me, at least." },
   },
 

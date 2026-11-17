@@ -17,3 +17,7 @@ npcs\bloodhoof.lua
 npcs\gevrek.lua
 npcs\roadside.lua
 npcs\unsung.lua
+npcs\graytongue.lua
+npcs\windfeather.lua
+npcs\ruuleagletalon.lua
+npcs\raintotem.lua

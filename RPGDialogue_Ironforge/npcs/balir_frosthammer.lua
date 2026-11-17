@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? The troggs weren't, I can tell ye that much." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at ye now. When ye first came tae me ye could barely hold off a trogg, an' now I'd put ye on the wall at Ironforge." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk in the valley say ye've been a help tae them. Good, because we need every hand we can get." },
-    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been throwin' yer weight about. Save it fer the troggs, {g:lad|lass}, for they're the ones that deserve it." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "They tell me ye've been throwin' yer weight about. Save it fer the troggs, {g:lad|lass}, for they're the ones that deserve it." },
   },
 
   notice = {
@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A New Threat"), days = 3 } },
           text = "That's done the trick fer now, an' by Magni's beard, I'm grateful. But if it's like this all over Dun Morogh, we've trouble ahead of us." },
         { id = "h_paladin", when = { class = "PALADIN" },
-          text = "A paladin, eh? Good. The Light's welcome in Coldridge, though I'd settle fer a strong arm under it." },
+          text = "A paladin, eh? The Light's welcome in Coldridge, though I'd settle fer a strong arm under it." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "A warrior, an' just the sort I need. Pick up an axe, lift it high, an' bring it down on a trogg." },
       },

@@ -16,3 +16,4 @@ npcs\talaanis.lua
 npcs\thendal.lua
 npcs\thendal_orders.lua
 npcs\valanaar.lua
+npcs\thendal_grove.lua

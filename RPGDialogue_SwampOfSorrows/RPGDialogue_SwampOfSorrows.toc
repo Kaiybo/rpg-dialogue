@@ -15,3 +15,7 @@ pools.lua
 npcs\stonard.lua
 npcs\stonard_more.lua
 npcs\swamp_wilds.lua
+npcs\tokkar.lua
+npcs\katar.lua
+npcs\itharius.lua
+npcs\thund.lua

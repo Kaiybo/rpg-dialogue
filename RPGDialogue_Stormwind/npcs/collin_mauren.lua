@@ -88,7 +88,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     vale = {
-      lines = { { id = "v_default", text = "The Charred Vale burned long ago, and the creatures that stayed took on something of it. I've never been myself; I'm better at grinding than travelling." },
+      lines = { { id = "v_default", text = "The Charred Vale was burned black, and the creatures that stayed took on something of the fire. I've never been myself; I'm better at grinding than travelling." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

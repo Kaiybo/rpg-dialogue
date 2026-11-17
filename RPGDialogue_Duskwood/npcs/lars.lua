@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've been chased home by wolves at least twice for every day of it. Welcome back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you thinned those wolves for us. I'd let you hunt my side of the river now." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk in Darkshire say you've been a help. Sven pretends not to care, but he asked after you." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've upset somebody out east. Out here we've got bigger troubles than grudges, so leave it at the river." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "They tell me you've upset somebody out east. Out here we've got bigger troubles than grudges, so leave it at the river." },
   },
 
   notice = {
@@ -82,7 +82,7 @@ P:NPC {
       },
       choices = {
         { text = "Justice, not revenge. Let the Watch handle it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "He's earned his revenge. Help him get it.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "He's earned his revenge, and you should help him get it.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "I don't know, Lars.", next = "BACK" },
       },
     },

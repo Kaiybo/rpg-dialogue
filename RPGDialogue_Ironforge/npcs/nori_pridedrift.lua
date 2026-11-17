@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've lost two mugs in that time. I'm not sayin' it's connected, but I'm not sayin' it isn't." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye ran my brew tae Durnan when ye were green as a sprout, an' now look at ye. I'd let ye carry the whole pot." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk over their mornbrew have been sayin' kind things about ye. That's the best place fer news, over a hot cup." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear ye told somebody a tale that didn't hold. Just don't tell me ye returned a mug when ye didn't." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "They tell me ye told somebody a tale that didn't hold. Just don't tell me ye returned a mug when ye didn't." },
   },
 
   notice = {
@@ -81,7 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "Go for it. A good brew earns its place anywhere.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
-        { text = "Mind your own valley. Kharanos is their ground.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mind your own valley, Nori, because Kharanos is their ground.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else, Nori.", next = "BACK" },
       },
     },

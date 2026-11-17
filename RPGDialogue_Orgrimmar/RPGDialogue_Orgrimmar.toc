@@ -14,3 +14,7 @@ pack.lua
 npcs\orgrimmar.lua
 npcs\trainers.lua
 npcs\townsfolk.lua
+npcs\eitrigg.lua
+npcs\belgrom.lua
+npcs\zorlonetree.lua
+npcs\rashona.lua
