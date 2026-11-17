@@ -37,7 +37,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Watcher Ladimore. Sarah, if you'd rather, though most people here don't use it, because of the name that comes after." },
+        { id = "h_default", key = true, text = "Watcher Ladimore. Sarah, if you'd rather, though most people here don't use it, because of the name my father left me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Daughter Who Lived") },
           text = "If you've heard my family's name in this town, you've heard the worst of it. I'd rather not talk about him unless you've a reason." },
         { id = "h_lived", tags = { "news" }, when = { questActive = TODO_QUEST("The Daughter Who Lived") },
@@ -55,8 +55,8 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your father?", next = "father" },
-        { text = "Why join the Watch that hunts him?", next = "watch" },
-        { text = "What's it like, keeping the Watch?", next = "duty" },
+        { text = "Why did you join the Night Watch?", next = "watch" },
+        { text = "Keeping the Watch must be hard work.", next = "duty" },
         { text = "He spoke your name at the grave.", next = "grave", when = { questDone = TODO_QUEST("A Daughter's Love") } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "Stay safe, Sarah.", next = "END" },
@@ -92,7 +92,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Because somebody had to keep the town safe from what he became, and I'd rather it was someone who remembered him as he was. The Commander understood that." },
       },
       choices = {
-        { text = "Commander Ebonlocke took you in?", next = "watch_althea" },
+        { text = "So Commander Ebonlocke took you in.", next = "watch_althea" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,5 +124,8 @@ P:NPC {
       { id = "tp_ladimore2", text = "You'll hear a dozen tellings of it in this town. Mine's the shortest, and I'll keep it that way." },
     },
     _none = { { id = "tp_none", text = "I couldn't say. Ask the Commander, or Sirra, if you can stand a long answer." } },
+    raven_hill = { { id = "tp_raven_hill", text = "My father's grave is at Raven Hill, and I visit when the dead are quiet, which isn't often. I talk to him there, which I should have done more when he was alive." } },
+    holy_light = { { id = "tp_holy_light", text = "My father kept the Light all his life, through the war and after, and I still keep his prayer book by my bed. I'm trying to believe enough for both of us now." } },
+    dark_riders = { { id = "tp_dark_riders", text = "My watch hears word of them on the roads, and I report it, and nothing changes. I'll keep reporting until something does." } },
   },
 }

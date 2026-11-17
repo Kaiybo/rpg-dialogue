@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_roost", text = "The hippogryphs are rested and the winds are fair. Where would you fly?" },
+    { id = "g_roost", text = "Ishnu-alah. The hippogryphs are rested and the winds are fair, and Elune's light is on the water. Where would you fly?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned to the isle. The birds remember you, and so do I." },
   },
 
@@ -49,7 +49,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "By its stillness, mostly, for a beast that waits calmly beneath the roost is no threat, and one that stares upward is a hunter. The wild hippogryphs of the mainland learned that from the yetis, and they taught it to mine." },
+        { id = "xhuntcl_default", text = "They judge it by its stillness, mostly, for a beast that waits calmly beneath the roost is no threat, and one that stares upward is a hunter. The wild hippogryphs of the mainland learned that from the yetis, and they taught it to mine." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the right manner, I think; it does not look up at them, and so they have stopped looking down at it." },
       },
       choices = {
@@ -134,20 +134,20 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
-        { id = "h_again2", text = "The birds can wait a little longer; what else is on your mind?" },
+        { id = "h_again2", text = "The birds can wait a little longer; they have waited on our people since before the Sundering. What else is on your mind?" },
       },
       choices = {
         { text = "Do your birds miss the forests of Ashenvale?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me where I can fly.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "Why build a stronghold on an island?", next = "island" },
-        { text = "How do you keep the birds in this damp?", next = "birds" },
-        { text = "Do the wild hippogryphs here trouble you?", next = "wild" },
+        { text = "Keeping birds in this damp can't be easy.", next = "birds" },
+        { text = "The wild hippogryphs here must trouble you.", next = "wild" },
         { text = "I've never ridden a hippogryph before.", next = "first", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Will your hippogryphs carry a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hippogryphs carry scouts across the coast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are your hippogryphs uneasy around the Light?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are hippogryphs really that skittish around warriors, Fyldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "How do your hippogryphs judge another beast, Fyldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Your hippogryphs seem to judge other beasts carefully, Fyldren.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your hippogryphs ever come back hurt, Fyldren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do hippogryphs dislike the arcane, Fyldren?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your hippogryphs sense the spirits, Fyldren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -171,7 +171,7 @@ P:NPC {
     },
     birds = {
       lines = {
-        { id = "b_default", text = "With care and patience, and with fish, which they love more than their own young. The damp gets into their feathers and makes them slow, so I brush them after every flight and keep them close to the fires at night." },
+        { id = "b_default", text = "It takes care and patience, and fish, which they love more than their own young. The damp gets into their feathers and makes them slow, so I brush them after every flight and keep them close to the fires at night." },
       },
       choices = {
         { text = "You clearly love them.", next = "BACK", fx = { affinity = 1 } },
@@ -202,7 +202,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I tended the hippogryphs in Ashenvale before I came south with the Sentinels. Their wings carried us here, and they'll carry us home." } },
     advice = { { id = "tp_ad", text = "Fly over the water, never over the hills. The ogres throw rocks at anything they see." } },
-    _none = { { id = "tp_none", text = "I could not say. Ask the General's people; they hear more of the mainland than I do." } },
+    teldrassil = { { id = "tp_teldrassil", text = "My birds fly from here to Teldrassil and back, over the whole long coast of Kalimdor. They know the way better than I do, and they never complain of the rain." } },
+    elune = { { id = "tp_elune", text = "The hippogryphs were Elune's gift to our people, or so my grandmother told me, and I see no reason to doubt her. Look at them and tell me otherwise." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande rode a hippogryph into battle once, in the old war, and the birds remember. I like to think they remember." } },
+    dire_maul = { { id = "tp_dire_maul", text = "I fly my birds well clear of Dire Maul, because the ogres throw rocks and the old elves throw worse. A frightened hippogryph is a dangerous passenger." } },
+    _none = { { id = "tp_none", text = "I could not say. Ask the General's people; they hear more of the mainland than I do, and they remember it longer than most." } },
   },
 }
 
@@ -220,7 +224,7 @@ P:NPC {
 
   greetings = {
     { id = "g_shop", text = "Thread, salt, dyes and flux, if the boats came in on time. What do you need?" },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Your craft is going well, I hope?" },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon, and Elune's blessing on you. Your craft is going well, I hope?" },
   },
 
   notice = {
@@ -334,21 +338,21 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there anything else you need from the stores?" },
-        { id = "h_again2", text = "Ask, and I'll answer as best I can." },
+        { id = "h_again2", text = "Ask, and I'll answer as best I can; a few centuries of keeping stores teaches patience." },
       },
       choices = {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do goods reach the isle?", next = "boats" },
-        { text = "What does Feralas offer a crafter?", next = "feralas" },
+        { text = "Feralas must offer plenty to a crafter.", next = "feralas" },
         { text = "Do the Sentinels need anything I could bring?", next = "need" },
         { text = "Do the Sentinels trust you to sell to mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You think I'd steal from the Sentinels?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why count every strap so carefully, Vivianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hides do the Sentinels need most, Vivianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Are supplies really so tight on the isle, Vivianna?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Supplies seem tight on the isle, Vivianna.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Who on the isle needs bandages most, Vivianna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are you so wary of warlocks, Vivianna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What do the Circle's people need here, Vivianna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The Circle's people must need something here, Vivianna.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the spirits mind your dyes, Vivianna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -373,7 +377,7 @@ P:NPC {
         { id = "f_default", text = "Thick hides from the ironfur bears, heavy fur from the yetis in the hills, and cloth from the ogres and the gnolls, if you take it from them. The forest is generous, friend, but it doesn't give anything away freely." },
       },
       choices = {
-        { text = "Where do the yetis live?", next = "feralas_yetis" },
+        { text = "The yetis must live somewhere in these hills.", next = "feralas_yetis" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -398,7 +402,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I traded goods in Auberdine before I came here. It's quieter, and the wind smells of the sea instead of fish." } },
     advice = { { id = "tp_ad", text = "Always carry a spare spool of thread. A torn cloak in the rain is a miserable thing." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know, friend. Ask Shandris's people; they hear everything." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Everything on my shelves comes on the boats from Teldrassil or Auberdine, and I count it twice. Salt rots in this damp if you look away." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblin traders from Booty Bay sometimes sail in with dyes, and I buy them because I must, and I count my change three times because I must." } },
+    elune = { { id = "tp_elune", text = "I keep a moonstone on the counter for Elune's blessing on trade. The Sentinels tease me about it, and then they touch it on the way out." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A Faire with fortune-tellers and games, you say? I would want to see their ledgers before I believed they made a copper honestly." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know, friend. Ask Shandris's people; the Sentinels hear everything, and forget very little." } },
   },
 }
 
@@ -503,22 +511,22 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in your hands. The Earth Mother's plants grow back after the frost, and perhaps you have grown back in your own way." },
       },
       again = {
-        { id = "h_again", text = "What else would you know, little one?" },
+        { id = "h_again", text = "What else would you know, little one? The Earth Mother's gardens are wide." },
         { id = "h_again2", text = "Speak; I am listening, as the grass listens to the wind." },
       },
       choices = {
         { text = "Does the forest here still give freely, Ruw?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Whose spirits are older than ours here, Ruw?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I've heard there are spirits older than ours here, Ruw.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the herbs here hold any magic of their own?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Is anyone taking more from this forest than they should?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Teach me what you can.", next = "BUSINESS" },
-        { text = "What grows in Feralas?", next = "grows" },
+        { text = "Something good must grow in Feralas.", next = "grows" },
         { text = "How do you take without harming the land?", next = "harm" },
         { text = "Is the forest safe for gathering?", next = "safe" },
         { text = "Is it the fel that makes them wither?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can the soil teach a mage, Ruw?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do herbs have anything to teach a warrior, Ruw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Can a beast really help find herbs, Ruw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "My beast seems to sniff out herbs on its own, Ruw.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a Forsaken paladin learn to gather without harm, Ruw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -595,6 +603,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I gathered herbs in Mulgore since I was a calf. Feralas called to me with its old green, and I came." } },
     advice = { { id = "tp_ad", text = "Leave a little root, little one. Always leave a little root." } },
+    earth_mother = { { id = "tp_earth_mother", text = "Every herb I teach you to pick is a gift from the Earth Mother, and a gift is not taken greedily. Leave the roots, and she will give again next spring." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is old and wise, and he still walks among his people on the high mesas. A chief who listens is rare, and he listens." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons sleep beneath the great trees of this land, where the Dream touches the world. The herbs grow strange there, and I do not pick them." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The herbs that grow in the courtyards of Dire Maul are old and strong, planted by elves who are long gone. I would not risk my life for them, though some students do." } },
     _none = { { id = "tp_none", text = "I do not know that, little one. The grass does not tell me everything." } },
   },
 }
@@ -687,14 +699,14 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The plague wasted you once, I think, and something gave you back, so perhaps you understand why I waste nothing." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak plainly." },
-        { id = "h_again2", text = "Ask. I'm listening." },
+        { id = "h_again", text = "What else? Speak plainly, as the hunt speaks." },
+        { id = "h_again2", text = "Ask. I'm listening, and the ancestors who taught me this knife are listening too." },
       },
       choices = {
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "What beasts are worth skinning here?", next = "beasts" },
         { text = "Why does waste dishonor the hunt?", next = "waste" },
-        { text = "Is skinning a cruel trade?", next = "cruel" },
+        { text = "Skinning seems a cruel trade to me.", next = "cruel" },
         { text = "I'm a hunter. Any advice for me?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do the spirits punish waste, Kulleg?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do spellcasters waste more of the hunt than warriors?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
@@ -702,7 +714,7 @@ P:NPC {
         { text = "A quick cut is the best cut, Kulleg.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why should a warrior care what's left behind after a kill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What does a druid owe the beasts we hunt, Kulleg?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do you think the Light gave me back for a reason, Kulleg?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Light gave me back for a reason, I'd like to think.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -711,7 +723,7 @@ P:NPC {
         { id = "b_default", text = "The ironfur bears have the thickest hides in Feralas, and the yetis in the hills have fur that leatherworkers fight over. The wolves and the cats are common, but they're good practice for a young knife." },
       },
       choices = {
-        { text = "Where do I find the bears?", next = "beasts_bears" },
+        { text = "There must be bears around here somewhere.", next = "beasts_bears" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -769,7 +781,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father taught me the knife in Mulgore, and his father taught him. I came here because the beasts are bigger." } },
     advice = { { id = "tp_ad", text = "Keep your knife sharp. A dull knife tears, and a torn hide is worth nothing." } },
-    _none = { { id = "tp_none", text = "I don't know. I know knives and hides, not that." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the beast, and we owe her for every hide we take. A wasted pelt is a debt unpaid." } },
+    cairne = { { id = "tp_cairne", text = "Cairne taught our people to hunt with respect and to waste nothing, and I teach what he taught me. That is all a teacher is, a road for older wisdom." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem skin for sport and leave the meat to rot, and it shames every tauren who sees it. They are no kin of mine." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The beasts that roam near Dire Maul are fat on the ogres' scraps, and their hides are thick. Go carefully, and come back with something worth the walk." } },
+    _none = { { id = "tp_none", text = "I don't know. I know knives and hides, and the thanks owed to the beast, not that." } },
   },
 }
 
@@ -875,19 +891,19 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, all the way out here. Everything comes the long way to Mojache, and it seems the Light does too." },
       },
       again = {
-        { id = "h_again", text = "What else, friend?" },
-        { id = "h_again2", text = "Ask what you like; I'm only counting." },
+        { id = "h_again", text = "What else, friend? The Earth Mother's roads are long, so I'm in no hurry." },
+        { id = "h_again2", text = "Ask what you like; I'm only counting, and a tauren can count and listen at once." },
       },
       choices = {
         { text = "Is the road from Thunder Bluff really that dangerous, Sheendra?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What threatens the caravans on the road here?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "The caravans on this road must have trouble.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do the caravans get through?", next = "caravans" },
         { text = "What's Camp Mojache for, out here?", next = "camp" },
-        { text = "Who else trades here?", next = "trade" },
+        { text = "Others must trade here too.", next = "trade" },
         { text = "You can't blame every rogue for one thief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'd pay well for good cloth, Sheendra.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "What threatens the caravans on the road from Thunder Bluff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The road from Thunder Bluff must be a dangerous one.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do the kodos hold up on the long road, Sheendra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the braves not know which plants are safe, Sheendra?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Will you trade with a Forsaken paladin, Sheendra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -957,6 +973,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I traded in Thunder Bluff before I came here. The work's harder, but the people are kinder." } },
     advice = { { id = "tp_ad", text = "Never leave your goods unwatched at night. The gnolls steal anything that isn't tied down." } },
+    cairne = { { id = "tp_cairne", text = "Cairne's caravans make the long walk from Thunder Bluff to Mojache, and every one of them arrives a little lighter than it left. The road takes its toll, and so do the centaur." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of Desolace raid the road between here and Thunder Bluff, and I count the caravans that don't come in. The count is too high this season." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps the roads open for us, as much as anyone can. He sends grunts to guard the worst stretches, and they eat everything I sell." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin traders come up from Gadgetzan and charge me for sand in the bottom of every sack. I pay, because nobody else sells what they sell." } },
     _none = { { id = "tp_none", text = "That's beyond my shelves, friend. Hadoken hears more of the forest than I do, so ask him." } },
   },
 }

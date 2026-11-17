@@ -50,8 +50,8 @@ P:NPC {
       },
       choices = {
         { text = "Why do the Magram hate the Gelkis?", next = "gelkis", when = { reputation = { faction = "Magram Clan Centaur", min = "neutral" } } },
-        { text = "Where do the centaur come from?", next = "origin", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
-        { text = "Why do you like gnomish gadgets?", next = "gizmo", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
+        { text = "The centaur must have come from somewhere.", next = "origin", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
+        { text = "What makes Warug laugh?", next = "gizmo", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
         { text = "The tauren remember your raids, Warug.", next = "tauren_w", when = { race = "Tauren", reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
         { text = "What would the Magram have me do?", next = "BUSINESS", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
         { text = "I'll go.", next = "END" },
@@ -63,9 +63,36 @@ P:NPC {
         { id = "ge_default", text = "The Gelkis think our mother, Theradras, protects us. They are stupid! No one protects the centaur, and the Magram do not need protecting, because we are the strongest." },
       },
       choices = {
-        { text = "And if Theradras is real?", next = "gelkis_real" },
+        { text = "Theradras may be real all the same.", next = "gelkis_real" },
+        { text = "So who is stronger, then?", next = "strong_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    strong_op = {
+      lines = { { id = "so_default", text = "You ask Warug? No, you fight beside the Magram, so you tell Warug! Who is stronger, the Magram or the Gelkis with all their praying?" } },
+      choices = {
+        { text = "The Magram. Prayer never won a fight.", next = "so_magram", fx = { affinity = 2, align = { order = -1 }, opinion = { theradras = "doubt", magram = "strong" } } },
+        { text = "The Gelkis. Faith holds when strength breaks.", next = "so_gelkis", fx = { affinity = -2, align = { order = 1 }, opinion = { gelkis = "respect" } } },
+        { text = "Neither. The Kolkar will laugh at both your corpses.", next = "so_neither", fx = { affinity = -1, trait = { blunt = 1 }, opinion = { centaur = "divide" } } },
+        { text = "Gnomes are strongest. We build your favorite gadgets.", next = "so_gnome", when = { race = "Gnome" }, fx = { affinity = 1, opinion = { gnomes = "proud" } } },
+        { text = "I won't choose, Warug.", next = "BACK" },
+      },
+    },
+    so_magram = {
+      lines = { { id = "som_default", text = "Ha! Yes! Warug will tell the whole camp what you said, loud, so the Gelkis hear it from across the valley." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    so_gelkis = {
+      lines = { { id = "sog_default", text = "Bah! Then go and pray with them, and see how much their mother helps when Warug comes over the hill." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    so_neither = {
+      lines = { { id = "son_default", text = "The Kolkar laugh at nothing, because the Kolkar are stupid! But you are rude, and Warug almost likes that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    so_gnome = {
+      lines = { { id = "sogn_default", text = "Ha! The little one is brave! Warug does not believe you, but Warug will take another gadget, if you have one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     gelkis_real = {
       lines = {
@@ -131,6 +158,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am Warug, and I speak for the Magram because I am loud and I am strong. That is enough." } },
     advice = { { id = "tp_ad", text = "Never let a centaur get behind you. We do not fight fair, because fair is for losers." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are the strongest of the clans, and the Kolkar are dogs, and the Gelkis are crying children who hug rocks! Warug says so, and Warug is right." } },
+    maraudon = { { id = "tp_maraudon", text = "The Gelkis say Maraudon is holy, and the Maraudine say Maraudon is theirs. Warug says Maraudon is a big hole full of rocks, and the Magram do not need holes." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Warug hears the little gnomes had a city full of gadgets, and lost it! Warug would have kept it, and Warug would have all the gadgets." } },
+    scourge = { { id = "tp_scourge", text = "The dead in the Valley of Bones fight for the Magram now, so even death obeys the strong. Warug likes this very much." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The orcs in the fortress talk to demons, and the demons talk back. Warug thinks demons are strong, but Warug does not trust a thing that will not come out and fight." } },
     _none = { { id = "tp_none", text = "Warug does not know, and Warug does not care. Kill some Gelkis, and ask again." } },
   },
 }

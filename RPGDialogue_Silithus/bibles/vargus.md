@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Vargus · Cenarion Hold · neutral (Cenarion Circle) · tauren · blacksmith
 Personality: steady, gruff, patient, practical
-Speech: slow, plain, a smith's sayings; "Earth Mother"
+Speech: slow, plain, a smith's sayings; "Earth Mother"; tauren: An'she, herd and hunt sayings, unhurried
 Knows and cares about: sand in armor, chitin, Twilight blades
 Relationships: the Wildmane brothers (fellow tauren), Mishta (flux)
 Never says: anything about the war effort or Ahn'Qiraj

@@ -14,9 +14,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Cenarion Hold. Keep your blade for the silithid, and you'll find no quarrel here." },
-    { id = "g_back", when = { metBefore = true }, text = "You've come back from the desert, which is more than I can say for many. Sit, if you have a moment." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The hives are loudest at night. I find I listen for them now, whether I want to or not." },
+    { id = "g_default", text = "Ishnu-alah, and welcome to Cenarion Hold. Keep your blade for the silithid, and you'll find no quarrel here." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back from the desert, which is more than I can say for many. Sit, if you have a moment, and let Elune's light rest on you a while." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The hives are loudest at night, when the moon is high. I find I listen for them now, whether I want to or not, as my people once listened for the Legion." },
     { id = "g_after", when = { questDone = TODO_QUEST("Into The Maw of Madness") }, text = "Ah, it's you. Forgive me if I don't smile; I'm glad to see you, all the same." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the Hold {away}, and the hives have not been idle in that time. Sit, if you have a moment, and tell me what you've seen beyond the desert." },
     { id = "g_away_long", when = { away = 60 }, text = "It's been {away}, and you walk back into the Hold as though the desert simply let you go. It rarely lets anyone go, and I find I'm more glad of it than I can easily say." },
@@ -38,6 +38,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_fandral = {
+      lines = {
+        { id = "opf_q", text = "I don't ask, but travellers tell me anyway, and it helps me know which way the wind blows at home. You've likely heard Fandral Staghelm speak, so what do you make of the Arch Druid?" },
+      },
+      choices = {
+        { text = "A strong leader. Darnassus needs his certainty while Malfurion sleeps.", next = "op_fandral_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { fandral = "admire" } } },
+        { text = "Proud and cold. He shut the tauren out of the Circle.", next = "op_fandral_r2", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { fandral = "distrust" } } },
+        { text = "Teldrassil was his idea. I'm not sure it was a good one.", next = "op_fandral_r3", fx = { trait = { curious = 1 }, opinion = { fandral = "mixed" } } },
+        { text = "He's my Arch Druid, Commander, and I'll not speak against him.", next = "op_fandral_r4", fx = { opinion = { fandral = "loyal" } }, when = { race = "NightElf" } },
+        { text = "I'd rather not speak of him, Commander.", next = "BACK" },
+      },
+    },
+    op_fandral_r1 = {
+      lines = {
+        { id = "op_fandral_r1", text = "Certainty, yes, he has that in abundance. It's a useful thing in a war, and a heavy thing to argue with." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_fandral_r2 = {
+      lines = {
+        { id = "op_fandral_r2", text = "He opposed teaching them, and he lost that argument, which he has not forgotten. I'd keep that observation out of Darnassus if I were you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_fandral_r3 = {
+      lines = {
+        { id = "op_fandral_r3", text = "Many of us wonder about the tree, quietly, though few would say so aloud in Darnassus. You'll find I'm one of the quiet ones." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_fandral_r4 = {
+      lines = {
+        { id = "op_fandral_r4", text = "Loyal, and careful about it. That's a good habit in Darnassus, and a better one in a war camp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_maralith = {
       big = true,
       lines = { { id = "xpt_maralith_default", text = "I'll gladly put you to work, but understand that the Hold is a druids' camp first and a fortress second, and my soldiers don't take orders from adventurers. Fight with us, follow the signals, and don't go chasing a hive on your own because you've counted five swords and think it enough." } },
@@ -142,7 +186,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, on the Circle's ground. You are welcome so long as you fight what threatens the Hold, but the Twilight's Hammer began, I think, with people who were sure they could master what they summoned." },
         { id = "h_default", key = true,
-          text = "I am Commander Mar'alith, and I hold this fort for the Cenarion Circle. From here we watch the hives, and the cult, and the wall our ancestors raised against something far worse than either." },
+          text = "I am Commander Mar'alith, and I hold this fort for the Cenarion Circle. From here we watch the hives, and the cult, and the wall our ancestors raised against something far worse than either, in a war my people still remember as if it were yesterday." },
         { id = "h_dearest", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
           text = "Have you been to the dwarves' camp yet? I keep thinking I should ride there myself, and then a report arrives, and another, and the day is gone." },
         { id = "h_maw", tags = { "news" }, when = { questActive = TODO_QUEST("Into The Maw of Madness") },
@@ -159,7 +203,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Horde, and one of the Forsaken, at Cenarion Hold. You are welcome, as anyone is who stands against the swarm, though I confess I hoped the Light might have answers I have not found." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? Ask, before the next runner finds me." },
+        { id = "h_again", text = "What else would you know? Ask, before the next runner finds me; even a kaldorei's patience has limits tonight." },
         { id = "h_again2", text = "Go on. I've a hundred things to see to, and I'd rather talk to you than to any of them." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask what you like. I won't be sleeping for a while yet." },
       },
@@ -167,16 +211,16 @@ P:NPC {
         { text = "What brings the Circle to this desert?", next = "circle" },
         { text = "You seem troubled, Commander.", next = "natalia" },
         { text = "What do you know of the Twilight's Hammer here?", next = "cult" },
-        { text = "Who serves under you at the Hold?", next = "hold" },
+        { text = "You must have good officers serving under you here.", next = "hold" },
         { text = "Natalia was a priestess. I'd like to understand her.", next = "priest", when = { class = "PRIEST" } },
         { text = "The Circle's druids stand with you, Commander.", next = "druid", when = { class = "DRUID" } },
         { text = "Our people sealed this place once, didn't they?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "What will you do now, Commander?", next = "after", when = { questDone = TODO_QUEST("Into The Maw of Madness") } },
         { text = "My blade is yours, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "The elements here are in torment, Commander.", next = "x_shaman", when = { class = "SHAMAN" } },
-        { text = "Could a rogue help you find what happened on that dig?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "A rogue might find out what happened on that dig.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the crystals have to do with the silithid?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you fear warlocks will join the Twilight's Hammer?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You seem to fear warlocks will join the Twilight's Hammer.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Hold need from a priest, Commander?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How can a hunter best serve the Hold, Commander?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What answers are you looking for, Commander?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
@@ -202,7 +246,7 @@ P:NPC {
       },
     },
     circle_peace = {
-      lines = { { id = "cp_default", text = "The Circle serves the land, not a banner, and the bugs have never asked anyone's allegiance before they bite. The infantry keep the peace inside these walls, and they've had to remind a few hotheads of it rather firmly." } },
+      lines = { { id = "cp_default", text = "The Circle serves the land, not a banner, as Malfurion taught us, and the bugs have never asked anyone's allegiance before they bite. The infantry keep the peace inside these walls, and they've had to remind a few hotheads of it rather firmly." } },
       choices = {
         { text = "Then I'll keep the peace here, whatever banner they fly.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, standing = { cenarion_hold = 1 } } },
         { text = "I'll keep it as long as they do, and not a moment longer.", next = "BACK", fx = { align = { order = -1 } } },
@@ -212,13 +256,14 @@ P:NPC {
     circle_wall = {
       lines = { { id = "cw_default", text = "A city older than ours, and the things that built it. I wasn't on this sand when our people fought here, and those who were don't speak of it lightly; I've heard enough to want the wall to hold until the sand buries it." } },
       choices = {
-        { text = "Does all the Circle agree on that?", next = "circle_fandral" },
+        { text = "I doubt the whole Circle agrees on that.", next = "circle_fandral" },
         { text = "Something else.", next = "BACK" },
       },
     },
     circle_fandral = {
       lines = { { id = "cf_default", text = "The Circle agrees on very little these days, between Darnassus and Moonglade. But on Silithus, at least, the Arch Druid and the Keeper both send me soldiers, and I don't ask either of them what they say about the other." } },
       choices = {
+        { text = "What do you think of Staghelm yourself?", next = "op_fandral" },
         { text = "That's diplomatic of you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -228,7 +273,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "n_default", key = true, fx = { learn = { "natalia" } },
-          text = "Forgive me. My wife, Natalia, is missing. She came here with the Circle's expedition, a priestess who loved old ruins more than was good for her, and she was last seen walking south toward Bronzebeard's camp." },
+          text = "Forgive me. My wife, Natalia, is missing. She came here with the Circle's expedition, a priestess who loved old ruins more than was good for her, and she was last seen walking south toward Bronzebeard's camp under a waning moon." },
         { id = "n_dearest_done", when = { questDone = TODO_QUEST("Dearest Natalia") },
           text = "You've heard the dwarves' tale, so you know as much as I do now. She went into Hive'Regal, and the bugs let her pass, and I can't make myself understand either half of that." },
         { id = "n_maw_done", when = { questDone = TODO_QUEST("Into The Maw of Madness") },
@@ -236,7 +281,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about her.", next = "nat_who" },
-        { text = "How was she acting, before she left?", next = "nat_before" },
+        { text = "She must have been acting strangely before she left.", next = "nat_before" },
         { text = "I'll find her, Commander.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } }, when = { questBefore = TODO_QUEST("Into The Maw of Madness") } },
         { text = "Something else.", next = "BACK" },
       },
@@ -281,7 +326,7 @@ P:NPC {
           text = "Your deserter's parchment cured me of thinking them a nuisance. They have a purpose here, and orders from something above them, and I've changed our plans to meet it." },
       },
       choices = {
-        { text = "What could they want in Silithus?", next = "cult_want" },
+        { text = "They must want something here in Silithus.", next = "cult_want" },
         { text = "Strike now, Commander, before they're ready.", next = "BACK", fx = { align = { order = -1 }, opinion = { twilights_hammer = "strike" } } },
         { text = "Learn their plans first. Then strike where it hurts.", next = "BACK", fx = { align = { order = 1 }, opinion = { twilights_hammer = "patience" } } },
         { text = "Something else.", next = "BACK" },
@@ -301,7 +346,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Captain Kozus.", next = "hold_vish" },
-        { text = "And the dwarves to the south?", next = "hold_dwarves" },
+        { text = "Is anyone else working out in this desert?", next = "hold_dwarves" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -339,7 +384,7 @@ P:NPC {
     },
 
     druid = {
-      lines = { { id = "dr_default", text = "Then the Circle sent me the right sort. This land has been sick for a thousand years, and the hives are the fever; I don't expect to cure it, but I mean to stop it spreading." } },
+      lines = { { id = "dr_default", text = "Then the Circle sent me the right sort. This land has been sick for a thousand years, and the hives are the fever; I don't expect to cure it in one lifetime, even a kaldorei's, but I mean to stop it spreading." } },
       choices = {
         { text = "Burn the hives, and the wild will heal itself.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The land needs keepers, Commander, and soldiers too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -377,7 +422,7 @@ P:NPC {
     },
     x_warrior = {
       lines = {
-        { id = "xw_default", text = "My soldiers are spread thinner than I would wish, and every one of them stands between this Hold and the hives. A warrior who keeps the peace in my courtyard and fights where I send them is worth more to me than any number of promises." },
+        { id = "xw_default", text = "My soldiers are spread thinner than I would wish, and every one of them stands between this Hold and the hives, as the Sentinels once stood between Ashenvale and the Legion. A warrior who keeps the peace in my courtyard and fights where I send them is worth more to me than any number of promises." },
         { id = "xw_watch", when = { origin = "nightelf_auberdine_watch" }, text = "You carry yourself like one of the Auberdine watch. Then you already know how long a night can be when you are counting soldiers who have not returned." },
       },
       choices = {
@@ -407,7 +452,7 @@ P:NPC {
       { id = "tp_bg", text = "I've fought more wars than I care to name, and I came to the Circle late, when I'd learned that soldiers alone don't save anything. Now I command the Circle's soldiers, which I suppose is a joke at my own expense." },
       { id = "tp_bg2", text = "A commander of the Circle, and a husband, for as long as I'm allowed to be both.", next = "natalia" },
     },
-    advice = { { id = "tp_ad", text = "Never sleep near a hive's mouth, however tired you are; the ground itself carries their footsteps. And whatever you hear out there at night, don't answer it." } },
+    advice = { { id = "tp_ad", text = "Never sleep near a hive's mouth, however tired you are; the ground itself carries their footsteps. And whatever you hear out there under the moon, don't answer it." } },
     natalia = {
       { id = "tp_natalia", text = "My wife. You've heard, then; the whole Hold has, I suppose.", next = "natalia" },
       { id = "tp_natalia2", text = "She'd have liked you. She liked anyone who asked questions." },
@@ -415,9 +460,16 @@ P:NPC {
     twilights_hammer = { { id = "tp_hammer", text = "A cult that prays for the end of the world, camped in the one desert where the world might oblige them.", next = "cult" } },
     silithid = { { id = "tp_silithid", text = "There are three great hives, Hive'Ashi, Hive'Zora and Hive'Regal, and a thousand small ones, and every one of them is louder than last month.", fx = { learn = { "silithid_hives" } } } },
     ahn_qiraj = { { id = "tp_aq", text = "The city behind the wall, and the reason this fort exists at all. Pray you never see the inside of it." } },
-    cenarion_circle = { { id = "tp_circle", text = "We serve the land, and the land is in danger here. That's all the politics I have time for." } },
+    cenarion_circle = { { id = "tp_circle", text = "We serve the land and keep its balance, as Malfurion taught, and the land is in danger here. That's all the politics I have time for." } },
     cthun = { { id = "tp_cthun", text = "A name my wife shouted at you as she died. I'll learn what it means if it's the last thing this Hold does." } },
-    _none = { { id = "tp_none", text = "I'm afraid that's outside my reports. Larksbane or the Wildmanes might know." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives are spreading, slowly, and every one of them tunnels toward the old city in the south. We burn them back, and next season they're there again." } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The old songs say a bronze dragon helped seal the city a thousand years ago, and then left, and nobody has seen it since. I'd like very much to ask it why it left." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion sleeps, and Fandral leads the Circle in his stead, and I serve where Fandral sends me. I do not think the Arch Druid knows how bad it is out here." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande keeps Darnassus, and she has sent Sentinels south to hold this desert with us. I pray to her goddess for my wife, every night." } },
+    elune = { { id = "tp_elune", text = "Natalia used to say Elune hears everything, even in the desert. I hope she is right, because I have been saying a great deal." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids of the Circle walk in the Dream, and some of them say the Dream is uneasy. I have no time for dreams, not while my wife is missing." } },
+    thrall = { { id = "tp_thrall", text = "The Horde sends its warriors here as the Alliance does, and they fight beside us against the swarm. I am grateful, and I keep them on opposite sides of the Hold." } },
+    _none = { { id = "tp_none", text = "I'm afraid that's outside my reports. Larksbane or the Wildmanes might know, Elune willing." } },
   },
 }
 
@@ -436,7 +488,7 @@ P:NPC {
     { id = "g_default", text = "Mind the crates, friend; half of them are full of rocks, and the other half are full of more interesting rocks." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Come and listen to this sample and tell me I'm imagining things." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's quieter at night, so ye can hear it properly. Shh, now." },
-    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the hum's grown louder in that time, I'd swear it on my hammer. Come an' listen, an' tell me I'm wrong." },
+    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the hum's grown louder in that time, I'd swear it on my hammer an' my beard both. Come an' listen, an' tell me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit since ye last came by my crates, an' I can feel it the way I feel a seam o' good ore. The crystals might take notice o' ye now, so mind yerself near them." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone at the Hold round tae yer view, which is more than I've managed wi' the Circle about my crystals. Mebbe ye could put in a word for a dwarf wi' a feelin'." },
   },
@@ -454,6 +506,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_magni = {
+      lines = {
+        { id = "opm_q", text = "Ironforge sends me letters and no help, and every letter has the king's seal on it. You've been through the mountain, so I'll ask ye straight: what do ye make of King Magni?" },
+      },
+      choices = {
+        { text = "A good king. He holds the Alliance together as much as anyone.", next = "op_magni_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { magni = "admire" } } },
+        { text = "He forgets the dwarves who work far from the throne.", next = "op_magni_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { magni = "distant" } } },
+        { text = "Kings are kings. I'd rather trust the stone.", next = "op_magni_r3", fx = { trait = { witty = 1 }, opinion = { magni = "mixed" } } },
+        { text = "He's my king, and there's none better under the mountain.", next = "op_magni_r4", fx = { affinity = 2, opinion = { magni = "loyal" } }, when = { race = "Dwarf" } },
+        { text = "I've never met the man, Larksbane.", next = "BACK" },
+      },
+    },
+    op_magni_r1 = {
+      lines = {
+        { id = "op_magni_r1", text = "Aye, he does, and he's a fine dwarf to share a drink with, they say. I only wish he'd spare a few for Silithus." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_magni_r2 = {
+      lines = {
+        { id = "op_magni_r2", text = "Ye've been reading my letters, I think! Still, he's got a whole kingdom to look after, and I've only got a desert full of humming rocks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_magni_r3 = {
+      lines = {
+        { id = "op_magni_r3", text = "Now that's a geologist's answer! The stone never lies, though it does mumble an awful lot down here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_magni_r4 = {
+      lines = {
+        { id = "op_magni_r4", text = "Spoken like a true Bronzebeard! I'll raise my next mug to him, and to ye." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "They hum near anythin' with a bit o' power in it, which worries me more than it pleases me. Down in the hives the bugs guard them like treasure, an' I've a nasty feelin' the crystals are listenin' tae somethin' much older than the Light or any o' us." } },
@@ -550,27 +646,27 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, and about time too. Ye'll feel the crystals better than my instruments do, I'd wager, so tell me if they make yer teeth ache as well." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got rocks to sort, but they're not going anywhere." },
+        { id = "h_again", text = "What else, {g:lad|lass}? I've got rocks to sort, but they're nae going anywhere; they've waited since the titans set them down." },
         { id = "h_again2", text = "Go on, ask. It's nice to talk to something that answers back." },
       },
       choices = {
         { text = "Do the crystals harm the land, or only the bugs?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What is that humming?", next = "crystals" },
-        { text = "What brings a geologist to the Circle?", next = "work" },
+        { text = "A geologist seems an odd fit for the Circle.", next = "work" },
         { text = "What do the cult's tablets say?", next = "tablets", when = { questDone = TODO_QUEST("The Twilight Mystery") } },
         { text = "What's the Twilight's Hammer doing with stones?", next = "tablets", when = { questBefore = TODO_QUEST("The Twilight Mystery") } },
         { text = "A dwarf, this far from the mountains?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I hear something in the crystals too.", next = "priest_hum", when = { class = "PRIEST" } },
-        { text = "This ore's coated in slime. What is it?", next = "mining", when = { profession = { "Mining" } } },
+        { text = "This ore's coated in some kind of slime.", next = "mining", when = { profession = { "Mining" } } },
         { text = "What did the prism tell you?", next = "prism", when = { questDone = TODO_QUEST("Unraveling the Mystery") } },
         { text = "Those crystals hum with arcane power, don't they?", next = "x_mage", when = { class = "MAGE" } },
         { text = "The earth spirits are speaking here. Can't you hear them?", next = "x_shaman", when = { class = "SHAMAN" } },
-        { text = "Can the silithid really feel footsteps?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I'd guess the silithid can feel footsteps through the sand.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You think the crystals have a dark power?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Why would the stones hum for a priest, Larksbane?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Are the crystals out there a danger to fighters, Larksbane?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The stones seem to hum when a priest comes near.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Those crystals look like a danger to fighters, Larksbane.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have the crystals changed how the silithid move, Larksbane?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Do the crystals respond to the Light, Geologist?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The crystals seem to answer the Light, Geologist.", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you get back to your rocks.", next = "END" },
       },
     },
@@ -582,7 +678,7 @@ P:NPC {
           text = "Great glyphed things, standing in the sand and down in the hives, and every one of them hums. The closer ye get, the angrier the silithid are, so either the bugs are guarding them or the crystals are telling the bugs what to do." },
       },
       choices = {
-        { text = "Could the crystals be destroyed?", next = "crystals_break" },
+        { text = "Those crystals ought to be destroyed.", next = "crystals_break" },
         { text = "Is the hum getting faster, too?", tag = "Persuade", next = "hum_count",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Dwarf" }, { class = "PRIEST" } } } },
           fail = { next = "hum_shrug", fx = { affinity = -1 } } },
@@ -627,7 +723,7 @@ P:NPC {
           text = "I can read every word on those fragments, and not one sentence makes sense, which means it's a code. The cult does that; whoever knows the key is the only one who can tell us what they're up to." },
       },
       choices = {
-        { text = "Who could break their code?", next = "deserter" },
+        { text = "Someone must be able to break their code.", next = "deserter" },
         { text = "Burn the tablets. The cult's words poison whoever reads them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Read every word. Knowledge is a weapon, whatever its source.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -637,7 +733,7 @@ P:NPC {
       lines = { { id = "d_default", fx = { learn = { "ortell" } },
         text = "A man who used to wear their robes and ran off, called Ortell, hiding out in the hills east of the hives. The cult wants him dead, which makes him the best friend we're likely to get." } },
       choices = {
-        { text = "Can a deserter be trusted?", next = "deserter_trust" },
+        { text = "A deserter is hard to trust.", next = "deserter_trust" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -653,13 +749,16 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "Ironforge has never minded its miners wandering, so long as they send home samples. I came for a season to look at the thorium seams and stayed when the crystals started singing, and now I'd not leave if the King himself wrote to me." } },
       choices = {
-        { text = "Do you miss the mountain?", next = "dwarf_home" },
+        { text = "You must miss the mountain in this heat.", next = "dwarf_home" },
         { text = "Something else.", next = "BACK" },
       },
     },
     dwarf_home = {
       lines = { { id = "dh_default", text = "Every day it's this hot, which is every day. But stone's stone wherever ye find it, and this stone's got more to say than any I've met." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of King Magni?", next = "op_magni" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     priest_hum = {
       lines = {
@@ -720,7 +819,12 @@ P:NPC {
     twilights_hammer = { { id = "tp_hammer", text = "They write a lot down for people who claim to want the world to end. I'd like to read it all." } },
     ortell = { { id = "tp_ortell", text = "The deserter in the eastern hills. Bring him something to decode and he'll be your friend for life, or at least until the cult finds him." } },
     natalia = { { id = "tp_natalia", text = "She sat with me and listened to the stones, and she heard more than I did. I've wondered since whether that's what started it." } },
-    _none = { { id = "tp_none", text = "If it isn't a rock, I'm the wrong dwarf to ask." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives aren't built, they're grown, and the rocks around them hum like a struck bell. I've sat beside Hive'Ashi with a listening rod for a week, and the note keeps getting lower." } },
+    cthun = { { id = "tp_cthun", text = "Natalia shouted it, they tell me, a name I'd never heard and don't much like the shape of. The rocks don't say names, but they've been saying something for a long time." } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The old stories say the bronze dragons sealed the city in the south with a scepter. I'm a geologist, so I don't believe stories, but I'd like to see the scepter." } },
+    magni = { { id = "tp_magni", text = "Magni would want to know what I'm finding here, and I'd tell him if I could get a letter out of this desert. The post comes once a fortnight, if the wind riders aren't eaten." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's stones hum too, in a different key, older and calmer. I spent a season there, and I'd give anything to have it back instead of this." } },
+    _none = { { id = "tp_none", text = "If it isn't a rock, I'm the wrong dwarf to ask, and that's the long and short of it." } },
   },
 }
 
@@ -736,8 +840,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Cenarion Hold, {class}. If you've come to lend a hand, I have several needing lent." },
-    { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The caravans have been safer since your last visit, and I keep a tally." },
+    { id = "g_default", text = "Welcome to Cenarion Hold, {class}. If you've come to lend a hand, I have several needing lent, and the Earth Mother knows I can't spare a single one." },
+    { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The caravans have been safer since your last visit, and I keep a tally, as carefully as my grandmother counted the herd." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stepping Up Security") }, text = "The worms have learned to keep their distance from the road, {name}, and I know whom to thank." },
   },
 
@@ -752,6 +856,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_circle = {
+      lines = {
+        { id = "opc_q", text = "Alliance and Horde both supply this fort, and both grumble that the Circle asks too much of them. You've carried our crates, so tell me: what do you think of the Cenarion Circle?" },
+      },
+      choices = {
+        { text = "The Circle stands above the war. That makes it worth supporting.", next = "op_circle_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { cenarion_circle = "admire" } } },
+        { text = "It talks about balance and asks everyone else to bleed for it.", next = "op_circle_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { cenarion_circle = "distrust" } } },
+        { text = "It's useful, as long as both sides keep showing up.", next = "op_circle_r3", fx = { trait = { practical = 1 }, opinion = { cenarion_circle = "useful" } } },
+        { text = "I'm a druid, Windcaller. The Circle is my home.", next = "op_circle_r4", fx = { affinity = 2, opinion = { cenarion_circle = "loyal" } }, when = { class = "DRUID" } },
+        { text = "I'll carry crates and leave the opinions to you.", next = "BACK" },
+      },
+    },
+    op_circle_r1 = {
+      lines = {
+        { id = "op_circle_r1", text = "That's the spirit the supply lines run on. I'll note you down as a reliable carter, which from me is high praise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_circle_r2 = {
+      lines = {
+        { id = "op_circle_r2", text = "Everyone bleeds out here, druid and soldier alike, and the silithid don't keep a ledger of whose blood it was. I'll still take your crates." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_circle_r3 = {
+      lines = {
+        { id = "op_circle_r3", text = "Useful is exactly the word I'd use in my reports, and the only one the Commander reads closely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_circle_r4 = {
+      lines = {
+        { id = "op_circle_r4", text = "Then you'll understand why I count grain carts as carefully as any worm. The Circle is only as strong as its supply." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They tear at the air like a beast at a snare, and my caravans suffer for it. Tauren or dwarf, a shaman who can calm the winds is worth more to me than a dozen guards." } },
@@ -845,7 +993,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, here at the Hold. Provided your demons fight the silithid and not the supply carts, I see no reason we cannot work together." },
         { id = "h_default", key = true,
-          text = "From this fort we strike at the silithid where they're strongest, and while we hold it, I'm convinced we cannot lose. Provided, of course, the supplies keep coming, which is where I come in." },
+          text = "From this fort we strike at the silithid where they're strongest, and while we hold it, I'm convinced we cannot lose. Provided, of course, the supplies keep coming, which is where I come in; a herd that eats well walks far." },
         { id = "h_lines", tags = { "news" }, when = { questActive = TODO_QUEST("Securing the Supply Lines") },
           text = "The dredge strikers lie under the sand along the northern road and burst out under the carts. Thin them out, {name}, before I lose another wagon of grain." },
         { id = "h_security", tags = { "news" }, when = { questActive = TODO_QUEST("Stepping Up Security") },
@@ -860,7 +1008,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman from Ironforge! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings." },
       },
       again = {
-        { id = "h_again", text = "What else? I have ledgers, but I have ears too." },
+        { id = "h_again", text = "What else? I have ledgers, but I have ears too, and tauren ears are larger than most." },
         { id = "h_again2", text = "Ask, then. A well-informed soldier eats less of my bread worrying." },
       },
       choices = {
@@ -869,13 +1017,13 @@ P:NPC {
         { text = "You're certain we'll win?", next = "victory" },
         { text = "The Circle's emissary sent me to you.", next = "emissary", when = { questDone = TODO_QUEST("Taking Back Silithus") } },
         { text = "This desert must be hard on a child of the plains.", next = "tauren", when = { race = "Tauren" } },
-        { text = "What does a windcaller do, exactly?", next = "druid", when = { class = "DRUID" } },
+        { text = "I've never quite known what a windcaller does.", next = "druid", when = { class = "DRUID" } },
         { text = "I could scout the supply roads for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Why are the worms such a threat to the supplies?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Would you trust a warlock to guard your supplies?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Few would trust a warlock to guard their supplies.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Can the Hold really win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you keep the soldiers fed and whole, Windcaller?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your supply carts must come under attack often.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does holding the supply roads actually require, Windcaller?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What use does the Hold have for a quiet one, Windcaller?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What have the cult's summonings done to the winds?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -886,7 +1034,7 @@ P:NPC {
     supply = {
       lines = { { id = "s_default", text = "Because nothing grows here that we can eat, and nothing flows here that we can drink but the oasis. Every arrow, every bandage and every sack of morrowgrain comes up the road from Un'Goro, and the desert wants all of it." } },
       choices = {
-        { text = "What threatens the caravans most?", next = "supply_worms" },
+        { text = "I'd guess the silithid threaten the caravans most.", next = "supply_worms" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -904,6 +1052,7 @@ P:NPC {
     victory = {
       lines = { { id = "v_default", text = "Certain, provided we hold this fort, provided the supplies keep coming, and provided Alliance and Horde remember who the enemy is. That's a great many provideds, I'll grant you, but I've seen worse odds turn." } },
       choices = {
+        { text = "What do the factions think of the Circle?", next = "op_circle" },
         { text = "Then I'll keep the road open for you.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, standing = { cenarion_hold = 1 } } },
         { text = "Wars aren't won from ledgers, Windcaller.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -940,11 +1089,15 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know what comes up the road and what doesn't make it. Pick something." } },
-    background = { { id = "tp_bg", text = "A windcaller of the Circle, sent here because someone has to count the grain, and I count better than most." } },
-    advice = { { id = "tp_ad", text = "Carry twice the water you think you'll need. Then carry a little more." } },
+    background = { { id = "tp_bg", text = "A windcaller of the Circle, sent here because someone has to count the grain, and I count better than most. My mother said the winds taught me patience and the Earth Mother taught me arithmetic." } },
+    advice = { { id = "tp_ad", text = "Carry twice the water you think you'll need, then carry a little more. The sand is no gentle plain, and the Earth Mother's rain rarely finds it." } },
     cenarion_circle = { { id = "tp_circle", text = "Tauren and night elves, druids all, and more of us in this fort than anywhere outside Moonglade. We argue about everything but the bugs." } },
     silithid = { { id = "tp_silithid", text = "Dangerous, but at least they're predictable, which is more than I can say for the worms." } },
-    _none = { { id = "tp_none", text = "That's not on any manifest of mine. Ask the Commander." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "Every hive costs us a cart of oil, a dozen torches and two healers for a week. I keep the numbers, and the numbers say we can keep it up, as long as the supplies hold." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent tauren to Silithus because the Circle asked, and because he knows that a swarm doesn't stop at a border. He is wiser than most kings." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is sick here, I think, poisoned by something deep under the sand. We'll heal her one dune at a time." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it should be, and Silithus looks nothing like it. That's why we're here." } },
+    _none = { { id = "tp_none", text = "That's not on any manifest of mine. Ask the Commander, and walk with the Earth Mother while you do." } },
   },
 }
 
@@ -960,7 +1113,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You climbed all these stairs to talk to me? Then talk." },
+    { id = "g_default", text = "You climbed all these stairs to talk to me? Then talk, and I'll listen, as my people have listened through ten thousand years of night." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the last one who climbed up here wanted directions to the privy." },
     { id = "g_deathclasp", when = { questDone = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") }, text = "The southern patrols came back whole this week. I counted twice." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and your footsteps on these stairs haven't changed a bit. Come up and talk, then." },
@@ -1074,7 +1227,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Warlock. I can feel that thing at your heel from up here, so keep it close and keep it quiet, or my guards will put it down." },
         { id = "h_default", key = true,
-          text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door; do I need to draw you a picture?" },
+          text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door for a scorpid called Deathclasp; do I need to draw you a picture?" },
         { id = "h_deathclasp", tags = { "news" }, when = { questActive = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") },
           text = "Deathclasp's gone to ground in the southern mountains, behind the dwarves' camp. Bring me her pincer, and only her pincer; I've been offered a lot of stories in my time, and not one of them had claws." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I heard your robes before I heard your feet, and I'd guess Forsaken or troll from the way you walk, though I'm far too polite to say which." },
@@ -1087,20 +1240,20 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Good; the Commander trusts your kind more than he trusts swords, and lately he trusts very little at all." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The view won't watch itself." },
+        { id = "h_again", text = "Anything else? The view won't watch itself, and I've been watching it longer than your grandfather's grandfather lived." },
         { id = "h_again2", text = "Go on, and be quick about it." },
       },
       choices = {
         { text = "Should druids guard this hold instead of soldiers?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The hives make the earth itself tremble. Have you felt it?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's wrong with the Commander?", next = "cmd" },
+        { text = "Something seems wrong with the Commander.", next = "cmd" },
         { text = "Tell me about this Deathclasp.", next = "deathclasp" },
-        { text = "How do you keep the peace here?", next = "guard" },
-        { text = "How do you see anything in that blindfold?", next = "blindfold" },
+        { text = "Keeping the peace here can't be easy.", next = "guard" },
+        { text = "You can't see much through that blindfold.", next = "blindfold" },
         { text = "I move quietly. Does that worry you?", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Need another blade on the walls, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "You could use another blade on the walls, Captain.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "How do you see with that blindfold on?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you trust anyone at the Hold?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You don't seem to trust anyone at the Hold.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Are your guards holding up against the silithid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does the Hold's guard need from a priest, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
@@ -1184,11 +1337,15 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know who comes and goes, and what they say when they think the tower's empty. Ask." } },
-    background = { { id = "tp_bg", text = "I'm the Captain of the Guard. That's all the story you need." } },
+    background = { { id = "tp_bg", text = "I'm the Captain of the Guard, and I've served the kaldorei long enough to lose my eyes to it. That's all the story you need." } },
     advice = { { id = "tp_ad", text = "Bring proof. Everyone at this fort has heard enough stories to last a thousand years." } },
     natalia = { { id = "tp_natalia", text = "The Commander's wife. Don't bring her up with him unless you've news.", next = "cmd" } },
     silithid = { { id = "tp_silithid", text = "They don't sleep, they don't retreat, and they don't stop. Neither do we." } },
-    _none = { { id = "tp_none", text = "Not my business. Find someone whose business it is." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives grow while you sleep, and I don't sleep much, so I've watched them grow. Hive'Regal's taller this month than last, and nobody wants to hear it." } },
+    ortell = { { id = "tp_ortell", text = "There's a deserter hiding in the hills to the east, a cultist who got cold feet. He thinks nobody knows where he is, and everybody knows where he is." } },
+    thrall = { { id = "tp_thrall", text = "The orc chief's warriors are good fighters and bad at keeping quiet on watch. I can hear them from up here, and so can the bugs." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "The old city in the south is behind a wall nobody can cross, and something behind it wants out. I don't need eyes to know that." } },
+    _none = { { id = "tp_none", text = "Not my business. Find someone whose business it is, and Elune guide your feet on the stairs." } },
   },
 }
 
@@ -1204,7 +1361,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Oh, look at you, sand from head to foot! Come in out of the sun." },
+    { id = "o_fan_distrust", when = { gossip = { topic = "fandral", stance = "distrust" } }, text = "The Commander mentioned you've no great love for the Arch Druid. Hush now, the sand has ears in a place like this, and some of them are Darnassian." },
+    { id = "g_default", text = "Oh, look at you, sand from head to foot! Ishnu-alah, dear, and come in out of the sun." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to the oasis, dear. Your usual corner's free." },
     { id = "g_dumplings", when = { questDone = TODO_QUEST("Kitchen Assistance") }, text = "The dumplings are a hit, you know. I haven't told anyone where the recipe came from." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been gone {away}, dear, and you've brought half the desert back in your hair again! Come in out of the sun, and I'll find you a bowl of something." },
@@ -1318,6 +1476,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh, you look just like a {altrace} who stayed here not long ago, dear, {alt}, from the other side of all this fighting. I gave {alt} the bed by the window and a bowl of soup, and I'd like to see you rest just as well, whatever banner you carry." },
+        { id = "h_alt_kin", when = { alt = { kin = true } },
+          text = "One of your people stayed with me a little while ago, dear, a {altclass} named {alt}, who ate everything I put out and still asked for more. If that's the family appetite, I'd better put another pot on." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, at the Oasis Inn. Sit wherever you like, dear, only keep your little friend away from the kitchen, because I've only just got the worms to stay in the pot." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1328,7 +1490,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you conjure water? I've got the oasis, of course, but it's warm and brackish, and I'd love a bucket of something cold for my soup." },
         { id = "h_default", key = true,
-          text = "Welcome to the Oasis Inn, the only place in Silithus with soft beds and clean water. Rest here as long as you like; the desert will still be there when you're ready, more's the pity." },
+          text = "Welcome to the Oasis Inn, the only place in Silithus with soft beds and clean water, and the nearest thing to a moonwell this side of Feralas. Rest here as long as you like; the desert will still be there when you're ready, more's the pity." },
         { id = "h_recipe", tags = { "news" }, when = { questActive = TODO_QUEST("Desert Recipe") },
           text = "If you go by the cult's camp to the west, keep an eye out for anything they cook from. Sandworm's so bitter I can't get it past my own lips, and they eat it every day." },
         { id = "h_kitchen", tags = { "news" }, when = { questActive = TODO_QUEST("Kitchen Assistance") },
@@ -1343,22 +1505,22 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at my hearth! The Circle keeps its own tents out by the Hold, but your kind always seem to end up here when the sand gets into their fur." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear? I've a pot on, but it'll keep." },
+        { id = "h_again", text = "Anything else, dear? I've a pot on, but it'll keep, and so will I; my people are good at waiting." },
         { id = "h_again2", text = "Go on. It's nice to talk to someone who isn't counting arrows." },
       },
       choices = {
         { text = "How do you keep the water clean in Silithus?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the oasis water hold out against all this sand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You're a long way from home.", next = "auberdine" },
-        { text = "What's there to eat out here?", next = "food" },
+        { text = "There can't be much to eat out here.", next = "food" },
         { text = "Your father was a leatherworker?", next = "southwind", when = { profession = { "Leatherworking" } } },
         { text = "I've come from Darkshore, as it happens.", next = "darkshore", when = { race = "NightElf" } },
-        { text = "How do you keep everyone fed?", next = "inn" },
+        { text = "Keeping everyone fed out here must be hard work.", next = "inn" },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Have you heard of my people, the shen'dorei?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "Do many rogues stay at the Oasis Inn?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What are you trying to cook?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you miss Auberdine, Calandrath?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Whatever you're cooking smells strange.", next = "xmage", when = { class = "MAGE" } },
+        { text = "You must miss Auberdine, Calandrath.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the guests at the Oasis need more than a bed, Calandrath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do many soldiers come back from the hives in a bad way?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have hunters brought you to cook out here, Calandrath?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -1380,7 +1542,7 @@ P:NPC {
       choices = { { text = "Takes nerve to admit that.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     food = {
-      lines = { { id = "f_default", text = "Precious little that grows, so it all comes up the road from Un'Goro, and what doesn't come up the road I've been trying to learn. There aren't many desert herbs, and the sandworms taste the way old boots smell." } },
+      lines = { { id = "f_default", text = "Precious little that grows, so it all comes up the road from Un'Goro, and what doesn't come up the road I've been trying to learn. There aren't many desert herbs, and the sandworms taste the way old boots smell, though the cult out west seem to thrive on them." } },
       choices = {
         { text = "The cult seems to manage.", next = "food_cult" },
         { text = "Something else.", next = "BACK" },
@@ -1433,11 +1595,15 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Everyone eats here sooner or later, and everyone talks while they eat. Ask me something." } },
-    background = { { id = "tp_bg", text = "A girl from Auberdine who grew up in a leatherworker's shop and now runs an inn in a desert. Life's strange." } },
+    background = { { id = "tp_bg", text = "A girl from Auberdine who grew up in a leatherworker's shop and now runs an inn in a desert, a long way from the moonlit shore. Life's strange, even when you've lived a few centuries of it." } },
     advice = { { id = "tp_ad", text = "Shake your boots out every morning, dear. Every single morning." } },
     southwind = { { id = "tp_southwind", text = "An old village of ours, out past Valor's Rest. Ruins now, and sad ones.", next = "southwind" } },
     twilights_hammer = { { id = "tp_hammer", text = "Dreadful people, by all accounts. Good cooks, though; don't tell anyone I said so." } },
-    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask the Commander, or ask the guards; they hear more than I do." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hunters bring silithid meat back from the hives, and I'm trying to learn to cook it, and it's going very poorly. It tastes like a boot that's been in a pond." } },
+    teldrassil = { { id = "tp_teldrassil", text = "I miss Teldrassil and the birds in the high branches, and the sound of rain on leaves. Here it's all sand and clicking." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I hear there's a faire that travels about with fortune-tellers and strange foods. If it ever comes to Silithus, I'll be the first in line, just to eat something that isn't a worm." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins from Gadgetzan come through with spices and charge me for the sand in the jar. I pay it, because the spices hide the taste of everything else." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask the Commander, or ask the guards; they hear more than I do, Elune bless them." } },
   },
 }
 
@@ -1556,6 +1722,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Huh, you've got the same face as a {altrace} named {alt}, pal, from the other side, who brought me a sack of stingers and didn't haggle, which I'm still suspicious of. Related? Doesn't matter, as long as you've got the same habit of bringing me venom." },
+        { id = "h_alt_higher", when = { alt = { higher = true } },
+          text = "{alt} was in here last week, all scars and stingers, and Noggle hasn't stopped talking about it, which is a mercy, because it beats his moaning. You've got the look of someone headed the same way, pal, and I'll have the jars ready." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Stonelash", min = 20 } },
           text = "You've been squashing scorpids by the dozen, I hear, pal, which is lovely, because every one you kill is one less that can sting Noggle again. Mind you, he'd find a way, he always does." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1590,14 +1760,14 @@ P:NPC {
         { text = "Can druid craft cure Noggle where alchemy can't?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why is the venom in Silithus so much worse than elsewhere?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How is Noggle doing?", next = "noggle" },
-        { text = "What do you brew for the Hold?", next = "work" },
+        { text = "You must brew a great deal for the Hold.", next = "work" },
         { text = "I know a little alchemy myself.", next = "alchemist", when = { profession = { "Alchemy" } } },
-        { text = "What's a goblin doing working for druids?", next = "goblin" },
+        { text = "A goblin working for druids is a strange sight.", next = "goblin" },
         { text = "Venom like that would coat a blade nicely.", next = "x_rogue", when = { class = "ROGUE" } },
-        { text = "How bad is Noggle's poisoning?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Noggle's poisoning looks bad.", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a curse really help draw out venom?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How bad is Noggle's poisoning, really?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Would a priest's healing put you out of business, Beetix?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "A priest's healing could put you out of business, Beetix.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What stung Noggle so badly, Beetix?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters' kills really help you make cures, Beetix?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can a paladin really help Noggle, Beetix?", next = "xapala", when = { class = "PALADIN" } },
@@ -1623,7 +1793,7 @@ P:NPC {
           text = "Deathclasp, the big scorpid in the southern mountains, chased him into a whole nest of stonelash flayers, pal. The idiot ran straight from one into the other, and lost his bag doing it, with a week's herbs inside." },
       },
       choices = {
-        { text = "Someone should deal with Deathclasp.", next = "noggle_deathclasp" },
+        { text = "Someone should deal with that scorpid.", next = "noggle_deathclasp" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1673,6 +1843,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Steamwheedle born, Steamwheedle trained, and stuck in a desert because the money's good, pal. What else is there?" } },
     advice = { { id = "tp_ad", text = "If somethin' in this desert has a tail, pal, assume the tail's poisoned, and you'll be right nine times in ten." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel doesn't run this fort, pal, but it sells to it, which is better: all the profit, none of the bugs." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best alchemy suppliers in Kalimdor, and I'd be there right now if Noggle hadn't gone and got himself stung. He's an investment, you see, and I protect my investments." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives are full of venoms and ichors that'd make an alchemist rich, sweetheart, if she lived long enough to sell them. I've got the bottles, I just need someone else's arm." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine market, but you can't sell scorpid venom to sailors, not twice anyway. I'm sticking to the desert, where the customers are desperate." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and unless it's poisonous or pays well, I don't much care." } },
   },
 }

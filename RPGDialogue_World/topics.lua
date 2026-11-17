@@ -167,3 +167,62 @@ P:Topic { id = "cthun", keywords = { "C'Thun" }, name = "C'Thun", category = "th
 
 -- Battleground emissaries (0.78.0)
 P:Topic { id = "ashenvale", name = "Ashenvale", category = "places", learned = "the Warsong Gulch emissaries" }
+
+-- 0.78.0: the big subjects of the world, asked of anyone. Named NPCs answer in their own
+-- files; role pools (asks.lua) and town pools give everyone else a take.
+-- The dead and the north
+P:Topic { id = "scourge", keywords = { "Scourge" }, name = "The Scourge", category = "threats", learned = "almost anyone in Lordaeron" }
+P:Topic { id = "forsaken", keywords = { "Forsaken" }, name = "The Forsaken", category = "people", learned = "anyone in Tirisfal, or anyone who has met one" }
+P:Topic { id = "kelthuzad", keywords = { "Kel'Thuzad", "Naxxramas" }, name = "Kel'Thuzad", category = "threats", learned = "the Argent Dawn, or the Scourge's victims" }
+P:Topic { id = "arthas", keywords = { "Arthas" }, name = "Prince Arthas", category = "lore", learned = "anyone old enough to remember Lordaeron" }
+P:Topic { id = "lordaeron", keywords = { "Lordaeron" }, name = "The fall of Lordaeron", category = "lore", learned = "refugees, soldiers and the dead themselves" }
+P:Topic { id = "stratholme", keywords = { "Stratholme" }, name = "Stratholme", category = "places", learned = "the Argent Dawn, or Lordaeron's survivors" }
+P:Topic { id = "shadowfang", keywords = { "Shadowfang", "Arugal" }, name = "Shadowfang Keep", category = "places", learned = "Silverpine Forest" }
+P:Topic { id = "internment", keywords = { "internment" }, name = "The internment camps", category = "lore", learned = "Thrall's orcs, or the old guards of Lordaeron" }
+P:Topic { id = "second_war", keywords = { "Second War" }, name = "The Second War", category = "lore", learned = "veterans of either side" }
+P:Topic { id = "gilneas", keywords = { "Gilneas", "Greymane Wall" }, name = "Gilneas and the Greymane Wall", category = "places", learned = "Silverpine Forest, or old Alliance hands" }
+P:Topic { id = "stromgarde", keywords = { "Stromgarde" }, name = "Stromgarde", category = "places", learned = "Refuge Pointe in Arathi" }
+P:Topic { id = "wildhammer", keywords = { "Wildhammer" }, name = "The Wildhammer dwarves", category = "people", learned = "Aerie Peak, or anyone who has seen a gryphon" }
+-- Leaders
+P:Topic { id = "thrall", keywords = { "Thrall" }, name = "Warchief Thrall", category = "people", learned = "anyone in the Horde, and most of the Alliance" }
+P:Topic { id = "sylvanas", keywords = { "Sylvanas" }, name = "Lady Sylvanas Windrunner", category = "people", learned = "the Forsaken, or anyone who fears them" }
+P:Topic { id = "cairne", keywords = { "Cairne" }, name = "Cairne Bloodhoof", category = "people", learned = "the tauren, or anyone who has been to Mulgore" }
+P:Topic { id = "voljin", keywords = { "Vol'jin" }, name = "Vol'jin of the Darkspear", category = "people", learned = "the Darkspear trolls" }
+P:Topic { id = "darkspear", keywords = { "Darkspear" }, name = "The Darkspear trolls", category = "people", learned = "Sen'jin Village, or Orgrimmar" }
+P:Topic { id = "jaina", keywords = { "Jaina" }, name = "Lady Jaina Proudmoore", category = "people", learned = "Theramore, or anyone who remembers Hyjal" }
+P:Topic { id = "bolvar", keywords = { "Bolvar" }, name = "Highlord Bolvar Fordragon", category = "people", learned = "Stormwind Keep" }
+P:Topic { id = "varian", keywords = { "Varian" }, name = "The missing king", category = "rumors", learned = "anyone in Stormwind" }
+P:Topic { id = "prestor", keywords = { "Prestor" }, name = "Lady Katrana Prestor", category = "people", learned = "Stormwind Keep, or its gossip" }
+P:Topic { id = "magni", keywords = { "Magni" }, name = "King Magni Bronzebeard", category = "people", learned = "anyone in Ironforge" }
+P:Topic { id = "tyrande", keywords = { "Tyrande" }, name = "Tyrande Whisperwind", category = "people", learned = "anyone in Darnassus" }
+-- Places
+P:Topic { id = "theramore", keywords = { "Theramore" }, name = "Theramore Isle", category = "places", learned = "Dustwallow Marsh, or Jaina's people" }
+P:Topic { id = "booty_bay", keywords = { "Booty Bay" }, name = "Booty Bay", category = "places", learned = "sailors, pirates and anyone in Stranglethorn" }
+P:Topic { id = "gadgetzan", keywords = { "Gadgetzan" }, name = "Gadgetzan", category = "places", learned = "anyone who has crossed Tanaris" }
+P:Topic { id = "ratchet", keywords = { "Ratchet" }, name = "Ratchet", category = "places", learned = "the Barrens coast" }
+P:Topic { id = "everlook", keywords = { "Everlook" }, name = "Everlook", category = "places", learned = "Winterspring, or anyone who has been cold lately" }
+P:Topic { id = "dalaran", keywords = { "Dalaran" }, name = "Dalaran", category = "places", learned = "mages, or anyone from Alterac" }
+P:Topic { id = "kirin_tor", keywords = { "Kirin Tor" }, name = "The Kirin Tor", category = "people", learned = "Dalaran, or any mage" }
+P:Topic { id = "nordrassil", keywords = { "Nordrassil", "World Tree" }, name = "Nordrassil", category = "places", learned = "the night elves, or Mount Hyjal" }
+P:Topic { id = "zul_gurub", keywords = { "Zul'Gurub", "Hakkar" }, name = "Zul'Gurub and Hakkar", category = "threats", learned = "Yojamba Isle, or anyone in Stranglethorn" }
+P:Topic { id = "zul_farrak", keywords = { "Zul'Farrak" }, name = "Zul'Farrak", category = "places", learned = "Gadgetzan" }
+P:Topic { id = "sunken_temple", keywords = { "Sunken Temple", "Atal'Hakkar" }, name = "The Sunken Temple", category = "places", learned = "the Swamp of Sorrows, or Stranglethorn's trolls" }
+P:Topic { id = "dire_maul", keywords = { "Dire Maul", "Eldre'Thalas" }, name = "Dire Maul", category = "places", learned = "Feralas" }
+P:Topic { id = "razorfen", keywords = { "Razorfen" }, name = "Razorfen Kraul and Downs", category = "places", learned = "the southern Barrens" }
+P:Topic { id = "maraudon", keywords = { "Maraudon" }, name = "Maraudon", category = "places", learned = "Desolace" }
+P:Topic { id = "blackfathom", keywords = { "Blackfathom" }, name = "Blackfathom Deeps", category = "places", learned = "Ashenvale or Darkshore" }
+P:Topic { id = "gurubashi_arena", keywords = { "Gurubashi Arena" }, name = "The Gurubashi Arena", category = "places", learned = "Booty Bay, or anyone with a blade to prove" }
+P:Topic { id = "darkmoon_faire", keywords = { "Darkmoon Faire" }, name = "The Darkmoon Faire", category = "places", learned = "Goldshire or Mulgore, when the Faire's in town" }
+-- Threats and peoples
+P:Topic { id = "onyxia", keywords = { "Onyxia" }, name = "Onyxia", category = "threats", learned = "Dustwallow Marsh" }
+P:Topic { id = "emerald_dream", keywords = { "Emerald Dream" }, name = "The Emerald Dream", category = "lore", learned = "druids, or the Cenarion Circle" }
+P:Topic { id = "green_dragons", keywords = { "green dragons", "Ysera" }, name = "The green dragons", category = "lore", learned = "Duskwood, Ashenvale, the Hinterlands or Feralas" }
+P:Topic { id = "centaur", keywords = { "centaur", "Kolkar" }, name = "The centaur", category = "threats", learned = "the Barrens or Desolace" }
+P:Topic { id = "quilboar", keywords = { "quilboar", "Razormane" }, name = "The quilboar", category = "threats", learned = "the Barrens or Mulgore" }
+P:Topic { id = "timbermaw", keywords = { "Timbermaw" }, name = "The Timbermaw furbolgs", category = "people", learned = "Felwood or Winterspring" }
+P:Topic { id = "ravenholdt", keywords = { "Ravenholdt" }, name = "Ravenholdt", category = "rumors", learned = "the Hillsbrad foothills, or a rogue who trusts you" }
+-- Faiths
+P:Topic { id = "holy_light", keywords = { "Holy Light" }, name = "The Holy Light", category = "lore", learned = "any priest or paladin" }
+P:Topic { id = "elune", keywords = { "Elune" }, name = "Elune", category = "lore", learned = "the night elves" }
+P:Topic { id = "earth_mother", keywords = { "Earth Mother" }, name = "The Earth Mother", category = "lore", learned = "the tauren" }
+P:Topic { id = "the_elements", keywords = { "elemental spirits" }, name = "The spirits and the elements", category = "lore", learned = "any shaman" }

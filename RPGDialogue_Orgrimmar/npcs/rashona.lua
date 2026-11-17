@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. A simple donation of cloth goes a long way here, because cloth makes garments and bandages, and the Horde never has enough of either." },
+        { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. In the camps we bled through rags, so a simple donation of cloth goes a long way here; it makes garments and bandages, and the Horde never has enough of either." },
         { id = "h_lowlevel", when = { maxLevel = 40 }, text = "Rashona Straglash, cloth quartermaster. You're young for donating, {class}, but keep your scraps when you find them, and come back when your packs are heavy." },
         { id = "h_rune_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Donation of Runecloth"), days = 3 } },
           text = "The runecloth you brought went to the healers at the Valley of Honor this morning. They said it was the best weave they'd seen this season, and I didn't tell them where it came from, but I thought it." },
@@ -54,7 +54,7 @@ P:NPC {
     who = {
       lines = { { id = "w_default", text = "Bandages go to the healers and the barracks, and garments go to whoever needs them most. There are orcs in this city who came out of the internment camps with nothing, and trolls who left the isles with less, and winter on the Drag is colder than people think." } },
       choices = {
-        { text = "The camps? People still need help from that?", next = "camps" },
+        { text = "People still need help, years after the camps.", next = "camps" },
         { text = "Something else, Rashona.", next = "BACK" },
       },
     },
@@ -62,7 +62,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Some of them came out of those camps young and never learned a trade, so they've got their freedom and not much else. The Warchief freed them, and the rest is up to the rest of us." } },
       choices = {
         { text = "Then I'll give what I can.", next = "camps_end" },
-        { text = "Shouldn't they learn to provide for themselves?", next = "camps_end" },
+        { text = "They should learn to provide for themselves.", next = "camps_end" },
       },
     },
     camps_end = {
@@ -93,8 +93,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I sew, I count, and I make sure the cloth goes where it's needed. That's all the story there is, and it's enough." } },
+    background = { { id = "tp_bg", text = "I sew, I count, and I make sure the cloth goes where the Horde bleeds. That's all the story there is, and it's enough." } },
     advice = { { id = "tp_ad", text = "Carry spare bandages. The grunt bleeding next to you will never have brought his own." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about cloth and I'll talk your ear off." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is spreading in the north, and the wounded keep coming in from everywhere. I collect cloth for all of them, and it's never enough." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need bandages, which is a mercy. They do need clothes, though, and some of them have forgotten how to sew." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wants the cloth to go where it's needed most, and I make sure it does, even when the donors grumble. A leader who thinks of the poor deserves a collector who does the same." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, grunt. Ask me about cloth and I'll talk your ear off." } },
   },
 }

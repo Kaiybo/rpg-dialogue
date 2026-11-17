@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another one through the swamp in one piece. That takes some nerve, so I'll say well done." },
+    { id = "g_default", text = "Another one through the swamp in one piece. That takes some nerve, and an orc respects nerve, so I'll say well done." },
     { id = "g_back", when = { metBefore = true }, text = "Back in Stonard again? Then it must be growing on you, which is more than it's done for me." },
     { id = "g_tokkar", when = { questActive = TODO_QUEST("Lack of Surplus") }, text = "Tok'Kar's still waiting on that meat, so don't let the crocolisks have you first." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and somehow you still came back through the swamp. It must be growing on you, though I can't think why." },
@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Well, you came through the swamp in one piece, so whatever you're doing must be working." },
         { id = "h_default", key = true,
-          text = "I'm Dar. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
+          text = "I'm Dar, and I keep the meat moving out to Tok'Kar's camp on the eastern beach. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
         { id = "h_meat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lack of Surplus"), days = 3 } },
           text = "Tok'Kar got his sawtooth flanks, and his soldiers ate well, and I hear he said something about my face while he was at it. He always does, so I'll take it as thanks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll find Stonard's walls a comfort, at least, since they're about the only comfort here." },
@@ -124,18 +124,18 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, in Stonard. Well, that's one more piece of history for these stones, and I didn't think they had room for any more." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has plenty of." },
+        { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has more of than mud and honor." },
         { id = "h_again2", text = "Go on, ask. The mud isn't going anywhere, and neither am I." },
       },
       choices = {
         { text = "What would these old stones say, if they could speak?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the old stones of Stonard hold any magic, Dar?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who's Tok'Kar?", next = "tokkar" },
-        { text = "Why does Stonard matter, then?", next = "history" },
-        { text = "Doesn't it feel like home?", next = "home" },
+        { text = "Stonard doesn't look like much, if you ask me.", next = "history" },
+        { text = "It must feel a bit like home by now.", next = "home" },
         { text = "These stones were raised by my grandfathers' Horde.", next = "k_orc", when = { race = "Orc" } },
         { text = "The swamp feels like home to me, Dar.", next = "k_troll", when = { race = "Troll" } },
-        { text = "Nothing worth stealing at all, Dar?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "There must be something worth stealing round here, Dar.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What do you know of Stonard's old warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why does Stonard need warriors on its walls, Dar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's worth hunting around Stonard, Dar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -175,7 +175,7 @@ P:NPC {
 
     history = {
       lines = {
-        { id = "hi_default", text = "The old Horde built Stonard when the Dark Portal first opened, so it's one of the oldest things our people ever raised on this world. The new Horde rebuilt it, and now it watches the Portal road and the sunken temple both." },
+        { id = "hi_default", text = "The old Horde built Stonard when the Dark Portal first opened, so it's one of the oldest things our people ever raised on this world, along with its sister fortress, Rockard. The new Horde rebuilt it, and now it watches the Portal road and the sunken temple both." },
       },
       choices = {
         { text = "What became of Rockard?", next = "history_rockard" },
@@ -229,8 +229,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "There's not much to tell. I came, I stayed, and I send the meat to the beach." } },
+    background = { { id = "tp_ba", text = "There's not much to tell. I came with the Horde, I stayed when the others marched on, and I send the meat to the beach." } },
     advice = { { id = "tp_ad", text = "Stay on the road, and if the road goes under water, stay where the road used to be." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief cares about places like this, places nobody else remembers. That's why I stay." } },
+    second_war = { { id = "tp_second_war", text = "Stonard's stones were laid by the old Horde, back in the wars, and they still remember it. I like to think someone should be here to remember with them." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls on the lake keep to themselves, mostly. I'd like it to stay that way." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask Ruag; he keeps the papers, and the papers know more than I do." } },
   },
 }
@@ -345,7 +348,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Keep the demon well away from the pen, because the riders already hate the swamp, and they'd hate your friend a good deal more." },
         { id = "h_default", key = true,
-          text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay, and they hate every minute of the wet before they leave." },
+          text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay. They're proud beasts of the Horde, and they hate every minute of the wet before they leave." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The riders don't like flying out of here at night, because the mist sits so low they can't see the trees. They'll go, but they'll grumble the whole way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't like the weight of plate when their wings are wet, so I'll ask you to be patient while they shake off the damp." },
@@ -354,18 +357,18 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in plate, and glowing besides. My riders are already miserable in this wet, and now they've got something new to sulk about." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've got harness to scrape." },
+        { id = "h_again", text = "Anything else? I've got harness to scrape, and riders who'd bite a peon for less." },
         { id = "h_again2", text = "Quick, before the mist rolls in." },
       },
       choices = {
         { text = "What spooks your wind riders over the Sunken Temple?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do your riders carry for the spellcasters who come through?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders take the swamp?", next = "wet" },
-        { text = "Do you hear from the other rider masters?", next = "others" },
+        { text = "You must hear from the other rider masters now and then.", next = "others" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "I could try drying your riders, Breyk.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Who would cut a wind rider's harness?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do wet wings make the wind riders dangerous, Breyk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Only a fool would cut a wind rider's harness.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Wet wings must make the wind riders dangerous, Breyk.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do you keep beasts healthy in this swamp, Breyk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What does the swamp do to the wind riders, Breyk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Will your riders fly a Forsaken paladin, Breyk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -386,7 +389,7 @@ P:NPC {
         { id = "ot_default", text = "Gorrik at Kargath sends word now and then, and it's always the same: too hot. I send back that it's too wet, and we've been having that argument for years now through the riders." },
       },
       choices = {
-        { text = "Which of you has it worse?", next = "others_worse" },
+        { text = "I'd say Gorrik has it worse in the Badlands.", next = "others_worse" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -399,8 +402,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I keep wind riders. Before that I kept wind riders somewhere drier, and I'd like to again someday." } },
+    background = { { id = "tp_ba", text = "I keep wind riders. Before that I kept wind riders somewhere drier, in Durotar's red hills, and I'd like to again someday." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the swamp, because the air drops out from under you when you least expect it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built the wind rider routes, and I keep them running, rain or not. Mostly rain." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The wind riders won't fly near the Dark Portal, not for anything. They smell something there that I can't." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the driest place my beasts have ever landed, and they loved it. I'd give a lot to fly there again." } },
     _none = { { id = "tp_none", text = "I know the sky and the riders, not much else. Try Karakul at the inn." } },
   },
 }
@@ -417,7 +423,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I have no time for you. Go away." },
+    { id = "g_default", text = "I have no time for you. Go away, before I find a use for you." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another warlock. You know just enough to be dangerous, so let's see if you can learn more." },
   },
 
@@ -531,11 +537,11 @@ P:NPC {
         { text = "Is the temple's magic anything like your trade, Greshka?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's in your grimoires?", next = "grimoires" },
         { text = "Why sell to warlocks here, of all places?", next = "why" },
-        { text = "Fel'zerul is a warlock too.", next = "felzerul" },
+        { text = "Are there other warlocks in Stonard?", next = "felzerul" },
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "Is the arcane really any cleaner than the fel?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do your grimoires really bite?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Why do you dislike warriors so much, Greshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The arcane is cleaner than the fel, whatever you say.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Your grimoires look like they might bite.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "You don't seem to like warriors much, Greshka.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are demons really better than beasts, Greshka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would the Earth Mother weep at your grimoires, Greshka?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What does a warlock's bookseller think of a Forsaken paladin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -571,15 +577,18 @@ P:NPC {
     },
     felzerul = {
       lines = {
-        { id = "fe_default", text = "He is, and he keeps the Warchief's line, and he looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
+        { id = "fe_default", text = "Fel'zerul, out watching the temple, and he keeps the Warchief's line and looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I sell books. You're not owed my story." } },
+    background = { { id = "tp_ba", text = "I sell books. You're not owed my story, and the old Horde's warlocks taught me what talk costs." } },
     advice = { { id = "tp_ad", text = "Don't trust a demon who seems pleased with you. That means it's winning." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is the reason warlocks have the power we do, and the reason the old Horde fell. Remember both, or don't bother opening my books." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Portal is south of here, and the demons that guard the Tainted Scar still answer to old names. I'd send a student there only if I wanted to lose one." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief tolerates warlocks because he must. I tolerate him because he's right to be careful." } },
     _none = { { id = "tp_none", text = "If it isn't in a grimoire, I don't care to discuss it." } },
   },
 }
@@ -596,7 +605,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Want training? Then pick up a blade, because I don't teach talkers." },
+    { id = "g_default", text = "Want training? Then pick up a blade, because I don't teach talkers, I teach warriors of the Horde." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior! Stand in the mud and we'll see how your footing is." },
   },
 
@@ -683,7 +692,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Keep your demon out of my yard, because my warriors have enough trouble with the mud without a voidwalker getting in the way." },
         { id = "h_default", key = true,
-          text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet." },
+          text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet, not even the blood-soaked fields of the old wars." },
         { id = "h_war", when = { class = "WARRIOR" },
           text = "A warrior, and you've walked through the swamp to get here, so your legs are already half trained. Let's see about the other half." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my yard. A hunter's beast fights better in this mud than half my warriors do, and I don't mind saying so." },
@@ -691,7 +700,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in my yard. Can you fight in this mud, or does the Light keep your boots clean for you?" },
       },
       again = {
-        { id = "h_again", text = "More questions? Swing a blade while you ask them." },
+        { id = "h_again", text = "More questions? Swing a blade while you ask them. Deeds, not words." },
         { id = "h_again2", text = "What else? The yard's waiting." },
       },
       choices = {
@@ -700,8 +709,8 @@ P:NPC {
         { text = "Why train in the mud?", next = "mud" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "Would you let a rogue teach your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can a warrior learn anything from a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A rogue could teach your warriors a thing or two.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A warrior can learn something from a mage, I'd say.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your warriors ever train against beasts, Malosh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you really put your recruits against a druid's bear, Malosh?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Would you train a Forsaken paladin, Malosh?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -739,6 +748,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fought, I lived, and now I teach. I've two fewer fingers than I started with, and I don't talk about where they went." } },
     advice = { { id = "tp_ad", text = "Lean forward in the swamp. Always lean forward." } },
-    _none = { { id = "tp_none", text = "I teach warriors. Ask somebody who talks for a living." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's a warrior first, and I'd follow him into any swamp. I'm already in this one, so I suppose I have." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I learned more there than any trainer could teach. I teach what I learned now, with fewer fingers." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls in that temple are no warriors, they hide behind their magic. Give me a troll with an axe any day." } },
+    _none = { { id = "tp_none", text = "I teach warriors. Ask somebody who talks for a living; I bleed for mine." } },
   },
 }

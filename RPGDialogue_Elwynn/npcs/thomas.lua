@@ -147,17 +147,17 @@ P:NPC {
       choices = {
         { text = "What happened to your men?", next = "men", when = { questDone = TODO_QUEST("Find the Lost Guards") } },
         { text = "What's out east?", next = "east" },
-        { text = "What do you know about the murlocs?", next = "murlocs" },
-        { text = "Why is the bridge so thinly held?", next = "army" },
+        { text = "Is anything else troubling this stretch of the forest?", next = "murlocs" },
+        { text = "This bridge seems thinly held.", next = "army" },
         { text = "I came from Westfall. Nobody held a bridge for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll hold this bridge with you, Guard.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "What sort of trouble is there east of the bridge?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Have you ever fought beside a mage, guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd guess you've fought beside a mage before, guard.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What tracks did you find near the lake, Guard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you pray for the men under your command, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess you pray for the men under your command, Thomas.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin do at your bridge, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes the forest east of here so unfriendly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you trust a warlock on your bridge, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You wouldn't trust a warlock on your bridge, I'd wager.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What happened to your men, Guard Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Carry on, guard.", next = "END" },
       },
@@ -201,7 +201,7 @@ P:NPC {
         { id = "e_default", text = "The logging camp, Marshal Haggard's place, the tower where the mage lives. Wolves and bears get bolder the further you are from Goldshire." },
       },
       choices = {
-        { text = "Why are the animals so bold?", next = "east_bold" },
+        { text = "The animals here seem unusually bold.", next = "east_bold" },
         { text = "I'll keep that in mind.", next = "BACK", fx = { learn = { "eastvale" } } },
       },
     },
@@ -217,7 +217,7 @@ P:NPC {
 
     murlocs = {
       lines = {
-        { id = "mu_default", text = "They've settled the streams of eastern Elwynn. Nobody knows why they came. They're aggressive, and cleverer than fish have any right to be." },
+        { id = "mu_default", text = "Murlocs, if you can believe it. They've settled the streams of eastern Elwynn. Nobody knows why they came. They're aggressive, and cleverer than fish have any right to be." },
         { id = "mu_remy", when = { heardClaim = "murlocs_in_elwynn" },
           text = "You've heard Remy's tale, then. Remy says a great many things. This once, I'm afraid he's right." },
       },
@@ -241,7 +241,7 @@ P:NPC {
         { id = "a_default", text = "Most of the kingdom's strength is abroad. What's left is spread from Northshire to Westbrook. I hold a bridge with what I'm given." },
       },
       choices = {
-        { text = "Doesn't that anger you?", next = "army_anger" },
+        { text = "That must anger you.", next = "army_anger" },
         { text = "And Westfall gets less.", next = "army_westfall" },
       },
     },
@@ -298,5 +298,9 @@ P:NPC {
     eastvale = { { id = "tp_eastvale", text = "Loggers and their quotas. They'd cut through a bear if it stood still long enough." } },
     defias = { { id = "tp_defias", text = "Westfall's problem, mostly. Gryan Stoutmantle's handling it, without much help from the city." } },
     _none = { { id = "tp_none", text = "That's above my post, citizen; you'd do better to ask the Marshal in Goldshire." } },
+    scourge = { { id = "tp_scourge", text = "My uncle served in Lordaeron before it fell, and his last letter said the dead were walking in the villages. We never had another, and I stand at this bridge thinking of him more than I should." } },
+    varian = { { id = "tp_varian", text = "I'm a soldier, so I'll only say that the Stormwind Army misses its king. We'll serve the Highlord until His Majesty returns, and we'll do it gladly." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I've walked a few thieves from this bridge to the Stockade in my time, and it's a long walk with a man who won't stop talking. I'd rather stand here." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire half the loggers cross my bridge with a week's wages, and half come back with none. I keep count, for the reports." } },
   },
 }

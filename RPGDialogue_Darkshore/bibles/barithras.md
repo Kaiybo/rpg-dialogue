@@ -11,7 +11,7 @@
 ## Identity
 TODO_NPC · Barithras Moonshade · Auberdine · Darnassus · night elf · potion-maker
 Personality: cautious, courteous, frank, patient
-Speech: measured, formal, a little self-deprecating.
+Speech: measured, formal, a little self-deprecating. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Onu (reveres), Auberdine.
 Never says: his post-Cataclysm death; anything after Year 1.
 

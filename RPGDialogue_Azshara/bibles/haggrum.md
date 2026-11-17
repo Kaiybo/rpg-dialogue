@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Haggrum Bloodfist · Valormok · Horde · orc · warrior of the camp
 Personality: jovial, steady, loyal, grieving behind the smile
-Speech: warm, "friend", "Lok'tar"
+Speech: warm, "friend", "Lok'tar". Orc voice (0.80.0): blunt and proud; honor, blood, deeds over talk; "Lok'tar" sparingly.
 Relationships: Ag'tor (brother; teases him), Kurll (milk), Jediga
 Never says: Rimtori's name at the fire
 

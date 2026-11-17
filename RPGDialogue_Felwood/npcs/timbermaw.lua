@@ -18,6 +18,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Many outsiders kill furbolgs and do not ask which tribe, Deadwood or Timbermaw, all the same to their swords. Tell Grazle, then: what do you think of furbolgs?" },
+      },
+      choices = {
+        { text = "The corrupted ones must die, but the Timbermaw are friends.", next = "op_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { furbolgs = "friend" } } },
+        { text = "A furbolg's a furbolg. I trust none of you.", next = "op_r2", fx = { affinity = -2, align = { honor = -1 }, opinion = { furbolgs = "distrust" } } },
+        { text = "The corruption isn't your fault. It can be cured.", next = "op_r3", fx = { affinity = 1, trait = { kind = 1 }, opinion = { furbolgs = "pity" } } },
+        { text = "I've no quarrel with furbolgs.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Good. You are thinking, which is more than most do, and Timbermaw remember those who think." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Then Grazle will watch you very closely, and Grazle's spear will stay pointed at you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Timbermaw shamans try to cure it, and they bury what they cannot cure. Grazle hopes you are right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Some come only to look at us, as the Highborne once looked at everything. The Timbermaw remember the old elves, and Grazle tests every outsider before they are let near his people, so if you wish to help, prove it against the Deadwood, not with spells over our tunnels." } },
@@ -129,7 +153,7 @@ P:NPC {
       },
       choices = {
         { text = "What do your shamans hear from the Deadwood's land?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What happened to the Deadwood?", next = "deadwood" },
+        { text = "Something terrible happened to the Deadwood.", next = "deadwood" },
         { text = "What is Timbermaw Hold?", next = "hold" },
         { text = "Why distrust outsiders?", next = "outsiders" },
         { text = "The Circle hopes the furbolgs can be healed.", next = "druidg", when = { class = "DRUID" } },
@@ -137,9 +161,9 @@ P:NPC {
         { text = "Has anyone ever sneaked into Timbermaw Hold?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can the Deadwood be healed, Grazle, or only fought?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are honest outsiders so rare at Timbermaw Hold?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What do the Timbermaw ask of a stranger who prays?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The Timbermaw must ask something of a stranger who prays.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How can a warrior earn the Timbermaw's trust?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do the Timbermaw hunt, Grazle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "The Timbermaw must hunt, Grazle.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do mages trouble the Timbermaw, Grazle?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
@@ -174,6 +198,7 @@ P:NPC {
         { id = "outsiders_default", text = "Because the elves call furbolgs beasts and the orcs call us targets, and few come to Felwood to make friends. Grazle judges by deeds, so show Grazle yours." },
       },
       choices = {
+        { text = "What do outsiders get wrong about furbolgs?", next = "op_ask" },
         { text = "All right. I'll not argue with a furbolg.", next = "BACK" },
       },
     },
@@ -189,6 +214,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Grazle is Timbermaw, and Grazle guards the door." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Grazle's grandmothers dreamed green, long ago. Grazle dreams of the door, and of who comes through it." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The fire-demons brought the sickness that took Grazle's cousins. Grazle guards the door so the sickness does not come in." } },
+    everlook = { { id = "tp_everlook", text = "The goblins of Everlook come through Grazle's door to trade. Grazle lets them pass because they bring honey and pay their way." } },
     _none = { { id = "tp_none", text = "Grazle does not know. Ask the elders inside, if they will let you in." } },
   },
 }
@@ -301,6 +329,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_furbolgs_distrust", tags = { "news" }, when = { gossip = { topic = "furbolgs", stance = "distrust" } },
+          text = "Grazle says you trust no furbolg. Nafien says you will learn, or you will leave." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Deadwood", min = 40 } },
           text = "Nafien has counted the Deadwood who no longer walk, and the count is high. He takes no joy in it, and he hopes you take none either, but he is grateful." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -328,17 +358,17 @@ P:NPC {
       },
       choices = {
         { text = "What did the Deadwood do to their totems?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Why the feathers and totems?", next = "totems" },
+        { text = "You seem very interested in feathers and totems.", next = "totems" },
         { text = "Are the Timbermaw at war?", next = "tribe" },
-        { text = "Is anywhere in Felwood still clean?", next = "felwood" },
+        { text = "Nowhere in Felwood looks clean anymore.", next = "felwood" },
         { text = "I'll track them for you.", next = "hunterq", when = { class = "HUNTER" } },
         { text = "Wouldn't it be kinder to drive the Deadwood off than kill them?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there any way to cure the Deadwood?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the Timbermaw honour the Deadwood dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there any rite left for the Deadwood dead, Nafien?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "How do the Deadwood fight, Nafien?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The Deadwood must fight like beasts, Nafien.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is there a cure for the Deadwood's madness?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "What happened to the Deadwood, Nafien?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "Something terrible happened to the Deadwood, Nafien.", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Does the fel on me trouble you, Nafien?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do I seem like the Deadwood to you, Nafien?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Nafien.", next = "END" },
@@ -389,6 +419,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Nafien is Timbermaw, and Nafien hunts what our cousins became." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons' fire made Nafien's cousins into what Nafien hunts now. Nafien remembers their names, and that is why Nafien hunts carefully." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The old shamans spoke of the green dream. Nafien has not dreamed it since the sickness came, but Nafien still hopes." } },
+    satyrs = { { id = "tp_satyrs", text = "The goat-men are evil, and they work with the demons who sickened the forest. Nafien kills them with no sorrow at all." } },
     _none = { { id = "tp_none", text = "Nafien does not know, and does not pretend to." } },
   },
 }
@@ -508,16 +541,16 @@ P:NPC {
       },
       choices = {
         { text = "Do the elements still have any power here, imp?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What are you planning, imp?", next = "power" },
-        { text = "Who's the other imp?", next = "impsy" },
+        { text = "You're planning something, imp.", next = "power" },
+        { text = "There's another imp with you.", next = "impsy" },
         { text = "Why camp in Felwood?", next = "felwood" },
         { text = "I could use a demon's knowledge.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "If you're so mighty, why are you camped in a ruin?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would the Almighty want stolen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would a demon want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a great master need a warrior, Niby?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Is Impsy really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What does a demon want with Felwood, Niby?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Is the other imp really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "I can't think what a demon wants with Felwood, Niby.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Should I point my holy light at you instead, Niby?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
@@ -567,6 +600,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Niby is almighty. That is all you need to know, and frankly more than you deserve." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion? Never heard of it, mortal, and Niby certainly doesn't take orders from it. Niby takes orders from no one, which is why Niby lives in a ruin." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The furbolgs throw things at Niby, which is very disrespectful to the Almighty. Niby will remember it when Niby rules the world, which should be any day now." } },
+    satyrs = { { id = "tp_satyrs", text = "Satyrs are dreadful company, mortal, all hooves and no manners. Niby has standards, even in Felwood." } },
+    elune = { { id = "tp_elune", text = "The elves' moon goddess! Niby has never met her, but Niby is sure she's heard of Niby. Everyone has, or will, very shortly." } },
     _none = { { id = "tp_none", text = "Niby knows everything, of course, but Niby chooses not to tell you that." } },
   },
 }

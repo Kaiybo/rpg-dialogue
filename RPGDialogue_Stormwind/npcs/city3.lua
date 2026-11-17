@@ -149,14 +149,14 @@ P:NPC {
         { id = "h_again2", text = "Yes? Briefly. Silence is the whole point of a library." },
       },
       choices = {
-        { text = "What troubles the House of Nobles?", next = "house" },
-        { text = "What about the masons?", next = "masons" },
+        { text = "The House of Nobles seems troubled.", next = "house" },
+        { text = "What does the House make of the Defias?", next = "masons" },
         { text = "Why read here, my lord?", next = "library" },
         { text = "The Church says the masons were wronged.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Defias took my family's farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I found papers in the Deadmines.", next = "papers", when = { deed = "dungeon:The Deadmines" } },
-        { text = "Who do you think sent me, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Does the House of Nobles trust Dalaran, my lord?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You seem to think someone sent me, my lord.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I doubt the House of Nobles trusts Dalaran, my lord.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the House of Nobles value its soldiers, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would the House want to know of the countryside, my lord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the House of Nobles care what the Church thinks, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -243,6 +243,12 @@ P:NPC {
   },
 
   topics = {
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the finest mind in the House of Nobles, and the Regent is lucky to have her counsel. We see eye to eye on most matters, and the ones we don't, she usually persuades me." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord is a soldier, and soldiers are not trained for the subtleties of a council chamber. He means well, I'm sure, but he relies on wiser heads than his own, and wisely." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild made demands the treasury couldn't meet, and the House of Nobles made the only sensible decision. That they chose to turn to banditry is their own affair, not mine." } },
+    syndicate = { { id = "tp_syndicate", text = "I've heard the name Syndicate, but I've no dealings with Alterac's fallen houses, I assure you. Those who claim otherwise are slanderers with their own agendas." } },
+    varian = { { id = "tp_varian", text = "We all pray for King Varian's return, of course, and I pray as fervently as anyone. Still, the kingdom must be governed in the meantime, and someone must make the difficult decisions." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's troubles are the city guard's affair, not the House of Nobles'. I'd advise anyone thinking of interfering to let the guards handle it, for their own safety." } },
     knows = {
       { id = "tp_knows", text = "A lord of the House hears a great deal, and repeats very little to strangers. Still, I might indulge you on one or two of these." },
     },
@@ -385,12 +391,12 @@ P:NPC {
       },
       choices = {
         { text = "Why do you fight so much?", next = "fight" },
-        { text = "Who are your friends?", next = "friends" },
-        { text = "What's Old Town like?", next = "oldtown" },
-        { text = "What was your part in it, Fist?", next = "plan", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
+        { text = "You seem to have a few friends about.", next = "friends" },
+        { text = "Old Town looks older than the rest of the city.", next = "oldtown" },
+        { text = "You had some part in it, Fist.", next = "plan", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "Fancy a round? The other kind.", next = "spar", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Do you have trouble with the rogues in Old Town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Have you really been polymorphed, Dashel?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I hear you've been polymorphed, Dashel.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have you ever hunted, Dashel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever ask anyone to pray for you, Fist?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do you think paladins don't fight, Fist?", next = "xapala", when = { class = "PALADIN" } },
@@ -402,7 +408,7 @@ P:NPC {
     },
     fight = {
       lines = { { id = "f_default", text = "Because nobody pays me to think. They pay me to stand in a door an' look unfriendly, an' it's honest work, mostly." } },
-      choices = { { text = "Who pays you?", next = "who" }, { text = "Suits me.", next = "BACK" } },
+      choices = { { text = "Someone must be paying you.", next = "who" }, { text = "Suits me.", next = "BACK" } },
     },
     who = {
       lines = { { id = "w_default", text = "Folk who'd rather I didnae say. That's what the extra coin's for." } },
@@ -466,6 +472,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "I've done a night or two in the Stockade, and I'd do a few more if it meant a good scrap. Now the prisoners are running it, and I'm told it's a better tavern than the Pig and Whistle." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a strongman who'll fight anyone for a silver, and I've beaten him three times. He says it was twice, but he's wrong, and I'll fight him again to prove it." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena in Stranglethorn where they fight for gold, and the goblins take bets on who'll live. I'd go if it weren't so far, and if there weren't trolls everywhere between here and there." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a lot of soot-faced cowards who hide in their mountain. I'd fight any three of them, and I'd buy the fourth a drink afterward." } },
     knows = {
       { id = "tp_knows", text = "I hear plenty in Old Town, mostly between the second ale an' the first punch. Ask me about any o' this." },
     },
@@ -607,12 +617,12 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin', since the hammer's restin' anyway." },
       },
       choices = {
-        { text = "What's Elmore like to learn from?", next = "master" },
-        { text = "Who orders from you?", next = "orders" },
-        { text = "Why live so far from Ironforge?", next = "why_here" },
+        { text = "Elmore must be a hard master.", next = "master" },
+        { text = "I'd wager your shields go all over.", next = "orders" },
+        { text = "You're a long way from Ironforge.", next = "why_here" },
         { text = "Can you make me something harder than this?", next = "mail", when = { class = "WARRIOR", minLevel = 22 } },
         { text = "Can you fix this?", next = "BUSINESS" },
-        { text = "Would a rogue really want mail under leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I doubt a rogue wants mail under leather.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage ever wear mail, Furen?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a dwarf's armour be made quiet, Furen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should a priest wear armour, Furen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -664,6 +674,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "Elmore says the Dark Irons forge the best steel in the world, and then he says his is better. I'm still learning which of those is true, and I'd like to see a Dark Iron blade up close to decide." } },
+    magni = { { id = "tp_magni", text = "King Magni's armour was made by the finest smiths in Ironforge, and I'd give my right arm to see it. Elmore says I'd need both arms for the job, which is fair." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Thandol Span is held together by rivets as big as my head, Elmore says, and he's never lied to me about iron. I'd like to see it before the Dark Irons finish what they started." } },
+    second_war = { { id = "tp_second_war", text = "My father fought in the Second War with a blade he made himself, and it held. I keep it above my bench, and I measure every blade I make against it." } },
     background = { { id = "tp_bg", text = "Elmore's student. That's the only part that matters, an' he'd say it doesnae matter much yet.", next = "master" } },
     advice = { { id = "tp_ad", text = "Check yer straps before every fight. A good shield on a bad strap is a lid on a pot." } },
     _none = { { id = "tp_none", text = "Ask the master, if ye dare." } },
@@ -701,7 +715,7 @@ P:NPC {
       choices = {
         { text = "Write it all down honestly, Warden. The Captain should know.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Bury the report, Warden. What the Captain doesn't know can't hurt you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "What happens to the prisoners who survived?", next = "xcl_stocks2" },
+        { text = "The prisoners who survived will pay for it, I'd guess.", next = "xcl_stocks2" },
       },
     },
     xcl_stocks2 = {
@@ -818,12 +832,12 @@ P:NPC {
       },
       choices = {
         { text = "What happened in the Stockade?", next = "riots" },
-        { text = "Who do you keep down there?", next = "cells" },
-        { text = "Who was Thredd's visitor?", next = "visitor", when = { questDone = TODO_QUEST("The Stockade Riots") } },
+        { text = "I hear you keep some hard men down there.", next = "cells" },
+        { text = "Thredd had a visitor, I take it.", next = "visitor", when = { questDone = TODO_QUEST("The Stockade Riots") } },
         { text = "Your prisoners could use a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've seen the inside of a cell or two, Warden.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Who was the warlock in your cells?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is the Stockade guard short of men, Warden?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You had a warlock in your cells, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Stockade guard looks short of men, Warden.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have prisoners ever escaped the Stockade, Warden?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How are the Stockade's prisoners treated, Warden?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Stockade's cells ever see daylight, Warden?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -869,7 +883,7 @@ P:NPC {
         { text = "Robbing graves. The dead deserve better.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = 1 } } },
         { text = "The dead don't need their bodies, so let the man go.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
-        { text = "Whose seal is on those letters, Warden? Or shall I ask the Captain?", tag = "Intimidate", next = "cells_seal",
+        { text = "Whose seal is on those letters, Warden? Or shall I ask your superiors?", tag = "Intimidate", next = "cells_seal",
           check = { pass = { any = { { minLevel = 35 }, { class = { "WARRIOR", "ROGUE" } }, { townStanding = { town = "stormwind", min = 55 } } } } },
           fail = { next = "cells_nerve", fx = { affinity = -1 } } },
       },
@@ -928,6 +942,14 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = {
+      { id = "tp_the_stockade", text = "The Stockade holds the worst of Stormwind, and right now it holds them very poorly. The prisoners took the place in a riot, and I'd rather not talk about it, so please don't." },
+      { id = "tp_the_stockade2", when = { questDone = TODO_QUEST("The Stockade Riots") }, text = "You went in after the ringleaders and came out again, which is more than my own guards managed. I'll be writing your name in a letter to the Keep, and I've not done that for anyone in years." },
+    },
+    deadmines = { { id = "tp_deadmines", text = "Half the Defias I've got locked up seem to know the way to Moonbrook's mines better than their own names. I've asked, and they just smile, and that's worse than any answer." } },
+    syndicate = { { id = "tp_syndicate", text = "We've had a Syndicate man or two in the Stockade, all very polite and very well-dressed. They never stay long, and I've stopped asking who pays their way out." } },
+    si7 = { { id = "tp_si7", text = "SI:7 visits the Stockade now and then, and they never tell me who they've come to see. I let them in, because I'd rather not know, and I suspect that's the arrangement." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord sends his regards and no more guards, and the regards don't hold a cell door. I'd like him to come and see for himself, though I'd prefer he didn't see it as it is." } },
     knows = {
       { id = "tp_knows", text = "A warden hears everything the cells whisper, though he'd rather not. Ask me about any of this, quietly, and I'll tell you what won't get me reassigned." },
     },

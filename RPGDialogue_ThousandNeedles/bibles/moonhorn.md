@@ -10,7 +10,7 @@
 ## Identity
 Brave Moonhorn · top of the Great Lift · Horde · Tauren · brave
 Personality: earnest, dutiful, worried
-Speech: urgent, plain
+Speech: urgent, plain; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: Galak raids, the Grimtotem, the lift
 Relationships: Cliffwatcher Longhorn
 Default attitudes: warns tauren about Grimtotem

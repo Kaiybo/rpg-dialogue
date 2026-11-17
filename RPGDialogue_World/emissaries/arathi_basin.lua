@@ -57,11 +57,11 @@ P:NPC {
       },
       choices = {
         { text = "What's actually in the Arathi Basin worth fighting for?", next = "basin" },
-        { text = "Who are the Defilers?", next = "defilers" },
-        { text = "What happened to Stromgarde?", next = "strom" },
+        { text = "Who are you fighting for the basin?", next = "defilers" },
+        { text = "Stromgarde seems to have fallen on hard times.", next = "strom" },
         { text = "I've brought marks from the basin.", next = "marks", when = { carrying = 20559 } },
         { text = "How does a soldier earn the League's trust?", next = "marks" },
-        { text = "How do you find it here, so far from Arathi?", next = "city" },
+        { text = "You seem far from home here.", next = "city" },
         { text = "Stromgarde's people are my people too.", next = "k_human", when = { race = "Human" } },
         { text = "The Wildhammer and Thandol Span. Do they still matter?", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "Would gnomes be any use in your basin?", next = "k_gnome", when = { race = "Gnome" } },
@@ -81,7 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "How does the fighting actually go there?", next = "basin_points" },
-        { text = "Couldn't the land just be shared?", next = "basin_share" },
+        { text = "Surely the land could be shared.", next = "basin_share" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,8 +102,8 @@ P:NPC {
         { id = "bf_default", text = "Ask ten soldiers and you'll get ten answers, but for me it's the Farm, because my grandmother's people worked those fields before the troll wars and the orcs and the Plague. Some of the Defilers who come down to take it were farmhands there once, and I've heard them call the rows by name." },
       },
       choices = {
-        { text = "Then they've as much right to mourn it as you.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
-        { text = "They gave up that right when they died and came back.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Then they've as much right to mourn it as you.", next = "BACK", fx = { opinion = { forsaken = "pity" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "They gave up that right when they died and came back.", next = "BACK", fx = { opinion = { forsaken = "hate" }, align = { light = -1 }, trait = { stern = 1 } } },
         { text = "That must make the fighting there very strange.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "df_default", text = "They're Forsaken, sworn to the Dark Lady in Undercity, and they've built a camp called the Defiler's Den in the hills below Hammerfall. They want Arathi's gold and timber for the Horde's war, and they want something else besides, which troubles me more." },
       },
       choices = {
-        { text = "Something else? What do you mean?", next = "defilers_dead" },
+        { text = "You make it sound as if they want something else.", next = "defilers_dead" },
         { text = "Hammerfall? So the orcs are in it too.", next = "defilers_orcs" },
         { text = "Something else.", next = "BACK" },
       },
@@ -175,8 +175,8 @@ P:NPC {
         { id = "sw_default", text = "Because a city can be taken back with stone and swords, but not without bread and iron, and the basin is where both come from. If we lose Arathi's fields to the Horde, Stromgarde stays a ruin forever." },
       },
       choices = {
-        { text = "Then the basin comes first. That's sound soldiering.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Let the Horde bleed for the basin. Strike Stromgarde while they're busy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then the basin comes first. That's sound soldiering.", next = "BACK", fx = { opinion = { stromgarde = "patience" }, align = { honor = 1 } } },
+        { text = "Let the Horde bleed for the basin. Strike Stromgarde while they're busy.", next = "BACK", fx = { opinion = { stromgarde = "reclaim" }, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -279,8 +279,8 @@ P:NPC {
         { id = "xp_default", text = "It goes with the paladins of the League, and some of them are Stromgarde men who never left the Highlands. Mind you, many of the Forsaken knelt in Lordaeron's chapels once, and that makes the Light a heavy thing to carry into the basin." },
       },
       choices = {
-        { text = "The Light shows them mercy. I can do no less.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The dead belong in the ground. I'll put them back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light shows them mercy. I can do no less.", next = "BACK", fx = { opinion = { undeath = "mercy" }, align = { light = 1 } } },
+        { text = "The dead belong in the ground. I'll put them back.", next = "BACK", fx = { opinion = { undeath = "put_down" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -373,10 +373,10 @@ P:NPC {
       },
       choices = {
         { text = "What do the Defilers want with Arathi?", next = "basin" },
-        { text = "Tell me about the League of Arathor.", next = "league" },
-        { text = "Did you live before the Plague?", next = "self" },
+        { text = "Who holds the basin against you?", next = "league" },
+        { text = "You must have lived before the Plague.", next = "self" },
         { text = "I've marks from the basin.", next = "marks", when = { carrying = 20559 } },
-        { text = "How do you find it, recruiting in this city?", next = "city" },
+        { text = "Recruiting in this city can't be easy.", next = "city" },
         { text = "Why should orcs bleed for Forsaken ambitions?", next = "k_orc", when = { race = "Orc" } },
         { text = "Da Darkspear don't trust your apothecaries, mon.", next = "k_troll", when = { race = "Troll" } },
         { text = "What do the Forsaken do with the land they take?", next = "k_tauren", when = { race = "Tauren" } },
@@ -392,7 +392,7 @@ P:NPC {
     -- What they want (chain: basin -> basin_points -> basin_strip)
     basin = {
       lines = {
-        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, which is more than Tirisfal can say. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself." },
+        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, which is more than Tirisfal can say. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself, though the League howls whenever we go near their old barrows." },
       },
       choices = {
         { text = "How does the fighting go there?", next = "basin_points" },
@@ -416,7 +416,7 @@ P:NPC {
         { id = "bst_default", text = "The Gold Mine, because gold buys everything else, and the League's soldiers die there rather than give it up. They say we strip the land bare, and they're right, but the land was Lordaeron's neighbor and we were Lordaeron's people, and nobody asked us when the Plague took our own fields." },
       },
       choices = {
-        { text = "The Forsaken earned that land with their suffering. Take it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Forsaken earned that land with their suffering. Take it.", next = "BACK", fx = { opinion = { forsaken = "deserving" }, align = { order = -1 } } },
         { text = "Take what the Horde needs, and leave the rest in order.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "That's a bitter way to see it.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -427,9 +427,9 @@ P:NPC {
         { id = "bg_default", text = "The League says many things, and some of them are even true. Arathor's dead have been in the ground long enough to be of no use to anyone but the apothecaries, and the Dark Lady doesn't waste what's useful." },
       },
       choices = {
-        { text = "The dead should rest. Leave the barrows alone.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The dead don't need their bones. The living do.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "What do the apothecaries want with them?", next = "basin_apoth" },
+        { text = "The dead should rest. Leave the barrows alone.", next = "BACK", fx = { opinion = { necromancy = "wrong" }, align = { light = 1 } } },
+        { text = "The dead don't need their bones. The living do.", next = "BACK", fx = { opinion = { necromancy = "useful" }, align = { light = -1 } } },
+        { text = "I can't think what the apothecaries want with them.", next = "basin_apoth" },
       },
     },
     basin_apoth = {
@@ -489,7 +489,7 @@ P:NPC {
         { id = "sr_default", text = "Trouble isn't a feeling I have much use for anymore. But I know which stretch of the road floods in spring and which farmhouse had a dog, and the League's soldiers don't, which is a great advantage." },
       },
       choices = {
-        { text = "A dog? What happened to it?", next = "self_dog" },
+        { text = "I'd hate to think what happened to the dog.", next = "self_dog" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -545,8 +545,8 @@ P:NPC {
         { id = "ko_default", text = "Because the League marches under the same Alliance banner that built the camps your people rotted in. I'd have thought that was reason enough to come to Arathi, orc." },
       },
       choices = {
-        { text = "Then the camps will be avenged in Arathi.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "The Warchief says we leave the camps behind us.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then the camps will be avenged in Arathi.", next = "BACK", fx = { opinion = { peace = "against" }, align = { honor = -1 } } },
+        { text = "The Warchief says we leave the camps behind us.", next = "BACK", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -574,8 +574,8 @@ P:NPC {
         { id = "kf_default", text = "Then you know what's down there as well as I do: the farm with the red door, the old millrace, and the graves of people we both buried once. Do you mean to take it back for the Dark Lady, or only to see it again?" },
       },
       choices = {
-        { text = "For the Dark Lady. What I was is buried with them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "For me. The Dark Lady can have whatever's left.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "For the Dark Lady. What I was is buried with them.", next = "BACK", fx = { opinion = { sylvanas = "loyal" }, align = { order = 1 } } },
+        { text = "For me. The Dark Lady can have whatever's left.", next = "BACK", fx = { opinion = { sylvanas = "indifferent" }, align = { order = -1 } } },
         { text = "I don't know yet.", next = "BACK", fx = { affinity = 1 } },
       },
     },

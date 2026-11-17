@@ -12,7 +12,7 @@
 ## Identity
 Rahauro · Elder Rise · Horde · Tauren (Grimtotem) · attendant
 Personality: smooth, loyal, condescending, watchful
-Speech: formal, "the Elder Crone", polite barbs
+Speech: formal, "the Elder Crone", polite barbs; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: Magatha's wishes, Grimtotem pride
 Relationships: Magatha (serves); the Bloodhoof (disdain, veiled)
 Never says: Magatha's coup or anything after Year 1; open treason

@@ -12,7 +12,7 @@
 ## Identity
 Sigrun Ironhew · camp south of Hammertoe's Digsite, Badlands · Alliance-friendly · dwarf (male) · smith, quest giver
 Personality: cheerful, rueful, practical, loyal
-Speech: light dwarven warmth ("friend", "cousin", "aye"), jokes about hunger and sand
+Speech: light dwarven warmth and burr ("ye", "aye", "{g:lad|lass}", "cousin", by my beard), jokes about hunger and sand
 Knows and cares about: smithing, Feranor, the camp, Hammertoe Grez, Prospector Ryedol
 Relationships: Prospector Ryedol (his camp's leader), Hammertoe Grez (missing in Uldaman), Feranor Steeltoe (master)
 Default attitudes: warm to dwarves and gnomes; fellow smiths get shop talk

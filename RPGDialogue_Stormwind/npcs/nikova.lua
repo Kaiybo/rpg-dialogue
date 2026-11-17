@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_city_proud", when = { opinion = { topic = "stormwind", stance = "proud" } }, text = "Still proud of the city, are you? Walk down my street at night once, and then come and tell me." },
+    { id = "g_op_masons", when = { gossip = { topic = "defias", stance = "masons_wronged" } }, text = "They say down the street that you stood up for the stonemasons. Good. Just don't forget a boy died in the Stockade for their grudge." },
     { id = "g_default", text = "If you're selling something, I've nothing to buy it with, and if you're from the Watch, you're a month late." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Well, sit if you're stopping; I don't like folk looming over me." },
     { id = "g_quest", when = { questActive = Q }, text = "Have you got them? Don't stand there with your hands empty and tell me how hard it was, I'll not hear it." },
@@ -39,10 +41,38 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_city = {
+      lines = {
+        { id = "op_city_a", text = "Ha! The Watch comes running when a lord's purse is cut, and it strolls when one of ours is knifed. You walk this city with a sword on your back, so tell me plainly, what do you make of Stormwind these days?" },
+      },
+      choices = {
+        { text = "It's the last great city of men. I'm proud to defend it.", next = "op_city_1", fx = { opinion = { stormwind = "proud" }, align = { order = 1 } } },
+        { text = "It's rotten at the top, and Old Town pays for it.", next = "op_city_2", fx = { opinion = { stormwind = "abandoned_its_own" }, align = { order = -1 }, affinity = 2 } },
+        { text = "The city's tired and broke, but it's still trying.", next = "op_city_3", fx = { opinion = { stormwind = "patience" }, trait = { kind = 1 } } },
+        { text = "Ironforge keeps its poor fed. Stormwind could learn something.", next = "op_city_4", when = { race = "Dwarf" }, fx = { opinion = { stormwind = "abandoned_its_own", dwarves = "admire" } } },
+        { text = "I keep out of politics, grandmother.", next = "BACK" },
+      },
+    },
+    op_city_1 = {
+      lines = { { id = "op_city_r1", text = "Proud, is it? So was Mac, in his tabard, and they put him in a cell with killers for a wage that wouldn't buy boots. Be proud, then, but keep your eyes open." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_city_2 = {
+      lines = { { id = "op_city_r2", text = "There, you've said it, and the sky didn't fall. Say it to the Watch and it might, so say it to me instead, whenever you like." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_city_3 = {
+      lines = { { id = "op_city_r3", text = "Trying, aye, the way an old woman tries to climb her stairs. I'll give it that much, since it's what I do every night myself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_city_4 = {
+      lines = { { id = "op_city_r4", text = "Could it, now? Then put that in a letter to the Regent, and sign it with a dwarf's name, because they'd never read it with mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Nikova Raskol. I've lived in Old Town since before the orcs burned it, and I'll die in it, though I'd hoped to see my grandson grown first." },
+        { id = "h_default", key = true, text = "Nikova Raskol. I've lived in Old Town since before the orcs burned it, and I'll die in it, though I'd hoped to see my grandson Mac grown first, before the Stockade took him." },
         { id = "h_before", when = { questBefore = Q, minLevel = 20 },
           text = "You've the look of someone who isn't afraid of the Stockade. I've a thing that needs doing down there, if you've the stomach to hear about my Mac." },
         { id = "h_active", tags = { "news" }, when = { questActive = Q },
@@ -66,9 +96,9 @@ P:NPC {
         { id = "h_again3", text = "Well? I'm listening, though my ears aren't what they were." },
       },
       choices = {
-        { text = "Who was Mac?", next = "mac" },
-        { text = "What happened in the Stockade?", next = "death" },
-        { text = "Why the bandanas?", next = "bandanas" },
+        { text = "You spoke of Mac as if you loved him.", next = "mac" },
+        { text = "Something happened in the Stockade, I take it.", next = "death" },
+        { text = "Why the bandanas?", next = "bandanas", when = { any = { { questActive = TODO_QUEST("The Color of Blood") }, { questDone = TODO_QUEST("The Color of Blood") } } } },
         { text = "What's Old Town like these days?", next = "oldtown" },
         { text = "I stood shifts at the Stockade. I knew him, a little.", next = "xguard", when = { origin = "human_city_guard" } },
         { text = "My guild never meant for this, Nikova.", next = "xmason", when = { origin = "human_stonemason_child" } },
@@ -85,7 +115,7 @@ P:NPC {
       },
       choices = {
         { text = "How did a boy end up guarding the Stockade?", next = "mac_guard" },
-        { text = "What was he like?", next = "mac_like" },
+        { text = "He sounds like he was a good lad.", next = "mac_like" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,7 +143,7 @@ P:NPC {
         { id = "mb_default", text = "You can say what you like, I've said worse at his grave. The Warden came to the door with his cap in his hands and couldn't look at me, and I'll give him that much: he knew." },
       },
       choices = {
-        { text = "Does Thelwater still send word?", next = "thelwater" },
+        { text = "Does the Warden still send word?", next = "thelwater" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,7 +174,7 @@ P:NPC {
           fx = { learn = { "defias" } } },
       },
       choices = {
-        { text = "Was the man who did it caught?", next = "death_who" },
+        { text = "I hope the man who did it was caught.", next = "death_who" },
         { text = "The Defias have earned the rope, every one.", next = "death_who", fx = { align = { light = -1 } } },
         { text = "Some of those prisoners are just hungry men, Nikova.", next = "death_hungry", fx = { affinity = -2, align = { light = 1 } } },
       },
@@ -215,6 +245,7 @@ P:NPC {
         { id = "o_default", text = "Louder than it was, and poorer. The Pig and Whistle's full every night, the walls are cracked where nobody's paid to mend them, and half the men on my street are off at one front or another." },
       },
       choices = {
+        { text = "Does the city do right by Old Town?", next = "op_city" },
         { text = "Who looks after you now?", next = "oldtown_alone" },
         { text = "Something else.", next = "BACK" },
       },

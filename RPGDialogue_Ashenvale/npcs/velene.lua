@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Have you seen the elementals in our lake? A sorry sight, and I mean to know who put them there." },
+    { id = "g_hello", text = "Ishnu-alah. Have you seen the elementals in our lake? It is a sorry sight, and I mean to know who put them there." },
     { id = "g_bracers", when = { questActive = TODO_QUEST("Elemental Bracers") }, text = "The bracers, {class}. Pry them off the elementals in the lake, and we'll learn who's pulling their strings." },
     { id = "g_sarilus", when = { questActive = TODO_QUEST("Mage Summoner") }, text = "Dreadmist Peak, in the Barrens, and mind the Horde on the way. Bring me that smirking head." },
     { id = "g_done", when = { questDone = TODO_QUEST("Mage Summoner") }, text = "The lake runs clearer every day, and nobody is laughing at me from the Barrens any longer. I sleep well, {class}." },
@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Velene Starstrike of the Sentinels, and I hold Silverwind Refuge above Mystral Lake. Something has fouled the water elementals in our lake, and the first thing we must learn is who controls them." },
+          text = "I am Velene Starstrike of the Sentinels, and I hold Silverwind Refuge above Mystral Lake. Something has fouled the water elementals in our lake, and as in the days of the Highborne, the first thing we must learn is who controls them." },
         { id = "h_bracers_before", when = { questBefore = TODO_QUEST("Elemental Bracers") },
           text = "The elementals wear bracers, bound to them by whoever called them up. Bring me a few, and with a little divination I think we can read the name of the one who bound them." },
         { id = "h_bracers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Elemental Bracers"), days = 3 } },
@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the elementals?", next = "elementals" },
-        { text = "Who is Sarilus Foulborne?", next = "sarilus", when = { any = { { questDone = TODO_QUEST("Elemental Bracers") }, { questActive = TODO_QUEST("Mage Summoner") } } } },
+        { text = "I've never heard of Sarilus Foulborne.", next = "sarilus", when = { any = { { questDone = TODO_QUEST("Elemental Bracers") }, { questActive = TODO_QUEST("Mage Summoner") } } } },
         { text = "Tell me about Silverwind Refuge.", next = "refuge" },
         { text = "Could my magic cleanse the elementals?", next = "mage_v", when = { class = { "MAGE", "SHAMAN" } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "es_default", text = "Because they wear bracers, {class}, and water doesn't forge its own jewellery. Whoever bound them left his mark on every one, and a mark can be read." },
       },
       choices = {
-        { text = "And then?", next = "elementals_then" },
+        { text = "There must be more to it than that.", next = "elementals_then" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,6 +145,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Sentinel, {class}. I hold a post and I don't leave it, and that's the whole of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Don't drink from Mystral Lake, and don't trust anyone who tells you it's safe." } },
     sentinels = { { id = "tp_sentinels", text = "We hold more ground than we have warriors for. It's a habit of ours." } },
-    _none = { { id = "tp_none", text = "I don't know, and I haven't time to find out. Ask in Astranaar." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's naga fill the coast like crabs, and the Twilight's Hammer feed them. I hold my post and I count every one I see." } },
+    centaur = { { id = "tp_centaur", text = "Centaur ride up from the Barrens sometimes, past Silverwind. I've learned to hear the hooves before I see the dust." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Horde's warchief keeps his orcs at war with us in Ashenvale, so his name is an enemy's name to me. I don't need more than that." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief's orcs cut our trees, {class}, so I'll keep my bow ready while we talk." },
+    },
+    elune = { { id = "tp_elune", text = "Elune watches Silverwind at night, and I watch it by day. Between us we miss very little." } },
+    _none = { { id = "tp_none", text = "I don't know, and I haven't time to find out. Ask in Astranaar, where the Sentinels gather." } },
   },
 }

@@ -46,7 +46,7 @@ P:NPC {
       choices = {
         { text = "It's their sacred ground, Jorn. I went in with respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sacred or not, the quilboar raid our caravans.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What is Charlga hiding down there?", next = "xcl_rfk2" },
+        { text = "Charlga must be hiding something down there.", next = "xcl_rfk2" },
       },
     },
     xcl_rfk2 = {
@@ -144,26 +144,37 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in Taurajo. Sit, then, and be still, because stillness is a lesson for every path, even yours." },
       },
       choices = {
-        { text = "Do the great beasts of the Barrens carry strong spirits?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What does a hunter learn first?", next = "first" },
+        { text = "The great beasts of the Barrens must carry strong spirits.", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'd guess a hunter learns to shoot before anything else.", next = "first" },
         { text = "Teach me the four great beasts, teacher.", next = "hunter", when = { class = "HUNTER" } },
         { text = "How do I know my companion trusts me?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "My people hunted with spears and voodoo, not patience.", next = "troll", when = { race = "Troll", class = "HUNTER" } },
         { text = "The skies of my home had beasts too.", next = "skyborne", when = { race = "Skyborne", class = "HUNTER" } },
-        { text = "Do you teach druids, or only hunters?", next = "druid", when = { class = "DRUID" } },
+        { text = "I'd guess you teach only hunters.", next = "druid", when = { class = "DRUID" } },
         { text = "Stillness is my first lesson too, teacher.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The beasts seem uneasy when I cast near them.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from you, Jorn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Does a hunter have need of a priest, Jorn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "A hunter must have little need of a priest, Jorn.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there anything a warlock can learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Barrens see in me, Jorn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Razorfen Kraul, Jorn.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "Why would she send companions we wouldn't choose?", next = "xpt_jorn", when = { party = { race = "Tauren" } } },
+        { text = "I herded kodo before the Kolkar took my herd, Jorn.", next = "xorig_kodo", when = { origin = "tauren_kodo_herder" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
         { id = "h_again", text = "What else would you learn? Sit, there's light enough yet." },
         { id = "h_again2", text = "Another question? Good, because a hunter who stops asking soon stops seeing the grass." },
+      },
+    },
+    xorig_kodo = {
+      lines = {
+        { id = "xko_default", text = "Then you know the herds better than most of the hunters I teach, and you know what it is to lose one. The Kolkar still raid the trails west of here. Is it vengeance you want from them, or only the road back?" },
+      },
+      choices = {
+        { text = "Vengeance. They took my uncle, and they'll pay for it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "I want the trails safe for the next herder, nothing more.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I haven't decided yet, Jorn.", next = "BACK" },
       },
     },
     hunter = {
@@ -227,7 +238,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know. The plains might; ask them, quietly." } },
+    _none = { { id = "tp_none", text = "I don't know. The plains might; ask them quietly, and the Earth Mother may let the grass answer." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is in the stillness, which is why a hunter must learn it first. Sit long enough and you will feel her breathing under the grass." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride too loud to be good hunters, and they are always running from something or toward it. I have watched the Kolkar for years and never once seen them sit still." } },
+    quilboar = { { id = "tp_quilboar", text = "Bristleback, Razormane, it is the same boar with a different temper. They hunt badly too, but they are clever when they are cornered, and every young hunter learns that once." } },
+    cairne = { { id = "tp_cairne", text = "Cairne knows the stillness better than any of us. He can sit on the bluff and wait a whole day, and that patience is why the tauren have a home at all." } },
   },
 }
 
@@ -378,16 +393,16 @@ P:NPC {
       choices = {
         { text = "Do the Razormane geomancers serve Agamaggan or the earth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why do the quilboar fight the tauren for this land, Mangletooth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Why help us at all?", next = "why" },
-        { text = "Who is Agamaggan?", next = "agamaggan" },
+        { text = "You've no reason to help us.", next = "why" },
+        { text = "Who do the quilboar worship?", next = "agamaggan" },
         { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm tauren. Why should I help you?", next = "tauren", when = { race = "Tauren" } },
         { text = "I could freeze that lock and shatter it, quilboar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which Bristlebacks need killing, Mangletooth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do quilboar keep beasts, Mangletooth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess the quilboar keep beasts of their own.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your geomancers would kneel to my demon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Razormane have priests of their own, Mangletooth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Does Mangletooth fear the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Mangletooth seems to fear the Light.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into Razorfen Kraul, Mangletooth.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul" } },
         { text = "Will the Razorfen fear a company like ours, Mangletooth?", next = "xpt_mangletooth", when = { party = { size = { min = 2 } } } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
@@ -425,6 +440,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "*snort* Mangletooth knows nothing about that. Ask again with blood shards." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Razormane are my people, and the Razorfen are our home, and you've been killing both. Bring me what I want and maybe I'll tell you which of my brothers to kill next." } },
+    razorfen = { { id = "tp_razorfen", text = "Charlga Razorflank leads the Razorfen Kraul, and she listens to the death-thing from the Downs now. I didn't like it then, and I like it less from a cage." } },
+    centaur = { { id = "tp_centaur", text = "The centaur hate us and we hate them, and the tauren hate both of us. It's the one thing on the Barrens everybody agrees on." } },
+    scourge = { { id = "tp_scourge", text = "There's a cold thing in Razorfen Downs that wears bones and talks like a priest, and it's turning my people into its servants. I'll trade you something good if you kill it, and I mean that." } },
   },
 }
 
@@ -538,13 +557,13 @@ P:NPC {
       choices = {
         { text = "What have you learned so far?", next = "learned" },
         { text = "What does my weapon tell you about me?", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "A shaman's totems are made here too. Do you study them?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "A shaman's totems are made here too. You should study them.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "How would you write about a druid's way of fighting, Tatternack?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Daggers. What do they tell you about me?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I carry a staff and a wand. Write that down.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does my weapon tell you, Tatternack?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do priests carry weapons worth writing down, Tatternack?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do warlocks belong in your study, Tatternack?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Priests can't carry many weapons worth writing down.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Warlocks probably don't belong in your study, Tatternack.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a paladin teach you, Tatternack?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
@@ -574,6 +593,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Not my field. Bring me a weapon from it, though, and it will be." } },
+    second_war = { { id = "tp_second_war", text = "Every blade from the Second War has a story, and most of them end badly. I've written down forty of them for the Warchief, and I'm only half done." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar spears are rough work, but the stone heads are older than the shafts, passed from rider to rider. I find that more interesting than the centaur do." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar weapons are thorn and bone, and they break the moment you need them. I respect the effort, if not the craftsmanship." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries Doomhammer's hammer, and I would give a year of my life to hold it for a moment. Only to read it, you understand, not to keep it." } },
   },
 }
 
@@ -588,11 +611,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, and there's always room by it." },
-    { id = "g_home", when = { homeInn = { "Camp Taurajo" } }, text = "You've come back to us. Your bed's ready, and the kodo stew is hot." },
+    { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, as An'she keeps the sun lit over the plains, and there's always room by it." },
+    { id = "g_home", when = { homeInn = { "Camp Taurajo" } }, text = "You've come back to us, like a calf to the herd. Your bed's ready, and the kodo stew is hot." },
     { id = "g_away", when = { away = 14 }, text = "You've come back to Taurajo after {away} on the road. The fire's lit and the stew's hot, so sit down before the herders take your seat." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The herders have been talking about the help you've given the camp. They eat first here, but tonight you can eat with them." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in camp says you told them a lie and they saw right through it. We're plain folk out here, traveler, and we'd rather have the truth." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in camp says you told them a lie and they saw right through it. We're plain folk out here, traveler, and the Earth Mother hears every word, so we'd rather have the truth." },
   },
 
   notice = {
@@ -720,9 +743,9 @@ P:NPC {
           text = "You've come with your own people, and that's good to see down here, where the dwarves at Bael Modan and the quilboar both like to pick off stragglers. Stay together on the road to the Razorfen, and stay inside the palisade at night." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The kodo herders eat first, because they've earned it, but there's stew enough for a curious stranger." },
         { id = "h_default", key = true,
-          text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, and I make sure they leave rested." },
+          text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, the way the herds stop at water, and I make sure they leave rested." },
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon's up. I've never once found it funny." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when Mu'sha's eye is open. I've never once found it funny." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at Taurajo's fire, and welcome. Sit and eat, and if the hyenas start laughing out past the walls, you'll forgive me if I don't laugh along." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
@@ -732,22 +755,22 @@ P:NPC {
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Travellers up from the south say the cold has lifted off the Downs, and that somebody's been to the bottom of the place. If it was you, sit nearer the fire, because I've heard what lives down there." },
       },
       again = {
-        { id = "h_again", text = "What else can I get you? The stew keeps, and so do I." },
+        { id = "h_again", text = "What else can I get you? The stew keeps, and so do I, as patient as the grass." },
         { id = "h_again2", text = "Ask away. The kodo herders won't be in for supper for a while yet." },
       },
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Have the hyenas always plagued Camp Taurajo, Byula?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "What's Taurajo like?", next = "camp" },
-        { text = "Do travelers ever slip out of Taurajo without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Taurajo looks like a hard place to live.", next = "camp" },
+        { text = "Travelers must try slipping out without paying.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who threatens Camp Taurajo, Byula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter know about the southern Barrens, Byula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is my demon welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do the kodo herders need tending, Byula?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The kodo herders look like they need tending, Byula.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do mages come through Taurajo often, Byula?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does Taurajo welcome a Forsaken paladin, Byula?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of Razorfen Downs, Byula.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
-        { text = "Is the southern Barrens really so dangerous, Byula?", next = "xpt_byula", when = { party = { kin = true } } },
+        { text = "The southern Barrens seems dangerous, Byula.", next = "xpt_byula", when = { party = { kin = true } } },
         { text = "Just a rest, thanks.", next = "END" },
       },
     },
@@ -760,6 +783,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask Jorn; he knows the Barrens, and I only know soup." } },
+    _none = { { id = "tp_none", text = "Ask Jorn; he knows the Barrens, and I only know soup. May the eternal sun shine upon you." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sends rain to the herds and hyenas to the herders, and I have never understood the second part. Still, I thank her for the stew, and the stew has never failed me." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "Bael'dun's dwarves dig to the west and the Razormane prowl to the south, and our herders face both every day. The quilboar warrens at Razorfen are so close you can smell them when the wind turns." } },
+    cairne = { { id = "tp_cairne", text = "Cairne set this camp here to watch the south road, and every kodo herder at my fire would die for him. I would only feed him, but I would feed him very well." } },
+    centaur = { { id = "tp_centaur", text = "The centaur leave Taurajo alone mostly, because we are too many and too stubborn. When they don't, the herders come back hungry, and that is when I earn my keep." } },
   },
 }

@@ -46,7 +46,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "They hunt in packs and they're cleverer than any wolf I've seen, so yes. I know they were here long before us, but I've buried two scholars this season and I'm out of patience with them." } },
+      lines = { { id = "dq_default", text = "They hunt in packs and they're cleverer than any wolf I've seen, so they are. I know they were here long before us, but I've buried two scholars this season and I'm out of patience with them." } },
       choices = {
         { text = "You're in their crater. Learn their ways.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then thin the packs before you lose more.", next = "BACK", fx = { align = { light = -1 } } },
@@ -123,7 +123,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've got a patrol soon." }, { id = "h_again2", text = "Ask away, quickly." } },
       choices = {
         { text = "Is the Fire Plume as wild as it looks from up here?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Are the raptors really that dangerous?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "The raptors here look dangerous.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's it like hunting in the crater?", next = "b1_1" },
         { text = "Tell me about Williden.", next = "b2_1" },
         { text = "Why did the camps fall?", next = "b3_1" },
@@ -131,21 +131,21 @@ P:NPC {
         { text = "Should the expedition pull out?", next = "s_1" },
         { text = "Would quiet feet really help your patrols down there?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would magic guard your scholars better than rifles?", next = "xmage", when = { class = "MAGE" } },
-        { text = "How many of your people has the crater taken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The crater must have taken some of your people.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in the Refuge needs healing most, Hol'anyee?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shouldn't the expedition leave before more people die?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What's the most dangerous beast you've tracked in the crater?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "You must have tracked some dangerous beasts in the crater.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would a devilsaur really eat a demon, Hol'anyee?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Like nothing else in the world, and I've hunted a good deal of it. The raptors hunt in packs and think like soldiers, and the devilsaurs don't think at all; they just eat." } },
-      choices = { { text = "You lost scouts?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Has the crater cost you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "I lost two good scouts to raptors in the first month, which taught me to always watch my flanks. Now I teach that lesson to everyone who comes to the Refuge." } },
-      choices = { { text = "Never chase a lone raptor?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What lesson is that?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "If you go hunting down there, never chase a lone raptor. There's never only one." } },
@@ -168,7 +168,13 @@ P:NPC {
       choices = { { text = "Keep going. Discovery is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Pull out before you lose anyone else.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, and I don't think the crater does either." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's our lifeline, for water and powder and bandages, and the goblins know it, so they charge accordingly. My brother pays without blinking, and I blink for both of us." } },
+    silithid = { { id = "tp_silithid", text = "The bugs from Silithus have started crawling up out of the crater's southern edge, and I don't like it one bit. They didn't used to come this far north." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League would kill for half the bones we've dug up, and some of them have tried, in a manner of speaking. My brother keeps the best ones for himself." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I bought my first rifle in Booty Bay, from a goblin who swore it'd never misfire. It misfired twice the first week, and I've kept it twenty years anyway." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't think the crater does either." } },
+  },
 }
 
 P:NPC {
@@ -291,11 +297,11 @@ P:NPC {
       choices = {
         { text = "Does the Earth Mother speak differently in this crater?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why hunt your own teacher, Torwa?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who is Lar'korwi?", next = "b1_1" },
+        { text = "I've heard the name Lar'korwi.", next = "b1_1" },
         { text = "Why come to Un'Goro?", next = "b2_1" },
-        { text = "Is it dangerous out here?", next = "b3_1" },
+        { text = "It looks dangerous out here.", next = "b3_1" },
         { text = "The Earth Mother guide you, Torwa.", next = "x_1", when = { race = "Tauren" } },
-        { text = "Should Lar'korwi be left alone?", next = "s_1" },
+        { text = "Perhaps Lar'korwi should be left alone.", next = "s_1" },
         { text = "Do you think hunting from hiding is dishonorable, Torwa?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does my magic offend you, hunter?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the crater have room for a priest's prayers, Torwa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -308,7 +314,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "The greatest of the crater's raptors, the one the others follow. I have tracked him for many moons, and he has led me to places no other hunter has seen." } },
-      choices = { { text = "Hunting as honor?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Why hunt him, then?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "To hunt him is to honor him. I will not take him lightly, nor will I take him without purpose, for he deserves a hunter's respect." } },
@@ -335,7 +341,13 @@ P:NPC {
       choices = { { text = "The hunt is part of the balance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Some beasts should be left to live.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That is not something the trails have taught me." } } },
+  topics = {
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is young here, I think, younger than anywhere else in the world, and her beasts are older. That is the strangeness of this crater." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great hunter, and he would understand why I chase Lar'korwi. Some prey is worth a lifetime of tracking." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people fight beside mine, and I am grateful, but there is no Warchief in Un'Goro. Here the beasts rule, and we only visit." } },
+    silithid = { { id = "tp_silithid", text = "The silithid are crawling north out of the desert, and they do not belong here. The Earth Mother does not weep for them." } },
+    _none = { { id = "tp_none", text = "That is not something the trails have taught me." } },
+  },
 }
 
 P:NPC {
@@ -448,16 +460,16 @@ P:NPC {
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask me about the plants!" } },
       choices = {
         { text = "Why do the crater's plants grow so fierce?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What are bloodpetals?", next = "b1_1" },
+        { text = "I've never seen bloodpetals before.", next = "b1_1" },
         { text = "Who is Larion?", next = "b2_1" },
-        { text = "Do the plants really bite?", next = "b3_1" },
-        { text = "Is there magic in that sap?", next = "x_1", when = { class = { "MAGE", "DRUID" } } },
+        { text = "I'd guess some of the plants really bite.", next = "b3_1" },
+        { text = "Is there magic in your bloodpetals?", next = "x_1", when = { class = { "MAGE", "DRUID" } } },
         { text = "Is it right to experiment on living plants?", next = "s_1" },
         { text = "Would you really have me cast at your bloodpetals?", next = "xmage", when = { class = "MAGE" } },
         { text = "The plants lean away from me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would a blessing really help your plants grow, Muigin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do your plants only lash at people who flinch, Muigin?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do the crater's plants really hunt animals, Muigin?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "I can't believe the crater's plants hunt animals, Muigin.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why are your bloodpetals so hungry, Muigin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What kind of poison do your bloodpetals make, Muigin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
@@ -465,11 +477,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Carnivorous plants, and very clever ones, which is why I love them. They lure insects and small creatures, and sometimes larger creatures, too, if they're hungry enough." } },
-      choices = { { text = "Amazing properties?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What makes them worth studying?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Larion and I believe their sap has amazing properties, though we're still working out exactly which ones. It's very exciting." } },
-      choices = { { text = "Both?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Isn't that dangerous?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "And very dangerous, of course, but exciting! Science is often both." } },
@@ -492,7 +504,13 @@ P:NPC {
       choices = { { text = "Understanding is a form of respect.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Leave the crater's plants in peace.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, but it probably grows somewhere in the crater!" } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan want to buy my bloodpetals and grind them into potions, and I won't sell. They're friends, not ingredients." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I've heard the green dragons tend gardens in the Dream, great endless ones, and I'd give anything to see a single bed of them. I wonder what they'd make of my sprouts." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is the world as it was meant to be, all green and growing. Un'Goro is the closest I've ever been to it, I think, and I've been everywhere." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League go about digging up old bones, and I go about planting new things, and I think mine is the nicer job. Larion would disagree, but Larion disagrees with everything." } },
+    _none = { { id = "tp_none", text = "I don't know, but it probably grows somewhere in the crater!" } },
+  },
 }
 
 P:NPC {
@@ -594,14 +612,14 @@ P:NPC {
       again = { { id = "h_again", text = "What else, buddy? I'm listening, barely, and I'm not charging for it." }, { id = "h_again2", text = "Go on, I'm just resting my eyes." } },
       choices = {
         { text = "What drove you so far into the crater, Ringo?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "How did you get lost?", next = "b1_1" },
-        { text = "Who's Spraggle?", next = "b2_1" },
+        { text = "You look like you've been lost a while.", next = "b1_1" },
+        { text = "Does anyone know you're missing?", next = "b2_1" },
         { text = "Are you hurt?", next = "b3_1" },
         { text = "Let me tend to you before we go.", next = "x_1", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
-        { text = "Should you have gone alone?", next = "s_1" },
+        { text = "Going out alone was probably a mistake.", next = "s_1" },
         { text = "How did you lose your way in the crater, Ringo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What chased you this far from the Refuge, Ringo?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Have you seen any beasts out here while you were lost?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Something must have chased you this far from the Refuge, Ringo.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You must have seen some beasts out here while you were lost.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How did you get so lost, Ringo?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have the ferns answered you, Ringo?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why would I want your soul, Ringo?", next = "xlock", when = { class = "WARLOCK" } },
@@ -610,11 +628,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "I was looking for crystals out past the ridge, buddy, the kind that sell, and I followed a trail I shouldn't have. By the time I turned back, everything looked the same." } },
-      choices = { { text = "Drinking from puddles?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "How have you survived out here?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "I've been hiding from the raptors and drinkin' from puddles, buddy, and one puddle had a frog in it that I'm fairly sure I swallowed. Spraggle must be frantic." } },
-      choices = { { text = "Owe me everything?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "I'll get you home, Ringo.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "If you get me home, buddy, I'll owe you everything, and Spraggle will too, and she keeps better books than I do." } },
@@ -637,7 +655,12 @@ P:NPC {
       choices = { { text = "Rules exist for good reason. Follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Sometimes you have to take your own path.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, buddy, I'm too tired to think about it." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got water, cold water, buddy, and I'd sell my mother's ledger for a single glass right now. I'm kidding, I'd sell it for half a glass." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel will hear about this, the whole expedition, the lack of maps, the lack of water, the dinosaurs! I'm filing a complaint as soon as I can hold a pen." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got sea breezes and shade and no dinosaurs, which I appreciate more now than I ever did when I lived there." } },
+    _none = { { id = "tp_none", text = "I don't know, buddy, I'm too tired to think about it." } },
+  },
 }
 
 P:NPC {
@@ -771,13 +794,13 @@ P:NPC {
         { text = "What makes the Golakka Hot Springs boil, Krakle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Should the springs really be sold, Krakle?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's special about the springs?", next = "b1_1" },
-        { text = "Is it safe here?", next = "b2_1" },
+        { text = "This place doesn't look very safe.", next = "b2_1" },
         { text = "Should these springs be sold?", next = "s_1" },
         { text = "Worried someone will steal a whole hot spring?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You want me to boil your springs for coin?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Would you really sell blessings, Krakle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You seem ready to sell blessings, Krakle.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who would ever buy holy bathwater from the crater, Krakle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the hot springs really help a warrior's wounds, Krakle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I doubt the hot springs help a warrior's wounds, Krakle.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do the crater's beasts avoid the hot springs, Krakle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would you really sell holy bathwater, Krakle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you had trouble with demons in the springs, Krakle?", next = "xlock", when = { class = "WARLOCK" } },
@@ -786,7 +809,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "They're hot, they're full of strange minerals, and some of 'em glow, which is a selling point. Somethin's heating them from deep underground, friend, and I'd love to know what, and whether it's for sale." } },
-      choices = { { text = "Something bigger?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What do you think is heating them?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Maybe it's the Fire Plume, or maybe it's something bigger, pal. Either way, heat like that is worth money, and nobody's put up a fence yet." } },
@@ -801,5 +824,11 @@ P:NPC {
       choices = { { text = "Nature shouldn't be for sale.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Profit is how anything gets done.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend, but if it's wet and warm, I bet I can bottle it." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan'll buy anything that comes out of these springs, pal, minerals, water, crystals, even the steam if I could bottle it. I'm working on the steam." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel takes its cut off the top, and I take my cut off what's left, and the springs take my eyebrows off whenever I'm careless. It all balances out." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they'd pay a fortune for a hot bath, buddy, and here I've got a whole crater full of 'em. Shipping's the problem, I'm still workin' on the shipping." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company tried to set up shop in here once and got trampled by a devilsaur, from what I hear. Can't say I'm sorry, more springs for me." } },
+    _none = { { id = "tp_none", text = "No idea, friend, but if it's wet and warm, I bet I can bottle it." } },
+  },
 }

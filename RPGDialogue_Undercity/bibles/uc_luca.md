@@ -8,8 +8,8 @@
 
 ## Identity
 Alessandro Luca · Blue Moon Odds and Ends · Undercity · Undercity · Forsaken · tier service
-Personality: smooth, cheerful, greedy
-Speech: showman's patter, 'my friend'
+Personality: smooth, cheerful, greedy; a snob about shades of blue
+Speech: showman's patter, 'my friend'; names his shades
 Knows and cares about: blue goods
 Relationships: goblins (refuses to sell to them wholesale)
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Blue as a remembered sky; refuses Booty Bay goblins.
+- Shades: Lordamere blue, Capital blue (the old guard's parade colour), a midnight blue under the counter; calls a troll's skin 'Sen'jin blue'.
+- Hates green (canals, apothecaries' bottles, plague cauldrons); sends green-scarf customers to the tailor.
+- Never let anyone call his stock purple; the only purple belongs to ruined Dalaran.

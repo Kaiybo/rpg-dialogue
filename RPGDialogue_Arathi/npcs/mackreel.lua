@@ -49,8 +49,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Talkin's better than lookin' down." },
       },
       choices = {
-        { text = "How did you end up out here?", next = "stranded" },
-        { text = "What happened to the Span?", next = "span" },
+        { text = "You look like you've been stranded up here a while.", next = "stranded" },
+        { text = "The Span looks like it was blown apart.", next = "span" },
         { text = "Tell me about this moonshine.", next = "moonshine" },
         { text = "Who's Brewmeister Bilger to you?", next = "bilger" },
         { text = "How do I get back down?", next = "down" },
@@ -64,7 +64,7 @@ P:NPC {
         { id = "st_default", text = "I was on watch, which is tae say I was sittin' wi' the jug, an' I nodded off. When I woke up, the bridge on both sides o' me was gone, an' here I am." },
       },
       choices = {
-        { text = "You slept through the explosion?", next = "stranded_slept" },
+        { text = "So you slept through the explosion.", next = "stranded_slept" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -154,6 +154,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "One o' Longbraid's lads, an' a brewer on the side. The brewin' goes better than the soldierin'." } },
     advice = { { id = "tp_ad", text = "Never drink on watch. I'm livin' proof o' why, an' I'm stuck here provin' it." } },
     thandol_span = { { id = "tp_span", text = "Broken on both sides o' me, as ye can see. It's no' a view I'd recommend." } },
+    magni = { { id = "tp_magni", text = "The King'll be angry about the Span, an' rightly, but I didnae blow it up. I was asleep at the time, which I'm told is a poor excuse." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best moonshine south o' the Wetlands, an' I owe a man there more than I'd like tae say. He's patient, but no' that patient." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer'll fly me off this bridge, if I can only get one tae stop laughin' at me. I've been waitin' a week now." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Bilger, he knows everythin', or says he does after a pint." } },
   },
 }

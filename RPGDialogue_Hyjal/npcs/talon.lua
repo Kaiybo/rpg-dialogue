@@ -50,10 +50,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "That's what I ask everyone who climbs this far. Should the Talon keep watching and writing, the way the Skylord wants, or should we be out there burning the fel off this mountain? Be honest; the owls already know what I think." },
+      },
+      choices = {
+        { text = "Act. Every day you wait, the fel spreads.", next = "op_r1", fx = { affinity = 2, align = { order = -1 }, trait = { brave = 1 }, opinion = { talon_caution = "act" } } },
+        { text = "Omnuron is right. Rush in and you'll spread it further.", next = "op_r2", fx = { affinity = -1, align = { order = 1 }, trait = { cautious = 1 }, opinion = { talon_caution = "wait" } } },
+        { text = "Do both. Scout first, then burn it hard.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { talon_caution = "both" } } },
+        { text = "A druid acts, Thisalee. Watching is for owls.", next = "op_r4", fx = { affinity = 1, opinion = { talon_caution = "act" } }, when = { class = "DRUID" } },
+        { text = "That's between you and the Skylord.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Yes! Thank you! I'm going to write that down and leave it on the Skylord's perch, unsigned." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You sound exactly like him, and the worst of it is that you might both be right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Well, that's what I've been doing, more or less, I just haven't told anyone about the second part." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Careful, the owls will hear you, and they're terribly sensitive about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper, you've already met the worst welcome this mountain has, so you may as well tell me what you're after." },
+          text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper, you've already met the worst welcome this mountain has, and Nordrassil's shadow has seen worse than you, so you may as well tell me what you're after." },
         { id = "h_young", when = { maxLevel = 55 },
           text = "You're young to have climbed this high. The mountain doesn't grade its dangers by who's asking, so stay close to the paths until you know the slopes." },
         { id = "h_feathers", tags = { "news" }, when = { questActive = TODO_QUEST("Feathers in Flight") },
@@ -80,11 +109,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I've got time for one more question, maybe two." },
       },
       choices = {
-        { text = "Who are the Druids of the Talon?", next = "talon" },
-        { text = "How is anyone getting up here?", next = "gorge" },
-        { text = "How fares the World Tree?", next = "tree" },
+        { text = "I don't know the Druids of the Talon.", next = "talon" },
+        { text = "I'm surprised anyone can reach this place at all.", next = "gorge" },
+        { text = "The World Tree still looks badly scarred.", next = "tree" },
         { text = "Where is help needed on the mountain?", next = "work" },
-        { text = "Who gives you your orders?", next = "omnuron" },
+        { text = "The Talon take their orders from someone, I expect.", next = "omnuron" },
         { text = "About the owl feathers...", next = "feathers", when = { questActive = TODO_QUEST("Feathers in Flight") } },
         { text = "I'm a priest. Who here needs the Light?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I'm of the Circle. How can I help?", next = "xdruid", when = { class = "DRUID" } },
@@ -102,7 +131,7 @@ P:NPC {
         { id = "ta_default", text = "We're the druids who learned the shape of the crow and the storm, and we take our gift from Aviana, the Mistress of Birds. Every winged thing on this mountain is ours to look after, which means I spend half my life chasing owls and the other half chasing the things that eat them." },
       },
       choices = {
-        { text = "Who was Aviana?", next = "aviana" },
+        { text = "I know little of Aviana.", next = "aviana" },
         { text = "Where is your shrine?", next = "shrine" },
         { text = "Something else.", next = "BACK" },
       },
@@ -144,7 +173,7 @@ P:NPC {
         { id = "go_default", text = "After the battle, Malfurion Stormrage sealed the summit away behind a wall of growth so the tree could heal, and for years the only way up was on wings. Now the way through Darkwhisper Gorge is open, and all sorts are coming up it, and nobody bothers to tell the Talon why." },
       },
       choices = {
-        { text = "Who opened the gorge?", next = "gorge_who" },
+        { text = "Someone must have opened that gorge.", next = "gorge_who" },
         { text = "And Malfurion himself?", next = "gorge_malf" },
         { text = "Something else.", next = "BACK" },
       },
@@ -176,7 +205,7 @@ P:NPC {
         { id = "tr_nelf", when = { race = "NightElf" }, text = "You feel it too, don't you? We're mortal now, every one of us, and the tree that kept us otherwise is still scarred black at the crown. I say we'd better hurry, then, because we haven't got forever any more." },
       },
       choices = {
-        { text = "Can it be healed faster?", next = "tree_faster" },
+        { text = "Surely the tree could heal faster with help.", next = "tree_faster" },
         { text = "Some things should heal in their own time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then we push, and help it along.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -198,7 +227,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Thylaen.", next = "work_thylaen" },
-        { text = "An orc, up here?", next = "work_yashiro" },
+        { text = "I didn't expect to see an orc up here.", next = "work_yashiro" },
         { text = "The dead at Mourning's Rest?", next = "work_mourning" },
         { text = "Something else.", next = "BACK" },
       },
@@ -234,6 +263,7 @@ P:NPC {
       },
       again = { { id = "om_again", text = "Anything else about the Skylord? Careful, though; the owls carry gossip." } },
       choices = {
+        { text = "Should the Talon keep watching, or start acting?", next = "op_ask" },
         { text = "You don't agree with him.", next = "omnuron_disagree" },
         { text = "What do you really think of his caution?", tag = "Persuade", next = "omnuron_secret",
           check = { pass = { any = { { disposition = { min = 65 } }, { trait = "brave" }, { class = "DRUID" }, { questDone = TODO_QUEST("Yashiro's Windwalk") } } } },
@@ -273,7 +303,7 @@ P:NPC {
         { id = "su_default", text = "Everlook, mostly, through the snow. A goblin called Azzleby runs his beasts through the passes for me, and Evie Whirlbrew trades for what the Talon can spare. It works well enough when the Winterfall furbolgs aren't robbing the caravans." },
       },
       choices = {
-        { text = "You trust goblins?", next = "supply_goblins" },
+        { text = "I'd not have thought you'd trust a goblin.", next = "supply_goblins" },
         { text = "The Winterfall raid you?", next = "supply_winterfall" },
         { text = "Something else.", next = "BACK" },
       },
@@ -399,6 +429,19 @@ P:NPC {
     cenarion_circle = { { id = "tp_cc", text = "The Talon answers to the Circle, mostly, when the Circle remembers we're up here." } },
     burning_legion = { { id = "tp_bl", text = "They came up this mountain once and the wisps blew their lord to pieces. The ones who ran are still hiding in the gorge and in Dae'gun, and I want them gone." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall rob my caravans, and the ones in the caves by Malorne's Retreat will have your arm off. Not every tribe has gone bad, but those have." } },
-    _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask the owls; they're terrible gossips." } },
+    nordrassil = {
+      { id = "tp_nordrassil", text = "I was born under Nordrassil's shade, and I'll fight for it till the owls stop flying. It's wounded and it's old, but it's ours, and it's still the best tree in the world." },
+      { id = "tp_nordrassil2", when = { race = "NightElf" }, text = "You're kaldorei, so you feel it too, don't you, that tug at the heart when you see it. That's what our long lives feel like, from the inside." },
+    },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Skylord walks the Dream more than I do, and he comes back worried and won't say why. The owls are worried too, and they don't say why either." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight used to visit the mountain more often, the old druids say. I've only seen one, once, and it looked at me like I was an interesting beetle." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall's orcs fought on this mountain alongside us, and I like Yashiro, so I like Thrall. That's how it works, isn't it?" },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief's orcs held this mountain with us once, and I've not forgotten it. Tell him to stop cutting Ashenvale, though, would you?" },
+    },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess is very wise and very patient, and I'm neither. The owls think she'd be disappointed in me, and the owls are usually right." } },
+    scourge = { { id = "tp_scourge", text = "The undead came up the slopes before the demons, and the mountain buried them. Sometimes I find bones in the snow and the owls get very upset." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw guard the gorge into Winterspring, and they'll let you pass if you're polite. I wasn't, once, and I'm still apologising." } },
+    _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask the owls; they're terrible gossips, and Elune made them that way on purpose, I'm sure of it." } },
   },
 }

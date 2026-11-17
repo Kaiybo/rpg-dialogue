@@ -16,10 +16,10 @@ P:NPC {
   greetings = {
     { id = "g_hall", text = "Some truths only come to us in dreams, {class}, though lately I wish they'd find another door." },
     { id = "g_active", when = { questActive = TODO_QUEST("Leaders of the Fang") }, text = "Cobrahn, Anacondra, Pythas, Serpentis. Bring me their gems, and bring yourself back too." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Leaders of the Fang") }, text = "I slept through the night last night. I'd almost forgotten how." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Leaders of the Fang") }, text = "I slept through the night last night, under Mu'sha's light and nothing else. I'd almost forgotten how." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone! I dreamed of you once while you were away, and you were somewhere green." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since you went into the caverns for me. I can feel it the way I feel weather coming." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "The elders speak well of you, and they don't speak well of anyone young. Take it as a rare gift." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since you went into the caverns for me. I can feel it the way the grass feels rain coming." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "The elders speak well of you, and they don't speak well of anyone young. Take it as a rare gift, like rain in the Barrens." },
   },
 
   notice = {
@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Nara Wildmane. I study with the druids of the Hall of Elders, and I've been dreaming of the Barrens lately, though they aren't the kind of dreams you'd want." },
+        { id = "h_default", key = true, text = "I'm Nara Wildmane. I study with the druids of the Hall of Elders, and the Earth Mother has been sending me dreams of the Barrens lately, though they aren't the kind of dreams you'd want, and the Druids of the Fang watch me in every one." },
         { id = "h_sent", when = { questActive = TODO_QUEST("Nara Wildmane") },
           text = "Hamuul sent you to me? Then you've heard some of it already, and he trusts you, so I'll tell you the rest." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Leaders of the Fang") },
@@ -43,8 +43,8 @@ P:NPC {
         { id = "h_cleared", tags = { "news" }, when = { cleared = "Wailing Caverns" }, text = "You've been to the depths of the Wailing Caverns. Did you see Naralex? Did he look peaceful, or was he still trapped in the dream?" },
       },
       again = {
-        { id = "h_again", text = "What else? I'm awake, at least, for now." },
-        { id = "h_again2", text = "Ask. Talking keeps the dreams away." },
+        { id = "h_again", text = "What else? I'm awake, at least, and the sun's still up." },
+        { id = "h_again2", text = "Ask. Talking keeps the dreams away, and the Earth Mother knows I need that." },
       },
       choices = {
         { text = "Who are the Druids of the Fang?", next = "fang" },
@@ -66,7 +66,7 @@ P:NPC {
     turned = {
       lines = { { id = "t_default", text = "They started dreaming his nightmare instead of their own dreams. Now they call themselves the Druids of the Fang, and they twist the caverns' beasts into serpents and raptors that obey them, and they think it's healing." } },
       choices = {
-        { text = "Can they be saved?", next = "saved" },
+        { text = "Perhaps they can still be saved.", next = "saved" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -95,11 +95,11 @@ P:NPC {
       },
     },
     druid = {
-      lines = { { id = "dr_default", text = "Then be careful in the Barrens. The Dream there is sick, and it'll follow you home if you let it, so wake up somewhere green when you can." } },
+      lines = { { id = "dr_default", text = "Then be careful in the Barrens. The Dream there is sick, and it'll follow you home if you let it, so wake up somewhere green, where the Earth Mother is still well." } },
       choices = { { text = "I'll be careful.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } } },
     },
     naralex = {
-      lines = { { id = "n_default", text = "Still sleeping, after everything. Then the nightmare isn't finished with him yet, and I'll keep dreaming about those caverns until it is." } },
+      lines = { { id = "n_default", text = "Still sleeping, after everything. Then the nightmare isn't finished with him yet, and I'll keep dreaming about those caverns until Mu'sha shows me otherwise." } },
       choices = { { text = "We'll find a way to wake him.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -110,6 +110,10 @@ P:NPC {
     wailing_caverns = { { id = "tp_wc", text = "Beneath the Barrens, where Naralex sleeps. Don't go down there alone, and don't drink the water.", next = "fang" },
       { id = "tp_wc2", text = "The caverns were meant to be the start of healing the Barrens. Now they're the sickness at its heart." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids of the night elves and of the tauren, together. Hamuul believes in it with his whole heart, and I'm starting to." } },
-    _none = { { id = "tp_none", text = "I haven't dreamed of that one. Ask Hamuul; he knows more than any of us." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is where my nightmares come from, I think, and where the Druids of the Fang went wrong. They wanted to heal the Barrens, and instead they let the Dream sicken them." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the doors to the Dream, and I have seen them in my sleep. They are beautiful and terrible, and they never speak." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and Hamuul says she watches over the druids too. I pray to her sometimes, when the nightmares are bad." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, and he believes in the druids. I hope I can repay his faith by ending the nightmares." } },
+    _none = { { id = "tp_none", text = "I haven't dreamed of that one. Ask Hamuul; he's walked the Dream longer than any tauren alive." } },
   },
 }

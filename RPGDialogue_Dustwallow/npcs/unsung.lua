@@ -135,14 +135,14 @@ P:NPC {
       choices = {
         { text = "Is there a way to keep the marsh from rotting your goods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
-        { text = "What do I need to survive the marsh?", next = "marsh" },
+        { text = "The marsh looks hard on a traveller's kit.", next = "marsh" },
         { text = "How do supplies reach the isle?", next = "ships" },
         { text = "What's life like here, under Lady Jaina?", next = "jaina" },
-        { text = "Do you lose much stock to thieves, Charity?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You must lose a fair bit of stock to thieves, Charity.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Theramore mages buy much from you, Charity?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does a warrior need to survive the marsh, Charity?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do many hunters come through Theramore, Charity?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is everything in Theramore always rusting, Charity?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Everything in Theramore seems to be rusting, Charity.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What happens when the ships run late, Charity?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does anyone in Theramore ask what candles are for, Charity?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the marsh really eat everything, Charity?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -200,6 +200,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came over on one of the first ships with Lady Jaina's people, and I've kept shop here since the walls went up." } },
     advice = { { id = "tp_ad", text = "Change your socks every single night in this marsh, dear, and I mean every night, or your feet will rot." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a lovely town, if you can keep the mildew out of your flour, and I can't. Everything I sell is half a step from going green." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Half my stock comes up from Booty Bay on goblin ships, and the goblins charge me for every mile of sea between here and there. I charge less than they do, mind." } },
+    onyxia = { { id = "tp_onyxia", text = "The soldiers who come back from the south buy salve and bandages by the armful, and they don't say much. I don't need them to, I can count bandages." } },
+    jaina = { { id = "tp_jaina", text = "The Lady buys her own ink here, if you'll believe it, and pays like anybody else. I keep the good bottles back for her." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. Ask the adjutant at the citadel; he knows everything that's written down." } },
   },
 }
@@ -337,7 +341,7 @@ P:NPC {
       choices = {
         { text = "Does the marsh treat leather any better than steel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see your armor.", next = "BUSINESS" },
-        { text = "How do you fight the rust?", next = "rust" },
+        { text = "Rust must be the bane of your forge here.", next = "rust" },
         { text = "Who do you make shields for?", next = "guard" },
         { text = "Plate or mail for the marsh?", next = "plate" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
@@ -347,7 +351,7 @@ P:NPC {
         { text = "How do I keep my armor sound in this swamp?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How should a warrior choose a shield for this marsh, Hans?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you keep a hunter's mail from rusting, Hans?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Why won't you forge anything for a warlock, Hans?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You won't forge a thing for a warlock, I hear.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could you make a shield fit for a shaman, Hans?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
@@ -366,7 +370,7 @@ P:NPC {
         { id = "g_default", text = "The Theramore Guard first, and I'm proud of it; Captain Vimes's men carry my shields on every patrol. What's left over, I sell, and there's never as much left over as you'd like." },
       },
       choices = {
-        { text = "What do the patrols face out there?", next = "guard_patrols" },
+        { text = "The patrols must face rough work out there.", next = "guard_patrols" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -403,6 +407,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a shieldsmith in Kul Tiras before I followed Lady Jaina's ships here. The work's the same, but the weather's worse." } },
     advice = { { id = "tp_ad", text = "Oil it every night, or don't bother buying it." } },
+    theramore = { { id = "tp_theramore", text = "Theramore eats armor, plain and simple. The damp gets into every rivet and every strap, and I spend half my days scraping rust off soldiers." } },
+    onyxia = { { id = "tp_onyxia", text = "Dragonfire warps a plate so it'll never sit right again, and I've seen enough of that from the south to know it. A good shield buys you a breath, and that's all it buys you." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron make fine metal and do terrible things with it, and that's a waste that offends me as a smith. I'd like a look at their forges, from a safe distance." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I learned the trade in Lordaeron, and my old master's forge is ash now. I still use his hammer, and it still swings true." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, and I've plates cooling. Ask the inn." } },
   },
 }
@@ -420,6 +428,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_war", when = { gossip = { topic = "horde", stance = "war" } }, text = "The Captain says you think the peace is a lie. I hope you're wrong, friend, because I've sold more swords this month than I'd like." },
     { id = "g_forge", text = "Swords, axes, maces, and a spear or two for the long-armed. Have a look, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. My work must be holding up." },
   },
@@ -541,14 +550,14 @@ P:NPC {
         { text = "Do you ever forge for the Circle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What's the best weapon for the marsh?", next = "marsh" },
-        { text = "Do you work alongside Hans Weston?", next = "hans" },
+        { text = "Who makes the shields round here?", next = "hans" },
         { text = "Do you ever sell to the Horde?", next = "horde" },
         { text = "What blades do you sell to those who fight quietly, Piter?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you make anything for mages, Piter?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Does it trouble you to sell weapons in a city of peace?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Selling weapons in a city of peace must trouble you.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Theramore ready itself for war even in peacetime?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What weapon would you take against a raptor, Piter?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "How do you keep a bow strung in this damp, Piter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Keeping a bow strung in this damp must be hard, Piter.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do warlocks often buy weapons from you, Piter?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you think a weapon carries a spirit, Piter?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not right now.", next = "END" },
@@ -571,7 +580,7 @@ P:NPC {
     },
     hans = {
       lines = {
-        { id = "h_hans", text = "Side by side, and we share a forge fire to save on coal. He makes the shields and I make what goes over the top of them, and we argue about the weather every morning, and then we get to work." },
+        { id = "h_hans", text = "Hans Weston, and we work side by side and share a forge fire to save on coal. He makes the shields and I make what goes over the top of them, and we argue about the weather every morning, and then we get to work." },
       },
       choices = {
         { text = "Sounds like a good partnership.", next = "BACK", fx = { affinity = 1 } },
@@ -599,6 +608,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned the trade in Lordaeron and came south with the refugees when the plague came. Theramore gave me a forge, and I've not looked back since." } },
     advice = { { id = "tp_ad", text = "Clean your blade after every fight, friend. The marsh water eats steel overnight." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a peace that keeps its swords sharp, and I'm the man who sharpens them. I'd sooner sell to soldiers who never need them, but that's not how it goes." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief kept his word to the Lady, and I sell fewer blades to angry men because of it. You'll forgive me if I think kindly of him." } },
+    onyxia = { { id = "tp_onyxia", text = "A blade won't do much against a dragon, but it does well enough against her whelps, and they're the ones you'll meet. Aim under the wing, where the scales are thin." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay steel is fine work if you buy from the right goblin and robbery if you buy from the wrong one. I've had a few customers bring me the wrong kind to fix." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, sorry. I only know steel and the weather, and the weather's always wet." } },
   },
 }

@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Sayoc · Valley of Honor, Orgrimmar · Horde · Orc (confirm) · Weapon Master
-Personality: dry, practical, lecturing
-Speech: opinions about everyone's weapon
+Personality: dry, practical, lecturing; judges people by their grip and despises show weapons
+Speech: opinions about everyone's weapon; corrects your grip before your name
 Knows and cares about: weapon skills, adaptability, friendly feud with Hanashi
 Relationships: Hanashi
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Broke an axe at Durnholde and finished a guard with his sword.
+Authored, not canon: Broke an axe at Durnholde and finished a guard with his sword; uses a ruby-hilted show sword as a doorstop; oils his axe nightly and 'tells it what it did wrong' (denies talking to it); argues with Hanashi every evening by the practice dummies and loses more than he'd like.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

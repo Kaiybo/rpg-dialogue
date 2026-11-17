@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_post", text = "State yer business, and be quick about it. The kobolds don't wait for pleasantries." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, and you've the look of someone who finishes it." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, an' ye've the look o' someone who finishes it." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the kobolds didnae miss ye one bit. I did, a wee bit, fer the work's piled up." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit o' muscle since ye last took work from me. Nearly enough tae match my own exploits, if ye keep at it." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been leanin' on folk about Thelsamar. Lean on the troggs instead, fer they've earned it an' the townsfolk havenae." },
@@ -103,7 +103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Stormpike, and I've held this valley against worse than kobolds in my day. Still, the vermin in the Silver Stream Mine have got to go, and I've only two hands." },
+          text = "Mountaineer Stormpike, an' I've held this valley against worse than kobolds in my day, by my beard. Still, the vermin in the Silver Stream Mine have got to go, and I've only two hands." },
         { id = "h_paws", when = { questActive = TODO_QUEST("Filthy Paws") },
           text = "The kobolds took our mining gear into the Silver Stream Mine, up north. Get it back before they dull every pick we own." },
         { id = "h_order", when = { questActive = TODO_QUEST("Stormpike's Order") },
@@ -125,14 +125,14 @@ P:NPC {
       },
       choices = {
         { text = "Are the troggs a part of nature, Mountaineer?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's happening at the Silver Stream Mine?", next = "mine" },
-        { text = "Kadrell says you have stories.", next = "stories" },
+        { text = "The Silver Stream Mine seems to be in some trouble.", next = "mine" },
+        { text = "I hear you have stories to tell.", next = "stories" },
         { text = "How do you see the Loch these days?", next = "loch" },
         { text = "A warrior reporting, Mountaineer. Where do you want me?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Kobolds in a mine? I could clear them without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A fireball would clear that mine faster than a pick.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there game worth tracking near the Silver Stream Mine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Have the kobolds cost your mountaineers any lives?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess the kobolds have cost you a few good dwarves.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did you fight beside paladins in the Second War, Mountaineer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a warlock be welcome in Loch Modan, Stormpike?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the kobolds really listen to the earth, Mountaineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -160,7 +160,7 @@ P:NPC {
       },
     },
     mine = {
-      lines = { { id = "m_default", text = "Kobolds drove the miners out and took the tools with them, the filthy little thieves. Every day that mine sits idle, Ironforge's forges go a bit hungrier." } },
+      lines = { { id = "m_default", text = "Kobolds drove the miners out an' took the picks with them, the filthy little thieves. Every day that mine sits idle, Ironforge's forges go a bit hungrier." } },
       choices = {
         { text = "Why not send the Mountaineers in?", next = "mine_why" },
         { text = "Something else.", next = "BACK" },
@@ -200,7 +200,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not my concern. Ask someone with less to do." } },
+    _none = { { id = "tp_none", text = "Not my concern, {g:lad|lass}. Ask someone with less to do and a shorter beard." } },
+    magni = { { id = "tp_magni", text = "King Magni's Mountaineers hold Loch Modan, an' I'm one, an' that's all the speechmakin' I've time for." } },
+    troggs = { { id = "tp_troggs", text = "Troggs on the ridges, kobolds in the mine an' me in between. They're no' my concern, the troggs, but they keep makin' themselves my concern." } },
+    second_war = { { id = "tp_second_war", text = "I served at the dam in the Second War when the orcs came up the valley, an' I've been guardin' holes in the ground ever since. Now it's kobolds, which is a step down." } },
   },
 }
 
@@ -312,9 +315,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Cobbleflint, and this tower watches the pass south to the Badlands. The troggs swarm the hills round here like ants on a dropped pie." },
+          text = "Mountaineer Cobbleflint, an' this tower watches the pass south to the Badlands. The troggs swarm the hills round here like ants on a dropped pie, an' they've about as much sense." },
         { id = "h_def", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
-          text = "Stonesplinter troggs, out in the hills round the gate. Thin them out for me, and the King's Lands will be a bit safer tonight." },
+          text = "Stonesplinter troggs, out in the hills round the gate. Thin them out for me, an' the King's Lands will be a wee bit safer tonight." },
         { id = "h_done", when = { questDone = TODO_QUEST("In Defense of the King's Lands") },
           text = "The hills are quieter since ye went through them, and my lads are sleepin' sound for once." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, for I need a shield on the south wall more than I need another letter from Ironforge." },
@@ -332,7 +335,7 @@ P:NPC {
       choices = {
         { text = "Where do the troggs come from?", next = "troggs" },
         { text = "What's south of here?", next = "south" },
-        { text = "Who else holds this gate?", next = "people" },
+        { text = "You can't be holding this gate all on your own.", next = "people" },
         { text = "The troggs took my home too.", next = "gnome", when = { race = "Gnome" } },
         { text = "I could get into the trogg camps and count them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The troggs fear fire. My imp could teach them more.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -340,16 +343,16 @@ P:NPC {
         { text = "Is there anything worth tracking in these hills besides troggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who tends your wounded out here at the tower, Cobbleflint?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should you take the fight to the troggs, or hold the wall?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do the troggs drive the beasts out of these hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The troggs seem to be driving the beasts out of these hills.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would a mage be any use on your tower, Cobbleflint?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where do the troggs come up from, Cobbleflint?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Mountaineer.", next = "END" },
       },
     },
     troggs = {
-      lines = { { id = "t_default", text = "From under the earth, and the Explorers' League says from somewhere older still. All I know is they keep comin', and they don't stop to talk." } },
+      lines = { { id = "t_default", text = "From under the earth, an' the Explorers' League says from somewhere older still, some deep stone nobody's dug to yet. All I know is they keep comin', and they don't stop to talk." } },
       choices = {
-        { text = "What does the League know about them?", next = "troggs_league" },
+        { text = "The Explorers' League must have a theory about them.", next = "troggs_league" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -381,6 +384,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Can't help ye there, but somebody in Thelsamar might know." } },
+    troggs = { { id = "tp_troggs", text = "Troggs come up out o' the ground faster than we can put them back. Ask in Thelsamar where they came from, for I only know where they're goin'." } },
+    magni = { { id = "tp_magni", text = "We serve King Magni from this tower, an' he's a good king. Somebody in Thelsamar can tell ye more about him than a gatekeeper can." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons skulk about near the dam, I hear, but I've only seen troggs on my stretch. Ask Kadrell; he keeps the posters." } },
   },
 }
 
@@ -498,24 +504,35 @@ P:NPC {
       },
       choices = {
         { text = "Do you dislike the Wetlands, Mountaineer?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's the danger in the pass?", next = "pass" },
+        { text = "This pass looks a bad place to travel alone.", next = "pass" },
         { text = "What's in the Wetlands?", next = "wetlands" },
-        { text = "How long have you held this station?", next = "station" },
+        { text = "You have the look of someone long at this post.", next = "station" },
         { text = "I'm a hunter. I can scout the pass.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I can slip through the pass where your patrols can't.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Could a ward hold the pass for you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "A ward might hold the pass for you.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What comes down the pass that needs a warrior's arm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do many travellers come back from the Wetlands hurt, Rockgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Travellers must come back from the Wetlands hurt, Rockgar.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Algaz hold the pass, or march north on the Dragonmaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lies north of Algaz Station, Rockgar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What powers do the Dragonmaw call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What powers do the orcs up there call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I stood the watch here once, Rockgar. Grim Batol's smoke still bothers me.", next = "xorig_algaz", when = { origin = "dwarf_dun_algaz_watch" } },
         { text = "Farewell, Rockgar.", next = "END" },
+      },
+    },
+    xorig_algaz = {
+      lines = {
+        { id = "xoalgaz_default", text = "Aye, an' it bothers me too, for it's never once stopped risin' in all the years I've stood here. I mind yer face from the night roster, though ye had less grey in yer beard then. Did ye ever get a full night's sleep, after?" },
+      },
+      choices = {
+        { text = "Not one, Rockgar.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "A few, in Ironforge, with a mug inside me.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pass = {
       lines = { { id = "p_default", text = "Mosshide gnolls and troggs crawl up from the Wetlands side, and they pick off travellers who come through alone. I keep the gate, but I can't watch every rock." } },
       choices = {
-        { text = "How do you hold it with so few?", next = "pass_few" },
+        { text = "Holding it with so few can't be easy.", next = "pass_few" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -524,7 +541,7 @@ P:NPC {
       choices = {
         { text = "Ironforge should hold its borders before anything else.", next = "pass_end", fx = { align = { honor = 1 } } },
         { text = "Then cut what corners you must to survive.", next = "pass_end", fx = { align = { honor = -1 } } },
-        { text = "What do you need most?", next = "pass_end" },
+        { text = "You must need more than a good wall out here.", next = "pass_end" },
       },
     },
     pass_end = {
@@ -547,6 +564,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Can't say I know. I've been up this pass too long to keep up with gossip." } },
+    thandol_span = { { id = "tp_thandol_span", text = "Everythin' that comes down from the Wetlands passes my station, an' lately it's soldiers wi' bandages from the Span. That bridge is costin' us dear." } },
+    dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw hold the highland past the pass, an' when the wind's from the north I can smell their smoke from here. I keep the station shut tight on those nights." } },
+    magni = { { id = "tp_magni", text = "King Magni wants the pass open an' the road safe, an' I want a fire that stays lit in this wind. One o' us'll get his wish." } },
   },
 }
 
@@ -659,7 +679,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Bingles Blastenheimer, inventor, and I'm on a very important expedition for Gnoarn. Unfortunately, my supplies have wandered off around the loch, and I can't do a thing without them." },
+          text = "Bingles Blastenheimer, inventor, and I'm on a very important geological survey for Gnoarn. Unfortunately, my supplies have wandered off around the loch, and I can't take a single measurement without them." },
         { id = "h_find", when = { questActive = TODO_QUEST("Find Bingles") },
           text = "Gnoarn sent you? Oh, wonderful, he does worry so, and I'm perfectly fine apart from the tools." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("Bingles' Missing Supplies") },
@@ -673,21 +693,21 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you ask the earth where my spanner went? And my screwdriver, and my blastencapper, and, well, everything?" },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm listening, mostly." },
+        { id = "h_again", text = "Anything else? I'm listening, mostly, with about seventy percent of my attention, which is very good for me." },
         { id = "h_again2", text = "Yes, yes, what is it? I've a theory brewing, and possibly a small fire, so be quick." },
       },
       choices = {
         { text = "How did you lose everything?", next = "lost" },
-        { text = "What are you researching?", next = "research" },
+        { text = "You must be researching something out here.", next = "research" },
         { text = "Who is Gnoarn?", next = "gnoarn" },
-        { text = "A gnome on an expedition? Where's your escort?", next = "gnome", when = { race = "Gnome" } },
+        { text = "A gnome on an expedition ought to have an escort.", next = "gnome", when = { race = "Gnome" } },
         { text = "Couldn't you have just conjured your supplies back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "My imp could fetch your things. It's quite good at errands.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's guarding your lost supplies, Bingles?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter's tracking help you find your supplies?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has your research ever hurt anyone, Bingles?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What will your research do for Gnomeregan's people, Bingles?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Did the wildlife carry off your tools, Bingles?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "I'd guess the wildlife carried off some of your tools, Bingles.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How did your supplies wander off, Bingles?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the earth really help you find your tools, Bingles?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Bingles.", next = "END" },
@@ -696,7 +716,7 @@ P:NPC {
     lost = {
       lines = { { id = "l_default", text = "A small incident with an explosive and a very loud noise, and then a lot of murlocs were involved. I'd rather not talk about the murlocs." } },
       choices = {
-        { text = "Murlocs took your tools?", next = "lost_murlocs" },
+        { text = "So the murlocs took your tools.", next = "lost_murlocs" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -728,5 +748,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Hmm, fascinating, but I have no idea. Ask me again after I've found my notes." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan! Oh, the workshops were marvellous, and now they're full of troggs and worse, so I've set up beside a lake. Lakes are very nice, though, very reflective." } },
+    magni = { { id = "tp_magni", text = "King Magni let us gnomes live in Ironforge after we lost our city, which was terribly kind of him, though his dwarves do complain about the noise. And the smoke, and the occasional small fire." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a gnome who makes clockwork toys, and I've always wanted to borrow his gears to see how they spin. I'd return them, mostly, eventually." } },
+    stonewrought_dam = { { id = "tp_stonewrought_dam", text = "The dam is a lovely bit of engineering, and Hinderweir won't let me near it with anything that goes bang. I can't think why!" } },
   },
 }

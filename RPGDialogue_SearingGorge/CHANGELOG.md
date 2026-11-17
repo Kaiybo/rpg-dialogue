@@ -2,6 +2,15 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.18.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- New people to talk to: Master Smith Burninate and Taskmaster Scrange at Thorium Point. Hansel and Lolo have more to say. New files: restart the game fully (a /reload won't load them).
+- Prejudices (0.80.0): Hansel Heavyhands (Ironforge dwarves). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- New people to talk to: Master Smith Burninate, Taskmaster Scrange, Sarah Tanner. New files: restart the game fully (a /reload won't load them).
+- New people to talk to: Taskmaster Scrange, Evonice Sootsmoker.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.17.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

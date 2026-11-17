@@ -125,14 +125,14 @@ P:NPC {
         { text = "What does the Silver Hand stand for now?", next = "hand" },
         { text = "What is a paladin's charger?", next = "charger" },
         { text = "Where is a paladin needed most?", next = "needed" },
-        { text = "Why keep King Terenas's statuette here?", next = "terenas",
+        { text = "King Terenas's statuette seems an odd thing to keep here.", next = "terenas",
           when = { any = { { questActive = TODO_QUEST("A Friend of the Family") }, { questDone = TODO_QUEST("A Friend of the Family") } } } },
-        { text = "Do priests and paladins serve the same Light?", next = "priest", when = { class = "PRIEST" } },
-        { text = "What should I practise, my lord?", next = "practise", when = { class = "PALADIN" } },
-        { text = "Is the Light a weapon, my lord?", next = "weapon", when = { class = "PALADIN" } },
+        { text = "Priests and paladins must serve the same Light.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I'm ready to practise whatever you set me, my lord.", next = "practise", when = { class = "PALADIN" } },
+        { text = "The Light seems a weapon in your hands, my lord.", next = "weapon", when = { class = "PALADIN" } },
         { text = "Why does a dwarf need a human's Silver Hand?", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "What does a paladin have that a warrior doesn't?", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "Do the Silver Hand look down on rogues, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Silver Hand need hunters, Lord Shadowbreaker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -171,7 +171,7 @@ P:NPC {
     hand_oath = {
       lines = { { id = "ho_default", text = "By blood and honour we serve. It's cut into the stone under Turalyon's statue in the valley. The rest of the oath is longer, and harder to keep." } },
       choices = {
-        { text = "Which part is hardest?", next = "hand_hardest" },
+        { text = "One part of it must be harder than the rest.", next = "hand_hardest" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,7 +268,7 @@ P:NPC {
       choices = {
         { text = "Then I'll carry it as a shield.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
         { text = "The undead don't need shielding. They need breaking.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Who teaches the other way?", next = "weapon_who" },
+        { text = "Someone here must teach the other way.", next = "weapon_who" },
       },
     },
     weapon_who = {
@@ -296,7 +296,7 @@ P:NPC {
     },
     others = {
       lines = {
-        { id = "others_l", text = "Arthur is a better man than I am and a worse teacher, the priests upstairs are kinder than either of us, and the mages in the Quarter think we're blunt instruments, which some days we are." },
+        { id = "others_l", text = "Arthur is a better man than I am and a worse teacher, the priests upstairs are kinder than either of us, and the mages in the Quarter think we're blunt instruments, which some days we are. As for the warlocks under the Slaughtered Lamb, the less I hear of them, the better." },
         { id = "others_lamb", when = { class = { "PALADIN", "PRIEST" } },
           text = "Arthur is a better man than I am, Laurena is wiser, and the mages in the Quarter think we're blunt instruments. As for whatever's taught under the Slaughtered Lamb, I've asked the Archbishop not to tell me." },
       },
@@ -315,6 +315,16 @@ P:NPC {
   },
 
   topics = {
+    silver_hand = {
+      { id = "tp_silver_hand", text = "The Silver Hand was the finest order of knights the world has seen, and Uther made it so. It's scattered now, but I keep its oath in Stormwind, and I'll not let its standards slip while I live." },
+      { id = "tp_silver_hand2", when = { class = "PALADIN" }, text = "You wear the Light as the Silver Hand wore it, so mind how you keep your armour and your word. Uther judged a knight by both, and so do I." },
+    },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a discipline before it's a comfort, and a paladin who forgets that is only a man with a hammer. Keep your gear clean and your prayers honest, and the rest will follow." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil was a paladin of the Silver Hand, and he turned his hammer on his own people. I've never understood how a man trained by Uther could fall so far, and I've stopped trying." } },
+    stratholme = { { id = "tp_stratholme", text = "Arthas purged Stratholme and called it mercy, and Uther left him for it. The order broke that day, though it took a while for the pieces to stop falling." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and with it most of the Silver Hand, and they raised some of our brothers to fight against us. I'd not wish that fate on anyone, and I'd not hesitate to end it for them." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn have taken up the fight against the Scourge in the north, and they do it without the Crusade's fanaticism. I'd count them as allies, and I'd count some of them as brothers." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire trains our young paladins before they come to me, and they come well prepared. They're a sturdy lot, and they don't spoil their students, which I approve of." } },
     knows = {
       { id = "tp_knows", text = "I have served the Silver Hand long enough to have opinions on most things, and patience for very few. Ask about these, and be brief." },
     },
@@ -446,14 +456,14 @@ P:NPC {
         { id = "h_again2", text = "Go on. The candles will wait." },
       },
       choices = {
-        { text = "How long have you served here?", next = "served" },
-        { text = "Why do they call you the Faithful?", next = "name" },
+        { text = "You've served here a long while, by the look of you.", next = "served" },
+        { text = "They call you the Faithful, I hear.", next = "name" },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "Will you pray with me?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "What should I be practising, Arthur?", next = "practise", when = { class = "PALADIN" } },
+        { text = "I'd welcome your advice on my practice, Arthur.", next = "practise", when = { class = "PALADIN" } },
         { text = "Can the Light forgive anything, Arthur?", next = "forgive", when = { class = "PALADIN" } },
         { text = "I took the oath in Ironforge, Arthur.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
-        { text = "What do you think of Lord Shadowbreaker?", next = "grayson" },
+        { text = "Lord Shadowbreaker seems a hard man to please.", next = "grayson" },
         { text = "Would the Light forgive the things I've done, Arthur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you pray for your enemies, Arthur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light teach anything about the hunt, Arthur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -472,7 +482,7 @@ P:NPC {
       choices = {
         { text = "Maybe they're just as good.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Marble or rubble, prayers are only words.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Who did the rebuilding?", next = "served_masons" },
+        { text = "Someone must have worked hard to rebuild all this.", next = "served_masons" },
       },
     },
     served_masons = {
@@ -526,7 +536,7 @@ P:NPC {
       choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2 } } },
     },
     grayson = {
-      lines = { { id = "grayson_l", text = "That he's harder on himself than on any of you, and that's saying a great deal. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
+      lines = { { id = "grayson_l", text = "He's harder on himself than on any of you, and that's saying a great deal. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
       choices = {
         { text = "How do you know?", next = "grayson_know" },
         { text = "Something else.", next = "BACK" },
@@ -539,6 +549,13 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light asks nothing more than an honest heart and an open hand, and I've tried to give it both. I'm not sure I've earned my name, but I try to deserve it every day." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Kneel with me a moment before we begin, if you would, because the Light listens better when we're quiet. Then rise, and we'll see what it's asked of you today." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "I never knew Uther, but I've read every word he wrote, and I keep his prayer book by my bed. The Silver Hand's gone, and still it teaches me something every night." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire took me in when I was a boy with no home, and I owe them everything I am. I go back every year to help with the harvest, and they still make me work." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and I pray every night for the souls they hold. I'd go north and fight them myself, if Grayson would let me, though I think he's right that I'm needed here." } },
     background = { { id = "tp_bg", text = "A paladin who prays more than he fights. Someone has to stay by the altar. It turned out to be me.", next = "served" } },
     advice = { { id = "tp_ad", text = "Kneel before you fight, not after. After, you'll be too tired to mean it." } },
     _none = { { id = "tp_none", text = "I don't know. I'll pray on it, if that helps." } },
@@ -678,11 +695,11 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your work.", next = "BUSINESS" },
-        { text = "Tell me about Furen.", next = "furen" },
-        { text = "Barding? For horses?", next = "barding" },
-        { text = "Who buys from you?", next = "buyers" },
-        { text = "Why work here and not in Ironforge?", next = "home", when = { race = "Dwarf" } },
-        { text = "What can lightforge iron do?", next = "lightforge", when = { questActive = TODO_QUEST("Blessed Arm") } },
+        { text = "Do you take apprentices, Elmore?", next = "furen" },
+        { text = "Barding must be for horses, then.", next = "barding" },
+        { text = "Your work looks good enough to find plenty of buyers.", next = "buyers" },
+        { text = "I'd have expected to find you in Ironforge.", next = "home", when = { race = "Dwarf" } },
+        { text = "Lightforge iron must be something special.", next = "lightforge", when = { questActive = TODO_QUEST("Blessed Arm") } },
         { text = "Your forge fire has a spirit in it, Elmore. It likes you.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you ever forge daggers, Elmore?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever forged anything enchanted, Elmore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -698,7 +715,7 @@ P:NPC {
     furen = {
       lines = { { id = "f_default", text = "Best student I've ever had, an' if ye tell him I said so I'll deny it on my anvil. He's slow, an' slow's good, for fast smiths make thin plate." } },
       choices = {
-        { text = "He says you're hard on him.", next = "furen_hard" },
+        { text = "Are you hard on him?", next = "furen_hard" },
         { text = "He sent you his notes.", next = "furen_notes", when = { questDone = TODO_QUEST("Grimand Elmore") } },
         { text = "Something else.", next = "BACK" },
       },
@@ -725,7 +742,7 @@ P:NPC {
     buyers = {
       lines = { { id = "bu_default", text = "Paladins, lords, the odd mountaineer with taste. The Stormpikes send orders all the way down from Loch Modan. A clan with taste, an' the coin tae back it." } },
       choices = {
-        { text = "And the humans?", next = "buyers_humans" },
+        { text = "I expect the humans buy from you too.", next = "buyers_humans" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -758,6 +775,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons forge weapons that would make a lesser smith weep, and I've studied the blades that come back from the Steppes. They're good, but mine are better, and I'll say that to any dwarf who asks." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Thandol Span is the finest work of ironmongery in the world, and I've studied every rivet. If the Dark Irons have damaged it, they should be ashamed of themselves, and I'll tell them so." } },
+    magni = { { id = "tp_magni", text = "King Magni came to my forge once and admired my work, and I admired his beard. We parted as equals, and I'll not say who admired whom more." } },
+    silver_hand = { { id = "tp_silver_hand", text = "I made a hammer for a knight of the Silver Hand once, and he said it rang with the Light. I said it rang with good steel, and we agreed it was both." } },
     background = { { id = "tp_bg", text = "A dwarf smith in a human city. Folk ask why. The answer's in the steel, no' in me." } },
     advice = { { id = "tp_ad", text = "Buy the best blade ye can afford, then save for a better one. Cheap steel's a debt ye pay in blood." } },
     trade = { { id = "tp_tr", text = "Weapons an' barding. Furen does the shields an' mail. I do the parts that need a master.", next = "furen" } },
@@ -884,10 +905,10 @@ P:NPC {
       },
       choices = {
         { text = "Need anything found?", next = "BUSINESS" },
-        { text = "What are you hoping to find?", next = "wanted" },
-        { text = "Which book here is the best?", next = "best" },
-        { text = "Who's the lord in the reading corner?", next = "lord" },
-        { text = "Have you anything for a priest?", next = "priest", when = { class = "PRIEST" } },
+        { text = "You're hoping to find something particular, I'd guess.", next = "wanted" },
+        { text = "Some of these books must be better than others.", next = "best" },
+        { text = "There's a lord sitting in the reading corner.", next = "lord" },
+        { text = "A priest might find something worth reading here.", next = "priest", when = { class = "PRIEST" } },
         { text = "Does the library keep anything from Dalaran?", next = "dalaran", when = { class = "MAGE" } },
         { text = "Have thieves ever robbed the Royal Library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the library hold any books on warfare, Milton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -925,7 +946,7 @@ P:NPC {
     lord = {
       lines = { { id = "lo_default", text = "Lord Lescovar. He comes to meditate, he says. In a library! In all that time he's never once borrowed so much as a pamphlet." } },
       choices = {
-        { text = "Is that strange?", next = "lord_strange" },
+        { text = "That seems strange.", next = "lord_strange" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -960,6 +981,11 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The libraries of Dalaran held books that existed nowhere else in the world, and I pray they survived the Scourge. I've written to the Kirin Tor to ask, and they haven't answered, which is either a very good sign or a very bad one." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor were once the most generous lenders of books in the world, and they'd send them anywhere for the asking. Since the plague, they've closed their doors, and I've lost my favourite correspondents." } },
+    second_war = { { id = "tp_second_war", text = "The Royal Library lost a third of its books when the orcs burned Stormwind, and I've spent my life gathering them back. I'm missing a book on the history of Azeroth, and I'll find it someday." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's royal library was the finest in the Seven Kingdoms, and the Scourge burned it to the ground. I weep for it, softly, so as not to wake the books here." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are history made stone, and I'd like to put a little card beneath each one, explaining who they were. The guards say no, but I've not given up." } },
     background = { { id = "tp_bg", text = "My story is shelved under unremarkable, which is exactly where I like it. Ask me about the books instead." } },
     advice = { { id = "tp_ad", text = "Read the old books first. The new ones mostly argue with them." } },
     seven_kingdoms = { { id = "tp_kingdoms", text = "A classic. A bit generous to Alterac, I always felt.", next = "best" } },
@@ -1097,11 +1123,11 @@ P:NPC {
       },
       choices = {
         { text = "I'll take some cheese.", next = "BUSINESS" },
-        { text = "What do you recommend?", next = "cheese" },
-        { text = "You're not just a cheesemaker, are you?", next = "cover" },
+        { text = "I'd like whatever you'd recommend.", next = "cheese" },
+        { text = "You're not just a cheesemaker, I think.", next = "cover" },
         { text = "Jorgen sent a note.", next = "jorgen", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "I work in the dark myself.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Does the Mage Quarter buy much cheese?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd wager the Mage Quarter buys a good deal of cheese.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers really buy cheese for the march, Elling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever trade cheese for game, Elling?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is cheesemaking all you do, Elling?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1144,12 +1170,12 @@ P:NPC {
     jorgen = {
       lines = { { id = "j_default", text = "Jorgen. Of course it's Jorgen. Very well: my contacts, your legs, and I save on couriers. Darkshire, the north road, a Night Watchman called Backus." } },
       choices = {
-        { text = "What do I ask Backus?", next = "jorgen_backus" },
+        { text = "I'll need to know what to ask Backus.", next = "jorgen_backus" },
         { text = "Something else.", next = "BACK" },
       },
     },
     jorgen_backus = {
-      lines = { { id = "jb_default", text = "About Defias near Darkshire. Tell him I sent you; he'll be friendlier. He owes me cheese, and he knows it.",
+      lines = { { id = "jb_default", text = "Ask him about Defias near Darkshire. Tell him I sent you; he'll be friendlier. He owes me cheese, and he knows it.",
         fx = { learn = { "night_watch", "defias" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1160,6 +1186,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins tried to sell me a cheese made from goat's milk and sea salt, and I sent them packing. I sell only cheese, and only good cheese, and only from Stormwind's own dairies." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells cheese on sticks, toasted over a fire, and it's an abomination. I've told them so, and they laughed, and I've never been back." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean cheese was the finest in the north, and it's all behind that wall now. I've a little left in my cellar, and I'll not sell it for any price, only look at it on festival days." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, I'm told, and the guards just stand at the doors. I sell cheese to the guards, and they've never been so hungry, which tells you something." } },
     knows = {
       { id = "tp_knows", text = "A cheese merchant hears a remarkable amount, you know, people will say anything over a good wheel of cheddar. Ask me about any of this." },
     },

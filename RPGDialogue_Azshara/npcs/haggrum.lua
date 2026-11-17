@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_ashenvale", when = { gossip = { topic = "ashenvale", stance = "wrong" } }, text = "My brother says you think the elves have the right of it in Ashenvale. He didn't shout, which means he's been thinking the same thing, so thank you for giving him something to frown about besides me." },
     { id = "g_default", text = "Lok'tar, friend! Sit, if you can find a rock that isn't wet." },
     { id = "g_betrayed", when = { questActive = TODO_QUEST("Betrayed") }, text = "My brother's sent you after the elf, hasn't he? Good. Bring her down, and I'll smile twice as wide." },
     { id = "g_done", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who settled our debt with the elf! My brother sleeps now, and so do I." },
@@ -33,7 +34,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Haggrum Bloodfist, brother to Ag'tor, who runs this camp. He does the frowning and I do the smiling, and between us we make one decent orc." },
+        { id = "h_default", key = true, text = "I am Haggrum Bloodfist, brother to Ag'tor, who runs this camp. He does the frowning and I do the smiling, and between us we make one decent orc, though we both bleed for the Horde the same." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "If my brother tells you about the elf, listen to him. He doesn't speak of it often, and when he does, he means every word." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 3 } },
@@ -44,16 +45,16 @@ P:NPC {
           text = "A troll! Good, you'll know how to laugh at a bad situation; my brother never learned." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? I've got all evening and a full pot." },
+        { id = "h_again", text = "What else, friend? I've got all evening and a full pot, and an orc never turns away a guest at his fire." },
         { id = "h_again2", text = "Go on. Talking keeps the cold off." },
       },
       choices = {
         { text = "How do you still smile out here?", next = "smile" },
         { text = "What happened with the elf's expedition?", next = "betrayal" },
-        { text = "What's Ag'tor like?", next = "brother" },
+        { text = "You seem to think well of Ag'tor.", next = "brother" },
         { text = "What was Azshara like before?", next = "before" },
         { text = "Warriors don't smile. Why do you?", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Do the spirits here trouble you?", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
+        { text = "The spirits here must trouble you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "What can I do for Valormok?", next = "BUSINESS" },
         { text = "Farewell, Haggrum.", next = "END" },
       },
@@ -123,6 +124,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "An orc of Durotar, brother to Ag'tor, survivor of a bad day in the ruins. I'd tell you more, but it's all sad and I'm saving my good stories." } },
     advice = { { id = "tp_ad", text = "Laugh when you can, friend. Azshara will give you plenty of reasons not to." } },
     rimtori = { { id = "tp_rim", text = "The elf who killed my brother's warriors. I don't say her name at the fire, and I'd thank you not to either." } },
-    _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga; she knows everything and charges for half of it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave us Valormok and told us to make something of it, and my brother has. I'd follow Thrall anywhere, and my brother would follow him into the sea." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The elves named this land after their queen, and she drowned with her city. I wonder what kind of queen gets a whole land named for her and still ends up at the bottom of the sea." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elf priestess sends Sentinels to watch us from Talrendis, and they watch very well. I'd watch us too, if I were them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I went to Booty Bay once, with my brother, before he got serious. We lost all our coin and one of his teeth, and he laughed the whole way home." } },
+    _none = { { id = "tp_none", text = "No idea, friend. Ask Jediga; she knows everything and charges for half of it, which is not the orcish way, but it works for her." } },
   },
 }

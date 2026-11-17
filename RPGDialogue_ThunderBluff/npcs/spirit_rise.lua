@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "The spirits are restless this morning. Speak gently." },
+    { id = "g_hi", text = "The spirits are restless this morning, and the wind has a sharp tongue. Speak gently." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The spirits remember you, which is more than I can say for most." },
   },
 
@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Tigor Skychaser, and the Skychaser tribe has kept the spirits' ways on this rise since the Bluff was raised. If you would speak with earth, fire, water and air, you must first learn to listen to them." },
         { id = "h_notsham", when = { ["not"] = { class = "SHAMAN" } }, text = "You are not of the spirit-speakers, but you may stand here. Only don't shout on Spirit Rise; the spirits dislike it, and so do I." },
       },
-      again = { { id = "h_again", text = "Something more? Ask it plainly." } },
+      again = { { id = "h_again", text = "Something more? Ask it plainly, as the earth answers." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "How do you ask the elements?", next = "ask" },
@@ -50,7 +50,7 @@ P:NPC {
     command = {
       lines = { { id = "c_default", text = "Then you are a warlock, or worse, and the elements will wait for the moment you falter. The orc warlocks once commanded the land of their homeworld, and the orcs themselves will tell you how that ended." } },
       choices = {
-        { text = "Then should shaman ever compel the spirits?", next = "command_end" },
+        { text = "Surely a shaman must compel the spirits sometimes.", next = "command_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,7 +83,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the shavings. Totems don't carve themselves." },
+    { id = "g_hi", text = "Mind the shavings. Totems don't carve themselves, though the spirits in the wood would like you to think so." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see your totems; they always tell me how you've been using them." },
   },
 
@@ -99,11 +99,11 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Beram Skychaser. Tigor will teach you to listen to the spirits, and I'll teach you where to put the totem so the spirits can actually help, which is a lesson that's saved more lives than his." },
         { id = "h_notsham", when = { ["not"] = { class = "SHAMAN" } }, text = "Not a shaman? Then you can hold this while I carve. Mind the end, it's sharp." },
       },
-      again = { { id = "h_again", text = "Something else? Hand me that knife while you think." } },
+      again = { { id = "h_again", text = "Something else? Hand me that knife while you think, and keep your hooves off the cedar." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "Where should a totem go?", next = "where" },
-        { text = "Does Tigor mind you saying that?", next = "tigor" },
+        { text = "Tigor must mind you saying that.", next = "tigor" },
         { text = "Farewell, Beram.", next = "END" },
       },
     },
@@ -147,6 +147,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_fk_trust", when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Bena says you count the Forsaken as Horde like any of us. The spirits below the rise would be glad of more like you, I think." },
     { id = "g_hi", text = "Oh, hello! Sorry, I was listening to the wind. It's chatty today." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Come and tell me where you've been." },
   },
@@ -163,10 +164,10 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Siln Skychaser, and I teach young shaman with Tigor and Beram, though they'd tell you I'm still learning myself. They're not wrong, but I don't think a shaman ever stops." },
         { id = "h_notsham", when = { ["not"] = { class = "SHAMAN" } }, text = "You're not a shaman, but that's fine, I like talking to people who aren't. They ask better questions." },
       },
-      again = { { id = "h_again", text = "What else? I've time, the wind's settled." } },
+      again = { { id = "h_again", text = "What else? I've time, the wind's settled, and the earth spirits are dozing." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
-        { text = "Do you visit the Forsaken below?", next = "below" },
+        { text = "You must visit the Forsaken below.", next = "below" },
         { text = "What does the wind say?", next = "wind" },
         { text = "Farewell, Siln.", next = "END" },
       },
@@ -195,7 +196,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Skychaser, the youngest who teaches. I still carry water for Tigor when he asks." } },
     advice = { { id = "tp_ad", text = "Listen to the wind before a long journey. It'll tell you about the weather, at least." } },
-    _none = { { id = "tp_none", text = "I don't know! But I'd like to. Tell me if you find out." } },
+    _none = { { id = "tp_none", text = "I don't know! But I'd like to, and the spirits like a curious heart. Tell me if you find out." } },
   },
 }
 
@@ -215,8 +216,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Mind the wards on the floor. They're not decorative." },
-    { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving." },
+    { id = "o_kt_admire", when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Ghull says you admire the Kirin Tor. They'd admire you right into a cell in the Violet Hold, if you were dead, so think on that." },
+    { id = "g_hi", text = "Mind the wards on the floor. They're not decorative, and I've no interest in scraping up another careless visitor." },
+    { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving, which is more than I expected of the living." },
   },
 
   notice = {
@@ -233,11 +235,11 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Archmage Shymm, and I teach the arcane to those of the Horde with the wit to learn it. Magic burns the untrained, so if you're not a mage, kindly step back from the wards before something catches." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren, down here among the books. Your people don't take up the arcane, which is wise of them, and I'd rather you didn't start in my classroom." },
       },
-      again = { { id = "h_again", text = "Something more? Do be brief." } },
+      again = { { id = "h_again", text = "Something more? Do be brief; even the dead tire of amateurs." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Why teach mages here, of all places?", next = "here" },
-        { text = "Does magic really burn the untrained?", next = "burn" },
+        { text = "I've heard magic can burn the untrained.", next = "burn" },
         { text = "Farewell, Archmage.", next = "END" },
       },
     },
@@ -248,7 +250,7 @@ P:NPC {
     burn = {
       lines = { { id = "b_default", text = "Quite literally, on occasion. I knew apprentices in Lordaeron who reached too far and were carried out in buckets, and I've no wish to see it happen in a cave full of old scrolls." } },
       choices = {
-        { text = "So power should be kept from the many?", next = "burn_end" },
+        { text = "So power should be kept from the many.", next = "burn_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -265,7 +267,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I studied the arcane in life and I study it still. The details are my own affair." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you don't know how to stop." } },
-    _none = { { id = "tp_none", text = "Not my field. Try a library, if you can read." } },
+    _none = { { id = "tp_none", text = "Not my field. Try a library, if you can read, and if the Scarlets haven't burned it." } },
   },
 }
 
@@ -292,15 +294,59 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirin_tor = {
+      lines = {
+        { id = "opk_q", text = "Some of the Kirin Tor live yet, they say, picking at the ruins behind their barrier. Perhaps you've heard more of them than I have, so what do you make of the old council?" },
+      },
+      choices = {
+        { text = "They're the finest mages in the world. You should be proud of them.", next = "op_kirin_tor_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { kirin_tor = "admire" } } },
+        { text = "They let Lordaeron fall while they argued in their towers.", next = "op_kirin_tor_r2", fx = { align = { order = -1 }, trait = { stern = 1 }, opinion = { kirin_tor = "wrong" } } },
+        { text = "They'd burn every Forsaken mage on sight, Ursyn.", next = "op_kirin_tor_r3", fx = { opinion = { kirin_tor = "distrust" } }, when = { faction = "Horde" } },
+        { text = "They trained Lady Jaina, and she's holding the peace together.", next = "op_kirin_tor_r4", fx = { affinity = 1, opinion = { kirin_tor = "respect" } }, when = { faction = "Alliance" } },
+        { text = "I don't know enough about them to say.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r1 = {
+      lines = {
+        { id = "op_kirin_tor_r1", text = "I was, once, and I find I still am in my less sensible moments. They never wrote back after I died, but I suppose that's understandable." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r2 = {
+      lines = {
+        { id = "op_kirin_tor_r2", text = "They argued, yes, and Kel'Thuzad was one of them before he wasn't, so you'll hear no defence from me. I only wish I'd argued louder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r3 = {
+      lines = {
+        { id = "op_kirin_tor_r3", text = "Most of them would, and they'd file a very tidy report afterward. I've made my peace with being on the wrong side of their shelves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r4 = {
+      lines = {
+        { id = "op_kirin_tor_r4", text = "Proudmoore was a bright student, they said, even then. I'm glad one of us came through with her conscience in one piece." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Ursyn Ghull, and I teach the arcane here with Archmage Shymm and Thurston Xane. It's a quiet place to study, and the tauren bring us bread sometimes, which none of us can eat but all of us appreciate." },
+        { id = "h_default", key = true, text = "I am Ursyn Ghull, and I teach the arcane here with Archmage Shymm and Thurston Xane. It's a quiet place to study, and the tauren bring us bread sometimes, which none of us can eat now but all of us remember the taste of." },
         { id = "h_notmage", when = { ["not"] = { class = "MAGE" } }, text = "You're not a mage, but you're welcome to sit. Most people who come down here are lost, and I don't mind the company." },
       },
-      again = { { id = "h_again", text = "Something else? Take your time; I've plenty of it now." } },
+      again = { { id = "h_again", text = "Something else? Take your time; the grave left me plenty of it." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "You studied in Dalaran?", next = "dalaran" },
+        { text = "So you studied in Dalaran.", next = "dalaran" },
         { text = "I studied there too, before.", next = "o_dal", when = { origin = "forsaken_dalaran_apprentice" } },
         { text = "Farewell, Ursyn.", next = "END" },
       },
@@ -308,7 +354,8 @@ P:NPC {
     dalaran = {
       lines = { { id = "d_default", text = "Long ago, before the plague, and before Archimonde's armies left the city in ruins. I still dream in its libraries, if the dead can be said to dream." } },
       choices = {
-        { text = "Would you go back, if you could?", next = "dalaran_end" },
+        { text = "What do you make of the Kirin Tor now?", next = "op_kirin_tor" },
+        { text = "I'd guess you'd go back, if you could.", next = "dalaran_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -329,7 +376,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A student of Dalaran, before. A teacher in the Pools of Vision, now." } },
     advice = { { id = "tp_ad", text = "Write everything down. Memory is less reliable than you'd think, especially after death." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know. I'll make a note to find out." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. I'll make a note to find out, as I did in Dalaran, back when I had a heartbeat to hurry me." } },
   },
 }
 
@@ -345,7 +392,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than you'd think." },
+    { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than you'd think, not that I'd know anymore." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I was just telling the walls about you." },
   },
 
@@ -376,7 +423,7 @@ P:NPC {
     cheer = {
       lines = { { id = "c_default", text = "Because I woke up in a grave, my friend, and then I didn't stay in it. Everything since has been a pleasant surprise, even the smell." } },
       choices = {
-        { text = "Doesn't anything about it trouble you?", next = "cheer_end" },
+        { text = "Something about it must trouble you.", next = "cheer_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -413,7 +460,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Welcome. The shadows down here are restful, if you let them be." },
+    { id = "g_hi", text = "Welcome. The shadows down here are restful, if you let them be, and far more honest than the Light ever was." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. The shadow suits you better than it did." },
   },
 
@@ -429,7 +476,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Miles Welsh, of the Forgotten Shadow. I teach priests of the Horde what the Light never taught us, and what the shadow has offered in its place." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You are no priest, but the shadow doesn't mind. Sit, if you like, and be quiet." },
       },
-      again = { { id = "h_again", text = "Something more? Speak softly here." } },
+      again = { { id = "h_again", text = "Something more? Speak softly here; the dead hear very well." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is the Forgotten Shadow?", next = "shadow" },
@@ -477,7 +524,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Another visitor. State your business, and don't waste my time." },
+    { id = "o_sc_pity", when = { gossip = { topic = "scarlet_crusade", stance = "pity" } }, text = "Cobb tells me you pity the Scarlet Crusade. Pity them when they're tying you to the stake, and see how long it lasts." },
+    { id = "g_hi", text = "Another visitor. State your business, and don't waste my time; I've already lost one life to fools." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your devotion is noted." },
   },
 
@@ -488,12 +536,56 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_light = {
+      lines = {
+        { id = "opl_q", text = "Then tell me what it is, if you're so sure of it. What has the Light ever done for you, or for anyone in this cave?" },
+      },
+      choices = {
+        { text = "It's a power like any other. The Crusade only abuses it.", next = "op_light_r1", fx = { align = { light = 1 }, opinion = { the_light = "useful" } } },
+        { text = "It abandoned the dead. The Dark Lady never did.", next = "op_light_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { the_light = "hate" } } },
+        { text = "I still believe in it, priest, whatever the Crusade does.", next = "op_light_r3", fx = { affinity = -2, trait = { pious = 1 }, opinion = { the_light = "faith" } } },
+        { text = "I carry the Light, Cross, and it hasn't burned me yet.", next = "op_light_r4", fx = { opinion = { the_light = "faith" } }, when = { class = "PALADIN" } },
+        { text = "I'm not here to argue faith with you.", next = "BACK" },
+      },
+    },
+    op_light_r1 = {
+      lines = {
+        { id = "op_light_r1", text = "A tool, then, and the Crusade is only holding it wrong. That's more sense than I usually hear, though you'll still never hear me pray to it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_light_r2 = {
+      lines = {
+        { id = "op_light_r2", text = "Now you're speaking like one of the Forgotten. Come back when you want to learn what shadow can do for someone who has stopped begging." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_light_r3 = {
+      lines = {
+        { id = "op_light_r3", text = "Cobb says the same thing, and he says it every morning, and the Light has yet to answer him. Believe what you like." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_light_r4 = {
+      lines = {
+        { id = "op_light_r4", text = "Yet, paladin, is the word I'd underline. When it does, come and find me, and we'll speak about something that doesn't flinch from you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Malakai Cross, and I teach priests here because the Dark Lady wished the Forsaken to have a presence among our allies. The tauren tolerate us, and that is enough." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're no priest. Then you've no business here, unless you're lost, and I'm not a guide." },
       },
-      again = { { id = "h_again", text = "Well? What else?" } },
+      again = { { id = "h_again", text = "Well? What else? The Dark Lady's work doesn't wait on the curious." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why does the Dark Lady want you here?", next = "why" },
@@ -508,6 +600,7 @@ P:NPC {
     light = {
       lines = { { id = "l_default", text = "A comfortable faith for the living, and a cruel one for the dead. The Scarlet Crusade burns my people in its name, so you'll forgive me if I don't light candles to it." } },
       choices = {
+        { text = "What would you have me say about it?", next = "op_light" },
         { text = "The Crusade isn't the Light.", next = "light_end", fx = { learn = { "scarlet_crusade" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },
@@ -525,7 +618,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I serve the Dark Lady. That's all the story I need." } },
     advice = { { id = "tp_ad", text = "Trust no faith that has ever tried to burn you." } },
-    _none = { { id = "tp_none", text = "I don't know, and I don't care to." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't care to. Ask a living fool; they have opinions on everything." } },
   },
 }
 
@@ -541,8 +634,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping?" },
+    { id = "o_light_hate", when = { gossip = { topic = "the_light", stance = "hate" } }, text = "Malakai says you've turned your back on the Light. I'll not lecture you, child, but the chapel door is always open, even down here." },
+    { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery, and I've no longer the hands to catch anyone." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping? I ask everyone, though I've stopped expecting good answers." },
   },
 
   notice = {
@@ -552,22 +646,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_scarlet = {
+      lines = {
+        { id = "opsc_q", text = "There were Scarlets in Tirisfal when I woke, and they burned what they found of my old flock. You may have crossed paths with them yourself, so tell me, what do you make of the Scarlet Crusade?" },
+      },
+      choices = {
+        { text = "They're butchers in the Light's colours, Father, and they must be stopped.", next = "op_scarlet_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "They fear the plague. I can't blame them for that.", next = "op_scarlet_r2", fx = { align = { light = -1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They burned my people, Father. I'll return the favour.", next = "op_scarlet_r3", fx = { trait = { fierce = 1 }, opinion = { scarlet_crusade = "war" } }, when = { race = "Scourge" } },
+        { text = "Their cause was just, Father, before it rotted.", next = "op_scarlet_r4", fx = { trait = { curious = 1 }, opinion = { scarlet_crusade = "mixed" } } },
+        { text = "I'd rather not speak of them, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r1 = {
+      lines = {
+        { id = "op_scarlet_r1", text = "Stopped, yes, though I pray for them all the same, because once they were village boys like mine. Go carefully if you go north." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r2 = {
+      lines = {
+        { id = "op_scarlet_r2", text = "No, I suppose you can't, and I could not either, once. Fear is a terrible shepherd, child, and it led them a long way from their chapels." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r3 = {
+      lines = {
+        { id = "op_scarlet_r3", text = "I understand it, child, though I'll not bless it. Come back with your soul still your own, and we'll call that a victory." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r4 = {
+      lines = {
+        { id = "op_scarlet_r4", text = "It was, I think, at the very start, and that's the saddest part of it. Every good cause has a first bad day, and theirs came early." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Father Cobb, and I keep the priests' lessons here with Miles and Malakai. I had a little parish in Lordaeron once, before the plague came through, and I suppose I still think of my students as a congregation." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're not a priest, but that's no matter. Everyone needs a quiet word now and then, and I've plenty to spare." },
       },
-      again = { { id = "h_again", text = "Anything more, child? I've nowhere else to be." } },
+      again = { { id = "h_again", text = "Anything more, child? I've nowhere else to be, and no one left in Lordaeron waiting for me." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Tell me about your parish.", next = "parish" },
-        { text = "Do you still pray, Father?", next = "pray" },
+        { text = "You must still pray, Father.", next = "pray" },
         { text = "Farewell, Father.", next = "END" },
       },
     },
     parish = {
       lines = { { id = "p_default", text = "A small village in the north, with a chapel and a well and the same faces every Sunday. Most of them came back with me, after a fashion, and most of them don't remember the hymns." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Did the Scarlet Crusade reach your village?", next = "op_scarlet" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pray = {
       lines = { { id = "pr_default", text = "Every morning, though I'm not always sure to whom. Miles says the shadow listens, and Malakai says the Dark Lady does, and I keep praying in case someone kinder is listening too." } },
@@ -589,6 +730,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A village priest, once. A teacher in a cave, now. It's not so different as you'd think." } },
     advice = { { id = "tp_ad", text = "Be gentle with the frightened, child. Fear makes people cruel." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Perhaps ask someone who gets out more." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Perhaps ask someone who gets out more, or someone still breathing." } },
   },
 }

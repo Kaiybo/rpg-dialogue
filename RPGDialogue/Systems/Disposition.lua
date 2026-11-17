@@ -12,6 +12,9 @@
 --     * their rivals (`rivals` on the NPC, 0.55.0): your affinity with each
 --       rival x3 against you (to -15), or, if you've crossed the rival,
 --       x1 in your favour (to +5)
+--     * their prejudices (`prejudice` on the NPC, 0.80.0): what they hold against your
+--       race, faction, class or origin, eased by 3 for each point of affinity you've earned
+--       (to -25 in all)
 --   Clamped to 0-100. Words: Hostile, Cold, Wary, Neutral, Warm, Friendly, Devoted.
 --
 -- It's addon-only: it never changes prices or how anyone really behaves in the game. It
@@ -69,6 +72,55 @@ function Disp.FavouredRivals(def)
   return out
 end
 
+-- Prejudice (0.80.0): an NPC's `prejudice` is one entry or a list of them:
+--   { race = "Gnome" | {..}, faction = "Horde", class = "WARLOCK", origin = "..",
+--     exceptOrigin = ".." | {..}, amount = 10 (default), why = "writer's note" }
+-- Every key given must match the player. The weight a prejudice carries falls by
+-- PREJUDICE_EASE for each point of affinity above zero: people can be won round.
+Disp.PREJUDICE_EASE = 3
+Disp.PREJUDICE_MAX = 25
+
+local function anyOf(actual, want)
+  if want == nil then return true end
+  if type(want) == "table" then
+    for _, w in ipairs(want) do if w == actual then return true end end
+    return false
+  end
+  return want == actual
+end
+
+local function who(ctx)
+  if ctx then return ctx.race, ctx.faction, ctx.class end
+  local C = ns.Compat
+  if not C then return nil end
+  local _, race = C.Race("player")
+  local _, class = C.Class("player")
+  return race, C.Faction("player"), class
+end
+
+-- Returns the full weight of the prejudices that match the player, and what's left of it
+-- after affinity (both >= 0), plus the first matching entry.
+function Disp.Prejudice(def, mem, ctx)
+  local p = def and def.prejudice
+  if type(p) ~= "table" then return 0, 0 end
+  if p.race or p.faction or p.class or p.origin or p.amount then p = { p } end
+  local race, faction, class = who(ctx)
+  local origin = ns.char and ns.char.origin and ns.char.origin.id
+  local full, first = 0, nil
+  for _, e in ipairs(p) do
+    if type(e) == "table" and anyOf(race, e.race) and anyOf(faction, e.faction)
+      and anyOf(class, e.class) and anyOf(origin, e.origin)
+      and not (e.exceptOrigin and origin and anyOf(origin, e.exceptOrigin)) then
+      full = full + (tonumber(e.amount) or 10)
+      first = first or e
+    end
+  end
+  full = math.min(full, Disp.PREJUDICE_MAX)
+  local aff = mem and mem.affinity or 0
+  local left = math.max(0, full - math.max(0, aff) * Disp.PREJUDICE_EASE)
+  return full, left, first
+end
+
 local function clamp(v, lo, hi) return math.max(lo, math.min(hi, v)) end
 
 local function set(list)
@@ -123,6 +175,8 @@ function Disp.Compute(info, mem, ctx)
     if ra > 0 then add(-math.min(ra * Disp.RIVAL_PENALTY, 15), "rival:" .. r)
     elseif ra < 0 then add(math.min(-ra, 5), "rivalfoe:" .. r) end
   end
+  local _, left = Disp.Prejudice(def, mem, ctx)
+  add(-left, "prejudice")
   local reaction = ctx and ctx.npcReaction
   if type(reaction) == "number" and reaction <= 3 then add(-10, "unfriendly") end
   return clamp(v, 0, 100), why

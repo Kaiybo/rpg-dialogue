@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_vengeance", when = { gossip = { topic = "vengeance", stance = "wrong" } }, text = "My master says you lectured him on vengeance. He laughed afterwards, which he never does, and I still haven't decided whether to thank you or challenge you." },
     { id = "g_default", text = "You stand in the presence of my master's squire, so stand straight, and speak with respect when you speak of him." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! Have you come with more fire for the Dark Iron? Say that you have." },
     { id = "g_ablaze", when = { questDone = TODO_QUEST("Set Them Ablaze!") }, text = "I can still see the smoke from here, and it's beautiful. You did that, and my master was pleased, which is the highest thing that can be said of anyone." },
@@ -47,11 +48,11 @@ P:NPC {
       },
       choices = {
         { text = "How long have you served Kalaran?", next = "service" },
-        { text = "What does the torch do?", next = "torch" },
-        { text = "Did the Dark Iron really kill his father?", next = "father" },
-        { text = "What happens when the towers burn?", next = "towers" },
+        { text = "What is your master working on?", next = "torch" },
+        { text = "Why does your master hate the Dark Iron?", next = "father" },
+        { text = "What happens when the towers burn?", next = "towers", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "Your master isn't what he seems.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
-        { text = "Who are you really serving, Maltrake?", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
+        { text = "You serve someone greater than yourself, Maltrake, I'd guess.", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -78,16 +79,16 @@ P:NPC {
 
     torch = {
       lines = {
-        { id = "to_default", text = "It burns with a flame that no element or force can subdue, not water, not ice, not the Dark Iron's sorcery. You helped make it, so you should know, though I don't think you understood what you were making." },
+        { id = "to_default", text = "My master's Torch of Retribution burns with a flame that no element or force can subdue, not water, not ice, not the Dark Iron's sorcery. You helped make it, so you should know, though I don't think you understood what you were making." },
       },
       choices = {
-        { text = "Where does a fire like that come from?", next = "torch_source" },
+        { text = "Nothing in any forge burns like that.", next = "torch_source" },
         { text = "Something else.", next = "BACK" },
       },
     },
     torch_source = {
       lines = {
-        { id = "ts_default", text = "From the same place my master's strength comes from, and that's all I'll say. Some fires are older than forges, and some families are older than kingdoms, and my master belongs to one." },
+        { id = "ts_default", text = "No forge made it. It came from the same place my master's strength comes from, and that's all I'll say. Some fires are older than forges, and some families are older than kingdoms, and my master belongs to one." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -162,6 +163,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An orphan of the war, a squire by my master's grace, and nothing else that matters." } },
     advice = { { id = "tp_ad", text = "Serve someone greater than yourself, and you'll never wonder what you're for." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons in their city beneath the mountain are a blight on this land. My master will see them burned, and I will hand him the torch." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons killed my master's father, and my master's grief is a holy thing. I serve it gladly." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons are terrible and glorious, and fire follows them wherever they go. I would not speak against them in my master's hearing." } },
     _none = { { id = "tp_none", text = "My master hasn't told me about that, so I don't need to know it." } },
   },
 }

@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Fresh off the Darkshore coast this morning, and worth every murloc bite it took to catch, which was three." },
+    { id = "g_default", text = "Ishnu-alah! Fresh off the Darkshore coast this morning, and worth every murloc bite it took to catch, which was three." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? You've got the look of someone who's had enough of inn stew and wants a proper fish." },
   },
 
@@ -117,7 +117,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it." },
+        { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it, whatever my old friend Nessa Shadowsong says over in Rut'theran." },
         { id = "h_flight", tags = { "news" }, when = { questActive = TODO_QUEST("Flight to Auberdine") },
           text = "That parcel smells like Rut'theran, so Nessa's sent you. Let me see what she thinks passes for a good catch over there." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Nessa") },
@@ -128,7 +128,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, buying fish! Now I've seen everything, though I suppose even the Silver Hand has to eat." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Then I hope you'll tell me the threshers out there are only hungry and not sick, because I've been eating what I catch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you fish like anyone else, but keep your little friend away from the crates, because I've seen what an imp does to a fresh catch." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Darkshore's coast is more dangerous and more rewarding than Teldrassil's. Your water spirits must agree." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Darkshore's coast is more dangerous than Teldrassil's and more generous for it, and I'd wager your water spirits agree." },
       },
       again = {
         { id = "h_again", text = "What else? The fish won't get any fresher while we talk." },
@@ -136,12 +136,12 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your fish.", next = "BUSINESS" },
-        { text = "What makes this coast so dangerous?", next = "coast" },
-        { text = "How do you know Nessa Shadowsong?", next = "nessa" },
+        { text = "This coast seems a dangerous one.", next = "coast" },
+        { text = "You must know Nessa Shadowsong.", next = "nessa" },
         { text = "Why sell fish inside the inn?", next = "inn" },
         { text = "Murlocs at your nets? I could thin them quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I suppose the elves don't like my sort much.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Are the murlocs on this coast as bad as they say?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "They say the murlocs on this coast are bad.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the threshers hunt close to shore here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you want your nets blessed, Laird?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should a paladin be guarding the fishers on this coast?", next = "xapala", when = { class = "PALADIN" } },
@@ -191,7 +191,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell fish in the Auberdine inn. I trade with Nessa Shadowsong in Rut'theran, though we'd both rather argue than admit we're friends." } },
     advice = { { id = "tp_ad", text = "Never fish alone on this coast. Bring a friend, or at least a sharp knife." } },
-    _none = { { id = "tp_none", text = "Not a thing, I'm afraid. I only know what swims and what's been caught." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay pays well for fresh fish and badly for anything else. Nessa says I'd last a week there, and she's probably right." } },
+    ratchet = { { id = "tp_ratchet", text = "I went to Ratchet's fishing contest once and came home with a sunburn and no prize. Don't tell Nessa I admitted it." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's boats come in smelling of marsh, and the sailors want fish that doesn't. I sell them plenty." } },
+    _none = { { id = "tp_none", text = "Not a thing, I'm afraid. I only know what swims and what's been caught, and Elune knows that's enough for one life." } },
   },
 }
 
@@ -308,14 +311,14 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveler forgets, I keep, because sooner or later they come back for it. Last week it was a dwarf's left boot, and he'd walked halfway to Bashal'Aran before he noticed." },
+        { id = "h_default", text = "I am Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveller forgets, I keep, because sooner or later they come back for it; last week it was a dwarf's left boot, and he'd walked halfway to Bashal'Aran before he noticed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Please tell me you've packed water, because warriors never pack water, and then they faint on the road to Ashenvale." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you have enough arrows? Hunters always run out of arrows at the worst moment, I've heard." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I do hope you've packed enough bandages, because priests always give theirs away and then have none left for themselves." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your armour must want oiling after that sea crossing, and I'd hate for it to rust before you reach the furbolgs." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I suppose you can sleep in a tree and eat whatever the forest gives you, but take some bread anyway, because the forest here isn't giving much lately." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Have you got your reagents? You'd be amazed how many mages come through Auberdine without a single rune in their packs." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have you packed everything? Rope, water, bandages? Your spirits will not pack for you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have you packed everything, rope and water and bandages? Elune watches over travellers, but neither she nor your spirits will pack for you." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd rather you asked now than wished you had later." },
@@ -323,9 +326,9 @@ P:NPC {
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
-        { text = "What do travelers forget most often?", next = "forget" },
+        { text = "Travelers must forget all sorts of things.", next = "forget" },
         { text = "Why do you worry so much?", next = "worry" },
-        { text = "Everything travelers forget, you keep. Do they ever come back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Everything travelers forget, you keep. I'd guess few come back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you sell anything a warrior actually needs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does a hunter forget to pack, Dalmond?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you sell candles? Black ones, ideally.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -370,7 +373,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the general goods in Auberdine. I've seen a lot of young people come through here, and I try to send them out with a spare bag and dry socks, which is more than most of their mothers managed." } },
     advice = { { id = "tp_ad", text = "Buy a bigger bag. You'll thank me in a week." } },
-    _none = { { id = "tp_none", text = "Oh, I wish I knew. Ask Thundris Windweaver; he knows far more than I do." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Young folk come through on their way to anywhere, and some of them mean to get to Booty Bay. I give them a spare bag and tell them to keep their purses in it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire's been near, everyone comes in with no money and wants credit. I give a little, because I remember being young." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's sailors buy socks, of all things. Something about the marsh, they say." } },
+    _none = { { id = "tp_none", text = "Oh, I wish I knew. Ask Thundris Windweaver; he has been elder here longer than I have been alive, and he knows far more than I do." } },
   },
 }
 
@@ -386,7 +392,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Thirsty? Of course you are; everyone is, after the walk up from the docks." },
+    { id = "g_default", text = "Elune's light on you. Thirsty? Of course you are; everyone is, after the walk up from the docks." },
     { id = "g_back", when = { metBefore = true }, text = "There's my moonberry customer. The usual, or something new?" },
   },
 
@@ -496,16 +502,16 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Something cool to drink, then, because that armour must be hot work on the Darkshore road." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Then you'll know the moonberry juice when you taste it, because the berries come from one of the last clean groves up the coast." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Would you like a cold cup of moonberry juice? You look as though you've had a long night with something unpleasant, and it does help." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A cold cup of moonberry juice makes most troubles look smaller. Do your spirits drink?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A cold cup of moonberry juice makes most troubles look smaller, and I wonder, do your spirits drink?" },
       },
       again = {
         { id = "h_again", text = "Something more? Sit, have a sip of moonberry juice, and ask." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening, as patient as the moon on the water." },
       },
       choices = {
         { text = "Let me see your drinks.", next = "BUSINESS" },
-        { text = "What's the best thing you sell?", next = "best" },
-        { text = "Why nothing stronger?", next = "strong" },
+        { text = "Something here must be your best seller.", next = "best" },
+        { text = "I'd have expected something stronger than juice.", next = "strong" },
         { text = "I could chill your juice with a word.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Nothing strong? Where do the sailors go for a real drink?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors ever drink juice before a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -531,7 +537,7 @@ P:NPC {
         { id = "st_default", text = "The humans and dwarves coming through want ale, and the innkeeper keeps a little for them. But my people have seen what thirst for stronger things does, and I'd rather sell something that leaves you clear-headed in the morning." },
       },
       choices = {
-        { text = "What do you mean, what thirst does?", next = "strong2" },
+        { text = "I'm not sure what you mean about thirst.", next = "strong2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -550,7 +556,10 @@ P:NPC {
   topics = {
     highborne = { { id = "tp_high", text = "They drank from the Well until it swallowed them. My grandmother told me that story whenever I asked for a second cup." } },
     background = { { id = "tp_bg", text = "I sell drinks in Auberdine. Simple work, and nobody's ever unhappy to see me, unless I've run out of moonberry juice." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Have a drink and ask around; someone will know." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay drinks rum and calls it food, sailors say. I'll stick with my moonberry juice, and my customers' livers will thank me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells a drink that changes colour while you drink it, I'm told. I've tried to copy it, and mine just goes brown." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins sell a hot cider for the cold that I'd dearly love the recipe for. They want gold for it, of course." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Have a drink and ask around, for someone in Auberdine will remember." } },
   },
 }
 
@@ -668,17 +677,17 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Naram Longclaw, and I sell weapons here in Auberdine. Darkshore will test whatever you carry, so you'd best carry something worth testing." },
+        { id = "h_default", text = "I am Naram Longclaw, and I sell weapons here in Auberdine. Darkshore will test whatever you carry, as it has tested my people since the Sundering, so you'd best carry something worth testing." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Let me see your hands, because scars tell me more than any boast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your hands are cleaner than a warrior's, but there's a bowstring callus on them, so you'll do." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a staff, or a mace, because prayers don't stop a furbolg mid-swing, whatever the Temple says." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Show me your hands, then, because I'd like to see if you've used that hammer as much as you've carried it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, with claws of your own when you need them. Most of your kind walk straight past my stall, but a staff still breaks, and I sell good staves." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, with soft hands. You let something else do your fighting, I see, and you'll not find much in my racks for that." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me your hands. Scars tell me more than words. Your spirits may have given you some." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me your hands, for scars tell me more than words, and your spirits may have given you some." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again", text = "What else? Make it quick; the satyrs in the hills don't wait on talk." },
         { id = "h_again2", text = "Ask, if you've something to ask." },
       },
       choices = {
@@ -702,7 +711,7 @@ P:NPC {
         { id = "ne_default", text = "Something heavy for the furbolgs, because their hides are thick, and something quick for the murlocs, because there are always more of them than you'd like. If you're going near the old ruins, bring both." },
       },
       choices = {
-        { text = "What's in the ruins?", next = "need2" },
+        { text = "Something must be stirring in those ruins.", next = "need2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -729,6 +738,9 @@ P:NPC {
   topics = {
     dark_strand = { { id = "tp_dark", text = "Robed cultists out in the hills. I don't know their business, and I don't care to, as long as they stay up there." } },
     background = { { id = "tp_bg", text = "I sell weapons in Auberdine. I've sold blades to Sentinels and to fools, and the fools come back less often, usually carried." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's where blades go to rust. If you're going in, buy two, and dry them after." } },
+    warsong = { { id = "tp_warsong", text = "Warsong axes are heavy and cruel, and I've repaired a few Sentinel blades that blocked them. Buy something thick." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena in Stranglethorn where fools fight for gold. I've sold to a few who went there, and none came back to complain." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care, so do you want a weapon or not?" } },
   },
 }
@@ -745,7 +757,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Well, hello there! Need coal, flux or a hammer? I've got all three and opinions on each." },
+    { id = "g_default", text = "Well, hello there! Need coal, flux or a hammer? I've got all three, aye, and opinions on each." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, I was startin' to think the elves had scared you off." },
   },
 
@@ -758,6 +770,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Folk at home either love him or curse him, and there's precious little in between. What do you make of King Magni, then?" },
+      },
+      choices = {
+        { text = "A fine king. He's kept Ironforge strong through two wars.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { magni = "admire" } } },
+        { text = "He cares more for titan relics than for his own people.", next = "op_r2", fx = { affinity = -1, trait = { skeptical = 1 }, opinion = { magni = "distrust" } } },
+        { text = "The Wildhammer had the right of it when they left.", next = "op_r3", fx = { align = { honor = -1 }, opinion = { wildhammer = "admire", magni = "distrust" } } },
+        { text = "My clan's sworn to him, Elisa, and that's the end of it.", next = "op_r4", fx = { affinity = 1, opinion = { magni = "loyal" } }, when = { race = "Dwarf" } },
+        { text = "I've no opinion on kings.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Aye, he has, and he's kept the beer flowing through both of them. You'll get no complaint from me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Careful, there's a Bronzebeard banner over my forge. Though I'll admit the League's coffers are fuller than the miners' ever were." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Don't say that in Ironforge. The Wildhammer are fine folk with fine gryphons and terrible taste in neighbours, the Hinterlands being full of trolls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Spoken like a proper Ironforge {g:lad|lass}. My da said much the same, then went and argued with the King's tax collectors for forty years." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day, but I like being the loudest voice on the docks. A shaman's spirits would fit right in here." } },
@@ -848,7 +889,9 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Elisa Steelhand, and I sell blacksmithing supplies here in Auberdine. The elves don't do much smithing themselves, so somebody has to keep the forges fed, and I'm happy for it to be me." },
+        { id = "o_alliance_distrust", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "distrust" } },
+          text = "Thundris tells me you think we came for the ruins, not the people. I came for the coal and the pay, friend, and I've never lied about it." },
+        { id = "h_default", text = "I'm Elisa Steelhand, and I sell blacksmithing supplies here in Auberdine. The elves don't do much smithing themselves, so somebody has to keep the forges fed, and a dwarf's the natural choice." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Blacksmithing") },
           text = "Somebody told you a smith has a place at a camp, did they? Right enough, there's always a blade to sharpen by the fire, and I'll show you how to rig it." },
         { id = "h_elf", when = { race = "NightElf" },
@@ -859,16 +902,17 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's armour I'd like a closer look at, because the elves don't wear plate, and I miss the sight of it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? You'll be one of those who'd rather I didn't burn so much coal so near the trees, so let's get that argument out of the way early." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! The elves here go white as milk when one of you walks past, an' I'll admit I enjoy watchin' it, but keep yer beastie away from my coal." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Well, you're a sight among all these elves. Ironforge's old-timers might grumble, but I'll not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! By my beard, you're a sight among all these elves, and though Ironforge's old-timers might grumble, I'll not." },
       },
       again = {
-        { id = "h_again", text = "Anything else, then? Speak up, the forge is loud!" },
+        { id = "h_again", text = "Anything else, then? Speak up, {g:lad|lass}, the forge is loud!" },
         { id = "h_again2", text = "What else? I've time for a chat." },
       },
       choices = {
+        { text = "What do folk back home make of King Magni?", next = "op_ask" },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What brings a dwarf to Auberdine?", next = "why" },
-        { text = "How do the night elves treat you?", next = "elves" },
+        { text = "I'd guess the night elves treat you well enough.", next = "elves" },
         { text = "Do you know the dwarves digging south of here?", next = "dig" },
         { text = "Lockpicking counts as metalwork, doesn't it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the elves mind your forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -923,6 +967,13 @@ P:NPC {
     explorers_league = { { id = "tp_el", text = "Remtravel's lot dig south of here. Good customers, terrible singers." } },
     warsong = { { id = "tp_ws", text = "The orcs are cutting into Ashenvale with steel axes. The elves'll need steel of their own soon enough." } },
     background = { { id = "tp_bg", text = "I'm from Dun Morogh, and I sell smithing supplies in Auberdine. Long way from home, but the work's good." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni's the best king a dwarf could ask for, and he still sends a letter to us lot out here now and then. Makes the long way home feel a bit shorter." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye'll know the king, then, or ye'll know of him. Raise a glass to him tonight, and I'll pour, because there's few enough of us out here." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Iron dwarves, the ones who brought the fire down on us all. My grandfather fought them, and he never forgave a single one." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "My cousin had a stall near Gnomeregan before it fell. She came back to Ironforge with nothing but her hammer, and she's never said a word about what she saw." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are our cousins in the Hinterlands, and they ride gryphons and drink like the world's ending. I miss them, oddly." } },
     _none = { { id = "tp_none", text = "Ha! No idea, {g:lad|lass}. Ask one of the elves; they've been around long enough to know everything." } },
   },
 }

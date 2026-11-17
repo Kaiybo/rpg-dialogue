@@ -10,7 +10,7 @@ P:Pool {
     { id = "b_gorge", text = "Another pack came up through the gorge this morning, and not all of them came up whole." },
   },
   greetings = {
-    { id = "g_default", text = "Keep to the paths, stranger. The mountain is still healing, and so is my knee." },
+    { id = "g_default", text = "Keep to the paths, stranger. The mountain is still healing from the Legion's fire, and so is my knee." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "Ishnu-alah, friend of the Alliance. Mind your step on the slopes." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You may pass, since your people bled here too, but you will be watched." },
     { id = "g_nelf", when = { race = "NightElf" }, text = "Welcome home, {g:brother|sister}. It is good to see our own on the mountain again." },
@@ -47,14 +47,14 @@ P:Pool {
     burning_legion = { { id = "t_bl", text = "They're beaten, not gone. Look in the gorge or in Dae'gun if you doubt me." } },
     sentinels = { { id = "t_sent", text = "We watch the slopes as our sisters watch Ashenvale, though up here the enemy is older." } },
     furbolgs = { { id = "t_furb", text = "Keep away from the caves by Malorne's Retreat. Whatever tribe that was, it's lost its mind." } },
-    _none = { { id = "t_none", text = "That's no business of the watch. Ask the druids; they talk more than we do." } },
+    _none = { { id = "t_none", text = "That's no business of the watch. Ask the druids; they talk more than we Sentinels do, and remember longer." } },
   },
 }
 
 P:Pool {
   id = "citizen_hyjal", role = "citizen", zone = "Mount Hyjal",
   greetings = {
-    { id = "g_default", text = "Peace on the mountain, traveller. Mind the saplings; they're younger than they look." },
+    { id = "g_default", text = "Elune's peace on the mountain, traveller. Mind the saplings; they're younger than they look, and their roots run back to Nordrassil." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune's light on you. The moon sits close to the summit tonight." },
   },
   notice = {
@@ -82,7 +82,7 @@ P:Pool {
   topics = {
     cenarion_circle = { { id = "t_cc", text = "The Circle sends who it can, though never as many as the mountain needs." } },
     malfurion = { { id = "t_malf", text = "He sleeps in the Dream, and the tree mends while he sleeps. That's what we're told, and I choose to believe it." } },
-    _none = { { id = "t_none", text = "I only tend the growth. Ask one of the Talon; they see the whole mountain from above." } },
+    _none = { { id = "t_none", text = "I only tend the growth. Ask one of the Talon; they see the whole mountain from above, as the Ancients once did." } },
   },
 }
 

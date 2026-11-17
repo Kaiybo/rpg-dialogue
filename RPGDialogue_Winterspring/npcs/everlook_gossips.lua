@@ -37,8 +37,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Steamwheedle runs it, pal, and everybody pays the Cartel's prices with a smile because there's nowhere else to buy a blanket for a hundred miles. Between you an' me, what do you make of us goblins runnin' the place?" },
+      },
+      choices = {
+        { text = "A neutral town in a frozen wilderness. That's good work.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { steamwheedle = "respect" } } },
+        { text = "Thieves with a ledger. Everyone here pays too much.", next = "op_r2", fx = { affinity = -1, align = { order = -1 }, trait = { skeptical = 1 }, opinion = { steamwheedle = "distrust" } } },
+        { text = "Useful. Everyone needs somewhere both sides can trade.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { steamwheedle = "useful" } } },
+        { text = "I'll keep my thoughts and my coin.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Ha! I'm gonna quote you to Vizzie, and she's gonna pretend she don't care, and then she's gonna repeat it to everybody." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Too much compared to what, friend, freezin' to death or walkin' back to Felwood? Everything's got a price, and up here the price includes the walk you didn't take." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Now that's a businessman talkin'. Useful is what keeps the lights on, and the lights up here are very expensive." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_dark_iron_hate", tags = { "news" }, when = { gossip = { topic = "dark_iron", stance = "hate" } },
+          text = "Word round the inn is you told the Dark Iron smith what you think of his clan. Brave or daft, pal, I'm still decidin' which." },
         { id = "h_default", key = true, text = "Harlo Wigglesworth, pal, and I'm the one in Everlook who knows what's going on, mostly because I ask and partly because I never stop. I've just got back from a trip through Felwood, and I've got news that'd curl your toes and probably your boots too." },
         { id = "h_strange", tags = { "news" }, when = { questDone = TODO_QUEST("A Strange One") },
           text = "So you met Winna at Bloodvenom! Isn't she somethin'? I couldn't decide if I wanted to help her or run, so I did the sensible goblin thing and subcontracted the job to you." },
@@ -53,8 +79,8 @@ P:NPC {
       },
       choices = {
         { text = "What did you see in Felwood?", next = "felwood" },
-        { text = "What's this about a wrecked camp to the south?", next = "camp" },
-        { text = "How do you hear so much?", next = "ears" },
+        { text = "Any news from out in the wilds?", next = "camp" },
+        { text = "You seem to hear everything that goes on.", next = "ears" },
         { text = "What's the news in Everlook?", next = "everlook" },
         { text = "I can find things out quietly, Harlo.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Later, Harlo.", next = "END" },
@@ -132,6 +158,7 @@ P:NPC {
         { id = "ev_default", text = "Umi's building something furry again, and Legacki's going to scream about it, which is the best news I've had all week, pal. And the furbolgs out at Winterfall have gone nasty, which Donova Snowden at the hot springs can tell you more about than me, and for once I mean that." },
       },
       choices = {
+        { text = "Who really runs Everlook, Harlo?", next = "op_ask" },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },
@@ -151,6 +178,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Always ask one more question than is polite, pal, because that's where the good stuff lives and nobody charges for it." } },
     steamwheedle = { { id = "tp_sw", text = "Everlook's a Steamwheedle town, pal, so nobody fights in it and everybody talks in it, and the talk's tax-free. Perfect, really." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall used to trade a little, I hear, and now they bite. Something's got into them, and Donova's trying to find out what." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the best town in the world for news, pal, because everybody passes through and nobody keeps their mouth shut. I keep mine shut least of all, but I always save the best part." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the most gossip south of here, but it's mostly about pirates. The news up here is better, because it's mostly about bears and furbolgs, which are more surprising." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town, if you like sand in your shoes and scorpids in your bed. I've heard stories about the Zul'Farrak trolls that'd curl your toes." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a strange bunch, but they keep their word, and that's more than I can say for most. Go see for yourself, if you can get past the guards." } },
     _none = { { id = "tp_none", text = "I haven't heard about that one yet! Find out and come back and tell me, would you, pal, because I hate being outbid on news." } },
   },
 }
@@ -202,7 +233,7 @@ P:NPC {
       choices = {
         { text = "What trouble, Meggi?", next = "trouble" },
         { text = "Why do you love the wilds so much?", next = "hills" },
-        { text = "A goblin who likes the outdoors?", next = "goblin" },
+        { text = "I never thought I'd meet a goblin who likes the outdoors.", next = "goblin" },
         { text = "I know the wilds too. I'm a hunter.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll let you get on, Meggi.", next = "END" },
       },
@@ -212,7 +243,7 @@ P:NPC {
         { id = "t_default", text = "The furbolgs, the Winterfall, out east by the hot springs. Something's got into them, and they've gone savage, and Donova Snowden's out there watching them and getting more worried by the day." },
       },
       choices = {
-        { text = "Who's Donova Snowden?", next = "donova" },
+        { text = "You keep mentioning Donova Snowden.", next = "donova" },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },
@@ -278,6 +309,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Take your time out there, and keep your eyes open, and write down what you meant to do before you set out. I never do, but you should." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone wrong, and it's a shame, because they used to keep to themselves. Donova knows why, or she will soon." } },
     steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, sweetie, and very safe, and very dull, and everything in it costs double, which is why I go out into the hills." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is the loveliest place in the world, all snow and sky and quiet, and I'd tell you all about it if I could remember where I started. Where was I?" } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw live in the tunnels to the south, and they're very particular about who comes through. I meant to tell you something important about them, but it's gone right out of my head." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've never been to Booty Bay, but I hear it's very warm and very loud. I like the snow better, though I can't remember why I came up here in the first place." } },
     _none = { { id = "tp_none", text = "I knew that once, sweetie, I'm sure of it, and it was probably worth somethin'. It'll come back to me, probably when you've gone." } },
   },
 }

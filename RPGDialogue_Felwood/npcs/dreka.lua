@@ -32,8 +32,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "There are orcs in Jaedenar who still bend the knee to demons, what's left of the Shadow Council, and once the whole Horde marched to that tune. What do you think of warlocks who make bargains with that filth?" },
+      },
+      choices = {
+        { text = "Any who call on demons are traitors to the Horde.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 }, opinion = { demons = "hate" } } },
+        { text = "Power is power. Use the demon, then break it.", next = "op_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { demons = "useful" } } },
+        { text = "Thrall allows warlocks. I'll trust his judgment.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { demons = "tolerate", warchief = "trust" } } },
+        { text = "I command my demons, Dreka. They don't command me.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "I've no stomach for that talk.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Then you and I would have hanged half the Horde in the old days. I'm glad there are fewer of them left to hang." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That's what the Shadow Council said, every last one of them, right up until the demons wore them like cloaks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Warchief trusts them to fight, and he watches them while they do it. Watch them too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "That's what they all say, warlock. Come back in ten years and say it to me again." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_forsaken_distrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "distrust" } },
+          text = "Trull says you don't trust the Forsaken either. Good; nobody at this post does, though most are too polite to say it near the alchemist." },
         { id = "h_default", key = true, text = "I am Dreka'Sur, and my husband fought his way across Felwood for the honor of our clan. He cheated death more times than I could count, and then a druid asked him for help against a befouled furbolg called Overlord Ror, and neither of them came back." },
         { id = "h_active", when = { questActive = TODO_QUEST("A Husband's Last Battle") },
           text = "Ror is to the south, near the Ashenvale border, where the Deadwood are thickest. Bring me its clawed hand, and I don't care how you get it." },
@@ -43,13 +74,14 @@ P:NPC {
           text = "A tauren. Your druids are always telling us the furbolgs are a sick people and not a wicked one, and maybe that's so, but sick or not, one of them killed my husband." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak plainly." },
-        { id = "h_again2", text = "You're still here. Ask, then." },
+        { id = "h_again", text = "What else? Speak plainly, as an orc should." },
+        { id = "h_again2", text = "You're still here. Ask, then, and then go and earn some honor in that forest." },
       },
       choices = {
+        { text = "What do you think of the orcs in Jaedenar?", next = "op_ask" },
         { text = "Tell me about your husband.", next = "husband" },
         { text = "Who was the druid he went with?", next = "druid" },
-        { text = "What do you know about Overlord Ror?", next = "ror" },
+        { text = "I've heard the name Overlord Ror.", next = "ror" },
         { text = "Why stay at Bloodvenom Post?", next = "post" },
         { text = "The furbolgs are sick, Dreka'Sur. Not evil.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Do the spirits tell you where he fell?", next = "xshaman", when = { class = "SHAMAN" } },
@@ -61,13 +93,13 @@ P:NPC {
         { id = "hu_default", text = "He was a warrior who never learned to sit still, and he came north to fight the Shadow Council and anything else that stank of the old curse. Every letter he sent me had a new scar in it, and he laughed about every one." },
       },
       choices = {
-        { text = "What did his last letter say?", next = "letter" },
+        { text = "His last letter must have said something.", next = "letter" },
         { text = "Something else.", next = "BACK" },
       },
     },
     letter = {
       lines = {
-        { id = "le_default", text = "That a druid had asked for his blade against a great furbolg gone foul, and that he'd said yes, because he always said yes. He wrote that he'd be home by the next moon, and the moon came and went, and nothing came after it." },
+        { id = "le_default", text = "It said that a druid had asked for his blade against a great furbolg gone foul, and that he'd said yes, because he always said yes. He wrote that he'd be home by the next moon, and the moon came and went, and nothing came after it." },
       },
       choices = {
         { text = "Do you keep the letter?", next = "letter_keep" },
@@ -147,6 +179,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a warrior's wife. Now I'm a warrior's widow, and that's all you need to know." } },
     advice = { { id = "tp_ad", text = "If a druid asks you to go somewhere dangerous with them, ask how many came back the last time." } },
     furbolgs = { { id = "tp_furb", text = "The Deadwood are mad with the forest's poison, and the druids say they were a wise people once. I say one of them killed my husband." } },
-    _none = { { id = "tp_none", text = "Don't know, and don't care. Ask someone else." } },
+    thrall = { { id = "tp_thrall", text = "Thrall gave my husband his freedom and his honour. Ror died with both, and I'll not hear a word against the Warchief." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons in this forest killed my husband, or near enough. I want every one of them dead, and I want to watch." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep to their tunnels and don't bother us. That's all I need from anyone." } },
+    _none = { { id = "tp_none", text = "Don't know, and don't care. My husband's blood is in this forest, and that is all I think about." } },
   },
 }

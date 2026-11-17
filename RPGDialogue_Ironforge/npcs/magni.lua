@@ -36,6 +36,59 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_horde = {
+      lines = {
+        { id = "opn_horde_q", text = "The Regent's envoys tell me the orcs have a new warchief, this Thrall, who talks o' peace an' keeps tae his own corner o' Kalimdor. I fought his people when they burned Khaz Modan, so I'm no' the one tae ask. What d'ye make o' him?" },
+      },
+      choices = {
+        { text = "He's kept his word so far. I'd give him the chance.", next = "opn_horde_r_trust", fx = { align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "An orc's word lasts until he's hungry, Your Majesty.", next = "opn_horde_r_distrust", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { warchief = "distrust" } } },
+        { text = "Watch him and keep the axes sharp. Both can be true.", next = "opn_horde_r_wary", fx = { trait = { practical = 1 }, opinion = { warchief = "wary" } } },
+        { text = "They burned Khaz Modan. No treaty buys that back.", next = "opn_horde_r_hate", when = { race = "Dwarf" }, fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "hate" } } },
+        { text = "I came out of Lordaeron. I've worse enemies than orcs now.", next = "opn_horde_r", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { horde = "lesser_evil", scourge = "hate" } } },
+        { text = "That's for kings to judge, not me.", next = "BACK" },
+      },
+    },
+    opn_horde_r = {
+      lines = {
+        { id = "opn_horde_r_default", text = "Aye, the Plague's taught us all new arithmetic. I'll still count the orcs, mind, but I'll count the dead first." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_trust = {
+      lines = {
+        { id = "opn_horde_r_trust", text = "Then I hope ye're right, an' I hope ye're there tae tell me so if ye're wrong. I've buried enough friends who trusted an orc's smile." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_distrust = {
+      lines = {
+        { id = "opn_horde_r_distrust", text = "Ha! Ye'd do well in my Senate, though ye'd frighten half o' them. I'll no' argue wi' ye, for I've seen what hungry orcs do." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_wary = {
+      lines = {
+        { id = "opn_horde_r_wary", text = "That's a soldier's answer, an' it's near enough the one I give the Regent. Peace is a fine thing tae have on the table, so long as the axe stays under it." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_hate = {
+      lines = {
+        { id = "opn_horde_r_hate", text = "No, it doesnae, an' I'll no' insult the dead by pretendin' otherwise. But mind ye don't let the grudge do yer thinkin', or ye'll end up like the Dark Iron." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     xpt_magni = {
       big = true,
       lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over half the Senate." } },
@@ -105,8 +158,27 @@ P:NPC {
         { text = "Then I hope she comes home soon, Your Majesty.", next = "BACK" },
       },
     },
+    xalt_magni = {
+      big = true,
+      lines = { { id = "xalt_magni_default", text = "{alt}, a {altrace} {altclass}, an' as fine a guest as this hall's had in a season. That one brought me word from the road an' stayed for a pint, which is more than the Senate's envoys ever do, an' I've a fondness for folk who'll do both." } },
+      choices = {
+        { text = "Kin should stand together, Your Majesty. Blood comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A body's worth is in their deeds, not their family.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Hold there, I've seen that face afore! A {altclass} called {alt} stood in this very hall, an' ye've the same jaw an' the same stubborn eyes, so ye'll be kin, or I'm no' a Bronzebeard." },
+        { id = "h_alt_dwarf", when = { alt = { race = "Dwarf", notKin = true }, metBefore = false },
+          text = "Ye're no' a dwarf, but ye walk intae my hall the way {alt} did, an' that one's as stout a {altclass} as Khaz Modan ever sent out. Ye wouldnae happen tae know each other?" },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was here no' long ago, drinkin' my health an' tellin' tales o' the road, an' I'll wager half o' them were about ye. Sit down, an' tell me which half were true." },
+        { id = "o_warchief_trust", tags = { "news" }, when = { opinion = { topic = "warchief", stance = "trust" }, faction = "Alliance" },
+          text = "Here's the one who'd give the orc warchief a fair hearin'. I've been chewin' on that since, an' I've still no' decided if ye're wise or soft." },
+        { id = "o_senate_useless", tags = { "news" }, when = { gossip = { topic = "ironforge_senate", stance = "useless" } },
+          text = "My senators tell me ye called them a room full o' talkers. I'll no' say ye're wrong, but I'll no' say it where they can hear me either." },
         { id = "h_pt_magni", tags = { "news" }, when = { party = { race = "Dwarf" }, race = { "Human", "NightElf", "Gnome" } },
           text = "Ye've one o' my own folk at yer side, I see, an' {companion} looks like they've kept ye out o' trouble more than once. That's how it should be; there's no' a road in Azeroth a dwarf cannae make shorter for a friend." },
         { id = "h_pt_magnikin", tags = { "news" }, when = { party = { kin = true }, race = "Dwarf" },
@@ -164,6 +236,7 @@ P:NPC {
         { text = "Do you ever hunt in the high snows, Your Majesty?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thaurissan is dead, Your Majesty. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "What does Ironforge think of the companies that pass through?", next = "xpt_magni", when = { party = true } },
+        { text = "Who's this other one you keep mentioning, Your Majesty?", next = "xalt_magni", when = { alt = true } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -173,8 +246,9 @@ P:NPC {
         { id = "t_default", text = "The Dark Iron, festerin' in the mountain, an' troll raids in Dun Morogh. An' on top o' that, the Alliance is askin' for more axes than I've got hands tae swing." },
       },
       choices = {
+        { text = "And the Horde, Your Majesty? What of the orcs?", next = "opn_horde" },
         { text = "Tell me about the Dark Iron.", next = "dark" },
-        { text = "Where have your axes gone?", next = "reserve" },
+        { text = "The Alliance seems to have most of your axes already.", next = "reserve" },
         { text = "I'll lend mine.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Keep your axes at home, Your Majesty, because Ironforge comes first.", next = "BACK", fx = { align = { honor = -1 } } },
       },
@@ -204,7 +278,7 @@ P:NPC {
         { id = "rs_default", text = "At the Alliance's front, mostly. The Reserve's been called up, so Loch Modan holds wi' half a garrison an' Captain Rugelfuss countin' troggs in his sleep." },
       },
       choices = {
-        { text = "Should Ironforge send so many?", next = "reserve_why" },
+        { text = "That's a great many soldiers to send away.", next = "reserve_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -315,7 +389,7 @@ P:NPC {
         { id = "gn_default", text = "Their city was poisoned an' overrun, an' ours had room. That's the whole of it, an' anyone who tells ye otherwise wants somethin' from ye." },
       },
       choices = {
-        { text = "Did your people mind?", next = "gnomes_mind" },
+        { text = "Your people can't all have welcomed them.", next = "gnomes_mind" },
         { text = "And the tram?", next = "tram" },
         { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } },
       },
@@ -341,7 +415,7 @@ P:NPC {
         { id = "li_default", text = "Up from the humans, after the Second War. The Silver Hand took some o' my folk intae its ranks, an' the Church's teachin' came wi' them. Now Rohan keeps a whole hall for it." },
       },
       choices = {
-        { text = "Do you follow the Light yourself?", next = "light_self" },
+        { text = "You don't strike me as a dwarf who follows the Light.", next = "light_self" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -380,7 +454,7 @@ P:NPC {
         { id = "in_default", text = "Ha! Old Farsen saw Dark Iron tunnels from a hill in Dun Morogh before my own guards saw 'em under their boots. I'll be hearin' about that for years." },
       },
       choices = {
-        { text = "Are the breaches sealed?", next = "incursion_sealed" },
+        { text = "I hope the breaches have been sealed.", next = "incursion_sealed" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -514,6 +588,19 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "Up from the deep places, into Gnomeregan first an' now our quarries. Somethin' woke them. I'd like tae know what before it wakes worse." } },
     defias = { { id = "tp_defias", text = "Stormwind's thieves? That's the humans' business, an' we've our own rot in the mountain tae deal with." } },
     westfall = { { id = "tp_westfall", text = "Farmland, isn't it? Never trust ground ye cannae dig a decent tunnel through." } },
+    magni = { { id = "tp_magni", text = "Aye, that's me, an' I'll no' pretend tae be humble about it, for a king who cannae stand behind his own name has nae business wearin' a crown." } },
+    thrall = { { id = "tp_thrall", text = "The orc lad who broke the internment camps an' took his people across the sea. I fought his kind through the whole Second War an' I've no' forgotten it, but I'll grant he's kept tae his side o' the water, mostly." }, { id = "tp_thrall2", when = { faction = "Horde" }, text = "Ye carry his colors intae my throne room an' expect a kind word? He's a canny leader, I'll give him that, an' he'll get nae more from me while his warriors raid our caravans in Ashenvale." } },
+    scourge = { { id = "tp_scourge", text = "The plague that ate Lordaeron whole, an' it's still hungry. My brother Muradin went north wi' Prince Arthas an' never came home, so ye'll forgive me if I take the Scourge a wee bit personal." } },
+    arthas = { { id = "tp_arthas", text = "I knew him as a lad, a fine golden prince wi' a hard swing, an' I'd have sworn by him. Now he's a traitor who murdered his own father an' rides wi' the dead, an' my brother was lost on his errand." } },
+    bolvar = { { id = "tp_bolvar", text = "A solid man, Fordragon, an' he holds Stormwind together wi' both hands while the lad's too young tae hold it himself. I'd trust him wi' my back in a fight, which is more than I'll say for some o' that court." } },
+    varian = { { id = "tp_varian", text = "Wrynn went off tae parley an' never arrived, an' Stormwind's been runnin' on a boy an' a regent ever since. I've sent my own riders askin', an' I've had nothin' back but shrugs." } },
+    prestor = { { id = "tp_prestor", text = "The Lady Prestor has the ear o' the whole Stormwind court, an' the court's been mighty slow tae answer my letters since she arrived. Make o' that what ye like; I'm a dwarf, an' I just count the letters." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Cousins, stubborn as rams an' twice as loud, wi' their gryphons an' their tattoos up in the Hinterlands. We've had our quarrels since the War o' the Three Hammers, but when the orcs came they flew wi' us, an' that counts." } },
+    grim_batol = { { id = "tp_grim_batol", text = "The Three Hammers war left Grim Batol cursed when the Dark Iron sorceress Modgud died at its gates. Then the Dragonmaw squatted in it, an' I'll no' send a dwarf back there for any gold." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Thaurissan's spawn sit in their burnin' city under the mountain, an' my daughter Moira's down there wi' them. Dagran took her, an' I'll have her back if I have tae dig through the whole Searing Gorge wi' my own hands." } },
+    jaina = { { id = "tp_jaina", text = "Proudmoore's lass is a fine sorceress an' a braver soul than her father ever gave her credit for. She keeps Theramore open tae all comers, an' I'll trust her judgement on the orcs before I'll trust most." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Thoras Trollbane was a hard old wolf an' a good friend tae Ironforge, an' his kingdom deserved better than ogres an' bandits in its halls. I've sent what I can spare tae Refuge Pointe, though it's never enough." } },
+    dalaran = { { id = "tp_dalaran", text = "I'll be glad tae see the wizards' city standin' again, though I'd be gladder still if they opened their gates a wee bit faster. Mages like their walls, an' I suppose after what Archimonde did tae them, ye cannae blame them." } },
     _none = { { id = "tp_none", text = "Ask the Explorers' League. They know a wee bit about everythin', an' they'll tell ye all of it." } },
   },
 }

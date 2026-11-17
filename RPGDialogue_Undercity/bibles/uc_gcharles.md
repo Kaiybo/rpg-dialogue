@@ -8,8 +8,8 @@
 
 ## Identity
 Gregory Charles · Rogue Trainer · Rogues' Quarter · Undercity · Forsaken · tier service
-Personality: cold, formal, loyal, self-reproaching
-Speech: courtier's politeness
+Personality: cold, formal, loyal, self-reproaching; counts the doors first
+Speech: courtier's politeness, exact
 Knows and cares about: the Dark Lady's service, the Deathstalkers
 Relationships: Mennet Carkad (doubts him)
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Bodyguard to a lord near Andorhal who died of the grain.
+- Back to the wall; counts exits before people (four in his room).
+- Asks every student whom they protect.
+- Doubts Mennet because Mennet tells every recruit they have promise.

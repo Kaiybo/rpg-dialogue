@@ -3,6 +3,7 @@
 --   {away} (0.67.0): how long you were gone ("a month"), from your return to the town, else
 --     from when you last spoke with this person. {source} (0.67.0): who the line's `word` came from.
 --   {companion} (0.59.0): the party member the line's `party` condition picked out, else the first one.
+--   {alt} {altrace} {altclass} (0.80.0): your other character the line's `alt` condition picked out.
 local _, ns = ...
 
 local Tokens = {}
@@ -81,6 +82,14 @@ function Tokens.Render(text, ctx, env, when)
   if text:find("{companion}", 1, true) then
     text = text:gsub("{companion}", (companion(ctx, when):gsub("%%", "%%%%")))
   end
+  if text:find("{alt", 1, true) and ns.Kin then
+    local spec = type(when) == "table" and when.alt or nil
+    local e = ns.Kin.Match(ctx, spec, env) or {}
+    local function esc(x) return (tostring(x):gsub("%%", "%%%%")) end
+    text = text:gsub("{alt}", esc(e.name or "someone"))
+    text = text:gsub("{altrace}", esc(ns.Kin.RaceName(e.race and e)))
+    text = text:gsub("{altclass}", esc(ns.Kin.ClassName(e.class and e)))
+  end
   if text:find("{source}", 1, true) then
     local spec = type(when) == "table" and when.word or nil
     local w = spec and ns.Towns and ns.Towns.FindWord(spec, env)
@@ -98,4 +107,5 @@ function Tokens.Render(text, ctx, env, when)
 end
 
 Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g",
-  "deaths", "deathplace", "killer", "rank", "guild", "companion", "away", "source" }
+  "deaths", "deathplace", "killer", "rank", "guild", "companion", "away", "source",
+  "alt", "altrace", "altclass" }

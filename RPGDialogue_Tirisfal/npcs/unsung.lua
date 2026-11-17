@@ -87,14 +87,14 @@ P:NPC {
         { text = "It matters, Dannal. Do you hold the old war against us?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a beast's strength worth less than a sword's, Dannal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "Who were you before you died?", next = "past" },
+        { text = "You have the bearing of an old soldier.", next = "past" },
         { text = "What's it like to fight without feeling pain?", next = "pain" },
-        { text = "Who are we fighting here?", next = "enemies" },
+        { text = "There seem to be enemies on every side here.", next = "enemies" },
         { text = "I fight from behind, Stern. Any advice for that?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Should a mage learn to hold a weapon, Stern?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A mage has little need to hold a weapon, Stern.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is a bow worth less than a sword to you, Dannal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why teach a warlock the sword, Dannal?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "What were the knights of the Silver Hand like, Dannal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You must have known knights of the Silver Hand, Dannal.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -161,12 +161,16 @@ P:NPC {
       choices = {
         { text = "I'll learn the staff, Stern. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My spells are protection enough, Stern.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who are we fighting here?", next = "enemies" },
+        { text = "There seem to be enemies on every side here.", next = "enemies" },
       },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I don't know that. Ask Executor Arren, or the shadow priest in the chapel." } },
+    forsaken = { { id = "tp_forsaken", text = "Your hands don't feel the hilt anymore, so you'll have to learn to trust your eyes and your shoulders instead. Every Forsaken soldier has to relearn the sword, and none of us enjoy it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I soldiered for Lordaeron for fifteen years and drank to the king's health every night. I don't drink anymore and the king is dead, and I find I miss neither as much as I expected." } },
+    second_war = { { id = "tp_second_war", text = "I fought orcs in the Second War, and now I'm allied with them. Life is strange, and death is stranger." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge fights without fear or pain, so you'd better learn to do the same. You're halfway there already, which is the one gift the plague gave you." } },
+    _none = { { id = "tp_none", text = "I don't know that, and the grave didn't make me any wiser. Ask Executor Arren, or the shadow priest in the chapel." } },
   },
 }
 
@@ -238,13 +242,13 @@ P:NPC {
         { text = "What would you have had the Earth Mother do, Cleric?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is the Forgotten Shadow?", next = "cult" },
-        { text = "Did you serve the Light when you lived?", next = "past" },
+        { text = "You must have served the Light when you lived.", next = "past" },
         { text = "I still feel the Light. Am I wrong?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "My power comes from study, not faith, Cleric.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you see a difference between shadow and fel, Cleric?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do warriors need faith, Cleric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Warriors have little need of faith, Cleric.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters pray to anything, Cleric?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do rogues need faith, Duesten?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues have no need of faith, Duesten.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -253,7 +257,7 @@ P:NPC {
     },
     cult = {
       lines = { { id = "c_default", text = "It is a faith in the will, the one thing that carried us out of the Lich King's grip when nothing else did. We do not pray to anyone; we remind ourselves that we chose to be free." } },
-      choices = { { text = "Who leads the cult?", next = "cult_who" } },
+      choices = { { text = "Someone must lead the cult.", next = "cult_who" } },
     },
     cult_who = {
       lines = { { id = "cw_default", text = "Its priests gather in the Undercity, and Shadow Priest Sarvis speaks for it here in Deathknell. You will find us wherever the Forsaken need reminding that they owe nothing to the gods who let them rot." } },
@@ -310,11 +314,17 @@ P:NPC {
       choices = {
         { text = "I command. I'll never kneel again.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Even a warlock needs something to believe in.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Did you serve the Light when you lived?", next = "past" },
+        { text = "You must have served the Light when you lived.", next = "past" },
       },
     },
   },
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light is a crutch for those afraid to stand on their own. The Forsaken have learned that faith is something we build ourselves, out of our own will, and it doesn't burn us." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You still cling to the Light, and you feel it burning you every time. I'd call that foolish, but I'll admit it takes a sort of courage." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a people of will above all, and the Dark Lady is our proof of it. She broke the Lich King's hold with nothing but her own fury, and so can you." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the opposite of us, all hunger and no will. Remember that whenever you're tempted to give in to something." } },
     _none = { { id = "tp_none", text = "That is no concern of mine. Ask Executor Arren, if you must." } },
   },
 }
@@ -406,17 +416,17 @@ P:NPC {
         { text = "Do the living buy your bread too, Kien?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Did you keep a garden before the plague, Kien?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me what you have.", next = "BUSINESS" },
-        { text = "Why do the dead need to eat?", next = "eat" },
-        { text = "Were you a shopkeeper in life?", next = "past" },
+        { text = "I'd not have thought the dead needed to eat.", next = "eat" },
+        { text = "You have a shopkeeper's manner.", next = "past" },
         { text = "Your stock would be easy to lift, Kien.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Couldn't I just conjure my own bread and water?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I could just conjure my own bread and water.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a warrior need from your shelves, Kien?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you buy meat from hunters, Kien?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do warlocks buy extra bread, Joshua?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you think the dead should still say grace, Joshua?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else, friend? The shelves are still here." } },
+      again = { { id = "h_again", text = "Anything else, friend? The shelves are still here, which is more than you can say for most of Deathknell." } },
     },
     eat = {
       lines = { { id = "e_default", text = "The apothecaries say food and drink help the flesh hold together and the wounds close faster. I can't taste a thing anymore, mind, but I eat my bread every day, because I like having all my fingers." } },
@@ -424,7 +434,7 @@ P:NPC {
     },
     past = {
       lines = { { id = "p_default", text = "I kept a little shop near the old capital, selling candles and thread to farmers. Now I sell the same things to corpses, and I'll tell you this: corpses complain less about prices." } },
-      choices = { { text = "Do you remember your old customers?", next = "past_people" } },
+      choices = { { text = "You must remember some of your old customers.", next = "past_people" } },
     },
     past_people = {
       lines = { { id = "pp_default", text = "Some of them, and a few of them walk through Deathknell now with the same faces, half rotted. We nod to each other and don't talk about it, because neither of us wants to remember." } },
@@ -461,7 +471,7 @@ P:NPC {
       choices = {
         { text = "I'll pay, Kien. Shopkeepers deserve that much.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Principle is reason enough to steal.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why do the dead need to eat?", next = "eat" },
+        { text = "I'd not have thought the dead needed to eat.", next = "eat" },
       },
     },
     xmage = {
@@ -473,11 +483,14 @@ P:NPC {
       choices = {
         { text = "I'll buy from you anyway, Kien. Fair is fair.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Conjured food costs nothing, and nothing is better.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Were you a shopkeeper in life?", next = "past" },
+        { text = "You have a shopkeeper's manner.", next = "past" },
       },
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken still need bread and water, which I find terribly funny, though I'm glad of it, since it keeps me in business. Don't ask me why, because nobody knows." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never paid for anything, and that's the worst thing I can say about a customer. At least the Forsaken have manners." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I kept a shop in Lordaeron before the plague, and I kept it well. It's a different shop now and a different city, but I still say good morning to everyone who comes in." } },
     _none = { { id = "tp_none", text = "Bread and candles are my whole trade, friend, so take that question to Executor Arren." } },
   },
 }
@@ -561,12 +574,12 @@ P:NPC {
         { text = "The fel nearly destroyed my people, Boch. Why should I trust you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your demons fear nature, Boch?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "Isn't commanding demons dangerous?", next = "danger" },
+        { text = "Commanding demons must be dangerous.", next = "danger" },
         { text = "Why do the Forsaken allow warlocks?", next = "forsaken" },
         { text = "Rogues and warlocks have more in common than you'd think, Boch.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Isn't warlockry just the arcane with poorer manners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Could your demons stand against a real warrior, Boch?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is a demon anything like a hunter's beast, Boch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I doubt your demons could stand against a real warrior, Boch.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "A demon is nothing like a hunter's beast, Boch.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you think the Light is just another master, Rupert?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -632,6 +645,10 @@ P:NPC {
     },
   },
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is the great power behind every demon I bind, and they'd love to come back to this world. I keep a respectful distance and a firm grip on the leash." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a dreadful bore, all moaning and grasping and no conversation. Demons are at least interesting to talk to, even if they lie constantly." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken use whatever tools are at hand, and a warlock's demon is a very good tool indeed. The Dark Lady appreciates practicality, and so do I." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad made a deal with powers he didn't understand and lost his kingdom for it. I always tell my students to read the contract twice." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, and I'm rarely afraid. Ask the magistrate." } },
   },
 }
@@ -647,7 +664,7 @@ P:NPC {
     third = "{name} met Carolai Anise, the alchemy trainer of Brill.",
   },
   greetings = {
-    { id = "g_shop", text = "Mind the vials; some of them bite. What can I do for you?" },
+    { id = "g_shop", text = "Mind the vials; some of them bite, and the rest only eat through skin, which you'll hardly miss. What can I do for you?" },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "Another alchemist, good. Come and tell me what you've been brewing." },
   },
   notice = {
@@ -708,7 +725,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Carolai Anise, and I teach alchemy here in Brill. Healing draughts, mostly, and other useful brews, since the dead need medicine as much as the living do." },
+        { id = "h_default", key = true, text = "I'm Carolai Anise, and I teach alchemy here in Brill. Healing draughts, mostly, since a body that won't mend on its own needs everything the Society can bottle." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll heal with spirit waters, I expect, and I'd like to know whether they work as well on the dead as my draughts do." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know peacebloom from silverleaf, at least, which puts you ahead of most of my students." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll come back cut up more than the rest, so do yourself a favour and carry healing draughts as well as bandages." },
@@ -723,20 +740,20 @@ P:NPC {
         { text = "Do you pick herbs from the plagued fields, Carolai?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "How is alchemy different from the apothecaries?", next = "apothecary" },
-        { text = "Where do you find herbs here?", next = "herbs" },
+        { text = "I'd not expect many herbs to grow here.", next = "herbs" },
         { text = "Do rogues come to you for more than potions, Carolai?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Alchemy's just slow magic, isn't it, Carolai?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Alchemy seems like slow magic to me, Carolai.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What should a warrior carry from your shelves, Carolai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What herbs grow out where I hunt, Carolai?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do warlocks use your potions, Carolai?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess warlocks use your potions, Carolai.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust potions over the Light, Carolai?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else? Quickly, please, before something boils over." } },
+      again = { { id = "h_again", text = "Anything else? Quickly, please, before something boils over; I lost an eyebrow to that kettle, and dead brows don't grow back." } },
     },
     apothecary = {
       lines = { { id = "a_default", text = "The Royal Apothecary Society works on grand projects in the Undercity and won't say what, which is their business. I make potions that close wounds and keep people standing, and I don't need a secret laboratory for that." } },
-      choices = { { text = "What do you think they're making?", next = "apothecary_what" } },
+      choices = { { text = "They're making something down there, I'd wager.", next = "apothecary_what" } },
     },
     apothecary_what = {
       lines = { { id = "aw_default", text = "Something to use against the Scourge, they say, and Apothecary Johaan at the inn asks for strange ingredients often enough. I don't ask him questions, and he doesn't ask me." } },
@@ -789,11 +806,14 @@ P:NPC {
       choices = {
         { text = "Patience is a mage's virtue too, Carolai.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A spell is quicker, and I prefer quick.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Where do you find herbs here?", next = "herbs" },
+        { text = "I'd not expect many herbs to grow here.", next = "herbs" },
       },
     },
   },
   topics = {
+    new_plague = { { id = "tp_new_plague", text = "The apothecaries talk about their great work as if it were the end of the world. I make healing potions, which actually help people, and I don't make a fuss about it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need potions more than anyone, since we can't feel how badly we've been hurt. A good draught of healing keeps a soldier on his feet long enough to notice." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge brought plague in grain, and I won't forget it as long as I can still hold a flask. I'd sooner make something that mends." } },
     _none = { { id = "tp_none", text = "Not my field. Ask Apothecary Johaan, or someone at the inn." } },
   },
 }
@@ -809,7 +829,7 @@ P:NPC {
     third = "{name} met Nurse Neela, who teaches first aid in Brill.",
   },
   greetings = {
-    { id = "g_hi", text = "Come in, dear, and let me see you. Don't worry about bleeding on the floor; nobody here minds." },
+    { id = "g_hi", text = "Come in, dear, and let me see you. Don't worry about bleeding on the floor; most of my patients stopped bleeding years ago, so it makes a change." },
     { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You were a chapel priest, I think, because you've that patient look. You'll have sat with the dying in Lordaeron, dear, so you already know the half of my work that isn't bandages." },
   },
   notice = {
@@ -870,7 +890,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Nurse Neela, and I teach first aid to anyone who wants to learn it. The priest is always busy somewhere else when you're bleeding, so carry a bandage." },
+        { id = "h_default", key = true, text = "I'm Nurse Neela, and I teach first aid to anyone who wants to learn it. The priest is always busy somewhere else when you're coming apart at the seams, so carry a bandage and a needle." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I'm told you can mend a wound with a word, which would put me out of work, so do be quiet about it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, dear? Sit down and let me see those paws, or hands, whichever you're using today." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, dear? Then you'll need bandages more than anyone, so come and learn before you bleed out somewhere I can't reach you." },
@@ -882,19 +902,19 @@ P:NPC {
       choices = {
         { text = "Can the Light still heal Forsaken flesh, Nurse?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you teach me bandages, Neela, though spirits heal me?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do you ever stitch up the living, Neela?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "You must stitch up the living now and then, Neela.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me first aid.", next = "BUSINESS" },
-        { text = "Were you a nurse in life too?", next = "past" },
+        { text = "You must have been a nurse in life too.", next = "past" },
         { text = "How do you bandage the dead?", next = "dead" },
         { text = "I come back cut up most nights, Nurse.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My demon took a bite out of me, Neela.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do I patch myself up in a fight, Nurse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do you ever mend beasts, Nurse?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess you mend beasts now and then, Nurse.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a mage learn first aid, Neela?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you think the Light can mend the dead, Nurse?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye, Nurse.", next = "END" },
       },
-      again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages?" } },
+      again = { { id = "h_again", text = "Is there anything else, dear, before I go back to rolling bandages? The dead go through them faster than you'd think, since nothing of ours closes on its own." } },
     },
     past = {
       lines = { { id = "p_default", text = "I was, in a little house near Lordaeron, and I nursed people through the plague until it took me too. When I woke up, the first thing I did was look for someone to help, so I suppose some habits outlast the grave." } },
@@ -906,7 +926,7 @@ P:NPC {
     },
     dead = {
       lines = { { id = "d_default", text = "The same as the living, mostly, only tighter, because dead flesh doesn't pull itself together on its own. Linen bandages and patience, and a strong stomach, because you'll see things I won't describe." } },
-      choices = { { text = "Where do I get linen?", next = "dead_linen" } },
+      choices = { { text = "I'll need linen from somewhere.", next = "dead_linen" } },
     },
     dead_linen = {
       lines = { { id = "dl_default", text = "From the people you fight, dear, since half of Tirisfal walks around in old cloth. The Scarlet Crusade carry plenty of it, and they won't need it once you're finished with them." } },
@@ -951,11 +971,14 @@ P:NPC {
       choices = {
         { text = "Patch me up, and I'll try to stay in one piece.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Disapprove all you like. I'll keep summoning.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Were you a nurse in life too?", next = "past" },
+        { text = "You must have been a nurse in life too.", next = "past" },
       },
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "Forsaken flesh doesn't heal on its own the way living flesh does, so you have to stitch it carefully and stitch it often. I was a nurse when I was alive, and I'm a better one now." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never stitched anything. They just piled bodies together and called it an army, and I've spent my death undoing their handiwork." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I nursed soldiers home from the Second War in Lordaeron's hospitals. They came back with arrows in them, and now my patients come back with arrows in them and don't notice." } },
     _none = { { id = "tp_none", text = "I wouldn't know that, dear. Ask Innkeeper Renee downstairs." } },
   },
 }
@@ -971,7 +994,7 @@ P:NPC {
     third = "{name} met Zachariah Post, who sells undead horses in Brill.",
   },
   greetings = {
-    { id = "g_shop", text = "Looking for a mount that never tires? You've come to the right stable." },
+    { id = "g_shop", text = "Looking for a mount that never tires, never eats and never grieves when you fall? You've come to the right stable." },
     { id = "g_young", when = { maxLevel = 39 }, text = "Come back when you're more experienced, friend, but you're welcome to look at the horses until then." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You look at my horses like a knight of the Silver Hand, measuring the legs before the face. You'll have ridden a white charger once, and mine are bonier, but they don't scare and they never tire." },
   },
@@ -1046,19 +1069,19 @@ P:NPC {
       choices = {
         { text = "Do your horses remember what they were, Zachariah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your horses mind a shaman on their backs, Zachariah?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Shouldn't these horses be allowed to rest, Zachariah?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "These horses should be allowed to rest, Zachariah.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your horses.", next = "BUSINESS" },
         { text = "Where do the horses come from?", next = "where" },
-        { text = "Why are they better than living horses?", next = "better" },
+        { text = "I'd want a living horse over a dead one.", next = "better" },
         { text = "A skeletal horse must be quiet on the road.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Warlocks summon their own steeds, Zachariah.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will your horses carry a warrior into a fight, Zachariah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Can a dead horse keep up on the hunt, Zachariah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "A dead horse can't keep up on the hunt, Zachariah.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you sell a horse to a mage, Zachariah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would a paladin ride one of your horses into battle, Zachariah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else? The horses aren't going anywhere, and neither am I." } },
+      again = { { id = "h_again", text = "Anything else? The horses aren't going anywhere, and neither am I; the dead keep very few appointments." } },
     },
     where = {
       lines = { { id = "w_default", text = "The same place we come from, mostly: the plague left plenty of dead horses in Lordaeron, and the Dark Lady's servants know how to raise them. They were warhorses and farm horses once, and now they're ours." } },
@@ -1099,7 +1122,7 @@ P:NPC {
       choices = {
         { text = "I ride to strike unseen. Quiet suits me.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I ride openly, Zachariah. Let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Why are they better than living horses?", next = "better" },
+        { text = "I'd want a living horse over a dead one.", next = "better" },
       },
     },
     xwarlock = {
@@ -1116,6 +1139,9 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride skeletal horses because they don't tire and they don't need feeding. Any Forsaken worth his bones will want one, and I'll be happy to oblige." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has its own skeletal mounts, and they're terrible things, badly put together. Mine are built by craftsmen, and you can tell the difference in the gait." } },
+    thrall = { { id = "tp_thrall", text = "The orcs think my horses are an insult to the spirits, and they won't touch one. They ride wolves, and they think it's a grand idea, so I've no more to say on the matter." } },
     _none = { { id = "tp_none", text = "Don't know, friend. I only know horses, and dead ones at that." } },
   },
 }

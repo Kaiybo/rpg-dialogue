@@ -138,10 +138,10 @@ P:NPC {
       choices = {
         { text = "Let me see the auctions.", next = "BUSINESS" },
         { text = "How does the house work?", next = "how" },
-        { text = "What sells best in Ironforge?", next = "sells" },
+        { text = "Ore must sell well in a city built around a forge.", next = "sells" },
         { text = "Who's the gnome working beside you?", next = "lympkin" },
         { text = "I'm a crafter. What do buyers want from me?", next = "k_craft", when = { profession = { "Blacksmithing", "Engineering", "Alchemy", "Tailoring", "Leatherworking", "Enchanting" } } },
-        { text = "Do people try to cheat the auction house?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "People must try to cheat the auction house.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why won't the house sell anything that whispers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do warriors buy most at the auction house?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What pelts sell best at the auction house?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -217,6 +217,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've run bids in the Commons since before the gnomes came, an' I'll run them after the last one's gone home tae Gnomeregan, whenever that is." } },
     advice = { { id = "tp_ad", text = "Never sell the day a new mine opens, for everybody else will be sellin' the same thing." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Everythin' that comes up from Booty Bay is a week behind the market an' twice the price. The goblins call it shipping, an' I call it robbery wi' a ledger." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's auctioneers will sell tae the Horde an' the Alliance in the same breath, an' they're rich for it. I'll stick tae our own buyers, though I'll watch their prices like a hawk." } },
+    scourge = { { id = "tp_scourge", text = "Since the north fell, nobody's buyin' Lordaeron wool an' everybody's buyin' holy water. A plague's bad fer folk an' strange fer trade." } },
     _none = { { id = "tp_none", text = "If it isnae on my ledger, I don't know about it, an' I don't much care." } },
   },
 }
@@ -234,8 +237,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello, hello! Listing, bidding or browsing? I can do all three at once, if you talk quickly." },
-    { id = "g_back", when = { metBefore = true }, text = "You again! I've already worked out what you're going to ask, so go on and ask it." },
+    { id = "g_default", text = "Hello, hello! Listing, bidding or browsing? I can do all three at once, with a margin of error under two percent, if you talk quickly." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! I've already worked out the three most probable things you're going to ask, so go on and tell me which one it is." },
   },
 
   notice = {
@@ -336,29 +339,29 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! You'll want healing potions, I suppose, though I always think your sort shouldn't need them, and then I remember you're the one healing everybody else." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a ledger column just for hammers and plate, and your sort fills it up faster than anybody." },
         { id = "h_default", key = true,
-          text = "Lympkin, auctioneer, and the fastest pencil in the Commons, if I do say so, which I do. What can I tally for you today?" },
+          text = "Lympkin, auctioneer, and the fastest pencil in the Commons, eleven sums a minute on a good day, if I do say so, which I do. What can I tally for you today?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You'd be amazed how many Gnomeregan mages sold their books in this very house to pay for a bed in Tinker Town, and I tallied every one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Oh my, a warlock. Some of the brightest gnomes of Gnomeregan studied your sort of magic before the fall, you know, so I've stopped being shocked." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your sort keeps the arms market lively, and I'm grateful, though I'd be more grateful if you broke fewer swords." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your sort keeps the arms market lively, and I'm grateful, though I'd be more grateful if you broke swords at a steadier rate, because the spikes ruin my averages." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be selling, not buying, I expect, and I can tell you what anything's worth before you've finished saying what it is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a night elf druid! I've tallied a great many kaldorei goods but very few kaldorei, so forgive me if I count you twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! I keep my ledgers in gnomish shorthand, you know, so there's no use reading them over my shoulder, though I'd be impressed if you tried." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! That's a column I don't have in my ledger, so I'll have to rule a new one, and I do love ruling a new column." },
       },
       again = {
-        { id = "h_again", text = "Next question! I've a column waiting." },
+        { id = "h_again", text = "Next question! I've a column waiting, and a column with nothing in it is a terrible waste of good ruled paper." },
         { id = "h_again2", text = "Go on, I can listen and carry a column of figures at the same time." },
       },
       choices = {
         { text = "Show me what's for sale.", next = "BUSINESS" },
         { text = "How did you come to work here?", next = "how" },
-        { text = "Do you miss Gnomeregan?", next = "gnomeregan" },
+        { text = "You must miss Gnomeregan.", next = "gnomeregan" },
         { text = "How do I price something sensibly?", next = "price" },
         { text = "I lived through the fall of Gnomeregan too.", next = "k_refugee", when = { origin = "gnome_gnomeregan_refugee" } },
         { text = "Did the gnome mages lose much in Gnomeregan's fall?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Gnomeregan trained warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "So Gnomeregan trained warlocks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do warriors keep the arms market lively, Lympkin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What are a hunter's goods worth at auction these days?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Did Gnomeregan's refugees need much healing when they came here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -372,11 +375,11 @@ P:NPC {
 
     how = {
       lines = {
-        { id = "hw_default", text = "I came up from Gnomeregan with the rest, and Redmuse caught me correcting her sums on the back of a list. Instead of throwing me out, she gave me a stool, and I've been sitting on it ever since." },
+        { id = "hw_default", text = "I came up from Gnomeregan with the rest, and Redmuse caught me correcting her sums on the back of a list, four errors in thirty lines. Instead of throwing me out, she gave me a stool, and I've been sitting on it ever since." },
       },
       choices = {
         { text = "That was generous of her.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Do the dwarves treat you fairly here?", next = "how_fair" },
+        { text = "The dwarves seem to treat you fairly here.", next = "how_fair" },
       },
     },
     how_fair = {
@@ -409,7 +412,7 @@ P:NPC {
 
     price = {
       lines = {
-        { id = "pr_default", text = "Look at what the same thing sold for this week, not what you wish it sold for, and list a copper or two under the cheapest. It isn't romantic, but it's arithmetic, and arithmetic is on your side." },
+        { id = "pr_default", text = "Look at what the same thing sold for this week, not what you wish it sold for, and list a copper or two under the cheapest. It isn't romantic, but it's arithmetic, and arithmetic is the one machine in Ironforge that never jams." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -427,8 +430,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I tallied water rates in Gnomeregan, and now I tally bids in Ironforge, which is much the same except nobody drowns if I get it wrong." } },
-    advice = { { id = "tp_ad", text = "Write everything down, and then write down where you wrote it." } },
-    _none = { { id = "tp_none", text = "That doesn't add up to anything I know about, I'm afraid. Ask Redmuse; she's been here longer." } },
+    advice = { { id = "tp_ad", text = "Write everything down, and then write down where you wrote it, and then cross-reference both, because a figure you can't find is the same as a figure you never had." } },
+    _none = { { id = "tp_none", text = "That doesn't add up to anything I know about, I'm afraid, and I've checked the sum twice. Ask Redmuse; she's been here longer." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan runs the only market that'll sell tae both sides, an' it charges both sides for the privilege. I've been tryin' tae work out their commission for a year, an' I'm afraid it's simply 'yes'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's prices change wi' the tide an' the mood o' the Baron. I keep a column for it in my book an' it's mostly question marks." } },
+    everlook = { { id = "tp_everlook", text = "A goblin market in the snow sellin' furs an' frostsaber pelts, an' at prices that'd make a miner weep. I've written tae ask how they ship, an' they've written back askin' what I'd pay tae know." } },
   },
 }
 
@@ -566,14 +572,14 @@ P:NPC {
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "What should a new adventurer carry?", next = "carry" },
-        { text = "Where does all your stock come from?", next = "stock" },
-        { text = "What's the gossip in the Commons today?", next = "gossip" },
-        { text = "Have rogues robbed you before, Bryllia?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your stock must come from all over Khaz Modan.", next = "stock" },
+        { text = "The Commons must be full of gossip today.", next = "gossip" },
+        { text = "I'd guess rogues have robbed you before, Bryllia.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can't a mage simply conjure what they need?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior carry that most forget, Bryllia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you stock shot for a hunter's rifle, Bryllia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who looks after the healers, Bryllia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do paladins really eat that much, Bryllia?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Paladins seem to eat a great deal, Bryllia.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you stock anything for travellers who live off the land?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do demons even eat bread, Bryllia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do folk in the Commons mind selling to a shaman, Bryllia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -605,7 +611,7 @@ P:NPC {
         { id = "st_default", text = "Bread from the bakers in Kharanos, water from the springs under the mountain, an' bags from the gnomes in Tinker Town, who stitch better than they've any right tae. The shot comes from the Great Forge, still warm, some days." },
       },
       choices = {
-        { text = "The gnomes stitch bags as well?", next = "stock_gnomes" },
+        { text = "So the gnomes stitch bags as well.", next = "stock_gnomes" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -638,6 +644,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've kept this counter thirty years, an' my mother kept it before me, an' neither of us ever let an adventurer leave hungry." } },
     advice = { { id = "tp_ad", text = "Eat when ye sit down tae rest, an' drink before ye're thirsty. It's no' complicated, but ye'd be amazed." } },
+    scourge = { { id = "tp_scourge", text = "I've had refugees from Lordaeron at this counter wi' nothin' but the clothes on their backs, an' I fed them what I could. The plague took their homes, an' they still said thank ye." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells food on sticks, an' half o' it's no' food at all, an' I'd thank ye no' tae eat it. Come back here fer a proper loaf after." } },
+    theramore = { { id = "tp_theramore", text = "Theramore buys our bread by the barrel, I'm told, for Lady Jaina feeds soldiers an' refugees both. I'm glad tae think somethin' o' mine is keepin' somebody warm across the sea." } },
     _none = { { id = "tp_none", text = "I sell bread, love, no' answers. Try the Library in the Hall o' Explorers." } },
   },
 }
@@ -776,12 +785,12 @@ P:NPC {
         { text = "I'd like to see about a guild.", next = "BUSINESS" },
         { text = "How does someone form a guild?", next = "form" },
         { text = "Why would anyone bother with a guild?", next = "why" },
-        { text = "What makes a good guild name?", next = "names" },
+        { text = "A good guild name must be hard to find.", next = "names" },
         { text = "What sort of names do rogues pick for their guilds?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What happened with the last warlocks' guild?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do warriors make good guild leaders, Jondor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of guilds do hunters start, Jondor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do guilds of priests ever do any good out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Guilds of priests must do some good out there.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What oath do the paladin guilds swear, Jondor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a druid be welcome in a dwarven guild?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do mages make good guild masters, Jondor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -836,6 +845,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought in the Second War wi' a company that had no name an' no crest, an' I've thought ever since that we'd have held together better wi' both." } },
     advice = { { id = "tp_ad", text = "Choose yer officers for their patience, no' their swordarms." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Guilds that fight together come back from the Gurubashi Arena wi' scars an' stories, an' sometimes wi' fewer members. A good band shares the gold an' the bandages alike." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's a fine place tae recruit, for anybody who'll ride that great wheel will follow ye intae a dungeon. Bring a banner an' a stout voice." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The big guilds talk o' Blackrock Spire like it's a proving ground, an' it is. I've registered a dozen bands that went in an' come out wi' half their names." } },
     _none = { { id = "tp_none", text = "That's no' guild business, friend, so I couldnae tell ye." } },
   },
 }
@@ -974,7 +986,7 @@ P:NPC {
         { text = "Let me see your tabards.", next = "BUSINESS" },
         { text = "Why do guilds wear tabards at all?", next = "why" },
         { text = "What makes a good crest?", next = "crest" },
-        { text = "Are you kin to Jondor?", next = "kin" },
+        { text = "You must be kin to Jondor.", next = "kin" },
         { text = "Do mages often set your tabards alight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What wouldn't you stitch for a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What crest would you stitch for a warrior's tabard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1003,7 +1015,7 @@ P:NPC {
         { id = "cr_default", text = "A simple one, that ye can recognize across a hall. The worst I ever stitched had a gryphon, an anvil, two axes an' a moon on it, an' from ten paces it looked like a pie somebody had sat on." },
       },
       choices = {
-        { text = "Did you tell them so?", next = "crest_tell" },
+        { text = "I hope you told them so.", next = "crest_tell" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1025,6 +1037,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned stitchin' from my grandmother, who made banners for the Bronzebeard clan's soldiers in the Second War." } },
     advice = { { id = "tp_ad", text = "Wash a tabard in cold water, never hot, or the crest'll run." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer colors are all blues an' greens an' feathers, an' they wear them on their skin besides. I'd never get them intae a tabard, but I'd dearly love tae try." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand's tabard was the finest ever stitched, silver on blue an' a hand in mail. I've a sample in the back, an' nobody asks for it now, more's the pity." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Red an' white an' far too much gold thread, an' I'll no' make one for anybody. A tabard should say who ye are, an' theirs says only who they hate." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye about that. I know thread an' crests, an' that's all I claim." } },
   },
 }
@@ -1162,9 +1177,9 @@ P:NPC {
       choices = {
         { text = "I need my vault.", next = "BUSINESS" },
         { text = "How safe is the Vault, really?", next = "safe" },
-        { text = "Are all the bankers here Stonemantles?", next = "family" },
+        { text = "Half the bankers here seem to be Stonemantles.", next = "family" },
         { text = "Can I store things in Stormwind as well?", next = "stormwind" },
-        { text = "Has anyone ever tried to rob the Vault?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Someone must have tried to rob the Vault.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What wards does the Vault have?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors keep much in the Vault, Soleil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters really store pelts in the Vault?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1201,7 +1216,7 @@ P:NPC {
         { id = "fa_default", text = "No' all, but a good many. Barnum an' Bailey stand at the counters beside me, an' there's always another cousin learnin' the ledgers in the back room." },
       },
       choices = {
-        { text = "Doesn't working with family get tiresome?", next = "family_tired" },
+        { text = "Working with family must get tiresome.", next = "family_tired" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1223,6 +1238,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was born above the Vault, near enough, an' I've counted coins since I could count." } },
     advice = { { id = "tp_ad", text = "Leave what ye don't need wi' us before ye go somewhere ye might not come back from." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins keep their bank in Booty Bay, an' it's said tae have more locks than walls. I'd love tae see the door, though I'm sure ours is better." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin banks will keep yer gold for ye an' charge for the keepin', an' charge again for the remindin'. Our vault has never sent a customer a bill for remembering their name." } },
+    magni = { { id = "tp_magni", text = "The King's own treasury rests beneath us, an' the King never once asks what's in it, which I find very restful. He trusts the vault, an' the vault returns the favour." } },
     _none = { { id = "tp_none", text = "I'm afraid that's no' somethin' the Vault keeps a record of." } },
   },
 }

@@ -7,6 +7,7 @@ P:NPC {
   key = "pozzik", id = TODO_NPC("Pozzik"), name = "Pozzik",
   rivals = { "fizzle", "wizzle" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
+  prejudice = { race = "Gnome", amount = 12, why = "Fizzle's crew copied his exhaust and his paint job; every gnome is a spy until proven otherwise" },
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "ambitious", "proud" },
   notices = { "craft", "status" },
 
@@ -16,6 +17,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_gnome", when = { prejudiced = true }, text = "Whoa, whoa, a gnome in my pit! Keep your hands where I can see 'em, pal, because the last gnome who wandered in here just to look walked off with my fuel ratios in his hat." },
+    { id = "g_pj_gnome2", when = { prejudiced = true, metBefore = true }, text = "Back again, huh? I had the boys count the spanners after your last visit and they're all here, which is either honest or very, very clever, and I'm still decidin' which." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Listen, I'll say this once and deny it at the next heat: you're the only gnome I'd let near my engine, kid, and that's worth more than a sponsorship, so don't spend it all at once." },
+    { id = "o_gb_distrust", when = { gossip = { topic = "goblins", stance = "distrust" } }, text = "Hey, hey, I heard you told Fizzle goblins are reckless and greedy. Greedy, fine, that's just business, but reckless? I resent that, kid, from a very safe distance." },
     { id = "g_race", text = "Hey hey, kid, here for the race? There's always a race, every day, rain or shine, and mostly shine, since it's a salt flat, and the betting window's open now." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite spectator returns! You bet on us last time? Smart, kid, so bet again, and bet bigger." },
     { id = "g_away", when = { away = 14 }, text = "My favorite spectator, back after {away}! You missed a dozen races, and we won most of them, so bet on us again." },
@@ -32,6 +37,67 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_pozzik = {
+      lines = { { id = "pj_pozzik_default", text = "Because every gnome I've met is a spy, kid, or an engineer, which on this track is the same thing with better gloves. Fizzle's crew have copied my exhaust twice and my paint job once, and you want me to take a gnome at face value? Face value's the worst rate in the business." } },
+      choices = {
+        { text = "They copied your paint? What happened?", next = "pj_pozzik2" },
+        { text = "Judge me by what I do, not by Fizzle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Maybe I am a spy. You'd better make me a better offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm only here to watch the race, Pozzik.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_pozzik2 = {
+      lines = { { id = "pj_pozzik2_default", text = "Red with yellow stripes, my own mix, and the very next heat their car rolls out red with yellow stripes and a little gnome smile painted on the nose. I lost three wagers because the punters cheered the wrong car, so it's in the ledger as a gnome debt, with interest." } },
+      choices = {
+        { text = "That's petty, but it's funny. I'm not with them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_gnomes = {
+      lines = {
+        { id = "opg_q", text = "Look, look, you've seen both crews now, so I want an honest opinion from a neutral party, and I'll know if you're lyin'. What do you really think of gnomes?" },
+        { id = "opg_q_gn", when = { race = "Gnome" }, text = "Okay, so you're a gnome, which makes this awkward, but I've paid for awkward before. Be honest with me, what do you think of your own people's engineerin'?" },
+      },
+      choices = {
+        { text = "Brilliant engineers. They lost Gnomeregan, not their wits.", next = "op_gnomes_r1", fx = { affinity = -2, align = { honor = 1 }, opinion = { gnomes = "admire" } } },
+        { text = "All theory and no nerve. Goblins actually finish things.", next = "op_gnomes_r2", fx = { affinity = 3, align = { honor = -1 }, opinion = { gnomes = "soft" } } },
+        { text = "Both crews are mad. You deserve each other.", next = "op_gnomes_r3", fx = { affinity = 1, trait = { witty = 1 }, opinion = { mirage_raceway = "madness" } } },
+        { text = "Gnomeregan's fall wasn't our fault, and we'll take it back.", next = "op_gnomes_r4", fx = { affinity = -1, opinion = { gnomeregan = "reclaim" } }, when = { race = "Gnome" } },
+        { text = "I'm not getting between you two, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r1 = {
+      lines = {
+        { id = "op_gnomes_r1", text = "Brilliant, you say! Brilliant engineers don't flood their own city with radiation, pal. I'll overlook it, because you've got honest eyes, but write that one off as a loss." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r2 = {
+      lines = {
+        { id = "op_gnomes_r2", text = "Finally, somebody who gets it! Go tell Fizzle that, would ya, and stand well back, because he's got a temper and a wrench." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r3 = {
+      lines = {
+        { id = "op_gnomes_r3", text = "Ha! Okay, fair hit, and I'm puttin' that on a sign. Madness is great for ticket sales, kid." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
+    op_gnomes_r4 = {
+      lines = {
+        { id = "op_gnomes_r4", text = "Sure, sure, and when you do, I've got a cousin who'll sell ya cleaning supplies on very fair terms. I mean it, kid, good luck." },
+      },
+      choices = {
+        { text = "Something else, Pozzik.", next = "BACK" },
+      },
+    },
     xpt_pozzik = {
       big = true,
       lines = { { id = "xpt_pozzik_default", text = "The goblin car, obviously, because it's built by people who know what speed is for, which is getting paid. The gnomes build to show off, and they'll keep losing to us until they learn the difference." } },
@@ -137,21 +203,22 @@ P:NPC {
       },
       choices = {
         { text = "Does the racing disturb the salt flats?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who usually wins?", next = "wins" },
+        { text = "Someone must win more often than not.", next = "wins" },
         { text = "Why race at all?", next = "why" },
         { text = "How do you make a rocket car faster?", next = "faster" },
-        { text = "Who pays for all this?", next = "sponsors" },
+        { text = "Somebody must pay for all this.", next = "sponsors" },
         { text = "I'm cheering for the goblins.", next = "cheer", when = { faction = "Horde" } },
-        { text = "Aren't you worried I'm a gnome spy?", next = "spy", when = { race = "Gnome" } },
+        { text = "For all you know, I'm a gnome spy.", next = "spy", when = { race = "Gnome" } },
         { text = "Could a tauren even fit in one of those cars?", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Do the earth spirits mind your raceway, Pozzik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does Fizzle's team use magic on their car?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "I'm not here for sabotage, Pozzik.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would magic make your car faster?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you play fair against the gnomes, Pozzik?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does your crew need strength more than brains, Pozzik?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I doubt you play fair against the gnomes, Pozzik.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your crew seems to need strength more than brains, Pozzik.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have any beasts ever raced on your track, Pozzik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who do you think will win the next race, Pozzik?", next = "xpt_pozzik", when = { party = { size = 4 } } },
+        { text = "You treat every gnome like a spy, Pozzik.", next = "pj_pozzik", when = { prejudiced = true } },
         { text = "Good luck out there.", next = "END" },
       },
     },
@@ -173,7 +240,10 @@ P:NPC {
     why = {
       big = true,
       lines = { { id = "y_default", text = "Because some arguments you can't win talking, kid. You need a mile of salt, two rockets and a crowd, plus wagers, mostly wagers." } },
-      choices = { { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } } },
+      choices = {
+        { text = "So what does everyone else think of gnomes?", next = "op_gnomes" },
+        { text = "Makes a strange kind of sense.", next = "BACK", fx = { affinity = 2, learn = { "mirage_raceway" } } },
+      },
     },
     faster = {
       lines = { { id = "f_default", text = "Every bit counts, kid: tension coils, power output, weight. We use vulture bones for the small frame work, because they're light and strong and cost nothin', and the sky here rains vultures." } },
@@ -189,7 +259,7 @@ P:NPC {
     sponsors = {
       lines = { { id = "sp_default", text = "You'd be surprised who chips in. Gazlowe, over in Ratchet, finds us parts from all over. He even worked on one of our rigs once." } },
       choices = {
-        { text = "What's he sending now?", next = "sponsors_part" },
+        { text = "He must be sending something new.", next = "sponsors_part" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -246,6 +316,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe, but straight lines, never." } },
     mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat! Also the only thing, but that counts." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel likes anything that sells tickets. We sell tickets." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's gone, and the gnomes ain't gettin' it back anytime soon, which is a shame, because I'd like to see 'em try. Until then, they race me, and they lose." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the Cartel's best town, and the bookies there love my team. I'd love 'em back if they'd stop takin' bets on the gnomes." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I got my first engine, pal, off a ship that sank in the harbour. It still smells of salt, and it still runs like a dream." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company tried to buy my team once, pal, and I told 'em where to put their offer. They don't know a thing about speed, only about cutting down trees." } },
     _none = { { id = "tp_none", text = "Does it go fast? If not, kid, I don't follow it and I don't bet on it." } },
   },
 }
@@ -263,6 +337,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_gn_soft", when = { gossip = { topic = "gnomes", stance = "soft" } }, text = "Pozzik has been telling everyone at the track that you think gnomes have no nerve. I have plenty of nerve! Stand still and I'll show you." },
     { id = "g_track", text = "Mind the track, and the fuel lines, and the nitro... actually, just stand very still!" },
     { id = "g_back", when = { metBefore = true }, text = "You, excellent! I've recalibrated everything since you were here, twice." },
   },
@@ -276,6 +351,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_goblins = {
+      lines = {
+        { id = "opgb_q", text = "Pozzik says goblins are better engineers, and Pozzik is wrong, but I like to collect data before I say so again. What do you think of goblins?" },
+      },
+      choices = {
+        { text = "Reckless and greedy. Their machines work by accident.", next = "op_goblins_r1", fx = { affinity = 3, align = { order = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "They get results while gnomes are still drawing plans.", next = "op_goblins_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { goblins = "useful" } } },
+        { text = "Gazlowe built Ratchet out of nothing. I respect that.", next = "op_goblins_r3", fx = { opinion = { goblins = "respect" } } },
+        { text = "I'd rather stay well out of this, Fizzle.", next = "BACK" },
+      },
+    },
+    op_goblins_r1 = {
+      lines = {
+        { id = "op_goblins_r1", text = "By accident! I'm writing that down in the margin of the Indurium notes, and I'll read it out at the next race." },
+      },
+      choices = {
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
+    op_goblins_r2 = {
+      lines = {
+        { id = "op_goblins_r2", text = "Results that explode, and the explosions aren't on purpose, which is the important difference! Very well, I'll take your data under advisement." },
+      },
+      choices = {
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
+    op_goblins_r3 = {
+      lines = {
+        { id = "op_goblins_r3", text = "Ratchet, yes, and it's very nicely built, and I have absolutely no comment on it." },
+      },
+      choices = {
+        { text = "Something else, Fizzle.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very like, really, because both involve careful preparation followed by a loud noise and somebody shouting. The difference is that when my work goes wrong I lose a piston, and when yours goes wrong you lose rather more than that." } },
@@ -398,7 +508,7 @@ P:NPC {
       },
       choices = {
         { text = "Your fuel uses scorpid venom, Fizzle?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's MEGA?", next = "mega" },
+        { text = "I've never heard of MEGA.", next = "mega" },
         { text = "Why race the goblins?", next = "why" },
         { text = "What are you building now?", next = "engine" },
         { text = "Is it true about your brothers?", next = "brothers" },
@@ -408,10 +518,10 @@ P:NPC {
         { text = "Couldn't magic help your engines, Fizzle?", next = "xmage", when = { class = "MAGE" } },
         { text = "My demon wouldn't eat your car, Fizzle.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever worry someone will die on your track?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do you trust Pozzik to race honestly?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I doubt Pozzik races honestly.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is engineering anything like fighting, Fizzle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the flats' creatures ever damage your car, Fizzle?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Who do you think has been stealing from you, Fizzle?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Someone has been stealing from you, Fizzle.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the elements ever interfere with your machines, Fizzle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll stand very still. Goodbye.", next = "END" },
       },
@@ -429,7 +539,10 @@ P:NPC {
     },
     why = {
       lines = { { id = "y_default", text = "Because they're there, and because they're wrong. Mostly the second." } },
-      choices = { { text = "Good to know. I'll keep clear of the salt.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } } },
+      choices = {
+        { text = "What do you make of goblins, Fizzle?", next = "op_goblins" },
+        { text = "Good to know. I'll keep clear of the salt.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } },
+      },
     },
     engine = {
       big = true,
@@ -492,7 +605,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Goggles, always! I can't say it enough, and some of my colleagues can't see it at all, any more." } },
     mirage_raceway = { { id = "tp_raceway", text = "My finest achievement, shared, regrettably, with a goblin." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not. Let's talk about rockets instead, because rockets go up, and things should go up." } },
-    _none = { { id = "tp_none", text = "Not my department, unless it has an engine!" } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a goblin town full of goblin engineering, which is to say it is held together with spit and hope. I visit only when I need parts, and I wash my hands afterward." } },
+    magni = { { id = "tp_magni", text = "King Magni is a great friend to the gnomes, and he gave us a home in Ironforge when we had none. I'm grateful, though the forge noise does nothing for my concentration." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel sponsors Pozzik's team, which gives them an unfair advantage in funding. We gnomes rely on superior engineering, which is much more reliable, if less well funded." } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up out of the deep earth and took Gnomeregan, and our own engineers made it worse trying to drive them out. I don't like to talk about it, and I like troggs even less." } },
+    _none = { { id = "tp_none", text = "Not my department, unless it has an engine, in which case it's absolutely my department, and probably on fire!" } },
   },
 }
 
@@ -603,15 +720,15 @@ P:NPC {
           check = { pass = { any = { { trait = "stern" }, { minLevel = 40 } } } },
           fail = { next = "laugh" } },
         { text = "What's the sure thing?", next = "sure" },
-        { text = "What exactly do you sell?", next = "trade" },
+        { text = "You seem to sell a little of everything.", next = "trade" },
         { text = "What was in that stout?", next = "stout", when = { any = { { questActive = TODO_QUEST("Get the Goblins Drunk") }, { questActive = TODO_QUEST("Get the Gnomes Drunk") }, { questDone = TODO_QUEST("Get the Goblins Drunk") } } } },
         { text = "The Light frowns on rigged races.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "A dwarf, out here among goblins?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "I didn't expect a dwarf out here among goblins.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "One schemer to another: what's the angle?", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "What would you pay to hear what the elements know, Kravel?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would a spellcaster be worth to you here?", next = "xhcast", when = { class = "MAGE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What kind of business, Kravel?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "You want me to curse a car?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You seem to want me to curse a car.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the racing crews ever hire muscle, Kravel?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What would patient eyes see around the raceway, Kravel?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I didn't hear any of this.", next = "END", fx = { affinity = 1 } },
@@ -638,7 +755,7 @@ P:NPC {
     sure_how = {
       lines = { { id = "sh_default", text = "Little things, like a delivery that arrives one wee piece short. Who'd miss one small worthless piece? Only a car doin' its top speed, that's who." } },
       choices = {
-        { text = "That's Fizzle's order you're talking about.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "That's a racing crew's order you're shorting.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
@@ -708,6 +825,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "A dwarf who found the flats more profitable than the mountain. That's all the story ye need." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' at a racetrack ye didnae pour yerself. Trust me on that one." } },
     mirage_raceway = { { id = "tp_raceway", text = "Two crews, one track, an' a crowd that'll bet on anything. Paradise." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best bookies in Kalimdor, and I know every one of them by name. I'd tell you which ones to trust, but then I'd have to charge you." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel likes a sure thing, and so do I. That's why I bet on both teams, and I always come out ahead." } },
+    magni = { { id = "tp_magni", text = "King Magni is a fine dwarf, and he runs a fine city. I left it because the bets were too small." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city, and now they've got nothing to do but race. I bet on them sometimes, when the odds are good." } },
     _none = { { id = "tp_none", text = "That one's not for sale, an' the trouble is, I don't have it." } },
   },
 }

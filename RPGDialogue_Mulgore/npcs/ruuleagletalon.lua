@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Ruul, warrior and teacher. When the young of Bloodhoof are ready to go further than Mulgore, I send them against the Windfury first, so we both know what they're made of." },
+        { id = "h_default", key = true, text = "I am Ruul, warrior and teacher. When the young of Bloodhoof are ready to go further than Mulgore, I send them against the Windfury first, so we both know what they're made of. My brother readies the dead in Thunder Bluff, and I ready the living." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Dangers of the Windfury") },
           text = "Thank you for taking the time to speak to me, {name}. You've reached the age when you must prepare for trials if you'll travel much further, so seek out the Windfury harpies to the southeast. They're one of our natural enemies here, and a good measure of your skill." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dangers of the Windfury"), days = 3 } },
@@ -41,13 +41,13 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Windfury", min = 20 } }, text = "The Windfury along the cliffs have fewer voices this season, and the herders are grateful. That's a lesson the harpies will remember longer than you will." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask your teacher?" },
+        { id = "h_again", text = "What else would you ask your teacher? Let the wind be at your back while you think." },
         { id = "h_again2", text = "Go on. I've time for the young, always." },
       },
       choices = {
         { text = "Why the Windfury harpies?", next = "harpies" },
         { text = "What makes someone ready to leave Mulgore?", next = "ready" },
-        { text = "You have a brother?", next = "eyahn" },
+        { text = "Tell me about your brother.", next = "eyahn" },
         { text = "Teach me something, as one warrior to another.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm ready for a trial.", next = "BUSINESS" },
         { text = "Farewell, Ruul.", next = "END" },
@@ -61,9 +61,9 @@ P:NPC {
       },
     },
     practice = {
-      lines = { { id = "p_default", text = "Practice, yes, and also a danger to our people that needs answering. I don't send the young to fight anything that doesn't need fighting." } },
+      lines = { { id = "p_default", text = "Practice, yes, and also a danger to our people and our herds that needs answering. I don't send the young to fight anything that doesn't need fighting." } },
       choices = {
-        { text = "And if someone fails the trial?", next = "fail" },
+        { text = "Surely someone fails the trial now and then.", next = "fail" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -77,7 +77,7 @@ P:NPC {
       },
     },
     ready = {
-      lines = { { id = "r_default", text = "When you can fight something faster than you and come back with a lesson instead of just a wound. The Barrens and the Needles are beyond our hills, and they're not patient with fools." } },
+      lines = { { id = "r_default", text = "When you can fight something faster than you and come back with a lesson instead of just a wound. The Barrens and the Needles are beyond our hills, and they're not patient with fools, though the Earth Mother is." } },
       choices = {
         { text = "I'd rather learn than bleed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Sometimes bleeding is how you learn.", next = "BACK", fx = { align = { order = -1 } } },
@@ -100,6 +100,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A warrior who grew old enough to teach. There's no better thing a warrior can become, I think." } },
     advice = { { id = "tp_ad", text = "Let the wind always be at your back, and keep an eye on the sky. Most of what kills you out there comes from above or behind." } },
-    _none = { { id = "tp_none", text = "I don't know of that. Ask in Thunder Bluff; my brother hears more than I do." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were our oldest enemies, and they taught the tauren how to fight. I teach the young the same lessons, though I use the harpies instead." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are a threat to the south of Mulgore, and the young braves must learn to face them. I would rather they learned from me first." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior of our people, and the wisest. He taught me that strength is for protecting the herd, and I have never forgotten it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us strength, and it is our duty to use it well. A warrior who fights for no reason is no warrior at all." } },
+    _none = { { id = "tp_none", text = "I don't know of that. Ask in Thunder Bluff; my brother hears more than I do, and the elders more than both of us." } },
   },
 }

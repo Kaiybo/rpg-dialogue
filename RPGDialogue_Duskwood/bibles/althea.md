@@ -51,3 +51,6 @@ Authored, not canon: the watchers' trades (farmers, bakers, a tanner, two brothe
 
 ## 0.34.0
 - Althea (Persuade, `watchers_names`): nine watchers lost since the thaw; she knocks on the families' doors herself, and keeps the dead on the roster crossed through, never scratched out.
+
+## Prejudice (0.80.0, authored, not canon)
+- Commander Althea Ebonlocke (prejudice, ROGUE): two winters ago a smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits on the Westfall road; three watchmen died.

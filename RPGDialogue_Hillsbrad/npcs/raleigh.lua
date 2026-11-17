@@ -11,6 +11,7 @@ P:NPC {
   key = "raleigh", id = TODO_NPC("Raleigh the Devout"), name = "Raleigh the Devout",
   bible = "bibles/raleigh.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
+  prejudice = { class = "WARLOCK", amount = 8, why = "Six years of Crusade sermons he is trying to unlearn." },
   notices = { "light", "scarlet" },
 
   impression = {
@@ -19,6 +20,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A warlock. I'll ask you to keep your hands where I can see them, and I'm sorry for asking, because six years of Crusade sermons don't wash out in one winter." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Close the door, and forgive me if I sit nearer the candle than you. Part of me still counts the steps to the pyre whenever a warlock walks in, and I hate that part of me." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, and sit wherever you like. I caught myself defending a warlock to the innkeeper last night, and I think the warlock was you." },
     { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Sit down, then; I've had worse company than people who listen." },
     { id = "g_xsquire", when = { origin = "human_paladin_squire" }, text = "That's a squire's stance if ever I saw one. The Order broke, but by the look of you the oaths didn't, so close the door and sit, because you're among friends up here." },
@@ -34,6 +38,74 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I do, and I know it. The Crusade taught me that every warlock is a door the Scourge can walk through, and I've unlearned most of what they taught me, but that lesson sits deeper than the rest." } },
+      choices = {
+        { text = "I'm no more the Scourge's than you are. Unlearn it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep flinching. What I wield deserves a little fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll sit by the door. Take whatever time you need.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Where did they teach you that?", next = "prej_why" },
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "In the Monastery's yard, with a straw man in a black robe and a torch in every recruit's hand. We practised on the straw man for a month, and then one day it wasn't straw, and nobody ever told us whether he'd been a warlock at all." } },
+      choices = {
+        { text = "You followed orders. The blame belongs to the men who gave them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You held the torch. Some of that blame is yours to carry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "That's kind, and it's more patience than I ever showed anyone while I wore the red. Give me a few more visits, and maybe I'll stop counting the steps between us." } },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade = {
+      lines = {
+        { id = "opn_crusade_q", text = "I ask myself that every night, and I get a different answer depending on whose face I remember first. There are men like Anton in it still, good men who think they're fighting the plague. You've seen them in red; what do you think should be done with them?" },
+      },
+      choices = {
+        { text = "Break the Crusade. The good ones will find their way out.", next = "opn_crusade_r_hate", fx = { align = { light = -1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "Reach the good ones first, the way you're doing.", next = "opn_crusade_r_pity", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They hold back the Scourge. That counts for something.", next = "opn_crusade_r_necessary", fx = { affinity = -1, opinion = { scarlet_crusade = "necessary" } } },
+        { text = "They'd burn me for what I am. I can't forgive that.", next = "opn_crusade_r_hate", when = { class = { "SHAMAN", "WARLOCK", "DRUID" } }, fx = { opinion = { scarlet_crusade = "hate" } } },
+        { text = "I can't judge them, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r = {
+      lines = {
+        { id = "opn_crusade_r_default", text = "Nor can I, most days, and I was one of them." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_hate = {
+      lines = {
+        { id = "opn_crusade_r_hate", text = "Some will. Some will die in the breaking, and those are the ones I'd have to name in my prayers. I don't say you're wrong; I say it'll cost." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_pity = {
+      lines = {
+        { id = "opn_crusade_r_pity", text = "Slowly, one Anton at a time. It's not much, but it's what one deserter with a confession can do, and it helps to hear someone call it worth doing." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_necessary = {
+      lines = {
+        { id = "opn_crusade_r_necessary", text = "It counts, the way a wall counts even when it's built of bones. I said that once, too, and then I watched what they did in the Monastery's cellars." },
+      },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Tell them to sleep when they can and eat before they pray, because a healer who falls in the road heals nobody, and I've watched good priests burn out in a single season at Hillsbrad. And tell them that the ones they couldn't save were never theirs to save; I wish someone had told me that sooner." } },
@@ -151,7 +223,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, the road's quiet tonight, apart from the wolves and my stomach." },
       },
       choices = {
-        { text = "Why did you leave the Crusade?", next = "left" },
+        { text = "You don't seem like a man who left the Crusade lightly.", next = "left" },
         { text = "What's at the Monastery?", next = "monastery" },
         { text = "Brother Anton sent me.", next = "anton", when = { any = { { questActive = TODO_QUEST("Down the Scarlet Path") }, { thread = { id = "scarlet_path", beat = "b2_anton" } } } } },
         { text = "Were you a paladin before the Crusade?", next = "paladin", when = { class = { "PALADIN", "PRIEST" } } },
@@ -159,13 +231,14 @@ P:NPC {
         { text = "Was it right, what I did there?", next = "after", when = { questDone = TODO_QUEST("In the Name of the Light") } },
         { text = "Does the Crusade hunt those who leave, Raleigh?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you still see me burned, Raleigh?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Did the Crusade train its warriors well, Raleigh?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "The Crusade hunts its deserters with trackers, Raleigh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The Crusade must train its warriors well, Raleigh.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd guess the Crusade hunts its deserters with trackers, Raleigh.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You wore the Crusade's red. Would they have burned me?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does the Crusade still blame Dalaran, Raleigh?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The Crusade seems to blame Dalaran for everything.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the Crusade really call me a heretic, Raleigh?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through the cathedral, Raleigh. Whitemane has fallen.", next = "xcl_cath", when = { cleared = "Scarlet Cathedral", faction = "Alliance" } },
         { text = "My companion tends our wounds. Have you advice for them?", next = "xpt_priest", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
+        { text = "You flinch every time I move, Raleigh.", next = "prej", when = { prejudiced = true } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },
@@ -203,7 +276,7 @@ P:NPC {
       },
       choices = {
         { text = "Whitemane questions?", next = "monastery_white" },
-        { text = "Why not send soldiers?", next = "monastery_why" },
+        { text = "Someone ought to send soldiers.", next = "monastery_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -231,6 +304,7 @@ P:NPC {
     anton_tell = {
       lines = { { id = "at_default", text = "Then you tell him. He'll believe it from someone who's walked the path he sent them down. From me it would only sound like a deserter's excuse." } },
       choices = {
+        { text = "Is anything in the Crusade still worth saving?", next = "opn_crusade" },
         { text = "I'll tell him.", next = "BACK", fx = { affinity = 2, flag = { set = "scarlet_tell_anton" } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -295,6 +369,11 @@ P:NPC {
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },
     scarlet_monastery = { { id = "tp_monastery", text = "The heart of the Crusade, in Tirisfal. I can tell you who sits in it, if you mean to go.", next = "monastery" } },
     argent_dawn = { { id = "tp_dawn", text = "Men who left the Hand before the rot set in, wiser than me, or quicker." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a hard master, and I served it in red once, and I served it badly. I serve it now in a quiet room in Southshore, and I think it prefers me this way." } },
+    scourge = { { id = "tp_scourge", text = "I have burned the dead and watched them rise again, and I have seen what that does to a man's mind. The Crusade's madness started there, in the fields outside Stratholme." } },
+    forsaken = { { id = "tp_forsaken", text = "They are dead, and they are thinking, and they are brewing something up the hill, and I'd sleep better if one of those three things weren't true. I pray for them anyway, and that's more than my old brothers would do." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was where I joined the Crusade, in the smoke of a city burned by its own prince. Half of it belongs to the dead now, and the other half to my old brothers, and I couldn't tell you which is worse." } },
+    arthas = { { id = "tp_arthas", text = "I saw Prince Arthas once, in his golden armour, riding north to save us all. I don't pray for him, and I've stopped asking the Light whether I should." } },
     _none = { { id = "tp_none", text = "That's not something I know. Ask downstairs; they hear more than I do." } },
   },
 }

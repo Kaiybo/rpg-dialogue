@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_rise", text = "Walk quietly on this rise, {class}. Hunters can hear a careless hoof from the far end of it." },
     { id = "g_steelsnap", when = { questActive = TODO_QUEST("Steelsnap") }, text = "Steelsnap roams Thousand Needles, south of the Barrens. Find him, and remember why you're hunting him." },
     { id = "g_done", when = { questDone = TODO_QUEST("Steelsnap") }, text = "The Needles are cleaner without Steelsnap. That was your lesson, and you learned it well." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away, and you come back with the dust of the plains on you. Good. That's how a hunter should come home." },
+    { id = "g_away", when = { away = 14 }, text = "{away} away, and you come back with the dust of the plains on your hide. Good. That's how a hunter should come home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk like a hunter now, not like someone who's been told about hunting. I can always tell the difference." },
   },
 
@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Melor Stonehoof. At times we hunt for food, at times for honor, and at times to earn the Earth Mother's teachings, and I set the young of Thunder Bluff on all three." },
+        { id = "h_default", key = true, text = "I am Melor Stonehoof. At times we hunt for food, at times for honor, and at times to earn the Earth Mother's teachings, and I set the young of Thunder Bluff on all three. The hyena Steelsnap in the Needles is another hunt entirely." },
         { id = "h_sergra", when = { questActive = TODO_QUEST("Sergra Darkthorn") },
           text = "Your path leads to the Barrens, and Sergra Darkthorn at the Crossroads will be your first guide there. The beasts of the Barrens are strong-willed and fierce, and you will learn much from them." },
         { id = "h_sends", when = { questActive = TODO_QUEST("Melor Sends Word") },
@@ -43,13 +43,13 @@ P:NPC {
           text = "In defeating Steelsnap, you've cleansed Thousand Needles of a terrible taint. That is the lesson, {name}: some hunts are not taking, but giving back." },
       },
       again = {
-        { id = "h_again", text = "What else would you know of the hunt?" },
-        { id = "h_again2", text = "Ask, and I'll answer as a hunter would." },
+        { id = "h_again", text = "What else would you know of the hunt, young one?" },
+        { id = "h_again2", text = "Ask, and I'll answer as a hunter would, slowly and with the wind in mind." },
       },
       choices = {
         { text = "Tell me about the three kinds of hunt.", next = "three" },
         { text = "What made Steelsnap different?", next = "steelsnap" },
-        { text = "Who is Sergra Darkthorn?", next = "sergra" },
+        { text = "Who is Sergra Darkthorn?", next = "sergra", when = { heardLine = "melor.h_sergra" } },
         { text = "Teach me something about hunting with a companion.", next = "pet", when = { class = "HUNTER" } },
         { text = "What hunt do you have for me?", next = "BUSINESS" },
         { text = "Good hunting, Melor.", next = "END" },
@@ -81,7 +81,7 @@ P:NPC {
     steelsnap = {
       lines = { { id = "s_default", text = "A hyena who kills for the pleasure of it, and teaches others to do the same. The Needles have enough cruelty in them already without a beast like that leading packs through the canyons." } },
       choices = {
-        { text = "Can a beast be cruel?", next = "cruel" },
+        { text = "I didn't think a beast could be cruel.", next = "cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,7 +98,7 @@ P:NPC {
       choices = { { text = "I'll seek her out.", next = "BACK", fx = { affinity = 1 } } },
     },
     pet = {
-      lines = { { id = "p_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A companion follows you because it trusts you, and that trust is the only thing between you and a very hungry beast." } },
+      lines = { { id = "p_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A companion follows you because it trusts you, and the Earth Mother gave you that trust to keep, not to spend." } },
       choices = { { text = "I'll keep its trust.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
@@ -106,6 +106,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter, for longer than I care to count. The beasts have taught me more than any elder." } },
     advice = { { id = "tp_ad", text = "Know why you're hunting before you draw. A hunter without a reason is only a killer with a bow." } },
-    _none = { { id = "tp_none", text = "That's no hunt I know. Ask among the elders, or at the Crossroads." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were the first hunt my father ever sent me on, and I failed it. I have hunted them since, and I have not failed again." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar hunt for food, but they kill for pleasure, and that is why I hunt them. A beast that kills for pleasure has gone wrong." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the beasts, and she made them to be hunted, but only with respect. A hunt without respect is only murder." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest hunter of our people, and he taught me that every hunt must teach something. I try to live up to that." } },
+    _none = { { id = "tp_none", text = "That's no trail I know. Ask among the elders, or at the Crossroads, and may the Earth Mother guide your tracking." } },
   },
 }

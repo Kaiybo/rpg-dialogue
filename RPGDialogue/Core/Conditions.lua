@@ -494,6 +494,19 @@ def("disposition", 20, "hinge", nil, function(ctx, v, env)
   return inRange(d, v), "disposition " .. d
 end)
 
+-- Prejudice (0.80.0, Systems/Disposition.lua): whether this person's `prejudice` touches you.
+-- true: it does and still weighs on them; "overcome": it does, but affinity has worn it away;
+-- false: it doesn't touch you, or no longer weighs on them.
+def("prejudiced", 25, "hinge", nil, function(ctx, v, env)
+  local full, left = 0, 0
+  if ns.Disposition then full, left = ns.Disposition.Prejudice(env.info and env.info.def, env.mem, ctx) end
+  local spoof = ctx.spoofed and ctx.spoofed.prejudiced
+  local state = full > 0 and (left > 0 and true or "overcome") or false
+  if spoof ~= nil then state = spoof end
+  if v == false then return state ~= true, "prejudice " .. tostring(state) end
+  return state == v, "prejudice " .. tostring(state) .. " (" .. left .. "/" .. full .. ")"
+end)
+
 -- Levels you've gained since you last spoke with this person (0.67.0): { min = , max = } or
 -- a number as a minimum. False if you never spoke, or spoke before 0.67.0 recorded levels.
 def("levelsSince", 30, "hinge", nil, function(ctx, v, env)
@@ -530,6 +543,30 @@ def("word", 30, "hinge", nil, function(ctx, v, env)
   local w = ns.Towns and ns.Towns.FindWord(v, env, env.now)
   if not w then return false, "no word" end
   return true, "word: " .. w.kind .. " from " .. tostring(w.name)
+end)
+
+-- Your other characters on this account (0.80.0, Systems/Kin.lua). NPCs don't know they're
+-- yours; lines treat them as kin, a look-alike or someone they remember.
+-- alt = true                 : another of your characters has spoken with this person
+-- alt = false                : none has
+-- alt = { race =, class =, gender =, faction = "same"|"other"|"Horde", kin = true (your race),
+--         notKin = true, sameClass = true, higher = true (above your level), level = 60 or
+--         { min =, max = }, days = 30 (met within), met = false (any character, met or not),
+--         ["not"] = true (nobody like that) }
+-- {alt}, {altrace}, {altclass} name the character it picked out.
+def("alt", 25, "hinge", nil, function(ctx, v, env)
+  local K = ns.Kin
+  if not K then return false, "no kin system" end
+  if v == true or v == false then
+    local e = K.Match(ctx, nil, env)
+    if v then return e ~= nil, e and ("met by " .. tostring(e.name)) or "no other character met them" end
+    return e == nil, e and ("met by " .. tostring(e.name)) or "no other character met them"
+  end
+  if type(v) ~= "table" then return false, "bad alt spec" end
+  local e = K.Match(ctx, v, env)
+  local ok = e ~= nil
+  if v["not"] then ok = not ok end
+  return ok, (e and ("alt " .. tostring(e.name)) or "no alt") .. " for " .. show(v)
 end)
 
 -- { town = , min = , max = } or { town = , tier = "Liked" }
@@ -799,6 +836,16 @@ end)
 def("chance", 0, "gate", nil, function(_, v, env)
   local roll = env.rng and env.rng.next() or 0
   return roll < v, ("chance %.2f, rolled %.2f"):format(v, roll)
+end)
+
+-- A letter you've opened (0.80.0): letter = "id", or { id = "id", ["not"] = true }.
+def("letter", 0, "gate", nil, function(_, v)
+  local negate = type(v) == "table" and v["not"] == true
+  local id = type(v) == "table" and (v.id or v[1]) or v
+  local r = ns.char.letters and ns.char.letters[id]
+  local read = r ~= nil and r.read ~= nil
+  if negate then return not read, "letter " .. tostring(id) .. (read and " read" or " unread") end
+  return read, "letter " .. tostring(id) .. (read and " read" or " unread")
 end)
 
 def("flag", 0, "gate", nil, function(_, v)

@@ -13,7 +13,7 @@
 ## Identity
 Melor Stonehoof · Hunter Rise, Thunder Bluff · Horde · Tauren · elder hunter
 Personality: grave, wise, principled
-Speech: teacherly, three-part reasoning
+Speech: teacherly, three-part reasoning; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: the three kinds of hunt, Steelsnap, Sergra
 Relationships: Sergra Darkthorn
 Default attitudes: respects hunters and their companions

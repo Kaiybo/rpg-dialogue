@@ -12,7 +12,7 @@
 ## Identity
 TODO_NPC · Felgur Twocuts · Ghost Walker Post · Orgrimmar · orc · scout
 Personality: curt, hard, practical, dry
-Speech: short but whole sentences; "{race}".
+Speech: short but whole sentences; "{race}"; orc bluntness: blood, deeds, a camp-born grunt's view of the Horde.
 Relationships: Regthar Deathgate.
 Never says: anything after Year 1.
 

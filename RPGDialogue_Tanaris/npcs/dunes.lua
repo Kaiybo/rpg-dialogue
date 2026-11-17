@@ -11,7 +11,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Well met, friend! Shake the sand off yer boots before ye come any closer." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? The desert didn't swallow ye, then. Good." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? The desert didn't swallow ye, then, and by my beard I'm glad of it." },
   },
   start = "hello",
   nodes = {
@@ -139,15 +139,15 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my dig, is it? Keep yer wee beastie away from the tomb mouths, because I've a feelin' some o' what's buried out here would be glad o' the company." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'd heard tell o' this, but I didnae believe it till now. Out here the sand's the enemy o' us all, so say yer piece an' mind the dig." },
       },
-      again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
+      again = { { id = "h_again", text = "Anything more, {g:lad|lass}? Ask away, but mind ye don't kick sand in the trench." }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
         { text = "What lies buried under these dunes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "The earth here is dry and old. What have your digs disturbed?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "The earth here is dry and old. Your digs must have disturbed plenty.", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What's buried out here?", next = "b1_1" },
         { text = "Why Steamwheedle Port?", next = "b2_1" },
         { text = "Is it dangerous?", next = "b3_1" },
         { text = "Ironforge must miss its diggers.", next = "x_1", when = { race = { "Dwarf", "Gnome" } } },
-        { text = "Should the old ruins be left alone?", next = "s_1" },
+        { text = "Some folk would say these old ruins ought to be left alone.", next = "s_1" },
         { text = "Would the Explorers' League hire a rogue, Ironboot?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there old magic buried in Tanaris?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have your digs disturbed any restless dead, Ironboot?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -155,7 +155,7 @@ P:NPC {
         { text = "What does the Explorers' League need from a paladin out here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you need someone to guard your digs, Ironboot?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts plague your digs out here, Ironboot?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What do you think is buried under Tanaris, Ironboot?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'd guess something old lies buried under Tanaris, Ironboot.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The earth here is dry and old. What have your digs disturbed?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -189,7 +189,17 @@ P:NPC {
       choices = { { text = "Learn from the past. Dig carefully.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Let the dead keep their cities.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Can't say I've dug that up yet, friend." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a fine town if ye like your ale warm and your water rationed, friend. The goblins sell a dwarf his own sweat back by the cup." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls o' Zul'Farrak sit on a pile o' treasure older than Ironforge, an' they guard it like their lives depend on it, which they do. I've looked at those walls from a dune, an' that's as close as I care to get." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni sent the Explorers' League to every corner o' the world, an' I came to this one on my own coin. I'd like to bring him somethin' from these sands that makes him laugh." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye've the look o' Ironforge about ye, so tell me, does the king still hold court in the Great Forge, or has the League got him readin' maps all day?" },
+    },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real secrets are, they say, under the Badlands, an' I'd be there now if I weren't so fond o' sand. Somebody's got to dig the desert, an' it may as well be me." } },
+    silithid = { { id = "tp_silithid", text = "The bugs to the west in Silithus are diggin' too, friend, an' they're better at it than me. I'd not like to meet one coming the other way in a tunnel." } },
+    _none = { { id = "tp_none", text = "Can't say I've dug that up yet, friend." } },
+  },
 }
 
 P:NPC {
@@ -294,13 +304,13 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Tooga listens slowly." }, { id = "h_again2", text = "Tooga is here." } },
       choices = {
         { text = "What do the sands feel like to an old turtle, Tooga?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "How did you get lost?", next = "b1_1" },
+        { text = "You look a long way from home, little turtle.", next = "b1_1" },
         { text = "Who is Torta?", next = "b2_1" },
         { text = "Are you all right?", next = "b3_1" },
         { text = "I understand beasts. Let me guide you.", next = "x_1", when = { class = { "DRUID", "HUNTER" } } },
         { text = "Should you have stayed home?", next = "s_1" },
         { text = "What would you have me pray for, Tooga?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Are you afraid of the things in the desert, Tooga?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The desert must frighten a little turtle like you, Tooga.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do you want to go back to Torta so badly, Tooga?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What scares you most out here, Tooga?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why don't you ask someone to teleport you home, Tooga?", next = "xmage", when = { class = "MAGE" } },
@@ -338,7 +348,13 @@ P:NPC {
       choices = { { text = "Wandering is how you see the world.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Stay close to home next time, Tooga.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Tooga does not know, because Tooga is a turtle." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is very loud and very hot, and the goblins there walk very fast. Tooga does not go to Gadgetzan." } },
+    earth_mother = { { id = "tp_earth_mother", text = "Torta says the Earth Mother made the turtles first, because she wanted somebody to be slow and think about things. Tooga thinks this is true." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls in the big walls wanted to make soup of Tooga once, and Tooga walked away very slowly, and they forgot. Being slow is sometimes very good." } },
+    silithid = { { id = "tp_silithid", text = "The bugs in the west are fast and they click, and Tooga does not like them at all. Tooga hides in his shell when he hears clicking." } },
+    _none = { { id = "tp_none", text = "Tooga does not know, because Tooga is a turtle." } },
+  },
 }
 
 P:NPC {
@@ -349,8 +365,8 @@ P:NPC {
     third = "{name} met Curgle Cranklehop, a gnome in Gadgetzan.",
   },
   greetings = {
-    { id = "g_main", text = "Oh! A visitor, how wonderful. Do you have a moment for some science?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! I've been thinking about what we discussed." },
+    { id = "g_main", text = "Oh! A visitor, how wonderful. Do you have a moment for some science? Five minutes, say, or seven if the scorpids cooperate?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! I've been thinking about what we discussed, and I've revised my estimate by at least twelve percent." },
   },
   start = "hello",
   nodes = {
@@ -437,7 +453,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I've read that your people speak with the elements, which is either superstition or the most fascinating field study in Kalimdor, and I'd dearly like to know which." },
-        { id = "h_default", key = true, text = "Curgle Cranklehop, at your service! I study the creatures of Tanaris, from the scorpids to the basilisks, because the desert hides more marvels than anyone in Gadgetzan gives it credit for." },
+        { id = "h_default", key = true, text = "Curgle Cranklehop, at your service! I study the creatures of Tanaris, from the scorpids to the basilisks, and I've catalogued forty-one distinct behaviors so far, because the desert hides more marvels than anyone in Gadgetzan gives it credit for." },
         { id = "h_c0", when = { race = "Gnome" }, text = "A fellow gnome! Oh, splendid, someone who'll understand when I talk about mechanical reproduction of insect behavior." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, wonderful, you can settle an argument I've been having with myself: do basilisks really turn things to stone, or do they just stare very hard?" },
@@ -453,18 +469,18 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, wonderful, do you know I've always wondered whether a basilisk's gaze works on someone who's glowing with the Light? Purely academic, of course." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh, you startled me! You move like a sand scorpid, all quiet and sudden, and I mean that as a compliment, a scientific one." },
       },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? Wonderful!" } },
+      again = { { id = "h_again", text = "What else, friend? Ask quickly, before I lose my place in these notes, which I've numbered but not, unfortunately, in order." }, { id = "h_again2", text = "More questions? Wonderful!" } },
       choices = {
         { text = "Do the desert beasts feel the elements the way I do?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What creature in Tanaris fascinates you most, Curgle?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do you study?", next = "b1_1" },
         { text = "Why live in Gadgetzan?", next = "b2_1" },
-        { text = "What do the goblins think of you?", next = "b3_1" },
+        { text = "The goblins must think you a strange sort of customer.", next = "b3_1" },
         { text = "My pet might interest you.", next = "x_1", when = { class = "HUNTER" } },
         { text = "Is studying beasts better than hunting them?", next = "s_1" },
         { text = "I'd guess the basilisk gaze is natural magic.", next = "xmage", when = { class = "MAGE" } },
         { text = "You want to study my demon, Curgle?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Does the desert make sickness worse, Curgle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The desert must make sickness worse, Curgle.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you study the way faith works, Curgle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can you really read a fight from my armor, Curgle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have you ever tested the basilisk gaze on a person, Curgle?", next = "xapala", when = { class = "PALADIN" } },
@@ -501,7 +517,17 @@ P:NPC {
       choices = { { text = "Understanding beats killing every time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Beasts are for hunting. Study books instead.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, but I'd love to find out!" } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a marvel, really, a town built on nothing but sand and goblin stubbornness, and the water tower, of course, the water tower is everything. I'd love to see its schematics, if Bilgewhizzle would ever let me." } },
+    gnomeregan = {
+      { id = "tp_gnomeregan", text = "Gnomeregan was home, and the trogg, the troggs, the radiation, we all know how that ended, and I still dream about the workshop I left. Somebody had my second-best wrench on loan, too." },
+      { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "You'd remember it too, then, the halls and the lights, before Thermaplugg let the troggs in. Do you still dream about it? I do, nearly every night." },
+    },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "There's talk of a great bronze dragon somewhere in these dunes, guarding a cave where time itself is tangled, and I'd give anything to measure it. Imagine the readings, just imagine them!" } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Zul'Farrak's architecture is remarkable, older than it looks and stranger than it ought to be, and the trolls inside are rather less remarkable and far more dangerous. I study it through a spyglass." } },
+    silithid = { { id = "tp_silithid", text = "The silithid build hives like an engineer builds a tower, layer on layer, and it fascinates me and horrifies me in equal measure. Mostly horrifies, if I'm honest about it." } },
+    _none = { { id = "tp_none", text = "I don't know, but I'd love to find out!" } },
+  },
 }
 
 P:NPC {
@@ -633,10 +659,10 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Jabbey's always open." }, { id = "h_again2", text = "More? Jabbey loves questions that end in sales." } },
       choices = {
         { text = "Where do you get your herbs, Jabbey?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "What do travellers say about the desert spirits out there?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Travellers must tell strange tales of the desert spirits.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What sells best here?", next = "b1_1" },
         { text = "Where do you get your goods?", next = "b2_1" },
-        { text = "Do you ever overcharge?", next = "s_1" },
+        { text = "Your prices seem a touch steep, Jabbey.", next = "s_1" },
         { text = "You really don't care what your powder gets used for?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Where do you get your reagents out here?", next = "xmage", when = { class = "MAGE" } },
         { text = "You think less of me for my craft?", next = "xlock", when = { class = "WARLOCK" } },
@@ -665,7 +691,14 @@ P:NPC {
       choices = { { text = "Fair prices build loyal customers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "A goblin should get what he can.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Jabbey doesn't sell that, pal, but Jabbey might know a guy, and the guy gives Jabbey a cut." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best town in Kalimdor for a goblin with a stall, pal, because nobody's got anywhere else to shop for a hundred miles. Jabbey likes those numbers." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Folks come out of Zul'Farrak with troll trinkets, pal, and Jabbey buys them cheap and sells them dear. Jabbey never goes in himself, because Jabbey can count." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got better shopping, pal, but worse prices, and Jabbey's prices are the best in Tanaris. Ask anybody, but ask Jabbey first." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel lets Jabbey keep his stall because Jabbey pays his dues on time, every time. That's the whole secret to staying in business here, pal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells trinkets, and Jabbey sells trinkets, and Jabbey's are cheaper. Jabbey would like that written down somewhere." } },
+    _none = { { id = "tp_none", text = "Jabbey doesn't sell that, pal, but Jabbey might know a guy, and the guy gives Jabbey a cut." } },
+  },
 }
 
 P:NPC {
@@ -796,7 +829,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else, dearie?" }, { id = "h_again2", text = "Anything more? I've got a needle waiting." } },
       choices = {
         { text = "What happens to your robes when we take bear form?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "The wind here never rests. How does cloth hold up against it?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The wind here never rests. Cloth can't last long against it.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's good cloth for the desert?", next = "b1_1" },
         { text = "Do you sew yourself?", next = "b2_1" },
         { text = "Do clothes really matter out here?", next = "s_1" },
@@ -804,7 +837,7 @@ P:NPC {
         { text = "Felcloth wears just as well as any other cloth.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Should a priest care how the robes look?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does it matter what a priest wears, Vizzklick?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Can cloth really do anything for someone in plate, Vizzklick?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Cloth can't do much for someone in plate, Vizzklick.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters bring you anything useful, Vizzklick?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can cloth really help someone in plate, Vizzklick?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really sell to anyone who asks, Vizzklick?", next = "xrogue", when = { class = "ROGUE" } },
@@ -828,5 +861,10 @@ P:NPC {
       choices = { { text = "Looking sharp is half the battle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "A blade matters more than a hem.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open, and ears cost nothing." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the dustiest place a tailor can work, dearie, and every bolt I sell is gritty by the end of the week. The customers still pay, though, because there's nobody else." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's tailors sew sails more than silks, dearie, and it shows in what they wear. I'd like to dress that town properly someday." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak wear wraps that would fall apart in a stiff breeze, dearie, but I'll admit the colors are very fine. I'd love to know their dyes." } },
+    _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open, and ears cost nothing." } },
+  },
 }

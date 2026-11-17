@@ -52,11 +52,14 @@ P:NPC {
       },
       choices = {
         { text = "How did you two get lost?", next = "lost" },
-        { text = "Why not just talk to Muigin?", next = "talk" },
-        { text = "Who's this Marvon?", next = "marvon" },
+        { text = "It would be simpler to just talk to Muigin.", next = "talk" },
+        { text = "Who's this Marvon?", next = "marvon", when = { any = { { questActive = TODO_QUEST("Marvon's Workshop") }, { questActive = TODO_QUEST("Zapper Fuel") } } } },
         { text = "Do you want to go home?", next = "home" },
         { text = "The pests are zapped. Will you talk to him now?", next = "patient", when = { questDone = TODO_QUEST("Bloodpetal Zapper") } },
         { text = "Dwarves don't get lost. Who's really to blame?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "How long have you and Muigin been partners?", next = "partners" },
+        { text = "What do you make of the crater itself?", next = "crater" },
+        { text = "Those pests are only plants, Larion.", next = "plants", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Good luck with the pests.", next = "END" },
       },
@@ -64,7 +67,7 @@ P:NPC {
     lost = {
       lines = { { id = "l_default", text = "We had a map, a good dwarven map, and I was following it. Then Muigin said he knew a quicker way down, and three days later we were in a crater full of lizards the size of houses." } },
       choices = {
-        { text = "Couldn't the map have been wrong?", next = "lost_map" },
+        { text = "The map could have been wrong.", next = "lost_map" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -107,6 +110,44 @@ P:NPC {
       lines = { { id = "p_default", text = "Maybe, once he says sorry first, which might take a while. And don't ye dare tell him I said I miss the old fool." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } } },
     },
+    partners = {
+      lines = { { id = "pa_default", text = "Longer than I'd admit to his face. We've tramped half of Kalimdor together, him with his seeds and me with my maps, and we never once got lost until this blasted crater." } },
+      choices = {
+        { text = "What brought you two to Un'Goro?", next = "partners_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    partners_why = {
+      lines = { { id = "pw_default", text = "The Marshals wanted samples of the crater's plants and a decent map of the ridges, so they hired the pair of us. He got his plants, I got my map half done, and then we got our argument, which is taking a good deal longer than either job." } },
+      choices = {
+        { text = "So who's going to say sorry first?", next = "partners_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    partners_stance = {
+      big = true,
+      lines = { { id = "ps_default", text = "Not me, that's for certain, unless ye think I should. Go on, ye've heard both of us by now, I'd wager, so tell me straight: who ought to bend first?" } },
+      choices = {
+        { text = "You should, Larion. The bigger heart bends first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He should. He chose the shortcut, so he owns it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm staying out of it.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    crater = {
+      lines = { { id = "cr_default", text = "It's a fine place for a map, I'll give it that, every ridge and hot spring a mark worth making. But the ground's warm when it shouldn't be, the beasts are too big by half, and nothing in it stays where ye drew it." } },
+      choices = {
+        { text = "Nothing stays where you drew it?", next = "crater_moving" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crater_moving = {
+      lines = { { id = "cm_default", text = "Tar pits creep, the ferns grow over a path in a week, and I swear one of the crystal outcrops was a hundred yards further east last month. A dwarf can't map a place that won't hold still, and that's not an excuse, that's science." } },
+      choices = { { text = "Of course it is.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    plants = {
+      lines = { { id = "pl_default", text = "Plants that bite my ankles at breakfast, and that walk, and that come from his patch every time! I don't care if they're flowers or fiends, they're his, and the zapper doesn't ask questions." } },
+      choices = { { text = "Perhaps Muigin can't control them either.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
     dwarf = {
       lines = { { id = "d_default", text = "Exactly my point! A dwarf with a map is never lost, so the only explanation is human interference. I've said so to anyone who'll listen, which is ye and the pests." } },
       choices = { { text = "I'm on your side, Larion.", next = "BACK", fx = { affinity = 1 } } },
@@ -116,6 +157,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A dwarf of the Marshal Expedition, an expert with a map and a hammer, and partner to the most stubborn human alive." } },
     advice = { { id = "tp_ad", text = "Never take a shortcut that a human recommends, and never let anyone else carry the map." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of goblins sellin' fertilizer that'd kill a weed and the garden with it. I make my own, and I don't tell Muigin what's in it." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king, aye, and he'd never get lost in a crater. Unlike some people I could name, but won't, because I'm not speakin' to him." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League's always wantin' to dig things up, and I'm always wantin' to stop things comin' up out of my garden. We'd not get along." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron are a blight on the dwarven name, and I'd sooner have Muigin's pests than one of them in my garden. That's sayin' something." } },
     _none = { { id = "tp_none", text = "No idea. Ask Muigin, he thinks he knows everything." } },
   },
 }

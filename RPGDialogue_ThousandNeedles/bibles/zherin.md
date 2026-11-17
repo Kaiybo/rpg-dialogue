@@ -10,7 +10,7 @@
 ## Identity
 Trackmaster Zherin · Mirage Raceway · neutral raceway (Thunder Bluff tracker) · Tauren · tracker
 Personality: dry, practical, patient
-Speech: deadpan, 'friend'
+Speech: deadpan, 'friend'; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: basilisks, the salt flats, gnome-goblin rivalry
 Relationships: raceway gnomes and goblins
 Default attitudes: same to both factions

@@ -53,7 +53,7 @@ P:NPC {
         { text = "What happened up on the plateau?", next = "fight" },
         { text = "Why does a scorpid matter so much to you?", next = "honor" },
         { text = "Why did the Darkspear come to the valley?", next = "darkspear" },
-        { text = "Who looks after the wounded here?", next = "gornek" },
+        { text = "Nobody seems to look after the wounded here.", next = "gornek" },
         { text = "Let me look at that wound, Hana'zua.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "I hunt too. How did a hunter get caught like that?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
@@ -102,7 +102,7 @@ P:NPC {
       },
       choices = {
         { text = "The Horde is stronger with the Darkspear in it.", next = "BACK", fx = { affinity = 1, learn = { "echo_isles" } } },
-        { text = "What happened to the Echo Isles?", next = "isles" },
+        { text = "Something must have happened to the Echo Isles.", next = "isles" },
       },
     },
     isles = {
@@ -138,6 +138,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Watch the tail, mon, not the claw. I got the scar to prove it, and I limp when it rain." } },
     echo_isles = { { id = "tp_isles", text = "Our home, across the water, and Zalazane sit in it like a tick. One day the Darkspear go back." } },
     burning_blade = { { id = "tp_blade", text = "The recruits say there be cultists in the caves with demon imps, mon. I stay away from demons and stick to scorpids, and look how well that go." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief walked out of a human camp and freed us all, and nobody will ever sing a bigger song than that. I only want a small one, and I'd settle for a verse." } },
+    internment = { { id = "tp_internment", text = "My father died in the camps, and my mother never talks about them. That is why I want a song, so that something in our family is remembered for more than chains." } },
+    second_war = { { id = "tp_second_war", text = "The old ones talk about the Second War like it was a feast, and then they stop talking all at once. I think they lost more than they say." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar ride along the western ridge, and Lar Prowltusk says they are planning something. If I live through this scorpid, I'd like to be there when he stops them." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask me about scorpids, because now I be an expert." } },
   },
 }

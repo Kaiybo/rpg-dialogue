@@ -2,6 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Prejudices (0.80.0): Supervisor Raelen (Westfall farmhands). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New Forever-only characters (new files: full game restart): Blixie Fitzwink, Josephine Carson, Nordun Steadysight, Kelsey Fargo, Nancy Songflower, Riley Peltskinner, Tordrin Sternblade and Ormin Pelford.
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.29.1 (2026-11-17)
 - Fix: Sergeant De Vries's "you look done in" remark used a condition that doesn't exist and never showed. It now comes up when your gear is badly worn.
 

@@ -9,7 +9,7 @@
 ## Identity
 Sindrayl · Moonglade · Alliance · night elf, female · Hippogryph Master
 Personality: calm, careful
-Speech: short, quiet, birds before people.
+Speech: short, quiet, birds before people. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Silva Fil'naveth flies druids; Faustron across the glade.
 
 ## Agenda / Secrets
@@ -23,3 +23,4 @@ background, advice.
 
 ## Authored, not canon
 - Keeps the birds where they can see the lake; Remulos's peace over the glade.
+- (deepening pass) Routes: Talonbranch Glade, Everlook, Rut'theran. Lost a young bird over Jaedenar last spring. Hippogryphs settle where moonlight lies on still water (priestesses' saying). Has a take-off arrangement with Faustron and thinks him courteous; wonders whether Ashenvale or the glade is the "truer" them. Lowers her voice passing the Barrow Dens.

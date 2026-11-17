@@ -65,10 +65,21 @@ P:NPC {
         { text = "What do the Windshapers want?", next = "order" },
         { text = "What is skysight?", next = "skysight" },
         { text = "Why warn me off the Windshapers?", next = "xwarn", when = { race = "Skyborne", faction = "Alliance" } },
-        { text = "How do your shaman differ from mine?", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
+        { text = "Your shaman must differ from mine.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "My people have welcomed yours in Mulgore.", next = "xmulgore", when = { race = "Tauren" } },
         { text = "I drank the sapta, Ventaari. The winds still don't answer me.", next = "xsapta", when = { origin = "skyborne_windshaper" } },
+        { text = "I wore the grey robes once, Ventaari. I walk with the Windshapers now.", next = "xorig_aketh", when = { origin = "skyborne_former_alaketh" } },
         { text = "Winds guide you, Ventaari.", next = "END" },
+      },
+    },
+    xorig_aketh = {
+      lines = {
+        { id = "xak_default", text = "I know what you wore, because your aura still carries a little of that chill, and I'll not pretend it doesn't trouble me. But the Windshapers took you in, and I'll honor that. Tell me truly, what made you turn from Lorthuna?" },
+      },
+      choices = {
+        { text = "I saw what her beacon would cost us all.", next = "BACK", fx = { affinity = 1 } },
+        { text = "She promised answers and only ever gave orders.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     state = {
@@ -86,7 +97,7 @@ P:NPC {
         { id = "is_default", text = "Silent. The few Windshapers who still hold the gift of skysight have reached out to our kin on the other islands, again and again, and nobody has answered." },
       },
       choices = {
-        { text = "Do you think anyone's left out there?", next = "islands_left" },
+        { text = "Someone must be left out there.", next = "islands_left" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -115,7 +126,7 @@ P:NPC {
       },
       choices = {
         { text = "And the High Order wants something else?", next = "highorder" },
-        { text = "How do you call a spirit home?", next = "callhome" },
+        { text = "Calling a spirit home can't be simple.", next = "callhome" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -127,8 +138,8 @@ P:NPC {
           text = "Your order wants to master this realm and bend it, as your Highborne forebears wanted to master theirs. That path drove us out of Kalimdor once, and I fear your elders' confidence has long since outrun their competence." },
       },
       choices = {
-        { text = "You're right. Mastery is what drove us from Kalimdor.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
-        { text = "Waiting for absent spirits is worse than any arrogance.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "You're right. Mastery is what drove us from Kalimdor.", next = "BACK", fx = { opinion = { zep_high_order = "arrogant", zep_windshapers = "trust" }, affinity = 2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Waiting for absent spirits is worse than any arrogance.", next = "BACK", fx = { opinion = { zep_windshapers = "foolish" }, affinity = -2, align = { order = 1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -147,7 +158,7 @@ P:NPC {
           text = "A gift some shen'dorei carry, to see past this world and hear the spirits behind it. I doubt you have it, traveller, though your shaman may have something like it under another name." },
       },
       choices = {
-        { text = "Can it fade?", next = "skysight_fade" },
+        { text = "A gift like that could fade, I'd guess.", next = "skysight_fade" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,6 +227,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Exercise your gifts, and never trust anyone who says the spirits don't matter." } },
     two_orders = { { id = "tp_orders", text = "We would bring the spirits home. They would replace them. Only one of those is gratitude.", next = "highorder" } },
     al_aketh = { { id = "tp_aketh", text = "They looked across Skywall, saw Al'Akir's might, and knelt to it. That isn't faith; it's fear in grey robes." } },
+    highborne = { { id = "tp_highborne", text = "The High Order is arrogant in exactly the way our Highborne ancestors were, and they wear it proudly. I can read it in their auras, and it looks like an old wound." } },
+    the_elements = { { id = "tp_the_elements", text = "We owe the spirits our lands, our lives and our gifts, and we've done very little to deserve them. The Windshapers mean to pay that debt, whatever it costs us." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren of the Earthen Ring speak to the elements as partners, and they call the earth their mother. I think we have a great deal to learn from them, and very little to teach." } },
+    dalaran = { { id = "tp_dalaran", text = "The High Order looks to the Kirin Tor in Dalaran for teaching, as if human wizards could give back what the Highborne lost. They'll learn power there, and very little wisdom." } },
+    elune = { { id = "tp_elune", text = "Our cousins pray to the moon, and I don't scorn them, but the spirits of the air raised us. I'll owe the moon when the moon has done as much." } },
     _none = { { id = "tp_none", text = "The winds don't speak of it, and neither will I." } },
   },
 }
@@ -283,9 +299,20 @@ P:NPC {
         { text = "Tell me about the ley lines.", next = "leylines" },
         { text = "Why warn me away from your order?", next = "xwarn", when = { race = "Skyborne", faction = "Horde" } },
         { text = "How did your order find the Kirin Tor?", next = "keyhole", when = { faction = "Alliance" } },
-        { text = "Does my fel magic interest you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My fel magic seems to interest you.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "My family's books have gaps. I'm going below to fill them.", next = "xbooks", when = { origin = "skyborne_high_order" } },
+        { text = "My spells come harder each year, Falorne. I want to know why.", next = "xorig_lumin", when = { origin = "skyborne_luminarian_scholar" } },
         { text = "Farewell, Falorne.", next = "END" },
+      },
+    },
+    xorig_lumin = {
+      lines = {
+        { id = "xlu_default", text = "So do mine, and so do every magister's, though most of us would sooner die than say it aloud. You've studied Luminarian, I hear, and he never lacked for power. Do you think his craft holds the answer, or are you only hoping it does?" },
+      },
+      choices = {
+        { text = "His craft holds the answer. I'm sure of it.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Hoping, but hope has to start somewhere.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Falorne.", next = "BACK" },
       },
     },
     danger = {
@@ -324,8 +351,8 @@ P:NPC {
         { id = "ws_default", text = "That we're reckless and arrogant, which is rich, because they'll entertain no idea about this crisis but their own. Frankly, kneeling to uncaring spirits isn't so very different from what the Al'Aketh do, so tell me, which of us is the arrogant one?" },
       },
       choices = {
-        { text = "Fair point. Self-reliance beats waiting on spirits.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, learn = { "two_orders" } } },
-        { text = "Comparing them to the Al'Aketh is beneath you.", next = "BACK", fx = { affinity = -2, align = { order = -1 }, learn = { "two_orders" } } },
+        { text = "Fair point. Self-reliance beats waiting on spirits.", next = "BACK", fx = { opinion = { zep_high_order = "trust", zep_windshapers = "foolish" }, affinity = 2, align = { order = 1 }, learn = { "two_orders" } } },
+        { text = "Comparing them to the Al'Aketh is beneath you.", next = "BACK", fx = { opinion = { zep_windshapers = "respect" }, affinity = -2, align = { order = -1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
     },
@@ -344,7 +371,7 @@ P:NPC {
       },
       choices = {
         { text = "Why are they breaking through?", next = "leylines_why" },
-        { text = "Is it safe to draw on them?", next = "leylines_safe" },
+        { text = "It can't be safe to draw on them.", next = "leylines_safe" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -434,6 +461,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Make the unknown known. Everything else is waiting to die politely." } },
     two_orders = { { id = "tp_orders", text = "One order reaches for knowledge, the other waits for spirits. History will judge which was wise.", next = "windshapers" } },
     al_aketh = { { id = "tp_aketh", text = "They kneel to a Windlord they've never met. At least the Windshapers' spirits once lived next door." } },
+    highborne = { { id = "tp_highborne", text = "We are Highborne, and it's time we stopped apologizing for it. Knowledge and power, child, that is our birthright, and the Windshapers would have us beg for it instead." } },
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor of Dalaran keep the greatest library of arcane study left in the world, and they've offered to share it. I can think of no finer place for a young mage of the High Order." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "Archmage Ansirem of the Kirin Tor showed us what a disciplined mage can do against wild elements. The Windshapers called it arrogance, and I called it competence." } },
+    the_elements = { { id = "tp_the_elements", text = "The Windshapers kneel to spirits who left us without a word. I'd rather stand on my own feet and master the winds than plead with them." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Azshara was a queen of extraordinary power, and her mistake was trusting the wrong allies, not the pursuit of power itself. The Windshapers will never admit there is a difference." } },
     _none = { { id = "tp_none", text = "An interesting question, which I can't answer, which makes it more interesting still." } },
   },
 }

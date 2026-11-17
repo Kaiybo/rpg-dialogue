@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "Warm your hands, {class}. The fire belongs to everyone who passes." },
+    { id = "g_fire", text = "Warm your hands, {class}. The fire belongs to everyone who passes, as the plains belong to every herd." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The fire is lit, and the ancestors can see their way home. Sit, if you like." },
     { id = "g_phial", when = { questActive = TODO_QUEST("The Sacred Flame") }, text = "A dryad's phial, filled at the moonwell by the Falfarren. Be gentle with it; the water remembers how it was carried." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you sat by this fire. It burned every night without you, but it's glad of the company." },
@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Zangen Stonehoof. Every evening I light this fire and ask the Earth Mother to watch over us in the dark as in the day, and to remind us of the ancestors who guide our way." },
+        { id = "h_default", key = true, text = "I am Zangen Stonehoof. Every evening I light this fire and ask the Earth Mother to watch over us in the dark as in the day, and to remind us of the ancestors who guide our way. Lately I also help my friend Rau Cliffrunner, who seeks an artifact the centaur guard." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Sacred Flame") },
           text = "The Galak centaur in Thousand Needles guard an artifact from the time of the centaur's making, and my friend Rau Cliffrunner would see it recovered. To reach it, he needs water from one of the night elves' moonwells, carried in a dryad's phial." },
         { id = "h_filled", tags = { "news" }, when = { questActive = TODO_QUEST("The Sacred Flame") },
@@ -43,14 +43,14 @@ P:NPC {
         { id = "h_dusk", when = { timeOfDay = "dusk" }, text = "You've come at the right hour, {class}. Stand with me while I light it; the words are short, and the fire likes witnesses." },
       },
       again = {
-        { id = "h_again", text = "What else? The fire keeps talking, so I might as well." },
+        { id = "h_again", text = "What else? The fire keeps talking, and the ancestors listen, so I might as well join in." },
         { id = "h_again2", text = "Ask what you will. The evening is long, and the kettle has barely started to grumble." },
       },
       choices = {
         { text = "Why light the fire every night?", next = "fire" },
         { text = "What artifact do the centaur guard?", next = "artifact" },
         { text = "Who is Rau Cliffrunner?", next = "rau" },
-        { text = "Does the fire speak to you, Zangen?", next = "speak", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "The fire seems to speak to you, Zangen.", next = "speak", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "How can I help?", next = "BUSINESS" },
         { text = "Earth Mother watch over you.", next = "END" },
       },
@@ -110,6 +110,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I light the fire. That has been my life for many years, and I have no complaints about it." } },
     advice = { { id = "tp_ad", text = "Touch the earth at least once a day, even in a city. It reminds you where you came from." } },
     grimtotem = { { id = "tp_grim", text = "The Grimtotem keep their own fires, far from ours, and I wonder sometimes what they pray for." } },
-    _none = { { id = "tp_none", text = "The fire hasn't told me of that one. Ask on the Elder Rise." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother hears every prayer, and I say mine over the fire every evening. It is a small thing, but she likes small things done well." } },
+    centaur = { { id = "tp_centaur", text = "The Galak centaur guard the old places in Thousand Needles, and Rau Cliffrunner wants what they keep there. I help him because the past belongs to all of us, not only to those who hold it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne lights the great fire with me sometimes, on the high days. He says the prayer better than I do, and I do not mind." } },
+    the_elements = { { id = "tp_the_elements", text = "The fire spirit on the High Rise is old and calm, and it likes the prayer. I think it would burn without me, but I like to think it burns better with me." } },
+    _none = { { id = "tp_none", text = "The fire hasn't told me of that one. Ask on the Elder Rise, and walk with the Earth Mother on your way." } },
   },
 }

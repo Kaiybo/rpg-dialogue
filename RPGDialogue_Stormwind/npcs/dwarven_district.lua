@@ -142,12 +142,12 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Blacksmithing" } },
-        { text = "Who taught you?", next = "teachers" },
-        { text = "What's it like, armouring a king?", next = "king" },
+        { text = "Someone taught you well.", next = "teachers" },
+        { text = "Armouring a king must be an honour.", next = "king" },
         { text = "Shall I bless your forge, master smith?", next = "priest", when = { class = "PRIEST" } },
         { text = "Do you ever ask what your blades are used for?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage's fire help a forge, Therum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What does a warrior's armour need most, Therum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "A warrior's armour must need plenty of care, Therum.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do dwarven hunters prefer rifles or bows, Therum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you armoured many of the Silver Hand, Therum?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does it trouble you, digging so much iron out of the hills, Therum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -187,6 +187,11 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni is the finest king Ironforge has ever had, and I'd armour him myself if he'd let me. He prefers his own smiths, and I can't blame him, but I'd still like the chance." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a disgrace to every dwarf alive, and their forges in Blackrock Depths burn with a fire they stole from the earth. I'd like to see one of their forges, just once, and then I'd like to see it put out." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths is the Dark Irons' city under the mountain, and Thaurissan's line has ruled it since the War of the Three Hammers. I've heard it's full of fire and slaves, and I'd not set foot in it for all the ore in Khaz Modan." } },
+    thandol_span = { { id = "tp_thandol_span", text = "I learned my trade beside the masters who maintained the Thandol Span, and I know every one of its rivets by heart. If the Dark Irons have damaged it, I'll be the first to volunteer to mend it." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers are my cousins, after a fashion, and they make the finest gryphon harnesses in the world. They're a little wild for my taste, but they're good dwarves, and they fight like bears." } },
     knows = {
       { id = "tp_knows", text = "Every guard in the city comes past this anvil sooner or later, an' they talk while I hammer. Ask me what ye like." },
     },
@@ -331,10 +336,10 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
-        { text = "What's wrong with the Bazaar?", next = "bazaar" },
+        { text = "You don't seem to think much of the Bazaar.", next = "bazaar" },
         { text = "Tell me about the tram.", next = "tram" },
-        { text = "Do thieves trouble the Dwarven District much?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Which whetstone should a warrior carry, Kaita?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I expect thieves trouble the Dwarven District too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A warrior needs a good whetstone, Kaita.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell anything for hunters, Kaita?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Lamb's warlocks buy from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the dwarves of the forge pray much, Kaita?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -351,7 +356,7 @@ P:NPC {
       choices = {
         { text = "Good. Somebody should undercut them.", next = "bazaar_more", fx = { align = { order = -1 } } },
         { text = "They've the right to set their prices.", next = "bazaar_more", fx = { align = { order = 1 } } },
-        { text = "Do they know you say this?", next = "bazaar_more" },
+        { text = "I'd guess they don't know you say this.", next = "bazaar_more" },
       },
     },
     bazaar_more = {
@@ -372,6 +377,10 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, and he's the one who had the gnomes build the tram that brings me my goods from Ironforge. I'd thank him myself if I ever got the chance." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city to the troggs and their own poison, and they built the tram to Stormwind before that, thank the stone. Without it I'd be hauling flux on a mule through Dun Morogh." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons sell their ore to nobody, and I'd not buy it from them if they did. I'll stick with Ironforge iron, which is honest metal from honest dwarves." } },
+    thandol_span = { { id = "tp_thandol_span", text = "My supplies come down through the tram now, so the Thandol Span's troubles don't trouble me much. But my cousin in the Wetlands says the Dark Irons have been at it, and I'll not forgive them for that." } },
     knows = {
       { id = "tp_knows", text = "Everythin' that comes down the tram passes by my counter, an' so does the gossip that rides wi' it. Ask." },
     },
@@ -518,11 +527,11 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Engineering" } },
-        { text = "Gnomish or goblin engineering?", next = "choice" },
-        { text = "What are you calculating?", next = "sum" },
-        { text = "Did you get out of Gnomeregan with any notes?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Goblin engineering seems the bolder craft.", next = "choice" },
+        { text = "You look to be calculating something.", next = "sum" },
+        { text = "You can't have got many notes out of Gnomeregan.", next = "gnome", when = { race = "Gnome" } },
         { text = "What sort of flaw do gnomish locks have?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is magic just mathematics in a robe, Lilliam?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Magic sounds like mathematics in a robe, Lilliam.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could engineering help a warrior in battle, Lilliam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could you build a better scope, Lilliam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you ever needed a healer after a test, Lilliam?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -572,6 +581,10 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni gave our people a home in Ironforge when Gnomeregan fell, and every gnome I know owes him a debt. I'd build him something marvellous if he'd only stand still long enough." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons build engines that run on lava, and I've studied the plans that came back from the Steppes. They're brilliant and dangerous, which is exactly what I'd expect from a dwarf with a grudge." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblin engineers build things that explode on purpose, and they're very proud of it. I prefer things that explode by accident, because at least then you learn something." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet build their boats from whatever they can find, and somehow they float. I've studied the hulls, and I've no idea how, and I've decided not to ask." } },
     knows = {
       { id = "tp_knows", text = "I hear a lot, because people think I'm busy counting and not listening. I'm always doing both, so ask!" },
     },
@@ -723,11 +736,11 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Mining" } },
         { text = "Why do you want to go home?", next = "home" },
-        { text = "What's the trick to mining?", next = "trick" },
+        { text = "There must be a trick to mining.", next = "trick" },
         { text = "Does anyone ever steal ore from you, Gelman?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is mining much like fighting, Gelman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do beasts ever trouble the mines, Gelman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "What happened to the miner you knew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Mining seems a lot like fighting, Gelman.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I expect beasts trouble the mines now and then, Gelman.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Something happened to the miner you knew.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do miners ever ask for prayers, Gelman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why does Stormwind still need Ironforge's help to rebuild?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you leave anything behind in the mines for the hills, Gelman?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -762,7 +775,7 @@ P:NPC {
       choices = {
         { text = "You've earned your rest.", next = "home_more", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "You'd be leaving the city half taught.", next = "home_more", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "Who'll take over?", next = "home_more" },
+        { text = "Someone will have to take over.", next = "home_more" },
       },
     },
     home_more = {
@@ -783,6 +796,11 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni sent me down to Stormwind to help rebuild it, and I'll go home when the job's done. That's been fifteen years, and I'm still waiting for the job to be done." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons mine the richest seams in Khaz Modan, and they've never shared a nugget with anyone. I'd like to dig in their mountain once, just to see the stone, and then get out quick." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman is the oldest dig in the world, and the stone there is like nothing I've ever seen. I'd go back if I could, though I'd take a bigger pick and fewer troggs." } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up from the earth and drove the gnomes out of their city, and they've been digging up our mines ever since. I'd like to teach them a lesson in proper mining, which is that you don't take what isn't yours." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Thandol Span was built by the finest miners and masons in Khaz Modan, and I helped quarry its stone. If the Dark Irons have harmed it, I'll go back and quarry more myself." } },
     knows = {
       { id = "tp_knows", text = "Miners talk while they work, an' I've listened tae more o' them than I can count. Ask, an' quick about it." },
     },

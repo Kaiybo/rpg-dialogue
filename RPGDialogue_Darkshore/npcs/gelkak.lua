@@ -31,10 +31,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Gnomeregan's full of radiation and troggs, and Mekkatorque's still in Ironforge drawing plans to take it back, so a gnome has to make a living somewhere. What do you think of His Royal Tinkerness, matey?" },
+      },
+      choices = {
+        { text = "He'll take Gnomeregan back. Gnomes never quit.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { mekkatorque = "trust", gnomeregan = "hope" } } },
+        { text = "He flooded his own city with radiation. Some king.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, opinion = { mekkatorque = "blame" } } },
+        { text = "Sounds like you'd rather be a pirate than a refugee.", next = "op_r3", fx = { trait = { witty = 1 }, opinion = { pirates = "understand" } } },
+        { text = "Don't you dare mock the High Tinker, Captain.", next = "op_r4", fx = { affinity = -1, opinion = { mekkatorque = "loyal" } }, when = { race = "Gnome" } },
+        { text = "I'll stay out of gnome politics.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Aye, never quit, and also never stop to check where the troggs came from. I hope you're right, matey, because I've cousins still in those halls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Ha! I'd never say that in Ironforge, but out here on the beach I'll drink to it, or I would if anybody had left me a drink." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Rather a pirate than a beggar in somebody else's mountain, matey. The sea doesn't ask to see your clan papers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Mock him? I'm not mocking him, I'm just not waiting for him, which is a very different thing and a great deal wetter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Cap'n Gelkak Gyromast, late of a fine ship now restin' on the bottom just off this shore. Them pesky Threshadons sank her, and a pirate's life ain't all plunderin' and booze, I'll tell ye that for nothin'." },
+          text = "Cap'n Gelkak Gyromast, late of a fine ship now restin' on the bottom just off this shore. Them pesky Threshadons sank her and left me first mate in pieces, and a pirate's life ain't all plunderin' and booze, I'll tell ye that for nothin'." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Gyromast's Retrieval") },
           text = "What I be needin' is me first mate back in workin' order. When I washed ashore, his key broke on the rocks, and I saw ragin' crawlers, foreststriders and murlocs all rummagin' through the wreckage." },
         { id = "h_key_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Gyromast's Retrieval"), days = 3 } },
@@ -51,9 +80,10 @@ P:NPC {
         { id = "h_again2", text = "Speak up! The surf's loud and me ears are full o' seawater." },
       },
       choices = {
+        { text = "Why would a gnome turn pirate?", next = "op_ask" },
         { text = "You're a gnome pirate?", next = "pirate" },
         { text = "Tell me about your first mate.", next = "mate" },
-        { text = "What happened to your ship?", next = "ship" },
+        { text = "You look like a sailor without a ship.", next = "ship" },
         { text = "How did you build a machine like that?", next = "eng_g", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need, Captain?", next = "BUSINESS" },
         { text = "Fair winds, Captain.", next = "END" },
@@ -144,6 +174,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tinker by trainin', pirate by choice, castaway by accident. That's the whole of me, landlubber." } },
     advice = { { id = "tp_ad", text = "Never sail where the water's darker than it ought to be. That's where the Threshadons sleep." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I left before the trouble, and I'm not proud of how glad I am of it. Them as stayed deserved better." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and I've sailed near everywhere. Well, near here, anyhow." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay! Now there be a proper port, landlubber, with grog and sharks and goblins who'll sell ye yer own boots. I'd be there now if me ship hadn't sunk." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail? Bah, fancy pirates with fancy hats. I sailed me own course, and sank it too, but at least it were mine." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a goblin port on the far shore, good for repairs and bad for yer purse. I've owed money there for three years." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and I've sailed near everywhere, by my own reckonin' to three decimal places. Well, near here, anyhow." } },
   },
 }

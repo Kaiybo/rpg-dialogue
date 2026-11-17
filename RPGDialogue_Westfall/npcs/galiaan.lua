@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kaldorei_home", when = { opinion = { topic = "night_elves", stance = "keep_home" } }, text = "You again, the one who would send me back to Ashenvale. I've thought on it, and I'm still here, but I listen to the east wind more than I did." },
     { id = "g_map", text = "Don't stand on the map." },
     { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Leather Bandanas") }, text = "Bandanas? Count them out on the table; every one's a pin on my map." },
     { id = "g_after", when = { questDone = TODO_QUEST("Red Leather Bandanas") }, text = "My map's half red now, and that's your doing. It's a good red, too." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kaldorei = {
+      lines = {
+        { id = "op_kaldorei_a", text = "Some of them do not, and they say so with arrows on the practice range. Humans cut and burn and build, and then they ask us to help guard what they've built. You live among them, or you are one of them, so tell me: is this Alliance worth the kaldorei's arrows?" },
+      },
+      choices = {
+        { text = "It is. Alone, every one of us falls to the Scourge or the Horde.", next = "op_kaldorei_1", fx = { opinion = { night_elves = "ally", alliance = "worth_it" }, align = { order = 1 }, affinity = 1 } },
+        { text = "No. Your people should guard Ashenvale and leave Westfall to us.", next = "op_kaldorei_2", fx = { opinion = { night_elves = "keep_home", ashenvale = "kaldorei_right" }, align = { order = -1 } } },
+        { text = "Humans owe you a debt. Hyjal saved all of us.", next = "op_kaldorei_3", fx = { opinion = { night_elves = "admire", humans = "indebted" }, trait = { curious = 1 }, affinity = 2 } },
+        { text = "Humans are short-lived and careless. We should keep our distance.", next = "op_kaldorei_4", when = { race = "NightElf" }, fx = { opinion = { humans = "careless", night_elves = "keep_home" }, trait = { proud = 1 } } },
+        { text = "That's for Darnassus to decide, not me.", next = "BACK" },
+      },
+    },
+    op_kaldorei_1 = {
+      lines = { { id = "op_kaldorei_r1", text = "That is what Shandris says, and she has been right more often than I have. I'll keep my arrows on this map, then, and not on the practice range." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
+    op_kaldorei_2 = {
+      lines = { { id = "op_kaldorei_r2", text = "Half my sisters would embrace you for that. Ashenvale bleeds while I count bandanas here, and I think of it every night when the wind turns east." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
+    op_kaldorei_3 = {
+      lines = { { id = "op_kaldorei_r3", text = "Few humans say it, and fewer know it. Remember it when someone calls us cold, and remind them who stood at the mountain when the Legion came." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
+    op_kaldorei_4 = {
+      lines = { { id = "op_kaldorei_r4", text = "Careful, {g:brother|sister}. They are careless, yes, and they also die for farms that are not theirs, and I have watched them do it on this hill. Keep your distance if you like, but watch them first." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Defias camps, gnoll dens, and roads that cross too often. My notes are precise. I'd be curious whether your spirits would agree with them." } },
@@ -124,9 +153,9 @@ P:NPC {
       choices = {
         { text = "Why does a Sentinel scout watch over human farmland?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Show me your map.", next = "map" },
-        { text = "Why do they all wear red?", next = "bandanas" },
+        { text = "They all seem to wear red.", next = "bandanas" },
         { text = "Teach me something about scouting.", next = "scouting" },
-        { text = "What do you make of the walking scarecrows?", next = "watchers" },
+        { text = "Those walking scarecrows didn't build themselves.", next = "watchers" },
         { text = "I could get closer to their camps than you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My beast could follow their trail by scent.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The kaldorei have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
@@ -165,13 +194,14 @@ P:NPC {
     bandanas = {
       lines = { { id = "ba_default", text = "Red leather, on most of them, worn like a uniform. Pride's a weakness in a thief, and I collect weaknesses." } },
       choices = {
-        { text = "Riell wants red silk, not leather.", next = "silk" },
+        { text = "Do their leaders wear something different?", next = "silk" },
         { text = "So that's why you want fifteen.", next = "BACK", fx = { learn = { "defias" } } },
       },
     },
     silk = {
       lines = { { id = "si_default", text = "The cloth's the rank: leather on the road, silk on the ones who give orders. Silk never comes up to the farms. It stays under Moonbrook and sends the leather out." } },
       choices = {
+        { text = "Do your sisters think the humans worth the trouble?", next = "op_kaldorei" },
         { text = "Then I'll stick to asking about the silk.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -179,7 +209,7 @@ P:NPC {
     scouting = {
       lines = { { id = "sc_default", text = "Walk where the ground's hard, and stop where the wind can't carry your smell. Never cross a skyline, because every Defias lookout watches the hills." } },
       choices = {
-        { text = "Where did you learn all that?", next = "scouting_learn" },
+        { text = "You must have learned all that somewhere.", next = "scouting_learn" },
         { text = "I'll remember it.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
@@ -194,7 +224,7 @@ P:NPC {
       },
       choices = {
         { text = "Can you prove it?", next = "watchers_proof" },
-        { text = "Saldean says nobody knows.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "The farmers say nobody knows.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     watchers_proof = {
@@ -230,6 +260,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and every pin on my map that goes red seems to lead down into them. I've drawn the entrance three times, and every time I'm less sure the mine has only one door." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail Buccaneers have been seen along the coast near the lighthouse, and I've started marking their sails. If they ever make common cause with the Defias, I'll need a bigger map and a lot more pins." } },
+    si7 = { { id = "tp_si7", text = "SI:7 sends a man to ask for my maps now and then, and he never says why or gives them back. I've started making a second copy, and I'd advise any scout to do the same." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Every Defias I've ever seen taken in for the Stockade has been back in Westfall within the season. I mark it on my map with a little black pin, and I'm running out of black pins." } },
     background = { { id = "tp_bg", text = "I'm a scout, and before that I was a man who liked walking. The militia found a use for the walking." } },
     advice = { { id = "tp_ad", text = "Count the bandanas in a camp before you go in, then count them again, because someone's always lying down." } },
     defias = { { id = "tp_defias", text = "Red bandanas, good boots, better discipline than they've any right to." } },

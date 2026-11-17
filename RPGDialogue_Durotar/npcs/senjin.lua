@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "gadrin", id = TODO_NPC("Master Gadrin"), name = "Master Gadrin",
+  prejudice = { race = "Scourge", amount = 8, why = "Zalazane raises dead Darkspear as puppets on the Echo Isles; walking corpses are personal for him." },
   bible = "bibles/durotar.md", role = "priest", tier = "major",
   communities = { "senjin" }, temper = { "folksy" }, values = { "wise", "proud" },
   notices = { "race", "class", "origin" },
@@ -13,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Ah, mon, you be one of the dead who walk. Gadrin be honest with you: Zalazane make our dead walk on the Echo Isles, and when Gadrin see a dead face moving, his old heart jump like a frightened lizard." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come, come, sit. Gadrin been thinking about you, dead one, and he decide the loa sent you to teach an old troll something about walking dead who keep their own mind." },
     { id = "g_hut", text = "Come, come, Gadrin don't bite. Not anymore, anyway; the teeth be too old." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you visit the old man again. Sit; the fire be warm." },
     { id = "g_away", when = { away = 14 }, text = "Ah, you been gone {away}, and the old man worried a little, though he won't tell you how much. Sit by the fire, mon." },
@@ -33,13 +36,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_gadrin = {
+      big = true,
+      lines = { { id = "prej_gadrin_default", text = "Gadrin do, and it shame him a little. Zalazane take our dead from the burning grounds, put his hex on them and send them walking against their own kin, and they don't know their own names no more. Gadrin know you not the same, but his eyes, they don't listen to his head so good." } },
+      choices = {
+        { text = "I'm no puppet. Nobody pulls my strings, old man.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I serve the Dark Lady. Her will is mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll help you free them, if I can.", next = "prej_gadrin_calm", fx = { affinity = 1 } },
+        { text = "Were any of Zalazane's dead people you knew?", next = "prej_gadrin_why" },
+      },
+    },
+    prej_gadrin_why = {
+      lines = { { id = "prej_gadrin_why_default", text = "Gadrin's sister's boy, mon, a good fisher with a crooked tusk. Gadrin see him on the Isles last year, standing in the surf with Zalazane's mark on him, and he looked right at Gadrin and didn't know him at all." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_gadrin" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_gadrin_calm = {
+      lines = { { id = "prej_gadrin_calm_default", text = "Ah, now that be a thing Gadrin didn't expect from a dead one. The loa got a sense of humour, mon, and Gadrin starting to like the joke." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_zf = {
       big = true,
       lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead back up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach my students that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
       choices = {
         { text = "The dead deserve their rest, whoever raised them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If the dead can still fight, it's a waste not to use them.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Did you ever know the Sandfury witch doctors?", next = "xcl_zf2" },
+        { text = "You must have known the Sandfury witch doctors.", next = "xcl_zf2" },
       },
     },
     xcl_zf2 = {
@@ -92,17 +113,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_seacall = {
+      lines = { { id = "xsc_default", text = "The old women know more than any orc far seer, though don't you tell the orcs I said it. Zalazane's poison be in the water now, so when you call the sea spirits, do they come gladly, or do they come sick?" } },
+      choices = {
+        { text = "They come sick, Master, and grieving.", next = "BACK", fx = { trait = { pious = 1 }, learn = { "echo_isles" } } },
+        { text = "They come gladly. They want us home.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light. I teach witch doctors, and I tell them always to watch the dead careful. You be the strangest dead I ever see." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one I didn't teach. That be good, because the last few I taught don't make me proud." },
         { id = "h_default", key = true,
           text = "I be Master Gadrin, and I teach the Darkspear witch doctors. I teach Vol'jin once, and Zalazane, and one of them I be proud of." },
+        { id = "h_op_sylv", when = { opinion = { topic = "sylvanas", stance = "distrust" } },
+          text = "Vol'jin tell me you watch the Dark Lady the way he do. Good, child, because the dead that walk on their own make old Gadrin's bones itch." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Minshina's Skull") },
           text = "Minshina's skull sit on the isles in bad hands. Bring it to me, because she deserve better." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak", faction = "Horde" }, text = "You been to Zul'Farrak and back, eh? The Sandfury be cousins of a sort, mon, but cousins who raise their own dead to guard the gates, so Gadrin won't weep for them." },
         { id = "h_zalazane", tags = { "news" }, when = { questActive = TODO_QUEST("Zalazane") },
           text = "Zalazane be my student once, and now he be the shame of my years. End him, and maybe this old man sleep through the night." },
+        { id = "h_hexed_resolved", tags = { "news" }, when = { thread = { id = "darkspear_isles", state = "resolved" } },
+          text = "Vol'jin send word that the hexed be Darkspear still, and now the village say their names at the fire every night. Gadrin know some of those names from the lessons, child, and he be glad to say them aloud again." },
+        { id = "h_hexed_soured", when = { thread = { id = "darkspear_isles", state = "soured" } },
+          text = "Vol'jin tell the warriors to strike the hexed without lookin' at their faces, and he tell Gadrin it was a stranger's counsel. The old man don't ask whose, but he think he can guess." },
         { id = "h_orgnil", when = { questActive = TODO_QUEST("Report to Orgnil") },
           text = "Orgnil in Razor Hill need strong arms against the Burning Blade. Go to him, and tell him Gadrin say you be useful." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid come to Sen'jin! The loa of the islands and your Earth Mother be old friends, I think, but Zalazane be twisting the spirits on the Echo Isles so bad that they barely know each other now." },
@@ -112,20 +146,22 @@ P:NPC {
         { id = "h_echo", when = { origin = "troll_echo_isles" }, text = "You born on the isles, child, I remember, and you cry the whole way across the water when we leave. Now you come back with a weapon on your back, and Gadrin think maybe the isles be crying for you instead." },
       },
       choices = {
+        { text = "You look at me the way you'd look at Zalazane's puppets.", next = "prej_gadrin", when = { prejudiced = true } },
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can Zalazane's corruption be undone, Master Gadrin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened on the Echo Isles?", next = "isles" },
-        { text = "Vol'jin was your student?", next = "voljin" },
+        { text = "So Vol'jin was your student.", next = "voljin" },
         { text = "The loa been talking to me again, Master. Loudly.", next = "xloa", when = { origin = "troll_loa_speaker" } },
         { text = "What does the loa want from me, Master? I never asked.", next = "xwant", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "I hear a voice, Master, and it isn't a loa.", next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "The spirits answer me now. Teach me to listen better.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I studied the arcane, Master. Is that so strange?", next = "mage", when = { race = "Troll", class = "MAGE" } },
         { text = "I hunt heads for the tribe, the old way.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
-        { text = "Could a rogue help you against Zalazane?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A rogue could help you against Zalazane.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How do I fight the hexed Darkspear, Master Gadrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a troll fear a Forsaken paladin, Master?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Zul'Farrak, Master Gadrin.", next = "xcl_zf", when = { cleared = "Zul'Farrak", faction = "Horde" } },
+        { text = "The old women on the shore taught me to call the sea, Master.", next = "xorig_seacall", when = { origin = "troll_sea_spirit_caller" } },
         { text = "Thank you, Master.", next = "END" },
       },
       again = {
@@ -194,10 +230,37 @@ P:NPC {
       },
       choices = {
         { text = "He chose well.", next = "END", fx = { affinity = 2 } },
+        { text = "Do the Darkspear truly belong in the orcs' Horde?", next = "horde_op" },
         { text = "And the student you aren't proud of?", tag = "Persuade", next = "zalazane_blame",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Troll" }, { trait = "kind" } } } },
           fail = { next = "zalazane_shame", fx = { affinity = -1 } } },
       },
+    },
+    horde_op = {
+      lines = { { id = "ho_default", text = "That be the question the old ones chew on around the fire every night, child. The orcs save us from the sea witch and give us this shore, and some say that make us family, and some say it make us servants, so you tell Gadrin what you think." } },
+      choices = {
+        { text = "The Horde saved your people. That debt is worth honoring.", next = "ho_loyal", fx = { affinity = 1, align = { honor = 1 }, opinion = { horde = "loyal", darkspear = "ally" } } },
+        { text = "The Darkspear should look to themselves, not to orcs.", next = "ho_alone", fx = { align = { honor = -1 }, opinion = { orcs = "distrust" } } },
+        { text = "The orcs are good allies, but the isles come first.", next = "ho_isles", fx = { affinity = 2, opinion = { darkspear = "first" } } },
+        { text = "Thrall stood with us. I'd stand with him anywhere.", next = "ho_thrall", when = { race = "Troll" }, fx = { affinity = 1, opinion = { warchief = "trust" } } },
+        { text = "I'm still learning, Master.", next = "BACK" },
+      },
+    },
+    ho_loyal = {
+      lines = { { id = "hol_default", text = "Vol'jin say the same, and he say it with his father's blood on that beach, so Gadrin don't argue. A debt paid proper make you family in the end, mon." } },
+      choices = { { text = "Something else, Master.", next = "BACK" } },
+    },
+    ho_alone = {
+      lines = { { id = "hoa_default", text = "Zalazane say that too, child, right before he go looking for power of his own. Be careful whose words come out of your mouth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ho_isles = {
+      lines = { { id = "hoi_default", text = "Ha! Now that be a Darkspear answer, whoever you are. The orcs be good friends, but friends don't bury our ancestors for us." } },
+      choices = { { text = "Something else, Master.", next = "BACK" } },
+    },
+    ho_thrall = {
+      lines = { { id = "hot_default", text = "Then you be your chief's student more than mine, and that make this old man proud twice over." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     zalazane_blame = {
       lines = {
@@ -255,6 +318,14 @@ P:NPC {
     },
     echo_isles = { { id = "tp_isles", text = "Every morning I look at them, and every morning they still there, waiting for us." } },
     burning_blade = { { id = "tp_blade", text = "Orcs playing with demons, eh? Bad magic be bad magic, whoever play with it, and Orgnil know that." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin was my best student, and he was never the quickest, but he always listened. He leads the Darkspear now, and I am prouder of him than of anything I ever did." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear were a small tribe, and the sea nearly ended us, and Thrall saved what was left. Now we be strong again, but we remember what it was to be few." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief took us in when nobody else would, and he never asked us to forget who we are. That is a rare kind of chieftain, and the trolls know it." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of the sea and sky talk to me still, though my ears be getting old. They say the Echo Isles are sick, and I believe them." } },
+    zul_gurub = {
+      { id = "tp_zul_gurub", text = "The Gurubashi empire is dead, and the blood god's priests are trying to wake it again in Stranglethorn. The Darkspear want nothing to do with Hakkar, and I pray he stays asleep." },
+      { id = "tp_zul_gurub2", when = { race = "Troll" }, text = "You know the stories as well as I do, child, because your grandmother told them to you. Hakkar wants blood, and the Gurubashi are fools to give it." },
+    },
     _none = { { id = "tp_none", text = "Even an old witch doctor don't know everything, though he know most things, yes." } },
   },
 }

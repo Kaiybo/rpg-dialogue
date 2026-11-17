@@ -50,11 +50,11 @@ P:NPC {
       },
       choices = {
         { text = "Why do you call truesilver a liar?", next = "silver" },
-        { text = "What is the Mithril Order?", next = "order" },
+        { text = "I've heard of the Mithril Order.", next = "order" },
         { text = "Why set up a forge here, by Zul'Gurub?", next = "camp" },
         { text = "Can you really forge fel steel?", next = "fel", when = { questDone = TODO_QUEST("The Formation of Felbane") } },
         { text = "Teach me about mithril.", next = "xsmith", when = { profession = "Blacksmithing" } },
-        { text = "Must a smith also be a miner?", next = "xminer", when = { profession = "Mining" } },
+        { text = "I'd have thought a smith needn't be a miner too.", next = "xminer", when = { profession = "Mining" } },
         { text = "Farewell, Galvan.", next = "END" },
       },
     },
@@ -93,7 +93,7 @@ P:NPC {
         { id = "or_default", text = "The finest armorsmiths in the world, and Galvan leads them, more or less, because nobody else wanted to argue with him. When an Order smith finds a student with the skill and the drive, they send them to Galvan." },
       },
       choices = {
-        { text = "Who is your finest pupil?", next = "order_pupil" },
+        { text = "You must have a finest pupil.", next = "order_pupil" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,6 +172,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A dwarf of the Mithril Order, a decade in Alterac's mountains, a while in Booty Bay, and now a forge in the jungle." } },
     advice = { { id = "tp_ad", text = "Trust mithril, doubt truesilver, and always dig your own ore." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, but Galvan has never been one for kings, Galvan likes a good forge and a good ingot better. Still, the man knows his metal." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make fine steel with poisoned hands, and Galvan has never trusted a dwarf who works for a fire lord. Their forges burn too hot, and Galvan knows what that does to iron." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Galvan spent a decade in the mountains near Stromgarde, and the human smiths there were the best Galvan ever saw outside Ironforge. Now they're scattered, and Galvan misses the competition." } },
+    alterac = { { id = "tp_alterac", text = "Galvan worked the mines of Alterac before the war, and the ore there was cold and pure as the snow. Galvan would give his beard to work that ore again, but the ogres hold those mines now." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Galvan went to Booty Bay once and left with a headache and a lighter purse. The jungle is quieter, and the mithril listens better." } },
     _none = { { id = "tp_none", text = "Galvan knows metal, not that! Ask him about mithril instead." } },
   },
 }

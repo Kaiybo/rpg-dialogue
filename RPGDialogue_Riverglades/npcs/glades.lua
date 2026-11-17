@@ -30,7 +30,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Who sent you? Never mind, it doesn't matter now, because it's too late for me, stranger, and I won't be walking out of this one." },
+          text = "Who sent you? Never mind, it doesn't matter now, because it's too late for me, stranger, and I won't be walking out of this one, and Abigail will never know why." },
         { id = "h_saving", when = { questActive = TODO_QUEST("Saving Marshal Ryan") },
           text = "You came from Farholde, with my log in your hand. Then Demar read it, and I'm glad, though it's too late for me, stranger, and I won't be walking out of this one." },
         { id = "h_dying", when = { questActive = TODO_QUEST("Dying Wish") },
@@ -58,7 +58,7 @@ P:NPC {
         { id = "wh_default", text = "I followed their supply trains here, to this fortress in the west, and I wrote down every wagon in that log. Then I got too close, as I always said I wouldn't, and they caught me." },
       },
       choices = {
-        { text = "What did you see inside?", next = "what_saw" },
+        { text = "You must have seen a good deal inside.", next = "what_saw" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -82,7 +82,7 @@ P:NPC {
         { id = "ab_default", text = "My betrothed, once. She wanted me to come to Stormwind and live with her family, and I told her I'd come when this land was clean of orcs, and we haven't spoken since." },
       },
       choices = {
-        { text = "Do you regret it?", next = "abigail_regret" },
+        { text = "You sound as if you regret it.", next = "abigail_regret" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -123,6 +123,9 @@ P:NPC {
   topics = {
     brotherhood_horse = { { id = "tp_bh", text = "Best riders in the east, and the most stubborn. Tell them I kept the oath, right to the end." } },
     twilights_hammer = { { id = "tp_th", text = "There are more of them than anyone at Farholde wants to believe. It's all in the log, every wagon of it." } },
+    holy_light = { { id = "tp_holy_light", text = "Light keep me. I'm too far gone for prayers to mend, but say one for Abigail, if you would." } },
+    bolvar = { { id = "tp_bolvar", text = "Tell Stormwind the Marshal held his post. Tell them that, and tell Abigail I'm sorry." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in the old war, and I swore I'd never let the glades fall again. I held them as long as I could." } },
     _none = { { id = "tp_none", text = "I don't know, and I won't be finding out now. Ask Demar." } },
   },
 }
@@ -183,7 +186,7 @@ P:NPC {
         { id = "en_default", text = "It goes, chum, and that's all you need to know. I'm keeping you on a need-to-know basis, because trade secrets are the only thing in this business nobody can steal twice." },
       },
       choices = {
-        { text = "Does it work yet?", next = "engine_works" },
+        { text = "It doesn't look like it works yet.", next = "engine_works" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,7 +206,7 @@ P:NPC {
         { id = "ga_default", text = "Because it's free, chum! Nobody owns a swamp's burps, not even Melbin, and the ponds out here put out tons of the stuff from vents by the water, which is pure profit if you can catch it." },
       },
       choices = {
-        { text = "Is it dangerous to collect?", next = "gas_danger" },
+        { text = "That must be dangerous to collect.", next = "gas_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -236,6 +239,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Born with nothin' but ideas, and I've still got most of the ideas, chum. The money's comin', any day now, and when it does, I'll remember who bottled the gas." } },
     advice = { { id = "tp_ad", text = "Never tell anybody how it works until they've paid, chum. After they've paid, tell 'em it's under warranty." } },
     powderfuse_port = { { id = "tp_port", text = "Melbin's port, if you ask Melbin, and I don't, chum. I sell to anybody who comes by boat, and most of 'em don't ask questions." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who think they know fuel, pal, and none of them have even heard of marsh gas. When my engine runs, they'll come crawling to me for a license." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company would steal my design in a heartbeat, which is why I'm not telling anybody how it works. Nobody, not even you, especially not you." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's always looking for the next big thing, and I'm it. Marsh gas, pal, remember where you heard it first." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay runs on coal and rum, and both are going to be obsolete when my engine's done. Mark my words." } },
     _none = { { id = "tp_none", text = "Is that somethin' I can sell? No? Then I don't know about it, chum." } },
   },
 }
@@ -282,7 +289,7 @@ P:NPC {
       },
       choices = {
         { text = "What are you doing out here?", next = "why" },
-        { text = "Do you know Jazzle Cheapshot at the port?", next = "jazzle" },
+        { text = "Do you know Jazzle Cheapshot at the port?", next = "jazzle", when = { heardLine = "jazzle.h_default" } },
         { text = "What makes a good fighter, to you?", next = "fighter" },
         { text = "Here's a rank. Want to sign me?", next = "xpvp", when = { pvpRank = 3 } },
         { text = "I'll pass.", next = "END" },
@@ -346,6 +353,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Gadgetzan born, ring-raised, kid. I've promoted fights between things you wouldn't believe, and I sold out every one, even the one that blew up the stands." } },
     advice = { { id = "tp_ad", text = "Never fight for free, kid. The war out here's the worst-paid job in Azeroth, and I've seen the books." } },
     powderfuse_port = { { id = "tp_port", text = "Nice port, small arena, smaller crowds. Cheapshot's got a lot to learn about crowds, kid, and I'm not givin' lessons for free." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's the best show in the world, pal, blood and gold and screaming crowds. I want to bring that kind of excitement to the Riverglades, and the war here's already half the show." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where I got my start, promoting fights in the dust for anybody with a coin to bet. Good town, great customers." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's crowds love a good brawl, and they pay through the nose for a ringside seat. The Riverglades could be just as profitable, with the right management." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's got some fine fighters, and the orcs especially put on a good show. I'd love to get a few of them in the ring, for the right price." } },
     _none = { { id = "tp_none", text = "Does it sell tickets? No? Then I can't help you, kid." } },
   },
 }

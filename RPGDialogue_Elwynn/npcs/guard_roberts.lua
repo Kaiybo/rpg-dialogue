@@ -50,7 +50,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. It takes my mind off the leg." },
       },
       choices = {
-        { text = "What happened to you?", next = "hurt" },
+        { text = "You look like you've taken a beating.", next = "hurt" },
         { text = "Why hasn't anyone carried you to Goldshire?", next = "carried" },
         { text = "What's there to watch out here?", next = "watch" },
         { text = "Hold still. Let me heal you.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
@@ -123,5 +123,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Mind the lakeshore after dark. The bank's softer than it looks, whatever I told the marshal." } },
     defias = { { id = "tp_defias", text = "They're on every road these days, and I'll swear one of them was on mine.", next = "hurt" } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I've been lying here a while, and news comes slowly to the grass." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "I can see the island from where I lie, and the stone ring where the wizards walk at night. They light fires that burn the wrong colour, and I report it, and nobody comes." } },
+    holy_light = { { id = "tp_holy_light", text = "Priestess Josetta sends young priests to pray over my leg, and I'll say this much: it hurts less after. Whether that's the Light or the company, I couldn't tell you." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I've walked a good few Defias to the Stockade in my time, and every one of them swore he was innocent. One of them might have been, I suppose." } },
+    varian = { { id = "tp_varian", text = "A guard doesn't ask where the king's gone; a guard stands where he's put. It's harder than it sounds, lying here with nothing to stand on." } },
   },
 }

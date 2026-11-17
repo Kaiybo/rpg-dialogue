@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "torek", id = TODO_NPC("Torek"), name = "Torek",
   bible = "bibles/torek.md", role = "soldier", tier = "quest",
+  prejudice = { race = "Scourge", amount = 8, why = "an orc who fights for scars and songs; the Forsaken fight without joy and keep vats under their city, so he doesn't trust them" },
   communities = { "splintertree" }, temper = { "eager", "boisterous" }, values = { "glory", "loyal" },
   notices = { "soldier", "class" },
   impression = {
@@ -14,10 +15,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Hey, {class}, come here! I've got a fight that needs one more blade." },
+    { id = "g_pj_dead", when = { prejudiced = true }, text = "A Forsaken in my raiding camp. Thrall says you're Horde, so I'll say it too, but a warrior who can't bleed can't earn a scar, and I don't trust anyone who has nothing left to lose." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "There you are! I've been telling the raiders you fight like an orc with a grudge, and they laughed, so I made them stop. I was wrong about the Forsaken, or at least about you." },
+    { id = "g_hello", text = "Lok'tar, {class}, come here! I've got a fight that needs one more blade, and there's honor enough in it for both of us." },
     { id = "g_active", when = { questActive = TODO_QUEST("Torek's Assault") }, text = "Ready? My raiders are itching, and the elves won't wait forever to notice us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Silverwing burned, and Duriel Moonfire fell! I'm still picking splinters out of my arm, and I couldn't be happier." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs? You're not trying hard enough, {class}." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs? You're not trying hard enough, {class}, so come and bleed with us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've put on muscle since we hit Silverwing together. Come raid with me again and add some scars to match." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Heard you put the fear into somebody at the post. Good! Save some for the elves, though." },
   },
@@ -31,10 +34,55 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_torek = {
+      lines = { { id = "pj_torek_default", text = "Plainly, then. An orc fights to be remembered, and every scar is a story his children will tell, but you dead fight like you're clearing a field, with no joy in it at all. And the grunts say the apothecaries brew things under your city that a warrior shouldn't touch." } },
+      choices = {
+        { text = "What have the grunts heard about the apothecaries?", next = "pj_torek2" },
+        { text = "A fight's a fight. I'll earn your respect on the field.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Joy doesn't win wars, orc. Patience and poison do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I see why we unsettle you. Give it time.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_torek2 = {
+      lines = { { id = "pj_torek2_default", text = "Only what gets said round the fire, that the Forsaken keep vats of sickness under the Undercity and don't like questions about them. Maybe it's grunt talk, but I've never known a grunt invent something that frightened him." } },
+      choices = {
+        { text = "I'll keep my own eyes open. Thanks for the warning.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Don't say that loud in Splintertree, because there are grunts here who'd agree with you, and that's the problem. You tell me, then: what do you make of the Warchief?" },
+      },
+      choices = {
+        { text = "He freed us from the camps. I'd follow him anywhere.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's too soft on the humans, and on the elves.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { warchief = "soft" } } },
+        { text = "Thrall wants peace. The Warsong camp makes that harder.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { warchief = "respect", peace = "peace" } } },
+        { text = "Thrall is the son of Durotan. That's enough for me.", next = "op_r4", fx = { affinity = 1, opinion = { warchief = "loyal" } }, when = { race = "Orc" } },
+        { text = "I'll keep my thoughts to myself.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "So would I, and so did I, but freedom doesn't build walls. We build them, out here, with Warsong lumber." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Ha! You and half my raiders. Keep it in the barracks, though, because there's a runner from Orgrimmar in town." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Warsong make lumber, and lumber makes Orgrimmar, and I don't see Thrall sending it back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "It's enough for me most days. On the other days I remember that Durotan never had to feed a city." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious." },
+          text = "I'm Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious, and we'll all come home with fresh scars." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Torek's Assault") },
           text = "Stay close and keep my raiders alive, and when it's over, you report our success to Ertog Ragetusk. With luck, we'll all gain some good scars today." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Torek's Assault"), days = 3 } },
@@ -47,16 +95,17 @@ P:NPC {
           text = "One of the Forsaken. You don't scar, do you? That seems unfair, but I'll still take your blade." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask fast, my raiders are getting bored." },
-        { id = "h_again2", text = "Speak up, {class}. Talking's fine, but fighting's better." },
+        { id = "h_again", text = "What else? Ask fast; my raiders are getting bored, and a bored orc is a dangerous thing." },
+        { id = "h_again2", text = "Speak up, {class}. Talking's fine, but an orc proves himself with deeds, not words." },
       },
       choices = {
         { text = "Why attack Silverwing Outpost?", next = "why" },
         { text = "Who is Duriel Moonfire?", next = "duriel" },
-        { text = "Why do you want scars?", next = "scars" },
+        { text = "You seem eager for scars.", next = "scars" },
         { text = "Thrall wants peace. Is this wise?", next = "thrall" },
-        { text = "I'm a warrior too. What's your plan?", next = "warrior_t", when = { class = "WARRIOR" } },
+        { text = "I'm a warrior too, and I'd like to hear your plan.", next = "warrior_t", when = { class = "WARRIOR" } },
         { text = "I'm with you.", next = "BUSINESS" },
+        { text = "You don't trust the Forsaken, Torek. Say it plainly.", next = "pj_torek", when = { prejudiced = true } },
         { text = "Not today, Torek.", next = "END" },
       },
     },
@@ -127,6 +176,7 @@ P:NPC {
         { id = "th_default", text = "The Warchief wants peace, sure, and he also wants Orgrimmar built and warm. Hellscream's people at Warsong cut the wood, and we keep the elves off them, and that's all this is." },
       },
       choices = {
+        { text = "Some say Thrall's gone soft. What do you think?", next = "op_ask" },
         { text = "It's a thin line, Torek.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -147,6 +197,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In these woods, the arrow comes before the sound. Keep your shield up even when it's quiet." } },
     warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and I'd rather it was me." } },
     sentinels = { { id = "tp_sentinels", text = "Good fighters, every one, and quieter than any orc. I like them better than I should." } },
-    _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking." } },
+    thrall = { { id = "tp_thrall", text = "Thrall broke the chains on my people and gave us back our honour. I raid these woods because he needs the timber, and I'd raid anywhere he asked." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion used my people once, and Grom paid for our freedom with his life at Ashenvale. I'll fight the demons any day, and I'll laugh while I do it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are a good fight, all charge and fury. I'd raid them for sport if the Warchief allowed it." } },
+    _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking, and I do the bleeding." } },
   },
 }

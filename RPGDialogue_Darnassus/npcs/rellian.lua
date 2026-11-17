@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Welcome, friend. Mind the seedlings; they are the only healthy things on this table." },
+    { id = "g_hello", text = "Ishnu-alah, friend. Mind the seedlings, for they are the only healthy things on this table." },
     { id = "g_tumors", when = { questActive = TODO_QUEST("Tumors") }, text = "The timberlings at Wellspring Lake, friend, the ones that wander the shore. Bring me the tumors so they can be burned." },
     { id = "g_denalan", when = { questActive = TODO_QUEST("Return to Denalan") }, text = "Go to Denalan quickly. If he has found the cause, I want to hear it from him before nightfall." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've buried three more tumors in the fire pit since. Welcome back." },
@@ -33,6 +33,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "o_teldrassil_tree_wrong", tags = { "news" }, when = { gossip = { topic = "teldrassil_tree", stance = "wrong" } },
+          text = "Denatharion says you doubt the tree. Come and see my timberlings, then, and tell me whether it's the tree that's wrong or something in the water." },
         { id = "h_default", key = true,
           text = "I'm Rellian Greenspyre. I've been helping Denalan at Lake Al'Ameth with his work on the timberlings, though lately my help has mostly meant bad news." },
         { id = "h_seed", tags = { "news" }, when = { questActive = TODO_QUEST("Rellian Greenspyre") },
@@ -52,7 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the timberlings?", next = "sickness" },
-        { text = "How do you know Denalan?", next = "denalan" },
+        { text = "You speak as if you know Denalan well.", next = "denalan" },
         { text = "Must we really kill them?", next = "cull" },
         { text = "Could the Circle heal them in their dreaming?", next = "druid_r", when = { class = "DRUID" } },
         { text = "I've seen fel moss on the grells and furbolgs too.", next = "felmoss", when = { any = { { questDone = TODO_QUEST("Gnarlpine Corruption") }, { topicKnown = "fel_moss" } } } },
@@ -75,7 +77,7 @@ P:NPC {
         { id = "sw_default", text = "That is the question Denalan has been chasing for months. Wellspring Lake, north of Dolanaar, is the worst of it, so whatever feeds it is near there, or flows down from there." },
       },
       choices = {
-        { text = "And if the source is in the tree itself?", next = "sickness_tree" },
+        { text = "The source might be in the tree itself.", next = "sickness_tree" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,6 +158,10 @@ P:NPC {
     fel_moss = { { id = "tp_felmoss", text = "I don't know that the moss on the timberlings and the fel moss on the Gnarlpine are the same thing, but I'd bet my seeds on it." } },
     teldrassil = { { id = "tp_tree", text = "It's young, for a world tree, and young things catch sicknesses. That's what I tell myself, anyway." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle tends the whole world's balance. I tend one lake's worth of timberlings, and some days that feels like too much." } },
-    _none = { { id = "tp_none", text = "I'm afraid that's outside my seed beds, friend. Ask someone at the Enclave." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I've walked the edges of the Dream a few times, and every seed there grows the way it was meant to. Then I wake and go back to fel moss, and I try not to resent it." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight sleeps beneath the great trees in Ashenvale and Feralas and the human lands. The ground around those trees grows strange lately, and I don't like it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil grew from the Well's waters and Teldrassil grew from Fandral's will. I've kept seeds from both, and I'll let you guess which ones sprout more willingly." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs left untouched by the corruption, and they guard their tunnels in Felwood fiercely. Bring them clean seeds and they'll speak with you." } },
+    _none = { { id = "tp_none", text = "I'm afraid that's outside my seed beds, friend. Ask someone at the Enclave, where the druids have had ten thousand years to learn the answer." } },
   },
 }

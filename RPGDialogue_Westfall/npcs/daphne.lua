@@ -115,11 +115,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. They won't come while we're talking, because they don't like witnesses." },
       },
       choices = {
-        { text = "Aren't you afraid out here?", next = "afraid" },
-        { text = "Tell me about Jordan.", next = "jordan" },
+        { text = "You must be afraid out here.", next = "afraid" },
+        { text = "Is there anyone else on the farm with you?", next = "jordan" },
         { text = "Why would the Defias want your farm?", next = "farm" },
         { text = "You fight them yourself?", next = "fought" },
-        { text = "Duthorian Rall sent me to watch over you.", next = "rall", when = { class = "PALADIN" } },
+        { text = "Duthorian Rall sent me to watch over you.", next = "rall", when = { class = "PALADIN", any = { { questActive = TODO_QUEST("The Tome of Valor") }, { questDone = TODO_QUEST("The Tome of Valor") } } } },
         { text = "Where do you pray, all the way out here?", next = "pray", when = { class = "PRIEST" } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I could slip down among the Defias below and listen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -128,7 +128,7 @@ P:NPC {
         { text = "Do the murlocs come up as far as your farm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your orchard lives where the rest of Westfall died. How?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Defias below fear something like my imp?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you ever fear the Defias down the hill, Daphne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You don't seem to fear the Defias down the hill, Daphne.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },
     },
@@ -149,7 +149,7 @@ P:NPC {
       choices = { { text = "Let's keep it that way.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     jordan = {
-      lines = { { id = "jo_default", text = "Gone to Ironforge a while, to work with the dwarves. Best smith I know, and the most faithful man. He meant to be a paladin once, until his father's anvil wanted him more." } },
+      lines = { { id = "jo_default", text = "My husband Jordan's gone to Ironforge a while, to work with the dwarves. Best smith I know, and the most faithful man. He meant to be a paladin once, until his father's anvil wanted him more." } },
       choices = {
         { text = "You must miss him.", next = "jordan_miss" },
         { text = "He's working with my people, then.", next = "jordan_dwarf", when = { race = "Dwarf" } },
@@ -173,7 +173,7 @@ P:NPC {
     farm = {
       lines = { { id = "fa_default", text = "Look down the hill, love. That's the Longshore, and the way to it runs past my gate. Whatever goes in and out of their holes in these hills, I see it." } },
       choices = {
-        { text = "What have you seen?", next = "farm_seen" },
+        { text = "You must have seen a thing or two from up here.", next = "farm_seen" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,6 +219,14 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light's kept this farm through thieves and drought, and I've never once doubted it would. I keep my prayers short and my blade sharp, which I think is how the Light prefers it." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You'll know better than me, friend, but I think the Light likes a woman who prays with a sword in reach. I've had no complaints from it so far." },
+    },
+    deadmines = { { id = "tp_deadmines", text = "Jordan wrote to me once that the Defias are tunnelling under Moonbrook like moles, and that the whole mine rings with hammers at night. I'd go down there myself if somebody would mind the apples." } },
+    northshire_abbey = { { id = "tp_northshire_abbey", text = "I was baptised at Northshire Abbey, and I still remember the brothers singing in the yard. I'd go back to hear it again, if the Defias would only give me a quiet week." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail pirates sail past the Longshore now and then, and I've seen their red sails from my orchard. They don't come ashore here, because the Defias would want a cut, and that's the one good thing about either of them." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Jordan took me to the Darkmoon Faire once when we were courting, and he won me a ribbon at the ring toss. I've still got it, tied to the farm gate, and the Defias have never dared take it down." } },
     background = { { id = "tp_bg", text = "I'm a farm wife with a sea view, a husband in Ironforge and a gun, and you'd best not forget the gun.", next = "fought" } },
     advice = { { id = "tp_ad", text = "Pick your apples before the thieves notice they're ripe. Same goes for most things." } },
     defias = { { id = "tp_defias", text = "They want the farm because it overlooks their road to the sea. They can't have it." } },

@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Clugfist is of Bolder'ok. Bolder'ok was Twilight once, but not now, and now Bolder'ok is Horde." },
+          text = "Clugfist is of Bolder'ok. Bolder'ok was Twilight once, but not now, and now Bolder'ok is Horde. Only young Jom-jom is missing, and Clugfist is worried." },
         { id = "h_jomjom", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Jom-Jom's Escape"), days = 3 } },
           text = "Jom-jom saved by a little one, and Clugfist did not think little ones could carry so much ogre home. Little one is friend now." },
         { id = "h_orc", when = { race = "Orc" },
@@ -51,10 +51,10 @@ P:NPC {
       },
       choices = {
         { text = "Why did Bolder'ok leave the Twilight's Hammer?", next = "left" },
-        { text = "Why join the Horde?", next = "horde" },
+        { text = "An ogre clan joining the Horde is a strange thing.", next = "horde" },
         { text = "Who is Jom-jom?", next = "jomjom" },
-        { text = "What do you know of Krol'dok?", next = "kroldok" },
-        { text = "Is Jom-jom all right?", next = "jomjom_after", when = { questDone = TODO_QUEST("Jom-Jom's Escape") } },
+        { text = "Where do the Twilight ogres live now?", next = "kroldok" },
+        { text = "Jom-jom seems none the worse for his adventure.", next = "jomjom_after", when = { questDone = TODO_QUEST("Jom-Jom's Escape") } },
         { text = "Do you trust shadow magic now?", next = "xlock", when = { class = { "WARLOCK", "PRIEST" } } },
         { text = "Farewell, Clugfist.", next = "END" },
       },
@@ -85,7 +85,7 @@ P:NPC {
         { id = "ho_default", text = "Horde fights Twilight, Bolder'ok fights Twilight, so Horde and Bolder'ok are friends. The orcs at Rog'mar give us meat and axes, and we give them ogres, which is a good trade." },
       },
       choices = {
-        { text = "And the humans at Farholde?", next = "horde_humans" },
+        { text = "And the humans in these glades?", next = "horde_humans" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,6 +93,32 @@ P:NPC {
       lines = {
         { id = "hh_default", text = "Humans on horses do not like ogres, and Clugfist does not blame them, because the Twilight ogres burned their towns. Bolder'ok stays on this side of the river, and they stay on that side, and nobody gets hit." },
       },
+      choices = {
+        { text = "Do you trust the orcs, Clugfist?", next = "ho_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Clugfist asks the player whether the Horde will keep faith with Bolder'ok.
+    ho_trust = {
+      big = true,
+      lines = { { id = "ht_default", text = "Clugfist trusts axes, and orcs give axes. But you walk with the Horde, so tell Clugfist true: are orcs real friends, or only friends while the Twilight lives?" } },
+      choices = {
+        { text = "Real friends. The Horde keeps its word.", next = "ho_trust_yes", fx = { opinion = { horde = "loyal" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "Only while it suits them. Watch your back.", next = "ho_trust_no", fx = { opinion = { horde = "distrust" }, align = { honor = -1 } } },
+        { text = "Leaving the Hammer took more courage than any war.", next = "ho_trust_brave", fx = { opinion = { rg_bolderok = "respect" }, affinity = 1 } },
+        { text = "Clugfist should ask the orcs, not me.", next = "BACK" },
+      },
+    },
+    ho_trust_yes = {
+      lines = { { id = "hty_default", text = "Good! Clugfist thinks so too, but Clugfist likes hearing it from someone small and clever. Clugfist will tell the others." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ho_trust_no = {
+      lines = { { id = "htn_default", text = "Hrm. Clugfist watches his back already, because the Twilight taught Clugfist that. But Clugfist will watch it harder now, and Clugfist will remember who said it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ho_trust_brave = {
+      lines = { { id = "htb_default", text = "Nobody says that to Clugfist before. The prophets called us cowards when we left, and Clugfist almost believed them. Clugfist does not believe them now." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     jomjom = {
@@ -155,6 +181,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If the Twilight say they want to help you, run away. Clugfist did not run fast enough the first time." } },
     twilights_hammer = { { id = "tp_th", text = "Liars with robes and altars. They tell ogres the sky will fall, and they make ogres bleed to help it fall faster." } },
     krol_dok = { { id = "tp_kd", text = "Caves in the mountains, full of Twilight ogres and their slaves. Clugfist does not go there any more." } },
+    second_war = { { id = "tp_second_war", text = "Clugfist's grandfather marched with the orcs in the big war and came home with one arm and many stories. Clugfist liked the stories, and did not like the arm." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs used ogres like hammers in the old wars and threw them away when they broke. Clugfist does not miss the Blackrock, and the Blackrock do not miss Clugfist." } },
+    thrall = { { id = "tp_thrall", text = "Little ones say the new orc chief does not make slaves of ogres. Clugfist has not met him, but Clugfist likes what little ones say about him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves live in the burning mountain to the west, and they have fire in their eyes and no friends. Clugfist stays away, and so should little one." } },
     _none = { { id = "tp_none", text = "Clugfist does not know that, so little one should ask an orc. Orcs know many things." } },
   },
 }
@@ -201,8 +231,8 @@ P:NPC {
       choices = {
         { text = "Who was your friend?", next = "friend" },
         { text = "Why did you go alone?", next = "alone" },
-        { text = "What's Bolder'ok like?", next = "home" },
-        { text = "Do you miss the Twilight's Hammer?", next = "twilight" },
+        { text = "Bolder'ok must be a fine place for an ogre.", next = "home" },
+        { text = "You must miss the Twilight's Hammer a little.", next = "twilight" },
         { text = "I'll get you home, Jom-jom.", next = "END", when = { questBefore = TODO_QUEST("Jom-Jom's Escape") } },
         { text = "Stay close.", next = "END" },
       },
@@ -232,7 +262,7 @@ P:NPC {
         { id = "al_default", text = "Because Clugfist would say no, and Clugfist says no very loudly. Jom-jom is big, so Jom-jom thought it would be easy." },
       },
       choices = {
-        { text = "Was it easy?", next = "alone_easy" },
+        { text = "That can't have been easy.", next = "alone_easy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -258,6 +288,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Jom-jom is from the mound, and then from Bolder'ok. Jom-jom is not very old, Clugfist says, and not very clever either." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "Jom-jom went to the robe men because they said they were friends, and they were not friends. Jom-jom does not want to talk about it, please." } },
+    second_war = { { id = "tp_second_war", text = "Clugfist tells stories about the big war, with orcs and dragons and fire. Jom-jom likes the stories, but Jom-jom would not like to be in one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Jom-jom heard about a fair with lights and music and little ones who juggle fire. Jom-jom would like to see it, if they let ogres in." } },
     _none = { { id = "tp_none", text = "Jom-jom does not know. Ask Clugfist; Clugfist knows everything." } },
   },
 }

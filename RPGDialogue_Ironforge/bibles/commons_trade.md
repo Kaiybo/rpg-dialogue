@@ -21,7 +21,7 @@ Purse: a heavy purse.
 ## Their quests
 - none.
 ## Identity
-Quick, cheerful, numerate Gnomeregan refugee. Authored, not canon: tallied water rates in Gnomeregan; Redmuse caught her correcting sums.
+Quick, cheerful, numerate Gnomeregan refugee. Speech: gnomish, no burr; sums, percentages and ledger columns in long quick sentences. Authored, not canon: tallied water rates in Gnomeregan; Redmuse caught her correcting sums.
 ## What they notice
 Gnome: fellow gnomes.
 

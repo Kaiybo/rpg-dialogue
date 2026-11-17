@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid, and I've lost money betting on the first one before." },
-    { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft, and they were the last orcs with any blood left in them." },
     { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and they won't hold you up either, when my friends come." },
   },
 
@@ -38,12 +38,12 @@ P:NPC {
           text = "Alliance, here? The Blackrock will mount your head beside the others, and I'll watch from a comfortable distance." },
       },
       again = {
-        { id = "h_again", text = "Anything else, before the guards notice you?" },
+        { id = "h_again", text = "Anything else, slave of Thrall, before the guards notice you?" },
         { id = "h_again2", text = "Speak, then, since you've walked so far to hear me." },
       },
       choices = {
         { text = "Why did you betray Kargath?", next = "why" },
-        { text = "What did you tell the Blackrock?", next = "secrets" },
+        { text = "You told the Blackrock plenty, I'd wager.", next = "secrets" },
         { text = "What do you think happens to you now?", next = "fate" },
         { text = "I'm Horde. You betrayed my people.", next = "xhorde", when = { faction = "Horde" } },
         { text = "The Blackrock will use you and discard you.", next = "xorc", when = { race = "Orc" } },
@@ -76,7 +76,7 @@ P:NPC {
         { id = "se_default", text = "Kargath's day to day operations, patrols, supply runs, who sleeps where and when the watch changes. Lexlort caught me with the papers in my hand, I'll give him that, but he caught me too late." },
       },
       choices = {
-        { text = "How many died because of it?", next = "secrets_cost" },
+        { text = "Soldiers died because of what you told them.", next = "secrets_cost" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,8 +134,15 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I served at Kargath until I found a better master. That's all you need to know." } },
+    background = { { id = "tp_ba", text = "I served at Kargath until I found a better master, one who still remembers the strength the old Horde had. That's all you need to know." } },
     advice = { { id = "tp_ad", text = "Always know who's winning, and stand beside them before they've won." } },
-    _none = { { id = "tp_none", text = "Why would I tell you anything for free?" } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief is a fool who's made the Horde soft, and I've found a stronger master. I don't expect you to understand." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the slave-born fool too, then, and you'll learn soon enough that the old ways were stronger. I'll be here when you do." },
+    },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock clan remembers what the Horde was, before Thrall made us weak. I serve them now, and I'm not sorry." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire is a fortress no army can take, and I'm safe inside it. Kargath can scream all it likes." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons rule the Spire, and they reward those who serve them. You should consider it." } },
+    _none = { { id = "tp_none", text = "Why would I tell you anything for free? Honor never filled my purse." } },
   },
 }

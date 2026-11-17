@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Aendel Windspear · ruins of Southwind Village · neutral (Cenarion Circle) · night elf ghost (female) · leatherworker
 Personality: serene, exacting, gently wry, unfinished
-Speech: measured, old-fashioned, unhurried
+Speech: measured, old-fashioned, unhurried; kaldorei: Elune, long memory of Southwind and Ashenvale
 Relationships: Layo Starstrike (kind; she isn't ready to go with him), the Hold's druids and scouts
 Never says: how Southwind ended
 

@@ -15,9 +15,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You are brave to come here, or foolish, and in Shadra'Alor there is little difference." },
+    { id = "g_default", text = "You are brave to come here, or foolish, and in Shadra'Alor the loa do not trouble to tell the two apart." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the Witherbark have not killed you yet. Speak quickly, before they reconsider." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I am still here, still an exile. Time passes differently for those with nowhere to go." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I am still here, still an exile. Time passes differently for those with nowhere to go, and the spirits of my fathers do not visit an outcast's fire." },
     { id = "g_head", when = { questActive = TODO_QUEST("Jammal'an the Prophet") }, text = "Once Jammal'an has been removed, I stand a chance of returning to my people. Remember that, inside the temple." },
   },
 
@@ -33,7 +33,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I was a priest of the Atal'ai, the great tribe of the Swamp of Sorrows, until Jammal'an named me an infidel and drove me from the temple. Now I live here with the Witherbark, who do not take kindly to strangers, or to me." },
+          text = "I was a priest of the Atal'ai, the great tribe of the Swamp of Sorrows, until Jammal'an named me an infidel for doubting his prophecy of Hakkar's return and drove me from the temple. Now I live here with the Witherbark, who do not take kindly to strangers, or to me." },
         { id = "h_bundle", tags = { "news" }, when = { questActive = TODO_QUEST("The Atal'ai Exile") },
           text = "You bring me the summoning artifacts of the Atal'ai? So Jammal'an is leading the disciples of the Chamber of Blood toward their chosen fate, and I wonder whether Hakkar has returned to the temple." },
         { id = "h_bundle_done", when = { questActive = TODO_QUEST("Return to Fel'Zerul") },
@@ -46,15 +46,15 @@ P:NPC {
           text = "A troll who walks with the Horde. My people would call you lost, and perhaps I would have, once, but now I am the lost one." },
       },
       again = {
-        { id = "h_again", text = "What else? The Witherbark are watching us." },
+        { id = "h_again", text = "What else? The Witherbark are watching us, and their witch doctors be watching hardest." },
         { id = "h_again2", text = "Ask, if you must. I have time, and nothing else." },
       },
       choices = {
         { text = "Why were you exiled?", next = "exile" },
         { text = "What is Jammal'an's prophecy?", next = "prophecy" },
         { text = "Who is Hakkar?", next = "hakkar" },
-        { text = "How do you live among the Witherbark?", next = "witherbark" },
-        { text = "Do the loa still answer you?", next = "loa", when = { race = "Troll" } },
+        { text = "Living among the Witherbark can't be easy.", next = "witherbark" },
+        { text = "I'd guess the loa still answer you.", next = "loa", when = { race = "Troll" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -122,7 +122,7 @@ P:NPC {
         { id = "wi_default", text = "As a guest they do not want and will not kill, because a priest is a priest, even an outcast one. I tend their sick, and they let me sleep at the edge of their fires." },
       },
       choices = {
-        { text = "Are they dangerous to you?", next = "witherbark_danger" },
+        { text = "They must be dangerous to you.", next = "witherbark_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,9 +145,12 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know the Atal'ai, their temple and their god, more than I would wish to. Ask, stranger." } },
+    knows = { { id = "tp_knows", text = "I know the Atal'ai, their temple and their god, more than I would wish to, for I sang his hymns with blood on my hands. Ask, stranger." } },
     background = { { id = "tp_bg", text = "A priest of the Atal'ai, once. Now only an exile, and the Witherbark do not let me forget it." } },
     advice = { { id = "tp_ad", text = "If you enter the temple, do not listen to the singing. Some of it is meant for you." } },
-    _none = { { id = "tp_none", text = "That is not a thing an exile would know. Ask someone with a home." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai sank their own temple to hide their god, and they still worship him in the swamp. Jammal'an leads them now, and he is mad, and I said so, and that is why I am here." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken Hakkar in Zul'Gurub, and his priests are spreading his blood through every tribe that will listen. The Witherbark are listening, and I am trying to make them stop." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are traitors, the Atal'ai say, for siding with the orcs. I think they are the only trolls with any sense left in them." } },
+    _none = { { id = "tp_none", text = "That is not a thing an exile would know. Ask someone with a home, and loa who still answer." } },
   },
 }

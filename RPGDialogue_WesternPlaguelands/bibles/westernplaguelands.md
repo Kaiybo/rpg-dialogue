@@ -116,3 +116,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ### Voices (authored, not canon)
 - Lightspark: brisk, tidy, ledger-minded gnome; sells only by Argent Dawn standing and says so kindly. Leonard: dour tanner who burns any hide that smells wrong.
 - Never: the Argent Crusade, Mother Matterly's inn (both later).
+
+## Race voice (0.80.0)
+- Garush: orc; plain, martial, "the way orcs always have"; the camps and Thrall. Mulgris: tauren; the Earth Mother, the plains, closing blessings. Bibilfaz and Lightspark: gnomes; numbers, measurements, Gnomeregan.

@@ -29,6 +29,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_default", text = "I've had a long while on this road to think about it, and I still go back and forth like a kodo at a river crossing. The orcs saved Mulgore, and then they sent me here to die. What do you think, friend?" },
+      },
+      choices = {
+        { text = "The Horde gave the tauren a home and allies. It was worth it.", next = "op_horde_trust", fx = { affinity = 1, align = { honor = 1 }, opinion = { horde = "trust" } } },
+        { text = "The tauren pay the orcs' debts in blood. It isn't fair.", next = "op_horde_distrust", fx = { align = { honor = -1 }, opinion = { horde = "distrust" } } },
+        { text = "Cairne chose well. I'd follow him anywhere.", next = "op_horde_trust", fx = { affinity = 2, opinion = { cairne = "trust", horde = "trust" } }, when = { race = "Tauren" } },
+        { text = "The Horde sent you to die here. That's what I think.", next = "op_horde_distrust", fx = { opinion = { horde = "hate" } }, when = { faction = "Alliance" } },
+        { text = "I think you've earned some rest.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_horde_trust = {
+      lines = {
+        { id = "opht_default", text = "That's what I tell myself on the good nights, and it's a comfort to hear it from living lips. Thank you, friend; it makes the waiting lighter." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_horde_distrust = {
+      lines = {
+        { id = "ophd_default", text = "Perhaps. But a debt isn't unfair just because it's heavy, and the orcs bled for us against the centaur too. I'd rather we were all of us better at paying, that's all." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -46,7 +70,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you die?", next = "death" },
-        { text = "What is the relic in the chest?", next = "relic" },
+        { text = "What's in that chest beside you?", next = "relic" },
         { text = "Tell me about your captain.", next = "captain" },
         { text = "How did a tauren come to serve in Thrall's Grasp?", next = "grasp" },
         { text = "The Earth Mother waits for you, Thund.", next = "xtauren", when = { race = "Tauren" } },
@@ -59,7 +83,7 @@ P:NPC {
         { id = "de_default", text = "In the Blasted Lands, holding a line we'd been told to hold, waiting for orders that never came. The demons came instead, and we did our duty until there was no one left to do it." },
       },
       choices = {
-        { text = "Were you angry, waiting?", next = "death_wait" },
+        { text = "You must have been angry, waiting.", next = "death_wait" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -79,7 +103,7 @@ P:NPC {
         { id = "re_default", text = "The Shard of the Splithooves, carried by my family for longer than anyone remembers, and brought to war because my grandfather said it brought luck. It didn't, but it's still a fine thing, and you'll make better use of it than a ghost." },
       },
       choices = {
-        { text = "Shouldn't it go back to your family?", next = "relic_family" },
+        { text = "It ought to go back to your family.", next = "relic_family" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,7 +141,10 @@ P:NPC {
       lines = {
         { id = "gr_default", text = "The Warchief asked for soldiers to watch the old lands, and my tribe owed the orcs a debt from the centaur wars in Mulgore. I went to pay it, and I'd go again, though perhaps I'd pack warmer." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Has the Horde been good for the tauren, do you think?", next = "op_horde" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     xtauren = {
@@ -136,6 +163,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
     advice = { { id = "tp_ad", text = "Keep the friends who stand beside you in the worst of it, and let the rest go." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of us, and I was proud to fight under his blessing in Thrall's Grasp. Tell him a Splithoof died well, if you ever see him." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother called me back to the swamp, and I didn't mind, because she was waiting. Death is just another kind of rest." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief named our regiment for himself, and we were proud of it. We still are, those of us that are left." } },
     _none = { { id = "tp_none", text = "I don't know, friend. The dead hear less than the living think." } },
   },
 }

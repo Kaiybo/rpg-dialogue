@@ -23,6 +23,7 @@
 
 ## Authored, not canon
 - Oilfist keeps the forges lit because cold forges once meant punishment; Hansel loves sitting down as the best part of freedom; Lolo tells time by the forge and finds Hansel by his snoring; Kalaran dreams of his father (a lie, inside a lie).
+- Hansel: keeps an eye on Ironforge dwarves (`prejudice`, Alliance Dwarf) because they see a Dark Iron and think Thaurissan; one threw a rock at him on the road last month.
 
 ## Voices
 - Oilfist: stern overseer, Scots-tinged, weary pride, no patience for old feuds.
@@ -40,4 +41,4 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ### Their quests
 - none: service NPCs.
 ### Voices (authored, not canon)
-- Lanie: wry Bronzebeard, fair to the Brotherhood and honest it's strange. Grisha: blunt, watchful; the Blackrock orcs and the Dark Irons at war inside the mountain.
+- Lanie: wry Bronzebeard, fair to the Brotherhood and honest it's strange. Grisha: blunt, watchful, proud orc (Lok'tar, the camps, the Horde); the Blackrock orcs and the Dark Irons at war inside the mountain. Lanie keeps a light burr ("ye", "{g:lad|lass}").

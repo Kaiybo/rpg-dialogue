@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_arcane", when = { gossip = { topic = "arcane_magic", stance = "dangerous" } }, text = "Mahar Ba's been muttering that you think the mages should lock their books away. He's taken it as a challenge, and I've had three requisitions for new shelves since." },
     { id = "g_default", text = "Mind the crates, friend, and don't mind the shouting; the sergeant lost at dice again, and the recruits are paying for it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing? Come in, come in, and tell me you've brought something I can write down." },
     { id = "g_supplies", when = { questDone = TODO_QUEST("Supplies for Nethergarde") }, text = "My powerstone runner! The mages still talk about the day that crate came in glowing." },
@@ -42,6 +43,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_defias = {
+      lines = {
+        { id = "opd_default", text = "The very same, before Stormwind's nobles stiffed his guild and he took it badly, by which I mean with knives. I've a cousin in Westfall, so I hear both sides of it in every letter. Where do you come down on it, friend?" },
+      },
+      choices = {
+        { text = "The masons were cheated. I can't blame them for being angry.", next = "op_defias_nobles", fx = { align = { order = -1 }, opinion = { defias = "nobles_to_blame" } } },
+        { text = "Unpaid or not, murder is murder. Hang the Defias.", next = "op_defias_hang", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 }, opinion = { defias = "hate" } } },
+        { text = "Westfall's farmers paid for that quarrel, not the nobles.", next = "op_defias_westfall", fx = { affinity = 1, opinion = { defias = "hate", westfall = "pity" } }, when = { race = "Human" } },
+        { text = "I'd rather count crates than argue politics.", next = "BACK" },
+      },
+    },
+    op_defias_nobles = {
+      lines = {
+        { id = "opdn_default", text = "Keep your voice down; half the soldiers here are paid by those same nobles, when they're paid at all. Mind you, I've been waiting on a wagon of their silver for three weeks, so I'm not saying you're wrong." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_defias_hang = {
+      lines = {
+        { id = "opdh_default", text = "That's how the Keep sees it, and that's how my ledger sees it, too. A thief's a thief, whether he's got a grievance or not, and my cousin's lost two cows to people with grievances." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_defias_westfall = {
+      lines = {
+        { id = "opdw_default", text = "They did, and they're still paying, if my cousin's letters are anything to go by. The nobles never miss a meal, but the farmers miss plenty, so there's your justice." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Because the road from Stormwind runs through the Swamp of Sorrows and past the orcs at Stonard, and every driver who's made the trip twice asks for double pay the third time. The Blasted Lands are the edge of the world, friend, and nobody hurries to the edge." } },
@@ -114,19 +144,19 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away. Nothing comes up the road after dark, so I've nothing better to do than talk." },
       },
       choices = {
-        { text = "What does a quartermaster need out here?", next = "supplies" },
+        { text = "A quartermaster must need a great deal out here.", next = "supplies" },
         { text = "Who holds Nethergarde Keep?", next = "keep" },
         { text = "What's out there in the wastes?", next = "wastes" },
         { text = "Why guard a portal that's dead?", next = "portal" },
-        { text = "Do your clerics need another pair of hands?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Your clerics look like they need another pair of hands.", next = "priest", when = { class = "PRIEST" } },
         { text = "Demons don't frighten me. I keep one at my heel.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The powerstones came in time, then?", next = "powerstones", when = { questDone = TODO_QUEST("Supplies for Nethergarde") } },
         { text = "What do your soldiers need most, Quartermaster?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Does the keep need fresh meat? I hunt.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "A gnome could keep your powerstones working.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Why do the mages need so many powerstones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Who takes your crates on the road?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why won't anything grow around Nethergarde, Quartermaster?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Your crates must go missing on the road.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Nothing seems to grow around Nethergarde, Quartermaster.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does Nethergarde have any use for a shaman, Quartermaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Why are your supply wagons always late?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll keep an eye out for your crates.", next = "END", fx = { affinity = 1, standing = { nethergarde = 1 } } },
@@ -151,7 +181,7 @@ P:NPC {
           text = "Biggs is alive, thanks to you, and fixing that wagon of his in the swamp. I've stopped listing his caravan under losses, which is the nicest thing I've written all month." },
       },
       choices = {
-        { text = "Can Stormwind keep this up?", next = "supplies_stormwind" },
+        { text = "Stormwind can't keep this up forever.", next = "supplies_stormwind" },
         { text = "Then the road needs guarding.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -184,7 +214,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll carry what I can.", next = "BACK", fx = { affinity = 2, standing = { nethergarde = 2 } } },
-        { text = "Do the mages upstairs know?", next = "supplies_commander" },
+        { text = "The mages upstairs must know about this.", next = "supplies_commander" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -216,6 +246,7 @@ P:NPC {
           text = "VanCleef's masons, the same ones who went off to Westfall and turned to banditry when Stormwind wouldn't settle the bill. I sleep behind their walls every night and try not to think about it." },
       },
       choices = {
+        { text = "VanCleef? The Defias leader built these walls?", next = "op_defias" },
         { text = "Stormwind should have paid them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A bill is no excuse for banditry.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -232,7 +263,7 @@ P:NPC {
           text = "Ogres, first and loudest: the Dreadmaul, who came through the Portal with the Horde and never left, and who hit our walls more often than I'd like. South of them is the Tainted Scar, where the demons are, and between the two of them there's nothing but scorpions and red dust." },
       },
       choices = {
-        { text = "Do the ogres answer to the demons?", next = "wastes_ogres" },
+        { text = "Those ogres seem to answer to the demons.", next = "wastes_ogres" },
         { text = "Anyone else out there?", next = "wastes_others" },
         { text = "Something else.", next = "BACK" },
       },
@@ -341,6 +372,13 @@ P:NPC {
     dreadmaul = { { id = "tp_dreadmaul", text = "Big, loud and regular as the tides. They come at the walls, the soldiers send them home, and I order more arrows.", next = "wastes" } },
     stonemasons = { { id = "tp_masons", text = "They built these walls, and built them well. What became of them after is Stormwind's business, not mine." } },
     burning_legion = { { id = "tp_legion", text = "Ask the mages; they lose sleep over it. I lose sleep over the arrow count, which is worry enough for one man." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord signs my requisitions when they reach him, and they reach him about one time in three. I've stopped blaming him, because I've seen the queue." } },
+    varian = { { id = "tp_varian", text = "The king went missing, and the supply wagons got lighter the same month. I'm not saying the two are connected, only that I've noticed." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor sits on the committee that approves Nethergarde's budget, and our budget has gone down twice since she joined it. I'm sure she has her reasons, and I'm sure I'll never hear them." } },
+    second_war = { { id = "tp_second_war", text = "The Second War is why Nethergarde exists, so somebody would always be watching the Portal. I count crates so the watchers don't have to." } },
+    draenethyst = { { id = "tp_draenethyst", text = "Draenethyst crystals turn up out in the wastes, and Kum'isha pays for them, and I've no idea why. I've written him into the ledger as a regional curiosity." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took the north, and every soldier Stormwind sends there is one it can't send here. I understand it, but my ledger doesn't." } },
+    khadgar = { { id = "tp_khadgar", text = "Archmage Khadgar founded this keep, and he left orders so thorough I'm still finding them in the drawers. I'd have liked to meet him, if only to ask what he meant by half of them." } },
     _none = { { id = "tp_none", text = "If it doesn't come in a crate, it isn't in my ledgers. Try the Watcher upstairs." } },
   },
 }
@@ -357,8 +395,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_alliance", when = { gossip = { topic = "alliance", stance = "failed" } }, text = "The Ambassador says you told him the Alliance failed Quel'Thalas. He's been almost cheerful since, and it's frightening the clerks." },
     { id = "g_default", text = "Ah, a visitor! Do come in, only don't touch the instruments, the papers or, ideally, anything at all." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. I've filled half a book since we last spoke, and none of it good news." },
+    { id = "g_portal_resolved", when = { thread = { id = "portal_watch", state = "resolved" } }, text = "Ah, my fellow watcher! The stones were cold again this morning, and I wrote it down, and I've promised Lungertz not to read it out at supper." },
     { id = "g_essays", when = { questDone = TODO_QUEST("Mazen's Behest") }, text = "My courier of Khadgar! I've read the essays twice already and I understand perhaps half of them, which is twice what I expected." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've filled most of another book in that time, almost none of it good news. Do come in and tell me something better." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a great deal since we last spoke, which is more than I can say for my understanding of the Portal. Come and tell me what you've seen." },
@@ -378,6 +418,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_arcane = {
+      lines = {
+        { id = "opr_default", text = "Oh, both, and that's what makes it so fascinating! The Portal was opened by magic and sealed by magic, and the Kirin Tor have been arguing about what that means for twenty years. I'd love to know what someone outside the argument thinks." },
+      },
+      choices = {
+        { text = "Knowledge is never wrong, only how it's used.", next = "op_arc_useful", fx = { affinity = 1, align = { order = -1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "Magic that strong should be locked away by the Kirin Tor.", next = "op_arc_danger", fx = { align = { order = 1 }, opinion = { arcane_magic = "dangerous", kirin_tor = "trust" } } },
+        { text = "It's my craft, Watcher. I'd sooner lose a hand.", next = "op_arc_useful", fx = { affinity = 2, opinion = { arcane_magic = "admire" } }, when = { class = "MAGE" } },
+        { text = "The Well of Eternity drowned an empire. Be careful.", next = "op_arc_danger", fx = { opinion = { arcane_magic = "dangerous" } }, when = { race = "NightElf" } },
+        { text = "I'll leave that to the Kirin Tor.", next = "BACK" },
+      },
+    },
+    op_arc_useful = {
+      lines = {
+        { id = "opau_default", text = "Exactly! The Portal isn't the fault of magic any more than a flood is the fault of water. Mind you, I wouldn't say that too loudly to the soldiers, who've seen the floods up close." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_arc_danger = {
+      lines = {
+        { id = "opad_default", text = "Locked away? Well, I suppose that's what Nethergarde is, really, a very large lock on a very large door. I don't agree with you, but I'll admit I sleep better knowing someone holds the key." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_mage = {
       big = true,
       lines = { { id = "xpt_mage_default", text = "Like a door left open in winter, with the cold of somewhere else still clinging to it, though the gate has been dead since the far side was destroyed. We watch it anyway, because nobody who saw the Horde come through it ever trusts a closed door again." } },
@@ -462,9 +526,9 @@ P:NPC {
         { text = "Has Nethergarde tried to restore the land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What exactly do you watch for?", next = "watch" },
         { text = "Who was Khadgar?", next = "khadgar" },
-        { text = "What happened to the essays from Stormwind?", next = "essays" },
-        { text = "Your soldiers mention a black drake.", next = "drake" },
-        { text = "Does the Light reach this place, Watcher?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Are you waiting on anything from Stormwind?", next = "essays" },
+        { text = "Does anything hunt from the sky out here?", next = "drake" },
+        { text = "The Light feels thin in this place, Watcher.", next = "priest", when = { class = "PRIEST" } },
         { text = "Dalaran trained me. Does Nethergarde still answer to it?", next = "mage", when = { class = "MAGE" } },
         { text = "My people remember the Legion. We never forget.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "The fel here is power, Watcher, wasted on wards.", next = "warlock", when = { class = "WARLOCK" } },
@@ -473,7 +537,7 @@ P:NPC {
         { text = "Could a druid heal this land?", next = "k_druid", when = { class = "DRUID" } },
         { text = "Did the Silver Hand fight at the Dark Portal, Watcher?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would a warrior do if the Portal woke, Watcher?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What happens to the beasts that live near the Portal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The beasts near the Portal look wrong somehow.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does a Watcher need that a rogue could help with, Mahar Ba?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "My companion is a mage. What does the Portal feel like?", next = "xpt_mage", when = { party = { class = "MAGE" }, faction = "Alliance" } },
         { text = "I'll leave you to your readings.", next = "END" },
@@ -486,7 +550,7 @@ P:NPC {
           text = "The taint, mostly: the soil, the rock, the beasts, all of it changed by the magic that tore the Portal open and then tore it down again. We measure how far it spreads each year, and we make sure it spreads no further than the edge of these lands." },
       },
       choices = {
-        { text = "Is the Portal really dead?", next = "watch_portal" },
+        { text = "The Portal looks dead enough from here.", next = "watch_portal" },
         { text = "Can the land be healed?", next = "watch_heal" },
         { text = "Something else.", next = "BACK" },
       },
@@ -494,7 +558,7 @@ P:NPC {
     watch_portal = {
       lines = { { id = "wp_default", text = "As dead as stone can be. The five who went through sealed it from the far side twenty years ago, and nothing has stirred in it since, though I check every morning anyway, because that is what a watcher is for." } },
       choices = {
-        { text = "Why not tear it down, stone by stone?", next = "watch_tear" },
+        { text = "I'd tear it down, stone by stone.", next = "watch_tear" },
         { text = "Then keep watching. Someone must.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Twenty dead years. Let the mages go home.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -593,6 +657,7 @@ P:NPC {
     mage = {
       lines = { { id = "ma_default", text = "To Dalaran, once, and now to whatever's left of the Kirin Tor and whatever Stormwind will pay for. We're Dalaran's orphans out here, and we try to work as if the masters were still reading our reports." } },
       choices = {
+        { text = "Is magic the cure for this land, or the disease?", next = "op_arcane" },
         { text = "Dalaran will rise again.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -659,6 +724,11 @@ P:NPC {
     khadgar = { { id = "tp_khadgar", text = "The greatest mage of his age, and this keep was his idea. I'll gladly tell you everything, if you have a while.", next = "khadgar" } },
     burning_legion = { { id = "tp_legion", text = "The masters behind the orcs and the Scourge alike, and their remnant here in the Tainted Scar. Lord Kazzak commands them, if the scouts who came back are to be believed." } },
     tainted_scar = { { id = "tp_scar", text = "A gash in the southwest full of demons and fel, and the one place in these lands I won't go even with an escort." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran before the Scourge came, and I still dream about the libraries. They're rebuilding now, behind their shield, and they haven't written to us in months." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor sent us here to watch the Portal, and they still pay our stipends, mostly on time. I'd like them to send more mages, but they're busy with their own ruins." } },
+    second_war = { { id = "tp_second_war", text = "The Second War ended when Khadgar and the Alliance closed the Portal, and I've spent my life studying what they did. It's still the finest piece of magic I've ever seen." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the work of a necromancer from Dalaran, and the Kirin Tor have never forgiven themselves for Kel'Thuzad. Neither have I, and I never met him." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor, a scholar like me, and he turned to necromancy and gave the north to the dead. When I read too late into the night, I think about him." } },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my studies. The Quartermaster hears everything, though; try him." } },
   },
 }
@@ -691,6 +761,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_wildhammer = {
+      lines = {
+        { id = "opw_default", text = "Neither, an' both, which is why I live in a mage's keep at the end o' the world. But ye've an opinion, I can see it on yer face, so out wi' it: should the Wildhammer come home tae Ironforge, or stay free in the Hinterlands?" },
+      },
+      choices = {
+        { text = "Ironforge is the heart of the dwarves. They should come home.", next = "op_wh_home", fx = { align = { order = 1 }, opinion = { wildhammer = "distrust", magni = "trust" } } },
+        { text = "The Wildhammer kept their freedom. Good for them.", next = "op_wh_free", fx = { affinity = 1, align = { order = -1 }, opinion = { wildhammer = "admire" } } },
+        { text = "We're one people, whatever beard we follow.", next = "op_wh_kin", fx = { affinity = 2, opinion = { wildhammer = "respect", dwarves = "kin" } }, when = { race = "Dwarf" } },
+        { text = "I'll not get between dwarves and their grudges.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    op_wh_home = {
+      lines = {
+        { id = "opwh_default", text = "Spoken like a Bronzebeard, whatever yer blood. Magni's a fair king, I'll grant ye, but he'll never understand why a dwarf would rather have the sky than a roof." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wh_free = {
+      lines = {
+        { id = "opwf_default", text = "Ha! Now there's a gryphon rider's answer. Free an' poor an' proud of it, that's the Wildhammer way, an' it's why I left, an' it's why I miss it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wh_kin = {
+      lines = {
+        { id = "opwk_default", text = "Aye, one people, an' three thrones, an' a war at Grim Batol tae prove it. Ye're a kinder dwarf than most, cousin, so don't let the old men in either city talk ye out o' it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_brd = {
       big = true,
       lines = { { id = "xcl_brd_default", text = "Then an old debt's been paid, though not by any dwarf of my clan. When the Dark Irons' sorceress died at Grim Batol her curse fell on the whole mountain, and my people had to leave it to rot and make a new home in the Hinterlands, and no Wildhammer has forgotten whose sorcery did it." } },
@@ -781,7 +880,7 @@ P:NPC {
       choices = {
         { text = "What killed the land here?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why would a Wildhammer leave the Hinterlands?", next = "why" },
-        { text = "What do you want with Nekrum's medallion?", next = "medallion" },
+        { text = "What do you want with Nekrum's medallion?", next = "medallion", when = { any = { { questActive = TODO_QUEST("Nekrum's Medallion") }, { questDone = TODO_QUEST("Nekrum's Medallion") } } } },
         { text = "How does divination work?", next = "divination" },
         { text = "Can you find Sharpbeak?", next = "sharpbeak", when = { any = { { questActive = TODO_QUEST("Thadius Grimshade") }, { questActive = TODO_QUEST("Nekrum's Medallion") } } } },
         { text = "Darker knowledge has a price, diviner.", next = "priest", when = { class = "PRIEST" } },
@@ -790,10 +889,10 @@ P:NPC {
         { text = "I speak with the spirits too, Thadius.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "My beast could track Sharpbeak's scent.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Your divinations smell of my own arts.", next = "k_lock", when = { class = "WARLOCK" } },
-        { text = "Is divination real magic, Thadius?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Could your divination find stolen goods?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Divination doesn't seem like real magic to me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your divination could find stolen goods, I'd wager.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is divination a gift or a danger, Thadius?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do Wildhammer warriors fight differently from Ironforge's?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Wildhammer warriors must fight differently from Ironforge's.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Emperor Thaurissan is dead, Thadius. I saw him fall myself.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
@@ -804,7 +903,7 @@ P:NPC {
         { id = "w_default", text = "Because the Hinterlands taught me everythin' about wind an' feather an' nothin' about what lies under them. I wanted tae know what the shamans wouldnae tell me, an' Nethergarde's the only place in the world wi' a library an' a Dark Portal on the doorstep." },
       },
       choices = {
-        { text = "Do you miss the aeries?", next = "why_aerie" },
+        { text = "You must miss the aeries, Thadius.", next = "why_aerie" },
         { text = "What did the shamans keep from you?", next = "why_shamans" },
         { text = "Something else.", next = "BACK" },
       },
@@ -896,6 +995,7 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw2_default", text = "Further than ye know, cousin. The Bronzebeards would call me a Wildhammer an' the Wildhammers would call me a bookworm, so here I sit, where nobody's bothered what I am as long as the scryin' works." } },
       choices = {
+        { text = "Which side are you on, then, Bronzebeard or Wildhammer?", next = "op_wildhammer" },
         { text = "Khaz Modan's big enough for both clans.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -947,6 +1047,11 @@ P:NPC {
     dark_portal = { { id = "tp_portal", text = "A door wi' the latch on the far side, an' the reason my scryin' gets crowded at night." } },
     burning_legion = { { id = "tp_legion", text = "Them I don't scry for, ever. Some things notice when ye look at them." } },
     nethergarde = { { id = "tp_nether", text = "Grim folk an' good books. I've lived in worse places, though no' many." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer o' Aerie Peak are my kin, an' they fly free an' drink free an' think a book is somethin' ye light a fire with. I love them dearly an' I left." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king for the Bronzebeards, I'll grant ye, an' he doesn't tell the Wildhammer what to do, which is the best thing a king can do for us." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was ours once, before the Dark Irons cursed it an' the orcs used it to break dragons. No Wildhammer goes there now, an' none ever should." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages taught me what I know, an' they never let me forget I was a dwarf. I learned anyway, an' I learned more than most o' them." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres are thick as stone an' twice as stubborn, an' they've no business near the Portal. I'd like them gone, an' I'd pay to see it." } },
     _none = { { id = "tp_none", text = "That's no' somethin' I've ever cared tae look for. Ask the Watcher; he cares about everythin'." } },
   },
 }
@@ -982,6 +1087,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alliance = {
+      lines = {
+        { id = "opa_default", text = "My king left the Alliance after the orcs burned our forests, and the Alliance did not come when the Scourge did. Whose fault that was is argued in every court that still stands, so I would hear your verdict." },
+      },
+      choices = {
+        { text = "The Alliance failed you, and it should be ashamed of it.", next = "op_alli_failed", fx = { affinity = 2, align = { honor = 1 }, opinion = { alliance = "failed" } } },
+        { text = "Your king left the Alliance first. Quel'Thalas reaped what it sowed.", next = "op_alli_sowed", fx = { affinity = -2, align = { honor = -1 }, opinion = { high_elves = "contempt" } } },
+        { text = "My people warned yours about magic ten thousand years ago.", next = "op_alli_magic", fx = { affinity = -1, opinion = { arcane_magic = "dangerous", high_elves = "pity" } }, when = { race = "NightElf" } },
+        { text = "Your people's grief is real, whoever's to blame. I'm sorry.", next = "op_alli_sorry", fx = { affinity = 1, trait = { kind = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "That's for courts to argue, not me.", next = "BACK" },
+      },
+    },
+    op_alli_failed = {
+      lines = {
+        { id = "opaf_default", text = "You're the first in this keep to say it without blushing. Shame is cheap, of course, and it rebuilds nothing, but I'll take it as a beginning." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alli_sowed = {
+      lines = {
+        { id = "opas_default", text = "Spoken like someone whose capital still stands. I hope you never learn what it is to be right about a quarrel while your capital burns." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alli_magic = {
+      lines = {
+        { id = "opam_default", text = "You did, and you've reminded us ever since, with the patience of people who never forgave us for being right about other things. Shall we leave old quarrels in the past, where they belong?" },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alli_sorry = {
+      lines = {
+        { id = "opay_default", text = "Thank you. Sorrow is about all my people have left to trade in, and it's good to find a buyer who doesn't haggle." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That the line between Horde and Alliance is thinner than either side pretends. The elements answer an orc and a dwarf alike, and if they see no difference between you, I wonder why we insist on killing each other." } },
@@ -1065,17 +1206,17 @@ P:NPC {
       choices = {
         { text = "Who do you speak for, Ambassador?", next = "who" },
         { text = "What do you mean, the wrong enemy?", next = "enemy" },
-        { text = "What grows in the south?", next = "legion" },
-        { text = "How does the garrison treat you?", next = "garrison" },
+        { text = "What threatens these lands, then?", next = "legion" },
+        { text = "The garrison doesn't seem to welcome you here.", next = "garrison" },
         { text = "The Light stands against demons, whoever else does.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Thrall would agree with you, elf.", next = "orc", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "You'd use warlocks against the Legion, Ambassador?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "My people fought the Legion ten thousand years ago.", next = "k_elf", when = { race = "NightElf" } },
         { text = "My ancestors were Highborne, Ambassador.", next = "k_sky", when = { race = "Skyborne" } },
-        { text = "Do you speak for Dalaran, Ambassador?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You speak like one of Dalaran's own, Ambassador.", next = "xmage", when = { class = "MAGE" } },
         { text = "Every spy says that, Ambassador.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Who should a warrior be fighting, then, Ambassador?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What's south of the keep that you keep watching, Ambassador?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "You keep watching something south of the keep, Ambassador.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Circle really say the land matters more than banners, Ambassador?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What point does a dwarf shaman prove, Ambassador?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Ambassador.", next = "END" },
@@ -1095,6 +1236,7 @@ P:NPC {
     who_elves = {
       lines = { { id = "we_default", text = "I was, when there was a Quel'Thalas to be of. The Scourge took our kingdom, and what's left of us took a new name in memory of the dead; we call ourselves blood elves now, and we have learned exactly what a common enemy is worth." } },
       choices = {
+        { text = "Did the Alliance fail Quel'Thalas, Ambassador?", next = "op_alliance" },
         { text = "I'm sorry for your people.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "And yet you lecture us about squabbling.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
       },
@@ -1116,7 +1258,7 @@ P:NPC {
       lines = { { id = "eh_default", text = "There's an orc, a fallen hero of the Horde, at the border of the swamp and these lands. He knows the truth of the Blasted Lands better than anyone in this keep, and he paid for it in a way I'd not wish on anyone." } },
       choices = {
         { text = "I'll go and hear him.", next = "BACK", fx = { affinity = 1 } },
-        { text = "What happened to him?", next = "enemy_paid" },
+        { text = "Something must have happened to him.", next = "enemy_paid" },
       },
     },
     enemy_paid = {
@@ -1190,7 +1332,7 @@ P:NPC {
       choices = {
         { text = "A weapon. Point me south.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "A warning. I know what it costs.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "What grows in the south?", next = "legion" },
+        { text = "Which enemy do you mean?", next = "legion" },
       },
     },
     k_elf = {
@@ -1227,6 +1369,13 @@ P:NPC {
     tainted_scar = { { id = "tp_scar", text = "Where the demons gather, and where the lord of these lands keeps his court, if the whispers are right." } },
     nethergarde = { { id = "tp_nether", text = "A fine keep full of people watching the wrong door. The Portal's closed, but the demons are already on this side." } },
     dark_portal = { { id = "tp_portal", text = "An old wound, and the Legion is the infection. The mages stare at the wound and ignore the fever." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the elves sent their best students there. It will be rebuilt, I am told, though it may not open its gates as quickly as some would like." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are a council of mages who believe they can govern magic, and they have been wrong before. I respect their learning more than their judgment." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Lady Sylvanas Windrunner was Ranger-General of Silvermoon, and she died defending our homeland. What walks in her name now is something I cannot speak of without grief." } },
+    arthas = { { id = "tp_arthas", text = "Prince Arthas led the dead through our gates and into the heart of Quel'Thalas. I will not say more about him, because I cannot say it politely." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge broke my homeland, and the Alliance was too divided to stop it. That is why I say the Alliance and the Horde must stop fighting each other, if anyone will listen." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron fell because its people would not believe what was coming until it was at their gates. I fear the same lesson is being forgotten in Stormwind." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde has made peace with Theramore, and I think that wiser than most in Stormwind will admit. I say so quietly, and only to those who ask." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beneath an ambassador's notice. Or above it; I can never remember which." } },
   },
 }
@@ -1243,6 +1392,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_wildhammer", when = { gossip = { topic = "wildhammer", stance = "admire" } }, text = "Thadius says ye've a soft spot for the Wildhammer. Well, they brew a fair ale, I'll grant ye, for folk who live up trees an' talk tae birds." },
     { id = "g_default", text = "Ho there! Pull up a crate, an' don't tell the Quartermaster what's in my mug." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, I was runnin' out o' people tae drink with." },
     { id = "g_ragnar", when = { questDone = TODO_QUEST("Ragnar Thunderbrew") }, text = "Ye went tae see Ragnar! Was he still red in the face, or had he simmered down a bit?" },
@@ -1365,17 +1515,17 @@ P:NPC {
       },
       choices = {
         { text = "Can anything grow in the Blasted Lands?", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "What's this about stolen ale?", next = "ale" },
-        { text = "What brings a Thunderbrew all the way out here?", next = "why" },
+        { text = "Is anything troubling the Thunderbrews?", next = "ale" },
+        { text = "A Thunderbrew is a long way from home out here.", next = "why" },
         { text = "How do the dwarves find Nethergarde?", next = "dwarves" },
         { text = "To Ironforge, and to good ale!", next = "toast", when = { race = "Dwarf" } },
         { text = "I've had a few myself, mind.", next = "drunk", when = { drunk = true } },
-        { text = "I could steal the ale back, quiet-like.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "If anything of yours was stolen, I could steal it back.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "A frost for your mug, if you'll tell me about home.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do they mistrust warlocks here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do the soldiers at Nethergarde keep any faith, Enohar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The soldiers here don't look like they pray much.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does a dwarf on duty need a mug in hand, Enohar?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Is a mug before battle good for a warrior, Enohar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "A mug before battle steadies a warrior, I'd say.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting out in the Blasted Lands?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would your family really mind a dwarf shaman, Enohar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My family brews too. I ran off to see where the barrels go.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
@@ -1464,7 +1614,7 @@ P:NPC {
       },
       choices = {
         { text = "Consider it reclaimed, not stolen.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
-        { text = "What's this about stolen ale?", next = "ale" },
+        { text = "What was stolen, exactly?", next = "ale" },
       },
     },
   },
@@ -1474,6 +1624,13 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never trust a dwarf who doesnae drink, an' never trust a Dark Iron who does." } },
     dark_iron = { { id = "tp_darkiron", text = "Thieves an' worse, the lot o' them. If ye find any o' Ragnar's ale down there, bring it home." } },
     nethergarde = { { id = "tp_nether", text = "Good walls, good soldiers an' terrible beer. Two out o' three's no' bad." } },
+    magni = { { id = "tp_magni", text = "King Magni's a good king, an' he drinks Thunderbrew, which shows his taste. I'll not say more, or I'll get homesick." } },
+    gnomeregan = {
+      { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan right up the road from Kharanos, an' I remember the refugees comin' down the mountain. My family fed every one o' them." },
+      { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "Ye'd have been one o' them comin' down the hill, maybe, an' if so my mother likely fed ye. I hope ye found a warm bed in Ironforge." },
+    },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres are a nuisance, an' I've put an arrow through a few. They don't stop comin', though." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer drink their ale too strong an' brew it too fast. I'd teach them a thing or two, if they'd ever sit still long enough." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend. Ask me about ale an' I'll talk till dawn." } },
   },
 }
@@ -1610,11 +1767,11 @@ P:NPC {
         { text = "Where can your gryphons take me?", next = "routes" },
         { text = "How do the birds manage this place?", next = "birds" },
         { text = "Show me the routes.", next = "BUSINESS" },
-        { text = "Do your gryphons mind the arcane, Alexandra?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your gryphons seem uneasy around the arcane, Alexandra.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do gryphons fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do your gryphons fear the Dark Portal, Alexandra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Your gryphons must fear the Dark Portal.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What happened to your gryphons this spring, Alexandra?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Can a gryphon carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "A gryphon would struggle with a warrior in full plate.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you keep your gryphons healthy here, Alexandra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do the Blasted Lands do to your gryphons, Alexandra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your gryphons really bite anyone who sneaks up on them, Alexandra?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1646,6 +1803,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the birds at Nethergarde, and I keep them alive, which out here is a full-time job." } },
     advice = { { id = "tp_ad", text = "Fly before noon or after sunset. Midday air over the Blasted Lands throws a gryphon about like a leaf." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught me most of what I know about gryphons, though they'd laugh at the way I keep mine. They ride without saddles, and they have the bruises to prove it." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The birds hate flying anywhere near the Portal. They know something I don't, and I've learned to trust them." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres throw rocks at my gryphons, and I've lost one to them already. I'd like to see them all driven out of the Blasted Lands." } },
+    theramore = { { id = "tp_theramore", text = "I've sent birds to Theramore, and they come back fat and happy and smelling of the sea. I'd like to see it someday." } },
     _none = { { id = "tp_none", text = "I only know birds and weather. Ask the Quartermaster about the rest." } },
   },
 }
@@ -1662,6 +1823,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_defias", when = { gossip = { topic = "defias", stance = "nobles_to_blame" } }, text = "The Quartermaster says you've a soft spot for the Defias' side of things. Don't say it too loud at my counter, friend, because half the stew in this pot came up the Westfall road." },
     { id = "g_default", text = "Hungry? Course you are; everyone who comes up that road is. Have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, the stew's hot, and it's the only warm thing this side of the Keep." },
   },
@@ -1783,12 +1945,12 @@ P:NPC {
         { text = "You must hear all the keep's gossip.", next = "gossip" },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Is conjured bread really that bad, Bernie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Who's stealing cheese in this keep, Bernie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Somebody's been stealing your cheese, by the sound of it.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do Nethergarde's soldiers say about the Portal, Bernie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps this garrison in good spirits, Bernie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the soldiers say about the Dreadmaul, Bernie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's the strangest thing the soldiers have tried to eat here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Has anyone tried to grow food here, Bernie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Nobody could grow food in this soil.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the soldiers here trust a warlock at their table, Bernie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers here talk about a dwarf shaman, Bernie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
@@ -1797,7 +1959,7 @@ P:NPC {
     food = {
       lines = { { id = "f_default", text = "Honestly? The bread, because I bake it myself, and the water, because it came from Stormwind and not from anywhere around here. Don't drink from anything in the Blasted Lands, whatever it looks like." } },
       choices = {
-        { text = "What's wrong with the water here?", next = "food_water" },
+        { text = "The water here tastes wrong.", next = "food_water" },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1822,6 +1984,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I cook for soldiers, and I'll cook for soldiers until the caravans stop coming. That's all there is to me." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, not after. Out there you'll lose your appetite quick, and you'll want the strength." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "The Dreadmaul ogres raid our caravans for the food, of all things, and they've got terrible taste. I've seen what they eat, and it's not something I'd serve." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord sends us supplies when he can, and I've learned to make them last. A good stew can feed a garrison for a week, if you're careful." } },
+    second_war = { { id = "tp_second_war", text = "My father fought in the Second War, and he came home thin as a rake. I made a promise then that no soldier I cooked for would go hungry." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The soldiers don't talk about the Portal at supper, and I don't ask. A man eats better if he isn't thinking about demons." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. I know bread, and I know who's been complaining." } },
   },
 }
@@ -1932,12 +2098,12 @@ P:NPC {
       again = { { id = "h_again", text = "Anythin' else, or can I get back tae the anvil?" } },
       choices = {
         { text = "What do the Blasted Lands do to armor?", next = "wear" },
-        { text = "Is it hard to work out here?", next = "work" },
+        { text = "It must be hard to work a forge out here.", next = "work" },
         { text = "I need repairs.", next = "BUSINESS" },
         { text = "What's the clay done to my plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "What do the Blasted Lands do to leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the mages upstairs ever need a smith?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do the soldiers here need a priest more than an armorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I doubt the mages upstairs need a smith much.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd say the soldiers here need a priest more than an armorer.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does this dust do to a hunter's mail?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mend much druid armor out here, Strumner?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you mend armor for a warlock, Strumner?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -1975,6 +2141,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a dwarf wi' a hammer, sore feet an' a pay chit three months late. Nothin' more to tell." } },
     advice = { { id = "tp_ad", text = "Oil yer buckles every night out here, or the dust will seize them by morning." } },
+    dreadmaul = { { id = "tp_dreadmaul", text = "Ogres break things, an' I fix them. That's the Dreadmaul an' me, in one sentence." } },
+    magni = { { id = "tp_magni", text = "The king's a good king. He'd know my pay's late, if anybody told him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons make good steel an' bad neighbors. I've fixed a few o' their blades, an' I washed my hands after." } },
     _none = { { id = "tp_none", text = "Don't know, and don't much care, so ye'd best ask the Quartermaster upstairs." } },
   },
 }

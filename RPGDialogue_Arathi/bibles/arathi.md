@@ -22,7 +22,7 @@
 - Nials: firm, duty-bound captain of a kingdom in tents.
 - Drum Fel: driven; Hammerfall will thrive; Doomhammer's name.
 - Zengu: patient hunter, enjoys the irony of the sword.
-- Adegwa: warm tauren innkeeper among orcs.
+- Adegwa: warm tauren innkeeper among orcs; slow, calm tauren voice (the Earth Mother, Mulgore's grass, kodo hides), no troll dialect. Drum Fel and the Hammerfall orcs: plain, proud, the camp under their walls and Doomhammer's sacrifice.
 
 ## Depth pass (0.25.0, authored, not canon)
 Repeat-visit and night lines for the innkeepers and thin quest givers (habits, small worries, the place at night). Nothing here adds a lore fact.
@@ -49,3 +49,7 @@ Sources (warcraft.wiki.gg, Classic sections): Hammerfall, Refuge_Pointe, Gor'mul
 Never (this pass): Field Marshal Oslight, Sergeant Maclear, Deathmaster Dwire, Radulf Leder, the Defilers and League of Arathor (Arathi Basin, 1.7); Commander Amaren, Quae and Kinelory, Zaruk's Twilight's Hammer past, Skuerto's Ironforge eviction (Home Sweet Gnome) and Shakes O'Breen (Cataclysm). Tor'gan's "once-cursed blood" line not used. (0.72.0: Shakes O'Breen and Zaruk added after all; the wiki shows O'Breen's Faldir's Cove quests and Zaruk's Myzrael's Allies as Classic.)
 
 Authored, not canon: Gor'mul's view of Drum and of Thrall, the camp-born advice; Tor'gan coming to Hammerfall because Drum needed a shaman, his raptor lesson; Korin's porridge and crows; Urda's lost rider and wide routes; Skuerto scouting troggs as a lad, his ale wager; Kryten's notes on the shadow hunter knife, Malin's tea; Cedrik carrying the badges south; Vikki's tallies and that she sold goods in Stromgarde before the fall.
+
+## Authored, not canon (prejudices, 0.80.0)
+- Nials: distrusts rogues (`prejudice`, class ROGUE) because Syndicate scouts in the same leathers have killed three of his lookouts this season; he "reads boots".
+- Gor'mul: can't look at the Forsaken without wondering which of them kept the Hammerfall camp (`prejudice`, race Scourge); the guards talking over the prisoners like cattle is what he still hears.

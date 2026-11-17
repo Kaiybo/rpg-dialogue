@@ -42,6 +42,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "They trouble every priestess who remembers the Well. Their children in Quel'Thalas wield the same magic, the humans built Dalaran upon it, and none of them seem to have learned a thing. Tell me, what do you think of the arcane?" },
+      },
+      choices = {
+        { text = "It's a tool, Priestess, and the Kirin Tor keep it in hand.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { arcane_magic = "useful", kirin_tor = "trust" } } },
+        { text = "It's a hunger, and the high elves never stopped feeding it.", next = "op_r2", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { arcane_magic = "dangerous", high_elves = "distrust" } } },
+        { text = "Every tome should burn, and Dalaran's towers with them.", next = "op_r3", fx = { affinity = -1, align = { order = -1 }, trait = { stern = 1 }, opinion = { arcane_magic = "hate" } } },
+        { text = "I study it, Priestess, and I know its price.", next = "op_r4", fx = { align = { order = 1 }, opinion = { arcane_magic = "respect" } }, when = { class = "MAGE" } },
+        { text = "I'll leave magic to the magi.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "So the Highborne told us in Zin-Azshari, the night before the sky opened. I pray your Kirin Tor have steadier hands than Azshara's court had." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You speak like a priestess of the old Temple. Be careful saying it near the dwarves, because they've grown fond of their gnome friends and their Dalaran mages." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Burning is the Legion's answer to everything, {class}. I distrust the arcane, but I will not set a torch to Dalaran's students for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you know more than Azshara ever did. Pay that price yourself, and never let anyone else pay it for you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust any who heal. Only arcane magic troubles me; spirits are a gentler thing, I hope." } },
@@ -158,7 +187,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you bear yourself well. Elune keep you, for you will meet the blows the rest of us only hear about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of the woods, walking under Elune's own light. Praise be to her, {class}, and to every beast you spare." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Praise Elune, a druid in her Temple. The Circle and the Sisterhood have kept faith beside each other since Malfurion first went into the Dream, and you are as welcome here as any of my priestesses." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elune and the Light both bless the faithful. Your spirits I am less certain of, but I do not condemn them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elune and the Light both bless the faithful, and though your spirits are less known to me, I have lived long enough not to condemn what I don't understand." },
         { id = "h_novice", when = { origin = "nightelf_priestess" }, text = "One of our own novices, home from the road. I remember the night Elune's light first found you, child, because you were so startled you dropped the water jug in the moonwell, and the elder sisters have never let me forget it." },
       },
       again = {
@@ -167,13 +196,14 @@ P:NPC {
         { id = "h_again3", when = { class = "PRIEST" }, text = "Ask, young priest. A teacher who tires of questions should stop teaching." },
       },
       choices = {
+        { text = "Do the Highborne still trouble the Sisterhood?", next = "op_ask" },
         { text = "I'm ready for my training.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why would you teach a priest of the Light?", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "What gifts does Elune give her own priests?", next = "gifts", when = { class = "PRIEST", race = "NightElf" } },
-        { text = "What does the Sisterhood teach?", next = "sisterhood" },
+        { text = "The Sisterhood must teach more than prayer.", next = "sisterhood" },
         { text = "Elune found me young, Priestess. Why is she so silent now?", next = "xsilence", when = { origin = "nightelf_priestess" } },
         { text = "You don't trust arcane magic, do you?", next = "arcane" },
-        { text = "How is the High Priestess?", next = "tyrande" },
+        { text = "The High Priestess must carry a heavy load.", next = "tyrande" },
         { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
         { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
         { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
@@ -226,7 +256,7 @@ P:NPC {
         { id = "ls_default", text = "I don't know, and I distrust anyone who says they do. I've seen both heal the same wounds and both comfort the dying, and for now that's as far as I'll walk out on that branch." },
       },
       choices = {
-        { text = "How do your priests pray, then?", next = "light_pray" },
+        { text = "Your priests must pray differently, then.", next = "light_pray" },
         { text = "Some questions should stay open.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "The Church would want a firmer answer than that.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
@@ -339,7 +369,7 @@ P:NPC {
         { id = "ty_default", text = "She carries the whole of our people while the Arch Druid carries the tree, and Malfurion sleeps in the Emerald Dream. She hears the Sentinels' reports at moonrise and prays after, and I've never once seen her hurry the prayer." },
       },
       choices = {
-        { text = "Will Malfurion wake?", next = "tyrande_dream" },
+        { text = "I hope Malfurion wakes one day.", next = "tyrande_dream" },
         { text = "She should lean on the Arch Druid more.", next = "BACK", fx = { align = { order = 1 }, learn = { "malfurion" } } },
         { text = "She shouldn't wait on anyone, druid or not.", next = "BACK", fx = { align = { order = -1 }, learn = { "malfurion" } } },
       },
@@ -362,6 +392,13 @@ P:NPC {
     sisterhood_of_elune = { { id = "tp_sister", text = "We've healed and guarded our people since before the Sundering. Ask me about it properly and I'll tell you more.", next = "sisterhood" } },
     highborne = { { id = "tp_highborne", text = "They reached for power and called the Legion down on us. That is why I keep my hands folded around the arcane.", next = "arcane" } },
     malfurion = { { id = "tp_malfurion", text = "He sleeps in the Emerald Dream, and the High Priestess waits for him. So do we all, in our way." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The humans' Light and our Elune heal the same wounds, and I've taught enough of Laurena's priests to know their hearts are good. Their hymns are shorter, too, which the young ones appreciate." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You serve the Light and you've come to learn among Elune's priests, which pleases me. Pray how you like here, because the Temple has room for both." },
+    },
+    elune = { { id = "tp_elune", text = "Elune is patient, and she asks her priests to be patient too, which is the hardest thing I teach. The healing comes easily by comparison." } },
+    forsaken = { { id = "tp_forsaken", text = "The humans' dead who walk in the north, and some claim to have freed themselves. I pray for them, though I don't think they'd thank me." } },
+    scourge = { { id = "tp_scourge", text = "I've read the reports from the human lands, of whole towns rising as the dead. If there's one thing our priests are for, it's that." } },
     _none = { { id = "tp_none", text = "That is outside what a priestess of the Temple can speak to. The Sentinels or the Enclave might know more." } },
   },
 }
@@ -489,7 +526,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I do more listening than teaching, as you'll learn, and I think it's the most important thing a priest ever does." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Sentinels bring me their worries after a battle, and I suspect paladins carry theirs a good deal longer." },
-        { id = "h_default", text = "I'm Astarii, one of the priestesses who teach here. Most of what I do is listen, and I'm told I'm better at it than at lecturing." },
+        { id = "h_default", text = "I am Astarii, one of the priestesses who teach here. Most of what I do is listen, and I'm told that after all these centuries I am better at it than at lecturing." },
         { id = "h_prayer", tags = { "news" }, when = { questActive = TODO_QUEST("Prayer to Elune") },
           text = "What brings you to the Temple? Is that gold, under all that soot? Let me see it, gently, because I think I know whose hand wrote this." },
         { id = "h_prayer_done", when = { questDone = TODO_QUEST("Prayer to Elune") },
@@ -501,16 +538,16 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You look like someone who's carried a few things home from the field that weren't wounds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a quiet one. I like hunters, because they listen nearly as well as I do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, welcome. The Circle teaches that a forest can grow back after any fire, and I've always thought souls are much the same." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. No soul is too far for Elune to hear, and that includes those who speak with spirits. Welcome." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. No soul is too far for Elune to hear, and that includes those who speak with spirits." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry tonight." },
-        { id = "h_again2", text = "Go on; I'm listening." },
+        { id = "h_again2", text = "Go on; I'm listening, and the moon is listening with me." },
       },
       choices = {
         { text = "Train me, please.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is this golden tablet?", next = "tablet", when = { any = { { questActive = TODO_QUEST("Prayer to Elune") }, { questDone = TODO_QUEST("Prayer to Elune") } } } },
-        { text = "Can anyone be forgiven?", next = "forgive" },
+        { text = "Surely some deeds can't be forgiven.", next = "forgive" },
         { text = "What do the people who can't sleep tell you?", next = "listen" },
         { text = "Could Elune hear a warlock, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
         { text = "Do priestesses hear confessions from rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -557,7 +594,7 @@ P:NPC {
       choices = {
         { text = "Mercy should be earned, not given.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Mercy freely given is the only kind that heals.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Who thinks you're soft?", next = "forgive2" },
+        { text = "I'd guess someone thinks you're soft.", next = "forgive2" },
       },
     },
     forgive2 = {
@@ -583,6 +620,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach, and I listen, and on the bad nights I sit with whoever is awake. It's a good life." } },
     advice = { { id = "tp_ad", text = "Don't carry what you can set down. Elune can hold it while you sleep." } },
     twilights_hammer = { { id = "tp_twilight", text = "A cult that worships something older and worse than demons. One of them found his way back to Elune, which gives me hope for the rest, a little." } },
+    elune = { { id = "tp_elune", text = "Elune shines on the night, and the night is when most people are lonely, which I don't think is a coincidence. She keeps company with whoever's awake." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The Twilight's Hammer worship in the old temple at Blackfathom now, and it was Elune's temple once. I've prayed for it to be cleansed for longer than I like to say." } },
+    scourge = { { id = "tp_scourge", text = "We hear of the plague from human pilgrims, and some of them have lost everyone. I sit with them, and it helps a little, and I suppose that's all it can do." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids talk of the Dream as the world unspoiled, and I envy them a little. Then I remember they have to come back, and I don't envy them so much." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Alathea might; she's been teaching longer than I have." } },
   },
 }
@@ -706,7 +747,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I can always use another pair of hands that knows how to heal someone who won't stop moving." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You heal and fight both, which means you'll make every mistake my students make, only in heavier armor." },
-        { id = "h_default", text = "Jandria. I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
+        { id = "h_default", text = "I am Jandria, and I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Temple. I teach healing, not banishing, but I've read enough to know what that is at your heel." },
@@ -714,13 +755,13 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Good, you heal too, so you know what it's like to keep a Sentinel standing while she's still running at the enemy." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll be the one bleeding behind some Warsong camp one day, so listen while I tell you how to stop it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Prayer is a craft, like archery or bandaging. Do your spirits require practice too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Prayer is a craft, like archery or bandaging, and my sisters have practiced it since before the Well was lost, so tell me, do your spirits require practice too?" },
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
-        { text = "Who do you heal most often?", next = "wounded" },
+        { text = "You must heal a great many here.", next = "wounded" },
         { text = "What advice would a priestess give a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior know about fighting beside a healer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will your priestesses heal a hunter's companion too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -766,7 +807,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach priests to heal without wasting themselves. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Save your strongest prayer for the wound that needs it. You'll know it when you see it." } },
     warsong = { { id = "tp_warsong", text = "Orcs with axes in Ashenvale, cutting down a forest older than their whole history. I mend what they leave behind." } },
-    _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask Alathea; she likes questions." } },
+    holy_light = { { id = "tp_holy_light", text = "Light, Elune, whatever we call it, the wound still closes. I teach my students to spend it carefully whichever name they use." } },
+    scourge = { { id = "tp_scourge", text = "The plague does things to the body that healing struggles to undo, from what the human priests write. I'd like to study it, and I'd rather never see it." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief seems a better sort than the warlords before him, by most accounts. I still have to heal what his Warsong do to our Sentinels." } },
+    centaur = { { id = "tp_centaur", text = "I've stitched centaur arrows out of Sentinels coming back from the south. They use barbed heads, which tells you what kind of people they are." } },
+    _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask Alathea, for she likes questions and has had a long time to collect answers." } },
   },
 }
 
@@ -891,14 +936,14 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Come and look at the pool with me a moment, because the moonlight on it tonight is quieter than it was yesterday, and I don't yet know why." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your armor catches the moonlight from across the gardens, {class}, and I'm afraid you've rather spoiled my watching." },
-        { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
+        { id = "h_default", text = "I am Lariia, and I teach here. When I'm not teaching I watch the pool, because Elune's light on it tells you a great deal about the night if you look long enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You chose the darkest corner by the pool, rogue, which is where I'd sit too. The moonlight shows more from there." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "The moonlight bends a little around you, mage, and I'm not sure you even know it does. It's very pretty, and slightly unsettling." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The moonlight on the pool tonight says a fight is coming, though I'll admit it says that most nights." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You watch the way I do, I think, long enough to see what everyone else walks past." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The moonlight on the pool went still when you came in, and it does that for the Circle more often than for anyone else." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The moonlight on the pool went dim when you came in, warlock, and it only does that for a few. Don't worry, I've seen it go dimmer." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I notice things. Your spirits are restless today. The Temple pool shows the moon even on cloudy nights." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and your spirits are restless today; I notice such things. The Temple pool shows the moon even on cloudy nights, so perhaps it can calm them." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
@@ -948,7 +993,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I watch more than I speak, so I've gathered a little here and there. Ask, and I'll tell you what the water and the travellers have shown me." } },
     background = { { id = "tp_bg", text = "I teach priests and watch the pool. I'm content with both." } },
     advice = { { id = "tp_ad", text = "Look longer than you think you need to. Most people miss things by being in a hurry." } },
-    _none = { { id = "tp_none", text = "The pool hasn't shown me anything about that. Try Alathea." } },
+    elune = { { id = "tp_elune", text = "Elune's light falls on the pool every night, and I watch it. Sometimes it's all the prayer I need to make." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The old tree on Hyjal is ours, and Teldrassil is ours too. I try not to choose between them, because a mother shouldn't." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Some of the novices slipped away to the Faire once, when it came close. They came back with painted faces and a great deal to confess." } },
+    _none = { { id = "tp_none", text = "The pool hasn't shown me anything about that, and I have watched it a long while. Try Alathea." } },
   },
 }
 
@@ -1104,15 +1152,15 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The priestesses say I'm too familiar with animals, but I can't help being glad to see one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I study out here among the flowers, and I've always wondered whether they say more to one of the Circle than they ever say to me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh! You startled me, coming up through the flowers like that. The priestesses say a quiet step is a gift, though I don't think they meant for sneaking." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The priestesses give me every task as a sacred trust. Do your spirits give you tasks too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The priestesses give me every task as a sacred trust, even the dusting, so I wonder whether your spirits give you tasks too." },
       },
       again = {
         { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
         { id = "h_again2", text = "Ask me anything; I'll tell you if I know, and if I don't I'll find out." },
       },
       choices = {
-        { text = "Who was Lady Sathrah?", next = "sathrah" },
-        { text = "What are you studying?", next = "study" },
+        { text = "Who was Lady Sathrah?", next = "sathrah", when = { any = { { questActive = TODO_QUEST("Tears of the Moon") }, { questActive = TODO_QUEST("Sathrah's Sacrifice") }, { questDone = TODO_QUEST("Sathrah's Sacrifice") } } } },
+        { text = "You look deep in your studies.", next = "study" },
         { text = "What's it like, training at the Temple?", next = "training" },
         { text = "We study the Light much the same way.", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "My people lived on islands in the sky.", next = "sky_a", when = { race = "Skyborne" } },
@@ -1133,14 +1181,14 @@ P:NPC {
         { id = "sa_default", text = "A great spider beloved of Elune, who spun silver threads through the moonlight. The dew that gathered on them healed the sick in the Temple, and now she's gone mad, and nobody can tell me why." },
       },
       choices = {
-        { text = "Why would a holy creature go mad?", next = "sathrah2" },
+        { text = "It's strange that a holy creature would go mad.", next = "sathrah2" },
         { text = "Then ending her suffering is a mercy.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Then she's a danger, and must be stopped.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     sathrah2 = {
       lines = {
-        { id = "s2_default", text = "I asked A'moora that, and she only said the tree is young. The Temple's waters can cleanse whatever's in her, though, and then Elune will let her be born again, at peace." },
+        { id = "s2_default", text = "I asked A'moora about it, and she only said the tree is young. The Temple's waters can cleanse whatever's in her, though, and then Elune will let her be born again, at peace." },
       },
       choices = {
         { text = "I hope she spins again someday.", next = "BACK", fx = { affinity = 2, learn = { "teldrassil" } } },
@@ -1197,6 +1245,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a sister of the Temple, studying to be a priestess. I'm not very far along yet, but I'm trying." } },
     advice = { { id = "tp_ad", text = "Be kind to anyone who is hurting, even if it's a spider. Especially if it's a spider, A'moora would say." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We've guided and healed our people since before the Sundering. I'm the newest and least of us, but I'm part of it." } },
+    elune = { { id = "tp_elune", text = "Elune is the moon, and the moon's light, and the reason we're still here at all, I think. I'm still learning which of those the high priestesses mean when they say her name." } },
+    holy_light = { { id = "tp_holy_light", text = "Human priests visit sometimes, and they pray to the Light, which they say is everywhere. I asked one if Elune was part of it, and he looked very worried, so I stopped asking." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A traveller told me the Darkmoon Faire has a fortune teller who's always right. I'd like to ask her if I'll ever finish my studies." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess is so kind to the novices, and she never tells us when we're making mistakes, she just looks at us until we notice. It works every time." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one. I could ask A'moora for you, if I remember." } },
   },
 }
@@ -1215,7 +1267,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_bank", text = "Welcome to the Bank of Darnassus. Do you already have an account with us, {g:sir|ma'am}?" },
+    { id = "g_bank", text = "Ishnu-alah, and welcome to the Bank of Darnassus. Do you already have an account with us, {g:sir|ma'am}?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Your box is exactly where you left it, as always." },
   },
 
@@ -1329,7 +1381,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your Circle leaves very little in my vaults, I find, though the ones who go into the long sleep do like to know their things will be here when they wake." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I'd ask you not to open any portals inside the vault, because I'd have to write it down, and I've no column for it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your box will be safe, though I must write down the reason for anything that leaves it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your box will be safe beneath the Temple's roof, though I must write down the reason for anything that leaves it, as we always have." },
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
@@ -1353,7 +1405,7 @@ P:NPC {
         { id = "ac_default", text = "Priestesses, druids, craftsmen and a great many visitors from your kingdoms. Scholars use us most, oddly; Gracina Spiritmight has more specimens in her box than coins." },
       },
       choices = {
-        { text = "Specimens? In a bank?", next = "accounts2" },
+        { text = "I wouldn't have expected specimens in a bank.", next = "accounts2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1381,6 +1433,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "A banker hears a great deal and repeats very little. I can speak to a few matters, if you ask." } },
     background = { { id = "tp_bg", text = "I keep the bank's records and its keys. Both are always in order." } },
     advice = { { id = "tp_ad", text = "Don't carry everything you own into the wilds. The wilds will take a share." } },
-    _none = { { id = "tp_none", text = "I'm afraid that isn't a banking matter." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblin bank in Booty Bay is very efficient, I'm told, and charges for the privilege of telling you so. We do not charge for honesty here." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's merchants send letters of credit on the Auberdine boat. They are always correct, which I appreciate more than they know." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "A goblin cartel, very organised and very expensive. Their ledgers are a marvel, though I'd never tell them that." } },
+    _none = { { id = "tp_none", text = "I'm afraid that isn't a banking matter, and the bank has kept to banking for a very long time." } },
   },
 }

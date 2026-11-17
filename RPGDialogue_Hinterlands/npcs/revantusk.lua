@@ -34,6 +34,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_wildhammer = {
+      lines = {
+        { id = "opn_wildhammer_q", text = "Otho says we bleed them until they leave us be, and Markhor says we hunt the Vilebranch and let the dwarves come to us. My mate sits in a Vilebranch cage, mon, and I be tired of choosin' which enemy to hate first. Tell me what you would do in my place." },
+      },
+      choices = {
+        { text = "Strike Aerie Peak. They hunt you from the sky.", next = "opn_wildhammer_r_war", fx = { affinity = 1, align = { honor = -1 }, opinion = { wildhammer = "war" } } },
+        { text = "Free your mate first. The Vilebranch come before any grudge.", next = "opn_wildhammer_r_wait", fx = { affinity = 1, align = { honor = 1 }, opinion = { wildhammer = "wait" } } },
+        { text = "Talk to the dwarves. Show them you aren't Vilebranch.", next = "opn_wildhammer_r_parley", fx = { affinity = -1, trait = { kind = 1 }, opinion = { wildhammer = "parley" } } },
+        { text = "The Darkspear have dwarf enemies too. Stand with the Horde first.", next = "opn_wildhammer_r_war", when = { race = "Troll" }, fx = { opinion = { wildhammer = "war", darkspear = "kin" } } },
+        { text = "That's your choice, Primal.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r = {
+      lines = {
+        { id = "opn_wildhammer_r_default", text = "It is, and it sits on me heavy. Go, and come back with Vilebranch blood on you." },
+      },
+      choices = {
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_war = {
+      lines = {
+        { id = "opn_wildhammer_r_war", text = "Otho will love you for that, and Otho loves nobody. One day, mon, one day, but not while Hexx still breathes." },
+      },
+      choices = {
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_wait = {
+      lines = {
+        { id = "opn_wildhammer_r_wait", text = "My mate first. Yes, that be what Malkhor would say, and he was always right about the order of things." },
+      },
+      choices = {
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_parley = {
+      lines = {
+        { id = "opn_wildhammer_r_parley", text = "Talk? With dwarves who kill my hunters from gryphons and don't ask their tribe first? You be a strange one. Maybe a brave one too, but mostly strange." },
+      },
+      choices = {
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
     xpt_troll = {
       big = true,
       lines = { { id = "xpt_troll_default", text = "The Darkspear be jungle trolls and we be forest trolls, so we argue about everything from the loa to the proper way to cook a raptor. But they kept faith with Thrall and so do we, and that makes us closer kin than the Vilebranch who share our blood." } },
@@ -97,14 +141,23 @@ P:NPC {
         { text = "Something else, Primal.", next = "BACK" },
       },
     },
+    xorig_revan = {
+      lines = { { id = "xrv_default", text = "I remember sending you, mon, and I remember you grumbling all the way out of the village. So tell me true, now that you've walked their cities, be the orcs worth the faith we keep with them?" } },
+      choices = {
+        { text = "They keep their word, Primal, which the Amani never did.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'm still deciding, Primal.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_troll", tags = { "news" }, when = { party = { race = "Troll" }, faction = "Horde" },
           text = "You travel with {companion}, a Darkspear by the tusks, and the Revantusk are glad of it, mon. There be few enough trolls in this Horde who remember what it means to keep faith with the orcs." },
         { id = "h_default", key = true,
-          text = "I be Primal Torntusk, and I lead the Revantusk while my mate sits in a Vilebranch cage. They came at midnight, they took him up to Jintha'Alor, and every night since I been countin' how many of them owe me blood." },
+          text = "I be Primal Torntusk, and I lead the Revantusk while my mate sits in a Vilebranch cage. They came at midnight, they took him up to Jintha'Alor, and every night since I been countin' how many of them owe me blood, startin' with my guard captain Malkhor, who they cut down where he stood." },
         { id = "h_kidnap", tags = { "news" }, when = { questActive = TODO_QUEST("Kidnapped Elder Torntusk!") },
           text = "My spies say he still breathes, up on the top of Jintha'Alor, and the Vile Priestess Hexx be readyin' him for her altar. Go quick, before she finishes her preparations." },
+        { id = "h_hills_resolved", tags = { "news" }, when = { faction = "Horde", thread = { id = "hinterlands_trolls", state = "resolved" } },
+          text = "The Vilebranch keep their heads down on that hill since Hexx fell, mon, and my scouts can walk the river without lookin' over their shoulders. It won't last, but Revantusk will enjoy it while it does." },
         { id = "h_hexx", when = { questActive = TODO_QUEST("Wanted: Vile Priestess Hexx and Her Minions") },
           text = "You read the poster, then. Hexx and her Aman'zasi guards sit at the summit as if the hill belongs to them, so show them it don't." },
         { id = "h_job", when = { questActive = TODO_QUEST("Job Opening: Guard Captain of Revantusk Village") },
@@ -139,21 +192,22 @@ P:NPC {
         { text = "Tell me about the raid.", next = "raid" },
         { text = "Why do the other trolls hate you?", next = "tribes" },
         { text = "How did the Revantusk come to the Horde?", next = "horde" },
-        { text = "What about the Wildhammer?", next = "wildhammer" },
-        { text = "Who was Malkhor?", next = "malkhor" },
+        { text = "The Wildhammer must trouble you too.", next = "wildhammer" },
+        { text = "The name Malkhor seems to weigh on you.", next = "malkhor" },
         { text = "Your mate is home. I saw to it.", next = "after", when = { questDone = TODO_QUEST("Return to Primal Torntusk") } },
         { text = "My people were in those camps too.", next = "orc", when = { race = "Orc" } },
         { text = "The Darkspear stand with you, Primal.", next = "troll", when = { race = "Troll" } },
         { text = "I serve the Dark Lady. What use am I here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do you fear a warlock's magic, Primal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do the Revantusk still hold that grudge against magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Could someone quiet slip into Jintha'Alor unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "What do the Revantusk hunt in the Hinterlands, Primal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The Revantusk seem to hold a grudge against magic.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Someone quiet could slip into Jintha'Alor unseen.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The Revantusk must hunt well in these hills, Primal.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should we rescue your mate, or punish the Vilebranch first?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How do I show you I'm the other kind, Primal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will the Revantusk accept a Forsaken paladin as an ally, Primal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I stood in Zul'Gurub when Hakkar fell, Primal.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "My companion's a Darkspear. What do the Revantusk make of them?", next = "xpt_troll", when = { party = { race = "Troll" }, faction = "Horde" } },
+        { text = "You sent me to judge the Horde, Primal. I've come back.", next = "xorig_revan", when = { origin = "troll_revantusk_envoy" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },
@@ -236,7 +290,7 @@ P:NPC {
     horde = {
       lines = { { id = "hd_default", text = "We fled to this coast and hid, until word came that a young warchief named Thrall built a new Horde across the sea. I sent my fastest runners, and he took our hands in friendship and in help, and we been Horde ever since." } },
       choices = {
-        { text = "Has the Horde kept its word?", next = "horde_word" },
+        { text = "I hope the Horde has kept its word.", next = "horde_word" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,6 +302,7 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "The dwarves at Aerie Peak hate all trolls the same, Revantusk or Vilebranch, and their gryphons kill our hunters in the hills. Otho wants to send them messages in blood; Markhor wants their birds. I want my mate back first, and then we see." } },
       choices = {
+        { text = "What should the Revantusk do about the dwarves?", next = "opn_wildhammer" },
         { text = "The Wildhammer fight the Vilebranch too. Use that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Enemies of the Horde are enemies. Strike them now.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -314,6 +369,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "Revantusk born, Revantusk chief, and Horde since the runners came home with Thrall's word.", next = "horde" } },
     advice = { { id = "tp_ad", text = "Never sleep in the open near Jintha'Alor. The Vilebranch like their meat fresh." } },
     vilebranch = { { id = "tp_vile", text = "Cannibals and traitors who drink what they should bury. Ask Yayo'jin, if you want the long tellin'.", next = "tribes" } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear and the Revantusk are cousins, and Vol'jin brought us into the Horde. We paid for that with blood, twice over, and we'd pay again." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin is a true leader, and he knows what it is to lose everything and build again. He sent word to me when my mate was taken, and I'll not forget it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde welcomed my tribe when no one else would, and we fight for him now. My mate sits in a Vilebranch cage, and I'll see him freed in the Horde's name." }, { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You fly with the Wildhammer and ask me about my warchief? He gave my people a home and a cause, and that is more than your kings have ever given anyone." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are our enemies, and they've been our enemies since before your grandfather was born. They kill our people, and we kill theirs, and that is the way of the Hinterlands." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken Hakkar in their old city, and his priests' blood magic has reached even the Vilebranch. The Zandalar are gathering heroes to stop it, and I hope they're quick." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai worship the blood god in their sunken temple in the south, and the Vilebranch have learned their ways. I'll burn every one of their altars, if I live long enough." } },
     _none = { { id = "tp_none", text = "That don't feed the village or free my mate. Ask me somethin' else." } },
   },
 }
@@ -424,16 +485,16 @@ P:NPC {
       choices = {
         { text = "Do the spirits of the wilds favor the hunter or the hunted?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does any magic in these hills trouble your beasts, huntsman?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What hunts in these hills?", next = "wilds" },
-        { text = "Tell me about your brother.", next = "brother" },
-        { text = "Why hate the gryphons so?", next = "gryphons" },
-        { text = "Why do you hate magic?", next = "arcane" },
+        { text = "Something big hunts in these hills.", next = "wilds" },
+        { text = "Have the Vilebranch taken anyone of yours?", next = "brother" },
+        { text = "What do you make of the gryphons?", next = "gryphons" },
+        { text = "What do you think of magic?", next = "arcane" },
         { text = "I'd like to stable my pet.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "I learned the arcane, huntsman. It's served me well.", next = "mage", when = { class = "MAGE" } },
         { text = "The Earth Mother keeps the beasts in balance too.", next = "tauren", when = { race = "Tauren" } },
         { text = "Why do beasts fear what I carry?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you track the Vilebranch, or do they track you?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can a warrior learn to move quietly in the forest, Markhor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I doubt a warrior can learn to move quietly in the forest.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should a hunter take from the Hinterlands?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you think a paladin hunts like you do, Markhor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll hunt for Revantusk.", next = "END", fx = { affinity = 1 } },
@@ -483,7 +544,7 @@ P:NPC {
       lines = { { id = "b_default", text = "Malkhor, my twin, our guard captain. The Vilebranch took him in the same raid as Torntusk's mate, and him they did not keep for any altar; they killed him quick and fed him to their oozes and their wolves." } },
       choices = {
         { text = "Then let me bring his remains home.", next = "brother_bones", fx = { trait = { kind = 1 } } },
-        { text = "Do you want revenge?", next = "brother_revenge" },
+        { text = "You must want revenge.", next = "brother_revenge" },
       },
     },
     brother_bones = {
@@ -527,6 +588,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the beasts and the trails. Ask me those, and leave the talk of mojo to Yayo'jin." } },
     background = { { id = "tp_bg", text = "Master huntsman of Revantusk, and once a twin. Now only the first.", next = "brother" } },
     advice = { { id = "tp_ad", text = "Watch the brush, not the path. Nothing in the Hinterlands walks on the path." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer have shot more Revantusk than I can count, and my brother hated them as I do. It was the Vilebranch who killed him, though, so my arrows go to Jintha'Alor first." } },
+    the_elements = { { id = "tp_the_elements", text = "The beasts of the Hinterlands are restless, and the spirits are angry, and I think it's the blood magic in Jintha'Alor. My raptors won't go near it, and neither will I." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's Horde is the only home the Revantusk have now, and I'll defend it. My brother died for it, and I'll not see his death wasted." } },
     _none = { { id = "tp_none", text = "That be no beast I know. Ask somebody else." } },
   },
 }
@@ -535,6 +599,7 @@ P:NPC {
   key = "yayojin", id = TODO_NPC("Mystic Yayo'jin"), name = "Mystic Yayo'jin",
   bible = "bibles/revantusk.md", role = "vendor", tier = "quest",
   communities = { "revantusk" }, temper = { "mysterious" }, values = { "devout", "proud" },
+  prejudice = { race = "Scourge", amount = 10, why = "The walking dead cheated Bwonsamdi, and a mystic finds that bad juju." },
   notices = { "class", "race" },
 
   impression = {
@@ -543,6 +608,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Stay on that side of the table, dead one. The spirits don't like it when somethin' that should be with Bwonsamdi comes shoppin' for reagents." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "The loa gave you a door and you walked back out of it, mon. I'll sell to you, but I'll be burnin' sage after." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, dead one. The spirits have stopped hissin' when you come up the platform, so maybe Bwonsamdi has made his peace with you. I'll make mine." },
     { id = "g_default", text = "Mind your feet, mon. You be standin' next to my goods, and they cost more than your boots." },
     { id = "g_back", when = { metBefore = true }, text = "The spirits said you would come back, though they say that about everybody." },
   },
@@ -556,6 +624,82 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because the dead belong to Bwonsamdi, and you walked away from him without payin' the toll. It isn't you I mind so much, mon; it's the bad luck that follows a debt like that." } },
+      choices = {
+        { text = "Death took everything from me. I owe it nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll pay my debt in the living I protect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll keep to my side of the table, then.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What would Bwonsamdi want from someone like me?", next = "prej_why" },
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Respect, maybe, or company, or nothin' at all. My grandmother said the loa of the dead is patient, and he don't chase anybody, because sooner or later everybody comes home." } },
+      choices = {
+        { text = "Then he can wait. I'm not finished here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd rather honour him than run from him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "That's polite, and polite is good juju too. Keep it up and maybe I stop burnin' the sage." } },
+      choices = {
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
+    opn_elves = {
+      lines = {
+        { id = "opn_elves_q", text = "The elves of Quel'Thalas took the Amani forests and called them theirs, and now the dead have taken Quel'Thalas, so the loa got a sense of humour. The Highvale elves still sit at Quel'Danil, though, keepin' trolls in cages. What you think of the long-ears, mon?" },
+      },
+      choices = {
+        { text = "They stole troll land. They got what was coming.", next = "opn_elves_r_hate", fx = { affinity = 2, align = { light = -1 }, opinion = { high_elves = "hate" } } },
+        { text = "Nobody deserves what the Scourge did to them.", next = "opn_elves_r_pity", fx = { affinity = -1, align = { light = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Proud and dangerous. I'd keep my distance.", next = "opn_elves_r_distrust", fx = { trait = { careful = 1 }, opinion = { high_elves = "distrust" } } },
+        { text = "I was one of them, once. Choose your words.", next = "opn_elves_r_kin", when = { race = "Scourge", origin = "forsaken_dalaran_apprentice" }, fx = { affinity = -1, opinion = { high_elves = "kin" } } },
+        { text = "I'd rather hear about the loa.", next = "BACK" },
+      },
+    },
+    opn_elves_r = {
+      lines = {
+        { id = "opn_elves_r_default", text = "Loa be easier to talk about, mon. They at least answer." },
+      },
+      choices = {
+        { text = "Something else, Mystic.", next = "BACK" },
+      },
+    },
+    opn_elves_r_hate = {
+      lines = {
+        { id = "opn_elves_r_hate", text = "Heh. You talk like Zul'jin, mon, or like Markhor after three cups. The loa like you a little more today." },
+      },
+      choices = {
+        { text = "Something else, Mystic.", next = "BACK" },
+      },
+    },
+    opn_elves_r_pity = {
+      lines = {
+        { id = "opn_elves_r_pity", text = "Pity for the long-ears? Then you never met one with a bow. Still, the dead don't ask who deserves it, and that be true for trolls too." },
+      },
+      choices = {
+        { text = "Something else, Mystic.", next = "BACK" },
+      },
+    },
+    opn_elves_r_distrust = {
+      lines = {
+        { id = "opn_elves_r_distrust", text = "Distance be wise, mon. Their arrows reach further than their manners." },
+      },
+      choices = {
+        { text = "Something else, Mystic.", next = "BACK" },
+      },
+    },
+    opn_elves_r_kin = {
+      lines = {
+        { id = "opn_elves_r_kin", text = "You were, eh? Then you know the forest better than you want to. I choose my words, and you choose your powders, and we both get along." },
+      },
+      choices = {
+        { text = "Something else, Mystic.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Good, because his priests were buyin' up every scrap of mojo from here to Booty Bay, and I sold them nothin', though they asked twice. Zul'jin would have spat on a jungle god that made slaves of its own people, and the Amani always had more sense than to bleed for somethin' that hungry." } },
@@ -630,17 +774,18 @@ P:NPC {
       choices = {
         { text = "Who are the Vilebranch?", next = "vilebranch" },
         { text = "Tell me about Zul'jin.", next = "zuljin" },
-        { text = "What do you sell?", next = "goods" },
+        { text = "Your wares look strange, mystic.", next = "goods" },
         { text = "What do the spirits say lately?", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "Our loa are the same, mystic.", next = "troll", when = { race = "Troll" } },
         { text = "I saw the Soulflayer die in Zul'Gurub.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Does dark magic trouble the Revantusk, mystic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do trolls practice the arcane, Yayo'jin?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'd guess few trolls practice the arcane, Yayo'jin.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you ever ask where your goods come from, mystic?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the Revantusk still tell stories of Zul'jin, Yayo'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The Revantusk must still tell stories of Zul'jin.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Which bones tell you where a beast is sleeping, Yayo'jin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would Zul'jin really hate a paladin of the Horde, Yayo'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You keep your distance from me, Yayo'jin. Why?", next = "prej", when = { prejudiced = true } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -675,7 +820,7 @@ P:NPC {
       big = true,
       lines = { { id = "v_default", text = "Three tribes live in the Hinterlands, and all we share be that we be trolls and we live here. The Vilebranch eat their own kind and anything else that walks, and they be proud of it." } },
       choices = {
-        { text = "Why don't the other tribes stop them?", next = "vilebranch_tribes" },
+        { text = "Someone should stop them.", next = "vilebranch_tribes" },
         { text = "Cannibals have no place among trolls. They must end.", next = "vilebranch_end", fx = { align = { light = 1 } } },
         { text = "Their mojo is strong. I'd learn what they know first.", next = "vilebranch_end", fx = { align = { light = -1 } } },
       },
@@ -702,7 +847,10 @@ P:NPC {
     },
     zuljin_back = {
       lines = { { id = "zb_default", text = "I believe it, and Markhor believes it, and half the village burns a candle for it. Believin' costs nothin', mon, and it keeps a small tribe standin' straight." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And the elves he fought? What of them?", next = "opn_elves" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     goods = {
       lines = { { id = "go_default", text = "Powders for the priests and the shaman, candles for the ones who call on darker things, and herbs I won't name to a stranger. Everything you need, and a few things you shouldn't." } },
@@ -731,6 +879,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A mystic sells mystery, mon. You don't get mine for free." } },
     advice = { { id = "tp_ad", text = "Never buy a reagent from a Vilebranch. You never know what they mixed in." } },
     vilebranch = { { id = "tp_vile", text = "Cannibals, mon, and proud of it.", next = "vilebranch" } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Zul'Gurub is the old heart of the Gurubashi, and they have woken their blood god in it. I sell reagents to anyone who'll go and stop it, mon, and I'll pray they come back." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are our cousins, and Vol'jin is a wise chief. He knows the old ways and the new ways both." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai worship Hakkar in their swamp, and their madness is spreading. I sell charms against their blood magic, and I hope they work." } },
     _none = { { id = "tp_none", text = "The spirits don't say nothin' about that, and neither do I." } },
   },
 }
@@ -849,13 +1000,13 @@ P:NPC {
       choices = {
         { text = "Do you ever thank the water for what you catch, Katoom?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What troubles this stretch of coast, Katoom?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who taught you to fish?", next = "pagle" },
-        { text = "What's wrong with the turtles?", next = "snapjaws" },
-        { text = "Doesn't the war worry you?", next = "war" },
+        { text = "Someone taught you well to fish.", next = "pagle" },
+        { text = "What gives you trouble on this shore?", next = "snapjaws" },
+        { text = "The war must worry you.", next = "war" },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the best bait on this coast?", next = "bait", when = { profession = "Fishing" } },
         { text = "I could freeze the water and catch them that way.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Isn't sitting this still a lot like keeping watch?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Sitting this still is a lot like keeping watch.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why would a warrior sit and watch the water, Katoom?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could your rod catch anything a hunter couldn't, Katoom?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you fish with respect for the waters, Katoom?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -893,7 +1044,7 @@ P:NPC {
     pagle_where = {
       lines = { { id = "pw_default", text = "Somewhere down by Theramore, on an island in the marsh, I hear, fishin' all day and talkin' to nobody. If you want to learn the way, mon, he be the one to show you." } },
       choices = {
-        { text = "An island full of Alliance?", next = "pagle_alliance" },
+        { text = "That's an island full of Alliance.", next = "pagle_alliance" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -922,6 +1073,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know fish, mon, so you ask me about fish." } },
     background = { { id = "tp_bg", text = "I fish. Before that, I wanted to fish. That be my whole story, mon.", next = "pagle" } },
     advice = { { id = "tp_ad", text = "Be patient, mon. The fish know when you be in a hurry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay got fine fishin', mon, so the sailors tell me, but there be a thousand boats in that harbour scarin' the fish. My pier be quiet, and the turtles would miss me if I left." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear fish too, out on the Echo Isles, and they say their fish be the best. They be wrong, mon, but I'd never tell Vol'jin that to his face." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet got goblins who'll buy any fish you land, mon, and they don't much care if it be fresh. I'd sooner eat my fish than sell them to a goblin for a copper." } },
     _none = { { id = "tp_none", text = "No idea, mon. Ask me about fish instead." } },
   },
 }
@@ -1030,14 +1184,14 @@ P:NPC {
         { text = "Can I bless the inn's hearth for you, Lard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is the inn ever troubled by magic, Lard?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Make this inn my home.", next = "BUSINESS" },
-        { text = "An ogre among trolls?", next = "ogre" },
-        { text = "Where's your secret spot?", next = "spot" },
-        { text = "How do you keep the peace?", next = "peace" },
+        { text = "An ogre among trolls is a strange sight.", next = "ogre" },
+        { text = "Where does Lard go to get away from it all?", next = "spot" },
+        { text = "You must keep the peace in here somehow.", next = "peace" },
         { text = "Ogres are enemies of the Horde.", next = "orc", when = { race = "Orc" } },
         { text = "My imp won't touch your fish, Lard.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Conjured bread fills you, but it doesn't taste of much.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you ever catch thieves in the inn, Lard?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Did a warrior break your tables, Lard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Some of your tables look broken, Lard.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does Lard ever let the wild animals in?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does it bother you that I'm dead and shiny, Lard?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye, Lard.", next = "END" },
@@ -1073,7 +1227,7 @@ P:NPC {
     ogre = {
       lines = { { id = "o_default", text = "Trolls is nice to Lard. They give Lard roof and fish and don't make Lard fight for chief, so Lard stay. Other ogres not nice like trolls." } },
       choices = {
-        { text = "Do you miss them?", next = "ogre_miss" },
+        { text = "You must miss them sometimes.", next = "ogre_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1082,7 +1236,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     spot = {
-      lines = { { id = "s_default", text = "Is secret, little one! But Lard tell you, because you is nice. It is island to the north, past the beach, and nobody go there except Lard and now the mean Vilebranch." } },
+      lines = { { id = "s_default", text = "Is secret, little one! But Lard tell you, because you is nice. It is island to the north, past the beach, and nobody go there except Lard and now the mean Vilebranch, who chase Lard off and take Lard's lunch." } },
       choices = {
         { text = "I'll get your lunch back.", next = "spot_promise", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
@@ -1122,6 +1276,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Lard know fish, and beds, and who is fightin'. Ask Lard." } },
     background = { { id = "tp_bg", text = "Lard was ogre in the mountains. Now Lard is ogre by the sea, which is better.", next = "ogre" } },
     advice = { { id = "tp_ad", text = "Always eat lunch before Vilebranch find you. Lard lose a whole roast boar that way, and Lard still sulk about it." } },
+    thrall = { { id = "tp_thrall", text = "Warchief Thrall let Lard keep the inn even though Lard is ogre, so Lard like him very much. Lard never meet him, but Lard save him a fish just in case." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Dwarves on the birds shoot at Lard sometimes when Lard go fishing, and Lard not like it. Lard is very big, so they hit Lard a lot, but Lard is also very thick, so it is fine." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has many fish and many goblins, they say, and Lard would like to go and eat some of the fish. Lard would need a very big boat, so Lard stay here." } },
     _none = { { id = "tp_none", text = "Lard not know that, but Lard know fish!" } },
   },
 }
@@ -1208,7 +1365,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Don't touch the forge, please, because the last spellcaster who tried to heat my coals faster melted half a good blade." },
         { id = "h_default", key = true,
-          text = "Smith Slagtree, and I keep the forge for Revantusk. Nobody leaves this village with a split shield while I've got coals in the forge." },
+          text = "Smith Slagtree, and I keep the forge for Revantusk, as an orc of the Horde should for allies who kept faith. Nobody leaves this village with a split shield while I've got coals in the forge, even if the Vilebranch did make off with my good tools." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("Vilebranch Hooligans") },
           text = "Those Vilebranch thieves took my tools in the raid, the good set. Try the temples up in the northeast, or Skulk Rock, and bring them back, because they mean the world to me." },
         { id = "h_tools_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Vilebranch Hooligans"), days = 3 } },
@@ -1230,13 +1387,13 @@ P:NPC {
         { text = "Shall I ask the fire spirit to bless your forge, Slagtree?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could a spellcaster be of use to your forge, smith?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Mend my gear.", next = "BUSINESS" },
-        { text = "A gnome gave you tools?", next = "gnome" },
-        { text = "What's an orc doing with trolls?", next = "village" },
+        { text = "Where did those tools come from?", next = "gnome" },
+        { text = "An orc seems out of place among trolls.", next = "village" },
         { text = "What do the Vilebranch want with tools?", next = "thieves" },
         { text = "My people have no love for gnomes.", next = "orc_gnome", when = { race = { "Orc", "Troll", "Scourge" } } },
         { text = "The Warchief tolerates warlocks now. Why don't you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What makes those tools worth the climb to Jintha'Alor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do you work on bows as well as armor, Slagtree?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess you work on bows as well as armor, Slagtree.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does the forge cost the forest much, Slagtree?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Is mending a paladin's plate any different from an orc's, smith?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Later, smith.", next = "END" },
@@ -1283,7 +1440,7 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "I can mend near anything, mon, if you don't mind the smell of the forge on it after. Revantusk warriors trust my work, and I think you'll be the next one." } },
+      lines = { { id = "xhwar_default", text = "I can mend near anything, warrior, if you don't mind the smell of the forge on it after. Revantusk warriors trust my work, and I think you'll be the next one." } },
       choices = {
         { text = "I'll trust your work, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep my own kit. I trust no smith.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1302,7 +1459,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Iron, steel, and what the Vilebranch broke this week. Ask." } },
     background = { { id = "tp_bg", text = "A smith since I was young enough to burn myself every day. A gnome's hammer taught me most of it.", next = "gnome" } },
     advice = { { id = "tp_ad", text = "Mend before you need to. A belt that snaps mid-swing leaves you fighting with your trousers round your knees." } },
-    _none = { { id = "tp_none", text = "Can't hammer that into shape for you, friend. Ask somebody else." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "A gnome saved my life once, and gave me my best tools, and the Vilebranch stole them. I've heard the gnomes lost their city to troggs, and I'm sorry for it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me here to mend the Revantusk's weapons, and I've been mending them ever since. It's good work, and honest, and I'm glad of it." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer have good forges, I'm told, and better steel. I'd like to see one someday, if they'd stop trying to kill me long enough." } },
+    _none = { { id = "tp_none", text = "I can't hammer that into shape for you, friend, however strong my arm. Ask somebody else." } },
   },
 }
 
@@ -1318,6 +1478,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_wildhammer_war", tags = { "news" }, when = { gossip = { topic = "wildhammer", stance = "war" } },
+      text = "The Primal says you told her to hit Aerie Peak, mon! Finally, somebody with sense, and Otho don't say that often, so enjoy it." },
+    { id = "o_wildhammer_parley", tags = { "news" }, when = { gossip = { topic = "wildhammer", stance = "parley" } },
+      text = "Talk to the dwarves, you said to the Primal? Otho heard. Otho will talk to them too, mon, right after the arrow." },
     { id = "g_default", text = "You hungry, mon, or you lookin' for trouble? I sell for the first and I got plans for the second." },
     { id = "g_back", when = { metBefore = true }, text = "There you be, mon. You ready to make some dwarves very unhappy?" },
     { id = "g_away", when = { away = 14 }, text = "There you be, mon, after {away} away. I kept the good fish on the side, and my plans for the dwarves be ready too." },
@@ -1331,6 +1495,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_revenge = {
+      lines = {
+        { id = "opn_revenge_q", text = "More gryphons, less gryphons, they come either way, mon. Otho wants them to come scared. The Primal got her mind on her mate in that cage, so Otho asks you plain: do the Revantusk hit back or not?" },
+      },
+      choices = {
+        { text = "Hit back. A tribe that won't bleed its enemies dies.", next = "opn_revenge_r_strike", fx = { affinity = 2, align = { light = -1 }, opinion = { hl_revenge = "strike" } } },
+        { text = "Not yet. Your tribe is too small for two wars.", next = "opn_revenge_r_wait", fx = { trait = { practical = 1 }, opinion = { hl_revenge = "wait" } } },
+        { text = "Revenge feeds itself. Break the circle, Otho.", next = "opn_revenge_r_stop", fx = { affinity = -2, align = { light = 1 }, opinion = { hl_revenge = "stop" } } },
+        { text = "Never mind.", next = "BACK" },
+      },
+    },
+    opn_revenge_r = {
+      lines = {
+        { id = "opn_revenge_r_default", text = "Then go away and think, mon, and think faster." },
+      },
+      choices = {
+        { text = "Something else, Otho.", next = "BACK" },
+      },
+    },
+    opn_revenge_r_strike = {
+      lines = {
+        { id = "opn_revenge_r_strike", text = "Now that be talk Otho understands. Come back when you ready, and we start with the elves." },
+      },
+      choices = {
+        { text = "Something else, Otho.", next = "BACK" },
+      },
+    },
+    opn_revenge_r_wait = {
+      lines = {
+        { id = "opn_revenge_r_wait", text = "Too small. Otho hears that every day, mon, and every day the tribe stays small, 'cause nobody let it grow teeth." },
+      },
+      choices = {
+        { text = "Something else, Otho.", next = "BACK" },
+      },
+    },
+    opn_revenge_r_stop = {
+      lines = {
+        { id = "opn_revenge_r_stop", text = "Circle? You sound like the Mystic. Otho don't break circles; Otho breaks gryphons." },
+      },
+      choices = {
+        { text = "Something else, Otho.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Frighten them? Mon, they'd fall off their gryphons! They think the Light be on their side by right, and a Forsaken carryin' it would make them wonder whose side it be on, and that be the best message Otho could ever send." } },
@@ -1422,17 +1629,17 @@ P:NPC {
       choices = {
         { text = "Would you set the spirits against the Wildhammer, Otho?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the Wildhammer have magic on their side, Otho?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Why hate the Wildhammer so much?", next = "dwarves" },
+        { text = "You seem to hate the Wildhammer.", next = "dwarves" },
         { text = "What kind of message?", next = "message" },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "I've been to Aerie Peak. They're tough.", next = "peak", when = { questDone = TODO_QUEST("The Final Message to the Wildhammer") } },
         { text = "The Darkspear have their own grudges, Otho.", next = "troll", when = { race = "Troll" } },
         { text = "Is your hatred of the Wildhammer worth a curse, Otho?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would you want done at Aerie Peak, Otho?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Would you really send a warrior against Aerie Peak, Otho?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "You'd send a warrior against Aerie Peak, Otho.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you really want me to hunt a gryphon, Otho?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should the Wildhammer's gryphons be harmed for revenge?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Would a Forsaken paladin frighten the Wildhammer, Otho?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "A Forsaken paladin would frighten the Wildhammer, Otho.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today, Otho.", next = "END" },
       },
     },
@@ -1457,13 +1664,16 @@ P:NPC {
     dwarves = {
       lines = { { id = "d_default", text = "They hunt us from the sky, mon, on beasts they teach to kill trolls. They don't care if we be Revantusk or Vilebranch; to them a troll be a troll, and that be all the reason I need." } },
       choices = {
-        { text = "And the high elves?", next = "dwarves_elves" },
+        { text = "Do the dwarves have friends out here?", next = "dwarves_elves" },
         { text = "Something else.", next = "BACK" },
       },
     },
     dwarves_elves = {
       lines = { { id = "de_default", text = "The Highvale elves at Quel'Danil, old friends of the dwarves. Elves and trolls been killin' each other since before the dwarves crawled out of their mountains, so it be no surprise to me who they side with." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Hitting back only brings more gryphons, Otho.", next = "opn_revenge" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     message = {
       big = true,
@@ -1471,7 +1681,7 @@ P:NPC {
       choices = {
         { text = "Fear is a weapon. I'll carry it.", next = "message_go", fx = { align = { honor = -1 } } },
         { text = "I'd rather fight their warriors face to face.", next = "message_go", fx = { align = { honor = 1 } } },
-        { text = "Does the Primal approve?", next = "message_primal" },
+        { text = "I doubt the Primal approves.", next = "message_primal" },
       },
     },
     message_go = {
@@ -1496,6 +1706,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know cookin' and I know grudges, mon. Ask about either." } },
     background = { { id = "tp_bg", text = "Revantusk all my life, mon, and angry at the dwarves for most of it.", next = "dwarves" } },
     advice = { { id = "tp_ad", text = "Salt your meat and watch the sky. The gryphons like a troll that don't look up." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are pests, and I'll terrify Aerie Peak one day, mark my words. They'll scream when they see what I've got planned." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are our cousins, and they've never once tried to steal my cooking. That's more than I can say for the Wildhammer." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken their blood god, and they're spreading his madness. I'll not cook for any troll who serves him." } },
     _none = { { id = "tp_none", text = "That don't cook and it don't scare dwarves, so I don't care, mon." } },
   },
 }
@@ -1512,7 +1725,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Quiet! You'll scare the fish. Fine, what do you want, a wind rider?" },
+    { id = "g_default", text = "Quiet! You'll scare the fish, and an orc's patience is a short rope. Fine, what do you want, a wind rider?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still no grouper. Where are you flying today?" },
   },
 
@@ -1543,7 +1756,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Today, mon, maybe yes, because that fish been laughin' at Gorkas for three seasons. The wind riders don't mind waitin', and a warrior who wait a little arrive less angry and fight better, so everybody win." } },
+      lines = { { id = "xwarcl_default", text = "Today, maybe, warrior, because that fish has been laughing at me for three seasons. The wind riders don't mind waiting, and a warrior who waits a little arrives less angry and fights better, so everybody wins." } },
       choices = {
         { text = "Duty comes first, Gorkas. The fish can wait.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Take your time. A man needs something of his own.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1553,8 +1766,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Baitin', trickin', beggin', Gorkas tried everything but a spear, mon, and a spear be cheatin'. A hunter understand that some prey you catch the right way or you don't catch at all." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the pier, mon, because the last beast that jumped in the water scared off every grouper from here to Hammerfall." },
+        { id = "xhuntcl_default", text = "I've tried baiting it, tricking it and begging it, everything but a spear, and a spear would be cheating. A hunter understands that some prey you take with honor or you don't take at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the pier, hunter, because the last beast that jumped in the water scared off every grouper from here to Hammerfall." },
       },
       choices = {
         { text = "Catch it fairly or not at all. You're right.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1589,15 +1802,15 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Keep the demon off the pier, please, because the wind riders can smell it, and so can the fish, I'll swear." },
         { id = "h_default", key = true,
-          text = "Gorkas, wind rider master. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
+          text = "I'm Gorkas, wind rider master for the Horde. The beasts fly to Tarren Mill, Hammerfall and the Undercity, and in between flights I fish off this pier until I catch the biggest grouper on the coast." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Wind riders sleep, the trolls sleep, and the grouper is somewhere out there laughing at me. Where do you need to go?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage, eh? Don't you dare freeze my pier, {class}, because that grouper be down there somewhere and I want him fair and square." },
+          text = "A mage, eh? Don't you dare freeze my pier, {class}, because that grouper is down there somewhere and I want him fair and square." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You sneak up on a troll fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and you want to fly somewhere and hit somethin', I bet. Wait till Gorkas finish this cast, because the grouper be close today, Gorkas can feel it." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! Maybe you know somethin' about grouper, because Gorkas been huntin' one for three seasons and it still be laughin' at him." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you want to fly somewhere and hit something, I'd wager. Lok'tar, but wait till I finish this cast, because the grouper is close today, and I can feel it in the line." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Maybe you know something about grouper, because I've been hunting one for three seasons and it's still laughing at me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders won't mind you, though I'd thank you not to glow on my pier, because the grouper are skittish enough as it is." },
       },
@@ -1609,8 +1822,8 @@ P:NPC {
         { text = "Do the sea spirits mind you fishing between flights, Gorkas?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the Wildhammer gryphons trouble your wind riders, Gorkas?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
-        { text = "What grouper?", next = "grouper" },
-        { text = "How do the wind riders like the coast?", next = "riders" },
+        { text = "I've not heard of this grouper.", next = "grouper" },
+        { text = "The wind riders seem at home on this coast.", next = "riders" },
         { text = "I could just teleport home and skip your wind riders.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the wind riders bring you any interesting news?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is the grouper more important than my flight, Gorkas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -1622,7 +1835,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every rider bring a bag and a mouth, and the mouth be worth more. I hear what Hammerfall worry about before Drum Fel do, and what the Undercity whisper before the Dark Lady hear it, and I keep it all behind my teeth, mostly." } },
+      lines = { { id = "xrogue_default", text = "Every rider brings a bag and a mouth, and the mouth is worth more. I hear what Hammerfall worries about before Drum Fel does, and what the Undercity whispers before the Dark Lady hears it, and I keep it all behind my tusks, mostly." } },
       choices = {
         { text = "Keep it behind your teeth. Loose talk gets riders killed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "News like that should be sold, Gorkas.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1659,6 +1872,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Routes, winds and fish. Ask about one of those." } },
     background = { { id = "tp_bg", text = "Orgrimmar sent me to keep the wind riders. Nobody said I couldn't fish." } },
     advice = { { id = "tp_ad", text = "Don't fly over Aerie Peak. The dwarves shoot first and ask about your business never." } },
-    _none = { { id = "tp_none", text = "No idea. Let me fish." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has the best fishing in the world, they say, and I'd go there if I didn't have wind riders to tend. I'm waiting for a grouper here, and I'll not leave till I catch it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a wolf, not a wind rider, and I've never held it against him. I'd like to see him fish, though, since a leader who can wait on a grouper can wait out anything." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer gryphons are fine beasts, I'll admit it, but my wind riders turn sharper in a crosswind. I'd not say that on their side of the hills, mind." } },
+    _none = { { id = "tp_none", text = "No idea. Let an old grunt fish in peace." } },
   },
 }

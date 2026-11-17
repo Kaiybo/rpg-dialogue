@@ -6,6 +6,7 @@ local TODO_NPC = P.TODO_NPC
 -- Teloren: hippogryph master at Stonetalon Peak.
 P:NPC {
   key = "teloren", id = TODO_NPC("Teloren"), name = "Teloren", title = "Hippogryph Master",
+  prejudice = { race = "Gnome", amount = 8, why = "He watches the Venture Company's shredders eat Stonetalon; machines and their makers have become one thing in his mind, which isn't fair to the gnomes." },
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "stonetalon_peak" }, temper = { "calm", "watchful" }, values = { "duty", "nature" },
   notices = { "race", "weary" },
@@ -15,7 +16,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound." },
+    { id = "g_prej", when = { prejudiced = true }, text = "A gnome, on Stonetalon Peak. Forgive me if I'm short with you; I've spent a year watching machines chew through the valleys below, and I've forgotten how to like the people who build them." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, little friend, and I'm not good at them. You're not the Venture Company, and I shouldn't have looked at you as if you were." },
+    { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound, and Elune keep the wind steady under you." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the peak again. The birds know your scent by now, so they won't fuss." },
   },
 
@@ -28,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_teloren = {
+      big = true,
+      lines = { { id = "prej_teloren_default", text = "I suppose I do. From up here I watch the Venture Company's shredders tear down trees that were old when Ashenvale was young, and the smoke goes up every morning. When I see a gnome with grease on his gloves, I see those machines, though I know you aren't the ones driving them." } },
+      choices = {
+        { text = "Machines aren't evil. The goblins who use them are the problem.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Some trees have to fall for progress. That's the world now.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Then let me show you a gnome who protects the trees.", next = "prej_teloren_calm", fx = { affinity = 1 } },
+        { text = "Can the shredders be stopped?", next = "prej_teloren_why" },
+      },
+    },
+    prej_teloren_why = {
+      lines = { { id = "prej_teloren_why_default", text = "The Sentinels try, and the druids at the Talondeep path try, but the Venture Company has more machines than we have arrows. Every one we stop, they replace in a week from somewhere south of Ratchet." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_teloren" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_teloren_calm = {
+      lines = { { id = "prej_teloren_calm_default", text = "I'd like that more than I can say. Go down to Windshear Crag and break a few of their machines, and I'll stop looking at your gloves." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That the goblins keep cutting and the forest keeps dying. My birds fly above it, but I would rather they flew above something green." } },
@@ -122,19 +143,22 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds. My hippogryphs fly through the smoke from the vale every day and tell me nothing, so perhaps the wind will tell you." },
       },
       again = {
-        { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
+        { id = "h_again", text = "What else? The wind's steady, so there's no hurry; my people learned long ago that haste is a young race's habit." },
         { id = "h_again2", text = "Ask whatever you like while the hippogryphs settle their feathers." },
       },
       choices = {
+        { text = "You look at my hands like they're holding a wrench, Teloren.", next = "prej_teloren", when = { prejudiced = true } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What do you see from up here?", next = "see" },
-        { text = "Is it hard to fly in the mountains?", next = "fly" },
+        { text = "Flying in these mountains must be hard.", next = "fly" },
         { text = "Why keep a post this high?", next = "post" },
-        { text = "Would a quiet walker be any use to you up here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Where did you keep birds before the Peak?", next = "darkshore" },
+        { text = "Who else keeps watch up here?", next = "peakfolk" },
+        { text = "A quiet walker could be of use to you up here.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you really think magic could replace your hippogryphs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your hippogryphs ever carry Sentinels into battle, Teloren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the hippogryphs fear predators up here, Teloren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is there anyone below who needs a healer, Teloren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Someone below must need a healer, Teloren.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin watch for from up here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your hippogryphs carry a warlock, Teloren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does the smoke from the vale tell you, Teloren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -165,6 +189,7 @@ P:NPC {
         { id = "fl_default", text = "The winds here come up off the cliffs without warning, and a young bird can be thrown off course in a moment. I only send the older ones out from the Peak, and I'd ask you to hold on tightly when you cross the ridges." },
       },
       choices = {
+        { text = "What becomes of the young birds, then?", next = "fly2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,6 +198,67 @@ P:NPC {
         { id = "po_default", text = "Because the Keeper is here, and the druids who serve him, and they need a way to reach the rest of our people quickly. Besides, nothing on foot can surprise us up here, and that's worth a great deal in these mountains." },
       },
       choices = {
+        { text = "Has anyone ever tried to surprise you?", next = "post2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post2 = {
+      big = true,
+      lines = {
+        { id = "po2_default", text = "The Horde holds Sun Rock to the east, and their wind riders cross our sky now and then, though they've never come to the Peak. I watch them as they watch me, and so far neither of us has done more than watch." },
+      },
+      choices = {
+        { text = "Keep watching, and let the peace hold as long as it can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Watching isn't enough. One day they'll come, so prepare.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fly2 = {
+      lines = {
+        { id = "fl2_default", text = "They stay on the Peak and learn the winds from the ledges, a little farther each day, until they can ride a gust without panicking. It takes a season or more, and I lose a few feathers of my own teaching them." },
+        { id = "fl2_druid", when = { class = "DRUID" },
+          text = "They learn the winds slowly from the ledges, much as you must have learned your first shape, {class}. Some take a season, and some take a year, and I can't hurry either kind." },
+      },
+      choices = {
+        { text = "Patient work. I respect that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkshore = {
+      lines = {
+        { id = "dk_default", text = "On the Darkshore coast, flying the sea winds out of Auberdine, which are gentle beside these. I asked to come here when the Keeper sent word that the Peak needed a steady hand, and I haven't regretted it, though I miss the sound of the surf." },
+      },
+      choices = {
+        { text = "Why leave somewhere gentler for this?", next = "darkshore2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkshore2 = {
+      big = true,
+      lines = {
+        { id = "dk2_default", text = "Because the gentle places can look after themselves, and Stonetalon can't. The Keeper is old and his druids are few, and someone has to carry word from here to Darnassus before the goblins have cut the whole mountain bare." },
+      },
+      choices = {
+        { text = "Duty belongs where it's needed most, not where it's easy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather choose my own road than follow a summons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peakfolk = {
+      lines = {
+        { id = "pf_default", text = "Keeper Albagorm watches over the Talon Den and the grove, and Faralia keeps the inn warm for anyone who climbs this far. The Sentinels walk the paths, and I watch the sky, and between us very little reaches the Peak unseen." },
+      },
+      choices = {
+        { text = "What's the Keeper like?", next = "peakfolk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peakfolk2 = {
+      lines = {
+        { id = "pf2_default", text = "Old and patient, and slow to anger, though the burning of the vale has angered him. When he speaks of the trees, he speaks of them as if each one had a name, and perhaps to him they do." },
+      },
+      choices = {
+        { text = "I'll go and hear him for myself.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,6 +267,10 @@ P:NPC {
   topics = {
     venture_company = { { id = "tp_vc", text = "The goblins cut and burn the valleys south of here. I see their smoke every morning." } },
     background = { { id = "tp_bg", text = "I keep the hippogryphs on Stonetalon Peak. Before that I flew the coast of Darkshore, which was gentler." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Ask Faralia at the inn, or the Keeper, if he's not too busy." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind leads the night elves, and her Sentinels keep our borders. I serve her by keeping the hippogryphs ready, which is a small thing, but a necessary one." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief claims he wants peace, and perhaps he does. But his people's axes are in Ashenvale, and the goblins' smoke is in Stonetalon, and I watch both from this peak." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the hippogryphs as she does over us. I thank her each night that none of mine were lost to the goblins' smoke." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our new home, and the hippogryphs fly there from every corner of Kalimdor. I miss the old forests, but Teldrassil is beautiful in its own way." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Ask Faralia at the inn, or the Keeper, if he's not too deep in his thoughts; his memory runs back further than mine." } },
   },
 }

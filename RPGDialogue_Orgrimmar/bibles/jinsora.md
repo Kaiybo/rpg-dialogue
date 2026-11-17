@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Jin'sora · Valley of Honor, Orgrimmar · Horde · Darkspear Troll · Bowyer
-Personality: dry, proud
-Speech: Darkspear 'mon', 'be'
+Personality: dry, proud, flinches at every gunshot from Kaja's stall
+Speech: Darkspear 'mon', 'be'; measures everything in quiet; sniffs at gun-makers
 Knows and cares about: bows over guns, Ashenvale wood
 Relationships: Kaja (rival)
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Wood from Warsong logging in Ashenvale.
+Authored, not canon: Wood from Warsong logging in Ashenvale; waxes sinew strings every morning since childhood on the islands; fired a gun once and was deaf in one ear for two days; trades insults with Kaja every morning and would secretly miss it.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

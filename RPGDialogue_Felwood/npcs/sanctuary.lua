@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_green", text = "Welcome, traveler. Look past the sickness, if you can, for there's still green under it." },
+    { id = "g_green", text = "Ishnu-alah, traveler. Look past the sickness, if you can, for there's still green under it, as there was before the Legion ever came." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to Felwood, when most don't once they've seen it. Thank you." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and while you were gone three of my seeds came up green, which I'll count as a welcome. Thank you for coming back to Felwood." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you were last here, and I mean that the way I'd say it of a sapling, with gladness. Felwood needs those who grow stronger instead of sicker." },
@@ -30,6 +30,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Some druids say Felwood is lost and we should let it burn itself out. I don't believe it, but I want to know what a stranger sees, so tell me: can Felwood be saved?" },
+      },
+      choices = {
+        { text = "Yes. Your seeds will take root, given time.", next = "op_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { felwood_hope = "hope" } } },
+        { text = "No. Burn it all and plant fresh.", next = "op_r2", fx = { affinity = -1, align = { light = -1 }, opinion = { felwood_hope = "lost" } } },
+        { text = "Kill the satyrs first. The trees can wait.", next = "op_r3", fx = { trait = { stern = 1 }, opinion = { felwood_hope = "war_first" } } },
+        { text = "I can feel the land still breathing under the fel.", next = "op_r4", fx = { affinity = 1, opinion = { felwood_hope = "hope" } }, when = { class = "DRUID" } },
+        { text = "I couldn't say yet.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Time is something my people used to have in abundance. I'll make do with what's left, and keep planting." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Burning is what the Legion did here. I'll not finish their work for them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Shadow Council would agree that the trees can wait, which is part of why I don't." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "So you feel it too. Then it's not only my hope talking, and that matters more than you know." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_eridan = {
       big = true,
       lines = { { id = "xpt_eridan_default", text = "I think it has to be, because if a forest this old can be poisoned past saving, then nothing is safe anywhere. The demons left their filth in the water and the roots, and every seed I plant that comes up green is one small argument against despair." } },
@@ -149,7 +178,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! I wonder whether your arcane eye sees what the Jadefire satyrs are doing to the land, because to me it only looks like sickness and rot." },
         { id = "h_default", key = true,
-          text = "I am Eridan Bluewind, of the Emerald Circle. Felwood was green once, and under all of this, somewhere, it still is, and we mean to find it again." },
+          text = "I am Eridan Bluewind, of the Emerald Circle. Felwood was green once, part of Ashenvale for ten thousand years, and under all of this, somewhere, it still is, and we mean to find it again, even if I must plant a seed every morning that never takes." },
         { id = "h_jadefire", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Corruption of the Jadefire") }, { questActive = TODO_QUEST("Further Corruption") } } },
           text = "The Jadefire satyrs wear the corruption like a crown, so thin their numbers; every one that falls is a little less poison in the soil." },
         { id = "h_flute", when = { questActive = TODO_QUEST("Flute of Xavaric") },
@@ -166,18 +195,20 @@ P:NPC {
           text = "A priest, at the Emerald Sanctuary! The druids here mend the soil, but I've always thought a priest mends something deeper, so you are very welcome among my seedlings." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, at the Emerald Sanctuary. You're welcome so long as you help things grow, and I'll confess I'm curious what a prayer might do for my seedlings." },
       },
-      again = { { id = "h_again", text = "What else? Softly; the sanctuary listens." } },
+      again = { { id = "h_again", text = "What else? Softly, please; the sanctuary listens, and so does Elune." } },
       choices = {
+        { text = "Can Felwood really be saved?", next = "op_ask" },
         { text = "What happened to Felwood?", next = "what" },
-        { text = "What is the Emerald Circle?", next = "circle" },
+        { text = "I've heard of the Emerald Circle.", next = "circle" },
         { text = "Why plant seeds that won't grow?", next = "seeds" },
         { text = "I can feel the sickness in the ground.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Is fel always poison, or only in the wrong hands?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "What are the satyrs doing to the land?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The satyrs seem to be ruining the land.", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a priest's prayer help your seedlings take root, Eridan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What kills your seedlings, Eridan?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Have you seen any of Felwood's beasts recover, Eridan?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Some of Felwood's beasts must recover, Eridan.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think Felwood can be healed, Eridan?", next = "xpt_eridan", when = { party = { class = "DRUID" } } },
+        { text = "I came for the satyrs. They were our kin once.", next = "xorig_satyr", when = { origin = "nightelf_satyr_hunter" } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you really believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
@@ -186,13 +217,24 @@ P:NPC {
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
+    xorig_satyr = {
+      big = true,
+      lines = {
+        { id = "xsa_default", text = "They were, and that is what makes it so hard, because every Jadefire you bring down was somebody's ancestor long before it was a beast. I won't ask you to stop, for the forest needs them thinned, but do you ever wonder whether any of them remember who they were?" },
+      },
+      choices = {
+        { text = "They chose the Legion. They're owed no pity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hope some part of them is glad to be freed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     what = {
       big = true,
       lines = {
         { id = "w_default", text = "It was the demons' war. To weaken Hyjal's defenders, a dreadlord poisoned the forest around the mountain with a cursed skull. The beasts twisted and the ancients turned, and the soil went sour under them, and it has not stopped." },
       },
       choices = {
-        { text = "Can it be undone?", next = "what_undone" },
+        { text = "Surely it can be undone.", next = "what_undone" },
         { text = "I'll help heal it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Some places are past saving, and this is one of them.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -243,7 +285,14 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a druid of the Circle, sent where the land hurts most, and Felwood hurts most.", next = "what" } },
     advice = { { id = "tp_ad", text = "Don't drink from the streams, don't eat the fruit, and don't trust anything that glows green." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle is the Cenarion Circle's hands in Felwood, and our hands are tired, but they're still working." } },
-    _none = { { id = "tp_none", text = "I don't know, but the forest might, if you ask it gently." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "The Dream remembers Felwood as it was, green and quiet, and I go there in sleep to remind myself what we're fighting for. Waking up here is the hard part." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You've walked the Dream's edge, then, so you know what this forest is meant to be. Help me make the waking world a little closer to it." },
+    },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs left uncorrupted, and they guard their tunnels like their lives depend on it, which they do. Earn their trust and it's yours for good." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The fel that poisons this forest came from the Legion, and the Shadow Council keeps it fed at Jaedenar. Every spring we cleanse, they foul another." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is just across the gorge on Hyjal, and Felwood was its forest once. I'd like it to be again, before I die." } },
+    _none = { { id = "tp_none", text = "I don't know, but the forest might, if you ask it gently, as my people have always asked." } },
   },
 }
 
@@ -259,7 +308,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_welcome", text = "The Emerald Circle welcomes you. Stay on the path, and don't touch anything that glows." },
+    { id = "g_welcome", text = "The Emerald Circle welcomes you, and the Earth Mother with it. Stay on the path, and don't touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "Still clean? Good; Felwood gets into people, so watch for it." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd like a look at your eyes before you come any closer, because Felwood has a way of following people home." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone here caught you in a lie, and that's the first thing I watch for, because the forest's rot often starts with a small one. Stay honest, and stay on the path." },
@@ -373,13 +422,15 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Your kind and mine see the world differently, but we agree, I hope, that whatever the demons left in Felwood was not left for anyone to study." },
         { id = "h_default", key = true,
-          text = "Greta Mosshoof, of the Emerald Circle. The satyrs and the Shadow Council made this forest what it is. I'd like to unmake it. Don't let the power here tempt you; it's what poisoned the land." },
+          text = "I am Greta Mosshoof, of the Emerald Circle. The satyrs and the Shadow Council made this forest what it is, and I'd like to unmake it, slowly, the way the Earth Mother heals. Don't let the power here tempt you, because it's what poisoned the land." },
         { id = "h_jaedenar", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Forces of Jaedenar") }, { questActive = TODO_QUEST("A Final Blow") } } },
           text = "Jaedenar belongs to the Shadow Council now, warlocks and demons, and worse beneath. Every one you put down gives the forest room to breathe." },
         { id = "h_water", when = { any = { { questActive = TODO_QUEST("Collection of the Corrupt Water") }, { questActive = TODO_QUEST("Seeking Spiritual Aid") } } },
           text = "The water carries the corruption downstream, into everything. A friend of mine, Islen Waterseer, may know how to cleanse it. Bring her what we gather." },
         { id = "h_cleansed", when = { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") },
           text = "Clean water, back in Felwood, is a small thing, but it's how forests heal: one small thing, and then the next." },
+        { id = "h_felwood_resolved", tags = { "news" }, when = { thread = { id = "felwood_rot", state = "resolved" } },
+          text = "The stone's still on my table, if you're wondering, and I've only picked it up twice since you came back from Jaedenar. Eridan says that's progress, and for once I haven't argued with her." },
         { id = "h_flames", when = { questActive = TODO_QUEST("Dousing the Flames of Protection") },
           text = "The Council's fires protect them. Put them out, and their walls come down with them." },
         { id = "h_watch", when = { metBefore = true },
@@ -390,21 +441,21 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and here at the Sanctuary. Good; we need every pair of hands, and every one that can call the roots back to life is worth ten that only hold a sword." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of the Forsaken. The Light is a power, and death is another, so I'll say to you what I say to everyone: don't let what's here tempt you." },
       },
-      again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone while you do." } },
+      again = { { id = "h_again", text = "Yes? Ask, and I'll hold my stone from Mulgore while you do." } },
       choices = {
         { text = "Do the fel and the elements fight each other here, Greta?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Who are the Shadow Council?", next = "council" },
+        { text = "You speak of the Shadow Council.", next = "council" },
         { text = "Tempt me? How?", next = "tempt" },
         { text = "Tell me about the stone.", next = "stone", when = { metBefore = true } },
         { text = "The power here doesn't frighten me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Have you had trouble with thieves out here?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Shouldn't someone study the corruption to understand it?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Someone ought to study the corruption to understand it.", next = "xmage", when = { class = "MAGE" } },
         { text = "What did the Shadow Council reach for, Greta?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a warrior safer from Felwood's temptations, Greta?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has the fel done to Felwood's beasts, Greta?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can Felwood really be healed, Greta?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Do you really think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "I can't see how the Light could be turned to corruption.", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Would Felwood's corruption tempt a Forsaken paladin, Greta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
       },
@@ -450,7 +501,11 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I'm a daughter of Mulgore who followed the Circle north. Some days I think I'll go home, and then I see one clean spring, and I stay." } },
     advice = { { id = "tp_ad", text = "If something here offers you strength, ask what it wants back. It always wants something back.", next = "tempt" } },
-    _none = { { id = "tp_none", text = "That's not something the Circle has spoken of, and better I say nothing than something wrong." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother weeps for this forest, and I can hear it in the springs when they're foul. When we cleanse one, she stops weeping, for a little while." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is our wisest chief, and he let me come north with the Circle. I write to my family in Mulgore, and they tell him I'm well." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are gentle when they trust you and fierce when they don't. I brought them salve once, and they've let me pass ever since." } },
+    elune = { { id = "tp_elune", text = "The elves pray to Elune, and I pray to the Earth Mother, and we both look up at the same moon. I think the moon is happy with that." } },
+    _none = { { id = "tp_none", text = "That's not something the Circle has spoken of, and the ancestors taught me that it's better to say nothing than something wrong." } },
   },
 }
 
@@ -562,6 +617,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_felwood_hope_lost", tags = { "news" }, when = { gossip = { topic = "felwood_hope", stance = "lost" } },
+          text = "Eridan says you'd burn Felwood to the ground. I'd ask you not to say it while I'm in the middle of mending it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! I hope you came to mend, friend, because Felwood's had enough magic thrown at it, and I'd much rather see you use yours to make something grow." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -575,7 +632,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! You've a light step, and I could use someone who can get close to things that would rather not be got close to, if you'll forgive me for saying so." },
         { id = "h_default", key = true,
-          text = "Maybess Riverbreeze, of the Emerald Circle. I ask the Horde to help take Felwood back from the poison, not by fighting, mostly, but by mending." },
+          text = "I am Maybess Riverbreeze, of the Emerald Circle. I ask the Horde to help take Felwood back from the poison, not by fighting, mostly, but by mending, the way rain mends the plains after a fire." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
           text = "Bring me blood amber, the sap of the Warpwood elementals in the Irontree Caverns to the north. They're beyond saving, and what I learn from them may save everything else." },
         { id = "h_trusted", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cleansing Felwood"), days = 3 } },
@@ -592,20 +649,20 @@ P:NPC {
       },
       choices = {
         { text = "How do you mend a forest?", next = "mend" },
-        { text = "Why must I kill elementals to earn your trust?", next = "trust" },
+        { text = "Why must I kill elementals to earn your trust?", next = "trust", when = { any = { { questActive = TODO_QUEST("Cleansing Felwood") }, { questDone = TODO_QUEST("Cleansing Felwood") } } } },
         { text = "What is the Emerald Circle?", next = "circle" },
-        { text = "What was Felwood before?", next = "past" },
-        { text = "I'm an herbalist. What should I look for?", next = "herb", when = { profession = "Herbalism" } },
+        { text = "Felwood can't always have looked like this.", next = "past" },
+        { text = "I'm an herbalist, if that's any use to you.", next = "herb", when = { profession = "Herbalism" } },
         { text = "I'm Alliance. Can I still help?", next = "alliance", when = { faction = "Alliance" } },
         { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
         { text = "Would you really let a warlock help the cleansing?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "What do you need someone to get close to?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "You need someone to get close to something.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Felwood need mending most, Maybess?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use is a warrior in mending a forest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Where would I find clean plants in Felwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "What does the Emerald Circle need most from me?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "There must be clean plants somewhere in Felwood.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The Emerald Circle must need something from me.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
+        { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN", any = { { questActive = TODO_QUEST("Cleansing Felwood") }, { questDone = TODO_QUEST("Cleansing Felwood") } } } },
         { text = "How can a paladin help mend Felwood, Maybess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can a mage's magic really heal a forest, Maybess?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
@@ -688,13 +745,18 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A tauren of the Emerald Circle, who came to Felwood to heal what she could. I'll leave when it's healed, or when I'm too old to carry the salve." } },
     advice = { { id = "tp_ad", text = "Don't drink from any stream in Felwood, however clear it looks. The poison here is patient, and it doesn't always show itself." } },
-    _none = { { id = "tp_none", text = "I only know the forest, and only this bit of it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made this forest, and the demons hurt it, and I'm here to heal what I can. She'd want that, and so do I." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a good chief, and he trusts the Circle. I trust him, so here I am." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave my people a place among the Horde, and he honours the Earth Mother. He'd understand why I'm here healing trees instead of fighting." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw let me pass through their tunnels, because I carry salve and not axes. I wish more people did." } },
+    _none = { { id = "tp_none", text = "I only know the forest, and only this bit of it. The Earth Mother gave me one patch of ground to tend, and that's enough." } },
   },
 }
 
 P:NPC {
   key = "arathandris", id = TODO_NPC("Arathandris Silversky"), name = "Arathandris Silversky",
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 12, why = "the fel that poisoned Felwood came from demon-callers; she fears warlocks carry the curse back in" },
   communities = { "emerald_sanctuary" }, temper = { "determined" }, values = { "protective", "devout" },
   notices = { "craft" },
 
@@ -704,7 +766,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "These woods were beautiful, once. Help me make them so again." },
+    { id = "g_pj_lock", when = { prejudiced = true }, text = "Stay on the path, warlock, and keep your demon at your heel. This forest was poisoned by things like the one beside you, and the salve can't undo whatever you might carry back in." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I've been watching where you walk, and the plants you passed are as clean as the ones you didn't. I was wrong to think the curse followed you, and I'm sorry for it." },
+    { id = "g_hello", text = "Ishnu-alah. These woods were beautiful once, for longer than your kingdoms have stood, so help me make them so again." },
   },
 
   notice = {
@@ -714,6 +778,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_arath = {
+      lines = { { id = "pj_arath_default", text = "No, but the ones who did spoke with demons as easily as you do, and they thought they had them leashed as well. I've seen what fel does to roots, and I can't make myself trust anyone who carries it on purpose." } },
+      choices = {
+        { text = "What did you see it do?", next = "pj_arath2" },
+        { text = "A leash is all it takes. I master what I summon.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fel is only power. Your fear does more harm than it does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep my demon away from the sanctuary.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_arath2 = {
+      lines = { { id = "pj_arath2_default", text = "There was a grove near Jaedenar that I tended when I was young, ash trees older than any city we have now, and when I came back after the satyrs took it, the bark wept green and the birds had no eyes. I salve a plant a day because I couldn't save one tree then." } },
+      choices = {
+        { text = "I'm sorry. I'll help where I can, demon or no.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It goes down to the roots and the water both, which is why salves and seeds take so long. My people would say Elune's light has gone out of this place, and you'd say the spirits are sick, and I think we're describing the same wound." } },
@@ -803,7 +883,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "More than you'd think, because the corrupted things here don't like the Light, and my salve-bearers need someone at their backs on the road. The cleansing is slow and dull, though, and I've seen braver souls than you grow bored of it." } },
       choices = {
         { text = "Slow work done right is worth it. I'll stand guard.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather strike at Jaedenar than guard flowerbeds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd rather strike at the demons themselves than guard flowerbeds.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -837,7 +917,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Patient, quiet and careful, that is the sort of help a cleansing needs, and a rogue is all three when it suits them. I hope it suits you today." },
         { id = "h_default", key = true,
-          text = "Arathandris Silversky, of the Emerald Circle. I ask the Alliance to help me cleanse Felwood, and the curse is old and stubborn, but so am I." },
+          text = "I am Arathandris Silversky, of the Emerald Circle. I ask the Alliance to help me cleanse Felwood, and the curse is old and stubborn, but I have been stubborn for ten thousand years." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
           text = "The salve is laid on the sick plants a little each day. It doesn't look like war, but it's harder than war." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -851,34 +931,35 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Maybess works with your people, to the north, but the curse doesn't care whose prayers it hears, so I'll hear you out." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle, come to Felwood. The curse here is older than you are, sister or brother, but it is not older than the forest, and the forest remembers being green." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! I asked for help cleansing Felwood and expected archers, and I certainly didn't expect one of the Forsaken with the Light in hand." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I ask the Alliance for help and I never expected that help to come clanking with totems, but speak." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I asked the Alliance for help and never expected it to come clanking with totems, but speak, for the forest needs every friend it can find." },
       },
-      again = { { id = "h_again", text = "Something else? Mind the flower, though." } },
+      again = { { id = "h_again", text = "Something else? Mind the flower, though; it's the first clean one this forest has given me in years." } },
       choices = {
         { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
-        { text = "Why is it harder than war?", next = "harder" },
+        { text = "I don't see how this is harder than war.", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
-        { text = "Do you work with Maybess?", next = "maybess" },
+        { text = "Does anyone else work to cleanse this forest?", next = "maybess" },
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Stormwind's laws allow warlocks. Why shouldn't the Circle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'd guess the Alliance sends its spies into Felwood.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you accept a Horde priest's help against the curse?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a hunter make a good cleanser, Arathandris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can the corruption be undone, Arathandris?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
-        { text = "How are your people holding up against the curse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Your people look worn down by the curse.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can a paladin be of use in cleansing work?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Why watch a single flower for a whole morning, Arathandris?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will you accept a Forsaken paladin's help, Arathandris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Does the curse here go deeper than the trees?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'm not the one who poisoned Felwood, Arathandris.", next = "pj_arath", when = { prejudiced = true } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", fx = { align = { light = -1 } } },
       },
     },
     harder = {
       lines = { { id = "h2_default", text = "In war you win or lose and it's over. Here you do the same small thing every day, and most days nothing changes. You have to keep believing anyway." } },
       choices = {
-        { text = "How do you keep believing?", next = "harder_how" },
+        { text = "I don't know how you keep believing.", next = "harder_how" },
         { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -891,7 +972,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     maybess = {
-      lines = { { id = "m_default", text = "Not side by side; our people won't allow it yet. But we use the same salve, and we leave each other notes by the road. The forest gets both of us." } },
+      lines = { { id = "m_default", text = "Maybess Riverbreeze does, to the north, though not side by side; our people won't allow it yet. But we use the same salve, and we leave each other notes by the road. The forest gets both of us." } },
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
     herbs = {
@@ -907,6 +988,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "Kaldorei, Emerald Circle, and too stubborn to be told a forest can't be saved." } },
     advice = { { id = "tp_ad", text = "Do one good thing a day here, only one, and then do it again tomorrow, because that's how this works.", next = "harder" } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle's in this forest, where few others would come." } },
-    _none = { { id = "tp_none", text = "That I don't know, though the curse I know." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows Felwood healthy, every leaf of it, and I refuse to believe that can't be made real. That's why the Circle calls me stubborn." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw kept their minds when the rest of their people fell, and I admire that more than I can say. We work with them where we can." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's fel is in the soil, the water and the trees. I'll pull it out root by root if I have to." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess sends her Sentinels to Ashenvale, but nobody to Felwood. I don't blame her, but I'd like a few more hands." } },
+    _none = { { id = "tp_none", text = "That I don't know, though the curse I know, and I have known it since the Legion left it here." } },
   },
 }

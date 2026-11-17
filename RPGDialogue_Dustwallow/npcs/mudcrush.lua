@@ -47,8 +47,8 @@ P:NPC {
       },
       choices = {
         { text = "Would you really eat me?", next = "eat" },
-        { text = "Why are you out here alone?", next = "alone" },
-        { text = "What's so good about murloc heads?", next = "fishy" },
+        { text = "You're a long way from the village out here.", next = "alone" },
+        { text = "What's so good about murloc heads?", next = "fishy", when = { any = { { questActive = TODO_QUEST("Hungry!") }, { questDone = TODO_QUEST("Hungry!") } } } },
         { text = "Want some bread instead? I can make it from nothing.", next = "mage", when = { class = "MAGE" } },
         { text = "I could cook those heads for you.", next = "cook", when = { profession = "Cooking" } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -78,7 +78,7 @@ P:NPC {
     alone = {
       lines = { { id = "a_default", text = "The village is full of ogres who want Mud's food, and Mud wants Mud's food. Out here there is only the road, and the road brings people who bring fishy." } },
       choices = {
-        { text = "Don't the other ogres miss you?", next = "alone_miss" },
+        { text = "The other ogres must miss you.", next = "alone_miss" },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -110,6 +110,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Mud was born hungry and Mud is still hungry. That is the whole story, and Mud tells it every day." } },
     advice = { { id = "tp_ad", text = "Eat first, then fight. Nobody fights good hungry, except Mud, and Mud is special, and Mud also ate a frog this morning by mistake." } },
+    onyxia = { { id = "tp_onyxia", text = "Big black dragon live down south, and she eat bigger things than fish heads. Mudcrush not go there, Mudcrush stay here by the road, where it safe and the fish come." } },
+    theramore = { { id = "tp_theramore", text = "The little humans walk past Mudcrush on the road and walk fast. Mudcrush only want fish heads, but they think Mudcrush want them, and maybe they are a little right." } },
+    thrall = { { id = "tp_thrall", text = "The orc chief say no eating the humans, so Mudcrush eat fish heads. Mudcrush think this very sad, but Mudcrush listen." } },
     _none = { { id = "tp_none", text = "Mud does not know, and Mud does not care, unless it is food." } },
   },
 }

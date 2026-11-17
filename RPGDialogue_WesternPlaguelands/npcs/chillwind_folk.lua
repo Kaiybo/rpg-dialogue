@@ -107,7 +107,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Argent Quartermaster Lightspark, keeper of the Dawn's stores at Chillwind. Everything on my shelves goes to those who've fought the Scourge alongside us, and the more the Dawn trusts you, the more I'm allowed to sell." },
+          text = "Argent Quartermaster Lightspark, keeper of the Dawn's stores at Chillwind, with every crate counted to the last bolt. Everything on my shelves goes to those who've fought the Scourge alongside us, and the more the Dawn trusts you, the more I'm allowed to sell." },
         { id = "h_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } },
           text = "I'm afraid my shelves are closed to strangers, friend, though that's no insult. The Dawn sells only to people it knows, and it gets to know people by what they do against the Scourge." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -127,23 +127,23 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Dawn will trade with you, {class}, if you've earned it, though I'll tell you plainly that a few of the knights at Light's Hope would rather it didn't." },
       },
       again = {
-        { id = "h_again", text = "What else can the Dawn's quartermaster do for you today?" },
+        { id = "h_again", text = "What else can the Dawn's quartermaster do for you today? I've the whole inventory memorised, all four hundred and twelve lines of it." },
         { id = "h_again2", text = "Anything more? I've a crate of holy water to count before the light goes." },
       },
       choices = {
         { text = "Show me what the Dawn has to offer.", next = "BUSINESS" },
         { text = "How do I earn the Dawn's trust?", next = "trust" },
-        { text = "What exactly is the Argent Dawn?", next = "dawn" },
-        { text = "Do the Dawn's goods come cheap?", next = "price" },
+        { text = "I keep hearing of the Argent Dawn.", next = "dawn" },
+        { text = "I doubt the Dawn's goods come cheap.", next = "price" },
         { text = "What does a mage get from the Dawn's quartermaster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Dawn trust rogues as far as paladins?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does the Dawn welcome priests of the Cathedral, Quartermaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Are the Dawn's knights the Silver Hand by another name?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Dawn's knights look like the Silver Hand by another name.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the Dawn give the soldiers who fight for it?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why are the Dawn's stores short on arrows?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should the Dawn share its stores with all who ask?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the Dawn really serve the Horde as well, Quartermaster?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
-        { text = "Does the Dawn really trust warlocks, Quartermaster?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I doubt the Dawn really trusts warlocks, Quartermaster.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the Dawn care what a dwarf shaman believes, Quartermaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -193,10 +193,14 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I count crates for the Dawn. Before that I counted other things, and I find this a much better use of my arithmetic." } },
+    background = { { id = "tp_ba", text = "I count crates for the Dawn. Before that I counted gears and pressure readings in Gnomeregan, until there was nothing left down there worth counting, and I find this a much better use of my arithmetic." } },
     advice = { { id = "tp_ad", text = "Always carry more bandages than you think, because the plague doesn't care how brave you are." } },
     argent_dawn = { { id = "tp_dawn", text = "The Dawn is everyone who's decided the Scourge matters more than old grudges, and I write all their names down." } },
-    _none = { { id = "tp_none", text = "That's not in any of my ledgers, I'm afraid, so I can't help you." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge eats supplies faster than any army I've ever stocked, because every battle costs us bandages, blades and soldiers, and it costs them nothing. I keep the ledgers straight so at least we know what we've lost." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's necropolis floats over the east, and the Dawn keeps a careful eye on it. I keep a careful eye on the scourgestones, which is a smaller job, but somebody has to do it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the Dawn will need the most supplies when we finally move on it. I'm stocking for that day already, and I'd rather it came sooner." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken trade with the Dawn the same as anyone, and they're careful about their accounts. I respect that in a customer, dead or alive." } },
+    _none = { { id = "tp_none", text = "That's not in any of my ledgers, I'm afraid, and I've cross-referenced all six of them, so I can't help you." } },
   },
 }
 
@@ -305,13 +309,13 @@ P:NPC {
       choices = {
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why check every hide so closely?", next = "plague" },
-        { text = "What's worth skinning around here?", next = "hides" },
+        { text = "There can't be much worth skinning around here.", next = "hides" },
         { text = "Does a druid's fur bother you?", next = "druid", when = { class = "DRUID" } },
         { text = "Why are you so sure I'd ask?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Can you tell a plagued hide from a clean one?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Telling a plagued hide from a clean one must be hard.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can the Light cleanse a plagued hide, Leonard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Silver Hand ever buy leather from you?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does leather really matter to a warrior in plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Leather can't matter much to a warrior in plate.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the clean wolves still run, Leonard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why would anyone freeze a hide, Leonard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do you ask about the beasts' spirits, Porter?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -339,7 +343,7 @@ P:NPC {
     plague = {
       lines = { { id = "p_default", text = "Because the plague lives in flesh, and I won't be the man who stitches it into a soldier's collar. Anything that came off a Scourge beast gets burned, and I don't care how pretty the fur is." } },
       choices = {
-        { text = "Can the plague really pass through leather?", next = "plague_how" },
+        { text = "I'd not have thought plague could pass through leather.", next = "plague_how" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -365,6 +369,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a tanner who came north because the soldiers needed boots. That's the whole of it, and it's enough." } },
     advice = { { id = "tp_ad", text = "If a hide smells sweet, burn it, because nothing out here should smell sweet." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has plagued half the beasts in these lands, and their hides are worthless or worse. I check every one that comes to me, and I burn more than I keep." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron had the finest leather in the north, from the cattle of the Eastweald and the deer of the Alterac foothills. Now I'm lucky to find a hide that doesn't rot in my hands." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was the great market town of the north, and every tanner worth his salt sold there. I'd never set foot in it now." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. I know leather, and that's about where it ends." } },
   },
 }

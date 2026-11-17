@@ -6,6 +6,7 @@ P:NPC {
   key = "darthalia", id = TODO_NPC("High Executor Darthalia"), name = "High Executor Darthalia",
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
+  prejudice = { faction = "Horde", race = { "Orc", "Tauren", "Troll" }, amount = 10, why = "The living Horde flinch from the Forsaken, and she returns the contempt." },
   notices = { "race", "class" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Another of the living Horde, holding your breath so you won't smell us. The front doesn't care how I smell, so state your business and breathe as you like." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "The Warchief sends his living soldiers to help us, and they spend their first week staring at our jaws. Are you here to fight, or to stare?" },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. You've stood on this front without wrinkling your nose, which is more than most of your kind manage, and I have noticed it." },
     { id = "g_front", text = "You stand at the Dark Lady's front. Be useful to it, or stand somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, good. The front moves forward only when people like you push it." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and the front did not wait for you. Report what you can and take up your post." },
@@ -32,6 +36,83 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because most of them do, in the end, or they ask to pitch their tents upwind of us. The orcs call us allies in Orgrimmar and corpses in the field, and I stopped waiting for the difference to close." } },
+      choices = {
+        { text = "The Horde stands together. Your contempt only widens the gap.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then stop waiting. The Forsaken need nobody's approval.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll camp where you tell me and keep my nose to myself.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What happened to make you say that?", next = "prej_why" },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "A Warsong band came to Tarren Mill last spring to help us hold the ridge. Their captain spat when he saw our apothecaries at work, and when Southshore's militia came up the road, his band was already halfway to the Barrens." } },
+      choices = {
+        { text = "One coward doesn't speak for the whole Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then trust only your own dead. It's the safer bet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Do that, and do it twice, and I may start remembering your name instead of your smell." } },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas = {
+      lines = {
+        { id = "opn_sylvanas_q", text = "I think she freed us from the Lich King's voice, and I would follow her into the sea for it. I am more curious what you think, since you walk under the Horde's banner beside us, and the Horde's opinions of her are seldom said to our faces." },
+      },
+      choices = {
+        { text = "She broke the Lich King's hold. She has my loyalty.", next = "opn_sylvanas_r_loyal", fx = { affinity = 2, align = { order = 1 }, opinion = { sylvanas = "loyal" } } },
+        { text = "She serves herself first. I'd watch her.", next = "opn_sylvanas_r_distrust", fx = { affinity = -2, align = { order = -1 }, opinion = { sylvanas = "distrust" } } },
+        { text = "She's useful to the Horde. That's enough for me.", next = "opn_sylvanas_r_useful", fx = { trait = { practical = 1 }, opinion = { sylvanas = "useful" } } },
+        { text = "She gave us back our minds. I owe her everything.", next = "opn_sylvanas_r_loyal", when = { race = "Scourge" }, fx = { affinity = 2, opinion = { sylvanas = "loyal" } } },
+        { text = "And a demon at her side? I don't like it.", next = "opn_sylvanas_r_dangerous", when = { faction = "Horde" }, fx = { affinity = -1, opinion = { sylvanas = "dangerous", demons = "distrust" } } },
+        { text = "I'll keep my opinions, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r = {
+      lines = {
+        { id = "opn_sylvanas_r_default", text = "Keep them, then. The dead are patient, and opinions surface eventually." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_loyal = {
+      lines = {
+        { id = "opn_sylvanas_r_loyal", text = "Good. Loyalty is rare among the living and rarer among their allies. I will remember it when the reports are written." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_distrust = {
+      lines = {
+        { id = "opn_sylvanas_r_distrust", text = "Watch her, then, from very far away. Tarren Mill is close enough for her to hear it, and I am close enough to tell her." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_useful = {
+      lines = {
+        { id = "opn_sylvanas_r_useful", text = "Useful. That is how the orcs speak of us all. It is honest, at least, and honesty I can use." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    opn_sylvanas_r_dangerous = {
+      lines = {
+        { id = "opn_sylvanas_r_dangerous", text = "My opinion of Lord Varimathras was not requested, and yours is noted. Do not say it in the Undercity." },
+      },
+      choices = {
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "Good, because every crusader who dies in Tirisfal is one fewer to stiffen Southshore's flank. The Crusade likes to think it stands apart from the Alliance, but a human with a torch is a human with a torch, and my deathguards don't stop to ask which banner it marches under." } },
@@ -154,8 +235,8 @@ P:NPC {
         { text = "Does the Earth Mother turn her back on the Forsaken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why fight for Southshore?", next = "why" },
         { text = "What are your orders, High Executor?", next = "orders" },
-        { text = "What about the Syndicate?", next = "syndicate" },
-        { text = "Who do you answer to?", next = "command" },
+        { text = "The Syndicate seem to be a thorn in your side too.", next = "syndicate" },
+        { text = "You must answer to someone in the Undercity.", next = "command" },
         { text = "I was of Lordaeron too, once.", next = "forsaken", when = { race = "Scourge" } },
         { text = "My people were caged in these hills.", next = "orc", when = { race = "Orc" } },
         { text = "The Darkspear hunt well. Point me at something.", next = "troll", when = { race = "Troll" } },
@@ -168,11 +249,23 @@ P:NPC {
         { text = "The Windshapers fight for the Horde.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "How do you want Southshore's farms taken, High Executor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What use does the Dark Lady have for mages, High Executor?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you trust Lord Varimathras, High Executor?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I wouldn't trust Lord Varimathras, High Executor.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where would you have me break the human line, High Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a priest at Tarren Mill, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "You treat every living soldier as if they're about to run.", next = "prej", when = { prejudiced = true } },
+        { text = "I served in the Hillsbrad militia, High Executor, against the dead.", next = "xorig_militia", when = { origin = "forsaken_hillsbrad_militia" } },
         { text = "I'll take my leave.", next = "END" },
+      },
+    },
+    xorig_militia = {
+      lines = {
+        { id = "xml_default", text = "Then you've seen this war from both ends of the same hill, which is more than most of my Deathguard can say. Southshore's militia will be full of your old neighbors. Can I trust you to fight them?" },
+      },
+      choices = {
+        { text = "Every one of them. They'd not hesitate over me.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I'll fight their soldiers, not farmers with pitchforks.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Who do you think taught them to drill?", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     why = {
@@ -188,7 +281,7 @@ P:NPC {
     villagers = {
       lines = { { id = "v_default", text = "So were we, once, until the plague came and the villagers threw stones at us. Go and fight, or go away." } },
       choices = {
-        { text = "And when the new plague is ready?", next = "plague" },
+        { text = "And what happens to them in the end?", next = "plague" },
         { text = "I'll fight.", next = "BUSINESS", fx = { affinity = 1 } },
       },
     },
@@ -251,6 +344,7 @@ P:NPC {
         { id = "va_default", text = "He serves the Dark Lady, and he serves well. My opinion of what he is was not requested. Neither, I notice, was yours." },
       },
       choices = {
+        { text = "What do you think of the Dark Lady, then?", next = "opn_sylvanas" },
         { text = "Understood, High Executor.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Someone should be asking.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { skeptical = 1 } } },
       },
@@ -301,7 +395,7 @@ P:NPC {
       choices = {
         { text = "The Light chose me. I'll carry it for the Forsaken.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light is a weapon. Nothing more.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Does it trouble your soldiers?", next = "xpaladin_troops" },
+        { text = "It must trouble your soldiers.", next = "xpaladin_troops" },
       },
     },
     xpaladin_troops = {
@@ -334,6 +428,13 @@ P:NPC {
     new_plague = { { id = "tp_plague", text = "The Society's work. Until it is ready, we hold the fields.", next = "plague" } },
     background = { { id = "tp_bg", text = "I died for Lordaeron, and now I take it back for the Dark Lady. The account is simple.", next = "why" } },
     advice = { { id = "tp_ad", text = "Do not linger near Southshore's walls. Their guards are bored, and bored men shoot first." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on our minds, and she gave us a kingdom from the ruins of the old. Every field I take from Southshore is a field I lay at her feet." }, { id = "tp_sylvanas2", when = { faction = "Alliance" }, text = "You serve the living kings who left us to rot, and you ask me about my queen? She will outlast every one of them, and I will see it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are the Lich King's slaves, and we were once among them. I hate them more than any human could, because I remember what it was to be one." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and we have chosen our own path, and we owe nothing to the living. Southshore will learn that, one field at a time." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is an ally of convenience, and the Dark Lady treats with him as one. He sends his orcs to Hammerfall and Tarren Mill, and I make use of them as I can." } },
+    arthas = { { id = "tp_arthas", text = "The prince of Lordaeron unmade us all, and he will pay for it in time. I would like to be there when he does, and I intend to be." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron is ours now, the dead kingdom of the dead, and the living can mourn it from Southshore. We remember it better than they do, because we died in it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme belongs to the Scourge and to the Scarlet zealots, and both will answer to the Dark Lady in time. I've sent scouts there, and few of them have come back." } },
     _none = { { id = "tp_none", text = "That is irrelevant to the front. Ask someone with less to do." } },
   },
 }
@@ -367,6 +468,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_plague = {
+      lines = {
+        { id = "opn_plague_q", text = "Right? Nobody's asked me that since I died. The Society says it's justice, the orcs pretend it's medicine, and Umpi says nothing because she's dead again. You seem to have a view, so go on, it might be interesting." },
+      },
+      choices = {
+        { text = "The Scourge must be stopped, by any means. It's necessary.", next = "opn_plague_r_necessary", fx = { align = { light = -1 }, opinion = { new_plague = "necessary" } } },
+        { text = "It's an abomination. Thrall would never allow it.", next = "opn_plague_r_wrong", fx = { align = { light = 1 }, opinion = { new_plague = "wrong" } } },
+        { text = "It's dangerous. Poisons don't care who they kill.", next = "opn_plague_r_dangerous", fx = { trait = { careful = 1 }, opinion = { new_plague = "dangerous" } } },
+        { text = "The living drove us out. Let them choke on it.", next = "opn_plague_r_justice", when = { race = "Scourge" }, fx = { affinity = 1, opinion = { new_plague = "justice" } } },
+        { text = "I don't want to know, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r = {
+      lines = {
+        { id = "opn_plague_r_default", text = "Nobody does. That's why they keep me out here with the birds." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_necessary = {
+      lines = {
+        { id = "opn_plague_r_necessary", text = "Necessary. That's the Society's word too, and they say it so often it's lost all its flavour. Not that I'd taste it anyway." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_wrong = {
+      lines = {
+        { id = "opn_plague_r_wrong", text = "An abomination! Oh, that's good, say it again more slowly. No, don't; the Executor's listening, and I'd rather not test what the Society does with traitors on Umpi." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_dangerous = {
+      lines = {
+        { id = "opn_plague_r_dangerous", text = "Yes, that's rather the point of it. I've noticed it doesn't care, and I've noticed I don't either, which is the more worrying of the two." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
+    opn_plague_r_justice = {
+      lines = {
+        { id = "opn_plague_r_justice", text = "Choke on it. Faranell would hug you, if he hugged, which he doesn't, because things fall off." },
+      },
+      choices = {
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Anything is worth feeling, when you've felt nothing for long enough. I stand over these cauldrons hoping for a flicker of anything, and you get a fire every time you pray, so I think you should be grateful, even if it hurts." } },
@@ -467,20 +620,20 @@ P:NPC {
       },
       choices = {
         { text = "Why poison the very land the Horde fights for?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Will your plague do my fighting for me, Lydon?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Your plague might do my fighting for me, Lydon.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do your poisons do to the spirits of this land?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does the Society ever use magic in its work, Lydon?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who's Umpi?", next = "umpi" },
+        { text = "There's a frog staring at me from your bench.", next = "umpi" },
         { text = "What are you working on?", next = "work" },
-        { text = "Why are you so miserable?", next = "misery" },
+        { text = "You seem thoroughly miserable.", next = "misery" },
         { text = "Who do you work with?", next = "society" },
-        { text = "Which reagents do you swear by?", next = "alch", when = { profession = "Alchemy" } },
+        { text = "Your shelves are full of strange reagents.", next = "alch", when = { profession = "Alchemy" } },
         { text = "The Earth Mother would weep at your work.", next = "tauren", when = { race = "Tauren" } },
         { text = "Troll's blood? For your elixir?", next = "troll", when = { race = "Troll" } },
         { text = "Do you miss anything, from before?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I studied in Dalaran before I died.", next = "xmage", when = { race = "Scourge", class = "MAGE" } },
         { text = "Do you make poisons for rogues too, Lydon?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is Umpi safe around my demon, Lydon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'd keep Umpi away from my demon, Lydon.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you test your brews on beasts, Lydon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the Light worth feeling, Lydon, if all it does is burn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to it.", next = "END" },
@@ -505,7 +658,7 @@ P:NPC {
         { id = "w_default", text = "The Society's work: remedies, officially. Unofficially, the Dark Lady's enemies will one day be very ill and I'll have helped, which is the closest I come to happiness." },
       },
       choices = {
-        { text = "The new plague?", next = "plague" },
+        { text = "Who is it meant for?", next = "plague" },
         { text = "That's grim.", next = "BACK" },
         { text = "For the Dark Lady.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -514,7 +667,10 @@ P:NPC {
       lines = {
         { id = "pq_default", text = "For the humans, and for the Scourge too. If it were up to me, I'd let them kill each other and save the reagents, but it isn't up to me." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Do you think the plague is right, Lydon?", next = "opn_plague" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     misery = {
       lines = {
@@ -591,6 +747,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Royal Apothecary Society, and before that, alive. I think I preferred it, though I can't recall why.", next = "misery" } },
     advice = { { id = "tp_ad", text = "Never test on yourself; use a frog. Frogs complain less, and they come back." } },
     venture_company = { { id = "tp_venture", text = "Goblins in Stonetalon, cutting down everything that grows. I'd almost admire them, if they'd do it quietly." } },
+    forsaken = { { id = "tp_forsaken", text = "We are what the plague left behind, and I am what my work has made of me. I feel very little now, except about Umpi, and about my vials." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is crude, and wasteful, and I could do better in an afternoon. That is not a boast, merely a statement of fact." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady funds my work, and I am grateful, insofar as I am anything. I serve her with my vials and my patience." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care. Few things interest me, and that isn't one." } },
   },
 }
@@ -607,6 +766,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sylvanas_distrust", tags = { "news" }, when = { gossip = { topic = "sylvanas", stance = { "distrust", "dangerous" } } },
+      text = "The High Executor mentioned your views on the Dark Lady. Rest here if you like, but I would not sleep too soundly, and I would not sleep near the window." },
+    { id = "o_plague_wrong", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } },
+      text = "Lydon tells everyone you think his plague is an abomination. He sounded almost pleased about it; you may be the first thing that's interested him in a year." },
     { id = "g_inn", text = "Rest here, if you rest. Some of my guests don't need to, but they like the chairs." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You look out at the fields the way a farmer does, Brill-born, I'd guess. The farms below the Mill grew much the same before the plague, and now the living fight us for every furrow." },
     { id = "g_home", when = { homeInn = { "Tarren Mill" } }, text = "Back at the Mill, then. Your bed's where you left it, and nobody's slept in it, since nobody here sleeps." },
@@ -715,14 +878,14 @@ P:NPC {
         { text = "Do the dead of Tarren Mill trouble the spirits here?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who around Tarren Mill could use a spellcaster's help, Shay?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Make this my home.", next = "BUSINESS" },
-        { text = "What was Tarren Mill like before?", next = "before" },
+        { text = "Tarren Mill must have been a pleasant town once.", next = "before" },
         { text = "Who stays here?", next = "guests" },
-        { text = "Do you miss sleeping?", next = "sleep", when = { race = "Scourge" } },
+        { text = "You must miss sleeping.", next = "sleep", when = { race = "Scourge" } },
         { text = "Is there anything here a living body can eat?", next = "food", when = { race = { "Orc", "Tauren", "Troll", "Skyborne" } } },
         { text = "Do you get many visitors who prefer to stay hidden, Shay?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Don't the Forsaken miss warmth, Shay?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'd guess the Forsaken miss warmth, Shay.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do warriors have nightmares at your inn, Shay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Does the land around Tarren Mill still live?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The land around Tarren Mill feels half dead.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Is the Light just another habit for the dead, Shay?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just passing through.", next = "END" },
       },
@@ -789,6 +952,9 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn. What came before that I don't talk about, and nobody here does." } },
     advice = { { id = "tp_ad", text = "Don't sit by the window after dark. Southshore's scouts like windows." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are whatever's left of Lordaeron once you take away the breathing, and my inn serves both kinds. The chairs are very comfortable, though none of my regulars can tell." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady rules from the Undercity, and Tarren Mill is her front against Southshore. She's never visited my inn, and I'd not expect her to." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge come down from the north sometimes, and we put them back in the ground. It's a dry business, but someone has to do it." } },
     _none = { { id = "tp_none", text = "Ask the High Executor, or better, don't; she doesn't like questions." } },
   },
 }

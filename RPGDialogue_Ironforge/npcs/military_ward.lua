@@ -130,7 +130,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Sully.", next = "sully" },
         { text = "What's happening at the Thandol Span?", next = "span" },
-        { text = "How do you pass the days?", next = "days" },
+        { text = "The days must be long, waiting for news.", next = "days" },
         { text = "What did the King say?", next = "king", when = { questDone = TODO_QUEST("Sara Balloo's Plea") } },
         { text = "Would you like me to pray with you?", next = "pray", when = { class = "PRIEST" } },
         { text = "I'm a soldier too, Sara.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
@@ -264,6 +264,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write tae the ones who wait for ye, even if it's only a line. Ye'll never know how much a line weighs." } },
     thandol_span = { { id = "tp_span", text = "The bridge my Sully was sent tae hold. I'd rather ye asked me about somethin' else, but I'll tell ye what I know.", next = "span" } },
     dark_iron = { { id = "tp_dark_iron", text = "They're the ones who struck the Span. I don't know more than that, an' I don't want tae." } },
+    scourge = { { id = "tp_scourge", text = "Sully writes that the Wetlands are safe enough, but Lordaeron's just across the water, an' I've heard what's there. I light a candle every night an' try no' tae think on it." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Sully's letters say Refuge Pointe is all tents an' brave faces, an' the Highlands are crawlin' wi' trolls an' ogres. I'd bring him home if I could, an' he'd never come." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray tae the Light every evenin' in the Mystic Ward, an' I ask it fer one thing only. It's no' answered yet, but it's no' said no, either." } },
     _none = { { id = "tp_none", text = "I'm sorry, I couldnae say. Ask someone in the Hall o' Arms; they know about such things." } },
   },
 }
@@ -387,7 +390,7 @@ P:NPC {
         { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do warriors and mages really need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Could a hunter learn anything from your warriors, Kelstrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "A hunter could learn plenty from your warriors, Kelstrum.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you train a druid who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you train a shaman to hold the line, Kelstrum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -485,6 +488,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear a fair bit from the soldiers comin' back through the Ward. Here's what's worth knowin'." } },
     background = { { id = "tp_bg", text = "I train warriors in the Hall o' Arms. That's my story, an' it's got a lot o' shoutin' in it." } },
     advice = { { id = "tp_ad", text = "Get up. Whatever knocks ye down, get up before it comes back for a second look." } },
+    second_war = { { id = "tp_second_war", text = "The Second War taught me that soldiers who train hard come home, an' soldiers who dinnae, don't. That's the whole o' my regimen." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The troll arena in Stranglethorn's a fine place tae test yer edge, if ye're tired o' livin'. I've sent a few o' my best there, an' they came back meaner." } },
+    scourge = { { id = "tp_scourge", text = "Ye'll want a hammer fer the dead, no' a sword, for bones break better than they cut. Learn that here or learn it in the Plaguelands, an' I know which I'd pick." } },
     _none = { { id = "tp_none", text = "Do I look like a librarian? Ask in the Hall o' Explorers." } },
   },
 }
@@ -502,7 +508,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_spec", text = "Greetings. Please state your class specification and the nature of your inquiry." },
+    { id = "g_spec", text = "Greetings. Please state your class specification and the nature of your inquiry, in that order, for filing purposes." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Ah, a warrior unit, returning for calibration. Excellent." },
   },
 
@@ -603,7 +609,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does a gnome take up arms?", next = "why" },
-        { text = "Combat is like engineering?", next = "engineering" },
+        { text = "Combat sounds a lot like engineering, the way you put it.", next = "engineering" },
         { text = "Calibrate me, Bilban. Where am I weakest?", next = "calib", when = { class = "WARRIOR" } },
         { text = "Why not engineering, like the rest of us?", next = "gnome", when = { race = "Gnome", ["not"] = { class = "WARRIOR" } } },
         { text = "Why would a rogue climb your training dummies?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -684,7 +690,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I have catalogued a number of facts, of varying reliability. Select one." } },
     background = { { id = "tp_bg", text = "I left Gnomeregan with the rest, learned to fight, and now I train others to do it more efficiently. That is the summary." } },
     advice = { { id = "tp_ad", text = "Check your equipment's tolerances before a fight, not during. During is very inconvenient." } },
-    _none = { { id = "tp_none", text = "That falls outside my area of specification." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The swordplay I teach was born in Gnomeregan's practice halls, where we learned to fight in tight tunnels with short blades. That's why I'm so good at it, and why the troggs aren't." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "A sword fight is a machine with two moving parts, and the Gurubashi Arena is a machine with too many. I'd study it from the stands, with a notebook and a good deal of distance." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages tried to teach me a ward against blades once, and I found three flaws in it before lunch. They didn't thank me, which I thought was poor engineering etiquette." } },
+    _none = { { id = "tp_none", text = "That falls outside my area of specification, and I don't guess outside my specifications; it voids the warranty." } },
   },
 }
 
@@ -816,13 +825,13 @@ P:NPC {
         { text = "Do hunters and druids see the beasts the same way?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you choose a beast?", next = "beast" },
-        { text = "Who's Grif Wildheart?", next = "grif" },
+        { text = "Who's Grif Wildheart?", next = "grif", when = { class = "HUNTER" } },
         { text = "Have a look at my beast, Daera.", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Humans don't take the bow much, they tell me.", next = "human", when = { race = "Human", class = "HUNTER" } },
         { text = "I ride a nightsaber at home, Daera.", next = "elf", when = { race = "NightElf", class = "HUNTER" } },
         { text = "Why do dwarves keep rams?", next = "rams" },
         { text = "Do hunters and rogues often cross paths?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Has a mage really turned a hunter's beast into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I've heard a mage once turned a hunter's beast into a sheep.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a hunter teach a warrior, Daera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing help a wounded beast, Daera?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
@@ -878,7 +887,7 @@ P:NPC {
       choices = {
         { text = "A squad leaves you. A beast doesn't.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Somebody had to, so it may as well be humans.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "Do dwarves look down on human hunters?", next = "human_look" },
+        { text = "I'd guess dwarves look down on human hunters.", next = "human_look" },
       },
     },
     human_look = {
@@ -904,7 +913,7 @@ P:NPC {
         { id = "ra_default", text = "Because they're the only beast in Dun Morogh as stubborn as we are, an' they'll climb where a horse would sit down an' weep. Veron Amberstill breeds the best o' them out past Kharanos, an' he'll tell ye so himself." },
       },
       choices = {
-        { text = "Is a ram a fit companion for a hunter?", next = "rams_pet" },
+        { text = "A ram would make a fine hunting companion.", next = "rams_pet" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -920,6 +929,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Hunters bring news in from the hills along wi' the pelts. Here's what I've heard." } },
     background = { { id = "tp_bg", text = "I train hunters in the Hall o' Arms. My own story's mostly about cold mornin's an' patient beasts." } },
     advice = { { id = "tp_ad", text = "Feed yer beast before ye feed yerself. It remembers who did." } },
+    the_elements = { { id = "tp_the_elements", text = "The beasts know when the land's angry, an' they've been restless o' late, more than troggs would explain. Ask a shaman, if ye can find one o' ours who still listens." } },
+    timbermaw = { { id = "tp_timbermaw", text = "I've met the Timbermaw, an' they're better company than most people. A bear that remembers ye kindly is worth more than a dozen men who forget." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hunt like wolves, all together an' all at once. If ye go tae the Barrens, keep yer pet close an' yer back tae a rock." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I saw one o' the green dragons once, in Ashenvale, sleepin' wi' its eyes open. My hound wouldnae go near it, an' I didnae argue wi' the hound." } },
     _none = { { id = "tp_none", text = "No' my trade, I'm afraid. Try someone wi' books." } },
   },
 }

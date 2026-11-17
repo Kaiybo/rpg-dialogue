@@ -12,7 +12,7 @@
 ## Identity
 Valadar Starsong · Nighthaven, Moonglade (Lunar Festival only) · neutral · night elf, male · Coin of Ancestry Collector
 Personality: warm, calm, devout, hospitable
-Speech: gentle, slightly ceremonial; "Elune's light on you".
+Speech: gentle, slightly ceremonial; "Elune's light on you". Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: his sister Fariel Starsong.
 Default attitudes: welcomes both factions; warm to tauren ancestor reverence.
 
@@ -34,3 +34,4 @@ background, advice.
 
 ## Authored, not canon
 - Festival held in Moonglade because it is neutral and because Omen was laid to rest there.
+- (deepening pass) Valadar and Fariel argue every year over Omen (she: mercy; he: doubt). Their grandmother kept the festival before them and "remembered the world before the Sundering, or claimed she did".

@@ -143,19 +143,19 @@ P:NPC {
       choices = {
         { text = "Would you want to know what the cows think?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do the families fight?", next = "feud" },
-        { text = "Tell me about Tommy Joe.", next = "tommy" },
-        { text = "Is Billy your brother?", next = "billy" },
+        { text = "Is there someone special you're not meant to see?", next = "tommy" },
+        { text = "Billy must be your brother.", next = "billy" },
         { text = "Billy says you go to the river a lot.", next = "billy_river", when = { heardLine = "billy.m_river" } },
-        { text = "How was the river?", next = "escape", when = { questDone = TODO_QUEST("The Escape") } },
+        { text = "You look as if the river went well.", next = "escape", when = { questDone = TODO_QUEST("The Escape") } },
         { text = "Shall I bless the two of you? Quietly.", next = "priest", when = { class = "PRIEST" } },
         { text = "I could teach you to move unseen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You should tell your family the truth.", next = "truth", fx = { opinion = { maybell_tommy = "honest" } } },
         { text = "Why would you need a letter carried in secret?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is somebody bothering you down by the river?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Something seems to be bothering you down by the river.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you want to know how to go unseen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Would you want me to lie for you, Maybell?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You want me to lie for you, Maybell.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would talking to me make you wicked, Maybell?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is there a boy across the river, Maybell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'd wager there's a boy across the river, Maybell.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Would you ever run off with a company of adventurers, Maybell?", next = "xpt_maybell", when = { party = true } },
         { text = "Your secret's safe with me.", next = "END", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
       },
@@ -183,7 +183,7 @@ P:NPC {
 
     tommy = {
       lines = {
-        { id = "tj_default", text = "He's kind. He stands at the river pretending to mend a fence, and he's terrible at pretending. All of Elwynn knows, except our families." },
+        { id = "tj_default", text = "Tommy Joe Stonefield. He's kind, and he stands at the river pretending to mend a fence, and he's terrible at pretending. All of Elwynn knows, except our families." },
       },
       choices = {
         { text = "How did you two meet?", next = "tommy_meet" },
@@ -343,5 +343,8 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "William Pestle works out of the inn. He's kind to me, and he never asks questions." } },
     kobolds = { { id = "tp_kobolds", text = "Billy plays near the mines, though I've told him not to. It's like telling the sun not to come up." } },
     _none = { { id = "tp_none", text = "I'm sorry, I only know about grapes and one boy across the river." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire is the one week Pa doesn't watch the river, because he's too busy selling wine. I'm not saying what I do with that week, only that I like the Faire very much." } },
+    holy_light = { { id = "tp_holy_light", text = "I ask the Light every night to soften Pa's heart, and every morning he's just the same. Gramma Stonefield says the Light works slowly on stubborn men." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "Somebody told me there are Maclures and Stonefields both on the old stone at Stone Cairn Lake, side by side, and nobody minded it then. I think about that a great deal." } },
   },
 }

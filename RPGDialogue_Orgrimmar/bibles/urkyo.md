@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Ur'kyo · Valley of Spirits, Orgrimmar · Horde · Darkspear Troll · Priest Trainer
-Personality: calm, amused, devout
-Speech: Darkspear 'mon', 'be'
+Personality: calm, amused, devout; treats the spirits like gossiping neighbours
+Speech: Darkspear 'mon', 'be'; chuckles easily
 Knows and cares about: the loa, the Light and the shadow
 Relationships: Vol'jin's people
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Loa and Light 'like two old women at market'.
+Authored, not canon: Loa and Light 'like two old women at market'. Keeps an offering bowl at his feet (a goblin's IOU; a Forsaken once left a finger, which Ur'kyo politely gave back). Asks visitors who they call on when nobody is looking. Dislikes priests who shout their prayers.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

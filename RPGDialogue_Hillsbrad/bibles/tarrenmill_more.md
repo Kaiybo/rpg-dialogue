@@ -24,3 +24,6 @@
 ## Authored, not canon
 - Krusk eating with his back to the wall at Shay's, Darthalia giving him a bed, his opinion of Lydon's frog. Thaivand wanting to stop being a novice. Humbert leaving his kit for one patrol; Samsa rising in a burning-cart before it was lit; his skulls on the inn wall. Tallow's sparring offer. Zarise's bats bred under the Undercity. Kayren's apothecary shelf.
 - Shay (tarrenmill.lua, deepened): Umpi's stool, cooking without taste, lying down to wait for sleep.
+
+## Race voice (0.80.0)
+- Krusk: orc; blunt, proud, honor and shame, the Warchief and the internment camps; never sounds like a Forsaken or a human soldier.

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_prestor", when = { opinion = { topic = "prestor", stance = "distrust" } }, text = "Ah, the one who thinks the Regent listens to me too much. Do come closer, darling; I've been longing to know what else you think." },
+    { id = "g_op_jaina", when = { gossip = { topic = "jaina", stance = "trust" } }, text = "I hear you've taken Lady Proudmoore's side, little hero. How sweet. Her father never trusted an orc in his life, and she let them kill him; such a devoted daughter." },
     { id = "g_cool", text = "Yes?" },
     { id = "g_low", when = { maxLevel = 20 }, text = "Someone let you in, I see. How very generous of them." },
     { id = "g_hero", when = { minLevel = 50 }, text = "Ah, one of our celebrated heroes. Do come closer; I so rarely get to see one up close." },
@@ -31,6 +33,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_bolvar = {
+      lines = {
+        { id = "op_bolvar_a", text = "The court thinks whatever it's told to think, darling, but I'm curious what you think. Is our dear Highlord a rock the kingdom stands on, or merely a very large stone in the road?" },
+      },
+      choices = {
+        { text = "He's a good man holding a hard post. I'd follow him.", next = "op_bolvar_1", fx = { opinion = { bolvar = "trusted" }, align = { order = 1 }, affinity = -1 } },
+        { text = "He's too soft. Westfall burns while he holds councils.", next = "op_bolvar_2", fx = { opinion = { bolvar = "soft", westfall = "abandoned" }, align = { order = -1 }, affinity = 2 } },
+        { text = "He's tired, my lady. That's the only fault I can see.", next = "op_bolvar_3", fx = { opinion = { bolvar = "tired" }, trait = { kind = 1 } } },
+        { text = "The Silver Hand made him. That's good enough for me.", next = "op_bolvar_4", when = { class = "PALADIN" }, fx = { opinion = { bolvar = "trusted", silver_hand = "respect" }, affinity = -2 } },
+        { text = "He listens to you too much, my lady.", next = "op_bolvar_5", fx = { opinion = { bolvar = "led", prestor = "distrust" }, trait = { skeptical = 1 }, affinity = -3 } },
+        { text = "I'd rather not gossip about the Regent, my lady.", next = "BACK" },
+      },
+    },
+    op_bolvar_1 = {
+      lines = { { id = "op_bolvar_r1", text = "How loyal. He collects loyal people the way some men collect hounds, and he feeds them about as well. Do enjoy it while it lasts." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_2 = {
+      lines = { { id = "op_bolvar_r2", text = "Now that is refreshing, and you'd be surprised how many lords agree with you once the doors are shut. Do keep saying it, little hero; somebody ought to." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_3 = {
+      lines = { { id = "op_bolvar_r3", text = "Tired, is he? Then he ought to rest, and leave the weight to those of us better built for it. I'll tell him you were worried; he'll be ever so touched." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_4 = {
+      lines = { { id = "op_bolvar_r4", text = "The Silver Hand, yes, that admirable little club that lost Lordaeron. I'm sure it made him exactly what he is." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
+    op_bolvar_5 = {
+      lines = { { id = "op_bolvar_r5", text = "Does he? Then he listens to someone sensible, which is more than can be said for most of this city. Run along now, before you say something you can't take back." } },
+      choices = { { text = "Something else, my lady.", next = "BACK" } },
+    },
     xpt_katrana = {
       big = true,
       lines = { { id = "xpt_katrana_default", text = "The court is grateful, of course, in the way one is grateful for rain: it's useful, and nobody wants to see it indoors. Some lords would rather the Crown paid soldiers, and some would rather it paid nothing at all, but they all agree that armed wanderers make them nervous." } },
@@ -108,6 +143,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "How curious. A {altrace} called {alt} was presented to me only recently, and you have quite the same face, unless all of your sort simply look alike to me; do forgive me, I'm sure yours is a family of great distinction." },
+        { id = "h_alt_class", when = { alt = { sameClass = true }, metBefore = false },
+          text = "Another {altclass}, how fashionable. One called {alt} came to court not long ago, full of opinions about the crown's business, and I do hope you haven't come to share the same ones." },
+        { id = "h_alt_back", when = { alt = true, metBefore = true }, cooldown = "5d",
+          text = "Your friend {alt} was at court again, I hear, asking the Highlord's clerks the most tiresome questions. One does notice when the same sort of people keep turning up, {name}." },
         { id = "h_pt_katrana", tags = { "news" }, when = { party = true },
           text = "How charming, a little band of heroes in the throne room. Do keep them close, {name}; the court can be so unkind to people it doesn't know, and one never quite knows who's listening." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -140,11 +181,11 @@ P:NPC {
       choices = {
         { text = "Westfall needs the crown's help.", next = "plead" },
         { text = "The Church would say mercy is never wasted.", next = "mercy", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "How did you come to court, my lady?", next = "court" },
-        { text = "And the young king?", next = "king" },
-        { text = "What of the Defias, my lady?", next = "defias" },
+        { text = "You must have come a long way to court, my lady.", next = "court" },
+        { text = "The young king seems a bright boy.", next = "king" },
+        { text = "The Defias seem a real danger, my lady.", next = "defias" },
         { text = "Lakeshire is begging for soldiers.", next = "letters", when = { visited = "Lakeshire" } },
-        { text = "What do you advise, my lady?", next = "advise" },
+        { text = "Your advice must carry weight, my lady.", next = "advise" },
         { text = "Power is power, my lady, wherever it comes from.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "A rogue hears a great deal at court, my lady.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Gnomeregan needs Stormwind's help, my lady.", next = "gnome", when = { race = "Gnome" } },
@@ -198,7 +239,8 @@ P:NPC {
     },
     king = {
       lines = { { id = "k_default", text = "A dear boy, who asks the most charming questions at council. We answer them, and then we decide things, and it's an arrangement that suits everyone." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And the Regent? What does the court think of him?", next = "op_bolvar" }, { text = "Something else.", next = "BACK" } },
     },
     defias = {
       lines = { { id = "d2_default", text = "Thieves with a grievance and a red scarf. Hang the loud ones and the quiet ones go home. It's always worked before." } },
@@ -213,7 +255,7 @@ P:NPC {
     },
     advise = {
       lines = {
-        { id = "a_default", text = "Strength and order, and not wasting either on causes that cannot repay them. The Regent finds that cold, but the Regent also sleeps very well." },
+        { id = "a_default", text = "I advise strength and order, and not wasting either on causes that cannot repay them. The Regent finds that cold, but the Regent also sleeps very well." },
       },
       choices = {
         { text = "Wise counsel.", next = "BACK", fx = { affinity = 1, align = { order = 1, light = -1 } } },
@@ -258,7 +300,7 @@ P:NPC {
       choices = {
         { text = "The strong rule, and the rest pray.", next = "warlock_strong", fx = { align = { light = -2 } } },
         { text = "Power needs a leash, my lady, even mine.", next = "warlock_leash", fx = { align = { light = 1 } } },
-        { text = "And what kind of power do you hold?", next = "warlock_hers" },
+        { text = "You seem to hold some power of your own.", next = "warlock_hers" },
       },
     },
     warlock_strong = {
@@ -311,6 +353,16 @@ P:NPC {
   },
 
   topics = {
+    varian = { { id = "tp_varian", text = "Poor Varian, lost at sea on a mission of peace, and the kingdom left to manage without him. We all miss him terribly, of course, and we do our best in his absence." } },
+    bolvar = { { id = "tp_bolvar", text = "Dear Bolvar is a fine soldier, and he carries the burden of the regency as best he can. He relies on my counsel, and I'm happy to give it, because someone must." } },
+    thrall = { { id = "tp_thrall", text = "The orc warchief talks of peace and builds his city on stolen land, and the Alliance is expected to applaud. I find it all rather quaint, little one, though I'd not say so before Lady Proudmoore." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore is a very talented young woman, I'm told, and very idealistic. She'll learn, as we all do, that peace with orcs is a luxury Stormwind can't afford." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's little troubles are best left to the guards, and I've advised the Regent accordingly. There's no need to spend good soldiers on bad prisoners." } },
+    magni = { { id = "tp_magni", text = "King Magni is a loyal ally, and very fond of his beer and his digging. One does wonder what he's looking for down there, though it's surely none of our concern." } },
+    internment = { { id = "tp_internment", text = "The internment camps cost this kingdom a fortune, and the orcs escaped in the end regardless. A lesson in the futility of half measures, I'd say, if anyone asked me, and they so often do." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a long way from Stormwind, and Lady Proudmoore must manage her own affairs. We can't send soldiers to every swamp that asks for them, can we, little one?" } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a great comfort to the common folk, and the Archbishop does admirable work with the poor. I attend the Cathedral when duty requires it, which is quite often enough." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are very handsome, and very large, and the heroes themselves are mostly dead. That's the way of heroes, I find, sooner or later." } },
     knows = {
       { id = "tp_knows", text = "I make it my business to know a little about everything that touches the crown. I suppose I could spare you a word or two on some of it." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ask away, then. It's so rare to be asked anything by someone who might actually understand the answer." },

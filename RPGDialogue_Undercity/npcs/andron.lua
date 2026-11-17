@@ -31,6 +31,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alterac = {
+      big = true,
+      lines = {
+        { id = "opal_default", text = "I deal with everyone, friend, though I don't paint the Syndicate's name on my sign. Some say Alterac's old lords had a fair grievance when Terenas took their lands, and some say Perenolde sold his allies to the orcs and his heirs ought to hang. Where do you stand?" },
+      },
+      choices = {
+        { text = "Perenolde betrayed his allies. His heirs deserve nothing.", next = "op_alterac_r1", fx = { align = { honor = 1 }, opinion = { alterac = "traitors" } } },
+        { text = "Lords lose their lands. Taking them back is only sensible.", next = "op_alterac_r2", fx = { affinity = 1, align = { honor = -1 }, opinion = { alterac = "sympathy", syndicate = "sympathy" } } },
+        { text = "Alterac stood with the Horde once. I won't spit on them.", next = "op_alterac_r3", fx = { opinion = { alterac = "useful" } }, when = { race = "Orc" } },
+        { text = "Dead kingdoms don't interest me, Andron.", next = "BACK" },
+      },
+    },
+    op_alterac_r1 = {
+      lines = { { id = "opal_r1", text = "Spoken like a soldier, and soldiers are terrible customers. I'll keep my friends' names to myself, then." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alterac_r2 = {
+      lines = { { id = "opal_r2", text = "Now there's a reasonable sort of person, and I know people who like reasonable sorts. Keep that thought, friend, and keep it quiet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alterac_r3 = {
+      lines = { { id = "opal_r3", text = "Ha! You know your history, and so do my acquaintances, though they'd much rather you didn't mention it in company." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andron Gant, dealer in old and interesting things, at your service. The apothecaries upstairs pay very well for curiosities, and I know some people who know where curiosities are." },
@@ -49,7 +73,7 @@ P:NPC {
       },
       choices = {
         { text = "What sort of things do you deal in?", next = "trade" },
-        { text = "Who are these people you know?", next = "friends" },
+        { text = "You seem to know a great many people.", next = "friends" },
         { text = "You drink a lot for a dead man.", next = "drink" },
         { text = "Tell me about the Tablet of Markri.", next = "markri", when = { questDone = TODO_QUEST("Delivery to Andron Gant") } },
         { text = "Our acquaintances want more from you, Andron.", next = "ledger", when = { questActive = TODO_QUEST("The Deathstalkers"), class = "ROGUE" } },
@@ -61,7 +85,7 @@ P:NPC {
     trade = {
       lines = { { id = "tr_default", text = "Old books, old stones, old anything, really, as long as some scholar upstairs thinks it'll tell him how the world works. I don't ask what they do with it, because the answers are always longer than the questions." } },
       choices = {
-        { text = "Where do you find these things?", next = "trade_find" },
+        { text = "You must travel far to find these things.", next = "trade_find" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -69,6 +93,7 @@ P:NPC {
       lines = { { id = "tf_default", text = "I don't find anything, friend, I hardly leave the city! People bring them to me, goblins and travelers and sorts like you, and I pay them, and the apothecaries pay me a little more." } },
       choices = {
         { text = "A good business, if it's honest.", next = "trade_honest" },
+        { text = "Do you ever deal with the Syndicate?", next = "op_alterac" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -126,6 +151,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A merchant before the plague, and a merchant after, only now I can't taste the wine. That's the whole tragedy, really." } },
     advice = { { id = "tp_ad", text = "Always count the coin twice, friend, and if you can't, find someone sober to do it." } },
     syndicate = { { id = "tp_syndicate", text = "The Syndicate? Never heard of them, no, not at all. Is that the time?" } },
+    forsaken = { { id = "tp_forsaken", text = "Oh, the Forsaken are wonderful customers, my friend, they never haggle over the price of a dead man's ring because they know exactly what it's worth! I've made more friends down here than I ever did up top." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron left a great many treasures lying about when it fell, and somebody ought to find them good homes. I like to think of myself as a sort of librarian." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran have the finest curios in the world locked away behind their shields. If they ever open those gates, I'll be first in line with a cart." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles were never short of pretty things, and some of them were never short of debts either. I'd say no more about that, if I were you." } },
     _none = { { id = "tp_none", text = "No idea, friend, but I know someone who might, for a price. Everybody knows someone." } },
   },
 }

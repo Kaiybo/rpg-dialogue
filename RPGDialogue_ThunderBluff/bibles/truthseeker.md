@@ -12,7 +12,7 @@
 ## Identity
 Sage Truthseeker · Lower Rise, Thunder Bluff · Horde · Tauren (female) · scholar, advisor
 Personality: sharp, guarded, curious, loyal to Cairne, dryly funny
-Speech: precise, low-voiced, asks questions back, "I'll answer as honestly as is wise"
+Speech: precise, low-voiced, asks questions back, "I'll answer as honestly as is wise"; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: the Forsaken, the Elder Council, Uldaman and the titans, the Scarlet library
 Relationships: Cairne (trusts), Magatha and Zamah (watches), the Elder Council (mutual irritation)
 Default attitudes: wary of Forsaken, courteous to orcs, curious about everyone

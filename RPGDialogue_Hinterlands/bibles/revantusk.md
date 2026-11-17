@@ -9,7 +9,7 @@
 - Lard (ogre innkeeper; keeps the peace, sells fish): Lard Lost His Lunch (Vilebranch drove him off his picnic on the island to the north).
 - Smith_Slagtree (orc smith; a gnome saved his life when he was young and gave him tools): Vilebranch Hooligans (tools at the northeastern temples or Skulk Rock).
 - Otho_Moji'ko (cooking supplies): Message to the Wildhammer (Highvale high elves at Quel'Danil), Another Message to the Wildhammer (gryphon feathers), The Final Message to the Wildhammer (feathered spear planted by the well at Aerie Peak).
-- Gorkas (orc wind rider master, Orgrimmar; fishes off the pier, wants a huge grouper).
+- Gorkas (orc wind rider master, Orgrimmar; fishes off the pier, wants a huge grouper). Speaks as an orc (plain, proud, no troll dialect); Slagtree likewise.
 
 ## Their quests
 - Torntusk: Kidnapped Elder Torntusk!, Wanted: Vile Priestess Hexx and Her Minions, Job Opening: Guard Captain of Revantusk Village.
@@ -30,3 +30,4 @@
 - Primal standing double watch at midnight; her shame at not freeing the camps; calling the player family.
 - Markhor burying Malkhor with Yayo'jin's rites; his patience. Katoom thinking Nat Pagle fishes near Theramore and ignores factions.
 - Lard's life among ogres before the trolls; how he keeps the peace. Slagtree's reason for living among trolls. Otho saying the Primal doesn't stop him. Gorkas keeping wind riders low past Aerie Peak; his rivalry with Katoom over bait.
+- Yayo'jin: keeps the Forsaken at arm's length (`prejudice`, race Scourge) because they walked out on Bwonsamdi without paying the toll; burns sage after selling to them. Her grandmother's saying about the patient loa is authored.

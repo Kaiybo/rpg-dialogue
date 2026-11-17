@@ -29,6 +29,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_hammer = {
+      lines = {
+        { id = "oph_default", text = "I ask myself that every night they chant outside this cage. I was as lost as they are once, and Elune found me anyway, too late to save my life. What do you believe, traveller?" },
+      },
+      choices = {
+        { text = "If Elune found you, she might find them too.", next = "op_th_redeem", fx = { affinity = 2, align = { light = 1 }, opinion = { twilights_hammer = "redeemable" } } },
+        { text = "No. The Hammer should be put to the sword, every one.", next = "op_th_sword", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { twilights_hammer = "hate" } } },
+        { text = "Every soul can find the Light again, if it looks.", next = "op_th_redeem", fx = { affinity = 1, opinion = { twilights_hammer = "redeemable", the_light = "faith" } }, when = { class = "PRIEST" } },
+        { text = "I think you've judged yourself enough, Zamael.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_th_redeem = {
+      lines = {
+        { id = "opthr_default", text = "You're kinder than I was at your age, and kinder than I deserve to hear. If even one of them looks up at the Moon and wonders, then perhaps my tablet was worth the dying." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_th_sword = {
+      lines = {
+        { id = "opths_default", text = "I cannot argue, for I know what they do in the dark, and I did some of it once. But I hope, for your sake, that you never need the mercy you would deny them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -46,7 +69,7 @@ P:NPC {
       },
       choices = {
         { text = "I wish to hear your tale.", next = "tale" },
-        { text = "What is the Prayer to Elune?", next = "prayer" },
+        { text = "Is there anything you still hope for?", next = "prayer" },
         { text = "Who keeps you here?", next = "hammer" },
         { text = "Can I free your spirit from this cage?", next = "free" },
         { text = "Elune forgives those who come back to her with clean hands.", next = "xelf", when = { race = "NightElf" } },
@@ -61,7 +84,7 @@ P:NPC {
       },
       choices = {
         { text = "What did you do while you served them?", next = "tale_deeds" },
-        { text = "What made you turn back?", next = "tale_vision" },
+        { text = "Something must have turned you back toward the Moon.", next = "tale_vision" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -86,7 +109,7 @@ P:NPC {
         { id = "tv_default", text = "After many years, Elune came to me in a vision, and I saw what I had done the way she must have seen it. I wept for a night and a day, and then I began to carve my shame into gold, so it would last longer than I would." },
       },
       choices = {
-        { text = "The cult found out.", next = "tale_death" },
+        { text = "What happened to you then?", next = "tale_death" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,17 +122,17 @@ P:NPC {
 
     prayer = {
       lines = {
-        { id = "pr_default", text = "A prayer to the Moon, etched on a golden tablet with my own hands, and in it every wrong I could remember. It is not a plea for mercy, mortal, only a true account, and Elune deserves at least that from me." },
+        { id = "pr_default", text = "Only that my prayer to the Moon is heard, for I etched it on a golden tablet with my own hands, and in it every wrong I could remember. It is not a plea for mercy, mortal, only a true account, and Elune deserves at least that from me." },
       },
       choices = {
-        { text = "Why send it to Astarii Starseeker?", next = "prayer_astarii" },
+        { text = "Who should hear it?", next = "prayer_astarii" },
         { text = "Why not ask for forgiveness?", next = "prayer_forgive" },
         { text = "Something else.", next = "BACK" },
       },
     },
     prayer_astarii = {
       lines = {
-        { id = "pa_default", text = "Because she keeps the Temple of the Moon in Darnassus, and she will read it aloud where the goddess listens. I could not walk there in life, and I cannot walk there now, so it must go in your hands." },
+        { id = "pa_default", text = "Astarii Starseeker should, because she keeps the Temple of the Moon in Darnassus, and she will read it aloud where the goddess listens. I could not walk there in life, and I cannot walk there now, so it must go in your hands." },
       },
       choices = {
         { text = "I'll carry it to Darnassus for you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -132,7 +155,8 @@ P:NPC {
         { id = "ha_default", text = "The Twilight's Hammer, whose idolaters hold this ridge and worship things that ought never to be worshipped. They speak of an end to the world as though it were a gift they could hand to everyone." },
       },
       choices = {
-        { text = "What do they want in the Gorge?", next = "hammer_gorge" },
+        { text = "Could any of them be turned back, as you were?", next = "op_hammer" },
+        { text = "The cult seems to have come to the Gorge for a reason.", next = "hammer_gorge" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -180,6 +204,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A night elf of Darkshore, a servant of the Hammer, a penitent, and now a ghost, which is the most honest of the four." } },
     advice = { { id = "tp_ad", text = "Beware of people who befriend you quickly and ask you to change slowly, mortal. That is how I was lost." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The Hammer took me in when I was lost, and I served them with my whole heart. I was wrong, and I've had a long time to think about how wrong." } },
+    elune = {
+      { id = "tp_elune", text = "Elune's light doesn't reach this ridge, but I pray to her anyway. I don't expect an answer, but I'd like her to know I'm sorry." },
+      { id = "tp_elune2", when = { race = "NightElf" }, text = "You'll know her prayers, sister or brother, so say one for me when you reach the moonwell. I've forgotten half of them." },
+    },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande would be ashamed of me, and she'd be right to be. I'd like to tell her so, if I could." } },
+    the_elements = { { id = "tp_the_elements", text = "The Hammer worshipped the elements, or said they did. They worshipped power, and the elements were just the shape it took." } },
     _none = { { id = "tp_none", text = "I do not know it, mortal. My world has been this cage for a long while." } },
   },
 }

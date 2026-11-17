@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Stories (0.80.0): Marin Noggenfogger decides how the Gadgetzan's water Story ends; Bilgewhizzle and Yeh'kinya greet you by how their Stories ended.
+- Prejudices (0.80.0): Security Chief Bilgewhizzle (rogues). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New people to talk to: Mux Manascrambler, Shreev, Derotain Mudsipper, Nixx Sprocketspring, Jhordy Lapforge, Narain Soothfancy.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.25.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

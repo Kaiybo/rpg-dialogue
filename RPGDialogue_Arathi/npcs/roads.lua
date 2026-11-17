@@ -24,6 +24,59 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_forsaken = {
+      lines = {
+        { id = "opn_forsaken_q", text = "Honestly? I've watched that farm for weeks, and they bury nobody, they eat nothing, and they work through the night on things they won't let the wind near. Kinelory says some of them were Lordaeron farmers once, and maybe they were. You've seen more of them than I have; tell me what you think." },
+      },
+      choices = {
+        { text = "Walking corpses with a plague. Burn the lot.", next = "opn_forsaken_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "hate" } } },
+        { text = "They were people once. Some still are.", next = "opn_forsaken_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
+        { text = "Watch them, like you're doing. That's enough for now.", next = "opn_forsaken_r_watch", fx = { trait = { careful = 1 }, opinion = { forsaken = "watch" } } },
+        { text = "I knew some of them, living. I can't hate them.", next = "opn_forsaken_r_pity", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { forsaken = "pity" } } },
+        { text = "Their plague is the problem, not them.", next = "opn_forsaken_r_dangerous", fx = { opinion = { new_plague = "dangerous" } } },
+        { text = "Let's just get those papers.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r = {
+      lines = {
+        { id = "opn_forsaken_r_default", text = "Agreed. Talk later, papers now." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_hate = {
+      lines = {
+        { id = "opn_forsaken_r_hate", text = "I'd like to, believe me, but there's two of us on this ridge and a farm full of them down there. Papers first, fire later." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_pity = {
+      lines = {
+        { id = "opn_forsaken_r_pity", text = "Maybe. Kinelory would kiss you for saying it, and then she'd faint. I'll keep watching them all the same, people or not." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_watch = {
+      lines = {
+        { id = "opn_forsaken_r_watch", text = "Glad someone thinks so, because my feet have stopped complaining and started filing reports of their own." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_dangerous = {
+      lines = {
+        { id = "opn_forsaken_r_plague", text = "That's the part that keeps me on this ridge. Whatever they are, what they're brewing doesn't care which flag you fly." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Anything the orcs down there say to their spirits, if they say anything at all, for I've watched one of them walk the fences at dusk and I've no idea what he's asking for. Phin would give his last silver to know, and I'd give mine to know whether it's about us." } },
@@ -110,17 +163,17 @@ P:NPC {
       },
       choices = {
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What are the Forsaken sending?", next = "courier" },
+        { text = "What's going on down at Go'Shek Farm?", next = "courier" },
         { text = "Why does Phin care about an orc farm?", next = "phin" },
-        { text = "How long have you been out here?", next = "watch" },
+        { text = "You look like you've been out here a long while.", next = "watch" },
         { text = "Phin said you hadn't checked in. He was frantic.", next = "frantic", when = { questActive = TODO_QUEST("Hints of a New Plague?") } },
         { text = "What kind of writing is on the courier's papers?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you fear the plague is coming to the Highlands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You seem to fear the plague is coming to the Highlands.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why not just attack Go'Shek Farm outright, Quae?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for at Go'Shek Farm, Quae?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have a paladin do about Go'Shek Farm, Quae?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would a demon make a good scout down at Go'Shek, Quae?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "A demon would make a good scout down at Go'Shek, Quae.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should I listen for at Go'Shek Farm, Quae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay low, then. Farewell.", next = "END" },
       },
@@ -158,6 +211,7 @@ P:NPC {
         { id = "cp_default", text = "Kinelory wants to, and Kinelory is braver than Kinelory is sensible. Walk with her when she goes for the courier, and I'll write the report afterwards in letters Phin can actually read." },
       },
       choices = {
+        { text = "What do you make of the Forsaken, Quae?", next = "opn_forsaken" },
         { text = "Stealing their papers is better than a fight.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "We should face the courier openly and take them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -185,6 +239,9 @@ P:NPC {
 
   topics = {
     new_plague = { { id = "tp_plague", text = "Whatever the Forsaken are brewing, it travels in sealed crates and comes through Go'Shek." } },
+    forsaken = { { id = "tp_forsaken", text = "The orc farm below the ridge has Forsaken visitors now and then, and they carry vials. I write down everything, and I don't like what I'm writing." } },
+    scourge = { { id = "tp_scourge", text = "The plague came from the north, and it's spreading, and I'm sure the Forsaken have a hand in it now. I'll find out how, if it's the last thing I do." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Refuge Pointe needs to know what the Horde is doing here, and I'm the one watching. Captain Nials gets my notes first, and the Syndicate never sees them." } },
     _none = { { id = "tp_none", text = "Ask me in Southshore, over a drink, when I'm not counting orcs." } },
   },
 }
@@ -200,6 +257,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_forsaken_pity", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "pity" } },
+      text = "Quae says you think some of the Forsaken are still people! I, well, I think so too, sometimes, though I'd never say it to Quae, and I suppose you already have." },
+    { id = "o_forsaken_hate", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "hate" } },
+      text = "Quae told me you'd burn the whole farm! I mean, I wouldn't stop you, exactly, but please wait until we've got the papers out first." },
     { id = "g_pace", text = "Oh! You startled me, which isn't hard lately. Are you here to help, or only passing by on your way to somewhere sensible?" },
   },
 
@@ -287,16 +348,16 @@ P:NPC {
       choices = {
         { text = "I'll take the loud part. Stealth was never my way.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Why go after him yourself?", next = "why" },
-        { text = "What's the plan?", next = "plan" },
-        { text = "Quae says you're braver than you are sensible.", next = "quae" },
+        { text = "You must have a plan.", next = "plan" },
+        { text = "Quae says you're braver than you are sensible.", next = "quae", when = { heardLine = "quae.cp_default" } },
         { text = "I'll keep my demon behind you, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Want some help ambushing the Forsaken courier?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You're frightened, Kinelory. Why go after the courier yourself?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you know of the courier's route?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I cover you from the trees when you face the courier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should we ambush the courier, or follow him quietly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why does Phin set such store by mages, Kinelory?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Are you frightened of what that courier carries, Kinelory?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Phin seems to set great store by mages, Kinelory.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You seem frightened of what that courier carries, Kinelory.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, so please do; it's better than listening to the kobolds." } },
@@ -353,6 +414,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are brewing a new plague, I'm sure of it, and they're testing it here in the Highlands. Quae thinks I'm frightened, and she's right, but I'm going anyway." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague emptied half of Lordaeron, and I'll not stand by while someone brews a second one. Whatever the Forsaken are making down there, I mean to stop it." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light every night, and I ask it to keep me brave. It hasn't answered yet, but I'm still here." } },
     _none = { { id = "tp_none", text = "I don't know, and I'm too jumpy to guess." } },
   },
 }
@@ -368,7 +432,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_gorge", text = "A rescuer! Or at least a person with a weapon, which at this point I'll gladly take." },
+    { id = "g_gorge", text = "A rescuer! Or at least a person with a weapon, which at this point raises my odds of survival by a good forty percent, and I'll gladly take it." },
   },
 
   notice = {
@@ -466,7 +530,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, by my notes! Do your kind take an interest in kobolds, I wonder, or only in creatures that don't steal candles?" },
         { id = "h_default", key = true,
-          text = "Professor Phizzlethorpe, scholar and, at present, hostage to circumstance. I came to Drywhisker Gorge for my research, and the kobolds came for my candles." },
+          text = "Professor Phizzlethorpe, scholar, engineer, late of Gnomeregan and, at present, hostage to circumstance. I came to Drywhisker Gorge for my research, with a colleague waiting for me at the coast, and the kobolds came for my candles." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Sunken Treasure") },
           text = "Lead on, then, and keep the kobolds off my coattails! My work waits for me down at the coast, and so does a very dull goblin." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, splendid! The kobolds respect nothing but the sharp end of things, and you appear to have several sharp ends about your person." },
@@ -481,26 +545,26 @@ P:NPC {
       choices = {
         { text = "Kobolds belong to the land too, Professor.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Shall I tinker your notes back together, Professor?", next = "gnome", when = { race = "Gnome" } },
-        { text = "What were you researching here?", next = "research" },
-        { text = "Why do the kobolds want candles?", next = "kobolds" },
+        { text = "You must have been researching something out here.", next = "research" },
+        { text = "The kobolds seem very keen on candles.", next = "kobolds" },
         { text = "Who waits for you at the coast?", next = "coast" },
         { text = "Shall I clear the kobolds from your path, Professor?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Have you studied the kobolds while you've been stuck here?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "You must have studied the kobolds while you've been stuck here.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Are the kobolds really so dangerous, Professor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the kobolds take anything besides candles, Professor?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Were you really afraid for your life, Professor?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "You must have been afraid for your life, Professor.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What do you want to know about the gorge, Professor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What were you studying before the kobolds came, Professor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you never met a warlock before, Professor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck, Professor.", next = "END" },
       },
-      again = { { id = "h_again", text = "Yes, yes? Quickly, before they come back for the rest of my wax." } },
+      again = { { id = "h_again", text = "Yes, yes? Quickly, please, before they come back for the rest of my wax and the last of my calculations." } },
     },
     research = {
       lines = {
         { id = "re_default", text = "Submerged salvage, my dear fellow! There's treasure sunk off the Arathi coast, and I've worked out how to reach it, or I had, before the kobolds took a fancy to my notebook." },
       },
-      choices = { { text = "They stole your notes?", next = "notes" } },
+      choices = { { text = "So they stole your notes.", next = "notes" } },
     },
     notes = {
       lines = {
@@ -530,6 +594,9 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Fascinating question, and I haven't the faintest idea." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "I studied in Gnomeregan before the troggs came, and I lost all my notes in the evacuation. Now I've lost them again, to kobolds, which is somehow worse." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are clever, I'll grant you, but they've no head for engineering. I'd show them a thing or two, if they'd only let me in." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins build things that explode, and they think that's the point. I build things that explode only when I want them to, and that's science." } },
+    _none = { { id = "tp_none", text = "Fascinating question, and I haven't the faintest idea, which I shall note as a gap in the data." } },
   },
 }

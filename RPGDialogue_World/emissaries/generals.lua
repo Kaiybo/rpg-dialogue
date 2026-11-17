@@ -69,7 +69,7 @@ P:NPC {
         { text = "I have all three marks, General.", next = "turnin", when = ALL_MARKS },
         { text = "Why do you want a mark from every battleground?", next = "task" },
         { text = "Three fronts, one war? It doesn't feel that way.", next = "fronts" },
-        { text = "Is this a real war, or a bloody game with ranks?", next = "sport" },
+        { text = "This feels more like a bloody game with ranks than a war.", next = "sport" },
         { text = "Tell me about the battlegrounds themselves.", next = "fields" },
         { text = "What do the honor ranks mean to you?", next = "ranks" },
         { text = "I've earned a {rank}'s rank, General. What's next?", next = "k_rank", when = { pvpRank = 10 } },
@@ -89,7 +89,7 @@ P:NPC {
         { id = "ti_default", text = "Hand them over, then, and know that I'll send word to Silverwing Hold, Refuge Pointe and Dun Baldar that one soldier fought for all three. Tell me, why did you do it, when most folk only fight where the honor comes easiest?" },
       },
       choices = {
-        { text = "Because the Alliance is one army, or it's nothing.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Because the Alliance is one army, or it's nothing.", next = "BACK", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
         { text = "Because I go wherever the best fight is.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The honor, General. I won't lie about it.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
@@ -129,7 +129,8 @@ P:NPC {
       },
       choices = {
         { text = "Have you tried bringing them to one table?", next = "fronts_table" },
-        { text = "Why don't they trust each other?", next = "fronts_trust" },
+        { text = "They don't seem to trust each other much.", next = "fronts_trust" },
+        { text = "Does Stormwind's regent back this war, General?", next = "regent" },
         { text = "Something else, General.", next = "BACK" },
       },
     },
@@ -151,6 +152,37 @@ P:NPC {
         { text = "Let each fight its own way. They know their ground.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Who'd you pick to command it?", next = "fronts_who" },
       },
+    },
+    -- Opinion pass: the general asks what the player thinks of the throne and the war.
+    regent = {
+      big = true,
+      lines = {
+        { id = "rg_default", text = "Lord Bolvar signs my requisitions, which is more than the House of Nobles ever did, but he's holding a throne for a missing king and the nobles never let him forget it. Lady Jaina, meanwhile, writes from Theramore asking us not to provoke the Warchief. You've stood on the field, soldier, so tell me: is this war worth fighting?" },
+        { id = "rg_peace", when = { opinion = { topic = "peace", stance = { "for", "mixed" } } }, text = "Lord Bolvar signs my requisitions and Lady Jaina writes from Theramore asking us not to provoke the Warchief, and I'm told you've some sympathy with her. Tell me plainly, then, soldier: is this war worth fighting?" },
+      },
+      choices = {
+        { text = "Every inch we hold now is one the Horde can't take later.", next = "regent_war", fx = { opinion = { peace = "against", horde = "hate" }, align = { order = 1 } } },
+        { text = "Lady Jaina's right. We're bleeding for fields, not for the Alliance.", next = "regent_peace", fx = { opinion = { peace = "for", jaina = "trust" }, align = { order = -1 } } },
+        { text = "Lord Bolvar is a better leader than the nobles deserve.", next = "regent_bolvar", fx = { opinion = { bolvar = "respect" }, affinity = 1 } },
+        { text = "Ironforge would have finished this already.", next = "regent_dwarf", when = { race = "Dwarf" }, fx = { opinion = { magni = "admire", stormwind = "slow" } } },
+        { text = "I'd rather leave the throne to the people who sit on it.", next = "BACK" },
+      },
+    },
+    regent_war = {
+      lines = { { id = "rgw_default", text = "That's the soldier's answer, and I've given it myself to more than one marshal. Just remember that every inch has a name on it, and I'm the one who writes the letters home." } },
+      choices = { { text = "Something else, General.", next = "BACK" } },
+    },
+    regent_peace = {
+      lines = { { id = "rgp_default", text = "I'd not say that in Stormwind Keep, but I'll not have you flogged for saying it here. The truth is that I hope she's right, and I fight as though she isn't." } },
+      choices = { { text = "Something else, General.", next = "BACK" } },
+    },
+    regent_bolvar = {
+      lines = { { id = "rgb_default", text = "He is, and I'll drink to that in any company. I served under him once, and he learned every one of our names before the week was out." } },
+      choices = { { text = "Something else, General.", next = "BACK" } },
+    },
+    regent_dwarf = {
+      lines = { { id = "rgd_default", text = "Ironforge would have dug under it and blown it up, more likely, and called it finished. But the Stormpike are doing their part, and I'll not hear a word against them from anyone but a dwarf." } },
+      choices = { { text = "Something else, General.", next = "BACK" } },
     },
     fronts_who = {
       lines = { { id = "fw_default", text = "Not me, if that's what you're asking, because I'm a desk officer and I know it. I'd want someone all three would follow, and the day I find such a person I'll pin every medal I own on their chest." } },
@@ -245,8 +277,8 @@ P:NPC {
       big = true,
       lines = { { id = "avf_default", text = "They were, and I'll say it here though I'd not say it in Ironforge. Gul'dan exiled Durotan's clan into those mountains before the First War, and they made a home of it, but the Stormpike are Alliance and Alterac's under Alliance banners now, so what would you have me do with a fact like that?" } },
       choices = {
-        { text = "Nothing. Alliance land is Alliance land.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nothing. Alliance land is Alliance land.", next = "BACK", fx = { opinion = { alterac_valley = "alliance" }, align = { light = -1 } } },
+        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
         { text = "Another field.", next = "BACK" },
       },
     },
@@ -289,7 +321,7 @@ P:NPC {
       lines = { { id = "kd_default", text = "Because word of every one of them reaches Orgrimmar, soldier, and the Horde's officers make sure their grunts hear it before every battle. Each dead cook puts another angry orc on the field against us, and I'd rather you did your killing where it does the Alliance some good." } },
       choices = {
         { text = "You're right. I'll keep my blade for soldiers.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The Horde's all the same to me, armed or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The Horde's all the same to me, armed or not.", next = "BACK", fx = { opinion = { horde = "hate" }, align = { honor = -1 } } },
         { text = "They keep a list?", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -388,9 +420,9 @@ P:NPC {
       choices = {
         { text = "I have all three marks, Warbringer.", next = "turnin", when = ALL_MARKS },
         { text = "Why does the Horde need to prove itself?", next = "proof" },
-        { text = "What makes a battle honorable?", next = "honor" },
+        { text = "Not every battle seems honorable to me.", next = "honor" },
         { text = "Tell me about the battlegrounds.", next = "fields" },
-        { text = "Is this war, or a blood sport with ranks?", next = "sport" },
+        { text = "Some say this is only a blood sport with ranks.", next = "sport" },
         { text = "I'm a {rank}. What does the Horde want now?", next = "k_rank", when = { pvpRank = 10 } },
         { text = "They were Alliance. Why should I spare them?", next = "k_dishonor", when = { dishonorKills = { min = 1 } } },
         { text = "When can I join the fight?", next = "k_young", when = { maxLevel = 19 } },
@@ -422,9 +454,41 @@ P:NPC {
       },
       choices = {
         { text = "Who are we proving it to?", next = "proof_who" },
+        { text = "Does the Warchief want this war at all?", next = "chief" },
         { text = "The camps are over. Why still prove anything?", next = "proof_why" },
         { text = "Something else, Warbringer.", next = "BACK" },
       },
+    },
+    -- Opinion pass: the warbringer asks what the player thinks of the Warchief's peace.
+    chief = {
+      big = true,
+      lines = {
+        { id = "ch_default", text = "He wants the Horde to live, which isn't the same thing. He keeps faith with Lady Proudmoore at Theramore, and he lets us fight these battles so the grunts have somewhere to put their anger. Some call that wisdom and some call it weakness. What do you call it?" },
+        { id = "ch_soft", when = { opinion = { topic = "warchief", stance = { "soft", "weak" } } }, text = "He wants the Horde to live, which isn't the same thing, and I'm told you think that makes him soft. He keeps faith with Lady Proudmoore and lets us fight here so the grunts have somewhere to put their anger. Say it to my face, then: what do you call it?" },
+      },
+      choices = {
+        { text = "Wisdom. Thrall knows when to fight and when to wait.", next = "chief_trust", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
+        { text = "Weakness. The Alliance only respects a raised axe.", next = "chief_soft", fx = { opinion = { warchief = "soft", peace = "against" }, align = { honor = -1 } } },
+        { text = "Proudmoore can be trusted. Her king can't.", next = "chief_jaina", fx = { opinion = { jaina = "respect", alliance = "distrust" } } },
+        { text = "The Dark Lady has her own wars to fight.", next = "chief_lady", when = { race = "Scourge" }, fx = { opinion = { sylvanas = "loyal" } } },
+        { text = "That's for the Warchief to say.", next = "BACK" },
+      },
+    },
+    chief_trust = {
+      lines = { { id = "cht_default", text = "Good. I've seen what the Horde becomes when it fights for nothing but the fighting, and I'd not see it again. Bring that sense to the battlegrounds, warrior." } },
+      choices = { { text = "Something else, Warbringer.", next = "BACK" } },
+    },
+    chief_soft = {
+      lines = { { id = "chs_default", text = "Plenty of grunts agree with you, and I fought beside some of them. But the last time the Horde raised its axe without thinking, it woke up in chains, so don't confuse the Warchief's patience with fear." } },
+      choices = { { text = "Something else, Warbringer.", next = "BACK" } },
+    },
+    chief_jaina = {
+      lines = { { id = "chj_default", text = "Her king is missing, as it happens, and the boy and the regent who sit in his place have no love for us. You're right about her, though; she chose us over her own father, and orcs remember that." } },
+      choices = { { text = "Something else, Warbringer.", next = "BACK" } },
+    },
+    chief_lady = {
+      lines = { { id = "chl_default", text = "She does, and she fights them in her own fashion and keeps her own counsel about it. The Warchief trusts her to keep her word, and I trust the Warchief, so we'll leave it there." } },
+      choices = { { text = "Something else, Warbringer.", next = "BACK" } },
     },
     proof_why = {
       lines = { { id = "pw_default", text = "Because the Alliance still remembers the orcs who burned Stormwind, not the orcs who broke free and built Durotar. Until they learn the difference, they'll keep sending soldiers into Ashenvale and Alterac to finish what their camps began." } },
@@ -437,8 +501,8 @@ P:NPC {
       big = true,
       lines = { { id = "pwh_default", text = "To the Alliance, to the world, and to ourselves most of all, warrior, because there are orcs who still remember the bloodlust and want it back. What do you think the Horde should be, when the battle's done?" } },
       choices = {
-        { text = "What Thrall says: warriors with honor.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Strong enough that no one can cage us again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What Thrall says: warriors with honor.", next = "BACK", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
+        { text = "Strong enough that no one can cage us again.", next = "BACK", fx = { opinion = { horde = "strength" }, align = { honor = -1 } } },
         { text = "I don't know yet.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
     },
@@ -449,7 +513,7 @@ P:NPC {
         { id = "hn_default", text = "You fight the enemy who can fight back, and you let the farmers, the peddlers and the stablehands live. You don't run from an objective to chase easy kills, and you never let a grunt die alone if you can reach them." },
       },
       choices = {
-        { text = "What happens to those who break these rules?", next = "honor_breakers" },
+        { text = "Some must break these rules.", next = "honor_breakers" },
         { text = "Does the Alliance fight with honor?", next = "honor_alliance" },
         { text = "Something else.", next = "BACK" },
       },
@@ -538,7 +602,7 @@ P:NPC {
     ab = {
       lines = { { id = "ab_default", text = "The Defilers out of Hammerfall fight the League of Arathor for the basin's five points: the Stables, the Gold Mine, the Lumber Mill, the Blacksmith and the Farm. Whoever holds the most feeds their army, so it's a fight for supplies as much as land." } },
       choices = {
-        { text = "What do you think of the Defilers?", next = "ab_defilers" },
+        { text = "The Defilers have a grim reputation.", next = "ab_defilers" },
         { text = "Another field.", next = "BACK" },
       },
     },

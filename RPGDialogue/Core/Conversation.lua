@@ -532,6 +532,7 @@ function Conv.Finish()
   s.ended = true
   if s.ticker then s.ticker:Cancel() end
   if s.mem then Memory.End(s.mem, s.lastLine) end
+  if s.memKey and ns.Kin then ns.Kin.Met(s.memKey); ns.Kin.Stamp() end
   restoreBlizzard(s)
   View(s).Hide()
   if s.view == "dui" then ns.UI.Dialogue.Hide() end
@@ -871,7 +872,9 @@ function Conv.Choose(index)
     if Engine.IsStance(choice) then stances[s.node] = stances[s.node] or choice.text end
   end
   local dispBefore = ns.Disposition and ns.Disposition.For(env, ctx)
+  env.said = ((choice.text or ""):gsub("^%[[^%]]*%]%s*", ""))   -- kept with an opinion for the journal (0.80.0)
   Effects.Apply(fx, env)
+  env.said = nil
   Effects.Journal(journal, ctx, env)
   s.pendingNote = Conv.ChoiceNote(choice, checkResult, fx, dispBefore)
   -- Word gets around (0.67.0): the rest of their town hears what you did.

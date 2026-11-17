@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Sheldras Moontree: balance inside stone walls.
 P:NPC {
   key = "sheldras", id = TODO_NPC("Sheldras Moontree"), name = "Sheldras Moontree", title = "Druid Trainer",
+  prejudice = { class = "MAGE", amount = 8, why = "Kaldorei memory of the Sundering; polite but cool to arcanists." },
   bible = "bibles/park.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
   notices = { "form", "priest", "kaldorei" },
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Peace, {class}, though I'll ask you to keep your spells sheathed under these trees. The last time your kind of magic was loved this much, the sea swallowed my people's capital." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and welcome. I've watched you walk the park without a spark at your fingers, and I find I've stopped bracing when you come near." },
     { id = "g_balance", text = "Even within stone walls, there is peace, if you look for it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Ishnu-alah, young druid. Sit beneath the leaves a moment." },
     { id = "g_moonglade", when = { questActive = TODO_QUEST("Moonglade") }, text = "Moonglade waits for you. It is patient; be less so." },
@@ -31,6 +34,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I care for them the way you'd care for a forge left burning in a hayloft. My people drank deep of the arcane once, and the Well of Eternity tore the world in two because of it, and I see the same hunger in the young ones from the Mage Quarter." } },
+      choices = {
+        { text = "Magic needs rules and study, not fear. That's what we practise.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Then I'll learn what the wild can teach me instead.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What did you lose, Sheldras?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Rules and study, yes, and the Highborne had libraries finer than anything in Stormwind. I hope your rules hold better than theirs did, but you'll forgive me if I keep watching." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Then you're wiser than most who walk out of that tower. The wild doesn't ask you to master it, only to listen, and the listening takes longer than any spell." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "A sister, a city I barely remember, and the shape of the coast I grew up on. It was a long time ago, but grief keeps poorly in a people who live so long." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xpt_sheldras = {
       big = true,
       lines = { { id = "xpt_sheldras_default", text = "Not at first, for your kind talk quickly and build quickly and forget quickly, and we do none of those things. But a company is a small forest of its own, and in time the roots find each other, if nobody insists on pulling them up to check." } },
@@ -125,16 +150,17 @@ P:NPC {
         { id = "h_again2", text = "Go on. The trees and I are in no hurry." },
       },
       choices = {
+        { text = "You don't care for mages, do you, Sheldras?", next = "prej", when = { prejudiced = true } },
         { text = "Train me, Sheldras.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why live in a human city?", next = "city" },
-        { text = "What is balance?", next = "balance" },
-        { text = "What is Moonglade?", next = "moonglade" },
-        { text = "Does your Elune differ from our Light?", next = "light", when = { class = "PRIEST" } },
-        { text = "What should I be practising, Sheldras?", next = "practise", when = { class = "DRUID" } },
+        { text = "I'm not sure I understand balance.", next = "balance" },
+        { text = "Is there a sacred place for druids, Sheldras?", next = "moonglade" },
+        { text = "Your Elune must differ from our Light.", next = "light", when = { class = "PRIEST" } },
+        { text = "I'd welcome your advice on my practice, Sheldras.", next = "practise", when = { class = "DRUID" } },
         { text = "Should druids take sides in the Alliance's wars?", next = "war", when = { class = "DRUID" } },
         { text = "My people honour the winds more than Elune.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Do you mind a hunter's beast in your Park?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "What do you think of the city's other teachers?", next = "others" },
+        { text = "The city's other teachers must seem strange to you.", next = "others" },
         { text = "Humans planted these trees for you, didn't they?", next = "human", when = { race = "Human" } },
         { text = "Why do the trees shy from the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a warrior find balance, Sheldras?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -165,7 +191,7 @@ P:NPC {
     balance = {
       lines = { { id = "b_default", text = "The wolf and the deer, the storm and the calm, growth and decay, each answering the other. Nature doesn't take sides, young one; it keeps the scales level, and a druid's work is to help when they tip." } },
       choices = {
-        { text = "And when one side is evil?", next = "balance_evil" },
+        { text = "Sometimes one side is simply evil.", next = "balance_evil" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -258,6 +284,13 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "Elune watches over all living things, even those who live inside stone walls, and I've found her light in this Park every night. The humans think it's only the moon, and that's well enough." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is the world as it was meant to be, untouched by the hands of mortals, and the druids walk it in their sleep. Something troubles it lately, and I've felt it in my own dreams." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the World Tree, and it gave our people immortality until it gave its strength to stop the Legion. Now we're as mortal as you, and I've found it makes the days sweeter." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion Stormrage is the greatest of our druids, and he sleeps in the Emerald Dream while the world goes on without him. I hope he wakes soon, because the Circle needs his voice." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of Elune and the leader of our people, and she waits for Malfurion to wake. Her patience is longer than your kingdom's history, and still it's being tested." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Emerald Dream, and Ysera is their mother and queen. They watch over the great trees where the Dream touches our world, and they've no patience for anyone who disturbs them." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last furbolgs untouched by corruption, and they guard their tunnels in Felwood and Winterspring. I'd count them friends, though they'd not count me one until I proved it." } },
     knows = {
       { id = "tp_knows", text = "The trees of this park hear a great deal, and so do I, sitting among them. Ask what you will." },
     },
@@ -281,7 +314,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_work", text = "I hope this interruption is for a good cause. I was busy." },
+    { id = "g_work", text = "I hope this interruption is for a good cause, because I was busy, and I have been busy since long before this city's first stone was laid." },
     { id = "g_sample", when = { questActive = TODO_QUEST("A Green Sample") }, text = "Well? Did you get into Dalaran, or did the Kirin Tor shoo you off?" },
   },
 
@@ -365,7 +398,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've trampled two of my seedlings already, so stand still and tell me what you want." },
-        { id = "h_default", text = "Shylamiir. I train herbalists, when they can be trained, and in between I study what grows here, which is more than you'd think for a park full of humans." },
+        { id = "h_default", text = "Shylamiir. I train herbalists, when they can be trained, and in between I study what grows here, which is more than you would think for a park the humans planted only a few lifetimes ago." },
         { id = "h_sample", key = true, tags = { "news" }, when = { questBefore = TODO_QUEST("A Green Sample"), minLevel = 40 },
           text = "If you're going to bother me, you can make yourself useful. Dalaran has a surprising interest in botany for a city of mages, and I'd very much like a sample of whatever grows in their central garden." },
         { id = "h_sample_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Green Sample") },
@@ -381,23 +414,23 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You walk past the herbs as if they were nothing, as warriors always do, and yet you'll be grateful for them when you bleed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then you've walked through more of the world than most who come to this Park, and you'll know how to look at what grows underfoot." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. An interruption, but perhaps a useful one. Do your spirits know where plants grow best?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, which is an interruption, but perhaps a useful one. Do your spirits know where plants grow best, or only where the stone is loudest?" },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly." },
+        { id = "h_again", text = "Something else? Ask it quickly, then, for I have centuries of work ahead of me and would like to begin it today." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Herbalism" } },
-        { text = "What grows in a park like this?", next = "grows" },
-        { text = "Why do you want Dalaran's plants?", next = "dalaran" },
-        { text = "How does peacebloom grow, then?", next = "peacebloom", when = { class = "PRIEST" } },
-        { text = "Does magic change how your plants grow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Not much wild can grow in a park like this.", next = "grows" },
+        { text = "Why do you want Dalaran's plants?", next = "dalaran", when = { any = { { questActive = TODO_QUEST("A Green Sample") }, { questDone = TODO_QUEST("A Green Sample") }, { heardLine = "shylamiir.h_sample" } } } },
+        { text = "Peacebloom seems fussy about where it grows.", next = "peacebloom", when = { class = "PRIEST" } },
+        { text = "I'd think magic changes how your plants grow.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a herbalist want from a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Which herbs should a warrior carry, Shylamiir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What grows here that surprises you, Shylamiir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you need help gathering herbs, Shylamiir?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a warlock be useful to an herbalist, Shylamiir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What plant do you want from Dalaran, Shylamiir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What plant do you want from Dalaran, Shylamiir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance", any = { { questActive = TODO_QUEST("A Green Sample") }, { questDone = TODO_QUEST("A Green Sample") }, { heardLine = "shylamiir.h_sample" } } } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -414,7 +447,7 @@ P:NPC {
       choices = {
         { text = "Agreed. Knowledge shouldn't be locked away.", next = "dalaran_more", fx = { align = { order = -1 } } },
         { text = "The Kirin Tor have their reasons.", next = "dalaran_more", fx = { align = { order = 1 } } },
-        { text = "What do you expect to find?", next = "dalaran_more" },
+        { text = "You must expect to find something there.", next = "dalaran_more" },
       },
     },
     dalaran_more = {
@@ -431,11 +464,16 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "There's a plant that grows only in the gardens of Dalaran, and I mean to have a cutting before I die. The Kirin Tor won't open their gates, and I'm sure it's to keep me out personally." } },
+    elune = { { id = "tp_elune", text = "Elune blesses every herb that grows by moonlight, and I pick mine only after dark for that reason. The humans think I'm mad, and they buy my herbs anyway." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream holds plants that would make your herbalists weep, and I've seen a few of them in my sleep. I've tried to find them when I wake, and I never can, which is very annoying." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the World Tree, and the herbs that grew at its roots had no equal anywhere. I'd go to Hyjal to see what's left, if the guardians there would let me." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our home now, and its herbs are fine, though not as fine as Nordrassil's. I don't say that in front of the druids, because they're sensitive about it." } },
     knows = {
       { id = "tp_knows", text = "I know plants, and the people who walk through the Park on their way to somewhere else. Ask, but make it worth my time." },
     },
-    background = { { id = "tp_bg", text = "I study herbs, and I'm better at it than anyone in this city, so what more would you need to know?" } },
+    background = { { id = "tp_bg", text = "I tended the groves of Ashenvale for longer than this city has stood, and now I study herbs here, better than anyone in it. What more would you need to know?" } },
     advice = { { id = "tp_ad", text = "Take the leaf and leave the root. Then there's something to pick next year." } },
-    _none = { { id = "tp_none", text = "If it isn't a plant, I don't care, and neither should you." } },
+    _none = { { id = "tp_none", text = "If it isn't a plant, I don't care, and I have had a very long life in which to decide what deserves my care." } },
   },
 }

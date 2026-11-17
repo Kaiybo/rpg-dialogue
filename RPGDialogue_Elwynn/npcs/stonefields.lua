@@ -48,7 +48,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Gramma does, and I don't argue with Gramma, but I'll say the soil on our side of the river has gone tired these last few years. If a druid can tell me whether it's a curse or just poor dirt, I'd be glad to know." } },
+      lines = { { id = "xdruid_default", text = "Gramma thinks the Maclures cursed them, and I don't argue with Gramma, but I'll say the soil on our side of the river has gone tired these last few years. If a druid can tell me whether it's a curse or just poor dirt, I'd be glad to know." } },
       choices = {
         { text = "It's tired soil, not a curse. The Maclures aren't to blame.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Could be a curse. I'd not put it past a Maclure.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -116,7 +116,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Come in and close the door, the bread's rising, and say a word for my necklace while you're at it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Well, you're just what this farm needs, because nobody believes me about that Maclure boy, and maybe they'll believe you." },
-        { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard." },
+        { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard, all the more since my necklace went missing." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Lost Necklace") },
           text = "My necklace is gone, and that Maclure boy's been hanging round the fence all week. You do the arithmetic." },
         { id = "h_pie", tags = { "news" }, when = { questActive = TODO_QUEST("Pie for Billy") },
@@ -141,20 +141,20 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then make yourself useful and hand me that bowl." },
       },
       choices = {
-        { text = "What about the Maclures?", next = "maclures" },
+        { text = "Why keep an eye on the vineyard, Auntie?", next = "maclures" },
         { text = "Tell me about the necklace.", next = "necklace" },
-        { text = "What goes in a pork belly pie?", next = "pie" },
+        { text = "What sort of pies are those cooling?", next = "pie" },
         { text = "Billy let slip he dropped it.", next = "billy_slip", when = { heardLine = "billy.s_slip" } },
         { text = "You said those were your husband's.", next = "husband", when = { questDone = TODO_QUEST("Goldtooth") } },
         { text = "A gnome could build you a better oven, Auntie.", next = "gnome", when = { race = "Gnome" } },
-        { text = "Do you really think I'd steal your pie, Auntie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You seem to think I'd steal your pie, Auntie.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Wouldn't a spell spoil the bread somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you need a warrior's help on the farm, Auntie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you want boar meat, Auntie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you forgive the Maclures, Auntie, if they asked?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you want done about the Maclure boy, Auntie?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you really think the Maclures cursed your turnips?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does it bother you to feed a warlock, Auntie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is something wrong with your turnips, Auntie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Feeding a warlock must bother you, Auntie.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who stole your necklace, Auntie Bernice?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
@@ -190,7 +190,7 @@ P:NPC {
           text = "It's back now, thanks to you, and it's not leaving this neck again. I sleep in it, so don't you tell anyone." },
       },
       choices = {
-        { text = "Why blame Billy?", next = "necklace_billy" },
+        { text = "You seem very quick to blame Billy.", next = "necklace_billy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -278,6 +278,9 @@ P:NPC {
     maybell_tommy = { { id = "tp_lovers", text = "What about them? There's nothing to tell about them, so why do you ask, and what have you heard?" } },
     kobolds = { { id = "tp_kobolds", text = "Thieving little candle-heads, and worse than Maclures, nearly." } },
     _none = { { id = "tp_none", text = "I've no idea, but you can ask me about pie." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold pork pies at the Faire one year and came home with an empty basket and a headache from all that music. I didn't go back, but I think of it fondly." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light for patience with that Maclure boy, and some days it comes and some days it doesn't. Today it hasn't, so don't ask me about him." } },
+    scourge = { { id = "tp_scourge", text = "I heard the plague up north came in the flour, and I've not looked at a sack the same way since. Mine's from the farm, every grain, and you can tell anybody who asks." } },
   },
 }
 
@@ -353,7 +356,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every way it could, and the young ones worst of all, because they've grown up hating folk they've never spoken to. Gramma says it's a waste of good years, and she's right, though I'd never tell her so." } },
+      lines = { { id = "xapriest_default", text = "The feud with the Maclures has, every way it could, and the young ones worst of all, because they've grown up hating folk they've never spoken to. Gramma says it's a waste of good years, and she's right, though I'd never tell her so." } },
       choices = {
         { text = "Then make peace, Ma. The young ones deserve better.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Old wounds run deep. Some things can't be mended.", next = "BACK", fx = { align = { light = -1 } } },
@@ -394,17 +397,17 @@ P:NPC {
         { id = "h_again2", text = "Go on. Quick, before she smells the carrots." },
       },
       choices = {
-        { text = "Couldn't you talk to the Brackwells?", next = "brackwells" },
-        { text = "Tell me about Princess.", next = "princess" },
-        { text = "How's the rest of the farm?", next = "farm" },
+        { text = "You might talk to the Brackwells about their pig.", next = "brackwells" },
+        { text = "Tell me about this pig.", next = "princess" },
+        { text = "The rest of the farm seems busy enough.", next = "farm" },
         { text = "What will you do with the collar?", next = "collar", when = { questDone = TODO_QUEST("Princess Must Die!") } },
         { text = "My pet could deal with her.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Westfall lost whole farms to the Defias.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I could ask Princess to leave, the druid's way.", next = "druid", when = { class = "DRUID" } },
         { text = "Would you really want the pig killed in secret?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Could my demon deal with the Brackwells' pig?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is Princess really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "How has the feud with the Maclures touched your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "My demon could deal with the Brackwells' pig.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is the Brackwells' pig really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Has anything besides the pig troubled your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Couldn't the Brackwells be made to keep their pig penned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a mage do anything about the Brackwells' pig, Ma?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is Princess really eating your whole crop, Ma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -505,6 +508,9 @@ P:NPC {
     maybell_tommy = { { id = "tp_lovers", text = "Tommy Joe? He's mending the east fence, and he's been mending it for months. It must be a very broken fence." } },
     defias = { { id = "tp_defias", text = "They took the Brackwell farm whole, pumpkins, house and all. They left the pig, which tells you they've got some sense." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, got a pig to worry about." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating the Brackwells' pumpkins instead." } },
+    holy_light = { { id = "tp_holy_light", text = "I've no time for long prayers, so I say a short one to the Light every time I pick up a hoe. It hasn't broken yet, so I reckon it's working." } },
+    varian = { { id = "tp_varian", text = "A king's not much use to a farm unless he keeps the roads clear, and this one's been gone so long the roads have noticed. Somebody ought to tell him." } },
   },
 }
 
@@ -634,15 +640,15 @@ P:NPC {
         { id = "h_again2", text = "Ask me something else, only not about the necklace." },
       },
       choices = {
-        { text = "Are you sure you didn't take it?", next = "sure" },
+        { text = "I'm not sure you didn't take it, Billy.", next = "sure" },
         { text = "Where were you playing?", next = "mine", when = { any = { { questActive = TODO_QUEST("Goldtooth") }, { questDone = TODO_QUEST("Back to Billy") } } } },
-        { text = "Tell me about your sister.", next = "maybell" },
-        { text = "Aren't you scared of kobolds?", next = "kobolds" },
+        { text = "Do you have any brothers or sisters, Billy?", next = "maybell" },
+        { text = "I'd be scared of kobolds, at your age.", next = "kobolds", when = { any = { { questActive = TODO_QUEST("Goldtooth") }, { questDone = TODO_QUEST("Back to Billy") } } } },
         { text = "I could teach you to lift a purse.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Would you really want a Stonefield turned into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who's Goldtooth, and why should a warrior fight him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Are you really that hungry, Billy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you say your prayers at night, Billy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You look hungry, Billy.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I'd guess your ma makes you say your prayers, Billy.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why didn't you tell anyone what you saw, Billy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you know about the animals round the farm, Billy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why do you think a warlock would accuse you, Billy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -702,7 +708,7 @@ P:NPC {
 
     kobolds = {
       lines = {
-        { id = "k_default", text = "No. Well, the big one, a bit; he's got a gold tooth and he screams if you go near his candles. Kobolds are weird about candles." },
+        { id = "k_default", text = "I'm not. Well, the big one, a bit; he's got a gold tooth and he screams if you go near his candles. Kobolds are weird about candles." },
       },
       choices = {
         { text = "Stay away from the mine, Billy.", next = "BACK", fx = { trait = { kind = 1 }, learn = { "kobolds" } } },
@@ -727,5 +733,8 @@ P:NPC {
     maybell_tommy = { { id = "tp_lovers", text = "Maybell goes to the river a LOT. I'm not saying anything, I'm just saying." } },
     kobolds = { { id = "tp_kobolds", text = "They live in the mines and they like shiny stuff, and candles, which is weird." } },
     _none = { { id = "tp_none", text = "I don't know, I'm just a kid. Ask a grown-up, only not Auntie Bernice." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "At the Faire there's sweets and a fire-eater and a lady who tells fortunes, and she said I'd be rich one day. I didn't take anything, I only listened." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "There's an island in the lake with a big stone on it, and you're not supposed to go there because of the wizards. I didn't go there, and I didn't see anything shiny on it either." } },
+    scourge = { { id = "tp_scourge", text = "Tommy Joe says the dead in the north come for children who tell fibs. I don't tell fibs, so I'm not worried, not at all." } },
   },
 }

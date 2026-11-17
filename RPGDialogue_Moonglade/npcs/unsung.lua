@@ -132,7 +132,7 @@ P:NPC {
           text = "A warrior, welcome! You'll want a few bags, I'd guess, because warriors always carry more than they need and never have anywhere to put it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, welcome! You'll want arrows and food for your companion, I expect, and I keep both, though Narianna's arrows are better than mine." },
-        { id = "h_default", text = "I'm Daeolyn Summerleaf, and I keep the general goods for Nighthaven: water, thread, bags and the small things that travelers run short of. Most who come here are druids, but anyone the grove lets in may buy from me." },
+        { id = "h_default", text = "I am Daeolyn Summerleaf, and I keep the general goods for Nighthaven: water, thread, bags and the small things that travellers run short of. Most who come here are druids, but anyone the grove lets in may buy from me, as it has always been." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, welcome to Nighthaven! The grove is quieter than any temple, and I've seen priests of every sort stay a day longer than they meant to." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, welcome! You needn't skulk here, because nobody in Nighthaven is looking for anyone, and that's the whole charm of the place." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The druids get a bit prickly about magic, but I've always thought a mage's company makes the evenings shorter, and Nighthaven's evenings are very long." },
@@ -147,10 +147,10 @@ P:NPC {
       choices = {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Horde and Alliance both trade here?", next = "both" },
-        { text = "How did you come to live in Moonglade?", next = "came" },
+        { text = "You don't seem like a druid yourself.", next = "came" },
         { text = "Does Moonglade's peace really rub off on travellers, Daeolyn?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is no one in Nighthaven ever looking for anyone, Daeolyn?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Are the druids really so prickly about magic, Daeolyn?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The druids seem prickly about magic, Daeolyn.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the grove let in anyone at all, Daeolyn?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do many warriors come through Nighthaven, Daeolyn?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What does a hunter need for the roads out of Moonglade?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -194,7 +194,10 @@ P:NPC {
     cenarion_circle = { { id = "tp_cc", text = "The Circle keeps Moonglade for every druid, whoever they march with outside. I only keep the shop." } },
     background = { { id = "tp_bg", text = "I sell supplies in Nighthaven. I came chasing a druid, he took up with a bear, and I stayed anyway." } },
     advice = { { id = "tp_ad", text = "If you take the road through Felwood, keep to the Timbermaw tunnels and say nothing rude to the furbolgs." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know. Rabine Saturna might; he knows most things that happen in the grove." } },
+    timbermaw = { { id = "tp_timbermaw", text = "I came in through the Timbermaw tunnels the first time, chasing a druid. The furbolgs found it very funny, and they still laugh when they see me." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "My druid fell asleep for a week once and came back talking about the Dream. Then he took up with a bear, and I stopped asking about his dreams." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I'd go to the Darkmoon Faire if I weren't stuck selling rope in a druid glade. Some days I think about it very seriously." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. Rabine Saturna might; he knows most things that happen in the grove, and has for centuries." } },
   },
 }
 
@@ -331,7 +334,7 @@ P:NPC {
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows differently here?", next = "grows" },
-        { text = "What do you mean, close to the Dream?", next = "dream" },
+        { text = "I don't follow what you mean about the Dream.", next = "dream" },
         { text = "Do Moonglade's herbs really listen to prayers, Malvor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there no poison growing anywhere in Moonglade, Malvor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would the arcane do to a dreaming plant, Malvor?", next = "xmage", when = { class = "MAGE" } },
@@ -357,7 +360,7 @@ P:NPC {
         { id = "dr_default", text = "The druids say Moonglade lies near the Emerald Dream, closer than anywhere else in the world, and that's why they come here to sleep and study. I'm no druid, but even I dream more clearly in Nighthaven." },
       },
       choices = {
-        { text = "Is it dangerous, to be so close?", next = "dream2" },
+        { text = "It sounds dangerous, being so close.", next = "dream2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -376,6 +379,9 @@ P:NPC {
   topics = {
     malfurion = { { id = "tp_mal", text = "The Shan'do sleeps in the Dream, they say. I hope his dreams are gentler than mine." } },
     background = { { id = "tp_bg", text = "I tend the herbs of Nighthaven. I came to study them, and they've been studying me ever since." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The herbs here grow as though the Dream were just below the soil. I'm beginning to suspect it is." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Felwood's moss creeps toward the passes now and then, and I burn every patch I find. The glade will not have it." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw know the herbs of Felwood better than anyone alive. They've traded me seeds I couldn't find in any book." } },
     _none = { { id = "tp_none", text = "I don't know, but if you ask the plants, perhaps they'll tell you. They tell me things sometimes." } },
   },
 }
@@ -505,16 +511,16 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You've claws and moonfire, so you'll not need a bow, I suppose, but the roads out of Moonglade are cruel ones, and I'd still feel better if you carried something." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Go on, ask." },
+        { id = "h_again", text = "What else? Ask, and then mind the roads out; Felwood has not been kind since the Legion came." },
+        { id = "h_again2", text = "Go on, ask. A sanctuary is a good place for questions, if not for bows." },
       },
       choices = {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Isn't selling bows here a bit odd?", next = "odd" },
-        { text = "Where do people go from here?", next = "roads" },
+        { text = "This must be a crossroads for travellers.", next = "roads" },
         { text = "Is a prayer really no match for an arrow, Narianna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you sell to rogues knowing what they'll do, Narianna?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is an arrow better than a spell, Narianna?", next = "xmage", when = { class = "MAGE" } },
+        { text = "An arrow is no better than a spell, Narianna.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the druids really dislike summoning so much, Narianna?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would a warrior need a bow, Narianna?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes your bows better than a city bowyer's?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -556,6 +562,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell bows in Nighthaven. I used to be a Sentinel, and I still like to see people leave well armed." } },
     advice = { { id = "tp_ad", text = "In Felwood, don't drink from anything green. You'll thank me." } },
-    _none = { { id = "tp_none", text = "I don't know. I sell bows; that's my whole wisdom." } },
+    thrall = { { id = "tp_thrall", text = "I fought orcs in Ashenvale when I was a Sentinel, and I don't forget the faces. Here, they're guests, and I sell them bows." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw use short bows, rough-cut but true. I've traded with them, and I'd trust their aim over mine." } },
+    centaur = { { id = "tp_centaur", text = "Centaur bows are strong, I hear, and their archers stronger. I'd rather not find out from the wrong end." } },
+    _none = { { id = "tp_none", text = "I don't know. I sell bows, as my mother did in Ashenvale before the Sundering, and that's my whole wisdom." } },
   },
 }

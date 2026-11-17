@@ -127,9 +127,9 @@ P:NPC {
         { text = "What happens if the zeppelin goes down over the jungle?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Are these zeppelins safe?", next = "safe" },
         { text = "Why do you like it here?", next = "sun" },
-        { text = "Do you see much from up here?", next = "view" },
+        { text = "You must see a great deal from up here.", next = "view" },
         { text = "Is the zeppelin really perfectly safe, Nez'raz?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do many mages skip the zeppelin, Nez'raz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Plenty of mages must skip the zeppelin, Nez'raz.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What happened to the rope, Nez'raz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts really get airsick on your zeppelin, Nez'raz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do druids ride your zeppelins much, Nez'raz?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -180,6 +180,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a goblin with a good job, a nice view, a steady wage and a tower all my own. Not much else to say, pal." } },
     advice = { { id = "tp_ad", text = "Don't lean over the rail, pal. The ones who do always find out how far down it is." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a good town, pal, but the zeppelin here is better, and it gets you out of Booty Bay faster. That's my sales pitch, and it hasn't failed yet." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where a lot of zeppelin engineers got their start, pal, and most of them still have all their limbs. That's what I call a good school." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief signed off on these zeppelins personally, pal, and he's never once complained about the service. That's practically an endorsement." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got a few zeppelin men, but none as good as me, pal. I'd swear to it, and I'd swear to it twice." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if it can't ride a zeppelin, I can't help." } },
   },
 }
@@ -196,8 +200,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "The riders are ready when you are, so tell me where you need to go." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The riders are rested, and so am I, for once." },
+    { id = "g_default", text = "The riders are ready when you are, {class}, so tell me where in the Horde's lands you need to go." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The riders are rested and fed, and so am I, for once, which is a small victory in this heat." },
   },
 
   notice = {
@@ -290,7 +294,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The riders are uneasy around the dead and the loa alike, but they'll carry you, because I ask them to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of you can teleport, I know, but the riders go where your spells don't reach, which is most places." },
         { id = "h_default", key = true,
-          text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
+          text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay if you've any business that far south. They are proud beasts and they carry warriors proudly, so treat them with respect." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll be wanting to scout the ridges, I suppose, and I'll warn you that the trolls up there see more than they let on." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind your armor, but they hate the noise of it, so climb on slowly and try not to clank." },
@@ -299,18 +303,18 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, glowing at my perch. The trolls on the ridges will see you from a mile off, so stand behind the beasts while you wait." },
       },
       again = {
-        { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
+        { id = "h_again", text = "Ask, then. The wind riders are fed and resting, and an orc who keeps beasts learns patience or loses fingers." },
         { id = "h_again2", text = "Anything more? The riders are waiting, but patiently." },
       },
       choices = {
         { text = "Do the wind riders take to shamans more than to others?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are the routes to Stonard and Kargath safe for a lone caster?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders like the jungle?", next = "jungle" },
-        { text = "You watch the trolls on the ridges?", next = "trolls" },
+        { text = "Who watches your pens from the jungle?", next = "trolls" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What do the trolls on the ridges see, Thysta?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why don't wind riders like demons, Thysta?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do the ridge trolls threaten warriors on the road, Thysta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The ridge trolls must threaten warriors on the road, Thysta.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How long have the ridge trolls been watching, Thysta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you see the trolls doing up on the ridges, Thysta?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does the Light on me worry you, Thysta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -345,9 +349,13 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I keep the riders. That's my work, and I do it well." } },
+    background = { { id = "tp_ba", text = "I keep the riders, as my mother kept them for the clans before me. That's my work, and I do it well." } },
     advice = { { id = "tp_ad", text = "Fly high over the jungle, because the Bloodscalp throw spears and the gorillas throw worse." } },
-    _none = { { id = "tp_none", text = "I don't know that one. Ask the Commander; he knows the camp better than I do." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent us to the jungle and we came, and we've held this camp under worse than rain. I'd go anywhere he asked." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear trolls guard the ridge, and the riders trust them more than they trust the orcs. That should tell you something." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls at Zul'Gurub ride bats and raptors, and they fly over the ridge at night sometimes. My riders hate them, and so do I." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've flown to Booty Bay more times than I can count, and every time the goblins try to sell me something before my feet touch the ground. They never succeed." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and I won't pretend to. Ask the Commander; he knows the camp better than I do." } },
   },
 }
 
@@ -363,8 +371,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I've got bags, ammunition and drink, so tell me what you need." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more, then. Good, the jungle eats supplies faster than I can stock them." },
+    { id = "g_default", text = "Bags, ammunition and drink, all of it off the zeppelin from Orgrimmar, so tell me what you need, grunt." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more, then. Good, the jungle eats supplies faster than a warband eats a boar, and I can't stock them fast enough." },
   },
 
   notice = {
@@ -457,7 +465,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Candles, cloth and bandages, that's what your lot buy, and the jungle eats the candles." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've got what you need for your rituals, and I don't ask what you need it for." },
         { id = "h_default", key = true,
-          text = "Uthok, general supplies. Everything I sell came off a zeppelin, and the jungle will rot it or eat it in a week, so buy what you need and use it fast." },
+          text = "Uthok, general supplies. Everything I sell came off a zeppelin from Orgrimmar, and the jungle will rot it or eat it in a week, so buy what you need and use it fast, the way an orc should." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I'll be watching my stock while you're here, so don't take it personally, because I watch everyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want food and water, I'd guess, unless you're the kind who conjures his own and leaves honest merchants with nothing to sell." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want bandages, rations and a whetstone, and you'll want them now, before the jungle eats my stock." },
@@ -466,7 +474,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You won't need food, I suppose, so you'll be wanting bags and arrows and nothing that rots, which makes you my favourite kind of customer." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Speak plainly; I've no patience for haggling." },
         { id = "h_again2", text = "Anything more? I've got crates to open." },
       },
       choices = {
@@ -475,7 +483,7 @@ P:NPC {
         { text = "What's the hardest thing to keep in stock?", next = "stock" },
         { text = "Do the trolls ever try to steal from you?", next = "thieves" },
         { text = "Show me what you have.", next = "BUSINESS" },
-        { text = "Has anyone stolen from you at Grom'gol, Uthok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Somebody must have stolen from you at Grom'gol, Uthok.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does conjured food hurt your trade, Uthok?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What should a warrior carry in this jungle, Uthok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why are arrows so dear at Grom'gol, Uthok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -489,7 +497,7 @@ P:NPC {
         { id = "st_default", text = "Arrows and shot, because every hunter in camp goes out after raptors and comes back with an empty quiver. After that, anything made of cloth, because the damp turns it green in three days." },
       },
       choices = {
-        { text = "Can't the zeppelin bring more?", next = "stock_zep" },
+        { text = "Surely the zeppelin could bring more.", next = "stock_zep" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -508,8 +516,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I sell supplies. I came with the Commander, and I'll leave with him." } },
+    background = { { id = "tp_ba", text = "I sell supplies. I came with the Commander, I'll leave with him, and until then I keep his grunts in rations." } },
     advice = { { id = "tp_ad", text = "Keep your bags dry, or everything in them rots. I opened a sack of flour last week, and something in it opened its eyes at me." } },
-    _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps us supplied, and I keep the stock, and the jungle tries to eat both. So far we're winning." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells everything, at a price, and I don't pay their prices if I can help it. I'd rather wait for the next zeppelin." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company buys up everything in the jungle and sells it back at triple the price. I've told the Commander we should burn their camps, and he's thinking about it." } },
+    second_war = { { id = "tp_second_war", text = "I hauled supplies in the Second War, and I'm hauling them now, and nothing about it has changed. The grunts still complain about the bread." } },
+    _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories, and an orc who wants stories goes to Thulbek." } },
   },
 }

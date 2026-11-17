@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gaxim Rustfizzle, of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences! It's my duty to show the night elves that a blend of magic, mixtures and mechanisms can help save their forests." },
+          text = "Gaxim Rustfizzle, of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences! It's my duty to show the night elves that a blend of magic, mixtures and mechanisms can help save their forests. Kaela keeps watch over the camp, and my old colleague Lomac Gearstrip in Tinker Town keeps me supplied, mostly." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("On Guard in Stonetalon") },
           text = "Someone from Ashenvale, come to check on us? Kaela will be thrilled, and I'm thrilled too, because I need a pair of hands that isn't holding a bow." },
         { id = "h_respite_before", when = { questBefore = TODO_QUEST("A Gnome's Respite") },
@@ -52,13 +52,13 @@ P:NPC {
           text = "You're a bit new to be out here, aren't you? The Crag's full of goblins with axes, so come back when you're a little more explosion-proof." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk and calibrate at the same time, mostly." },
+        { id = "h_again", text = "What else? I can talk and calibrate at the same time, mostly, with about a seven percent margin for error." },
         { id = "h_again2", text = "Go on, go on! Questions are good for the brain, and the brain is good for detonators." },
       },
       choices = {
         { text = "What is the Enlightened Assembly?", next = "eaaaes" },
-        { text = "Explosives? In a forest?", next = "boom" },
-        { text = "Who is Lomac Gearstrip?", next = "lomac" },
+        { text = "How do you fight the goblins, Gaxim?", next = "boom" },
+        { text = "I've never heard of Lomac Gearstrip.", next = "lomac" },
         { text = "How do you and Kaela get along?", next = "kaela_g" },
         { text = "Show me what you're building.", next = "eng_gx", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -99,7 +99,7 @@ P:NPC {
     boom = {
       big = true,
       lines = {
-        { id = "bo_default", text = "Carefully placed! Along the mountains' edges, I can herd the goblins back with a few key detonations, and the trees don't mind as long as I aim at the cliffs. Don't worry, they're not as dangerous as everyone thinks." },
+        { id = "bo_default", text = "With explosives, carefully placed! Along the mountains' edges, I can herd the goblins back with a few key detonations, and the trees don't mind as long as I aim at the cliffs. Don't worry, they're not as dangerous as everyone thinks." },
       },
       choices = {
         { text = "Blow them all off the mountain.", next = "BACK", fx = { align = { light = -1 } } },
@@ -161,6 +161,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Always label your crates, every one of them, and don't ask me why; just do it." } },
     venture_company = { { id = "tp_venture", text = "Greedy, wasteful and terrible engineers, and that last one offends me most of all." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not talk about Gnomeregan, if it's all the same to you. That's why I'm out here saving somebody else's home." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are the finest in the world, and I'd give my left eyebrow to study there. I've already given the right one to an experiment, so it's a fair trade." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding Dalaran, very slowly, very carefully, with a great many wards. I sent them a letter offering my services, and they haven't written back, which I'm choosing to take as a good sign." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the night elves' high priestess, and she's very serious about trees. I'm very serious about explosions, so we have a lot in common, if you squint." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief is a big fellow with a big hammer, and he's never once tried to blow me up. That puts him ahead of the Venture Company, at least." } },
     _none = { { id = "tp_none", text = "No idea! But give me a week and a workbench, and I'll have an opinion." } },
   },
 }
@@ -176,7 +180,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Welcome, {class}. Watch the valley with me a moment, if you've time." },
+    { id = "g_hello", text = "Ishnu-alah, {class}. Watch the valley with me a moment, if you've time, beneath Elune's patient eye." },
     { id = "g_embers", when = { questActive = TODO_QUEST("Enraged Spirits") }, text = "The fire elementals of the Charred Vale, and their smoldering embers. Bring them to me, and the Vale may breathe again." },
     { id = "g_ancients", when = { questActive = TODO_QUEST("Wounded Ancients") }, text = "Shrapnel from a wounded treant, {class}. Gaxim thinks the goblins' weapons poisoned them, and I'd like to know if he's right." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. Did you pass through Ashenvale? Tell me the trees there are still green." },
@@ -208,13 +212,13 @@ P:NPC {
           text = "This should be more than enough for Gaxim to learn how the treants were corrupted. I'll take it to him now, and pray the answer is something we can mend." },
       },
       again = {
-        { id = "h_again", text = "What else, {class}? The valley's quiet for now." },
+        { id = "h_again", text = "What else, {class}? The valley's quiet for now, though the smoke still hangs where the old trees stood." },
         { id = "h_again2", text = "Go on. I'll keep one eye on the Crag while we talk." },
       },
       choices = {
         { text = "What happened to the Charred Vale?", next = "vale" },
-        { text = "You miss Ashenvale.", next = "home" },
-        { text = "What do you make of Gaxim?", next = "gaxim_k" },
+        { text = "Do you miss your home, Kaela?", next = "home" },
+        { text = "You seem unsure of Gaxim.", next = "gaxim_k" },
         { text = "Why are the treants corrupted?", next = "treants", when = { any = { { questActive = TODO_QUEST("Wounded Ancients") }, { questDone = TODO_QUEST("Enraged Spirits") } } } },
         { text = "I know Thenysil in Astranaar.", next = "thenysil", when = { questDone = TODO_QUEST("On Guard in Stonetalon") } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -227,7 +231,7 @@ P:NPC {
         { id = "va_default", text = "The goblins came for the trees and found more than they bargained for, and when the Vale fought back, they burned it. The first time I saw it, {class}, I almost wept." },
       },
       choices = {
-        { text = "Can it ever heal?", next = "vale_heal" },
+        { text = "It might heal, in time.", next = "vale_heal" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -264,7 +268,7 @@ P:NPC {
     gaxim_k = {
       big = true,
       lines = {
-        { id = "gk_default", text = "That he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
+        { id = "gk_default", text = "I'm sure he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
       },
       choices = {
         { text = "His way works. Let him blast the goblins out.", next = "BACK", fx = { align = { order = -1 } } },
@@ -297,6 +301,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay off the Crag's lower roads after dark. The goblins post guards there, and they shoot at anything that moves." } },
     venture_company = { { id = "tp_venture", text = "They take what they want and burn what they don't, and they call it business." } },
     sentinels = { { id = "tp_sentinels", text = "We're spread thin from here to Feralas, and still we hold. Don't ask me how." } },
-    _none = { { id = "tp_none", text = "I couldn't say. Gaxim might know; he knows a little about everything, and too much about explosives." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of Elune, and she leads us through the darkest times. I would follow her anywhere, though I would rather follow her home to Ashenvale." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the forests, and she weeps for the Charred Vale as I do. I pray to her every night that it will grow again." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief speaks of peace, but his people cut our forests and the goblins burn whatever is left. I do not believe in his peace, though I would like to." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream holds the forests as they were meant to be. I would like to see the Charred Vale there, green and whole, if only once." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Gaxim might know; he knows a little about everything, and too much about explosives, which a Sentinel tries very hard not to hold against him." } },
   },
 }

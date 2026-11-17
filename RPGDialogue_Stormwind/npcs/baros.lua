@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_nobles_just", when = { opinion = { topic = "defias", stance = "nobles_justified" } }, text = "You're the one who thinks the lords did what they could. Come and look at my ledgers some day, friend, and tell me again." },
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },
     { id = "g_letter", when = { questActive = TODO_QUEST("The Unsent Letter") }, text = "A letter, for me, and from whom? Let me sit down before I open it." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Unsent Letter") }, text = "You. Yes. I've thought about that letter every day since." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_nobles = {
+      lines = {
+        { id = "op_nobles_a", text = "Every morning, when I walk past the House and see the new gilt on its doors. I've kept my office by never saying so aloud, so I'll turn it round on you: what do you make of the lords who rule this city?" },
+      },
+      choices = {
+        { text = "They cheated honest men. The House should answer for it.", next = "op_nobles_1", fx = { opinion = { stormwind = "abandoned_its_own", defias = "masons_wronged" }, align = { order = -1 }, affinity = 1 } },
+        { text = "The crown was broke after the war. The lords did what they could.", next = "op_nobles_2", fx = { opinion = { stormwind = "patience", defias = "nobles_justified" }, align = { order = 1 } } },
+        { text = "Lords and masons both did wrong. Westfall's paying for all of it.", next = "op_nobles_3", fx = { opinion = { defias = "sympathetic", westfall = "abandoned" }, trait = { skeptical = 1 } } },
+        { text = "My House voted against you. I'm ashamed of it.", next = "op_nobles_4", when = { origin = "human_minor_noble" }, fx = { opinion = { stormwind = "abandoned_its_own" }, affinity = 2 } },
+        { text = "I'd rather not judge the lords, Master Alexston.", next = "BACK" },
+      },
+    },
+    op_nobles_1 = {
+      lines = { { id = "op_nobles_r1", text = "Say it more quietly, friend, at least within these walls. You're right, and being right never yet paid a mason or saved one from the Stockade." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
+    op_nobles_2 = {
+      lines = { { id = "op_nobles_r2", text = "So the clerks told us, and then the same lords built summer houses on the lake. I'll not quarrel with you, because I signed the ledgers myself, but I'd like you to see one of those houses some day." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
+    op_nobles_3 = {
+      lines = { { id = "op_nobles_r3", text = "That's the sum of it, and it's the one sum nobody in this city wants to check. My family's farm is ash out there, so I know who's paying." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
+    op_nobles_4 = {
+      lines = { { id = "op_nobles_r4", text = "That's more than any lord has ever said to me, and I'll remember it. Shame won't buy back the farms, but it's a better start than gilt." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'm not sure I would. Half these walls were raised by men we never paid, and if the stone remembers that, it has better manners than they do." } },
@@ -162,15 +191,15 @@ P:NPC {
         { id = "h_again2", text = "Go on; the plans will keep, as they always do." },
       },
       choices = {
-        { text = "You knew VanCleef?", next = "edwin", when = { any = { { deed = "dungeon:The Deadmines" }, { questActive = TODO_QUEST("The Unsent Letter") }, { heardLine = "gryan.l_known" } } } },
+        { text = "You sound as if you knew VanCleef.", next = "edwin", when = { any = { { deed = "dungeon:The Deadmines" }, { questActive = TODO_QUEST("The Unsent Letter") }, { heardLine = "gryan.l_known" } } } },
         { text = "Tell me about the city.", next = "city" },
-        { text = "Where are you from, originally?", next = "farm" },
+        { text = "You don't sound like you were born in the city.", next = "farm" },
         { text = "My family farmed Westfall too.", next = "westfall_kin", when = { origin = "human_westfall_farmhand" } },
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Your arches are fair work, for human stone.", next = "dwarf_stone", when = { race = "Dwarf" } },
         { text = "My father was a Stonemason. He was never paid either.", next = "mason_child", when = { origin = "human_stonemason_child" } },
-        { text = "Who else knows the city's drains as well as you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What's eating the Mage Quarter's mortar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Few could know the city's drains as well as you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Something's eating the Mage Quarter's mortar.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which part of the city would you hold first, Architect?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the city have room left for a hunter's beasts, Architect?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever pray in the Cathedral you helped build?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -195,6 +224,7 @@ P:NPC {
     point = {
       lines = { { id = "p_default", text = "He did. That's the trouble with Edwin. He always had a point, and he always took it too far." } },
       choices = {
+        { text = "Do you still blame the House of Nobles?", next = "op_nobles" },
         { text = "Too far how?", next = "riot" },
         { text = "Something else.", next = "BACK" },
       },
@@ -285,6 +315,11 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, and I'm told Bazil Thredd is among the ringleaders. He was a stonemason once, and I knew him, and that is the sort of thing a man keeps to himself in this city." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I drew the plans for the Valley of Heroes, or some of them, and I still walk under the arches to see if they've settled. They haven't, and I'm prouder of that than I should be." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild rebuilt Stormwind after the orcs tore it down, and the House of Nobles refused to pay the bill. I was one of them, in a way, and I stayed, and that is the difference between me and the men in red." } },
+    deadmines = { { id = "tp_deadmines", text = "They tell me VanCleef has dug a whole harbour under Moonbrook, and if that's true, then it's a mason's work and a fine one. I'd rather admire it from a long way off." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy on a Westfall farm when the orcs came through, and I watched Stormwind burn from the hills. I've spent my whole life drawing it back up again, one street at a time." } },
     knows = {
       { id = "tp_knows", text = "An architect learns a city from its drains up, and its people along with it. Ask me about any of this, and I'll tell you what the stone has told me." },
     },

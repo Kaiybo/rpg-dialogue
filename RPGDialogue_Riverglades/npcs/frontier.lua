@@ -36,7 +36,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part." },
+        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part, though somebody keeps raiding our woodpiles." },
         { id = "h_helping", tags = { "news" }, when = { questActive = TODO_QUEST("Helping Hands") },
           text = "Come on, come on. Curly's in trouble out there and we haven't much time." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },
@@ -53,15 +53,15 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? Quick, before Curly wanders off again." } },
       choices = {
         { text = "Who's Curly?", next = "curly" },
-        { text = "Who's been raiding your woodpiles?", next = "raids" },
-        { text = "How's the logging?", next = "logging" },
+        { text = "Someone's been raiding your woodpiles, by the look of it.", next = "raids" },
+        { text = "This looks like good logging country.", next = "logging" },
         { text = "How's Curly holding up?", next = "curly_after", when = { questDone = TODO_QUEST("Helping Hands") } },
         { text = "I'm a druid. These trees aren't yours to fell.", next = "xdruid", when = { class = "DRUID" } },
         { text = "What's out in those woods, Hurley?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Would a blessing really help?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What kind of odd smell?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Shall I keep an eye on the woodpiles at night?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is anyone at the camp hurt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Someone at the camp must be hurt.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why are you short on luck?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my companion frighten you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the trees here mind being cut, Hurley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -184,6 +184,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a logger, with an axe in my hands since I was twelve, and a worrier since I met Curly." } },
     advice = { { id = "tp_ad", text = "If you hear singing in the woods and it isn't us, run." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The cult takes people from the glades, and they never come back. I worry about Curly every day he goes into the woods, and every day he comes back, I worry about tomorrow." } },
+    thrall = { { id = "tp_thrall", text = "The Horde raids our woodpiles, and Turner says they're just stealing timber, but I don't sleep well knowing they're out there. I'd sleep better if they were somewhere else." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray every night that Curly comes home safe. I don't know if the Light's listening, but it doesn't hurt to ask." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Halligan; he knows things, or says he does." } },
   },
 }
@@ -237,17 +240,17 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Daylight's money, so be quick." } },
       choices = {
         { text = "Is it safe, logging this far out?", next = "safe" },
-        { text = "What's it like working for the Brotherhood?", next = "brotherhood" },
+        { text = "Working for the Brotherhood can't pay much.", next = "brotherhood" },
         { text = "Hurley says you're hard on Curly.", next = "curly", when = { heardLine = "hurley.h_default" } },
         { text = "I worked land like this, once.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I could swing an axe for you, if you're short.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Do the lads ever need a healer out here?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What's raiding your meat store?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Something's been raiding your meat store.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Worried about your payroll, Turner?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Are your loggers well looked after?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why fear fire so much?", next = "xmage", when = { class = "MAGE" } },
         { text = "You'd really put my pet to work?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Do you replant what you cut?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I'd hope you replant what you cut.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you mind a shaman in your camp, Turner?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
@@ -265,7 +268,33 @@ P:NPC {
     },
     brotherhood = {
       lines = { { id = "b_default", text = "They pay in silver when they have it and in promises when they don't, and I've had more promises than silver this year. Brant keeps his, eventually." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } } },
+      choices = {
+        { text = "Is their protection worth the silver?", next = "bh_ask", fx = { learn = { "brotherhood_horse" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } },
+      },
+    },
+    -- Opinion pass: Halligan asks the player how he should deal with the raids.
+    bh_ask = {
+      big = true,
+      lines = { { id = "bq_default", text = "Ask me that when the Horde stops raiding my woodpiles. You've seen both banks of the river, so you tell me: do I keep paying the Brotherhood, or make my own peace with the orcs and save the silver?" } },
+      choices = {
+        { text = "Pay the Brotherhood. They're all that stands between you and Rog'mar.", next = "bh_ask_pay", fx = { opinion = { brotherhood_horse = "trust" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Make your own peace. A woodpile isn't worth a life.", next = "bh_ask_peace", fx = { opinion = { peace = "for" }, align = { order = -1 } } },
+        { text = "Arm your loggers and teach the raiders a lesson.", next = "bh_ask_fight", fx = { opinion = { peace = "against", horde = "hate" }, trait = { brave = 1 } } },
+        { text = "That's your business, Turner.", next = "BACK" },
+      },
+    },
+    bh_ask_pay = {
+      lines = { { id = "bqp_default", text = "That's what my head says, and my purse says otherwise, every month. Fine; Brant gets his silver, and I get to complain about it, which is half the pleasure." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bh_ask_peace = {
+      lines = { { id = "bqn_default", text = "Peace with orcs? Brant would have me hanged off my own sawhorse. But I'll own I've thought it, on the nights I'm counting what's missing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bh_ask_fight = {
+      lines = { { id = "bqf_default", text = "My loggers can swing an axe, I'll give them that, but they swing it at trees. I'll not send Curly against a war party, and neither would you if you'd met him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     curly = {
       lines = { { id = "c_default", text = "Hard? I'm keeping him alive, and if that's hard, so be it." } },
@@ -368,6 +397,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "This is Turner's camp. My name's on it, so the blame is too." } },
     advice = { { id = "tp_ad", text = "Never stand downhill of a falling tree, or of a falling logger." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Best customers I've got, and the only customers I've got." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's new warchief can call himself honorable all he likes, but his warriors steal my timber twice a week. Honor doesn't pay for lost wood." } },
+    bolvar = { { id = "tp_bolvar", text = "The Regent wants the Riverglades held, and he wants it held cheaply, which means me and my loggers holding it with axes. I'd like to see him swing one." } },
+    second_war = { { id = "tp_second_war", text = "The old war came through these woods, and my father cut timber for Farholde's walls. I'm still cutting it, and the walls still need it." } },
     _none = { { id = "tp_none", text = "That's not my business; trees are my business." } },
   },
 }
@@ -420,14 +452,14 @@ P:NPC {
         { text = "Farholde's close. Can't they help?", next = "farholde" },
         { text = "Harvest golems ran my family off our farm too.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
         { text = "Those reapers are machines. I could take one apart.", next = "xgnome", when = { race = "Gnome" } },
-        { text = "How many reapers are out there?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "There seem to be a great many reapers out there.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could the Light drive the reapers off?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where did the deer go?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the reapers ever leave the fields?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why did folk stop walking to the chapel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What are the reapers made of?", next = "xmage", when = { class = "MAGE" } },
         { text = "Afraid of my companion, Benjy?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "How is the soil, under all this?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "The soil looks good under all this.", next = "xdruid", when = { class = "DRUID" } },
         { text = "What do the reapers do to your fields, Benjy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Benjy.", next = "END" },
       },
@@ -555,6 +587,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A farmer: was, is, and will be. There's nothing more to say about it that the dirt doesn't." } },
     advice = { { id = "tp_ad", text = "Stay off the rows after dark. The reapers don't sleep, and they don't ask who you are." } },
+    holy_light = { { id = "tp_holy_light", text = "I used to pray for a good harvest, and now I pray the reapers stop clicking. Neither prayer seems to get answered." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind doesn't care about the fields out here, and it never has. We grow what we can, and we keep our heads down." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Somebody said a gnome could fix the reapers, but no gnome's come this far east. I'd pay well for one, if I had anything to pay with." } },
     _none = { { id = "tp_none", text = "I'm a farmer, so ask me about weather, or about reapers even, but not that." } },
   },
 }

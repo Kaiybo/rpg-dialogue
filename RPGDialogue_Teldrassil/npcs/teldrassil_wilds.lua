@@ -115,20 +115,20 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The timberlings around the lake have become violent, and I would rather you trimmed them than I did." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the timberlings moving through the trees, and you'll have noticed that they move like hunting things now." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my lake. I'd like you to keep your servant away from the timberlings, because they're strange enough already without a demon setting them off." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The plants of Teldrassil trouble me. Something in them is wrong. Do your earth spirits feel it?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The plants of Teldrassil trouble me, for something in them has grown wrong, and I wonder whether your earth spirits feel it too." },
       },
       again = {
-        { id = "h_again", text = "Is there something more you would ask?" },
+        { id = "h_again", text = "Is there something more you would ask? I have time; the tree grows slowly, and so do my answers." },
         { id = "h_again2", text = "I am listening, though my mind is half on the soil." },
       },
       choices = {
-        { text = "What is wrong with the timberlings?", next = "timber" },
+        { text = "The timberlings here seem angry.", next = "timber" },
         { text = "Why study plants out here, not in Darnassus?", next = "why" },
         { text = "Tell me about Lake Al'Ameth.", next = "lake" },
         { text = "As a druid, I feel something amiss in the land.", next = "druid", when = { class = "DRUID" } },
         { text = "Something arcane may be twisting your timberlings.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your timberlings never hear me. I could watch them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What's wrong with the timberlings, Denalan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The timberlings by the lake look anything but gentle, Denalan.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the timberlings stalk prey like true beasts now?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can a sickness like the timberlings' be healed, Denalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the timberlings evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
@@ -171,7 +171,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I do not know, friend. The soil and I keep to ourselves." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "My sprouts were meant to be a small piece of the Dream made real, healthy and green. Instead they grow twisted, and I fear the soil of this tree knows something I don't." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Seeds from Nordrassil's grove grow straight and true, I'm told. I've begged the Circle for a handful, and they keep telling me to make do." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss twists everything it touches, and I've found traces of it near the lake. I'm watching my sprouts very closely now." } },
+    green_dragons = { { id = "tp_green_dragons", text = "If Ysera's children had blessed this tree, my sprouts might grow right. I don't say it in Darnassus, but I say it to the lake." } },
+    _none = { { id = "tp_none", text = "I do not know, friend. The soil and I keep to ourselves, and we have both found it a peaceful arrangement." } },
   },
 }
 
@@ -285,7 +289,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you see the spider that bit me, it was a big one, and it looked very pleased with itself." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. If you have any healing in you I'd welcome it, though the venom is stubborn and Dirania says only her antidote will draw it out." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a demon? Oh, please don't let it near me, I've had quite enough of things with too many teeth today." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Thank you for stopping. The venom burns. Your spirits might ease it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Thank you for stopping, because the venom burns like fire in my blood, and perhaps your spirits could ease it a little." },
       },
       again = {
         { id = "h_again", text = "Is there more? Talking keeps my mind off the pain." },
@@ -293,13 +297,13 @@ P:NPC {
       },
       choices = {
         { text = "Why were you near the cave?", next = "cave" },
-        { text = "Who is Dirania to you?", next = "dirania" },
+        { text = "Who's looking after you?", next = "dirania" },
         { text = "What lives in Shadowglen?", next = "glen" },
         { text = "Let me see the wound. I'm a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know poisons. I could tell you what this is.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a spell draw the venom out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can I do anything about the spiders, Iverron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What does the antidote need from the Webwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there a cure for the venom?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I deal with the spiders that poisoned you, Iverron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I try my healing on the venom, Iverron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you afraid of my servant, Iverron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -327,7 +331,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     dirania = {
-      lines = { { id = "d_default", text = "A dear friend, and a far better healer than I am a scout. She'll scold me when I'm well, and I'll deserve every word." } },
+      lines = { { id = "d_default", text = "Dirania, a dear friend, and a far better healer than I am a scout. She'll scold me when I'm well, and I'll deserve every word." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     glen = {
@@ -341,6 +345,9 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "I prayed to Elune the whole time that spider's venom was in me, and Dirania prayed louder. I'm not sure which of us she listened to." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When my legs work properly again, I'm going to the Darkmoon Faire. Dirania says I'll come back poorer, and I say it'll be worth it." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've heard Blackfathom Deeps has spiders too, and nagas, and cultists. I think I'll stay on Teldrassil for a while yet." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. I've spent too long lying in the grass to hear the news." } },
   },
 }
@@ -357,11 +364,40 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cook", text = "Welcome, welcome! Come closer to the fire, for nothing tastes as good as food made where you can smell it." },
+    { id = "g_cook", text = "Ishnu-alah, and welcome! Come closer to the fire, for nothing tastes as good as food made where you can smell it under the open sky." },
   },
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "I miss being sure of tomorrow, because there was always another one. Now I cook for people who will grow old, and I find I season things more carefully. Do you think we were better off immortal?" },
+      },
+      choices = {
+        { text = "Yes. Nordrassil's gift was worth any price.", next = "op_r1", fx = { align = { light = -1 }, opinion = { kaldorei_immortality = "loss" } } },
+        { text = "No. A people who can die learn to care.", next = "op_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { kaldorei_immortality = "freed" } } },
+        { text = "Whoever finds a way to get it back will be dangerous.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { kaldorei_immortality = "dangerous" } } },
+        { text = "Try living a short life. You stop missing forever.", next = "op_r4", fx = { affinity = 1, trait = { witty = 1 }, opinion = { kaldorei_immortality = "freed" } }, when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "I'd rather not say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Spoken like someone who never saw what the Legion would have taken in payment. Still, I understand the ache, because I feel it every morning." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That is what I tell my stews, and they seem to agree. Things that won't last should be done well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "There are kaldorei who would call that a plan rather than a danger, and I don't share my kitchen with them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Ha! A hundred years or so and done, and you still find time to cook badly. I salute you, my short-lived friend." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They are, for they keep our history alive. A shaman's spirits might remember older tastes than mine." } },
@@ -462,16 +498,17 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me a good haunch and I'll show you what the kaldorei were doing with one long before Teldrassil grew." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've had herb broth on since dawn, and the Circle's folk are the only ones who can tell me whether the herbs I picked were happy to be picked." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my table. Sit, eat, and keep your servant out of my kitchen, because I've never yet found an old recipe that called for a pinch of brimstone." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I cook the old kaldorei recipes, one pot at a time. Would your spirits like a taste?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I cook the old kaldorei recipes, one pot at a time, as they were cooked in Ashenvale before the world broke, so would your spirits like a taste?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
         { id = "h_again2", text = "Ask away, friend; I can talk and cook at once." },
       },
       choices = {
+        { text = "Do you miss the old days, before Teldrassil?", next = "op_ask" },
         { text = "What is the kaldorei recipe?", next = "recipe" },
-        { text = "Who comes to eat here?", next = "guests" },
-        { text = "What was it like before Teldrassil?", next = "before" },
+        { text = "You must cook for a good many hungry folk.", next = "guests" },
+        { text = "You must remember life before Teldrassil.", next = "before" },
         { text = "I cook too. Any secrets to share?", next = "cook", when = { profession = "Cooking" } },
         { text = "I can conjure bread. You needn't cook for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your spice cupboard is very poorly guarded.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -488,7 +525,7 @@ P:NPC {
     recipe = {
       lines = { { id = "r_default", text = "A stew we made under the stars of Kalimdor, before the World Tree was planted. The ingredients are found here now, so the taste is a little different, but the heart is the same." } },
       choices = {
-        { text = "Should the old ways change for a new land?", next = "recipe_change" },
+        { text = "Perhaps the old ways should change for a new land.", next = "recipe_change" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -497,7 +534,7 @@ P:NPC {
       choices = {
         { text = "The old ways are worth keeping exactly as they were.", next = "recipe_end", fx = { align = { order = 1 } } },
         { text = "A recipe should change with the land.", next = "recipe_end", fx = { align = { order = -1 } } },
-        { text = "And you?", next = "recipe_end" },
+        { text = "I'd like to know where you stand.", next = "recipe_end" },
       },
     },
     recipe_end = {
@@ -519,6 +556,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about food instead." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they cook with peppers that make grown warriors weep, I'm told. I'd give a month's spices to taste just one dish there." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has food from every land under the moon, and smells you've never imagined. I mean to go some day and come back with a whole new cookbook." } },
+    elune = { { id = "tp_elune", text = "We used to bake moon cakes for Elune's festivals in the old days, and I still do. The recipe is older than this tree, and I've only changed it a little." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne ate like kings, the old recipes say, and wasted half of it. I keep their recipes and none of their manners." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about food instead, for I know recipes older than most kingdoms." } },
   },
 }

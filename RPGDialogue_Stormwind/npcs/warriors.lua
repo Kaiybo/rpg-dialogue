@@ -135,13 +135,13 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },
-        { text = "What is a warrior for, Master Shen?", next = "purpose" },
+        { text = "I should be practising something, I suppose.", next = "practise", when = { class = "WARRIOR" } },
+        { text = "I'm not sure what a warrior is for, Master Shen.", next = "purpose" },
         { text = "Why is the army so thin?", next = "army" },
-        { text = "How do dwarves fight differently?", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "Dwarves fight differently from men, I've noticed.", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "The kaldorei trained me to fight.", next = "kaldorei", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "I trained with the Empyrean Blades.", next = "empyrean", when = { race = "Skyborne", class = "WARRIOR" } },
-        { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "What's wrong with being ready to run?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why should a mage care how they stand?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What can a hunter learn from a warrior's training, Wu Shen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -203,7 +203,7 @@ P:NPC {
     army = {
       lines = { { id = "a_default", text = "Because the Second War emptied it and the Third scattered what was left. Half my students go to Redridge or Duskwood and never come back to Old Town, and I can't tell whether that's the kingdom's failure or its last good habit." } },
       choices = {
-        { text = "Where should I go when you're done with me?", next = "army_go" },
+        { text = "I'll need somewhere to go when you're done with me.", next = "army_go" },
         { text = "The nobles should pay for more soldiers.", next = "army_nobles" },
         { text = "Something else.", next = "BACK" },
       },
@@ -264,7 +264,7 @@ P:NPC {
     others = {
       lines = { { id = "o_default", text = "Corbin teaches fury and Germaine teaches the shield, and between them they make one decent warrior out of two halves. Burlguard at the Pig and Whistle teaches the dirty tricks I won't, and I send him the ones who need them." } },
       choices = {
-        { text = "And the paladins at the Cathedral?", next = "others_paladins" },
+        { text = "There are the paladins at the Cathedral too.", next = "others_paladins" },
         { text = "And the rogues next door?", next = "others_rogues" },
         { text = "Something else.", next = "BACK" },
       },
@@ -280,6 +280,10 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I trained soldiers for the Second War, and I watched them go out and not come back. I teach more slowly now, because I've learned that haste kills more than orcs." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters of the Gurubashi Arena fight without discipline, for gold, and they die young. I'd not send a student there, though some go anyway." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The paladins of the Silver Hand fought with a discipline I admired, and Uther was the finest of them. I'd like to have sparred with him, once." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The heroes in the Valley were warriors once, and they learned their stance like anyone else. I take my students there, and I tell them to look at the feet." } },
     background = { { id = "tp_bg", text = "I served, and then I taught, and teaching turned out to be the harder posting. That's all the history a trainer needs.", next = "purpose" } },
     advice = { { id = "tp_ad", text = "Never step backwards without knowing what's behind you. More warriors have died to a step than to a sword." } },
     _none = { { id = "tp_none", text = "I don't know. Ask me something about feet; I know a great deal about feet." } },
@@ -403,14 +407,14 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },
+        { text = "I'd welcome your advice on what to practise.", next = "practise", when = { class = "WARRIOR" } },
         { text = "Isn't anger dangerous in a fight?", next = "anger" },
-        { text = "Shield or two-handed blade?", next = "blade", when = { class = "WARRIOR" } },
+        { text = "A shield seems the wiser choice to me.", next = "blade", when = { class = "WARRIOR" } },
         { text = "Why does a gnome need a greatsword?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "I held a corridor in Gnomeregan.", next = "rearguard", when = { origin = "gnome_rearguard" } },
         { text = "Do you fight the rogues for fun?", next = "rogues", when = { class = "ROGUE" } },
         { text = "What do you mean, fire in my belly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do hunters carry anger, Ilsa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Hunters seem too patient to carry anger, Ilsa.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you see anger in everyone, Ilsa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think priests carry anger, Ilsa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is righteous anger different from ordinary anger, Ilsa?", next = "xapala", when = { class = "PALADIN" } },
@@ -464,7 +468,7 @@ P:NPC {
       choices = {
         { text = "The shield. Someone has to hold the line.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The blade. End it fast.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Why not both, one at a time?", next = "blade_both" },
+        { text = "I could carry both, one at a time.", next = "blade_both" },
       },
     },
     blade_both = {
@@ -501,6 +505,10 @@ P:NPC {
   },
 
   topics = {
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena's my kind of place, recruit, all blood and gold and no hesitating. I'd go tomorrow if Wu Shen didn't need me here to keep the young ones honest." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons fight like their mountain's on fire, which it usually is. I'd like a go at one with this sword, just to see if they're as tough as they look." } },
+    second_war = { { id = "tp_second_war", text = "My mother swung a greatsword in the Second War, and she'd tell you an orc's just a man who hasn't learned to duck. I learned to duck from her, and I learned to swing from her too." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock orcs nest in that mountain north of Redridge, and they're the toughest fighters in the Eastern Kingdoms. I'd like to test that, recruit, and I'd like you beside me." } },
     background = { { id = "tp_bg", text = "Elwynn farm girl, then a soldier, then a trainer, and I hit things at every one of those jobs. The middle one's nobody's business." } },
     advice = { { id = "tp_ad", text = "Hit first. If you can't hit first, hit hardest. If you can't do either, get behind Ander." } },
     _none = { { id = "tp_none", text = "No idea, recruit. Ask Wu; he knows everything, and he'll tell you slowly." } },
@@ -623,14 +631,14 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },
+        { text = "I'd like to know what to practise.", next = "practise", when = { class = "WARRIOR" } },
         { text = "What do you mean by the line?", next = "line" },
-        { text = "Who's on your list?", next = "list" },
-        { text = "Do gnomes and dwarves fit in your line?", next = "allies", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "That list must hold a lot of names.", next = "list" },
+        { text = "Gnomes and dwarves can't fit easily in your line.", next = "allies", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Can a hunter hold your line?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I walked the Trade District with a halberd once.", next = "guard", when = { origin = "human_city_guard" } },
         { text = "Do you think rogues should fight in a line?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you trust the mages you protect, Ander?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I doubt you trust the mages you protect, Ander.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How should a priest serve the line, Ander?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it wrong to step back from the line, Ander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where would a druid stand in your shield line, Ander?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -726,6 +734,10 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "The shield wall held Stormwind's gate in the Second War, until it didn't, and I've never forgotten the lesson. Every soldier I train learns to hold the line, because one broken shield breaks the whole of it." } },
+    scourge = { { id = "tp_scourge", text = "The dead don't stop, and they don't break, and they don't fear a shield wall. I've had reports from Lordaeron that would make you weep, and I train every soldier as if they'll face them someday." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "General Jonathan holds the Valley of Heroes with too few men, and I send him every soldier I can spare. I'd like to send him more, and I'd like the provinces to stop needing them." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a soldier, and he understands the line better than any noble in the Keep. I wish the Keep would let him hold it the way he'd like." } },
     background = { { id = "tp_bg", text = "I stood in a shield wall, and now I teach others to. That's all of it that matters.", next = "line" } },
     advice = { { id = "tp_ad", text = "Find the person beside you before the fight starts. You won't have time to look once it does." } },
     _none = { { id = "tp_none", text = "Can't help you there, I'm afraid. I only really know shields, and people's worries." } },

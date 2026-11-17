@@ -14,7 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "The riders are rested and the sky is clear, for now. Where are you bound?" },
+    { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
+    { id = "g_default", text = "The riders are rested and the sky is clear, for now, as the Earth Mother wills it. Where are you bound?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders know your smell by now, which is a kind of welcome." },
   },
 
@@ -29,16 +30,16 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and the crater, and they fly in spite of the sand, which is more than I would do." },
+        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and the crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
       },
       again = {
-        { id = "h_again", text = "Something else? The riders grow restless." },
+        { id = "h_again", text = "Something else? The riders grow restless, like a herd before a storm." },
         { id = "h_again2", text = "Ask. The sky can wait a moment." },
       },
       choices = {
         { text = "How do the wind riders bear the sand?", next = "sand" },
         { text = "You share the courtyard with the elves' hippogryphs?", next = "cloud" },
-        { text = "Can I meet your riders?", next = "riders", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
+        { text = "I'd like to meet your riders.", next = "riders", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Farewell, Runk.", next = "END" },
       },
@@ -79,7 +80,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A tauren who learned the wind riders' ways in Thunder Bluff and was sent south because nobody else wanted the sand." } },
     advice = { { id = "tp_ad", text = "Never fly into a storm you can see. The ones you can't see are bad enough." } },
-    _none = { { id = "tp_none", text = "I know riders and wind. Ask someone else about the rest." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "My wind riders won't fly near the hives, because the bugs throw sand and the sand gets in their eyes. They're smart beasts, smarter than me sometimes." } },
+    cairne = { { id = "tp_cairne", text = "Cairne rode a kodo, not a wind rider, and I've always thought it a waste of a good chief. Imagine him in the air!" } },
+    thrall = { { id = "tp_thrall", text = "The Warchief flew a wind rider once, they say, and didn't care for it. I don't hold it against him." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The flight to Gadgetzan is long and hot, and the wind riders hate the goblins' landing pads. I hate the goblins' prices, so we're even." } },
+    _none = { { id = "tp_none", text = "I know riders and wind, and the winds were my teachers. Ask someone else about the rest." } },
   },
 }
 
@@ -94,7 +99,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Where to, friend? The birds are eager, and so am I, frankly." },
+    { id = "g_default", text = "Where to, friend? Ishnu-alah; the birds are eager, and so am I, frankly." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon! The birds remember you, they're fluffing up." },
   },
 
@@ -109,14 +114,14 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and the crater, and they'd fly to the moon if I asked." },
+        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and the crater, and they'd fly to Elune's moon itself if I asked." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting impatient, and so is the sun." },
         { id = "h_again2", text = "Go on. I can preen and listen at the same time." },
       },
       choices = {
-        { text = "How do your birds stand the desert?", next = "desert" },
+        { text = "Your birds don't look happy in this desert.", next = "desert" },
         { text = "What do you think of the wind riders?", next = "runk" },
         { text = "Do you sing to them?", next = "sing", when = { class = { "DRUID", "PRIEST" } } },
         { text = "I need a flight.", next = "BUSINESS" },
@@ -137,7 +142,7 @@ P:NPC {
     runk = {
       lines = { { id = "r_default", text = "Runk's a quiet sort, and his beasts are uglier than mine, though I'd never say it to his face. We nod in the mornings, and once he lent me a bucket, which out here is practically a treaty." } },
       choices = {
-        { text = "Can the Horde be trusted, though?", next = "runk_stance" },
+        { text = "I'm not sure the Horde can be trusted.", next = "runk_stance" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -159,6 +164,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A keeper of hippogryphs from Ashenvale, sent south with the Circle and the sand. I'd go back tomorrow, but the birds would miss the work." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and every one of them regrets it." } },
-    _none = { { id = "tp_none", text = "I only know the sky and the birds, friend, and the sky's not talking today." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives look like scabs from the air, ugly and swollen, and the hippogryphs won't go near them. I don't blame them." } },
+    teldrassil = { { id = "tp_teldrassil", text = "My birds came from Teldrassil, and I sing them the songs of the high branches when the sand blows. It keeps them calm, and me too." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the flyers, my grandmother said, and I've never fallen, so she must. I'd like to keep it that way." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan feed my hippogryphs dried fish, and the birds come home sick. I bring my own grain now." } },
+    _none = { { id = "tp_none", text = "I only know the sky and the birds, friend, and neither the sky nor the moon is talking today." } },
   },
 }

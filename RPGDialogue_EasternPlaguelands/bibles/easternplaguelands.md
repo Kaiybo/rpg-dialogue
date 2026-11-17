@@ -21,6 +21,7 @@
 
 ## Authored, not canon
 - Tyrosus walks the chapel at dawn, the one quiet hour. Leonid dislikes being called Revered and feels the Light as warmth on frostbitten hands. Tirion fishes and the fish don't bite. Nathanos means to take the house back himself.
+- Nathanos: cold to trolls (`prejudice`, race Troll), the ranger's old war with the Amani; he obeys the Queen's alliance and is still deciding whether he has changed with her.
 
 ## Voices
 - Tyrosus: reserved, out of practice with visitors, measured, no prejudice.
@@ -42,3 +43,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ### Voices (authored, not canon)
 - Khaelyn: blunt, watches her birds' eyes for sickness; a practical peace with Georgia. Georgia: dry, patient Forsaken; bats don't take the plague. Jessica: warm, plain, feeds everyone the same. Jase: brisk supply man; Scarlets have seized wagons.
 - Never: the later battles at the chapel, the souls beneath it, Death Knights. The chapel is simply holy ground the Scourge avoids.
+
+## Race voice (0.80.0)
+- Khaelyn: dwarf; light burr ("aye", "ye", "cannae", {g:lad|lass}), forge oaths. Georgia: Forsaken; dry and cold.

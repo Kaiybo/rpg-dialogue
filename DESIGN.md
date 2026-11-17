@@ -201,6 +201,7 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 | `communities` | community tags shared with the gossip network and town standing |
 | `notices` | ack categories this NPC may use. Comes from the bible's "what they notice" |
 | `temper` | words used by special-option checks: `cowardly`, `sharp`, `proud`, `steady`, … |
+| `prejudice` (0.80.0) | one entry or a list: `{ race, faction, class, origin, exceptOrigin, amount = 10, why }`; every key given must match. Lowers disposition by `amount` (25 in all), eased by 3 per point of affinity; gate lines on `prejudiced` |
 | `open` | `full` or `compact`; overrides the role default |
 | `greetings` | short lines for compact mode and repeat visits |
 | `notice` | noticing moments (acknowledgments), each with `cat` and `place` (`before`/`after`/`replace`) |
@@ -268,7 +269,9 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Coming back & word (0.67.0) | `away` N days / {min, max, levels, town} (just back in this NPC's town after N+ days; holds 4 h; `levels` = gained while gone) · `levelsSince` N / {min,max} (levels since you last spoke with this NPC) · `word` kind / list / {kind, days (14), town, self, near} (someone else in this town, or a related one a day later, saw you: `pleased`, `angered`, `persuaded`, `intimidated`, `deceived`, `caughtLying`, `helped`) | 30 | hinge |
+| Prejudice (0.80.0) | `prejudiced` true (the NPC's `prejudice` matches you and still weighs) / `"overcome"` (matches, worn away by affinity) / false | 25 | hinge |
 | Party | `party` true / {race, class, gender, kin, sameClass, size (n or {min,max}, others only), ["not"] = true} (0.59.0; `{companion}` names the member it matched) | 25 | hinge |
+| Your other characters | `alt` true / false / {race, class, gender, faction ("same"/"other"/name), kin, notKin, sameClass, higher, level (n or {min,max}), days (met within), met = false (any character, met or not), ["not"] = true} (0.80.0, `Systems/Kin.lua`: another character on this account has spoken with this NPC; account-wide `RPGDialogueDB.kin`; NPCs treat them as kin or a look-alike, never as you; `{alt}`/`{altrace}`/`{altclass}` name the one it matched; spoof `alt=Name:Race:CLASS:Faction`) | 25 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` | 5 | hinge |
 | Story (M4) | `gossip` {topic, stance, delay, chance} (30) · `contradiction` topic (40) · `lieCaught` claim (60) · `money` {min,max} (10) | 10–60 | hinge |
 | Gates | `chance` 0–1 · `flag` · `npcFlag` · `npcFlagBefore` (set in an earlier conversation) | 0 | gate |
@@ -304,7 +307,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 
 ### 2.10 Tokens
 
-`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, `{rank}` (honor rank name, "soldier" without one), `{guild}` ("your company" without one), `{companion}` (the party member the line's `party` condition matched, else the first; 0.59.0), and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`. `{away}` (0.67.0): how long you were gone ("a month"), from your return to the NPC's town, else from your last talk with them. `{source}` (0.67.0): who the line's `word` came from (a name, or "a stormwind city guard" for pooled people).
+`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, `{rank}` (honor rank name, "soldier" without one), `{guild}` ("your company" without one), `{companion}` (the party member the line's `party` condition matched, else the first; 0.59.0), and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`. `{away}` (0.67.0): how long you were gone ("a month"), from your return to the NPC's town, else from your last talk with them. `{alt}`, `{altrace}`, `{altclass}` (0.80.0): your other character the line's `alt` condition matched. `{source}` (0.67.0): who the line's `word` came from (a name, or "a stormwind city guard" for pooled people).
 
 **Tokens decorate. They never carry a line.** The voice checker flags lines built around `{race}` or `{class}`.
 

@@ -10,7 +10,7 @@
 ## Identity
 Austil de Mon · Gallows' End Tavern, Brill · Undercity · Forsaken · warrior trainer
 Personality: gruff, practical, proud of his students, dry
-Speech: a drillmaster's orders; short jokes at recruits' expense
+Speech: a drillmaster's orders; short jokes at recruits' expense; Forsaken gallows humour about dead knees and corpses that forget their drills
 Knows and cares about: drill, getting up, his recruits, Dillinger's task
 Relationships: Dillinger (sends him warriors); Innkeeper Renee (points people to her)
 Default attitudes: respects living Horde warriors and admits (privately) he learns from orcs

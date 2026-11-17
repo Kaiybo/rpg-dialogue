@@ -102,7 +102,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Renato will try to give you a free bottle, and I'll ask you, as someone sworn to honour, to pay for it anyway." },
         { id = "h_default", key = true,
-          text = "Suzetta Gallina. My brother sells the wine in the square, Julia sells it at the counter and Roberto keeps the cellar, so somebody has to keep the books, and that's me." },
+          text = "Suzetta Gallina. My brother Renato sells the wine in the square and hands out tickets for free bottles, Julia sells it at the counter and Roberto keeps the cellar, so somebody has to keep the books, and that's me." },
         { id = "h_ticket", tags = { "news" }, when = { questActive = TODO_QUEST("Wine Shop Advert") },
           text = "Renato's ticket, and that's the fourth today. Here's your bottle of the house red, and if you like it, come back and pay for one, because that's the part he always forgets." },
         { id = "h_ticket_done", when = { questDone = TODO_QUEST("Wine Shop Advert") },
@@ -123,12 +123,12 @@ P:NPC {
       },
       choices = {
         { text = "Let me see the wines.", next = "BUSINESS" },
-        { text = "How many tickets has Renato handed out?", next = "tickets" },
-        { text = "Who's Roberto?", next = "roberto" },
+        { text = "Renato hands out a great many tickets, I notice.", next = "tickets" },
+        { text = "I don't know this Roberto.", next = "roberto" },
         { text = "How does a winery do on the canals?", next = "canals" },
         { text = "A good red is a small blessing.", next = "priest", when = { class = "PRIEST" } },
-        { text = "Someone's skimming your tally, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
-        { text = "What happened with the apprentice and the merlot?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Someone's skimming your books, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
+        { text = "Something tells me the apprentice ruined the merlot.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the winery ever need a strong back, Suzetta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do boars really trouble the Gallina vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is Renato really giving the winery away, Suzetta?", next = "xapala", when = { class = "PALADIN" } },
@@ -142,7 +142,7 @@ P:NPC {
     tickets = {
       lines = { { id = "t_default", text = "This month, sixty-one. I keep a tally, because if I didn't, he'd hand out the whole cellar and call it marketing." } },
       choices = {
-        { text = "Does it work, though?", next = "tickets_work" },
+        { text = "I doubt it works, though.", next = "tickets_work" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,6 +200,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Renato sold wine at the Darkmoon Faire one year and gave half of it away to the fire-eaters. I've still got the tally, and I'll show it to anyone who asks, and several who don't." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean wine was the finest in the north, and the vineyards are all behind that wall now. Renato says we'll make it someday ourselves, and I've told him to start with paying the cooper." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys our wine by the barrel and sells it to pirates by the cup, and I'd rather not think about the markup. Renato says it's good for the name, and the name's not paying the rent." } },
+    dalaran = { { id = "tp_dalaran", text = "Before the plague, Dalaran's mages were our best customers, and they paid on time, which I miss more than I can say. I'd send them a case if they'd open their gates again." } },
     knows = { { id = "tp_knows", text = "A woman who keeps the books hears where the money goes, and money goes everywhere. Ask what you like." } },
     background = { { id = "tp_bg", text = "I'm a Gallina, and I'm the one who counts. Every family business needs one of us, or it's only a family." } },
     advice = { { id = "tp_ad", text = "Never let the loudest one in the family keep the money. Ours shouts in the square, and I keep the purse." } },
@@ -346,13 +350,13 @@ P:NPC {
       },
       choices = {
         { text = "Let me carry a bucket for you.", next = "carry" },
-        { text = "Who are you carrying all this water for?", next = "water" },
-        { text = "Where's home, Emma?", next = "home" },
+        { text = "That's a lot of water for one woman to carry.", next = "water" },
+        { text = "You don't sound like you're from Stormwind, Emma.", next = "home" },
         { text = "Is your name Felstone?", next = "felstone",
           when = { any = { { questActive = TODO_QUEST("Good Natured Emma") }, { questDone = TODO_QUEST("Good Natured Emma") } } } },
-        { text = "I come from the north too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
-        { text = "The Silver Hand fought for the north, Emma.", next = "silverhand", when = { class = "PALADIN" } },
-        { text = "Do many thieves work these streets, Emma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You sound like the north, Emma. I'm from Lordaeron too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
+        { text = "The Silver Hand has always stood for common folk, Emma.", next = "silverhand", when = { class = "PALADIN" } },
+        { text = "I'd wager plenty of thieves work these streets, Emma.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did your Harold ever see a real fight, Emma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever miss the country, Emma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Lamb's cellar frighten you, Emma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -423,7 +427,7 @@ P:NPC {
       },
       choices = {
         { text = "Your sister sent this for you.", next = "felstone_janice", when = { questActive = TODO_QUEST("Good Natured Emma") } },
-        { text = "Will you ever go back?", next = "felstone_back" },
+        { text = "You could always go back one day.", next = "felstone_back" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -445,7 +449,7 @@ P:NPC {
     },
     silverhand = {
       big = true,
-      lines = { { id = "silverhand_l", text = "Did it? Then where was it the week the grain carts came, dearie, and the sickness after? Your sort rode through our village once, all shining, and never came back when we needed you." } },
+      lines = { { id = "silverhand_l", text = "Has it? Then where was it the week the grain carts came, dearie, and the sickness after? Your sort rode through our village once, all shining, and never came back when we needed you." } },
       choices = {
         { text = "You're right, and I'm sorry. We failed you.", next = "silverhand2", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The Hand bled for Lordaeron. Don't forget that.", next = "silverhand2", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
@@ -458,6 +462,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "My boy went north to Lordaeron as a soldier, and he never came home, and they won't tell me whether he's dead or worse. I carry water so I don't have to think about it, and it mostly works." } },
+    forsaken = { { id = "tp_forsaken", text = "They say the dead in Lordaeron have woken up and made a kingdom of their own, the Forsaken they call themselves. I'd ask after my boy if I thought they'd answer an old woman, and that's a terrible thing to want." } },
+    holy_light = { { id = "tp_holy_light", text = "I go to the Cathedral every morning, and I sit at the back, and I tell the Light it owes me one. Bishop Farthing says that's a prayer too, and I'll take his word on it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a lovely town once, I had a cousin there who sold ribbons in the market. Now it's the dead and the madmen in red, and I've stopped asking after the ribbons." } },
     knows = { { id = "tp_knows", text = "I walk this street a hundred times a day, and folk talk in front of an old woman like she's a lamppost. Go on, ask." } },
     background = { { id = "tp_bg", text = "A farm wife from the north who carries water now, and that's all the story anybody needs.", next = "home" } },
     advice = { { id = "tp_ad", text = "Respect your elders, dearie, and carry their buckets now and again. You'll be old yourself, if you're lucky." } },
@@ -593,9 +601,9 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your clothes.", next = "BUSINESS" },
-        { text = "Why does everyone need sturdy clothes?", next = "worry" },
-        { text = "Your son works elsewhere?", next = "thurman" },
-        { text = "Who's Corbett?", next = "corbett" },
+        { text = "Everyone seems to want sturdy clothes these days.", next = "worry" },
+        { text = "Your son doesn't work here with you, I see.", next = "thurman" },
+        { text = "I don't think I know Corbett.", next = "corbett" },
         { text = "Could you look at my robes?", next = "priest", when = { class = { "PRIEST", "MAGE", "WARLOCK" } } },
         { text = "Do you sew for people who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you mend many scorched robes from the Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -611,7 +619,7 @@ P:NPC {
 
     worry = {
       big = true,
-      lines = { { id = "w_default", text = "That's what I keep asking. Harlan can't sell armor fast enough, I can't sew fast enough, and nobody tells the likes of us why. Is there something the nobles aren't saying?" } },
+      lines = { { id = "w_default", text = "And I keep wondering what's behind it. Harlan can't sell armor fast enough, I can't sew fast enough, and nobody tells the likes of us why. Is there something the nobles aren't saying?" } },
       choices = {
         { text = "What have you heard?", next = "worry_heard" },
         { text = "The nobles keep plenty from the people.", next = "BACK", fx = { align = { order = -1 }, opinion = { stormwind_mood = "nobles_hide" } } },
@@ -655,6 +663,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "They say the prisoners have the Stockade now, and everyone in the Trade District wants clothes that'll take a knife. I don't ask why, and I charge extra for the leather." } },
+    deadmines = { { id = "tp_deadmines", text = "Somebody in the Trade District's buying sailcloth by the bolt and sending it west, and I hear it ends up in the old Moonbrook mines. I've stopped selling to anyone who won't tell me what it's for." } },
+    scourge = { { id = "tp_scourge", text = "The refugees from Lordaeron come in wearing rags, and some of them have been walking for weeks. I sew for them for nothing when I can, though don't tell the nobles, or they'll want theirs free too." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's costumes are the finest work I've ever seen, all silk and sequins. I asked their tailor how he did it, and he said magic, and I think he was joking, but I'm not sure." } },
     knows = { { id = "tp_knows", text = "Folk stand very still while I pin them, dear, and they talk to fill the quiet. Ask me what I've heard." } },
     background = { { id = "tp_bg", text = "A tailor with a shop by the bridge and a son who forgets his shears. There's no more to me than thread and worry." } },
     advice = { { id = "tp_ad", text = "Mend a small tear today, or you'll be buying a whole new shirt next week. That goes for more than shirts." } },
@@ -796,11 +808,11 @@ P:NPC {
       },
       choices = {
         { text = "Teach me to fish.", next = "BUSINESS" },
-        { text = "What's the secret to it?", next = "secret" },
+        { text = "There must be a secret to it.", next = "secret" },
         { text = "Are there really fish in the canals?", next = "canals" },
-        { text = "Is fishing much like waiting in an alley for a mark?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why not just conjure your fish, Arnold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Does fishing teach a warrior anything worth knowing?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Fishing sounds a lot like waiting in an alley for a mark.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could just conjure a fish, Arnold.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I doubt fishing teaches a warrior much worth knowing.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters make good fishermen, Arnold?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is fishing really like prayer, Arnold?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could a paladin learn anything from fishing, Arnold?", next = "xapala", when = { class = "PALADIN" } },
@@ -813,7 +825,7 @@ P:NPC {
     secret = {
       lines = { { id = "s_default", text = "Patience, and a good lure, and knowing when to stop. Most folk fish too hard, as if the water owed them something, and the water owes nobody anything." } },
       choices = {
-        { text = "Where should I start?", next = "secret_start" },
+        { text = "I'd like to start somewhere easy.", next = "secret_start" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -831,6 +843,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The fishermen in Booty Bay pull in sharks and swordfish, and they talk about it like it's nothing. I'll take a canal trout and a quiet afternoon, but I'll admit I'm jealous." } },
+    gilneas = { { id = "tp_gilneas", text = "I fished with a Gilnean once who could read the sea like a book. He said the Greymane Wall cut him off from his own harbour, and he never fished again, and that seemed the saddest thing in the world." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire runs a fishing game where you hook wooden fish out of a tub. I won seven times in a row and they asked me to leave, which I took as a compliment." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's in the water too, I think, when the sun comes up over the canals. I've never said that to a priest, but I've a feeling they'd agree." } },
     knows = { { id = "tp_knows", text = "Folk say a lot to a man sitting still by the water. Ask, and I'll tell you what drifted past." } },
     background = { { id = "tp_bg", text = "A fisherman who teaches now, with Catherine, on these canals. Not much of a tale, but a peaceful one." } },
     advice = { { id = "tp_ad", text = "When the road's too much, find water and sit by it. You'll go back to it a better person." } },
@@ -958,7 +974,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless me, then, {class}, bless me twice, for I've been a terrible sinner and a terrible farmer both, or so the story goes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a paladin. Now I never took a thing that wasn't given me, whatever the guards might say." },
-        { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
+        { id = "h_default", text = "Morris Lawry, at yer service, guv, an' blind as a mole, near enough. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
         { id = "h_back", when = { metBefore = true }, text = "You again! Ye've a kind face, I said so the first time, didn't I? Or I meant to." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Now don't look at me like that, guv, because I can see ye've the same trade as me, only ye're better paid for it." },
@@ -975,11 +991,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, ask. Questions are free, unlike bread." },
       },
       choices = {
-        { text = "How did you end up begging?", next = "farm" },
+        { text = "You don't look like you were born to begging.", next = "farm" },
         { text = "Here's a coin.", next = "coin" },
-        { text = "Weren't you blind a moment ago?", next = "blind" },
-        { text = "Is begging really your only trade, Morris?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you really know how to keep armor, Morris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You were blind a moment ago.", next = "blind" },
+        { text = "Begging can't be your only trade, Morris.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I doubt you know much about keeping armor, Morris.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who buys pelts without asking questions, Morris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Are you trying to blackmail me, Morris?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want a blessing, Morris, or a coin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1020,6 +1036,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "I lost my farm in Lordaeron when the dead came, or I lost it in Westfall to the Defias, depending on what day it is. The truth's somewhere between the two, and I've stopped looking for it." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests give me soup on the Cathedral steps, and they don't ask which story I'm telling that day. That's the Light at work, I suppose, or a very patient cook." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, and they're the ones that took my farm, I'll swear to it. Or it was the orcs, I can't recall, but either way somebody owes me a field." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire once and won a stuffed bear, and I sold it the next day for bread. Best trade I ever made, and the bear didn't mind." } },
     knows = { { id = "tp_knows", text = "A beggar on a bridge hears everything, guv, because nobody thinks he's listening. What'll ye have?" } },
     background = { { id = "tp_bg", text = "A farmer once, or so I tell it, and a beggar now, and that part's true enough.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Always have two stories, friend. One's never enough in a city this size." } },
@@ -1151,8 +1171,8 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the biggest fish.", next = "fish" },
-        { text = "Are there monsters in the sea?", next = "monsters" },
-        { text = "Who's Adam?", next = "adam" },
+        { text = "I'd bet there are monsters in the sea.", next = "monsters" },
+        { text = "You keep talking about Adam.", next = "adam" },
         { text = "Want to see a real hunter's beast, Billy?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Why do you want to sneak up on Adam?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What if I conjured you a fish, Billy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1198,6 +1218,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a tonk you can drive, and Adam drove it into a fence and we had to run! It was the best day ever, and I'm going back as soon as I've got coppers again." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in a swamp who sleeps on a hill of gold, and I'm going to catch her with a fishing line someday. Adam says I'd need a bigger hook, and I said I'd make one." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My da says the statues in the Valley of Heroes are of real people who fought the orcs. I climbed one once, and a guard shouted, and I've not been back since." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I heard the pirates in Booty Bay catch fish bigger than a man, and I caught a fish bigger than a man once too. Adam wasn't there, so you'll just have to believe me." } },
     knows = { { id = "tp_knows", text = "I know loads of stuff, mostly about fish! Ask me!" } },
     background = { { id = "tp_bg", text = "I'm Billy, and I'm gonna be the best fisherman in Stormwind when I'm big." } },
     advice = { { id = "tp_ad", text = "If it's a boot, throw it back, 'cause it's not a fish. Took me ages to learn that." } },
@@ -1342,12 +1366,12 @@ P:NPC {
       },
       choices = {
         { text = "Do you need a hand?", next = "favor" },
-        { text = "What's the Gatehouse?", next = "gatehouse" },
-        { text = "Where do the ships go?", next = "ships" },
+        { text = "What's the Gatehouse?", next = "gatehouse", when = { any = { { questActive = TODO_QUEST("Philmor's Favor") }, { questDone = TODO_QUEST("Philmor's Favor") } } } },
+        { text = "I've seen ships here from all along the coast.", next = "ships" },
         { text = "Why are you short of dockhands?", next = "dockhands" },
-        { text = "How much of your cargo goes missing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the docks carry much for the Mage Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why are your dockhands leaving the harbor, Clerk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd wager some of your cargo goes missing.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Mage Quarter must keep these docks busy.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your dockhands seem to be leaving the harbor, Clerk.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do many furs and hides pass through the harbor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do sailors often ask for blessings, Clerk?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who do you think is stealing from your docks, Clerk?", next = "xapala", when = { class = "PALADIN" } },
@@ -1387,7 +1411,7 @@ P:NPC {
       lines = { { id = "s_default", text = "Up and down the coast, mostly, and the kaldorei keep a boat for Auberdine at the far pier. Ask the elf on the dock, Idrieth; he'll tell you when it sails, and politely, which is more than the sailors will." },
       },
       choices = {
-        { text = "Auberdine, in Darkshore?", next = "ships_elves", when = { race = "NightElf" } },
+        { text = "Auberdine is on my own shores, in Darkshore.", next = "ships_elves", when = { race = "NightElf" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1407,6 +1431,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships come in every week with spice and rum and goblins who argue over every crate. I log them all, and I've learned more goblin swearing than any clerk should know." } },
+    theramore = { { id = "tp_theramore", text = "The ships to Theramore run from Menethil now, not from here, and I'm told the crossing is rough. I'd go if I didn't have a harbour to keep and too few hands to keep it." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have been seen off the coast south of Westfall, and the merchant captains won't sail past the lighthouse at night. That's cost this harbour a fortune, and I've the ledgers to prove it." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean ships used to call here every month, and we'd swap cloth for timber and gossip. Since the Wall went up, I've not logged a single one." } },
     knows = { { id = "tp_knows", text = "Every ship brings news with its cargo, and I write down the cargo. Ask, and I'll tell you what's come over the water." } },
     background = { { id = "tp_bg", text = "A clerk on the docks with a ledger and too few dockhands. If there's a story, it's written in the margins." } },
     advice = { { id = "tp_ad", text = "Lift with your legs, count twice and never sign for a crate you haven't seen. That's all the wisdom the harbor teaches." } },

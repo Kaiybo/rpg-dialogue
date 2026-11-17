@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Stories (0.80.0): Keeshan greets you once the Blackrock Story ends.
+- Prejudices (0.80.0): Foreman Oslow (gnomes). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New people to talk to: Arantir, Hilary, Zem Leeward, Penny, Lindsay Ashlock, Crystal Boughman, Wilma Ranthal.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.20.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

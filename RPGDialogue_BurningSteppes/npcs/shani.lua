@@ -14,9 +14,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You can see me? Then you were sent, and I know by who, so sit down and listen before the fire takes my voice." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back to this cursed rock. Did you find him, the ogre with my ring?" },
-    { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "He has it now, my ring, or he threw it away, I know. I can feel the rock letting go of me a little more every day." },
+    { id = "g_default", text = "You can see me, mon? Then the spirits sent you, and I know by who, so sit down and listen before the fire takes my voice." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back to dis cursed rock. Did you find him, the ogre with my ring?" },
+    { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "He has it now, my ring, or he threw it away, I know. I can feel the rock letting go of me a little more every day, and Bwonsamdi waiting at the edge of it." },
   },
 
   notice = {
@@ -31,22 +31,22 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Sha'ni Proudtusk, scout of the Kargath Expeditionary Force, or I was, before this rock. My whole platoon was captured and slain, all except me, because their leader wanted me for some kind of ritual." },
+          text = "I be Sha'ni Proudtusk, Darkspear, scout of the Kargath Expeditionary Force, or I was, before this rock. My whole platoon was captured and slain, all except me, because their leader wanted me for some kind of ritual." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Dreadmaul Rock") },
-          text = "Thal'trak sent you, didn't he? My poor Thal'trak, standing at his post and staring at the road, I know he is." },
+          text = "Thal'trak sent you, didn't he, mon? My poor Thal'trak, standing at his post and staring at the road, I know he is, the same way he used to watch the tide come in at the Echo Isles." },
         { id = "h_krom", tags = { "news" }, when = { questActive = TODO_QUEST("Krom'Grul") },
           text = "Krom'Grul is somewhere in the caves and mines of this rock, and he wears my wedding nose-ring on his finger like a prize. Kill him and take it back to Thal'trak." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, on this rock? The dead don't keep sides, I find, so if you came to see the ogres die, you are welcome to my grave." },
       },
       again = {
-        { id = "h_again", text = "What else? I have time now, more than I want." },
-        { id = "h_again2", text = "Ask. The fire doesn't hurt anymore, so I can talk." },
+        { id = "h_again", text = "What else? I got time now, more than I want." },
+        { id = "h_again2", text = "Ask, mon. The fire doesn't hurt anymore, so I can talk." },
       },
       choices = {
-        { text = "What happened to your platoon?", next = "platoon" },
-        { text = "Who is Krom'Grul?", next = "krom" },
-        { text = "What should I tell Thal'trak?", next = "thaltrak" },
+        { text = "Your platoon never came home, Sha'ni.", next = "platoon" },
+        { text = "Who led the ones who took you?", next = "krom" },
+        { text = "Is there anyone I should carry word to?", next = "thaltrak" },
         { text = "What were the ogres doing up here?", next = "ritual" },
         { text = "I can feel the spirits restless here.", next = "xspirit", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "Rest easy, Sha'ni.", next = "END" },
@@ -94,7 +94,7 @@ P:NPC {
 
     thaltrak = {
       lines = {
-        { id = "th_default", text = "Tell him we'll meet again, in another life. Tell him it was my last mission, and we were going to the Hinterlands to live with my mother and father, and that I'm sorry I made him wait." },
+        { id = "th_default", text = "Find Thal'trak, my husband, at Kargath, and tell him we'll meet again, in another life. Tell him it was my last mission, and we were going to the Hinterlands to live with my mother and father, and that I'm sorry I made him wait." },
       },
       choices = {
         { text = "He'll want to know if you suffered.", next = "thaltrak_lie" },
@@ -133,8 +133,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A scout of the Horde, a wife, and now a ghost on a rock in the Burning Steppes." } },
-    advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting. By then they've already seen you." } },
-    _none = { { id = "tp_none", text = "I don't know. The dead know less than you'd think." } },
+    background = { { id = "tp_ba", text = "I was a Darkspear scout of the Horde and a wife, and now I be a ghost on a rock in the Burning Steppes, waiting for the loa to come and fetch me." } },
+    advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting, because by then they've already seen you, and no voodoo of mine could hide me." } },
+    _none = { { id = "tp_none", text = "I don't know dat one. The dead know less than you'd think, mon." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he be wise. Tell him a Darkspear scout died well, if you ever see him." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my husband's people, mon, and mine be in the Hinterlands. We was going to live there together, after." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut chained me to this altar for their ritual. Krom'Grul be the one who did it, mon, and I hope you make him pay." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief give the Darkspear a home, and my husband fight for him. I fight for him too, in my way." } },
   },
 }

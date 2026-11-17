@@ -136,7 +136,7 @@ P:NPC {
       choices = {
         { text = "I'd like to see the stables.", next = "BUSINESS" },
         { text = "What beasts do you keep here?", next = "beasts" },
-        { text = "Do the animals miss their hunters?", next = "miss" },
+        { text = "The animals must miss their hunters.", next = "miss" },
         { text = "Where can I find a ram to ride?", next = "rams" },
         { text = "Do the beasts really remember a mage's fire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do the beasts hate a warlock's creature so?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -188,6 +188,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a hunter once, till a wendigo in the Grizzled Den taught me I'd rather tend beasts than chase them." } },
     advice = { { id = "tp_ad", text = "Feed yer companion before ye sit down tae yer own supper, for a beast remembers who fed it first." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer's gryphons are fine beasts, but they're spoiled rotten, an' I'll no' take one in my stable. They'd eat the rams." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep bears an' wolves in their tunnels, I'm told, an' treat them like kin. I'd like tae see their stables, if they have such a thing." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride nothin', since they're already horse an' rider both. I find that unsettling, an' so do my rams." } },
     _none = { { id = "tp_none", text = "Beasts I know, but that I don't. Try somebody in the Commons." } },
   },
 }
@@ -205,8 +208,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Well, hello there! Come to learn something sharp, have you?" },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been practicing? I can always tell when someone hasn't." },
+    { id = "g_default", text = "Well, hello there! Come to learn something sharp, have you? Sharp, balanced and properly weighted, I hope, because I can tell a dagger's balance point by eye to the width of a hair." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been practicing? I can always tell when someone hasn't, because the wrist drops about two degrees." },
   },
 
   notice = {
@@ -296,25 +299,25 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'd be surprised how many priests want to learn daggers, and how many of them hold them like a candle." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a hammer, I expect, but I don't teach those, so I'll teach you to throw something instead." },
         { id = "h_default", key = true,
-          text = "Bixi Wobblebonk, weapon master! I teach daggers, crossbows and throwing weapons, which are all the best weapons for someone my size, and quite good for someone yours." },
+          text = "Bixi Wobblebonk, weapon master! I teach daggers, crossbows and throwing weapons, which are all the best weapons for someone my size, mathematically speaking, and quite good for someone yours." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You'd be surprised how many mages want to learn daggers, and how few of them can throw straight." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! I'll teach you daggers if you like, though I suspect your demons do most of your fighting for you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want to learn the crossbow, I expect, for there's nothing like a bolt to bring an ogre to you." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I teach crossbows, and I'll tell you now, they're better than rifles, whatever the dwarves say." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I teach crossbows, and I'll tell you now, they're better than rifles by every measure I've tested, whatever the dwarves say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You probably fight with claws, which are basically daggers you never lose, and I'm a little bit jealous." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You'll want maces and staves, I expect, and I teach neither, but you're welcome to try a dagger and tell me what the wind thinks of it." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask me anything about pointy things." },
-        { id = "h_again2", text = "More questions? Lovely." },
+        { id = "h_again", text = "What else? Ask me anything about pointy things, and I'll give you the angles as well." },
+        { id = "h_again2", text = "More questions? Lovely, I've got three new crossbow trigger designs and nobody to tell about them." },
       },
       choices = {
         { text = "I'd like some weapon training.", next = "BUSINESS" },
         { text = "Why those weapons in particular?", next = "why" },
         { text = "Who teaches the other weapons?", next = "others" },
-        { text = "Isn't a dagger a coward's weapon?", next = "coward" },
+        { text = "A dagger seems a coward's weapon to me.", next = "coward" },
         { text = "Why would a mage want to learn daggers?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warlock learn to fight with a dagger?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn the crossbow, Bixi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -374,8 +377,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I taught weapons to the guards in Gnomeregan, and now I teach them to anyone, which is more fun anyway." } },
-    advice = { { id = "tp_ad", text = "Practice every day, even if only for a few minutes. Your hand forgets faster than your head." } },
-    _none = { { id = "tp_none", text = "I don't know about that, but I know thirty ways to hold a dagger, if you'd like to hear those." } },
+    advice = { { id = "tp_ad", text = "Practice every day, even if only for a few minutes. Your hand forgets faster than your head, at roughly twice the rate, by my own notes." } },
+    _none = { { id = "tp_none", text = "I don't know about that, but I know thirty-one ways to hold a dagger, and I've charted every one, if you'd like to hear those." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena would be perfect for a good throwing contest, if they'd only stop all the stabbing. I'd go, if I weren't so fond of my ears." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got a knife-throwing booth, and I won every prize on the shelf. The barker hasn't spoken to me since, which is his loss." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Some of my students go on to Ravenholdt, or so they hint. I don't ask, and they don't tell, and we're all happier for it." } },
   },
 }
 
@@ -503,7 +509,7 @@ P:NPC {
         { text = "Show me what you teach.", next = "BUSINESS" },
         { text = "Why is this place called the Forlorn Cavern?", next = "cavern" },
         { text = "What makes a good rogue?", next = "good" },
-        { text = "Do the guards know what you teach down here?", next = "guards" },
+        { text = "The guards must know what you teach down here.", next = "guards" },
         { text = "I learned my trade picking pockets on the canals.", next = "k_canal", when = { origin = "human_canal_pickpocket" } },
         { text = "Why would rogues pay for a mage who keeps secrets?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the rogues and warlocks share the Forlorn Cavern peacefully?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -561,6 +567,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'd tell ye, but then I'd have to stop trusting ye, an' I've only just started." } },
     advice = { { id = "tp_ad", text = "Never sit wi' yer back to a door. No' even in Ironforge." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "If ye have tae ask about Ravenholdt, ye've no business there. That's all ye'll get from me, an' it's more than most." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves who think they're nobles, or nobles who think they're thieves. Either way, they make the rest o' us look bad." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine place fer a rogue tae lose himself, if ye can keep yer purse away from the goblins. They're better at it than we are." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' if I had, I'd no' tell ye." } },
   },
 }
@@ -698,8 +707,8 @@ P:NPC {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's the best fishing near Ironforge?", next = "where" },
         { text = "Where do I learn beyond what you teach?", next = "beyond" },
-        { text = "Why is fishing worth learning at all?", next = "why" },
-        { text = "Can a rogue learn anything from fishing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Fishing hardly seems worth learning.", next = "why" },
+        { text = "A rogue could learn something from fishing, I'd think.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a mage freeze the water to fish?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warlocks really fish, Grimnur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would a warrior thank you for fishing lessons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -707,7 +716,7 @@ P:NPC {
         { text = "Is fishing like prayer, Grimnur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can a paladin learn anything from fishing, Grimnur?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever fish the waters of Loch Modan, Grimnur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do you ever wish the water came to your cave, Grimnur?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You must wish the water came to your cave, Grimnur.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing, Grimnur.", next = "END" },
       },
     },
@@ -749,6 +758,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fished Loch Modan for thirty years, till my back told me tae sit somewhere warmer an' teach." } },
     advice = { { id = "tp_ad", text = "Use the right bait for the right water. A lake fish won't touch what a river fish loves." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the world an' the worst fishermen, all pirates an' goblins who'd sooner sell a fish than catch one. Still, I'd go back." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's docks are fine fer fishing, if ye dinnae mind goblins watching ye an' offering tae buy yer catch before ye've landed it. They always undersell, too." } },
+    everlook = { { id = "tp_everlook", text = "I fished through the ice near Everlook once, an' caught nothin' but a cold. Still, it was the finest fishin' trip I ever had." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye about that, friend. Fish, I know." } },
   },
 }
@@ -766,7 +778,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Rods, bait, lures and bobbers! Everything a fisherman needs, and some things they don't, yet." },
+    { id = "g_default", text = "Rods, bait, lures and bobbers! Everything a fisherman needs, and some things they don't yet, because I invented them on Tuesday." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did the bobber float? I've been worried about that bobber." },
   },
 
@@ -881,13 +893,13 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you tell me whether fish like a ticking lure? My mechanical ones catch more gnomes than fish." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Ask away!" },
+        { id = "h_again", text = "Anything else? Ask away, and I'll keep winding this reel; I'm trying to get the drag down to a perfect three turns." },
         { id = "h_again2", text = "Ask me anything about lures, and I'll tell you more than you wanted." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What do you tinker with?", next = "tinker" },
-        { text = "How did a gnome end up selling fishing rods?", next = "how" },
+        { text = "A gnome selling fishing rods is an unusual sight.", next = "how" },
         { text = "What's Grimnur like to work for?", next = "grimnur" },
         { text = "Why would a rogue need a fishing line that doesn't squeak?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would an arcane lure really attract more fish?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -930,6 +942,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fixed water pumps in Gnomeregan, and now I fix reels, and it's not so different, except reels don't flood." } },
     advice = { { id = "tp_ad", text = "Bring spare line. You'll always need more than you think." } },
-    _none = { { id = "tp_none", text = "Hmm, I don't know that one! Ask Grimnur; he knows everything that's not about gadgets." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's bait shop sells lures that glow, and I want to know how. Grimnur says I'm not to experiment, but he says that about everything." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet sells cheap line that snaps if you look at it wrong, and they know it. I've written to complain, and they've offered to sell me better line." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a fishing game with wooden fish, and I won every time. Grimnur says that's not fishing, and he's right, but it's still winning." } },
+    _none = { { id = "tp_none", text = "Hmm, I don't know that one, and there's no gear in it for me to take apart! Ask Grimnur; he knows everything that's not about gadgets." } },
   },
 }

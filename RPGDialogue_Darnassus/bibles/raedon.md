@@ -9,7 +9,7 @@
 ## Identity
 TODO_NPC · Raedon Duskstriker · Craftsmen's Terrace, Darnassus · Darnassus · night elf · quartermaster
 Personality: earnest, harried, thrifty, warm
-Speech: courteous ("Hail, friend"), counts things.
+Speech: courteous ("Hail, friend"), counts things. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Never says: that the addon or game gives anything for talking; anything after Year 1.
 
 ## Threads he could carry

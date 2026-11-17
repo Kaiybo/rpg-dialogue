@@ -14,11 +14,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand straight when you speak to me, and speak plainly. I'm too old for riddles." },
+    { id = "g_default", text = "Stand straight when you speak to me, {class}, and speak plainly. I'm too old for riddles, and an orc's word should be as blunt as his axe." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I had a use for you, and the last grunt I had a use for is still picking drake scales out of his teeth." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the drakes are still breathing in their ravine. Tell me you've come to change that." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown since I saw you last, and you carry yourself like you've earned it. Good, because Lethlor Ravine doesn't care how brave you feel." },
-    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word is you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word is you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it, and leave your own clan their peace." },
   },
 
   notice = {
@@ -44,13 +44,13 @@ P:NPC {
           text = "One of the Forsaken. You know something about being used by masters who don't care whether you live, so you'll understand why I want these drakes dead." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak." },
+        { id = "h_again", text = "What else? Speak, then, the way a warrior should." },
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
-        { text = "Who are Blacklash and Hematus?", next = "drakes" },
+        { text = "Who are the two in chains?", next = "drakes" },
         { text = "Why kill them now, after all these years?", next = "honor" },
-        { text = "What happened with the ogres?", next = "ogres" },
+        { text = "Have you tried to reach those two before?", next = "ogres" },
         { text = "What was the Second War like?", next = "war" },
         { text = "My people never fought beside dragons.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Why free them first? Why not leave them chained?", next = "xcaster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
@@ -135,7 +135,7 @@ P:NPC {
         { id = "wa_default", text = "Loud, and hungry, and we didn't know half of what we'd become until the camps gave us time to think about it. The dragons burned whole valleys for us, and we cheered, because we were fools." },
       },
       choices = {
-        { text = "What changed your mind?", next = "war_change" },
+        { text = "Something must have changed your mind since then.", next = "war_change" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,6 +173,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fought in the Second War, sat in the camps after it, and walked out free when Thrall broke them open. Kargath is where I've chosen to be useful." } },
     advice = { { id = "tp_ad", text = "Never hire a mercenary who's stronger than the soldiers guarding your coin." } },
-    _none = { { id = "tp_none", text = "I don't know it, and I'm too old to pretend I do." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, beside the black dragons, and I didn't know then what they were. Now I want two of them dead, and I call it cleaning up after myself." } },
+    internment = { { id = "tp_internment", text = "I sat in the camps after the war, and the guards were humans who'd lost families to us. I didn't blame them, and I don't now." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief broke the camps open and gave us back our pride. I'd die for him, and I nearly have, a few times." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons fought beside the Horde in the Second War, and they were never our allies. They were using us, and we were too foolish to see it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock clan sits in the Spire now, still loyal to the old ways. They're what I could have become, and I don't forget it." } },
+    _none = { { id = "tp_none", text = "I don't know it, and I'm too old and too proud to pretend I do." } },
   },
 }

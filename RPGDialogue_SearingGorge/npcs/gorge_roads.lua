@@ -127,16 +127,16 @@ P:NPC {
       },
       choices = {
         { text = "What did this place look like before, Dorius?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What are the Suntara Stones?", next = "stones" },
+        { text = "The Suntara Stones sound like something out of an old story.", next = "stones" },
         { text = "What happened to your team?", next = "team" },
-        { text = "Does your brother know you're here?", next = "thorius" },
+        { text = "I'd wager anyone at home has no idea you're out here.", next = "thorius" },
         { text = "I'm a dwarf of Ironforge. I'll stand with you.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Could I scout the Dark Iron camps ahead of you, Dorius?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the Dark Irons want the Suntara Stones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should I pray for your missing team, Dorius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is the Firelord really behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Firelord seems to stand behind every Dark Iron here, Dorius.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dark Iron fight like any other dwarves, Dorius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What tracks should I look for, Dorius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I'll need to know what tracks to look for, Dorius.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why keep my demon away from the Suntara Stones, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would the stones here tell me where your team went, Dorius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The stone speaks to me, Dorius. It's restless here.", next = "xorig_stone", when = { origin = "dwarf_stone_listener" } },
@@ -186,7 +186,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } } },
     },
     thorius = {
-      lines = { { id = "th_default", text = "Thorius knows I'm diggin', but no' how deep. He keeps the museum in Ironforge, an' he worries more than a curator ought, mostly about whether I've dusted the finds." } },
+      lines = { { id = "th_default", text = "My brother Thorius knows I'm diggin', but no' how deep. He keeps the museum in Ironforge, an' he worries more than a curator ought, mostly about whether I've dusted the finds." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {
@@ -196,6 +196,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons have patrols on every ridge, an' they'd as soon put an axe in ye as look at ye. My team's somewhere in their hands, an' I'll no' leave them." } },
+    magni = { { id = "tp_magni", text = "King Magni sent the League out to find the Suntara Stones, an' I mean to bring him back somethin' worth the cost. I just wish the cost weren't so high." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Under the mountain the Dark Irons have a whole city, an' a fire lord to rule it. Nae dwarf o' Ironforge has seen it an' come back the same." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The Dark Irons' old capital is a ruin now, burned by their own summonin'. Thaurissan called up somethin' he couldnae put back, an' the whole land paid." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye. Ask me about stones, or the Dark Irons." } },
   },
 }

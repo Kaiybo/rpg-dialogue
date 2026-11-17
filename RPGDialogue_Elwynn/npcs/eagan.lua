@@ -144,25 +144,36 @@ P:NPC {
       },
       choices = {
         { text = "What do you need?", next = "BUSINESS" },
-        { text = "What do you want with wolf meat?", next = "meat" },
-        { text = "Why so many wolves this year?", next = "why" },
-        { text = "Do you ever feel sorry for them?", next = "pity" },
+        { text = "What do you do with the wolves you take?", next = "meat" },
+        { text = "There seem to be more wolves than ever this year.", next = "why" },
+        { text = "I almost feel sorry for the wolves.", next = "pity" },
         { text = "Teach me a cleaner cut?", next = "skin", when = { profession = "Skinning" } },
         { text = "Would you skin me, if I were a bear?", next = "druid", when = { class = "DRUID" } },
         { text = "Could a quiet step help with your wolves?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Can your wolves really smell a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Your wolves seem to smell my demon from the ridge.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do wolves fight a warrior, Eagan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How would you have a hunter take these wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever say a word over the wolves you kill, Eagan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Are the wolves a danger to the Abbey itself, Eagan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The wolves could be a danger to the Abbey itself, Eagan.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would fire drive the wolves back over the ridge, Eagan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do the spirits mind you trapping the beasts, Eagan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The spirits might mind you trapping the beasts, Eagan.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I used to flush game for the lords' hunts, Eagan.", next = "xorig_beater", when = { origin = "human_elwynn_beater" } },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    xorig_beater = {
+      lines = {
+        { id = "xobeater_default", text = "A beater, eh? Then you know these woods better than the lords who shoot in them, and you'll know the wolves don't run the way the deer do. Here, was it you that took the great boar, the year the hunt came home empty?" },
+      },
+      choices = {
+        { text = "I might have. It fed my family all winter.", next = "BACK", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "A good hunter never tells, Eagan.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     meat = {
       lines = {
-        { id = "m_default", text = "I eat it. I hate those timber wolves, but I do like a wolf steak, funny as that sounds. The pelts go down to Goldshire." },
+        { id = "m_default", text = "I eat them. I hate those timber wolves, but I do like a wolf steak, funny as that sounds. The pelts go down to Goldshire." },
       },
       choices = {
         { text = "Who takes the pelts?", next = "meat_helene" },
@@ -230,5 +241,8 @@ P:NPC {
     kobolds = { { id = "t_kobolds", text = "Kobolds don't wear anything worth taking." } },
     hogger = { { id = "t_hogger", text = "A gnoll that big has a hide like a door. I'd like it, but I'd not like to be the one taking it." } },
     _none = { { id = "t_none", text = "Ask someone who talks more." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Wolves won't go near Echo Ridge anymore, and wolves aren't fools. The kobolds dig there day and night, and the whole ridge stinks of candle wax." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire folk buy my wolf pelts to make their tents look wild. I don't ask what they tell the children, and they don't ask what the wolf did." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers pay a fair price for pelts and don't haggle, which is more than I can say for most holy folk. I'll speak well of them for that." } },
   },
 }

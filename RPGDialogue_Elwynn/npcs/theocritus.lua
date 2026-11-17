@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kirintor", when = { opinion = { topic = "kirin_tor", stance = "too_cautious" } }, text = "Ah, the one who thinks Dalaran's vaults should be opened. Come in; I've a book I'm not supposed to have, and I'd value your opinion of it." },
     { id = "g_stairs", text = "You climbed all those stairs, which is admirable, if probably pointless." },
     { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead yet? If not, why are you standing in my tower?" },
     { id = "g_after", when = { questDone = TODO_QUEST("Morganth") }, text = "Ah, the one who dealt with Morganth. You may sit, though not on that." },
@@ -30,6 +31,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirintor = {
+      lines = {
+        { id = "op_kirintor_a", text = "Ah, a question worth climbing the stairs for. The Kirin Tor lock away what frightens them, and then a Morganth steals the key and we all act surprised. Tell me, then: should dangerous knowledge be sealed, or learned?" },
+      },
+      choices = {
+        { text = "Sealed. Some knowledge costs more than it could ever be worth.", next = "op_kirintor_1", fx = { opinion = { kirin_tor = "trust", necromancy = "forbid" }, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Learned. You can't defend against what you refuse to understand.", next = "op_kirintor_2", fx = { opinion = { kirin_tor = "too_cautious", arcane_magic = "useful" }, align = { order = -1 }, affinity = 2 } },
+        { text = "Knowledge is fine. It's ambitious students who should be locked up.", next = "op_kirintor_3", fx = { opinion = { kirin_tor = "mixed", arcane_magic = "dangerous" }, trait = { witty = 1 } } },
+        { text = "Dalaran fell because it trusted its own vaults. I was there.", next = "op_kirintor_4", when = { origin = "forsaken_dalaran_apprentice" }, fx = { opinion = { kirin_tor = "distrust" }, affinity = 1 } },
+        { text = "I'm no mage, Theocritus. I leave that to you.", next = "BACK" },
+      },
+    },
+    op_kirintor_1 = {
+      lines = { { id = "op_kirintor_r1", text = "Spoken like a Dalaran clerk, and the clerks have kept the world in one piece more often than the geniuses. I'm not obliged to like it, but I'll concede it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_kirintor_2 = {
+      lines = { { id = "op_kirintor_r2", text = "Precisely what I'd tell the Council, and very likely why I live in a tower in Elwynn and not in Dalaran. Do come back; it's rare to agree with someone." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_kirintor_3 = {
+      lines = { { id = "op_kirintor_r3", text = "Ha! If the Kirin Tor followed that rule, there'd be no one left outside the vaults to lock the doors. Still, Morganth would agree with you, from the inside." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_kirintor_4 = {
+      lines = { { id = "op_kirintor_r4", text = "You were, weren't you, and in a manner I'd rather not examine. Then you know better than I do what a sealed door is worth when the dead come knocking." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It's worth a footnote. The arcane is the true discipline; your spirits are a curiosity. Do mind the stairs on your way out." } },
@@ -88,7 +117,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not today, but he was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
+      lines = { { id = "xapala_default", text = "Not today, but Morganth was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
       choices = {
         { text = "Then he must be stopped before anyone else pays.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", fx = { align = { light = -1 } } },
@@ -99,7 +128,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to warn me about the dangers of the arcane, I assure you I've written a book on them, and it's better than yours." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order has always been very good at hitting the things my colleagues failed to stop, so I suppose you're welcome." },
-        { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want?" },
+        { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want, if not to help me with Morganth?" },
         { id = "h_low", when = { maxLevel = 17 },
           text = "You are very young and I am very busy. Come back when you've survived something interesting." },
         { id = "h_before", when = { minLevel = 18, questBefore = TODO_QUEST("Morganth") },
@@ -130,22 +159,22 @@ P:NPC {
       },
       choices = {
         { text = "Why do you find nature magic muddy?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who is Morganth?", next = "morganth" },
-        { text = "What do you study here?", next = "study" },
+        { text = "What threat keeps you up in this tower?", next = "morganth" },
+        { text = "Your desk is covered in notes on something.", next = "study" },
         { text = "Tell me about the tower.", next = "tower" },
-        { text = "Do you care what happens in Elwynn?", next = "elwynn" },
+        { text = "You don't seem to care much what happens in Elwynn.", next = "elwynn" },
         { text = "Morganth is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Morganth") } },
         { text = "I'm a mage. Teach me something.", next = "mage", when = { class = "MAGE" } },
         { text = "I'm not Morganth.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "A priest knows something of shadow too.", next = "priest", when = { class = "PRIEST", minLevel = 20 } },
         { text = "Your servants are gnomes. Where are they from?", next = "gnome", when = { race = "Gnome" } },
         { text = "My family would rather I were at court.", next = "noble", when = { origin = "human_minor_noble" } },
-        { text = "Do you fear a rogue would steal from your tower?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You must fear a rogue would steal from your tower.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What use would a mage have for a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need anything hunted, Theocritus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Have you ever studied faith, Theocritus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is Morganth a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you think shamanism is worth studying, Theocritus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'd guess you've never studied faith, Theocritus.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is anything here a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I suspect you don't think shamanism worth studying, Theocritus.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll show myself out.", next = "END" },
       },
     },
@@ -153,7 +182,7 @@ P:NPC {
     morganth = {
       lines = {
         { id = "mo_default", key = true,
-          text = "A Stormwind student who turned to shadow, was thrown out, and took Ur's treatise on shadow magic with him. The city's mages want the book back; I want him stopped." },
+          text = "Morganth, a Stormwind student who turned to shadow, was thrown out, and took Ur's treatise on shadow magic with him. The city's mages want the book back; I want him stopped." },
       },
       choices = {
         { text = "Why is that your duty?", next = "duty" },
@@ -253,6 +282,7 @@ P:NPC {
         { id = "af_default", text = "Now the treatise goes back to the mages who sealed it, and I go back to being bored. I find I'm looking forward to it." },
       },
       choices = {
+        { text = "Should the Kirin Tor seal books like Ur's at all?", next = "op_kirintor" },
         { text = "You'll miss him.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Enjoy the peace while it lasts.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -323,5 +353,12 @@ P:NPC {
     eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally, and I try not to." } },
     blackrock = { { id = "tp_blackrock", text = "The orcs in Stonewatch Keep. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
     _none = { { id = "tp_none", text = "If it were worth knowing, I would know it. Draw your own conclusions." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the Scourge broke it in an afternoon. The Kirin Tor rebuild behind their walls now and admit almost nobody, and I confess I don't blame them, nor do I write." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor once invited me to join them, and I declined, because I prefer a tower of my own to a chair in somebody else's. That is all the explanation they received, and all you shall." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is necromancy on a scale no sane mage would attempt, and the man behind its plague sat among the Kirin Tor before he chose it. Every mage alive should remember Kel'Thuzad's name and be ashamed of it.", fx = { learn = { "kelthuzad" } } } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on Dalaran's own council before he went hunting forbidden knowledge, and they say he rules the dead now from a citadel that floats above the plaguelands. If he is still a man in any sense, he is a monstrous one." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is the reason magic must be studied carefully or not at all. Morganth has forgotten that, and one day the Legion will remind him." } },
+    scholomance = { { id = "tp_scholomance", text = "The Scholomance teaches necromancy at Caer Darrow, and its masters serve the Scourge. If any student of mine went there, I would hunt him down myself." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's conjurers are charlatans of the most cheerful sort, and I sometimes walk down to watch them, purely for professional amusement. Do not tell my servants." } },
   },
 }

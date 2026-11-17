@@ -54,12 +54,12 @@ P:NPC {
           text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah doesn't sing, and he's taken to walking the perimeter facing west." },
       },
       again = {
-        { id = "h_again", text = "What else? I've a war to run." },
+        { id = "h_again", text = "What else? I've a war to run, and the Kolkar don't respect talk, only blood." },
         { id = "h_again2", text = "Speak. The centaur don't wait, and neither do I, and my boots are full of sand besides." },
       },
       choices = {
         { text = "Who leads the Kolkar?", next = "leaders" },
-        { text = "Why are the centaur so organized now?", next = "why" },
+        { text = "The centaur seem better organized than they used to be.", next = "why" },
         { text = "This is your headquarters? A burrow and a pig farm?", next = "camp" },
         { text = "How do I fight a centaur?", next = "fighting", when = { class = { "WARRIOR", "HUNTER", "ROGUE" } } },
         { text = "Krom'zar is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Counterattack!") } },
@@ -79,7 +79,7 @@ P:NPC {
     first = {
       lines = { { id = "f_default", text = "Kodobane, because he's closest and he's loud, and loud ones bring the others running. Then Verog, and then Hezrul once his lieutenants are gone and he's got nobody left to hide behind." } },
       choices = {
-        { text = "And when the leaders are dead?", next = "first_end" },
+        { text = "And when the leaders are dead, it's over.", next = "first_end" },
         { text = "Understood. Something else.", next = "BACK" },
       },
     },
@@ -101,7 +101,36 @@ P:NPC {
     },
     desolace = {
       lines = { { id = "d_default", text = "Their homeland is Desolace, west past the Stonetalon peaks, and they've kin there in the thousands. The ones here are an arm of something bigger, and if the arm keeps getting cut off, the body will come looking for us." } },
-      choices = { { text = "Then we'll be ready. Something else.", next = "BACK" } },
+      choices = {
+        { text = "Then we'll be ready. Something else.", next = "BACK" },
+        { text = "Should the Horde carry the fight to Desolace?", next = "kolkar_op" },
+      },
+    },
+    kolkar_op = {
+      lines = { { id = "ko_default", text = "Half the grunts at the Crossroads say so after a few drinks, and the other half say we've enough enemies already. I've fought centaur longer than most of them have been alive, so I'd like to hear it from you: what would you do?" } },
+      choices = {
+        { text = "Carry the war to Desolace and finish them.", next = "ko_war", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "war" } } },
+        { text = "Hold the oases. Desolace isn't worth the blood.", next = "ko_hold", fx = { align = { light = 1 }, opinion = { centaur = "contain" } } },
+        { text = "Let the clans fight each other. They hate each other more.", next = "ko_divide", fx = { trait = { practical = 1 }, opinion = { centaur = "divide" } } },
+        { text = "They hunted my people for generations. No mercy.", next = "ko_tauren", when = { race = "Tauren" }, fx = { affinity = 1, opinion = { centaur = "hate" } } },
+        { text = "That's for wiser heads than mine, Regthar.", next = "BACK" },
+      },
+    },
+    ko_war = {
+      lines = { { id = "kow_default", text = "Spoken like a young grunt, and I was one once. Desolace is a graveyard with five clans living in it, and you'd be fighting all of them at once, but I like your nerve." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_hold = {
+      lines = { { id = "koh_default", text = "That's my thinking, and it's why I'm sitting in a burrow and not leading a war band west. Keep the water, keep the road, and let them come to us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_divide = {
+      lines = { { id = "kod_default", text = "Now there's a thought with teeth in it. The Gelkis and the Magram would cut each other's throats for less, and some of our people in Desolace already play them off each other." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_tauren = {
+      lines = { { id = "kot_default", text = "I've heard the stories from your elders, and I'll not argue with them. Bring that anger to Krom'zar's banner and I'll make sure it lands where it should." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     camp = {
       lines = { { id = "c_default", text = "A burrow's a fine headquarters, {class}. Centaur can't charge into a hole in the ground, the pigs feed my scouts, and Lanti'gah keeps the place standing when I'm out. I've slept in worse, and so has every orc who fought in the old wars." } },
@@ -123,7 +152,7 @@ P:NPC {
     },
     stragglers = {
       big = true,
-      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice." } },
+      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice, whatever Lanti'gah says about sparing them." } },
       choices = {
         { text = "Let them run. Fear will hold the road better than graves.", next = "st_let",
           fx = { thread = { id = "kolkar_war", state = "resolved" }, affinity = -1, align = { light = 1 } },
@@ -133,7 +162,7 @@ P:NPC {
           fx = { thread = { id = "kolkar_war", state = "soured" }, affinity = 1, align = { light = -1 }, trait = { stern = 1 } },
           journal = { first = "Told Regthar to ride Krom'zar's stragglers down. His grunts were mounted before I'd finished speaking.",
                       third = "{name} told Regthar Deathgate to ride Krom'zar's stragglers down, and his grunts rode out at once." } },
-        { text = "Why does Lanti'gah want them spared?", next = "st_lanti" },
+        { text = "Strange that Lanti'gah wants them spared.", next = "st_lanti" },
       },
     },
     st_lanti = {
@@ -157,6 +186,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fought in the old wars, I came to Kalimdor with the Warchief, and now I fight centaur. A soldier's life doesn't need more telling than that." } },
     advice = { { id = "tp_ad", text = "Never fight a centaur on open ground if there's a rock to put your back against. Learn that one cheap, before they teach it to you dear." } },
+    centaur = { { id = "tp_centaur", fx = { learn = { "maraudon" } }, text = "The Kolkar are the worst of a bad breed, and the Barrens are full of them. They and their cousins out in Desolace come from some old union of stone and forest, if the shaman are to be believed, and none of it made them any friendlier." } },
+    thrall = { { id = "tp_thrall", text = "Thrall gave me this war, and I mean to give it back to him finished. He doesn't need to know the details, just that the roads are safe." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I learned how to hold a line against horses. Centaur aren't so different, except they're angrier and the horse half bites." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane are a nuisance and the Kolkar are a war, and I keep those two separate in my head. If the quilboar get between me and a centaur, though, they're in my way." } },
     _none = { { id = "tp_none", text = "Not my concern. If it isn't Kolkar, ask someone at the Crossroads." } },
   },
 }

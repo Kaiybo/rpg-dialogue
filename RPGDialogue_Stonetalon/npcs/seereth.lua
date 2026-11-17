@@ -14,12 +14,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Listen, do you hear them? No, I suppose you don't, and I envy you." },
-    { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The Windshear Crag, beyond the Greatwood Vale. Show the loggers the language they understand." },
+    { id = "g_hello", text = "Listen, do you hear them? No, I suppose you don't, and I envy you, for I have not slept a whole night since I left Orgrimmar." },
+    { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The Windshear Crag, beyond the Greatwood Vale. Show the loggers the language they understand, the one the Horde speaks with steel." },
     { id = "g_shred", when = { questActive = TODO_QUEST("Shredding Machines") }, text = "XT:4 and XT:9, the marks I saw in my vision. Find those machines, and stop them." },
     { id = "g_crone", when = { questActive = TODO_QUEST("The Elder Crone") }, text = "Magatha, on Elder Rise in Thunder Bluff. Tell her what the spirits suffer here, and ask for her wisdom." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the spirits still rage, though a little less, I think. Perhaps that's your doing." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since we first stood here and listened to the trees. The spirits would know you now, I think." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since we first stood here and listened to the trees. The spirits would know you now, and so would any orc of the Horde." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The braves at the Crossroads say you've been a help to folk. The spirits hear that kind of thing, whatever else they hear." },
   },
 
@@ -35,11 +35,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Seereth Stonebreak, sent from Orgrimmar to Stonetalon. The goblins of the Venture Company are plundering and burning the forest, and the spirits of these mountains are nearly blind with pain and rage." },
+          text = "I am Seereth Stonebreak, sent from Orgrimmar to Stonetalon by the Warchief's own shaman. The goblins of the Venture Company are plundering and burning the forest, and the spirits of these mountains are nearly blind with pain and rage." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Spirits of Stonetalon") },
-          text = "Ah, a {class}, very good! We'll need your skills to deal with these plunderers, and quickly." },
+          text = "Ah, a {class}, very good! We'll need your strength to deal with these plunderers, and quickly; deeds will serve us better than talk." },
         { id = "h_loggers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Goblin Invaders"), days = 3 } },
-          text = "Bravely done. Ridding the Venture Company of its workers is a good first move, but the spirits still rage, and I fear we'll need the tauren elders' wisdom to calm them." },
+          text = "Bravely done, and with honor. Ridding the Venture Company of its workers is a good first blow, but the spirits still rage, and I fear we'll need the tauren elders' wisdom to calm them." },
         { id = "h_shred_before", when = { questBefore = TODO_QUEST("Shredding Machines"), questDone = TODO_QUEST("Goblin Invaders") },
           text = "I had a vision, {class}, clear as daylight: two man-shaped machines in the Windshear Crag, felling trees with impossible speed. They were marked XT:4 and XT:9, and they must be stopped." },
         { id = "h_shred_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Shredding Machines"), days = 3 } },
@@ -50,12 +50,12 @@ P:NPC {
           text = "One of the Earth Mother's children! The tauren hear the land better than we orcs do, so tell me, do you feel the wrongness here?" },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? Speak; the spirits are loud, but I can hear you." },
+        { id = "h_again", text = "What else would you ask? Speak plainly, as an orc would; the spirits are loud, but I can hear you." },
         { id = "h_again2", text = "Go on, {class}. I'll answer while I can still think over the noise." },
       },
       choices = {
         { text = "What do the spirits say?", next = "spirits" },
-        { text = "Why do goblins want this forest?", next = "venture" },
+        { text = "The goblins seem to want this whole forest.", next = "venture" },
         { text = "Why go to the tauren elders?", next = "elders", when = { any = { { questDone = TODO_QUEST("Goblin Invaders") }, { questActive = TODO_QUEST("The Elder Crone") } } } },
         { text = "Tell me about your vision.", next = "vision", when = { any = { { questActive = TODO_QUEST("Shredding Machines") }, { questDone = TODO_QUEST("Shredding Machines") } } } },
         { text = "I hear them too, Seereth.", next = "shaman_s", when = { class = "SHAMAN" } },
@@ -85,7 +85,7 @@ P:NPC {
     spirits_alone = {
       big = true,
       lines = {
-        { id = "sa_default", text = "Because the Horde has many fights and few shaman, and someone had to come. I asked for help when I got here, and I'm not ashamed of it." },
+        { id = "sa_default", text = "Because the Horde has many fights and few shaman, and someone had to come. I asked for help when I got here, and I'm not ashamed of it; there's no dishonor in knowing your own strength." },
       },
       choices = {
         { text = "Asking for help is wisdom, not weakness.", next = "BACK", fx = { align = { order = -1 } } },
@@ -97,7 +97,7 @@ P:NPC {
     venture = {
       big = true,
       lines = {
-        { id = "ve_default", text = "Wood, and whatever lies under the wood, and they don't care what dies to get at it. They're not Alliance or Horde, only greed with a hard hat on." },
+        { id = "ve_default", text = "Wood, and whatever lies under the wood, and they don't care what dies to get at it. They're not Alliance or Horde, only greed with a hard hat on, and they have no more honor than a kobold." },
       },
       choices = {
         { text = "Then they get no mercy from me.", next = "BACK", fx = { align = { light = -1 } } },
@@ -108,7 +108,7 @@ P:NPC {
 
     elders = {
       lines = {
-        { id = "el_default", text = "The tauren have lived with the spirits of this land longer than any orc, and their elders know rites I've never learned. I know only one name, Magatha, and they say she is very old and knows a great deal." },
+        { id = "el_default", text = "The tauren have lived with the spirits of this land longer than any orc, and their elders know rites I've never learned. My own people threw the spirits away for the demons' fire, and we are still learning our way back." },
       },
       choices = {
         { text = "What else do you know of her?", next = "elders_magatha" },
@@ -146,9 +146,13 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A shaman of Orgrimmar, young and promising, or so they told me before they sent me here. Now I'm only tired." } },
-    advice = { { id = "tp_ad", text = "Listen to a place before you fight in it. The spirits will tell you where not to stand, if you let them." } },
+    background = { { id = "tp_bg", text = "A shaman of Orgrimmar, young and promising, or so they told me before they sent me here. I was born in the camps and found the spirits only after Thrall freed us, and now I'm only tired." } },
+    advice = { { id = "tp_ad", text = "Listen to a place before you fight in it. The spirits will tell you where not to stand, if you let them, and an orc who listens lives long enough to swing twice." } },
     venture_company = { { id = "tp_venture", text = "Goblins with axes and no shame. Every tree they fell is a voice that stops singing.", next = "venture" } },
-    _none = { { id = "tp_none", text = "I don't know, {class}. Ask the spirits; they're louder than I am." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of Stonetalon scream when the goblins cut, and I hear every scream. I am young for a shaman, but I know pain when I hear it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is weeping in Stonetalon, and I am trying to comfort her. It is a big task for a small shaman, but I will not give up." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman, and he would understand what I hear. I wish he would come to Stonetalon and see the Charred Vale for himself." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent Maggran to Sun Rock to protect the land, and I am glad he did. But even Maggran cannot stop the goblins alone." } },
+    _none = { { id = "tp_none", text = "I don't know, {class}. My people forgot the spirits once, under the demon's shadow, and I'll not pretend to know what they haven't told me." } },
   },
 }

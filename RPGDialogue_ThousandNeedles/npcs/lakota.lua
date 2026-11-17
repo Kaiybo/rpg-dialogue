@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_grim_redeem", when = { opinion = { grimtotem = "redeemable" } }, text = "They say you think the Grimtotem can be redeemed. Arnak killed my brother in front of me, so forgive me if I don't want to hear it today." },
     { id = "g_whisper", text = "Quietly, please. The Grimtotem guards come by when they hear voices." },
     { id = "g_active", when = { questActive = TODO_QUEST("Free At Last") }, text = "Stay close to me. If we stop, they'll surround us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Free At Last") }, text = "You came back up here? After everything? You're braver than I am, and I've been braver than I ever wanted to be." },
@@ -42,12 +43,12 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there something else? Quickly, please." },
-        { id = "h_again2", text = "Ask, but keep your voice down." },
+        { id = "h_again2", text = "Ask, but keep your voice down; the Grimtotem have ears like wolves." },
       },
       choices = {
         { text = "Why did Arnak take you?", next = "arnak" },
         { text = "Tell me about your brother.", next = "brother" },
-        { text = "Who's waiting for you at Freewind?", next = "thalia" },
+        { text = "Someone must be waiting for you at Freewind.", next = "thalia" },
         { text = "I can get us past the guards unseen.", next = "sneak", when = { class = { "ROGUE", "DRUID" } } },
         { text = "I'll get you out of here.", next = "BUSINESS" },
         { text = "Hold on a little longer.", next = "END" },
@@ -100,6 +101,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a tauren of Thunder Bluff, and a prisoner, for now. I'll tell you the rest when we're somewhere safe." } },
     advice = { { id = "tp_ad", text = "If someone won't take no for an answer, don't wait for them to change. Get away, and get help." } },
     grimtotem = { { id = "tp_grim", text = "They're still tauren, but they've forgotten what that means. Arnak certainly has." } },
-    _none = { { id = "tp_none", text = "I don't know. Please, can we talk about it after we're out of here?" } },
+    cairne = { { id = "tp_cairne", text = "Cairne would never allow what Arnak has done to me, if he knew. But the Grimtotem hide their crimes well, and Cairne is far away." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave me the strength to refuse Arnak, and she will give me the strength to escape. I pray to her every night, and she answers." } },
+    centaur = { { id = "tp_centaur", text = "The centaur are dangerous, but they are honest about it. The Grimtotem smile and lie, and that is worse." } },
+    _none = { { id = "tp_none", text = "I don't know. Please, Earth Mother, can we talk about it after we're out of here?" } },
   },
 }

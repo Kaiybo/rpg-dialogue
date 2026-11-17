@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_cent_war", when = { gossip = { topic = "centaur", stance = "war" } }, text = "I hear you've no mercy left for the Galak. From up here you can see their fires every night, so I can't say I blame you." },
     { id = "g_default", text = "The wind is good today, and the riders are eager to be off the mesa. Where are you bound?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "My wind riders don't carry the Alliance, stranger. You'll have to find your way down the lift and out of the canyons on foot." },
   },
@@ -102,20 +103,20 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the top of my mesa. The riders don't know what to make of you, so stand still and let them look." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? The wind is changing." },
+        { id = "h_again", text = "What else would you ask? The wind is changing, and the riders feel it in their wings before I do." },
         { id = "h_again2", text = "Speak, friend. The riders can wait a little longer." },
       },
       choices = {
         { text = "Do the wind riders mind carrying a druid?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the air spirits watch over the wind riders, Nyse?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do spellcasters make the wind riders uneasy?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Spellcasters seem to make the wind riders uneasy.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why build a post on top of a mesa?", next = "mesa" },
         { text = "Is it hard flying between the needles?", next = "flying" },
-        { text = "Do wind riders carry scouts over enemy ground?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Wind riders must carry scouts over enemy ground.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you resent mages for teleporting, Nyse?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do wind riders ever carry warriors into battle, Nyse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Have hunters ever tried to tame a wind rider, Nyse?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess hunters have tried to tame a wind rider, Nyse.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the riders make of a Forsaken paladin, Nyse?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -169,7 +170,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've kept wind riders on these mesas for many seasons. That's my life, and I'm content with it." } },
     advice = { { id = "tp_ad", text = "Stay off the canyon floor at night. That's when the centaur ride." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. The wind carries a great deal past this mesa, but not that." } },
+    cairne = { { id = "tp_cairne", text = "Cairne flew from here once, and he said the drop made his stomach turn. I've never heard a chieftain admit that before, and I liked him better for it." } },
+    centaur = { { id = "tp_centaur", text = "The Galak shoot at my riders when they fly low, but they never hit. A wind rider climbs faster than any centaur can aim." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The flight to Gadgetzan is long and hot, and my riders hate it. I send them anyway, because the goblins pay well." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. The wind carries a great deal past this mesa, but not that, and the Earth Mother keeps what the wind doesn't." } },
   },
 }
 
@@ -258,7 +262,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there more you would like to know about the stables?" },
-        { id = "h_again2", text = "Take your time; the animals aren't going anywhere." },
+        { id = "h_again2", text = "Take your time; the animals aren't going anywhere, and the Earth Mother made them patient." },
       },
       choices = {
         { text = "Are the beasts content up here on the mesa?", next = "druid_q", when = { class = "DRUID" } },
@@ -266,7 +270,7 @@ P:NPC {
         { text = "Why do the animals settle around shamans, Awenasa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does magic frighten the animals you keep?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you get animals up a mesa?", next = "lift" },
-        { text = "What do hunters tame around here?", next = "tame" },
+        { text = "Hunters must tame all sorts of beasts around here.", next = "tame" },
         { text = "My demons need no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I like animals, Awenasa.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the stabled beasts ever fear warriors, Awenasa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -310,7 +314,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've always been better with animals than with people, and Freewind needed someone with patience." } },
     advice = { { id = "tp_ad", text = "Keep your companion close on the rope bridges, because a frightened animal doesn't look where it's stepping." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask me about the animals, though, and I'll tell you everything." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every beast, and she made them to be loved. I love every one that comes through my stables, and they know it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride their own bodies, and they don't need stables. I find that a little sad, though I wouldn't say so to a centaur." } },
+    cairne = { { id = "tp_cairne", text = "Cairne has a kodo that he's ridden for twenty years, and he still calls it by name. That's the kind of chieftain I trust." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask me about the animals, though, and I'll tell you everything, from the kodo calves to the wind riders." } },
   },
 }
 
@@ -326,6 +333,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_gn_admire", when = { gossip = { topic = "gnomes", stance = "admire" } }, text = "Pozzik's sulking because somebody called gnomes brilliant engineers, and I hear it was you! That's three bolts on the gnome tally, my treat." },
     { id = "g_default", text = "Bolts, tubes, blasting powder and gears! Both teams buy from me, and both teams think the other one's cheating." },
   },
 
@@ -452,19 +460,19 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Good, because if anyone crashes while you're standing there, you'll be on the clock for free, and we've got two races before supper." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The next race starts soon!" },
+        { id = "h_again", text = "Anything else? The next race starts in roughly eleven minutes, give or take a flaming wheel!" },
         { id = "h_again2", text = "Ask away! I can talk and count gears at the same time." },
       },
       choices = {
         { text = "Do the races harm the salt flats?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You sell to both teams?", next = "both" },
-        { text = "Which team will win?", next = "winner" },
+        { text = "One team must be the favourite.", next = "winner" },
         { text = "Do gnomes and mages often clash?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm not here to steal parts, Jinky.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do the racers get hurt often, Jinky?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The racers must get hurt often, Jinky.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the racing crews ever come to blows, Jinky?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What lives out on the salt flats, Jinky?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Something must live out on the salt flats, Jinky.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the racers ever get hurt, Jinky?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the weather really matter so much to the races, Jinky?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You want a demon to pull a race car, Jinky?", next = "xlock", when = { class = "WARLOCK" } },
@@ -483,12 +491,12 @@ P:NPC {
     winner = {
       lines = { { id = "w_default", text = "Fizzle's car is cleverer and Pozzik's car is faster, so it depends on whether the race is long or short. I don't bet, but if I did, I'd bet on whoever bought the most parts from me that week." } },
       choices = {
-        { text = "Do you know who's buying more?", next = "winner_more" },
+        { text = "Someone must be buying more.", next = "winner_more" },
         { text = "Something else.", next = "BACK" },
       },
     },
     winner_more = {
-      lines = { { id = "wm_default", text = "I do, and I'm not telling, because a merchant who talks about her customers' orders soon has no customers. Ask Kravel Koalbeard, if you want rumors; he always seems to know." } },
+      lines = { { id = "wm_default", text = "Someone is, and I'm not telling who, because a merchant who talks about her customers' orders soon has no customers. Ask Kravel Koalbeard, if you want rumors; he always seems to know." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
   },
@@ -497,6 +505,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell parts. Wherever there are engineers breaking things, there's somebody like me selling them the bits to fix it." } },
     advice = { { id = "tp_ad", text = "Always carry a spare tube, because the one you need is always the one you didn't bring." } },
     mirage_raceway = { { id = "tp_race", text = "The best place in Kalimdor to watch things explode at speed, and the best place to sell bolts." } },
-    _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you something that does!" } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I'm not going to talk about it, except to say that we'll get it back one day. Until then, I sell bolts to everyone, because bolts don't care where you're from." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, and I'll admit that even though it's full of goblins. They buy my bolts and I buy their gears, and nobody gets hurt, mostly." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's neutral, and so am I, which is why I sell to gnomes and goblins both. Business doesn't take sides, and neither does a good wrench." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a goblin port, but they've got a few gnome engineers working the cranes. I hear they're paid better than the goblins, though nobody will admit it." } },
+    _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you a sprocket that's eighty percent likely to help!" } },
   },
 }

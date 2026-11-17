@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your unit?", next = "unit" },
-        { text = "What is the Altar of Suntara?", next = "altar" },
+        { text = "That altar looks older than anything the Dark Irons ever built.", next = "altar" },
         { text = "Who betrayed you?", next = "traitor", when = { questDone = TODO_QUEST("Release Them") } },
         { text = "Let me tend your wounds.", next = "wounds" },
         { text = "Let me pray over you, at least.", next = "xpray", when = { class = { "PRIEST", "PALADIN", "SHAMAN" } } },
@@ -112,7 +112,7 @@ P:NPC {
         { id = "tr_default", text = "Lathoric the Black, he calls himself now, and he led us into it smiling, and then he called up Obsidion to guard what we'd dug. I'll not tell ye who he was before, friend, because that's for Thorius to hear first." },
       },
       choices = {
-        { text = "What is Obsidion?", next = "traitor_obsidion" },
+        { text = "That name Obsidion sounds like nothing I'd care to meet.", next = "traitor_obsidion" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,6 +150,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A digger of the Explorers' League, and proud of it, though I'd have been prouder still to dig somewhere that didn't kill us." } },
     advice = { { id = "tp_ad", text = "Never trust a man who's too eager to show ye the way in, friend." } },
+    magni = { { id = "tp_magni", text = "Tell the king, if ye ever see him, that the League died diggin' for him. I think he'd want to know." } },
+    uldaman = { { id = "tp_uldaman", text = "I dug at Uldaman before this, an' I thought that was dangerous. I was wrong about a great many things." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons found us before we found anythin' worth findin'. Watch the ridges, friend, they're always watchin' back." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have a whole city under the mountain, I've heard, with a forge that never cools. I'd have liked to see it, from a safe distance." } },
     _none = { { id = "tp_none", text = "I don't know, friend, and I've not the breath to guess." } },
   },
 }

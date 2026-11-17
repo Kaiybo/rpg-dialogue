@@ -2,6 +2,21 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- New: Betty Quin, the enchanting teacher upstairs at Cordell's (see the main changelog for 0.80.0). New file `npcs/betty_quin.lua`: restart the game fully (a /reload won't load it).
+- New: Adair Gilroy, Librarian, in the Mage Quarter (see the main changelog for 0.80.0). New file `npcs/gilroy.lua`: restart the game fully (a /reload won't load it).
+- New: Mazen Mac'Nadir, caretaker of the Academy's library (see the main changelog for 0.80.0). New file `npcs/mazen.lua`: restart the game fully (a /reload won't load it).
+- New: Archmage Malin in the Wizard's Sanctum (see the main changelog for 0.80.0). New file `npcs/malin.lua`: restart the game fully (a /reload won't load it).
+- Prejudices (0.80.0): Orphan Matron Nightingale (warlocks), Sheldras Moontree (mages) and Lord Baurles K. Wishock (stonemasons' children). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- New: Osric Strang of Limited Immunity in Old Town hates orcs after the First War and his years guarding an internment camp, and resents night elves. Night elves get their own branch; a [Persuade] gets the story of the orc who carved him a toy footman.
+- New file: needs a full game restart, not /reload.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New Forever-only characters (new files: full game restart): Abigail Lawson, Gilbert Gray and Idrieth Mossgrove at the harbor, Roy Lewells, Aendaril Brookshot and Fyrenz Vishonar.
+- New people to talk to: Shoni the Shilent, Argos Nightwhisper, Mazen Mac'Nadir.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.26.0 (2026-11-17)
 - The Topper McNabb patch: Topper has a conversation of his own now, far deeper than before (see the main changelog for 0.78.0). New file `npcs/topper.lua`: restart the game fully (a /reload won't load it).
 - New: Nikova Raskol in Old Town (see the main changelog for 0.78.0). New file: restart the game fully (a /reload won't load it).

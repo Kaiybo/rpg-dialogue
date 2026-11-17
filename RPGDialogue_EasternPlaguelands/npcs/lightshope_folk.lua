@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird out of this blighted country? I don't blame you, and the gryphons don't either." },
+    { id = "g_default", text = "Need a bird out of this blighted country? I don't blame ye, and by the forge, the gryphons don't either." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "Took the oath back home in Ironforge, did you? Good on you, lad or lass, and the Dawn could use a dozen more like you, so mind you come back out of this country in one piece." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds won't take you, friend, but Georgia's bats will. She's just over there, and she doesn't bite, though her bats might." },
   },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
-          text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is foul and the birds hate every mile of it, but they'll get you to Chillwind or anywhere else you need to be." },
+          text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is fouler than a Dark Iron's breath and the birds hate every mile of it, but they'll get ye to Chillwind or anywhere else ye need to be." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage who still wants a gryphon, {class}! Good, because a portal can't get you anywhere near Light's Hope, and my birds can." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -114,21 +114,21 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The birds will take you, {class}, but keep whatever's in your pocket off their backs, or you'll be walking to Chillwind." },
       },
       again = {
-        { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood." },
+        { id = "h_again", text = "Anything more? The gryphons fidget every time the wind blows in from the Plaguewood, and I cannae say I blame them." },
         { id = "h_again2", text = "Ask, then, but don't keep a gryphon waiting in this air." },
       },
       choices = {
         { text = "How do the gryphons bear the foul air?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly from here?", next = "BUSINESS", when = { faction = "Alliance" } },
-        { text = "How do the gryphons manage the plague?", next = "air" },
-        { text = "A Forsaken bat handler right beside you?", next = "georgia" },
+        { text = "The gryphons must struggle with the plague.", next = "air" },
+        { text = "There's a Forsaken bat handler right beside you.", next = "georgia" },
         { text = "Do the gryphons mind flying over the plague?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you keep an eye on Georgia's bats, Khaelyn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can gryphons really feel the chapel's holy ground, Khaelyn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "Do gryphons hold grudges against careless riders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd guess gryphons hold grudges against careless riders.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do gryphons and hunters' beasts get along up here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Have you had trouble with warlocks before, Khaelyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You seem to have had trouble with warlocks before, Khaelyn.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your gryphons fear this land, Khaelyn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -152,7 +152,7 @@ P:NPC {
       },
     },
     air = {
-      lines = { { id = "a_default", text = "They fly high and fast and don't land anywhere but here or Chillwind. I wash their feathers after every trip, and I watch their eyes for any cloudiness, because a sick gryphon is a gryphon I'd have to put down." } },
+      lines = { { id = "a_default", text = "They fly high and fast and don't land anywhere but here or Chillwind. I wash their feathers after every trip and watch their eyes for any cloudiness, because a sick gryphon's one I'd have to put down, and I'd sooner lose a finger." } },
       choices = {
         { text = "Has it happened before?", next = "air_sick" },
         { text = "Something else.", next = "BACK" },
@@ -167,7 +167,7 @@ P:NPC {
       },
     },
     georgia = {
-      lines = { { id = "ge_default", text = "Aye, and I'll tell you what I told myself the first day: inside these walls, the only enemy is the Scourge. She keeps her bats well and she keeps to her side of the yard, and that's more than I can say for some Alliance folk I've known." },
+      lines = { { id = "ge_default", text = "Aye, and I'll tell ye what I told myself the first day: inside these walls, the only enemy is the Scourge. She keeps her bats well and keeps to her side o' the yard, which is more than I can say for some Alliance folk I've known, and a few Ironforge cousins besides." },
         { id = "g_scourge", when = { race = "Scourge" }, text = "You'd know her kind better than I do, but she's been a fair neighbour. Inside these walls, the only enemy is the Scourge, and she hates them as much as I do, maybe more." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
@@ -176,7 +176,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I went where the Alliance needed a gryphon master and nobody else wanted to go, and that's the end of the tale." } },
     advice = { { id = "tp_ad", text = "Don't drink from any stream in this country, however clear it looks. A corporal of ours did at Corin's Crossing, and he spent three days retching green before we buried him." } },
-    _none = { { id = "tp_none", text = "Can't help you there. Ask somebody who spends less time with birds." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has gargoyles and worse in the skies over this land, and my gryphons have to fly through them. I've lost a few, and I mourn every one." } },
+    forsaken = { { id = "tp_forsaken", text = "I share the yard with a Forsaken bat handler, and we've made our peace with each other. She keeps to her side, and I keep to mine, and neither of us talks about the war." } },
+    magni = { { id = "tp_magni", text = "King Magni sends good gryphons north, and I'm grateful for every one of them. They're braver than most soldiers I've met." } },
+    _none = { { id = "tp_none", text = "Can't help ye there, {g:lad|lass}. Ask somebody who spends less time with birds and more time over an ale." } },
   },
 }
 
@@ -286,13 +289,13 @@ P:NPC {
       choices = {
         { text = "Where can I fly from here?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why bats, of all creatures?", next = "bats" },
-        { text = "How do you get along with the gryphon master?", next = "khaelyn" },
-        { text = "Does living among the Argent Dawn bother you?", next = "dawn", when = { race = "Scourge" } },
+        { text = "You and the gryphon master seem to keep apart.", next = "khaelyn" },
+        { text = "Living among the Argent Dawn must be hard for you.", next = "dawn", when = { race = "Scourge" } },
         { text = "Do your bats mind a demon riding along?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Wouldn't a teleport home be faster than your bats?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Does the Dark Lady have her own agents out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The Dark Lady must have her own agents out here.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a bat really carry a warrior in full armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do your bats ever fight a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Your bats look ready to fight a hunter's beast.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do your bats like, Georgia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the bats really sense the spirits, Georgia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Have druids caused you trouble at the roost before, Georgia?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -330,7 +333,7 @@ P:NPC {
     bats = {
       lines = { { id = "b_default", text = "Because the plague doesn't take them, and they don't mind the dark or the stench. A wyvern would sicken over these lands, but my bats fly through it as if it were fresh spring air." } },
       choices = {
-        { text = "Are they hard to handle?", next = "bats_handle" },
+        { text = "They must be hard to handle.", next = "bats_handle" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -356,6 +359,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was someone in Lordaeron once, and now I keep bats. The bats don't ask about the first part, and I'd rather you didn't either." } },
     advice = { { id = "tp_ad", text = "Fly over this land when you can, because walking it only gives the Scourge more chances at you." } },
+    scourge = { { id = "tp_scourge", text = "The bats are the only things in this country that the plague can't touch. I find that comforting, in a cold sort of way." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken serve the Dawn as well as anyone, though the living here don't always believe it. I don't need them to believe it, only to stay out of my way." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady lets her people serve the Dawn, and I'm one of them. I don't think she cares much for the Dawn itself, but she cares about killing the Scourge." } },
     _none = { { id = "tp_none", text = "I've nothing to say about that, living or dead." } },
   },
 }
@@ -477,6 +483,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_fktrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Lord Tyrosus mentioned you'd have the Forsaken fight beside us. Leonid will be glad of it, if nobody's told him already." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, at my inn! You'll want a window that faces the hills, I expect, though I'll warn you the view hasn't been green in a long while." },
         { id = "h_default", key = true,
@@ -510,13 +517,13 @@ P:NPC {
         { text = "Do you ever miss green hills, Jessica?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've come back from Stratholme. Its masters are dead.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "I'd like to rest here.", next = "BUSINESS" },
-        { text = "How is this place still safe?", next = "safe" },
+        { text = "I'm surprised this place is still safe.", next = "safe" },
         { text = "Who comes through here?", next = "guests" },
-        { text = "Where do you find food in this country?", next = "food" },
+        { text = "Food must be hard to find in this country.", next = "food" },
         { text = "Does a warlock make the soldiers nervous here?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I could conjure water for the inn, Jessica.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Does anyone ever steal from the inn?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do the soldiers come to you with more than hunger, Jessica?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess few steal from the inn here.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "The soldiers must come to you with more than hunger, Jessica.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Dawn's knights talk about over supper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the soldiers need most when they come in?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where does the inn's meat come from, Jessica?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -582,6 +589,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I came to cook for the Dawn because somebody had to, and the last cook burned the porridge three days running. The knights very nearly begged." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, and sleep when you can. The Scourge never gets tired, so you'll have to be cleverer than it is." } },
     argent_dawn = { { id = "tp_dawn", text = "They're good people, every one of them, and they eat like they haven't seen food in a week, which some of them haven't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge sends folk in here shaking, and I feed them soup until they stop. That's all I can do, and it's more than you'd think." } },
+    holy_light = { { id = "tp_holy_light", text = "The chapel keeps the dead away, and I thank the Light for it every night. It's the only safe room for miles, and I try to make it a warm one." } },
+    stratholme = { { id = "tp_stratholme", text = "I've fed soldiers coming back from Stratholme, and they don't talk about it. They just eat, and I let them." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. Ask one of the Dawn's officers." } },
   },
 }
@@ -688,12 +698,12 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
-        { text = "How do the supplies get here?", next = "wagons" },
+        { text = "Getting supplies here can't be easy.", next = "wagons" },
         { text = "What does the Dawn need most?", next = "needs" },
-        { text = "Couldn't a mage's portal shorten your supply roads?", next = "xmage", when = { class = "MAGE" } },
+        { text = "A mage's portal could shorten your supply roads.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does anything go missing on the road to Light's Hope?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does a warrior's kit cost out here, Jase?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do hunters trade much at Light's Hope?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "I'd guess few hunters trade at Light's Hope.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How do your supplies reach Light's Hope, Jase?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you sell to a warlock at all, Jase?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does anything still grow out here, Jase?", next = "xdruid", when = { class = "DRUID" } },
@@ -722,7 +732,7 @@ P:NPC {
     wagons = {
       lines = { { id = "w_default", text = "Overland from Chillwind Camp, past Corin's Crossing and the burned farms, with Dawn guards riding beside every wagon. We lose one now and then, and when we do, the price of thread goes up and nobody complains." } },
       choices = {
-        { text = "Who attacks them?", next = "wagons_who" },
+        { text = "Someone must be attacking them.", next = "wagons_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -745,6 +755,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I keep the supplies straight so the soldiers don't have to think about them, and that suits me fine." } },
     advice = { { id = "tp_ad", text = "Buy your vials here rather than carrying glass across the plaguelands, because I've seen too many packs full of broken ones." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They've taken our wagons twice and told us the Light wanted them to. I don't believe the Light wanted my thread." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge makes everything harder to get here, from thread to steel to bread. Every spool on my counter came a long way, and I price it accordingly." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was the trade capital of the north, before the plague. Now it's a graveyard, and I'm selling thread out of a chapel." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Dawn keeps the supplies coming, and I keep them honest. It's a cause worth taking seriously, and I do." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid. I keep the shelves and count the vials, and somebody's been pinching my flux again." } },
   },
 }

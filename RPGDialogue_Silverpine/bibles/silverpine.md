@@ -34,3 +34,6 @@ Repeat-visit and night lines for the innkeepers and thin quest givers (habits, s
 
 ## Depth pass, second round (0.25.0, authored, not canon)
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
+
+## Authored, not canon
+- Hadrec's prejudice (0.80.0): distrusts mages for Arugal's worgen and Dalaran's people at Ambermill, whose apprentices have killed three deathguards.

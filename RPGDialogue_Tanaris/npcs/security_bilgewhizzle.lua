@@ -7,6 +7,7 @@ P:NPC {
   key = "security_bilgewhizzle", id = TODO_NPC("Security Chief Bilgewhizzle"), name = "Security Chief Bilgewhizzle",
   title = "Water Co. Security",
   bible = "bibles/security_bilgewhizzle.md", role = "soldier", tier = "quest",
+  prejudice = { class = "ROGUE", amount = 10, why = "a dock security chief who reads every light-footed visitor as a crate thief" },
   communities = { "steamwheedle_port" }, temper = { "harried", "sharp" }, values = { "profit", "dutiful" },
   notices = { "stealth", "trophy" },
   impression = {
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_rogue", when = { prejudiced = true }, text = "Hold it right there, pal, and keep your hands out of your sleeves. I know a pickpocket's walk when I see one, and the Water Company doesn't pay me to give anybody the benefit of the doubt." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Oh, it's you, and I didn't even check my coin purse, which tells you somethin'. I had you down in the book as a liability, buddy, and I've moved you over to assets." },
     { id = "g_default", text = "We're here to make a profit, pal, and having our goods stolen is no way to make one. What do you want, and is it going to cost me?" },
     { id = "g_shake", when = { questActive = TODO_QUEST("Southsea Shakedown") }, text = "Back so soon? I hope you taught those Southsea hoodlums something they won't forget, like the price of crossing the Cartel." },
     { id = "g_shake_done", when = { questDone = TODO_QUEST("Southsea Shakedown") }, text = "My favourite deputy! The Cartel's been off my back for days, and I've been sleeping like a baby, a baby with a cudgel under the pillow." },
@@ -32,6 +35,66 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_bilge = {
+      lines = { { id = "pj_bilge_default", text = "That's the job, buddy. Every crate that goes missing comes out of my budget, and nine times in ten the fellow who took it walked just like you, light on the feet and looking at everything but me. I'm not sayin' you're a thief; I'm sayin' I can't afford to guess." } },
+      choices = {
+        { text = "And the tenth time?", next = "pj_bilge2" },
+        { text = "Then watch me. I've nothing to hide on your dock.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart. A good thief never looks like a thief, Chief.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd do the same in your boots, Chief.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_bilge2 = {
+      lines = { { id = "pj_bilge2_default", text = "My brother-in-law, sorry to say, and he didn't walk light at all, he walked like a fellow carrying two crates of Noggenfogger, which he was. Family's a liability too, pal, and I've got the invoices to prove it." } },
+      choices = {
+        { text = "So rogues aren't your only problem. Good to know.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates = {
+      lines = {
+        { id = "opp_q", text = "Look, look, I've got to file a report to the Cartel on public sentiment, which is a thing they make me do now, on top of everythin' else. What's your take on the Southsea pirates, pal?" },
+      },
+      choices = {
+        { text = "Hang every one of them from the port cranes.", next = "op_pirates_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { pirates = "hate" } } },
+        { text = "Some are just sailors out of work. Offer them honest jobs.", next = "op_pirates_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { pirates = "pity" } } },
+        { text = "Pay them less and hire more Bruisers.", next = "op_pirates_r3", fx = { trait = { practical = 1 }, opinion = { pirates = "contain" } } },
+        { text = "A pirate's life sounds better than guarding a dock.", next = "op_pirates_r4", fx = { affinity = -1, trait = { witty = 1 }, opinion = { pirates = "admire" } }, when = { class = "ROGUE" } },
+        { text = "I'd rather stay out of your report, chief.", next = "BACK" },
+      },
+    },
+    op_pirates_r1 = {
+      lines = {
+        { id = "op_pirates_r1", text = "Okay, wow, I'll write 'strongly opposed' in the box, and I'll leave out the cranes, because the crane guy is my cousin." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates_r2 = {
+      lines = {
+        { id = "op_pirates_r2", text = "Honest jobs! I'll pitch it to the Cartel, and they'll laugh, and then they'll ask what it costs. Still, I like you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates_r3 = {
+      lines = {
+        { id = "op_pirates_r3", text = "Now that's a line item I can get behind, pal! I'll put it in the report and take the credit, if it's all the same to you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_pirates_r4 = {
+      lines = {
+        { id = "op_pirates_r4", text = "I'm gonna pretend I didn't hear that, and I'm also gonna keep an eye on you, because that's my actual job." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Security Chief Bilgewhizzle, Water Company security, and the only thing between this port and every thief on the coast, on a budget you wouldn't believe. The Cartel wants the impossible from me, and they want it by Tuesday." },
@@ -51,19 +114,21 @@ P:NPC {
         { id = "h_again2", text = "Go on, buddy, I can watch the dock and listen at the same time. It's a skill, and they don't pay me extra for it." },
       },
       choices = {
-        { text = "Why does the Cartel pay the pirates?", next = "protection" },
-        { text = "What's in the small print?", next = "smallprint" },
-        { text = "Who is Andre Firebeard?", next = "andre" },
+        { text = "Who's been robbing the Cartel?", next = "protection" },
+        { text = "Is there a catch to working for the Cartel?", next = "smallprint" },
+        { text = "Whose face is on that wanted poster?", next = "andre" },
         { text = "Any relation to the Chief Engineer?", next = "cousin" },
         { text = "I know a thing or two about pirates' habits.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Some of those pirates were just dock workers.", next = "dockers", when = { questDone = TODO_QUEST("Southsea Shakedown") } },
         { text = "What do you need, Chief?", next = "BUSINESS" },
+        { text = "You watch me like I'm about to rob the dock, Chief.", next = "pj_bilge", when = { prejudiced = true } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
     protection = {
-      lines = { { id = "p_default", text = "Because it's cheaper to pay a pirate to stay home than to lose a cargo, and goblins can count, pal. Only now the Southsea are taking the money and the cargo, which is frankly unprofessional and a clear breach of terms." } },
+      lines = { { id = "p_default", text = "The Southsea pirates, pal. The Cartel pays them to stay home, because that's cheaper than losing a cargo, and goblins can count. Only now the Southsea are taking the money and the cargo, which is frankly unprofessional and a clear breach of terms." } },
       choices = {
+        { text = "What do people say about the pirates?", next = "op_pirates" },
         { text = "Paying pirates only feeds them.", next = "protection_stance" },
         { text = "So what happens now?", next = "protection_stance" },
       },
@@ -129,6 +194,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Water Company security, posted to the port because somebody upstairs thinks I'm good at it, at the same wage. I'd ask for a raise, but I'd have to read my own contract." } },
     advice = { { id = "tp_ad", text = "Never sign anything you can't read, pal, unless I'm the one handing it to you." } },
     steamwheedle = { { id = "tp_sw", text = "The Cartel's the best employer in the world, and I'm saying that in case anybody important is listening." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the Cartel's crown jewel in Tanaris, pal, and the port's just the doorstep. I keep the doorstep clean, mostly." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got pirates, and Steamwheedle Port's got pirates, so I don't see why they get all the attention. Ours have worse manners." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The pirates down the coast aren't Bloodsail, pal, but they're no better. I deputize anybody who'll stand still and send them after them." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak raid the caravans from time to time, pal, and I'm supposed to stop them from the port. I'd like to see the Cartel try." } },
     _none = { { id = "tp_none", text = "Not my department, buddy. Ask at the warehouse, and tell them I sent you, which they'll hate, and that's worth the price of admission." } },
   },
 }

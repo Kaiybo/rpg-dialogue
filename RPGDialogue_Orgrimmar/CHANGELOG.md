@@ -2,6 +2,18 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Stories (0.80.0): Vol'jin decides how the Echo Isles Story ends, and greets you by that ending.
+- Prejudices (0.80.0): Overlord Runthak (the Forsaken) and Kardris Dreamseeker (orc warlocks). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- New: Galthuk, weapons merchant, calls the Forsaken "the corpses Thrall let in the door" and sneers at troll voodoo. Forsaken and trolls get their own conversations; a [Persuade] finds the brother he buried in Lordaeron.
+- New file: needs a full game restart, not /reload.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New Forever-only characters (new files: full game restart): Thatog, An'drak, Gruga Bloodblade, Mon'ye, the Valley of Wisdom children (Migi, Mogra, Puk) and the Skyborne Windshapers in Grommash Hold and the Cleft (Corswyn Aseril, Aeigelyges, Yiyo Nightwalker).
+- New people to talk to: Craven Drok, Keldran, Therzok, Jes'rimon, Zilzibin Drumlore, Orokk Omosh, Gan'rul Bloodeye, Cazul, Zankaja.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.22.0 (2026-11-17)
 - 24 new people: Brakgul Deathbringer, Kildar, Shenthul, Dran Droffers, and the trainers and merchants of the Valley of Honor, the Cleft of Shadow, the Drag and the Valleys of Spirits and Wisdom. New files: restart the game fully (a /reload won't load them).
 - Thrall asks what you make of the Apothecarium's new plague, and remembers your answer.

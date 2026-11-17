@@ -49,7 +49,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Uther.", next = "uther" },
         { text = "Why do you stay here, alone?", next = "stay" },
-        { text = "How do you keep the garden alive?", next = "garden" },
+        { text = "I'm surprised a garden lives up here at all.", next = "garden" },
         { text = "What do you see from this hill?", next = "hill" },
         { text = "Lightbringer. Did he teach you, too?", next = "paladin", when = { class = "PALADIN" } },
         { text = "The Light seems far away out here.", next = "faith", when = { class = "PRIEST" } },
@@ -93,7 +93,7 @@ P:NPC {
     stay = {
       lines = { { id = "st_default", text = "The Silver Hand broke, and half of what was left took up the red and went to Hearthglen and the Monastery. Someone had to stay and sweep the floor, and I found the broom fit my hand." } },
       choices = {
-        { text = "Do you ever think of leaving?", next = "stay_leave" },
+        { text = "You must think of leaving sometimes.", next = "stay_leave" },
         { text = "Did the Crusade never ask you to join them?", tag = "Persuade", next = "stay_red",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PALADIN", "PRIEST" } } } } },
           fail = { next = "stay_red_no", fx = { affinity = -1 } } },
@@ -149,7 +149,7 @@ P:NPC {
     hill = {
       lines = { { id = "hi_default", text = "Andorhal smouldering away to the north, the Scourge walking their rounds, and now and then a pair of red cloaks riding hard for Hearthglen. Travelers come up the hill too, and I give them bread and send them on." } },
       choices = {
-        { text = "Do the Scourge ever come near?", next = "hill_scourge" },
+        { text = "The Scourge must come near at times.", next = "hill_scourge" },
         { text = "Something else.", next = "BACK", fx = { learn = { "andorhal" } } },
       },
     },
@@ -194,6 +194,15 @@ P:NPC {
     scarlet_crusade = { { id = "tp_scarlet", text = "Zealots who took the Silver Hand's name and forgot its heart. I pray for them, and I bar my door to them, and I see no contradiction in it." } },
     argent_dawn = { { id = "tp_argent", text = "Good people, from what I hear, and they don't care whose hands hold the sword so long as it's raised against the Scourge. Uther would have liked them, I think." } },
     andorhal = { { id = "tp_andorhal", text = "The town where the plague first spread in earnest, now a ruin the Scourge won't give up. I can see its smoke from the tomb on still days." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light is a quiet strength, and it asks only that we serve it with our whole hearts. Uther taught me that, and I've tried to keep his tomb in a way he'd recognize." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You carry the Light as Uther did, and that's a heavy thing to carry in a land like this. Come and sit in the garden whenever you need to, and remember what it's for." },
+    },
+    arthas = { { id = "tp_arthas", text = "Uther died defending Lordaeron from his own pupil, and the prince he raised put him in the ground. I tend his tomb, and I pray for Arthas too, though I'm not certain the Light will listen." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has never once come into this garden, though it has surrounded it many times. I don't know why, and I don't need to know." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was a kingdom of faith and law, and it fell because one man forgot them both. I keep the garden green so that something of it remains." } },
+    stratholme = { { id = "tp_stratholme", text = "Uther's knights stood with the prince at Stratholme until they wouldn't, and Uther left in sorrow. He never spoke of it to me, and I never asked." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken come to the tomb sometimes, quietly, and they stand at the edge of the garden and don't come in. I don't turn them away, and I don't ask what they're remembering." } },
     _none = { { id = "tp_none", text = "That's beyond what an old tomb-keeper hears, I'm afraid. Ask at Chillwind Camp; they get the news before I do." } },
   },
 }

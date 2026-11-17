@@ -40,6 +40,7 @@ P:Pool {
   },
   greetings = {
     { id = "g_knell", text = "You're awake, and you're yourself, by the look of it. The undertaker will want to see you." },
+    { id = "g_xbinder", when = { origin = "forsaken_vengeful_binder" }, text = "You're the one who woke up asking how to hurt the Lich King. I remember you, because most of them ask where they are first." },
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },

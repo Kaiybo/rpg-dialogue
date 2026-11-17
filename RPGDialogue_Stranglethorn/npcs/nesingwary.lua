@@ -37,6 +37,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alliance = {
+      lines = {
+        { id = "opa_default", text = "Och, I'm too old an' too fond o' my rifle tae lend it out. An' folk say the Alliance is comin' apart, wi' Gilneas behind its wall an' Stromgarde sulkin' in the hills. What d'ye make o' it?" },
+      },
+      choices = {
+        { text = "The Alliance held once, and it'll hold again.", next = "op_all_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Every kingdom for itself now. The Alliance is just a name.", next = "op_all_broken", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { alliance = "broken" } } },
+        { text = "Ironforge kept faith. The rest can answer for themselves.", next = "op_all_mixed", fx = { affinity = 1, opinion = { alliance = "mixed", dwarves = "admire" } }, when = { race = "Dwarf" } },
+        { text = "Your Alliance put my people in camps, hunter.", next = "op_all_hate", fx = { opinion = { alliance = "hate" } }, when = { race = "Orc" } },
+        { text = "I'd rather hear about the panthers.", next = "BACK" },
+      },
+    },
+    op_all_trust = {
+      lines = {
+        { id = "opat_default", text = "Aye, I'll drink tae that, an' I'll drink tae it twice if it's true. It took the orcs tae make us friends the first time; I hope it doesnae take somethin' worse the second." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_all_broken = {
+      lines = {
+        { id = "opab_default", text = "Ye're a harder sort than I took ye for, an' maybe ye're right. Still, a name's worth somethin', the way a trophy is, because it reminds ye of what ye once did." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_all_mixed = {
+      lines = {
+        { id = "opam_default", text = "Ironforge did, an' I've an Ironforge barrel on my rifle tae prove it. I'll no' argue wi' a dwarf about dwarves; Barnil's taught me better." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_all_hate = {
+      lines = {
+        { id = "opah_default", text = "Aye, it did, an' I'll no' pretend I lost sleep over it then. I'm older now, an' I've seen what a cage does tae a beast, so I'll say only that ye've a right tae yer anger." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_nesingwary = {
       big = true,
       lines = { { id = "xpt_nesingwary_default", text = "It depends on the quarry, my friend. A panther is best hunted alone, one hunter against one beast, but a raptor pack would eat a lone hunter for breakfast, and there's no shame in bringing friends to that sort of party." } },
@@ -181,10 +217,10 @@ P:NPC {
         { text = "You hunt these creatures for sport. That troubles me.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why hunt at all?", next = "why" },
         { text = "What's the most dangerous thing out there?", next = "danger" },
-        { text = "Barnil says you were a war hero.", next = "hero" },
-        { text = "Tell me about your students.", next = "students" },
+        { text = "Barnil says you were a war hero.", next = "hero", when = { heardLine = "barnil.h_default" } },
+        { text = "Who else hunts with you here?", next = "students" },
         { text = "What's the finest shot you ever took?", next = "shot", when = { class = "HUNTER" } },
-        { text = "That's a fine rifle. Ironforge make?", next = "rifle", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "That's a fine rifle. Ironforge make, by the look of it.", next = "rifle", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Is there no cruelty in hunting for sport, Nesingwary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there honor in the hunt, Nesingwary?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Is there any use for a warrior on a hunt, Nesingwary?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -193,7 +229,7 @@ P:NPC {
         { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
         { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },
         { text = "A human hunter. You don't see many, they tell me.", next = "k_human", when = { race = "Human", class = "HUNTER" } },
-        { text = "Could a rogue be a good hunter, Nesingwary?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "A rogue could make a good hunter, I'd think, Nesingwary.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really use magic in a hunt, Nesingwary?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you hunt alongside a Forsaken paladin, Nesingwary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do you ever think about the spirits of what you hunt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -234,8 +270,8 @@ P:NPC {
         { id = "d_default", text = "Not the King, an' not the tigers. The raptors, because there's always one more than ye counted, an' the trolls, because they count too." },
       },
       choices = {
-        { text = "And the King? Bangalash?", next = "danger_king" },
-        { text = "What about the Venture Company?", next = "danger_venture" },
+        { text = "And the King? Who is he?", next = "danger_king" },
+        { text = "You haven't mentioned the Venture Company.", next = "danger_venture" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -270,7 +306,10 @@ P:NPC {
       lines = {
         { id = "hw_default", text = "The one with the orcs in it, the first or the second, for they blur. Ask Barnil an' he'll tell ye I was magnificent, but I was mostly wet." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Would you fight for the Alliance again?", next = "op_alliance" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
 
     students = {
@@ -353,7 +392,7 @@ P:NPC {
       },
       choices = {
         { text = "I earned it, and I'll prove it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Tell me about your students.", next = "students" },
+        { text = "Who else hunts with you here?", next = "students" },
       },
     },
   },
@@ -364,6 +403,14 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spellin'.", next = "hero" } },
     advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first, then shoot what's watchin' ye, an' then have a drink." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, laddie, an' I've seen orcs charge, an' a tiger in full stride is a finer sight. I'll not say that in front of the veterans, mind." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, an' a fine hunter in his day, I'm told. I've half a mind to send him a copy of my book when Barnil finishes the spellin'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the nearest port with a decent pint, an' Barnil goes for supplies every week. I don't care for the place myself, too many folk an' not enough game." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "There are tigers in Zul'Gurub, they say, bred by the trolls an' fed on blood, an' I'd give my best rifle to hunt one. Barnil says I'm mad, an' he may be right." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's a waste of good fighting, laddie, men killin' each other over a box when the jungle's full of finer prey. Still, it's a fine place to find a strong arm for a hunting party." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, eh? Now there's a trophy, but I've a feeling she'd mount my head first. I'll leave that one to braver men." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting gallery, an' I've never once lost at it. They've asked me not to come back, which I take as a compliment." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon back, an' I've seen one drop a boar from a hundred feet up. Finest hunters in the Alliance, after me." } },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
   },
 }
@@ -380,6 +427,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_alliance", when = { gossip = { topic = "alliance", stance = "broken" } }, text = "Hemet says ye reckon the Alliance is a name an' nothin' more. He sulked over his supper about it, an' I had tae wash the plates, so I hope ye're happy." },
     { id = "g_pages", text = "Mind where ye step, friend. If ye see a loose page anywhere, it's ours, so don't step on it; pick it up." },
   },
 
@@ -506,7 +554,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde. Well, keep yer loa or yer shadows away from the master's book, for it's in bad enough shape already." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock in the master's camp. Keep yer beastie away from the rifles, for they're loaded, an' so am I." },
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "A druid in camp, is it? Don't let the boss see you; he'll want to know what you weigh as a cat." },
+          text = "A druid in camp, is it? Don't let the master see ye, {g:lad|lass}, or he'll want tae know what ye weigh as a cat." },
         { id = "h_default", key = true,
           text = "Barnil Stonepot. I keep the master's camp, his kit, an' his book. He's a hero o' the Alliance, ye know. Ye wouldnae think it, the way he snores." },
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("The Green Hills of Stranglethorn") },
@@ -517,8 +565,8 @@ P:NPC {
           text = "A Dun Morogh tracker, wi' a bear o' yer own, in the jungle! Keep it well back from the master's tent, friend, for he'll take one look an' start measurin' it for the wall." },
         { id = "h_book_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Green Hills of Stranglethorn"), days = 3 } },
           text = "Every page back an' bound, an' he's never goin' tae know. Ye'll have a drink on me for that, an' ye'll never mention it either." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be good at finding loose pages, I'd guess, since you've an eye for things that aren't where they should be." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you dry out the camp a bit? The damp's getting into the pages, and Hemet won't hear of moving the book indoors." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Ye'll be good at findin' loose pages, I'd wager, since ye've an eye for things that aren't where they should be." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could ye dry out the camp a wee bit? The damp's gettin' into the pages, an' the master won't hear o' movin' the book indoors." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Ye'll be wantin' tae see the master, I suppose, but wipe yer boots first, for I've only just swept the camp." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, here! An' one o' the Forsaken, which the master'll find very interestin', though he'll pretend he's only interested in panthers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at the master's camp! Well, I never. The master'll want tae write ye down, an' so will I." },
@@ -533,13 +581,13 @@ P:NPC {
         { text = "Do you ever worry you'll hunt the jungle empty?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "I tracked bears through the Dun Morogh snow. Now one follows me.", next = "xorig_bear", when = { origin = "dwarf_bear_tracker" } },
         { text = "What's the book about?", next = "book" },
-        { text = "What's he really like, your master?", next = "master" },
+        { text = "Your master seems a gruff sort.", next = "master" },
         { text = "Don't you miss Ironforge?", next = "home", when = { race = "Dwarf" } },
         { text = "You said you miss a good fight.", next = "fight", when = { metBefore = true } },
         { text = "What do you do all day?", next = "work" },
         { text = "Do the hunters here ever think about their own deaths?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shouldn't a hero of the Alliance be serving it, Barnil?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "What does it take to impress Nesingwary, Barnil?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Nesingwary must be hard to impress, Barnil.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll look for the pages.", next = "END", fx = { affinity = 2 } },
         { text = "You miss a fight? I'm a warrior. Spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Why are the pages of Nesingwary's book loose, Barnil?", next = "xrogue", when = { class = "ROGUE" } },
@@ -614,7 +662,7 @@ P:NPC {
         { id = "w_default", text = "I clean four rifles, mend three tents, an' write down what he shot an' how he says he shot it. Then I write the other version, the true one, in the margin." },
       },
       choices = {
-        { text = "You keep two versions?", next = "work_two" },
+        { text = "So you keep two versions.", next = "work_two" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -636,6 +684,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Ironforge lad, soldier once, an' now the master's man. It's the best job I ever had, but don't tell him." } },
     advice = { { id = "tp_ad", text = "Keep yer powder dry an' yer pages weighted. The wind in this jungle has opinions." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, an' I'm proud to be his subject, though I've not been home to Ironforge in a good long while. The master keeps me busy." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I go to Booty Bay every week for supplies, an' I come back with a lighter purse an' a sore head. The goblins drive a hard bargain, but the beer's not bad." } },
+    second_war = { { id = "tp_second_war", text = "I fought alongside the master in the Second War, an' that's how we met. He saved my life twice, an' I've been with him ever since." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are a wild lot, an' I've never trusted a dwarf who'd rather fly than walk. The master likes them, though, an' that's enough for me." } },
     _none = { { id = "tp_none", text = "Ask the master; he'll tell ye, at great length." } },
   },
 }
@@ -752,7 +804,7 @@ P:NPC {
         { text = "Could magic help you track Sin'Dall, Ajeck?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who is Sin'Dall?", next = "sindall" },
         { text = "Tell me about your father.", next = "father" },
-        { text = "How do you track a tiger?", next = "track" },
+        { text = "Tracking a tiger must take a deal of patience.", next = "track" },
         { text = "Want to compare bows?", next = "bows", when = { class = "HUNTER" } },
         { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
         { text = "Why are you so set on taking Sin'Dall, Ajeck?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -761,7 +813,7 @@ P:NPC {
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
         { text = "Why do you say no one else will take Sin'Dall, Ajeck?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Can Sin'Dall really smell demons, Ajeck?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I've heard Sin'Dall can smell demons, Ajeck.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -856,6 +908,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father, a bow, and tigers. That's my whole life, and I'd not trade a day of it.", next = "father" } },
     advice = { { id = "tp_ad", text = "Never hunt a cat from below it. They're always above you, always." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "There are tigers in Zul'Gurub bred for war, and my father once took one. I mean to take a bigger one." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where we sell the pelts, and where my father taught me to haggle. I'm better at it than he ever was." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've watched a few fights at the Arena, and I don't see the appeal. A tiger fights better than any man I've seen in there." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting contest, and I've won it three times. Hemet won't go anymore, which makes it easier." } },
     _none = { { id = "tp_none", text = "If it isn't tigers, it isn't my concern." } },
   },
 }
@@ -984,7 +1040,7 @@ P:NPC {
         { text = "Do Stormwind's nobles fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Did the House of Nobles ever fear what magic could do?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why did you leave the House of Nobles?", next = "nobles" },
-        { text = "Why panthers?", next = "panthers" },
+        { text = "Panthers seem an odd choice of quarry.", next = "panthers" },
         { text = "What's in the letters they keep sending?", next = "letters", when = { metBefore = true } },
         { text = "My family sits in that House.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "The Defias drove my family off our farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
@@ -994,7 +1050,7 @@ P:NPC {
         { text = "A paladin doesn't walk away from his post, Sir.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Why do you miss rogues more than nobles, Sir Erlgadin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why didn't you trust the court's mages, Sir Erlgadin?", next = "xmage", when = { class = "MAGE" } },
-        { text = "How many panthers does this camp need to take, Sir Erlgadin?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "This camp must need to take a good many panthers, Sir Erlgadin.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Would Stormwind's nobles fear a dwarf shaman, Sir Erlgadin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Sir.", next = "END" },
       },
@@ -1053,7 +1109,7 @@ P:NPC {
         { id = "l_default", text = "Votes, summons, and a cousin who'd like my seat if I'm not using it. They all start with my full title, which is how I know to burn them." },
       },
       choices = {
-        { text = "Will you ever go back?", next = "letters_back" },
+        { text = "I doubt you'll ever go back.", next = "letters_back" },
         { text = "Give the cousin the seat.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
       },
     },
@@ -1109,6 +1165,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a count once, and I'm a hunter now, which is the only title I ever earned.", next = "nobles" } },
     advice = { { id = "tp_ad", text = "Read who's paying for something before you do it. It's the only question that matters, here or in Stormwind." } },
     defias = { { id = "tp_defias", text = "Cheated men, turned thieves. I'd hang the thieves, but I'd want the cheats hanged first." } },
+    varian = { { id = "tp_varian", text = "I knew the king when he was a boy, before I left court, and he was a fine one. Whatever happened to him on that road, it was no accident, I'd stake my old title on it." } },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar Fordragon is a good soldier, and he keeps the court in line better than most would. I'd rather hunt panthers than deal with those nobles, though." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor arrived at court after my time, and from what I hear, she's taken it over. I'm very glad I left before I had to dance with her." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I remember the Stonemasons rebuilding the city, and I remember the nobles refusing to pay them. That was the beginning of the Defias, and the beginning of my disgust with court." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is rough and honest about it, which I prefer to the polished dishonesty of Stormwind's court. I'd sooner deal with pirates than nobles." } },
     _none = { { id = "tp_none", text = "I've no opinion on it. I've given up having opinions in public; they cost too much." } },
   },
 }

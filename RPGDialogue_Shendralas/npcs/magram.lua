@@ -85,6 +85,9 @@ P:NPC {
           text = "A shu'halo, this far from your plains. Your people and the centaur have spilled each other's blood since before either of us was born, so speak quickly and speak plainly." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "One of Cenarius's favored children. Our father's father was Cenarius, the Magram say, and we have never seen much of his favor, so do not expect much of mine." },
+        -- Opinion pass: word from the Magram Front.
+        { id = "h_o_doubt", once = true, when = { gossip = { topic = "shd_orgrul", stance = "distrust" } },
+          text = "Hagiak's warriors tell me you said I trust bones more than warriors. They told me quickly, outsider, because they wanted to see what I would do, and I have done nothing, which frightens them more." },
       },
       again = {
         { id = "h_again", text = "What else? The bones will not raise themselves while we talk." },
@@ -92,10 +95,10 @@ P:NPC {
       },
       choices = {
         { text = "Why raise the dead at all?", next = "why" },
-        { text = "Who are these outcasts?", next = "outcasts" },
-        { text = "What happened to your khan?", next = "khan" },
-        { text = "Where do the Magram stand with the other clans?", next = "clans" },
-        { text = "What lies in this valley?", next = "valley" },
+        { text = "These outcasts seem to trouble the clan.", next = "outcasts" },
+        { text = "Something has happened to your khan.", next = "khan" },
+        { text = "The Magram can't have many friends among the clans.", next = "clans" },
+        { text = "This valley is full of bones.", next = "valley" },
         { text = "What did raising your khan mean to the clan?", next = "after_jehn", when = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Return to Orgrul") } } } },
         { text = "I killed Khan Jehn. You know that, don't you?", next = "xjehn", when = { killed = { name = "Khan Jehn" }, ["not"] = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Return to Orgrul") } } } } },
         { text = "The Light forbids what you do here.", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
@@ -115,7 +118,7 @@ P:NPC {
         { id = "wh_default", text = "Because the dead do not tire, do not desert and do not beg for food when the hunting is poor. A clan that respects only strength would be foolish to leave so much strength lying in the dirt." },
       },
       choices = {
-        { text = "And the dead have no say in it?", next = "why_say" },
+        { text = "The dead have no say in it, then.", next = "why_say" },
         { text = "Who taught the Magram necromancy?", next = "why_taught" },
         { text = "Something else.", next = "BACK" },
       },
@@ -144,7 +147,7 @@ P:NPC {
         { id = "oc_default", text = "Necromancers who left the clan, or were thrown out of it, and kept the craft anyway. They hide away in their little hole and raise what they please, and every skeleton they steal from this valley is one the Magram will not have." },
       },
       choices = {
-        { text = "Why were they cast out?", next = "outcasts_why" },
+        { text = "They must have done something bad to be cast out.", next = "outcasts_why" },
         { text = "Couldn't they be brought back into the clan?", next = "outcasts_back" },
         { text = "Something else.", next = "BACK" },
       },
@@ -217,7 +220,7 @@ P:NPC {
         { id = "cl_default", text = "The Gelkis are our enemies, and the Kolkar and the Maraudine are no friends either. The Gelkis respect the earth and trust Theradras to protect them, and the Magram respect strength, and only one of those has ever kept a clan alive." },
       },
       choices = {
-        { text = "And the quilboar at Bristleback Retreat?", next = "quilboar" },
+        { text = "There are quilboar at Bristleback Retreat too.", next = "quilboar" },
         { text = "What of the Highborne ruins to the south?", next = "highborne" },
         { text = "Something else.", next = "BACK" },
       },
@@ -241,7 +244,7 @@ P:NPC {
         { id = "va_default", text = "Bones, more than any clan could count, and two great skeletons against the cliffs that no one living can put a name to. The ghosts of our own dead walk here too, and they do not always remember which side they are on." },
       },
       choices = {
-        { text = "What were the great skeletons?", next = "goliaths" },
+        { text = "Those great skeletons belonged to something enormous.", next = "goliaths" },
         { text = "Desolace once claimed this valley, didn't it?", next = "desolace" },
         { text = "Something else.", next = "BACK" },
       },
@@ -286,7 +289,7 @@ P:NPC {
       choices = {
         { text = "The dead deserve rest. I won't help you disturb it.", next = "BACK", fx = { affinity = -1, align = { light = 2 } } },
         { text = "If the dead can save the living, so be it.", next = "BACK", fx = { affinity = 1, align = { light = -2 } } },
-        { text = "What do the Crusaders want here?", next = "crusade" },
+        { text = "I've seen Crusaders in red down here.", next = "crusade" },
       },
     },
     crusade = {
@@ -294,6 +297,33 @@ P:NPC {
         { id = "cr_default", text = "Humans in red, with hammers and prayers, who come down from the north to destroy every skeleton they can reach. They break my servants and leave, and the next season there are more bones to raise, so I have never quite understood what they believe they are winning.",
           fx = { learn = { "scarlet_crusade" } } },
       },
+      choices = {
+        { text = "You want to know what I think of them?", next = "cr_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Orgrul wants an outsider's judgement of the Crusade.
+    cr_ask = {
+      big = true,
+      lines = { { id = "ca_default", text = "I do. You have seen these red ones in your own lands, outsider, and I have only seen them die in mine. Are they warriors, or fools?" } },
+      choices = {
+        { text = "Fanatics. They'd burn a village to save it.", next = "cr_ask_fanatic", fx = { opinion = { scarlet_crusade = "fanatics" }, align = { light = 1 } } },
+        { text = "Fools. Let them break themselves on your bones.", next = "cr_ask_fools", fx = { opinion = { scarlet_crusade = "fools" }, align = { light = -1 }, affinity = 1 } },
+        { text = "They fight the dead. On that, I'm with them.", next = "cr_ask_with", fx = { opinion = { scarlet_crusade = "useful", necromancy = "wrong" }, affinity = -1 } },
+        { text = "They'd burn me on sight. I want them all dead.", next = "cr_ask_fools", when = { race = "Scourge" }, fx = { opinion = { scarlet_crusade = "hate" }, affinity = 1 } },
+        { text = "Judge them yourself, Orgrul.", next = "BACK" },
+      },
+    },
+    cr_ask_fanatic = {
+      lines = { { id = "caf_default", text = "Then they are strong in belief and weak in sense, which is the most useful kind of enemy. I will remember that, outsider." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cr_ask_fools = {
+      lines = { { id = "cao_default", text = "Good. Every hammer they swing is a bone I raise again next season, and their fallen make fine servants. You understand the valley better than I expected." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cr_ask_with = {
+      lines = { { id = "caw_default", text = "Then you are a fool too, but an honest one, and I prefer honest fools to the other kind. Mind which side of the valley you sleep on." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xforsaken = {
@@ -373,6 +403,15 @@ P:NPC {
     highborne = { { id = "tp_highborne", text = "Elves who lived in the ruins to the south and threw their strength away. The old one on the hill is all that walks there now, apart from the ghosts." } },
     background = { { id = "tp_bg", text = "I am Magram, and I serve my clan with the dead of this valley. That is all you need to know about me, outsider." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the bones in this valley, even the ones that seem to be resting. Especially those ones." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are strong, and the strong survive, and the dead serve the strong as well as the living do. The Gelkis call this a sickness, and they say it from their knees." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon is the tomb of our father, and the Gelkis and the Maraudine squabble over it like dogs. The Magram have their own dead to tend, here in this valley." } },
+    scourge = { { id = "tp_scourge", text = "I hear of a great power in the north that raises the dead by the thousand, and sends them where it wishes. It is wasteful, I think, but I would like to see how it binds them." } },
+    forsaken = {
+      { id = "tp_forsaken", when = { race = "Scourge" }, text = "You were raised and then you broke free of the one who raised you, I am told. Tell me, did you feel the moment it happened, and did it hurt?" },
+      { id = "tp_forsaken2", text = "The dead who walk in the north and serve no master are called the Forsaken, I am told. I would like to meet one, and ask how it feels to break a binding." },
+    },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback grow fat on the land the Magram need, and they are pushed out of somewhere better, I think, by their hungry look. They will make good bones when they are done." } },
+    cairne = { { id = "tp_cairne", text = "The tauren chief in Mulgore is old and strong, and his people are many. The Magram do not need his friendship, and he would not offer it." } },
     _none = { { id = "tp_none", text = "That is no business of the Magram, and so it is no business of mine." } },
   },
 }
@@ -410,7 +449,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Hagiak, and I hold the Magram Front. The Bristleback dig in at their retreat, my warriors dig in here, and between us lies a stretch of ground nobody can eat from." },
+          text = "I am Hagiak, and I hold the Magram Front. The Bristleback dig in at their retreat, my warriors dig in here, and between us lies a stretch of ground nobody can eat from. Orgrul works his bones in the valley behind us, and I keep the front." },
         { id = "h_bristle_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Bristleback Retreat"), days = 3 } },
           text = "Orgrul sent you, then. He sends me bones and promises, and this time he has sent me something with a pulse, so I will try not to complain." },
         { id = "h_starve", when = { questActive = TODO_QUEST("Threat of Starvation") },
@@ -429,13 +468,16 @@ P:NPC {
           text = "A shu'halo at the Magram Front. The Bristleback are your old enemies as well as ours, so for once we want the same thing." },
         { id = "h_priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } },
           text = "A healer. My warriors bleed more than they eat these days, so if you know how to close a wound, you are welcome at my fire." },
+        -- Opinion pass: word from the Valley of Bones.
+        { id = "h_o_fools", once = true, when = { gossip = { topic = "scarlet_crusade", stance = { "fools", "hate" } } },
+          text = "Orgrul says you called the red-clad humans fools. For once the necromancer and I agree on something, so I'll tell my warriors to stop spitting when you pass." },
       },
       again = {
         { id = "h_again", text = "What else? Talk does not fill bellies." },
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
-        { text = "What's the fight with the Bristleback about?", next = "fight" },
+        { text = "You and the Bristleback seem to be at war.", next = "fight" },
         { text = "Why are your warriors starving?", next = "hunger" },
         { text = "What do you make of Orgrul?", next = "orgrul" },
         { text = "The quilboar have troubled my people too.", next = "xtauren", when = { race = "Tauren" } },
@@ -498,6 +540,32 @@ P:NPC {
       lines = {
         { id = "or_default", text = "He is clever, and he serves the clan, and I would never say a word against him in front of the khan. But he talks to bones more than he talks to warriors, and the warriors have noticed." },
       },
+      choices = {
+        { text = "And what do you think of it?", next = "or_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Hagiak asks the player to settle the argument.
+    or_ask = {
+      big = true,
+      lines = { { id = "oa_default", text = "I think a warrior should ask an outsider, since no Magram will answer me straight. You have seen Orgrul's bones march. Is a dead warrior worth a living one?" } },
+      choices = {
+        { text = "No. A clan should put its trust in the living.", next = "or_ask_living", fx = { opinion = { necromancy = "wrong", shd_orgrul = "distrust" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "The dead don't eat. In a hungry camp, that matters.", next = "or_ask_dead", fx = { opinion = { necromancy = "useful" }, align = { honor = -1 } } },
+        { text = "Orgrul is clever, and clever wins wars.", next = "or_ask_clever", fx = { opinion = { shd_orgrul = "respect" } } },
+        { text = "That's a matter for the clan, not me.", next = "BACK" },
+      },
+    },
+    or_ask_living = {
+      lines = { { id = "oal_default", text = "That is what my warriors say around the fires when they think I'm sleeping. I will not repeat it to Orgrul, and neither will you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    or_ask_dead = {
+      lines = { { id = "oad_default", text = "Hm. That is the one argument I cannot answer, not with starvation hanging over every tent on this front. Perhaps you are right, and I only dislike the smell." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    or_ask_clever = {
+      lines = { { id = "oac_default", text = "Clever, yes. But clever is a cold fire to sit by, outsider, and the warriors would rather follow someone who bleeds." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xtauren = {
@@ -534,6 +602,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am a Magram warrior, I hold the front, and I have not slept dry in a month. That is all the story there is." } },
     advice = { { id = "tp_ad", text = "Keep away from the pigs' tunnels unless you want to meet the whole herd at once, and if you go in anyway, burn your boots after." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback hold the ground between us and food, and my warriors are hungry. Every quilboar you kill is a meal my warriors can eat." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are strong, but strength does not fill a belly. Orgrul talks to bones more than to warriors, and the warriors notice." } },
+    maraudon = { { id = "tp_maraudon", text = "The Gelkis cry over Maraudon and the Maraudine hide in it, and none of them hold the Front. Let them keep their holy hole." } },
+    scourge = { { id = "tp_scourge", text = "Orgrul's dead do not eat, which is the only thing I like about them. They do not fight hungry either, which makes me jealous." } },
+    cairne = { { id = "tp_cairne", text = "The tauren in Mulgore are fat and many, and they do not come south. If they ever do, my warriors will at least have something to eat." } },
     _none = { { id = "tp_none", text = "Ask Orgrul. He knows more things, and cares about more of them." } },
   },
 }
@@ -585,7 +658,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? We should not linger here long." } },
       choices = {
-        { text = "What are the Magram doing in the valley?", next = "valley" },
+        { text = "The Magram seem busy in the valley.", next = "valley" },
         { text = "Why do the Gelkis and Magram fight?", next = "feud" },
         { text = "Who are your elders?", next = "elders" },
         { text = "Jehn is dead. What happens now?", next = "after", when = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Checking Things Out") } } } },
@@ -599,7 +672,7 @@ P:NPC {
         { id = "va_default", text = "Raising bones and putting them to work, the way a farmer puts oxen to the plough. They think it makes them strong, but a clan that needs the dead to fight for it is a clan running out of the living." },
       },
       choices = {
-        { text = "And while they're busy?", next = "valley_opening" },
+        { text = "That keeps them busy elsewhere, then.", next = "valley_opening" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -633,6 +706,32 @@ P:NPC {
       lines = {
         { id = "el_default", text = "Uthek the Wise speaks for us at Gelkis Village, and Khan Shaka leads us. Uthek is careful, very careful, and sometimes I think careful is only a polite word for slow." },
       },
+      choices = {
+        { text = "Should you wait for Uthek's word, then?", next = "el_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Opinion pass: Nerlokh asks whether a warrior should wait for leave.
+    el_ask = {
+      big = true,
+      lines = { { id = "ea_default", text = "That is what I am asking you. You are an outsider and owe the Gelkis nothing, so you can say it plainly: should a warrior wait for the elders' leave, or act when the moment comes?" } },
+      choices = {
+        { text = "Wait. A people that ignores its elders falls apart.", next = "el_ask_wait", fx = { opinion = { shd_gelkis_elders = "patience" }, align = { order = 1 } } },
+        { text = "Act. Careful leaders lose wars.", next = "el_ask_act", fx = { opinion = { shd_gelkis_elders = "slow" }, align = { order = -1 }, affinity = 1 } },
+        { text = "Listen to the earth before either of them.", next = "el_ask_earth", when = { class = { "SHAMAN", "DRUID" } }, fx = { opinion = { the_elements = "respect" }, affinity = 1 } },
+        { text = "That's for the Gelkis to decide.", next = "BACK" },
+      },
+    },
+    el_ask_wait = {
+      lines = { { id = "eaw_default", text = "Uthek would like you. I do not, at this moment, but I will think about what you said, which is more than I do for most of his speeches." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    el_ask_act = {
+      lines = { { id = "eaa_default", text = "Yes! The Magram do not wait for leave, and that is why they keep winning. I will remember that you said it, when Uthek asks me why I went." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    el_ask_earth = {
+      lines = { { id = "eae_default", text = "The earth is slow too, and patient, and it has never yet told me to wait. Perhaps I have not been listening closely enough." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     after = {
@@ -663,6 +762,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am a Gelkis, a child of the earth, and I watch the Magram so my clan does not have to." } },
     advice = { { id = "tp_ad", text = "Never trust a Magram who smiles at you. They only smile when they have already decided what you are worth." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren say Earth Mother, and the Gelkis say Theradras, and I think the earth hears us both. She does not want the Magram's dead walking on her." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon holds our father, and Theradras weeps over him, and the Magram never visit. They are too busy digging up other graves." } },
+    centaur = { { id = "tp_centaur", text = "The Magram are our kin and our shame, and Uthek tells me to wait for her word before I act. I am tired of waiting while their dead march." } },
+    scourge = { { id = "tp_scourge", text = "The Magram's necromancers raise the bones of this valley, and the earth refuses them. I can feel it in the ground, a sickness that wants to be cut out." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback fight the Magram for the valley's edge, and I hope they both bleed. That is not kind, but the earth is not always kind either." } },
     _none = { { id = "tp_none", text = "Ask Uthek at Gelkis Village. She knows everything, given enough time to think about it." } },
   },
 }

@@ -29,6 +29,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_goblins = {
+      lines = {
+        { id = "opn_goblins_q", text = "Trust one? I'd sooner trust a steam boiler with no valve, and at least the boiler doesn't send you an invoice afterwards. But you've been out among them, I expect, in Booty Bay and Ratchet. What do you think of the little profiteers?" },
+      },
+      choices = {
+        { text = "They sell to both sides. That's all you need to know.", next = "opn_goblins_r_distrust", fx = { affinity = 1, align = { order = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "Their gear works, and they don't ask permission. I like that.", next = "opn_goblins_r_admire", fx = { affinity = -1, align = { order = -1 }, opinion = { goblins = "admire" } } },
+        { text = "A goblin's useful as long as you read the contract twice.", next = "opn_goblins_r_useful", fx = { trait = { practical = 1 }, opinion = { goblins = "useful" } } },
+        { text = "Goblin engineering is noise and fire. Gnomes do it properly.", next = "opn_goblins_r_contempt", when = { race = "Gnome" }, fx = { affinity = 2, opinion = { goblins = "contempt" } } },
+        { text = "I've never met one, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r = {
+      lines = {
+        { id = "opn_goblins_r_default", text = "Well, you'll meet one soon enough, and when you do, count your fingers after the handshake." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_distrust = {
+      lines = {
+        { id = "opn_goblins_r_distrust", text = "Exactly so! I've said the same to the council for years, and now I can say a well-travelled adventurer agrees with me, which sounds much better in the minutes." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_admire = {
+      lines = {
+        { id = "opn_goblins_r_admire", text = "Permission is what keeps the roof on, my friend! Well, I suppose a goblin's roof comes off rather often, and they seem to like it that way, but I'll not have that talk in my workshop." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_useful = {
+      lines = {
+        { id = "opn_goblins_r_useful", text = "Twice? I read them three times and then have a dwarf read them aloud, and I still find a clause about my eyebrows. But yes, I suppose they have their uses." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_contempt = {
+      lines = {
+        { id = "opn_goblins_r_contempt", text = "Ha! That's the spirit, and that's the pledge, and I'll hear no more about Booty Bay's clever little rockets in this room." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Whether it's angry with us. We dug deep and we dug fast, and then the troggs came up out of the depths. I've always blamed the troggs, but sometimes, late at night, I wonder whether we woke something we oughtn't to have, and whether your elements would say we deserved it." } },
@@ -78,7 +130,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Perhaps not yet! But a mechanical bear's no' so far from a mechanical chicken, an' I've built several o' those. Ye'd be surprised what clockwork can imitate." } },
+      lines = { { id = "dq_default", text = "Perhaps not yet! But a mechanical bear isn't so far from a mechanical chicken, and I've built several of those. You'd be surprised what clockwork can imitate." } },
       choices = {
         { text = "Some things should stay natural, Tinkmaster.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Invention has its place beside nature.", next = "BACK", fx = { align = { order = 1 } } },
@@ -131,12 +183,16 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_gnomeregan_abandon", tags = { "news" }, when = { gossip = { topic = "gnomeregan", stance = { "abandon", "seal" } } },
+          text = "Ah, you're the one who told the High Tinker to give up on Gnomeregan. Bold of you, and wrong, but bold, and Tinker Town's been talking about nothing else." },
+        { id = "o_gnomeregan_retake2", tags = { "news" }, when = { gossip = { topic = "gnomeregan", stance = "retake" } },
+          text = "Word is you told the High Tinker we should go home! Splendid, splendid. You'll need a suit, of course, and I've a design with only three known flaws." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive my melodrama, but if you've a prayer for Techbot, I'd be grateful, even if he is only a machine, which he isn't, not to me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've always wanted to build a self-polishing breastplate for your sort, but the prototype polished the wearer as well, quite vigorously." },
         { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
           text = "You've been to the very bottom of Gnomeregan and come back! Forgive my melodrama, but I must sit down, and then I must ask whether you saw Techbot on the way." },
         { id = "h_default", key = true,
-          text = "Tinkmaster Overspark, master of gnomish engineering, the one true discipline. Forgive my melodrama, but our situation is dire, and dire situations deserve a bit of drama." },
+          text = "Tinkmaster Overspark, master of gnomish engineering, the one true discipline. Forgive my melodrama, but our situation is dire, what with my poor Techbot gone wrong, and dire situations deserve a bit of drama." },
         { id = "h_techbot", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
           text = "It's true, then, Sarno told you. Techbot has gone rogue, my Techbot, who used to help everyone, and now he's down in Gnomeregan doing who knows what. Will you help me?" },
         { id = "h_brain", tags = { "news" }, when = { questActive = TODO_QUEST("Save Techbot's Brain!") },
@@ -146,7 +202,7 @@ P:NPC {
         { id = "h_gnome_eng", tags = { "news" }, when = { questActive = TODO_QUEST("Gnome Engineering") },
           text = "You've brought the manual! A young engineer answering the call of true engineering, how splendid. Read it all, then sign the pledge, and mean it." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid in Tinker Town! Fascinating, absolutely fascinating, because yer shapeshifting is precisely the sort o' thing I'd love tae build a machine for." },
+          text = "A druid in Tinker Town! Fascinating, absolutely fascinating, because your shapeshifting is precisely the sort of thing I'd love to build a machine for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Some of my best students were gnome mages before Gnomeregan fell, and they built the most marvellous arcane-powered gadgets." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -165,7 +221,7 @@ P:NPC {
         { text = "Who is Techbot?", next = "techbot" },
         { text = "What makes gnomish engineering the true discipline?", next = "discipline" },
         { text = "What's this pledge of secrecy?", next = "pledge", when = { profession = "Engineering" } },
-        { text = "Do you know Oglethorpe Obnoticus?", next = "oglethorpe" },
+        { text = "You must know Oglethorpe Obnoticus.", next = "oglethorpe" },
         { text = "What happened to your city?", next = "city" },
         { text = "Dwarven engineering isn't so bad, Tinkmaster.", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "What happened to the gnome mages after Gnomeregan fell?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -177,7 +233,18 @@ P:NPC {
         { text = "Do you think a rogue would steal gnomish secrets?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What would you ask the earth about Gnomeregan, Tinkmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I came back from the bottom of Gnomeregan, Tinkmaster.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
+        { text = "I tried to wire the arcane into our machines, Tinkmaster.", next = "xorig_arcaneeng", when = { origin = "gnome_arcane_engineer" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
+      },
+    },
+    xorig_arcaneeng = {
+      lines = {
+        { id = "xoarcaneeng_default", text = "Ah, yes, I remember, and so do my eyebrows, which have never quite grown back the same. I called it reckless at the time and I still do, but I've had three requests this month from the Mystic Ward for your schematics, so I'm prepared to call it reckless and interesting. Have you made it work yet?" },
+      },
+      choices = {
+        { text = "Almost. It only explodes some of the time now.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "It works, Tinkmaster, and the mages know it.", next = "BACK", fx = { trait = { proud = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -186,7 +253,7 @@ P:NPC {
         { id = "te_default", text = "My mechanical assistant, a kind and helpful thing who fetched tools and greeted visitors and was, frankly, better company than half the Assembly. We left him behind when we fled, and now he's malfunctioned." },
       },
       choices = {
-        { text = "What went wrong with him?", next = "techbot_wrong" },
+        { text = "Something has clearly gone wrong with him.", next = "techbot_wrong" },
         { text = "It's only a machine, Tinkmaster.", next = "BACK", fx = { affinity = -2 } },
       },
     },
@@ -216,6 +283,7 @@ P:NPC {
         { id = "di_default", text = "Gnomish engineering is about wonderful devices that make life better, while goblin engineering is about bigger explosions and getting paid. Membership is permanent, mind, so choose with your head and not your eyebrows." },
       },
       choices = {
+        { text = "Would you ever trust a goblin engineer?", next = "opn_goblins" },
         { text = "Making life better is the nobler aim.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "A good explosion solves a lot of problems.", next = "BACK", fx = { align = { order = -1 }, affinity = -1, trait = { witty = 1 } } },
         { text = "Why must the choice be permanent?", next = "pledge" },
@@ -228,7 +296,7 @@ P:NPC {
       choices = {
         { text = "Knowledge should be shared freely.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A pledge is a pledge. Keep it, secret or not.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Who would steal your secrets?", next = "pledge_who" },
+        { text = "Your secrets must be worth stealing.", next = "pledge_who" },
       },
     },
     pledge_who = {
@@ -274,6 +342,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the Tinkmaster, which means I'm in charge of gnomish engineering and the pledge that keeps it ours. Before the fall I had a workshop; now I have a corner." } },
     advice = { { id = "tp_ad", text = "Test it on a dummy first. Ideally a dummy that isn't you.", next = "discipline" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, poisoned and full of troggs, and Techbot still down there somewhere.", next = "techbot" } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages build arcane constructs that walk and guard and never tire, and I'd love to compare one with Techbot's old schematics. They'd never let a gnome near one with a screwdriver, of course, and they'd be quite right." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin engineering is fast and loud and has no respect for elegance whatsoever. It works, I'll grant you, but so does a hammer." } },
+    magni = { { id = "tp_magni", text = "King Magni once asked me what Techbot was for, and I couldn't answer, and I've never felt so foolish. Techbot was for being Techbot, and that's enough." } },
     _none = { { id = "tp_none", text = "That isn't engineering, so I'm afraid I've no opinion. Well, I've an opinion, but it isn't informed." } },
   },
 }
@@ -412,7 +483,7 @@ P:NPC {
         { text = "What data was left behind?", next = "data" },
         { text = "Explain the punch cards.", next = "cards" },
         { text = "What's it like down there now?", next = "down" },
-        { text = "Is data worth risking lives for?", next = "worth" },
+        { text = "Data hardly seems worth risking lives for.", next = "worth" },
         { text = "I worked those terminals once.", next = "apprentice", when = { origin = "gnome_tinker_apprentice" } },
         { text = "I've been down there without a team, Castpipe.", next = "k_rogue", when = { race = "Gnome", class = "ROGUE" } },
         { text = "Can you not open the arcane locks yourselves?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -530,6 +601,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Master Mechanic, formerly of a very large workshop in Gnomeregan and now of this very small one. I keep lists, mostly." } },
     advice = { { id = "tp_ad", text = "Keep a copy of everything, and keep it somewhere else.", next = "data" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, and our archives, and I want them both back, in that order or the other.", next = "down" } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins would buy every punch card I recover, and sell them back to me at double. I keep them under lock and key, and the key under another lock." } },
+    magni = { { id = "tp_magni", text = "The King's been very patient with our expeditions, and he asks after every one. I like to think that one day I'll bring him back something that makes it all worth it." } },
+    scourge = { { id = "tp_scourge", text = "I've wondered if the Scourge's plague is in any way like our radiation, all creeping and invisible and contaminating. I've decided I'd rather not find out by experiment." } },
     _none = { { id = "tp_none", text = "No data on that, I'm afraid. Possibly it's on a punch card somewhere in Gnomeregan." } },
   },
 }
@@ -697,10 +771,10 @@ P:NPC {
       },
       choices = {
         { text = "What's the greatest invention of all?", next = "invention" },
-        { text = "Who's Furen Longbeard?", next = "furen" },
-        { text = "What's an essential artificial?", next = "artificial" },
+        { text = "Who's Furen Longbeard?", next = "furen", when = { any = { { questActive = TODO_QUEST("Klockmort Spannerspan") }, { questDone = TODO_QUEST("Klockmort Spannerspan") } } } },
+        { text = "What's an essential artificial?", next = "artificial", when = { any = { { questActive = TODO_QUEST("Essential Artificials") }, { questDone = TODO_QUEST("Essential Artificials") } } } },
         { text = "Can you look at my work?", next = "smith", when = { profession = "Blacksmithing" } },
-        { text = "Could your alloys make better plate?", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Your alloys might make better plate.", next = "k_plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why are Furen's notes so important, Klockmort?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could magic really make an alloy stronger than mithril?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you want my broken blades, Klockmort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -740,7 +814,7 @@ P:NPC {
         { id = "in_default", text = "Ah! Well! It's, um, very great, and very inventive, and it'll need the hardest metal anyone's ever made, which is why I'm making that first." },
       },
       choices = {
-        { text = "You don't know yet, do you?", next = "invention_know" },
+        { text = "You don't know yet, I think.", next = "invention_know" },
         { text = "Every great invention starts with a good metal.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -818,6 +892,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Smith, gnome, seeker of harder metals. That's the whole of me, and I like it that way." } },
     advice = { { id = "tp_ad", text = "Never trust a metal you haven't broken at least once. It hasn't told you its secrets yet." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We left everything behind, including every essential artificial in the city.", next = "artificial" } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons smelt metals I've never seen before, deep under Blackrock, and I'd give my goggles for a sample. They'd give me a crossbow bolt, most likely, so I'll keep looking elsewhere." } },
+    uldaman = { { id = "tp_uldaman", text = "Titan metal from Uldaman is the hardest alloy anyone's ever seen, and I'd like to know how they made it. I'm fairly sure the answer is 'not with a forge', which is annoying." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblins in Gadgetzan sell scrap metal from the desert that might be anything at all. I bought a bar once that turned out to be cheese." } },
     _none = { { id = "tp_none", text = "Is it a metal? If it isn't, then I'm afraid I've no idea." } },
   },
 }
@@ -837,6 +914,8 @@ P:NPC {
   greetings = {
     { id = "g_home", text = "Where troggs and leper gnomes roam stands our home, Gnomeregan! We must make our stand, friend!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for orders? Good, because the movement needs everyone!" },
+    { id = "g_gnomeregan_resolved", when = { thread = { id = "gnomeregan_lost", state = "resolved" } }, text = "The High Tinker stood up at the assembly and said the order was his too, and you could have heard a cog drop! The arguing's stopped, mostly, and the planning's started, which is much louder." },
+    { id = "g_gnomeregan_soured", when = { thread = { id = "gnomeregan_lost", state = "soured" } }, text = "The High Tinker named Thermaplugg at the assembly and nobody else, and we all cheered, and then he went home early. I cheered loudest, friend, and I keep thinking about him going home early." },
   },
 
   notice = {
@@ -940,10 +1019,10 @@ P:NPC {
         { id = "h_again2", text = "Ask your questions, recruit, and then go!" },
       },
       choices = {
-        { text = "What happened to your hair?", next = "hair" },
-        { text = "Tell me about the movement.", next = "movement" },
-        { text = "Who's Bingles?", next = "bingles" },
-        { text = "Do you really think we can save Gnomeregan?", next = "save" },
+        { text = "Your hair looks to have had a hard time of it.", next = "hair" },
+        { text = "What are your people doing to win Gnomeregan back?", next = "movement" },
+        { text = "Who's Bingles?", next = "bingles", when = { any = { { questActive = TODO_QUEST("Find Bingles") }, { questDone = TODO_QUEST("Find Bingles") } } } },
+        { text = "Saving Gnomeregan seems a tall order.", next = "save" },
         { text = "I was raised here in Tinker Town.", next = "raised", when = { origin = "gnome_ironforge_raised" } },
         { text = "Does the movement have a place for a gnome warlock?", next = "k_lock", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "Put a mage on your plans, Gnoarn.", next = "k_mage", when = { race = "Gnome", class = "MAGE" } },
@@ -1056,6 +1135,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand next to a radiation leak. I know it sounds obvious, but somebody has to say it.", next = "hair" } },
     troggs = { { id = "tp_troggs", text = "Damn those troggs, damn them all! They owe me a city and a head of hair.", next = "hair_back" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our home! Where troggs and leper gnomes roam now, but not for ever.", next = "movement" } },
+    magni = { { id = "tp_magni", text = "King Magni promised we'd have Gnomeregan back one day, and I'm holding him to it. I'll lead the charge myself if I have to, hair or no hair." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has its plague and we have our radiation, and both of them steal people from the inside. At least our troggs can be shot." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins sold me a hair tonic that did nothing at all, and I've written them four angry letters. They haven't answered, and I'm writing a fifth." } },
     _none = { { id = "tp_none", text = "That's not a matter for central command. Ask a dwarf, they love questions." } },
   },
 }

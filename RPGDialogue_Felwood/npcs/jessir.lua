@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Have you come up the road from Jaedenar? Forgive me, I ask everyone that." },
+    { id = "g_default", text = "Ishnu-alah. Have you come up the road from Jaedenar? Forgive me, I ask everyone that." },
     { id = "g_della", text = "Della, sit. She growls at strangers, but she doesn't mean a word of it." },
     { id = "g_wait", when = { questBefore = TODO_QUEST("Rescue From Jaedenar") }, text = "Still no word from them, and they're days late now. I keep telling myself the road is simply slow." },
     { id = "g_arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Arko's on her way to Darnassus because of you. I can breathe again, a little." },
@@ -35,6 +35,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Arko'narin went into Shadow Hold because the Sentinels sent her, and nobody came after her but me. You've met the High Priestess's people. Do you think Darnassus cares what happens to its soldiers this far out?" },
+      },
+      choices = {
+        { text = "Tyrande cares. She's just stretched too thin.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { tyrande = "trust" } } },
+        { text = "No. They spend soldiers like copper.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { tyrande = "distrust" } } },
+        { text = "It doesn't matter. We go after them anyway.", next = "op_r3", fx = { affinity = 2, trait = { brave = 1 }, opinion = { sentinels = "loyal" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "I want to believe that, and some nights I do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That's harsh, and I've said it myself after a bad week. Don't say it in front of Arko'narin, though, because she'd still die for the High Priestess." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Yes. That's the only answer that's ever brought anyone out of Shadow Hold." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jessir Moonbow, and I came from Darnassus to meet two friends here, Arko'narin and a paladin named Trey Lightforge. They went into Jaedenar to see whether the Shadow Council has really returned, and they should have been back days ago." },
@@ -56,10 +80,11 @@ P:NPC {
         { id = "h_again2", text = "Go on. Della and I aren't going anywhere." },
       },
       choices = {
+        { text = "Does Darnassus care what happens to its soldiers out here?", next = "op_ask" },
         { text = "Tell me about your friends.", next = "friends" },
         { text = "What is the Shadow Council?", next = "council" },
         { text = "What do you know about Jaedenar?", next = "jaedenar" },
-        { text = "Who's this wolf?", next = "della" },
+        { text = "That's a fine wolf at your side.", next = "della" },
         { text = "What happened to Trey in there?", next = "trey", when = { questDone = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "Trey was of my order. I'll see him avenged.", next = "xpala", when = { class = "PALADIN" } },
         { text = "I know warlocks. The Council isn't what I am.", next = "xlock", when = { class = "WARLOCK" } },
@@ -73,14 +98,14 @@ P:NPC {
         { id = "f_after", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Arko'narin is young and fierce and far too brave for her own good, and Trey was a human who followed her everywhere and pretended it was his idea. I still talk about him as if he'll come up the road, and I don't know how to stop." },
       },
       choices = {
-        { text = "How did a night elf and a human become friends?", next = "friends_how" },
+        { text = "A night elf and a human make unlikely friends.", next = "friends_how" },
         { text = "Why didn't you go in with them?", next = "friends_stay" },
         { text = "Something else.", next = "BACK" },
       },
     },
     friends_how = {
       lines = {
-        { id = "fh_default", text = "Over a fight, as most good friendships start, though I'll let them tell you which of them lost. Trey says the Light and Elune are only two names for the same lamp, and Arko pretends to roll her eyes and then repeats it to everyone she meets." },
+        { id = "fh_default", text = "They became friends over a fight, as most good friendships start, though I'll let them tell you which of them lost. Trey says the Light and Elune are only two names for the same lamp, and Arko pretends to roll her eyes and then repeats it to everyone she meets." },
       },
       choices = {
         { text = "That sounds like a good friendship.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -153,7 +178,7 @@ P:NPC {
       },
       choices = {
         { text = "Who did it to him?", next = "trey_who" },
-        { text = "How is Arko'narin bearing it?", next = "trey_arko" },
+        { text = "Arko'narin must be taking it hard.", next = "trey_arko" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -225,6 +250,10 @@ P:NPC {
     silver_hand = { { id = "tp_sh", text = "Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
     burning_legion = { { id = "tp_bl", text = "Gone from this forest, they say, except that everything here still remembers them, and so do the warlocks who serve them." } },
     cenarion_circle = { { id = "tp_cc", text = "The Emerald Circle's druids have been kind to me while I wait, though they've far more to worry about than my friends." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now. Ask Greta; she knows this forest far better than I do." } },
+    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he believes it goes with him everywhere. I'm a moon girl, myself, but I hope he's right tonight." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune for Arko'narin every night, and for Trey, and a little for myself. She hasn't said no yet." } },
+    satyrs = { { id = "tp_satyrs", text = "Shadow Hold is full of satyrs, and they took my friends. I'm not brave, but I'm not leaving them there." } },
+    scourge = { { id = "tp_scourge", text = "Trey fought the dead in the human lands before he came here, and he doesn't talk about it. He only goes very quiet." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta; she knows this forest far better than I do." } },
   },
 }

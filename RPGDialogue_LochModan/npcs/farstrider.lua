@@ -33,6 +33,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_elves = {
+      lines = {
+        { id = "opn_elves_q", text = "The ones who hunted here were the finest trackers I ever drank wi', an' then Quel'Thalas walked out o' the Alliance after the war like a guest leavin' before the bill. Now there's precious little left o' Quel'Thalas tae walk anywhere. Ye've an opinion, by yer face, so let's have it." },
+      },
+      choices = {
+        { text = "They left the Alliance when it needed them. I don't forget that.", next = "opn_elves_r_distrust", fx = { affinity = 1, align = { honor = 1 }, opinion = { high_elves = "distrust" } } },
+        { text = "They've paid for it a hundred times over. Leave them be.", next = "opn_elves_r_pity", fx = { align = { honor = -1 }, trait = { kind = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Proud, but the best archers I've ever seen.", next = "opn_elves_r_admire", fx = { opinion = { high_elves = "admire" } } },
+        { text = "My cousins in Quel'Thalas are dead. Speak gently.", next = "opn_elves_r_kin", when = { race = "NightElf" }, fx = { affinity = -1, opinion = { high_elves = "kin" } } },
+        { text = "I'd rather talk hunting.", next = "BACK" },
+      },
+    },
+    opn_elves_r = {
+      lines = {
+        { id = "opn_elves_r_default", text = "Huntin' it is. Ye'll learn more from a bear than from me about elves anyway." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_distrust = {
+      lines = {
+        { id = "opn_elves_r_distrust", text = "Ha! Hold a grudge like a dwarf, do ye? I'll drink tae that, though I'll drink tae the rangers too, for they never left the lodge till they were called home." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_pity = {
+      lines = {
+        { id = "opn_elves_r_pity", text = "Aye, they have, an' I'll no' kick a beast that's already down. Their rangers still come through now an' then, an' they look like folk who've buried everyone they knew." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_admire = {
+      lines = {
+        { id = "opn_elves_r_admire", text = "Best I've seen too, though I'll deny I said it if Daryl asks. Proud's no crime in a hunter, so long as ye can back it up." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_kin = {
+      lines = {
+        { id = "opn_elves_r_kin", text = "Cousins, is it? I didnae know yer folk still claimed 'em. Gently, then, an' I'm sorry for yer loss." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -59,8 +111,8 @@ P:NPC {
       choices = {
         { text = "Tell me about the crocolisks.", next = "crocs" },
         { text = "What is this lodge, exactly?", next = "lodge" },
-        { text = "What do you make of Daryl?", next = "daryl" },
-        { text = "How do you earn a hunter's approval?", next = "approval" },
+        { text = "Daryl seems a lively sort.", next = "daryl" },
+        { text = "A hunter's approval must be hard to earn in this lodge.", next = "approval" },
         { text = "Will your hides fit my animal friends?", next = "druid", when = { class = "DRUID" } },
         { text = "Farewell, Marek.", next = "END" },
       },
@@ -103,15 +155,18 @@ P:NPC {
         { id = "lo_default", text = "A huntin' lodge on the east shore, built where the boar an' the bear are thickest. Hunters come from Ironforge an' further tae test themselves here, an' I keep them fed, housed an' honest." },
       },
       choices = {
-        { text = "Why call it the Farstrider Lodge?", next = "lodge_name" },
+        { text = "Farstrider sounds like an elven name to me.", next = "lodge_name" },
         { text = "Something else.", next = "BACK" },
       },
     },
     lodge_name = {
       lines = {
-        { id = "ln_default", text = "For the elven rangers who hunted wi' us in the old wars, an' some o' their kin still lodge here. Vyrin keeps the beds, an' she shoots better than any dwarf in the place, though I'll deny I said so." },
+        { id = "ln_default", text = "Aye, for the elven rangers who hunted wi' us in the old wars, an' some o' their kin still lodge here. Vyrin keeps the beds, an' she shoots better than any dwarf in the place, though I'll deny I said so." },
       },
-      choices = { { text = "Something else, Marek.", next = "BACK" } },
+      choices = {
+        { text = "What do you make of the elves, Marek?", next = "opn_elves" },
+        { text = "Something else, Marek.", next = "BACK" },
+      },
     },
 
     daryl = {
@@ -119,7 +174,7 @@ P:NPC {
         { id = "da_default", text = "Daryl's young, an' loud, an' better wi' a bow than his mouth makes him sound. He'll set ye a challenge if ye let him, an' he'll be very surprised when ye pass it." },
       },
       choices = {
-        { text = "What about that scar of his?", next = "daryl_scar" },
+        { text = "Daryl wears that scar of his like a medal.", next = "daryl_scar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,6 +220,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never turn yer back on a croc that's stopped movin', for it's only thinkin'." } },
     troggs = { { id = "tp_troggs", text = "Nothin' sporting about troggs. Ye kill them because they're there, an' ye don't hang them on any wall." } },
     _none = { { id = "tp_none", text = "Never hunted it, never ate it, so I couldnae tell ye. Ask Vyrin, for she's read more books than I've skinned crocs." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon-back, which is cheatin', but I'll grant ye they're good at it. I'd love tae see one try it in a Loch Modan fog." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire bought a bear pelt off the lodge once for their strongman's cape. It was a better bear than he was a strongman." } },
+    magni = { { id = "tp_magni", text = "King Magni loves a hunt as well as any dwarf, an' he's sent word he'd like tae hunt the valley someday. We've kept the best stretch o' the loch ready for him for years." } },
   },
 }
 
@@ -222,7 +280,7 @@ P:NPC {
         { text = "How did you get that scar?", next = "scar" },
         { text = "Why do they call you the Youngling?", next = "youngling" },
         { text = "I killed Ol' Sooty, you know.", next = "sooty", when = { questDone = TODO_QUEST("Vyrin's Revenge") } },
-        { text = "What was this bet, Daryl?", next = "bet", when = { questDone = TODO_QUEST("A Hunter's Challenge") } },
+        { text = "Someone at the lodge mentioned a bet, Daryl.", next = "bet", when = { questDone = TODO_QUEST("A Hunter's Challenge") } },
         { text = "Two hunters, one lodge. Let's compare notes.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Good luck with the boasting, Daryl.", next = "END" },
       },
@@ -268,7 +326,7 @@ P:NPC {
           text = "It was a tree branch. A big one, and very sharp, and it fell on me while I was being heroic. That's the story now, and I'm sticking to it." },
       },
       choices = {
-        { text = "Marek says it was a bear called Ol' Sooty.", next = "scar_truth" },
+        { text = "Marek says it was a bear called Ol' Sooty.", next = "scar_truth", when = { heardLine = "lm_marek.dsc_default" } },
         { text = "A knife against a cart-sized beast? Impressive.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -326,5 +384,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "I came to the lodge to make my name, and I've very nearly made it. Daryl the Bold, remember that." } },
     advice = { { id = "tp_ad", text = "Never hunt in a cave alone. That's just good sense, and it has nothing to do with anything." } },
     _none = { { id = "tp_none", text = "That's beneath my notice, I'm afraid. Try Marek, for he notices everything and never lets you forget it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've been to the Faire, naturally, and won every game there twice. They asked me not to come back, which I consider a compliment." } },
+    onyxia = { { id = "tp_onyxia", text = "Onyxia? A black dragon in some swamp in Kalimdor, I'm told. I'd hunt her myself, of course, only I'm needed here." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The arena in Stranglethorn is where real hunters prove themselves, and I'll be going any day now. Any day." } },
   },
 }

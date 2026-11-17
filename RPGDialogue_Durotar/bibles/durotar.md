@@ -41,7 +41,7 @@
 - Kaltunk: gruff greeter; points the way.
 - Gornek: hard taskmaster; "get back up".
 - Zureetha: watchful warlock; hates the Blade for what it means to her own art.
-- Thazz'ril: exasperated foreman; sleeping peons.
+- Thazz'ril: exasperated foreman; sleeping peons. A Darkspear troll: light lilt ("mon", "be" now and then), loa oaths.
 - Galgar: long-suffering cook; cactus apples.
 - Kzan: curt weaponsmith.
 - Gar'Thok: terse commander; the crossroads.
@@ -55,3 +55,7 @@ Kaltunk greets new blood because someone once greeted him (out of the camps, acr
 
 ## 0.34.0 (Persuade check, authored, not canon)
 - Gadrin (Persuade, `zalazane_blame`): Zalazane was the quicker of his two students; Gadrin saw the hunger early and taught him anyway out of pride, and counts every puppet on the isles as partly his.
+
+## Authored, not canon
+- Orgnil's prejudice (0.80.0): every warlock is a cultist he hasn't caught yet, Blade defectors most of all; his old comrade Zelk, a Cleft warlock, went over to the Blade and Orgnil killed him at Skull Rock.
+- Gadrin's prejudice (0.80.0): flinches at the Forsaken because Zalazane raises dead Darkspear; his sister's son, a fisher with a crooked tusk, is among them.

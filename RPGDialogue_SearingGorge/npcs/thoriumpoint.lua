@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_darkiron = {
+      lines = {
+        { id = "opd_default", text = "Ironforge says every Dark Iron is the Firelord's dog, an' the Horde says much the same wi' fewer words. We buy an' sell wi' both, an' we listen. So what d'ye make o' my folk, then?" },
+      },
+      choices = {
+        { text = "The Brotherhood proves the Dark Iron can be free.", next = "op_di_free", fx = { affinity = 2, align = { light = 1 }, opinion = { dark_iron = "redeemable" } } },
+        { text = "I'll trust your steel, Overseer, but not your blood.", next = "op_di_distrust", fx = { affinity = -1, align = { light = -1 }, opinion = { dark_iron = "distrust" } } },
+        { text = "Ironforge and the Brotherhood can trade. That's a start.", next = "op_di_trade", fx = { affinity = 1, opinion = { dark_iron = "mixed" } }, when = { race = "Dwarf" } },
+        { text = "I'm here for the steel, not the history.", next = "BACK" },
+      },
+    },
+    op_di_free = {
+      lines = {
+        { id = "opdf_default", text = "Free's a big word for a wee camp on a cliff, but aye, we're free, an' every one o' us paid for it. Tell that tae Ironforge if they ever ask, which they won't." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_distrust = {
+      lines = {
+        { id = "opdd_default", text = "Ye're no' the first tae say it, an' ye'll no' be the last. Our steel's honest, an' that'll have tae do until our names are." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_trade = {
+      lines = {
+        { id = "opdt_default", text = "Aye, a start, an' the first one in a few hundred years. Ye'd be surprised how many Bronzebeards buy our plans an' swear they found them in a ditch." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_dwarf = {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "Peace is a long word for dwarves and we've a few centuries of grudges to work through first, but trade is a short one, and the Brotherhood has always been good at trade. Ironforge buys our thorium and we buy their bread, and nobody asks too many questions about who fought whom in the War of the Three Hammers." } },
@@ -170,7 +199,7 @@ P:NPC {
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
         { text = "Could the Gorge ever heal, Overseer?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "How did you escape?", next = "escape" },
+        { text = "Not many slaves ever get free of the Dark Irons.", next = "escape" },
         { text = "What does the Brotherhood make?", next = "trade" },
         { text = "And your kin still in the mountain?", next = "kin" },
         { text = "A Dark Iron. I was raised to hate your kind.", next = "dwarf", when = { race = "Dwarf" } },
@@ -180,13 +209,24 @@ P:NPC {
         { text = "What did Thaurissan think he was summoning, Overseer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Did the Dark Irons ever know the Light, Overseer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin do in the Gorge, Overseer?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "What's wrong with my blade, Overseer?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You keep eyeing my blade, Overseer.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts hunt in the Searing Gorge, Overseer?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do the Dark Irons up the road keep that they shouldn't, Overseer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Will your Brotherhood trust a Forsaken paladin, Overseer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragnaros has fallen in the Molten Core, Overseer.", next = "xcl_mc", when = { cleared = "Molten Core" } },
         { text = "Can Dark Iron and Bronzebeard ever make peace, Overseer?", next = "xpt_dwarf", when = { party = { race = "Dwarf" } } },
+        { text = "I was a thrall in the Gorge once, Overseer. A false one.", next = "xorig_thrallspy", when = { origin = "dwarf_searing_gorge_spy" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
+      },
+    },
+    xorig_thrallspy = {
+      lines = {
+        { id = "xothrallspy_default", text = "A false one, says ye. Ironforge's spy, then, countin' sentries while my brothers an' I still wore the Firelord's chains. I'll no' hold it against ye, for we were all of us lyin' tae somebody in those days, but tell me true: did ye count us, too?" },
+      },
+      choices = {
+        { text = "Every one of you, Overseer. It was the job.", next = "BACK", fx = { trait = { honest = 1 } } },
+        { text = "I left the Brotherhood out of my reports.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     escape = {
@@ -196,7 +236,7 @@ P:NPC {
       },
       choices = {
         { text = "That took courage.", next = "BACK", fx = { affinity = 3, trait = { brave = 1 } } },
-        { text = "And now you sell to anyone?", next = "anyone" },
+        { text = "So now you'll sell to anyone at all.", next = "anyone" },
       },
     },
     anyone = {
@@ -221,7 +261,10 @@ P:NPC {
     },
     kin_free = {
       lines = { { id = "kf_default", text = "Some might, if they wanted it, but a slave learns no' tae want, for wantin' gets ye whipped. We wanted it so badly we built our own way out, an' most down there have forgotten how tae want." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "What do the other dwarves make of the Brotherhood?", next = "op_darkiron" },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
     dwarf = {
       big = true,
@@ -258,6 +301,12 @@ P:NPC {
     background = { { id = "tp_ba", text = "Born in the mountain, worked in the mountain, walked out o' the mountain. The last bit's the only part worth tellin'.", next = "escape" } },
     advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself, an' never lend Hansel money, for he'll sit on it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're my kin, my shame an' my sorrow, an' most of them still bend the knee down there. I pray they'll stop, though I've no' much hope." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "I've walked the halls o' Shadowforge City, under the mountain, an' I'll tell ye it's a furnace for the soul. We left it for a reason, an' that reason's still down there." } },
+    thaurissan = { { id = "tp_thaurissan", text = "Thaurissan was our first emperor, an' he called up Ragnaros, an' the whole land burned. The Dark Irons still pay for it, every day." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni's no friend o' the Dark Irons, an' I don't blame him, after what our people did. But the Brotherhood isn't our people, not anymore." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye're a Bronzebeard or a Wildhammer, by the look o' ye, an' ye've come to deal wi' a Dark Iron. That says more about ye than ye'd think, an' it's good." },
+    },
     _none = { { id = "tp_none", text = "If it's no' on the Point, it's no' my concern." } },
   },
 }
@@ -266,6 +315,7 @@ P:NPC {
   key = "hansel", id = TODO_NPC("Hansel Heavyhands"), name = "Hansel Heavyhands",
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "thorium_point" }, temper = { "grumbling" }, values = { "loyal", "lazy" },
+  prejudice = { race = "Dwarf", faction = "Alliance", amount = 8, why = "Ironforge folk spit at the Brotherhood's Dark Iron dwarves, so he spits back, mildly." },
   notices = { "race", "kit" },
 
   impression = {
@@ -274,6 +324,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Och, Ironforge. Ye'll be wantin' tae look down yer nose at the Dark Iron, I expect, so go on an' do it quick, an' then I can sit back down." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "A Bronzebeard at Thorium Point. Yer kin threw a rock at me on the road last month, so forgive me if I keep one eye on yer hands." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ye're the Bronzebeard who doesnae stare. I've told the lads about ye, an' they didnae believe me, but it's true." },
+    { id = "g_op_darkiron", when = { gossip = { topic = "dark_iron", stance = "distrust" } }, text = "Oilfist says ye'd trust our steel but no' us. That's sensible enough, for I'd no' trust me either, but sit doon anyway; the rock's warm." },
     { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good! Ye can do the thing they want me tae do, an' everyone's happy." },
     { id = "g_away", when = { away = 14 }, text = "Och, ye've been gone {away}, an' they've had me doin' the work the whole time. Ye can take it off my hands now, I'd say." },
@@ -287,6 +341,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Why would I? Yer folk see dark skin an' think Thaurissan, an' they don't stop tae ask whether I left him or not. So I've stopped askin' whether ye're any different, an' it saves time, an' I get tae sit down sooner." } },
+      choices = {
+        { text = "The Brotherhood earned their freedom. Ironforge should see that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Dark Irons burned Ironforge's lands. Distrust is earned.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm not here to throw rocks. Sit down, Hansel.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Why did you leave the Dark Irons?", next = "prej_why" },
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Because the Firelord doesnae let ye sit down, an' I mean that true. We worked the forges till our hands blistered for a fire spirit who'd have burnt us without a thought, an' when the Brotherhood walked out, I walked wi' them." } },
+      choices = {
+        { text = "That took courage. More than Ironforge credits.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You served Ragnaros once. Some will never forget it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Och, ye're a kind one. Mind if I take ye at yer word an' sit? Grand." } },
+      choices = {
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The fire elementals, mostly, wanderin' about an' hissin' at the walls. Then there's the Dark Iron down the hill, an' the dragons over in the Steppes, an' Lolo's singin', though I'd never tell him that last one." } },
       choices = {
@@ -356,6 +434,8 @@ P:NPC {
           text = "The Overseer says the lava spiders are frightenin' the bairns, so now twenty of 'em are my job. Ye do it, an' I'll supervise from this chair." },
         { id = "h_incendosaurs", when = { questActive = TODO_QUEST("Incendosaurs? Whateverosaur is More Like It") },
           text = "Incendosaurs, they call 'em, which is a fancy name for big burnin' lizards. Go an' put some out, permanently." },
+        { id = "h_spiders_done", tags = { "news" }, when = { questDone = TODO_QUEST("Fiery Menace!") },
+          text = "The bairns are playin' by the cliff again an' nobody's come home wi' a web in their beard all week, so that's your doin'. The Overseer's stopped glarin' at my chair, which is the best reward I could ask for." },
         { id = "h_tired", when = { metBefore = true },
           text = "Ye know what the best part o' freedom is? Sittin' down whenever ye like, with nobody tellin' ye tae stand, except the Overseer, an' Lolo, an' now you." },
         { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
@@ -365,15 +445,18 @@ P:NPC {
       choices = {
         { text = "What keeps you up on those long nights?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why are you always resting?", next = "resting" },
-        { text = "What's Lolo like to work for?", next = "lolo" },
-        { text = "How big are these lizards?", next = "lizards" },
+        { text = "Lolo seems an easy enough master to work for.", next = "lolo" },
+        { text = "What's the worst beast out in the Gorge?", next = "lizards" },
+        { text = "What did you do inside the mountain?", next = "mountain" },
+        { text = "Are the bairns safe from the spiders now?", next = "bairns", when = { questDone = TODO_QUEST("Fiery Menace!") } },
         { text = "Arm-wrestle me.", next = "wrestle", when = { class = { "WARRIOR", "PALADIN" } } },
-        { text = "My beast could take one of those lizards.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "My beast could take anything in this Gorge.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Doesn't Lolo mind that you sleep on watch?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "No chairs, Hansel, but I could conjure you some water.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you really need a prayer for sore feet, Hansel?", next = "xpriest", when = { class = "PRIEST" } },
-        { text = "Why does the Gorge rumble all night, Hansel?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Gorge rumbles all night long, Hansel.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you really let my demon stand your watch, Hansel?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You don't trust Ironforge dwarves much, Hansel.", next = "prej", when = { prejudiced = true } },
         { text = "I'll handle it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -389,15 +472,41 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     lizards = {
-      lines = { { id = "z_default", text = "Big as a cart, hot as a forge, an' stupid as a boot, an' the stupid's what makes 'em dangerous, because they don't know tae run." } },
+      lines = { { id = "z_default", text = "The incendosaurs are big as a cart, hot as a forge, an' stupid as a boot, an' the stupid's what makes 'em dangerous, because they don't know tae run." } },
       choices = {
-        { text = "Why not deal with them yourself?", next = "lizards_why" },
+        { text = "You could deal with them yourself.", next = "lizards_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     lizards_why = {
       lines = { { id = "zw_default", text = "I could, but I'd have tae stand up, walk down the cliff, fight a lizard an' walk back up the cliff, or ye could, an' that, ye see, is teamwork." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    mountain = {
+      lines = { { id = "mt_default", text = "Carried things, mostly, because I was the biggest, so they gave me the heaviest. Ore carts up from the deep seams, coal down tae the forges, an' now an' then a lad who couldnae walk any further." },
+      },
+      choices = {
+        { text = "You carried the other slaves?", next = "mountain_cart" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mountain_cart = {
+      lines = { { id = "mc_default", text = "Only the ones who fell, an' only when the taskmasters werenae lookin', for a slave who cannae walk was no use tae them. I'd put a lad on top o' the ore an' push, an' that's why my back's the way it is, an' I'd do it again." },
+      },
+      choices = {
+        { text = "That chair is the least you've earned, Hansel.", next = "BACK", fx = { align = { order = -1 }, affinity = 3, trait = { kind = 1 } } },
+        { text = "And now the Point needs that back working again.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bairns = {
+      lines = { { id = "bn_default", text = "Safe as bairns ever are on a cliff over a lava pit, which is no' very, but the spiders were the worst of it. Ye'd think a Dark Iron child would have more sense than tae poke a burnin' spider, but they're braver than us, for they've never known the whip." },
+      },
+      choices = {
+        { text = "Let them stay brave. That's what you escaped for.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Brave children get burned. Teach them fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     wrestle = {
       lines = { { id = "w_default", text = "Ha! Sit, then... no, ye sit, since I'm already sittin', an' that's my advantage. Ready? ...Ye nearly had me there, nearly." } },
@@ -418,6 +527,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "Big, Dark Iron, free an' tired, an' mostly the last two.", next = "resting" } },
     advice = { { id = "tp_ad", text = "Sit down whenever ye can, because ye never know when somebody'll make ye stand." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're no' us, for we're nicer, an' we sit down more." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "I worked in the forges under the mountain for years, an' I'll tell ye, I'd rather sit down. Now I can." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The old emperor called up a fire lord an' burned the land, an' we've been payin' for it ever since. I'd like to have a word wi' him, sittin' down." } },
+    magni = { { id = "tp_magni", text = "Magni's a king, an' I'm a Dark Iron, so we'll no' be havin' a drink anytime soon. I'd sit down wi' him, though." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, an' couldnae be bothered either, so ask Lolo." } },
   },
 }
@@ -541,6 +653,8 @@ P:NPC {
           text = "That fellow southeast o' here, with the sad story about his father? I've never once smelled grief on him; I smelled somethin', but no' grief." },
         { id = "h_maltorius", tags = { "news" }, when = { questActive = TODO_QUEST("WANTED: Overseer Maltorius") },
           text = "Maltorius is overseer o' the Dark Iron slaves in the Gorge, an' a cruel one. The poster's up, so bring me his head, an' I'll... know it when I feel it." },
+        { id = "h_malt_done", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") },
+          text = "It's quieter down in the Cauldron since ye dealt wi' Maltorius, an' I can hear it from up here. The whips are fewer o' a night, though no' gone, an' I'll thank ye for every one that's stopped." },
         { id = "h_drink", when = { metBefore = true },
           text = "Folk say I drink too much for a lookout, an' I say I'd see nothin' at all without it. They've no answer tae that, an' neither have I, come tae think of it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ah, I can smell the oil on yer armor an' hear it clankin' from here, so ye're either a warrior or a very loud thief, an' I'm hopin' for warrior." },
@@ -549,11 +663,14 @@ P:NPC {
       again = { { id = "h_again", text = "Aye, aye, still here. I can hear ye fidgetin'." } },
       choices = {
         { text = "How do you keep watch, blind?", next = "watch" },
-        { text = "Who's Maltorius?", next = "maltorius" },
+        { text = "What do you hear from the Gorge at night?", next = "maltorius" },
         { text = "What did you smell on Kalaran?", next = "kalaran", when = { heardClaim = "kalaran_father" } },
         { text = "Does the drink really help?", next = "drink" },
+        { text = "How did you lose your sight, Captain?", next = "eyes" },
+        { text = "What do you make of Hansel?", next = "l_hansel" },
+        { text = "Maltorius is dead, Captain.", next = "malt_done", when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") } },
         { text = "I could sneak up on the Point, Captain.", next = "k_rogue", when = { class = { "ROGUE", "DRUID" } } },
-        { text = "How can you smell that I'm a mage?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I didn't know a mage had a smell.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my imp bother you, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You can smell the Light on me, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can you really smell a warrior coming, Captain?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -561,7 +678,7 @@ P:NPC {
         { text = "What can you smell on a priest, Captain?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What does the Gorge smell like to you, Captain?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you watch for from up here, Captain?", next = "xpt_hunter", when = { party = { class = "HUNTER" } } },
-        { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
+        { text = "Keep your nose to the wind, Captain.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
     watch = {
@@ -581,7 +698,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     maltorius = {
-      lines = { { id = "m_default", text = "He's overseer o' the slaves still workin' the Gorge for the Firelord's people, an' it's whips, mostly. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
+      lines = { { id = "m_default", text = "Whips, mostly, held by Maltorius, overseer o' the slaves still workin' the Gorge for the Firelord's people. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
       choices = {
         { text = "Then someone should stop those whips.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Slaves in the Gorge are the Firelord's business, not mine.", next = "BACK", fx = { align = { light = -1 } } },
@@ -594,6 +711,38 @@ P:NPC {
       choices = {
         { text = "Maybe your nose is wrong.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "I'll keep my eyes open.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = 1 } },
+      },
+    },
+    eyes = {
+      lines = { { id = "ey_default", text = "Ask me sober an' I'll tell ye it's none o' yer business, an' ask me drunk an' I'll tell ye a different tale every time. Last week it was a fire elemental, an' the week before it was a wager wi' a Bronzebeard, an' I liked that one best." },
+      },
+      choices = {
+        { text = "And the true story?", next = "eyes_true" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eyes_true = {
+      lines = { { id = "et_default", text = "The true story is that I'm captain o' the lookouts, an' nobody's got past me yet. What I lost doesnae matter half as much as what I kept, so that's the only story I tell sober." },
+      },
+      choices = {
+        { text = "Nobody's taken your wall. That's the only test that counts.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "The Point still deserves a lookout who can see.", next = "BACK", fx = { align = { order = 1 }, affinity = -2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    l_hansel = {
+      lines = { { id = "lh_default", text = "Best man on the Point, an' the laziest, an' I'd no' trade him for ten who work harder. When there's real trouble on the road, Hansel's the first one standin', an' I always know where he is, for I can hear him snorin' from the gate." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    malt_done = {
+      big = true,
+      lines = { { id = "md_default", text = "So I heard, an' I knew it before the runner came, for the whips went quiet. They'll send another, they always do, but the one after Maltorius will remember what happened tae Maltorius, an' that's worth somethin'." },
+      },
+      choices = {
+        { text = "Then I'll deal with the next one too.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I was paid for a head. The rest isn't my concern.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     drink = {
@@ -616,6 +765,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a lookout since before I lost my eyes, an' I kept the job after, for nobody's dared take it off me." } },
     advice = { { id = "tp_ad", text = "Listen more than ye look, because eyes lie an' the wind doesnae." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I can smell a Dark Iron from the far side o' the Gorge, an' the ones up on the ridge smell like trouble. The ones here at the Point smell like ale, which I prefer." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Shadowforge folk under the mountain smell o' brimstone an' bad intentions. I've smelled them comin' for years." } },
+    magni = { { id = "tp_magni", text = "Magni's no friend o' ours, but he's no enemy either, not anymore. That's enough for me." } },
     _none = { { id = "tp_none", text = "Never seen it, ha, never seen anything! Ask someone else." } },
   },
 }
@@ -642,6 +794,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_vengeance = {
+      lines = {
+        { id = "opv_default", text = "Reason enough? It's the only reason that has never once lied to me. But you've the look of someone who's been told otherwise by a priest or a parent, so tell me what you believe." },
+      },
+      choices = {
+        { text = "Vengeance is justice with the gloves off. I approve.", next = "op_venge_yes", fx = { affinity = 1, align = { light = -1 }, opinion = { vengeance = "admire" } } },
+        { text = "Vengeance eats the one who carries it.", next = "op_venge_no", fx = { affinity = -1, align = { light = 1 }, opinion = { vengeance = "wrong" } } },
+        { text = "Burn their towers first. We can talk philosophy later.", next = "op_venge_yes", fx = { trait = { brave = 1 }, opinion = { vengeance = "useful" } } },
+        { text = "I'd rather not judge your grief.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_venge_yes = {
+      lines = {
+        { id = "opvy_default", text = "Good. Then take the torch and use it, and don't look back at the smoke, because the smoke is the only thanks the Dark Iron will ever give you." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_venge_no = {
+      lines = {
+        { id = "opvn_default", text = "Eats me? Perhaps, and perhaps I've been eaten already and only kept walking out of habit. Burn the towers anyway; the Dark Iron deserve it whatever it costs me." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In blood, as my father paid, and in fear, so that they remember who came for them. You're a warrior, so you understand that some debts are only settled with steel, and I'd rather not say more of it than that." } },
@@ -749,12 +924,12 @@ P:NPC {
       choices = {
         { text = "Tell me about your father.", next = "father" },
         { text = "Which Dark Iron? The Brotherhood?", next = "which" },
-        { text = "What will the torch do?", next = "torch" },
+        { text = "How do you mean to make them pay?", next = "torch" },
         { text = "Lolo says you don't smell of grief.", next = "lolo", when = { heardLine = "lolo.h_kalaran" } },
         { text = "You tell your story very smoothly, Kalaran.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What kind of fire does your torch need?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What kind of fire would settle your debt?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you want the Dark Iron to pay, Kalaran?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do you hunt the Dark Iron like beasts, Kalaran?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "You track the Dark Iron the way I'd track a beast.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who commands the fire in this Gorge, Kalaran?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you want a mage's fire for, Kalaran?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would healing the Gorge really be a strange mercy, Kalaran?", next = "xdruid", when = { class = "DRUID" } },
@@ -785,13 +960,14 @@ P:NPC {
     which = {
       lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron, and those at the Point trade with anyone, so they'd have traded with his killers, too." } },
       choices = {
+        { text = "Is vengeance reason enough to fight, Kalaran?", next = "op_vengeance" },
         { text = "The Brotherhood escaped the same masters.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
         { text = "You're right. Dark Iron is Dark Iron.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     torch = {
-      lines = { { id = "t_default", text = "Burn, as he burned. Bring me the pieces and you'll see, and you'll see a great deal, at the end." } },
+      lines = { { id = "t_default", text = "With a torch that will make them burn, as he burned. Bring me the pieces and you'll see, and you'll see a great deal, at the end." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lolo = {
@@ -837,6 +1013,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I am my father's son, and that is all I am until his killers are ash.", next = "father" } },
     advice = { { id = "tp_ad", text = "Never forgive what was taken from you, because forgiveness is how they win." } },
     dark_iron = { { id = "tp_dark_iron", text = "Murderers, every one of them. Don't let the ones at Thorium Point fool you; it's in the blood." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "My father's killers hide in their city beneath the mountain, and I'll have them out of it. Fire calls to fire, and I'm patient." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons are a power in this land, and I'd not speak lightly of them. Some debts are owed in fire." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The Dark Iron emperor called a fire lord and burned his own kingdom. I've always thought he was a fool to do it, and a greater fool to think he could control it." } },
     _none = { { id = "tp_none", text = "That doesn't concern my vengeance, and nothing else matters." } },
   },
 }

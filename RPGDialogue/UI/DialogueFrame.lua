@@ -824,7 +824,7 @@ function D.SetDisposition(d, noLayout)
   if not noLayout then D.Layout() end
 end
 
-local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY" }
+local WHY_KEYS = { affinity = "DISP_WHY_AFFINITY", unfriendly = "DISP_WHY_UNFRIENDLY", prejudice = "DISP_WHY_PREJUDICE" }
 
 function D.DispositionTooltip(owner)
   local d = frame.disp.value

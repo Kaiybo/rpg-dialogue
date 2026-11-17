@@ -28,6 +28,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_crusade = {
+      lines = {
+        { id = "opn_crusade_q", text = "Some o' the Silver Hand's own went over tae them after Uther fell, an' I trained alongside one or two. They burn the dead an' a fair few o' the livin' with 'em, by the stories comin' south. Ye've heard the same stories, I'd wager, so tell me what ye think." },
+      },
+      choices = {
+        { text = "Someone has to hold Lordaeron. At least they're fighting.", next = "opn_crusade_r_admire", fx = { align = { order = 1 }, opinion = { scarlet_crusade = "admire" } } },
+        { text = "They're zealots, and they shame the Light.", next = "opn_crusade_r_hate", fx = { affinity = 1, align = { order = -1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "I pity them. Grief made them that way.", next = "opn_crusade_r_pity", fx = { trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They'd burn me on sight, Brandur. I know where I stand.", next = "opn_crusade_r_hate", when = { race = "Scourge" }, fx = { opinion = { scarlet_crusade = "hate" } } },
+        { text = "I haven't seen enough to judge.", next = "BACK" },
+      },
+    },
+    opn_crusade_r = {
+      lines = {
+        { id = "opn_crusade_r_default", text = "Then keep yer eyes open when ye go north, an' judge 'em by what they do tae the farmers, no' by what they shout." },
+      },
+      choices = {
+        { text = "Something else, Brandur.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_admire = {
+      lines = {
+        { id = "opn_crusade_r_admire", text = "Fightin', aye, an' I'll grant 'em that much. But a paladin's no' measured by how hard he swings; he's measured by who he spares, an' they've stopped sparin' anyone." },
+      },
+      choices = {
+        { text = "Something else, Brandur.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_hate = {
+      lines = {
+        { id = "opn_crusade_r_hate", text = "Hard words, an' I've thought 'em myself on a bad night. Just mind ye don't hate 'em the way they hate everyone else, or ye're halfway tae wearin' the tabard." },
+      },
+      choices = {
+        { text = "Something else, Brandur.", next = "BACK" },
+      },
+    },
+    opn_crusade_r_pity = {
+      lines = {
+        { id = "opn_crusade_r_pity", text = "Aye, that's the right of it, an' it's the hardest thing tae hold ontae when one o' them's comin' at ye wi' a torch. Hold ontae it anyway." },
+      },
+      choices = {
+        { text = "Something else, Brandur.", next = "BACK" },
+      },
+    },
     xpt_brandur = {
       big = true,
       lines = { { id = "xpt_brandur_default", text = "Heal them before they ask, an' never tell them they'd have died without ye, because they'll know, an' that does more than any lecture. If they still strut after that, put a wee bit o' salt in their ale." } },
@@ -176,7 +220,10 @@ P:NPC {
       lines = {
         { id = "ln_default", text = "Now Ironforge trains its own, here in the Hall, wi' the same oaths an' better beer." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What do you make of the Scarlet Crusade?", next = "opn_crusade" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     owe = {
       lines = {
@@ -220,6 +267,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand an' a trainer in the Hall. I've sent more young ones up tae Tiza than I can count, an' I can count." } },
     advice = { { id = "tp_ad", text = "Mend yer armor before ye pray. The Light hears ye either way, but the troll's quicker." } },
     tome_of_divinity = { { id = "tp_tome", text = "Tiza teaches it here an' Rall teaches it in Stormwind. It's the same book, just in different accents." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's a plain thing at heart: ye stand up for folk who cannae stand up for themselves, an' ye mean it. The rest is sermons, an' I give a few o' those too." }, { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Ye know it already, I'd wager, in yer arms when ye swing an' in yer chest when ye stand fast. The Light's no' a book; it's a beard that grows on the inside." } },
+    scourge = { { id = "tp_scourge", text = "The dead are the Light's oldest enemy an' its plainest, an' there's nae question which side ye're on. Every paladin o' this hall will see the north sooner or later." } },
+    silver_hand = { { id = "tp_silver_hand", text = "Uther's order did right by the world until the plague, an' there's still a few o' them scattered through the Hinterlands an' the north. Them as are left are worth ten men each." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Zealots, an' good men gone sour wi' grief. They fight the dead, aye, but they've started burnin' the livin' too, an' that's no' the Light I teach." } },
     _none = { { id = "tp_none", text = "That's no' a matter for the Hall o' Mysteries. Ask up in the Commons." } },
   },
 }
@@ -342,15 +393,15 @@ P:NPC {
       },
       choices = {
         { text = "How are the children?", next = "children" },
-        { text = "Aren't you always here?", next = "always" },
+        { text = "You always seem to be here.", next = "always" },
         { text = "Where do the children come from?", next = "where" },
-        { text = "Why collect in Ironforge?", next = "why_if" },
+        { text = "Ironforge seems an odd place to collect for orphans.", next = "why_if" },
         { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "I could pray with them, back in Stormwind.", next = "pray", when = { class = "PRIEST" } },
         { text = "I grew up on the canal docks myself.", next = "canals", when = { race = "Human", class = "ROGUE" } },
         { text = "Would a little magic really cheer the orphans?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think a warlock's coin would taint the orphans?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do the orphans really want to become warriors, John?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd wager the orphans all want to become warriors, John.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would the orphans really want to hear hunting stories?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the orphans really want a paladin to visit them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are there kaldorei children among Stormwind's orphans?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -381,7 +432,7 @@ P:NPC {
       },
       choices = {
         { text = "Very close.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "You miss her, don't you?", next = "miss" },
+        { text = "You miss her, I think.", next = "miss" },
       },
     },
     miss = {
@@ -444,6 +495,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "John Turner, of the Stormwind orphanage: Stephanie's husband, collector of linen, and the most persistent man in Ironforge." } },
     advice = { { id = "tp_ad", text = "Ask twice. Most people say no the first time out of habit." } },
     tome_of_divinity = { { id = "tp_tome", text = "The young paladins bring Stephanie linen as part of their training, and it's the best thing the Church ever started." } },
+    varian = { { id = "tp_varian", text = "The children ask after the King every week, as if I'd know more than the town criers. I tell them he'll come home, because they need to hear it, and I pray it isn't a lie." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar visited the orphanage once and let the boys hold his shield, which nearly flattened two of them. They've talked about nothing else for a month." } },
+    scourge = { { id = "tp_scourge", text = "Some of our children came south from Lordaeron with nobody but strangers to carry them. They don't talk about the north, and I don't ask." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a warm meal and a dry bed for a child who had neither yesterday. If the sermons don't get to that, they're only noise." } },
     _none = { { id = "tp_none", text = "No idea! But the orphans of Stormwind could use your help." } },
   },
 }
@@ -544,7 +599,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil." },
+        { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil, while my wife Daphne keeps our farm in Westfall." },
         { id = "h_fist", tags = { "news" }, when = { questActive = TODO_QUEST("The Test of Righteousness") },
           text = "Bosch Verigan was my friend. This hammer will carry his name, and it'll go to a paladin worthy of it, which I hope is you." },
         { id = "h_daphne", when = { questDone = TODO_QUEST("The Tome of Valor") },
@@ -565,17 +620,17 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can listen and hammer at once." },
       },
       choices = {
-        { text = "Who was Verigan?", next = "verigan" },
-        { text = "Why work outside the gates?", next = "outside" },
+        { text = "Who was Verigan?", next = "verigan", when = { any = { { questActive = TODO_QUEST("The Test of Righteousness") }, { questDone = TODO_QUEST("The Test of Righteousness") } } } },
+        { text = "Most smiths would work inside the gates.", next = "outside" },
         { text = "Where did you learn your craft?", next = "learned" },
         { text = "Tell me about Daphne.", next = "daphne" },
-        { text = "You trained as a paladin?", next = "paladin_path", when = { class = "PALADIN" } },
+        { text = "So you trained as a paladin once.", next = "paladin_path", when = { class = "PALADIN" } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Do you forge for warriors, or only the faithful?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Does the Church's smith not deal with rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can a warlock's presence harm blessed metal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you forge for hunters as well as the faithful?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you pray at your anvil, Jordan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess you pray at your anvil, Jordan.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can work at the anvil count as prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the arcane spoil a blessing, Jordan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would the Light's smith forge for a shaman, Jordan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -607,7 +662,7 @@ P:NPC {
         { id = "le_default", text = "From my father first, at a keep in Silverpine. Then from Bailor Stonehand in Thelsamar, who taught me what a dwarf's forge can do that a man's can't." },
       },
       choices = {
-        { text = "A keep in Silverpine?", next = "keep" },
+        { text = "Silverpine is a long way from Ironforge.", next = "keep" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -672,6 +727,9 @@ P:NPC {
     tome_of_divinity = { { id = "tp_tome", text = "Faith first, then the hammer, and Rall's right about that. Being a smith, I'd put it the other way round, if he'd let me." } },
     westfall = { { id = "tp_westfall", text = "My Daphne keeps the farm there. She's a stubborn woman, and I married her for it." } },
     defias = { { id = "tp_defias", text = "Daphne fights them at our own door. Stormwind's advisors took a good deal longer to notice them than she did." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is like good iron: honest, plain, and better for the hammering. I pray at the anvil, mostly, since it's where I do my best listening." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord is a fair man and a soldier first, and the Church trusts him. If he holds the throne until the King is found, Stormwind could do far worse." } },
+    scourge = { { id = "tp_scourge", text = "I've seen smiths come down from the north who'd forged for Lordaeron's armies, and they don't speak of what they saw. The plague took their kingdom, and they're still forging as if they could win it back." } },
     _none = { { id = "tp_none", text = "I couldn't say, I'm afraid. I only know hammers and prayers." } },
   },
 }

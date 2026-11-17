@@ -2,6 +2,17 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Prejudices (0.80.0): Magatha Grimtotem (orcs, trolls and the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- New: Kaga Mistrunner, meat vendor, despises the Forsaken apothecaries, the Venture Company and orc warlocks. A [Persuade] gets out who really saved her son's leg, and your advice changes her next visit.
+- New file: needs a full game restart, not /reload.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New Forever-only characters (new files: full game restart): Borook Gallfist, the Darkspear Islands battlemaster.
+- New people to talk to: Xanis Flameweaver, Bluff Runner Windstrider, Ghede, Orm Stonehoof, Karn Stonehoof, Ahanu, Bulrug.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.23.0 (2026-11-17)
 - 24 new people: Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Rahauro, Bashana Runetotem, Mosarn, and the trainers of all three rises. New files: restart the game fully (a /reload won't load them).
 

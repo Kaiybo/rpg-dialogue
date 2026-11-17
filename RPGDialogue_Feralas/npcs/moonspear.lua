@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_tyr_admire", when = { gossip = { topic = "tyrande", stance = "admire" } }, text = "The General says you spoke well of the High Priestess. That will earn you some patience from me, and I have very little to spare." },
     { id = "g_default", text = "State your business. The naga don't stop for pleasantries, so neither do I, and my boots have been full of seawater since dawn." },
     { id = "g_scales", when = { questActive = TODO_QUEST("Against the Hatecrest") }, text = "Ten Hatecrest scales, in good condition. You know how to get them." },
     { id = "g_shalzaru", when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "Ah, the one who put Shalzaru down. You're welcome on this island any time, and I mean that." },
@@ -31,6 +32,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "The Horde's tauren sit at Camp Mojache across the Twin Colossals, and they fight the same ogres we do. My Sentinels ask me whether we should leave them be. What would you say?" },
+      },
+      choices = {
+        { text = "Leave them be. Fight the naga, not the tauren.", next = "op_horde_r1", fx = { align = { light = 1 }, opinion = { horde = "tolerate" } } },
+        { text = "Drive them out. Feralas is kaldorei land.", next = "op_horde_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "war" } } },
+        { text = "The Horde has kept its word at Theramore. Let them keep it here.", next = "op_horde_r3", fx = { opinion = { peace = "peace" } }, when = { faction = "Alliance" } },
+        { text = "Mojache means you no harm, Moonspear. You have my word.", next = "op_horde_r4", fx = { affinity = 1, opinion = { horde = "kin" } }, when = { faction = "Horde" } },
+        { text = "That's not mine to say, Moonspear.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "That is the sensible answer, and the one the General has chosen. I would only add that I count their sentries all the same." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "Many of my Sentinels agree with you, and so might I on a worse day. But the naga come first, and I will not fight two wars to please my temper." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "Theramore is a long way from Feralas, but perhaps you're right. I'll leave the question to the General, which is where it belongs." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "Your word, from a stranger of the Horde, at Feathermoon. I'll write that down, and I'll hold you to it." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Latronicus Moonspear, and I serve General Feathermoon and this Stronghold. If you're here to fight the naga, you're welcome, and if you're here for chit-chat, I'm afraid I'm unavailable." },
@@ -50,15 +95,15 @@ P:NPC {
           text = "One of our own, good. You'll understand why I don't let the island go unwatched for a single night." },
       },
       again = {
-        { id = "h_again", text = "Something else? Make it quick." },
-        { id = "h_again2", text = "Go on. I can spare a moment more." },
+        { id = "h_again", text = "Something else? Make it quick; the naga have had ten thousand years to plan, and I'd rather not give them another hour." },
+        { id = "h_again2", text = "Go on. I can spare a moment more, Elune grant me patience." },
       },
       choices = {
-        { text = "What are the naga doing at Solarsal?", next = "naga" },
-        { text = "Shandris says you complain more than she does.", next = "shandris" },
-        { text = "Who's this Vestia?", next = "vestia" },
-        { text = "Any word of the missing courier?", next = "courier" },
-        { text = "Night elves aren't warmongers. Why strike first?", next = "strike" },
+        { text = "What are the naga up to?", next = "naga" },
+        { text = "Shandris says you complain more than she does.", next = "shandris", when = { heardLine = "shandris.w_default" } },
+        { text = "Have you family on the isle?", next = "vestia" },
+        { text = "Any other news from the isle?", next = "courier" },
+        { text = "Why fight the naga at all? Night elves aren't warmongers.", next = "strike" },
         { text = "I've fought naga before. What should I know?", next = "veteran", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Give me a task.", next = "BUSINESS" },
         { text = "I'll let you work.", next = "END" },
@@ -73,7 +118,10 @@ P:NPC {
     },
     naga_lead = {
       lines = { { id = "nl_default", text = "A handful of their lords and ladies, each crueler than the last. Bring one of them down and you set their plans back weeks, if not months, and I'll take months gladly." } },
-      choices = { { text = "Let me ask something else.", next = "BACK" } },
+      choices = {
+        { text = "Should Feathermoon fight the Horde as well?", next = "op_horde" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
     },
     shandris = {
       lines = { { id = "sh_default", text = "Does she now? Then she's been sleeping more than she lets on, which I'll take up with her. The General and I have kept this island watched since the day we landed, and neither of us has slept well since." } },
@@ -82,7 +130,7 @@ P:NPC {
     vestia = {
       lines = { { id = "v_default", text = "My wife, a fine priestess for this community and one of the most learned scholars you'll find anywhere. When I bring home something I don't understand, which is often, it goes to Vestia." } },
       choices = {
-        { text = "She calls you Latro, doesn't she?", next = "vestia_latro" },
+        { text = "She calls you Latro, doesn't she?", next = "vestia_latro", when = { any = { { questActive = TODO_QUEST("Delivering the Relic") }, { questDone = TODO_QUEST("Delivering the Relic") } } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,7 +139,7 @@ P:NPC {
       choices = { { text = "Then I'll go and earn it, Latronicus.", next = "BACK" } },
     },
     courier = {
-      lines = { { id = "c_default", text = "Nothing, and it's been more than a week, so I've had to declare him missing in action. Ginro Hearthkindle hasn't given up, though; speak with him, if you've time to spare." } },
+      lines = { { id = "c_default", text = "Only that our courier never came back, and it's been more than a week, so I've had to declare him missing in action. Ginro Hearthkindle hasn't given up, though; speak with him, if you've time to spare." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     strike = {
@@ -113,6 +161,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A soldier of Darnassus, General Feathermoon's second, and Vestia's husband. In that order on duty, and the other order off it." } },
     advice = { { id = "tp_ad", text = "Assume your enemy will come for what's yours, and act before they do. Hope is not a defense." } },
     sentinels = { { id = "tp_sent", text = "The finest soldiers on Kalimdor, and the General is the finest of them. I'll argue the point with anyone." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande sent the general to hold Feralas, and the general sent me to hold the naga. Everyone in this chain knows what is expected of them." } },
+    elune = { { id = "tp_elune", text = "Elune keeps my wife safe in those ruins, and my arrows keep the naga busy elsewhere. I trust both, but I sharpen the arrows myself." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne built the ruins my wife studies, and the naga are what the Highborne became under the sea. I find that a poor advertisement for their wisdom." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas was the Highborne's last great city, and now we call it Dire Maul because the ogres moved in. My wife grieves the name more than the city." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The naga call her their queen still, after ten thousand years at the bottom of the sea. Some loyalties should be allowed to drown." } },
     _none = { { id = "tp_none", text = "I've no time for that. Ask Shyria at the inn; she hears everything and has the time to repeat it." } },
   },
 }
@@ -128,7 +181,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Yes, may I help you? Forgive the books; they multiply when I'm not looking." },
+    { id = "o_horde_war", when = { gossip = { topic = "horde", stance = "war" } }, text = "My husband says you'd drive the Horde out of Feralas. Please don't say so in front of him again, because he's already fighting one war and sleeping too little for it." },
+    { id = "g_default", text = "Ishnu-alah! Yes, may I help you? Forgive the books; they multiply when I'm not looking, like moonmoths." },
     { id = "g_relic", when = { questDone = TODO_QUEST("Delivering the Relic") }, text = "Still working on that relic of yours, I'm afraid. It's being very stubborn, much like the man who sent it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've filled another notebook in that time. Come and tell me where you've been." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "People here speak warmly of you, and in Feathermoon that's no small thing. Elune's blessings on you." },
@@ -143,6 +197,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_arcane = {
+      lines = {
+        { id = "opa_q", text = "That's the question I ask myself every time Latronicus brings me another relic, and I'd like an outsider's answer for once. What do you think of arcane magic?" },
+        { id = "opa_q_mage", when = { class = "MAGE" }, text = "You're a mage, so you'll have thought about this more than most. Tell me honestly what you think of the arcane, now that you've seen what it did to the highborne." },
+      },
+      choices = {
+        { text = "It's a tool. In careful hands it does great good.", next = "op_arcane_r1", fx = { align = { order = 1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "It's a disease, as you said. Every mage is a risk.", next = "op_arcane_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "It burned the Well of Eternity. Your people were right to forbid it.", next = "op_arcane_r3", fx = { affinity = 2, opinion = { arcane_magic = "wrong" } }, when = { race = "NightElf" } },
+        { text = "It's power, and power is worth the risk.", next = "op_arcane_r4", fx = { affinity = -2, trait = { ambitious = 1 }, opinion = { arcane_magic = "power" } } },
+        { text = "I'll leave magic to the scholars, Vestia.", next = "BACK" },
+      },
+    },
+    op_arcane_r1 = {
+      lines = {
+        { id = "op_arcane_r1", text = "Careful hands, yes, and I've seen how rare those are. I'll hope yours are among them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_arcane_r2 = {
+      lines = {
+        { id = "op_arcane_r2", text = "I said I study it like a disease, and I meant only that I am careful. I'd not call every mage a risk, though I understand why you would." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_arcane_r3 = {
+      lines = {
+        { id = "op_arcane_r3", text = "We were, and the Sisterhood still teaches it to every novice. Remember it whenever a relic whispers to you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_arcane_r4 = {
+      lines = {
+        { id = "op_arcane_r4", text = "That is exactly what Queen Azshara believed, and you've seen what her people became in the water. Be careful, please." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Vestia, a priestess of this community, and a scholar when the community lets me be one. My husband says I'd read the naga's shopping lists if he brought them home, and he isn't wrong." },
@@ -154,14 +253,14 @@ P:NPC {
           text = "A sister of the moon, or nearly! Sit down, please, and tell me what news there is from the Temple." },
       },
       again = {
-        { id = "h_again", text = "Was there something else? I'm happy to put the book down." },
+        { id = "h_again", text = "Was there something else? I'm happy to put the book down; it's waited a few centuries, it can wait a few minutes more." },
         { id = "h_again2", text = "Ask away. I've been talking to parchment all morning." },
       },
       choices = {
         { text = "What do you make of the relic?", next = "relic", when = { questDone = TODO_QUEST("Delivering the Relic") } },
         { text = "What are you studying?", next = "study" },
-        { text = "Tell me about Latro.", next = "latro" },
-        { text = "Why do the naga dig in the ruins?", next = "naga" },
+        { text = "Tell me about your husband.", next = "latro" },
+        { text = "What do you make of the naga?", next = "naga" },
         { text = "How do you balance prayer and study?", next = "priest", when = { class = "PRIEST" } },
         { text = "Do you have anything for me?", next = "BUSINESS" },
         { text = "I'll leave you to your books.", next = "END" },
@@ -199,14 +298,17 @@ P:NPC {
     },
     study_high = {
       lines = { { id = "sh_default", text = "It is, and I study it the way one studies a disease, carefully and without falling in love with it. The highborne's magic nearly ended our people once, and remembering that is half of why I read." } },
-      choices = { { text = "A wise way to put it.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What do you think of the arcane yourself?", next = "op_arcane" },
+        { text = "A wise way to put it.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     latro = {
       lines = { { id = "l_default", text = "He's brusque and tired and very good at what he does, and he's kinder than he lets anyone see. He brings me puzzles the way other husbands bring flowers, and I like puzzles better." } },
       choices = { { text = "He seems lucky to have you.", next = "BACK", fx = { affinity = 1 } } },
     },
     naga = {
-      lines = { { id = "n_default", text = "That is the question I lose sleep over. They're not simply raiding; they're excavating, carefully, as if they know exactly what they're looking for." } },
+      lines = { { id = "n_default", text = "They are, and that is what I lose sleep over. They're not simply raiding; they're excavating, carefully, as if they know exactly what they're looking for." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     priest = {
@@ -219,6 +321,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priestess, a scholar and Latro's wife. I've been asked which matters most, and I've never managed an answer." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory is a kind priestess but a poor scholar." } },
     highborne = { { id = "tp_hb", text = "Brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
-    _none = { { id = "tp_none", text = "I'm afraid that isn't in any of my books. Not yet, at least." } },
+    elune = { { id = "tp_elune", text = "I am a priestess of Elune before I am a scholar, though Latro says the order runs the other way. He is usually right about me, which is very annoying." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would give a great deal to read a single shelf of it." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The tablets Latro brings back from the naga ruins speak of Azshara as a goddess. It is chilling to read, and very well written, which is more chilling still." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids walk in the Dream, and the priestesses of Elune pray beneath the moon, and we have had ten thousand years to argue about which is wiser. I think we are both a little right." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande blessed our marriage herself, and Latro cried, though he will tell you it was the incense. Please do not tell him I told you." } },
+    _none = { { id = "tp_none", text = "I'm afraid that isn't in any of my books, and not in the Temple's either. Not yet, at least." } },
   },
 }

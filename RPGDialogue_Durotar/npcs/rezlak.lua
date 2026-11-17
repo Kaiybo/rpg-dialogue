@@ -35,6 +35,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Rezlak, Tinkers' Union, one of Gazlowe's boys. The boss sent me up from Ratchet to keep the orcs supplied, pal, and that'd be easy money if the harpies would stop eating my caravans and my profits along with 'em." },
+        { id = "h_op_venture", when = { opinion = { topic = "venture_company", stance = "hate" } },
+          text = "Hey, it's the Venture-hater! Pal, you've got no idea how good that is for my reputation, so stand right there where the orcs can see us talking." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Winds in the Desert") },
           text = "You look like you can swing something sharp, pal. The last shipment, the one they PROMISED would get through, got snatched by the Dustwind harpies down in Razorwind Canyon, and I need those supplies back before somebody up the chain notices the hole in my books." },
         { id = "h_sacks_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Winds in the Desert"), days = 3 } },
@@ -62,7 +64,7 @@ P:NPC {
     caravans = {
       lines = { { id = "c_default", text = "The Dustwind harpies nest in Razorwind Canyon, pal, right where the road squeezes between the walls. A kodo can't turn around in there, and a harpy can drop on you from three sides, so every caravan's a coin toss, and I keep losing the toss and the coin." } },
       choices = {
-        { text = "Why not hire guards?", next = "guards" },
+        { text = "You should hire guards.", next = "guards" },
         { text = "Then go around the canyon.", next = "around" },
       },
     },
@@ -90,7 +92,7 @@ P:NPC {
       lines = { { id = "o_default", text = "Orgrimmar didn't build itself, pal. Gazlowe put his boys to work on it back when the Warchief first landed, and the orcs have been good customers ever since, which in my line of work is the same as being friends, only with invoices." } },
       choices = {
         { text = "So you're friends with whoever pays.", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "Do the orcs trust you?", next = "trust" },
+        { text = "The orcs can't trust you much.", next = "trust" },
       },
     },
     trust = {
@@ -102,7 +104,34 @@ P:NPC {
       choices = {
         { text = "I'll tell him you're working hard.", next = "BACK", fx = { affinity = 1, learn = { "steamwheedle" } } },
         { text = "I'll tell him what I see.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+        { text = "Are all goblins like Gazlowe?", next = "venture_op" },
       },
+    },
+    venture_op = {
+      lines = { { id = "vo_default", text = "Like the boss? Pal, I wish. There's the Venture Company up in Stonetalon chewing through the forest and anybody standing in it, and every time they do, somebody spits at my caravans, so tell me: when you think goblin, do you think Gazlowe or them?" } },
+      choices = {
+        { text = "Gazlowe built Orgrimmar. That's what goblins mean to me.", next = "vo_gazlowe", fx = { affinity = 2, opinion = { goblins = "respect", steamwheedle = "trust" } } },
+        { text = "The Venture Company should be hunted out of Stonetalon.", next = "vo_hunt", fx = { affinity = 1, align = { light = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "The Venture Company gets results. I can't fault that.", next = "vo_results", fx = { affinity = -1, align = { light = -1 }, opinion = { venture_company = "useful" } } },
+        { text = "Goblins are goblins. You all sell to the highest bidder.", next = "vo_same", fx = { affinity = -1, opinion = { goblins = "distrust" } } },
+        { text = "Never met the Venture Company, Rezlak.", next = "BACK" },
+      },
+    },
+    vo_gazlowe = {
+      lines = { { id = "vog_default", text = "Now that's what I like to hear, buddy! I'm gonna tell the boss you said it, and then I'm gonna tell him I said it first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    vo_hunt = {
+      lines = { { id = "voh_default", text = "Hunt 'em with my blessing, pal, and if you find any shredder parts lying around afterward, I know a buyer. Strictly salvage, you understand." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    vo_results = {
+      lines = { { id = "vor_default", text = "Results, sure, if you like your results on fire with a tauren war party chasing 'em. Do me a favor and don't say that near my caravans, buddy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    vo_same = {
+      lines = { { id = "vos_default", text = "Highest bidder? Pal, I sell to the first bidder, because the highest one's always late. But fine, fine, I'll put you down as a skeptic and charge you accordingly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     alliance = {
       lines = { { id = "al_default", text = "Because the Tinkers' Union doesn't take sides, pal, it takes orders and it fills 'em. You get your hands dirty with my harpies, I pay you the same as anybody, and nobody in Orgrimmar has to know who cleared the road." } },
@@ -122,6 +151,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Born in Undermine, raised on invoices, working my way up one caravan at a time. That's all you get for free, pal." } },
     advice = { { id = "tp_ad", text = "Never trust a canyon, buddy, and never pay up front. Those two rules have kept me alive and solvent longer than any armor." } },
     steamwheedle = { { id = "tp_steam", text = "Gazlowe's in with the Steamwheedle folk down in Ratchet, pal, and that means a port that'll sell to anybody with coin. You want neutral, that's as neutral as it gets, and as profitable." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's a great customer, pal, pays his bills, never haggles, and keeps the roads mostly clear. Mostly, I said, because these harpies don't read his treaties." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's home office, and Gazlowe's my boss, and every caravan I lose comes out of his ledger and then out of mine. I'd like to keep my hide, so I'd like to keep my caravans." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the same problem I do, only with pirates instead of harpies. Different predator, same overhead, friend." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture boys tried to hire me once, good pay, terrible benefits, mostly in explosions. I'm loyal to the Cartel, and I'm not just saying that because they might be listening." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, unless there's money in it. Is there money in it?" } },
   },
 }

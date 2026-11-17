@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_orcs_pity", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "pity" } },
+      text = "Kadrell tells me ye've a soft word for the orcs in the camps. I'll thank ye no' tae repeat it at the Stoutlager, for I've enough fights on my ledger." },
     { id = "g_default", text = "Magistrate Bluntnose. If ye've a complaint, take a number, an' if ye've an axe, come straight in." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good. I've more trouble than hands, as usual." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' still no soldiers from Ironforge in all that time. Ye're a welcome sight, for ye at least came back." },
@@ -32,8 +34,64 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_alliance = {
+      lines = {
+        { id = "opn_alliance_q", text = "Ye'd have me answer that wi' a Mountaineer in earshot? The King gave his word after the Second War, an' half our Reserve's off at the front keepin' it while my farmers count ogres. I've a ledger for everythin' but that, so ye tell me, is it worth it?" },
+      },
+      choices = {
+        { text = "The Alliance took this mountain back for you. It's a debt.", next = "opn_alliance_r_loyal", fx = { align = { honor = 1 }, opinion = { alliance = "loyal" } } },
+        { text = "Not while your own valleys bleed, Magistrate.", next = "opn_alliance_r_burden", fx = { affinity = 1, align = { honor = -1 }, opinion = { alliance = "burden" } } },
+        { text = "Alone, Ironforge falls. Together, it only bleeds.", next = "opn_alliance_r_necessary", fx = { trait = { practical = 1 }, opinion = { alliance = "necessary" } } },
+        { text = "Stormwind's never paid back a single debt to Lordaeron's people.", next = "opn_alliance_r_broken", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { alliance = "broken", stormwind = "distrust" } } },
+        { text = "I'll leave the ledger to you, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r = {
+      lines = {
+        { id = "opn_alliance_r_default", text = "Wise. Folk who settle that question tend tae end up on my desk as a complaint." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_loyal = {
+      lines = {
+        { id = "opn_alliance_r_loyal", text = "A debt, aye, an' we're payin' it in sons. I'll write ye down as a loyal sort, which is a fine thing tae be in Ironforge, an' a lonelier thing in Thelsamar." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_burden = {
+      lines = {
+        { id = "opn_alliance_r_burden", text = "Ye've said in one breath what I've been tryin' tae say tae Ironforge in three letters. Don't say it near Rugelfuss, mind; he's a captain, an' captains say 'Yes, my king.'" },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_necessary = {
+      lines = {
+        { id = "opn_alliance_r_necessary", text = "Hmph. That's the answer o' someone who's never had tae pay for a funeral out o' a town fund. Still, I cannae say it's wrong." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_broken = {
+      lines = {
+        { id = "opn_alliance_r_broken", text = "Then ye've more cause tae grumble than me, an' I'll stop my grumblin' while ye're at the counter. Sit, if ye like; I've a chair for folk wi' worse ledgers." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
+          text = "Ye'll forgive me starin', but ye've the look o' {alt}, a {altclass} who sorted out a deal o' trouble round the loch for me an' never once asked when the soldiers were comin'. If that's kin o' yers, Thelsamar's glad tae see the family again." },
+        { id = "h_alt_any", when = { alt = true, metBefore = true }, cooldown = "5d",
+          text = "{alt} stopped by my desk no' long ago, an' I set that one tae work just as I'll set ye. Between the pair o' ye, I might yet manage without Ironforge's soldiers." },
         { id = "h_default", key = true,
           text = "Magistrate Bluntnose, an' Thelsamar's my charge, for my sins. I keep the peace, settle the quarrels an' write tae Ironforge for soldiers who never seem tae come." },
         { id = "h_merc_before", when = { questBefore = TODO_QUEST("Mercenaries"), minLevel = 17 },
@@ -57,8 +115,8 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with Ironforge's soldiers?", next = "ironforge" },
-        { text = "Tell me about the ogres.", next = "ogres" },
-        { text = "What else threatens Thelsamar?", next = "threats" },
+        { text = "Who's causing trouble on the loch these days?", next = "ogres" },
+        { text = "Thelsamar looks to have more than one trouble on its hands.", next = "threats" },
         { text = "What does a magistrate actually do here?", next = "duties" },
         { text = "The dam is vital. Who guards it?", next = "dam", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Good day, Magistrate.", next = "END" },
@@ -79,11 +137,12 @@ P:NPC {
     },
     ironforge_more = {
       lines = {
-        { id = "ifm_default", text = "I'd no' say failin', no' where anyone from the Mountaineers could hear me. I'd say it's a long way from the Great Forge tae Thelsamar, an' letters get slower the further south they travel." },
+        { id = "ifm_default", text = "I'd no' say failin', no' where Captain Rugelfuss or any o' his Mountaineers could hear me. I'd say it's a long way from the Great Forge tae Thelsamar, an' letters get slower the further south they travel." },
         { id = "ifm_warm", when = { disposition = { min = 65 } },
           text = "Between us, aye, it feels that way some days. Captain Rugelfuss does his best wi' what he's given, an' I'd no' say a word against him, but his best is out in the valley an' my door's right here." },
       },
       choices = {
+        { text = "Is the Alliance worth what it costs Ironforge?", next = "opn_alliance" },
         { text = "Who's Captain Rugelfuss?", next = "rugelfuss" },
         { text = "Something else, Magistrate.", next = "BACK" },
       },
@@ -102,7 +161,7 @@ P:NPC {
           text = "Fewer o' them now, thanks tae you, though ogres breed like rabbits an' fight like bears. Keep an eye on the north shore when ye pass." },
       },
       choices = {
-        { text = "What do they want with the loch?", next = "ogres_want" },
+        { text = "I'd guess the ogres want more from the loch than fish.", next = "ogres_want" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,7 +180,7 @@ P:NPC {
         { id = "th_default", text = "Troggs in the hills, kobolds in the foothills, a Dark Iron spy creepin' about the dam an' ogres on the north shore. I could go on, but I'd only depress us both." },
       },
       choices = {
-        { text = "Which troubles you most?", next = "threats_most" },
+        { text = "Something must trouble you more than the rest.", next = "threats_most" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,7 +207,7 @@ P:NPC {
         { id = "du_default", text = "Settle who owns which goat, fine whoever started the fight at the Stoutlager, an' make sure the bounty board's paid. It's dull work, but a town without it falls apart faster than ye'd think." },
       },
       choices = {
-        { text = "Who usually starts the fights?", next = "duties_fights" },
+        { text = "I'd wager it's the miners who start most of the fights.", next = "duties_fights" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,5 +226,10 @@ P:NPC {
     stonewrought_dam = { { id = "tp_dam", text = "The most important wall in Khaz Modan, an' Ironforge sends me two guards for it.", next = "dam" } },
     dark_iron = { { id = "tp_di", text = "There's a poster about him, an' Kadrell's watchin' the road. I'll sleep easier when he's in irons." } },
     _none = { { id = "tp_none", text = "No' a matter for the magistrate, friend. Try the inn, for they know everythin' I don't." } },
+    magni = { { id = "tp_magni", text = "King Magni sends tae Thelsamar when it suits him, which is rarely. He's a fine king, but Loch Modan's a long way from the High Seat." } },
+    second_war = { { id = "tp_second_war", text = "The orcs came through Loch Modan in the Second War an' burned the valley tae the water's edge. We rebuilt, an' I'll see we never need tae again." } },
+    scourge = { { id = "tp_scourge", text = "Folk at the Stoutlager say the Scourge'll come down through the Thandol Span someday. I tell them that's what Menethil's for, an' I hope I'm right." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I wrote tae the Darkmoon Faire askin' them tae come tae Thelsamar. They said the road's too steep for their wagons, an' I said they've never tried." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are kin, whatever Ironforge says, an' they've been good friends tae Thelsamar. Their riders stop here now an' then, an' they drink like a whole regiment." } },
   },
 }

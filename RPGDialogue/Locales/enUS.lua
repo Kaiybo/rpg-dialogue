@@ -18,6 +18,7 @@ L.BINDING_ASK = "Ask About... (in a conversation)"
 L.HELP_HEADER = "Commands (/rpgd):"
 L.HELP_LINES = {
   "version - show which version of RPG Dialogue you're running",
+  "kin - your other characters the addon remembers, and how many people each has met",
   "talk - talk to your target",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",
@@ -38,6 +39,7 @@ L.HELP_LINES = {
   "topics [teach <id> | forget <id>] - topics you know",
   "die <cause> - record a fake death (falling, drowning, guard, trivial, boss, ...)",
   "journal - open the journal",
+  "letters [send <id> | random] - open your letters anywhere (send/random: deliver one now, for testing)",
   "errands - errands you've taken",
   "insanity <0-100> - set the insanity level (testing)",
   "export | import - save or restore this character's story as text",
@@ -154,6 +156,7 @@ L.DISP_WHY_RIVALFOE = "You've crossed their rival, %s"
 L.RIVAL_HEARS = "%s will hear of this."
 L.WORD_SPREADS = "Word of this will get around %s."
 L.DISP_WHY_UNFRIENDLY = "They're unfriendly to your kind"
+L.DISP_WHY_PREJUDICE = "What they hold against your kind"
 L.DISP_NOW = "Disposition now %s."
 L.APPROVE = "%s approves."
 L.APPROVE_MUCH = "%s approves greatly."
@@ -257,7 +260,27 @@ L.J_TALKED = "%d times"
 L.J_NOBODY = "I haven't really talked to anyone yet."
 L.J_ALIGNMENT = "Where I stand"
 L.J_TRAITS = "People take me for:"
+L.J_TRAITS_MILD = "And, now and then, %s."
+L.J_SELF_LEVEL = "Level %d"
+L.J_SELF_ORIGIN = "Before all this: %s"
+L.J_NO_ORIGIN_LINE = "No origin chosen. The button below picks one, if you want it."
+L.J_SELF_MET = "%d people met"
+L.J_SELF_TALKS = "%d conversations"
+L.J_SELF_QUESTS = "%d tasks seen through"
+L.J_SELF_BOOKS = "%d books read"
+L.J_SELF_PEOPLE = "The people in my life"
+L.J_SELF_FRIENDS = "Those who think well of me"
+L.J_SELF_FOES = "Those who'd rather I kept walking"
+L.J_SAID_TO = "Said to %s, %s."
+L.J_CONTRADICTED_WAS = "Though before that I said: %s."
+L.J_SELF_LEARNED = "What I've learned"
 L.J_OPINIONS = "What I've said I believe"
+-- Names for opinion topics that aren't "Ask about" topics (0.80.0).
+L.OPINION_TOPICS = {
+  peace = "Peace with the other side", regency = "Stormwind's regency", refugees = "The refugees from Lordaeron",
+  gilneas = "Gilneas and its wall", war_taxes = "Who pays the war debts", forsaken_in_horde = "The Forsaken in the Horde",
+  old_ways = "The old ways of the Horde", goblin_trade = "Trading with the goblins",
+}
 L.J_CONTRADICTED = "(though I've said otherwise, too)"
 L.J_TOWNS = "What the towns think of me"
 L.J_ORIGIN = "Origin:"
@@ -383,6 +406,21 @@ L.OPT_HINTS = "Show alignment hints on replies"
 L.OPT_GAMEPAD = "Gamepad: D-pad to choose, A to confirm, B to get on with it, X to ask about"
 L.LOCKED_MARK = "(Locked)"
 L.OPT_BARKS = "Nearby NPCs speak up now and then"
+L.OPT_LETTERS = "People you've met send letters to your mailbox"
+L.LETTER_ARRIVED = "A letter from %s is waiting for you at the mailbox."
+L.LETTERS_ARRIVED = "%d letters are waiting for you at the mailbox."
+L.LETTER_JOURNAL = "A letter came from %s: \"%s\"."
+L.LETTER_JOURNAL_3 = "A letter reached them from %s: \"%s\"."
+L.LETTERS_TITLE = "Letters"
+L.LETTERS_NONE = "No letters."
+L.LETTER_FROM = "From %s"
+L.LETTER_BACK = "Back"
+L.LETTER_BURN = "Burn"
+L.LETTER_NEW = "new"
+L.LETTER_JUNK = "junk"
+L.LETTER_NO_RANDOM = "No random letter is left that could come to you right now."
+L.LETTER_ARRIVED_JUNK = "Something has been stuffed into your mailbox. It looks like junk."
+L.LETTER_UNKNOWN = "No letter called %s."
 L.OPT_INSANITY = "Insanity effects"
 L.OPT_INSANITY_LEVEL = "Insanity intensity"
 L.OPT_TTS = "Read dialogue aloud (text to speech)"

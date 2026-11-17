@@ -33,6 +33,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_orcs = {
+      lines = {
+        { id = "opn_orcs_q", text = "Change? Ye've been listenin' tae the folk in Theramore, I see. I fought orcs in the Second War, an' these Frostwolves never fought in it at all, which some say makes 'em different an' I say makes 'em lucky. What's yer view, soldier?" },
+      },
+      choices = {
+        { text = "An orc is an orc. They'll burn the world again.", next = "opn_orcs_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "These ones never served the Horde of old. They might be different.", next = "opn_orcs_r_respect", fx = { affinity = -1, align = { light = 1 }, opinion = { orcs = "respect" } } },
+        { text = "Changed or not, they're in our valley. That's what matters.", next = "opn_orcs_r_wary", fx = { trait = { practical = 1 }, opinion = { orcs = "wary" } } },
+        { text = "I'm Horde, dwarf. Watch your mouth.", next = "opn_orcs_r_proud", when = { faction = "Horde" }, fx = { affinity = -2, opinion = { orcs = "proud" } } },
+        { text = "I'd rather fight than talk, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r = {
+      lines = {
+        { id = "opn_orcs_r_default", text = "Good. Ye'll get plenty o' both in the valley." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_hate = {
+      lines = {
+        { id = "opn_orcs_r_hate", text = "Aye, they might, an' that's why we're here. Respect 'em, mind, as I said, but ye don't have tae like 'em." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_respect = {
+      lines = {
+        { id = "opn_orcs_r_respect", text = "Different, maybe. Still in my valley, still on wolves, still shootin' at my lads. Different doesnae mean friendly, soldier." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_wary = {
+      lines = {
+        { id = "opn_orcs_r_wary", text = "That's the General's answer, an' it's the right one. Leave the philosophy tae the mages in their city." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_proud = {
+      lines = {
+        { id = "opn_orcs_r_proud", text = "An' ye watch yer back in the valley, then. I'll grant ye the courage, an' that's all I'll grant." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,7 +105,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then get in there." },
       },
       choices = {
-        { text = "Why are we fighting in Alterac Valley?", next = "why" },
+        { text = "There's a war on in Alterac Valley, I hear.", next = "why" },
         { text = "Who leads the Stormpike Guard?", next = "vanndar" },
         { text = "What are the Frostwolves like?", next = "frostwolf" },
         { text = "Tell me about the insignia.", next = "insignia" },
@@ -90,7 +142,7 @@ P:NPC {
         { id = "va_default", text = "General Vanndar Stormpike, from Dun Baldar at the valley's north end, an' a finer commander I've never served. His Guard holds the bunkers an' the mines, an' I send him every soldier I can find." },
       },
       choices = {
-        { text = "What's Dun Baldar like?", next = "vanndar_baldar" },
+        { text = "Dun Baldar must be a cold place to hold.", next = "vanndar_baldar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +166,10 @@ P:NPC {
       lines = {
         { id = "fr_default", text = "Respect an enemy, soldier, or he'll kill ye while ye're busy despisin' him. That's no' the same as likin' him, an' I'll no' be likin' any Frostwolf in this lifetime." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Do you think the orcs can ever change, Lieutenant?", next = "opn_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     insignia = {
@@ -140,6 +195,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Lieutenant o' the Stormpike Guard, an' I've been signin' up soldiers since the first shovel went intae that valley." } },
     advice = { { id = "tp_ad", text = "Hold the graveyards, soldier, an' ye hold the valley." } },
     alterac = { { id = "tp_alterac", text = "Cold, rich an' full o' enemies. Just the way a dwarf likes it." } },
+    magni = { { id = "tp_magni", text = "King Magni wants that valley back fer Ironforge, an' so do I, an' every Stormpike under Vanndar would march through the snow barefoot if he asked. That's a king worth soldierin' fer." } },
+    thrall = { { id = "tp_thrall", text = "The Frostwolves are Thrall's kin, his father's clan, so the Horde'll never let them lose that valley without a fight. Good, fer I'd hate tae win it cheap." }, { id = "tp_thrall2", when = { disposition = { min = 65 } }, text = "Between us, the Frostwolves were livin' in Alterac long before we came lookin' fer iron, an' their warchief was born there. I'll fight them fer it all the same, but I'll no' pretend the snow's only ours." } },
+    second_war = { { id = "tp_second_war", text = "Alterac was Perenolde's kingdom in the Second War, an' he sold the Alliance tae the Horde from right up there in those hills. Ironforge has a long memory fer traitors, an' a longer one fer good iron." } },
+    wildhammer = { { id = "tp_wildhammer", text = "A few Wildhammer riders fly fer Dun Baldar, an' they're welcome, fer a gryphon's worth ten scouts in a blizzard. Dinnae tell them I said so, fer they're insufferable enough already." } },
     _none = { { id = "tp_none", text = "No' my concern, soldier. Mine's the valley." } },
   },
 }
@@ -147,6 +206,7 @@ P:NPC {
 -- Warmaster Laggrond: Frostwolf Clan recruitment officer at the Horde entrance.
 P:NPC {
   key = "dal_laggrond", id = TODO_NPC("Warmaster Laggrond"), name = "Warmaster Laggrond",
+  prejudice = { race = "Scourge", amount = 10, why = "An old orc's distrust of the walking dead and of a queen who answers to no one." },
   bible = "bibles/av_headland.md", role = "soldier", tier = "quest",
   communities = { "frostwolf" }, temper = { "fierce", "proud" }, values = { "honorable", "loyal", "brave" },
   notices = { "soldier", "reputation" },
@@ -157,6 +217,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "One of the Banshee Queen's dead, walking into a Frostwolf camp. Thrall calls you allies, so I'll call you one too, but my wolves can smell what you are, and so can I." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ha, the dead one! You've fought beside my warriors without once looking at them like supper, and I've stopped asking the shaman to bless the ground after you leave." },
     { id = "g_default", text = "You come to fight for Frostwolf? Then stand straight, for you will be tested." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; the valley still needs blood that isn't ours." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. The Stormpike dig deeper every day you are away, so go and stop them." },
@@ -174,6 +236,80 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust what bleeds and breathes. The Forsaken have a queen who answers to nobody and apothecaries who brew plagues in cellars, and they march under our banner while they serve hers first." } },
+      choices = {
+        { text = "We bleed for the Horde too, whatever it is we bleed.", next = "prej_a", fx = { align = { honor = 1 } } },
+        { text = "We serve our queen first, and the Horde when it suits us.", next = "prej_b", fx = { align = { honor = -1 } } },
+        { text = "What would a Forsaken have to do to earn your respect?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Words are cheap, but you said them looking me in the eye, which is more than your apothecaries do. Show me on the field, and I'll remember it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "At least you say it plainly. I'd rather an honest enemy at my back than a lying friend, and I'll keep one eye on you either way." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Stand in the line when the Stormpike charge, and don't run when the frost bites. That is all I ask of any orc, and I'll ask no more of you." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    opn_dwarves = {
+      lines = {
+        { id = "opn_dwarves_q", text = "The Stormpike? Diggers with guns who think every mountain is theirs because their grandfathers dug in one. But I have watched them hold Dun Baldar through a winter that killed wolves, and that is not nothing. You have walked among their kind. Speak." },
+      },
+      choices = {
+        { text = "Thieves in a stolen valley. Drive them out.", next = "opn_dwarves_r_hate", fx = { affinity = 2, align = { honor = -1 }, opinion = { dwarves = "hate" } } },
+        { text = "Stubborn and brave. A worthy enemy deserves respect.", next = "opn_dwarves_r_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "Greedy for iron. Make them pay for every ounce.", next = "opn_dwarves_r_greedy", fx = { trait = { practical = 1 }, opinion = { dwarves = "greedy" } } },
+        { text = "Some of them are decent. The Stormpike aren't all dwarves.", next = "opn_dwarves_r_mixed", when = { faction = "Alliance" }, fx = { affinity = -1, opinion = { dwarves = "mixed" } } },
+        { text = "I'd rather fight than talk, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r = {
+      lines = {
+        { id = "opn_dwarves_r_default", text = "Good. The drums do not wait for talk either." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_hate = {
+      lines = {
+        { id = "opn_dwarves_r_hate", text = "Then the valley will welcome you. Hate keeps you warm in the snow, but it burns out; take something else with you when you go in." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_respect = {
+      lines = {
+        { id = "opn_dwarves_r_respect", text = "Durotan would have said the same. Respect them, and kill them, and do neither with your eyes closed." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_greedy = {
+      lines = {
+        { id = "opn_dwarves_r_greedy", text = "Every ounce, and the valley takes its share in blood. That is a trader's answer, but I will take it." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
+    opn_dwarves_r_mixed = {
+      lines = {
+        { id = "opn_dwarves_r_mixed", text = "Perhaps, in their own halls. In my valley they are only Stormpike, and that is enough." },
+      },
+      choices = {
+        { text = "Something else, Warmaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -194,8 +330,9 @@ P:NPC {
         { id = "h_again2", text = "Speak. Then go and fight." },
       },
       choices = {
+        { text = "You don't trust the Forsaken, Warmaster.", next = "prej", when = { prejudiced = true } },
         { text = "Why does this valley matter so much?", next = "valley" },
-        { text = "Who leads the Frostwolves?", next = "drekthar" },
+        { text = "The Frostwolves must have a strong leader.", next = "drekthar" },
         { text = "What do you make of the Stormpike?", next = "stormpike" },
         { text = "What is this test?", next = "test" },
         { text = "The clan knows my name now, Warmaster.", next = "honored", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } } },
@@ -246,6 +383,7 @@ P:NPC {
         { id = "sp_default", text = "When they leave, there will be peace. Until then there is the valley, and the valley is cold, and it buries the dead of both sides without caring which." },
       },
       choices = {
+        { text = "What do you make of the dwarves, Warmaster?", next = "opn_dwarves" },
         { text = "Drive them out. No terms until they go.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Talk is cheaper than war. Offer terms.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -275,6 +413,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A warrior of the Frostwolf, born in the snow and raised on the hunt." } },
     advice = { { id = "tp_ad", text = "Respect the cold, and it will kill the Stormpike before it kills you." } },
     alterac = { { id = "tp_alterac", text = "Our home, and we will not give it up to dwarves with shovels." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a Frostwolf by blood, son of Durotan and Draka, and Alterac was the cradle of his clan. When you fight for the Frostwolves, you fight for his family." }, { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You ask about the Warchief at the gate of his father's valley? He is a Frostwolf, and that is all you need to know about why we will not leave." } },
+    second_war = { { id = "tp_second_war", text = "Gul'dan exiled the Frostwolves to Alterac for speaking against him, and the clan survived the snow when the rest of the Horde fell. That is where our strength comes from, and it is why the dwarves will not move us." } },
+    the_elements = { { id = "tp_the_elements", text = "Drek'Thar speaks with the spirits of these mountains, and they answer him even blind. The snow is ours because the spirits know us." } },
+    internment = { { id = "tp_internment", text = "The Frostwolves were never in the camps, for we were here in the mountains. But we took in those who broke free, and the Warchief does not forget it." } },
     _none = { { id = "tp_none", text = "That matters little in the valley. Ask elsewhere." } },
   },
 }

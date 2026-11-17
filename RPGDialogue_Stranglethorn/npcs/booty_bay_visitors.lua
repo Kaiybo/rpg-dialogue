@@ -37,6 +37,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_trolls = {
+      lines = {
+        { id = "opt_default", text = "Fools, and our own blood, which is de worse thing to say of anyone. But I have a question for you, stranger, since your peoples have opinions about mine: when you look at a troll, what do you see?" },
+      },
+      choices = {
+        { text = "An old people with a proud history.", next = "op_trolls_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { trolls = "respect" } } },
+        { text = "Savages who fed their own to a blood god.", next = "op_trolls_hate", fx = { affinity = -2, align = { honor = -1 }, opinion = { trolls = "hate" } } },
+        { text = "I see my grandfathers, and I'm proud of them.", next = "op_trolls_proud", fx = { affinity = 2, opinion = { trolls = "respect", darkspear = "proud" } }, when = { race = "Troll" } },
+        { text = "Trolls have fought my kingdoms since Arathor. Forgive my doubts.", next = "op_trolls_distrust", fx = { opinion = { trolls = "distrust" } }, when = { faction = "Alliance" } },
+        { text = "I'll judge each troll as I find them.", next = "BACK" },
+      },
+    },
+    op_trolls_respect = {
+      lines = {
+        { id = "optr_default", text = "Proud, yes, and old beyond your kingdoms' counting. Remember dat when you walk into Zul'Gurub, because what you will see there is what pride becomes when it forgets de gods it serves." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_trolls_hate = {
+      lines = {
+        { id = "opth_default", text = "Some did, and dat is why I am here asking for your blades. But speak carefully, little one; de Zandalar remember every word, and we have very long lives to remember dem in." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_trolls_proud = {
+      lines = {
+        { id = "optp_default", text = "Good. De Darkspear are a small tribe, but dey have kept dere pride without keeping a blood god, and dat is more than de Gurubashi managed." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_trolls_distrust = {
+      lines = {
+        { id = "optd_default", text = "Forgiven, for now. Doubt is cheaper than war, and Molthor would rather have your doubts and your sword than neither." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,13 +93,13 @@ P:NPC {
       },
       choices = {
         { text = "Who are the Zandalar, exactly?", next = "zandalar" },
-        { text = "What threat has brought you all this way?", next = "hakkar" },
+        { text = "Some great threat must have brought you all this way.", next = "hakkar" },
         { text = "Tell me about Molthor and Yojamba Isle.", next = "molthor" },
         { text = "What waits inside Zul'Gurub?", next = "zg" },
         { text = "Why stand here, among goblins and pirates?", next = "bay" },
         { text = "You call me cousin. The Darkspear owe you nothing.", next = "k_dark", when = { race = "Troll" } },
         { text = "Why would a troll ask the Alliance for help?", next = "k_alliance", when = { faction = "Alliance" } },
-        { text = "Is Hakkar a loa, then, like the others?", next = "x_loa", when = { class = { "PRIEST", "SHAMAN" } } },
+        { text = "Is this danger a loa, like the others?", next = "x_loa", when = { class = { "PRIEST", "SHAMAN" } } },
         { text = "May your elders guide you well.", next = "END" },
       },
     },
@@ -102,7 +138,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the Atal'ai?", next = "atalai" },
-        { text = "So how did he return?", next = "hakkar_return" },
+        { text = "He must have found a way to return.", next = "hakkar_return" },
         { text = "Enough of blood gods for now.", next = "BACK" },
       },
     },
@@ -117,6 +153,7 @@ P:NPC {
       big = true,
       lines = { { id = "hr_default", text = "De high priests of Zul'Gurub, de last proud Gurubashi, who thought they could make de Soulflayer serve dem. Now he walks in their city and they are his hands, and if he is not stopped there, he will cross into de rest of de world and drink it dry." } },
       choices = {
+        { text = "And what do you think of the Gurubashi now?", next = "op_trolls" },
         { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then he must be stopped. Where do I begin?", next = "molthor" },
@@ -129,7 +166,7 @@ P:NPC {
       },
       choices = {
         { text = "Why Yojamba Isle?", next = "yojamba" },
-        { text = "What does Molthor ask of those who come?", next = "molthor_ask" },
+        { text = "Molthor must ask something of those who come.", next = "molthor_ask" },
         { text = "Let us speak of something else.", next = "BACK" },
       },
     },
@@ -190,7 +227,7 @@ P:NPC {
       lines = { { id = "kd_default", text = "Owe us? No, little cousin, but you came from de Gurubashi once, before de jungle tribes drove you to de Echo Isles, and you ran with de orcs because no troll offered you a better home. De Zandalar do not forget dat, and we do not blame you for it, though we wonder sometimes what you have traded away." } },
       choices = {
         { text = "The Darkspear traded nothing. We chose our own path.", next = "k_dark2", fx = { affinity = -1 } },
-        { text = "What do the Zandalar think we lost?", next = "k_dark2" },
+        { text = "You speak as if we trolls have lost something.", next = "k_dark2" },
       },
     },
     k_dark2 = {
@@ -275,7 +312,7 @@ P:NPC {
       choices = {
         { text = "Do your scrolls actually work?", next = "scrolls" },
         { text = "Tell me about these treasure maps.", next = "maps" },
-        { text = "How does a goblin become a scroll seller?", next = "past" },
+        { text = "A goblin scroll seller must have a story behind him.", next = "past" },
         { text = "Who are your customers around here?", next = "customers" },
         { text = "Do you sell anything for magic users?", next = "x_caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "Can you read Gnomish, Dudd?", next = "x_gnome", when = { race = "Gnome" } },
@@ -289,7 +326,7 @@ P:NPC {
       },
       choices = {
         { text = "You don't write them yourself?", next = "scrolls_who" },
-        { text = "What sells best around here?", next = "scrolls_best" },
+        { text = "Something here must sell better than the rest.", next = "scrolls_best" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -351,7 +388,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with Smythe reading them?", next = "cust_smythe" },
-        { text = "Why does Sly Garrett want blank vellum?", next = "cust_garrett" },
+        { text = "Sly Garrett wanting blank vellum seems strange to me.", next = "cust_garrett" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -434,7 +471,7 @@ P:NPC {
         { text = "You're Pix's brother?", next = "family" },
         { text = "What happened to your eyebrows?", next = "rocket" },
         { text = "Where does all this stuff come from?", next = "sources" },
-        { text = "Do you still want to build rockets?", next = "dream" },
+        { text = "Any dreams beyond Lost and Found, Rix?", next = "dream" },
         { text = "Fellow goblin here. How's business, really?", next = "x_goblin", when = { race = "Goblin" } },
         { text = "I'll keep a better eye on my things.", next = "END" },
       },
@@ -471,7 +508,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you pay the money back?", next = "family_debt" },
-        { text = "What's Frix doing these days?", next = "family_frix" },
+        { text = "I'd guess Frix is up to something these days.", next = "family_frix" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -503,7 +540,7 @@ P:NPC {
     },
 
     dream = {
-      lines = { { id = "dr_default", text = "Every day, sport! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
+      lines = { { id = "dr_default", text = "Rockets, sport, every day! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
       choices = {
         { text = "Crazk sounds worried.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -590,7 +627,7 @@ P:NPC {
         { text = "A letter of marque? What does that mean here?", next = "marque" },
         { text = "Tell me about the Saltpenny.", next = "ship" },
         { text = "Bloads. Is that really your name?", next = "name" },
-        { text = "What do you think of the Blackwater Raiders?", next = "raiders" },
+        { text = "You must have an opinion of the Blackwater Raiders.", next = "raiders" },
         { text = "Do you ever miss Westfall?", next = "x_human", when = { race = "Human" } },
         { text = "Fair winds, Bloads.", next = "END" },
       },
@@ -603,7 +640,7 @@ P:NPC {
       },
       choices = {
         { text = "Why don't you cut it yourself?", next = "reed_why" },
-        { text = "Why do you need so much of it?", next = "reed_more" },
+        { text = "You seem to need a great deal of it.", next = "reed_more" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -738,9 +775,9 @@ P:NPC {
       choices = {
         { text = "What's the caravan road like?", next = "road" },
         { text = "Which trolls trouble your wagons?", next = "trolls" },
-        { text = "What about Kurzen's men and the bandits?", next = "kurzen" },
+        { text = "What about the rebels and bandits?", next = "kurzen" },
         { text = "How did you get into caravans?", next = "past" },
-        { text = "What do your wagons carry?", next = "cargo" },
+        { text = "Your wagons must carry all sorts.", next = "cargo" },
         { text = "Do you hire guards, Ruzzgot?", next = "x_guard", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Safe roads, Ruzzgot.", next = "END" },
       },
@@ -752,7 +789,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the worst stretch?", next = "road_worst" },
-        { text = "Do raptors really attack wagons?", next = "raptors" },
+        { text = "I can't believe raptors really attack wagons.", next = "raptors" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -790,7 +827,7 @@ P:NPC {
       },
       choices = {
         { text = "Who are Kurzen's men, exactly?", next = "kurzen_who" },
-        { text = "And the Venture Company?", next = "venture" },
+        { text = "You haven't said a word about the Venture Company.", next = "venture" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -891,7 +928,7 @@ P:NPC {
         { text = "Tell me about the Maiden's Fancy.", next = "ship" },
         { text = "What's the crossing to Ratchet like?", next = "crossing" },
         { text = "Do the Bloodsail ever go after the Fancy?", next = "pirates" },
-        { text = "Who runs things on the Ratchet end?", next = "ratchet" },
+        { text = "Someone must run things on the Ratchet end.", next = "ratchet" },
         { text = "I get seasick. Any advice?", next = "x_sick", when = { race = { "Dwarf", "Gnome", "Tauren" } } },
         { text = "I'll wait for the ship.", next = "END" },
       },
@@ -903,7 +940,7 @@ P:NPC {
       },
       choices = {
         { text = "Did you really offer to buy the recipe?", next = "chowder_offer" },
-        { text = "What's the worst chowder you've had?", next = "chowder_worst" },
+        { text = "You must have had some terrible chowder in your time.", next = "chowder_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -927,7 +964,7 @@ P:NPC {
       },
       choices = {
         { text = "Who's lost a passenger who didn't stay on deck?", next = "ship_lost" },
-        { text = "Why is she called the Maiden's Fancy?", next = "ship_name" },
+        { text = "The Maiden's Fancy is an odd name for a ship.", next = "ship_name" },
         { text = "Something else.", next = "BACK" },
       },
     },

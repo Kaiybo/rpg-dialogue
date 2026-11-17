@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over." },
+    { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over, {g:lad|lass}." },
     { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Auberdine, {g:lad|lass}, and look for any sign of my crew. Weeks without a letter isn't like Remtravel, even for Remtravel." },
     { id = "g_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel's safe and his fossil's on its way to Ironforge, thanks to you. I may even forgive him for not writing." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}! Still no letter from Darkshore, so I'm glad of any face that's been somewhere." },
@@ -31,8 +31,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Some do and some don't, and the honest ones admit they're curious. I'd like an outside opinion, so tell me: what do you make of the Explorers' League poking about in Kalimdor?" },
+      },
+      choices = {
+        { text = "History belongs to everyone, Archaeologist. Dig it up.", next = "op_r1", fx = { affinity = 2, align = { honor = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Those are their dead. Leave the ruins alone.", next = "op_r2", fx = { affinity = -1, align = { honor = 1 }, opinion = { explorers_league = "wrong" } } },
+        { text = "Magni wants his titans. The rest is courtesy.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { explorers_league = "self_serving", magni = "distrust" } } },
+        { text = "Bronzebeards go where the stone calls, and that's all there is.", next = "op_r4", fx = { affinity = 1, opinion = { explorers_league = "proud", magni = "trust" } }, when = { race = "Dwarf" } },
+        { text = "Your League digs with care. My people notice that.", next = "op_r5", fx = { affinity = 1, trait = { kind = 1 }, opinion = { explorers_league = "tolerate" } }, when = { race = "NightElf" } },
+        { text = "I've no stake in it either way.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "That's the spirit Ironforge sends us out with! Mind you, I'd not say it quite so loud near the Temple." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Aye, I hear that a great deal, and I've stopped arguing it in the street. We record and we don't loot, and anyone who tells you otherwise has met the wrong dwarves." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The King does want his answers, and I'll not lie to you about it. There are worse things to want than the truth of where we came from, though." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Ha! Spoken like one raised in the Hall of Explorers. I only wish they brewed a decent stout up here so I could toast it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "That's kindly said, and I'll put it in my letters home, because Ironforge is half convinced your people want us all shot." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
+          text = "You think the League should leave the ruins alone, I'm told. You're welcome to the opinion, so long as you don't preach it to my crew." },
+        { id = "o_magni_distrust", tags = { "news" }, when = { opinion = { topic = "magni", stance = "distrust" } },
+          text = "You've been heard saying the King cares more for old stones than for his people. I'll not argue, but I'll thank you not to say it in front of the League." },
         { id = "h_default", key = true,
           text = "Chief Archaeologist Greywhisker, of the Explorers' League, at your service. Most folk think our work is a hobby for old dwarves with too much time, but the ruins of this world have a great deal to tell us, if we listen." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Darkshore?") },
@@ -47,13 +85,13 @@ P:NPC {
           text = "One of the kaldorei, interested in old stones? That's rare. Your people lived atop more history than mine ever dug up, and half of you won't talk about it." },
       },
       again = {
-        { id = "h_again", text = "What else? I've time; the elves don't let me dig in their city, so I've plenty of it." },
+        { id = "h_again", text = "What else? I've time aplenty, since the elves won't let me dig in their city, and a dwarf without a dig is a sorry sight." },
         { id = "h_again2", text = "Go on, go on. Questions are what the League runs on." },
       },
       choices = {
         { text = "What were your crew digging for in Darkshore?", next = "crew" },
         { text = "Why does the League care so much about ruins?", next = "warning" },
-        { text = "What brings a dwarf to Darnassus?", next = "city" },
+        { text = "I didn't expect to find a dwarf in Darnassus.", next = "city" },
         { text = "Tell me about Prospector Remtravel.", next = "remtravel" },
         { text = "I'm of Ironforge. Did you lecture there?", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
         { text = "I'll look for your crew.", next = "BUSINESS" },
@@ -75,7 +113,7 @@ P:NPC {
         { id = "co_default", text = "Or one they won't speak of, which comes to the same thing for a digger. Stone doesn't lie, but it does keep secrets, and I mean to have a few of them out of it." },
       },
       choices = {
-        { text = "Do the elves mind you digging up their past?", next = "crew_elves" },
+        { text = "I'd guess the elves mind you digging up their past.", next = "crew_elves" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -115,6 +153,7 @@ P:NPC {
         { id = "ci_default", text = "Diplomacy, of a sort. If the League's to dig on Kalimdor, it does well to ask the kaldorei nicely, and I'm the one they sent to stand about looking harmless." },
       },
       choices = {
+        { text = "Do the kaldorei resent the League's digging?", next = "op_ask" },
         { text = "Is it working?", next = "city_working" },
         { text = "Something else.", next = "BACK" },
       },
@@ -154,6 +193,15 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write down where you found a thing before you pick it up. You'll thank me in ten years." } },
     explorers_league = { { id = "tp_league", text = "The finest minds in Ironforge, and a few of the dustiest. We're not treasure hunters, whatever the Wetlands lot say.", next = "warning" } },
     uldaman = { { id = "tp_uldaman", text = "There's a vault in the Badlands that's had the League up all night arguing. I'll say no more in a city of elves." } },
-    _none = { { id = "tp_none", text = "Not my field, I'm afraid. If it's not under a hill, I don't know it." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Now there's a name to make an archaeologist's hands shake, {g:lad|lass}. Old walls in Silithus with carvings nobody can read, and the night elves won't talk about them, which is the best sign of all." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's got the finest library in the human kingdoms and a lock on every door. I've written to the Kirin Tor four times, and they've answered once, to say no." } },
+    magni = { { id = "tp_magni", text = "Good King Magni signs my grants himself, so you'll hear nothing but praise from me. He's a fine one for history, too, he'd come dig with us if they let him off his throne." } },
+    dire_maul = {
+      { id = "tp_dire_maul", text = "Eldre'Thalas, out in Feralas, is a whole Highborne city with the roof still on, mostly. The ogres have got it now, and it near breaks my heart." },
+      { id = "tp_dire_maul2", when = { disposition = { min = 65 } }, text = "If you're bound for Dire Maul, mind the ogres and mind the walls even more, because Highborne masonry bites. Bring me back a rubbing of any inscription and I'll owe you a pint." },
+    },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Lost a few gnome friends when that city went bad, and more friends' tools than that. Gnomes build to last, so it's still down there, waiting for someone to clean it up." } },
+    highborne = { { id = "tp_highborne", text = "The night elves' old nobility, and the finest builders this side of Ironforge, I'll grant them that. Their ruins are all over Darkshore, and the locals would rather I left them alone." } },
+    _none = { { id = "tp_none", text = "Not my field, I'm afraid. If it's not under a hill or a hundred feet of good stone, I don't know it." } },
   },
 }

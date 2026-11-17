@@ -34,6 +34,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      big = true,
+      lines = {
+        { id = "opfk_default", text = "Most of them do, and some grumble, and a few have asked me outright whether I've lost my wits. You've seen Leonid at our altar, so I'll ask you: should the dead fight beside the living?" },
+      },
+      choices = {
+        { text = "Anyone who fights the Scourge belongs here.", next = "op_forsaken_r1", fx = { align = { light = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "The dead are too close to the Scourge to trust.", next = "op_forsaken_r2", fx = { align = { light = -1 }, trait = { cautious = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "I'm Forsaken, my lord. Judge me by my blade.", next = "op_forsaken_r3", fx = { affinity = 1, opinion = { forsaken = "trust" } }, when = { race = "Scourge" } },
+        { text = "That's for the Dawn to decide, my lord.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = { { id = "opfk_r1", text = "That's the Dawn's whole creed in a sentence, and I'm glad to hear someone say it plainly. I'll tell the grumblers you said so." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_forsaken_r2 = {
+      lines = { { id = "opfk_r2", text = "I understand the fear, and I won't call it foolish. But Leonid has bled for this chapel, after his fashion, and I'll judge him by that." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_forsaken_r3 = {
+      lines = { { id = "opfk_r3", text = "Then that is exactly how I'll judge you, and gladly. Light's Hope keeps its door open to anyone who keeps faith with the fight." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight it as the Dawn does, with patience, because Stratholme won't fall to a single charge and the Scourge have more dead to spend than we have living. A company that comes back again and again does more good than a hero who dies gloriously on the first day." } },
@@ -92,12 +116,13 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "The Duke says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
           text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Light's Hope. The Dawn welcomes any who stand against the Scourge, and I suspect you grieve for these lands more openly than my knights do." },
         { id = "h_default", key = true,
-          text = "Maxwell Tyrosus. I lead the Argent Dawn, since Lord Raymond George fell, and we fight the Scourge and anything else that would end this world. We ask no one which crown they serve." },
+          text = "Maxwell Tyrosus. I served in the Silver Hand once, and now I lead the Argent Dawn, since Lord Raymond George fell, and we fight the Scourge and anything else that would end this world. We ask no one which crown they serve." },
         { id = "h_summoned", tags = { "news" }, when = { questActive = TODO_QUEST("Lord Maxwell Tyrosus") },
           text = "The Duke sent you, so he trusts you, and Nicholas trusts very few. Sit; we have a great deal to discuss, and Stratholme won't wait." },
         { id = "h_hold", when = { questActive = TODO_QUEST("The Argent Hold") },
@@ -118,9 +143,9 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
         { text = "Does the Dawn mean to heal the land, or only hold it?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why did you leave the Silver Hand?", next = "left" },
-        { text = "How did you come to lead the Dawn?", next = "lead" },
-        { text = "What's happening in Stratholme?", next = "stratholme" },
+        { text = "You must have left the Silver Hand for a reason.", next = "left" },
+        { text = "You don't seem a man who sought to lead the Dawn.", next = "lead" },
+        { text = "Stratholme seems the heart of all this.", next = "stratholme" },
         { text = "The Silver Hand is gone. Where does a paladin belong now?", next = "paladin", when = { class = "PALADIN" } },
         { text = "My training ended when the Hand broke apart.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Gregor Greystone in Everlook sends his regards.", next = "gregor", when = { heardLine = "gregor.h_default" } },
@@ -128,7 +153,7 @@ P:NPC {
         { text = "Will the Dawn take a warlock's help?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Ironforge sends you little, my lord. I came anyway.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Why would Kirin Tor mages join the Dawn and not Dalaran?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Does the Argent Dawn have a use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I'd guess the Argent Dawn has little use for rogues.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a warrior serve the Dawn without the Light?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What strangeness have your scouts seen in the beasts?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the Dawn really take shamans, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -176,6 +201,7 @@ P:NPC {
       lines = { { id = "ld_default", text = "Lord Raymond George fell, and someone had to stand where he stood. I'd have chosen anyone else, but nobody else was offered." } },
       choices = {
         { text = "What was he like?", next = "lead_raymond" },
+        { text = "Do your knights accept the Forsaken among them?", next = "op_forsaken" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -276,6 +302,17 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry the Dawn's tokens, and never fight the Scourge alone at night. It doesn't sleep, but you must." } },
     argent_dawn = { { id = "tp_dawn", text = "No crown and no warchief, only the work, and the dead who'd undo it." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "My old brothers, gone hard and blind. I pray for them, and I also post guards." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge holds Stratholme, Naxxramas and every field from here to the sea, and it doesn't need to sleep or eat. We hold one chapel on consecrated ground, and I've learned to be grateful for small things." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad rules the Scourge from his necropolis in the sky over the east, and his reach stretches across all of Lordaeron. The Dawn watches him, and we wait for the day we're strong enough to do more than watch." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light belongs to anyone who stands against the dark, whatever banner they march under. The Crusade forgot that, and I left the Silver Hand rather than forget it with them." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You carry the Light, so carry it well, and don't let anyone tell you it belongs to them alone. The Crusade has made that mistake already." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "I was a knight of the Silver Hand, and I left when it turned Scarlet. The order is broken now, and I've stopped hoping it'll mend." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken fight the Scourge as hard as anyone, and some of them stand with the Dawn. I judge them by their deeds, which is all I can do." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people send good fighters to the Dawn, and they've never once given me cause to doubt them. I don't care whose crown they serve, only whether they'll stand." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's great fortress in the east, and the Crusade wastes its soldiers on the gates. The Dawn will take it one day, but not yet." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar sends what he can to the north, which is less than I'd like and more than I'd feared. He has a kingdom to hold, and I don't envy him." } },
     _none = { { id = "tp_none", text = "Not my concern while the Scourge stands." } },
   },
 }
@@ -310,6 +347,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_the_light = {
+      big = true,
+      lines = {
+        { id = "optl_default", text = "I've wondered whether I'm the exception or the beginning of something. What do you think, {class}: can the Light truly belong to the dead as well as the living?" },
+      },
+      choices = {
+        { text = "Yes. If it answers you, it can answer anyone.", next = "op_the_light_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "No. The Light abandoned the dead. You're an accident.", next = "op_the_light_r2", fx = { affinity = -1, align = { light = -1 }, opinion = { the_light = "abandoned" } } },
+        { text = "It answers me too, Revered. You're not alone.", next = "op_the_light_r3", fx = { affinity = 2, trait = { pious = 1 }, opinion = { the_light = "faith" } }, when = { race = "Scourge", class = { "PRIEST", "PALADIN" } } },
+        { text = "I don't know, Revered.", next = "BACK" },
+      },
+    },
+    op_the_light_r1 = {
+      lines = { { id = "optl_r1", text = "That's what I pray for, and it means a great deal to hear it from someone else. Perhaps I'm not the last, then, only the first." } },
+      choices = { { text = "Something else, Revered.", next = "BACK" } },
+    },
+    op_the_light_r2 = {
+      lines = { { id = "optl_r2", text = "Perhaps I am, and if so I'll be the most grateful accident in Lordaeron. It still answers, whatever the reason, and I'll not waste it." } },
+      choices = { { text = "Something else, Revered.", next = "BACK" } },
+    },
+    op_the_light_r3 = {
+      lines = { { id = "optl_r3", text = "Then the Light is kinder than I dared hope, and I've one more reason to stand at this altar. Thank you for telling me." } },
+      choices = { { text = "Something else, Revered.", next = "BACK" } },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Because so many died here holding it, and died in faith, that the ground itself remembers, and the dead cannot rise where the Light has been paid for so dearly. I tell the young priests that the chapel is a prayer that never ended." } },
@@ -368,6 +429,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_tlaband", tags = { "news" }, when = { opinion = { topic = "the_light", stance = "abandoned" } }, text = "They tell me you've decided the Light abandoned the dead. I won't argue with you; I'll only ask you to watch what happens at this altar." },
+        { id = "o_fkdistrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "distrust" } }, text = "I'm told you'd rather the dead kept away from the Dawn. I understand, and I'll try to be useful all the same." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
           text = "{companion} has the look of a priest, and you've brought them to the one chapel in all of Lordaeron where the Scourge has never set foot. Kneel a while, both of you, if you've the time; this ground has a way of mending more than wounds." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -392,15 +455,15 @@ P:NPC {
       again = { { id = "h_again", text = "Yes? I have time; it's one of the few things the dead have plenty of." } },
       choices = {
         { text = "Do you feel the blight in the land, Leonid?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Does the Light really answer you?", next = "light" },
-        { text = "Why the Dawn, and not the Banshee Queen?", next = "why" },
-        { text = "Who is Ras Frostwhisper?", next = "ras" },
+        { text = "I'd not have thought the Light would answer you.", next = "light" },
+        { text = "I'd have expected you to serve the Banshee Queen.", next = "why" },
+        { text = "Who is Ras Frostwhisper?", next = "ras", when = { heardLine = "leonid.h_ras" } },
         { text = "We're the same, you and I.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The Light answers me too, Revered.", next = "x_paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "Do you see your undeath as a weapon too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Dawn ask of its mages, Leonid?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do the Dawn's living soldiers trust you, Leonid?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Can beasts tell that you aren't Scourge, Leonid?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "The Dawn's living soldiers can't trust you easily, Leonid.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I doubt beasts can tell you aren't Scourge, Leonid.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why didn't you join the Deathstalkers, Revered?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How do the spirits see you, Revered?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why has the Scourge never taken this chapel?", next = "xpt_priest", when = { party = { class = "PRIEST" } } },
@@ -430,7 +493,10 @@ P:NPC {
       lines = {
         { id = "l_default", text = "It burns, a little, like warmth on frostbitten hands. I've decided the burning is the Light reminding me what I'm for." },
       },
-      choices = { { text = "That's beautiful, and terrible.", next = "BACK", fx = { affinity = 3 } } },
+      choices = {
+        { text = "Can the Light belong to the dead as well?", next = "op_the_light" },
+        { text = "That's beautiful, and terrible.", next = "BACK", fx = { affinity = 3 } },
+      },
     },
     why = {
       big = true,
@@ -474,6 +540,11 @@ P:NPC {
     background = { { id = "tp_ba", text = "I lived, I died in Stratholme, and I rose. The third life is the one I mean to spend well.", next = "why" } },
     advice = { { id = "tp_ad", text = "If you're bitten, go to a priest at once, not tomorrow, at once." } },
     argent_dawn = { { id = "tp_dawn", text = "They took me in when no one else would have. I'll serve them until there's nothing left to serve with." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge made me what I am, and I've decided to use it against them. My face frightens the living, but it doesn't frighten the dead, and that's useful." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light still warms my hands, even now, and I don't understand why. I've stopped asking and started using it." } },
+    forsaken = { { id = "tp_forsaken", text = "I'm not Forsaken, though I'm dead as they are. I serve the Dawn, and the Dawn doesn't ask what I am, only what I'll do." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad made me a servant of the Scourge, for a time. I'd like to return the favor, if I ever get close enough." } },
+    stratholme = { { id = "tp_stratholme", text = "The Scourge marched me through Stratholme's streets more than once, though I remember little of it. I would rather not remember more." } },
     _none = { { id = "tp_none", text = "I don't know, friend. I know the Scourge, and that's knowledge enough for one unlife." } },
   },
 }

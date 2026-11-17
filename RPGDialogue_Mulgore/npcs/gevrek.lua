@@ -31,6 +31,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "I'm grateful to the Horde every day, and I'll not pretend otherwise. But I still don't know it the way you do, so tell me: what do you think the Horde truly is?" },
+        { id = "oph_q_ally", when = { faction = "Alliance" }, text = "You're of the Alliance, so your eyes see the Horde from the other side of the fence, and those are the eyes I most want to borrow. What do you think of the Horde that took us in?" },
+      },
+      choices = {
+        { text = "A family of exiles who chose each other. That's its strength.", next = "op_horde_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { horde = "kin" } } },
+        { text = "An army first. Don't mistake its kindness for anything softer.", next = "op_horde_r2", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { horde = "army" } } },
+        { text = "Dangerous company. I'd keep the Windshapers a little apart.", next = "op_horde_r3", fx = { affinity = -1, opinion = { horde = "dangerous" } }, when = { faction = "Alliance" } },
+        { text = "The Horde gave my people a home too. You'll find it worthy.", next = "op_horde_r4", fx = { affinity = 1, opinion = { horde = "kin" } }, when = { race = { "Tauren", "Orc", "Troll", "Scourge" } } },
+        { text = "I'd sooner you judged it for yourself, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "Then the Windshapers chose well, and I'll tell my people so when they doubt it. Thank you for that." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "I've seen the axes, so I don't mistake them, but I've also seen Baine carry water for my elders. It's both, I think, and that's what makes it strange." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "We were apart once, on Skywall, and the winds left us anyway. I'll not choose to be alone again, though I thank you for the warning." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "That's twice now someone born to it has told me so. I'm beginning to believe it, which is more than I could say on the day we landed." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The elements came first for my people, and the Light is a stranger to us. But we came to the Horde with our own odd gifts and were given a place to stand, and I would offer you the same welcome the tauren offered us." } },
@@ -105,25 +150,36 @@ P:NPC {
         { id = "h_windshaper", when = { origin = "skyborne_windshaper" }, text = "You passed the trials and took the sapta before we left the isle, and you came down with us anyway. The winds that sheltered us are gone, but Gev'rek is full of people who swore to them, and you're one of the few who still says the oath aloud." },
       },
       choices = {
-        { text = "Why did you leave Skywall?", next = "skywall" },
+        { text = "Why did your people leave their home?", next = "skywall" },
         { text = "What do the Windshapers believe?", next = "believe" },
-        { text = "And the High Order?", next = "order" },
+        { text = "Did all your people come to the Horde?", next = "order" },
         { text = "I've begun the trials, Elder. The elements answer me.", next = "shaman", when = { race = "Skyborne", class = "SHAMAN" } },
         { text = "I chose the blade over the trials. Is that a failing?", next = "warrior", when = { race = "Skyborne", class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "I'm a druid. Does that set me apart from the Windshapers?", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The Earthen Ring trained me too.", next = "ring", when = { race = { "Orc", "Troll", "Tauren" }, class = "SHAMAN" } },
         { text = "How do I honor winds that aren't here anymore, Elder?", next = "xhonor", when = { origin = "skyborne_windshaper" } },
-        { text = "Do the Windshapers need warriors, Elder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
-        { text = "Are the beasts of the plains strange to your people, Elder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "The Windshapers could use a few warriors, Elder.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "The beasts of the plains must be strange to your people.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the Windshapers practise the arcane, Elder?", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
-        { text = "Do your people fear warlocks, Elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "I'd guess the Windshapers practise the arcane too.", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Your people seem to fear warlocks, Elder.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers find the Light strange, Ayessa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "My skysight dims each season, Elder. I fear the day it's gone.", next = "xorig_totem", when = { origin = "skyborne_gevrek_totem_keeper" } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is gentle today, and so is my patience." },
         { id = "h_again2", text = "Speak, then. Gev'rek keeps no secrets from its friends, or few, and the ones it keeps are mostly about whose turn it is to haul water." },
+      },
+    },
+    xorig_totem = {
+      lines = {
+        { id = "xto_default", text = "So do I, and I am older than you, so I will likely meet that day first. Until then you'll tend the totems as if you could see every spirit around them, because a totem doesn't need our eyes to stand. Will you keep them for me, even blind?" },
+      },
+      choices = {
+        { text = "Even blind, Elder.", next = "BACK", fx = { affinity = 2, standing = { gevrek = 1 } } },
+        { text = "I'll try, but I won't pretend it doesn't frighten me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     shaman = {
@@ -191,13 +247,14 @@ P:NPC {
         { id = "b_default", text = "The four elements, and a debt to the wind that carried us. Our initiates pass the trials and take the sapta. The rest you learn by walking it." },
       },
       choices = {
+        { text = "How do the Windshapers see the Horde, Elder?", next = "op_horde" },
         { text = "I'd like to learn.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The elements don't need my worship, and I don't need theirs.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     order = {
       lines = {
-        { id = "o_default", text = "They went to the Kirin Tor; we went to the Earthen Ring. Some of what lies between us is old, and some of it is fresh graves. Don't ask me to pretend otherwise." },
+        { id = "o_default", text = "The High Order didn't. They went to the Kirin Tor, and we went to the Earthen Ring. Some of what lies between us is old, and some of it is fresh graves. Don't ask me to pretend otherwise." },
       },
       choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, learn = { "two_orders" } } } },
     },
@@ -208,6 +265,10 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "Grey robes and shaved heads. If you ever see them on this side of the sky, tell me before you tell anyone else." } },
     windstones = { { id = "tp_windstones", text = "Power and coin both, on the isle. Down here they're a reminder of home, mostly." } },
     cenarion_circle = { { id = "tp_circle", text = "Our druids feel a pull toward them, and I won't stand in the way; the elements are generous enough to share." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided the wandering tauren for generations, and my people have heard the stories at every fire. Thunder Bluff gave us shelter from all that, and we do not forget it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne gave the Windshapers a place in Mulgore when we had nowhere else to go. I owe him more than I can say, and I mean to repay it with loyalty." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the land, and the Windshapers have always listened to her through the wind. We hear her clearly here, more clearly than we ever did on the road." } },
+    the_elements = { { id = "tp_the_elements", text = "The wind spirits are our oldest friends, and they guided us across the plains when the land itself was against us. We still follow them, though now we follow them home." } },
     _none = { { id = "tp_none", text = "I don't know. Down here, there's a great deal I don't know yet." } },
   },
 }

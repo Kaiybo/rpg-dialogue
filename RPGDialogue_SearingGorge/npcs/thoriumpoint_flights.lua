@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird out of the Gorge? Wise, because there's more ash than air in this place, and the gryphons cough all night and spit black on my boots in the morning." },
-    { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend. Your orc is just over there with the wind riders, and she'll see you right." },
+    { id = "g_default", text = "Need a bird out of the Gorge, {g:lad|lass}? Wise, because there's more ash than air in this place, and the gryphons cough all night and spit black on my boots in the morning." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend, and nae other. Your orc is just over there with the wind riders, and she'll see ye right." },
     { id = "g_away", when = { away = 14, faction = "Alliance" }, text = "You've been gone {away}, and the gryphons have been coughing ash the whole time. They'll be glad of a flight out with you." },
   },
 
@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A Bronzebeard shaman, at a Dark Iron camp. I thought I'd seen every odd thing Thorium Point had to offer, and then you walked up the path." },
       },
       again = {
-        { id = "h_again", text = "What else? The birds are getting twitchy in this smoke." },
+        { id = "h_again", text = "What else, {g:lad|lass}? The birds are getting twitchy in this smoke, and so am I." },
         { id = "h_again2", text = "Go on, ask. I've nowhere to be but here." },
       },
       choices = {
@@ -136,10 +136,10 @@ P:NPC {
         { text = "A Bronzebeard among Dark Irons?", next = "brotherhood" },
         { text = "How do the gryphons stand the Gorge?", next = "ash" },
         { text = "Why fly when I could teleport home, Lanie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do the Dark Irons here ever try to read your letters?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'd wager the Dark Irons here would read the odd letter.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is it hard keeping faith among the Dark Irons, Lanie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a Bronzebeard warrior be welcome at Thorium Point, Lanie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "How do your gryphons fare in the Gorge's heat, Lanie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Your gryphons don't look made for this heat, Lanie.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Dark Irons here trust a paladin, Lanie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your gryphons ever refuse a warlock, Lanie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is a dwarf shaman stranger than a Dark Iron ally, Lanie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -150,7 +150,7 @@ P:NPC {
       lines = { { id = "b_default", text = "Aye, and I'll not pretend it was easy. My grandfather told me stories about Dark Irons that would curl your beard, but the Thorium Brotherhood walked away from Thaurissan and his master, and they've treated me fair." },
         { id = "b_dwarf", when = { race = "Dwarf" }, text = "You'll know the stories as well as I do, the ones about the War of the Three Hammers. But the Thorium Brotherhood walked away from Thaurissan and his fire master, and they've treated me fairer than some of our own." } },
       choices = {
-        { text = "Can you really trust them?", next = "brotherhood_trust" },
+        { text = "Trusting Dark Irons seems a hard thing to do.", next = "brotherhood_trust" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,9 +169,15 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I keep gryphons, and Ironforge sent me where they were needed. That's the long and the short of it." } },
+    background = { { id = "tp_ba", text = "I keep gryphons, and Ironforge sent me where they were needed, though I'd trade this ash for a mug of Thunderbrew in a heartbeat. That's the long and the short of it." } },
     advice = { { id = "tp_ad", text = "Tie a wet cloth over your face if you're walking the Gorge for long. Your lungs will thank you." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask one of the Brotherhood; they know this place better than I ever will." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni sent me to keep gryphons among Dark Irons, an' I've done it. I'd like to know what he was thinkin', but I don't ask." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye'll know what it's like, then, to stand among the Dark Irons an' bite yer tongue. The king says peace is worth it, an' I'm tryin' to believe him." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The Thorium Brotherhood are decent enough, for Dark Irons, but I sleep wi' one eye open. Old habits." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught me to fly, though I'm Bronzebeard born. They'd laugh at me keepin' gryphons in a place like this." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask one of the Brotherhood, for they know this stone better than I ever will." } },
   },
 }
 
@@ -187,8 +193,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Wind riders are fed and ready. Where are you going, and how fast do you want to get there?" },
-    { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance. The dwarf with the gryphons is over there, if you want a bird." },
+    { id = "g_default", text = "The wind riders are fed and ready, {class}. Where are you going, and how fast do you want to get there?" },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance, not while I hold this perch for the Horde. The dwarf with the gryphons is over there, if you want a bird." },
     { id = "g_away", when = { away = 14, faction = "Horde" }, text = "Back after {away} away, then. The wind riders still know your smell, so climb on whenever you're ready." },
   },
 
@@ -292,14 +298,14 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
         { id = "h_default", key = true,
-          text = "Grisha, wind rider master for the Horde at Thorium Point. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
+          text = "I am Grisha, wind rider master for the Horde at Thorium Point, and the only orc fool enough to sleep among Dark Irons. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe on your back while you're here, because the dwarves have long memories and short tempers, and I'd rather not lose a customer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll understand my beasts, then, and why I won't let anyone near them who doesn't know how to treat an animal." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarves around here will stare at you twice, once for the Light and once for the rot, so let them stare and keep your hand off your hammer." },
       },
       again = {
         { id = "h_again", text = "What else? The riders smell the lava and they want to be gone." },
-        { id = "h_again2", text = "Speak. I'm listening." },
+        { id = "h_again2", text = "Speak, then. I'm listening, and an orc doesn't ask twice." },
       },
       choices = {
         { text = "How do the wind riders fare in the Gorge?", next = "druid_q", when = { class = "DRUID" } },
@@ -309,7 +315,7 @@ P:NPC {
         { text = "Do your riders mind carrying a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do your riders hate demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust the Dark Irons here, Grisha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "How do your wind riders handle the Gorge, Grisha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Your wind riders can't care much for the Gorge, Grisha.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the Dark Irons here watch the Horde closely, Grisha?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Are your wind riders often hurt over the Gorge, Grisha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What makes the air over the Gorge so angry, Grisha?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
@@ -340,8 +346,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that is my own business." } },
+    background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that, behind the camp fences and after, is my own business." } },
     advice = { { id = "tp_ad", text = "Don't walk down into the Gorge without a reason. The Dark Irons down there aren't the friendly kind." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask the dwarves, and bring earplugs, because they never stop at one story." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sends us where we're needed, and I'm needed here, among dwarves. I don't understand why, but I don't ask." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are dwarves, and dwarves are dwarves. I watch them all the same, whatever they call themselves." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are what the Horde used to be, and the Warchief means to make sure we never go back. I'd like to help." } },
+    _none = { { id = "tp_none", text = "I don't know it. Ask the dwarves, and bring earplugs, because they never stop at one story." } },
   },
 }

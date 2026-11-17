@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_darkiron = {
+      lines = {
+        { id = "opd_default", text = "Forgiven? Water does not forgive or condemn, mortal; it only wears away what is in its path. But your kind trades in such words, so tell me how you would judge them." },
+      },
+      choices = {
+        { text = "Their grandsires did it. The living can still choose better.", next = "op_di_forgive", fx = { align = { light = 1 }, opinion = { dark_iron = "redeemable" } } },
+        { text = "They woke a god of fire. Every one must answer for it.", next = "op_di_answer", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "They're our kin, Duke, and they're our shame.", next = "op_di_kin", fx = { opinion = { dark_iron = "mixed", dwarves = "ashamed" } }, when = { race = "Dwarf" } },
+        { text = "I'll leave judgment to the tides.", next = "BACK" },
+      },
+    },
+    op_di_forgive = {
+      lines = {
+        { id = "opdf_default", text = "You say they can choose better, and yet they kneel to Ragnaros still, and stoke his fires, and call it worship. Choose as you like, mortal, but bring me his lieutenants all the same." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_answer = {
+      lines = {
+        { id = "opda_default", text = "Then we are agreed, though not for your reasons. Their choices do not interest me, only the fire they feed, and I would see it quenched." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_kin = {
+      lines = {
+        { id = "opdk_default", text = "Shame is a thing for those who stay dry. Use it as you will, little dwarf, and use it against the fire if you can." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_mc = {
       big = true,
       lines = { { id = "xcl_mc_default", text = "Won? You have smothered one flame, the greatest of them, but fire does not die, it waits. The Firelord will gather himself again in time, and when he does I want the Waterlords standing over the place he returns to." } },
@@ -169,9 +198,9 @@ P:NPC {
       },
       choices = {
         { text = "Who are the Waterlords?", next = "lords" },
-        { text = "What war do you wage, Duke?", next = "war" },
+        { text = "You speak as though you wage a war, Duke.", next = "war" },
         { text = "What do you want from mortals?", next = "mortals" },
-        { text = "What happened to your scouts in the east?", next = "plague" },
+        { text = "Something happened to your scouts in the east.", next = "plague" },
         { text = "The elements speak to me as well, Duke.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "The wind spirits sheltered my people once.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The Emberseer is ash, Duke.", next = "emberseer", when = { questDone = TODO_QUEST("Eye of the Emberseer") } },
@@ -182,7 +211,7 @@ P:NPC {
         { text = "What use would a Waterlord have for a rogue?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How could a priest serve the Waterlords, Duke?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use is a warrior to the Waterlords?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do the Waterlords value a hunter's patience?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "A hunter's patience should suit the Waterlords.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would the Waterlords have of a paladin, Duke?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Ragnaros is banished, Duke. Is your war won?", next = "xcl_mc", when = { cleared = "Molten Core" } },
         { text = "I'll take my leave, Duke.", next = "END" },
@@ -197,7 +226,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Neptulon?", next = "lords_neptulon" },
-        { text = "You broke this land?", next = "lords_broke" },
+        { text = "You speak as if you broke this land.", next = "lords_broke" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -230,6 +259,7 @@ P:NPC {
           text = "The Firelord. The dwarves of the Dark Iron called him up out of the deep places, and now he burns beneath their mountain and they serve him. They fear us, I am told, those Dark Irons who drink in his halls, and they are right to." },
       },
       choices = {
+        { text = "Should the Dark Iron be forgiven for waking him?", next = "op_darkiron" },
         { text = "Then I'll fight fire for you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "I'll fight fire when it pays, Duke.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -286,7 +316,7 @@ P:NPC {
           text = "My scouts are cured, those who could be, and their madness is ended. Our strength is in our purity; you have restored a little of it, and the Waterlords remember." },
       },
       choices = {
-        { text = "The plague touches even elementals?", next = "plague_how" },
+        { text = "I didn't know the plague could touch elementals.", next = "plague_how" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -331,6 +361,12 @@ P:NPC {
     blackrock_spire = { { id = "tp_brs", text = "The orcs' fortress above the Firelord's mountain. They chain fire there and think they own it." } },
     new_plague = { { id = "tp_plague", text = "A filth in the rivers of the east. It twisted my scouts, and I have not forgiven it.", next = "plague" } },
     spitelash = { { id = "tp_spite", text = "The naga swim in my waters by my leave, and they forget that more often than they should." } },
+    arkkoroc = { { id = "tp_arkkoroc", text = "The sea giant in the drowned temple calls himself a god, and the tides find this very funny. He is useful against the naga, and so I tolerate his opinions." } },
+    loramus = { { id = "tp_loramus", text = "The elf on the island hunts the demon in his own blood, and the water there smells of brimstone. I do not care what he hunts, so long as he hunts it far from my rock." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon serves fire, as her father does, and so she is my enemy whether she knows my name or not. I would drown her in her own swamp." } },
+    the_elements = { { id = "tp_the_elements", text = "The shamans speak of balance among the elements, as if water ever wished for balance with fire. We wish for fire to be put out, and that is the only balance the Waterlords respect." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves kneel to the Firelord in their mountain, and they would drown very easily if I had my way. Bring me their dead and I will think better of you." } },
+    thrall = { { id = "tp_thrall", text = "The orc shaman who leads the Horde speaks to the elements as a friend, I am told. The water does not need friends, mortal; it needs servants." } },
     _none = { { id = "tp_none", text = "That is a matter for dry land, mortal, and of no interest to the Waterlords." } },
   },
 }
@@ -365,6 +401,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "That is the question my own people answered for me, by sending me away. They decided the price was too high. I would hear what a mortal decides, since you will live with the consequences longer than they will." },
+      },
+      choices = {
+        { text = "To beat a demon, you must know one. You chose rightly.", next = "op_dem_right", fx = { affinity = 1, align = { light = -1 }, opinion = { demons = "necessary" } } },
+        { text = "Some power is too tainted to touch, whatever the cause.", next = "op_dem_wrong", fx = { affinity = -1, align = { light = 1 }, opinion = { demons = "hate" } } },
+        { text = "Our people cast you out. They were wrong to.", next = "op_dem_right", fx = { affinity = 2, opinion = { demon_hunters = "respect" } }, when = { race = "NightElf" } },
+        { text = "I'm not the one to judge that.", next = "BACK" },
+      },
+    },
+    op_dem_right = {
+      lines = {
+        { id = "opdr_default", text = "Rightly, perhaps, and I have paid for being right every day since. Do not envy it, {race}; there are easier truths to carry." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dem_wrong = {
+      lines = {
+        { id = "opdw_default", text = "Then you sound like the priestesses, and they at least had the courage to say it to my face. Keep your clean hands, mortal, while there are still people like me to dirty theirs for you." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_loramus = {
       big = true,
       lines = { { id = "xpt_loramus_default", text = "Dangerous to everyone but the demons, who are the only ones who always profit from the bargain. I have hunted demons since before your kingdoms had names, and I've never met a warlock who believed they'd be the one to slip, so watch yours closely." } },
@@ -509,19 +568,19 @@ P:NPC {
       },
       choices = {
         { text = "What has the Legion left in Azshara's earth?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Who are you, Loramus?", next = "who" },
+        { text = "You don't look like any night elf I've met, Loramus.", next = "who" },
         { text = "What do you see that I can't?", next = "see" },
-        { text = "Tell me about Razelikh.", next = "razelikh" },
+        { text = "Which demon do you hunt, Loramus?", next = "razelikh" },
         { text = "Your hounds are demons themselves.", next = "hounds" },
         { text = "The Light can stand against any demon.", next = "priest", when = { class = "PRIEST" } },
         { text = "I command demons too, demon hunter.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Our people cast out demon hunters.", next = "nelf", when = { race = "NightElf" } },
         { text = "Your hounds are demons. My beast is honest.", next = "hunter_lo", when = { class = "HUNTER" } },
         { text = "My forebears in Eldre'Thalas fought a prince who drank the Nether.", next = "sky_lo", when = { race = "Skyborne" } },
-        { text = "Do you blame all mages for the Legion's coming?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You seem to blame all mages for the Legion's coming.", next = "xmage", when = { class = "MAGE" } },
         { text = "What walks unseen along the shore?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a priest's shadow touch the demons you hunt, Loramus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "How does a warrior fight what he can't see?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A warrior can't fight what he can't see.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do you see in Azshara's woods that I can't?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do demons fear a paladin's Light, Loramus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I've been through Dire Maul, Loramus. What do you know of it?", next = "xcl_dm", when = { cleared = "Dire Maul" } },
@@ -558,7 +617,10 @@ P:NPC {
     },
     who_alone = {
       lines = { { id = "wa_default", text = "Because my own people look at me as if I were the thing I hunt, and other peoples look at me as if I were mad. My hounds look at me as if I were their master, which is restful, and almost true." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Was it worth it, using the enemy's power against him?", next = "op_demons" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     see = {
@@ -586,13 +648,13 @@ P:NPC {
           text = "Razelikh the Defiler, the cruellest of Kazzak's lieutenants in the old war. Kazzak lost that war and crawled away to lick his wounds, and he set Razelikh to hold the Blasted Lands for him, which he has done while your kingdoms quarrelled over fields and borders." },
       },
       choices = {
-        { text = "How has he held them?", next = "razelikh_triad" },
+        { text = "He's held them a long time, it seems.", next = "razelikh_triad" },
         { text = "Why don't you kill him yourself?", next = "razelikh_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     razelikh_triad = {
-      lines = { { id = "rt_default", text = "With three servants: Sevine of the Shadowsworn, Allistarj, and the ogre Grol. He gave them and their followers deathless lives, and bound those lives to the Blasted Lands, so that they can never leave and never fall, and never stop serving him." } },
+      lines = { { id = "rt_default", text = "He has, through three servants: Sevine of the Shadowsworn, Allistarj, and the ogre Grol. He gave them and their followers deathless lives, and bound those lives to the Blasted Lands, so that they can never leave and never fall, and never stop serving him." } },
       choices = {
         { text = "Then how can they be beaten?", next = "razelikh_name" },
         { text = "Something else.", next = "BACK" },
@@ -668,6 +730,10 @@ P:NPC {
     queen_azshara = { { id = "tp_queen", text = "She is not dead, mortal. I would stake my hounds on it. Something waits under this sea." } },
     burning_legion = { { id = "tp_legion", text = "They were beaten, not destroyed, and they remember every insult. I have spent my life making sure they remember me too." } },
     tainted_scar = { { id = "tp_scar", text = "Where Kazzak licks his wounds and Razelikh keeps his master's house. I will not go there, and neither should you, until you carry the name.", next = "razelikh" } },
+    waterlords = { { id = "tp_waterlords", text = "The duke on his rock thinks the whole world is fire waiting to be put out, and he thinks I am a candle. He is not entirely wrong." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande's priestesses think a demon hunter is half a demon, and I have given them no reason to change their minds. She was a brave girl in the old war, and I hear she is a hard woman now, which is the same thing grown up." } },
+    elune = { { id = "tp_elune", text = "Elune turned her face from me when I took the demon's fire into my body. I do not blame her, but I do still pray, out of habit." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened a door the Legion was waiting at, and you mortals closed it with a great deal of luck. The Legion was waiting on the other side, as it always is." } },
     _none = { { id = "tp_none", text = "That is not a demon, so it does not concern me." } },
   },
 }
@@ -819,15 +885,15 @@ P:NPC {
       },
       choices = {
         { text = "Do the waters of this bay obey you, great one?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Are you really a god?", next = "god" },
-        { text = "Who threatens your children?", next = "sons" },
+        { text = "The deep folk seem to worship you as a god.", next = "god" },
+        { text = "Does anything in the sea threaten you?", next = "sons" },
         { text = "This was a temple of Elune, once.", next = "temple" },
         { text = "I seek the name of a demon lord.", next = "name", when = { questActive = TODO_QUEST("The Name of the Beast") } },
         { text = "My people know gods too. The loa.", next = "troll_ar", when = { race = "Troll" } },
-        { text = "What do the deep folk sing of the Highborne?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The deep folk must sing of the Highborne.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the burning ones trouble the sea?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the deep folk really worship you, Arkkoroc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Could a warrior kill the beast that slew your sons?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A warrior might kill the beast that slew your sons.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the deep folk hunt as I do, Arkkoroc?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would the deep folk welcome a druid in the water?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you honestly think yourself a god, Arkkoroc?", next = "xapala", when = { class = "PALADIN" } },
@@ -892,6 +958,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Do not swim in the clutch, small thing. Hetaera eats small things." } },
     arkkoroc = { { id = "tp_self", text = "The one, the lord, the god of these waters. Arkkoroc.", next = "god" } },
     loramus = { { id = "tp_lor", text = "The demon hunter on his little island. He sends small things to the one, and the one sends them back with names." } },
+    waterlords = { { id = "tp_waterlords", text = "The water lord on his rock thinks he is greater than the one, because he is made of the sea. The one is a god of the sea, and the water lord is merely wet." } },
+    onyxia = { { id = "tp_onyxia", text = "The one hears of a black dragon in the swamps to the south, and the one is not afraid of dragons. The one would like to see a dragon swim, which the one thinks it would do badly." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The naga sing of their queen beneath the waves, and they do not sing of the one, which the one finds very rude. The one will be remembered longer than her." } },
+    highborne = { { id = "tp_highborne", text = "The small elves who built this temple are dead, and the one lives in it now. This is how gods and tenants work, small thing." } },
     _none = { { id = "tp_none", text = "The one does not concern itself with the doings of the dry land." } },
   },
 }

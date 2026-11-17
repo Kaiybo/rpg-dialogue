@@ -28,6 +28,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_arcane = {
+      lines = {
+        { id = "opa_default", text = "Now that is the question my flight has argued over since before your kingdoms had names. I have my answer, little one, and I'm curious whether yours is foolish in an interesting way." },
+      },
+      choices = {
+        { text = "Some power should be guarded, the way you guard it.", next = "op_arc_guard", fx = { affinity = 1, align = { order = 1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "Magic belongs to whoever has the will to master it.", next = "op_arc_will", fx = { affinity = -1, align = { order = -1 }, trait = { proud = 1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "We'll learn, mistakes and all, the same as you did.", next = "op_arc_will", fx = { trait = { witty = 1 }, opinion = { arcane_magic = "admire" } }, when = { class = "MAGE" } },
+        { text = "I think I'll keep my answer, great one.", next = "BACK" },
+      },
+    },
+    op_arc_guard = {
+      lines = {
+        { id = "opag_default", text = "A sensible mortal! I shall have to sit down. Don't let it go to your head, though; sensible mortals are still mortals, and they still poke at things." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_arc_will = {
+      lines = {
+        { id = "opaw_default", text = "Will, is it? The Highborne had a great deal of will, and you can see where it put them, under several fathoms of very cold water. Do try to be more original than they were." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "You seek Azuregos, guardian of these ruins and the only creature in Azshara with any sense? Well, you've found him. Do try not to do anything heroic." },
@@ -46,7 +69,7 @@ P:NPC {
       choices = {
         { text = "What are you guarding here?", next = "guard" },
         { text = "Why does everyone try to kill you?", next = "attackers" },
-        { text = "What was this place before?", next = "eldarath" },
+        { text = "This place must have been grand once.", next = "eldarath" },
         { text = "What do you think of mortals and magic?", next = "magic" },
         { text = "I study the arcane too. Teach me something.", next = "mage", when = { class = "MAGE" } },
         { text = "My ancestors built this. What do you remember?", next = "nelf", when = { race = "NightElf" } },
@@ -61,7 +84,7 @@ P:NPC {
         { text = "What sort of treasures, exactly?", tag = "Persuade", next = "guard_true",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "MAGE" }, { reputation = { faction = "Cenarion Circle", min = "honored" } } } } },
           fail = { next = "guard_fail", fx = { affinity = -1 } } },
-        { text = "Do you enjoy the duty?", next = "guard_enjoy" },
+        { text = "Guarding these ruins must be dull duty.", next = "guard_enjoy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,7 +129,7 @@ P:NPC {
     eldarath = {
       lines = { { id = "e_default", text = "Eldarath, one of the Highborne's proudest cities, back when this whole coast was Zin-Azshari and its queen was the most beautiful and the most foolish creature in the world. Then the Well went wrong, and the sea came in, and here we are." } },
       choices = {
-        { text = "The queen? Azshara herself?", next = "eldarath_queen" },
+        { text = "You mean the queen, Azshara herself.", next = "eldarath_queen" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -125,6 +148,7 @@ P:NPC {
       big = true,
       lines = { { id = "m_default", text = "Mortals and magic are like children and knives: occasionally useful, mostly bloody, and someone always has to clean up afterwards. Usually that someone is a dragon." } },
       choices = {
+        { text = "Should mortals have magic at all, then?", next = "op_arcane" },
         { text = "Magic belongs to whoever is bold enough to learn it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Then guard it well. Some power needs keepers.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -159,6 +183,13 @@ P:NPC {
     eldarath = { { id = "tp_el", text = "My ruins, these days, whatever the naga think. The Highborne would be appalled at the upkeep.", next = "eldarath" },
       { id = "tp_el2", text = "A drowned jewel, still shining a little under the waves." } },
     xylem = { { id = "tp_xy", text = "The human in the tower? He thinks he's studying Azshara. Azshara is studying him, and it isn't impressed." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "My elders remember her, and they do not speak of many mortals that way. She was the most beautiful thing in the world and the most dangerous, and she knew both facts precisely." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are mortals who learned a few tricks from my kind and decided they were the custodians of magic. My master Malygos would find them amusing, if he still found anything amusing." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was a city of mages stacking spells on top of each other like children with blocks, and then something knocked the blocks over. I am told they are rebuilding it, and I expect the same result." } },
+    onyxia = { { id = "tp_onyxia", text = "Deathwing's daughter lairs in the marsh to the south, and she is clever, which is worse than being strong. If I were you I would not go near her, and if I were her I would not want you to.", fx = { learn = { "black_dragonflight" } } } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The bronze flight keep time, and they do not like anyone stepping on it. They are courteous, terribly patient and terribly boring, and I respect them more than I let on." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children dream while the world burns, and they call it vigilance. I have nothing against them, except that they never answer a question directly, which I suppose I have no right to resent." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion came for the Well of Eternity because of the magic my kind protect, and it will come again for the same reason. That is why I take magic away from careless mortals like you." } },
     _none = { { id = "tp_none", text = "That is beneath my interest, little one, and very little is beneath a dragon." } },
   },
 }

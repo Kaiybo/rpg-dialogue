@@ -33,6 +33,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Whoa, hey, I just sold a stack of fancy books to a {altrace} named {alt}, pal, from the other side, and you've got the exact same disapproving eyebrows. Is there some kinda family of you goin' around Dalaran checkin' up on honest businessgoblins?" },
+        { id = "h_alt_same", when = { alt = { faction = "same" } },
+          text = "{alt} came by, a {altclass}, real friendly, and didn't call the mages on me, so I'm thinkin' good things about your whole family, pal. Don't ruin it, 'cause I got a reputation for bein' trusting, and it's costin' me." },
         { id = "h_default", key = true, text = "Well, hey there, fellow Dalaranian! Just another honest citizen, me, mindin' my own business while the whole city goes kablooey around us, and kablooey's real good for the salvage trade." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Don't gimme that look, pal. The shop's open, the owner ain't, and lettin' good stock go to waste in all this ruckus would be a crime against commerce." },
@@ -49,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "You're no Dalaranian.", next = "bluff" },
-        { text = "What are you after down here?", next = "after" },
+        { text = "You're after something down here, I'd guess.", next = "after" },
         { text = "This is stealing, plain and simple.", next = "steal" },
         { text = "Need a partner, Rexxie?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "See you around, Rexxie.", next = "END" },
@@ -61,7 +65,7 @@ P:NPC {
         { id = "bl_default", text = "Course I am, pal! I got a robe and everything, and all right, it's a borrowed robe and it's three sizes too long, but the mages are too busy chasin' glowy things to check anybody's papers." },
       },
       choices = {
-        { text = "How did you even get in?", next = "bluff_in" },
+        { text = "I can't see how a goblin got in here.", next = "bluff_in" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -116,6 +120,10 @@ P:NPC {
 
   topics = {
     trade = { { id = "tp_trade", text = "Buyin' low, sellin' high, and leavin' before anybody asks for a receipt, pal, which is all the business school a goblin ever needs." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's got more shiny stuff per square foot than anywhere on this continent, pal, and the magi don't count half of it. I'm just helpin' with the inventory, is all, very informally." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor think a borrowed robe and a serious face make you a magus, and you know what, mostly they're right! Don't tell 'em I said that, because it's my whole business plan." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I learned my trade, friend, and the Baron's still lookin' for me over a little matter of a misplaced crate. Call it a disagreement about who owned it, and call it settled if anybody asks." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got cousins of mine on every corner, and every one of 'em would sell me out for a copper. That's family, though, and I'd do the same." } },
     _none = { { id = "tp_none", text = "Never heard of it, sweetheart, and if I had, it'd cost ya." } },
   },
 }

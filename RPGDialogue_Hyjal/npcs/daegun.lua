@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand still a moment and let the wind tell me who you are." },
+    { id = "g_default", text = "Stand still a moment and let the wind tell me who you are, as the spirits of my fathers taught." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. The mountain has not finished testing you, then." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Lok'tar. It is good to see the Horde's colours this far from home." },
     { id = "g_after", when = { questDone = TODO_QUEST("Yashiro's Windwalk") }, text = "Blade-friend. Sit by my fire whenever you pass; you have earned the warmth." },
@@ -46,8 +46,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The songs say the Legion fell at Hyjal, and the songs are wrong, because I have killed three of its servants on this mountain since the last moon. Do you think the Legion is finished?" },
+      },
+      choices = {
+        { text = "Archimonde is dead. What's left is scraps.", next = "op_r1", fx = { align = { order = -1 }, trait = { brave = 1 }, opinion = { burning_legion = "beaten" } } },
+        { text = "No. It's waiting, and it will come back.", next = "op_r2", fx = { affinity = 1, align = { order = 1 }, trait = { cautious = 1 }, opinion = { burning_legion = "dangerous" } } },
+        { text = "Our people drank its blood once, and never again.", next = "op_r3", fx = { affinity = 1, opinion = { burning_legion = "hate" } }, when = { race = "Orc" } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Scraps that burn villages are still fire. I would not tell a widow her husband was killed by scraps." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Then we agree, and that is a lonely thing to agree on in a world so busy with its own wars." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Never again. Grom paid for our freedom when he killed Mannoroth, and I will not let that debt be run up a second time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_demon_hunters_distrust", tags = { "news" }, when = { gossip = { topic = "demon_hunters", stance = "distrust" } },
+          text = "You told the elf demon hunter you do not trust him. I do not trust him either, though I notice he is always on the ridge when I need someone there." },
         { id = "h_default", key = true,
           text = "I am Yashiro, a blademaster, and I have come to finish a war that ended too soon. The demons who fled when Archimonde fell are still on this mountain, hiding in Dae'gun, and I mean to show them that hiding was a mistake." },
         { id = "h_bonfire", tags = { "news" }, when = { questActive = TODO_QUEST("Blademaster's Bonfires") },
@@ -68,13 +94,14 @@ P:NPC {
           text = "A druid. Your kind tends the mountain and mine cleans it, and I think we will get along, if you do not lecture me about the fires." },
       },
       again = {
-        { id = "h_again", text = "Ask what you need. I am listening." },
+        { id = "h_again", text = "Ask what you need. I am listening, and a blademaster's ears are as sharp as his edge." },
         { id = "h_again2", text = "There is more you want to know. Speak plainly; I prefer it." },
       },
       choices = {
+        { text = "Do you think the Legion is finished?", next = "op_ask" },
         { text = "Why do you hunt these demons?", next = "why" },
-        { text = "What are the bonfires for?", next = "bonfires" },
-        { text = "What is Dae'gun?", next = "daegun" },
+        { text = "Those bonfires are no cooking fires.", next = "bonfires" },
+        { text = "I don't know this Dae'gun you speak of.", next = "daegun" },
         { text = "What does a blademaster do?", next = "path" },
         { text = "Tell me about the spirit bead you offered.", next = "bead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") } },
         { text = "Our peoples fought together here, didn't they?", next = "xally", when = { faction = "Alliance" } },
@@ -127,11 +154,11 @@ P:NPC {
 
     bonfires = {
       lines = {
-        { id = "bf_default", text = "Fire is a challenge the demons understand. A doomguard who sees flames on his ground thinks someone has come to take it, and he comes out of hiding to prove otherwise, and then I am waiting for him." },
+        { id = "bf_default", text = "Fire is a challenge the demons understand. A doomguard who sees flames on his ground thinks someone has come to take it, and he comes out of hiding to prove otherwise, and then I am waiting for him. Light enough fires, and sooner or later their warlord comes out too." },
         { id = "bf_done", when = { questDone = TODO_QUEST("Blademaster's Bonfires") }, text = "You lit them well. I watched the smoke from the ridge, and I watched the demons stir under it like ants under a kicked hill." },
       },
       choices = {
-        { text = "Won't the fires hurt the forest?", next = "bonfires_forest" },
+        { text = "Those fires will hurt the forest.", next = "bonfires_forest" },
         { text = "And when the warlord comes?", next = "windwalk" },
         { text = "Something else.", next = "BACK" },
       },
@@ -280,6 +307,15 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Dae'gun, never fight with your back to the open ground. Doomguard come from the sky." } },
     burning_legion = { { id = "tp_bl", text = "They enslaved my people and broke this mountain. I need no other reason." } },
     malfurion = { { id = "tp_malf", text = "The night elves' shaman, whose horn called the wisps. I never saw him, only the light at the summit, and I have never seen anything like it since." } },
-    _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall freed me from the camps, as he freed many, and he brought us to this mountain to stand against the demons. I owe him my blade, and I have never once regretted the debt." },
+      { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You are of the Alliance, and still you ask about the Warchief with respect. He stood here with your people, and he remembers it." },
+    },
+    nordrassil = { { id = "tp_nordrassil", text = "The great tree stood behind us when the demons came, and the mountain held. I come to look at it sometimes, and I feel smaller, which is good for a warrior." } },
+    scourge = { { id = "tp_scourge", text = "The undead marched before the demons on this mountain, and they fell like grass. The ones in the north are the same, and I would cut them the same way." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is a wise chieftain and a great warrior, and the tauren saved many of us at the mountain. I bow to him whenever we meet." } },
+    tyrande = { { id = "tp_tyrande", text = "The high priestess and her Sentinels fought beside us on this mountain. In Ashenvale we fight them now, and I find no honour in it." } },
+    the_elements = { { id = "tp_the_elements", text = "A shaman saved my life once, when I should have died. I have honoured the spirits since, though I do not hear them as she did." } },
+    _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand and less blood on the snow." } },
   },
 }

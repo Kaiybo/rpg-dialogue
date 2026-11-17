@@ -11,7 +11,7 @@
 ## Identity
 Eyahn Eagletalon · lower rise, Thunder Bluff · Horde · Tauren · ceremony-keeper
 Personality: fussy, devout, warm, quietly proud
-Speech: talks while he sews; "friend"
+Speech: talks while he sews; "friend"; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: ceremonies, feathers, Ruul, the burial grounds
 Relationships: Ruul Eagletalon (brother, Bloodhoof Village)
 Never says: anything after Year 1

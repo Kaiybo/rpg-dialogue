@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Bartolo Ginsetti, and I make the world-famous, Alliance-renowned yeti fur cloak! Travel the planet and find yourself a better cloak, I dare you, but you will come back, for there is none." },
+          text = "I am Bartolo Ginsetti, and I make the world-famous, Alliance-renowned yeti fur cloak! Travel the planet and find yourself a better cloak, I dare you, but you will come back, for there is none, as Bartolo always says." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Bartolo's Yeti Fur Cloak") },
           text = "Bring Bartolo a bolt of wool, fine thread, a Hillman's cloak and ten clumps of yeti fur, and you shall be a happy customer. The yetis are in Alterac, and they do not give their fur willingly, but that is your concern and not mine." },
         { id = "h_ready", tags = { "news" }, when = { questReady = TODO_QUEST("Bartolo's Yeti Fur Cloak") },
@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask! Bartolo is generous with his wisdom." },
       },
       choices = {
-        { text = "What makes your cloaks so special?", next = "cloak" },
+        { text = "Your cloaks look warmer than most.", next = "cloak" },
         { text = "Where do I find yeti fur?", next = "yeti" },
         { text = "Do you sell to anyone outside Southshore?", next = "fame" },
         { text = "Why do you talk about yourself like that?", next = "third" },
@@ -85,7 +85,7 @@ P:NPC {
         { id = "ye_default", text = "North into Alterac, where the yetis keep to the caves and the snow. They are large and angry and smell of wet dog, so bring friends, and do not bring the smell back to my shop." },
       },
       choices = {
-        { text = "Isn't it cruel to hunt them for cloaks?", next = "yeti_cruel" },
+        { text = "It seems cruel to hunt them for cloaks.", next = "yeti_cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,6 +150,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Born in Lordaeron, gifted at birth, and making cloaks since my hands could hold a needle." } },
     advice = { { id = "tp_ad", text = "Never wear wet wool in the hills. Wear Bartolo's cloak instead." } },
     alterac = { { id = "tp_alterac", text = "Snow, yetis, ogres and bandits. Bartolo goes there only in his thoughts." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's strongman challenged Bartolo to a contest of strength, and Bartolo won, naturally. The Faire did not invite Bartolo back, which Bartolo considers a compliment." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead men up the hill buy no cloaks, because they do not feel the cold, which is a tragedy for Bartolo's business. Bartolo pities them a little, and fears them a great deal more." } },
+    scourge = { { id = "tp_scourge", text = "Bartolo has never met the Scourge and intends never to meet them, since Bartolo is far too handsome to rot. Southshore's guards tell stories that make Bartolo hold his cloak a little tighter." } },
     _none = { { id = "tp_none", text = "Bartolo does not know, and if Bartolo does not know, it is not worth knowing." } },
   },
 }

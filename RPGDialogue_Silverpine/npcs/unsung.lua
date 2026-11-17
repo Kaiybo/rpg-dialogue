@@ -87,19 +87,19 @@ P:NPC {
       choices = {
         { text = "Do any of your mushrooms help with healing, Gwyn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I tell you which caps are safe for the living, Gwyn?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do the mushrooms grow from the plague, Gwyn?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Some of these mushrooms look like they grew from the plague.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your mushrooms.", next = "BUSINESS" },
-        { text = "Where do you find them?", next = "where" },
+        { text = "Those mushrooms must grow somewhere damp.", next = "where" },
         { text = "Why mushrooms, of all things?", next = "why" },
         { text = "Which of your mushrooms would a rogue want, Gwyn?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mushrooms grow where demons have walked, Gwyn?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Are your mushrooms safe for a warrior to eat, Gwyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where do the best mushrooms grow in Silverpine, Gwyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do mages buy your mushrooms, Gwyn?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'd guess mages buy your mushrooms too, Gwyn.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why would you want the Light on your mushrooms, Gwyn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms." } },
+      again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms; neither of us minds the dark." } },
     },
     where = {
       lines = { { id = "w_default", text = "Some grow right here in the crypts, under the stairs where it's wettest, and the best ones grow on the old logs near Lordamere Lake. I don't go out myself anymore, because the worgen near Pyrewood don't care that I'm already dead." } },
@@ -161,7 +161,10 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Couldn't tell you, dear. Ask the High Executor; he knows everything that moves in this forest." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken can eat anything I sell, which is very good for business. The living have to be a bit more careful, and I make sure to tell them." } },
+    shadowfang = { { id = "tp_shadowfang", text = "There are mushrooms growing on the walls of Shadowfang Keep that I'd love to sample. The worgen won't let me near, which is very rude of them." } },
+    thrall = { { id = "tp_thrall", text = "Orcs and trolls come through sometimes and buy my mushrooms without asking which ones are safe. I always tell them, and they always look a bit green afterward." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, dear. Ask the High Executor; he knows everything that moves in this forest, and most of what's stopped moving." } },
   },
 }
 
@@ -253,21 +256,21 @@ P:NPC {
         { text = "What's wrong with how I dress, Andrea?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you believe it simply comes back, Andrea?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your clothes.", next = "BUSINESS" },
-        { text = "Were you a tailor in life?", next = "past" },
-        { text = "Where do you get cloth out here?", next = "cloth" },
+        { text = "You sew like someone who did it in life.", next = "past" },
+        { text = "Cloth must be hard to come by out here.", next = "cloth" },
         { text = "These robes should hold an enchantment well, Andrea.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "My demon keeps scorching my robes, Andrea.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Does a warrior need anything from a clothier, Andrea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "A warrior has little need of a clothier, Andrea.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is there anything here for a hunter, Andrea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What would you change about my gear, Andrea?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Should a Forsaken paladin wear the Silver Hand's colours, Andrea?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else? Make it quick, I have hems to finish." } },
+      again = { { id = "h_again", text = "Anything else? Make it quick; I have hems to finish, and the Deathguard keep coming back with bits of themselves caught in them." } },
     },
     past = {
       lines = { { id = "p_default", text = "A seamstress in Lordaeron, and a good one, though nobody from those days is left to say so. I made dresses for weddings once, and now I make robes for corpses who don't care how they look." } },
-      choices = { { text = "Do you miss making dresses?", next = "past_miss" } },
+      choices = { { text = "You must miss making dresses.", next = "past_miss" } },
     },
     past_miss = {
       lines = { { id = "pm_default", text = "I miss the people who wore them, but they're dead or they're Scourge, and neither one needs a dress. So I sew for the Forsaken, and I try to make them look like they still matter." } },
@@ -308,7 +311,7 @@ P:NPC {
       choices = {
         { text = "I'll take your advice and stand straighter.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Looks don't win fights, Andrea.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Were you a tailor in life?", next = "past" },
+        { text = "You sew like someone who did it in life.", next = "past" },
       },
     },
     xwarlock = {
@@ -320,11 +323,14 @@ P:NPC {
       choices = {
         { text = "I'll teach the demon some manners, Andrea.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Its manners suit me well enough, Andrea.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Where do you get cloth out here?", next = "cloth" },
+        { text = "Cloth must be hard to come by out here.", next = "cloth" },
       },
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have no excuse for wearing their robes badly, death or no death. A seam is a seam, and a hem is a hem, and I won't hear otherwise." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I sewed gowns for ladies in Lordaeron, and I still remember every one of them. Most of them are dead now, and I'd wager some of them are badly dressed." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran wore the finest robes in the world, violet silk with silver thread. I've seen their apprentices in Ambermill, and they've let their standards slip." } },
     _none = { { id = "tp_none", text = "Hems and seams are all I know, so take your question to High Executor Hadrec." } },
   },
 }
@@ -415,13 +421,13 @@ P:NPC {
         { text = "Could the spirits clean your water, Harly?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is anything in Silverpine still worth saving, Harly?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
-        { text = "What makes the forest so dangerous?", next = "forest" },
+        { text = "This forest feels dangerous.", next = "forest" },
         { text = "Where should I go from here?", next = "roads" },
         { text = "What does Dalaran owe this forest, Harly?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which way through Silverpine keeps me out of sight?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does a warrior need most out here, Harly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is the game in Silverpine safe to eat, Harly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Is Silverpine dangerous for a warlock, Harly?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I doubt the game in Silverpine is safe to eat, Harly.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Silverpine must be dangerous for a warlock, Harly.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does Silverpine care what a paladin carries, Harly?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -429,7 +435,7 @@ P:NPC {
     },
     forest = {
       lines = { { id = "f_default", text = "The worgen first, then the gnolls in the hills, then the Dalaran mages at Ambermill, who don't want anyone near their walls. And the spiders, of course, because no forest in Lordaeron is complete without giant spiders." } },
-      choices = { { text = "Why are Dalaran's mages here?", next = "forest_dalaran" } },
+      choices = { { text = "Dalaran's mages seem far from home here.", next = "forest_dalaran" } },
     },
     forest_dalaran = {
       lines = { { id = "fd_default", text = "They're building a magical barrier around their ruined city to the east, and they guard it like a dragon guards gold. Dalar Dawnweaver watches them for us, so ask him if you want the details." } },
@@ -470,7 +476,7 @@ P:NPC {
       choices = {
         { text = "I'll help clean up their mess, for the Sepulcher.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll look after myself first, Harly.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What makes the forest so dangerous?", next = "forest" },
+        { text = "This forest feels dangerous.", next = "forest" },
       },
     },
     xrogue = {
@@ -487,6 +493,10 @@ P:NPC {
     },
   },
   topics = {
+    shadowfang = { { id = "tp_shadowfang", text = "Shadowfang Keep is on the hill, and you'd do best to stay off it. The worgen there have eaten better men than you." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need food or sleep, but they still need rope and torches and a good bag. I keep all three, and I don't do discounts." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans walled themselves in, and the forest walled itself around them. Nobody comes out, and nobody goes in." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge isn't the worst thing in Silverpine, if you can believe it. The worgen are worse, and the forest itself is worse still." } },
     _none = { { id = "tp_none", text = "I count crates for a living, so I wouldn't know. Ask the High Executor." } },
   },
 }

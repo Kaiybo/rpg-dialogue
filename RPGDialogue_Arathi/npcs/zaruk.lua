@@ -33,10 +33,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_elements = {
+      lines = {
+        { id = "opn_elements_q", text = "The question is better turned around, so I will turn it. Your shaman call the spirits of earth and fire friends and ask them politely for favours, and the warlocks before them called them tools. What do you believe they are?" },
+      },
+      choices = {
+        { text = "Spirits to be respected and asked, never commanded.", next = "opn_elements_r_respect", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "Power. Whoever's strong enough should take it.", next = "opn_elements_r_power", fx = { affinity = 2, align = { light = -1 }, opinion = { the_elements = "power" } } },
+        { text = "Dangerous things best left alone.", next = "opn_elements_r_dangerous", fx = { trait = { careful = 1 }, opinion = { the_elements = "dangerous" } } },
+        { text = "I speak with them every day. They aren't yours to chain.", next = "opn_elements_r_respect", when = { class = "SHAMAN" }, fx = { affinity = -2, opinion = { the_elements = "respect", twilights_hammer = "enemy" } } },
+        { text = "I don't think about it much.", next = "BACK" },
+      },
+    },
+    opn_elements_r = {
+      lines = {
+        { id = "opn_elements_r_default", text = "Then the world will think about it for you, and you may not like its conclusions." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    opn_elements_r_respect = {
+      lines = {
+        { id = "opn_elements_r_respect", text = "Polite. Yes, that is the word I hear from all of you, and the earth is very old, and very tired of politeness. We shall see who it answers when it wakes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    opn_elements_r_power = {
+      lines = {
+        { id = "opn_elements_r_power", text = "Then you understand more than most in this camp. Come back when Drum Fel is not watching, and we will speak of strength in a quieter voice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    opn_elements_r_dangerous = {
+      lines = {
+        { id = "opn_elements_r_dangerous", text = "Dangerous, yes, to those who stand in their way. A wise answer, and a frightened one, but frightened people live longer, for a while." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Zaruk, and I keep a quiet corner of Hammerfall while others shout about Stromgarde. I serve a higher cause than this camp, though Drum Fel has no need to hear that from either of us." },
+          text = "I am Zaruk, and I keep a quiet corner of Hammerfall while others shout about Stromgarde. I serve a higher cause than this camp, and a Lady who sleeps beneath these hills, though Drum Fel has no need to hear that from either of us." },
         { id = "h_allies", tags = { "news" }, when = { questActive = TODO_QUEST("Myzrael's Allies") },
           text = "The Lady has informed me of your coming. If we are to bring her back to the surface, then we have much to discuss." },
         { id = "h_theldurin_done", tags = { "news" }, when = { questDone = TODO_QUEST("Theldurin the Lost") },
@@ -57,8 +101,8 @@ P:NPC {
       choices = {
         { text = "Who is the Lady?", next = "lady" },
         { text = "What higher cause do you serve?", next = "hammer" },
-        { text = "Who is Theldurin?", next = "theldurin" },
-        { text = "Does Drum Fel know what you are?", next = "drum" },
+        { text = "Who is Theldurin?", next = "theldurin", when = { any = { { questActive = TODO_QUEST("Theldurin the Lost") }, { questDone = TODO_QUEST("Theldurin the Lost") } } } },
+        { text = "I doubt Drum Fel knows what you are.", next = "drum" },
         { text = "What does the earth tell you?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your stones, Zaruk.", next = "END" },
       },
@@ -106,8 +150,8 @@ P:NPC {
         { id = "he_default", text = "Because it is coming whether we welcome it or not, and the old powers under the world are stirring. Better to kneel before them early than be crushed when they wake." },
       },
       choices = {
-        { text = "I'd rather fight the end than kneel to it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "There's sense in choosing the winning side.", next = "BACK", fx = { align = { light = -1 }, learn = { "twilights_hammer" } } },
+        { text = "I'd rather fight the end than kneel to it.", next = "BACK", fx = { align = { light = 1 }, opinion = { twilights_hammer = "defy" } } },
+        { text = "There's sense in choosing the winning side.", next = "BACK", fx = { align = { light = -1 }, learn = { "twilights_hammer" }, opinion = { twilights_hammer = "sympathize" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,6 +190,7 @@ P:NPC {
         { id = "sh_default", text = "That something vast is bound beneath us, and that it is angry. Your spirits call that a warning, I expect, and I call it a promise." },
       },
       choices = {
+        { text = "What do you think the elements are, Zaruk?", next = "opn_elements" },
         { text = "The spirits are right. Leave her buried.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Perhaps the spirits fear what they can't control.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -158,6 +203,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I fought for the old Horde, and when it fell I found a truer master. That is all you need to know." } },
     advice = { { id = "tp_ad", text = "Listen to what lies beneath, {class}. The surface is always the last to know." } },
     twilights_hammer = { { id = "tp_th", text = "An order, now, not a clan. We see what is coming.", next = "hammer" } },
+    forsaken = { { id = "tp_forsaken", text = "The dead who walk in Tarren Mill serve their own queen, and they do not understand the greater cause. The Lady will show them, in time." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde is a small chief in a small world, and the Lady sees far beyond him. I serve the Horde here, for now, because it serves her." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements of this land are angry, and the Lady is the source of that anger. She will set them free, and the world will see true power." } },
     _none = { { id = "tp_none", text = "That does not concern the Lady, and so it does not concern me." } },
   },
 }

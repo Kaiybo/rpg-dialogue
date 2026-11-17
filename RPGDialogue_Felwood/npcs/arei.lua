@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "What was Felwood like before?", next = "before" },
-        { text = "What happened to you here?", next = "fall" },
+        { text = "Something terrible happened to you here.", next = "fall" },
         { text = "Where do you want to go?", next = "home" },
         { text = "What did the flute do to you?", next = "flute" },
         { text = "Can Felwood be healed?", next = "xdruid", when = { class = "DRUID" } },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "f_default", text = "The demons came through these woods on their way to the mountain, and the skull of Gul'dan poisoned everything it touched. My kin and I fought, and we fell, and the sickness took our bodies and twisted them into the things you see walking Irontree now." },
       },
       choices = {
-        { text = "The corrupted ancients are your kin?", next = "fall_kin" },
+        { text = "So the corrupted ancients are your kin.", next = "fall_kin" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,6 +145,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Every kind deed here is a seed, little one. Plant as many as you can before you leave." } },
     burning_legion = { { id = "tp_bl", text = "They passed through here once, and the forest will remember it longer than any of you will live." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids try, and I love them for it. They are young, even the old ones." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the mother of every tree that stood in this forest, and I felt it groan when the demons came. I would give my last root to feel it whole again." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I dreamed green once, as all the ancients do, before the fel came into my roots. Now I dream of fire, and I do not sleep if I can help it." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last of this forest's children with clear eyes. I watched their cousins go mad, and I could do nothing, and I remember every one of them." } },
+    scourge = { { id = "tp_scourge", text = "The Legion's dead marched through this forest on their way to Hyjal, and the ground still carries their rot. I can feel it, deep, where the roots go." } },
     _none = { { id = "tp_none", text = "That is not a thing a tree would know, little one." } },
   },
 }

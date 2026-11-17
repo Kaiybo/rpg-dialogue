@@ -132,19 +132,19 @@ P:NPC {
         { text = "Do your gryphons ever carry warriors to the fight, Felicia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do the wolves frighten the gryphons, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your gryphons ever carry the dead home, Felicia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Could your gryphons carry word to Stormwind faster than letters?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your gryphons could carry word to Stormwind faster than letters.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do your gryphons hate Duskwood's dark so much?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does anyone fly out of Darkshire who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the gryphons mind a mage on their backs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd guess some fly out of Darkshire who'd rather not be seen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Your gryphons don't look keen on mages.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why won't your gryphons carry my demon, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do your gryphons fear the dark, Felicia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your gryphons seem to fear the dark, Felicia.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Felicia.", next = "END" },
       },
     },
     a = {
       lines = { { id = "a_default", text = "Because they can't see through the canopy, and a gryphon that can't see the ground is a frightened gryphon. They fly high over Duskwood and they don't come down until Darkshire's lamps are under them." } },
       choices = {
-        { text = "Have you lost any?", next = "a2" },
+        { text = "You must have lost a gryphon or two.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -164,6 +164,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came from Stormwind to keep the birds, and the town kept me." } },
     _none = { { id = "tp_none", text = "I wouldn't know about that. I know the sky, not the ground." } },
+    wildhammer = { { id = "tp_wildhammer", text = "My gryphons came from Aerie Peak, raised by the Wildhammer, and they still won't eat until I've sung to them like a dwarf. My singing's dreadful, but they're polite about it." } },
+    dark_riders = { { id = "tp_dark_riders", text = "From the air you can see them some nights, black horses on the road to Deadwind, and the gryphons won't fly over them. Neither will I." } },
+    raven_hill = { { id = "tp_raven_hill", text = "I route every flight well north of Raven Hill, because the birds hate the smell. They can smell that cemetery from a mile up, and so can I when the wind's wrong." } },
   },
 }
 
@@ -293,23 +296,23 @@ P:NPC {
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What works against the worgen?", next = "a" },
-        { text = "Are you kin to Clarise?", next = "b" },
+        { text = "Is the Gnarltree at the forge your kin?", next = "b" },
         { text = "What blade would you carry into Duskwood, Gavin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell hunting knives, Gavin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do the folk who buy your blades ever come back, Gavin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I wonder how many who buy your blades come back, Gavin.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What weapon do you trust against the dead, Gavin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Claws against claws seems fairer. Why should I want a blade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your daggers bite through worgen hide, Gavin?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is a blade any use to a mage in this wood, Gavin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd have thought a blade was little use to a mage, Gavin.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you sell your steel to a warlock, Gavin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is anything enough against the wood's horrors, Gavin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I doubt any steel is enough against this wood's horrors, Gavin.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
     a = {
       lines = { { id = "a_default", text = "Folk will tell you silver, but folk tell you all sorts. What works is a heavy blade, a steady arm and a friend at your back, and I can only sell you the first of those." } },
       choices = {
-        { text = "And against the dead at Raven Hill?", next = "a2" },
+        { text = "And against the walking dead?", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -329,5 +332,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've worked this forge since before the wood went dark, and I'll work it after, if the town lasts." } },
     _none = { { id = "tp_none", text = "Don't know, and in Duskwood it's healthier not to wonder." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Blunt weapons for Raven Hill and sharp ones for the worgen, and don't mix them up. I've told that to every adventurer who's come through, and half of them listen." } },
+    scourge = { { id = "tp_scourge", text = "If the Scourge ever comes south, they'll find Darkshire's smiths have been ready for years. That's the only good thing I can say about living here." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Nobody's ever brought me a Dark Rider's sword to look at, and I hope nobody does. Whatever forged those, it wasn't a smith." } },
   },
 }

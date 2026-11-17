@@ -2,6 +2,15 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Prejudices (0.80.0): Apothecary Helbrim (tauren druids), Gazlowe (night elves) and Kargal Battlescar (the Skyborne). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+- New Forever-only characters (new files: full game restart): Gur'ak at the Crossroads, Pallwick Boneset and Sulhasa.
+- New people to talk to: Kranal Fiss, Sikwa, Islen Waterseer, Mahren Skyseer, Brewmaster Drohn, Crane Operator Bigglefuzz, Wrenix the Wretched, Grunt Logmar, Grunt Dogran, Gann Stonespire.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.21.0 (2026-11-17)
 - 26 new people: Far Watch, the Crossroads and the Disciples of Naralex (Kargal Battlescar, Ak'Zeloth, Thun'grim Firegaze, Uzzek, Ebru, Nalpak, Falla Sagewind, Lizzarik), and Ratchet, Fray Island and the roads south (Strahad Farsan, Klannoc Macleod, Twiggy Flathead, Gilthares Firebough, Doan Karhan). New files: restart the game fully (a /reload won't load them).
 - New story "The Kolkar and the water": Regthar lets you decide what happens to Krom'zar's stragglers; Thork and Jorn react.

@@ -133,17 +133,17 @@ P:NPC {
         { text = "You have been on this road a long while. Shall I find you forage?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Tell me about Blanchy.", next = "blanchy" },
         { text = "You look tired, Verna.", next = "luck" },
-        { text = "Salma says the stew's your recipe.", next = "stew" },
-        { text = "How's Theodore holding up?", next = "theodore" },
+        { text = "Salma says the stew's your recipe.", next = "stew", when = { heardLine = "salma.re_default" } },
+        { text = "How's your husband holding up?", next = "theodore" },
         { text = "I know animals. Let me look at her.", next = "blanchy_look", when = { class = { "HUNTER", "DRUID" } } },
         { text = "Shall I say a prayer for Blanchy?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I'll watch your wagon tonight. Nobody will see me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could warm Blanchy with a little spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do you miss the farm, Verna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You must miss the farm, Verna.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you keep your faith, Verna, after losing so much?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I take your farm back from the thieves, Verna?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does my sort frighten you, Verna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "My sort seems to frighten you, Verna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could my spirits calm Blanchy, Verna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
@@ -164,7 +164,7 @@ P:NPC {
     luck = {
       lines = { { id = "lu_default", text = "Bad luck follows us like a stray dog, dear. First the farm, then the wagon. I keep waiting to find out what's third." } },
       choices = {
-        { text = "What will you do in Elwynn?", next = "elwynn" },
+        { text = "Where will you go now?", next = "elwynn" },
         { text = "Maybe your luck's turning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Luck like that doesn't turn. Get to Elwynn quickly.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -173,7 +173,7 @@ P:NPC {
       big = true,
       lines = { { id = "el_default", text = "Start over, Theodore says. As if a farm were a coat you could take off. Elwynn isn't what I want, dear. It's what's left." } },
       choices = {
-        { text = "Salma thinks you'll love the city.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Salma thinks you'll love the city.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "salma.rv_default" } },
         { text = "Then don't give up on the farm.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
       },
     },
@@ -181,7 +181,7 @@ P:NPC {
       lines = { { id = "st_default", text = "It's mine, whatever she tells you! I wrote it out so it wouldn't leave Westfall with us, because a recipe belongs where its ingredients are." } },
       choices = {
         { text = "Murloc eyes, though?", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "Do you two always argue about food?", next = "bicker" },
+        { text = "You two seem to argue about food a great deal.", next = "bicker" },
       },
     },
     bicker = {
@@ -220,6 +220,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light every night for Theodore, for Blanchy and for whatever's left of our farm. I don't ask for much, and I think that's why it keeps listening." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Theodore bought me a little carved horse at the Darkmoon Faire once, years ago, and I still keep it in my apron pocket. It looks a little like Blanchy, if you squint and love her." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the old Moonbrook mines, I hear, and that's where our grain and our tools have gone. I don't want them back so much as I want the Defias to have to carry them." } },
+    theramore = { { id = "tp_theramore", text = "Theodore heard Lady Proudmoore's giving land in Theramore and talked about it for a week. I told him Blanchy would never survive a boat, and he went quiet, and that was the end of it." } },
     knows = {
       { id = "tp_knows", text = "You hear all sorts when you're stuck by the road waiting on a wagon wheel, dear. Ask me about any of this." },
     },

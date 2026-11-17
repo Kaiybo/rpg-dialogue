@@ -6,6 +6,7 @@ P:NPC {
   key = "goretooth", id = TODO_NPC("Warlord Goretooth"), name = "Warlord Goretooth",
   bible = "bibles/badlands.md", role = "soldier", tier = "quest",
   communities = { "kargath" }, temper = { "boisterous" }, values = { "proud", "loyal", "brave" },
+  prejudice = { class = "WARLOCK", faction = "Horde", amount = 10, why = "An old Horde warrior who remembers Gul'dan's warlocks leading the orcs to demon blood." },
   notices = { "race", "class", "level" },
 
   impression = {
@@ -14,11 +15,15 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_tower", text = "Another one climbs my tower, good! I was starting to talk to the vultures." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and still alive! That's more than I can say for the last three I sent up the road." },
+    { id = "g_op_goretooth", when = { gossip = { topic = "goretooth", stance = "wrong" } }, text = "Thal'trak tells me you think I'm wrong to keep him at his post. Maybe I am, but if every soldier ran off after his wife, Kargath would be guarded by Lexlort's lizards." },
+    { id = "g_prej1", when = { prejudiced = true }, text = "A warlock, climbing my tower. The last time I trusted one of your trade, Gul'dan's lot were handing round a cup of something red, and I've had the taste in my mouth ever since." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Keep your imp at the foot of the stairs, warlock. The vultures don't like it, and neither do I." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, warlock! I've heard what you did on the road, and I don't care what whispers in your ear any more. You fight like an orc, and that's the end of it." },
+    { id = "g_tower", text = "Another one climbs my tower, good! Lok'tar, {class}; I was starting to talk to the vultures, and they have no honor and worse jokes." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and with your blood still on the inside! That's more than I can say for the last three I sent up the road." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You were gone {away}, and I was back to talking to the vultures. Good, you can take their place." },
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away} and come back with more muscle than you left with! The road east will be glad of it, even if the ogres won't." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, stronger than the last time you climbed my tower! Now I can send you somewhere properly dangerous." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, stronger than the last time you climbed my tower, and strength like that is earned in blood! Now I can send you somewhere properly dangerous." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you scared one of my people so badly they're still twitching. That's good work, but save it for the Dark Irons." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Kargath's been talking about you, and it's good talk for once. Keep it up, because the vultures don't sing anyone's praises." },
   },
@@ -34,6 +39,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I think the warlocks of the old Horde sold us to the demons and called it strength, and every orc my age paid for it. When I see a warlock now, I see Gul'dan smiling at the back of the tent, and that's not your fault, but it's there." } },
+      choices = {
+        { text = "I'm not Gul'dan. My power serves the Horde, not demons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. The old Horde just used it badly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then watch me on the road, Warlord, and judge from that.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Did you drink the demon's blood yourself?", next = "prej_why" },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Everyone did, or near enough, and I'd not lie to you about it. I don't remember it as a choice, more a fire that made everything simple, and it took Thrall and years in the camps to burn it out of me." } },
+      choices = {
+        { text = "Then you know what it costs. That's wisdom, not prejudice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That was the old Horde. Let the old fears die with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Ha! Good answer. Go and show me, then, and I'll listen when you come back down that road." } },
+      choices = {
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
+    op_warchief = {
+      lines = {
+        { id = "opw_default", text = "A few of the old ones grumble that Rend remembers what the Horde was for, and I knock their heads together when I hear it. But you've climbed my tower, so I'll hear you out. What makes a true Warchief?" },
+      },
+      choices = {
+        { text = "Thrall is the only Warchief. Rend's a pretender with a dragon.", next = "op_wc_thrall", fx = { affinity = 2, align = { order = 1 }, opinion = { warchief = "trust" } } },
+        { text = "Rend at least remembers the Horde was made for war.", next = "op_wc_rend", fx = { affinity = -2, align = { order = -1 }, opinion = { warchief = "soft", peace = "war" } } },
+        { text = "Vol'jin's Darkspear follow Thrall, and that settles it for me.", next = "op_wc_thrall", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { race = "Troll" } },
+        { text = "Warchiefs come and go. The Dark Lady is my queen.", next = "op_wc_queen", fx = { opinion = { warchief = "mixed", sylvanas = "trust" } }, when = { race = "Scourge" } },
+        { text = "I'd rather fight Rend than argue about him.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    op_wc_thrall = {
+      lines = {
+        { id = "opwt_default", text = "Ha! That's the answer, and you said it like you meant it, which is the only way to say it on this tower. Rend can keep his dragon; we've got the Warchief and a great many axes." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_rend = {
+      lines = {
+        { id = "opwr_default", text = "Rend remembers the war because he never stopped fighting it, and he'd sell every orc in Kargath to the Dark Irons to win it. Say that again in front of the 109th's widows, if you dare, because I won't stop them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_queen = {
+      lines = {
+        { id = "opwq_default", text = "Ha! Theodora says the same, with more words and a lot more darlings. Your queen fights the Scourge and the Warchief fights Rend, so as far as I'm concerned you're both on my side." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Trouble me? Ha! I've fought beside the dead and I've fought against the Light, and you're both at once, so I can't decide whether to salute you or duck. Take the Spire road and smite a few Blackrock for me, and I'll decide you're one of mine." } },
@@ -92,7 +151,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Need them? I'd trade three grunts for one good healer, and the grunts would thank me for it, because every raid on the Dark Irons sends half of them back with burns that won't close. Shul'kar's stew can only do so much, and Vivian says her shadows don't mend anyone." } },
+      lines = { { id = "xhpriest_default", text = "Short? I'd trade three grunts for one good healer, and the grunts would thank me for it, because every raid on the Dark Irons sends half of them back with burns that won't close. Shul'kar's stew can only do so much, and Vivian says her shadows don't mend anyone." } },
       choices = {
         { text = "Put me where I'm needed, Warlord. I'll hold the post.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I heal where I choose, Warlord, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
@@ -115,6 +174,13 @@ P:NPC {
         { text = "Let Rend and the dragons bleed each other dry, Warlord.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    xorig_brock = {
+      lines = { { id = "xbr_default", text = "Then you know the Spire better than most of my grunts, and you'll know some of the faces up there. If it came to it, could you put your axe through a brother who still wears Rend's colors?" } },
+      choices = {
+        { text = "If he stands with Rend, yes.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I don't know, Warlord. I hope I never find out.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Kargath's walls have seen plenty of wounded since the Dark Irons started pushing, and too few hands to mend them, so you're welcome on my tower." },
@@ -126,7 +192,7 @@ P:NPC {
         { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire", faction = "Horde" },
           text = "Wyrmthalak is dead in his own citadel, and they say your hand was in it. The Spire will be quieter for a while, and I mean to use every hour of it." },
         { id = "h_default", key = true,
-          text = "I am Warlord Goretooth, and Kargath is mine to hold. Up the road sits Blackrock Spire, full of orcs who call themselves the true Horde, and I sit here watching, and waiting, and getting old." },
+          text = "I am Warlord Goretooth, and Thrall gave me Kargath to hold. Up the road sits Blackrock Spire, full of orcs who call themselves the true Horde, and I sit here watching, and waiting, and getting old, which is no death for a warrior." },
         { id = "h_kos", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("KILL ON SIGHT: Dark Iron Dwarves") }, { questActive = TODO_QUEST("KILL ON SIGHT: High Ranking Dark Iron Officials") } } },
           text = "So you read the posting, good! Kill Dark Irons, all of them, and the officers twice over, and bring me proof." },
         { id = "h_angerforge", when = { questActive = TODO_QUEST("Operation: Death to Angerforge") },
@@ -143,17 +209,17 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "More? Good, talking keeps me from counting vultures." },
-        { id = "h_again2", text = "Speak up, the wind on this tower steals every second word." },
+        { id = "h_again2", text = "Speak up, {class}; the wind on this tower steals every second word, and I'd rather hear a boast than miss it." },
       },
       choices = {
         { text = "The land here is sick, Warlord. Can it heal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You sound like you'd rather be fighting.", next = "dream" },
         { text = "Why does the Horde hold Kargath at all?", next = "why" },
-        { text = "What happened to the 109th Division?", next = "the109" },
-        { text = "Who serves under you here?", next = "staff" },
+        { text = "Have the Dark Irons cost you dearly?", next = "the109" },
+        { text = "You keep an odd lot of officers at Kargath.", next = "staff" },
         { text = "Warrior to warrior: do you miss it?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Angerforge is dead, Warlord.", next = "angerforge_dead", when = { questDone = TODO_QUEST("Operation: Death to Angerforge") } },
-        { text = "Are you sweet on the Forsaken ladies, Warlord?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I think you're sweet on the Forsaken at your fire, Warlord.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The orcs at the Spire are my blood, Warlord.", next = "k_orc", when = { race = "Orc" } },
         { text = "The spirits here are sick with Dark Iron fire.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "My people have no stake in Blackrock feuds.", next = "k_tauren", when = { race = "Tauren" } },
@@ -161,9 +227,11 @@ P:NPC {
         { text = "Would you put mages on Kargath's walls, Warlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I stand with Thrall, Warlord. My demons serve the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Blackrock use their worgs for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you need healers at Kargath, Warlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Kargath looks short of healers, Warlord.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does a Forsaken paladin trouble you, Warlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Wyrmthalak is dead, Warlord. I've seen the lower Spire.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire", faction = "Horde" } },
+        { text = "You don't think much of warlocks, Warlord.", next = "prej", when = { prejudiced = true } },
+        { text = "I was Blackrock, Warlord. I left Rend's banner.", next = "xorig_brock", when = { origin = "orc_blackrock_defector" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },
@@ -175,7 +243,7 @@ P:NPC {
       },
       choices = {
         { text = "The ladies at the fire?", next = "ladies" },
-        { text = "You dream about dying?", next = "dream_death" },
+        { text = "You speak of dying as if you dream of it.", next = "dream_death" },
         { text = "Maybe you'll get your fight.", next = "BACK", fx = { affinity = 2 } },
       },
     },
@@ -208,7 +276,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Rend Blackhand?", next = "why_rend" },
-        { text = "And the Dark Irons?", next = "why_dark" },
+        { text = "The Dark Irons seem a nearer trouble than Rend.", next = "why_dark" },
         { text = "Something else.", next = "BACK", fx = { learn = { "uldaman" } } },
       },
     },
@@ -216,7 +284,10 @@ P:NPC {
       lines = {
         { id = "wr_default", text = "Son of Blackhand, and he sits in the Spire calling himself Warchief of a Horde that died at the end of the Second War. There is one Warchief, and I would very much like to explain that to Rend in person." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
+      choices = {
+        { text = "Does any grunt here think Rend has the right of it?", next = "op_warchief" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } },
+      },
     },
     why_dark = {
       lines = {
@@ -284,7 +355,7 @@ P:NPC {
         { id = "fo_default", text = "Sweet? I'm a warlord, I'm not sweet on anything! I simply enjoy good company at a good fire, and if the company happens to be dead, well, it doesn't eat much." },
       },
       choices = {
-        { text = "Theodora calls you Lunk.", next = "forsaken_lunk" },
+        { text = "Theodora calls you Lunk.", next = "forsaken_lunk", when = { any = { { heardLine = "theodora.gl_default" }, { heardLine = "theodora.fo_default" } } } },
         { text = "Your secret is safe.", next = "BACK", fx = { affinity = 2 } },
       },
     },
@@ -340,10 +411,21 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "A warlord hears every boast and every report that comes down that road. Ask me about any of these, and I'll tell you how it really went." },
     },
-    blackrock = { { id = "tp_blackrock", text = "Rend Blackhand sits up there in the Spire calling himself Warchief. There's one Warchief. I'd like to remind Rend of that with an axe." } },
-    dark_iron = { { id = "tp_dark_iron", text = "They swarm out of the mountain like ants out of a kicked nest. We kick back." } },
+    blackrock = { { id = "tp_blackrock", text = "Rend Blackhand sits up there in the Spire calling himself Warchief, but there is only one Warchief, and his name is Thrall. I'd like to remind Rend of that with an axe." } },
+    dark_iron = { { id = "tp_dark_iron", text = "They swarm out of the mountain like ants out of a kicked nest, so we kick back, and the Horde kicks hard." } },
     background = { { id = "tp_ba", text = "I was a young warrior once, and I lived every dream I had. Now I command, and I live them again through the soldiers I send up that road.", next = "dream" } },
     advice = { { id = "tp_ad", text = "Read the postings by the road before you go into the mountain. They'll tell you who to kill, and that saves a great deal of thinking once you're down there." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief built a new Horde out of the old one's ashes, and Kargath is one of the walls that keeps the old one out. I'd rather be in the field, but I hold this post because he asked." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You march under the Warchief's banner too, so you know what we owe him. Every grunt in Kargath was a slave or a child of slaves before Thrall, and none of us forget it." },
+    },
+    second_war = { { id = "tp_second_war", text = "I was young in the Second War, and I lived every dream a warrior could have. Now I send others to live them, and I watch from this tower." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock clan in the Spire still serve the old Horde's masters, the dragons and the warlocks. Kargath was built to watch them, and someday I'll lead the assault myself." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain are no friends of the Blackrock, though they share a roof. I'd let them kill each other, if I thought they'd finish the job." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken came to us through the Warchief's word, and they've sent their best to Kargath. I don't understand them, but they fight, and that's enough." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock have been doing something with fire and chanting, and I sent a platoon to find out what. They haven't come back." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are some of my best soldiers, and Thal'trak is the best of them. I'd say so to Vol'jin's face, if I ever met him." } },
+    internment = { { id = "tp_internment", text = "I wasn't in the camps, but I've commanded orcs who were, and I can tell. They don't break, because they've already been broken once." } },
     _none = { { id = "tp_none", text = "Never heard of it, but can I hit it?" } },
   },
 }
@@ -360,7 +442,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust." },
+    { id = "g_op_necro", when = { gossip = { topic = "necromancy", stance = "hate" } }, text = "Vivian says you'd burn every necromancer in Lordaeron, darling. She's been reading by candlelight ever since, purely out of spite." },
+    { id = "g_fire", text = "Oh, a new face at the fire! Sit, sit, darling, and you simply must tell me something dreadful, because it's been a dull week in the dust, and the dead do get so bored." },
     { id = "g_away", when = { away = 14 }, text = "Darling, you've been gone {away}, and it's been simply the dullest stretch of dust imaginable. Sit down and tell me everything dreadful." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Everyone's been saying the loveliest things about you, darling, and I adore being the last to hear gossip almost as much as being the first. Do sit." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you put one over on somebody in Kargath, darling, and I'm only cross that I wasn't there to watch." },
@@ -373,6 +456,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      lines = {
+        { id = "opf_default", text = "Oh, the orcs are polite, darling, the way one is polite to a cousin who's been ill for a very long time. What I'd much rather know is what you make of us, honestly, since nobody in Kargath ever says it to my face." },
+      },
+      choices = {
+        { text = "The Forsaken are Horde, and the Horde's word should be kept.", next = "op_fs_trust", fx = { affinity = 2, align = { order = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "Allies of convenience. I'd not turn my back on you.", next = "op_fs_distrust", fx = { affinity = -1, align = { order = -1 }, trait = { cautious = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "We're the only ones in the Horde honest about being dead.", next = "op_fs_proud", fx = { affinity = 2, trait = { witty = 1 }, opinion = { forsaken = "admire" } }, when = { race = "Scourge" } },
+        { text = "Cairne spoke for your people. That's enough for me.", next = "op_fs_trust", fx = { affinity = 1, opinion = { forsaken = "trust", cairne = "respect" } }, when = { race = "Tauren" } },
+        { text = "I'll keep my thoughts to myself, Hierophant.", next = "BACK" },
+      },
+    },
+    op_fs_trust = {
+      lines = {
+        { id = "opft_default", text = "Darling, how sweet, and how rare! I'll have it written down and framed, and I'll hang it in the Warlord's tent where he'll have to look at it every morning." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_fs_distrust = {
+      lines = {
+        { id = "opfd_default", text = "Wise, darling, very wise, and terribly rude, which I find I don't mind at all. Do keep watching; it's flattering to be thought dangerous at my age." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_fs_proud = {
+      lines = {
+        { id = "opfp_default", text = "Oh, I like you enormously. The living spend so much effort pretending they won't end up like us, and we've simply skipped to the end, darling, and found it rather roomy." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -440,7 +553,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, darling, how lovely! Do tell me which you pray to, the shadow or the Light or the loa, because I've tried more than one and only the gossip ever answered." },
         { id = "h_default", key = true,
-          text = "Hierophant Theodora Mulvadania, of the Undercity and the Kargath Expeditionary Force. I keep the Warlord company. Someone has to, and Vivian can't do it alone." },
+          text = "Hierophant Theodora Mulvadania, of the Undercity and the Kargath Expeditionary Force, and by the Dark Lady's grace no longer of any grave. I keep the Warlord company, because someone has to, and Vivian can't do it alone." },
         { id = "h_109th", tags = { "news" }, when = { questActive = TODO_QUEST("The 109th Division") },
           text = "The 109th Division were our people, Expeditionary Force, and they were my friends, and General Angerforge and his golem lord butchered them in the depths. I'm done being charming about it, darling: kill them both." },
         { id = "h_guzzler", when = { questActive = TODO_QUEST("The Grim Guzzler") },
@@ -463,14 +576,14 @@ P:NPC {
         { text = "Can a warrior's steel do anything against the Dark Iron?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "The fire spirits rage under Blackrock Mountain. Do you know why?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Kargath need most from its spellcasters, Hierophant?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Any gossip?", next = "gossip" },
-        { text = "What are these machines?", next = "machines" },
+        { text = "You look like a woman with gossip to share.", next = "gossip" },
+        { text = "What have you learned of the Dark Irons?", next = "machines" },
         { text = "What does a Hierophant do?", next = "hierophant" },
-        { text = "Tell me about the 109th.", next = "the109" },
+        { text = "Have you lost friends out here?", next = "the109" },
         { text = "How does a Forsaken get on among orcs?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm Forsaken, and the Light still answers me.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "You don't flinch at my demons, Hierophant.", next = "k_lock", when = { class = "WARLOCK" } },
-        { text = "What's the best secret in Kargath, Hierophant?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I'd wager you know every secret in Kargath, Hierophant.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Vivian study that a mage wouldn't?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the grunts tell tall stories about hunting, Hierophant?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
@@ -540,7 +653,10 @@ P:NPC {
       lines = {
         { id = "fo_default", text = "Beautifully, darling, as long as you remember that they mean well and smell of it. Lunk saves me the warmest seat by the fire, as if I could feel it, and that's sweeter than anything the Undercity ever did for me." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "And what do the orcs really make of you, Hierophant?", next = "op_forsaken" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     paladin = {
       lines = {
@@ -582,6 +698,15 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "Grim little people, though their ale is wonderful, or so I'm told." } },
     background = { { id = "tp_ba", text = "The Undercity sent me, the Expeditionary Force keeps me, and the Warlord amuses me. Before that is none of your business, darling, and most of it is buried." } },
     advice = { { id = "tp_ad", text = "Never let a Dark Iron see you're impressed by his golem, darling. They're vain about them, and vanity makes them careless." } },
+    sylvanas = {
+      { id = "tp_sylvanas", text = "Our Lady freed us from the Scourge and gave us back our minds, darling. Some of us have wondered since what to do with them." },
+      { id = "tp_sylvanas2", when = { race = "Scourge" }, text = "You've felt her will the same as I have, darling, so I needn't explain. We are hers, and gladly, and we needn't discuss the rest in front of the living." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are the dead who woke up, darling, and found that nobody wanted them back. So we kept ourselves, and here we are." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took everything from us, darling, our homes, our lives and our names. I won't forgive it, and I won't forget it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was my home, darling, before it was a graveyard. I still remember the court, the music and the gossip." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is charming in his way, darling, though he looks at us as if we might bite. Some of us might." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed to the Light once, darling, in the cathedral at Lordaeron. It didn't answer, or if it did, I wasn't listening." } },
     _none = { { id = "tp_none", text = "Never heard a whisper of it, darling, and I hear every whisper." } },
   },
 }
@@ -598,7 +723,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "Oh! You startled me, not that I'm easily startled, of course; I'm a Shadowmage, and we're very composed." },
+    { id = "g_op_forsaken", when = { gossip = { topic = "forsaken", stance = "distrust" } }, text = "Theodora tells me you'd not turn your back on us. Very wise, my dear, though it does make conversation awkward." },
+    { id = "g_fire", text = "Oh! You startled me, not that I'm easily startled, of course; I'm a Shadowmage of the Undercity, and the dead are very composed." },
   },
 
   notice = {
@@ -608,6 +734,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_necro = {
+      lines = {
+        { id = "opn_default", text = "Troubling? My dear, I'm one of the raised, so I can hardly be squeamish about it. But plenty in the Horde whisper about the Apothecarium's work, and I'm curious, so what's your view of necromancy?" },
+      },
+      choices = {
+        { text = "Necromancy made the Scourge. It should be burned out.", next = "op_necro_hate", fx = { affinity = -1, align = { light = 1 }, opinion = { necromancy = "hate" } } },
+        { text = "A weapon is a weapon. Raise whatever serves the Horde.", next = "op_necro_useful", fx = { affinity = 1, align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "It gave me a second life. I'll not curse it.", next = "op_necro_grateful", fx = { affinity = 1, opinion = { necromancy = "mixed", undeath = "accept" } }, when = { race = "Scourge" } },
+        { text = "I don't know enough to judge it.", next = "BACK" },
+      },
+    },
+    op_necro_hate = {
+      lines = {
+        { id = "opnh_default", text = "Burned out! Well, that's honest, and I suppose the Scourge would agree with you about our side of it. Do remember that my abominations are holding the line you're standing behind." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necro_useful = {
+      lines = {
+        { id = "opnu_default", text = "Oh, practical! I knew I liked you. The Kirin Tor would faint to hear it, but the Kirin Tor never had to hold Kargath with a handful of grunts." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necro_grateful = {
+      lines = {
+        { id = "opng_default", text = "Nor will I, my dear, though I curse the one who did it to us every evening, quite methodically. One may be grateful for the gift and still loathe the giver." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Interest me? It fascinates me, and it frightens me a little, which is the same thing in my line of work. Shadow and Light are meant to keep to their own sides of the room, and you seem to have moved the furniture." } },
@@ -711,12 +866,12 @@ P:NPC {
         { text = "Those golem essences hold bound elementals, Vivian. Does that trouble you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What could a spellcaster learn from the Dark Irons' fire, Vivian?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "The Warlord speaks well of you.", next = "flustered" },
-        { text = "What are you really studying?", next = "study" },
-        { text = "Why does a Shadowmage want a beer recipe?", next = "thunderbrew" },
-        { text = "What's the Darkstone Tablet?", next = "tablet" },
-        { text = "What do you make of my craft?", next = "practitioner", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "You're studying something more than beer, I think.", next = "study" },
+        { text = "Why does a Shadowmage want a beer recipe?", next = "thunderbrew", when = { any = { { heardLine = "vivian.h_recipe" }, { questActive = TODO_QUEST("Vivian Lagrave") }, { questActive = TODO_QUEST("Lost Thunderbrew Recipe") } } } },
+        { text = "What's the Darkstone Tablet?", next = "tablet", when = { any = { { heardLine = "vivian.h_tablet" }, { questActive = TODO_QUEST("Vivian Lagrave and the Darkstone Tablet") }, { questActive = TODO_QUEST("The Darkstone Tablet") } } } },
+        { text = "You've noticed my craft, I think.", next = "practitioner", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "An orc who studies the arcane. Surprised?", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
-        { text = "Do you miss the Undercity?", next = "undercity", when = { race = "Scourge" } },
+        { text = "Kargath must seem a long way from the Undercity.", next = "undercity", when = { race = "Scourge" } },
         { text = "A troll who deals with demons. Does that interest you?", next = "k_troll_lock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I could steal that Thunderbrew recipe for you, Vivian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does a Shadowmage need from a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -756,7 +911,10 @@ P:NPC {
       lines = {
         { id = "sa_default", text = "Stitched, strong and very loyal, though not very bright, and they'd be so much stronger with a proper heart of elemental fire. Every essence you bring goes to the Undercity by the next courier." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "Do you find raising the dead troubling?", next = "op_necro" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
     },
     study_grim = {
       lines = {
@@ -857,6 +1015,11 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "Their fire magic is crude but powerful, like a hammer made of lava, and I'd love to study it from a safe distance." } },
     background = { { id = "tp_ba", text = "The Apothecarium trained me, the Expeditionary Force sent me, and the Badlands bore me to tears until the Dark Irons gave me something to study." } },
     advice = { { id = "tp_ad", text = "Never touch a golem's heart with bare hands, my dear, even a broken one. Ask me how I know, and then count my fingers." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sees farther than the rest of us, and she'll lead us where we need to go. I'm very composed about it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are the dead who refused to stay dead, and the living hate us for it. I don't mind, mostly." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge made us, and we unmade ourselves. The Apothecarium is working on how to unmake the rest of them." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron fell, and the Undercity grew in its ruins. It's not the same, but it's ours now." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied magic near Dalaran, before. The Kirin Tor wouldn't let me in now, I'm sure." } },
     _none = { { id = "tp_none", text = "Hm! That's not my field, not yet." } },
   },
 }
@@ -873,7 +1036,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shadow", text = "You found me, and most don't, which is either good news for you or bad news for me." },
+    { id = "g_shadow", text = "You found me, and most don't, which is either good news for you or bad news for me. Speak low, {class}; a warrior shouts, but a scout of the Horde listens." },
   },
 
   notice = {
@@ -955,11 +1118,11 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. Good, because my scouts come back cut up, and they'd rather be patched by you than by the alchemist upstairs." },
         { id = "h_default", key = true,
-          text = "Lexlort. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands." },
+          text = "Lexlort, Grandmaster of the Warlord's scouts. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands that don't shake when the blood starts." },
         { id = "h_grark", tags = { "news" }, when = { questActive = TODO_QUEST("Grark Lorkrub") },
-          text = "Grark Lorkrub sold our plans to the Blackrock. He's hiding under their wing in the Burning Steppes. Put him in thorium shackles and walk him to the Searing Gorge. My men will be waiting." },
+          text = "Grark Lorkrub sold our plans to the Blackrock, and an orc who sells his own clan has no honor left to lose. He's hiding under their wing in the Burning Steppes, so put him in thorium shackles and walk him to the Searing Gorge, where my men will be waiting." },
         { id = "h_predicament", when = { questActive = TODO_QUEST("Precarious Predicament") },
-          text = "You've got Grark moving. Keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
+          text = "You've got Grark moving, so keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
         { id = "h_bijou", when = { questActive = TODO_QUEST("Operative Bijou") },
           text = "Bijou went into Blackrock Spire and hasn't come out. Bring her back alive, and don't let her talk you into anything on the way." },
         { id = "h_report", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bijou's Reconnaissance Report"), days = 3 } },
@@ -971,7 +1134,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'd heard there were a few of you, but I hadn't heard you'd be so loud." },
       },
       again = {
-        { id = "h_again", text = "Something else. Quickly." },
+        { id = "h_again", text = "Something else? Say it quickly, then." },
         { id = "h_again2", text = "Ask, but keep your voice down; the wind carries." },
       },
       choices = {
@@ -979,13 +1142,13 @@ P:NPC {
         { text = "Could the spirits help you watch the Spire, Lexlort?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would you have a spellcaster do for the Expeditionary Force?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do you watch for?", next = "watch" },
-        { text = "Who is Grark Lorkrub?", next = "grark" },
-        { text = "Who's Bijou?", next = "bijou" },
-        { text = "How did you know I was coming?", next = "seen" },
+        { text = "Who is Grark Lorkrub?", next = "grark", when = { any = { { heardLine = "lexlort.h_grark" }, { questActive = TODO_QUEST("Grark Lorkrub") }, { questActive = TODO_QUEST("Precarious Predicament") }, { questDone = TODO_QUEST("Precarious Predicament") } } } },
+        { text = "Who's Bijou?", next = "bijou", when = { any = { { heardLine = "lexlort.h_bijou" }, { questActive = TODO_QUEST("Operative Bijou") }, { questDone = TODO_QUEST("Operative Bijou") } } } },
+        { text = "You knew I was coming before I reached the gate.", next = "seen" },
         { text = "Teach me something about the trade.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Grark's in your custody now.", next = "grark_done", when = { questDone = TODO_QUEST("Precarious Predicament") } },
         { text = "Why do you call spells loud?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Couldn't a demon watch the Spire for you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "A demon could watch the Spire for you.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What loud work do you have, Lexlort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My beast can be your eyes too.", next = "k_hunter", when = { class = "HUNTER" } },
@@ -1016,7 +1179,7 @@ P:NPC {
         { id = "gr_default", text = "One of ours, once, and caught red-handed giving the Blackrock our daily operations. I tracked him across the Searing Gorge, through the mountain and into the Burning Steppes, where he thinks he's safe." },
       },
       choices = {
-        { text = "Why bring him back alive?", next = "grark_alive" },
+        { text = "A dead traitor would be easier to carry home.", next = "grark_alive" },
         { text = "Why would an orc turn traitor?", next = "grark_why" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1089,9 +1252,16 @@ P:NPC {
       { id = "tp_knows", text = "I watch, I remember, and I'll talk about these if you ask me plainly." },
     },
     blackrock = { { id = "tp_blackrock", text = "I know their shift changes, their drinking songs and their names, because that's my job." } },
-    background = { { id = "tp_ba", text = "I watch, I report, and I keep the rest to myself. That's the whole story." } },
+    background = { { id = "tp_ba", text = "I watch, I report, and I keep the rest to myself, as a scout of the Horde should. That's the whole story." } },
     advice = { { id = "tp_ad", text = "Count the guards on your way in, and count them again on your way out. If the numbers don't match, run." } },
-    _none = { { id = "tp_none", text = "Nothing I'll share." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are planning something. I don't know what yet, but I'll know before anyone else." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief values information, and I give it to him. That's all I'll say about the Warchief." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons trade with the Blackrock and fight them too. Whoever's winning this week, I'll know." } },
+    ravenholdt = {
+      { id = "tp_ravenholdt", text = "There's a manor in Alterac where my kind of work is taken seriously. I've never been invited, but I know where it is." },
+      { id = "tp_ravenholdt2", when = { class = "ROGUE" }, text = "You'd know about Ravenholdt, then, if you know what's good for you. Don't speak the name in an inn, even one as quiet as Kargath's." },
+    },
+    _none = { { id = "tp_none", text = "That's nothing I'll share, not even with one of the Horde." } },
   },
 }
 
@@ -1107,7 +1277,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in out of the dust and sit. There's water, there's grog, and there's a bunk nobody's bled on, recently." },
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Warlord says you think Rend's got the right of it. Keep that away from my tables, friend, because the 109th's widows drink here, and they're quicker with a knife than the Warlord." },
+    { id = "g_inn", text = "Come in out of the dust and sit, {class}. There's water, there's grog, and there's a bunk nobody's bled on recently, which in an orc camp counts as luxury." },
     { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper, and my cooking needs the help." },
     { id = "g_away", when = { away = 14 }, text = "Back from the badlands after {away} away! Sit down and tell me what you killed while you were gone, because the grunts are bored of my stories." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in Kargath's been grumbling your name into their grog all week. I don't care who started it, but don't finish it in my inn." },
@@ -1207,7 +1378,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest at my fire! The grunts will be glad of you, because they come back from the Gorge with cuts they won't show the alchemist, but they'll show a healer." },
         { id = "h_default", key = true,
-          text = "I'm Shul'kar, and I keep the inn. Out here a hot meal and a dry bunk are worth more than gold, and I don't charge much more than gold for them." },
+          text = "I'm Shul'kar, and I keep the inn. A warrior fights on his stomach, and out here a hot meal and a dry bunk are worth more than gold, though I don't charge much more than gold for them." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he fought a Dark Iron the size of a door, and then it was two doors, and by morning it was a castle. Good story, though." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter at my fire. If you've anything fresh, I'll take it for the pot, because the grunts are sick of salted coyote, and so am I." },
@@ -1216,13 +1387,13 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
-        { text = "Does anything grow out here worth cooking?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Nothing out here looks worth putting in a pot.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the grunts tell many stories about shamans, Shul'kar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the grunts' stories say about spellcasters, Shul'kar?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Want to hear a battle?", next = "story" },
         { text = "Who's the town named for?", next = "name" },
-        { text = "Who passes through Kargath?", next = "travelers" },
-        { text = "How do your Forsaken guests treat you?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "You must see every traveller who passes through Kargath.", next = "travelers" },
+        { text = "Your Forsaken guests seem to like it here.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm a soldier, Shul'kar. Tell me a battle worth hearing.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Who rents the room upstairs?", next = "upstairs" },
         { text = "A Darkspear needs no grog to tell a story.", next = "k_troll", when = { race = "Troll" } },
@@ -1307,8 +1478,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "An innkeeper who followed the Expeditionary Force out here because soldiers need feeding. That's all there is to me, and it's enough." } },
+    background = { { id = "tp_ba", text = "An innkeeper who followed the Expeditionary Force out here because soldiers need feeding, and I've fed orcs since we ate gruel behind the camp fences. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Drink water before you drink grog, and drink both before you go near the Searing Gorge. The heat up there will have you seeing things." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief eats with his grunts, and I'd feed him the same stew I feed them. He'd like it, I'm sure." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, and the food was worse then. That's the only thing I'll say for the old days." } },
+    uldaman = { { id = "tp_uldaman", text = "The dwarves dig at Uldaman, and their stew smells good from the road. I'd like the recipe." } },
     _none = { { id = "tp_none", text = "Don't know, but tell me about your battles instead, because I like those." } },
   },
 }

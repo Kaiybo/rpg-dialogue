@@ -50,13 +50,13 @@ P:NPC {
           text = "You are a long way from your own lands, and this road is not for you. Turn back the way you came, and quickly." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak while we ride, {class}." },
-        { id = "h_again2", text = "Ask, and then let me get back to watching the trees." },
+        { id = "h_again", text = "What else would you ask, {class}? Speak while we ride, and keep one eye on the trees, as every Sentinel learns to." },
+        { id = "h_again2", text = "Ask, and then let me return to watching the trees. The Gnarlpine have learned patience from us, and I would not have them learn more." },
       },
       choices = {
         { text = "Why do you guard this road yourself?", next = "road" },
-        { text = "Are you a priestess or a Sentinel?", next = "both" },
-        { text = "Who rides with you?", next = "huntresses" },
+        { text = "You salute like a Sentinel, but you bless like a priestess.", next = "both" },
+        { text = "Your two companions look sharp-eyed.", next = "huntresses" },
         { text = "Pray with me before I go up the path.", next = "pray_a", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "I've never seen Darnassus. What's it like?", next = "darnassus", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I'll clear the ambushers.", next = "BUSINESS" },
@@ -78,7 +78,7 @@ P:NPC {
         { id = "rw_default", text = "The druids say a corruption has them, and that Ursal the Mauler drives them with it. I believe it, though I cannot stand on the road and argue the point with an arrow in my saddle." },
       },
       choices = {
-        { text = "Do you pity them?", next = "road_pity" },
+        { text = "You speak of them as though you pity them.", next = "road_pity" },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },
@@ -160,6 +160,10 @@ P:NPC {
     sisterhood_of_elune = { { id = "tp_sisters", text = "The Sisterhood keeps the Temple, and some of us keep the roads. Elune does not mind which.", next = "both" } },
     sentinels = { { id = "tp_sentinels", text = "They hold the forest's edges so the Temple can keep its peace. I ride with them gladly." } },
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were not always like this, and I pray they will not always be. Until then, the road comes first." } },
+    elune = { { id = "tp_elune", text = "Elune rides with me on every road I patrol, and she is better company than most of my sisters. She never asks why I'm late back to the Temple." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The first tree stands on Hyjal, and I rode up its slopes once as a girl to see it. Teldrassil is grand, but it has never made me catch my breath like that." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess gave me this saber and these roads, and she trusts me to keep both. I'd ride through fire for her, and she knows it, which is why she never asks." } },
+    blackfathom = { { id = "tp_blackfathom", text = "That was Elune's temple once, on the Ashenvale shore, before the sea took it. Cultists pray in it now, and I'd ride in and drag them out myself if the Temple let me." } },
     _none = { { id = "tp_none", text = "I keep a road, {class}, not a library, and my saddle's softer than most books besides. Ask the priestesses in Darnassus." } },
   },
 }

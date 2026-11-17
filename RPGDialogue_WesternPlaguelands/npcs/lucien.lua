@@ -49,10 +49,10 @@ P:NPC {
         { id = "h_again2", text = "Please, go on. Eva says I don't let people finish, and I'm trying to improve." },
       },
       choices = {
-        { text = "What was House Barov like, before?", next = "house" },
+        { text = "House Barov must have been grand, before.", next = "house" },
         { text = "How did you and Eva come to be here?", next = "fate" },
         { text = "You let Eva do most of the talking.", next = "eva" },
-        { text = "What became of the Barov sons?", next = "sons" },
+        { text = "What became of the Barov family?", next = "sons" },
         { text = "I was raised in a house like this one.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "How can I help you?", next = "BUSINESS" },
         { text = "Good day, Lucien.", next = "END" },
@@ -69,7 +69,7 @@ P:NPC {
     house_change = {
       lines = { { id = "hc_default", text = "When the new guests began arriving after dark and leaving before dawn, and Master Barov stopped asking me to set the table at all. A butler learns not to ask questions, and I was very good at my work." } },
       choices = {
-        { text = "Do you blame yourself for not asking?", next = "house_blame" },
+        { text = "You seem to blame yourself for not asking.", next = "house_blame" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -127,6 +127,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I kept House Barov's silver and House Barov's secrets, and only one of those was ever worth keeping." } },
     advice = { { id = "tp_ad", text = "Watch who arrives after dark, and who stops asking you to set the table. It's not much, but it's what I learned too late." } },
     scholomance = { { id = "tp_scholo", text = "That is what they call the house now. I prefer not to." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "The master of the house made his arrangement with Kel'Thuzad in the great hall, and I poured the wine. I have regretted that glass for a very long time." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I served House Barov when Lordaeron was whole, and the house was the finest on Darrowmere Lake. It is a school now, and I am still standing at its door." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came to Caer Darrow as guests, and stayed as masters. I should have locked the gate, and I did not." } },
     _none = { { id = "tp_none", text = "I'm afraid I couldn't say. Eva may know; she always knew more of the household gossip than I did." } },
   },
 }

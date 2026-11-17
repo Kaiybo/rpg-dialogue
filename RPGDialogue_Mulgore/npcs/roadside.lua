@@ -13,7 +13,7 @@ P:NPC {
     third = "{name} met Morin Cloudstalker, who watches the roads of Mulgore.",
   },
   greetings = {
-    { id = "g_road", text = "The road is long and the plains are wide, traveler. Stand with me a moment." },
+    { id = "g_road", text = "The road is long and the plains are wide, traveler, and the Earth Mother watches both. Stand with me a moment." },
     { id = "g_back", when = { metBefore = true }, text = "You return to my stretch of road. The Earth Mother keeps you, I see." },
   },
   notice = {
@@ -22,6 +22,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_dwarves = {
+      lines = {
+        { id = "opd_q", text = "You've seen them, I think, or you've seen their kin in other lands. Before I decide anything about Bael'dun, I'd hear what you think of the dwarves." },
+        { id = "opd_q_dw", when = { race = "Dwarf" }, text = "You're one of them, and you came to me openly, so I'll ask you openly. What do you think of your own people's digging in Mulgore?" },
+      },
+      choices = {
+        { text = "Most dwarves are honest folk. Bael'dun is the exception, not the rule.", next = "op_dwarves_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They'll dig up the whole world if no one stops them.", next = "op_dwarves_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { dwarves = "distrust" } } },
+        { text = "Their Explorers' League digs for history, not for greed.", next = "op_dwarves_r3", fx = { trait = { curious = 1 }, opinion = { explorers_league = "useful" } } },
+        { text = "The Bael'dun diggers shame us all. I'm sorry, Morin.", next = "op_dwarves_r4", fx = { affinity = 3, trait = { honest = 1 }, opinion = { dwarves = "shame" } }, when = { race = "Dwarf" } },
+        { text = "I'd rather not speak for a whole people, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r1 = {
+      lines = {
+        { id = "op_dwarves_r1", text = "I'll hope you're right, because the honest ones have never found their way to Mulgore. Perhaps you'll send me some." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r2 = {
+      lines = {
+        { id = "op_dwarves_r2", text = "That's what the earth tells me through my hooves every morning. Thank you for saying it plainly." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r3 = {
+      lines = {
+        { id = "op_dwarves_r3", text = "History, they call it, and our ancestors' bones lie under that history. I'd like to see them dig up their own grandfathers first." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r4 = {
+      lines = {
+        { id = "op_dwarves_r4", text = "I didn't expect to hear that from a dwarf, and I'll not forget it. Walk freely on this road, friend." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Not as much as the dwarves digging to the north. They carry the Light too, I'm told, and they tear the earth open without asking. You I'll watch, but if you help us guard the road, I'll count you as a friend of the braves." } },
@@ -123,14 +168,14 @@ P:NPC {
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
         { text = "What happened to the caravan?", next = "caravan" },
-        { text = "Who else troubles Mulgore?", next = "venture" },
+        { text = "Mulgore seems to have more troubles than the dwarves.", next = "venture" },
         { text = "My people have no part in Bael'dun.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "The earth to the north is wounded. What can a shaman do?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I could get close to the dwarves' digging without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who ravaged the caravan, Morin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What tracks did you find near the caravan, Morin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your road is safer with a demon on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Did the dead of the caravan receive their rites, Morin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "I hope the dead of the caravan received their rites.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have the dwarves at Bael'dun done to the land, Morin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Who threatens the road, Morin?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do I worry you, Morin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -143,11 +188,14 @@ P:NPC {
     },
     dwarves = {
       lines = { { id = "d_default", text = "They say they look for the ancient things of the titans, buried deep beneath our plains. Whatever they seek, they have built a fortress to guard it, and fortresses are not built for peaceful work." } },
-      choices = { { text = "Will the tauren drive them out?", next = "dwarves_out" } },
+      choices = { { text = "The tauren should drive them out.", next = "dwarves_out" } },
     },
     dwarves_out = {
       lines = { { id = "do_default", text = "Cairne hopes to avoid a war, because our people have had enough of those. But the braves grow angry each time the dwarves' machines shake the ground." } },
-      choices = { { text = "What would you do?", next = "dwarves_morin" } },
+      choices = {
+        { text = "What do you think of the dwarves yourself?", next = "op_dwarves" },
+        { text = "What would you do?", next = "dwarves_morin" },
+      },
     },
     dwarves_morin = {
       lines = { { id = "dm_default", text = "I would ask them once, plainly, to leave. If they would not, then the Earth Mother would forgive us for making them." } },
@@ -180,7 +228,11 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know the road and the grass beside it. For more than that, ask the elders." } },
+    _none = { { id = "tp_none", text = "I know the road and the grass beside it, as my fathers knew it. For more than that, ask the elders." } },
+    centaur = { { id = "tp_centaur", text = "The centaur once rode through these plains like a storm, and I watched them burn our caravans. They come less often now, but they still come." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback burn caravans too, and they kill the drivers. I watch the road for both, and I do not sleep much." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts me to watch this road, and I will not fail him. He is a great chieftain, and a patient one, but he does not forgive carelessness." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's goblins dig their mine in the north of Mulgore, and they poison the land and they do not care, and I would see them gone." } },
   },
 }
 
@@ -282,19 +334,19 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, among my young druids? You move quietly enough to be one of them, little one." },
       },
       choices = {
-        { text = "Tauren learned from the night elves?", next = "elves" },
+        { text = "So the tauren learned from the night elves.", next = "elves" },
         { text = "What does a druid do?", next = "druid" },
         { text = "How does a druid's path differ from a shaman's, Gennia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The night elves taught you druidism. What do they say of mages?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can a druid teach a warrior anything, Gennia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do druids and hunters differ, Gennia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is there any balance in what I do, Gennia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do druids and priests heal in the same way, Gennia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Druids and priests must heal in much the same way.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What can a rogue learn from a druid, Gennia?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can the Light heal the land as druids do, Gennia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Light might heal the land as druids do.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows." } },
+      again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows, slowly, as the roots grow." } },
     },
     elves = {
       lines = { { id = "e_default", text = "Hamuul Runetotem studied with the great Malfurion Stormrage himself, and he brought the teachings home to our people. Some elves still grumble about it, but the Cenarion Circle welcomes us." } },
@@ -322,7 +374,11 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "That is not something the land has told me, little one." } },
+    _none = { { id = "tp_none", text = "That is not something the land has told me, little one. Sit with the Earth Mother a while; she may." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is a green world beneath this one, and a druid learns to walk it in sleep. The night elves taught us the way, and I teach it to the young." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, the moon, and the tauren call her Mu'sha, the Earth Mother's eye. I find it comforting that our faiths agree on something so beautiful." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great friend to the druids, and he gave Hamuul a place on the bluff to teach us. Without him, the tauren would have no druids at all." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every creature that walks, and a druid learns to take their shapes. It is her greatest gift, and her greatest test." } },
   },
 }
 
@@ -336,7 +392,7 @@ P:NPC {
     third = "{name} met Yaw Sharpmane, the hunter trainer at Bloodhoof Village.",
   },
   greetings = {
-    { id = "g_hi", text = "You walk softly enough. Good, because the plainstriders hear everything." },
+    { id = "g_hi", text = "You walk softly enough, like a hunter who respects the grass. Good, because the plainstriders hear everything." },
   },
   start = "hello",
   nodes = {
@@ -436,13 +492,13 @@ P:NPC {
       choices = {
         { text = "What makes a good hunter?", next = "good" },
         { text = "What's the hunting like in Mulgore?", next = "plains" },
-        { text = "Do the beasts' spirits speak to hunters too, Yaw?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The beasts' spirits must speak to hunters too, Yaw.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A rogue takes only what he needs, too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "I hunt with fire and frost. Is that so different?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I hunt with fire and frost. That's not so different.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you teach a warrior, Yaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do I keep my companion's trust, Yaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do hunters here ask a priest to tend their beasts, Yaw?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do hunters and druids ever argue over the beasts, Yaw?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "I'd guess hunters here ask a priest to tend their beasts.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Hunters and druids must argue over the beasts, Yaw.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How should a warlock treat a demon, Yaw?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does the Light take from me, Yaw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Yaw.", next = "END" },
@@ -458,7 +514,7 @@ P:NPC {
     },
     plains = {
       lines = { { id = "p_default", text = "Plainstriders and prairie wolves near the village, and swoops overhead for the patient. Further north, the Venture Company scares the game away with their noise." } },
-      choices = { { text = "And the great beasts?", next = "plains_big" } },
+      choices = { { text = "You haven't mentioned the great beasts.", next = "plains_big" } },
     },
     plains_big = {
       lines = { { id = "pb_default", text = "Ask Harken Windtotem about the old wolves, because he tells those stories better than I do. Then come back and tell me if you believed him." } },
@@ -475,6 +531,9 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I track beasts, not rumors. Ask at the inn." } },
+    _none = { { id = "tp_none", text = "I track beasts, not rumors. Ask at the inn, where the rumors graze." } },
+    centaur = { { id = "tp_centaur", text = "The centaur train their beasts to fight, but they do not respect them. A hunter who does not respect their pet is only a rider, and a poor one." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar keep boars as pets, and they treat them better than they treat each other. I find that interesting, and a little sad." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the beasts, and a hunter must honour that. Treat your pet as a gift, and it will treat you as family." } },
   },
 }

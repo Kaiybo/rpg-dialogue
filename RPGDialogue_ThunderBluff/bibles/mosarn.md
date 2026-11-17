@@ -11,7 +11,7 @@
 ## Identity
 Mosarn · Hunter Rise · Horde · Tauren · blacksmith
 Personality: gruff, proud, busy, pragmatic
-Speech: short, over the anvil noise
+Speech: short, over the anvil noise; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: rivets, apprentices, customers
 Relationships: Krog (customer's investigator); the braves, the Earthen Ring, the Grimtotem (buyers)
 Never says: anything after Year 1

@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Melisara, lieutenant to Sharlindra and servant of the Dark Lady. You'll find I don't waste much time with idle chatter, so ask what you came to ask." },
+          text = "I am Melisara, lieutenant to Sharlindra and servant of the Dark Lady. You'll find I don't waste much time with idle chatter, so ask what you came to ask. The Crown of Will and the ogre Mug'thol are my concern today." },
         { id = "h_sent", tags = { "news" }, when = { questActive = TODO_QUEST("The Crown of Will") },
           text = "Sharlindra sent you? Very well. Mug'thol is an irritant, and we will deal with him quickly, thoroughly and without incident." },
         { id = "h_heads", when = { questRecent = { TODO_QUEST("The Crown of Will"), days = 5 } },
@@ -56,7 +56,7 @@ P:NPC {
         { text = "What is the Crown of Will?", next = "crown" },
         { text = "Who is Mug'thol?", next = "mugthol" },
         { text = "Who is Sharlindra?", next = "sharlindra" },
-        { text = "What is it like, being a banshee?", next = "banshee" },
+        { text = "I can't imagine what it's like, being a banshee.", next = "banshee" },
         { text = "I know what it is to be bound.", next = "bound", when = { race = "Scourge" } },
         { text = "I'll take my leave, Melisara.", next = "END" },
       },
@@ -88,7 +88,7 @@ P:NPC {
         { id = "mu_default", text = "An ogre, and a Crushridge chief, who was sent with his warband into Alterac to retrieve the crown for the Dark Lady. Instead the fool tried it on, as ogres can't resist anything shiny, and it let him slip the possession that bound him to our service." },
       },
       choices = {
-        { text = "So the Forsaken had an ogre under their control?", next = "mugthol_control" },
+        { text = "So the Forsaken had an ogre under their control.", next = "mugthol_control" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,6 +145,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve Sharlindra, who serves the Dark Lady. That is all of me you need." } },
     advice = { { id = "tp_ad", text = "Thin the Crushridge before you strike at their chief. Ogres fight harder with friends around them." } },
     alterac = { { id = "tp_alterac", text = "A dead kingdom full of ogres and traitors. It suits them." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady was the Ranger-General of Quel'Thalas, and she died defending it, and she rose to free us all. Speak her name with care in my hearing, living one." }, { id = "tp_sylvanas2", when = { race = "Scourge" }, text = "You know her worth as well as I do, for she broke the chains on your mind as she broke mine. We owe her everything, and we will pay it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are slaves who do not know they are slaves, and the Lich King holds every chain. I remember the voice in my head, and I would see it silenced forever." } },
+    arthas = { { id = "tp_arthas", text = "The prince of Lordaeron killed me with his own sword, and then he bound me to his will. I do not need to tell you what I would do to him, given the chance." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, the dead who chose ourselves, and we serve the Dark Lady and no one else. The living may call us monsters, and some of them are right." } },
     _none = { { id = "tp_none", text = "That is not my concern, and I doubt it is yours." } },
   },
 }

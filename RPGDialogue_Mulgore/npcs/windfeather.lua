@@ -31,9 +31,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_quilboar = {
+      lines = {
+        { id = "opq_q", text = "Some of the elders say the quilboar were here first, and that we should treat with them. I say look at Red Cloud Mesa and tell me how. What do you say?" },
+      },
+      choices = {
+        { text = "They kill our young. There's nothing to talk about.", next = "op_quilboar_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { quilboar = "war" } } },
+        { text = "They were here first. We should try to make peace.", next = "op_quilboar_r2", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { quilboar = "peace" } } },
+        { text = "Drive them off Mulgore and let them have the Barrens.", next = "op_quilboar_r3", fx = { trait = { practical = 1 }, opinion = { quilboar = "drive_out" } } },
+        { text = "I'll leave that to the elders, Windfeather.", next = "BACK" },
+      },
+    },
+    op_quilboar_r1 = {
+      lines = {
+        { id = "op_quilboar_r1", text = "That's what I tell the elders, and they tell me I'm young and angry. I'm both, and I'm still right about Sharptusk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_quilboar_r2 = {
+      lines = {
+        { id = "op_quilboar_r2", text = "Try it, then, and take a spear with you when you go. If Sharptusk sits down to talk, I'll eat my own feathers." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_quilboar_r3 = {
+      lines = {
+        { id = "op_quilboar_r3", text = "The Barrens already have more quilboar than grass, so they'd hardly notice. I'll take that, if the elders will." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Brave Windfeather. I walk the road between Camp Narache and Grull's hunting camp, because the Bristleback like to ambush anyone who walks it alone." },
+        { id = "h_default", key = true, text = "Brave Windfeather. I walk the road between Camp Narache and Grull's hunting camp, because the Bristleback like to ambush anyone who walks it alone, and their chief, Sharptusk Thornmantle, sends them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Break Sharptusk!") },
           text = "{name}, I've heard of you, newcomer, and perhaps you're the one who will help us where others have failed. We tauren carved a home out of this land, but not without a cost, and the Bristleback of Brambleblade Ravine make us pay it again every day. Their chief is Sharptusk Thornmantle, and I want his head." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Break Sharptusk!"), days = 3 } },
@@ -41,12 +76,12 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bristleback", min = 25 } }, text = "The Bristleback on the mesa are thinning out, and I can walk this road without a spear in both hands. I know who to thank for it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Keep walking while you ask." },
+        { id = "h_again", text = "Anything else? Keep walking while you ask; the plains reward the ones who keep moving." },
         { id = "h_again2", text = "Go on, I'm listening, but I'm watching the brush too." },
       },
       choices = {
         { text = "Who is Sharptusk Thornmantle?", next = "sharptusk" },
-        { text = "What cost did the tauren pay for this land?", next = "cost" },
+        { text = "How did the tauren win this land?", next = "cost" },
         { text = "Why walk the road alone?", next = "road" },
         { text = "I'm a warrior. How do I fight a quilboar chief?", next = "fight", when = { class = "WARRIOR" } },
         { text = "What can I do?", next = "BUSINESS" },
@@ -56,7 +91,7 @@ P:NPC {
     sharptusk = {
       lines = { { id = "s_default", text = "Chief of the Bristleback in Brambleblade Ravine, east of here, in a camp of thorns and stolen hides. He sends his raiders up onto the mesa, and when they come back with blood on them, he gives them bigger tusks to wear." } },
       choices = {
-        { text = "Others have tried to kill him?", next = "others" },
+        { text = "So others have tried to kill him.", next = "others" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -64,7 +99,7 @@ P:NPC {
       lines = { { id = "o_default", text = "Two braves from Narache, last season, and they came back carried. Sharptusk is cunning for a quilboar, and he never fights at the edge of his camp, only in the middle where his warriors are thickest." } },
       choices = {
         { text = "Then I'll go through his warriors first.", next = "others_end" },
-        { text = "Were the braves badly hurt?", next = "others_end" },
+        { text = "The braves must have been badly hurt.", next = "others_end" },
       },
     },
     others_end = {
@@ -79,6 +114,7 @@ P:NPC {
     cost = {
       lines = { { id = "c_default", text = "We wandered for generations, chased by the centaur, until the Warchief helped us drive them from Mulgore. Then we built Thunder Bluff and Bloodhoof and Narache, and every one of them was paid for with someone's life." } },
       choices = {
+        { text = "What do you think should be done about the quilboar?", next = "op_quilboar" },
         { text = "Then the land is yours by right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The quilboar have a claim to this land too.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -97,6 +133,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a brave of Camp Narache. I walk this road, and I'll keep walking it until it's safe." } },
     advice = { { id = "tp_ad", text = "Never walk a road you don't know without a spear in your hand. The quilboar can smell an empty one." } },
-    _none = { { id = "tp_none", text = "I don't know about that. Ask Chief Hawkwind, or Grull at the hunting camp." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback under Chief Sharptusk have killed our people and burned our camps. I mean to see Sharptusk dead, and I will not rest until he is." } },
+    cairne = { { id = "tp_cairne", text = "Cairne led us to this land, and we paid for it in blood. I mean to see that price paid back, every drop, by those who would take it from us." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were our enemies on the plains, and the quilboar are our enemies here. A tauren must always be ready to fight, and I am always ready." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us this land, and I will defend it with my life. That is the only thanks she asks of me." } },
+    _none = { { id = "tp_none", text = "I don't know about that. Ask Chief Hawkwind, or Grull at the hunting camp; may the Earth Mother speed your hooves." } },
   },
 }

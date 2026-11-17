@@ -103,7 +103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Tharnariun Treetender. The thistle bears of Darkshore have gone mad, and not with ordinary rage, for they foam and stagger and turn on their own cubs. I mean to learn what is doing it, and to cure it if I can." },
+          text = "I am Tharnariun Treetender. The thistle bears of Darkshore have gone mad, and not with ordinary rage, for they foam and stagger and turn on their own cubs. I have tended these forests since the old days, and I mean to learn what is doing it and cure it if I can." },
         { id = "h_plagued", tags = { "news" }, when = { questActive = TODO_QUEST("Plagued Lands") },
           text = "Take the trap and bring me a rabid thistle bear, alive and caged, because a dead one tells me only how it died. Be gentle with it if you can, though I know it will not return the favour." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing of the Infected") },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask you to keep your demon well back from my bears, because whatever is souring their blood, it smells a good deal like what follows you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Thistle Bear", min = 20 } },
           text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But I'd still give a great deal for one brought to me alive." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The thistle bears are sick, and I want one alive. Your spirits might calm it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The thistle bears are sick, and I want one brought to me alive, so perhaps your spirits could calm it where my potions cannot." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time while the potion steeps." },
@@ -128,12 +128,12 @@ P:NPC {
       choices = {
         { text = "What's making the bears mad?", next = "cause" },
         { text = "Why take a bear alive?", next = "alive" },
-        { text = "Do you work with Terenthis?", next = "terenthis_t" },
+        { text = "Is anyone else in Auberdine chasing this sickness?", next = "terenthis_t" },
         { text = "I've felt that sour note in bear form myself.", next = "druid_th", when = { class = "DRUID" } },
         { text = "Could my companion catch the sickness?", next = "hunter_th", when = { class = "HUNTER", pet = { named = true } } },
         { text = "I caught you a bear. What did you learn?", next = "caught", when = { questDone = TODO_QUEST("Plagued Lands") } },
         { text = "I've poisons that could put a mad bear down quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Could arcane magic be behind the bears' madness?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Arcane magic could be behind the bears' madness.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Must I kill the thistle bears, Tharnariun?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing touch the sickness in the bears?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should I kill the maddened bears, or leave them be?", next = "xapala", when = { class = "PALADIN" } },
@@ -147,7 +147,7 @@ P:NPC {
         { id = "c_default", text = "I do not know yet, and I will not guess aloud, because guesses spread faster than sickness. It came from the north and east, as everything wrong in Darkshore seems to, and it moves through the bears the way fever moves through a crowded house." },
       },
       choices = {
-        { text = "Could it be the same as the furbolgs' moss?", next = "cause2" },
+        { text = "Could it be what's turning the furbolgs?", next = "cause2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,12 +190,12 @@ P:NPC {
     },
     terenthis_t = {
       lines = {
-        { id = "t_default", text = "We share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow." },
+        { id = "t_default", text = "Terenthis and I share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow. Gwennyth has her dead sea creatures on the beach, too." },
         { id = "t_heard", when = { heardLine = "terenthis.h_default" },
           text = "You've heard him already, then, and he's told you the furbolgs are sick rather than evil. He's right, and I'd say the same of my bears, though I would say it more quietly." },
       },
       choices = {
-        { text = "And Gwennyth's sea creatures?", next = "gwennyth_t" },
+        { text = "Gwennyth's sea creatures are dying too.", next = "gwennyth_t" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -243,6 +243,10 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "Terenthis has the furbolgs and I have the bears, and I would not trade with him for anything." } },
     fel_moss = { { id = "tp_moss", text = "The bears do not eat it, so far as I can see, and that is why I doubt it is the whole story." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle taught me that every beast has its place, even the ones I must put down. I try to remember it on the bad days." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The beasts of this shore were never meant to sicken like this. I've walked the Dream to look for the cause, and found only more questions, so I came back to wash bears." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs left untouched, up in Felwood. If ours ever recover, I'd want them to recover into something like that." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight keeps the Dream, and the Dream keeps the beasts, in its way. If the dragons are troubled, I'd expect the bears to feel it first." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The cult in Blackfathom poisons the water, and the beasts drink the water. I don't need a druid's wisdom to see where that ends." } },
     _none = { { id = "tp_none", text = "I could not tell you, friend. Ask me about bears, and I'll talk until you beg me to stop." } },
   },
 }
@@ -362,7 +366,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Sentinel Elissa Starbreeze. I keep Auberdine's stores, and I keep our accounts with Maestra's Post in Ashenvale, where Delgren the Purifier and his paladins hunt the Dark Strand." },
+          text = "I am Sentinel Elissa Starbreeze. I keep Auberdine's stores, and I keep our accounts with Maestra's Post in Ashenvale, where Delgren the Purifier and his paladins hunt the Dark Strand, those Highborne-hearted fools." },
         { id = "h_supplies", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies to Auberdine") },
           text = "Supplies from Maestra's Post? Delgren is generous, and Auberdine is grateful. A human paladin sending aid to elves across a forest is something my grandmother would never have believed." },
         { id = "h_after", when = { questDone = TODO_QUEST("Supplies to Auberdine") },
@@ -375,7 +379,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Delgren's people have been fair partners at Maestra's Post, so I will treat you as fairly as they have treated us." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. Your people ask my stores for more herbs and bandages every month, so I hope you have come to tell me the groves are mending." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you can conjure water, I'll put you to better use than most adventurers who come through, though I suppose you'll want to be off killing something." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I count crates and the help that comes with them. Will you be one I count?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I count crates and the help that comes with them, as the Sentinels have always counted, so tell me whether you'll be one I count." },
       },
       again = {
         { id = "h_again", text = "What else? I've three crates to count before the Moonspray comes in." },
@@ -384,9 +388,9 @@ P:NPC {
       choices = {
         { text = "Tell me about Delgren's company.", next = "delgren_e" },
         { text = "Who are the Dark Strand?", next = "strand" },
-        { text = "What do Auberdine's stores run short of?", next = "short" },
+        { text = "Auberdine's stores must run short, this far out.", next = "short" },
         { text = "My people sent those paladins. Do you trust us?", next = "human_e", when = { race = "Human" } },
-        { text = "Are the Sentinels stretched as thin as Glynda says?", next = "thin_e", when = { heardLine = "glynda.h_default" } },
+        { text = "Glynda says the Sentinels are stretched thin.", next = "thin_e", when = { heardLine = "glynda.h_default" } },
         { text = "Your stores would be easy to lift, Sentinel.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the humans at Maestra's Post fight well, Sentinel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Auberdine need from its hunters, Sentinel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -470,7 +474,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry more bandages than you think you need, because Darkshore has a way of using them up." } },
     dark_strand = { { id = "tp_strand", text = "Warlocks in the Tower of Althalaxx, and Delgren's paladins after them. I hope he gets there first." } },
     sentinels = { { id = "tp_sent", text = "We guard the village, the road and the boats, and we are never quite enough for all three." } },
-    _none = { { id = "tp_none", text = "That's not in my tally, I'm afraid. Ask Thundris; he hears everything sooner or later." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've counted Twilight's Hammer patrols on the road south to Blackfathom, and the number goes up every month. I don't know how many there are inside, and I'd rather not count those myself." } },
+    theramore = { { id = "tp_theramore", text = "I log every Theramore ship that docks, crew and cargo. They're always correct, which makes me trust them more than I'd like to admit." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong in Ashenvale aren't my count, but I keep an ear on the numbers. They're growing too." } },
+    forsaken = { { id = "tp_forsaken", text = "There are reports of undead sailors on the coast now and then. I count those twice, and I count them with my bow." } },
+    _none = { { id = "tp_none", text = "That's not in my tally, I'm afraid. Ask Thundris, for he hears everything sooner or later, and he forgets nothing." } },
   },
 }
 
@@ -587,7 +595,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds are calmer around healers, I find, and they've had little enough calm this season." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be heavy in the saddle, but my birds have carried worse, and they'll carry you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My birds have gone stiff in the feathers, and they only do that when the wind carries something they don't like." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My hippogryphs have moods like weather. Your wind spirits might understand them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My hippogryphs have moods like the weather over the sea, so perhaps your wind spirits will understand them better than I do." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I saddle a bird?" },
@@ -596,7 +604,7 @@ P:NPC {
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What are the hippogryphs like?", next = "birds" },
-        { text = "Is the flying safe these days?", next = "safe" },
+        { text = "Flying seems a risky way to travel.", next = "safe" },
         { text = "I've never ridden a hippogryph. Any advice?", next = "first", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I could swim to Rut'theran in seal form, you know.", next = "druid_c", when = { class = "DRUID", minLevel = 16 } },
         { text = "Do your hippogryphs carry passengers who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -651,6 +659,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I raise hippogryphs and send them where they're needed. There's not much more to me than feathers." } },
     advice = { { id = "tp_ad", text = "Never fly hungry and never fly angry, and that goes for the bird as well as for you." } },
-    _none = { { id = "tp_none", text = "I only know the sky, love. Ask someone with their feet on the ground." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds came from Hyjal's aeries, and on clear days they look north for it. Hippogryphs never quite forget where they hatched." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's too far south for my birds, so I send folk down to the ships. Hippogryphs don't love salt air." } },
+    everlook = { { id = "tp_everlook", text = "I've flown north to Everlook once, and the goblins there tried to buy my bird. I'll not be flying north again." } },
+    _none = { { id = "tp_none", text = "I only know the sky, friend. Ask someone with their feet on the ground and their eyes off the moon." } },
   },
 }

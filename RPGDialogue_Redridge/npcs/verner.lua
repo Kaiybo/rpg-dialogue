@@ -29,6 +29,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_gnolls = {
+      lines = {
+        { id = "op_gnolls_a", text = "Depends who's asking and how many horses they've lost. The guards say wipe out every gnoll on the ridge, and old Martie says the orcs have pushed them down off the mountains and they're as frightened as we are. What do you reckon?" },
+      },
+      choices = {
+        { text = "Clear the ridge. They chose to raid, so they chose the sword.", next = "op_gnolls_1", fx = { opinion = { redridge_gnolls = "clear_them" }, align = { light = -1 }, affinity = 1 } },
+        { text = "They're starving refugees. Push the orcs back and they'll go home.", next = "op_gnolls_2", fx = { opinion = { redridge_gnolls = "driven" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Kill the leaders and the rest will scatter.", next = "op_gnolls_3", fx = { opinion = { redridge_gnolls = "leaders" }, trait = { practical = 1 } } },
+        { text = "I don't know enough about gnolls to say.", next = "BACK" },
+      },
+    },
+    op_gnolls_1 = {
+      lines = { { id = "op_gnolls_r1", text = "That'll please the Guard, and the horses, and me, to be honest about it. Bring me a few of their blades, and I'll melt them into shoes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_gnolls_2 = {
+      lines = { { id = "op_gnolls_r2", text = "Martie'll like you, then. I'd like you better if the gnolls would like you too, and leave my paddock be while you're arguing their case." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_gnolls_3 = {
+      lines = { { id = "op_gnolls_r3", text = "That's Yowler, then, and I'll say good riddance. Every gnoll that can howl louder than the rest thinks he's a king." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They take every scrap. I've a hot forge and no iron. At least my horses listen to my grumbling." } },
@@ -93,7 +116,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "With a hammer, and a forge, and the good sense to stay behind the stable door. If the gnolls come down for the horses while I'm here, they'll find a smith's arm is as good as a guard's, and angrier." } },
       choices = {
-        { text = "I'll drive Yowler's pack off your hill myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll drive the gnolls off your hill myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your horses, your trouble, Verner. Build a better fence.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Verner.", next = "BACK" },
       },
@@ -102,7 +125,7 @@ P:NPC {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've a kind way with beasts, I'll bet. I could use that; the wolves around here have taken a liking to my supplies." },
-        { id = "h_default", text = "Osgood, the smith. The Guard takes every scrap of iron I've got, and I'm meant to shoe the town's horses with what's left, which is nothing." },
+        { id = "h_default", text = "Osgood, the smith. The Guard takes every scrap of iron I've got, and I'm meant to shoe the town's horses with what's left, which is nothing, unless Argus down in Goldshire takes pity on me." },
         { id = "h_shoes", when = { questBefore = TODO_QUEST("The Price of Shoes") },
           text = "Smith Argus in Goldshire owes me, and he's got iron. If someone carried a note down to him, I might see horseshoes this side of winter." },
         { id = "h_shoes_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Price of Shoes") },
@@ -133,7 +156,7 @@ P:NPC {
         { text = "Why do the wolves come so close to town?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Let's see what you've got.", next = "BUSINESS" },
         { text = "How do you know Argus?", next = "argus" },
-        { text = "Why are your horses in danger?", next = "gnolls" },
+        { text = "How are the town's horses faring?", next = "gnolls" },
         { text = "Where does all your iron go?", next = "iron" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Will you shoe my warhorse?", next = "warhorse", when = { class = "PALADIN", minLevel = 40 } },
@@ -144,7 +167,7 @@ P:NPC {
         { text = "Blackrock steel holds a curse well, they say.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I pray for the horses you've lost, Verner?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can you keep your horses safe from the gnolls, Verner?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does the Guard really take all your iron, Verner?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Guard seems to take all your iron, Verner.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the horses.", next = "END" },
       },
     },
@@ -189,7 +212,8 @@ P:NPC {
           fx = { learn = { "redridge_gnolls" } } },
       },
       choices = {
-        { text = "Who leads them?", next = "yowler" },
+        { text = "Are the gnolls just hungry, or something worse?", next = "op_gnolls" },
+        { text = "Someone must be leading them.", next = "yowler" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -210,7 +234,7 @@ P:NPC {
         { id = "i_default", text = "To the Guard, by order. Every nail I make walks out of here on a soldier's boot. The horses get the scraps." },
       },
       choices = {
-        { text = "Doesn't that leave the town short?", next = "iron_short" },
+        { text = "That must leave the town short.", next = "iron_short" },
         { text = "The Guard needs it more.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "The town's horses matter as much as the Guard's boots.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -247,6 +271,11 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hoard the best ore in Khaz Modan and smelt it with fire you can't buy in Stormwind. I'd give my best anvil for a single bar of it, and they'd still not give me one." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs of that mountain to the north are forging weapons faster than I can mend them, and they have all the iron I don't. If anyone ever takes that place, I'd like the scrap." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The ore that used to come down from Ironforge came over the Thandol Span, and now I'm told the Dark Irons have been blasting at it. The Guard takes what little I get, so it's no matter either way." } },
+    bolvar = { { id = "tp_bolvar", text = "The Guard tells me the Highlord sends his regards and requisitions all my iron. I'd send my regards back, but I've nothing left to send them in." } },
+    silver_hand = { { id = "tp_silver_hand", text = "A paladin of the Silver Hand once asked me to mend his hammer, and the Light nearly blinded me while I worked. I charged him double, and he paid it without a word, which made me feel worse." } },
     knows = {
       { id = "tp_knows", text = "Half the town comes past this forge for something, and they all talk while they wait. Ask me about any of this." },
     },

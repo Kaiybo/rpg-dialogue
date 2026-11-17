@@ -14,9 +14,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Set it on the anvil and tell me what broke. Then tell me what broke it, because that matters more." },
+    { id = "g_default", text = "Set it on the anvil and tell me what broke. Then tell me what broke it, because that matters more; my father said the hunt is in the wound, not the spear." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with more sand in your armor, I'd wager. Let me see." },
-    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and the forge never cooled once. Neither did the sand." },
+    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and the forge never cooled once. Neither did the sand, though I pray to An'she for a cooler day." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Hold speaks well of you. Good; a smith likes to know whose armor he's mending." },
   },
 
@@ -31,20 +31,20 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Vargus, and I keep the forge for the Hold. Bugs, cultists and stone giants all break armor, but it's the sand that ruins it, so that's what I fight, every day." },
+        { id = "h_default", key = true, text = "I am Vargus, and I keep the forge for the Hold. Bugs, cultists and stone giants all break armor, but it's the sand that ruins it, so that's what I fight, every day, with the patience the Earth Mother gave my people." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "One of the people, so far from the plains. The Wildmane brothers will be glad of you, and so am I." },
         { id = "h_warrior", when = { class = { "WARRIOR", "PALADIN" } },
           text = "Plate, in this heat. You must be either very brave or very stubborn, and I've not yet met a warrior who was only one." },
       },
       again = {
-        { id = "h_again", text = "Something else? The iron won't wait long." },
+        { id = "h_again", text = "Something else? The iron won't wait long, though I will." },
         { id = "h_again2", text = "Go on. I can listen and hammer." },
       },
       choices = {
         { text = "What does the sand do to armor?", next = "sand" },
         { text = "What do you make of silithid chitin?", next = "chitin" },
-        { text = "Do the cultists' weapons come through here?", next = "cult" },
+        { text = "I'd guess a few cultist blades come through here.", next = "cult" },
         { text = "Any advice for a fellow smith?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Fix my gear, Vargus.", next = "BUSINESS" },
         { text = "Thank you, Vargus.", next = "END" },
@@ -91,6 +91,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A smith of the people, come south with the Circle because the Circle needed someone to keep its soldiers in one piece." } },
     advice = { { id = "tp_ad", text = "Clean your buckles. I will keep saying it until somebody listens." } },
     twilights_hammer = { { id = "tp_twh", text = "Their blades hum in my fire, and I don't like the tune. That's all I want to know about them." } },
-    _none = { { id = "tp_none", text = "Ask someone who doesn't spend all day at an anvil. That's most of the Hold." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "Silithid chitin from the hives is stronger than most steel, and lighter, and it takes an edge if you're patient. I respect it more than I respect the bugs." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron forge well, and they forge for the Firelord, and I'll not touch their work. Good metal in bad hands is still bad metal." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "The armor of the old night elf soldiers who fought at Ahn'Qiraj is still out there in the sand, and it's still good. They knew their craft, those smiths." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sends me coal when they remember and sand when they don't. I can't forge sand, I've tried." } },
+    _none = { { id = "tp_none", text = "Ask someone who doesn't spend all day at an anvil. That's most of the Hold, and the Earth Mother bless them for it." } },
   },
 }

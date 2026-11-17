@@ -12,7 +12,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Keep your voice low near the cubs, {class}. They remember a loud stranger for a long time." },
+    { id = "g_default", text = "Ishnu-alah. Keep your voice low near the cubs, {class}, for they remember a loud stranger for a long time, as all of Elune's sabers do." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the cubs didn't hiss at you this time. That's a start." },
   },
 
@@ -115,27 +115,27 @@ P:NPC {
           text = "A rogue. A wintersaber can hear a rogue's step from the far side of the valley, so do not think to sneak up on mine, because they will think you are prey." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My frostsabers are calm, but they have no love for the arcane, so cast nothing near the pens, please." },
-        { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
+        { id = "h_default", text = "I am Rivern Frostwind, and the Wintersaber Trainers raise the frostsabers of this valley, as our people have raised sabers since before Darnassus was a dream. The Winterfall furbolgs and the cold give us trouble enough, and we don't hand a saber to anyone who hasn't helped us with both." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A child of Elune, so you'll know what a wintersaber means to our people. They are not horses, and we do not sell them as horses." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, here in the frostsaber valley. The cubs know your kind by scent, I think, and they come to you more readily than to the Sentinels who train beside me." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clad in steel, at the saber pens. My cats think you are a very strange sort of bear, so walk slowly until they know your scent." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The frostsabers are restless, which means they've caught your scent and can't decide what you are." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The frostsabers are restless, which means they've caught your scent and can't decide what you are, and in all my centuries they've rarely been wrong." },
       },
       again = {
-        { id = "h_again1", text = "What else? The cubs need feeding." },
+        { id = "h_again1", text = "What else? The cubs need feeding, and they are as patient as any kaldorei, which is to say not when they're hungry." },
         { id = "h_again2", text = "Ask, then, and quietly." },
       },
       choices = {
         { text = "Is it right to keep the wintersabers, Rivern?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "How does one earn a wintersaber?", next = "sabers" },
+        { text = "A wintersaber must be hard to earn.", next = "sabers" },
         { text = "What trouble do the Winterfall make?", next = "winterfall" },
-        { text = "How do you bear the cold?", next = "cold" },
+        { text = "I don't know how you bear the cold.", next = "cold" },
         { text = "My family rode sabers in the old days.", next = "elf", when = { race = "NightElf" } },
         { text = "Could a wintersaber be trained to hunt quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the frostsabers distrust the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does it take to earn a frostsaber's trust?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Could a warrior learn to fight from a frostsaber, Rivern?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "A warrior could learn a lot from a frostsaber, Rivern.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your frostsabers accept a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How does a priest earn a place at Frostsaber Rock?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a demon's scent really so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -145,7 +145,7 @@ P:NPC {
     },
     sabers = {
       lines = {
-        { id = "sabers_default", text = "By feeding the cubs, by driving the Winterfall back from our grounds, and by coming back day after day until we know your face. Many riders give up long before the trainers are satisfied." },
+        { id = "sabers_default", text = "It is, and it is earned by feeding the cubs, by driving the Winterfall back from our grounds, and by coming back day after day until we know your face. Many riders give up long before the trainers are satisfied." },
       },
       choices = {
         { text = "That sounds like a very long road.", next = "sabers2" },
@@ -188,7 +188,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I raise frostsabers, and I have done for longer than most humans live." } },
-    _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling." } },
+    elune = { { id = "tp_elune", text = "Elune blesses the frostsabers of Winterspring, and they're the finest mounts the Kaldorei know. A rider who earns one earns her blessing too." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess rides a frostsaber of her own, and every rider in Kalimdor wants one like it. I tell them it takes seasons of work, and I mean seasons." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels ride the cats of Ashenvale and Darnassus, but the best of them ride mine. I'm proud of every one of them." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw leave my cats alone, and I leave their tunnels alone. It's a fair arrangement, and it's lasted many years." } },
+    _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling, and frostsabers keep their secrets well." } },
   },
 }
 
@@ -330,18 +334,18 @@ P:NPC {
       },
       choices = {
         { text = "Can the Winterfall be cleansed, Salfa?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What happened to the Winterfall?", next = "winterfall" },
+        { text = "Something has gone wrong with the Winterfall.", next = "winterfall" },
         { text = "Where does the tunnel lead?", next = "tunnel" },
-        { text = "Do the Timbermaw trade with Everlook?", next = "everlook" },
+        { text = "The Timbermaw must trade with Everlook now and then.", next = "everlook" },
         { text = "I feel the spirits' anger here.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you think the Winterfall are tainted by demons?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there anything a quiet walker could do for the Timbermaw?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What drove the Winterfall to madness, Salfa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Timbermaw need from a priest, Salfa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would the Timbermaw welcome a warrior's help, Salfa?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Where do the Winterfall tracks lead, Salfa?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "The Winterfall tracks must lead somewhere, Salfa.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would you have a paladin do for the Winterfall, Salfa?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "What do you smell on the Winterfall, Salfa?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You can smell something on the Winterfall, Salfa.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the Winterfall remind you of the Forsaken, Salfa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Stay warm, Salfa.", next = "END" },
       },
@@ -391,6 +395,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Salfa is Timbermaw, and Salfa keeps the cold door." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last furbolgs who remember the old ways. We guard our tunnels, and we're fair to those who earn it." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids taught our people of the Dream, long ago. Now the Winterfall forget the old teachings, and it grieves us." } },
+    satyrs = { { id = "tp_satyrs", text = "The satyrs of the south are a sickness on the land, and the Timbermaw fight them wherever we find them. Your kind should do the same." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree stands on Hyjal, and the Timbermaw have guarded its slopes since before your kind came to this land. We remember." } },
     _none = { { id = "tp_none", text = "Salfa does not know. Salfa watches tunnels, not the world." } },
   },
 }
@@ -512,22 +520,22 @@ P:NPC {
         { id = "h_default", text = "I am Ranshalla, a priestess of Elune, and there are old altars in these hills that have been dark for far too long. I mean to light their torches again, but the wild things guard them now, and I can't go alone." },
         { id = "h_cond", when = { class = "PRIEST" }, text = "A priest! Then you'll feel it too, when we reach the altar, the way the Mother Moon still listens there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The altars I mean to light were raised before the Sundering, and I think the Circle would be glad to see them burning again." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at an altar of Elune? The spirits and the Mother Moon both watch these hills, as they have since before the Sundering, so perhaps you belong here more than I thought." },
       },
       again = {
-        { id = "h_again1", text = "What else, friend?" },
+        { id = "h_again1", text = "What else, friend? Speak, and Elune will hear it as well." },
         { id = "h_again2", text = "Speak, the moon is patient tonight." },
       },
       choices = {
         { text = "Do the old altars still draw the land's spirits?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do the altars mean to the wild things, Ranshalla?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's at the altar?", next = "altar" },
+        { text = "Something must wait at the altar.", next = "altar" },
         { text = "Why do the altars matter to Elune?", next = "elune" },
-        { text = "What guards the altars now?", next = "danger" },
+        { text = "Something must guard the altars now.", next = "danger" },
         { text = "I'd be honoured to pray at the altar with you.", next = "priest", when = { class = "PRIEST" } },
         { text = "What lurks around the old altars?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why go to the altars if they're so dangerous?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What kind of guard do you need at the altars?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You'll want a guard at the altars.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What watches the trail to the altars, Ranshalla?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think the Light and Elune are so alike, Ranshalla?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would Elune's priestess really walk with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
@@ -580,7 +588,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a priestess of the Temple of the Moon, though I've spent more time in the snow than in the temple lately." } },
-    _none = { { id = "tp_none", text = "I don't know that one, but I'll ask Elune tonight, if you like." } },
+    elune = { { id = "tp_elune", text = "Elune's light still shines on the old altars of Winterspring, if you know how to wake them. I mean to light every one of them, whatever waits around them." } },
+    sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisterhood serves Elune in Darnassus and in every corner of Kalimdor. I'm one of them, though I've wandered further than most." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess sent me north to see what remains of the old shrines. I'd like to bring her good news." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne built the altars I'm lighting, before they fell to their pride. I try not to think about that too much." } },
+    _none = { { id = "tp_none", text = "I don't know that one, but I'll ask Elune tonight, if you like. She has answered stranger questions over ten thousand years." } },
   },
 }
 
@@ -699,16 +711,16 @@ P:NPC {
       },
       choices = {
         { text = "Is the ice of Mazthoril the blue flight's doing?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What does the blue flight guard?", next = "magic" },
+        { text = "The blue flight must guard something precious.", next = "magic" },
         { text = "What is Mazthoril?", next = "mazthoril" },
         { text = "Who leads your flight?", next = "malygos" },
         { text = "Then teach me to wield it properly.", next = "mage", when = { class = "MAGE" } },
-        { text = "The blue dragonflight fought the Legion?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I didn't know the blue dragonflight fought the Legion.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do dragons have any use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does the blue flight think of priests, Haleh?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a warrior's steel worth anything to a blue dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do mortals hunt your kind, Haleh?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What does your flight guard in these caves?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Your flight guards something in these caves.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the blue flight have any respect for the Light, Haleh?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
@@ -758,6 +770,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am of the blue flight, and older than your oldest city." } },
+    dalaran = { { id = "tp_dalaran", text = "The mortal mages of Dalaran play with the arcane like children with fire. They are rebuilding their city now, and they will doubtless burn it down again." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor call themselves the masters of magic, and the blue flight finds that very amusing. They have mastered nothing, except perhaps their own conceit." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne meddled with the Well of Eternity and brought ruin on the world. My kind remembers, and we watch the mortals who would follow them." } },
     _none = { { id = "tp_none", text = "That is not a question worth a dragon's breath, little one." } },
   },
 }
@@ -878,7 +893,7 @@ P:NPC {
       choices = {
         { text = "Did the Legion's touch reach Winterspring's land too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Tell me your tale, then.", next = "tale" },
-        { text = "What about the other satyrs here?", next = "satyrs" },
+        { text = "The other satyrs here seem less sorry than you.", next = "satyrs" },
         { text = "Why hide in Winterspring?", next = "winterspring" },
         { text = "Every bargain has a loophole.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "How did a Highborne mage become a satyr?", next = "xmage", when = { class = "MAGE" } },
@@ -886,7 +901,7 @@ P:NPC {
         { text = "Is there no redemption left for a satyr, Lorax?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a warrior break your demon's hold, Lorax?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How did the Legion snare you, Lorax?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Do you regret becoming a satyr, Lorax?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "You seem to regret becoming a satyr, Lorax.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you think a paladin should strike you down, Lorax?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll think on your tale.", next = "END" },
       },
@@ -896,7 +911,7 @@ P:NPC {
         { id = "tale_default", text = "I was Highborne once, and I wanted power, and the Legion gave it to me with horns and hooves attached. The demon who holds my soul has grown careless, and with the right help I could make him pay." },
       },
       choices = {
-        { text = "Why should I trust a satyr?", next = "tale2" },
+        { text = "I don't see why I should trust a satyr.", next = "tale2" },
       },
     },
     tale2 = {
@@ -936,6 +951,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I was Highborne, once, and a fool. Now I'm only the fool." } },
+    satyrs = { { id = "tp_satyrs", text = "The satyrs were Highborne once, in the old days, and every one of us made a bargain to become what we are. I regret mine every day, and I've no one to blame but myself." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion promised us power, and gave us horns and hooves instead. Never make a bargain with a demon, mortal, because they always win." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were the finest of the Kaldorei, and the proudest. They fell because of their pride, and I followed their example far too closely." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Azshara led the Highborne to ruin in the old days, and they say she was the most beautiful being in the world. I've learned that beauty and ruin keep very close company." } },
     _none = { { id = "tp_none", text = "Lorax doesn't know, and Lorax has stopped pretending to." } },
   },
 }
@@ -1070,6 +1089,10 @@ P:NPC {
           text = "A priest! Say a little grace over the soup, would you, chum? Business has been slow, and I'll take any blessing I can get on the pot, especially the kind that brings in customers." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll want something hearty too, I'd say, because turning into a bear in this weather must take a lot out of you." },
+        { id = "h_winterfall_resolved", when = { thread = { id = "winterfall_firewater", state = "resolved" } },
+          text = "The dwarf at the springs came through here sayin' the Winterfall are patients and not bandits, chum, and I said fine, cure 'em, and I'll sell 'em soup. A sober furbolg's a customer, see, and a drunk one's a liability." },
+        { id = "h_winterfall_soured", when = { thread = { id = "winterfall_firewater", state = "soured" } },
+          text = "Everlook's hired bruisers for the road, chum, and guess who's feedin' 'em at cost? It's safer for my carts, I'll grant you, but I've done the sums and a bruiser eats twice what he saves me." },
       },
       again = {
         { id = "h_again1", text = "What else, chum? The soup's getting cold, and cold soup don't sell." },
@@ -1078,14 +1101,14 @@ P:NPC {
       choices = {
         { text = "Does the cold up here ever spoil your stores, Himmik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's cooking?", next = "BUSINESS" },
-        { text = "What's good today?", next = "food" },
+        { text = "Something smells good today.", next = "food" },
         { text = "How's business in Everlook?", next = "everlook" },
         { text = "I'll try that stew.", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "Do rogues eat much at your counter?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Rogues must eat at your counter now and then.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does your soup feed demons, too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could I really warm your soup with magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many come down off the mountain needing help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is your soup really a miracle, Himmik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "They say your soup is a miracle, Himmik.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you feed a warrior in Winterspring, Himmik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do chimaera steaks really taste of frost, Himmik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you feed the travelers who come in from the wilds?", next = "xdruid", when = { class = "DRUID" } },
@@ -1121,6 +1144,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Steamwheedle through and through, chum, and I feed Everlook at a modest profit, which is the best kind." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the coldest town in the world, pal, and my soup is the warmest thing in it. One bowl, and you'll forget you ever had feet." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got good cooks, but they've never had to cook for the cold. Try my soup, and you'll know the difference." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's hot enough to cook an egg on the sand, which is no use to anybody up here. I'll take the snow and a full pot every time." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw love my soup, though they never pay in coin. I've got enough fur in the back to make a coat." } },
     _none = { { id = "tp_none", text = "No idea, chum, but have you tried the soup? Because that I can sell you." } },
   },
 }

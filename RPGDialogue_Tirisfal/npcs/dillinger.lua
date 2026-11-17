@@ -58,10 +58,10 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The Scourge aren't in a hurry tonight, so I can spare a moment." },
       },
       choices = {
-        { text = "What are the Scourge after out west?", next = "west" },
+        { text = "The Scourge seem to be after something out west.", next = "west" },
         { text = "Why aren't you out there fighting them yourself?", next = "post" },
         { text = "Tell me about Agamand Mills.", next = "mills" },
-        { text = "Austil de Mon sent me. He said you had a mission.", next = "ulag", when = { class = "WARRIOR" } },
+        { text = "I'm told you have a task for a warrior.", next = "ulag", when = { class = "WARRIOR" } },
         { text = "Who was Ulag, before he was a prisoner?", next = "ulag_after", when = { questDone = TODO_QUEST("Ulag the Cleaver") } },
         { text = "Do the living give you trouble in Brill?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll walk the west road for you tonight.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
@@ -90,7 +90,7 @@ P:NPC {
     post = {
       lines = { { id = "po_default", text = "Because I was ordered to stand here, and a Deathguard who leaves his post because he's bored is a Deathguard who gets Brill burned. Don't mistake that for liking it." } },
       choices = {
-        { text = "Do you miss the fighting?", next = "post_miss" },
+        { text = "You must miss the fighting.", next = "post_miss" },
         { text = "Orders keep the town standing. That's worth something.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
@@ -123,14 +123,14 @@ P:NPC {
     ulag = {
       lines = { { id = "ul_default", text = "I have one, and it'll test your arm and your nerve both. When the Scourge swept through the glades, we took one of them alive, and he could speak and think for himself, and called himself Ulag the Cleaver." } },
       choices = {
-        { text = "A free mind, like ours?", next = "ulag_mind" },
+        { text = "So he has a free mind, like ours.", next = "ulag_mind" },
         { text = "Then why is he still a prisoner?", next = "ulag_mind" },
       },
     },
     ulag_mind = {
       lines = { { id = "um_default", text = "Free enough to talk, and still the Lich King's to the bone. We spent months trying to break that hold and we failed, so it's time to open the seal and let a warrior finish him." } },
       choices = {
-        { text = "Does it trouble you that you couldn't free him?", next = "ulag_doubt" },
+        { text = "It must trouble you that you couldn't free him.", next = "ulag_doubt" },
         { text = "Show me the mausoleum. I'll do it.", next = "BUSINESS" },
       },
     },
@@ -172,6 +172,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a soldier before, and I'm a soldier now. What happened in between isn't worth the telling." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a corpse until you've seen it fall over twice, because in Tirisfal once is a habit, not a promise." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Zygand worries about the Crusade, and he's right to. I worry about the Scourge, because they never stop coming and they never get tired." } },
+    scourge = { { id = "tp_scourge", text = "The mindless shamble up this road every few nights, and I cut them down like a farmer cuts wheat. It would be good to fight something that fought back properly, now and then." } },
+    forsaken = { { id = "tp_forsaken", text = "We're the Dark Lady's soldiers, and we do our duty without being thanked for it. If you want thanks, go join the Alliance and polish something." } },
+    sylvanas = { { id = "tp_sylvanas", text = "I'd die for the Dark Lady again, and I'd do it on a bloodier road than this one, if she'd only send me there." } },
+    stratholme = { { id = "tp_stratholme", text = "That's where the real fighting is, in Stratholme and the lands east of it. I've asked twice to be sent, and twice I've been told the west road needs me more." } },
     _none = { { id = "tp_none", text = "Ask someone who isn't watching a road. Renee at the inn hears more than I do." } },
   },
 }

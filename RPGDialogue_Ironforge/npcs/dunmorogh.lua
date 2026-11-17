@@ -128,8 +128,8 @@ P:NPC {
       choices = {
         { text = "Why camp in the snow?", next = "why" },
         { text = "How do I make a camp?", next = "camp" },
-        { text = "Who stops at your fire?", next = "visitors" },
-        { text = "Is it safe out here?", next = "safe" },
+        { text = "Your fire must draw a few travellers.", next = "visitors" },
+        { text = "It seems safe enough out here.", next = "safe" },
         { text = "I work leather. What can I add?", next = "tent", when = { profession = "Leatherworking" } },
         { text = "I've tracked bears through worse snow than this.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Have you ever had your camp robbed out here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -213,6 +213,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Pitch your tent upwind of the fire, unless you like your bedding smoked." } },
     camping = { { id = "tp_camping", text = "A fire first, and cooks can make one, then each trade adds its piece. A good camp is a little town for the night.", next = "camp" } },
     frostmane = { { id = "tp_frostmane", text = "They're up on Shimmer Ridge, mostly. Don't camp near the ridge, and don't camp near anyone who does." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I camped wi' a Wildhammer once, up in the Hinterlands, an' he talked tae his gryphon all night long. Fine company, the pair o' them, though the bird snored." } },
+    everlook = { { id = "tp_everlook", text = "I walked tae Everlook once, all the way up through Winterspring, an' I've never been so cold in my life, an' I'm from Dun Morogh. The goblins there sell hot cider, an' they know exactly what it's worth." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw up in Felwood an' Winterspring are the only bears I've ever traded wi' instead o' runnin' from. Bring them a gift an' mind yer manners, an' they'll let ye camp in their tunnels." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I followed the Darkmoon Faire round fer a season when I was young an' foolish. Slept under its wagons an' ate its terrible food, an' I'd do it again in a heartbeat." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask at the Thunderbrew; somebody there knows everything, and the rest is made up." } },
   },
 }
@@ -346,7 +350,7 @@ P:NPC {
         { text = "Gloves, for wolf meat?", next = "gloves" },
         { text = "A rune for me?", next = "rune", when = { class = "PRIEST", maxLevel = 6 } },
         { text = "Anything for a dwarf who hears the elements?", next = "archaic", when = { race = "Dwarf", class = "SHAMAN" } },
-        { text = "Do many gnomes come through the valley?", next = "k_gnome", when = { race = "Gnome" } },
+        { text = "Many gnomes must come through the valley now.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "Do the Coldridge recruits not see many mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would a letter cough smoke near me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where are the troggs troubling the post, Sten?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -418,6 +422,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I carry the mail, an' that's the story. It's a short one an' mostly cold, an' twice this winter a ram's tried tae eat the satchel." } },
     advice = { { id = "tp_ad", text = "Gloves. I'll say it again, an' I'll keep sayin' it: gloves." } },
     troggs = { { id = "tp_troggs", text = "Once ye've seen one trogg, ye've seen 'em all, an' I've seen 'em all.", next = "troggs" } },
+    scourge = { { id = "tp_scourge", text = "I've had a couple o' recruits come up from Lordaeron, an' they fight like they've seen worse than troggs, because they have. I dinnae ask, an' they dinnae tell." } },
+    magni = { { id = "tp_magni", text = "The King came tae Anvilmar once tae see the recruits, an' half o' them dropped their swords. Fine king, loud voice, an' he knew my name, which I'll admit I liked." } },
+    second_war = { { id = "tp_second_war", text = "Coldridge Valley was full o' soldiers in the Second War, an' the Horde never got near Anvilmar. I like tae think we had somethin' tae do wi' that." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask Grelin; he's from the Senate, so he's meant to know things." } },
   },
 }
@@ -550,7 +557,7 @@ P:NPC {
       },
       choices = {
         { text = "Who's your apprentice?", next = "apprentice" },
-        { text = "What are the trolls up to?", next = "trolls" },
+        { text = "The trolls seem to be up to something.", next = "trolls" },
         { text = "Who sent you out here?", next = "sent" },
         { text = "Who's the gnome by your fire?", next = "felix" },
         { text = "I can read the trolls' tracks for you.", next = "k_hunter", when = { class = "HUNTER" } },
@@ -560,7 +567,7 @@ P:NPC {
         { text = "What do the trolls worship, out there in the caves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How shall I deal with the Frostmane, Envoy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Frostmane have shamans who speak to the beasts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does a warlock make your beard itch, Grelin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "A warlock must make your beard itch, Grelin.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the Frostmane witch doctors really speak to spirits, Envoy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
@@ -568,7 +575,7 @@ P:NPC {
     apprentice = {
       lines = { { id = "a_default", text = "Soren. He's a good lad an' a bumbling lad, mostly the second, an' that's why I need ye." } },
       choices = {
-        { text = "What happened to his arm?", next = "soren_arm" },
+        { text = "What has Soren done this time?", next = "soren_arm" },
         { text = "Poor Soren.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -598,7 +605,7 @@ P:NPC {
         { id = "se_default", text = "The Senate, officially. But the letter that sent me was signed by the King's own hand, since the Senate has its hands full wi' the troggs." },
       },
       choices = {
-        { text = "The King himself?", next = "sent_king" },
+        { text = "So the King himself sent you.", next = "sent_king" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -636,6 +643,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the Senate's special envoy, an' brother to Senir, who'll tell ye he's the clever one." } },
     advice = { { id = "tp_ad", text = "Never leave yer camp unattended. I did once, an' came back tae find a Frostmane troll wearin' my good boots." } },
     frostmane = { { id = "tp_frostmane", text = "They're up to somethin'. I can feel it in my beard, an' my beard's rarely wrong.", next = "trolls" } },
+    magni = { { id = "tp_magni", text = "I serve the King's envoy office an' I'm loyal tae him down tae the bone, so dinnae ask me tae gossip about him. He's a good king, an' that's the whole o' my report." } },
+    troggs = { { id = "tp_troggs", text = "The troggs an' the Frostmane are both trouble, but only one o' them can be reasoned wi', an' it isnae the troggs. Write that down, if ye've a pencil." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Rough-mannered cousins wi' painted faces an' no notion o' proper protocol. I'd still rather negotiate wi' a Wildhammer than wi' a Frostmane, mind." } },
+    darkspear = { { id = "tp_darkspear", text = "Trolls that side wi' the orcs, I'm told, an' cleaner-livin' than our Frostmane by a long road. I'd like tae meet one an' see if it's true." } },
     _none = { { id = "tp_none", text = "That's no' in my report. Ask Senir, in Kharanos." } },
   },
 }
@@ -770,18 +781,29 @@ P:NPC {
         { text = "Grelin's report, envoy.", next = "brother", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "How do you watch the trolls in their hold?", next = "hold" },
         { text = "Tell me about your brother.", next = "brother" },
-        { text = "Who reads your reports?", next = "reports" },
+        { text = "Someone in the city must read your reports.", next = "reports" },
         { text = "You look cold, envoy.", next = "cold" },
         { text = "I could slip into the hold unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Is Frostmane Hold as cold as they say?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is a warlock really like a troll witch doctor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How strong is Frostmane Hold, Senir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do the Frostmane trolls hunt the same beasts we do?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The Frostmane trolls seem to hunt the same beasts we do.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone gone into Frostmane Hold and not come back?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should we strike the hold, Senir, or watch it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the Frostmane Hold a natural cave, or did they dig it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What will the Senate think of a dwarf shaman, Senir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I watched over the refugee camps by Kharanos, Senir.", next = "xorig_campwatch", when = { origin = "gnome_kharanos_watch" } },
         { text = "I'll go to the hold.", next = "END", fx = { affinity = 1, standing = { kharanos = 1 } } },
+      },
+    },
+    xorig_campwatch = {
+      lines = {
+        { id = "xocampwatch_default", text = "Aye, I mind ye! Ye'd stand at the end o' the line wi' that shield, an' the troggs couldnae decide whether tae laugh or run, an' they never got the chance tae do either. The Senate never thanked ye properly, so let me do it now: thank ye. Are the camps quiet these days?" },
+      },
+      choices = {
+        { text = "Quieter. Most of the refugees moved into Ironforge.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Never quiet enough, Senir.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hold = {
@@ -848,12 +870,16 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm an envoy o' the Senate, Grelin's brother, an' the one who got the warm posting, though it's still cold." } },
     advice = { { id = "tp_ad", text = "Follow the directions ye're given, an' ye'll do fine. Mine are excellent." } },
     frostmane = { { id = "tp_frostmane", text = "There's too many in that hold to count from outside, but I counted anyway.", next = "hold" } },
+    troggs = { { id = "tp_troggs", text = "Troggs everywhere, up from the deep places, an' the quarry's full o' them. Ask anybody in Kharanos an' they'll tell ye the same, wi' more swearin'." } },
+    magni = { { id = "tp_magni", text = "The King's a good man an' a better dwarf, an' my brother would tell ye he's the best o' both. Grelin's never been wrong about the King, which is more than I can say about him on most things." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes came up the road from Gnomeregan wi' nothin' but their goggles, an' Kharanos took them in. It was a hard night, an' I'm glad we were the kind o' town that opened the door." } },
     _none = { { id = "tp_none", text = "That's no' a matter fer an envoy. Try the distillery; they know everythin' after the third pint." } },
   },
 }
 
 P:NPC {
   key = "ragnar", id = TODO_NPC("Ragnar Thunderbrew"), name = "Ragnar Thunderbrew",
+  prejudice = { race = "Gnome", amount = 6, why = "Fond grumble: refugees rewired his mash tun to stir itself at three in the morning." },
   bible = "bibles/dunmorogh.md", role = "citizen", tier = "quest",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "proud", "generous" },
   notices = { "drink", "craft" },
@@ -864,6 +890,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Another gnome in my brewhouse, and I'll ask you the same as the last forty: please don't touch the copper, don't tune the kettles, and don't ask if it could be made to go faster." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite gnome! You've not improved a single one of my kettles in all this time, and I've decided that makes you the finest of your people." },
     { id = "g_distillery", text = "Welcome to the Thunderbrew! It's the best ale in Dun Morogh, an' I'll fight anyone who says otherwise, politely." },
   },
 
@@ -876,6 +904,72 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "Like them? I took in half of Gnomeregan the winter it fell, and I'd do it again, but three of them rewired my mash tun to stir itself, and now it stirs itself at three in the morning and nobody can find the off lever." } },
+      choices = {
+        { text = "Gnomes lost their whole city. Show them a little patience.", next = "prej_a", fx = { align = { light = 1 } } },
+        { text = "A tinker in a brewery is trouble. Keep their wrenches out.", next = "prej_b", fx = { align = { light = -1 } } },
+        { text = "I could have a look for that off lever, if you like.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Patience! I've been patient as a stone, and a stone doesn't wake at three to a mash tun singing. Still, you're right that they lost more than a night's sleep, and I'll mind my tongue." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Thank you! At last, someone with sense. Mind you don't say it too loudly in Tinker Town, or they'll fit you with a self-stirring hat." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Would you? Ah, you're a good sort. If you find it, pull it gently, because the last gnome who pulled it hard is still picking malt out of his ears." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    opn_darkiron = {
+      lines = {
+        { id = "opn_darkiron_q", text = "Thieves an' fire-worshippers, an' they cannae brew tae save their lives, which is why they steal ours. Mind ye, my pappy used tae say they were Bronzebeards once, near enough. What's yer view o' the soot-beards?" },
+      },
+      choices = {
+        { text = "Thieves and murderers. Ironforge should root them out.", next = "opn_darkiron_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "They were kin once. Some might be again.", next = "opn_darkiron_r_kin", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { dark_iron = "kin" } } },
+        { text = "I'd fear Ragnaros more than any dwarf down there.", next = "opn_darkiron_r_enslaved", fx = { trait = { careful = 1 }, opinion = { dark_iron = "enslaved" } } },
+        { text = "Stealing a dwarf's ale is the worst thing they've done.", next = "opn_darkiron_r_hate", when = { race = "Dwarf" }, fx = { affinity = 2, trait = { witty = 1 }, opinion = { dark_iron = "hate" } } },
+        { text = "I'd rather talk about ale.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r = {
+      lines = {
+        { id = "opn_darkiron_r_default", text = "Then have a pint an' think on it, an' if ye decide ye hate 'em, have another." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_hate = {
+      lines = {
+        { id = "opn_darkiron_r_hate", text = "Ha! That's the spirit, an' if ye bring back my recipe while ye're rootin', there's a barrel in it for yer name on the wall." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_kin = {
+      lines = {
+        { id = "opn_darkiron_r_kin", text = "Kin? Hmph. Ye've a softer heart than a Thunderbrew, an' I'll no' say that tae anyone in Kharanos who lost a cousin at the Loch." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_enslaved = {
+      lines = {
+        { id = "opn_darkiron_r_enslaved", text = "The fire lord, aye. I've heard the tales an' I don't like 'em, so I'll stick tae hatin' the dwarves, if it's all the same tae ye." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Help? Brewin's already half fire an' half water, an' the rest is patience. If ye could ask the fire tae keep an even temper, I'd stop losin' a batch a month tae a sulkin' flame. My cousins say it's no' proper, mixin' spirits wi' spirits, but they're no' the ones scrapin' out the still." } },
@@ -981,10 +1075,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, then; I've a minute an' a mug." },
       },
       choices = {
+        { text = "You don't much like gnomes, do you, Ragnar?", next = "prej", when = { prejudiced = true } },
         { text = "What's in the famous ribs?", next = "ribs" },
-        { text = "What happened to your supplier?", next = "supplier" },
-        { text = "Who founded the distillery?", next = "family" },
-        { text = "I hear the Dark Irons stole a recipe.", next = "theft", when = { minLevel = 45 } },
+        { text = "Your supplier seems to have let you down.", next = "supplier" },
+        { text = "This distillery looks older than you.", next = "family" },
+        { text = "Have the Dark Irons ever troubled the distillery?", next = "theft", when = { minLevel = 45 } },
         { text = "I cook. Will you share the recipe?", next = "cookrecipe", when = { profession = "Cooking" } },
         { text = "Your supplier joined the army? So did half my company.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Have casks gone missing from the distillery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1038,7 +1133,7 @@ P:NPC {
         { id = "su_default", text = "My trapper went an' joined the King's Army, off to the Alliance front. I'm proud o' him an' furious wi' him, both at once, most days." },
       },
       choices = {
-        { text = "So who brings your meat now?", next = "supplier_now" },
+        { text = "Someone must be bringing your meat now.", next = "supplier_now" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1073,7 +1168,10 @@ P:NPC {
       lines = {
         { id = "th_default", text = "Thunderbrew Lager, our own recipe! A Dark Iron called Hurley Blackbreath has it down in Blackrock, brewin' it for his own lot, an' it turns my stomach." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
+      choices = {
+        { text = "What do you make of the Dark Iron, Ragnar?", next = "opn_darkiron" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
+      },
     },
     cookrecipe = {
       lines = {
@@ -1101,6 +1199,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm part owner o' the finest distillery in Dun Morogh. The other part's family, an' family's complicated.", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust a boar that's too easy to catch. It's either sick or it's a trap, an' both ruin ribs." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't get me started on the Dark Irons. They'd steal the froth off yer ale if ye looked away." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys my ale by the barrel, an' I've heard the pirates water it down an' sell it twice. Criminal, an' I'd say so tae the Baron's face." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's beer is an insult tae every honest brewer in Dun Morogh. Bring me a mug o' it an' I'll pour it out an' show ye what ale should taste like." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer brew wi' honey an' herbs an' call it ale, an' it's no' bad, I'll grant them that. I'd still put Thunderbrew up against it in a fair fight." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins asked me fer a hundred kegs an' offered tae pay in gnomish shares, an' I'm no' that daft. They can drink snow." } },
     _none = { { id = "tp_none", text = "Couldnae say. Have a drink an' ask again, an' the answer might come to me." } },
   },
 }
@@ -1224,6 +1326,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Another {altrace}, an' ye've the look o' {alt}, who slept upstairs one cold night an' left the bed made, which nobody does. Kin o' yers, I'd wager, so ye're welcome by the fire." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
+          text = "There was a {altclass} called {alt} who came through Kharanos as green as ye, an' now I hear that name spoken in Ironforge wi' some respect. Mind ye do as well, for the valley likes tae boast about its own." },
+        { id = "o_darkiron_kin", tags = { "news" }, when = { gossip = { topic = "dark_iron", stance = "kin" } },
+          text = "Ragnar's been tellin' the whole bar ye called the Dark Iron kin. I'd keep that tae yerself in Kharanos, friend; there's folk here who buried sons at the Loch." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want a room near the stair, I think, fer that plate makes a racket, an' the brewers sleep light." },
         { id = "h_default", key = true,
           text = "Innkeeper Belm, at yer service. There's beds upstairs, ale downstairs, an' Rhapsody Malt fer anyone brewin' the Thunderbrew way." },
@@ -1249,14 +1357,14 @@ P:NPC {
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
-        { text = "Who's the gnome you toast?", next = "lazlo" },
+        { text = "Who's the gnome you toast?", next = "lazlo", when = { heardLine = "eric.sm_default" } },
         { text = "What's Rhapsody Malt?", next = "malt" },
-        { text = "Who are all these trainers?", next = "trainers" },
+        { text = "This inn seems full of trainers.", next = "trainers" },
         { text = "Did a mage really singe your eyebrows?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why put a warlock at the end of the hall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many warriors stop at your inn, Belm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters ever stay at the inn, Belm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do your guests come back from the valley hurt, Belm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Your guests must come back from the valley hurt, Belm.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Kharanos ever need defending, Belm?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do night elves ever drink Thunderbrew, Belm?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Don't you want to know what I've been up to, Belm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1267,7 +1375,7 @@ P:NPC {
     lazlo = {
       lines = { { id = "l_default", text = "Lazlo Grindwidget. When the Frostmane came at Kharanos in force, he saw 'em off. He's a small fellow wi' a big heart, an' the Frostmane never came at us like that again." } },
       choices = {
-        { text = "A small fellow beat a troll?", next = "lazlo2" },
+        { text = "A small fellow like that beating a troll is hard to picture.", next = "lazlo2" },
         { text = "To Lazlo.", next = "BACK", fx = { affinity = 2 } },
       },
     },
@@ -1298,6 +1406,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've poured ale in Kharanos longer than I'd admit. I've seen the Frostmane come down an' go back up again, an' the ale stayed." } },
     advice = { { id = "tp_ad", text = "Sleep here before ye go up the mountain. Ironforge never stops hammerin', not even at night." } },
     frostmane = { { id = "tp_frostmane", text = "They came at us once, an' we've a gnome to thank it didnae go worse.", next = "lazlo" } },
+    magni = { { id = "tp_magni", text = "The King's never set foot in my inn, but his brother Brann did once an' ate three plates o' ribs. Talked the whole time about some ruin in the Badlands an' never paid." } },
+    scourge = { { id = "tp_scourge", text = "Refugees from the north come through Kharanos now an' then, on their way tae Ironforge. I give them a bed an' dinnae ask, for they've seen enough." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire passed near here once, years back, an' Kharanos hasnae stopped talkin' about it. I sold more ale that week than I sell all winter." } },
     _none = { { id = "tp_none", text = "I pour, I listen, an' I forget, mostly the third." } },
   },
 }

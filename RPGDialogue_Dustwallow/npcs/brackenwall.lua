@@ -14,10 +14,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_boss", text = "You're here because the Warchief wants answers, and so do I. Talk." },
-    { id = "g_back", when = { metBefore = true }, text = "Back, good. What did you find?" },
+    { id = "g_boss", text = "You're here because the Warchief wants answers, and so do I, so talk plainly, the way an orc should." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, good. What did you find, and is there blood on it?" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the marsh hasn't gotten any quieter while you were away. Tell me you found something worth the wait." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when I first sent you out, and that's good, because what I need from you now is harder." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when I first sent you out, and that's good, because what I need from you now is harder, and the Horde honors those who carry the hard things." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you scared someone in camp half to death, and I don't care unless it gets back to Theramore. Keep your fists for the people I point you at." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you talked circles around somebody in the camp and they believed every word, which is a useful skill, so long as you never try it on me." },
   },
@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_jaina = {
+      lines = {
+        { id = "opj_q", text = "The Warchief trusts the human woman in Theramore. Krog trusts the Warchief. But you've seen her, so tell Krog: what is she?" },
+      },
+      choices = {
+        { text = "She's honest. She wants peace as much as Thrall does.", next = "op_jaina_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { jaina = "trust" } } },
+        { text = "She's a human. She'll turn on the Horde the moment it suits her.", next = "op_jaina_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { jaina = "distrust" } } },
+        { text = "She fought beside Thrall at Mount Hyjal. That earns respect.", next = "op_jaina_r3", fx = { affinity = 2, opinion = { jaina = "respect" } } },
+        { text = "I've barely spoken to her, Krog.", next = "BACK" },
+      },
+    },
+    op_jaina_r1 = {
+      lines = {
+        { id = "op_jaina_r1", text = "Then Krog will keep the line, and the one who burned that inn will answer to us both." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_jaina_r2 = {
+      lines = {
+        { id = "op_jaina_r2", text = "Maybe. Krog watches the island every day. But the Warchief gave his word, and Krog does not break it on a maybe." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_jaina_r3 = {
+      lines = {
+        { id = "op_jaina_r3", text = "Hyjal, yes. She threw fire at the demons and not at the Horde, and the Warchief remembers it, so Krog remembers it too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_krog = {
       big = true,
       lines = { { id = "xpt_krog_default", text = "The truth is that the Shady Rest burned and both sides are blaming the other, and the Warchief's peace is only as strong as the next rumor. A war band like yours could ask hard questions on either side of the marsh, so long as you don't start the war I'm trying to stop." } },
@@ -141,7 +176,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You read tracks, so go read the ones around the Shady Rest, and tell me what Theramore's soldiers missed." },
         { id = "h_default", key = true,
-          text = "Krog. The Warchief ordered the Horde to leave Theramore's humans in peace, and now a human inn has burned with our name on it. I'll find who made a liar of him." },
+          text = "Krog. The Warchief ordered the Horde to leave Theramore's humans in peace, and now a human inn has burned with our name on it. Thrall gave us back our honor after the camps, and I'll find who tried to make a liar of him." },
         { id = "h_command", when = { any = { { questActive = TODO_QUEST("Warchief's Command: Dustwallow Marsh!") }, { questActive = TODO_QUEST("Flight to Brackenwall") } } },
           text = "The Warchief sent you, so you know what's at stake: a peace he worked for, burning on a road in the fog." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Inspecting the Ruins") },
@@ -168,15 +203,15 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The humans of Theramore have paladins too, and they'd look at you and see something worse than an orc." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it useful." },
+        { id = "h_again", text = "What else? Make it useful, warrior." },
         { id = "h_again2", text = "Go on. I'm listening, and the marsh isn't." },
       },
       choices = {
         { text = "Do the Grimtotem shame the Earth Mother, Krog?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do you care about a human inn?", next = "why" },
-        { text = "What do we know about the burning?", next = "inn" },
-        { text = "Who is Paval Reethe?", next = "reethe" },
-        { text = "What is Brackenwall to the Horde?", next = "village" },
+        { text = "I know little enough about this burning.", next = "inn" },
+        { text = "Who is Paval Reethe?", next = "reethe", when = { any = { { questActive = TODO_QUEST("Lieutenant Paval Reethe") }, { questDone = TODO_QUEST("Lieutenant Paval Reethe") } } } },
+        { text = "Brackenwall looks more ogre than orc to me.", next = "village" },
         { text = "If tauren did this, they're no kin of mine.", next = "tauren", when = { race = "Tauren" } },
         { text = "Nazeer says the peace is only on paper.", next = "nazeer", when = { heardLine = "nazeer.h_default" } },
         { text = "Reethe's dead. Theramore soldiers killed him.", next = "reethe_dead", when = { questDone = TODO_QUEST("Questioning Reethe") } },
@@ -184,14 +219,14 @@ P:NPC {
         { text = "The spirits of this marsh are angry, Krog.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "The Forsaken would gladly see Theramore burn.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "Do you expect the fighting to start again, Krog?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What do you fear from Theramore's mages, Krog?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "You must fear Theramore's mages, Krog.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Onyxia is dead, Krog. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Horde" } },
         { text = "We fight together, Krog. Point us at the truth.", next = "xpt_krog", when = { party = { size = 4 }, faction = "Horde" } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you march on Theramore if the Warchief ordered it, Krog?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "What tracks did you find near the Shady Rest, Krog?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "You'll have read the tracks near the Shady Rest, Krog.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would Theramore's humans trust a Forsaken paladin, Krog?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Blame it on the humans and save us the trouble.", next = "END", fx = { affinity = -1, align = { honor = -1 } } },
       },
@@ -211,7 +246,10 @@ P:NPC {
       lines = {
         { id = "ww_default", text = "His word is the only wall between this marsh and another war. The humans keep to their island and we keep to ours, as long as nobody crosses the line, and someone just set fire to the line." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
+      choices = {
+        { text = "What do you make of Lady Proudmoore?", next = "op_jaina" },
+        { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } },
+      },
     },
 
     inn = {
@@ -219,7 +257,7 @@ P:NPC {
         { id = "i_default", text = "The humans built an inn called the Shady Rest on the edge of the Barrens, and weeks ago it burned to the ground. It wasn't only the building, either; the owner's woman and his pup died in it, and that's bad business for everyone." },
       },
       choices = {
-        { text = "What was left at the ruins?", next = "inn_clues" },
+        { text = "The burners must have left something behind at the ruins.", next = "inn_clues" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -334,7 +372,14 @@ P:NPC {
     grimtotem = { { id = "tp_grimtotem", text = "Cairne's problem, and now mine too. They'd burn the whole peace to warm their hands." } },
     background = { { id = "tp_ba", text = "The Warchief put me in charge of finding out who burned that inn. That's all you need to know about me, and it's all I need to know about myself until it's done.", next = "inn" } },
     advice = { { id = "tp_ad", text = "In this marsh, trust tracks before you trust words. Mud doesn't lie about who walked through it." } },
-    _none = { { id = "tp_none", text = "I don't care about that. Find me the burners." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief made a peace with the human Lady, and he made it with his own word, so every orc in this marsh carries that word on his back. Whoever burned that inn spat on Thrall, and I mean to find the mouth." } },
+    jaina = { { id = "tp_jaina", text = "She is a human and a wizard, and I do not love either, but she kept her word when her own father would not. I can deal with a woman like that." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is stone walls and nervous soldiers, and they watch Brackenwall the way a wolf watches a fire. As long as they only watch, we keep the peace." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon nests in the south of this marsh, and her children burn whatever wanders close. Ask old Tharg what is left of the Stonemaul village, if you want to hear it from someone who saw.", fx = { learn = { "black_dragonflight" } } } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, in the old human lands, and I am glad of the sea between us. Let the humans bury their own mistakes." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen keeps her word to the Warchief, so far. I would watch her hands, but I watch everyone's hands." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar raid caravans in the Barrens, and they think a horse's legs make them a horde. A good axe cuts the legs the same as anything else." } },
+    _none = { { id = "tp_none", text = "I don't care about that. Find me the burners, and bring me deeds, not talk." } },
   },
 }
 
@@ -350,7 +395,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them." },
+    { id = "o_orcs_redeem", when = { opinion = { orcs = "redeemable" } }, text = "Word from the island is that you speak up for the orcs to their Lady. Hmph. I'll believe the Alliance means it when their soldiers stop sharpening blades at Sentry Point." },
+    { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them, as any orc who remembers the internment camps should." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the Alliance patrols while you were away, as I always do. There were more of them than before, which I'm sure is a coincidence." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone here caught you in a lie, and I keep count of liars just as I keep count of smiles. You're on my list now, so give me a reason to take you off it." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in camp round to your view, and I'd like to know what you told them, because a tongue like that would be useful on the road to Theramore." },
@@ -433,7 +479,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll hear the marsh better than my spies do, so tell me if the water ever carries a voice from Theramore." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in the marsh. Theramore's chaplains will want to talk theology with you, so don't, because everything you tell them ends up in a report." },
         { id = "h_default", key = true,
-          text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, but in the marsh, paper gets wet." },
+          text = "Nazeer Bloodpike, and I watch Theramore for the Horde. There's a peace, on paper, and Thrall paid for it in blood, but in the marsh paper gets wet." },
         { id = "h_head", tags = { "news" }, when = { questActive = TODO_QUEST("The Severed Head") },
           text = "A severed head, and a question of whose. Someone wants us to read something into it. I'd like to know who first." },
         { id = "h_witchdoctor", when = { questActive = TODO_QUEST("The Troll Witchdoctor") },
@@ -459,15 +505,15 @@ P:NPC {
         { text = "Does Theramore fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Theramore's magic mean for Brackenwall?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who was your agent near Theramore?", next = "marg" },
-        { text = "Is the peace with Theramore real?", next = "peace" },
-        { text = "What do you make of Krog's hunt?", next = "krog" },
+        { text = "This peace with Theramore looks thin to me.", next = "peace" },
+        { text = "Krog seems set on his hunt.", next = "krog", when = { heardLine = "krog.h_default" } },
         { text = "What does the pendant mean?", next = "pendant", when = { questDone = TODO_QUEST("Marg Speaks") } },
         { text = "Kin'weelay can speak to the dead, they say.", next = "witchdoctor", when = { heardLine = "kinweelay.h_default" } },
         { text = "I can listen at windows.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I know wounds. Let me hear about Marg's.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Do Theramore's mages worry you, Nazeer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you really send an imp to spy on Theramore, Nazeer?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Should Brackenwall worry about Theramore's soldiers drilling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Theramore's soldiers drilling has Brackenwall uneasy, I'd guess.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why would Theramore count me a threat, Nazeer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep my ears open.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
@@ -521,7 +567,7 @@ P:NPC {
         { id = "pe_default", text = "A noble's pendant, heavy with gems, worn by a common Stormwind soldier on a beach near Theramore. Either its owner was in disguise, or the soldiers stole it, and I don't like either answer." },
       },
       choices = {
-        { text = "Why send it to Zor Lonetree?", next = "pendant_zor" },
+        { text = "Zor Lonetree seems a strange choice for this.", next = "pendant_zor" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -560,8 +606,14 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I watch Theramore, and I know more about it than the humans would like. Ask, and keep your voice low." },
     },
-    background = { { id = "tp_ba", text = "I'm the Horde's spymaster in this marsh, and a spymaster's story is the one thing he never tells." } },
+    background = { { id = "tp_ba", text = "I'm the Horde's spymaster in this marsh, and a spymaster's story is the one thing he never tells, not even to his own clan." } },
     advice = { { id = "tp_ad", text = "Keep a copy of every report in your head as well as in your pack. Marg's report came home in his hand, and his head came home separately." } },
+    theramore = { { id = "tp_theramore", text = "Theramore has more soldiers than a peace needs and fewer than a war needs, which tells me they have not decided yet. I count their boats when they come in." } },
+    jaina = { { id = "tp_jaina", text = "The Lady smiles at the Warchief and means it, I think, but she is not the only human in Theramore. The ones behind her smile less." } },
+    thrall = { { id = "tp_thrall", text = "Thrall chose peace with Theramore, and I serve Thrall, so I keep a peace I do not trust. That is what it means to follow a warchief worth following." } },
+    onyxia = { { id = "tp_onyxia", text = "Nobody goes into the dragon's caves in the south and comes back without burns, and most do not come back at all. If the humans want to go poking at her, I will not stop them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblins sell to everyone, and in Booty Bay they sell you the knife and then sell your enemy the armor. I respect it, though I would not turn my back there." } },
+    ratchet = { { id = "tp_ratchet", text = "Our boats come through Ratchet and the goblins take their cut, as goblins do. The water between here and there is full of pirates who take a bigger one." } },
     _none = { { id = "tp_none", text = "If I knew, I'd have reported it, and I haven't, so I don't." } },
   },
 }

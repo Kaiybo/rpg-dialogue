@@ -18,6 +18,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Forsaken have dug in to the east, and the Horde lets them do as they please. You've met them, likely, so tell me what you make of the Forsaken." },
+      },
+      choices = {
+        { text = "Corpses that walk. They should be put back in the ground.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { forsaken = "hate" } } },
+        { text = "They were people once. Some still are, inside.", next = "op_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
+        { text = "Sylvanas is the danger. Watch her, not her soldiers.", next = "op_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { sylvanas = "distrust" } } },
+        { text = "I am Forsaken, elf. Judge me by my deeds.", next = "op_r4", fx = { trait = { proud = 1 }, opinion = { forsaken = "proud" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not judge.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Many of my sisters would agree with you, and quickly. I only wish the Forsaken were the worst thing walking in the east." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Perhaps, though I've smelled what they brew in their camps, and pity is hard to hold onto with that in the air." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A sharp eye. A banshee who leads the dead does not want peace, whatever she tells Thrall." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then do your good deeds where my archers can see them, and you may find Forest Song fairer than you expect." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If we have enough arrows and enough hands. Your spirits are welcome on the walls." } },
@@ -106,7 +135,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and I'd very much like to know what they mean to do with them." },
+        { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and after the Legion's fel I have no wish to see this forest poisoned again." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, this far east? You'll know better than most what the Forsaken's plagues did to Lordaeron, so you'll understand why I lose sleep over them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You came through the trees without a sound, and my lookouts will hear about it in the morning. Out here a quiet traveller lives longer than a loud one, so I'm glad you're on our side." },
@@ -120,25 +149,26 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'd sooner have you where I can see you than down there among the demons." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
           text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other. Your spirits might help me count arrows." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other, so perhaps your spirits might help me count arrows." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
         { id = "h_again2", text = "Ask, then. The watch changes soon." },
       },
       choices = {
+        { text = "What do you make of the Forsaken to the east?", next = "op_ask" },
         { text = "What are the Forsaken doing here?", next = "forsaken" },
-        { text = "What lies east of Forest Song?", next = "east" },
+        { text = "Something must lie east of Forest Song.", next = "east" },
         { text = "How do you keep the outpost supplied?", next = "post" },
         { text = "I saw what the plague did at home.", next = "lordaeron", when = { race = "Human" } },
         { text = "Could I get close to the Forsaken camps for you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic cleanse the corruption in Felwood?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What's the greatest threat to Forest Song, Kayneth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Forest Song must face many threats, Kayneth.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have the Forsaken been poisoning Ashenvale's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "What has the Forsaken plague done here, Kayneth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The Forsaken plague must have reached here too, Kayneth.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Forsaken here be destroyed on sight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What has the Forsaken sickness done to the eastern woods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What waits in Demon Fall Canyon, Kayneth?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Demon Fall Canyon sounds like an evil place, Kayneth.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can Forest Song hold, Kayneth?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
@@ -188,7 +218,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a Sentinel officer, and Forest Song is the post nobody else wanted." } },
-    _none = { { id = "tp_none", text = "I couldn't say, and out here I've learned not to guess." } },
+    warsong = { { id = "tp_warsong", text = "Forest Song sits closest to the Warsong lumber camps of anything we hold. I hear their saws every morning, and I count the trees I can see from my post." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is far away in Orgrimmar, and his Warsong are right here. I deal with what's right here." } },
+    burning_legion = { { id = "tp_burning_legion", text = "There's a demon taint at the edge of this forest, near Felwood. If the Legion sends anything through, Forest Song will see it first." } },
+    centaur = { { id = "tp_centaur", text = "Not much centaur trouble this far east, which is the only luck this post has. I'll take it." } },
+    _none = { { id = "tp_none", text = "I couldn't say, and out here, so close to Felwood, I've learned not to guess." } },
   },
 }
 
@@ -284,7 +318,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's better and the company's quieter." },
+        { id = "h_default", text = "I am Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's older and the company's quieter, and I prefer both." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, at last, someone who'll appreciate the grain. Have a look at the longbows, and don't let your pet chew on the racks." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You'll be a rogue, then, and rogues always want a bow short enough to hide under a cloak. I'll make you one if you insist, but it'll shoot like it's ashamed of itself." },
@@ -295,7 +329,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and by how lightly you walk I'd guess you don't think much of bows. That's fine, because I make mine from fallen wood only, and you can tell the Circle so." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock out here, of all places. You won't want a bow, and I'd thank you to keep that thing of yours away from my drying staves." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Show me how you hold a bow. A shaman, eh? Your spirits won't straighten a crooked grip." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Show me how you hold a bow, because your spirits won't straighten a crooked grip, and the Sentinels never forgive one." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -303,7 +337,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your bows.", next = "BUSINESS" },
-        { text = "What makes a good bow?", next = "bows" },
+        { text = "A good bow must take some making.", next = "bows" },
         { text = "Isn't it lonely out here?", next = "alone" },
         { text = "I'd like the best longbow you have.", next = "hunter", when = { class = "HUNTER" } },
         { text = "What's wrong with a short bow, Bhaldaran?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -313,7 +347,7 @@ P:NPC {
         { text = "Why trust the woods over Astranaar's walls, Bhaldaran?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really only use fallen wood for your bows?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why keep my servant away from your staves, Bhaldaran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Does a shaman need a bow, Bhaldaran?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'd have thought a shaman had no need of a bow, Bhaldaran.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -345,7 +379,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a bowyer, and that's the long and short of it." } },
-    _none = { { id = "tp_none", text = "Don't know, and I can't say I'm curious." } },
+    centaur = { { id = "tp_centaur", text = "Centaur horn bows are strong, I've heard, though I've never held one. I'd like to, and I'd like the centaur not to be attached to it." } },
+    warsong = { { id = "tp_warsong", text = "Orc bows are crude and heavy, and their archers aren't much better. My bows keep the Sentinels ahead of them, and that's what matters." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw make a fine short bow, rough but true. I traded for one once, and I still think about it." } },
+    _none = { { id = "tp_none", text = "Don't know, and I can't say I'm curious. After a few centuries you learn which questions are worth asking." } },
   },
 }
 
@@ -433,7 +470,7 @@ P:NPC {
       choices = {
         { text = "Remember your dead, Karang, not me. They went first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Remember me well. I'll want that favour back someday.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What did the naga want down there?", next = "xcl_bfd2" },
+        { text = "The naga must have wanted something down there.", next = "xcl_bfd2" },
       },
     },
     xcl_bfd2 = {
@@ -465,13 +502,13 @@ P:NPC {
         { text = "What does Zoram'gar need from someone who works spells?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who watches Zoram'gar from the trees?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why hold this strand at all?", next = "strand" },
-        { text = "Where do the naga come from?", next = "naga" },
-        { text = "Do you send word to Splintertree?", next = "splinter" },
+        { text = "The naga must come from somewhere.", next = "naga" },
+        { text = "You must send word to Splintertree now and then.", next = "splinter" },
         { text = "Then plainly: what do you need?", next = "orc", when = { race = "Orc" } },
         { text = "Blackfathom Deeps has lost, Karang. I've been to its bottom.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Horde" } },
         { text = "Strength to Zoram'gar.", next = "END" },
         { text = "What does Zoram'gar need from a warrior, Karang?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "What hunts along the Zoram Strand, Karang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Something must hunt along the Zoram Strand, Karang.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What is wrong with the shore, Karang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
@@ -520,7 +557,14 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I serve the Horde, and Zoram'gar is where it sent me." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall freed my people from the camps and gave us a homeland, and I'd follow him anywhere. He sent me here, so here I am." },
+      { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You serve the Alliance and you ask about my warchief? He freed his people, and that's all you need to know of him." },
+    },
+    tyrande = { { id = "tp_tyrande", text = "The elves' high priestess, the one who sends her Sentinels against our camps. She's a fierce enemy, and I'll not say otherwise." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's down the coast from Zoram'gar, and the nagas and cultists there trouble us as much as anything. They don't care whose side we're on." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's trolls are good allies, and many serve at Zoram'gar. They've a long memory and a sharp spear." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask someone who stays indoors more; an orc's work is out here with the blade." } },
   },
 }
 
@@ -621,13 +665,13 @@ P:NPC {
         { text = "What happened to your tribe's shamans when the madness came?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Can magic do anything for the Thistlefur?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where do the Thistlefur keep their stores and their keys?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What made your tribe mad?", next = "madness" },
-        { text = "Where will you go if you're free?", next = "ruul" },
+        { text = "Something must have driven your tribe mad.", next = "madness" },
+        { text = "You must have somewhere to go if you're freed.", next = "ruul" },
         { text = "Why trust the Horde?", next = "horde" },
         { text = "My people remember the furbolgs kindly.", next = "tauren", when = { race = "Tauren" } },
         { text = "I'll come back for you, Ruul.", next = "END" },
         { text = "Will your tribe fight us when we leave, Ruul?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Did the Thistlefur hunt well, before they went mad?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "The Thistlefur must have hunted well, before they went mad.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What made the Thistlefur turn, Ruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
@@ -676,6 +720,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Ruul is a Thistlefur, the last one with clear eyes." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. Ruul wishes he could go to them, but Ruul's own clan still needs someone." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Ruul's grandmothers spoke of the green dream that the forest dreams. Ruul has not dreamed green since the madness came." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The sickness in the Thistlefur smells like old fire from the north. Ruul does not know its name, but Ruul knows it is evil." } },
     _none = { { id = "tp_none", text = "Ruul does not know that, friend. Ruul knows trees and cages, mostly." } },
   },
 }

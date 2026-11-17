@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_militia", when = { opinion = { topic = "peoples_militia", stance = "doomed" } }, text = "You're the one who thinks Gryan's farmers are finished. Keep saying that, loudly, in every inn you pass; it'll do the Brotherhood's overconfidence a world of good." },
     { id = "g_corner", text = "You're in my light." },
     { id = "g_gryan", when = { questActive = TODO_QUEST("The Defias Brotherhood") }, text = "Stoutmantle sent you; I can smell Westfall on you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit, if you're staying, and stand somewhere else if you're not." },
@@ -35,6 +36,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_militia = {
+      lines = {
+        { id = "op_militia_a", text = "Honestly? You don't get that from me for free, but I'll trade. Farmers with pitchforks holding a hill against men who build things under mountains. I've my view, so let's hear yours first." },
+      },
+      choices = {
+        { text = "They're the bravest men in the kingdom. I'd stand with them.", next = "op_militia_1", fx = { opinion = { peoples_militia = "admire", westfall = "abandoned" }, align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Farmers playing soldier. The Defias will roll right over them.", next = "op_militia_2", fx = { opinion = { peoples_militia = "doomed" }, align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Brave enough. What they need is better information.", next = "op_militia_3", fx = { opinion = { peoples_militia = "needs_help" }, trait = { witty = 1 }, affinity = 2 } },
+        { text = "I'd rather hear your view first.", next = "BACK" },
+      },
+    },
+    op_militia_1 = {
+      lines = { { id = "op_militia_r1", text = "Brave, yes, and I'd add 'outnumbered'. That's my view too, though if you tell Gryan I said it, I'll call you a liar in front of the whole inn." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_militia_2 = {
+      lines = { { id = "op_militia_r2", text = "That's what the Defias think too, and they've been wrong about Gryan before. I'd not bet against a man who's too stubborn to die, and I owe him my neck to prove it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_militia_3 = {
+      lines = { { id = "op_militia_r3", text = "Now you're flattering me, and I'm letting you. That's why I'm sitting in this corner instead of a ditch, and why Gryan pays for the drinks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll judge you." } },
@@ -109,7 +133,7 @@ P:NPC {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Don't turn into anything in my presence; I've seen enough strange things this year." },
-        { id = "h_default", text = "They call me Wiley the Black, some of them, and some call me worse. I sit in this corner and I know things, and I don't tell them to just anybody." },
+        { id = "h_default", text = "They call me Wiley the Black, some of them, and some call me worse. I sit in this corner and I know things, and I don't tell them to just anybody, only to Gryan Stoutmantle, because I owe him a favor." },
         { id = "h_defias", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Gryan did me a favor once, the kind you don't repay with coin. So I pay him in what I know about the Brotherhood, and you'd best listen close." },
         { id = "h_deadmines", when = { deed = "dungeon:The Deadmines" },
@@ -135,7 +159,7 @@ P:NPC {
         { text = "I could get you out of here unseen, as a cat.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What do you know about the Defias?", next = "defias" },
         { text = "What favor did Gryan do you?", next = "favor" },
-        { text = "Why this corner?", next = "corner" },
+        { text = "You've picked a good corner to sit in.", next = "corner" },
         { text = "I could use a man with your ears.", next = "rogue", when = { class = "ROGUE" } },
         { text = "VanCleef's dead. I was there.", next = "vancleef", when = { deed = "dungeon:The Deadmines" } },
         { text = "The Defias drove my family off our farm.", next = "farm", when = { origin = "human_westfall_farmhand" } },
@@ -157,7 +181,7 @@ P:NPC {
       },
       choices = {
         { text = "And their leader?", next = "leader" },
-        { text = "How big are they?", next = "network" },
+        { text = "They sound bigger than a few bandits.", next = "network" },
         { text = "Thanks, Wiley.", next = "BACK", fx = { learn = { "defias" } } },
       },
     },
@@ -198,9 +222,10 @@ P:NPC {
         { id = "f_default", text = "The kind that kept me breathing, and he's never let me forget it, or let me thank him properly. He thinks I'm rude, and I am." },
       },
       choices = {
+        { text = "What do you make of Gryan's militia, honestly?", next = "op_militia" },
         { text = "Sounds like you respect him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Sounds like you owe him.", next = "BACK", fx = { trait = { stern = 1 } } },
-        { text = "Were you in some kind of trouble?", next = "favor_rot" },
+        { text = "You sound like you were in some kind of trouble.", next = "favor_rot" },
       },
     },
     favor_rot = {
@@ -254,6 +279,12 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and they're full of Defias, and VanCleef's at the bottom of them. That's all I'll say about that, and that's more than I said to Stoutmantle." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of men who wore red with me, and some of them would love to see me in a cell beside them. I sleep with one eye open, and I sleep in this corner for a reason." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I was a mason once, before the nobles cheated us, before the red bandanas. Stoutmantle says that's the past now, and I'd like to believe him." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are just the Defias with family crests and better wine. I'd not go near them, and I'd not let you go near them either." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of people like me who did something wrong and paid enough not to talk about it. The goblins don't care who you were, as long as your gold's good." } },
+    si7 = { { id = "tp_si7", text = "SI:7 has a file on me thicker than a Moonbrook mine cart, I'd wager. I'd like to see it one day, just to know which lies they believed." } },
     knows = {
       { id = "tp_knows", text = "I sit here and people talk, and what they say has a price. These, I might part with." },
     },

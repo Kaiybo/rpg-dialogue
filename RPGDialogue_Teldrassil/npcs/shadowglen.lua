@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_glade", text = "Look at the light through the leaves. Every morning it's new, and every morning I'm glad of it." },
+    { id = "g_glade", text = "Look at the light through the leaves. Every morning it's new, and after more centuries than I can count, I am still glad of it." },
     { id = "g_back", when = { metBefore = true }, text = "In the glade again. Does it still take your breath? It still takes mine." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the glade {away}, and the cubs have grown in that time, just as you have. Come and look at the light with me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were so new when you first stood in this glade, and look at you now! It does my heart good to see one of Shadowglen's young grown so strong." },
@@ -84,7 +84,7 @@ P:NPC {
       choices = {
         { text = "Only as many as you ask, Conservator.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whatever I hunt, I'll hunt my own way.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What does the balance ask of me?", next = "balance" },
+        { text = "I'm not sure what the balance asks of me.", next = "balance" },
       },
     },
     hunter_i = {
@@ -109,6 +109,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You remind me of {alt}, a young {altclass} who learned the balance here in Shadowglen and thinned the boars without any malice in it. If that one is kin to you, I hope you were taught the same gentleness." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Shadowglen! The young ones here learn Elune's ways from the cradle, but they'll be glad of a healer, for the beasts this year bite harder than they should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in our little glade! You've come a long way from the Eastern Kingdoms, by sea and by rope ladder, and I hope Shadowglen gives you a gentler welcome than the roads did." },
         { id = "h_default", key = true,
@@ -128,7 +130,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in Shadowglen? I never expected one here among the cubs, and I'd ask you to mind them, because they're curious little things." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grell", min = 20 } },
           text = "The grells have thinned since you began your work in the glade, and the balance is easier to keep for it. Take care not to tip it the other way, though, because Shadowglen needs a few of everything, even grells." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The morning light delights me every day, and a dwarf who speaks with spirits delights me too. Welcome to Shadowglen." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The morning light delights me every day, and a dwarf who speaks with spirits delights me too. Ishnu-alah, and welcome to Shadowglen." },
       },
       again = {
         { id = "h_again", text = "What else? The light's moving; walk with me a little." },
@@ -136,8 +138,8 @@ P:NPC {
       },
       choices = {
         { text = "What does keeping the balance mean?", next = "balance" },
-        { text = "Why so many beasts this year?", next = "rains" },
-        { text = "Who sends the sigils?", next = "sigils" },
+        { text = "How fares the glade this year?", next = "rains" },
+        { text = "Who will train me?", next = "sigils" },
         { text = "I've seen the world since. It's not balanced.", next = "world", when = { minLevel = 20 } },
         { text = "I'm a long way from home here.", next = "stranger", when = { ["not"] = { race = "NightElf" } } },
         { text = "Must I cull beasts when my companion is one of them?", next = "hunter_i", when = { class = "HUNTER" } },
@@ -171,7 +173,7 @@ P:NPC {
       },
     },
     rains = {
-      lines = { { id = "r_default", text = "Heavy spring rains. Some creatures flourished, others suffered, and the glade can only feed so many mouths. Nature is generous and careless in the same breath." } },
+      lines = { { id = "r_default", text = "Crowded, after heavy spring rains. Some creatures flourished, others suffered, and the glade can only feed so many mouths. Nature is generous and careless in the same breath." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sigils = {
@@ -199,6 +201,14 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep Shadowglen. That's the whole of my story, and it's plenty." } },
     advice = { { id = "tp_ad", text = "Walk softly in a young forest, because it remembers everything." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle teaches what I try to practice. They're better at it than I am, but I'm more cheerful about it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Aldrassil grew from Teldrassil, and Teldrassil from Fandral's hopes for Nordrassil. Every young druid in Shadowglen asks me which is the oldest tree, and I always say the one on Hyjal." } },
+    elune = { { id = "tp_elune", text = "Elune watches over Shadowglen at night, and I watch over it in the day. Between us, the young ones are seldom left alone." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The young ones here weren't born when the Legion came to Hyjal. I'd like to keep it that way, as far as stories go." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Shadowglen's youngsters hear about the Darkmoon Faire from travellers and dream of it. I tell them to finish their training first, and they never listen." } },
+    malfurion = {
+      { id = "tp_malfurion", text = "Malfurion Stormrage taught the first druids, and he sleeps now in the Dream while the Circle waits for him. The young ones in Shadowglen ask about him more than anyone else, and I tell them he'll wake when he's needed." },
+      { id = "tp_malfurion2", when = { class = "DRUID" }, text = "You walk his path now, young druid, so remember he learned it slowly too. Even Malfurion was a student once, and Cenarius was not always pleased with him." },
+    },
     _none = { { id = "tp_none", text = "I have no idea! Isn't it lovely, though, not knowing things? It leaves room for wonder." } },
   },
 }
@@ -315,7 +325,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Aldrassil's roots! I've often wondered whether a prayer does a tree any good, and now I can ask someone who would know." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've only read of your order, and I confess I imagined you taller, though perhaps that's the armor making me expect it." },
         { id = "h_default", key = true,
-          text = "I am Melithar Staghelm. I tend Aldrassil's roots and the young ones who come to it, and both of them need patience." },
+          text = "I am Melithar Staghelm. I tend Aldrassil's roots and the young ones who come to it, and both need the kind of patience only long centuries teach." },
         { id = "h_woodland", tags = { "news" }, when = { questActive = TODO_QUEST("The Woodland Protector") },
           text = "Tarindrella the dryad has come back to Shadowglen, after years unseen. A Sentinel spotted her southwest of Aldrassil. Find out why she's come." },
         { id = "h_hum", when = { metBefore = true }, text = "Aldrassil hums when the wind is right, so put your ear to the bark one day and listen. Tenaron finds it undignified, but Tenaron is wrong." },
@@ -325,7 +335,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The young ones of Aldrassil learn the bow and the beast together, and I'm glad to see one who has stuck with it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, beneath Aldrassil! Forgive me for staring, but I've never seen one this close to the old tree, and I can't help wondering whether it hums for you as it hums for us." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock beneath Aldrassil. I'll ask you plainly to keep your servant away from the roots, because the old tree has felt enough of the fel already." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak softly near the roots; Aldrassil hears every word, I believe. Do your spirits hear it too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak softly near the roots, for I believe Aldrassil hears every word, as the old forests of Ashenvale did. Do your spirits hear it too?" },
       },
       again = {
         { id = "h_again", text = "Ask on. Aldrassil's in no hurry." },
@@ -333,8 +343,8 @@ P:NPC {
       },
       choices = {
         { text = "What's it like, tending Aldrassil?", next = "tending" },
-        { text = "Are you kin to the Arch Druid?", next = "kin" },
-        { text = "Who is Tarindrella?", next = "dryad" },
+        { text = "You share a name with the Arch Druid, I think.", next = "kin" },
+        { text = "Who is Tarindrella?", next = "dryad", when = { any = { { questActive = TODO_QUEST("The Woodland Protector") }, { questDone = TODO_QUEST("The Woodland Protector") } } } },
         { text = "Teach me what you know.", next = "druid_m", when = { class = "DRUID" } },
         { text = "Even a rogue can feel Aldrassil hum.", next = "rogue_m", when = { class = "ROGUE" } },
         { text = "Could a prayer do Aldrassil any good, Melithar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -348,7 +358,7 @@ P:NPC {
       },
     },
     kin = {
-      lines = { { id = "k_default", text = "Everyone asks me that. My work is here, at the roots, and whatever name I carry, the tree doesn't care, and neither should you." } },
+      lines = { { id = "k_default", text = "Everyone points that out. My work is here, at the roots, and whatever name I carry, the tree doesn't care, and neither should you." } },
       choices = {
         { text = "Then I'll stop asking.", next = "BACK" },
         { text = "Would you tell me if you were?", next = "kin2", fx = { trait = { witty = 1 } } },
@@ -396,6 +406,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay on the paths until you know which roots trip." } },
     fel_moss = { { id = "tp_moss", text = "It's in the grells. Tarindrella thinks the furbolgs too. I hope she's wrong." } },
     cenarion_circle = { { id = "tp_circle", text = "Every druid in Shadowglen hopes the Circle will notice them one day. Few say so aloud." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Aldrassil's roots are deep, but Nordrassil's go down past where anything ought to grow. I've only seen them in drawings, and the drawings frightened me." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "When I sleep beside Aldrassil's roots, I dream green. I suppose that means something, though nobody in Shadowglen has told me what." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The dragons of the Dream care for the great trees, the old druids say. I've never seen one, and I've spent a long time looking up." } },
     _none = { { id = "tp_none", text = "I couldn't say, but Tenaron might, at the top of Aldrassil." } },
   },
 }
@@ -428,6 +441,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The High Priestess leads, and the Archdruid would like to, and the rest of us look from one to the other like children at supper. You will stand before both of them before long, so tell me whom you would follow." },
+      },
+      choices = {
+        { text = "Tyrande. She led at Hyjal and she held the line.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { tyrande = "admire" } } },
+        { text = "Fandral. He grew this tree, and he thinks ahead.", next = "op_r2", fx = { align = { order = -1 }, opinion = { fandral = "admire" } } },
+        { text = "Neither of them. I'll follow my own sense.", next = "op_r3", fx = { trait = { brave = 1 }, opinion = { tyrande = "doubt", fandral = "doubt" } } },
+        { text = "Malfurion. I'll wait for him to wake.", next = "op_r4", fx = { affinity = 1, trait = { patient = 1 }, opinion = { malfurion = "faith" } }, when = { race = "NightElf" } },
+        { text = "I haven't met either of them yet.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "So would I, and so did I. Her arrows did more at Hyjal than any speech I heard there." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "He thinks ahead, I'll give him that, and he thinks loudly. Mind that he doesn't think ahead of you." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A young one's answer, and not a bad one, though in Darnassus you'll find that choosing nobody is a choice as well." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you'll wait a long while, and kindly. I hope he wakes to find that we kept his house in order." } },
+      choices = { { text = "I'll think on it.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I hope for every one, though not all return. I hope they climb back up one day. A shaman's spirits might watch over them." } },
@@ -532,27 +574,28 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in Shadowglen of all places! Mind your step on the ramp, {class}, because Aldrassil's bark has seen fewer iron boots than you have." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, setting out from Shadowglen. Aldrassil has watched many of the Circle's children go down that path, and every one of them carried a little of its strength away with them." },
         { id = "h_default", key = true,
-          text = "Tenaron Stormgrip. I watch over Shadowglen from Aldrassil's crown. Every young elf who leaves the glade passes me on the way." },
+          text = "I am Tenaron Stormgrip, and I watch over Shadowglen from Aldrassil's crown. Every young kaldorei who leaves the glade passes beneath me on the way, and I remember each of them." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Tenaron's Summons") },
           text = "You came when I called, and that is good. There is a task that will take you beyond the glade, and you are ready for it." },
         { id = "h_crown", when = { questActive = TODO_QUEST("Crown of the Earth") },
           text = "Take this vial to the moonwell and fill it. Then carry it down to Dolanaar. Corithras will know what to do with it." },
-        { id = "h_count", when = { metBefore = true }, text = "Every morning I watch the young ones walk the path down to Dolanaar. Most come back one day, taller. That's the part I like." },
+        { id = "h_count", when = { metBefore = true }, text = "Every morning I watch the young ones walk the path down to Dolanaar. Most come back one day, taller and quieter, and that's the part I like." },
         { id = "h_returned", when = { minLevel = 20 },
           text = "You came back up the tree. Most don't, once the world below has them. Sit, and tell me what you've seen down there." },
         { id = "h_visitor", when = { ["not"] = { race = "NightElf" } },
           text = "A visitor, all the way up to Aldrassil's crown! You are either very curious or very lost, and both are welcome here." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, come to the crown of Aldrassil! I watch every young one walk down to Dolanaar. Your path is unusual, but welcome." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, come to the crown of Aldrassil! I have watched every young one walk down to Dolanaar for longer than your mountains have had names, and your path is unusual, but welcome." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The view will keep." },
         { id = "h_again2", text = "Go on. I've been up here a long while; I can listen a while longer." },
       },
       choices = {
+        { text = "Who leads your people, now that Malfurion sleeps?", next = "op_ask" },
         { text = "What lies beyond the glade?", next = "beyond" },
-        { text = "Why fill a phial at the moonwell?", next = "crown" },
+        { text = "Filling a phial seems a small errand for a first lesson.", next = "crown", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
         { text = "What happened at Hyjal?", next = "hyjal" },
-        { text = "What do you see from up here?", next = "view" },
+        { text = "You must see the whole glade from up here.", next = "view" },
         { text = "I've been down in the world. It's hard.", next = "world_t", when = { minLevel = 20 } },
         { text = "I'm not kaldorei. Am I welcome here?", next = "welcome", when = { ["not"] = { race = "NightElf" } } },
         { text = "Corithras told me the rest of the story.", next = "story", when = { questDone = TODO_QUEST("Crown of the Earth") } },
@@ -576,7 +619,7 @@ P:NPC {
       choices = {
         { text = "Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { shadowglen = 1 } } },
         { text = "I'll go, but I'll make my own way, blessing or not.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Which parts are sick?", next = "sick" },
+        { text = "You make it sound as if parts of the tree are sick.", next = "sick" },
       },
     },
     sick = {
@@ -600,7 +643,7 @@ P:NPC {
     hyjal = {
       lines = { { id = "hy_default", text = "We fought the Legion beside orcs and humans, and the World Tree gave everything it had to end Archimonde. We won, and we have been paying for it ever since." } },
       choices = {
-        { text = "Paying how?", next = "hyjal2" },
+        { text = "I don't understand what you've been paying.", next = "hyjal2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -614,7 +657,7 @@ P:NPC {
     view = {
       lines = { { id = "v_default", text = "Every path in Shadowglen, the spider cave to the north, the road south to Dolanaar. And every young elf who walks it. I watch until the trees take them." } },
       choices = {
-        { text = "Do they come back?", next = "view2" },
+        { text = "Not all of them come back, I'd guess.", next = "view2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -675,6 +718,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I watch over Shadowglen from up here. Someone should see the whole glade at once." } },
     advice = { { id = "tp_ad", text = "Stay on the road to Dolanaar. The forest has grown dangerous beasts of late." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, tall, and still growing. Too quickly, some say. I only see it from the top." } },
+    nordrassil = { { id = "tp_nordrassil", text = "From up here I can see half of Teldrassil, and on a clear night I imagine I can see Hyjal. I can't, of course, but it helps to look." } },
+    elune = { { id = "tp_elune", text = "The moon rises right over Shadowglen, and from this tower you can watch Elune climb the whole sky. I think I chose this post for that, more than the view." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Travellers tell me the Darkmoon Faire is all lanterns and music. From up here I'd see it coming from leagues away, if it ever came." } },
     _none = { { id = "tp_none", text = "That is beyond what I can see from here, and I can see a long way." } },
   },
 }
@@ -690,7 +736,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_home", text = "All isn't well in the glade, I know. But coming back here always feels like coming home." },
+    { id = "g_home", text = "All isn't well in the glade, I know, but coming back here always feels like coming home, the way the moonlight always finds its way back to the same leaves." },
   },
 
   notice = {
@@ -793,7 +839,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I'm glad, for my friend Iverron lies poisoned near the Webwood and I can't stop thinking of him, so perhaps you'll go and see him for me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in Shadowglen? Then perhaps you'll understand why I worry so, because your order swears to stand by those who can't stand alone." },
         { id = "h_default", key = true,
-          text = "Dirania Silvershine. Shadowglen always feels like home, even now. Though a friend of mine is worrying me today." },
+          text = "I am Dirania Silvershine, and Shadowglen has always felt like home to me, even now. Though a friend of mine is worrying me today, Elune keep him." },
         { id = "h_friend", tags = { "news" }, when = { questActive = TODO_QUEST("A Good Friend") },
           text = "Iverron visits me at the same hour every day, and today he hasn't. He spends far too long by that spider cave. Please, look for him." },
         { id = "h_antidote", when = { questActive = TODO_QUEST("Iverron's Antidote") },
@@ -806,16 +852,16 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Iverron has gone near the spider cave again, and I keep thinking a druid's healing might do more for that venom than anything I can brew." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, here? You couldn't magic away spider venom, I suppose, because Iverron's gone into the Webwood again." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in Shadowglen, and I suppose your servant doesn't mind spider venom? Iverron's gone and got himself bitten again." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Forgive me; my friend is in the spider cave again, and I keep looking for him. Your spirits might see him." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Forgive me, my friend is in the spider cave again and I keep looking for him, so if your spirits can see further than I can, please ask them." },
       },
       again = {
         { id = "h_again", text = "What else? Sorry, I keep looking toward the cave." },
         { id = "h_again2", text = "Ask. It helps to talk while I wait." },
       },
       choices = {
-        { text = "Tell me about Iverron.", next = "iverron" },
+        { text = "Tell me about your friend.", next = "iverron" },
         { text = "What's wrong in Shadowglen?", next = "glen" },
-        { text = "Where do I find what the antidote needs?", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
+        { text = "The antidote needs a fair few ingredients, it seems.", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
         { text = "I know a thing or two about poisons.", next = "rogue_d", when = { class = "ROGUE" } },
         { text = "Is Iverron's poison beyond a priest's help, Dirania?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who needs protecting here, Dirania?", next = "xapala", when = { class = "PALADIN" } },
@@ -861,6 +907,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "These woods feel like home every time I come back, and that is my whole story. Iverron's is longer, and more foolish." } },
     advice = { { id = "tp_ad", text = "Never go into a spider cave alone. Tell Iverron that, if you see him." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune for patience with Iverron, which she has given me in very small portions. I think she finds him funny." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the furbolgs that stayed sane, in Felwood far north. I wish ours had been so lucky." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Iverron wants to go to the Darkmoon Faire and wrestle a bear. I've told him the bear will win, and he says that's the fun of it." } },
     _none = { { id = "tp_none", text = "I'm sorry, my mind is on Iverron." } },
   },
 }
@@ -876,7 +925,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_steps", text = "Oh, hello. I was only sitting; the steps are good for sitting." },
+    { id = "g_steps", text = "Oh, hello. I was only sitting, for the steps are good for sitting, and Aldrassil doesn't mind being leaned on." },
   },
 
   notice = {
@@ -990,7 +1039,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, on Aldrassil's steps. I study the Webwood spiders from a careful distance, and I'd like to study your servant from a slightly greater one." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Webwood", min = 20 } },
           text = "By my count, and I do count, you've cut the Webwood's numbers down by a fair few. The spiders are no less hungry for it, but there are fewer of them, which from a distance is the next best thing." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I study the Webwood spiders, mostly from a distance. Your spirits might study them more closely." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I study the Webwood spiders, mostly from a respectful distance, and I suspect your spirits could study them a good deal more closely than I'd care to." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm only sitting, after all." },
@@ -999,7 +1048,7 @@ P:NPC {
       choices = {
         { text = "Why study spiders?", next = "why" },
         { text = "Why sit out here on the steps?", next = "steps" },
-        { text = "What's in Shadowthread Cave?", next = "cave" },
+        { text = "What's in the cave to the north?", next = "cave" },
         { text = "I'm an alchemist. Venom interests me.", next = "alch", when = { profession = "Alchemy" } },
         { text = "My companion could take a spider's measure for you.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "I could slip into the spider cave and count the eggs.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1019,7 +1068,7 @@ P:NPC {
       },
       choices = {
         { text = "Good luck with that.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Has the tree really changed them?", next = "tree_g" },
+        { text = "It's hard to believe the tree changed them.", next = "tree_g" },
       },
     },
     tree_g = {
@@ -1054,6 +1103,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came to Shadowglen to watch spiders, and I'm still watching them, from the steps, mostly." } },
     advice = { { id = "tp_ad", text = "Never stand under a web you can't see the end of." } },
-    _none = { { id = "tp_none", text = "Spiders, I know. Most other things, less so." } },
+    blackfathom = { { id = "tp_blackfathom", text = "There are spiders in Blackfathom Deeps that grow larger than any on this tree, or so a scholar told me. I'd go and see, if they didn't also have nagas." } },
+    elune = { { id = "tp_elune", text = "Elune's light is good for spider-watching, actually, the webs catch it. I don't think the priestesses would approve of the use, but I find it devotional." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I'd like to know if there are spiders in the Emerald Dream. I asked a druid once, and she told me not to dream about it." } },
+    _none = { { id = "tp_none", text = "Spiders I know, and the Webwood has kept me busy enough for a century. Most other things, less so." } },
   },
 }

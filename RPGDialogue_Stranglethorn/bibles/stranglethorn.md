@@ -55,6 +55,7 @@
 - Gendered words for Mok'thardin (the wiki page disagrees with itself).
 
 ## Voices
+- Race voice (0.80.0): Grom'gol's orcs (Aggro'gosh, Thulbek, Thysta, Uthok, Mok'thardin) speak of honor, blood, the Warchief and the old clans; Seahorn is a tauren who swapped the plains for the sea and still swears by the Earth Mother.
 - Revilgaz: a goblin who keeps books on everything, including you; dry, demanding, fond of people who spend.
 - Seahorn: a tauren who went to sea and loves it; loud, laughing, nautical; fond of the Baron.
 - Krazek: fast-talking secretary; knows everything, sells the rest.
@@ -119,3 +120,4 @@ Sources: Ian Strom (Rogue Trainer, Salty Sailor Tavern, trains both factions; ca
 - Tokal: struck a sergeant and left Durotar; crew of six (two orcs, an ogre who held a pass so they could run, two trolls, a human deserter cook); waits on a goblin captain who owes her a berth, avoiding the Ratchet ferry; the bar never waters the Cherry Grog because only she orders it; suspects Illari tipped off the marshal.
 - Elril: female; temple-trained in Ashenvale without vows, carried water for the Sentinels, plate from a Menethil Harbor dwarf who charged double for the legs; the paladin question is a running joke she keeps alive (a sailors' song, Krazek's ten-gold offer); knelt once beside a human paladin and felt "something warm" answer, never sure whose. No night-elf paladin order is claimed.
 - Never: confirming Elril as a paladin; Illari's fate or capture; anything about the chain's later rewards.
+- Krazek: grumbles about gnomes (`prejudice`, race Gnome) as a business grudge: they give their plans away; his uncle lost a Ratchet winch contract to a gnome who drew the plans on a napkin.

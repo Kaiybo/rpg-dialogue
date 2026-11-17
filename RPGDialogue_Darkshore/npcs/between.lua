@@ -106,15 +106,15 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then perhaps you can feel what still haunts Bashal'Aran, for I have felt it every night since the satyrs came." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here at Bashal'Aran. I did not think to see one of your order among our ruins, but I will not refuse the help." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up through the ruins without stirring a single satyr, which is more than I can manage. Bashal'Aran could use someone who walks as quietly as you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I watch Bashal'Aran's ruins while the satyrs pick at what my people left. Can your spirits hear the old city?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I watch Bashal'Aran's ruins while the satyrs pick at what my people left behind, so tell me, can your spirits still hear the old city?" },
       },
       again = {
-        { id = "h_again1", text = "What else would you know about the ruins?" },
+        { id = "h_again1", text = "What else would you know about the ruins? They have stood since before the Sundering, and they will wait for your question." },
         { id = "h_again2", text = "Ask, then, while the satyrs are quiet." },
       },
       choices = {
         { text = "What do the satyrs want here?", next = "satyrs" },
-        { text = "What was Bashal'Aran?", next = "city" },
+        { text = "Bashal'Aran must have been something, once.", next = "city" },
         { text = "Do you send word to Auberdine?", next = "neighbors" },
         { text = "You're a druid, as I am. How do you bear it here?", next = "druid", when = { class = "DRUID" } },
         { text = "What magic is left in Bashal'Aran?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -174,6 +174,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am a druid who stayed where others left, and I watch the old city because someone should." } },
+    highborne = { { id = "tp_highborne", text = "I watch the old Highborne city because the Highborne never stay dead the way they ought to. They loved their magic more than their lives, and some of them still do." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the first tree, and it holds our people's life on Hyjal. I'd rather watch over it than this, but somebody has to watch the dead." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows the land as it should be, and I have seen this shore there, green and quiet. It is hard to come back from that and look at the ruins." } },
     _none = { { id = "tp_none", text = "I've no answer for that, I'm afraid; the ruins keep their own counsel and so do I." } },
   },
 }
@@ -188,12 +191,36 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ah, a visitor! Mind the trench, lad, I've only just dug it and I'd hate to lose another one in there." },
+    { id = "g_default", text = "Ah, a visitor! Mind the trench, {g:lad|lass}, I've only just dug it and I'd hate to lose another one in there." },
     { id = "g_back", when = { metBefore = true }, text = "I know your face, I'm nearly sure of it, which puts you ahead of half my notes!" },
   },
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The League says the titans shaped the dwarves out of stone, and the elves say Elune watches over theirs. Digging around their old cities like this, I've started to wonder. What do you believe?" },
+      },
+      choices = {
+        { text = "Titans. Uldaman proves it, or soon will.", next = "op_r1", fx = { affinity = 1, trait = { curious = 1 }, opinion = { titans = "believe" } } },
+        { text = "Elune made the kaldorei, and the kaldorei know best.", next = "op_r2", fx = { align = { light = 1 }, opinion = { titans = "elune" } } },
+        { text = "Gods and titans are excuses for grave-robbing.", next = "op_r3", fx = { affinity = -1, align = { light = -1 }, opinion = { explorers_league = "wrong" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "There's a {race} after my own heart! Ironforge is sitting on a tomb full of answers, and I mean to be the one who reads them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Well, I'll not argue with a goddess in her own country, especially not out here alone at night. Still, the stone says what it says." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Grave-robbing! We catalogue, we sketch and we label everything in triplicate, and robbers never label anything." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "We're fascinated, laddie! The old stone talks to us through runes, and maybe your spirits hear what the runes don't say. Come dig with me sometime!" } },
@@ -285,6 +312,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
+          text = "You're the one who thinks the League should leave the ruins be, aren't you? You're welcome to the opinion, so long as you keep it out of my trenches." },
         { id = "h_default", text = "Remtravel's the name, prospector for the Explorers' League, and these old elven ruins are the finest dig I've had in years. If only I could remember where I left the bloody fossil." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf, out here! Tell me you're from Ironforge and you've brought a proper pickaxe, because the elves don't make a tool worth swinging." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand, because the murlocs keep chasin' me off my own dig, an' I've had enough o' runnin'." },
@@ -300,9 +329,10 @@ P:NPC {
         { id = "h_again2", text = "Carry on, carry on, I'm listening with at least one ear, which is more than Gorbold gets." },
       },
       choices = {
+        { text = "Who do you think built these ruins, really?", next = "op_ask" },
         { text = "What are you digging for?", next = "dig" },
-        { text = "What does the Explorers' League want with Darkshore?", next = "league" },
-        { text = "Isn't it dangerous out here alone?", next = "danger" },
+        { text = "The Explorers' League has come a long way to dig here.", next = "league" },
+        { text = "It seems dangerous out here alone.", next = "danger" },
         { text = "I'm from Ironforge, and I brought a pick.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Your dig's wide open. Anyone could walk off with your finds.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Elven ruins like these are full of old wards.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -361,7 +391,14 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Explorers' League, thirty years in the field, and only lost twice, whatever Gorbold tells you." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you, lad. I can barely tell you where I left my lunch." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni funds the League, and I've a letter from him on my wall that says 'Find something, Remtravel.' I'm working on it." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king's a fine patron, {g:lad|lass}, and I'd say so even if he weren't. Mind you, he wants results, and I'd rather he didn't hear how often I get lost." },
+    },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "Silithus has walls older than any dwarf city, with carvings nobody can read. One day I'll go and get lost there properly." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas, the night elves' old city in Feralas, mostly intact. If I didn't have a fossil to find here, I'd be there." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Lost good friends in Gnomeregan, and my best brush. I'm told it's still full of radiation and angry machinery." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, {g:lad|lass}. I can barely tell ye where I left my lunch, and that was under a perfectly good rock." } },
   },
 }
 
@@ -477,8 +514,8 @@ P:NPC {
       },
       choices = {
         { text = "What is the Master's Glaive?", next = "glaive" },
-        { text = "Who are the other Ancients here?", next = "grove" },
-        { text = "How old are you, Onu?", next = "time" },
+        { text = "You aren't the only Ancient in this grove, I think.", next = "grove" },
+        { text = "You must be very old, Onu.", next = "time" },
         { text = "The Circle sends its respects, Ancient.", next = "druidq", when = { class = "DRUID" } },
         { text = "The Master's Glaive must have been forged with great power.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there a fight waiting at the Master's Glaive, Onu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -536,6 +573,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am an Ancient of Lore, and the memory of this forest lives in my roots." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the root of all our forests' memories, young one. I was a sapling when it was young, and I remember the songs it taught." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as Cenarius and the Ancients first knew it, before anything was broken. I visit it in my long thoughts, and come back slowly." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion came at the Well and again at Hyjal, and both times the forest bled. My roots remember, and they will not forget." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne cared little for the forest, and the forest has not forgotten that either. It is slow to forgive, as I am." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children walk the Dream as I walk my roots, slowly and with care. Something troubles them, and I feel it as a chill in the soil." } },
     _none = { { id = "tp_none", text = "That is a question for younger minds than mine, little one, and for quicker ones." } },
   },
 }
@@ -637,7 +679,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "My name is Volcor, and I was taken by the Blackwood furbolgs when they turned on us. I need to reach the road and get word to Auberdine, but I can't fight my way past them alone." },
+        { id = "h_default", text = "My name is Volcor, and I was taken by the Blackwood furbolgs when they turned on us. I need to reach the road and get word to Auberdine, but even a kaldorei who has walked these woods for centuries can't fight past them alone." },
         { id = "h_cond", when = { class = "ROGUE" }, text = "You move like someone who knows how to go unseen, which may be just what I need. There's more than one way out of this den." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Thank Elune, because I can't fight my way past the Blackwood alone, and you look as though you could." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know the paths through the Blackwood better than I do now, since mine ended in a cage." },
@@ -648,16 +690,16 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, and I'm in no position to be choosy about who gets me out of here. Just keep that thing pointed at the furbolgs and not at me." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackwood", min = 30 } },
           text = "You've cut down a lot of the Blackwood getting here, and I'm grateful, though it pains me to say it. They were good neighbours once, before the madness took them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The furbolgs of the Blackwood have gone mad. I am hurt, but not afraid. Your spirits might help me escape." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The furbolgs of the Blackwood have gone mad, and I am hurt, though not afraid, so if your spirits can help me slip away, I would welcome them." },
       },
       again = {
-        { id = "h_again1", text = "Speak quickly, they patrol often." },
+        { id = "h_again1", text = "Speak quickly, for they patrol often, and furbolg ears are sharper than a Sentinel's." },
         { id = "h_again2", text = "What else? Keep your voice low." },
       },
       choices = {
         { text = "How do we get you out?", next = "escape" },
-        { text = "Why did the Blackwood turn on you?", next = "furbolg" },
-        { text = "Who's waiting for you in Auberdine?", next = "others" },
+        { text = "The Blackwood seem to have turned on you.", next = "furbolg" },
+        { text = "Someone in Auberdine must be waiting for you.", next = "others" },
         { text = "I can get us both out unseen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Let me see to your wounds before we move, Volcor.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll see you safe to the road, Volcor. What do you need?", next = "xapala", when = { class = "PALADIN" } },
@@ -715,7 +757,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a scout of Auberdine, or I was, before the Blackwood took me." } },
-    _none = { { id = "tp_none", text = "I don't know, and I haven't time to wonder about it just now." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are what the Blackwood were, before the corruption. I'd give a lot to see a furbolg with sense again, after what the Blackwood did to me." } },
+    blackfathom = { { id = "tp_blackfathom", text = "I've scouted near Blackfathom, and the Twilight's Hammer guard it well. Don't go in alone, and don't go in tired." } },
+    elune = { { id = "tp_elune", text = "I prayed to Elune when the Blackwood had me, and I'm here, so I'll keep praying." } },
+    _none = { { id = "tp_none", text = "I don't know, and I haven't time to wonder about it just now. Elune willing, I'll have centuries to wonder later." } },
   },
 }
 
@@ -823,7 +868,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? Oh, good, perhaps you can tell me if something in the Dream is following me, because I feel it watching sometimes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll keep me safe on the road, I'm sure, but you may have to carry me, and I do apologise in advance." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock. Forgive me if I yawn, because it's the Dream and not you, though your friend there does give me rather sharp dreams." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Forgive me if I drift off; I fall into the Emerald Dream sometimes. Do your spirits dream?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Forgive me if I drift off, because I fall into the Emerald Dream sometimes without meaning to, and I wonder, do your spirits dream?" },
       },
       again = {
         { id = "h_again1", text = "Ask, quickly, before I nod off." },
@@ -836,7 +881,7 @@ P:NPC {
         { text = "I've felt the Dream's pull, too.", next = "druidk", when = { class = "DRUID" } },
         { text = "I could carry you home without waking you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Couldn't a spell keep you awake?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "So I just stand guard while you sleep, Kerlonian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "So I'm to stand guard while you sleep, Kerlonian.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the beasts on the road bother you while you sleep?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is something in the Dream troubling you, Kerlonian?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will you trust me to get you home, Kerlonian?", next = "xapala", when = { class = "PALADIN" } },
@@ -890,6 +935,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am a druid of the Cenarion Circle, and very nearly a bridegroom, if I can stay awake." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream pulls at me every time I close my eyes, and Liladris would very much like me to stay awake. I'm trying, I promise you, but it's beautiful in there." } },
+    elune = { { id = "tp_elune", text = "Liladris and I mean to be married under Elune's moon at Auberdine. If I can get there without falling asleep, that is." } },
+    nordrassil = { { id = "tp_nordrassil", text = "I studied under the roots of Nordrassil, and I slept a great deal of my study there. The Circle wasn't surprised." } },
     _none = { { id = "tp_none", text = "I'm not sure, and I think I may have dreamed the answer once and forgotten it." } },
   },
 }

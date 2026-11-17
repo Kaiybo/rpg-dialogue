@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Brinna Valanaar · Talrendis Point · Alliance (Darnassus) · night elf (female) · bowyer
 Personality: dry, watchful, exacting
-Speech: short, practical; "Ishnu-alah" to night elves
+Speech: short, practical; "Ishnu-alah" to night elves. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: the Sentinels ("my sisters on the wall")
 Never says: anything Cataclysm-era
 

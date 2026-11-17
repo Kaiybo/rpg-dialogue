@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_ug_danger", when = { gossip = { topic = "ungoro", stance = "dangerous" } }, text = "Spark tells me you agreed Un'Goro's a death trap with nice flowers. Don't encourage him, please, because he already thinks I'm mad for staying." },
     { id = "g_refuge", text = "Welcome, welcome! You made it up the rim in one piece, which puts you ahead of most of my expedition." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece! The crater must like you, and it doesn't like many." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'll confess I looked over the rim more than once, wondering whether the crater had finally had you. Welcome back to the Refuge." },
@@ -32,6 +33,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_explorers = {
+      lines = {
+        { id = "ope_q", text = "The Explorers' League sent word they'd like our notes, once we've finished paying for them in blood. You've seen how they work, I expect, so what do you make of the League?" },
+      },
+      choices = {
+        { text = "They've done more for history than anyone in Azeroth.", next = "op_explorers_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Glory-hunters. Let them pay for their own dead.", next = "op_explorers_r2", fx = { affinity = 2, align = { order = -1 }, opinion = { explorers_league = "distrust" } } },
+        { text = "Dig up what you like, but leave the dead where they lie.", next = "op_explorers_r3", fx = { trait = { cautious = 1 }, opinion = { explorers_league = "wrong" } } },
+        { text = "I'm a dwarf, and the League's the pride of Ironforge.", next = "op_explorers_r4", fx = { affinity = -1, opinion = { explorers_league = "loyal" } }, when = { race = "Dwarf" } },
+        { text = "I've no opinion on them, Williden.", next = "BACK" },
+      },
+    },
+    op_explorers_r1 = {
+      lines = {
+        { id = "op_explorers_r1", text = "They have, and I'd be lying if I said I didn't once want to join them. Maybe they'll let me, after this, if I bring back enough crystals." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r2 = {
+      lines = {
+        { id = "op_explorers_r2", text = "Ha! I'll put it more politely in my letter to Ironforge, but that's about the size of it. Thank you, friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r3 = {
+      lines = {
+        { id = "op_explorers_r3", text = "That's a fair rule, and I wish more of us kept it. Un'Goro has a way of making you careful about what you dig up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r4 = {
+      lines = {
+        { id = "op_explorers_r4", text = "Of course it is, and I'd never say a word against it in your hearing. Just mind they share the credit when they print the maps." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_williden = {
       big = true,
       lines = { { id = "xpt_williden_default", text = "The crater happened, mostly; the raptors took the base camps and the devilsaurs took whatever the raptors left. A company is the only sensible way to cross Un'Goro, but even a company has to remember that this place was here long before us, and it doesn't care whose map it's on." } },
@@ -97,6 +142,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You've a look I've seen before at the Refuge, on a {altrace} called {alt}, who came down the ramp under the other banner and was more help with the crates than half my own people. Down here in the crater, friend, I don't much care what flag anyone flies, so long as they come back up." },
+        { id = "h_alt_kin", when = { alt = { kin = true } },
+          text = "Another of your people! {alt} came through not long ago, a {altclass}, and went down into the crater and came back again, which down here is the whole of the praise I have to give." },
         { id = "h_pt_williden", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, and you all made it through the crater's mouth in one piece! That's a better record than my last expedition had, so I'm very glad to see you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gorishi", min = 40 } },
@@ -127,17 +176,17 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Ask away, I've nothing but time and dinosaurs." } },
       choices = {
         { text = "What does this crater feel like to someone who knows it?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's dangerous down there?", next = "danger" },
+        { text = "It must be dangerous down there.", next = "danger" },
         { text = "What were you looking for?", next = "purpose" },
-        { text = "Your sister?", next = "sister" },
+        { text = "You have a sister out there.", next = "sister" },
         { text = "Am I ready for the crater?", next = "ready", when = { maxLevel = 50 } },
         { text = "What do the beasts here eat?", next = "beasts", when = { class = { "HUNTER", "DRUID" } } },
         { text = "My people tell of a world like this, long ago.", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Your guards couldn't hold the camps?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "What do you think the crystals are, Williden?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Would you have work for someone who goes unnoticed?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I'd guess you have work for someone who goes unnoticed.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you like words said for the people you lost, Williden?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What happened to your base camps, Williden?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Something must have happened to your base camps, Williden.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the expedition welcome warlocks, Williden?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What happened to your last expedition, Williden?", next = "xpt_williden", when = { party = { size = 4 } } },
         { text = "I'll help the expedition.", next = "END", fx = { affinity = 2, standing = { marshals_refuge = 1 } } },
@@ -160,6 +209,7 @@ P:NPC {
     purpose = {
       lines = { { id = "p_default", text = "Crystals, rare plants, a few answers, and honestly a bit of money, because expeditions don't pay for themselves. Discovery's the best part, but funding's the necessary part." } },
       choices = {
+        { text = "What do you make of the Explorers' League?", next = "op_explorers" },
         { text = "Was it worth it?", next = "purpose_worth" },
         { text = "Something else.", next = "BACK" },
       },
@@ -228,6 +278,10 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I'm expedition leader by the accident of being the one who signed the papers. My sister did the walking and the bleeding while I did the paperwork, and I'm still doing it, mostly in triplicate for Gadgetzan." } },
     advice = { { id = "tp_ad", text = "If the ground shakes, run first and wonder later, because wondering is how we lost the tents." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan keeps the Refuge supplied, more or less, at prices that'd shame a pirate. I pay because I must, and I grumble because I can." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League sent letters asking for samples and offering no help, which is the way of learned societies. I sent them a tooth the size of a man's arm, and I've not heard since." } },
+    silithid = { { id = "tp_silithid", text = "The silithid from the south are creeping up the crater's edge, and I'll admit they worry me more than the dinosaurs. A dinosaur only wants supper." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I started out shipping cargo out of Booty Bay, and then I saw a crate of crater bones go by and followed it here. Twenty years later, I'm still following it." } },
     _none = { { id = "tp_none", text = "Not sure! But if it lives in the crater, it probably bites." } },
   },
 }
@@ -244,6 +298,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_gn_reclaim", when = { gossip = { topic = "gnomeregan", stance = "reclaim" } }, text = "Karna says you want to take back some place called Gnomeregan! It sounds familiar somehow, and I'd like to help, if you'll let me bring my sword." },
     { id = "g_hello", text = "Hello, traveler! I'm sure I know something important, only I can't remember what. Have we met?" },
     { id = "g_back", when = { metBefore = true }, text = "You! I remember you, and that's a good sign, isn't it? I'm remembering things!" },
     { id = "g_away", when = { away = 14 }, text = "You! You've been gone {away}, haven't you, and I remembered you the whole time, which I think is the longest I've remembered anything. Isn't that wonderful?" },
@@ -349,7 +404,7 @@ P:NPC {
           text = "A warlock! You know, I have the oddest feeling I've met warlocks before, but I can't remember where, and I'm not sure whether that's a good thing or a bad thing." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I feel like I've met people who talk to the wind before, though I can't for the life of me remember where, which I suppose is the trouble with everything lately." },
         { id = "h_default", key = true,
-          text = "They call me Linken, and I think it's my name. I came to this crater on a mission from somewhere far away, and then my raft broke up in the marsh, something hit my head, and the rest went with the raft." },
+          text = "They call me Linken, and I think it's my name. I came to this crater on a mission from somewhere far away, and then my raft broke up in the marsh, something hit my head, and the rest went with the raft, which by my estimate was about eighty percent of everything I knew." },
         { id = "h_secret", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("It's a Secret to Everybody") }, { questActive = TODO_QUEST("Linken's Sword") } } },
           text = "You found my things, and my sword! I'd know it anywhere... well, I'd know it here, anyway." },
         { id = "h_adventure", when = { any = { { questActive = TODO_QUEST("Linken's Adventure") }, { questActive = TODO_QUEST("It's Dangerous to Go Alone") } } },
@@ -371,17 +426,17 @@ P:NPC {
       choices = {
         { text = "Do the spirits here remember what you've forgotten, Linken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does the crater feel strange to you, Linken?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What do you remember?", next = "memory" },
-        { text = "Tell me about your sword.", next = "sword" },
+        { text = "You must remember something.", next = "memory" },
+        { text = "What did you carry with you?", next = "sword" },
         { text = "Who looks after you here?", next = "friends" },
-        { text = "Do you remember Gnomeregan?", next = "gnomeregan", when = { race = "Gnome" } },
+        { text = "You might remember Gnomeregan, where my people come from.", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Want to spar?", next = "spar", when = { class = "WARRIOR" } },
         { text = "Do you recognize my people, Linken?", next = "x_skyborne", when = { race = "Skyborne" } },
         { text = "Maybe you were a thief, not a warrior.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Magic can't mend a lost memory, Linken.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you like me to pray over your memory, Linken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you want to remember, Linken, even if it hurt?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do you think you were a knight, once?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You carry yourself like a knight might, Linken.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you remember anything about hunting, Linken?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you remember anything of who you were, Linken?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
@@ -393,7 +448,7 @@ P:NPC {
       },
       choices = {
         { text = "Then you're not alone now.", next = "BACK", fx = { affinity = 3 } },
-        { text = "What else did they say?", next = "memory_more" },
+        { text = "They must have said something else.", next = "memory_more" },
       },
     },
     memory_more = {
@@ -401,7 +456,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sword = {
-      lines = { { id = "s_default", text = "It feels right in my hand, the way a word feels right in your mouth before you remember what it means. It's not a gadget, and I don't like gadgets... I think." } },
+      lines = { { id = "s_default", text = "A sword, I think, and it feels right in my hand, the way a word feels right in your mouth before you remember what it means. It's not a gadget, and I don't like gadgets... I think." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     friends = {
@@ -433,7 +488,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I... don't know, isn't that funny? Ask me again tomorrow, and maybe I'll have one.", next = "memory" } },
     advice = { { id = "tp_ad", text = "Never set off alone; somebody told me that, and it's the only thing I'm sure of." } },
-    _none = { { id = "tp_none", text = "I might have known that once! Ask me again later." } },
+    thrall = { { id = "tp_thrall", text = "Thrall, you said? It sounds like a hero's name, and I'm sure I'd remember a hero. Maybe I met him, maybe I didn't, and either way I'm glad he's out there." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan, that's the goblin town in the desert! I remember that, I think, or I remember someone telling me, which is nearly the same thing." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light? I'm sure I knew some priests, once. They were good to me, I think, and I'd like to thank them if I ever remember who they were." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A faire! I'm sure I went to a faire once and won something. Or lost something. Probably both." } },
+    _none = { { id = "tp_none", text = "I might have known that once! Ask me again later, when I've recovered another three or four percent." } },
   },
 }
 
@@ -562,17 +621,17 @@ P:NPC {
       again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {
         { text = "What do the crystals do to the land, J.D.?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What do the crystals do?", next = "crystals" },
+        { text = "Those crystals must do something.", next = "crystals" },
         { text = "Why live in a cave?", next = "cave" },
-        { text = "Can you really help Linken?", next = "linken" },
+        { text = "Could your crystals help Linken remember?", next = "linken", when = { any = { { questActive = TODO_QUEST("A Gnome's Assistance") }, { questActive = TODO_QUEST("Linken's Memory") }, { heardLine = "linken.h_default" } } } },
         { text = "I can feel them. The crystals.", next = "resonate", when = { class = { "MAGE", "PRIEST", "SHAMAN" } } },
         { text = "A gnome scholar out here? I'd have studied with you.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "What do you hope the crystals will do?", next = "xmage", when = { class = "MAGE" } },
         { text = "Are you afraid of what I might do with them?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do your crystals really answer to a priest's power, J.D.?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a warrior want to carry your crystals, Collie?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Why do the crater's beasts avoid the crystals, Collie?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Do the crystals really respond to the Light, J.D.?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The crater's beasts seem to avoid the crystals, Collie.", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "The crystals seem to respond to the Light, J.D.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have a rogue fetch for you, J.D.?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll gather crystals.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
@@ -616,6 +675,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A gnome with a hammer, a notebook and no eyebrows. That's the short version and the long one." } },
     advice = { { id = "tp_ad", text = "Never put two glowing things next to each other unless you want to find out what happens. I always want to." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran would want my crystals, I'm sure of it, if they ever opened their gates long enough to see them. I've written twice, and I suspect they used my letters to light their pipes." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have rules about studying unknown magic, and I've broken all of them, but for science, so I think they'd forgive me. Probably." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells me copper wire and good lenses, and I'd be lost without both. The goblins also sell me crystals they swear are from here, and they aren't." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I've a theory that the crystals hum the same note the green dragons hum when they sleep. I've never heard a green dragon sleep, mind you, so the theory needs work." } },
     _none = { { id = "tp_none", text = "No idea! But give me a week and a crystal, and I'll have a theory." } },
   },
 }
@@ -726,6 +789,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh! You look just like {alt}, friend, the {altrace}, from the other side, who promised to keep an eye out for Ringo and actually did. Are you related? Because if it runs in the family, I could use all of you." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}! {alt} was here a while back, friend, and found two of my supply crates in the ferns, and I wrote the name in my ledger twice because I was so grateful and so tired." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Pterrordax", min = 20 } },
           text = "The pterrordax don't circle the Refuge half so much since you started shooting 'em down, friend, and I can finally sleep without hearing them screech. One of them used to steal my socks off the line, and socks cost money out here, so I'll admit I took that one personally." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -755,16 +822,16 @@ P:NPC {
       choices = {
         { text = "Why does everyone here fear the volcano so much?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is Un'Goro too dangerous for the expedition?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who's Ringo?", next = "ringo" },
+        { text = "You keep mentioning Ringo.", next = "ringo" },
         { text = "How do supplies even get here?", next = "supplies" },
-        { text = "Why did you leave Gadgetzan?", next = "gadgetzan" },
-        { text = "How's Ringo now?", next = "ringo_after", when = { questDone = TODO_QUEST("A Little Help From My Friends") } },
+        { text = "What brought you out here?", next = "gadgetzan" },
+        { text = "Ringo must be glad to be home.", next = "ringo_after", when = { questDone = TODO_QUEST("A Little Help From My Friends") } },
         { text = "Could a pterrordax be tamed, do you think?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Should I find Ringo quietly, or quickly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can conjure water. Is that all he needs?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think Ringo is still alive, Spraggle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Have you prayed for Ringo yourself, Spraggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Why didn't anyone go after Ringo, Spraggle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You must have prayed for Ringo yourself, Spraggle.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Nobody seems to have gone after Ringo, Spraggle.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Who is Ringo, and why do you worry for him?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a demon could find Ringo, Spraggle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
@@ -786,7 +853,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gadgetzan = {
-      lines = { { id = "g_default", text = "Steady work, they said, and good pay, they said, but nobody said 'dinosaurs', friend. I'd have asked more questions, and for more money, if they'd said 'dinosaurs'." } },
+      lines = { { id = "g_default", text = "A job out of Gadgetzan: steady work, they said, and good pay, they said, but nobody said 'dinosaurs', friend. I'd have asked more questions, and for more money, if they'd said 'dinosaurs'." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     ringo_after = {
@@ -811,6 +878,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a Gadgetzan girl, a supply runner and a worrier, in that order, friend, and sometimes all at once." } },
     advice = { { id = "tp_ad", text = "Pack twice the water you think you'll need, friend, even if it costs twice as much. Ringo didn't, and look how that went." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "I came out from Gadgetzan because they said it was steady work at good wages, friend, and now I sleep on a ledge above dinosaurs." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where the expedition sends the bills, friend, and they come back unpaid about half the time. I worry about that too, as you'd expect." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's my hometown, and I worry about it all the time, the pirates, the sharks, the cousins who still owe me money. Mostly the cousins." } },
+    silithid = { { id = "tp_silithid", text = "The bugs from the south are getting closer every week, and nobody here wants to talk about it except me. I talk about it a great deal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Mulgore when I was passing through once, and I worried the whole time I'd fall off the rides. I didn't, but I could have." } },
     _none = { { id = "tp_none", text = "Sorry, I don't know, friend! Maybe ask Williden, he knows things." } },
   },
 }

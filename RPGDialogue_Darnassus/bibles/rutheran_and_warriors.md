@@ -10,3 +10,6 @@
 - Vesprystus: calm, old, loves the sea wind; the gate between Teldrassil and the world.
 - Ilyenia: exacting, proud of the glaive and the Sentinels' discipline.
 - Jeen'ra: quiet tracker, bonded to the wilds of Teldrassil.
+
+## Prejudice (0.80.0, authored, not canon)
+- Jeen'ra Nightrunner (prejudice, Human): watched a Stormwind hunting party leave four stags on the Darkshore coast with only the antlers taken.

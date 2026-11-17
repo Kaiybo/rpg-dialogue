@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Bows, arrows, strings. If you need something else, you've come to the wrong tree." },
+    { id = "g_default", text = "Bows, arrows, strings, as the Sentinels have carried since the War of the Ancients. If you need something else, you've come to the wrong tree." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Let me see how you're holding that bow; I'll know where you've been." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you've come back with all your fingers. That's more than some." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels say you've been useful on the border. Good. They don't say that lightly." },
@@ -29,19 +29,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_default", text = "Some of the younger Sentinels say so, when they think I can't hear them. I've seen what orc axes do to a forest, but I've also seen that camp bury its dead with care. What do you make of the orcs?" },
+      },
+      choices = {
+        { text = "They've their own honor. Peace with them might be possible.", next = "op_orc_peace", fx = { align = { honor = 1 }, opinion = { orcs = "respect", peace = "for" } } },
+        { text = "Orcs burned Ashenvale once. Drive them out before they do it again.", next = "op_orc_drive", fx = { affinity = 1, align = { honor = -1 }, opinion = { orcs = "hate" } } },
+        { text = "They're cutting our forest. That's all I need to know.", next = "op_orc_drive", fx = { affinity = 1, opinion = { orcs = "hate", ashenvale = "wrong" } }, when = { race = "NightElf" } },
+        { text = "I'd rather talk about bows.", next = "BACK" },
+      },
+    },
+    op_orc_peace = {
+      lines = {
+        { id = "opop_default", text = "Possible, perhaps. I'll keep my arrows fletched while we find out, and I'll tell the young ones you agree with them, which they'll enjoy far too much." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_orc_drive = {
+      lines = {
+        { id = "opod_default", text = "That's the Sentinel's answer, and it's the one I give when the Captain asks. Keep it, but don't let it make you careless; the orcs can hate us back just as well." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Brinna Valanaar. I keep the Sentinels at Talrendis armed, which means a great many bows and a great many broken strings, because the satyrs and the naga keep them busy." },
+        { id = "h_default", key = true, text = "I am Brinna Valanaar. I keep the Sentinels at Talrendis armed, which means a great many bows and a great many broken strings, because the satyrs and the naga keep them busy on what was once the edge of Zin-Azshari." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Ishnu-alah. You'll have heard what this land was, then, and you'll understand why I don't love it." },
       },
       again = {
         { id = "h_again", text = "Something else? Keep it short; strings don't wax themselves." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, but briefly; the Highborne talked too much, and look what became of them." },
       },
       choices = {
         { text = "Where do you get your wood?", next = "wood" },
-        { text = "What do the Sentinels face here?", next = "border" },
+        { text = "The Sentinels must face a good deal here.", next = "border" },
         { text = "What makes a good bow?", next = "bow", when = { class = "HUNTER" } },
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "Farewell, Brinna.", next = "END" },
@@ -72,7 +95,10 @@ P:NPC {
     },
     border_orcs = {
       lines = { { id = "bo_default", text = "They lost warriors to an elf mage of their own choosing, I hear, and they've been quiet since. I'd almost pity them, if they weren't cutting down Ashenvale on the other side of the river." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Should the Sentinels make peace with that camp?", next = "op_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     bow = {
       lines = { { id = "bw_default", text = "The wood matters, the string matters more, and the archer matters most. A good bow is one you've stopped noticing, the way you stop noticing your own arm." } },
@@ -84,6 +110,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A bowyer from Ashenvale, sent to the border because the Sentinels here break more bows than anyone." } },
     advice = { { id = "tp_ad", text = "Unstring your bow every night. A bow that's always bent forgets how to straighten." } },
     sentinels = { { id = "tp_sent", text = "My sisters on the wall. I make their bows, and they keep me alive; it's a fair trade." } },
-    _none = { { id = "tp_none", text = "Not my concern. Ask the Sentinels; they stand around long enough to hear everything." } },
+    elune = { { id = "tp_elune", text = "I carve a moon into every bow I make, small, under the grip where only the archer sees it. Elune guides the arrow, and I only make the wood straight." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande is the finest archer I've ever seen, and I've seen a great many. I made her a bowstring once, and I still think of it." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "These trees grew in the gardens of the queen's own city, and I won't cut them for bows. Some of them remember her, and I don't want her name in my wood." } },
+    loramus = { { id = "tp_loramus", text = "There is a hermit on an island in the bay, one of our people, who walks with demons on leashes. The Sentinels pretend he is not there, and I pretend with them." } },
+    thrall = { { id = "tp_thrall", text = "The orcs at Valormok cut our trees, and their warchief calls it trade. I call it theft with a peace treaty attached." } },
+    _none = { { id = "tp_none", text = "Not my concern. Ask the Sentinels; they stand around long enough to hear everything, and they forget nothing for ten thousand years." } },
   },
 }

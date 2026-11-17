@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "Williden tells me you called the League glory-hunters. I'm a dwarf, so mind your tongue around my counter, friend, but I'll not say you're entirely wrong." },
     { id = "g_default", text = "Food, drink and shot, all hauled up from Gadgetzan by a goblin who charges by the step, so don't ask why it costs what it costs." },
     { id = "g_back", when = { metBefore = true }, text = "Back up the hill in one piece, are ye? Good, I hate losing a customer to a lizard." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye're still walkin', which is more than I'd have wagered. I'd started tae wonder whether a devilsaur had made a meal o' ye." },
@@ -152,11 +153,11 @@ P:NPC {
         { text = "Why not live off the crater, Nergal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why not eat what's in the crater?", next = "crater_food" },
-        { text = "What happened to the expedition?", next = "expedition" },
-        { text = "Does conjured water hurt your trade, Nergal?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Something must have gone wrong with the expedition.", next = "expedition" },
+        { text = "Conjured water must hurt your trade, Nergal.", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm no thief, Nergal.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does the crater do to people, Nergal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Have you buried many from the expeditions, Nergal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "You must have buried many from the expeditions, Nergal.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should the Refuge be fortified, or abandoned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why won't you eat anything that grows in the crater, Nergal?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Won't you even buy devilsaur meat from a hunter, Nergal?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -188,6 +189,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep the stores. Where I kept them before is between me and my old employers." } },
     advice = { { id = "tp_ad", text = "Carry more food than ye think, because ye'll not be wanting to eat anything ye find down there." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "I buy everything from Gadgetzan, and it costs a fortune to haul it up here, but I'll not sell a single thing that grew in that crater. Ye've seen what grows down there." } },
+    magni = { { id = "tp_magni", text = "Magni's a good king, and he'd be proud of a dwarf who keeps a store up a crater wall. I'd like to think so, anyway." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron have their own fire down in their mountain, and they're welcome to it. I've enough heat up here." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League sends a dwarf down into the crater every season, and every season one doesn't come back. I keep a list, and I wish I didn't." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye. Ask Williden, he knows more about this place than I'd ever want to." } },
   },
 }
@@ -214,6 +219,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_peace = {
+      lines = {
+        { id = "opp_q", text = "Here's a question I ask all my customers, purely for business reasons, chum. Is this peace between Horde and Alliance gonna hold, and do you want it to?" },
+      },
+      choices = {
+        { text = "I hope so. Neutral ground like this proves it can work.", next = "op_peace_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "It won't last, and I'll be ready when it breaks.", next = "op_peace_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { peace = "war" } } },
+        { text = "I don't care, so long as the birds still fly.", next = "op_peace_r3", fx = { trait = { witty = 1 }, opinion = { peace = "indifferent" } } },
+        { text = "Ask me after the next battle, Gryfe.", next = "BACK" },
+      },
+    },
+    op_peace_r1 = {
+      lines = {
+        { id = "op_peace_r1", text = "That's what I like to hear, because a war's terrible for the flight business. Everybody wants to fly away from one and nobody pays." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_peace_r2 = {
+      lines = {
+        { id = "op_peace_r2", text = "Ready, sure, but a war's bad for my margins, pal, so don't go startin' one on my landing field." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_peace_r3 = {
+      lines = {
+        { id = "op_peace_r3", text = "Now that's a customer after my own heart! The birds fly for everybody, so long as the coin's good." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
@@ -323,15 +363,15 @@ P:NPC {
       },
       choices = {
         { text = "What are the winds like over the crater?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What do you hear about Silithus, Gryfe?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "You must hear things about Silithus, Gryfe.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS" },
         { text = "Why fly anyone, Horde or Alliance?", next = "neutral" },
         { text = "Is flying over the crater safe?", next = "safe" },
         { text = "You don't ask who your passengers are?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Mages can't teleport to Gadgetzan, Gryfe.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you fly the Horde as gladly as the Alliance?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You seem to fly the Horde as gladly as the Alliance.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your passengers really pray on the flight, Gryfe?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Have your flyers ever been attacked over the crater, Gryfe?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Your flyers must get attacked over the crater, Gryfe.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the crater beasts ever threaten your flyers, Gryfe?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Has an imp ever set one of your beasts on fire, Gryfe?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
@@ -340,6 +380,7 @@ P:NPC {
     neutral = {
       lines = { { id = "n_default", text = "Because the Cartel keeps this place running, chum, and the Cartel doesn't take sides, it takes percentages. The Bruisers keep everybody civil, I keep everybody moving, and it's a fine arrangement for all of us." } },
       choices = {
+        { text = "Do you think the peace will hold?", next = "op_peace" },
         { text = "More places should work like that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't trust anyone who'd fly my enemies.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -348,7 +389,7 @@ P:NPC {
     safe = {
       lines = { { id = "s_default", text = "Safer than walking it, chum. Pterrordax come up off the cliffs now and then and take a look at the flyers, but my beasts are faster, and they've got plenty of reason to be, since I don't feed the slow ones." } },
       choices = {
-        { text = "What's a pterrordax?", next = "safe_ptero" },
+        { text = "I've never seen a pterrordax.", next = "safe_ptero" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -362,6 +403,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I go where the flight paths go, chum, and right now they go here, and so does the money. That's the whole story." } },
     advice = { { id = "tp_ad", text = "Fly over Un'Goro whenever you can, chum, because everything down there wants to eat you, and none of it can catch a flyer." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel pays my wages and keeps the Bruisers here, chum. That's all the politics I need, and all I can afford." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's my best route, pal, and the one I charge most for, because it's the one people want most. That's just good sense." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'll fly you to Booty Bay if you like, buddy, but you'll be changing beasts three times. The connection's not my fault, take it up with the Cartel." } },
+    thrall = { { id = "tp_thrall", text = "Horde, Alliance, I don't care who's paying, friend, I fly 'em all. The Warchief's people tip better, for what it's worth." } },
+    jaina = { { id = "tp_jaina", text = "The Theramore folk fly out of here on the same beasts as the Horde, and nobody's died of it yet. That peace is good for business." } },
     _none = { { id = "tp_none", text = "Don't know, chum. I only know where things are from the air, and what it costs to get there." } },
   },
 }

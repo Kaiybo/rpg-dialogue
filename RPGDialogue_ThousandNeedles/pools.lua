@@ -19,12 +19,12 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Something moved on the bridge. Show yourself, or swim the canyon, and there's no water in it." } },
   lines = {
-    { id = "l_default", text = "We watch the canyons for the Galak and the pinnacle for the Grimtotem. Both of them are watching us back." },
+    { id = "l_default", text = "We watch the canyons for the Galak and the pinnacle for the Grimtotem, as the Earth Mother would want. Both of them are watching us back." },
   },
   choices = { { text = "Keep watching, Brave.", next = "END", fx = { standing = { freewind = 1 } } } },
   topics = {
     grimtotem = { { id = "t_grimtotem", text = "They're tauren, and they look at us like strangers. Don't walk alone near Darkcloud Pinnacle." } },
     mirage_raceway = { { id = "t_raceway", text = "Goblins and gnomes racing across the salt. When the wind drops you can hear the engines from here." } },
-    _none = { { id = "t_none", text = "Ask the Cliffwatcher; he sees farther than any of us." } },
+    _none = { { id = "t_none", text = "Ask the Cliffwatcher; he sees farther than any of us, almost as far as the hawks." } },
   },
 }

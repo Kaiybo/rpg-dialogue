@@ -83,7 +83,7 @@ P:NPC {
       choices = {
         { text = "I'll smile. These folk have seen enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them stare. Fear keeps people careful.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "How many guards does Lakeshire have?", next = "guards" },
+        { text = "Even the guards look worried about the orcs.", next = "guards" },
       },
     },
     xapriest = {
@@ -142,7 +142,7 @@ P:NPC {
       choices = {
         { text = "Pour me whatever you've got.", next = "BUSINESS" },
         { text = "Heard anything?", next = "news" },
-        { text = "Why is the bar so dry?", next = "dry" },
+        { text = "This bar looks drier than a Westfall field.", next = "dry" },
         { text = "Who's that in the corner?", next = "wiley" },
         { text = "Who keeps this place running?", next = "inn" },
         { text = "A dwarf brewed your lager, I hope.", next = "dwarf", when = { race = "Dwarf" } },
@@ -166,12 +166,12 @@ P:NPC {
         { id = "n_default", text = "Guards drink, and guards talk. The orcs are getting bolder, the bridge is getting nowhere, and the magistrate's writing another letter." },
       },
       choices = {
-        { text = "What do the guards say about the orcs?", next = "guards" },
+        { text = "The guards must talk about the orcs over their drinks.", next = "guards" },
         { text = "Sounds about right.", next = "BACK", fx = { learn = { "blackrock" } } },
       },
     },
     guards = {
-      lines = { { id = "gu_default", text = "That there's more of them every week, and they march like soldiers. Guards don't like saying that sober, so they say it here." } },
+      lines = { { id = "gu_default", text = "They say there's more of them every week, and they march like soldiers. Guards don't like saying that sober, so they say it here." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackrock" } } } },
     },
     dry = {
@@ -195,7 +195,7 @@ P:NPC {
     inn = {
       lines = { { id = "in_default", text = "Brianna has the rooms, I have the bar, and my wife has the needle. Half the cloaks in Lakeshire are her stitching." } },
       choices = {
-        { text = "Your wife sews?", next = "wife" },
+        { text = "Your wife must be handy with a needle.", next = "wife" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -221,6 +221,11 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum used to come up the road by the cask, and now it doesn't come at all, because the orcs sit astride the only road there is. I'd pay goblin prices again just to have something goblin-priced to sell." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire camps by Goldshire, half my regulars ride over and come back broke and grinning. I don't mind, because a man with no money and a good story still buys a mug of water and tells it." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "A goblin from Gadgetzan once sold me a barrel of something he swore was cactus wine. It ate through the bung by morning, and I kept the barrel as a lesson." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My cousin says every orc in the Burning Steppes goes back to that mountain to drink, and that they've got a better cellar than mine. That's the most bitter thing I've heard all year." } },
+    theramore = { { id = "tp_theramore", text = "They say the Lady Proudmoore has a harbour full of ships and a tavern on every corner over in Theramore. I'd move my whole bar there if the road out of Redridge didn't run through orcs first." } },
     knows = {
       { id = "tp_knows", text = "A barkeep hears everything said over a mug, and Lakeshire says plenty. Ask me about any of this." },
     },
@@ -350,15 +355,15 @@ P:NPC {
       },
       choices = {
         { text = "A room, please.", next = "BUSINESS" },
-        { text = "Who's Narnie?", next = "narnie" },
+        { text = "Is that your pet by the hearth?", next = "narnie" },
         { text = "How's the town holding up?", next = "town" },
-        { text = "Are there wounded under your roof?", next = "wounded", when = { class = "PRIEST" } },
+        { text = "You look like you've been tending the wounded.", next = "wounded", when = { class = "PRIEST" } },
         { text = "I could light every hearth in the inn tonight.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How often does the alarm bell ring in Lakeshire, Brianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there good hunting near Lakeshire, Brianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you keep the town calm when the bell rings?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do many travellers still reach Lakeshire with the roads so dangerous?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Few travellers can reach Lakeshire with the roads so dangerous.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you get much trouble from thieves at the inn, Brianna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do people in Lakeshire fear shamans, Brianna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
@@ -390,6 +395,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took Narnie to the Darkmoon Faire once, and she ate a whole tray of cakes off a gnome's table before anyone noticed. We left early, and I still apologise to that gnome in my head." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light keeps this inn as much as I do, I think, because nobody's burned it yet. I say a little prayer over every room before a guest sleeps in it, and it's done no harm so far." } },
+    second_war = { { id = "tp_second_war", text = "My mother hid me in the inn's cellar when the orcs came through in the Second War, and I still can't stand the smell of potatoes. That's why I keep this inn bright and the cellar locked." } },
+    theramore = { { id = "tp_theramore", text = "A guest of mine sailed from Menethil to Theramore last spring and wrote back that it's warm, wet and full of soldiers. I don't know why anyone would want more soldiers, though Lakeshire could use some." } },
     background = { { id = "tp_bg", text = "I keep the rooms and Narnie keeps me; that's the arrangement." } },
     advice = { { id = "tp_ad", text = "Make an inn your home before you need one. You'll come back to it more than you think." } },
     blackrock = { { id = "tp_blackrock", text = "We hear the drums some nights. Everyone goes very quiet and orders another round." } },

@@ -51,10 +51,10 @@ P:NPC {
         { id = "h_again2", text = "Ask on. There's little else tae do up here but talk an' wait." },
       },
       choices = {
-        { text = "What happened at the dig?", next = "attack" },
+        { text = "Something terrible must have happened at the dig.", next = "attack" },
         { text = "What were you digging for?", next = "dig" },
-        { text = "Tell me about Ormer.", next = "ormer" },
-        { text = "Tarrel misses you.", next = "tarrel" },
+        { text = "Who held the raptors off?", next = "ormer" },
+        { text = "Tarrel misses you.", next = "tarrel", when = { heardLine = "tarrel.h_default" } },
         { text = "I can tend that raptor bite.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "Stay safe, Merrin.", next = "END" },
       },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "at_default", text = "We'd begun tae find bones, great big ones, an' then the mottled raptors were all over the site before anyone could shout. Many lives were lost, an' Ormer held them off long enough for the Prospector an' me tae reach the ridge." },
       },
       choices = {
-        { text = "Why did the raptors come?", next = "attack_why" },
+        { text = "The raptors must have come for a reason.", next = "attack_why" },
         { text = "Something else, Merrin.", next = "BACK" },
       },
     },
@@ -86,7 +86,7 @@ P:NPC {
         { id = "dg_default", text = "Old stonework an' old bones, an' the bones were older than the stone, which had the Prospector very excited. Somethin' huge lived an' died in these hills long before any dwarf set foot in them." },
       },
       choices = {
-        { text = "You argue with Whelgar about the digging?", next = "dig_whelgar" },
+        { text = "Did you and the Prospector argue about it?", next = "dig_whelgar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "or_default", text = "So brave, an' he'd hate me sayin' it. He stood between the raptors an' the rest o' us wi' nothin' but a pick an' his own stubbornness, an' he lost friends down there he'll no' talk about." },
       },
       choices = {
-        { text = "How is he holding up?", next = "ormer_how" },
+        { text = "He doesn't seem to be holding up well.", next = "ormer_how" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,5 +153,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never turn yer back on a quiet raptor, for a quiet one's a hungry one." } },
     explorers_league = { { id = "tp_league", text = "We dig where nobody else will, an' sometimes we find out why." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, I've been on this ridge too long. Ask in Menethil, if ye get back before me." } },
+    grim_batol = { { id = "tp_grim_batol", text = "We dug as far east as we dared an' no further, because Grim Batol's past those hills. The League wanted samples, an' I told them tae fetch their own." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the dig every Explorer dreams o', down in the Badlands. They say the titans built it, an' if that's true, half o' what we think we know about dwarves might be wrong." } },
+    magni = { { id = "tp_magni", text = "King Magni wants tae know where dwarves came from, an' he's payin' the League tae find out. I like a king wi' questions." } },
   },
 }

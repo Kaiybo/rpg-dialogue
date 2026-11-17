@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened with Northwatch Hold?", next = "northwatch" },
-        { text = "A high elf captain in a goblin port?", next = "exile" },
+        { text = "A high elf captain in a goblin port is a strange sight.", next = "exile" },
         { text = "Who are the Thalo'dan Privateers?", next = "crew" },
         { text = "Northwatch answers to Theramore. I'm Alliance.", next = "alliance", when = { faction = "Alliance" } },
         { text = "What is it you need?", next = "BUSINESS" },
@@ -60,7 +60,7 @@ P:NPC {
       lines = { { id = "n_default", text = "We were running a cargo between Ratchet and Booty Bay, nothing more dangerous than moonshine, when Northwatch's guns opened on us from the cliffs. They called us a threat to the Alliance, which would be funny if I hadn't lost a ship and a crew." } },
       choices = {
         { text = "Why would they fire on a trade ship?", next = "why" },
-        { text = "Did anyone survive?", next = "firebough" },
+        { text = "I'd guess no one survived.", next = "firebough" },
       },
     },
     why = {
@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "I don't know, friend, and I've stopped caring which. A sunk ship is a sunk ship, and someone will answer for it, whether by order of Lady Proudmoore or in spite of her." } },
       choices = {
-        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust" } } },
+        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", fx = { align = { order = 1 }, opinion = { jaina = "trust" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,9 +89,36 @@ P:NPC {
     exile = {
       lines = { { id = "e_default", text = "Where else would I be, friend? Quel'Thalas burned in the war, and the elves who are left either cling to the Alliance or go their own way. I chose a deck and a crew, and a goblin's coin spends as well as a king's." } },
       choices = {
-        { text = "Do you miss your homeland?", next = "home" },
+        { text = "You must miss your homeland.", next = "home" },
+        { text = "Should the elves have stayed with the Alliance?", next = "elves_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    elves_op = {
+      lines = { { id = "eo_default", text = "That depends on whom you ask, friend. King Anasterian took us out of the Alliance after the Second War, and the elves who still serve Stormwind and Theramore have their own reasons, so tell me: should my people have kept faith, or gone our own way?" } },
+      choices = {
+        { text = "The Alliance left Quel'Thalas to burn. You owe them nothing.", next = "eo_free", fx = { affinity = 1, align = { order = -1 }, opinion = { high_elves = "free", alliance = "distrust" } } },
+        { text = "An oath is an oath. The elves should stand with the Alliance.", next = "eo_oath", fx = { affinity = -1, align = { order = 1 }, opinion = { high_elves = "loyal", alliance = "trust" } } },
+        { text = "Elves look after elves. They always have.", next = "eo_proud", fx = { affinity = -1, opinion = { high_elves = "distrust" } } },
+        { text = "My people still honor the elves who fought beside us.", next = "eo_honor", when = { faction = "Alliance" }, fx = { affinity = 2, opinion = { high_elves = "respect" } } },
+        { text = "A deck seems a better answer than either.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    eo_free = {
+      lines = { { id = "eof_default", text = "That's what I told myself the day I took this ship, and most days I believe it. On the others I sail a little farther out and don't look back toward the north." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_oath = {
+      lines = { { id = "eoo_default", text = "Then you'll find plenty of my kin in Theramore who agree with you, and you're welcome to them. I'll keep my oaths to my crew, which is all the kingdom I have left." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_proud = {
+      lines = { { id = "eop_default", text = "Ha! Said like a dwarf, or an orc, or anyone who's ever dealt with my people at court. Fair, friend, though my crew would argue the point." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_honor = {
+      lines = { { id = "eoh_default", text = "Some do, and I'm glad of them. Northwatch's guns make it easy to forget there were ever humans who bled for Quel'Thalas, so thank you for the reminder." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     home = {
       lines = { { id = "h2_default", text = "Every dawn, when the light comes over the water and turns it gold. Then the crew starts shouting and I remember I have work to do, which is the best cure I've found." } },
@@ -121,6 +148,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A captain of Quel'Thalas, once, and a captain of nothing but my ship now. That's more freedom than most elves have these days." } },
     advice = { { id = "tp_ad", text = "Never sail past a fort you haven't spoken to. Learn from my mistake, friend." } },
     steamwheedle = { { id = "tp_sw", text = "The Cartel keeps Ratchet open to anyone who pays, and that makes it the only harbor on this coast where an elf captain can tie up without a flag." } },
+    theramore = { { id = "tp_theramore", text = "Lady Proudmoore I have no quarrel with, and I'd drink to her health in any port. But it was Northwatch Hold's guns that sank my ship, and Northwatch flies her colours, so you'll forgive me if I don't toast too often." } },
+    bloodsail = { { id = "tp_bloodsail", text = "They are pirates in red, sailing out of Stranglethorn and stealing from honest privateers like myself. There is a difference between us, and it is mostly that I keep a contract." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a fine harbour with a terrible reputation, which suits me perfectly. Half of my crew signed on there, and the other half drank there first." } },
+    dalaran = { { id = "tp_dalaran", text = "My family had friends in Dalaran before the war, and I have not heard from them since it fell. They say the Kirin Tor are raising it again, though slowly, and behind a great many locked doors." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet took us in when Northwatch made us homeless, and Gazlowe has been decent about it, for a goblin. We pay our berth and we keep the pirates off his docks, which is a trade that suits us both." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond what a sea captain hears, friend. Try the goblins; they hear everything and sell half of it." } },
   },
 }

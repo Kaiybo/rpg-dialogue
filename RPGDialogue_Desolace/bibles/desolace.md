@@ -47,3 +47,6 @@ Sources read for this pass (warcraft.wiki.gg, Classic sections): Takata_Steelbla
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Pentigast (Persuade, arithmetic): he calls it arithmetic (forty soldiers against three clans), but doesn't sleep the night after he breaks faith with a clan; the men aren't to know.
+
+## Prejudices (0.80.0, authored, not canon)
+- Vahlarriel Demonslayer counts every warlock a step from the Burning Blade (`prejudice` WARLOCK 15): the cultists she questioned could never say when they crossed the line.

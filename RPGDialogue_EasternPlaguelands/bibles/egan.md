@@ -11,7 +11,7 @@
 ## Identity
 Egan · near Terrordale, Eastern Plaguelands · neutral · dwarf · inventor
 Personality: intense, warm, stubborn, grieving, funny about his machines
-Speech: dwarven brogue light ("aye"); talks while working; a tinkerer's asides
+Speech: dwarven brogue light ("aye", "ye", {g:lad|lass}, "wee"); forge, stone and beard imagery; talks while working; a tinkerer's asides
 Knows and cares about: his blaster and soul-coil, the Stratholme ghosts, his mother, the Crusade's cruelty
 Relationships: Caretaker Alen (associate)
 Default attitudes: free Forsaken are exactly who he fights for; paladins shouldn't smite ghosts
@@ -35,3 +35,6 @@ Never says: what happens to freed souls (he doesn't know)
 
 ## Topics
 - scarlet_crusade, background, advice
+
+## 1.23 additions (authored, not canon)
+- Ironforge-born, apprenticed young in Gnomeregan; followed his mother east when she married a Stratholme man. Pointed the blaster at Augustus, bought wire instead. Prefers small parties in Stratholme to an army (stance node). Baron Rivendare named as the city's Scourge lord.

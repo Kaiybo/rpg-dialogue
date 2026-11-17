@@ -12,7 +12,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Good evening, traveller. The Circle's wares are here for those who have earned them." },
+    { id = "g_default", text = "Ishnu-alah, traveller. The Circle's wares are here for those who have earned them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see if the Circle thinks better of you than it did last time." },
     { id = "g_away", when = { away = 14 }, text = "Welcome back after {away}, traveller. I'll need to look again at what the Circle thinks of you, because a great deal can change in that time." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word in the village is that you've helped Nighthaven, and the Circle notices who comes to mend, so I've made a note of it." },
@@ -134,8 +134,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle sells its wares to those it trusts, and I'll admit I'm curious how a child of Ironforge earns it." },
       },
       again = {
-        { id = "h_again1", text = "Anything else I can help you with?" },
-        { id = "h_again2", text = "Yes?" },
+        { id = "h_again1", text = "Anything else I can help you with? The Circle's memory is long, and so is mine." },
+        { id = "h_again2", text = "Yes? Speak, and I'll listen as the glade does." },
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
@@ -145,7 +145,7 @@ P:NPC {
         { text = "Does the Circle trust a priest of the Horde, Lorelae?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Circle trust a rogue at all, Lorelae?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does the Circle prefer goods without the arcane in them?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Could a warlock ever earn the Circle's friendship, Lorelae?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I doubt a warlock could earn the Circle's friendship, Lorelae.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a warrior grow the Circle's friendship?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How does one earn the Circle's trust, Lorelae?", next = "xdruid", when = { class = "DRUID" } },
@@ -183,6 +183,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I keep the Circle's stores, and I keep them honestly." } },
-    _none = { { id = "tp_none", text = "That I couldn't tell you, I'm afraid." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw trade with the Circle now and then, mostly hides for honey. They drive a hard bargain, and they never cheat." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids talk about the Dream as though it's another country. I keep the stores here in this one, and that's enough for me." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins sell us winter supplies at a price I'd call robbery if they weren't the only ones who'd make the trip." } },
+    _none = { { id = "tp_none", text = "That I couldn't tell you, I'm afraid, and I've kept the Circle's stores for longer than most kingdoms have stood." } },
   },
 }

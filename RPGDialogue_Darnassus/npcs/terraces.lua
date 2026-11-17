@@ -31,6 +31,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Over a bowstring, mostly. You have walked among outsiders longer than my Sentinels have, so I would hear it from you: are the orcs beasts, or a people?" },
+      },
+      choices = {
+        { text = "A people. Thrall's orcs broke their chains; give them a chance.", next = "op_r1", fx = { affinity = -1, align = { honor = 1 }, opinion = { orcs = "respect" } } },
+        { text = "Beasts. The Legion's blood is still in them.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { orcs = "hate" } } },
+        { text = "Dangerous neighbours. Watch them, but don't hate them.", next = "op_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { orcs = "dangerous" } } },
+        { text = "I fought orcs in the Second War. They've earned no trust.", next = "op_r4", fx = { affinity = 1, opinion = { orcs = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "My people kept them in camps. Look how that turned out.", next = "op_r5", fx = { trait = { skeptical = 1 }, opinion = { orcs = "mixed" } }, when = { race = "Human" } },
+        { text = "I'd rather hear your report.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "A people who fell our forest and call it building a nation. I'll give them the same chance they give the trees." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Some of my Sentinels would cheer you for that. I fought beside orcs at Hyjal, though, so I will call them enemies and leave the word beasts to the satyrs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Spoken like a Sentinel. Watch them, count their axes, and loose only when they cross the line." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you and I keep the same ledger, dwarf, though yours has more pages in it than mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "I have heard of your internment camps, and I have heard that Thrall walked out of one. Cages make poor teachers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I guard it fiercely. She is missing, and I will not let her be forgotten. Your spirits might find her where we cannot." } },
@@ -120,6 +154,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_ashenvale_compromise", tags = { "news" }, when = { gossip = { topic = "ashenvale", stance = "compromise" } },
+          text = "The druids say you'd let the orcs take deadwood. Deadwood is how it starts, {class}, and I have walked the stumps that come after." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Sentinels have fought beside your kind before, and I will say that you hold a line as well as anyone I've seen." },
         { id = "h_default", text = "I am Thyn'tel Bladeweaver, and I command some of the Sentinels who guard our people. If it concerns the borders, the patrols or the war in Ashenvale, it concerns me." },
         { id = "h_velinde", tags = { "news" }, when = { questActive = TODO_QUEST("Velinde Starsong") },
@@ -137,18 +173,19 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Sentinels have need of those who can hold a line, though I will judge for myself whether you can." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Sentinels can use you in Ashenvale, because the orcs cut the trees faster than my patrols can bury the dead, and the forest needs someone who can hear it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Sentinels have fought beside human mages in Ashenvale, and some of my sisters even speak well of it, though I reserve my judgement." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh my words, especially about my Sentinels. Your spirits may speak freely; I do not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh my words, especially about my Sentinels, so your spirits may speak freely, but I will not." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it worth the time." },
-        { id = "h_again2", text = "Go on. I'll answer what I can." },
+        { id = "h_again", text = "What else? Make it worth the time; the borders of Ashenvale do not guard themselves." },
+        { id = "h_again2", text = "Go on. I'll answer what I can, and keep silent on the rest, as Tyrande would wish." },
       },
       choices = {
-        { text = "Who was Velinde Starsong?", next = "velinde" },
-        { text = "How goes the war in Ashenvale?", next = "ashenvale" },
+        { text = "How do you see the orcs, Commander?", next = "op_ask" },
+        { text = "Who was Velinde Starsong?", next = "velinde", when = { any = { { questActive = TODO_QUEST("Velinde Starsong") }, { questActive = TODO_QUEST("Velinde's Effects") }, { questActive = TODO_QUEST("The Barrens Port") }, { questActive = TODO_QUEST("Answered Questions") }, { questDone = TODO_QUEST("Answered Questions") } } } },
+        { text = "The war in Ashenvale must weigh on you.", next = "ashenvale" },
         { text = "What does a Sentinel commander do here?", next = "duty" },
         { text = "Will you tell the High Priestess about Velinde?", next = "tell", when = { questDone = TODO_QUEST("Answered Questions") } },
-        { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST" } },
+        { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST", any = { { questActive = TODO_QUEST("Velinde Starsong") }, { questActive = TODO_QUEST("Velinde's Effects") }, { questActive = TODO_QUEST("The Barrens Port") }, { questActive = TODO_QUEST("Answered Questions") }, { questDone = TODO_QUEST("Answered Questions") } } } },
         { text = "Do the Sentinels need another bow?", next = "hunter_tb", when = { class = "HUNTER" } },
         { text = "I stood the watch at Auberdine.", next = "watch_tb", when = { origin = "nightelf_auberdine_watch" } },
         { text = "Would the Sentinels trust a rogue's scouting?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -190,7 +227,7 @@ P:NPC {
       choices = {
         { text = "Then drive them out for good.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "warsong" } } },
         { text = "Neither side can win this. Seek a truce.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1, learn = { "warsong" } } },
-        { text = "What do you need most?", next = "ashenvale2" },
+        { text = "You must need a great deal out there.", next = "ashenvale2" },
       },
     },
     ashenvale2 = {
@@ -234,7 +271,15 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Report what you saw, not what you think it meant. I can do the thinking." } },
     sentinels = { { id = "tp_sentinels", text = "We are the walls of Darnassus and the eyes of Ashenvale. Every one of us is needed, and every one we lose is felt." } },
     warsong = { { id = "tp_warsong", text = "Orcs who cut our forest and call it lumber. We answer them in Ashenvale, every season." } },
-    _none = { { id = "tp_none", text = "That isn't a Sentinel matter. Ask in the Temple or the Enclave." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall's orcs fought at Hyjal, and I fought beside them. That's why I don't hate them, and it's also why I know how dangerous they are." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief stood at Hyjal, and I respected him there. Tell him his Warsong are making that harder every season." },
+    },
+    centaur = { { id = "tp_centaur", text = "The centaur are a southern problem, but my patrols have met them on the edge of the Barrens. They don't give ground, so neither do we." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom Deeps is a drowned temple with cultists and nagas in it, and it's on my map in red. If you're going in, go with four others you trust." } },
+    burning_legion = { { id = "tp_burning_legion", text = "My Sentinels fought the Legion at Hyjal, and many didn't come back. If the demons return, we'll stand again, and hope it's enough." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon south of Theramore, according to the humans. I'm glad it's their swamp and not our forest." } },
+    _none = { { id = "tp_none", text = "That isn't a Sentinel matter. Ask in the Temple of the Moon or the Enclave." } },
   },
 }
 
@@ -403,17 +448,17 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You'll find no stances to learn here, but resolve is the same in any profession." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't train your kind, but I've seen a druid in bear shape hold a line I'd have been proud of, so you're welcome to watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on the Warrior's Terrace. Resolve is the first thing I ask of anyone, and I'd like to know whether yours is your own or borrowed." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me resolve first. Teldrassil's moonwells are home to me, and I guard them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me resolve first, for Teldrassil's moonwells are home to me, and I guard them as my mothers guarded the wells of old." },
       },
       again = {
         { id = "h_again", text = "What else, warrior? Speak quickly; the Terrace doesn't sit still." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, warrior; I have time for one more question, and Elune knows I have heard most of them." },
       },
       choices = {
         { text = "What makes a warrior, to you?", next = "warrior" },
-        { text = "Why does a satyr matter so much?", next = "vorlus" },
-        { text = "Tell me about the elunite wreck.", next = "elura" },
-        { text = "Do the Sentinels fight like you?", next = "sentinels" },
+        { text = "Why does a satyr matter so much?", next = "vorlus", when = { any = { { questActive = TODO_QUEST("Vorlus Vilehoof") }, { questDone = TODO_QUEST("Vorlus Vilehoof") } } } },
+        { text = "Tell me about the elunite wreck.", next = "elura", when = { any = { { questActive = TODO_QUEST("The Shade of Elura") }, { questDone = TODO_QUEST("The Shade of Elura") } } } },
+        { text = "The Sentinels must fight differently from you.", next = "sentinels" },
         { text = "Test me, then. I'm ready.", next = "test", when = { class = "WARRIOR" } },
         { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
         { text = "Ironforge trained me. Will you test me anyway?", next = "dwarf_e", when = { race = "Dwarf", class = "WARRIOR" } },
@@ -460,7 +505,7 @@ P:NPC {
         { id = "el_default", text = "A ship carrying elunite broke on the rocks below the Auberdine lighthouse, and the crates lie on the sea floor still. Elunite is blessed by Elune, and Mathiel the smith would sooner work it than any other metal." },
       },
       choices = {
-        { text = "And the captain who guards it?", next = "elura2" },
+        { text = "And there's a captain who guards it, I take it.", next = "elura2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -496,7 +541,11 @@ P:NPC {
     knows = { { id = "tp_knows", text = "The Terrace hears what the patrols bring back. Ask, and I'll tell you if it's worth repeating." } },
     background = { { id = "tp_bg", text = "I train warriors and test the ones who think they're ready. Most aren't, yet." } },
     advice = { { id = "tp_ad", text = "Plant your feet before you swing. Everything else comes from the ground up." } },
-    _none = { { id = "tp_none", text = "That isn't a warrior's concern. Ask elsewhere." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hit like a charging saber and keep coming. Brace your shield and let the earth carry their weight, not your arm." } },
+    blackfathom = { { id = "tp_blackfathom", text = "That's where young warriors learn what they're made of, in the drowned temple. Some don't like the answer." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "A troll arena in Stranglethorn, where people fight for gold and goblins bet on them. I'd rather fight for something." } },
+    onyxia = { { id = "tp_onyxia", text = "A dragon. I've told my students that if they're going after one, they should come back first and tell me, so I can say goodbye properly." } },
+    _none = { { id = "tp_none", text = "That isn't a warrior's concern. Ask elsewhere, perhaps at the Temple of the Moon." } },
   },
 }
 
@@ -620,7 +669,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I always say a little prayer to Elune over my best work, so I like to think we're in the same line of business." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, let me see your hammer, because I've only seen Silver Hand work in drawings, and I've wanted to look at the real thing for years." },
-        { id = "h_default", text = "I'm Mathiel, a smith of the Terrace, and I'll mend anything the Sentinels or the adventurers bring me. Every repair puts a little more toward an anvil of my own, so I'm grateful for the work." },
+        { id = "h_default", text = "I'm Mathiel, a smith of the Terrace, and I'll mend anything the Sentinels or the adventurers bring me. When someone brings me elunite I work that too, and every repair puts a little more toward an anvil of my own, so I'm grateful for the work." },
         { id = "h_elunite", tags = { "news" }, when = { questActive = TODO_QUEST("Smith Mathiel") },
           text = "Elunite ore! This is a fine metal to work, for it's blessed by Elune herself. It would be an honor to make you a weapon of it, so wait here while I work." },
         { id = "h_weapons", when = { questActive = TODO_QUEST("Weapons of Elunite") },
@@ -637,7 +686,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll repair your gear, warlock, because coin is coin and I need an anvil of my own. But tell your servant to stay outside the forge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Elunite holds an edge like nothing else, and I've always wondered how it would sit on an arrowhead." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need much from my forge, I suppose, but buckles snap on bears as easily as on anyone, so bring them to me when they do." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! I have friends in every forge. Do your fire spirits enjoy elunite?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! I have friends in every forge, even Ironforge's, so tell me, do your fire spirits enjoy elunite?" },
       },
       again = {
         { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
@@ -646,7 +695,7 @@ P:NPC {
       choices = {
         { text = "Can you repair my gear?", next = "BUSINESS" },
         { text = "What's special about elunite?", next = "elunite" },
-        { text = "You have friends in Stormwind and Ironforge?", next = "friends" },
+        { text = "Do other smiths share their secrets with you?", next = "friends" },
         { text = "You don't have your own anvil?", next = "anvil" },
         { text = "What did Furen's notes teach you?", next = "furen", when = { profession = "Blacksmithing" } },
         { text = "Do you know Klockmort Spannerspan?", next = "gnome_m", when = { race = "Gnome" } },
@@ -728,7 +777,14 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a smith. I mend, I make, and I write long letters to dwarves about folding steel." } },
     advice = { { id = "tp_ad", text = "Have your gear seen to before it breaks, not after. It's cheaper, and you'll still be alive." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Klockmort's old home, overrun now. He writes about it as if it were a friend who'd fallen ill." } },
-    _none = { { id = "tp_none", text = "I couldn't say, friend, for I'm only a smith." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni writes back to me himself, sometimes, when his smiths are busy. He has opinions on night elf steel, and most of them are unkind." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king answered my letter on folding steel, and he signed it himself. I've framed it, and I won't tell you what it says." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The dwarven smiths talk of the Dark Iron forges under Blackrock with a hate that's almost envy. I'd give a great deal to see one, from a long way off." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "A Dark Iron city under the mountain, the dwarves say, with forges hotter than any above ground. Bring me a piece of their steel and I'll study it for a month." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief carries a hammer that's older than his people's arrival here. I'd like to see how it was made, though I doubt he'd lend it." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend, for I'm only a smith, and Elune gave me hands for the anvil rather than for lore." } },
   },
 }
 
@@ -886,13 +942,13 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether there's a warrior's spirit in you, and in some hunters there is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I see something of the warrior's spirit in you, which is not common in the Circle, though I teach only those who carry it whole." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I see little of the warrior's spirit in you, though I'll grant that facing a charge with nothing but a spell takes nerve." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I see your spirit at a glance. It is strong, though rough." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I see your spirit at a glance, as I have seen every student's for a thousand years, and yours is strong, though rough." },
       },
       again = { { id = "h_again", text = "Something more? Ask, and then let me return to my students." } },
       choices = {
         { text = "Instruct me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What is the warrior's spirit?", next = "spirit" },
-        { text = "Why 'Bladesinger'?", next = "name" },
+        { text = "Bladesinger is an unusual name.", next = "name" },
         { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
         { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
         { text = "Can a rogue really have a warrior's spirit?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -935,7 +991,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear what my students say between bouts. Ask, if you must." } },
     background = { { id = "tp_bg", text = "I teach warriors. I have done so for a long time." } },
     advice = { { id = "tp_ad", text = "Listen to your blade. It will tell you when you're careless." } },
-    _none = { { id = "tp_none", text = "That is no matter for a warrior trainer." } },
+    centaur = { { id = "tp_centaur", text = "Centaur fight from horseback, but they have no horse to fall off. Go for the legs, and step aside quickly." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've heard of the arena in Stranglethorn. Fighting for an audience teaches bad habits, but it does teach." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong are strong and they're proud of it. Proud fighters make mistakes, and that's where you put your blade." } },
+    _none = { { id = "tp_none", text = "That is no matter for a warrior trainer, child, and I have kept to my own matters since the War of the Ancients." } },
   },
 }
 
@@ -1039,7 +1098,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Herald Moonstalker, crier of Darnassus! I walk every path in the city so that no hero misses a summons, and my feet will tell you I take that seriously." },
+        { id = "h_default", text = "I am Herald Moonstalker, crier of Darnassus! I walk every path in the city so that no hero misses a summons, and my feet will tell you I take that seriously." },
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A Call to Arms: The Plaguelands!") },
           text = "Hear ye! Stormwind calls heroes to the Plaguelands, where the Scourge stirs again. Commander Ashlam Valorfist keeps his camp at Chillwind, north of the Alterac Mountains." },
         { id = "h_frontier", tags = { "news" }, when = { questActive = TODO_QUEST("The New Frontier") },
@@ -1051,7 +1110,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Hear ye, a warrior has come to the city! I'd announce you properly, but you'd only blush under that helmet." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter walks among us! Hear ye, and mind the beast, because it's sniffing my scrolls." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Hear ye, hear ye, there's a warlock on the Terrace, and the Herald has no proclamation for that at all!" },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! News for you, then: shamans are rare in Darnassus. You will be news yourself." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! News for you, then: shamans are rare in Darnassus, so you will be news yourself before the moon sets." },
       },
       again = {
         { id = "h_again", text = "More news? I've plenty!" },
@@ -1059,7 +1118,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the news from the Eastern Kingdoms?", next = "east" },
-        { text = "What's happening in Kalimdor?", next = "kalimdor" },
+        { text = "You must hear all of Kalimdor's news first.", next = "kalimdor" },
         { text = "What's the strangest news you've cried?", next = "strange" },
         { text = "Is there a call for healers anywhere?", next = "healers", when = { class = { "PRIEST", "DRUID", "PALADIN", "SHAMAN" } } },
         { text = "The Plaguelands call, and the Light answers.", next = "paladin_m", when = { class = "PALADIN" } },
@@ -1079,7 +1138,7 @@ P:NPC {
       choices = {
         { text = "The dead must be put down. I'll answer.", next = "BACK", fx = { align = { light = 1 }, trait = { brave = 1 }, learn = { "new_plague" } } },
         { text = "Stormwind should fight its own wars.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
-        { text = "What is the Scourge, exactly?", next = "east2" },
+        { text = "I know little of the Scourge.", next = "east2" },
       },
     },
     east2 = {
@@ -1132,6 +1191,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the crier. I walk, I call, and I make sure nobody can say they weren't told." } },
     advice = { { id = "tp_ad", text = "Listen to the proclamations, hero. Half the adventures in Azeroth start with somebody shouting." } },
     rumors = { { id = "tp_rumors", text = "Officially, I only cry what's sealed and signed. Unofficially, the Sentinels say Ashenvale is busier than they'd like." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Hear ye, the Darkmoon Faire comes and goes like the moon, and when it's near I cry it. When it's far I cry something else, but I always cry something." } },
+    scourge = { { id = "tp_scourge", text = "Hear ye, the plague of the dead still holds the human north! I cry it every week so nobody can say they weren't told, though I'm told it gets less cheerful each time." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is Lady Proudmoore's city across the sea, and its ships come to Auberdine now and then. I announce them when I hear of them, which is never as early as I'd like." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar rules Stormwind for the boy king, the human dispatches say. I cry the news, though I've never worked out how to pronounce Fordragon." } },
+    onyxia = { { id = "tp_onyxia", text = "A dragon in the marshes south of Theramore. I've been asked not to cry that one too loudly, because it frightens the children." } },
     _none = { { id = "tp_none", text = "No proclamation about that, I'm afraid. Ask me again next week." } },
   },
 }
@@ -1264,13 +1328,13 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want arrows, I suppose, and something for your companion, because heroes' beasts get hungry too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a hero in the making! I keep the Terrace in food and drink, and I've learned that druids eat like bears after a long day in one, so do stock up." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Oh, it's an honor, because heroes come in all shapes, and nobody ever writes a song about the one who picked the lock." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! An honour to supply a hero in the making. Your spirits must need supplies too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! It's an honour to supply a hero in the making, and I expect your spirits need supplies of their own." },
       },
-      again = { { id = "h_again", text = "Anything else? Take your time." } },
+      again = { { id = "h_again", text = "Anything else? Take your time, for my people never rush a guest." } },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why call us heroes in the making?", next = "heroes" },
-        { text = "Who is Nessa Shadowsong?", next = "nessa" },
+        { text = "Who is Nessa Shadowsong?", next = "nessa", when = { any = { { questActive = TODO_QUEST("Nessa Shadowsong") }, { questDone = TODO_QUEST("Nessa Shadowsong") } } } },
         { text = "Doesn't my conjured food take your custom?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do warriors forget to pack, Mydrannul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you stock food for a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1304,7 +1368,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Everyone buys bread, and everyone talks while they do. Ask, and I'll tell you what I've heard over the counter." } },
     background = { { id = "tp_bg", text = "I sell supplies on the Terrace. I like to think I've fed a few heroes before they were famous." } },
     advice = { { id = "tp_ad", text = "Carry water. More quests end in thirst than in dragons." } },
-    _none = { { id = "tp_none", text = "I wouldn't know about that, friend. I only sell the supplies." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've a cousin who sells in Booty Bay, and he says the goblins sell salt by the pinch and air by the breath. I sell it by the sack, and I'm still in business." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire passes anywhere near, the young ones come in for travel food and come back for more. It's good for trade, whatever you think of the games." } },
+    everlook = { { id = "tp_everlook", text = "Goblin town in Winterspring. They pay well for good food, because nothing grows in the snow except prices." } },
+    _none = { { id = "tp_none", text = "I wouldn't know about that, friend. I only sell the supplies, though Elune knows I've heard every rumour on the Terrace." } },
   },
 }
 
@@ -1448,7 +1515,7 @@ P:NPC {
         { id = "h_cl_kraul2", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Alliance", questDone = TODO_QUEST("Mortality Wanes") }, text = "You went all the way down into the Kraul, past the place where Heralath fell, and you came back out. I'm glad someone did, and I'm gladder it was you." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Forgive me if I seem far away, {class}, because my thoughts are usually somewhere in the Barrens with Heralath." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Heralath always said the Barrens needed knights more than scholars, though he went anyway, and he took only a staff." },
-        { id = "h_default", text = "I'm Treshala Fallowbrook. My husband, Heralath, went south to the Barrens to study the quilboar and the rumors about their fallen boar god, and I wait here for his letters." },
+        { id = "h_default", text = "I am Treshala Fallowbrook. My husband, Heralath, went south to the Barrens to study the quilboar and the rumours of their fallen boar god, and I wait here for his letters, as I have waited for him before." },
         { id = "h_pendant", tags = { "news" }, when = { questActive = TODO_QUEST("Mortality Wanes") },
           text = "That's my pendant, the one Heralath and I exchanged when we were bonded. Why do you have it, and why are you looking at me like that?" },
         { id = "h_after", when = { questDone = TODO_QUEST("Mortality Wanes") },
@@ -1460,7 +1527,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If you mean to offer me some dark way of finding Heralath, I'll tell you now that I'd rather keep waiting." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Razorfen", min = 30 } },
           text = "You've fought the quilboar of the Razorfen, from the look of you, and a great many of them. Heralath went south to understand them, and I wonder sometimes whether understanding them was ever possible." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My husband Heralath went south to study the quilboar. Have your spirits word of him?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My husband Heralath went south to study the quilboar, so if your spirits have any word of him, please, Elune keep you, tell me." },
       },
       again = {
         { id = "h_again", text = "Is there more? Please, I don't mind the company." },
@@ -1470,7 +1537,7 @@ P:NPC {
         { text = "What was Heralath studying?", next = "work" },
         { text = "How long since his last letter?", next = "letters", when = { ["not"] = { questDone = TODO_QUEST("Mortality Wanes") } } },
         { text = "I'm sorry for your loss.", next = "grief", when = { any = { { questActive = TODO_QUEST("Mortality Wanes") }, { questDone = TODO_QUEST("Mortality Wanes") } } } },
-        { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Mortality Wanes") } },
+        { text = "You don't seem the sort to sit and wait.", next = "after", when = { questDone = TODO_QUEST("Mortality Wanes") } },
         { text = "The Circle won't forget Heralath.", next = "druid_tr", when = { class = "DRUID" } },
         { text = "Shall I find out who threatens Heralath out there?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you wish Heralath could send letters faster?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1543,6 +1610,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I've read every one of Heralath's letters a dozen times, so I know more about the south than I ever meant to. Ask." } },
     background = { { id = "tp_bg", text = "I'm Heralath's wife, and I live above the shops on the Tradesmen's Terrace. That's all I've ever needed to be." } },
     advice = { { id = "tp_ad", text = "Write home, whoever waits for you. Write even when there's nothing to say." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Heralath took me to the Darkmoon Faire once, a long time ago, and won me a little stuffed saber. I still have it on the windowsill." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune every evening, mostly to keep Heralath out of trouble. She hasn't failed me yet, though it's been close." } },
+    theramore = { { id = "tp_theramore", text = "My sister's son went to Theramore with a merchant's crew. He writes that the human food is heavy and the humans are kind, which sounds about right." } },
     _none = { { id = "tp_none", text = "I don't know, but Heralath would have." } },
   },
 }
@@ -1665,14 +1735,14 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, do priests wear leather? I suppose not, but I'll ask anyway, because Faldron says I should know who my customers might be." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your armor's plate, isn't it, so you won't need anything from us, but could I look at the straps? Faldron says straps are where all armor fails." },
-        { id = "h_default", text = "I'm Darianna, and I'm learning leatherworking from Faldron and Telonis, who are true artists. It's so exciting to be here in Darnassus with talented people all around, even if I'm mostly sweeping." },
+        { id = "h_default", text = "I am Darianna, and I'm learning leatherworking from Faldron and Telonis, who are true artists. It's so exciting to be here in Darnassus among such talented people, even if I'm mostly sweeping, and I've only been at it a century." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Faldron says rogues buy the best leather, because a creaking jerkin gets you caught. Is that true?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! I'm sorry, I nearly dropped my broom. Is that thing yours? It's watching the hides like it wants to eat them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, your armor's taken a beating, hasn't it, and Faldron could have that leather mended in an afternoon!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your hides must be wonderful; do you skin what you hunt, or do you leave it where it falls?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Faldron says druids are the hardest customers, because your armor has to forgive you every time you turn into a bear, and I think that's the most exciting problem in the world." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Oh, could you make the leather dry faster? I'm only joking, mostly, though Faldron says patience is half of it and I've never had much patience." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My teachers Faldron and Telonis are the finest artists in Darnassus. Do your spirits make art?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My teachers Faldron and Telonis are the finest artists in Darnassus, and I wonder, do your spirits make art?" },
       },
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
@@ -1725,6 +1795,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear everything on the Terrace, because I'm the one sweeping it. Ask me!" } },
     background = { { id = "tp_bg", text = "I'm an apprentice leatherworker. I'm good at cutting and terrible at sitting still." } },
     advice = { { id = "tp_ad", text = "Measure twice! Faldron makes me say it every morning." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Oh, the Darkmoon Faire! I'd go tomorrow if the master would let me off, but he says I'd come back with a monkey and no leather." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'd love to see Booty Bay, with all those pirates and jungle beasts. I could make armor from tiger hide, and nobody here would ever stop talking about it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur leather is supposed to be tough. I've never seen any, and I suppose I'd rather not see where it came from." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one. Ask Telonis; he knows everything, or says he does." } },
   },
 }

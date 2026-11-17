@@ -116,6 +116,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_forsaken_pity", tags = { "news" }, when = { opinion = { topic = "forsaken", stance = "pity" } },
+          text = "I hear you think the Forsaken are still people inside. How touching! Do hold this flask while you're feeling sympathetic." },
         { id = "h_pt_winna", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you! Oh, that's wonderful, because I need a great many samples from the Bloodvenom and nobody ever volunteers twice." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -126,7 +128,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Do you know, the water in the Jadefire well does something arcane to it, I'm almost certain, though I haven't found a mage willing to taste it yet. *cackles*" },
         { id = "h_default", key = true,
-          text = "Winna Hazzard, alchemist of a sort and keeper of one kitten! Felwood is the most interesting place I've ever been, because everything in it is wrong in some new way. *cackles*" },
+          text = "Winna Hazzard, alchemist of a sort, servant of the Dark Lady and keeper of one kitten! Felwood is the most interesting place I've been since I died, because everything in it is wrong in some new way. *cackles*" },
         { id = "h_strange", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange One") },
           text = "Someone told you I was strange, didn't they? *laughs* Then there's hope for you yet, because you came anyway. Are you here to help me?" },
         { id = "h_well", when = { questActive = TODO_QUEST("Well of Corruption") },
@@ -145,20 +147,20 @@ P:NPC {
       },
       choices = {
         { text = "Do the spirits of this forest still answer anyone, alchemist?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's the kitten's name?", next = "kitten" },
+        { text = "That kitten must have a name.", next = "kitten" },
         { text = "What are you working on?", next = "work" },
         { text = "Some would call this cruel.", next = "cruel" },
-        { text = "What do you make of Felwood?", next = "felwood" },
+        { text = "You seem to love Felwood more than most.", next = "felwood" },
         { text = "A fellow Forsaken. Who sent you here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Keep your potions away from my pet.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Moonwells were sacred to someone.", next = "tauren", when = { race = "Tauren" } },
         { text = "Fel is just another reagent to me.", next = "warlock_w", when = { class = "WARLOCK" } },
         { text = "Your work could poison a whole Alliance camp, couldn't it?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What does the corrupted moonwell actually do to the water?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The corrupted moonwell must do something strange to the water.", next = "xmage", when = { class = "MAGE" } },
         { text = "Is anything in Felwood beyond mending, Winna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How big is your kitten going to get, Winna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "You treat Felwood's corruption like a curiosity, Winna.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "What's so wonderful about a Forsaken paladin, Winna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You seem to find a Forsaken paladin wonderful, Winna.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "What are you doing with all those samples, Winna?", next = "xpt_winna", when = { party = { size = 4 } } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
@@ -251,7 +253,15 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An alchemist, a Forsaken and a cat lover, and two of those are true! *cackles* You decide which." } },
     advice = { { id = "tp_ad", text = "Never let anything in Felwood lick you. *laughs* I mean it, actually, that one's serious." } },
-    _none = { { id = "tp_none", text = "No idea! *laughs* Isn't that exciting?" } },
+    forsaken = {
+      { id = "tp_forsaken", text = "We're the free dead, darling, and we've the Dark Lady to thank for it, and a great many test subjects to thank for the progress! *cackles* You should see the apothecaries' halls in the Undercity." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "Ah, a fellow survivor of the grave! Don't let the living stare at you too long, darling, they always want to know what it's like and never like the answer." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us from the Lich King, and I'd follow her into any swamp she pleased. She doesn't care much for cats, but nobody's perfect." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are what we were before the Dark Lady's gift, mindless and dreary. I won't say I miss it, and I'll thank you not to ask again." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief lets us into the Horde, and I'm grateful in my way, which isn't a very warm way. The orcs eye my potions like they might bite, which is fair." } },
+    new_plague = { { id = "tp_new_plague", text = "The apothecaries are working on something, darling, and I'm not to talk about it. *cackles* Ask me again when I've had a drink." } },
+    _none = { { id = "tp_none", text = "No idea! *laughs* Isn't that exciting? Being dead has made me ever so fond of not knowing things." } },
   },
 }
 
@@ -281,6 +291,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Orgrimmar tells me to keep an eye on Winna Hazzard, her kitten and her poisons, and to say nothing to her about it. You've seen her work, so you tell me: what do you make of the Forsaken in the Horde?" },
+      },
+      choices = {
+        { text = "They're Horde. They bled in the Barrens like anyone else.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "They're using us, and one day they'll turn on us.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "Their alchemists frighten me more than their soldiers.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { forsaken = "dangerous", new_plague = "fear" } } },
+        { text = "We're the only ones who know what the Scourge really is.", next = "op_r4", fx = { trait = { proud = 1 }, opinion = { forsaken = "proud" } }, when = { race = "Scourge" } },
+        { text = "I'll keep my eyes open, same as you.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Some of them did. Some of them bled green, and that's what worries me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Say that quietly, and say it to me, not to the Warchief's envoys. I've a feeling you're not wrong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Same here, and I've met their soldiers. Ask Winna what's in the green barrels and watch how she smiles." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "That's the one argument I can't answer, so I'll keep watching you while I think about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Maybe nothing, but folk say every Forsaken paladin keeps an old Silver Hand oath somewhere behind the new one. I'll not ask which you keep, but I'll be watching, the same way I watch the alchemist." } },
@@ -370,7 +409,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, at Bloodvenom. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
         { id = "h_default", key = true,
-          text = "Trull Failbane. Orgrimmar wants eyes in Felwood, and these are them; this forest hides a great deal, and I'm paid to find out what." },
+          text = "I am Trull Failbane. Orgrimmar wants eyes in Felwood, and these are them, because this forest is full of the same fel that once poisoned my own people, the owlbeasts on the Winterspring border hide more, and I'm paid to find out where it hides." },
         { id = "h_guardians", tags = { "news" }, when = { questActive = TODO_QUEST("Wild Guardians") },
           text = "Back with word? Good, then sit and tell me everything, slowly, because I'll know if you skip a part." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Guarding Secrets") },
@@ -383,18 +422,18 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I'm paid to find out what Felwood hides, and now I'll have to find out what you hide too." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Make it worth writing down." },
+        { id = "h_again", text = "Anything else? Make it worth writing down; the Warchief reads what I send." },
       },
       choices = {
         { text = "What do the elements tell you about this forest, Trull?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's out in Winterspring?", next = "winterspring" },
         { text = "Why does Orgrimmar care about owlbeasts?", next = "why" },
         { text = "What is this post, anyway?", next = "post" },
-        { text = "What's the alchemist really up to?", next = "winna" },
-        { text = "What do you make of that glowing necklace?", next = "nara", when = { questDone = TODO_QUEST("Guarding Secrets") } },
+        { text = "The alchemist seems to be up to something.", next = "winna", when = { heardLine = "winna.h_default" } },
+        { text = "That glowing necklace looks like no owlbeast trinket.", next = "nara", when = { questDone = TODO_QUEST("Guarding Secrets") } },
         { text = "The wildkin are kin to one of my forms.", next = "druid", when = { class = "DRUID" } },
         { text = "You want eyes? Mine work in the dark.", next = "rogue_tr", when = { class = "ROGUE" } },
-        { text = "What have you seen that you can't name?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You must have seen things out here you can't name.", next = "xmage", when = { class = "MAGE" } },
         { text = "Why watch me? I serve the Horde like you.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What have your eyes seen at Jaedenar, Trull?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Bloodvenom Post have enough warriors, Trull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -409,7 +448,7 @@ P:NPC {
         { id = "ws_default", text = "Snow, past the Timbermaw tunnels to the northeast, and owlbeasts, wildkin, crawling all over it. They guard something, secrets of the night elves, and creatures don't guard nothing." },
       },
       choices = {
-        { text = "Where would the secrets be?", next = "winterspring_caves" },
+        { text = "The secrets must be hidden somewhere up there.", next = "winterspring_caves" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -448,6 +487,7 @@ P:NPC {
         { id = "wi_default", text = "Bottling corrupted water and feeding it to her cat, as far as I can tell. I don't ask, because she laughs, and I don't like the laugh." },
       },
       choices = {
+        { text = "What do you make of the Forsaken in the Horde?", next = "op_ask" },
         { text = "Do you report on her?", next = "winna_report" },
         { text = "Something else.", next = "BACK" },
       },
@@ -480,6 +520,13 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "The druids south of here are honest, as far as I can tell. That's rare enough to report." } },
     background = { { id = "tp_ba", text = "I gather what Orgrimmar needs to know and send it home. My own story isn't something anyone's asked for." } },
     advice = { { id = "tp_ad", text = "Take the tunnels through Timbermaw country politely, if the furbolgs let you. The other way round is longer and colder." } },
-    _none = { { id = "tp_none", text = "Not in my reports." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief wants to know what's happening in Felwood, so I find out and send it home. He reads every report, which is more than I can say for most of Orgrimmar." },
+      { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You're Alliance, and you ask about the Warchief? He's the best thing that's happened to my people, and you'll get nothing else out of me." },
+    },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs in Felwood worth talking to, and they don't like me much. I don't take it personally; they don't like anyone." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Jaedenar's full of Shadow Council warlocks and their demons. Orgrimmar wants to know what they're doing, and I want to know before they do it." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken queen is an ally, the Warchief says, and so she's an ally. I read her people's reports twice, all the same." } },
+    _none = { { id = "tp_none", text = "Not in my reports. An orc reports what he has seen with his own eyes, and nothing else." } },
   },
 }

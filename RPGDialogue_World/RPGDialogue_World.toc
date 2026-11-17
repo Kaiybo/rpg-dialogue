@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: World |cff8a8a8a1.35.0|r
+## Title: RPG Dialogue: World |cff8a8a8a1.36.1|r
 ## Notes: Shared dialogue for RPG Dialogue: towns, topics, claims, throughlines, origins, role pools and fallbacks.
 ## Author: RPG Dialogue
-## Version: 1.35.0
+## Version: 1.36.1
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.world
@@ -19,6 +19,10 @@ threads_forsaken.lua
 threads_tauren.lua
 threads_frontiers.lua
 threads_alliance.lua
+threads_trolls_south.lua
+threads_kaldorei.lua
+threads_eastern.lua
+threads_kalimdor_south.lua
 origins\human.lua
 origins\dwarf.lua
 origins\gnome.lua
@@ -36,15 +40,31 @@ rumors\wetlands.lua
 rumors\hillsbrad.lua
 rumors\kalimdor.lua
 rumors\riverglades.lua
+rumors\eastern.lua
+rumors\kalimdor_more.lua
 books.lua
+letters.lua
+letters_random.lua
+letters\human.lua
+letters\dwarf.lua
+letters\gnome.lua
+letters\nightelf.lua
+letters\skyborne.lua
+letters\orc.lua
+letters\troll.lua
+letters\tauren.lua
+letters\forsaken.lua
 generic.lua
 pools.lua
 spirithealer.lua
+gabbi.lua
 emissaries\warsong_gulch.lua
 emissaries\arathi_basin.lua
 emissaries\alterac_valley.lua
 emissaries\generals.lua
+emissaries\darkspear_islands.lua
 pools_roles.lua
 pools_citizens.lua
 asks.lua
 arrivals.lua
+wanderers\spoogledorf.lua

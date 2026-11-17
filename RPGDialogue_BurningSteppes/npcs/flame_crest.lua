@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_blackrock", when = { gossip = { topic = "blackrock_clan", stance = "redeemable" } }, text = "Vahgruk says ye think some o' the Blackrock could come home. Ye've no' seen them close, have ye, for I have, an' I ran." },
     { id = "g_default", text = "What'll ye be wantin', then? *hic* Pardon me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my stories, or my ale, and I'll take either one as a compliment." },
     { id = "g_found", when = { questDone = TODO_QUEST("Marshal Windsor") }, text = "Ye found him, didn't ye? I told 'em he weren't dead, and nobody listens to old John." },
@@ -166,25 +167,25 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask away; old John's an open book, and most of the pages are stuck together." },
       },
       choices = {
-        { text = "Tell me about the last time you saw Windsor.", next = "st1" },
-        { text = "What are you brewing in there?", next = "ale" },
-        { text = "What's a dwarf doing in a goblin camp?", next = "crest" },
+        { text = "Have you got a story for me, John?", next = "st1" },
+        { text = "Whatever you're brewing in there smells strong.", next = "ale" },
+        { text = "A dwarf is an odd sight in a goblin camp.", next = "crest" },
         { text = "Maxwell calls you a coward.", next = "coward", when = { heardLine = "maxwell.wc_default" } },
         { text = "Pour me one, cousin.", next = "dwarf_drink", when = { race = "Dwarf" } },
         { text = "Why does an Alliance dwarf drink with the Horde's goblins?", next = "neutral", when = { faction = "Horde" } },
-        { text = "Running was the smart play, John. I'd have done the same.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "Running was the smart play, John. I'd have done the same.", next = "k_rogue", when = { class = "ROGUE", heardLine = "ragged_john.st3_default" } },
         { text = "Those Blackrock orcs aren't my Horde, dwarf.", next = "k_orc", when = { race = "Orc" } },
-        { text = "Is your milk for the living or the dead, John?", next = "k_scourge", when = { race = "Scourge" } },
+        { text = "Is your ale for the living or the dead, John?", next = "k_scourge", when = { race = "Scourge" } },
         { text = "Shall I chill your cask, John?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Does fel worry you, John?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Fel seems to worry you, John.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the Light have any place in the Burning Steppes, John?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Did Marshal Windsor fight like a knight, John?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess you ever fought beside a proper knight.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's waiting at the Spire for a warrior, John?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do the Blackrock worgs run, John?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Was it always ash here, John, or do you remember it green?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the fire spirits of the Steppes trouble you, John?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I've been to the bottom of Blackrock Depths, John.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
-        { text = "Don't you get lonely up here, John?", next = "xpt_crowd", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
+        { text = "You must get lonely up here, John.", next = "xpt_crowd", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -237,8 +238,8 @@ P:NPC {
     st5 = {
       lines = { { id = "st5_default", text = "Hours, it went on, maybe days, I lost count, and then it stopped, and there he stood, covered in orc from boots to beard and still breathin'. Angry, mind, very angry, but breathin'." } },
       choices = {
-        { text = "So how did he die?", next = "st6" },
-        { text = "Are you drunk, John?", next = "st_drunk" },
+        { text = "So that's how Windsor died.", next = "st6" },
+        { text = "I think you're drunk, John.", next = "st_drunk" },
       },
     },
     st_drunk = {
@@ -304,7 +305,7 @@ P:NPC {
     crest = {
       lines = { { id = "c_default", text = "The goblins don't ask where ye're from or which banner ye drink under, and the Marshal's camp asks far too many questions. Besides, the view's lovely, if ye like lava." } },
       choices = {
-        { text = "Who are your neighbours?", next = "crest_neighbours" },
+        { text = "You've some odd neighbours up here, I'd guess.", next = "crest_neighbours" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,6 +385,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When fifty orcs come over a hill, find a shadow; when three hundred Dark Irons come after, find a deeper one." } },
     windsor = { { id = "tp_windsor", text = "Not dead, whatever they tell ye in Morgan's Vigil. Ask me properly and I'll tell ye the whole of it.", next = "st1" } },
     blackrock_spire = { { id = "tp_spire", text = "Full of orcs, worgs, spiders and dragons, and I've been in and out more times than I can count. Mostly out." } },
+    magni = { { id = "tp_magni", text = "Magni's a good king an' a better drinker, an' I'd raise a mug to him right now if I had one. Oh, look, I do." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War when these hills were still green, if ye can believe it, an' I watched the Horde an' their dragons burn them black. They've never grown back." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have a whole city under that mountain, an' a bar, they say, wi' the best ale in the world. I'd go in just for that, if I weren't so fond o' breathin'." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow, they say, an' she's the daughter o' the biggest black dragon there ever was. I'd stay well clear o' that family, lad." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock are loud an' stupid an' they can't hold their drink. I tried to share a cask wi' one once, an' I'm lucky I've still got my beard." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I've heard of most things, usually at the bottom of a mug." } },
   },
 }
@@ -500,13 +506,13 @@ P:NPC {
       },
       choices = {
         { text = "Who were the Seven?", next = "seven" },
-        { text = "What's the Heart of the Mountain?", next = "heart" },
-        { text = "Why live in a cave beside a volcano?", next = "cave" },
+        { text = "What treasure do you want most, Maxwort?", next = "heart" },
+        { text = "A cave beside a volcano is a strange place to live.", next = "cave" },
         { text = "I can read old scripts, if you need a scribe.", next = "scholar", when = { class = { "MAGE", "PRIEST" } } },
         { text = "The Royal Historian told me about Thaurissan.", next = "archesonus", when = { heardLine = "archesonus.t_default" } },
         { text = "The Seven's sorcery interests me, Maxwort. Professionally.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would you have me take from the Dark Irons?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Isn't trading in Dark Iron relics dangerous, Maxwort?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Trading in Dark Iron relics sounds dangerous, Maxwort.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need carried out of the Dark Iron ruins?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "You think a beast can sniff out treasure?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Could a druid really sniff out treasure for you, Maxwort?", next = "xdruid", when = { class = "DRUID" } },
@@ -520,7 +526,7 @@ P:NPC {
         text = "Dwarves of great knowledge and greater power, from the old days before the city burned, and that's about all anyone agrees on for free. The ruins of Thaurissan are said to keep their tablet, which is where you come in, my friend." } },
       choices = {
         { text = "What did the Seven do?", next = "seven_did" },
-        { text = "Knowledge for knowledge's sake?", next = "seven_wealth" },
+        { text = "You don't strike me as one who seeks knowledge for its own sake.", next = "seven_wealth" },
       },
     },
     seven_did = {
@@ -593,6 +599,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Booty Bay born, by way of every ruin that ever had a rumour attached to it. The Seven are just the latest rumour.", next = "seven" } },
     advice = { { id = "tp_ad", text = "Never pay for anything you can find, my friend, and never find anything you can't sell." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dwarven city that went up in one great flash, leaving nothing but ash and treasure for patient goblins.", next = "seven" } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have a city under the mountain, an' it's full o' treasure, an' I'd sell my mother to see it. I wouldn't sell her cheap, mind." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I was born, an' where I'll go back rich someday. Every ruin's a step closer to the docks." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are greedy an' cruel an' they've got all the best treasure. I hate them for the first two an' envy them for the third." } },
     _none = { { id = "tp_none", text = "Is there money in it? If not, buddy, I'm afraid I've never looked." } },
   },
 }
@@ -746,20 +755,20 @@ P:NPC {
       },
       choices = {
         { text = "What are you studying?", next = "study" },
-        { text = "What's a Draco-Incarcinatrix 900?", next = "gadgets" },
-        { text = "Who's your patron?", next = "patron" },
-        { text = "Who's Felnok Steelspring?", next = "felnok" },
-        { text = "Can I see your schematics?", next = "engineer", when = { profession = "Engineering" } },
+        { text = "What does that big device on your bench do?", next = "gadgets" },
+        { text = "Who pays for all this research?", next = "patron" },
+        { text = "Do you work with any other engineers?", next = "felnok" },
+        { text = "I'd like a look at those schematics.", next = "engineer", when = { profession = "Engineering" } },
         { text = "Leonid told me who your patron really serves.", next = "leonid", when = { questDone = TODO_QUEST("Leonid Barthalomew") } },
-        { text = "Could a hunter tame one of those whelps?", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "I could tame one of those whelps, I think.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Why freeze dragon eggs at all, Tinkee?", next = "xmage", when = { class = "MAGE" } },
         { text = "Who else wants your schematics, Tinkee?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do you care whether dragons have souls, Tinkee?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Who is your patron, Tinkee, and what does he want?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What's so dangerous about the whelps, Tinkee?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Who pays for your gadgets, Tinkee, and what do they want?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Those whelps don't look so dangerous to me.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have you learned about the dragons of the Steppes, Tinkee?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why do you want to measure fire elementals, Tinkee?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Would you really test your furnace on my imp, Tinkee?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I don't trust you near my imp with that furnace.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I've been to the top of Blackrock Spire, Tinkee.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
@@ -769,7 +778,7 @@ P:NPC {
       lines = { { id = "s_default", fx = { learn = { "black_dragonflight" } },
         text = "The black dragonkin of the Steppes: the whelps, the broodlings, the drakes, and how they grow. If I could learn to capture a living whelp, or an egg, I'd be the envy of every dragon scholar in the world, and I could charge admission." } },
       choices = {
-        { text = "Isn't that dangerous?", next = "study_danger" },
+        { text = "That sounds like dangerous work for a gnome.", next = "study_danger" },
         { text = "Why eggs?", next = "study_eggs" },
       },
     },
@@ -789,7 +798,7 @@ P:NPC {
       lines = { { id = "g2_default", text = "It catches the essence of a dragon broodling at the moment of its defeat! After that came the eggscilloscope, which freezes eggs, and then the collectronic module, which collects them, and I named every one of them myself, pal, and trademarked 'em too." } },
       choices = {
         { text = "The names are... something.", next = "gadgets_names" },
-        { text = "Does any of it explode?", next = "gadgets_boom" },
+        { text = "I'd guess some of it explodes.", next = "gadgets_boom" },
       },
     },
     gadgets_names = {
@@ -822,7 +831,7 @@ P:NPC {
     },
 
     felnok = {
-      lines = { { id = "f_default", text = "My colleague in Everlook, and the best engineer north of anywhere, which he'll tell you himself if you stand still long enough, and then he'll invoice you for the conversation. He makes the parts I'm too busy to make." } },
+      lines = { { id = "f_default", text = "Felnok Steelspring, my colleague in Everlook, and the best engineer north of anywhere, which he'll tell you himself if you stand still long enough, and then he'll invoice you for the conversation. He makes the parts I'm too busy to make." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     engineer = {
@@ -856,6 +865,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A goblin who'd rather study than sell, which most goblins find about as sensible as giving away free samples. The Steppes have the best dragonkin anywhere, so here I am.", next = "study" } },
     advice = { { id = "tp_ad", text = "Freeze it first, then pick it up, sweetie. That rule has saved my life more than once, and my eyebrows twice." } },
     black_dragonflight = { { id = "tp_dragons", text = "Fascinating creatures, terribly clever and terribly rude, and they grow so fast you can almost watch it happen.", next = "study" } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Spire is full of dragonkin and orcs and things I don't have names for yet. I'd give anything to study them up close, if I could do it without being eaten." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own inventions, and I respect that kind of ambition. I'd never be so careless, of course." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins think I'm mad for studying dragons instead of selling things. They're probably right, but I'm having more fun." } },
     _none = { { id = "tp_none", text = "Is it a dragon? If it isn't, pal, then I'm afraid I haven't studied it, and nobody's paid me to." } },
   },
 }
@@ -992,15 +1004,15 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why sell supplies in a volcano?", next = "shop" },
-        { text = "Tell me about Ribbly.", next = "ribbly" },
+        { text = "Do you have family in the business, Yuka?", next = "ribbly" },
         { text = "Your sister Yorba says hello.", next = "yorba", when = { questDone = TODO_QUEST("Yuka Screwspigot") } },
-        { text = "Got anything an engineer can't find elsewhere?", next = "engineer", when = { profession = "Engineering" } },
-        { text = "I could find Ribbly for you. Quietly.", next = "k_rogue", when = { class = "ROGUE" } },
-        { text = "Did that mage ever pay the bill?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Could my imp find Ribbly for you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "An engineer could use some of this stock.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "I could find Ribbly for you. Quietly.", next = "k_rogue", when = { class = "ROGUE", heardLine = "yuka.r_default" } },
+        { text = "I'd guess that mage never paid his bill.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could my imp find Ribbly for you?", next = "xlock", when = { class = "WARLOCK", heardLine = "yuka.r_default" } },
         { text = "Doesn't family count for anything with you, Yuka?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Would a paladin collect Ribbly's bounty, Yuka?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do the Dark Irons give you much trouble, Yuka?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Would a paladin collect Ribbly's bounty, Yuka?", next = "xapala", when = { class = "PALADIN", heardLine = "yuka.r_default" } },
+        { text = "The Dark Irons must give you trouble, Yuka.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why is your shot so expensive, Yuka?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why did the last druid frown at your wares, Yuka?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does a shaman make you nervous, Yuka?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1073,6 +1085,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Screwspigot, which means I sell things and my family owes people money. One of those is improving.", next = "ribbly" } },
     advice = { { id = "tp_ad", text = "Buy your powder before you need it, pal, because the moment you need it, I double the price." } },
     blackrock_depths = { { id = "tp_depths", text = "Where my brother's hiding, sweetheart, and where most of my customers go to spend what they buy from me." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where my family's business is, and where my family's debts are. I'm working on the second." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got good engineers, but they're all so serious. I like a little fun with my explosions." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city to radiation, and I'll never understand how anybody could be so careless. I'm very careful with my gadgets, mostly." } },
     _none = { { id = "tp_none", text = "I don't sell that, so I don't know about it, pal. Want some flux?" } },
   },
 }
@@ -1089,6 +1104,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_quel", when = { gossip = { topic = "high_elves", stance = "distrust" } }, text = "Mathredis says you called his hunger a sickness, right to his face! He's been stalking around the camp ever since, pal, and I've had to charge double for my nerves." },
     { id = "g_default", text = "Welcome, welcome to Kibler's Exotic Pets, my friend! How can you help me today, and how much can you help me?" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite supplier's back! Opus, say hello, and say it nicely, because this one pays." },
     { id = "g_away", when = { away = 14 }, text = "My favourite supplier, back after {away} away! Business has been terrible without you, buddy, so let's fix that before Opus eats the profits." },
@@ -1202,16 +1218,16 @@ P:NPC {
       choices = {
         { text = "Exotic pets? In a volcano?", next = "pets" },
         { text = "Tell me about the parrot.", next = "opus" },
-        { text = "Who's Bijou?", next = "bijou" },
-        { text = "What would you give for my companion?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Who fetches your stock from the Spire?", next = "bijou" },
+        { text = "I'd guess you'd pay well for my companion.", next = "hunter", when = { class = "HUNTER" } },
         { text = "A druid could teach you a thing about beasts.", next = "druid", when = { class = "DRUID" } },
         { text = "Would your rich clients buy an imp?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "A polymorphed worg won't stay a sheep, Kibler.", next = "xmage", when = { class = "MAGE" } },
         { text = "How do your worg pups always find their way back?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Can a Blackrock worg pup really be gentled, Kibler?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I doubt a Blackrock worg pup can ever be gentled.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it right to sell pups stolen from the Blackrock orcs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a worg pup really fight beside a soldier?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Why do the worg pups go quiet around me, Kibler?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your worg pups go quiet whenever I come near, Kibler.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I've been through the lower Spire, Kibler.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
@@ -1221,7 +1237,7 @@ P:NPC {
       lines = { { id = "p_default", fx = { learn = { "blackrock_spire" } },
         text = "Where else, buddy? Blackrock Spire's full of worgs, spiders and things nobody's even named yet, and every one of 'em is a pet waiting to happen and a price tag waiting to be written. Look at the cages, ain't it obvious?" } },
       choices = {
-        { text = "Who buys a pet worg?", next = "pets_clients" },
+        { text = "I can't imagine who buys a pet worg.", next = "pets_clients" },
         { text = "That's cruel to the beasts.", next = "pets_cruel" },
       },
     },
@@ -1252,7 +1268,7 @@ P:NPC {
     bijou = {
       lines = { { id = "b_default", text = "A goblin I hired to fetch spider eggs from the Spire, and a very capable one, for an operative, at a very capable rate. I haven't heard from her in weeks, buddy, and Opus won't stop saying she's lost." } },
       choices = {
-        { text = "Are you worried about her?", next = "bijou_worry" },
+        { text = "You sound worried about her.", next = "bijou_worry" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1290,6 +1306,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Booty Bay's finest dealer in beasts, now operating from a cave for reasons that have nothing to do with G.E.T.A.", next = "pets" } },
     advice = { { id = "tp_ad", text = "Get 'em young, feed 'em well, and never let 'em see you scared, buddy. Works on worgs, and it works on customers too." } },
     blackrock_spire = { { id = "tp_spire", text = "The best hunting ground in the world, my friend, if you don't mind most of the stock trying to eat you before you can price it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I made my name, and where G.E.T.A. made my life difficult. I'm doing better business out here, in a cave." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons are the finest pets a person could ask for, if they didn't burn everything down. I'm working on the second part." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got good animal traders, but none as good as me. Opus agrees." } },
     _none = { { id = "tp_none", text = "Can I sell it? If I can't, buddy, then I wouldn't know the first thing about it." } },
   },
 }
@@ -1319,6 +1338,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_quel = {
+      lines = {
+        { id = "opq_default", text = "Pity, mostly, and distaste, from people who never drank from the Sunwell and never lost it. You have an opinion of us written on your face, {race}, so say it aloud." },
+      },
+      choices = {
+        { text = "Your people deserved better than what Arthas gave them.", next = "op_quel_pity", fx = { align = { light = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Your hunger is a sickness. I'll keep my distance.", next = "op_quel_distrust", fx = { align = { light = -1 }, opinion = { high_elves = "distrust" } } },
+        { text = "Magic is no sin. Starving for it isn't your fault.", next = "op_quel_pity", fx = { affinity = 1, opinion = { high_elves = "pity", arcane_magic = "useful" } }, when = { class = "MAGE" } },
+        { text = "I've no opinion worth your time.", next = "BACK" },
+      },
+    },
+    op_quel_pity = {
+      lines = {
+        { id = "opqp_default", text = "Deserved is such a soft word from someone with a full belly. Keep your pity, {race}, and bring me an arcanum's spill instead; it would do more good." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_quel_distrust = {
+      lines = {
+        { id = "opqd_default", text = "Then keep it, and keep your purse close, and see how long your own virtues last when the thing you live on is torn out of the world." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Very little, I'm afraid, though my people's rangers held the forests of Quel'Thalas for thousands of years with nothing more than bow and blade. They held right up until the Scourge came, which I suppose makes my point for me." } },
@@ -1387,18 +1429,18 @@ P:NPC {
       },
       choices = {
         { text = "What are these librams?", next = "librams" },
-        { text = "What do you gain from them?", next = "hunger" },
+        { text = "You must gain something from all this.", next = "hunger" },
         { text = "What happened to Quel'Thalas?", next = "quelthalas" },
         { text = "Teach me what your master knew.", next = "mage", when = { class = "MAGE" } },
-        { text = "The Light could ease that hunger.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "The Light could ease whatever burden you carry.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Your people brought this on themselves.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "My people are Highborne too, from Eldre'Thalas.", next = "k_sky", when = { race = "Skyborne" } },
-        { text = "I know that hunger. Mine comes from the Nether.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "Power always has a price. Mine comes from the Nether.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would a rogue want with an elven libram?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What use is a sword against magic like that?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A sword seems little use against magic like that.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did you know any of the rangers of Quel'Thalas?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What did the druids warn the elves about, Mathredis?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Is the magic of the elements really so small, Mathredis?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You make the magic of the elements sound small, Mathredis.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll leave you.", next = "END" },
       },
     },
@@ -1442,6 +1484,7 @@ P:NPC {
     quelthalas = {
       lines = { { id = "q_default", text = "The Scourge came through it like a fire through dry grass, and what it didn't kill, it scattered. I will not describe it to someone who'll only nod and say how sad." } },
       choices = {
+        { text = "What do others make of your people now?", next = "op_quel" },
         { text = "Then I won't say it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1490,6 +1533,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A mage of Quel'Thalas and the last student of Telmius Dreamseeker. The rest is not yours to know.", next = "librams" } },
     advice = { { id = "tp_ad", text = "Never sell power cheaply, and never buy it from someone who does." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was where I studied, before the Scourge came and everything burned. I've no wish to see it rebuilt, because it won't be the same." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are fools who thought they could master magic with rules and councils. My master knew better, and he paid for it." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was Ranger-General of Silvermoon, and she died defending our home. What leads the dead in her name now is a stranger to me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned Quel'Thalas, and I've no home to return to. Don't speak to me of it again." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons hold the secrets of the Steppes, and I'll have them, one way or another." } },
     _none = { { id = "tp_none", text = "That is beneath my notice, and it should be beneath yours." } },
   },
 }
@@ -1506,7 +1554,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Lok'tar. You need a rider, or you're lost?" },
+    { id = "g_default", text = "Lok'tar, {class}. Do you need a rider, or are you lost?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The riders are rested, and so am I, almost, though I still cough up black every morning from the ash." },
   },
 
@@ -1517,6 +1565,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_blackrock = {
+      lines = {
+        { id = "opb_default", text = "They were, and Blackhand led us all once, before his son went to the mountain and took the dragon's coin. Some say the Blackrock can be brought home when Rend falls, and some say they should all be put down. What do you say?" },
+      },
+      choices = {
+        { text = "Some of them could come home, if Rend fell.", next = "op_br_home", fx = { affinity = 1, align = { light = 1 }, opinion = { blackrock_clan = "redeemable" } } },
+        { text = "They chose Rend. Put every one of them down.", next = "op_br_down", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { blackrock_clan = "hate" } } },
+        { text = "My clan or theirs, we all drank the blood once.", next = "op_br_home", fx = { affinity = 1, opinion = { blackrock_clan = "pity" } }, when = { race = "Orc" } },
+        { text = "I'll decide when I'm standing in the Spire.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    op_br_home = {
+      lines = {
+        { id = "opbh_default", text = "The Warchief thinks so, or he'd not have sent an army to Kargath instead of an executioner. I hope you're both right, though I've seen what comes down off that mountain." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_br_down = {
+      lines = {
+        { id = "opbd_default", text = "Hard words, and I've said them myself after a bad flight. My riders will carry you to Kargath either way, and the Blackrock will find out what you think of them soon enough." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The Horde, if you'll fight for it, and the Undercity, if you won't. I've flown the dead and the living both, and you're the first who's asked me that, so maybe you're still deciding." } },
@@ -1609,7 +1680,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Blackrock up on the mountain keep warlocks too, the old kind, and my riders can't tell the difference by smell." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open your own way home, but my riders show you the Steppes on the way, and the Steppes should be seen once, burning." },
         { id = "h_default", key = true,
-          text = "Vahgruk. I keep the Horde's wind riders at Flame Crest, so that anyone the Warchief sends this far north has a way home again." },
+          text = "I am Vahgruk, and I keep the Horde's wind riders at Flame Crest, so that any warrior the Warchief sends this far north has a way home again." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. The riders will take you, and the armour, but they'll want you to sit still, and warriors never sit still." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -1623,13 +1694,13 @@ P:NPC {
         { text = "What do you make of the Blackrock?", next = "rend" },
         { text = "Show me the routes.", next = "BUSINESS" },
         { text = "Why should I see the Steppes from above?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the Blackrock still have warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The Blackrock still keep warlocks, I'd guess.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you make of Rend's warriors, Vahgruk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wind riders and hunters' beasts get along?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do the wind riders hate the Steppes' sky, Vahgruk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do your wind riders really bite anyone they can't hear, Vahgruk?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do many wounded fly out of Flame Crest, Vahgruk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the elements here trouble your wind riders, Vahgruk?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Many wounded must fly out of Flame Crest.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The elements here must trouble your wind riders.", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Where is home for one like me, Vahgruk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -1653,6 +1724,7 @@ P:NPC {
           text = "They're no friends of the Horde, if that's what you're asking. Rend Blackhand would see Thrall dead, and you too, so we have that much in common." },
       },
       choices = {
+        { text = "The Blackrock were orcs of the Horde once. What now?", next = "op_blackrock" },
         { text = "Then he'll fall.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } }, when = { faction = "Horde" } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1663,6 +1735,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve the Warchief where he sends me, and he sent me to a rock full of goblins. Don't ask me how I feel about it." } },
     advice = { { id = "tp_ad", text = "Fly high over the lava; the heat lifts you, and the riders like it, though they come down smelling of singed feathers." } },
     blackrock = { { id = "tp_blackrock", text = "Orcs who never learned what Thrall taught the rest of us. That makes them more dangerous than humans, not less." } },
-    _none = { { id = "tp_none", text = "I keep wind riders. Ask the goblins; they know everything for a price." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me to a rock full of goblins, and I go where he sends me. That's all there is to it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are what the Horde used to be, and the Warchief means to see them gone. I'll fly anyone who wants to help." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock shoot at my wind riders. I'd like to see them gone, and I'm not picky about how." } },
+    _none = { { id = "tp_none", text = "I keep wind riders, nothing more. Ask the goblins, because they know everything, for a price." } },
   },
 }

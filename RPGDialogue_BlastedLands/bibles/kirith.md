@@ -12,7 +12,7 @@
 ## Identity
 Spirit of Kirith · Serpent's Coil, Blasted Lands · Horde (neutral to talk to) · ghost (race unstated) · lieutenant of Thrall's Grasp
 Personality: sardonic, urgent, ashamed, loyal to his captain
-Speech: clipped urgency but whole sentences; dark humour
+Speech: clipped urgency but whole sentences; dark humour; an orc soldier's pride and shame (Thrall's Grasp, the old demon chains, the ancestors)
 Knows and cares about: Razelikh, Grol, Lady Sevine, Archmage Allistarj, the amulet, his captain
 Relationships: the Fallen Hero (his captain, unnamed)
 Default attitudes: soldierly respect for anyone who fights the Legion
@@ -38,3 +38,6 @@ Honest.
 
 ## Topics
 background, advice, _none.
+
+## Deepening pass
+New branches: Thrall's Grasp (sent to watch the demons; taken a company at a time and bound by the stones; the orders from Stonard that never came, stance), an Alliance-only "why trust me" branch, and a last request (the truth to his captain, his name to Stonard). Authored: his wish to be remembered in Stonard. Never: Trebor's name, what the orders said.

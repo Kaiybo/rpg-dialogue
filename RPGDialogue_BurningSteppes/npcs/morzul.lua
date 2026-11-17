@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The Altar of Storms receives few visitors, and fewer still who leave the way they came. Speak, and let us see which kind you are." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole. How encouraging." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole, with your blood where it belongs. How encouraging." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}. The circle doesn't care, but I confess I noticed." },
     { id = "g_lock_back", when = { metBefore = true, class = "WARLOCK" }, text = "Ah, my student returns. Have you brought me something red?" },
   },
@@ -29,10 +29,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "Everyone, which is how I know it works. But you've been watching my circles with a particular look, so I'll ask: do you fear what I call up, or do you envy it?" },
+      },
+      choices = {
+        { text = "I fear it, and you should too.", next = "op_dem_fear", fx = { align = { light = 1 }, opinion = { demons = "fear" } } },
+        { text = "I envy it. Power is power, however it's fed.", next = "op_dem_envy", fx = { affinity = 1, align = { light = -1 }, opinion = { demons = "useful" } } },
+        { text = "Neither. I've an imp of my own, and it's better behaved.", next = "op_dem_envy", fx = { trait = { witty = 1 }, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "I'm only here for the altar, Mor'zul.", next = "BACK" },
+      },
+    },
+    op_dem_fear = {
+      lines = {
+        { id = "opdf_default", text = "Fear is the beginning of wisdom and the end of most warlocks, so I'll take it as a compliment. Do watch the circle's edge on your way out." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dem_envy = {
+      lines = {
+        { id = "opde_default", text = "Envy! How refreshing, after all the trembling. Come back when you've stopped pretending you'd never try it yourself, and we'll talk about the price." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Mor'zul Bloodbringer, and I study what lies between this world and the burning ones beyond it. If you aren't a warlock, I'll thank you to keep your distance from the circle, for it bites." },
+          text = "I am Mor'zul Bloodbringer, and I study what lies between this world and the burning ones beyond it, as orcs did long before Thrall taught them to be ashamed of it. If you aren't a warlock, I'll thank you to keep your distance from the circle, for it bites." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Your mastery over the denizens of other worlds has grown, I see, and you've come to me for the greatest of steeds. The dreadsteeds dwell on the Plains of Xoroth, and binding one is not a task for the impatient." },
         { id = "h_blood", tags = { "news" }, when = { questActive = TODO_QUEST("Rage of Blood") },
@@ -51,7 +74,7 @@ P:NPC {
       choices = {
         { text = "What is the Altar of Storms?", next = "altar" },
         { text = "Why do you love blood so much?", next = "blood" },
-        { text = "Who is Gorzeeki?", next = "gorzeeki" },
+        { text = "Who else keeps you company out here?", next = "gorzeeki" },
         { text = "Teach me to bind a dreadsteed.", next = "xsteed", when = { class = "WARLOCK" } },
         { text = "Your craft is an abomination.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll leave you to your circle.", next = "END" },
@@ -63,6 +86,7 @@ P:NPC {
         { id = "al_default", text = "Where the old Horde's warlocks worked their darkest rites, in the days of the Shadow Council, and the stones still remember it. The air here is thin between worlds, which makes it the finest workroom in the Steppes, if you don't mind the dragons overhead." },
       },
       choices = {
+        { text = "Does what you summon frighten anyone here?", next = "op_demons" },
         { text = "The Shadow Council worked here?", next = "altar_council" },
         { text = "Something else.", next = "BACK" },
       },
@@ -146,8 +170,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A scholar of the nether, a teacher of warlocks, and a connoisseur of blood. The rest is no concern of yours." } },
+    background = { { id = "tp_ba", text = "I am a scholar of the nether, a teacher of warlocks, and a connoisseur of blood, and I was all three when the Shadow Council still met. The rest is no concern of yours." } },
     advice = { { id = "tp_ad", text = "Never step into a circle you didn't draw yourself." } },
-    _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion are the source of all true power, and the warlocks who serve them wisely grow strong. The fools who serve them foolishly grow dead." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have a fire lord, and the fire lord has power. I'd like to study it, very carefully." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages called what I do forbidden. Their city is in ruins, and I'm still teaching." } },
+    _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble, any more than the shamans' prattle about spirits." } },
   },
 }

@@ -126,14 +126,14 @@ P:NPC {
       },
       choices = {
         { text = "Do your recruits ever thank the priests for mending them?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do warriors and shamans fight well together, Frang?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Warriors and shamans can't fight well together, I'd guess.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you want a bear to spar with your recruits, Frang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What does a warrior learn first?", next = "first" },
         { text = "Who else trains in the Den?", next = "den" },
-        { text = "Where did you learn to fight?", next = "past" },
+        { text = "You fight like someone who learned the hard way.", next = "past" },
         { text = "Does the Horde need rogues as much as warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do you train hunters too, Frang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess you train hunters too, Frang.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you blame all warlocks for the Burning Blade?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What should a mage learn from your recruits, Frang?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the recruits fear a paladin, Frang?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -175,6 +175,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know axes, shields and how to stand up again, so ask Gornek about anything else." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief got knocked down a hundred times in a human arena and got up a hundred and one. That's the lesson, and that's the only one I teach." } },
+    second_war = { { id = "tp_second_war", text = "The old warriors talk about the Second War, but they don't talk about losing it. I tell my recruits the truth, which is that losing is the only teacher worth having." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar are past the ridge, and you'll meet them sooner or later. When you do, hit the horse half first, because it's bigger." } },
   },
 }
 
@@ -298,15 +301,15 @@ P:NPC {
       },
       choices = {
         { text = "Do your Loa and my elements ever disagree, Ken'jai?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Is green magic so different from a priest's, Ken'jai?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Green magic must be very different from a priest's.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Where does your healing come from?", next = "power" },
-        { text = "What's a troll doing in an orc valley?", next = "troll" },
-        { text = "Do you mend many recruits?", next = "mend" },
+        { text = "A troll seems out of place in an orc valley.", next = "troll" },
+        { text = "You must mend a great many recruits.", next = "mend" },
         { text = "Do Darkspear priests and mages often work together?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do Frang's recruits keep you busy, Ken'jai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a priest heal a hunter's beast, Ken'jai?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Will you heal a warlock, Ken'jai?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you won't heal a warlock, Ken'jai.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you heal rogues too, Ken'jai?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a troll priest and a Forsaken paladin work together?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
@@ -347,6 +350,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Ken'jai knows healing and the Darkspear, mon, but not that. Ask Gornek, he knows everything in the valley." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits be like neighbours, you see, and you keep them sweet with gifts and good manners. Forget them, and they forget you." } },
+    holy_light = { { id = "tp_holy_light", text = "The humans pray to something they call the Light, and I hear it heals as well as the spirits do. It don't sit right with me, though, because a light like that never asks your name." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear take care of their own, and since Thrall, the orcs be our own too. That's why I patch up Frang's recruits, even when they don't deserve it." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's a good chief for the trolls, mon. He listens to the old ones and the young ones both, and that's harder than it sounds." } },
   },
 }
 
@@ -361,7 +368,7 @@ P:NPC {
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
   },
   greetings = {
-    { id = "g_shop", text = "Water, bread, thread and bags, everything a recruit forgets until it is too late. What do you need?" },
+    { id = "g_shop", text = "Water, bread, thread and bags, everything a recruit forgets until it is too late. We had none of it in the camps, so nobody leaves my shop without it. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, so the valley has eaten through your supplies already. That is what it does." },
   },
   notice = {
@@ -464,7 +471,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I don't suppose you need a waterskin, but every other recruit forgets something, so tell me what you forgot." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Then you'll want bandages and clean water, because prayers go further when the wound's been washed." },
-        { id = "h_default", key = true, text = "I am Duokna, and I keep the goods for the Den. Most of the young ones walk in with an axe and nothing else, so I make sure they walk out with a waterskin." },
+        { id = "h_default", key = true, text = "I am Duokna, and I keep the goods for the Den. My father walked out of the camps with nothing, so I make sure the young ones walk out of here with a waterskin at least." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are heavy, so I'll ask you what I ask everyone, which is whether you remembered to carry water as well." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll tell me you can live off the land, I suppose, and I'll tell you that Durotar's land is mostly rock, so take a waterskin anyway." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my shop. Count your goods, Duokna, I always say to myself, and I'm saying it now." },
@@ -476,11 +483,11 @@ P:NPC {
       choices = {
         { text = "Do you keep supplies aside for healers, Duokna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do shamans usually forget to carry?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Can't a druid live off the land out there, Duokna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "A druid could live off the land out there, Duokna.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What should a recruit carry?", next = "carry" },
         { text = "Where do your goods come from?", next = "supply" },
-        { text = "Do young rogues ever steal from the Den?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Young rogues must steal from the Den now and then.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is there anything you sell that a mage needs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do new warriors forget to buy, Duokna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the beasts of Durotar eat, Duokna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -494,7 +501,7 @@ P:NPC {
     },
     carry = {
       lines = { { id = "c_default", text = "Water first, because Durotar is dry and the sun is not kind. Then something to eat that is not a cactus apple, and a bag big enough to carry whatever the quilboar drop." } },
-      choices = { { text = "What's wrong with cactus apples?", next = "carry_apple" } },
+      choices = { { text = "Cactus apples look fine to me.", next = "carry_apple" } },
     },
     carry_apple = {
       lines = { { id = "ca_default", text = "Nothing, if you like spines in your tongue, and Galgar makes a fine dish from them when someone gathers enough. Raw off the plant, they are a lesson most recruits only need once." } },
@@ -513,7 +520,10 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I sell bread and bags, recruit, so ask Gornek if you want answers about anything bigger." } },
+    _none = { { id = "tp_none", text = "I sell bread and bags, recruit. Ask Gornek if you want answers about anything bigger." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar don't carry water, they steal it. Don't give them the chance, and buy a second skin." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built this valley so new orcs could learn in it, and the new orcs keep forgetting their waterskins. I think he'd want me to keep reminding them." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins sell water for silver, and I sell it for copper. Somebody's getting cheated, and it isn't my customers." } },
   },
 }
 
@@ -532,7 +542,7 @@ P:NPC {
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
   },
   greetings = {
-    { id = "g_shop", text = "Blades, axes and maces, all of them sharp. Look, but do not touch the edges unless you are buying." },
+    { id = "g_shop", text = "Blades, axes and maces, all of them sharp enough for orc hands. Look, but do not touch the edges unless you are buying." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Show me what you did to the last one I sold you." },
   },
   notice = {
@@ -624,7 +634,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. A hammer, I suppose? I don't sell many to orcs; they remember who swung them at the camps." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll be wanting a mace, then, because I've never sold a priest a sword who didn't regret it." },
-        { id = "h_default", key = true, text = "I am Uhgar, and I sell weapons to the grunts of Razor Hill and anyone else with coin. Durotar is a hard place, and you will want something better than a training axe before you leave town." },
+        { id = "h_default", key = true, text = "I am Uhgar, and I sell weapons to the grunts of Razor Hill and anyone else with coin. Durotar is a hard place, and a warrior of the Horde wants something better than a training axe before he leaves town." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in a weapon shop. You'll want a staff or a mace, then, and something heavy enough that the Kul Tirans notice it before they notice the claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in a weapon shop. You'll be after a staff, then, and I'll find you one that won't snap on a quilboar's head." },
@@ -635,15 +645,15 @@ P:NPC {
       choices = {
         { text = "Why are priests so fond of maces, Uhgar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What weapon suits a shaman, Uhgar?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does a druid even need your weapons, Uhgar?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "A druid hardly needs your weapons, Uhgar.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What do you recommend?", next = "advice" },
         { text = "Who are Razor Hill's enemies?", next = "enemies" },
         { text = "I fight with spells, not steel.", next = "caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
-        { text = "Do mages here really need a good staff?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Mages here can't need much of a staff.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What weapon suits a warrior in Durotar, Uhgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why would a hunter need your blades, Uhgar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Have warlocks sold you cursed weapons before?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Warlocks must have tried to sell you cursed weapons.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why don't orcs like hammers, Uhgar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -654,7 +664,7 @@ P:NPC {
         { id = "a_default", text = "Something heavy for the quilboar, because their hides are thick and their tusks are thicker. If you mean to fight the Kul Tirans at Tiragarde Keep, something quick, because a sailor dies to speed, not weight." },
         { id = "a_rogue", when = { class = "ROGUE" }, text = "For you, daggers, and keep them sharp enough to shave with. Kaplak teaches your kind in the burrow under the hill, and he will tell you the same." },
       },
-      choices = { { text = "Who taught you smithing?", next = "advice_craft" } },
+      choices = { { text = "Someone taught you smithing well.", next = "advice_craft" } },
     },
     advice_craft = {
       lines = { { id = "ac_default", text = "Nobody taught me in a proper forge; I learned by mending the guards' blades in the camps, with whatever scrap they threw away. Now I work for orcs instead of guarding against them, and the iron is better too." } },
@@ -678,6 +688,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know steel and who needs cutting, and nothing else. Try Gar'Thok in the barracks." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar hide is thick and their bone is thicker, so you'll want a heavy edge for them. Bring the blade back after and I'll tell you how much it lost." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar bristles dull a blade faster than any armour. Ask the grunts who came back from the Barrens with chipped axes, and they'll tell you I'm right." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries Doomhammer's hammer, and it's the only weapon in Durotar I wouldn't want to sharpen. Some steel you just respect." } },
   },
 }
 
@@ -778,6 +791,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_track = {
+      lines = { { id = "xtr_default", text = "Then you know Durotar hides its game the way a miser hides coin, and you have the scars to show for it. Which beast tracked you back, the time you nearly did not come home?" } },
+      choices = {
+        { text = "A raptor, out along the Southfury River.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "A scorpid, and I never even saw it coming.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The beasts shy from you, I see. They'll learn your scent, and the grunts will learn your glow, in time." },
@@ -793,16 +813,17 @@ P:NPC {
       },
       choices = {
         { text = "Would you teach your hunters to pray over their beasts?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do your beasts sense the spirits, Thotar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your beasts must sense the spirits, Thotar.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you hunt the beasts or befriend them, Thotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts are worth taming here?", next = "beasts" },
         { text = "How do you choose a companion?", next = "choose" },
         { text = "What could a hunter teach a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What should a warrior learn from the land, Thotar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "A demon isn't so different from a hunter's pet.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What should a mage know about Durotar's beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do the beasts shy from me, Thotar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've tracked the scrub from the valley to the Barrens, Thotar.", next = "xorig_track", when = { origin = "orc_durotar_tracker" } },
         { text = "Farewell, Thotar.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Speak, and I will listen like a hunter listens." } },
@@ -829,6 +850,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know tracks and beasts, and that is not either one. Ask Gar'Thok or Orgnil." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hunt like wolves, in packs, and they never stop running. It is a hard thing to respect them, but I do." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar keep their own beasts, boars as big as kodo calves, and they treat them better than they treat strangers. I find that more interesting than you'd think." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren say the Earth Mother made every beast, and when I watch a pet come to a hunter's hand, I believe them. It is a gift, and gifts must be honoured." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a great wolf, and he talks to it like a brother. That's how I know he's a good leader." } },
   },
 }
 
@@ -843,7 +868,7 @@ P:NPC {
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
   },
   greetings = {
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "You found the burrow on your own, so you are learning. Come in and keep your voice low." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "You found the burrow on your own, so you are learning. Come in, keep your voice low, and leave your pride at the door; it clanks." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "This burrow is not for sightseers, so either you are lost or you are nosy. Which is it?" },
   },
   notice = {
@@ -931,11 +956,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_spy = {
+      lines = { { id = "xsy_default", text = "So you're the one paddling out past the reef while the rest of us sleep. Quiet work and good work, and nobody will ever sing about it, which is the best kind. Has Zalazane's lot ever come close to seeing you?" } },
+      choices = {
+        { text = "Once. I lay in the surf until dawn.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Never. They're hexed, not watchful.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, here in my burrow. I didn't think your kind knew how to come in quietly. Most of them knock the door down." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here in the dark. You'll fit in better than you'd like to think, because the shadow you pray in is the same one I work in." },
-        { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs fight in the open, but somebody has to handle the work that happens in the dark." },
+        { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs win their honor in the open, but somebody has to handle the work that happens in the dark, and the Horde needs both." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, down in my burrow, and quieter than most of my students. I hear your kind can walk as a cat, so you'll forgive me if I keep one eye on the shadows while we talk." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, down in my burrow? You're the last person I expected, because your kind glow too much to hide." },
@@ -945,23 +977,24 @@ P:NPC {
       },
       choices = {
         { text = "Do your rogues ever need a priest, Kaplak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do shamans have any use for the quiet arts?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Shamans can't have much use for the quiet arts.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could a druid learn something from your quiet arts, Kaplak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Why train down in a burrow?", next = "burrow" },
         { text = "What work happens in the dark?", next = "work" },
         { text = "Could a mage ever learn to move unseen?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do rogues work with warriors, Kaplak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I'd guess rogues work with warriors, Kaplak.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a hunter learn to move like a rogue, Kaplak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do rogues and warlocks ever work together?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust a paladin in your burrow, Kaplak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I scout the Echo Isles by night, Kaplak.", next = "xorig_spy", when = { origin = "troll_echo_isles_spy" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick, because I do not like company standing in my doorway." } },
     },
     burrow = {
       lines = { { id = "b_default", text = "Because a rogue who trains in the open is a rogue everyone recognises later. Down here, my students learn their trade where nobody watches, and they leave with faces nobody remembers." } },
-      choices = { { text = "Does Gar'Thok know you're here?", next = "burrow_garthok" } },
+      choices = { { text = "I doubt Gar'Thok knows you're here.", next = "burrow_garthok" } },
     },
     burrow_garthok = {
       lines = { { id = "bg_default", text = "Gar'Thok knows everything that happens in his town, or he likes to think so. He leaves me alone because my students bring back what his grunts cannot, like word from the Kul Tiran keep and the cultists' caves." } },
@@ -977,7 +1010,11 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "If I knew, I would be the wrong person to ask about it, wouldn't I?" } },
+    _none = { { id = "tp_none", text = "If I knew, I would be the wrong orc to ask about it, wouldn't I?" } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt? Never heard of it, and neither have you, if you're smart. Some doors don't open from the outside." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves in the north who think they're nobles. Real rogues work for something bigger than a pretty manor, and they don't wear purple." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief trusts the rogues who keep his secrets, and he's smart enough not to ask how. I like that in a chieftain." } },
+    burning_blade = { { id = "tp_burning_blade", text = "The Burning Blade think they're clever, but they're loud, and they leave tracks. I could find them in my sleep, and some nights, I do." } },
   },
 }
 
@@ -1085,6 +1122,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_bwon = {
+      lines = { { id = "xbw_default", text = "Then you carry a heavy song, mon, and I hear you at the fires some nights when the wind come in off the sea. My brother fell on those isles when Zalazane turned, so if you ever have a verse to spare, would you sing his name for me?" } },
+      choices = {
+        { text = "I'll sing it tonight, Tai'jin.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Bwonsamdi already knows his name, Tai'jin.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carryin' the Light. Aye, mon, I mend grunts with my own gifts, and I never thought to see a Forsaken mend with that one." },
@@ -1099,17 +1143,18 @@ P:NPC {
       },
       choices = {
         { text = "How do Darkspear shamans differ from the orcs'?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does Durotar's dry land ever wear on you, Tai'jin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Durotar's dry land must wear on you, Tai'jin.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
-        { text = "Are you from Sen'jin Village?", next = "senjin" },
+        { text = "You sound like you're from Sen'jin Village.", next = "senjin" },
         { text = "What do the grunts think of a troll healer?", next = "grunts" },
         { text = "I'm an undead priest. Do you trust me?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do rogues come to you often, Tai'jin?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the Darkspear trust mages more than orcs do?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The Darkspear seem to trust mages more than orcs do.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Are the grunts of Razor Hill hurt often, Tai'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wounds from beasts go bad quickly here, Tai'jin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the loa think of warlocks, Tai'jin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is my Light so different from yours, Tai'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I sing for Bwonsamdi, Tai'jin, for our dead on the isles.", next = "xorig_bwon", when = { origin = "troll_bwonsamdi_singer" } },
         { text = "Farewell, Tai'jin.", next = "END" },
       },
       again = {
@@ -1119,7 +1164,7 @@ P:NPC {
     },
     senjin = {
       lines = { { id = "s_default", text = "Yes, mon, my family fish off the coast there, south and east of here. I came to Razor Hill because the orcs had more wounded than healers, but I still go home whenever the tide be right." } },
-      choices = { { text = "Do you miss the Echo Isles?", next = "senjin_isles" } },
+      choices = { { text = "You must miss the Echo Isles.", next = "senjin_isles" } },
     },
     senjin_isles = {
       lines = { { id = "si_default", text = "Every day, and every Darkspear does, since Zalazane took them with his voodoo and his hexed puppets. Master Gadrin in the village be trying to drive him out, and you should help him if your road go that way." } },
@@ -1140,6 +1185,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That be beyond Tai'jin, mon. Ask Orgnil or the commander in the barracks." } },
+    holy_light = { { id = "tp_holy_light", text = "The humans' priests pray to the Light, and I hear it works for them. I pray to the loa and the spirits, and they work for me, so we're even." } },
+    darkspear = { { id = "tp_darkspear", text = "My people be scattered between Sen'jin and the city now, but we still meet on the beach to dance. I miss the sea, mon, but at least I can see it from here." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles were home, and Zalazane took them, and now the crabs and the mad trolls sing there. I'll go back one day, if Vol'jin takes them back." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin will take the Echo Isles back, I'm sure of it. He just be waiting for the right time, because a Darkspear never rushes a fight." } },
   },
 }
 
@@ -1247,6 +1296,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_zand = {
+      lines = { { id = "xzd_default", text = "Zandalari scrolls, mon? Un'Thuwa would trade his best robe for one page of those, and you learned from them before you were half grown. The Zandalari be the oldest of all the trolls, so tell me, do you still have them?" } },
+      choices = {
+        { text = "They're safe, and they're staying that way.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Some. Others burned when I got a spell wrong.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I study the arcane, and I never study anything as strange as you, mon. Where you learn your first prayer?" },
@@ -1261,24 +1317,25 @@ P:NPC {
       },
       choices = {
         { text = "Do the arcane and the loa ever work together, Un'Thuwa?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Is the arcane any safer than what the spirits give?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The arcane seems safer than what the spirits give.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you think arcane magic harms the land, Un'Thuwa?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Where did a Darkspear learn magic?", next = "learn" },
-        { text = "What does the village think of mages?", next = "village" },
-        { text = "Can magic help against Zalazane?", next = "zalazane" },
+        { text = "The village can't think much of mages.", next = "village" },
+        { text = "Is there trouble here your magic could help with?", next = "zalazane" },
         { text = "Would you really suspect me of stealing books?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can magic help a warrior, Un'Thuwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts still roam the Echo Isles, Un'Thuwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the arcane really so different from the fel?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Light interest a troll mage, Un'Thuwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I learned my first spells from Zandalari scrolls, Un'Thuwa.", next = "xorig_zand", when = { origin = "troll_zandalari_scrolls" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more, mon? Ask, the fire can wait." } },
     },
     learn = {
       lines = { { id = "l_default", text = "Trolls been working magic since the humans were still herding goats, mon, whatever the elves say about it. Mine came from old scraps and a lot of burned fingers, and the Horde gave me a place to teach it." } },
-      choices = { { text = "Before the elves? Really?", next = "learn_elves" } },
+      choices = { { text = "Before the elves? That's hard to believe.", next = "learn_elves" } },
     },
     learn_elves = {
       lines = { { id = "le_default", text = "Big and proud, mon, with temples and witch doctors and mages in Zul'Aman and the jungles of Stranglethorn. The Darkspear were never one of the great tribes, but we remember the stories, and a good story teach as much as any spellbook." } },
@@ -1299,5 +1356,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Un'Thuwa knows spells, not that. Ask Master Gadrin, he knows everyone's business." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the greatest city of magic in the world, and the demons burned it. The humans are building it again, I hear, though they're not letting anyone in to see." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the human mages who used to run Dalaran. They never let a troll into their school, which is why I taught myself." } },
+    darkspear = { { id = "tp_darkspear", text = "A Darkspear learns what they need to survive, and right now the Horde needs mages. I'm happy to oblige, and I'm quietly proud I'm better than half the orcs." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits and the arcane don't always agree, and the shaman like to remind me of it. I tell them the fire spirits don't mind my fireballs, and that seems to end the argument." } },
   },
 }

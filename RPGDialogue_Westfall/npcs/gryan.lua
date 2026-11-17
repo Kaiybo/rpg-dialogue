@@ -15,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_militia_admire", when = { opinion = { topic = "peoples_militia", stance = "admire" } }, text = "Word comes up the road that you've been speaking well of the Militia, even as far as Lakeshire. The farmers stand straighter for it, and so do I." },
+    { id = "g_op_tithe", when = { gossip = { topic = "westfall_tithe", stance = "militia" } }, text = "Saldean sent a cart of turnips up the hill this week instead of the city tithe, and he says it was your idea. I'll not refuse turnips, but you'll answer to the tax clerks." },
+    { id = "g_op_bolvar_trust", when = { opinion = { topic = "bolvar", stance = "trusted" } }, text = "Here's the one who still trusts the Regent. I hope you're right, and I'd ask you to write and tell him so, because he'll not hear it from me." },
     { id = "g_hill", text = "Sentinel Hill, such as it is. Find a spot out of the wind." },
     { id = "g_sent", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") }, text = "Another one from Elwynn, and glad I am of it. Come up out of the wind; I'll not keep you standing." },
     { id = "g_militia", when = { questDone = TODO_QUEST("The People's Militia") }, text = "There's one of my own militia. Report, then, and tell me how the roads look." },
@@ -36,6 +39,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_bolvar = {
+      lines = {
+        { id = "op_bolvar_a", text = "By sight and by reputation, and he was a better knight than I'll ever be. Now he sits in the Keep while Westfall burns, and I can't tell whether that's his doing or the court's. You may have stood in that throne room, so what do you make of him?" },
+      },
+      choices = {
+        { text = "He's a good man, Gryan. The court ties his hands.", next = "op_bolvar_1", fx = { opinion = { bolvar = "trusted", stormwind = "patience" }, align = { order = 1 } } },
+        { text = "He's forgotten his oath. Uther would never have abandoned Westfall.", next = "op_bolvar_2", fx = { opinion = { bolvar = "soft", westfall = "abandoned" }, align = { order = -1 }, affinity = 1 } },
+        { text = "He's a regent for a boy. He can't be everywhere at once.", next = "op_bolvar_3", fx = { opinion = { bolvar = "tired" }, trait = { practical = 1 } } },
+        { text = "The Order taught us both. I'd trust him with my life.", next = "op_bolvar_4", when = { class = "PALADIN" }, fx = { opinion = { bolvar = "trusted", silver_hand = "respect" }, affinity = 2 } },
+        { text = "I've never met the man, Commander.", next = "BACK" },
+      },
+    },
+    op_bolvar_1 = {
+      lines = { { id = "op_bolvar_r1", text = "I've told myself the same on bad nights, and it helps a little. If you see him again, tell him the hill still holds, and that we'd hold better with fifty spears." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_bolvar_2 = {
+      lines = { { id = "op_bolvar_r2", text = "Careful, now; I said that once in Stormwind and they've not asked me back since. You're not wrong, mind, and that's the part that stings." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_bolvar_3 = {
+      lines = { { id = "op_bolvar_r3", text = "No, and I can't either, and that's why I've a captain and a scout and a hill full of farmers. I'll give him that much, and grudge him the rest." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_bolvar_4 = {
+      lines = { { id = "op_bolvar_r4", text = "Then I'll trust your judgement, since it's the Order's judgement too. Light keep him honest in that chair, because it's a heavier one than any armour." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
     xcl_stocks = {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Good, though I'll tell you plainly that Westfall won't feel it. The men in that prison have been out of the fight for years, and the ones burning our farms are still out there, so a quiet Stockade means a quiet city and nothing more for us." } },
@@ -77,6 +108,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You've the look of {alt}, a {altclass} who stood with the People's Militia on this hill when we had precious few to stand. If that's kin of yours, then Westfall already owes your family something." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came up the hill not long ago with a sack of red bandanas and a report I'd have been proud of from a sergeant. Between that one and you, I'm almost tempted to think Stormwind remembers us after all." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "I hear the Stockade riot's done and Bazil Thredd with it, and that you were the one who ended it. Thredd was one of Edwin's lieutenants, and I'd hoped he'd hang in Westfall where the farmers he robbed could watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 40 } }, text = "Word reaches the hill of Defias found dead in the fields, and more of them than I'd dare hope for. The People's Militia thanks you, and I'll thank you myself, because every one of those masks was a farm we couldn't hold." },
@@ -117,9 +152,9 @@ P:NPC {
       },
       choices = {
         { text = "Your fields are sick, Stoutmantle. The soil itself is starving.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "What happened to Westfall?", next = "westfall" },
+        { text = "Westfall looks like it's been left to rot.", next = "westfall" },
         { text = "Why doesn't Stormwind help?", next = "stormwind" },
-        { text = "Who leads the Defias?", next = "leader" },
+        { text = "Someone must be leading the Defias.", next = "leader" },
         { text = "How does someone join the militia?", next = "militia" },
         { text = "Tell me about yourself, Commander.", next = "gr_self" },
         { text = "I took the Silver Hand's oath too.", next = "paladin", when = { class = "PALADIN" } },
@@ -148,7 +183,7 @@ P:NPC {
       },
       choices = {
         { text = "And you came back for it.", next = "back" },
-        { text = "Who still holds out?", next = "holdouts" },
+        { text = "Some folk must still hold out.", next = "holdouts" },
         { text = "I'll help you take it back.", next = "BACK", fx = { affinity = 2, learn = { "westfall" }, align = { order = 1 } } },
         { text = "Maybe the Defias have earned a share of it.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -213,7 +248,7 @@ P:NPC {
       choices = {
         { text = "The city should be ashamed.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, affinity = 1 } },
         { text = "The kingdom has bigger problems.", next = "bigger", fx = { opinion = { westfall = "patience" } } },
-        { text = "Who in the city decided this?", next = "nobles" },
+        { text = "Someone in the city must have decided this.", next = "nobles" },
       },
     },
     bigger = {
@@ -247,7 +282,7 @@ P:NPC {
           text = "You're on the trail already. Follow it where it goes and bring every scrap back to me. I'll do the sorting." },
       },
       choices = {
-        { text = "Why does Wiley owe you?", next = "wiley" },
+        { text = "Wiley must owe you a great deal.", next = "wiley" },
         { text = "Wiley's note says goblins built the watchers.", next = "watchers_truth", when = { heardLine = "wiley.h_defias" } },
         { text = "What about the stonemasons people mention?", next = "masons" },
         { text = "Send me in. I go where soldiers can't.", next = "rogue", when = { class = "ROGUE" } },
@@ -346,7 +381,7 @@ P:NPC {
     paladin = {
       lines = { { id = "pa_default", text = "Then you know what it asks of a man. The Order's been scattered since Lordaeron, but the oath didn't scatter with it." } },
       choices = {
-        { text = "Does the Light answer you out here?", next = "paladin_light" },
+        { text = "The Light must feel far away out here.", next = "paladin_light" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -470,7 +505,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll stand there.", next = "warrior2", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Why not march on Moonbrook?", next = "warrior_march" },
+        { text = "You could march on Moonbrook.", next = "warrior_march" },
       },
     },
     warrior2 = {
@@ -543,15 +578,15 @@ P:NPC {
         { id = "gxs_again2", text = "Go on, then. I've answered worse questions from Danuvin before breakfast." },
       },
       choices = {
-        { text = "Why did a Westfall lad go north to the Silver Hand?", next = "gr_north" },
-        { text = "You sound bitter about the nobles, Commander.", next = "gr_nobles" },
-        { text = "What do you make of the people around you?", next = "gr_people" },
+        { text = "What took a Westfall lad away to war?", next = "gr_north" },
+        { text = "Do you hold a grudge against Stormwind's nobles, Commander?", next = "gr_nobles" },
+        { text = "You've gathered a strange crew around you, Commander.", next = "gr_people" },
         { text = "What do you need from me, Commander?", next = "gr_ask" },
         { text = "What do you do with a Defias you catch?", next = "gr_lad" },
         { text = "Do you remember the harvest fairs in Moonbrook?", next = "gr_fair", when = { origin = "human_westfall_farmhand" } },
         { text = "Did you know any of the masons, before?", next = "gr_masons", when = { origin = "human_stonemason_child" } },
         { text = "The Watch never once spoke of Westfall, Commander.", next = "gr_guard", when = { origin = "human_city_guard" } },
-        { text = "Do you ever wish you'd stayed in Lordaeron?", next = "gr_doubt", when = { disposition = { min = 65 } } },
+        { text = "Do you ever regret coming home from the war?", next = "gr_doubt", when = { disposition = { min = 65 } } },
         { text = "Back to the war, then.", next = "hello" },
       },
     },
@@ -571,6 +606,7 @@ P:NPC {
         { id = "gxu_paladin", when = { class = "PALADIN" }, text = "You'll know he's dead and the Order scattered after him. I don't hold that the oath died with the Order, and I don't think you do either, or you'd not be wearing it on my hill." },
       },
       choices = {
+        { text = "Did you know Bolvar Fordragon in the Order?", next = "op_bolvar" },
         { text = "The people in front of you. That's a good creed.", next = "gr_uther2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -613,7 +649,7 @@ P:NPC {
         { id = "gxp_default", text = "I've a captain who was a farmer, a scout who never sleeps and a tower full of volunteers, and I'd not trade one of them for a company of the King's regulars. Ask me about any of them, or about the folk beyond the hill, and I'll tell you true." },
       },
       choices = {
-        { text = "What about Captain Danuvin?", next = "gr_danuvin" },
+        { text = "Tell me about your captain.", next = "gr_danuvin" },
         { text = "And Marshal Dughan, over in Goldshire?", next = "gr_dughan" },
         { text = "Something else.", next = "BACK" },
       },
@@ -623,7 +659,7 @@ P:NPC {
         { id = "gxd_default", text = "Danuvin was a farmer until the thieves took his fields, and he's the angriest man on this hill and the most careful, which is why I made him captain. He tells the volunteers it's a fight for their dignity, and he's right, though I'd sooner they fought for their supper and lived to eat it." },
       },
       choices = {
-        { text = "And Scout Galiaan?", next = "gr_galiaan" },
+        { text = "And the scout who never sleeps?", next = "gr_galiaan" },
         { text = "Something else, Commander.", next = "BACK" },
       },
     },
@@ -800,6 +836,22 @@ P:NPC {
   },
 
   topics = {
+    deadmines = {
+      { id = "tp_deadmines", text = "The Defias are dug into the old Moonbrook mines, and somewhere in the dark below that town VanCleef gives his orders. When we have the proof, I'll ask the bravest people in Westfall to go down after him, and I'll ask you first." },
+      { id = "tp_deadmines2", when = { class = "PALADIN" }, text = "The Deadmines will need a paladin's light in the dark, and I can't leave this hill to carry it myself. If you go down after VanCleef, go with the Light held high and come back to me." },
+    },
+    stonemasons = { { id = "tp_stonemasons", text = "I knew Edwin VanCleef when he was a master mason and the Stonemasons' Guild built this kingdom back from the ashes. The nobles cheated them, and I've said so to the House of Nobles' face, but it doesn't give him the right to take Westfall." } },
+    silver_hand = { { id = "tp_silver_hand", text = "I was trained by the Silver Hand, and I'd not trade a day of it for all the gold in Stormwind. The order's broken now, scattered by the plague in the north, but it trained me for a war like this." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light doesn't ask whether a man's a noble or a farmer, and it doesn't ask whether he can pay. That's the sermon I preach on this hill, and the militia hear it every morning." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "We serve the same Light, you and I, and on this hill it serves farmers who can't fight and fight anyway. Remember that whenever someone in Stormwind tells you the Light is for the gentry." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar Fordragon is an honest man trying to hold a kingdom together with both hands and a council around his wrists. I've no quarrel with him, only with the men who keep his ear." } },
+    varian = { { id = "tp_varian", text = "King Varian would have seen this injustice and set it right, I believe, before the Defias had a name. Now he's missing and the boy is too young, and Westfall pays for both." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor has the Highlord's ear, and she's never once spoken well of Westfall in council, so I'm told. I'll not judge a woman I've never met, but I'll note that she speaks against us easily." } },
+    second_war = { { id = "tp_second_war", text = "I came back from the Second War to a homeland I'd fought to keep, and found the Defias had taken it while I was away. The orcs never managed that, and I'll not let a mason's grudge manage it either." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Scarlet Crusade has the Light on its banners and murder in its heart, from what my brothers in the north write. I'd not trust a man who's sure of everything, and the Crusade is sure of everything." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Too many of the Defias I send to the Stockade come back to Westfall, and I've stopped wondering how. When I'm done with VanCleef, I'll have a word with whoever's holding the keys." } },
     knows = {
       { id = "tp_knows", text = "Every scout and farmer in Westfall reports to this hill sooner or later, so I've heard most of what goes on out there. Ask me about any of this." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll make the time, and I'll not soften any of it. Ask away." },

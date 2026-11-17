@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_watch_soldiers", when = { opinion = { topic = "night_watch", stance = "needs_soldiers" } }, text = "Ah, my ally in correspondence! The twelfth letter has gone, with your opinion in it underlined, and I await the Crown's thirteenth refusal with great interest." },
     { id = "g_mayor", text = "The mayor's time is precious, {class}, and Darkshire's is more precious still." },
     { id = "g_army", when = { minLevel = 25 }, text = "Has Stormwind sent you? Please, tell me that Stormwind has finally sent you." },
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "Ah, Darkshire's favourite! Come in, come in, and mind the council's chairs, because they're older than they look." },
@@ -36,6 +37,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_watch = {
+      lines = {
+        { id = "op_watch_a", text = "Every night, around the second bottle of Smitts's red. Councilman Millstipe says the Night Watch is all the army Darkshire will ever get, so we ought to stop begging and start drilling bakers. I say a baker with a pike is still a baker. Which of us is right?" },
+      },
+      choices = {
+        { text = "Millstipe's right. The Night Watch has held this long; trust it.", next = "op_watch_1", fx = { opinion = { night_watch = "holding", stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "You're right, Lord Mayor. Darkshire needs real soldiers. Keep writing.", next = "op_watch_2", fx = { opinion = { night_watch = "needs_soldiers", stormwind = "patience" }, align = { order = 1 }, affinity = 2 } },
+        { text = "Drill the bakers and keep writing. Do both.", next = "op_watch_3", fx = { opinion = { night_watch = "holding" }, trait = { practical = 1 }, affinity = 1 } },
+        { text = "Write to Ironforge instead. They answer letters.", next = "op_watch_4", when = { race = "Dwarf" }, fx = { opinion = { night_watch = "needs_soldiers", dwarves = "loyal" } } },
+        { text = "I'm sure the council knows best, Lord Mayor.", next = "BACK" },
+      },
+    },
+    op_watch_1 = {
+      lines = { { id = "op_watch_r1", text = "My kinswoman would agree with you, and she'd say it with a pike in her hand, which is a persuasive way to say anything. I'll keep writing all the same, because I'm a politician, and it's the only weapon I'm good with." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
+    op_watch_2 = {
+      lines = { { id = "op_watch_r2", text = "Thank you. I'll put that in the twelfth letter, that a traveller of some standing agrees with the Lord Mayor, and I'll underline it twice." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
+    op_watch_3 = {
+      lines = { { id = "op_watch_r3", text = "Both! Of course both; it's so obvious I'm embarrassed nobody on the council said it. I'll propose it as a motion and take the credit, if you don't mind." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
+    op_watch_4 = {
+      lines = { { id = "op_watch_r4", text = "I have, you know, twice, and I received a very courteous reply and a crate of something that exploded in the Town Hall. I'll write again, with your name in it." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
     xcl_stocks = {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Darkshire cares about one prisoner in that place, and the rest may rot or riot as they please. Ward sold our dead to a necromancer and I sentenced him for it, and the House of Nobles took him from us on a point of law, which I have not forgiven and do not intend to." } },
@@ -48,7 +77,7 @@ P:NPC {
     xcl_stocks2 = {
       lines = { { id = "xcl_stocks2_default", text = "Hanged him at the edge of Raven Hill, where the families could see it done, and buried him somewhere nobody would think to dig. It isn't mercy, I know, but I'm a mayor and not a priest, and Darkshire ran out of mercy for men like him some time ago." } },
       choices = {
-        { text = "Then I hope Councilman Millstipe gets his way.", next = "BACK" },
+        { text = "Then I hope Darkshire gets its justice yet, my lord.", next = "BACK" },
       },
     },
     xdsham = {
@@ -151,10 +180,10 @@ P:NPC {
         { text = "Your wolves are thinning. I've been hunting them.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Ironforge has its own wars, my lord, but I came.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "There are quieter roads to Stormwind's ear, my lord.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Karazhan is close. Does its shadow trouble Darkshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Will Stormwind ever send soldiers to Darkshire, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Karazhan is close. Its shadow must trouble Darkshire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I doubt Stormwind will ever send soldiers here, my lord.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your town fears me, Lord Ebonlocke.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Has Stormwind answered your requests, Lord Ebonlocke?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Stormwind doesn't seem to answer your requests, Lord Ebonlocke.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Stockade is quiet now, my lord. Does Darkshire care?", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "Good day, my lord.", next = "END" },
       },
@@ -167,7 +196,7 @@ P:NPC {
       choices = {
         { text = "Then I'll help the Night Watch.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { order = 1 } } },
         { text = "I'd sooner hunt these woods alone than march with the Watch.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Walls? Darkshire has none?", next = "need_walls" },
+        { text = "I saw no walls around Darkshire.", next = "need_walls" },
         { text = "Sounds grim.", next = "BACK" },
       },
     },
@@ -214,6 +243,7 @@ P:NPC {
         { id = "l_default", text = "Eleven this year, each more eloquent than the last, and the replies grow shorter every time. The latest was two lines and a seal, and I've had it framed." },
       },
       choices = {
+        { text = "Has the council ever thought of not asking Stormwind at all?", next = "op_watch" },
         { text = "What did the two lines say?", next = "letters_reply" },
         { text = "Something else.", next = "BACK" },
       },
@@ -239,7 +269,7 @@ P:NPC {
     },
     solomon = {
       lines = {
-        { id = "so_default", text = "Magistrate Solomon asked me for my Watch. Had I sent them, the dead would have been in our square before they ever reached the forest's edge, and I told him so as politely as I could." },
+        { id = "so_default", text = "Magistrate Solomon of Lakeshire asked me for my Watch to fight his orcs. Had I sent them, the dead would have been in our square before they ever reached the forest's edge, and I told him so as politely as I could." },
         { id = "so_done", when = { questDone = TODO_QUEST("Messenger to Darkshire") },
           text = "You carried his plea here and my refusal back, and I'm sorry you had to. Solomon will curse me for it, and he'll be right to, and I would do it again." },
       },
@@ -317,7 +347,7 @@ P:NPC {
         { id = "pr_default", text = "Prayed over it? There's more cemetery at Raven Hill than village now. Pray if you like, and then pray the dead hear you and stay where they're put." },
       },
       choices = {
-        { text = "Has no one tended those graves?", next = "priest_graves" },
+        { text = "Nobody seems to tend those graves anymore.", next = "priest_graves" },
         { text = "I'll go at dawn.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { darkshire = 1 } } },
         { text = "Prayers won't keep the dead in the ground, but steel will.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -424,5 +454,16 @@ P:NPC {
       { id = "tp_embalmer", text = "It's a story nannies tell in Darkshire, about a husband, a dead wife and his own heart. I'd like it to stay a story." },
     },
     _none = { { id = "tp_none", text = "The council has no position on that, though it has far too many positions on everything else." } },
+    varian = { { id = "tp_varian", text = "I have written to the king more times than any man living, and since he went missing I write to the Highlord instead. The army has not come, and I begin to wonder whether my letters arrive at all." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is a paladin of great honor, and I've no doubt he would send men if he could. Somebody in that Keep is telling him he can't, and I would very much like to know who." } },
+    prestor = {
+      { id = "tp_prestor", text = "Lady Prestor sends Darkshire the most beautiful refusals I have ever read. I keep them in a drawer, and some evenings I read them aloud to the council, for practice." },
+      { id = "tp_prestor2", when = { disposition = { min = 65 } }, text = "Between us, every refusal from the Keep since Lady Prestor came to court has had the same gracious turn of phrase. I accuse nobody, but I've stopped believing it's a coincidence." },
+    },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a thriving village under this council's care, and we lost it to the dead in a single winter. Its cemetery is the town's shame, and I'll not rest easy until it's quiet." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass, burn what they please and ride back again. The council has reported them to Stormwind eleven times, and I can show you the copies." } },
+    scourge = { { id = "tp_scourge", text = "Lordaeron fell to its dead within a year, and Darkshire has held out against its own for longer than that with farmers and lanterns. I should like someone in Stormwind to consider that before they tell me the army is stretched." } },
+    holy_light = { { id = "tp_holy_light", text = "Darkshire's chapel lights its candles every evening, and the Light has kept us better than the Crown has. I say that as a loyal man, mind you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I once petitioned the Darkmoon Faire to come to Darkshire and lift the town's spirits. They sent a most courteous letter declining, which I filed beside the Keep's." } },
   },
 }

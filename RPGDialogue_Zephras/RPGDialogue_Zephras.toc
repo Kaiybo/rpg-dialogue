@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Zephras Isle |cff8a8a8a1.11.1|r
+## Title: RPG Dialogue: Zephras Isle |cff8a8a8a1.12.0|r
 ## Notes: The Skyborne's home: the High Elder, Thendal Village, Valanaar, the two orders and the Peacekeepers.
 ## Author: RPG Dialogue
-## Version: 1.11.1
+## Version: 1.12.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.zephras
@@ -17,3 +17,7 @@ npcs\thendal.lua
 npcs\thendal_orders.lua
 npcs\valanaar.lua
 npcs\thendal_grove.lua
+npcs\thendal_village.lua
+npcs\valanaar_high_order.lua
+npcs\valanaar_hall.lua
+npcs\wilds.lua

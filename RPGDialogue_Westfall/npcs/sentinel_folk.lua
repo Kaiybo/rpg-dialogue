@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_defias_hard", when = { gossip = { topic = "defias", stance = "hardline" } }, text = "Danuvin tells me you'd hang the Defias lads off the tower. Some of those lads drank at my tables once, so forgive me if I pour a little slower for you." },
+    { id = "g_op_bolvar_soft", when = { gossip = { topic = "bolvar", stance = "soft" } }, text = "The Commander says you told him the Regent's forgotten his oath. Say it again by my fire, love, and the whole room will stand you a drink." },
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
     { id = "g_home", when = { homeInn = { "Sentinel Hill" } }, text = "Your bed's made, and I've shaken the grit out of the blankets, though it'll be back by morning. It always is." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's late for the road. Sit down before the militia mistakes you for a bandit; it happens more than they'd admit." },
@@ -129,19 +131,19 @@ P:NPC {
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
-        { text = "How's the hill holding up?", next = "hill" },
+        { text = "The hill seems to be holding up.", next = "hill" },
         { text = "Who stays here, mostly?", next = "guests" },
         { text = "Do any of the militia need tending?", next = "tending", when = { class = "PRIEST" } },
-        { text = "You said some Defias drank here once?", next = "masons", when = { topicKnown = "defias" } },
+        { text = "Did any Defias ever drink here?", next = "masons", when = { topicKnown = "defias" } },
         { text = "Any chance of a proper dwarven ale?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Your guests sleep in their boots. Easy pickings, Heather.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Mind if I sweep the dust out with a gust of wind?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll need a room with thick walls, Heather.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does the militia sleep in their boots, Heather?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the militia mind beasts in the inn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does the militia keep good order at your inn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The militia seem to keep good order at your inn.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does all this dust come from, Heather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does the dust ever settle in Westfall, Heather?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The dust never seems to settle in Westfall, Heather.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -152,7 +154,7 @@ P:NPC {
     guests = {
       lines = { { id = "gu_default", text = "Militia between watches, the odd carter brave enough for the road, and whoever Gryan's put to work. The carters pay and the militia sleep, and I call that even." } },
       choices = {
-        { text = "Do the militia ever pay?", next = "guests_pay" },
+        { text = "I'd guess the militia don't often pay.", next = "guests_pay" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,6 +186,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias are holed up in the old Moonbrook mines, and half my guests are on their way there or back from it. The ones coming back sleep for two days and don't talk about it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took a day off for the Darkmoon Faire once, and when I got back, the dust had moved into every room and set up house. I've not taken a day off since, and I think the dust remembers." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A guest left me a bottle of Booty Bay rum once and swore it was good for the nerves. It's still on the shelf, because I'd not know what to do with nerves that didn't jump at every knock." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Some of my guests say the Stockade's full of Defias who'll be back in Westfall by summer. I keep a few extra rooms ready, because I've learned to expect the worst and charge for it." } },
     knows = {
       { id = "tp_knows", text = "Everyone on the hill comes through my door for a bed or a bowl, and they all talk. Ask me about any of this." },
     },
@@ -309,19 +315,19 @@ P:NPC {
         { id = "h_again2", text = "Go on, and quickly, before another wagon goes missing." },
       },
       choices = {
-        { text = "Why so short on supplies?", next = "short" },
+        { text = "Your shelves look short on supplies.", next = "short" },
         { text = "How do you get word to the city?", next = "message" },
         { text = "What's in the ledger?", next = "ledger" },
         { text = "Got arrows, shot, throwing knives?", next = "ammo", when = { class = { "HUNTER", "ROGUE", "WARRIOR" } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Do you stock anything for a mage, Lewis?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You'll want to log whatever my demon breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "How short is Sentinel Hill on armor, Quartermaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Sentinel Hill looks short on armor, Quartermaster.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Sentinel Hill need from its hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does your ledger have room for bandages and blessed water?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Who gets the armor first when Osric's crate comes in?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Who gets the armor first when new stock comes in?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could wild herbs stand in for the bandages you can't get?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "How do the Defias keep robbing your wagon, Lewis?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Defias seem to rob your wagon at will, Lewis.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -332,7 +338,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll clear the road.", next = "BACK", fx = { affinity = 2, standing = { sentinel_hill = 1 } } },
-        { text = "Can't the city send guards?", next = "guards" },
+        { text = "The city could surely send guards.", next = "guards" },
       },
     },
     guards = {
@@ -360,7 +366,7 @@ P:NPC {
     ledger = {
       lines = { { id = "le_default", text = "Bread, water, arrows, shot and mending, in and out and stolen. The stolen column's the longest, and I've had to rule extra pages for it." } },
       choices = {
-        { text = "Who steals the most?", next = "ledger_who" },
+        { text = "Someone must be stealing most of it.", next = "ledger_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -378,6 +384,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "Gryan's got a pile of requisitions on my desk for the day we go into the Deadmines, and I've not got half of what's on them. I'll make do, as I always do, though I'd like to make do with more." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I could get proper supplies from Booty Bay if the road south weren't full of trolls and the sea weren't full of pirates. As it is, I get what Stormwind sends me, which is mostly paperwork." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons built Sentinel Hill's tower, and I've their ledgers somewhere in this wagon. Nobody paid them for it either, and I keep those pages folded so I don't have to read them." } },
+    second_war = { { id = "tp_second_war", text = "I kept the books for a supply train in the Second War, and I've been counting arrows ever since. The numbers were worse then, but I was younger and they didn't feel as heavy." } },
     background = { { id = "tp_bg", text = "A quartermaster. The ledger's the only history I keep, and it's mostly losses." } },
     advice = { { id = "tp_ad", text = "Buy food before you need it. Out here the bread runs out before the hunger does." } },
     trade = { { id = "tp_tr", text = "General goods for a hill at war: what I have, I sell, and what I don't have was stolen.", next = "ledger" } },
@@ -496,9 +506,9 @@ P:NPC {
       },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
-        { text = "What are the gryphons like?", next = "birds" },
+        { text = "Your gryphons look a proud lot.", next = "birds" },
         { text = "Where do your routes go?", next = "routes" },
-        { text = "Ever lost a rider?", next = "lost" },
+        { text = "You must have lost a rider or two.", next = "lost" },
         { text = "Lewis's note has to reach Stormwind.", next = "message", when = { questActive = TODO_QUEST("Continue to Stormwind") } },
         { text = "Ironforge's gryphons look sturdier than these.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "The winds over Westfall are restless today, Thor.", next = "shaman", when = { class = "SHAMAN" } },
@@ -507,7 +517,7 @@ P:NPC {
         { text = "Do the gryphons mind carrying warriors, Thor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has a hunter's beast ever ridden a gryphon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your gryphons ever carry the wounded back to Stormwind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do your gryphons ever fly against the Defias, Thor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your gryphons look eager to fly against the Defias, Thor.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your gryphons carry a warlock, Thor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
@@ -559,6 +569,11 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "My gryphons were bred by the Wildhammers at Aerie Peak, and they've never let me forget it. They think a man on a saddle is an insult, and I suspect they're right." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My birds won't fly within a league of that black mountain north of Redridge, and I've stopped trying to make them. A gryphon knows when there's something bigger in the sky, and that's enough for me." } },
+    dark_portal = { { id = "tp_dark_portal", text = "I flew a message to Nethergarde once and saw the Dark Portal from above, a great black gate standing in a red waste. The bird turned back on its own, and I didn't argue." } },
+    deadmines = { { id = "tp_deadmines", text = "My gryphons won't land near Moonbrook, because the Defias have taken to shooting at anything with wings. I'd rather a bird be sulky than dead, so I fly the long way round." } },
+    onyxia = { { id = "tp_onyxia", text = "Some of the riders who fly south to Theramore say there's a black dragon in the marshes there who'd eat a gryphon whole. I've told my birds about her, and they've been behaving ever since." } },
     background = { { id = "tp_bg", text = "I'm the gryphon master, and that's the whole of it. The birds don't care where I came from, so neither do I." } },
     advice = { { id = "tp_ad", text = "Fly over trouble, not through it, and never feed a gryphon from your hand. I did it once, and never again." } },
     trade = { { id = "tp_tr", text = "Rides out of Westfall for a little coin. Cheaper than walking, safer than the road.", next = "routes" } },
@@ -674,8 +689,8 @@ P:NPC {
       },
       choices = {
         { text = "What can you see from the tower?", next = "see" },
-        { text = "Why red silk, not leather?", next = "silk" },
-        { text = "What's it like, living up here?", next = "tower" },
+        { text = "Why do the Defias all wear red?", next = "silk" },
+        { text = "Living up here can't be easy.", next = "tower" },
         { text = "Bet I could slip past your watch.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Sentinels keep watches like this at home.", next = "nightelf", when = { race = "NightElf" } },
         { text = "I could scout the hills for you as a cat.", next = "druid", when = { class = "DRUID" } },
@@ -685,7 +700,7 @@ P:NPC {
         { text = "What should a hunter watch for on the roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you watch the militia's dead come home from the tower?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin strike first, from what you see up here?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you enjoy making the Defias nervous, Riell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You seem to enjoy making the Defias nervous, Riell.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -727,7 +742,7 @@ P:NPC {
     tower = {
       lines = { { id = "to_default", text = "Cold at night, hot by noon, and the wind never stops. On a clear day I can see Moonbrook's smoke from here. I'd trade the view for a quiet one." } },
       choices = {
-        { text = "Do you ever sleep?", next = "tower_sleep" },
+        { text = "You look as if you never sleep.", next = "tower_sleep" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -756,6 +771,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "I can see the road to Moonbrook from this tower, and I watch the Defias carts go in and never come out. Whatever they're building down there, they're building it big." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have been anchoring off the coast at night, and I've seen their lanterns from up here. If they're trading with the Defias, I'd like to know what for, and I'd like to know before they do." } },
+    si7 = { { id = "tp_si7", text = "SI:7 sends a man to look at our maps now and then, and he never introduces himself. I've started leaving a few wrong pins on the map, just to see if anyone notices." } },
+    sentinels = { { id = "tp_sentinels", text = "The night elf Sentinels can watch a forest for a week without blinking, so I'm told. I'd like to learn their trick, because I've been on this tower for three days and I'm seeing gnolls in my sleep." } },
     background = { { id = "tp_bg", text = "I scout for the militia, and before that there's nothing worth the telling. The tower's where I live now, near enough." } },
     advice = { { id = "tp_ad", text = "Look up before you walk into a valley, because someone's always on the ridge. Make sure it's me." } },
     defias = { { id = "tp_defias", text = "They're organised, and that's what scares me. Bandits don't post watches, but these do." } },
@@ -879,20 +898,20 @@ P:NPC {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
       },
       choices = {
-        { text = "Where did you learn bowmaking?", next = "learn" },
-        { text = "Poor wood?", next = "wood" },
+        { text = "You must have learned bowmaking somewhere.", next = "learn" },
+        { text = "Is good wood hard to come by out here?", next = "wood" },
         { text = "What bow would you give a hunter?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Who gets your best bows?", next = "best" },
+        { text = "I'd guess the militia get your best bows.", next = "best" },
         { text = "Gina MacGregor says she sells your strings.", next = "gina", when = { heardLine = "gina.h_default" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "A good bow is fine, but a knife is quieter.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a wand count as competition, William?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why won't you sell a warrior your best bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever made a bow for a priest, William?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do you ever give a bow to a farmer who can't pay?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd wager you give bows to farmers who can't pay.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where do you cut your wood, now Westfall's groves are gone?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there anything a warlock would want from a bowyer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is Westfall wood really so poor, William?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Westfall wood doesn't look like much, William.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },
@@ -929,6 +948,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The night elves make bows from their own trees and string them with something I've never seen this side of the sea. I'd trade my whole stock for one, and still feel I'd got the better deal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold bows at the Darkmoon Faire one summer, and a gnome bought one twice his height just to see if he could. He couldn't, but he paid, and that's what counts." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are dug into the old mines under Moonbrook, and they've been buying arrows from somebody who isn't me. I'd like to know who, because that's my trade they're stealing as well." } },
     background = { { id = "tp_bg", text = "I'm a bowyer, working Westfall wood with Westfall patience, and there's nothing else worth telling." } },
     advice = { { id = "tp_ad", text = "Keep your string dry and your quiver full. Out here you won't get a second chance to restock." } },
     _none = { { id = "tp_none", text = "I sell bows, friend, so ask me about bows." } },

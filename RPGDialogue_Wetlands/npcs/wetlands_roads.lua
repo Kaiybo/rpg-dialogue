@@ -20,6 +20,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_magni = {
+      lines = {
+        { id = "opn_magni_q", text = "I said I'll no' curse him, an' I won't. But I've buried dwarves who asked me every day when the reserves were comin', an' I gave 'em the same answer every day. Ye've been tae Ironforge; ye tell me if he failed us." },
+      },
+      choices = {
+        { text = "He did. Dun Modr should have come first.", next = "opn_magni_r_failed", fx = { affinity = 1, align = { honor = -1 }, opinion = { magni = "failed" } } },
+        { text = "He gave his word to the Alliance. A king keeps his word.", next = "opn_magni_r_loyal", fx = { affinity = -1, align = { honor = 1 }, opinion = { magni = "loyal" } } },
+        { text = "He's stretched thin. No king could hold every fire.", next = "opn_magni_r_stretched", fx = { trait = { practical = 1 }, opinion = { magni = "stretched" } } },
+        { text = "The King asked after Dun Modr. He hasn't forgotten you.", next = "opn_magni_r_loyal", when = { heardLine = "magni.h_default" }, fx = { affinity = 1, opinion = { magni = "loyal" } } },
+        { text = "That's between you and the King.", next = "BACK" },
+      },
+    },
+    opn_magni_r = {
+      lines = {
+        { id = "opn_magni_r_default", text = "Between us an' a lot o' graves, aye. Never mind me; I've been on this wall too long." },
+      },
+      choices = {
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
+    opn_magni_r_failed = {
+      lines = {
+        { id = "opn_magni_r_failed", text = "Aye. There, ye've said it, so I don't have tae, an' I'll feel the worse for agreein' wi' ye. Don't say it near Stoutfist; he'll throw ye in the harbour." },
+      },
+      choices = {
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
+    opn_magni_r_loyal = {
+      lines = {
+        { id = "opn_magni_r_loyal", text = "Keeps his word tae the Alliance, an' it's his own sons out here payin' for it. I'll hear ye, but ye've no' buried anyone on these walls." },
+      },
+      choices = {
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
+    opn_magni_r_stretched = {
+      lines = {
+        { id = "opn_magni_r_stretched", text = "Aye, well. That's what I tell the lads, an' it sounds better when someone else says it. It doesnae bring Dun Modr back, mind." },
+      },
+      choices = {
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
     xpt_warrior = {
       big = true,
       lines = { { id = "xpt_warrior_default", text = "Aye, it was, and it still is when the Dark Irons come down out of Dun Modr, though my knees have their own opinions now. A warrior's whole trade is standing between the ones behind him and whatever's in front, and if your friend understands that, you're in good hands." } },
@@ -140,14 +184,14 @@ P:NPC {
       choices = {
         { text = "What do you know of Grim Batol?", next = "druid_q", when = { class = "DRUID" } },
         { text = "How did the Dark Irons take Dun Modr?", next = "fall" },
-        { text = "What about the Thandol Span?", next = "span" },
+        { text = "The Thandol Span seems to be in ruins.", next = "span" },
         { text = "Why do they call you Grim?", next = "grim" },
         { text = "I'm a dwarf of Ironforge. Tell me how to help.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I could get inside Dun Modr and learn what they're planning.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Dark Iron fire won't burn through a mage's ward.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How can a warrior help hold Dun Modr, Longbraid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What could a hunter do for Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Who tends your wounded out here, Longbraid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I see no healer tending your wounded out here, Longbraid.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you ask of a paladin, Longbraid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a warlock be any use against the Dark Irons, Longbraid?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call fire at Dun Modr, Longbraid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -158,7 +202,7 @@ P:NPC {
     fall = {
       lines = { { id = "f_default", text = "They came out of the south in force, with powder and steel, and we were too few. Harlo Barnaby took an axe in the back covering the retreat, and he's lucky he lived." } },
       choices = {
-        { text = "Why weren't you reinforced?", next = "fall_why" },
+        { text = "You should have been reinforced.", next = "fall_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,7 +216,10 @@ P:NPC {
     },
     fall_end = {
       lines = { { id = "fe_default", text = "Now we take it back, a stone at a time if need be. Every Dark Iron ye put down out there is one less on my walls." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } } },
+      choices = {
+        { text = "Did the King fail you here, Longbraid?", next = "opn_magni" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } },
+      },
     },
     span = {
       lines = { { id = "s_default", text = "The great bridge into Arathi, or it was until the Dark Irons blew half of it into the gorge. Motley Garmason can tell ye more, for he's taken it to heart." } },
@@ -190,6 +237,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I know Dark Irons and walls, and naught else these days." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was the Wildhammer's home till the Dark Irons cursed it. We've enough Dark Irons in Dun Modr without diggin' up their old curses." } },
+    magni = { { id = "tp_magni", text = "King Magni gave me Dun Modr's edge tae hold, an' I'm holdin' it. When he wants it back whole, I'll give him that too." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's the only road from Khaz Modan tae Arathi, an' the Dark Irons want it. They'll have tae come through my lads first." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons took Dun Modr while we were lookin' the other way, an' I've no' looked away since. Every one o' them I see goes in the loch." } },
   },
 }
 
@@ -307,12 +358,12 @@ P:NPC {
       },
       choices = {
         { text = "Why did they blow up the Span?", next = "why" },
-        { text = "Do you have family here?", next = "family" },
+        { text = "You must have family near here.", next = "family" },
         { text = "How does it look from Arathi's side?", next = "arathi" },
         { text = "I know demolitions. Who set the charges?", next = "rogue", when = { class = "ROGUE" } },
         { text = "What do the Dark Irons owe you, Motley?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do you think the Dark Irons' tracks lead?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Is vengeance all you want from the Dark Irons, Motley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Vengeance seems to be all you want from the Dark Irons, Motley.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Dark Irons answer to a court, or your axe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would it take to rebuild the Thandol Span?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a mage help you against the Dark Irons, Motley?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -356,6 +407,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask Longbraid." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hold Dun Modr an' they're spyin' on the Span. I've no time for anythin' else, so that's all ye'll get from me." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's broken an' the Dark Irons did it, an' every day it stays broken they get bolder. That's all the history I've time for." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Don't ask me about Grim Batol. I've enough tae think about on this side o' the hills." } },
   },
 }
 
@@ -469,9 +523,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin'." },
       },
       choices = {
-        { text = "Why do you hate the raptors so?", next = "raptors" },
+        { text = "You seem to hate the raptors more than most.", next = "raptors" },
         { text = "What's Whelgar digging for?", next = "dig" },
-        { text = "How do you fight them?", next = "fight" },
+        { text = "There must be a trick to fighting them.", next = "fight" },
         { text = "Raptors are fine prey. I'll hunt them.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Raptors hunt by smell. I'll have to be cleverer than usual.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fire, then. Raptors fear fire, surely?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -487,7 +541,7 @@ P:NPC {
     raptors = {
       lines = { { id = "r_default", text = "They took a friend of mine off the dig in broad daylight, while he was eatin' his bread. He never even screamed, and I'll hear that silence till I die." } },
       choices = {
-        { text = "Is revenge worth it?", next = "raptors_rev" },
+        { text = "Revenge may not be worth it.", next = "raptors_rev" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -519,6 +573,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I couldnae tell ye. All I think about these days is raptors." } },
+    dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw on the highland don't bother me half as much as the raptors on this ridge. Ye can see an orc comin'." } },
+    magni = { { id = "tp_magni", text = "I'll tell King Magni himself I cleared this ridge once it's cleared. Until then I'm no' fit tae stand before him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "Dark Irons? Let Longbraid have them. I've raptors tae deal wi' first, an' then I'll see." } },
   },
 }
 
@@ -641,15 +698,15 @@ P:NPC {
         { id = "h_again", text = "What else? I've a trench to check." },
       },
       choices = {
-        { text = "What have you found?", next = "finds" },
-        { text = "Are the raptors a danger to the dig?", next = "raptors" },
+        { text = "You must have found something worth all this digging.", next = "finds" },
+        { text = "The raptors look a real danger to the dig.", next = "raptors" },
         { text = "A gnome scholar would love to see this.", next = "gnome", when = { race = "Gnome" } },
         { text = "Your finds hum with old magic, Prospector.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "A dig full of treasure, and only raptors for guards.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What has your diggers looking over their shoulders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the raptors keep you from digging, Prospector?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What have you found that needs a priest's eye, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is your dig worth the lives it's cost, Prospector?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I wonder if your dig is worth the lives it's cost.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's the strangest thing you've pulled out of the mud?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has your dig turned up anything a warlock should know about?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What has your dig turned up that worries you, Whelgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -676,5 +733,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "That's beyond me, I'm afraid, though I'll talk about old stones all day." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League sent me out here wi' Merrin tae dig, an' we turned up bones bigger than anythin' that ought tae walk. Then the raptors came, an' now we're diggin' wi' one eye on the trees." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the great prize, deep in the Badlands, an' Ironband's lot say its stones are older than Ironforge. I believe them, for I've seen the drawings." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Old stones are my trade, an' Grim Batol's the oldest in these hills, but I'll no' go near it. Some stones are best studied in books." } },
+    magni = { { id = "tp_magni", text = "King Magni reads our reports himself, so I write them neat. That's the only reason my handwritin's improved in fifty years." } },
   },
 }

@@ -101,24 +101,24 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, buddy? Talkin' hurts, and hurtin' should cost extra, so make it quick." }, { id = "h_again2", text = "Ask, if you must, buddy, but every question's another minute I'm not gettin' better." } },
       choices = {
-        { text = "What happened to you?", next = "b1_1" },
+        { text = "You look like something chewed you up.", next = "b1_1" },
         { text = "How's Beetix?", next = "b2_1" },
-        { text = "Why come to Silithus?", next = "b3_1" },
+        { text = "I can't think why a goblin would come to Silithus.", next = "b3_1" },
         { text = "Let me see if I can ease your pain.", next = "x_1", when = { class = { "PRIEST", "DRUID", "SHAMAN" } } },
-        { text = "Is profit worth this risk?", next = "s_1" },
+        { text = "No profit seems worth this risk.", next = "s_1" },
         { text = "How did you get poisoned?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is there really no cure for your venom?", next = "xmage", when = { class = "MAGE" } },
+        { text = "There seems to be no cure for this venom.", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you ever prayed for anything yourself, Noggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you rather I went and fought what stung you, Noggle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you really not know what stung you, Noggle?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Are you actually dying, Noggle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You talk like a dying man, Noggle.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would a warlock want your soul, Noggle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "I was out collecting samples for a little side business, buddy, and one of those big silithid things got me in the leg. Next thing I know, I'm shakin', sweating, seeing things, and owing my cousin money." } },
-      choices = { { text = "Something goblin?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Can't the druids cure you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The druids here have done what they can, and they don't even charge, which makes me suspicious, but their nature magic only slows it down. I need somethin' stronger, buddy, somethin' goblin." } },
@@ -145,7 +145,13 @@ P:NPC {
       choices = { { text = "Your health matters more than gold.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "No risk, no profit. That's the goblin way.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, buddy, and right now I don't care unless it's an antidote." } } },
+  topics = {
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got doctors, buddy, and they'd have me cured by now, at triple the price. Here I'm getting cured slow and cheap, and I can't decide which is worse." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The bugs from the hives bite, did you know that? And they don't bill you first, which is unprofessional." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I sold insurance in Booty Bay, once, before the pirates sank the business. Ironic, isn't it, me not having any now." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel doesn't cover poison, I checked, so this one's all on my own ledger. Remind me to renegotiate when I'm feeling better." } },
+    _none = { { id = "tp_none", text = "No idea, buddy, and right now I don't care unless it's an antidote." } },
+  },
 }
 
 P:NPC {
@@ -258,14 +264,14 @@ P:NPC {
         { text = "What do you think lies beneath the sands, Revelator?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What do you hear beneath these sands, Revelator?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What lies beneath the sands?", next = "b1_1" },
-        { text = "Why should I believe you?", next = "b2_1" },
-        { text = "Do the druids listen to you?", next = "b3_1" },
+        { text = "I've no reason to believe you.", next = "b2_1" },
+        { text = "I doubt the druids listen to you.", next = "b3_1" },
         { text = "The Light will stand against any darkness.", next = "x_1", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Is there any hope?", next = "s_1" },
         { text = "Do you think warlocks will bring the end?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do you think is beneath the sand?", next = "xmage", when = { class = "MAGE" } },
         { text = "What do the voices beneath the sand say, Jonathan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do you really think the swarm can't be fought, Revelator?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The swarm can be fought, Revelator.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have you seen beneath the sands, Revelator?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What darkness do you think waits beneath the sand?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
@@ -273,7 +279,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "The silithid hives go deeper than any of the druids believe. Beneath them lie the ruins of an empire older than the night elves, and whatever ruled it is not dead." } },
-      choices = { { text = "Whispering?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "How can you know all this?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The druids talk about scarabs and gongs and ancient walls, but they do not understand what they guard. I have heard it in my dreams, whispering." } },
@@ -300,7 +306,14 @@ P:NPC {
       choices = { { text = "We fight. There is always hope.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Prepare for the worst. Hope is a luxury.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That has not been revealed to me, traveler." } } },
+  topics = {
+    cthun = { { id = "tp_cthun", text = "The bugs speak a name in the dark, traveler, and I have heard it with my own ears, and I dare not say it! Pray the wall holds." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives are mouths, I tell you, mouths in the sand, and they're hungry, and they're patient! Everyone laughs at me until they look closely." } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "The bronze dragons sealed the city once, and they will not come again, mark my words! They have left us to the bugs." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, the bugs dig in the south, and the world is ending at both ends! Nobody listens to Jonathan." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light won't save you from the bugs, friend, not when the bugs come out of the ground. Nothing will save you, but you might as well pray." } },
+    _none = { { id = "tp_none", text = "That has not been revealed to me, traveler." } },
+  },
 }
 
 P:NPC {
@@ -312,7 +325,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Lok'tar, warrior! Speak quickly; the Horde has a war to prepare." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water, which is no death for an orc." },
   },
   start = "hello",
   nodes = {
@@ -408,7 +421,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can you hold an axe? No, a hammer, then, and I hear the Light burns bugs as well as anything." },
       },
-      again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Speak, and quickly." } },
+      again = { { id = "h_again", text = "Anything else? Speak it plainly, warrior." }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
         { text = "Will the Horde fight beside the Circle here?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "The earth here is sick with hives. How does the Horde fight it?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
@@ -416,10 +429,10 @@ P:NPC {
         { text = "What of the Alliance?", next = "b2_1" },
         { text = "How do I help?", next = "b3_1" },
         { text = "My axe is ready for the swarm.", next = "x_1", when = { class = "WARRIOR" } },
-        { text = "Should we fight beside the Alliance?", next = "s_1" },
+        { text = "We may have to fight beside the Alliance here.", next = "s_1" },
         { text = "What does the Horde need from a rogue here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do warlocks fight well against the silithid?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Does the Horde's war effort need priests, Krug?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Warlocks should fight well against the silithid.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The Horde's war effort must need priests, Krug.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the Horde need from its hunters here, Krug?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a mage, Krug?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will the Light burn the silithid, Krug?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -428,11 +441,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Gathering strength, supplies and warriors for the war to come. When the time comes, the Horde will be ready to march on the silithid hives." } },
-      choices = { { text = "Strange allies?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Is the Horde alone out here?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The Alliance is here too, of course, and we tolerate them for now. A common enemy makes strange allies, and this enemy is common to us all." } },
-      choices = { { text = "The Horde's axes?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Who will break the swarm, then?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "But when the fighting starts, it'll be the Horde's axes that break the swarm. Mark my words." } },
@@ -455,7 +468,13 @@ P:NPC {
       choices = { { text = "Victory first, grudges later.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "The Horde fights alone. Always.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "If I cannot fight it or sharpen a blade on it, I know nothing about it." } } },
+  topics = {
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me to hold this desert against the bugs, and I'll hold it until the bugs are dead or I am. Thrall doesn't send warriors where they're not needed." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives must burn, every one, and the Horde will burn them. Bring me oil and axes and stop asking questions." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen sends her dead to fight in the north. Good, then they don't come here and smell up the camp." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elves' priestess sends archers here too, and they fight well, for elves. I'll tell her so to her face, if she ever comes." } },
+    _none = { { id = "tp_none", text = "If I cannot fight it or sharpen a blade on it, I know nothing about it." } },
+  },
 }
 
 P:NPC {
@@ -580,16 +599,16 @@ P:NPC {
       choices = {
         { text = "What don't the generals understand about the silithids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What is the Alliance doing here?", next = "b1_1" },
-        { text = "How do you feel about the Horde here?", next = "b2_1" },
+        { text = "You don't seem easy about the Horde being here.", next = "b2_1" },
         { text = "How can I help?", next = "b3_1" },
         { text = "Our people have fought worse than bugs.", next = "x_1", when = { race = { "Human", "Dwarf" } } },
         { text = "Should we trust the Horde here?", next = "s_1" },
-        { text = "Is SI:7 watching the Horde here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'd wager SI:7 is watching the Horde here.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How goes the fight against the silithid?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there rivalry with the Horde here, Commander?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Don't you trust the Circle's scouts, Commander?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "You don't seem to trust the Circle's scouts, Commander.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do you need from a paladin here, Merok?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Are the wounded so many, Merok?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "There seem to be a great many wounded, Merok.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should my demon stay clear of the cult, Merok?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have an Alliance shaman listen for, Merok?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
@@ -597,11 +616,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Gathering supplies and soldiers for the push into Ahn'Qiraj. The druids believe the silithids are only a part of a larger threat, and we mean to be ready." } },
-      choices = { { text = "The gates?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Who else is preparing?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The Horde's here too, with their own commander and their own plans. We keep the peace for now, because the swarm is a bigger enemy than either of us." } },
-      choices = { { text = "Who stood firm?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "And when the time comes?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "When the gates open, I want our soldiers in the front ranks. Silithus will remember who stood firm." } },
@@ -624,5 +643,11 @@ P:NPC {
       choices = { { text = "Work with them. The swarm is the real enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "Never trust the Horde. Watch your back.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not something I know, friend." } } },
+  topics = {
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives keep growing, and we keep burning them, and neither side's winning yet. I'd like more men and fewer scorpids in my boots." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar sends what he can spare from Stormwind, which is never enough. He's a good man doing a hard job." } },
+    magni = { { id = "tp_magni", text = "The dwarves sent a few rifles and a promise of more, and the rifles arrived. I'm still waiting on the promise." } },
+    thrall = { { id = "tp_thrall", text = "The Horde fights the bugs here as hard as we do, and I'll say that to anyone who asks. I'll also keep my eye on them, and they keep their eye on me." } },
+    _none = { { id = "tp_none", text = "Not something I know, friend." } },
+  },
 }

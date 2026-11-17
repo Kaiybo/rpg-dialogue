@@ -138,7 +138,7 @@ P:NPC {
     yeti = {
       lines = { { id = "y_default", text = "A yeti called Vagash, big as a cart and twice as mean. He comes down off the slopes at night, takes a ram, and leaves nothin' but wool on the snow." } },
       choices = {
-        { text = "Why not hire the Mountaineers?", next = "yeti_mtn" },
+        { text = "This sounds like work for the Mountaineers.", next = "yeti_mtn" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,6 +176,9 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer ride gryphons an' we ride rams, an' a ram's the better beast fer the snow. They'll tell ye otherwise, an' they're wrong." } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane come down from the hills an' take whatever's no' nailed down, an' my rams are no' nailed down. I count the herd twice a day an' I sleep wi' one ear open." } },
+    magni = { { id = "tp_magni", text = "The King keeps a ram from my ranch, an' I'm prouder o' that than anythin' else I've done. He rides it badly, mind, but it's a fine ram." } },
     _none = { { id = "tp_none", text = "I raise rams, friend, and I know nothin' about that. Ask in Kharanos." } },
   },
 }
@@ -309,7 +312,7 @@ P:NPC {
         { id = "h_again2", text = "Ask what ye like, lad; I've a fire goin' and nowhere better to be." },
       },
       choices = {
-        { text = "A bear stole your food?", next = "bear" },
+        { text = "So a bear stole your food.", next = "bear" },
         { text = "Why live out here alone?", next = "life" },
         { text = "What's the danger in these hills?", next = "hills" },
         { text = "The cold doesn't trouble a gnome, you know.", next = "gnome", when = { race = "Gnome" } },
@@ -347,7 +350,7 @@ P:NPC {
     life = {
       lines = { { id = "l_default", text = "Ironforge is all walls and hammers, and Kharanos is all gossip and ale. Out here it's just me and the wind, and the wind never asks me for coin." } },
       choices = {
-        { text = "Don't you get lonely?", next = "life_lonely" },
+        { text = "It must get lonely out here.", next = "life_lonely" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,6 +369,9 @@ P:NPC {
   },
 
   topics = {
+    everlook = { { id = "tp_everlook", text = "I spent a winter in Winterspring once, an' Everlook was the only warm place fer fifty miles. The goblins charge fer the fire, but I'd have paid double." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Bears that talk, up north, an' they're the friendliest bears I ever met, which says somethin' about the bears round here. Mine run off wi' my food." } },
+    camping = { { id = "tp_camping", text = "Make yer camp where the wind cannae find ye an' the bears cannae smell ye, an' that's all I know. I failed at the second part, as ye can see." } },
     _none = { { id = "tp_none", text = "No idea, friend, and I've had a lot of quiet hours to think about it." } },
   },
 }
@@ -479,7 +485,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Would you mind saying something over Jetsteam? Nothing fancy, just enough to keep her in the air, because I'm not convinced the engineering will." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'd offer you a ride, but Jetsteam only seats one, and I'm not sure she'd lift all that plate anyway." },
         { id = "h_default", key = true,
-          text = "Pilot Bellowfiz, aviator, at your service! I'm stocking my flier for a long trip, and the depot's larder is emptier than a kobold's head." },
+          text = "Pilot Bellowfiz, aviator, at your service! I'm stocking my flier for a long trip, eleven hundred miles by my reckoning, and the depot's larder is emptier than a kobold's head." },
         { id = "h_jet", when = { questActive = TODO_QUEST("Stocking Jetsteam") },
           text = "Bear meat, boar meat and a bit of thick hide, that's what Jetsteam needs! Well, that's what I need, but Jetsteam needs me fed." },
         { id = "h_done", when = { questDone = TODO_QUEST("Stocking Jetsteam") },
@@ -495,13 +501,13 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Can you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm!" },
+        { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm, and every minute idle costs me two percent of my steam!" },
         { id = "h_again2", text = "Ask away, I've got a moment while the pressure builds." },
       },
       choices = {
         { text = "What's Jetsteam?", next = "jet" },
         { text = "What is this depot for?", next = "depot" },
-        { text = "Who else works out here?", next = "people" },
+        { text = "You can't be the only one working out here.", next = "people" },
         { text = "A fellow gnome! Where are you flying?", next = "gnome", when = { race = "Gnome" } },
         { text = "Have you had stowaways on your flier before?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic really power a flying machine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -509,7 +515,7 @@ P:NPC {
         { text = "What meat do you need for your trip, Pilot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you really want a prayer said over your flier?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the depot safe out here, pilot?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does your machine ever frighten the birds, Pilot?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Your machine must frighten the birds, Pilot.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why are the fuel lines so sensitive, Bellowfiz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you want a shaman's help with the winds, Pilot?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe flying.", next = "END" },
@@ -518,7 +524,7 @@ P:NPC {
     jet = {
       lines = { { id = "j_default", text = "My flying machine, and the finest one this side of Ironforge! She runs on steam and good luck, and I make sure there's plenty of both." } },
       choices = {
-        { text = "Is it safe?", next = "jet_safe" },
+        { text = "It doesn't look entirely safe.", next = "jet_safe" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -549,7 +555,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, and that's not in it." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan built the best flying machines in the world, and I'd fly one back in there if I didn't think the troggs would eat it. Someday, someday, and I'll be at the controls." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan fly their machines on whatever they can find in the desert, and they crash more than they land. I've a cousin there who flies one, and he's lost three eyebrows and most of a moustache." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a zeppelin tower, they say, though I've never been, and I'd love to look at it and tut. Goblins never use enough rivets." } },
+    _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, roughly four thousand feet of it, and that's not in it." } },
   },
 }
 
@@ -698,6 +707,9 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells guns that'll blow up in yer hand an' charge ye extra fer the explosion. Mine'll only blow up the thing ye're aimin' at." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got a goblin gunsmith who claims he's better than me, an' I've never met him, an' he's wrong. Ye can tell him I said so." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer throw hammers instead o' shootin' guns, which is a fine tradition an' a waste o' good powder. Each tae their own, I suppose." } },
     _none = { { id = "tp_none", text = "If it doesnae go bang, I couldnae tell ye about it." } },
   },
 }

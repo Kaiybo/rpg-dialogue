@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_pir_admire", when = { gossip = { topic = "pirates", stance = "admire" } }, text = "I hear you fancy the pirate life, sweetie. Do try to steal something with a little taste, because the Southsea dress like a bilge on fire." },
     { id = "g_default", text = "Yes? If you're buying, sweetie, come in, and if you're browsing, browse quickly, because my time is billed by the minute and you can't afford many." },
     { id = "g_hats", when = { questActive = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Do you have all twenty hats, sweetie? I don't believe you, so let me see them, and let me count them, twice." },
     { id = "g_hats_done", when = { questDone = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Ah, my hat courier! You look almost presentable today, sweetie. Almost." },
@@ -49,8 +50,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. You have until I lose interest, and my interest is very expensive." },
       },
       choices = {
-        { text = "Who actually wears pirate hats?", next = "hats" },
-        { text = "Do kings really buy from you?", next = "kings" },
+        { text = "What's in fashion this season?", next = "hats" },
+        { text = "I doubt kings really buy from you.", next = "kings" },
         { text = "Why set up shop at Steamwheedle Port?", next = "port" },
         { text = "What's wrong with how I dress?", next = "dress" },
         { text = "As a tailor, what's your secret?", next = "tailor", when = { profession = "Tailoring" } },
@@ -59,7 +60,7 @@ P:NPC {
       },
     },
     hats = {
-      lines = { { id = "ht_default", text = "Everyone, sweetie, once I've told them to. A pirate hat says danger and adventure and a certain disregard for the law, which is exactly what bored nobles want to feel on a Tuesday." } },
+      lines = { { id = "ht_default", text = "Pirate hats, sweetie, because everyone wears what I've told them to. A pirate hat says danger and adventure and a certain disregard for the law, and the pirates of Lost Rigger Cove won't be needing theirs once the Cartel is done with them." } },
       choices = {
         { text = "You're selling stolen hats to the rich?", next = "hats_stance" },
         { text = "Something else.", next = "BACK" },
@@ -93,7 +94,7 @@ P:NPC {
       lines = { { id = "d_default", text = "Where to begin, sweetie? You dress for fighting things, which is fine for fighting things, but nobody will ever invite you anywhere twice." } },
       choices = {
         { text = "I'm happy as I am, thank you.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "What would you suggest?", next = "dress_suggest" },
+        { text = "I suppose you have a suggestion.", next = "dress_suggest" },
       },
     },
     dress_suggest = {
@@ -110,6 +111,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A goblin of taste in a world that has none, sweetie. It's a lonely calling, but it pays, and it pays very well." } },
     advice = { { id = "tp_ad", text = "Charge what it's worth to them, not what it cost you. That's the only rule in fashion, and in life." } },
     bloodsail = { { id = "tp_bloodsail", text = "Dreadful pirates with dreadful hats, nothing like the Southsea ones. Red is so obvious." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a fashion desert, sweetie, in every sense, and I'm the only oasis. Everyone here dresses as though the sand chose their wardrobe." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a certain pirate charm, sweetie, but the hats are a disgrace. I've offered to help, and they keep throwing me off the docks." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the best-dressed woman in Stormwind, sweetie, and I've heard she has her gowns made specially. I'd give anything to know who her tailor is." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore dresses like a sensible mage, sweetie, all blues and practical sleeves. It's a crime, with a face like that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has the most dreadful costumes, sweetie, all patches and tassels. I've offered to redesign them, and Silas laughed at me." } },
     _none = { { id = "tp_none", text = "I don't concern myself with that, sweetie. Is it wearable? Is it sellable? No? Then it isn't my problem." } },
   },
 }

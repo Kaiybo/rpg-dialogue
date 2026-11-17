@@ -62,6 +62,12 @@ P:NPC {
     ----------------------------------------------------------------------------------------------
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Hold on, I know that face! No, I don't, I knew one just like it, a {altclass} called {alt} who stopped by my corner and was kind to an old farmer, so tell me, is that kin of yours?" },
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You've the look of somebody with a soft heart, and I'd know, because {alt} had that same look and proved me right. Topper McNabb, friend, and my hat's right here." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came by my corner the other day, and I told them all about you, though I couldn't swear I had your name right. You city folk come and go so fast I lose track of who's who." },
         { id = "h_default", key = true, text = "Topper McNabb, at your service, and a farmer once. Now I sit here and let the city walk past, and it never stops, but it rarely tips." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, with a generous face if ever I saw one. Spare a blessing for an old farmer, {class}, because it costs you nothing and it warms me through." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I always did think the Silver Hand would come to Westfall one day and put things right, and I'm still sitting here waiting for it." },
@@ -97,7 +103,7 @@ P:NPC {
         { text = "Here's a coin, Topper.", next = "coin", fx = { affinity = 2, trait = { generous = 1 } } },
         { text = "How do you get by out here?", next = "living" },
         { text = "Who else lives around here?", next = "district" },
-        { text = "What's the word on the street?", next = "news" },
+        { text = "You must hear all the word on the street.", next = "news" },
         -- who you are
         { text = "I lost a farm too, to the Defias.", next = "farmer", when = { origin = "human_westfall_farmhand" } },
         { text = "I grew up on these canals, Topper. Remember me?", next = "o_canal", when = { origin = "human_canal_pickpocket" } },
@@ -110,14 +116,14 @@ P:NPC {
         { text = "Why talk to me? Most here would call the guards.", next = "k_horde", when = { faction = "Horde" } },
         { text = "You don't flinch at me, Topper. Why not?", next = "k_forsaken", when = { race = "Scourge" } },
         { text = "Do you ever get down to Ironforge, Topper?", next = "k_dwarf", when = { race = "Dwarf", faction = "Alliance" } },
-        { text = "What do you make of the gnomes in the city?", next = "k_gnome", when = { race = "Gnome", faction = "Alliance" } },
-        { text = "What did you make of my people when we came?", next = "k_nelf", when = { race = "NightElf" } },
+        { text = "There seem to be a lot of gnomes in the city now.", next = "k_gnome", when = { race = "Gnome", faction = "Alliance" } },
+        { text = "My people must have seemed strange when we came.", next = "k_nelf", when = { race = "NightElf" } },
         { text = "Have you ever seen anyone like me, Topper?", next = "k_sky", when = { race = "Skyborne" } },
         { text = "You've been staring at my hands, Topper.", next = "k_human", when = { race = "Human", faction = "Alliance" } },
         -- class
         { text = "Did you ever steal, Topper?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would conjured bread really fill you up?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Did you ever carry a sword yourself, Topper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Conjured bread can't really fill you up.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You look like you've never carried a sword, Topper.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Did you hunt back on your farm, Topper?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you still pray, Topper, after losing the farm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have the Silver Hand do for Westfall?", next = "xapala", when = { class = "PALADIN" } },
@@ -270,7 +276,7 @@ P:NPC {
       choices = {
         { text = "You kept your wife alive. That's what mattered.", next = "f_elsie", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "You left your neighbours to face them alone.", next = "f_elsie", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "Who's Elsie?", next = "f_elsie" },
+        { text = "You keep mentioning Elsie.", next = "f_elsie" },
       },
     },
     f_elsie = {
@@ -278,7 +284,7 @@ P:NPC {
       lines = { { id = "fe_default", text = "Elsie's my wife, friend, and still my wife, though she's in Lakeshire with her sister these four years. She stayed through two winters on the street with me, and on the third she said she'd wait for me in Redridge when I was a farmer again, and I've not been a farmer since." } },
       choices = {
         { text = "Then go to her, Topper. She said she'd wait.", next = "f_letters" },
-        { text = "Does she know where you are?", next = "f_letters" },
+        { text = "She may not know where you are.", next = "f_letters" },
         { text = "Redridge isn't safe these days. Is she all right?", next = "n_redridge" },
       },
     },
@@ -286,7 +292,7 @@ P:NPC {
       big = true,
       lines = { { id = "fl_default", key = true, text = "I write to her every Winter Veil, friend, a good long letter, and I keep them all in my coat, because I've never once had anything good to put in one. Six letters, and every one of them says I'm doing very well in the city." } },
       choices = {
-        { text = "Send them anyway. She'd rather have the truth than nothing.", next = "f_letter_read", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Send them anyway. She'd rather have the truth than nothing.", next = "f_letter_read", fx = { affinity = 2, align = { honor = 1 }, letter = "topper_true_letter" } },
         { text = "Keep them. Some things are kinder left unsaid.", next = "f_letter_read", fx = { align = { honor = -1 } } },
         { text = "Would you read me one?", next = "f_letter_read" },
       },
@@ -334,14 +340,14 @@ P:NPC {
     coin_spend = {
       lines = { { id = "cs_default", text = "Bread, ale or the Duchess's supper, friend, whichever reaches me first. I'll raise a crust or a cup to you either way, and nobody will know which." } },
       choices = {
-        { text = "Do people often give?", next = "coin_who" },
+        { text = "People can't give you much.", next = "coin_who" },
         { text = "Good enough. Something else.", next = "BACK" },
       },
     },
     coin_who = {
       lines = { { id = "cw_default", text = "The poor give most and the rich give least, friend, and that's the first thing you learn on this step. Dwarves give generously and then tell you how to spend it, and the night elves give as if they're feeding a pigeon, gently and from a distance." } },
       choices = {
-        { text = "And the nobles?", next = "coin_nobles" },
+        { text = "I'd wager the nobles give the least of all.", next = "coin_nobles" },
         { text = "And adventurers like me?", next = "coin_adv" },
         { text = "Something else.", next = "BACK" },
       },
@@ -374,7 +380,7 @@ P:NPC {
       },
       choices = {
         { text = "The occasional miracle?", next = "lv_blind" },
-        { text = "Do people really pay for armour shining?", next = "lv_shine" },
+        { text = "I can't believe people pay for armour shining.", next = "lv_shine" },
         { text = "Where do you sleep?", next = "lv_sleep" },
         { text = "Do the guards trouble you?", next = "lv_guards" },
         { text = "Why not find honest work?", next = "lv_work" },
@@ -387,7 +393,7 @@ P:NPC {
       choices = {
         { text = "That's a lie told to kind people.", next = "lv_blind_stance" },
         { text = "Has anyone ever caught you out?", next = "lv_blind_caught" },
-        { text = "Has it ever worked on a real priest?", next = "lv_blind_priest" },
+        { text = "It can't have worked on a real priest.", next = "lv_blind_priest" },
       },
     },
     lv_blind_stance = {
@@ -442,7 +448,7 @@ P:NPC {
       lines = { { id = "lsl_default", text = "Under the arch where the canal goes under the road, friend, with a blanket, a crate and a one-eared cat I call the Duchess. She's no lady and she bites, but she keeps the rats honest, and that's more than the city does." } },
       choices = {
         { text = "Tell me about the Duchess.", next = "lv_duchess" },
-        { text = "What about the winters?", next = "lv_winter" },
+        { text = "The winters are hard out here, I'd think.", next = "lv_winter" },
         { text = "Doesn't the Cathedral have beds?", next = "lv_cathedral" },
       },
     },
@@ -509,7 +515,7 @@ P:NPC {
         { text = "A man who can work should keep looking.", next = "lv_work2", fx = { align = { order = 1 } } },
         { text = "This city owes you more than you owe it.", next = "lv_work2", fx = { align = { order = -1 } } },
         { text = "Is there nothing at all for you in this city?", next = "lv_work2" },
-        { text = "What about the People's Militia?", next = "lv_militia" },
+        { text = "The People's Militia might take you.", next = "lv_militia" },
       },
     },
     lv_work2 = {
@@ -624,9 +630,9 @@ P:NPC {
         { id = "di_again2", text = "Go on, name a door and I'll tell you what goes in and out of it." },
       },
       choices = {
-        { text = "What about the auction house?", next = "d_auction" },
-        { text = "And the Gilded Rose?", next = "d_rose" },
-        { text = "What's odd about a cheese shop?", next = "d_cheese" },
+        { text = "The auction house seems to do good business.", next = "d_auction" },
+        { text = "There's always the Gilded Rose.", next = "d_rose" },
+        { text = "Tell me about the cheese shop.", next = "d_cheese" },
         { text = "What do you see on the canal at night?", next = "d_canal" },
         { text = "The orphans rob you?", next = "d_orphans" },
         { text = "Have you met many gnomes since Gnomeregan fell?", next = "d_gnomes" },
@@ -670,7 +676,7 @@ P:NPC {
     d_cheese = {
       lines = { { id = "dc_default", text = "Trias's place, the cheese shop on the corner. Lovely cheese, friend, but I've noticed that half the folk who go in come out without any, and some of them come out by the back door, which isn't how cheese works." } },
       choices = {
-        { text = "Who are they, do you think?", next = "d_cheese2" },
+        { text = "They sound like trouble to me.", next = "d_cheese2" },
         { text = "Maybe they're just picky about cheese.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -773,8 +779,8 @@ P:NPC {
         { id = "nw_again2", text = "What else would you like to hear? I've half of what the guards say and all of what the washerwomen say." },
       },
       choices = {
-        { text = "What do people say about the king?", next = "n_king" },
-        { text = "What's happening in Westfall?", next = "n_westfall" },
+        { text = "People talk about the king a great deal, I notice.", next = "n_king" },
+        { text = "Westfall seems to be in a bad way.", next = "n_westfall" },
         { text = "What happened at the Stockade?", next = "n_stockade" },
         { text = "What news from Redridge?", next = "n_redridge" },
         { text = "Who were the masons?", next = "n_masons" },
@@ -965,7 +971,7 @@ P:NPC {
     o_mason = {
       lines = { { id = "om_default", text = "Knew them? I hauled stone for them, friend, the first year after the farm, and I was the worst hauler they ever had. Your father might have been the big quiet one who taught me to lift with my knees, and if he was, he was kind to me." } },
       choices = {
-        { text = "Did they really become the Defias?", next = "n_masons" },
+        { text = "I've heard they became the Defias.", next = "n_masons" },
         { text = "Did he go west, after the riot?", next = "o_mason2" },
       },
     },
@@ -980,7 +986,7 @@ P:NPC {
           check = { pass = { any = { { class = "ROGUE" }, { disposition = { min = 55 } } } } },
           fail = { next = "o_lakeshire_caught", fx = { affinity = -1 } } },
         { text = "I'm sorry, I don't. Tell me about her.", next = "f_elsie" },
-        { text = "What news do you hear from Redridge?", next = "n_redridge" },
+        { text = "Redridge seems to be in trouble.", next = "n_redridge" },
       },
     },
     o_lakeshire_lie = {
@@ -1185,7 +1191,7 @@ P:NPC {
       choices = {
         { text = "A hungry man deserves real bread, not a spell.", next = "xmage2", fx = { align = { light = 1 } } },
         { text = "Conjured or not, a meal's a meal, so take what you can.", next = "xmage2", fx = { align = { light = -1 } } },
-        { text = "Has a mage ever fed you before?", next = "xmage2" },
+        { text = "I'd guess a mage has never fed you before.", next = "xmage2" },
       },
     },
     xmage2 = {
@@ -1223,7 +1229,7 @@ P:NPC {
     },
     xhunt2 = {
       lines = { { id = "xhu2_default", text = "I was a terrible shot, friend, and you talk like a hunter and not like a poet, which I like. Keep that beast of yours away from the canal, mind, because the Duchess doesn't share." } },
-      choices = { { text = "Who's the Duchess?", next = "lv_duchess" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "You speak of the Duchess as if she's family.", next = "lv_duchess" }, { text = "Something else.", next = "BACK" } },
     },
     xapriest = {
       big = true,
@@ -1254,6 +1260,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light's been kind to me, friend, even if the world hasn't. I get soup from the Cathedral, and a smile from the priests, and I'll take both." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias took my farm, and now they're hiding in the old Moonbrook mines, they say. I'd go and ask for it back if I thought they'd listen." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire comes to Goldshire every so often, and I go and watch the lights from the road. I've never had the copper to go in, but the lights are free." } },
+    second_war = { { id = "tp_second_war", text = "I was a farmer before the Second War and a farmer after it, and then the Defias came and I wasn't a farmer at all. The orcs never managed that, and I'll not forgive the Defias for doing what the orcs couldn't." } },
     background = { { id = "tp_bg", text = "Farmer, then not. The middle bit changes depending on who's listening and what they've got in their purse.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Never build your house in front of anyone's tower; that one's free. The rest costs a copper." } },
     defias = { { id = "tp_defias", text = "They asked me to join, once, and I said I'd think about it. I'm still thinking, and it's very restful, thinking." } },

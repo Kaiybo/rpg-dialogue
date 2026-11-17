@@ -127,19 +127,19 @@ P:NPC {
       },
       choices = {
         { text = "Something is wrong with the fish in your lake.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "Is the lake really that bad?", next = "lake" },
-        { text = "Tell me about the sunfish.", next = "sunfish" },
+        { text = "The lake looks peaceful enough from here.", next = "lake" },
+        { text = "What do the fishermen catch here?", next = "sunfish" },
         { text = "Who crosses on your boats?", next = "boats" },
         { text = "I fish. Where's the best water?", next = "fisher", when = { profession = "Fishing" } },
         { text = "I've had my brew. Let's talk.", next = "brew", when = { drunk = { min = 1 } } },
         { text = "My pet could chase the murlocs off your docks.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
-        { text = "Murlocs stole your nets. I could steal them back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "If the murlocs steal from you, I could steal it back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could freeze the lake around the murlocs.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the murlocs come right onto the docks, Dockmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has the lake taken any of Lakeshire's people, Dockmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps the docks safe after dark, Baren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the fishermen fear warlocks more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Have the murlocs got worse on the lake, Dockmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The murlocs seem to have got worse on the lake, Dockmaster.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
@@ -150,7 +150,7 @@ P:NPC {
       },
       choices = {
         { text = "Something big?", next = "big" },
-        { text = "Why are murlocs this far from the sea?", next = "inland" },
+        { text = "Murlocs are a long way from the sea up here.", next = "inland" },
       },
     },
     big = {
@@ -183,7 +183,7 @@ P:NPC {
     boats = {
       lines = { { id = "bo_default", text = "With the bridge out, everyone does: guards, grain, Oslow's crew. One boat went down under a catapult stone with Oslow's tools aboard, and I still hear the crack some nights." } },
       choices = {
-        { text = "Can the orcs reach the docks?", next = "docks" },
+        { text = "The orcs can surely see these docks from the far shore.", next = "docks" },
         { text = "You should charge for passage.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
       },
     },

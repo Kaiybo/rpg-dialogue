@@ -34,6 +34,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_q", text = "I've spent years learning to see the orcs as people rather than as the monsters my father fought, and I'm still learning. You've travelled among them, so I'd value your honest answer: what do you think of the orcs?" },
+        { id = "opo_q_h", when = { faction = "Horde" }, text = "You're of the Horde, so you'll know them far better than I ever can from this side of the marsh. Tell me honestly, what are the orcs like now, under Thrall?" },
+      },
+      choices = {
+        { text = "They've changed under Thrall. They deserve the chance you've given them.", next = "op_orcs_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { orcs = "redeemable" } } },
+        { text = "An orc is an orc. The demon blood doesn't wash out.", next = "op_orcs_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "Some have changed, some haven't. I judge them one at a time.", next = "op_orcs_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { orcs = "mixed" } } },
+        { text = "They're my people, my lady, and they keep their word.", next = "op_orcs_r4", fx = { affinity = 2, opinion = { peace = "peace" } }, when = { race = "Orc" } },
+        { text = "I'd rather not answer that, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r1 = {
+      lines = {
+        { id = "op_orcs_r1", text = "I think so too, and it helps more than you'd guess to hear it from someone else. Theramore is built on that chance." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r2 = {
+      lines = {
+        { id = "op_orcs_r2", text = "My father believed that, and it cost him his life and nearly cost us Kalimdor. I hope you'll find it harder to believe as you travel further." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r3 = {
+      lines = {
+        { id = "op_orcs_r3", text = "That's all I ask of anyone, on either side of the line. It's slower than hating them all, but it's honest." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    op_orcs_r4 = {
+      lines = {
+        { id = "op_orcs_r4", text = "Then help them keep it, please. Every orc who keeps faith at Brackenwall makes my arguments in Stormwind easier." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
     xpt_jaina = {
       big = true,
       lines = { { id = "xpt_jaina_default", text = "That's the Alliance as it should be, and I wish Stormwind's lords could see it more often. When Lordaeron fell, it was elves who held the forests and dwarves who held the mountains, and we only lost ground when we stopped trusting each other." } },
@@ -144,7 +189,7 @@ P:NPC {
       choices = {
         { text = "Do the night elves still trust humans, my lady?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why keep peace with the Horde?", next = "peace" },
-        { text = "How did Theramore begin?", next = "lordaeron" },
+        { text = "Theramore seems a young city, my lady.", next = "lordaeron" },
         { text = "Tell me about the city.", next = "theramore" },
         { text = "I'm sorry about your father.", next = "father" },
         { text = "What did Dalaran teach you?", next = "mage", when = { class = "MAGE" } },
@@ -155,9 +200,9 @@ P:NPC {
         { text = "I'd serve in Theramore's guard, my lady.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Dalaran would have burned me. Will you?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Dwarves helped build these walls, I hear.", next = "x_dwarf", when = { race = "Dwarf" } },
-        { text = "Does Theramore have enemies inside its walls, my lady?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "I'd guess Theramore has enemies inside its own walls, my lady.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the marsh's beasts threaten Theramore, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does the Silver Hand still mean something to you, my lady?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Silver Hand must still mean something to you, my lady.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you make of a dwarf shaman, my lady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Onyxia is dead, my lady. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "My companions come from every corner of the Alliance, my lady.", next = "xpt_jaina", when = { race = "Human", party = { race = { "Dwarf", "Gnome", "NightElf" } }, faction = "Alliance" } },
@@ -183,7 +228,7 @@ P:NPC {
     doubt = {
       lines = { { id = "d_default", text = "Some wouldn't, and some of ours wouldn't either. That's exactly why the rest of us have to try." } },
       choices = {
-        { text = "Who'd want it broken?", next = "peace_breakers", fx = { trait = { curious = 1 } } },
+        { text = "Somebody must want it broken.", next = "peace_breakers", fx = { trait = { curious = 1 } } },
         { text = "Fair. Something else.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
       },
     },
@@ -221,7 +266,7 @@ P:NPC {
       },
       choices = {
         { text = "Who should I know here?", next = "theramore_who" },
-        { text = "Is it safe?", next = "theramore_safe" },
+        { text = "It looks safe enough here.", next = "theramore_safe" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -294,6 +339,7 @@ P:NPC {
     thrall = {
       lines = { { id = "th_default", text = "Then he's still keeping our word, or you'd have said otherwise by now. Tell me: how did he seem?" } },
       choices = {
+        { text = "What do you think of the orcs, my lady?", next = "op_orcs" },
         { text = "Tired, but steady.", next = "BACK", fx = { affinity = 2 } },
         { text = "Watchful. Like you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
@@ -381,7 +427,7 @@ P:NPC {
       choices = {
         { text = "What do you make of the Alliance's other leaders?", next = "jd_leaders" },
         { text = "You were at Stratholme, weren't you?", next = "jd_strat" },
-        { text = "What do you want from someone like me?", next = "jd_want" },
+        { text = "You must want something from someone like me.", next = "jd_want" },
         { text = "What would you do if the peace were tested tomorrow?", next = "jd_test" },
         { text = "Let's speak of other things, my lady.", next = "hello" },
       },
@@ -400,7 +446,7 @@ P:NPC {
         { text = "What is Thrall really like?", next = "jd_thrall" },
         { text = "Who speaks for Stormwind now?", next = "jd_sw" },
         { text = "And King Magni, in Ironforge?", next = "jd_magni" },
-        { text = "Do the night elves' leaders trust you?", next = "jd_tyrande" },
+        { text = "The night elves' leaders seem slow to trust you.", next = "jd_tyrande" },
         { text = "Enough of kings and warchiefs.", next = "jd_deeper" },
       },
     },
@@ -410,7 +456,7 @@ P:NPC {
         { id = "jth_met", when = { heardLine = "thrall.h_default" }, text = "You've stood in front of him yourself, so you'll know I'm not flattering him. He was raised by the very people who caged his race, and somehow he still looks at a human and sees a person." },
       },
       choices = {
-        { text = "Can a warchief really hold every orc to a treaty?", next = "jd_thrall2" },
+        { text = "No warchief can hold every orc to a treaty.", next = "jd_thrall2" },
         { text = "Then he's earned your trust, my lady.", next = "BACK", fx = { affinity = 1, opinion = { thrall = "trusted" } } },
         { text = "I'd still keep a hand near my sword around him.", next = "BACK", fx = { trait = { cautious = 1 }, opinion = { thrall = "wary" } } },
       },
@@ -648,6 +694,25 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Learn the other side's words before you need them. Captain Vimes speaks orcish, and it's saved more lives than his sword." } },
     grimtotem = { { id = "tp_grimtotem", text = "There are tauren who'd like a war with us. Thrall isn't one of them, and neither am I. That's where we start." } },
     burning_blade = { { id = "tp_blade", text = "Thrall's problem, and he knows it. I'll help if he asks, though he won't ask." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall is a better leader than I was told an orc could be, and I was told a great many things that weren't true. We made a peace on Kalimdor with our own hands, and I mean to keep it." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief trusted me when he had no reason to, and I've tried to deserve it. Tell him Theramore still keeps its word, if anyone asks you." },
+    },
+    arthas = { { id = "tp_arthas", text = "Arthas was my friend, and he was a good man once, before Stratholme and before Northrend. Whatever walks in his armor now serves the Scourge, and I've stopped looking for the man in it." } },
+    stratholme = { { id = "tp_stratholme", text = "I was there when Arthas ordered the city purged, and I walked away from him on that road. I still don't know whether he could have been stopped, but I know I couldn't stay and watch." } },
+    scourge = { { id = "tp_scourge", text = "I saw the plague take Lordaeron village by village, and I saw what came out of the granaries. That's why I followed the prophet west, and why I'll never call the Scourge finished while Kel'Thuzad holds Naxxramas." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was my home and my school, and Archimonde tore it down to take the Book of Medivh. The Kirin Tor are rebuilding it, slowly and behind closed gates, and I don't blame them." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "I still count myself one of the Kirin Tor, though they'd say I've wandered rather far. They're careful people, and after what happened, they've earned their caution." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner died defending Quel'Thalas and came back as something I don't know how to speak to. Her people are bitter and clever, and they aren't part of any peace I signed." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken broke free of the Lich King, and I'm glad of that much. What they want now frightens Lordaeron's survivors, and I can't promise them that their fear is wrong." } },
+    onyxia = { { id = "tp_onyxia", text = "There is a black dragon laired in the south of this marsh, and her brood grows bolder every season. I've lost scouts to Wyrmbog, and I won't send more until I know what she's waiting for." } },
+    prestor = { { id = "tp_prestor", text = "Lady Katrana Prestor writes very gracious letters from Stormwind on the young king's behalf. They say a great deal and promise nothing, and I've learned to read those carefully." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar is a good man holding Stormwind together while they wait for Varian. I'd trust him with my life, and I'd trust him more if the court let him decide anything." } },
+    varian = { { id = "tp_varian", text = "King Varian vanished on his way to meet me, on the road to Theramore, and nobody has found a trace of him. I think about it more often than I say." } },
+    theramore = {
+      { id = "tp_theramore", when = { disposition = { min = 70 } }, text = "I built Theramore so the refugees of Lordaeron would have somewhere to stop running. Some days I think it's the best thing I've done, and some days I think it's the only thing." },
+      { id = "tp_theramore2", text = "Theramore is a home for people who had no home left after the Third War. We're small and damp and far from everyone, but we're still here." },
+    },
     _none = { { id = "tp_none", text = "I don't know, but Tervosh might, and if he doesn't, he'll find out." } },
   },
 }
@@ -676,6 +741,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirin_tor = {
+      lines = {
+        { id = "opk_q", text = "The Lady could have stayed in Dalaran's good graces, you know, and the Kirin Tor have never quite forgiven her for leaving. You strike me as someone with views, so what do you make of the Kirin Tor?" },
+      },
+      choices = {
+        { text = "They're wise, and the Lady should have kept closer ties with them.", next = "op_kirin_tor_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { kirin_tor = "respect" } } },
+        { text = "Committees and towers. The Lady does more good on her own.", next = "op_kirin_tor_r2", fx = { affinity = 2, align = { order = -1 }, opinion = { kirin_tor = "wrong" } } },
+        { text = "Dalaran fell while they argued. I'd not trust them again.", next = "op_kirin_tor_r3", fx = { trait = { skeptical = 1 }, opinion = { kirin_tor = "distrust" } } },
+        { text = "I studied their ways, Archmage, and they're worth keeping.", next = "op_kirin_tor_r4", fx = { affinity = 1, opinion = { kirin_tor = "admire" } }, when = { class = "MAGE" } },
+        { text = "I'll leave Dalaran's politics to you, Archmage.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r1 = {
+      lines = {
+        { id = "op_kirin_tor_r1", text = "Wise, certainly, and slow, and fond of committees, which you'll remember I am not. The Lady chose to be useful instead, and I chose to follow her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r2 = {
+      lines = {
+        { id = "op_kirin_tor_r2", text = "Spoken like someone who's sat through one of their meetings! Theramore gets things done, and Dalaran can read about it afterwards." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r3 = {
+      lines = {
+        { id = "op_kirin_tor_r3", text = "That's harsh, though I'll not say it's wrong. Some of us lost a great deal in that city, so do say it gently." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r4 = {
+      lines = {
+        { id = "op_kirin_tor_r4", text = "Good, good, then keep them, and add something of your own, which is what the Lady did. That's the part they never taught." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_tervosh = {
       big = true,
       lines = { { id = "xpt_tervosh_default", text = "I think it's the best schooling there is, though the Kirin Tor would never admit it. A mage who has only ever cast at practice dummies learns caution late, and usually at someone else's expense." } },
@@ -803,19 +912,19 @@ P:NPC {
       again = { { id = "h_again", text = "Yes, yes, what else? Keep it short, if you would." }, { id = "h_again2", text = "Another question? Good, ask it while I water these." } },
       choices = {
         { text = "What troubles your garden, Archmage?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's this business with the diplomat?", next = "diplomat" },
+        { text = "I've heard talk of a missing diplomat.", next = "diplomat" },
         { text = "Tell me about your garden.", next = "garden" },
         { text = "You're not with the Kirin Tor?", next = "independent" },
-        { text = "What's the Lady like to serve?", next = "jaina" },
+        { text = "The Lady must be a demanding mistress to serve.", next = "jaina" },
         { text = "What do the shadowshards do?", next = "shards", when = { questActive = TODO_QUEST("Shadowshard Fragments") } },
         { text = "Any advice for a mage on their own?", next = "mage", when = { class = "MAGE" } },
         { text = "A gnome could rig your garden proper irrigation.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Your herbs would grow better by moonlight.", next = "x_nightelf", when = { race = "NightElf" } },
         { text = "Do you fear for your books in Theramore, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Did the Kirin Tor ever study warlock magic, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The Kirin Tor must have studied warlock magic, Archmage.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the mages and the faithful of Theramore get along?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Theramore's peace rest on arms or on trust?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do mages look down on warriors, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Mages tend to look down on warriors, Archmage.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What creatures trouble your garden, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do your books say of dwarves and the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I was there when Onyxia fell, Archmage.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
@@ -847,7 +956,10 @@ P:NPC {
     },
     independent = {
       lines = { { id = "i_default", text = "I prefer to be useful without asking six people first. The Lady asks, I answer, things get done. Committees can read about it afterwards." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of the Kirin Tor?", next = "op_kirin_tor" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     jaina = {
       lines = { { id = "j_default", text = "Brilliant, stubborn, and far too willing to carry everything herself. Don't tell her I said stubborn, but do tell her to sleep." } },
@@ -890,6 +1002,12 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A great many books, and then the Lady's tower, because she asked and I'd run out of better reasons to say no." } },
     advice = { { id = "tp_ad", text = "Never eat anything from the marsh you can't name. I can name most of them, and I still don't eat them." } },
+    dalaran = { { id = "tp_dalaran", text = "I was at Dalaran when the Legion took it apart stone by stone, and I'd rather not describe it, thank you. The Kirin Tor are putting it back together, and they'll open the gates when they're ready, which knowing them will be a decade late." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are brilliant, and they argue like starlings over a crust. I followed the Lady here because I'd rather be useful than right." } },
+    jaina = { { id = "tp_jaina", text = "The Lady is the most capable mage I've known, and she works harder than anyone in Theramore, myself included. Somebody ought to make her sit down, and it won't be me." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Wyrmbog, south of here, and her whelps grow bolder each spring. I've written to the Lady twice about it, and I'd write a third time if I thought paper burned slower." } },
+    scourge = { { id = "tp_scourge", text = "The plague took more mages than the war did, I think, because we kept thinking we could study it. Don't study it, take my advice, and burn it instead." } },
+    arthas = { { id = "tp_arthas", text = "I knew the prince to nod to, a golden lad with a good laugh. What he became is a lesson I'd rather not have had to learn." } },
     _none = { { id = "tp_none", text = "Not in any book I own, which means it's either very new or very dangerous." } },
   },
 }
@@ -922,6 +1040,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "Every soldier in this keep has an opinion about the Horde, and most of them were formed before the evidence was in. So, what's yours?" },
+      },
+      choices = {
+        { text = "They've kept the peace so far. Judge them by that.", next = "op_horde_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { horde = "tolerate" } } },
+        { text = "They're killers, all of them. The peace is a lie.", next = "op_horde_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { horde = "war" } } },
+        { text = "Some of them are honest. Some aren't. Same as us.", next = "op_horde_r3", fx = { trait = { honest = 1 }, opinion = { horde = "mixed" } } },
+        { text = "I'm Horde, Captain. We didn't burn that inn.", next = "op_horde_r4", fx = { opinion = { horde = "kin" } }, when = { faction = "Horde" } },
+        { text = "I'd rather keep my thoughts to myself, Captain.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "That's the evidence, and I'll stand on it until I see something better. Thank you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "Maybe, but a man who's decided the verdict before the trial makes a poor witness. Bring me proof and I'll listen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "That's the first thing they teach you on the watch, or they should. I'll take it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "Maybe you didn't, and maybe nobody you know did. I'll still want proof, but I'll write down that you came to say it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_vimes = {
       big = true,
       lines = { { id = "xpt_vimes_default", text = "Companies are useful, and I've borrowed a few in my time for work the garrison couldn't spare men for. The trouble is the ones who answer to nobody, because the deserters out past the Shady Rest started as a company too, before they decided Theramore's peace wasn't theirs to keep." } },
@@ -1031,12 +1193,12 @@ P:NPC {
         { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
         { text = "Want another sword in the Guard, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "What did the ashes tell you, Captain?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What happened to the Hyal family, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I heard the Hyal family suffered in the fire, Captain.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Onyxia is dead, Captain. Your patrols should have an easier time.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "We're a company, Captain. We go where we're needed.", next = "xpt_vimes", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
         { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you suspect magic started the inn fire, Captain?", next = "xmage", when = { class = "MAGE" } },
+        { text = "That fire smells of magic to me, Captain.", next = "xmage", when = { class = "MAGE" } },
         { text = "Could the spirits help you find who burned the Shady Rest?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "It was the Horde, and everyone knows it.", next = "END", fx = { affinity = -1, align = { order = -1 } } },
       },
@@ -1059,6 +1221,7 @@ P:NPC {
     why_horde = {
       lines = { { id = "wh_default", text = "Maybe, and then I'll say so, and I'll hang whoever did it whatever colour he wears. But I'll have proof first; that's the difference between a guard and a mob." } },
       choices = {
+        { text = "What do you make of the Horde yourself?", next = "op_horde" },
         { text = "Fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Proof takes too long, so hang the likely ones.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
       },
@@ -1120,6 +1283,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "Soldier, then sergeant, then the man the Lady asks when something smells wrong. The last one's the job I'm good at." } },
     advice = { { id = "tp_ad", text = "Never believe the first story, especially when everyone agrees on it." } },
     grimtotem = { { id = "tp_grimtotem", text = "Tauren who want the Horde to break its peace. I've no proof of it, yet." } },
+    thrall = { { id = "tp_thrall", text = "Thrall keeps his end of the peace better than half our own nobles keep theirs, and I've the reports to prove it. Doesn't mean every orc in the marsh is his." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in the south, Onyxia by name, and her brood have killed more of my scouts than the Horde ever has. I keep a map of their flights, and it grows every week." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a good city with a hot temper, and right now it wants the inn's burning pinned on the Horde. I'd rather pin it on whoever did it." } },
+    jaina = { { id = "tp_jaina", text = "The Lady wants the truth even when it's inconvenient, which is rarer than it ought to be in a ruler. That's why I can still do my job." } },
+    scourge = { { id = "tp_scourge", text = "Most of us here are from Lordaeron, and we left because of the plague. You'll find that half the city still wakes up at night counting the dead." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Pirates sail out of Booty Bay with goblin papers and sail back with our cargo. The goblins call it neutrality, and I call it a fence with a harbor." } },
     _none = { { id = "tp_none", text = "Not my investigation. I've got one already, and it's plenty." } },
   },
 }
@@ -1136,6 +1305,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_tol", when = { gossip = { topic = "horde", stance = "tolerate" } }, text = "Captain Vimes noted that you'd judge the Horde by the peace they've kept. I've added it to your file, which I'd remind you is not a punishment." },
     { id = "g_records", text = "Name, unit, business? Sorry, that's habit; I keep the Guard's records, and everyone's a form to me." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? I'd file you as returned if there were a form for it, and I'm half tempted to write one." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word reached the records office that you helped the city, and I've already noted it, because good deeds deserve paperwork as much as bad ones do." },
@@ -1239,14 +1409,14 @@ P:NPC {
         { text = "What does the record say about Theramore's druids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the records say about the Guard?", next = "records" },
         { text = "The ones who walked away?", next = "deserters" },
-        { text = "How do you keep track of it all?", next = "system" },
-        { text = "Do you have a file on me?", next = "file", when = { townStanding = { town = "theramore", min = 20 } } },
+        { text = "That's a great deal to keep track of.", next = "system" },
+        { text = "I'd wager you have a file on me.", next = "file", when = { townStanding = { town = "theramore", min = 20 } } },
         { text = "Records on deserters? I'd be hard to find.", next = "x_rogue", when = { class = "ROGUE" } },
-        { text = "What became of the Admiral's men?", next = "daelin" },
+        { text = "What became of the Admiral's men?", next = "daelin", when = { any = { { questActive = TODO_QUEST("Daelin's Men") }, { questDone = TODO_QUEST("Daelin's Men") } } } },
         { text = "A paladin keeps his oath. Do your deserters?", next = "x_paladin", when = { class = "PALADIN" } },
         { text = "Do you keep records on Theramore's mages too, Adjutant?", next = "xmage", when = { class = "MAGE" } },
         { text = "Must you record my demon too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "What makes a soldier desert, Adjutant?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Plenty of soldiers seem to desert out here, Adjutant.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the scouts' records say about the marsh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do the records say about this year's dead, Adjutant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How does Theramore's guard see a dwarf shaman, Adjutant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1324,6 +1494,11 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "Joined the Guard, discovered I could spell, and was never allowed near a sword again. I've made my peace with it." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory flatters you, but paper doesn't." } },
+    theramore = { { id = "tp_theramore", text = "Theramore keeps a record of every soldier, sailor and refugee who has passed through the gates since the Lady founded it. I know, because I keep it." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore signs every death notice in this city herself, every one, though I've offered to do it for her. She says that's not a thing to pass to a clerk." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Half of the names in my ledgers came from Lordaeron, with a line through the town they came from. There's nobody left to write to in most of those places." } },
+    onyxia = { { id = "tp_onyxia", text = "I keep a separate ledger for the scouts we've lost in the south of the marsh. It is longer than I'd like, and the dragon is the reason." } },
+    scourge = { { id = "tp_scourge", text = "My records from the Lordaeron years end in the same word, page after page, and the word is plague. I've stopped reading them aloud." } },
     _none = { { id = "tp_none", text = "There's no file on that, which is itself worth noting." } },
   },
 }
@@ -1340,6 +1515,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_ther_stifle", when = { gossip = { topic = "theramore", stance = "stifling" } }, text = "I hear you told old Nat that Theramore's all soldiers and rules. Well, there's no rule against seconds in my kitchen, so you might want to rethink that." },
+    { id = "o_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "The Lady was quiet over her supper, and I gather it was something you said about the orcs. We don't hold with that sort of talk in this kitchen, love, but sit down and eat anyway." },
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },
     { id = "g_home", when = { homeInn = { "Theramore Isle", "Theramore" } }, text = "Back home on the isle! Your room's dry, and in Dustwallow, that's a promise worth making." },
     { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and I kept your stool by the fire in case you came back hungry, which I can see from here that you did." },
@@ -1453,17 +1630,17 @@ P:NPC {
       choices = {
         { text = "The marsh's creatures seem uneasy. Do the soldiers notice?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
-        { text = "What's the talk at the tables?", next = "talk" },
+        { text = "Your tables seem full of talk tonight.", next = "talk" },
         { text = "What's good to eat?", next = "food" },
         { text = "Do you keep a proper dwarven stout?", next = "x_dwarf", when = { race = "Dwarf" } },
-        { text = "Who are the sailors in the corner?", next = "sailors" },
+        { text = "Those sailors in the corner keep to themselves.", next = "sailors" },
         { text = "You look like you could use a blessing yourself.", next = "x_priest", when = { class = "PRIEST" } },
         { text = "Do you hear many secrets over your tables, Janene?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Theramore mages eat with everyone else, Janene?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do many soldiers come here after a watch, Janene?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Soldiers must come here after a long watch, Janene.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting for your kitchen, Janene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many of the Silver Hand come through Theramore, Janene?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Are the sailors really that superstitious, Janene?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Sailors are a superstitious lot, Janene.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the soldiers here mind sharing a table with me, Janene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
@@ -1522,6 +1699,11 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I cook. I've cooked here since the walls were half built, and I'll cook here when they're finished, though they're never finished." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night you're in the marsh. Rot starts in the toes." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's damp and crowded and smells of fish on a warm day, and I wouldn't live anywhere else. Everybody here came from somewhere worse, so we look after each other." } },
+    jaina = { { id = "tp_jaina", text = "The Lady eats like a sparrow and works like an ox, and I send soup up to the tower whether she's asked for it or not. Somebody has to." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Sailors from Booty Bay come through with stories and empty purses, and leave with full bellies and emptier purses. They tip well when they've had a good voyage." } },
+    onyxia = { { id = "tp_onyxia", text = "The scouts come back from the south and drink in silence, which tells me more than their reports would. That dragon's a bad neighbor, love." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Plenty of my regulars came out of Lordaeron with a sack and a child and nothing else. They don't talk about it much, and I don't ask, I just keep the bowls full." } },
     _none = { { id = "tp_none", text = "Plenty gets said over my bar, but not that. Ask at the citadel." } },
   },
 }

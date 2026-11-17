@@ -45,19 +45,19 @@ P:NPC {
         { id = "h_again2", text = "Ask Unbagwa more, he don't mind." },
       },
       choices = {
-        { text = "Who is Mokk the Savage?", next = "mokk" },
+        { text = "Who's the biggest gorilla in these parts?", next = "mokk" },
         { text = "How do you call the gorillas?", next = "calling" },
         { text = "Why live out here alone?", next = "alone" },
         { text = "Do the apes ever hurt you?", next = "danger" },
-        { text = "What do the spirits tell you, Unbagwa?", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
+        { text = "The spirits must tell you a great deal, Unbagwa.", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
         { text = "Let my beast stand guard.", next = "xhunter", when = { class = "HUNTER" } },
-        { text = "I'll be back with a fang.", next = "END" },
+        { text = "I'll be back, witch doctor.", next = "END" },
       },
     },
 
     mokk = {
       lines = {
-        { id = "mo_default", text = "The biggest, angriest gorilla in Mistvale, with a heart that cure the fever, so the old stories say. The goblins in Booty Bay want his heart, and Mokk want to keep it, and Unbagwa just want to watch." },
+        { id = "mo_default", text = "Mokk the Savage, the biggest, angriest gorilla in Mistvale, with a heart that cure the fever, so the old stories say. The goblins in Booty Bay want his heart, and Mokk want to keep it, and Unbagwa just want to watch." },
       },
       choices = {
         { text = "Does the cure really work?", next = "mokk_cure" },
@@ -89,7 +89,7 @@ P:NPC {
         { id = "cl_default", text = "You give Unbagwa a gorilla fang, and the fang remember the gorilla, and the spirits carry the call to every ape in the valley. They come in order, mon: first a big silverback, then Konda, then Mokk himself." },
       },
       choices = {
-        { text = "And I fight all of them?", next = "calling_fight" },
+        { text = "So I'll have to fight all of them.", next = "calling_fight" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,6 +156,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Unbagwa be a witch doctor of the jungle, and a friend of the gorilla spirits, and a little bit crazy, they say." } },
     advice = { { id = "tp_ad", text = "Never run from a silverback, mon. Walk slow, and look sorry." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub be no friends of the gorillas, mon, they hunt them for their blood magic. Unbagwa keep the gorillas safe from them, as best he can." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of the jungle be strong, mon, and Unbagwa hear them in the trees and in the rain. The gorilla spirits be the loudest, and the friendliest." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Unbagwa went to Booty Bay once, and the goblins tried to buy a gorilla from him. Unbagwa not go back." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be good trolls, mon, and they treat the jungle with respect. Unbagwa like them better than the Gurubashi." } },
     _none = { { id = "tp_none", text = "The spirits don't tell Unbagwa about that, so Unbagwa don't know." } },
   },
 }

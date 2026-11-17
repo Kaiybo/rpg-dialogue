@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_light", when = { gossip = { topic = "the_light", stance = "doubt" } }, text = "Nimetz says you don't put much stock in prayer. I don't either, some days, but don't tell him I agreed with you; he takes it hard." },
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I'd wondered if Kurzen had you. We've few enough friends out here, so I'm glad to be wrong." },
@@ -31,6 +32,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_stormwind = {
+      lines = {
+        { id = "ops_default", text = "I used to be sure of it. Highlord Bolvar holds the Keep with Lady Prestor at his elbow, the king's been missing a year, and nobody's come for us. You've been there more lately than I have, so is it still the city I left?" },
+      },
+      choices = {
+        { text = "Bolvar holds it together. Stormwind hasn't forgotten you.", next = "op_sw_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { stormwind = "trust", bolvar = "trust" } } },
+        { text = "The nobles care for coin and nothing else now.", next = "op_sw_distrust", fx = { align = { order = -1 }, opinion = { stormwind = "distrust" } } },
+        { text = "Lady Prestor whispers and the court nods. Something's wrong there.", next = "op_sw_prestor", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "It's my city, Lieutenant, and lately I'm ashamed of it.", next = "op_sw_distrust", fx = { affinity = 1, opinion = { stormwind = "ashamed" } }, when = { race = "Human" } },
+        { text = "I can't answer for Stormwind.", next = "BACK" },
+      },
+    },
+    op_sw_trust = {
+      lines = {
+        { id = "opst_default", text = "I'd like to believe that, and coming from someone who's walked the Trade District lately, I almost do. When this is done, I'll go and ask the Highlord myself." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_sw_distrust = {
+      lines = {
+        { id = "opsd_default", text = "That's what the men say around the fire, and I tell them to hold their tongues. I don't tell them they're wrong, and I've noticed they've stopped asking me to." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_sw_prestor = {
+      lines = {
+        { id = "opsp_default", text = "Careful saying that aloud, even out here. She came from nowhere and has the whole court eating from her hand, and I don't know what that means, only that I don't like it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_doren = {
       big = true,
       lines = { { id = "xpt_doren_default", text = "Kurzen happened, or whatever got into his head out here; one day he was our commander and the next he was something else, and most of the men followed him. A company is only as good as the one leading it, so remember that before you follow anyone into this jungle." } },
@@ -104,15 +135,15 @@ P:NPC {
         { text = "Why fight a war in a jungle that doesn't want you?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to Kurzen?", next = "mind" },
         { text = "Why walk away? Why not stop him then and there?", next = "left" },
-        { text = "Who gave Thorsen away?", next = "informant" },
-        { text = "How many of you are left?", next = "men" },
+        { text = "Has anyone betrayed your camp?", next = "informant" },
+        { text = "There can't be many of you left.", next = "men" },
         { text = "I've followed a bad order before.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My order fell apart too. Nobody told us why.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "It's done. Kurzen's dead.", next = "done", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
         { text = "I could pray over your dead, Lieutenant.", next = "priest_dead", when = { class = "PRIEST" } },
         { text = "What happened to your company, Lieutenant?", next = "xpt_doren", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'm here to help.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 1 }, learn = { "kurzen" } } },
-        { text = "Thorsen was a spy. So am I, of sorts.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "I know something of spying, Lieutenant.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "I could track Kurzen's patrols for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Could magic have turned Kurzen's mind?", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Do you think the spirits drove Kurzen mad, Lieutenant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -128,7 +159,7 @@ P:NPC {
       },
       choices = {
         { text = "Troll magic? What does the Brother know?", next = "mind_nimetz", fx = { trait = { curious = 1 } } },
-        { text = "What was he like, before?", next = "mind_before" },
+        { text = "He must have been a different man, before.", next = "mind_before" },
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, learn = { "kurzen" } } },
         { text = "Then let's finish it.", next = "END", fx = { affinity = 2, trait = { stern = 1 }, learn = { "kurzen" } } },
       },
@@ -184,6 +215,7 @@ P:NPC {
           text = "Your sort might know better than I do. Somebody in the Keep signed for this expedition. I'd like to hear they still remember it." },
       },
       choices = {
+        { text = "Does Stormwind even care what happens out here?", next = "op_stormwind" },
         { text = "I could carry word myself.", next = "left_word", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,7 +240,7 @@ P:NPC {
       },
       choices = {
         { text = "Could it be one of your own?", next = "informant_own", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } } },
-        { text = "What'll you do when you find him?", next = "informant_after" },
+        { text = "You must have plans for when you find him.", next = "informant_after" },
         { text = "You already have a name in mind, Lieutenant.", tag = "Persuade", next = "herod", when = { ["not"] = { questDone = TODO_QUEST("The Spy Revealed!") } },
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Jungle Secrets") }, { class = { "WARRIOR", "PALADIN" } } } } },
           fail = { next = "herod_no", fx = { affinity = -1 } } },
@@ -374,6 +406,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "Stormwind officer, Kurzen's expedition, and now this clearing. Every step of it was an order but the last.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it, then walk away, and then run." } },
     kurzen = { { id = "tp_kurzen", text = "He was a good officer once, and don't let anyone tell you different. That's what makes this hard." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is a soldier's soldier, and I'd trust him with my life, but Stormwind hasn't sent us a single company in months. I can't blame him for that, not entirely." } },
+    varian = { { id = "tp_varian", text = "The king vanished on the road, and Stormwind stopped looking south. We've been forgotten down here, and I don't think it's an accident." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells to everyone, including Kurzen's men, and the goblins don't ask which side you're on. I've learned not to trust anyone who doesn't care." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub have been sending raiders into the jungle, and I've lost three scouts to them this month. If their god walks, this camp won't last a week." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War as a young man, and I learned that the jungle is worse than any orc. I didn't think I'd ever come back here." } },
+    holy_light = { { id = "tp_holy_light", text = "Brother Nimetz prays to the Light for every man we lose, and I've stopped asking whether it helps. It helps him, and that's enough." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some of my men go to the Arena on leave, and they come back with stories and wounds. I don't stop them, because it's better than going mad in camp." } },
     _none = { { id = "tp_none", text = "Ask the Brother. He does the thinking around here." } },
   },
 }
@@ -390,6 +429,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_stormwind", when = { gossip = { topic = "stormwind", stance = "distrust" } }, text = "Doren says you think the nobles have forgotten us. He didn't argue with you, which worried me more than if he had." },
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Any news is welcome here, even bad news." },
   },
@@ -405,6 +445,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_light = {
+      lines = {
+        { id = "opl_default", text = "I believe it does, though some nights the jungle's louder than any prayer I know. Tell me honestly, since nobody in this camp will: what does the Light mean to you out here?" },
+      },
+      choices = {
+        { text = "It's the only thing that keeps us whole.", next = "op_light_faith", fx = { affinity = 1, align = { light = 1 }, trait = { pious = 1 }, opinion = { the_light = "faith" } } },
+        { text = "Prayers don't stop troll spears. Steel does.", next = "op_light_doubt", fx = { affinity = -1, align = { light = -1 }, opinion = { the_light = "doubt" } } },
+        { text = "It's my calling, Brother. I'd not walk without it.", next = "op_light_faith", fx = { affinity = 2, opinion = { the_light = "faith" } }, when = { class = "PALADIN" } },
+        { text = "Ironforge prays less and builds more, but we believe.", next = "op_light_respect", fx = { affinity = 1, opinion = { the_light = "respect" } }, when = { race = "Dwarf" } },
+        { text = "I'd rather not say, Brother.", next = "BACK" },
+      },
+    },
+    op_light_faith = {
+      lines = {
+        { id = "oplf_default", text = "Then you'll understand why I keep praying for Kurzen, even now. Thank you; it's a lonely thing to believe in a camp full of tired men." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_light_doubt = {
+      lines = {
+        { id = "opld_default", text = "Steel stops spears, I grant you, but it hasn't stopped one nightmare in this camp. I'll pray for you anyway, and you needn't thank me for it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_light_respect = {
+      lines = {
+        { id = "oplr_default", text = "Building is a kind of prayer, if you ask me, and the Ironforge chapels are the finest I've ever knelt in. I'll take your quiet belief over a loud one any day." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_nimetz = {
       big = true,
       lines = { { id = "xpt_nimetz_default", text = "It might ease it, but I'm a man of glassware as well as faith, and I want to know what causes it before I start praying at it. Faith without study gave Stormwind half its quack cures, and study without faith gave us Kel'Thuzad." } },
@@ -515,7 +585,7 @@ P:NPC {
       },
       choices = {
         { text = "What made them sick?", next = "elixir" },
-        { text = "A priest and an alchemist? Those don't often meet.", next = "craft" },
+        { text = "A priest who studies like an alchemist? That's unusual.", next = "craft" },
         { text = "How are the men holding up?", next = "men" },
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
@@ -526,7 +596,7 @@ P:NPC {
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },
-        { text = "What have you seen in the jungle, Brother?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You must have seen terrible things in the jungle, Brother.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the jungle itself have poisoned Kurzen's mind, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I saw Hakkar's altar, Brother. It was worse than you'd think.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "Keep your prayers, Brother, because they won't help out here.", next = "END", fx = { align = { light = -1 } } },
@@ -574,7 +644,7 @@ P:NPC {
 
     craft = {
       lines = {
-        { id = "c_default", text = "More often than you'd think. Both are patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
+        { id = "c_default", text = "More often than you'd think, for prayer and alchemy are both patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
       },
       choices = {
         { text = "Where did you learn?", next = "craft_learn" },
@@ -596,7 +666,7 @@ P:NPC {
       },
       choices = {
         { text = "Doesn't it?", next = "men_ledger", fx = { trait = { skeptical = 1 } } },
-        { text = "And Doren?", next = "men_doren" },
+        { text = "And the one who leads you now?", next = "men_doren" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -618,12 +688,15 @@ P:NPC {
       },
       choices = {
         { text = "For the men here.", next = "BACK", fx = { align = { light = 2 }, affinity = 2, trait = { pious = 1 } } },
-        { text = "For Kurzen.", next = "pray_kurzen", fx = { align = { light = 3 }, trait = { kind = 1 } } },
+        { text = "For your Colonel.", next = "pray_kurzen", fx = { align = { light = 3 }, trait = { kind = 1 } } },
       },
     },
     pray_kurzen = {
       lines = { { id = "pk_default", text = "Yes, yes, him too, and thank you. Doren would call that soft, and he'd be wrong." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "Does the Light reach this far, Brother?", next = "op_light" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
 
     residue = {
@@ -661,6 +734,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priest with an alchemist's habits, sent with an expedition that needed a healer. It needed more than one." } },
     advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured, not water, not wine, not medicine." } },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light gives me strength to tend the sick, and I've needed it more in this jungle than anywhere else. I pray every night, and some nights it's the only thing I do." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You know what it is to pray over a man who won't wake, then. The Light doesn't always answer how we'd like, but it hasn't let me give up yet." },
+    },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls' blood magic has a smell to it, and I've caught it on the wind from the north. I'd study it if I dared, but I'd rather keep my soul." } },
+    new_plague = { { id = "tp_new_plague", text = "I've read the reports from the north about the plague in Lordaeron, and I've wondered if something like it got into Kurzen's men. I pray it didn't, because I don't know how to cure that." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are the dead raised by the plague, and the north is lost to them. I've seen enough death out here to know I don't want to see it walk." } },
     _none = { { id = "tp_none", text = "I'm afraid I've no answer. I'll add it to my list of questions; it's a long list." } },
   },
 }
@@ -756,8 +836,8 @@ P:NPC {
       },
       choices = {
         { text = "What was it like in there?", next = "inside" },
-        { text = "What are they planning?", next = "plans" },
-        { text = "Do you know who gave you away?", next = "betrayed" },
+        { text = "They must be planning something.", next = "plans" },
+        { text = "How were you found out?", next = "betrayed" },
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "What did you see inside Kurzen's camp, Thorsen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },
@@ -765,7 +845,7 @@ P:NPC {
         { text = "I'm a soldier, Private. What did they do to you?", next = "k_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Why did Kurzen's men fear magic so much, Thorsen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would Kurzen's officers really have killed me on sight, Thorsen?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Why did Kurzen's men burn the jungle, Thorsen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Kurzen's men seem to have burned half the jungle, Thorsen.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What did Kurzen's men say about shamans, Thorsen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest. I'll leave you be.", next = "END", fx = { trait = { kind = 1 } } },
       },
@@ -777,7 +857,7 @@ P:NPC {
       },
       choices = {
         { text = "Did you drink it?", next = "inside_drink" },
-        { text = "How did you keep your nerve?", next = "inside_nerve" },
+        { text = "You must have kept your nerve somehow.", next = "inside_nerve" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -849,6 +929,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A private in the Stormwind army, then a spy for a while, and a private again now. I liked being a private better." } },
     advice = { { id = "tp_ad", text = "Count things when you're scared: boots, tents, trees. It keeps your hands still." } },
     kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself, and his officers aren't either. Whatever's in that compound is in their heads now." } },
+    si7 = { { id = "tp_si7", text = "SI:7 trained me for a while, before they sent me here, and I learned to keep my mouth shut and my eyes open. That's all I can tell you, and that's more than I should." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'd love a week in Booty Bay, just one, with a bed and a drink and nobody trying to kill me. Maybe when this is over." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Kurzen's men trade with the trolls sometimes, I saw it with my own eyes. I don't know what they're buying, and I don't want to." } },
     _none = { { id = "tp_none", text = "I only know Kurzen, and that's more than enough." } },
   },
 }

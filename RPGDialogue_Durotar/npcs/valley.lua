@@ -13,7 +13,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_road", text = "Fresh off the road, are you? Good. The Horde has room for you, if you earn it." },
+    { id = "g_road", text = "Fresh off the road, are you? Good. The Horde is a family, and it has room for you, if you earn it with your hands." },
     { id = "g_back", when = { metBefore = true }, text = "Still in the valley? Then you've still got work to do, so go on." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the valley's had a dozen new recruits through since. Go on and show them what one looks like after the road." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "I remember you walking into this valley with nothing, and look at you now. Somebody greeted you right, I'd say." },
@@ -119,6 +119,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "I'd swear I already sent you down to Gornek once, but that was {alt}, wasn't it? You two could be littermates, so go on down and give him his turn with you." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} came through here before you, {alt} by name, and I gave them the same speech I'm about to give you. They went on to do well, so listen this time and I won't have to repeat myself." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin walks into the Valley of Trials. Someone greeted me once when I came out of the camps, so I'll greet you, glow and all." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, walking into the valley like everyone else. I'll send you to Gornek the same as the rest, but I'm glad you came." },
         { id = "h_default", key = true,
@@ -136,14 +140,14 @@ P:NPC {
       },
       choices = {
         { text = "Are there many priests among the recruits, Kaltunk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What was it like when the orcs had no shamans?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "It must have been hard when the orcs had no shamans.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Will a druid find a place in the Den, Kaltunk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "How did you come to Durotar?", next = "came" },
+        { text = "You look like you've come a long way to Durotar.", next = "came" },
         { text = "What happens in the valley?", next = "valley" },
-        { text = "Do the Darkspear get the same welcome as orcs?", next = "troll", when = { race = "Troll" } },
+        { text = "I doubt the Darkspear get the same welcome as orcs.", next = "troll", when = { race = "Troll" } },
         { text = "I was born in the camps too.", next = "campborn", when = { origin = "orc_camp_born" } },
-        { text = "Does the Horde really have a place for rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the orcs here trust the arcane at all?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I wasn't sure the Horde had a place for rogues.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The orcs here don't seem to trust the arcane.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do warriors start with boars, Kaltunk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a new hunter tame first, Kaltunk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why won't Gornek like a warlock, Kaltunk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -164,7 +168,7 @@ P:NPC {
       choices = {
         { text = "Then the Darkspear will earn it again.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Welcomes are words. I'll trust the orcs who fight beside me.", next = "BACK", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
-        { text = "Did you know any Darkspear on the crossing?", next = "troll_crossing" },
+        { text = "You must have known some Darkspear on the crossing.", next = "troll_crossing" },
       },
     },
     troll_crossing = {
@@ -188,7 +192,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask Gornek; I just point the way." } },
+    _none = { { id = "tp_none", text = "Ask Gornek; I just point the way. Lok'tar, recruit." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wants every new orc to start here, where the land tests you before the enemy does. So here I stand, greeting them, and I've not grown tired of it yet." } },
+    internment = { { id = "tp_internment", text = "I came out of the camps with nothing, and somebody met me at the gate with water and bread. I don't remember his name, but I remember his face, and I try to be him." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade are in the caves to the north, and they still worship the demons who cursed us. Kill them, and you'll be doing the whole Horde a favour." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls are our allies now, and you'll find them sharing the valley with you. Be polite, and they'll be polite back." } },
   },
 }
 
@@ -221,6 +229,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_gornek = {
+      lines = {
+        { id = "xalt_gornek_default", text = "Hundreds come through the Den, and I forget most of them by the next moon. The one you mean did the work without complaining, so I remember them, and that's more than most recruits manage." },
+        { id = "xalt_gornek_kin", when = { alt = { kin = true } }, text = "{alt} grumbled about the scorpids the whole time but brought back every tail I asked for. If you're kin, I expect the same, and I'll be counting." },
+      },
+      choices = {
+        { text = "Hard work is the only honest way to earn a place.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There's always a quicker way, if you look for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gornek.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It's made Horde of stranger. The Silver Hand made orcs into prisoners, and the Valley makes prisoners' sons into warriors. If it can turn the Light into something that serves the Horde, then it's done its best work yet." } },
@@ -270,6 +289,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another {altrace} with your face came through the Den, a {altclass} named {alt}, and I made them clear a whole nest of scorpids before I let them leave. If that's your kin, they'll have warned you I don't go easy." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "I still hear {alt}'s name now and then, the {altclass} I put to work in this valley before they went on to bigger things. Every recruit who makes something of themselves makes my job look easier." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Valley makes Horde out of whatever walks in, and today that's you. Let's see how long it takes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Den makes Horde out of whatever walks in, and I'll be glad when what walks in can mend the rest of them." },
         { id = "h_default", key = true,
@@ -285,15 +308,17 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
+        { text = "Someone close to me came through the Den, Gornek.", next = "xalt_gornek", when = { alt = true } },
         { text = "What does the Den expect from a priest, Gornek?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Den expect of a druid, Gornek?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What do I need to prove?", next = "prove" },
+        { text = "What do the grunts say about the Forsaken?", next = "forsaken_op" },
         { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "An orc with a spellbook. Say what you're thinking.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "My people hunted the jungles long before this valley.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
-        { text = "Will you give a rogue the same work as a warrior?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I'd guess a rogue gets different work than a warrior.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can the Valley make Horde of a paladin, Gornek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { valley_of_trials = 1 } } },
       },
@@ -350,6 +375,27 @@ P:NPC {
       lines = { { id = "hh_default", text = "I've seen your people throw a spear, and I wouldn't want to be the boar. Kill clean out there and show these orc recruits how it's done, and they might stop complaining about trolls in the Den." } },
       choices = { { text = "They'll see.", next = "BACK", fx = { affinity = 2 } } },
     },
+    forsaken_op = {
+      lines = { { id = "fo_default", text = "Plenty, and most of it not fit for the Den. The Warchief says the Dark Lady's dead are Horde now, and some of my grunts won't spar with anything that smells of the grave, so tell me, recruit: would you stand shoulder to shoulder with one?" } },
+      choices = {
+        { text = "If they bleed for the Horde, they're Horde.", next = "fo_trust", fx = { affinity = 2, align = { order = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "The dead fight for the dead. I'd watch my back.", next = "fo_distrust", fx = { align = { order = -1 }, opinion = { forsaken = "distrust" } } },
+        { text = "I'd stand with anyone who gets back up.", next = "fo_up", fx = { affinity = 2, opinion = { horde = "loyal" } } },
+        { text = "I'll ask the Forsaken that, once I've met one.", next = "BACK" },
+      },
+    },
+    fo_trust = {
+      lines = { { id = "fot_default", text = "Good, then you can spar with the first one that comes through the Den, and show the others it doesn't rub off." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_distrust = {
+      lines = { { id = "fod_default", text = "Watch your back by all means, recruit, but watch it from the same side of the line as them. The Scourge won't care which of you it eats first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_up = {
+      lines = { { id = "fou_default", text = "Ha! The dead got back up once already, so by that rule they're the best recruits I'll ever have. I'll tell the grunts you said it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     prove = {
       big = true,
       lines = {
@@ -367,7 +413,12 @@ P:NPC {
       { id = "tp_knows", text = "Recruits talk in the Den when they think I'm asleep, and I never am. Ask about these, and then listen." },
     },
     burning_blade = { { id = "tp_blade", text = "There are cultists in the coven to the north, calling up imps. Zureetha deals with them, and you'll help her." } },
-    _none = { { id = "tp_none", text = "That's not your concern yet, recruit, so finish the valley first." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sends every new recruit to me, and he expects every one of them to get back up. I've never let him down yet, and I don't intend to start with you." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I was in the camps after. The Den is better than either, though the recruits don't believe me." } },
+    internment = { { id = "tp_internment", text = "The camps were a sickness of the spirit, not just the body, and many orcs never woke from it. Thrall woke us, and that's why I serve him." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear came with Thrall from the islands, and they train with us here in the Den. Treat them as brothers, because the Warchief does." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar are beyond the ridge, and you'll meet them soon enough. Learn here first, and learn it well, because the centaur won't wait for you." } },
+    _none = { { id = "tp_none", text = "That's not your concern yet, recruit. Finish the valley first, and let your deeds do your asking." } },
   },
 }
 
@@ -468,6 +519,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You've the same look about the eyes as {alt}, who went up into the Burning Blade's caves for me and came back smelling of brimstone. I hope you're as stubborn, because those cultists haven't gotten any friendlier." },
+        { id = "h_alt_lock", tags = { "news" }, when = { alt = { class = "WARLOCK" } },
+          text = "That {altclass} {alt} watched the Burning Blade's rituals a little too closely for my liking when they came through. I'll say to you what I said to them: study the fel if you must, but never let it study you back." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I watch cultists who want the old fire back, so I know a dangerous power when it walks in." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade want the old fire back, the one that nearly burned us down, and I'd like to see what your prayers make of that." },
         { id = "h_default", key = true,
@@ -485,8 +540,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The Burning Blade's fel magic is souring the ground around those caves to the north, and you'll feel it there, if your kind feel what they say they do." },
       },
       choices = {
-        { text = "How bad is the fel sickness around the caves, Zureetha?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Can prayer stand against the Burning Blade's fire, Zureetha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The fel sickness around the caves looks bad, Zureetha.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Prayer can stand against the Burning Blade's fire, Zureetha.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "You draw on the same power the Blade do, don't you?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The spirits here feel sick near those caves.", next = "shaman", when = { class = "SHAMAN" } },
@@ -494,7 +549,7 @@ P:NPC {
         { text = "Could the arcane help you fight the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What waits in the Burning Blade caves, Zureetha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What have you missed in the caves, Zureetha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Is the Light dangerous, Zureetha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Some say the Light is dangerous, Zureetha.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go north.", next = "END" },
       },
       again = {
@@ -539,6 +594,9 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "They hide in caves because they know what we'd do to them in daylight." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade wants the demons back, the same ones who drank our blood and gave us fire for it. I'd sooner drink scorpid venom." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief cleansed us of the demon curse, and every cultist in those caves is spitting on his gift. I'll see them burned for that." } },
+    dark_portal = { { id = "tp_dark_portal", text = "We came through the Dark Portal from a dying world, and the demons came with us, quietly. Some of them never left, and the Burning Blade are their children." } },
     _none = { { id = "tp_none", text = "I don't know, but I know the Blade, so ask me about them." } },
   },
 }
@@ -554,20 +612,20 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_peon", text = "You! You're not a peon, are you? Good, because I have plenty of those, and they're all asleep." },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, the one who can stay awake. A rare sight." },
+    { id = "g_peon", text = "You! You not be a peon, are you? Good, mon, because I got plenty of those, and they all be asleep." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, the one who can stay awake. A rare sight in dis camp, mon." },
   },
 
   notice = {
     { id = "n_peon", cat = "idle", when = { race = "Orc", maxLevel = 3 },
-      text = "Hmm. You've got the look of someone who'd nap behind a lumber pile. Prove me wrong." },
+      text = "Hmm. You got the look of someone who'd nap behind a lumber pile, mon. Prove me wrong." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Ha! I'd pay to see it. But don't, because half of them were born to parents who remember the Light in the camps, and I'd have a riot instead of a nap. Just walk past and look holy. They'll work out of nerves." } },
+      lines = { { id = "xfpala_default", text = "Ha! I'd pay to see it, mon. But don't, because half of them were born to parents who remember the Light in the camps, and I'd have a riot instead of a nap. Just walk past and look holy, and they'll work out of nerves." } },
       choices = {
         { text = "I'll leave them in peace. They've earned rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A little fright will do them good.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -576,7 +634,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd probably sleep through it, because I once watched one nap through a scorpid crawling up his back, and honestly I was almost proud of him." } },
+      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd sleep through it, because I once watched one nap through a scorpid crawling up his back, and by the loa, I was almost proud of him." } },
       choices = {
         { text = "Let them rest, Foreman. Tired hands make poor work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Work comes first. Wake them, and I'll pray after.", next = "BACK", fx = { align = { light = -1 } } },
@@ -619,7 +677,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Probably, but you haven't seen how deep these peons sleep. I've tried shouting and I've tried the blackjack, and if the sky itself can't wake them I'll give up and let them have the lumber camp." } },
+      lines = { { id = "xhsham_default", text = "Probably, but you not seen how deep these peons sleep, mon. I tried shouting and I tried the blackjack, and if the sky itself can't wake them I give up and let them have the lumber camp." } },
       choices = {
         { text = "Let them nap. Working peons to the bone helps no one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll save some thunder for them. They've earned a fright.", next = "BACK", fx = { align = { light = -1 } } },
@@ -637,16 +695,16 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Perfect. Maybe your glow will wake my peons up. Nothing else has." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Perfect, mon. Maybe your glow wake my peons up, because nothing else has." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You wouldn't happen to know a prayer for waking up lazy peons, would you, because I've tried everything else." },
         { id = "h_default", key = true,
-          text = "I'm Foreman Thazz'ril. My peons are meant to be gathering lumber, but mostly they're gathering naps." },
+          text = "I be Foreman Thazz'ril of the Darkspear. My peons be meant to gather lumber, but mostly they gather naps." },
         { id = "h_lazy", tags = { "news" }, when = { questActive = TODO_QUEST("Lazy Peons") },
-          text = "Take this blackjack. Find a sleeping peon, give him a tap, and watch him remember he has a job." },
+          text = "Take dis blackjack, mon. Find a sleeping peon, give him a tap, and watch him remember he got a job." },
         { id = "h_pick", when = { questActive = TODO_QUEST("Thazz'ril's Pick") },
           text = "I left my pick in the coven while I was surveying, and it's enchanted, so don't let those cultists keep it." },
-        { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, in the cart, while it was moving. I don't know how they managed it, and I'm almost impressed." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
+        { id = "h_peons", when = { metBefore = true }, text = "I found three peons asleep in the mine cart this morning, mon, in the cart, while it was moving. Even a witch doctor couldn't hex a body that still, and I be almost impressed." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you call a little thunder over the lumber pile, mon? The blackjack works, but a bolt out of a clear sky would keep my peons awake for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Can you make the trees grow faster? Then my peons would have less to chop and less excuse to nap, though I doubt it would stop them trying." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Could you wake up my peons with a spell? A small fire, perhaps, or a cold breeze? I'm only half joking." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock! Keep that imp away from my peons; they're frightened enough of me already, and I'd rather they were awake than trembling." },
@@ -654,19 +712,19 @@ P:NPC {
       },
       choices = {
         { text = "Should I pray over your sleeping peons, Foreman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Shouldn't the spirits be called for better things than peons?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do your peons cut more lumber than this valley can spare?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Why not let them rest?", next = "rest" },
-        { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "The spirits should be called for better things than peons.", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Your peons might cut more than this valley can spare.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "You could just let them rest.", next = "rest" },
+        { text = "I know a few ways to wake a sleeper, Foreman.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Want me to shout them awake instead?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Would you really want me to frighten your peons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the beasts here bother your peons, Foreman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The beasts here must bother your peons, Foreman.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the peons fear warlocks more than you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I wake your peons with the Light, Foreman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll wake them.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else? Ask fast, before another one of them nods off." },
+        { id = "h_again", text = "Anything else? Ask fast, mon, before another one of them nods off." },
       },
     },
     rogue = {
@@ -681,13 +739,16 @@ P:NPC {
       choices = { { text = "Ha. I'll bring both.", next = "BACK", fx = { affinity = 1 } } },
     },
     rest = {
-      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves. Well, they will if the peons build them, and that's the problem." } },
+      lines = { { id = "r_default", text = "Rest? Orgrimmar's walls won't build themselves, mon. Well, they will if the peons build them, and that be the problem." } },
       choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Don't ask me; ask a peon, and wake him up first." } },
+    _none = { { id = "tp_none", text = "Don't ask me, mon; ask a peon, and wake him up first." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief says peons are the backbone of the Horde. I'd like to see him get them to stay awake." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls work harder than my peons, and they don't even get paid. I don't tell my peons that, because they'd stop working entirely." } },
+    second_war = { { id = "tp_second_war", text = "In the Second War, peons built the whole Horde from mud and wood. Now they build naps, and they're very good at it." } },
   },
 }
 
@@ -809,16 +870,16 @@ P:NPC {
       },
       choices = {
         { text = "Do the recruits eat better after a priest blesses the food?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do you ever thank the fire spirits for your cookfire?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You should thank the fire spirits for your cookfire.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever cook anything that didn't have a stinger, Galgar?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Where did you learn to cook?", next = "cook" },
-        { text = "What's the surprise?", next = "surprise" },
+        { text = "What's the surprise?", next = "surprise", when = { any = { { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") }, { questDone = TODO_QUEST("Galgar's Cactus Apple Surprise") } } } },
         { text = "Have you got anything my pet would eat?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
-        { text = "Do tauren even eat scorpid?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Tauren don't eat scorpid where I come from.", next = "tauren", when = { race = "Tauren" } },
         { text = "Do you mind that mages can conjure their own food?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do you feed the recruits, Galgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do rogues steal from your pot, Galgar?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues must steal from your pot, Galgar.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you feed a paladin, Galgar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thanks, Galgar.", next = "END" },
       },
@@ -851,6 +912,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I'm a cook. Ask me about cactus apples." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief ate my scorpid stew once, and he said it was very filling. I've chosen to take that as praise." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls eat anything, and I mean anything, and they always come back for seconds. I like a troll in my kitchen." } },
+    centaur = { { id = "tp_centaur", text = "I've never cooked centaur, and I'm not about to start. Some meat is just too close to people." } },
   },
 }
 
@@ -865,7 +929,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along. And don't bleed on the grindstone; it rusts." },
+    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along. And don't bleed on the grindstone, grunt; blood rusts it." },
   },
 
   notice = {
@@ -962,13 +1026,13 @@ P:NPC {
       },
       choices = {
         { text = "Do you ever give the healers a better price, Kzan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do shamans bring you many weapons to mend?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Shamans can't bring you many weapons to mend.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why should a druid buy a staff, Kzan?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Do mages really drop their weapons so often?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'd guess mages rarely drop their weapons.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a hunter need from you, Kzan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you sell to warlocks as freely as anyone?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you don't sell to warlocks freely.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you arm a Forsaken paladin, Kzan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find them.", next = "END" },
       },
@@ -987,6 +1051,9 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "If it's not a weapon, I don't sell it." } },
+    _none = { { id = "tp_none", text = "If it's not a weapon, I don't sell it. Steel is the only thing an orc needs to bargain over." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar spears are long, so you'll want something that reaches. I've got a few, and they cost what they cost." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's hammer is older than this valley, and it's never once been dropped in the scrub. Take a lesson from it." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear buy my spears and then make them better with feathers and bone. I've stopped being offended, because they do look nicer." } },
   },
 }

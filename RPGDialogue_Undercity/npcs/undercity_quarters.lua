@@ -82,6 +82,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_peacepc", tags = { "news" }, when = { gossip = { topic = "peace", stance = "peace" } }, text = "Norman says you're for peace with the humans. My bats won't carry you to Southshore all the same, so don't get your hopes up." },
         { id = "h_default", key = true,
           text = "Michael Garrett, bat handler to the Dark Lady's city. The bats carry riders to Tarren Mill and the Sepulcher and wherever else the Forsaken have planted a flag, and they don't mind the dead on their backs, which is more than horses can say." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The bats don't like the smell of lightning, so mind what you're carrying before you climb on." },
@@ -100,12 +101,12 @@ P:NPC {
         { text = "Do the bats ever carry priests, Michael?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your bats fear the storm, Garrett?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the bats mind a living rider, Garrett?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why bats and not wyverns?", next = "bats" },
-        { text = "Were you a handler in life?", next = "life" },
+        { text = "I'd have expected wyverns, not bats.", next = "bats" },
+        { text = "You've the look of an old handler.", next = "life" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Can a bat drop me somewhere quiet, Garrett?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your bats flinch whenever I come near, Garrett.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do warriors make poor bat riders, Garrett?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I'd guess warriors make poor bat riders, Garrett.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your bats mind carrying a hunter's beast, Garrett?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would a mage fly your bats, Garrett?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the bats really not mind the Light, Garrett?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -164,7 +165,7 @@ P:NPC {
       choices = {
         { text = "I'll walk the last stretch unseen.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll land loudly and let them come to me.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Why bats and not wyverns?", next = "bats" },
+        { text = "I'd have expected wyverns, not bats.", next = "bats" },
       },
     },
     xwarlock = {
@@ -176,7 +177,7 @@ P:NPC {
       choices = {
         { text = "I'll dismiss it before I ride.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "They'll get used to it, Garrett.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Were you a handler in life?", next = "life" },
+        { text = "You've the look of an old handler.", next = "life" },
       },
     },
   },
@@ -184,6 +185,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep bats. That's what I do, and I do it well, so don't ask for a life story." } },
     advice = { { id = "tp_ad", text = "Hold on tight when the bat dives. They don't warn you, and the ground is a long way down." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have the bats, and the orcs have their wind riders, and I'd say we got the better beasts. Bats don't complain, and they don't eat my lunch." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people send their wind riders up to Tirisfal, and the bats don't care for them. I can't say I blame the bats." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The bats know every road in Lordaeron better than any map. They'll fly you over the ruins if you like, but don't look down too long." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has its own winged horrors, gargoyles and the like, and the bats are terrified of them. So am I, if I'm honest." } },
     _none = { { id = "tp_none", text = "I don't know. Ask a bat, they know more than you'd think." } },
   },
 }
@@ -255,16 +260,16 @@ P:NPC {
         { id = "h_again2", text = "Anything further?" },
       },
       choices = {
-        { text = "Is faith really so imprecise, Anastasia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Faith can't be as imprecise as you make out, Anastasia.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Crude, you say? Have you ever stood in a storm, Anastasia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Sentimental how, Anastasia?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do the mages ever look down on hunters, Anastasia?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "Did death change your magic?", next = "death" },
+        { text = "Death must have changed your magic.", next = "death" },
         { text = "What do you think of Dalaran?", next = "dalaran" },
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Warlocks study too, Anastasia. Why the contempt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Mages and rogues both deal in secrets, Anastasia.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the mages look down on warriors too, Anastasia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I'd guess the mages look down on warriors too, Anastasia.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is faith foolish for the dead, Anastasia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -332,7 +337,7 @@ P:NPC {
       choices = {
         { text = "Fair. I'll keep my bargains careful and few.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Power doesn't care how it's earned, Anastasia.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Did death change your magic?", next = "death" },
+        { text = "Death must have changed your magic.", next = "death" },
       },
     },
     xrogue = {
@@ -352,6 +357,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I studied magic in life, and I study it still. Death interrupted me, but it didn't stop me." } },
     advice = { { id = "tp_ad", text = "Know your spells before you need them. Learning in the middle of a fight is how you die twice." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the finest school of magic in the world, and I studied there long enough to learn that most of its masters were fools. The rebuilt city will have fools in it too." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor hold their secrets as if they were the only ones clever enough to use them. They are wrong, and many of the dead are proof of it." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was the sort of mage the Kirin Tor feared most, one who would do whatever his studies demanded. He proved them right, which I suspect he enjoyed." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken make better mages than the living, because we don't fear death and we don't waste time on ethics. I find it very freeing." } },
     _none = { { id = "tp_none", text = "I don't concern myself with that. Ask someone with fewer things to do." } },
   },
 }
@@ -384,6 +393,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_new_plague = {
+      big = true,
+      lines = {
+        { id = "opnp_default", text = "Object? Everyone objects, and then they ask for a vial to throw at the Scourge. You've seen what we brew down here, so be honest: should the Society be making the new plague at all?" },
+      },
+      choices = {
+        { text = "Something that strong will get loose one day.", next = "op_new_plague_r1", fx = { affinity = -1, align = { light = 1 }, trait = { cautious = 1 }, opinion = { new_plague = "dangerous" } } },
+        { text = "Make it. The Scourge deserves every drop.", next = "op_new_plague_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { new_plague = "necessary" } } },
+        { text = "The Horde didn't take you in to brew plagues, Zinge.", next = "op_new_plague_r3", fx = { trait = { stern = 1 }, opinion = { new_plague = "wrong" } }, when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "It's a tool. Point it the right way and I won't complain.", next = "op_new_plague_r4", fx = { trait = { practical = 1 }, opinion = { new_plague = "useful" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not say, Zinge.", next = "BACK" },
+      },
+    },
+    op_new_plague_r1 = {
+      lines = { { id = "opnp_r1", text = "You sound like Master Faranell after a bad week. Things do get loose, which is exactly why we keep them in very good jars." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_new_plague_r2 = {
+      lines = { { id = "opnp_r2", text = "That's the spirit! Well, it's the spirit the Society likes, anyway, and I'll tell the Master we've a believer in the field." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_new_plague_r3 = {
+      lines = { { id = "opnp_r3", text = "The Horde took us in to fight the Scourge, and this is how we fight it. Your Warchief doesn't ask what's in the jars, and I'd advise you not to either." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_new_plague_r4 = {
+      lines = { { id = "opnp_r4", text = "A tool, yes! I'll write that on the label, just under the skull." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Not on purpose, and the Master Apothecary would very much like to, so don't let him hear you ask. My own guess is that it hurts you because it's trying to finish what the plague started, and you're too stubborn to let it." } },
@@ -427,6 +465,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_udimprove", tags = { "news" }, when = { gossip = { topic = "undeath", stance = "improvement" } }, text = "Master Faranell tells everyone you called undeath an improvement. He's been unbearable about it all week, so thank you very much." },
         { id = "h_default", key = true,
           text = "Apothecary Zinge, of the Royal Apothecary Society. We work for the Dark Lady, and the Master Apothecary oversees all of it, so if you've business here, it's his business first." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and I'd rather not explain lightning in my notes." },
@@ -444,12 +483,12 @@ P:NPC {
         { text = "Did a blessing really cloud your vial, Zinge?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do your mixtures do to the earth, Zinge?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are those vapours made for, Zinge?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "You test your work on prisoners, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Who do you test your work on, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you work on here?", next = "work" },
-        { text = "What's Faranell like?", next = "faranell" },
+        { text = "Faranell seems a hard master.", next = "faranell" },
         { text = "Could the arcane speed up your experiments, Zinge?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does the Society test anything on demons, Zinge?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do you need beasts for your experiments, Zinge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Your experiments must need a good many beasts, Zinge.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you have work for a rogue, Zinge?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Has the Society ever studied what the Light does to the dead?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Never mind.", next = "END" },
@@ -461,6 +500,7 @@ P:NPC {
       },
       choices = {
         { text = "That sounds dangerous.", next = "work_danger" },
+        { text = "Does anyone object to your work, Zinge?", next = "op_new_plague" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -527,7 +567,7 @@ P:NPC {
       choices = {
         { text = "Prisoners or not, it's needed work, Zinge.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Testing on prisoners is beneath us, Zinge.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "What's Faranell like?", next = "faranell" },
+        { text = "Faranell seems a hard master.", next = "faranell" },
       },
     },
   },
@@ -535,6 +575,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm an apothecary, and I serve the Society. Anything I was before doesn't matter now." } },
     advice = { { id = "tp_ad", text = "Don't drink anything you find in the Apothecarium. I mean that most sincerely." } },
+    new_plague = { { id = "tp_new_plague", text = "It's coming along, and it's none of your business beyond that. Hand me that flask, and don't touch the green one." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need clever minds as much as strong arms. I'm one of the clever ones, and I'd thank you to stop distracting me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is old work, and we're improving on it. That's all you need to know." } },
     _none = { { id = "tp_none", text = "I haven't time for that. Try the Master Apothecary, if you dare." } },
   },
 }

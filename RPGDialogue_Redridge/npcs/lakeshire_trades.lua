@@ -117,7 +117,7 @@ P:NPC {
       },
       choices = {
         { text = "I need a flight.", next = "BUSINESS" },
-        { text = "What do you see from up there?", next = "a" },
+        { text = "You must see the whole valley from up there.", next = "a" },
         { text = "Are the gryphons ever afraid?", next = "b" },
         { text = "Gryphons must be hard to sneak up on.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can teleport to Stormwind on my own.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -134,7 +134,7 @@ P:NPC {
     a = {
       lines = { { id = "a_default", text = "Smoke from the Blackrock camps in the east, mostly, and gnolls swarming the hills like fleas. Every week there's more smoke than the last." } },
       choices = {
-        { text = "Does the watch listen to your reports?", next = "a2" },
+        { text = "I'd guess the watch rarely listens to your reports.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,6 +152,11 @@ P:NPC {
     },
   },
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "I learned to ride from a Wildhammer at Aerie Peak, and they ride without saddles because they think the birds deserve the honour. I use a saddle, because I'm not mad, but I understand the feeling." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "From the air you can see the smoke rising from that mountain north of the Steppes, day and night, like a forge that never cools. I keep my gryphons well away from it, because they can smell the orcs." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "My gryphons won't fly near the Burning Steppes, and a Wildhammer told me why: black dragons nest up there. I've seen something big moving over the mountain at dusk, and I'd rather not see it again." } },
+    onyxia = { { id = "tp_onyxia", text = "Gryphon riders who fly south to Theramore tell me there's a black dragon in the marshes there, and they give her lair a wide berth. I'd do the same, and I've never even seen her." } },
+    dark_portal = { { id = "tp_dark_portal", text = "I flew a message to Nethergarde once, and you can see the Dark Portal from the keep's walls. It's broken and dead, they say, but the birds didn't like it, and neither did I." } },
     background = { { id = "tp_bg", text = "I learned to handle gryphons in Ironforge and came south when Lakeshire needed someone who could." } },
     _none = { { id = "tp_none", text = "I can tell you the wind and the weather, friend, but not that." } },
   },
@@ -277,7 +282,7 @@ P:NPC {
       choices = {
         { text = "Show me your arrows.", next = "BUSINESS" },
         { text = "Why can't you keep up?", next = "a" },
-        { text = "Who buys the most from you?", next = "b" },
+        { text = "The watch must buy most of your arrows.", next = "b" },
         { text = "Do warriors ever buy your arrows, Kimberly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many arrows does the watch go through, Kimberly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the watch ever ask you for anything besides arrows?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -286,7 +291,7 @@ P:NPC {
         { text = "Do rogues ever buy from a fletcher, Kimberly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage really help with your fletching, Kimberly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do you make of warlocks, Kimberly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Can you keep up with the watch's need for arrows, Kimberly?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You can't be keeping up with the watch's need for arrows, Kimberly.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -311,6 +316,9 @@ P:NPC {
     },
   },
   topics = {
+    second_war = { { id = "tp_second_war", text = "My father made arrows for the Alliance in the Second War, and he said every orc was worth three shafts. I've done better with the gnolls, but they're a lot smaller." } },
+    sentinels = { { id = "tp_sentinels", text = "The night elf Sentinels shoot better than any archer in Stormwind, and they make their bows from their own trees. I'd like to see one of their arrows up close, though I'd prefer not to be on the end of it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs of that mountain to the north carry shields as wide as a door, and my arrows bounce off them. I'm working on a heavier head, but the watch needs them faster than I can think." } },
     background = { { id = "tp_bg", text = "I've fletched in Lakeshire since I was old enough to hold a knife, and my mother did before me." } },
     _none = { { id = "tp_none", text = "Never heard of it. If it doesn't fly, I don't bother with it." } },
   },
@@ -436,7 +444,7 @@ P:NPC {
       choices = {
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Where does your powder come from?", next = "a" },
-        { text = "Do the guns help against the gnolls?", next = "b" },
+        { text = "Guns ought to help against the gnolls.", next = "b" },
         { text = "Should a warrior carry a gun, Henry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Rifle or bow for the hills of Redridge, Henry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have your guns ever hurt someone you didn't mean them to?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -445,14 +453,14 @@ P:NPC {
         { text = "What do you think a rogue wants with powder, Henry?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever had a mage in the shop before, Henry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you worry about fel fire near your kegs, Henry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you prefer dwarven blackpowder, Henry?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You seem to prefer dwarven blackpowder, Henry.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Henry.", next = "END" },
       },
     },
     a = {
       lines = { { id = "a_default", text = "Over the mountains from Ironforge, by way of Stormwind, by way of a lot of wagons that never quite arrive on time. Dwarven powder is worth the wait, mind you." } },
       choices = {
-        { text = "Could you make your own?", next = "a2" },
+        { text = "You could surely make your own.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -470,6 +478,11 @@ P:NPC {
     },
   },
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the finest powder in the world, and they'll not sell a grain of it to anyone with a beard of another colour. I make do with Ironforge powder, which is still a deal better than anything human-made." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes make guns that do three things at once and sometimes all of them on purpose. Since their city fell, I can't get their parts at all, and I miss them every time a trigger sticks." } },
+    magni = { { id = "tp_magni", text = "King Magni's riflemen are the finest marksmen on the continent, and every one of them would tell you so. I'd sell them shot, but they bring their own and scoff at mine." } },
+    thandol_span = { { id = "tp_thandol_span", text = "If the Dark Irons have knocked a hole in the Thandol Span, then my powder from Ironforge has to come the long way round. That's money and days, and the watch needs shot now." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "A goblin from Gadgetzan sold me a rifle once that fired backwards half the time and forwards the other half. I keep it behind the counter as a warning to the curious." } },
     background = { { id = "tp_bg", text = "I learned the trade from a dwarf in Stormwind's Dwarven District, and I still owe him for the lessons." } },
     _none = { { id = "tp_none", text = "I'm afraid that's not a thing you can load or fire, so I wouldn't know." } },
   },

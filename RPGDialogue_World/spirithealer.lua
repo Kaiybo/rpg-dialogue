@@ -183,14 +183,14 @@ P:Pool {
       choices = {
         { text = "Burn the file.", next = "burn", fx = { trait = { witty = 1 } } },
         { text = "Is there anything else in there?", next = "pages", fx = { trait = { curious = 1 } } },
-        { text = "What happens when it's full?", next = "full" },
+        { text = "Surely it must fill up one day.", next = "full" },
         { text = "Back to the matter at hand.", next = "hello" },
       },
     },
     burn = {
       lines = { { id = "b_default", text = "It does not burn, though many have asked, and one tried." } },
       choices = {
-        { text = "Who tried?", next = "burn2" },
+        { text = "Someone must have tried, then.", next = "burn2" },
         { text = "Return me to life.", next = "BUSINESS" },
       },
     },
@@ -298,7 +298,7 @@ P:Pool {
         { text = "What are you?", next = "mystery" },
         { text = "Why send us back at all?", next = "why" },
         { text = "What lies past the mist?", next = "beyond" },
-        { text = "Who else is out there in the gray?", next = "others" },
+        { text = "I can feel others out there in the gray.", next = "others" },
       },
     },
 
@@ -310,7 +310,7 @@ P:Pool {
       },
       choices = {
         { text = "Permitted by whom?", next = "mystery2", fx = { trait = { curious = 1 }, npcFlag = { set = "asked_what" } } },
-        { text = "Were you ever alive?", next = "self", fx = { npcFlag = { set = "asked_what" } } },
+        { text = "You seem as if you were alive once.", next = "self", fx = { npcFlag = { set = "asked_what" } } },
         { text = "And what am I?", next = "turn", fx = { npcFlag = { set = "asked_what" } } },
         { text = "As you say.", next = "ask" },
       },
@@ -323,7 +323,7 @@ P:Pool {
           text = "A hundred deaths, and I promised you an answer, so here it is: I do not know, and I no longer believe anyone does. That frightens me less than it did." },
       },
       choices = {
-        { text = "Do you ever disobey?", next = "disobey" },
+        { text = "I doubt you ever disobey.", next = "disobey" },
         { text = "Return me to life.", next = "BUSINESS" },
         { text = "Back to my questions.", next = "ask" },
       },
@@ -395,7 +395,7 @@ P:Pool {
           text = "...Yes. Someone stood here once and said \"not yet\" to me. I asked who would say it to the next one. They smiled, and stepped aside." },
       },
       choices = {
-        { text = "Is that a memory, or a story?", next = "self_story" },
+        { text = "That sounds more like a story than a memory.", next = "self_story" },
         { text = "Will I end up standing here too?", next = "successor" },
       },
     },
@@ -480,7 +480,7 @@ P:Pool {
       },
       choices = {
         { text = "Who decides when I'm finished?", next = "finished" },
-        { text = "Doesn't sending us back cheapen death?", next = "cheapen" },
+        { text = "Sending us back seems to cheapen death.", next = "cheapen" },
         { text = "Thank you.", next = "BUSINESS", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "I never asked you to send me back.", next = "BUSINESS", fx = { align = { light = -1 } } },
         { text = "Back to my questions.", next = "ask" },
@@ -493,7 +493,7 @@ P:Pool {
       },
       choices = {
         { text = "And when I settle?", next = "settle" },
-        { text = "What if I never feel finished?", next = "never" },
+        { text = "I'm not sure I'll ever feel finished.", next = "never" },
         { text = "Back to my questions.", next = "ask" },
       },
     },
@@ -594,7 +594,7 @@ P:Pool {
           text = "You keep asking. One day you will mean it, and I will have to let you." },
       },
       choices = {
-        { text = "What happens to the ones who stay?", next = "stay_what" },
+        { text = "The ones who stay must change, in time.", next = "stay_what" },
         { text = "I'm ready. I'm not afraid.", tag = "Deceive", next = "stay_what",
           fail = { next = "stay_seen" } },
         { text = "I was only asking.", next = "hello" },
@@ -669,7 +669,7 @@ P:Pool {
       },
       choices = {
         { text = "Have you ever gone in?", next = "door", fx = { npcFlag = { set = "asked_beyond" } } },
-        { text = "Is the Light waiting there?", next = "light", fx = { npcFlag = { set = "asked_beyond" } } },
+        { text = "I'd like to think the Light waits there.", next = "light", fx = { npcFlag = { set = "asked_beyond" } } },
         { text = "Then what's the point of any of this?", next = "point", fx = { npcFlag = { set = "asked_beyond" } } },
         { text = "Back to my questions.", next = "ask" },
       },
@@ -728,7 +728,7 @@ P:Pool {
         { id = "o_default2", text = "Look past my shoulder. No, don't; they prefer not to be looked at directly, because it reminds them." },
       },
       choices = {
-        { text = "What do they want?", next = "others_want" },
+        { text = "They must want something from us.", next = "others_want" },
         { text = "Are any of them mine?", next = "mine" },
         { text = "Tell me about one of them.", next = "lantern" },
         { text = "Back to my questions.", next = "ask" },
@@ -1355,7 +1355,7 @@ P:Pool {
           text = "...Hm. I have just looked at the back of your file, and the last page is blank; it was not blank when we started talking. You win, and I do not know how." },
       },
       choices = {
-        { text = "Is that good?", next = "dv_written_good" },
+        { text = "I can't tell whether that's good.", next = "dv_written_good" },
         { text = "Let's talk about something else.", next = "talk" },
       },
     },
@@ -1523,7 +1523,7 @@ P:Pool {
           text = "My own file has your name in it more than once now. It used to be a single page; you are making it thicker. I did not know it could grow." },
       },
       choices = {
-        { text = "What's on the first page?", next = "own_first" },
+        { text = "Your own file must have a first page too.", next = "own_first" },
         { text = "Let's talk about something else.", next = "talk" },
       },
     },

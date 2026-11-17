@@ -18,6 +18,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_pirates", when = { gossip = { topic = "pirates", stance = "hate" } }, text = "Seahorn says you told him pirates are pirates, code or no code. He laughed it off, but he's been very quiet at the rail since, so I hope you meant it." },
     { id = "g_tavern", text = "Pull up a stool if you're staying, and mind the third one, because it bites." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Sit down, then, and tell me something more interesting than the tide tables." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece, which is better than most who leave this tavern on business. Sit, and tell me where you've been." },
@@ -38,6 +39,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirintor = {
+      lines = {
+        { id = "opk_default", text = "My father thinks the Kirin Tor are the last sane people in Lordaeron, sitting under their dome and calling it wisdom. I've my own view, but you look like you've got one too, so go on: are they wise, or only frightened?" },
+      },
+      choices = {
+        { text = "Wise. Somebody has to guard that much power.", next = "op_kt_trust", fx = { affinity = -1, align = { order = 1 }, opinion = { kirin_tor = "trust" } } },
+        { text = "Frightened old men under a glass bowl.", next = "op_kt_contempt", fx = { affinity = 1, align = { order = -1 }, trait = { witty = 1 }, opinion = { kirin_tor = "contempt" } } },
+        { text = "I've read their books. They're both, and they know it.", next = "op_kt_mixed", fx = { affinity = 1, opinion = { kirin_tor = "mixed" } }, when = { class = "MAGE" } },
+        { text = "Dalaran burned once already. I'd hide too.", next = "op_kt_pity", fx = { trait = { kind = 1 }, opinion = { kirin_tor = "pity" } } },
+        { text = "That's between you and your father.", next = "BACK" },
+      },
+    },
+    op_kt_trust = {
+      lines = {
+        { id = "opkt_default", text = "You sound exactly like him, and I mean that as gently as I can. Power's safest in a lot of hands, if you ask me, and the Kirin Tor have only ever trusted their own." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_contempt = {
+      lines = {
+        { id = "opkc_default", text = "Ha! I'm stealing that, and if it ever reaches Dalaran, I'll swear I heard it from a sailor. Which, I suppose, I did." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_mixed = {
+      lines = {
+        { id = "opkm_default", text = "Both, and they know it, and they'd rather die than say so. You'd have done well under the dome, I think, and I hope you never have to." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_pity = {
+      lines = {
+        { id = "opkp_default", text = "Hm. I hadn't thought of it as fear for the city, only fear for themselves. Don't tell my father you made me think kindly of him; he'd be unbearable." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -71,8 +108,8 @@ P:NPC {
       choices = {
         { text = "Why do they call you the Blade?", next = "blade" },
         { text = "Who are you, before the second cup?", next = "family" },
-        { text = "What's life like with the Blackwater Raiders?", next = "raiders" },
-        { text = "Tell me about this \"Pretty Boy\" Duncan.", next = "duncan" },
+        { text = "Life with the Blackwater Raiders must be a hard one.", next = "raiders" },
+        { text = "Do you have enemies among the Bloodsail?", next = "duncan" },
         { text = "Who else drinks in the Salty Sailor?", next = "regulars" },
         { text = "What does a rogue need to know about the Bay?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Have you heard of a house in the Alterac hills?", next = "ravenholdt", when = { class = "ROGUE", minLevel = 24 } },
@@ -90,7 +127,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you lose a knife fight?", next = "blade_lost" },
-        { text = "Why would an archmage own a troll dagger?", next = "blade_troll" },
+        { text = "A troll dagger seems an odd thing for your father to own.", next = "blade_troll" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -125,6 +162,7 @@ P:NPC {
     family_left = {
       lines = { { id = "fl_default", text = "Because the city drew a violet dome over itself to keep Alterac's troubles out, and I found I'd rather face the troubles than live under glass. The sea has no walls and no curfews, and it's never once asked me to recite the schools of magic in order." } },
       choices = {
+        { text = "What do you make of the Kirin Tor, then?", next = "op_kirintor" },
         { text = "A daughter's place is with her family and her duty.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You chose your own course. That's worth any title.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -146,9 +184,9 @@ P:NPC {
         { id = "rd_again2", text = "Go on. Sailors love talking about their ships more than their sweethearts." },
       },
       choices = {
-        { text = "How does a girl from Dalaran join pirates?", next = "r_join" },
+        { text = "How did you come to join the Raiders?", next = "r_join" },
         { text = "What's the quarrel with the Bloodsail?", next = "r_bloodsail" },
-        { text = "What's Seahorn like as a captain?", next = "r_seahorn" },
+        { text = "Seahorn seems a good sort of captain.", next = "r_seahorn" },
         { text = "Do the Raiders take on new hands?", next = "r_hire" },
         { text = "That's enough about ships.", next = "hello" },
       },
@@ -201,7 +239,7 @@ P:NPC {
       },
       choices = {
         { text = "You liked him?", next = "duncan_liked" },
-        { text = "Want me to fetch the knife back?", next = "duncan_help", when = { ["not"] = { questDone = TODO_QUEST("\"Pretty Boy\" Duncan") } } },
+        { text = "I could fetch the knife back for you.", next = "duncan_help", when = { ["not"] = { questDone = TODO_QUEST("\"Pretty Boy\" Duncan") } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -250,7 +288,7 @@ P:NPC {
       lines = { { id = "ro_default", text = "Never rob anyone between the tunnel and the docks, because the Baron's Bruisers will throw you in the bay with weights on. Out past the reef the Bloodsail are fair game, and a Blackwater sailor will help you carry the loot if you share it." } },
       choices = {
         { text = "Who's the best mark on the coast?", next = "rogue_mark" },
-        { text = "Did you ever think about Strom's line of work?", next = "rogue_strom" },
+        { text = "Did you ever think about training as a rogue?", next = "rogue_strom" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -372,17 +410,17 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, then? Ask quick, before my nose starts itching again." },
-        { id = "h_again2", text = "Go on, friend. I've nothing to do but sit here and resent the Bloodsail." },
-        { id = "h_again3", text = "More questions? Aye, ask away, I've all night." },
+        { id = "h_again2", text = "Go on, {g:lad|lass}. I've nothing to do but sit here and curse the Bloodsail by my beard." },
+        { id = "h_again3", text = "More questions? Aye, ask away, I've all night and half a cask." },
       },
       choices = {
         { text = "Why does a pirate fleet need so much snuff?", next = "snuff" },
         { text = "How does a dwarf end up a Blackwater Raider?", next = "origin" },
-        { text = "What happened to your tobacco shipment?", next = "theft" },
+        { text = "Something must have happened to your tobacco shipment.", next = "theft" },
         { text = "Who are the folk drinking in here?", next = "folk" },
         { text = "Can I have a pinch of that?", next = "pinch" },
         { text = "Do ye miss Ironforge, cousin?", next = "k_dwarf", when = { race = "Dwarf" } },
-        { text = "Is Seahorn's nose ring really in danger?", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "Does Seahorn smoke a pipe too?", next = "k_tauren", when = { race = "Tauren" } },
         { text = "I'll leave you to your grumbling.", next = "END" },
       },
     },
@@ -390,7 +428,7 @@ P:NPC {
     snuff = {
       lines = { { id = "sn_default", text = "Because a sailor on watch at night needs something to keep his eyes open, and a sailor in a fight needs something to steady his hands afterward. Snuff does both, and it doesn't blow out in the wind like a pipe does, so it's worth its weight in gold out on the water." } },
       choices = {
-        { text = "Where does it come from?", next = "snuff_where" },
+        { text = "That snuff must come from somewhere.", next = "snuff_where" },
         { text = "Sounds like a bad habit to me.", next = "snuff_habit" },
         { text = "Something else.", next = "BACK" },
       },
@@ -418,7 +456,7 @@ P:NPC {
       },
       choices = {
         { text = "Was it a hard choice?", next = "origin_choice" },
-        { text = "Does the Fleet Master treat you well?", next = "origin_seahorn" },
+        { text = "The Fleet Master seems to treat you well.", next = "origin_seahorn" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -500,7 +538,7 @@ P:NPC {
       },
     },
     k_tauren = {
-      lines = { { id = "kt_default", text = "It is, and I'll swear to it, because I've seen him light his pipe and singe his own snout three times this season. He laughs it off every time, but he's started making me light it for him, which is a great honor and a great nuisance." } },
+      lines = { { id = "kt_default", text = "He does, and he's a menace with it, because I've seen him light his pipe and singe his own snout three times this season. He laughs it off every time, but he's started making me light it for him, which is a great honor and a great nuisance." } },
       choices = {
         { text = "Seahorn should give up the pipe.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -513,7 +551,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Deckhand out of Menethil, taken by the Bloodsail, rescued by the Blackwater, and never left.", next = "origin" } },
     bloodsail = { { id = "tp_bloodsail", text = "They've got my snuff, and I'll not rest until I've got it back." } },
     defias = { { id = "tp_defias", text = "They've made Westfall's tobacco fields a dangerous place, and the price of leaf has doubled since." } },
-    _none = { { id = "tp_none", text = "Never heard of it, friend, and if it's not snuff or Bloodsail, I've no interest in learning." } },
+    _none = { { id = "tp_none", text = "Never heard of it, {g:lad|lass}, and if it's not snuff or Bloodsail, I've nae interest in learning." } },
   },
 }
 
@@ -571,7 +609,7 @@ P:NPC {
         { text = "How did you lose your eyes?", next = "eyes" },
         { text = "Tell me about the glass eye.", next = "glass" },
         { text = "Why are you called One-Eye if you have none?", next = "name" },
-        { text = "What do you hear, sitting by the window?", next = "listen" },
+        { text = "You must hear a great deal, sitting by the window.", next = "listen" },
         { text = "Can a mage make you a new eye?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can the Light heal your sight, Dizzy?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'll let you get back to your listening.", next = "END" },
@@ -609,14 +647,14 @@ P:NPC {
       },
       choices = {
         { text = "Who was the wizard?", next = "glass_wizard" },
-        { text = "How did the Bloodsail get it?", next = "glass_stolen" },
+        { text = "The Bloodsail must have known where to find it.", next = "glass_stolen" },
         { text = "Something else.", next = "BACK" },
       },
     },
     glass_wizard = {
       lines = { { id = "glw_default", text = "He never gave his name, only said he'd come from Dalaran and was heading south, and he wanted a passage on one of our ships. He enchanted my eye on the dock while we were loading, and I never saw him again, though I suppose I didn't see him the first time either." } },
       choices = {
-        { text = "Dalaran? Catelyn's father is from there.", next = "glass_catelyn" },
+        { text = "Dalaran? Catelyn's father is from there.", next = "glass_catelyn", when = { heardLine = "catelyn.fm_default" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -750,9 +788,9 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How does a man end up selling poison?", next = "origin" },
-        { text = "Who buys from you?", next = "buyers" },
+        { text = "Someone must buy all this from you.", next = "buyers" },
         { text = "Is it safe to keep poison in a tavern?", next = "safety" },
-        { text = "Strom says never buy from goblins on the docks.", next = "rogue_strom", when = { class = "ROGUE" } },
+        { text = "Strom says never buy from goblins on the docks.", next = "rogue_strom", when = { class = "ROGUE", any = { { heardLine = "ianstrom.trp_default" }, { heardLine = "ianstrom.trp_vet" } } } },
         { text = "Selling poison is a vile trade.", next = "xpala", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -762,7 +800,7 @@ P:NPC {
       lines = { { id = "or_default", text = "I was an apothecary's apprentice in Hillsbrad, making tonics for the farmers and rat poison for their barns. Then the plague swept through Lordaeron, and my master fled, and I came south with his recipe book and a bad feeling about anything sold as medicine." } },
       choices = {
         { text = "Why not keep making tonics?", next = "origin_tonics" },
-        { text = "Do you miss Hillsbrad?", next = "origin_home" },
+        { text = "You must miss Hillsbrad some days.", next = "origin_home" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -893,10 +931,10 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What brings an Undermine trader to Booty Bay?", next = "origin" },
-        { text = "What happened to your start-up money?", next = "money" },
+        { text = "Why do your brothers owe you money?", next = "money" },
         { text = "Tell me about your brothers.", next = "brothers" },
         { text = "What kind of curiosities do you buy?", next = "relics", when = { minLevel = 50 } },
-        { text = "What do you make of Booty Bay so far?", next = "bay" },
+        { text = "You seem to have taken to Booty Bay.", next = "bay" },
         { text = "A goblin repairing gnomish gear? Really?", next = "k_gnome", when = { race = "Gnome" } },
         { text = "I'll come back when I've got more coin.", next = "END" },
       },
@@ -905,7 +943,7 @@ P:NPC {
     origin = {
       lines = { { id = "or_default", text = "Undermine's crowded, pal, wall to wall with trade princes and their cousins and their cousins' accountants, and there's no room for a new face to grow. So my brothers and I scraped together everything we had and sailed for Booty Bay, because the Steamwheedle say there's money in Stranglethorn for anybody quick enough to grab it." } },
       choices = {
-        { text = "Why Booty Bay, and not Ratchet or Gadgetzan?", next = "origin_why" },
+        { text = "I'd have thought Ratchet or Gadgetzan suited you better than Booty Bay.", next = "origin_why" },
         { text = "Do you miss Undermine?", next = "origin_miss" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1006,7 +1044,7 @@ P:NPC {
     bay = {
       lines = { { id = "bay_default", text = "It's loud, it's wet, it smells of fish and gunpowder, and I love it, pal! Everybody here's selling something, and everybody's buying something, and the Baron takes a cut of all of it, which is the most beautiful thing I've ever seen." } },
       choices = {
-        { text = "Who's your competition here?", next = "bay_rivals" },
+        { text = "You must have competition here.", next = "bay_rivals" },
         { text = "Something else.", next = "BACK" },
       },
     },

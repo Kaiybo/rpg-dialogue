@@ -147,16 +147,16 @@ P:NPC {
         { text = "Why live alone in a land this harsh, Martek?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Does the earth speak to you when you work its metal, Martek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What lies under Uldaman that a spellcaster ought to know about?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Why were you exiled?", next = "exile" },
-        { text = "What's indurium?", next = "indurium" },
-        { text = "How do you live out here?", next = "life" },
+        { text = "They say Ironforge sent you out here, Martek.", next = "exile" },
+        { text = "What metal is worth digging for out here?", next = "indurium" },
+        { text = "It can't be easy living out here on your own.", next = "life" },
         { text = "I'm a smith too. Any advice?", next = "smith", when = { profession = "Blacksmithing" } },
-        { text = "Do you ever miss the cities, Martek?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Indurium takes enchantments well, though, doesn't it?", next = "xmage", when = { class = "MAGE" } },
+        { text = "A man alone out here must miss the cities.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Don't enchantments make metal stronger, though?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you still pray out here alone, Martek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's wrong with my blade, Martek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What arrowheads would you use on a basilisk?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Does a paladin's hammer pass your inspection, Martek?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "I'd wager you've already judged my hammer, Martek.", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Does a Forsaken paladin's hammer pass your inspection, Martek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Martek.", next = "END" },
       },
@@ -164,7 +164,7 @@ P:NPC {
     exile = {
       lines = { { id = "e_default", text = "I said things to the wrong people in Ironforge, and I was right, which made it worse. That's all ye'll get from me today." } },
       choices = {
-        { text = "Do you regret it?", next = "exile_regret" },
+        { text = "You don't sound like a man who regrets it.", next = "exile_regret" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,7 +181,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     indurium = {
-      lines = { { id = "i_default", text = "A metal ye'll find only in the deep places round Uldaman, and the troggs carry it like treasure. It's light, and it's strong, and it's perfect for a gnome's mad machine." } },
+      lines = { { id = "i_default", text = "Indurium, a metal ye'll find only in the deep places round Uldaman, and the troggs carry it like treasure. It's light, and it's strong, and it's perfect for a gnome's mad machine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "uldaman" } } } },
     },
     life = {
@@ -195,6 +195,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons work metal like nae other dwarves alive, an' they work it for a fire lord, which spoils the lot. I've seen their blades an' I've seen what they're for." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king tae them as stayed in Ironforge, an' I'm no' one o' them. I'll say nae more than that, an' ye'll no' ask me why." } },
+    uldaman = { { id = "tp_uldaman", text = "The diggers at Uldaman are pullin' old stone an' older secrets out o' the Badlands, an' I hear the stone fights back. I'd stay clear o' that hole if I were ye." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres up in the Steppes are buyin' iron from somebody, an' it's no' me. I've a fair guess who, an' I'm no' sayin' it aloud." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care. Ask someone with a city." } },
   },
 }
@@ -333,13 +337,13 @@ P:NPC {
         { text = "Do you ever thank the spirits for your buzzards, Rigglefuzz?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's the worst danger on this road for a spellcaster, Rigglefuzz?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Buzzard wings? Really?", next = "wings" },
-        { text = "Who buys food out here?", next = "buyers" },
-        { text = "Isn't it dangerous by the road?", next = "danger" },
+        { text = "There can't be many customers on a road like this.", next = "buyers" },
+        { text = "Cooking this close to the road looks dangerous.", next = "danger" },
         { text = "Will you sell to an orc, goblin?", next = "goblin", when = { race = "Orc" } },
         { text = "Who wants your sauce recipe that badly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "My imp is not a cooking fire, Rigglefuzz.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Should a priest really bless buzzard wings, Rigglefuzz?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do soldiers really pay for buzzard wings out here?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I doubt soldiers pay good coin for buzzard wings.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do you get your buzzards, Rigglefuzz?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Would you really sell buzzard wings to a paladin, Rigglefuzz?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the barbecue.", next = "END" },
@@ -348,7 +352,7 @@ P:NPC {
     wings = {
       lines = { { id = "w_default", text = "Really, really, pal! Tough, sure, but slow-cook 'em with enough pepper and nobody can tell, and nobody's ever asked for a refund. Trust me, I'm a professional." } },
       choices = {
-        { text = "What's in the sauce?", next = "wings_sauce" },
+        { text = "That sauce smells like it hides a secret or two.", next = "wings_sauce" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -379,6 +383,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'd like to open a real kitchen someday, pal, with walls and a roof and customers who aren't covered in dust. Buzzard wings are the first step." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got Dirge Quikcleave, pal, and he thinks he's the best cook in Azeroth. Wait till he tries my buzzard wings." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's grunts eat anything, pal, and they pay in silver, so I'm a big fan of the Warchief. Tell him I said so, if you see him." } },
+    uldaman = { { id = "tp_uldaman", text = "The dwarves digging at Uldaman eat like miners, pal, which is to say a lot and not fussy. I'd sell to them if they'd stop shooting at me." } },
     _none = { { id = "tp_none", text = "Dunno, pal, and I don't sell what I don't know. Does it taste good with sauce?" } },
   },
 }

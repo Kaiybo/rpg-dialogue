@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Speak up, the anvils don't stop for visitors." },
+    { id = "g_hi", text = "Speak up, friend; the anvils don't stop for visitors, not even for the Earth Mother herself." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did my armor hold, or have you come to complain?" },
     { id = "g_shield", when = { questActive = TODO_QUEST("The Black Shield") }, text = "Krog sent you with a shield? Let me see it, then, and hold it to the light." },
     { id = "g_shield_done", when = { questDone = TODO_QUEST("The Black Shield") }, text = "Has Krog found his burners yet? I still think about that shield, which is more than I do about most of them." },
@@ -41,13 +41,13 @@ P:NPC {
           text = "A warrior, good, you'll know what a shield is worth. I'm Mosarn, and I've made more of them than I could count, though I could tell you about every one that ever came back broken." },
       },
       again = {
-        { id = "h_again", text = "What else? I've a quench going." },
+        { id = "h_again", text = "What else? I've a quench going, and hot iron is less patient than a kodo." },
         { id = "h_again2", text = "Ask, ask. My hammer can listen." },
       },
       choices = {
         { text = "Who buys the most of your work?", next = "buyers" },
         { text = "Why so many apprentices?", next = "apprentices" },
-        { text = "Do tauren make good smiths?", next = "smiths" },
+        { text = "I didn't know tauren made good smiths.", next = "smiths" },
         { text = "Krog wants to know who carried that shield.", next = "krog", when = { questActive = TODO_QUEST("The Black Shield") } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Earth Mother keep your forge, Mosarn.", next = "END" },
@@ -56,14 +56,14 @@ P:NPC {
     buyers = {
       lines = { { id = "b_default", text = "The braves, the Earthen Ring, and the Grimtotem, who come up from the south and buy by the cartload. I don't ask them what for, because a shield is for protecting yourself, and that's nobody's business but the one holding it." } },
       choices = {
-        { text = "Even if the Grimtotem turn it on the Horde?", next = "buyers_grim", fx = { learn = { "grimtotem" } } },
+        { text = "The Grimtotem might turn it on the Horde.", next = "buyers_grim", fx = { learn = { "grimtotem" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
     buyers_grim = {
       lines = { { id = "bg_default", text = "They're tauren, and they live under Cairne's peace like the rest of us. If the High Chieftain says not to sell to them, I'll stop, and until then my apprentices need feeding." } },
       choices = {
-        { text = "And if your shields end up at a burned inn?", next = "buyers_end" },
+        { text = "And if your shields are turned on innocents?", next = "buyers_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -79,7 +79,7 @@ P:NPC {
     apprentices = {
       lines = { { id = "a_default", text = "Because one smith makes one good shield a day, and the braves need a hundred. I teach them the rivets and the temper, and I check every piece before it leaves, or near enough every piece." } },
       choices = {
-        { text = "Near enough?", next = "apprentices_near" },
+        { text = "Near enough doesn't sound good enough.", next = "apprentices_near" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,7 +101,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A smith, and a busy one. I learned from an orc in the Crossroads and I've been better than him for years." } },
     advice = { { id = "tp_ad", text = "Have your armor looked at before it fails, not after. After costs more." } },
     grimtotem = { { id = "tp_gt", text = "Good customers, prompt payers, poor conversation." } },
-    _none = { { id = "tp_none", text = "Never heard of it. Is it made of iron? Then I'm not interested." } },
+    _none = { { id = "tp_none", text = "Never heard of it. Is it made of iron? Then I'm not interested, and the ancestors can keep it." } },
   },
 }
 
@@ -119,7 +119,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Shoulders back! Now, what do you want?" },
+    { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "Taim says you want the dwarves out of Alterac! Good! Then train harder, because they hit like falling rocks!" },
+    { id = "g_hi", text = "Shoulders back, like a bull facing the wind! Now, what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing. Good, that's the first lesson." },
   },
 
@@ -135,7 +136,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Sark Ragetotem, and I train warriors with Ker and Torm. The Ragetotem have held Hunter Rise since the Bluff was built, and we've never sent out a brave who couldn't take a hit." },
         { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } }, text = "You're no warrior, but I'll tell you the same thing I tell the calves: stand where you can see your enemy and never turn your back on a centaur." },
       },
-      again = { { id = "h_again", text = "Well? Out with it!" } },
+      again = { { id = "h_again", text = "Well? Out with it! You're not a kodo calf, you can speak for yourself." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What's the hardest lesson?", next = "hard" },
@@ -146,7 +147,7 @@ P:NPC {
     hard = {
       lines = { { id = "hd_default", text = "When to stop. Any calf can learn to swing an axe, but knowing when the fight's won and lowering it again, that takes years." } },
       choices = {
-        { text = "And if the enemy won't stop?", next = "hard_end" },
+        { text = "Some enemies won't stop.", next = "hard_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,7 +168,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Ragetotem, warrior, teacher. I hit things and I show others how." } },
     advice = { { id = "tp_ad", text = "Keep your shield arm up. Every warrior who forgot is buried somewhere." } },
-    _none = { { id = "tp_none", text = "What? Never heard of it! Ask someone who reads." } },
+    _none = { { id = "tp_none", text = "What? Never heard of it! Ask someone who spends more time with the elders than with a spear." } },
   },
 }
 
@@ -185,7 +186,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Closer. I don't shout, unlike my cousin." },
+    { id = "g_hi", text = "Closer. I don't shout, unlike my cousin; the plains taught me that a quiet hoof goes further." },
     { id = "g_back", when = { metBefore = true }, text = "You've been practicing your footwork. I can see it in how you stand." },
   },
 
@@ -201,7 +202,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Torm Ragetotem. Sark teaches you to hit hard and Ker teaches you to keep going, and I teach you where to put your feet, which is the part everybody skips." },
         { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } }, text = "You aren't a warrior, but you're welcome to watch. Most of what I teach is how to stand, and everybody needs that sooner or later." },
       },
-      again = { { id = "h_again", text = "Something else? Take your time." } },
+      again = { { id = "h_again", text = "Something else? Take your time, as the grass does." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Why does footwork matter so much?", next = "feet" },
@@ -233,7 +234,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A Ragetotem who trains warriors. I prefer to let my students speak for me." } },
     advice = { { id = "tp_ad", text = "Plant your back hoof before you swing. Everything else is decoration." } },
-    _none = { { id = "tp_none", text = "I don't know. I'd rather say so than guess." } },
+    _none = { { id = "tp_none", text = "I don't know. I'd rather say so than guess, and the Earth Mother respects an honest blank." } },
   },
 }
 
@@ -251,7 +252,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Ho, a visitor! Sit, sit, I was just about to tell a story." },
+    { id = "g_hi", text = "Ho, a visitor! Sit, sit, by the fire; I was just about to tell a story." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the Rise! Have you been lost anywhere interesting?" },
   },
 
@@ -267,7 +268,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Urek Thunderhorn, and I train hunters with Holt and Kary. Holt teaches the bow, Kary teaches the trail, and I teach what to do when you've lost the bow and the trail both, which happens more than they'd admit." },
         { id = "h_nothunt", when = { ["not"] = { class = "HUNTER" } }, text = "Not a hunter? Never mind, everyone's welcome on the Rise, as long as they don't startle the beasts." },
       },
-      again = { { id = "h_again", text = "What else, friend? I've a hundred stories left." } },
+      again = { { id = "h_again", text = "What else, friend? I've a hundred stories left, and the night's long as a migration." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Tell me about getting lost.", next = "lost" },
@@ -299,7 +300,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Thunderhorn, hunter, teller of stories. Some of them are even true." } },
     advice = { { id = "tp_ad", text = "Always know where the nearest water is. You'll be surprised how often it matters." } },
-    _none = { { id = "tp_none", text = "Never heard of it, but if you find out, come back and tell me the story!" } },
+    _none = { { id = "tp_none", text = "Never heard of it, but if you find out, come back and tell me the story, and I'll tell it round the fire for you!" } },
   },
 }
 
@@ -333,18 +334,18 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Kary Thunderhorn, and I teach tracking, along with whatever else a hunter needs. Holt's the archer and Urek's the storyteller, so somebody has to be the one who actually knows where the beast went." },
         { id = "h_nothunt", when = { ["not"] = { class = "HUNTER" } }, text = "You're no hunter, but you walk like someone who's been followed recently. Watch your back on the plains." },
       },
-      again = { { id = "h_again", text = "Anything else? Be quick, the light's going." } },
+      again = { { id = "h_again", text = "Anything else? Be quick; An'she's going down and the tracks go with her." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What can tracks tell you?", next = "tracks" },
-        { text = "Is Urek really always lost?", next = "urek" },
+        { text = "Is Urek a good hunter, then?", next = "urek" },
         { text = "Farewell, Kary.", next = "END" },
       },
     },
     tracks = {
       lines = { { id = "t_default", text = "Who passed, how heavy they were, whether they were hurt, and whether they were in a hurry. Quilboar drag their feet and centaur never do, and a kodo with a limp will tell you about it a mile off." } },
       choices = {
-        { text = "And people? Can you track people?", next = "tracks_people" },
+        { text = "I'd guess you can track people too.", next = "tracks_people" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -357,7 +358,7 @@ P:NPC {
       },
     },
     urek = {
-      lines = { { id = "u_default", text = "Not always, only when it matters most. He's the best shot of the three of us when he can find his bow, which I'd never say in front of Holt." } },
+      lines = { { id = "u_default", text = "He's the best shot of the three of us when he can find his bow, which I'd never say in front of Holt. He loses it often, and always when it matters most." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -365,7 +366,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Thunderhorn, tracker, teacher. I've followed most things across Mulgore at one time or another." } },
     advice = { { id = "tp_ad", text = "Look down before you look ahead. The ground remembers what the wind forgets." } },
-    _none = { { id = "tp_none", text = "No tracks on that one. Ask someone else." } },
+    _none = { { id = "tp_none", text = "No tracks on that one, not on any ground I've walked. Ask someone else." } },
   },
 }
 
@@ -383,7 +384,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Hello, little one. Oh, and you too, I suppose." },
+    { id = "g_hi", text = "Hello, little one. Oh, and you too, I suppose; the Earth Mother made you both." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me look at your companion first, and then we'll talk." },
   },
 
@@ -396,14 +397,14 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Hesuwa Thunderhorn, and I teach your companions what they need to know, with you listening in. The beasts learn quicker than their hunters, most days." },
+        { id = "h_default", key = true, text = "I am Hesuwa Thunderhorn, and I teach your companions what they need to know, with you listening in. The Earth Mother made the beasts to learn quicker than their hunters, most days." },
         { id = "h_nothunt", when = { ["not"] = { class = "HUNTER" } }, text = "You've no companion with you, so I'm not sure what I can teach you. You could sit and watch, if you're quiet." },
       },
       again = { { id = "h_again", text = "Anything more? Your companion's getting restless." } },
       choices = {
         { text = "Teach my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you teach a beast?", next = "teach" },
-        { text = "Do you prefer beasts to people?", next = "people" },
+        { text = "You seem to prefer beasts to people.", next = "people" },
         { text = "Farewell, Hesuwa.", next = "END" },
       },
     },
@@ -431,7 +432,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Thunderhorn. I raised orphaned calves before I trained anyone's companion, and it's much the same work." } },
     advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself, and it'll never leave you." } },
-    _none = { { id = "tp_none", text = "I don't know, and neither does your companion, by the look of it." } },
+    _none = { { id = "tp_none", text = "I don't know, and neither does your companion, by the look of its ears." } },
   },
 }
 
@@ -449,7 +450,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Looking for a real fight? The Frostwolf need warm bodies in Alterac." },
+    { id = "g_hi", text = "Looking for a real fight? The Frostwolf need strong hooves and strong hearts in Alterac." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the snow, or on your way to it?" },
   },
 
@@ -460,6 +461,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dwarves = {
+      lines = {
+        { id = "opd_q", text = "The Frostwolves have held that valley since before the dwarves came digging, and now the Stormpike want it all. You've seen the dwarves in your travels, so what do you make of them?" },
+      },
+      choices = {
+        { text = "They're hard workers and fierce fighters. I'd rather them as friends.", next = "op_dwarves_r1", fx = { align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They dig up anything that isn't nailed down. Drive them out of Alterac.", next = "op_dwarves_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { dwarves = "hate" } } },
+        { text = "I'm a dwarf, and the Stormpike have every right to that valley.", next = "op_dwarves_r3", fx = { affinity = -2, trait = { stubborn = 1 }, opinion = { stormpike = "support" } }, when = { race = "Dwarf" } },
+        { text = "It's a valley full of snow. Neither side should bleed for it.", next = "op_dwarves_r4", fx = { trait = { practical = 1 }, opinion = { alterac = "waste" } } },
+        { text = "I'd rather not take sides in Alterac.", next = "BACK" },
+      },
+    },
+    op_dwarves_r1 = {
+      lines = {
+        { id = "op_dwarves_r1", text = "Fierce, yes, I'll grant you that much, and I'd rather fight them than drink with them, because the drinking's worse. Still, you're not wrong." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r2 = {
+      lines = {
+        { id = "op_dwarves_r2", text = "Now that's the spirit I need up north! Go and tell Drek'Thar you said so, and bring your warmest cloak." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r3 = {
+      lines = {
+        { id = "op_dwarves_r3", text = "Ha! At least you say it to my face, which is more than the snow does. We'll see whose right holds up when the thaw comes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r4 = {
+      lines = {
+        { id = "op_dwarves_r4", text = "I've said the same thing a hundred times on the way home, and then I go back, every time. Don't ask me to explain it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Taim Ragetotem, and I muster fighters for the Frostwolf clan in Alterac Valley, where the dwarves of the Stormpike have come digging into Frostwolf land. It's cold, it's bloody, and Thrall's own people need us there." },
@@ -468,7 +513,7 @@ P:NPC {
         { id = "h_frost", when = { origin = "orc_frostwolf" },
           text = "You're Frostwolf born, aren't you? I can hear the mountains in your voice. Go home and fight for it, then, and take some tauren with you." },
       },
-      again = { { id = "h_again", text = "More questions? The snow won't wait." } },
+      again = { { id = "h_again", text = "More questions? The snow won't wait, and neither will the Frostwolf." } },
       choices = {
         { text = "Send me to Alterac.", next = "BUSINESS" },
         { text = "Why should tauren fight for the Frostwolf?", next = "why" },
@@ -479,7 +524,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because Thrall saved us from the centaur when nobody else would, and the Frostwolf are his blood. A debt like that you pay in the snow, if that's where it's owed." } },
       choices = {
-        { text = "Must every debt be paid in blood?", next = "why_end", fx = { learn = { "alterac" } } },
+        { text = "Not every debt should be paid in blood.", next = "why_end", fx = { learn = { "alterac" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "alterac" } } },
       },
     },
@@ -493,7 +538,10 @@ P:NPC {
     },
     valley = {
       lines = { { id = "v_default", text = "Snow up to your knees, wolves who are friendlier than the dwarves, and the cold gets into your horns so you hear it ringing for days. Every tauren who comes back says they'll never go again, and half of them are back within the month." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you make of the dwarves up there?", next = "op_dwarves" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -501,6 +549,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "Ragetotem, like Sark and Torm. They train fighters, and I send them somewhere to fight." } },
     advice = { { id = "tp_ad", text = "Take a thicker cloak than you think you need. Then take another one." } },
     alterac = { { id = "tp_av", text = "The Frostwolf valley, in the mountains north of Hillsbrad. The Stormpike want it, and they can't have it." } },
-    _none = { { id = "tp_none", text = "Don't know it. Ask me about the snow instead." } },
+    _none = { { id = "tp_none", text = "Don't know it. Ask me about the snow instead; it's nothing like the grass of home." } },
   },
 }

@@ -52,10 +52,10 @@ P:NPC {
         { id = "h_again2", text = "Anything more, {g:son|lass}? Out with it." },
       },
       choices = {
-        { text = "You know Kurzen's soldiers personally?", next = "known" },
-        { text = "Why do you need his remedies?", next = "medicine" },
-        { text = "How do you fight a man who outnumbers you?", next = "tactics" },
-        { text = "Why did you leave Kurzen?", next = "leave" },
+        { text = "Do you know the men you're fighting?", next = "known" },
+        { text = "How does Kurzen keep his army fighting?", next = "medicine" },
+        { text = "Fighting a man who outnumbers you can't be easy.", next = "tactics" },
+        { text = "Why fight Kurzen at all?", next = "leave" },
         { text = "I could help make your remedies.", next = "xalchemy", when = { profession = "Alchemy" } },
         { text = "Let me tend your wounded, Sergeant.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "I'll get to work.", next = "END" },
@@ -84,7 +84,7 @@ P:NPC {
 
     medicine = {
       lines = {
-        { id = "me_default", text = "Because Kurzen keeps a great many medicine men who patch his soldiers with Jungle Remedies, and poison ours with extracts of venom fern. Take away his healers and his army wears out like ours does." },
+        { id = "me_default", text = "Kurzen keeps a great many medicine men who patch his soldiers with Jungle Remedies, and poison ours with extracts of venom fern. Take away his healers and his army wears out like ours does." },
       },
       choices = {
         { text = "And the venom fern sample?", next = "medicine_fern" },
@@ -168,6 +168,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A sergeant of Stormwind once, a sergeant of rebels now, and still shouting at recruits either way." } },
     advice = { { id = "tp_ad", text = "Never let a jungle scratch go untreated, {g:son|lass}. Out here, that's how most of us die." } },
+    kurzen = { { id = "tp_kurzen", text = "Kurzen was my commander once, and I followed him into this jungle. I won't follow him any further." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is a good man, but Stormwind's forgotten us down here, and I don't think he knows how bad it's gotten. I'd tell him myself if I could." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of soft recruits who think they're tough, and I'd love to get my hands on a few of them. I'd make soldiers out of them in a week." } },
+    holy_light = { { id = "tp_holy_light", text = "I don't pray much, but Brother Nimetz does, and I've seen him keep men alive who should've died. Maybe the Light's real, and maybe he's just good at his job." } },
+    second_war = { { id = "tp_second_war", text = "I was a recruit in the Second War, and I learned to fight from sergeants who'd fought orcs. I teach the same way now, with a cane and a shout." } },
     _none = { { id = "tp_none", text = "Not my department. Ask the Lieutenant, or better yet, don't." } },
   },
 }

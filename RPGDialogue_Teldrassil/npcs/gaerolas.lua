@@ -54,8 +54,8 @@ P:NPC {
       },
       choices = {
         { text = "Who are the druids you guard?", next = "sleeping" },
-        { text = "What happened to the Gnarlpine?", next = "gnarlpine" },
-        { text = "What happened here in Starbreeze?", next = "village" },
+        { text = "The Gnarlpine seem to have gone mad.", next = "gnarlpine" },
+        { text = "Starbreeze looks as if it was overrun.", next = "village" },
         { text = "Tallonkai says you gave him his dreamcatcher.", next = "dreamcatcher", when = { any = { { questActive = TODO_QUEST("The Emerald Dreamcatcher") }, { questDone = TODO_QUEST("The Emerald Dreamcatcher") } } } },
         { text = "Will I one day sleep in the Dream myself?", next = "druid_g", when = { class = "DRUID" } },
         { text = "Let me look at that wound.", next = "heal_g", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "You did your duty. There's no shame in it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Did they take anything that matters?", next = "village_take" },
+        { text = "It looks as though they carried off whatever they could.", next = "village_take" },
       },
     },
     village_take = {
@@ -181,6 +181,10 @@ P:NPC {
     furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were good neighbours before the fel moss, and I would like to believe they will be again.", next = "gnarlpine" } },
     fel_moss = { { id = "tp_felmoss", text = "It grows where something rotten feeds it, and it rots whatever eats it. Keep it off your hands." } },
     teldrassil = { { id = "tp_tree", text = "We were told the tree was blessed and whole, and I believed it, and I would still like to." } },
-    _none = { { id = "tp_none", text = "I have kept a barrow's watch too long to know much of that. Ask in Dolanaar." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Sleepers in the barrows dream of the Emerald Dream, and some of them have walked so far into it that I am no longer sure they are coming back. I keep watch anyway." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil kept our Sleepers for ten thousand years beneath Hyjal. Teldrassil keeps them now, and I hope it keeps them as gently." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion sleeps the deepest of all our druids, and I watch the barrows partly in his honour. When he wakes, I hope he finds the watch was kept." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are what the Gnarlpine were, before the madness came. I find it comforting that some furbolgs remain whole." } },
+    _none = { { id = "tp_none", text = "I have kept a barrow's watch over the Sleepers too long to know much of that. Ask in Dolanaar, where the waking world still turns." } },
   },
 }

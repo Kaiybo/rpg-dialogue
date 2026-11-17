@@ -49,9 +49,9 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can listen and whisk." },
       },
       choices = {
-        { text = "What makes the Blue Recluse special?", next = "recluse" },
-        { text = "Tell me about your nephew.", next = "morgan" },
-        { text = "Why go to such lengths for one dish?", next = "lengths" },
+        { text = "I've heard the Blue Recluse is a special place.", next = "recluse" },
+        { text = "Do you have family in the trade, Chef?", next = "morgan" },
+        { text = "Do you really go to such lengths for your dishes?", next = "lengths" },
         { text = "I cook as well. Have you any secrets to share?", next = "cook", when = { profession = "Cooking" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "I'll leave you to the sauce.", next = "END" },
@@ -71,7 +71,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     morgan = {
-      lines = { { id = "m_default", text = "My sister's boy, and a good cook, though he'd rather taste his way across the world than stand at a stove. Theramore suits him; it's damp and full of strange food." },
+      lines = { { id = "m_default", text = "My nephew Morgan, my sister's boy, and a good cook, though he'd rather taste his way across the world than stand at a stove. Theramore suits him; it's damp and full of strange food." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -79,7 +79,7 @@ P:NPC {
       lines = { { id = "l_default", text = "Because the dish is the thing! A noble remembers a meal longer than a speech, and the kitchen that served it longer still." },
       },
       choices = {
-        { text = "All that for a noble's birthday, though?", next = "lengths_nobles" },
+        { text = "All that for the nobles, though?", next = "lengths_nobles" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -101,6 +101,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The spices that come up from Booty Bay are the only reason my kitchen can compete with the Keep's. The goblins rob me blind for them, and I pay gladly, because a dull sauce is a sin." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells food on sticks to people who've never tasted a proper sauce. I visited once, and I've never recovered." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to dine here when they came south, and they had the most refined palates in the world. I'm told the city's being rebuilt, and I've written to them twice to say my table's ready." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean cooks were the best in the Seven Kingdoms, and they took every one of their recipes behind that wall. I've spent ten years trying to make their mutton pie, and I've failed every time." } },
     background = { { id = "tp_bg", text = "Head chef of the Blue Recluse. Before that, a great many kitchens, and before that, a boy who burned things." } },
     advice = { { id = "tp_ad", text = "Fresh, fresh, fresh. Everything else can be forgiven, but stale meat cannot." } },
     _none = { { id = "tp_none", text = "Does it go in a pot? No? Then I couldn't tell you, my dear." } },

@@ -32,11 +32,11 @@
 - Thork: firm host; the road, the walls, the Warchief.
 - Sergra: fierce, proud leader; blunt about orcs who resent a woman in charge.
 - Mankrik: grief turned to fury; watches the horizon; softens only about Olgra.
-- Tonga: measured, worried druid; "always start with the water".
-- Helbrim: clinical Forsaken apothecary, dry and a little unsettling.
+- Tonga: measured, worried druid; "always start with the water". Tauren calm: the Earth Mother, An'she, herds and grass imagery, blessings on parting.
+- Helbrim: clinical Forsaken apothecary, dry and a little unsettling; serves the Dark Lady and the Society, faint contempt for the living.
 - Darsok: swaggering assassin, jokes with an edge.
 - Zargh: jolly butcher with a missing finger and a crush on Gryshka.
-- Boorand: warm tauren host; the "where is Mankrik's wife" question everyone asks.
+- Boorand: warm tauren host; the "where is Mankrik's wife" question everyone asks. Herd and grass similes, the Earth Mother.
 
 ## Depth pass (0.24.0)
 Authored, not canon: Boorand's holey roof and the Ratchet goblin who tried to sell him a better one ([Ratchet](https://warcraft.wiki.gg/wiki/Ratchet) is the goblin port); Zargh reading Gryshka's returned bones as a good sign; Thork's "holding a sieve".
@@ -44,3 +44,7 @@ Authored, not canon: Boorand's holey roof and the Ratchet goblin who tried to se
 ## 0.34.0
 Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon, unless marked).
 - Mankrik (Persuade, `wall_truth`): he stays on the wall because while he doesn't look, Olgra might still be alive; it's the one thing he's a coward about (authored feeling, nothing on where she lies).
+
+## Authored, not canon
+- Helbrim's prejudice (0.80.0): tauren druids have written to Thunder Bluff about him eleven times this season; he doesn't know what the Society does with his spores.
+- Gazlowe's prejudice (0.80.0): night elves are bad customers (one bandage, an hour of complaints, a letter to Astranaar about the Venture Company).

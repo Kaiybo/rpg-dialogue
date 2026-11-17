@@ -24,6 +24,7 @@ SD.ACCOUNT_DEFAULTS = {
     trp3Title = true,           -- ...and your roleplay title
     ackChance = 0.35,           -- noticing-moment frequency
     barks = true,
+    letters = true,             -- people you've met sometimes write; letters wait at the mailbox
     insanityFx = true,
     insanityIntensity = 0.5,
     journalVoice = "first",     -- "first" (diary) | "third" (chronicle)
@@ -62,6 +63,7 @@ SD.ACCOUNT_DEFAULTS = {
     seenLoginHint = false,
   },
   capture = { npcs = {}, quests = {}, gossip = {}, questText = {} },
+  kin = { chars = {}, met = {} },   -- 0.80.0: this account's characters and who each has met
   flagged = {},
   debug = {},
   _quarantine = {},
@@ -98,6 +100,8 @@ SD.CHAR_DEFAULTS = {
   originsApplied = {},
   places = {},
   errands = {},
+  letters = {},      -- letter id -> { sent, due, arrived, read, burned }
+  lettersRandomAt = 0, -- when the last random letter was sent
   arrived = {},      -- zone -> when the diary's arrival entry was written
   journalRead = nil, -- how many diary entries have been seen (the journal button's count)
   _quarantine = {},

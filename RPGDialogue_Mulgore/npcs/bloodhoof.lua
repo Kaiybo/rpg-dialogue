@@ -13,8 +13,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_dw_shame", when = { gossip = { topic = "dwarves", stance = "shame" } }, text = "Morin tells me a dwarf apologised to him for Bael'dun, and I believe it was you. That's a word spoken well, friend, and I'll remember it." },
     { id = "g_tent", text = "Be welcome in Bloodhoof Village. My father keeps the bluffs; I keep the plains below them." },
-    { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me." },
+    { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me, and the grass will grow without my watching it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the plains {away}, friend, and the village asked after you more than once. Sit with me a moment and tell me where the road took you." },
     { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you walked these plains, and you come back carrying yourself like a seasoned warrior. My father will want to hear of it, and so do I." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The village has been telling me of the help you've given us, and I'm grateful for every bit of it. Bloodhoof does not forget its friends." },
@@ -34,13 +35,68 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_baine = {
+      lines = {
+        { id = "xalt_baine_default", text = "Many pass through Bloodhoof on their way to the Barrens, and I try to learn something from each of them. The one you mean listened more than they spoke, which my father says is the best way to learn anything." },
+        { id = "xalt_baine_kin", when = { alt = { kin = true } }, text = "{alt} asked me why I'd sooner talk with the goblins digging to the east than burn them out. I didn't have a good answer then and I'm not certain I have one now, but I liked being asked." },
+      },
+      choices = {
+        { text = "Talk first. Most fights never need to happen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some only listen once they're bleeding, Baine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace = {
+      lines = {
+        { id = "opp_q", text = "Lady Proudmoore and the Warchief keep a peace across the water at Theramore, and some of our braves call it weakness. I've my own thoughts, but I'd like yours first: should the Horde keep that peace?" },
+      },
+      choices = {
+        { text = "Yes. A peace kept is worth more than any battle won.", next = "op_peace_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { peace = "peace" } } },
+        { text = "Keep it until the Horde is strong enough to break it.", next = "op_peace_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { practical = 1 }, opinion = { peace = "necessary" } } },
+        { text = "The humans penned the orcs in camps. No peace with them.", next = "op_peace_r3", fx = { affinity = -1, trait = { stern = 1 }, opinion = { peace = "war" } }, when = { faction = "Horde" } },
+        { text = "Most of the Alliance wants that peace too, Baine.", next = "op_peace_r4", fx = { affinity = 2, opinion = { peace = "peace" } }, when = { faction = "Alliance" } },
+        { text = "I'm not wise enough to answer that, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r1 = {
+      lines = {
+        { id = "op_peace_r1", text = "My father would say the same, and he'd say it slower. I'm glad to hear it from someone who's walked further than Mulgore." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r2 = {
+      lines = {
+        { id = "op_peace_r2", text = "A peace kept with one hand on the axe isn't much of a peace, friend. I hope you'll think on that before you say it to my father." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r3 = {
+      lines = {
+        { id = "op_peace_r3", text = "I've heard Mull say the same, and I understand the anger in it. But the humans of Theramore aren't the ones who built those camps." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    op_peace_r4 = {
+      lines = {
+        { id = "op_peace_r4", text = "Then I'm glad you came to Bloodhoof to tell me so, because it's a thing my braves need to hear more often than they do." },
+      },
+      choices = {
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
     xcl_rfk = {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the young braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have had a word with Charlga than a fight, though I know she'd never have allowed it." } },
       choices = {
         { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Talk wouldn't have stopped her, Baine. Only steel would.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Did your father ever try to make peace with them?", next = "xcl_rfk2" },
+        { text = "Your father must have tried to make peace with them.", next = "xcl_rfk2" },
       },
     },
     xcl_rfk2 = {
@@ -112,6 +168,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You have the look of {alt}, who stopped in Bloodhoof Village and helped my people with the wolves on the plains. If you're family, then Mulgore owes your family a little already, and I mean to remember it." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "{alt} came through here a while back, and I've heard since that the {altclass} has gone on to dangerous places. My father says the young ones grow up faster every year, and I'm beginning to think he's right." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. My father says the Horde is made of peoples who were each cast out by someone. I think you were cast out twice." },
         { id = "h_default", key = true,
           text = "Baine Bloodhoof, Cairne's son. Goblins dig to the east, gnolls raid from the west, and dwarves blast the earth at Bael'dun. I'd rather talk them all down than fight them." },
@@ -130,32 +190,44 @@ P:NPC {
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked it too, didn't you, the long road out of the Barrens with the centaur at our heels? You were a calf and I was barely grown, and I remember the orcs' axes better than I remember my own feet, because I never once looked down." },
       },
       choices = {
+        { text = "You've met someone close to me, Baine.", next = "xalt_baine", when = { alt = true } },
         { text = "How did the tauren come to Mulgore?", next = "coming" },
         { text = "Do you remember the walk, Baine? I still dream of it.", next = "xwalk", when = { origin = "tauren_long_migration" } },
         { text = "What troubles the plains?", next = "troubles" },
         { text = "Why talk, if they won't listen?", next = "talk" },
-        { text = "Does your father miss living on the plains?", tag = "Persuade", next = "baine_father",
+        { text = "Your father must miss living on the plains.", tag = "Persuade", next = "baine_father",
           check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "cairne.h_default" }, { race = "Tauren" } } } },
           fail = { next = "baine_father_no", fx = { affinity = -1 } } },
         { text = "A warrior settles quarrels too, Baine.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Your father stood up for my people. Why?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I've begun to walk the druid's path.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
-        { text = "Are the Windshapers good neighbours?", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "The Windshapers seem like good neighbours.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Do the spirits favor talking the Venture Company down, Baine?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Talking works better when you know their secrets first, Baine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The arcane could help defend Bloodhoof, Baine.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the hunters cause you quarrels, Baine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess the hunters cause you quarrels, Baine.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I bring a demon to Mulgore. Will your people bear it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the tauren see a priest like me, Baine?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light have a place in Mulgore, Baine?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Razorfen Kraul, Baine.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "I've followed the Venture Company from the wells to Stonetalon.", next = "venture_word",
           when = { thread = { id = "venture_mulgore", beat = "b5_baine", state = { "stirring", "unfolding" } } } },
+        { text = "I stood with your braves against the Venture machines, Baine.", next = "xorig_brave", when = { origin = "tauren_bloodhoof_brave" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
-        { id = "h_again", text = "What else, friend? The village is quiet for now, so ask." },
+        { id = "h_again", text = "What else, friend? The village is quiet for now, and An'she is still high, so ask." },
         { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire, where every plainstrider grows a foot in the telling." },
+      },
+    },
+    xorig_brave = {
+      lines = {
+        { id = "xbr_default", text = "I remember. You struck when I gave the word and stopped when I gave it again, and the stopping is the harder half. My father asks us to strike only when we must, so tell me honestly: did we strike enough?" },
+      },
+      choices = {
+        { text = "We did. Every goblin we spared was our choice, not theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "No. They came back, so we should have struck harder.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'm not sure, Baine. I still think about it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     warrior = {
@@ -176,7 +248,7 @@ P:NPC {
           text = "You farmed once, near Brill? Then you'll know what my father means when he speaks of the land, and I hope our fields remind you of yours more kindly than they hurt." } },
       choices = {
         { text = "I'm grateful to him.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Do you think there's a cure?", next = "forsaken_cure" },
+        { text = "There may be a cure someday.", next = "forsaken_cure" },
       },
     },
     forsaken_cure = {
@@ -254,7 +326,10 @@ P:NPC {
       lines = {
         { id = "tk_default", text = "Because sometimes they do. A spear settles one quarrel, but a word, spoken well, can settle a hundred." },
       },
-      choices = { { text = "Wise words.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+      choices = {
+        { text = "Could words settle things with the Alliance, too?", next = "op_peace" },
+        { text = "Wise words.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
     coming = {
       lines = {
@@ -270,7 +345,7 @@ P:NPC {
       choices = {
         { text = "Not me. I still share what I carry.", next = "BACK", fx = { affinity = 3, align = { honor = 1 }, trait = { generous = 1 } } },
         { text = "A little. We've earned a full belly, Baine.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "Do you remember the orcs who fought for us?", next = "xwalk_orcs" },
+        { text = "You must remember the orcs who fought for us.", next = "xwalk_orcs" },
       },
     },
     xwalk_orcs = {
@@ -301,7 +376,18 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
-    _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first." } },
+    cairne = { { id = "tp_cairne", text = "My father carried our people out of the wandering and onto these plains, and he did it without ever once raising his voice to us. I try to walk the village the way he walks the bluff, and I have a great deal left to learn." } },
+    thrall = { { id = "tp_thrall", text = "Thrall came to my father's aid when the centaur were hounding us across the Barrens, and he asked nothing in return. The tauren repay that kind of debt with a long memory, and we joined his Horde gladly." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "My father and Hamuul spoke for the Forsaken when they asked to join the Horde, because Hamuul believes their curse might be lifted. I hope he is right, though I find their apothecaries hard to like." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are welcome in Bloodhoof, and I mean that, whatever looks the farmers give you. Their fear is old, and it will fade faster if you are patient with it." },
+    },
+    centaur = { { id = "tp_centaur", text = "The centaur drove us from one grazing land to the next for generations, until we came here. Some of the young braves still dream of revenge, and I tell them a herd that has its home should guard it, not go looking for old fights." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback have pushed north from the Barrens into the south of Mulgore, and they have killed our elders at Narache. I would talk with them if they would let me, but so far they have only answered with spears." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us these plains when we had walked so long we had almost forgotten what home meant. Every morning I thank her for the grass, and every evening for the people who walk on it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire comes to Mulgore, its tents go up below the bluff, and every calf in the village stops sleeping. Silas Darkmoon is a strange host, but he has always paid his respects to my father." } },
+    onyxia = { { id = "tp_onyxia", text = "I know only what the Horde's runners tell me, that a black dragon nests in Dustwallow Marsh and the Brackenwall grunts fear her. Mulgore is far from her, and I would like it to stay that way." } },
+    _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first. May the Earth Mother guide you to someone who does." } },
     venture_company = { { id = "tp_venture", text = "We refused them the right to mine, and they poisoned our wells anyway. I'd still rather they sat down and talked, though I'm starting to doubt they know how." } },
   },
 }
@@ -422,15 +508,15 @@ P:NPC {
       },
       choices = {
         { text = "What are the spirits saying?", next = "spirits" },
-        { text = "What does the rite show?", next = "vision" },
+        { text = "What do you show the young ones, elder?", next = "vision" },
         { text = "The spirits answer me now, elder. What should I ask them?", next = "shaman", when = { class = "SHAMAN" } },
-        { text = "Do the spirits mind what I am, elder?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "The spirits must mind what I am, elder.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do the spirits mind the arcane, elder?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the spirits of fallen braves watch over warriors, Zarlman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The spirits of fallen braves must watch over warriors.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the spirits of my kills follow me, Zarlman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Can the spirits sense my demon, elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The spirits can surely sense my demon, elder.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the spirits here mind a stranger's prayers, Zarlman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the spirits mind a rogue, Zarlman?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The spirits can't think much of a rogue, Zarlman.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your spirits fear a Forsaken paladin, Zarlman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thank you, elder.", next = "END" },
       },
@@ -467,12 +553,17 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "The spirits haven't spoken of that. I won't speak for them." } },
+    _none = { { id = "tp_none", text = "The spirits haven't spoken of that, and the ancestors keep their own counsel. I won't speak for them." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the land itself, and the spirits are her children, the restless ones who never quite sit still. I keep them calm, and they keep Bloodhoof safe." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of earth and wind and water speak to me in Bloodhoof, and they speak more kindly now than when we wandered. They like having a home as much as we do." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken's spirits are bound to bodies that should have let them go. I pity them, and I hope Hamuul finds a way to set them free." } },
+    cairne = { { id = "tp_cairne", text = "Cairne listens to the spirits as well as any shaman, though he would never call himself one. He has a chieftain's ear, and the spirits respect him for it." } },
   },
 }
 
 P:NPC {
   key = "harken", id = TODO_NPC("Harken Windtotem"), name = "Harken Windtotem",
+  prejudice = { race = "Scourge", amount = 8, why = "The Earth Mother's cycle ends in rest; he finds the walking dead an offence against it, though he is too kind to say so loudly." },
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
   notices = { "class" },
@@ -482,7 +573,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_plains", text = "Watch the sky over Mulgore for a while. You'll see what I mean about the swoops." },
+    { id = "g_prej", when = { prejudiced = true }, text = "Ah, one of the Forsaken. Forgive an old herder if he stands upwind of you; my people believe the dead should rest in the Earth Mother's arms, and seeing you walk about troubles the part of me that was taught it." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "It's good to see you, friend, and I mean it more than I did the first time. Whatever you are, you've the manners of the living, and that's more than I can say for some of the living." },
+    { id = "g_plains", text = "Watch the sky over Mulgore for a while, the way the hawks do. You'll see what I mean about the swoops." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the sky over Mulgore has changed its mind a dozen times since. My knees could have told you it would." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round to your way of thinking. That's a rarer thing among tauren than you'd guess, because we're stubborn as old kodo." },
   },
@@ -494,6 +587,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_harken = {
+      big = true,
+      lines = { { id = "prej_harken_default", text = "I suppose I do, and that's not fair to you, but it's honest. To my people, a death is the end of a long walk, and the Earth Mother takes the body back to feed the grass. You were robbed of that, and I can't look at you without thinking of the grass going hungry." } },
+      choices = {
+        { text = "I didn't choose to rise. Pity the robbery, not the one robbed.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Your Earth Mother never came for me. I'll walk where I like.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Then let me walk Mulgore gently, and you can judge me by it.", next = "prej_harken_calm", fx = { affinity = 1 } },
+        { text = "Do the tauren bury their dead, then?", next = "prej_harken_why" },
+      },
+    },
+    prej_harken_why = {
+      lines = { { id = "prej_harken_why_default", text = "We do, under the open sky, with a song for the walk and a stone so the wind knows the spot. When I heard the Scourge dug up the dead of Lordaeron, I didn't sleep for a week, and then Thrall sent us the Forsaken as friends." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_harken" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_harken_calm = {
+      lines = { { id = "prej_harken_calm_default", text = "That I can do, and gladly. The plains have room for a quiet walker, whatever's beating or not beating inside them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "We wandered for generations without it, and the Earth Mother kept us. But I've watched the sky long enough to know there are many lights in it, and I don't see why yours can't be one of them, even if it does look odd on a Forsaken." } },
@@ -581,12 +692,13 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The sky's been quiet over Mulgore, and I'd like it to stay that way, so keep your demon on the ground." },
       },
       choices = {
-        { text = "Why watch the sky?", next = "sky" },
-        { text = "Do the swoops ever come down at a hunter's beast?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "You look at me like I'm a broken thing, Windtotem.", next = "prej_harken", when = { prejudiced = true } },
+        { text = "You spend a lot of time watching the sky.", next = "sky" },
+        { text = "The swoops must come down at a hunter's beast sometimes.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The air over Mulgore feels uneasy. Have you noticed, Harken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I watch the ground the way you watch the sky.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could bring down those swoops with frost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Are the swoops a real danger, Harken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The swoops don't look like much danger, Harken.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Shall I see to those aching knees, Harken?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a druid ask the swoops why they've grown so bold?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Are you worried about my demon, Harken?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -623,7 +735,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Couldn't say. Ask Baine; he hears more than I do." } },
+    _none = { { id = "tp_none", text = "Couldn't say. Ask Baine; he hears more than I do, and he listens like the Earth Mother listens, all the way through." } },
+    cairne = { { id = "tp_cairne", text = "Cairne led us here through storm and drought, and I followed him the whole way with my knees complaining. They complain still, but the sky above Mulgore is worth it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur chased us across the plains for longer than I can remember, and I watched the sky for their dust clouds every morning. I still do, out of habit, and I still see nothing but clouds." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother speaks through the weather, and I have spent my life listening. She is in a good mood this season, which pleases me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's wagons come up the road from the south, and I can always tell a week before, because the wind smells of sugar and gunpowder. My knees never warn me about that." } },
   },
 }
 
@@ -723,7 +839,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Rain followed me to Mulgore, and now strange company does too." },
         { id = "h_default", key = true,
-          text = "I'm Maur Raincaller. There's a beast in Mulgore the young hunters whisper about, and I've seen its tracks. I'd like to see its hide." },
+          text = "I'm Maur Raincaller. There's a beast in Mulgore the young hunters call Mazzranache, and I've seen its tracks. I'd like to see its hide." },
         { id = "h_mazz", tags = { "news" }, when = { questActive = TODO_QUEST("Mazzranache") },
           text = "The beast is called Mazzranache. Find it, end it, and bring me proof, and the young ones will stop whispering and start bragging." },
         { id = "h_slow", when = { metBefore = true }, text = "The young braves ask me how to track. I tell them: walk slower than you want to. Not one of them listens." },
@@ -735,11 +851,11 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon frightens the game for a mile around, so keep it away from me while I'm tracking." },
       },
       choices = {
-        { text = "How did you get your name?", next = "name" },
+        { text = "There must be a story behind your name.", next = "name" },
         { text = "I'm a tracker too. What have its tracks told you?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Would the spirits frown on hunting Mazzranache, Maur?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The spirits might frown on hunting Mazzranache, Maur.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your beast won't see me coming, Maur.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can't a mage simply blast the beast from afar?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A mage could simply blast the beast from afar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What is this beast you're after, Maur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Will you want a blessing before you hunt Mazzranache, Maur?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should a druid help you hunt Mazzranache, Maur?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -748,7 +864,7 @@ P:NPC {
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass." },
+        { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass, and the Earth Mother's beasts have long ears." },
       },
     },
     hunter = {
@@ -780,7 +896,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "That's not something I've tracked." } },
+    _none = { { id = "tp_none", text = "That's not something I've tracked, friend, not in all my seasons on the plains." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were the beasts I hunted most when we wandered, and they were clever prey. The beasts of Mulgore are simpler, but the one I hunt now is not." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are cunning, and they hunt in packs like wolves. I have tracked them across the south of Mulgore, and they always know when I am coming." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sends the rain to follow me, and I have stopped complaining about it. A wet hunter is a quiet hunter." } },
+    cairne = { { id = "tp_cairne", text = "Cairne hunted with me once, when he was younger, and he moved through the grass like a ghost. I have never seen a tauren so big move so quietly." } },
   },
 }
 
@@ -795,7 +915,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_wells", text = "Forgive me, my mind is on the wells. It's always on the wells, lately." },
+    { id = "o_peace_peace", when = { gossip = { topic = "peace", stance = "peace" } }, text = "I hear you told young Baine the peace is worth keeping. Peace is a fine thing until the wells run dry, traveller, so keep your spear sharp anyway." },
+    { id = "g_wells", text = "Forgive me, my mind is on the wells. It's always on the wells lately, for the Earth Mother's water is sick." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Tell me the water runs clean somewhere, please." },
   },
 
@@ -896,21 +1017,21 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wells are sick enough already, so please don't let your demon drink from them." },
       },
       choices = {
-        { text = "Who poisoned them?", next = "who" },
+        { text = "Someone must have poisoned them.", next = "who" },
         { text = "I could slip into the goblin camp and see what they're dumping.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could a mage purify the water, Mull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Who guards the goblin drills, Mull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What has the oil done to the beasts, Mull?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll help cleanse them.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could prayer cleanse the sacred wells, Mull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Could warlock magic have sickened the wells, Mull?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Warlock magic could have sickened the wells, Mull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Could the Light cleanse the wells, Mull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", fx = { align = { light = -1 } } },
         { text = "The water spirits are frightened. I can hear them.", next = "shaman", when = { class = "SHAMAN" } },
-        { text = "Can a druid help the land heal the wells?", next = "druid", when = { class = "DRUID" } },
+        { text = "A druid could help the land heal the wells.", next = "druid", when = { class = "DRUID" } },
       },
       again = {
-        { id = "h_again", text = "Something more? Forgive me; half my mind is still at the wells." },
+        { id = "h_again", text = "Something more? Forgive me; half my mind is still at the wells, where the earth is weeping oil." },
       },
     },
     shaman = {
@@ -937,8 +1058,12 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I'm sorry, my thoughts are with the water. Ask Baine." } },
+    _none = { { id = "tp_none", text = "I'm sorry, my thoughts are with the water and the land that drinks it. Ask Baine." } },
     venture_company = { { id = "tp_venture", text = "They wanted to mine our mountains, and we said no, so they took the wells instead. That is how they listen." } },
+    the_elements = { { id = "tp_the_elements", text = "The water spirits in the wells have gone quiet, and a quiet spirit is a sick one. Zarlman says they will speak again, and I want very much to believe him." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother's wells were sweet when we came to Mulgore, and they are bitter now. I walk to them every morning because I believe she will listen, if I keep asking." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback have fouled the southern wells with their filth, and the gnolls have fouled the northern ones. I would like to know which is worse, and I would like it never to happen again." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent me to watch the wells, and I have not given him good news in weeks. He listens patiently each time, and that makes it harder." } },
   },
 }
 
@@ -1053,7 +1178,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
         { text = "I'm good at finding things that don't want to be found.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can a mage find a lost dog, do you think?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A mage might be able to find a lost dog.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does Kyle look like, Ahab?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll keep an eye out for him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Shall I say a prayer for Kyle, Ahab?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1061,11 +1186,11 @@ P:NPC {
         { text = "I haven't seen Kyle, Ahab. I'm sorry.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
-        { text = "Do the spirits ever watch over a lost dog, Ahab?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do you think Kyle would come to a druid, Ahab?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The spirits might watch over a lost dog, Ahab.", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Kyle might come to a druid, Ahab.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
       again = {
-        { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back." },
+        { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back, the way a cow watches for a strayed calf." },
       },
     },
     hunter = {
@@ -1090,7 +1215,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Sorry, I can't think about anything else until Kyle's home." } },
+    _none = { { id = "tp_none", text = "Sorry, I can't think about anything else until Kyle's home, Earth Mother keep him." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire came last, Kyle ran under one of the tents and came out wearing a hat. I never found out whose hat it was, and he still won't give it back." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made dogs, I think, on one of her best days. Kyle is proof of that, even when he runs off." } },
+    cairne = { { id = "tp_cairne", text = "Cairne once asked about Kyle, by name, and I nearly fainted. He is a great chieftain and a kind one, and he remembers what matters." } },
   },
 }
 
@@ -1105,6 +1233,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_orcs_useful", when = { gossip = { topic = "orcs", stance = "useful" } }, text = "Krang's been growling about you all week, something about calling the orcs useful. He growls about everyone, so have some stew and don't let it spoil your appetite." },
+    { id = "o_peace_war", when = { gossip = { topic = "peace", stance = "war" } }, text = "Baine's been quiet since you left, and word is you told him there'll be no peace with the humans. Eat something, at least, before you go off looking for a war." },
     { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on, and the hide only smells a little of kodo." },
     { id = "g_home", when = { homeInn = { "Bloodhoof Village" } }, text = "Your sleeping hide is aired and ready. The wind is kind tonight." },
     { id = "g_away", when = { away = 14 }, text = "You've been out on the grass {away}, and I kept a pot on for you most nights anyway. Come in from the wind and eat." },
@@ -1206,7 +1336,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. No traveller leaves my inn unfed, though I admit I'm not sure what feeds you." },
         { id = "h_default", key = true,
-          text = "I'm Kauth. Travelers come through here on the way to the bluffs, and all of them leave my inn fed." },
+          text = "I'm Kauth. Travelers come through here on the way to the bluffs, and the Earth Mother would never forgive me if one left my inn hungry." },
         { id = "h_task", when = { questActive = TODO_QUEST("A Task Unfinished") },
           text = "There's a task left undone that weighs on me. You'll carry it further than I can." },
         { id = "h_view", when = { metBefore = true }, text = "The bluff folk come down for my stew and say they're here for the view. The view's fine, but the stew's better." },
@@ -1225,16 +1355,27 @@ P:NPC {
       },
       choices = {
         { text = "What's in the stew?", next = "stew" },
-        { text = "Do the elders still bless the hearths in Bloodhoof, Kauth?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'd guess the elders still bless the hearths in Bloodhoof.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your stew pot would be easy to rob, Kauth.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do many warriors pass through Bloodhoof, Kauth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you cook from the plains, Kauth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does my imp get a bowl too, Kauth?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Does anyone in Bloodhoof need a healer, Kauth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Someone in Bloodhoof must need a healer, Kauth.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the druids from Elder Rise often stop here, Kauth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do mages come through Bloodhoof often, Kauth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the tauren mind a paladin at the inn, Kauth?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The tauren must mind a paladin at the inn, Kauth.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you remember the night the braves brought me in, Kauth?", next = "xorig_orphan", when = { origin = "tauren_razormane_orphan" } },
         { text = "Just a meal, thank you.", next = "END" },
+      },
+    },
+    xorig_orphan = {
+      lines = {
+        { id = "xorp_default", text = "I remember you wouldn't eat for two days, and on the third you ate three bowls and fell asleep against my kettle. Half the village claimed you after that, though I always thought the kettle had the best claim. Do you ever go back to the Barrens, to where it happened?" },
+      },
+      choices = {
+        { text = "Sometimes. The Razormane still owe me a debt.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "No. Mulgore is my home now, and that's enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Is the kettle still here, Kauth?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
     stew = {
@@ -1255,7 +1396,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I hear a little of everything and keep less. Ask Baine." } },
+    _none = { { id = "tp_none", text = "I hear a little of everything and keep less, like a river keeps the rain. Ask Baine." } },
+    cairne = { { id = "tp_cairne", text = "Cairne eats my stew whenever he comes down from the bluff, and he always asks for more. That is why I keep the pot full." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief ate at this inn once, and he said my stew was better than anything in Orgrimmar. I believe him, because orcs don't lie about food." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire comes to Mulgore, every bed in Bloodhoof is full and every pot is empty. I spend the whole week cooking, and I love every minute of it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't eat, which is a pity, because they look like they could use it. I offer them stew anyway, out of habit, and they always say no." } },
   },
 }
 
@@ -1368,16 +1513,16 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, at my campfire? Sit down, then, but tell your demon it eats last." },
       },
       choices = {
-        { text = "What is it you love about camping?", next = "why" },
+        { text = "You seem to love camping.", next = "why" },
         { text = "My people camped under a different sky.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "I hunt as I travel. Does that suit a camp?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Did the wandering bands keep shamans on the long road, Kaga?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The wandering bands must have kept shamans on the long road.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I prefer camps with no fire, where nobody finds me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A mage never needs flint to start a fire.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where have your roads taken you, Kaga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Have you met many priests on your travels, Kaga?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "You must have met a few priests on your travels.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have you met many druids on the roads, Kaga?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do you share your fire with warlocks, Kaga?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you don't share your fire with warlocks.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the wandering tauren make of the Light, Kaga?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
@@ -1410,6 +1555,11 @@ P:NPC {
 
   topics = {
     camping = { { id = "tp_camping", text = "Start with a fire, which any cook can make, and then add what your hands know how to make." } },
-    _none = { { id = "tp_none", text = "I don't know. The wind hasn't told me." } },
+    centaur = { { id = "tp_centaur", text = "The centaur roam the plains much as I do, and we have met at more than one campfire. Some of them are reasonable, and some will kill you for your blanket, so I sleep with one eye open." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar camp like animals, all mud and thorns, and they never put out their fires. I've followed their smoke more than once to find a good place to stay away from." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've followed the Faire from Mulgore to the human lands and back, and I've never seen a stranger crowd anywhere. They are the best campfire company I know." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief walked a long road before he found his home, and so did I. I think he would like my campfire, if he ever came by." } },
+    everlook = { { id = "tp_everlook", text = "I wandered as far as Everlook once, in Winterspring, and I learned that snow is a poor blanket. The goblins there sold me a better one at a terrible price." } },
+    _none = { { id = "tp_none", text = "I don't know. The wind hasn't told me, and the wind tells me most things eventually." } },
   },
 }

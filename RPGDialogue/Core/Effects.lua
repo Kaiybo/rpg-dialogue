@@ -10,7 +10,7 @@ ns.Effects = Effects
 Effects.KEYS = {
   align = true, big = true, taint = true, trait = true, opinion = true, flag = true, claim = true,
   affinity = true, standing = true, thread = true, hear = true, expose = true, learn = true, npcFlag = true,
-  insanity = true,
+  insanity = true, letter = true,
 }
 
 ---------------------------------------------------------------------------
@@ -144,7 +144,7 @@ function Effects.Apply(fx, env)
     local who = env.info and (env.info.key or env.info.name)
     for topic, stance in pairs(fx.opinion) do
       local prev = c.opinions[topic]
-      local rec = { stance = stance, t = now, npc = who, communities = env.info and env.info.communities, heardBy = {} }
+      local rec = { stance = stance, said = env.said, t = now, npc = who, communities = env.info and env.info.communities, heardBy = {} }
       if prev and prev.stance ~= stance then
         rec.contradicts = { stance = prev.stance, npc = prev.npc, t = prev.t, communities = prev.communities }
       end
@@ -189,6 +189,9 @@ function Effects.Apply(fx, env)
     for _, id in ipairs(U.AsList(fx.expose)) do c.claims.exposed[id] = c.claims.exposed[id] or now end
   end
   if fx.insanity and ns.Insanity then ns.Insanity.Add(fx.insanity) end
+  if fx.letter and ns.Letters and ns.Letters.Enabled() then
+    for _, id in ipairs(U.AsList(fx.letter)) do ns.Letters.Queue(id, now) end
+  end
   if fx.learn then
     for _, id in ipairs(U.AsList(fx.learn)) do
       if not c.topics[id] then

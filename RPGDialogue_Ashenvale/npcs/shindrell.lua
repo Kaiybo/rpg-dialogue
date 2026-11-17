@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Circle's druids walk into Splintertree and out again, treating the orcs like one more flock of strays to tend. You've seen them at work, so tell me: is the Cenarion Circle right to stay neutral?" },
+      },
+      choices = {
+        { text = "Yes. Someone has to speak for the forest itself.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { cenarion_circle = "respect" } } },
+        { text = "No. Staying neutral while trees fall is taking a side.", next = "op_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { cenarion_circle = "distrust" } } },
+        { text = "Their neutrality keeps Moonglade open to everyone. That matters.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { cenarion_circle = "useful" } } },
+        { text = "I'm of the Circle, Sentinel. We choose balance, not sides.", next = "op_r4", fx = { trait = { stern = 1 }, opinion = { cenarion_circle = "loyal" } }, when = { class = "DRUID" } },
+        { text = "I'll leave that to the druids.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "The forest is bleeding, and the Circle is taking notes. I'll grant that they mean well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Thank you. Say that in Nighthaven some day and watch the druids stroke their beards." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Maybe so, though I'd trade Moonglade's courtesy for a dozen more archers on the Zoram Strand." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then balance this for me, {class}: the orcs took three groves last month, and we took none back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -56,9 +85,10 @@ P:NPC {
         { id = "h_again2", text = "Go on. The scouts won't be back for an hour." },
       },
       choices = {
+        { text = "Is the Cenarion Circle right to stay neutral?", next = "op_ask" },
         { text = "Why are the naga on the Zoram Strand?", next = "naga" },
         { text = "Are we at war with the Horde or not?", next = "horde" },
-        { text = "Who is Kayneth Stillwind?", next = "kayneth" },
+        { text = "I don't know this Kayneth Stillwind.", next = "kayneth", when = { minLevel = 25 } },
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
         { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What work do you have?", next = "BUSINESS" },
@@ -80,7 +110,7 @@ P:NPC {
         { id = "nw_default", text = "I don't know, and I like not knowing even less than I like the naga. There's a deep place under the strand that the Horde's scouts have been poking at too, and I'd rather we found its secrets first." },
       },
       choices = {
-        { text = "The Horde are there as well?", next = "naga_horde" },
+        { text = "So the Horde are there as well.", next = "naga_horde" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -161,6 +191,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Ashenvale, look up as often as you look ahead. The forest has more than one floor." } },
     sentinels = { { id = "tp_sentinels", text = "We are fewer than we should be and more stubborn than the Horde expects. That has served so far." } },
     warsong = { { id = "tp_warsong", text = "Orc axes in our oldest trees, and the forest bleeding sap where they cut. I try not to go and look too often.", next = "horde" } },
+    thrall = { { id = "tp_thrall", text = "The Horde's warchief is a name in every report I send Darnassus, usually beside the Warsong. I'd rather write about birds, honestly." } },
+    centaur = { { id = "tp_centaur", text = "Centaur raids on the Barrens edge of Stonetalon come up in my letters too. Darnassus never writes back about those." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess reads my reports herself, I'm told. I try to keep them short, and I always fail." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's a cult nest and a naga nest at once. I write that in every report, and I'll keep writing it until someone sends more arrows." } },
     _none = { { id = "tp_none", text = "I don't know, {class}. Faldreas keeps track of the roads; ask him." } },
   },
 }

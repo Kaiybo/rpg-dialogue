@@ -137,14 +137,14 @@ P:NPC {
       },
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
-        { text = "What's the warning you mentioned?", next = "warn" },
+        { text = "Any advice for someone new to these parts?", next = "warn" },
         { text = "What's Kharanos like?", next = "town" },
-        { text = "Do you see many gnomes come through?", next = "gnomes" },
+        { text = "Plenty of gnomes must come through here.", next = "gnomes" },
         { text = "Do travellers often try to rob you, Kreg?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are warlocks so rare out here in Kharanos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the most useful thing a warrior can buy here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which beasts should a hunter watch for in Dun Morogh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do many of the young recruits come back hurt, Kreg?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Many young recruits must come back hurt, Kreg.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the recruits need to hear, Kreg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What should a druid know about the wendigo?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would a mage need from your store, Kreg?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -190,6 +190,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've kept shop in Kharanos my whole life, an' my father before me, an' I've never once seen the snow melt." } },
     advice = { { id = "tp_ad", text = "Carry more bread than ye think ye need. The cold makes ye hungry." } },
+    scourge = { { id = "tp_scourge", text = "I've sold rope an' rations tae more than one adventurer bound fer the Plaguelands, an' only a few o' them came back fer more. Pack extra bandages an' dinnae go alone." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've a crate o' Booty Bay rum on the back shelf that nobody's touched in a year, an' I'm no' surprised. It tastes like a pirate's boot." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's down, so all my Wetlands goods come by boat now, an' they're late an' dear. Blame the Dark Irons, an' then blame the boatmen." } },
     _none = { { id = "tp_none", text = "Couldnae say, friend, but Innkeeper Belm across the way hears every rumor in Dun Morogh." } },
   },
 }
@@ -328,7 +331,7 @@ P:NPC {
       choices = {
         { text = "Let me see your weapons.", next = "BUSINESS" },
         { text = "Which weapon would you choose?", next = "choose" },
-        { text = "Do you really take back broken blades?", next = "back" },
+        { text = "Taking back broken blades seems generous.", next = "back" },
         { text = "Why make weapons in Kharanos, not Ironforge?", next = "why" },
         { text = "Would you refuse to sell me a dagger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do mages often buy weapons from you, Grawn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -380,6 +383,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned the craft at the Great Forge an' brought it out here, where the air's cleaner an' the customers are less fussy." } },
     advice = { { id = "tp_ad", text = "Keep yer blade oiled. Rust kills more weapons than trolls do." } },
+    second_war = { { id = "tp_second_war", text = "I forged fer the Second War as an apprentice, an' I learned more in one season than in ten years since. A blade that holds is a blade that keeps a soldier breathing." } },
+    scourge = { { id = "tp_scourge", text = "Silver an' fire for the dead, an' good steel fer everythin' else. I've sold a few blades tae lads goin' north, an' I've told every one o' them tae aim fer the neck." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Dark Iron steel's the finest made, an' I'd never sell a blade o' it in this shop. It'd be like sellin' a murderer's axe." } },
     _none = { { id = "tp_none", text = "I make weapons. If it's no' about that, I'm the wrong dwarf tae ask." } },
   },
 }
@@ -517,7 +523,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your armor.", next = "BUSINESS" },
-        { text = "Why do you wear your own stock?", next = "wear" },
+        { text = "You wear your own stock, I see.", next = "wear" },
         { text = "What's the worst thing out there in Dun Morogh?", next = "worst" },
         { text = "Is heavy armor worth the weight?", next = "weight" },
         { text = "Why can't a mage cast spells in your armor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -570,6 +576,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I made armor for the Ironforge army in the Second War, an' now I make it for recruits, which is a lot less shoutin'." } },
     advice = { { id = "tp_ad", text = "Keep yer mail dry. Rust is an enemy that never sleeps." } },
+    scourge = { { id = "tp_scourge", text = "Thicker mail won't stop a plague, more's the pity, but it'll stop the claws o' whatever's carryin' it. Come see me before ye go north." } },
+    second_war = { { id = "tp_second_war", text = "My father wore mail o' my grandfather's makin' through the whole Second War, an' he came home wi' nothin' worse than a dent. I keep that mail on the wall fer luck." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got a strongman who wears a breastplate made o' tin, an' I've offered him a real one fer free advertising. He hasnae answered yet." } },
     _none = { { id = "tp_none", text = "That's no' armor, so I couldnae help ye wi' it." } },
   },
 }
@@ -685,12 +694,12 @@ P:NPC {
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What should a new recruit wear?", next = "wear" },
-        { text = "What's the danger here in Coldridge Valley?", next = "danger" },
+        { text = "Coldridge Valley seems quiet enough.", next = "danger" },
         { text = "Where do recruits go after Anvilmar?", next = "after" },
         { text = "Can leather really be made to stay quiet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a warrior need cloth under mail, Durnan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What leather would you recommend for a young hunter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you worry about the recruits who don't come back, Durnan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must worry about the recruits who don't come back, Durnan.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's the danger here in Coldridge, Durnan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you wish the recruits respected the cold more?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think the beasts mind being worn, Durnan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -720,7 +729,7 @@ P:NPC {
         { id = "af_default", text = "Through the tunnel tae Kharanos, where there's a proper inn an' proper shops, an' then on tae Ironforge if ye've the stomach for it. Most come back this way once or twice, an' I'm always glad tae see them." },
       },
       choices = {
-        { text = "Do many not come back?", next = "after_lost" },
+        { text = "I'd guess some never come back.", next = "after_lost" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -735,6 +744,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've stitched coats in Anvilmar for twenty years, an' I've lost count o' the recruits I've dressed." } },
     advice = { { id = "tp_ad", text = "Keep yer feet dry. Cold feet lose more fights than bad swords." } },
+    scourge = { { id = "tp_scourge", text = "Some o' my recruits want tae go north an' fight the dead, an' I fuss over every one o' them. Leather's no' much against a plague, but it's warmer than nothin'." } },
+    magni = { { id = "tp_magni", text = "The King came by Anvilmar once an' bought a pair o' my gloves, an' he wears them yet, I'm told. I've never been so proud o' a pair o' gloves." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The recruits all want tae go tae the Darkmoon Faire on their first leave, an' they come back skint an' happy. I tell them tae buy a warm cloak first, an' none o' them listen." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye, recruit. Ask Sten Stoutarm by the door; he knows the valley better than I do." } },
   },
 }

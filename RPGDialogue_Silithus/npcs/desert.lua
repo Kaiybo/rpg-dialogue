@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Walk softly here, friend, for this is a resting place, and the wastes outside are loud enough." },
+    { id = "g_default", text = "Walk softly here, friend, for this is a resting place of the kaldorei, and the wastes outside are loud enough." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. That isn't nothing, out here." },
     { id = "g_freed", when = { questDone = TODO_QUEST("The Spirits of Southwind") }, text = "Southwind is quieter since you went there. I walk the ruins some nights just to hear it." },
   },
@@ -30,6 +30,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_undeath = {
+      lines = {
+        { id = "opu_q", text = "I've spent my life easing the dead to rest, and now the Forsaken walk the world and say they want no rest at all. You've seen them, and you've seen my sentinels in the Southwind ruins. What do you think the dead are owed?" },
+        { id = "opu_q_sc", when = { race = "Scourge" }, text = "You're one of the Forsaken, and I'll ask you gently, because I've never had the chance before. What do you think the dead are owed?" },
+      },
+      choices = {
+        { text = "Rest. Nobody should be dragged back into the world.", next = "op_undeath_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { undeath = "wrong" } } },
+        { text = "Nothing. If the dead can be useful, use them.", next = "op_undeath_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "Whatever they choose. The Forsaken chose to keep going.", next = "op_undeath_r3", fx = { trait = { kind = 1 }, opinion = { forsaken = "redeemable" } } },
+        { text = "We're owed the same as the living, Layo, a chance.", next = "op_undeath_r4", fx = { affinity = 1, opinion = { forsaken = "redeemable" } }, when = { race = "Scourge" } },
+        { text = "I don't know, Layo. I've no answer.", next = "BACK" },
+      },
+    },
+    op_undeath_r1 = {
+      lines = {
+        { id = "op_undeath_r1", text = "That is what I believe, and it is why I tend these stones. Thank you for saying it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_undeath_r2 = {
+      lines = {
+        { id = "op_undeath_r2", text = "I've heard that said in the Twilight's camps, and I did not like it there either. Please don't say it near the graves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_undeath_r3 = {
+      lines = {
+        { id = "op_undeath_r3", text = "A choice, yes, I hadn't thought of it as a choice. I'll sit with that a while, by the stones." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_undeath_r4 = {
+      lines = {
+        { id = "op_undeath_r4", text = "Then you have it here, at least. Valor's Rest has room for every kind of grief." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Kaldorei, a thousand years ago, who stood against the Qiraji while the great wall was raised behind them. Some lie here and some were never found, and now others come to rest beside them, travellers and soldiers who fall in the wastes, and I tend them all the same." } },
@@ -107,7 +152,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, among the graves. I hope you are not here to rob them, because there is nothing left to take, and the dead have suffered enough." },
         { id = "h_default", key = true,
-          text = "The past lives in these wastes, {class}, and we must be careful not to wake it. I am Layo Starstrike, and I keep watch here at Valor's Rest for the Cenarion Circle, over the graves and over the desert beyond them." },
+          text = "The past lives in these wastes, {class}, and we must be careful not to wake it. I am Layo Starstrike, and I keep watch here at Valor's Rest for the Cenarion Circle, over the graves of my people and over the desert beyond them, as far as the ruins of Southwind." },
         { id = "h_wasteland", tags = { "news" }, when = { questActive = TODO_QUEST("Wasteland") },
           text = "Rabine sent you, did he? Then you're welcome here, as much as this desolate place can welcome anyone." },
         { id = "h_spirits", tags = { "news" }, when = { questActive = TODO_QUEST("The Spirits of Southwind") },
@@ -124,7 +169,7 @@ P:NPC {
           text = "A hunter. Walk softly here, {class}, for the beasts of this place feed near the graves, and I ask only that you do not hunt among the stones." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? The graves are patient." },
+        { id = "h_again", text = "What else would you ask? The graves are patient, and Elune watches them with me." },
         { id = "h_again2", text = "Go on. I don't get many visitors who want to talk." },
       },
       choices = {
@@ -135,15 +180,15 @@ P:NPC {
         { text = "Who is this Umber you want me to see?", next = "umber", when = { questDone = TODO_QUEST("Hive in the Tower") } },
         { text = "Let me say the words over the dead of Southwind.", next = "priest", when = { class = "PRIEST" } },
         { text = "The land here is wounded. Can it heal?", next = "druid", when = { class = "DRUID" } },
-        { text = "Does the Circle mind the Horde here?", next = "horde", when = { faction = "Horde" } },
+        { text = "The Circle must mind the Horde being here.", next = "horde", when = { faction = "Horde" } },
         { text = "Rabine Saturna sends his regards.", next = "rabine", when = { questDone = TODO_QUEST("Wasteland") } },
         { text = "Would you free my soul too, druid?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "I bind souls, druid. Does that trouble you?", next = "x_warlock", when = { class = "WARLOCK" } },
-        { text = "Why do the dead of Southwind rest uneasily?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Has anyone tried robbing the graves?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "The dead of Southwind don't rest easy.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Someone will try robbing these graves sooner or later.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the dead of Valor's Rest want, Layo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who lies buried at Valor's Rest, Layo?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Why do beasts gather near the graves at Valor's Rest?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Beasts seem to gather near the graves here.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who were the dead of Valor's Rest, Layo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune keep you, Layo.", next = "END", fx = { affinity = 1 } },
       },
@@ -153,7 +198,7 @@ P:NPC {
       lines = { { id = "r_default", fx = { learn = { "cenarion_circle" } },
         text = "The last resting place of those who fall in the wastes, whoever they were. The Circle cut the road down into Un'Goro so our supplies could reach us, and the graveyard grew beside it, one stone at a time." } },
       choices = {
-        { text = "Who tends the graves?", next = "rest_names" },
+        { text = "Someone seems to tend these graves.", next = "rest_names" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,6 +226,7 @@ P:NPC {
     southwind_spirits = {
       lines = { { id = "ss_default", text = "Druids and sentinels, tortured and wandering, unable to leave the place where they fell. Alliance or Horde, it makes no difference: no one deserves to be trapped in the world like that." } },
       choices = {
+        { text = "What do you think the dead are owed?", next = "op_undeath" },
         { text = "Is there something you're not telling me?", tag = "Persuade", next = "layo_fear",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "DRUID" } }, { questDone = TODO_QUEST("The Spirits of Southwind") } } } },
           fail = { next = "southwind_wait", fx = { affinity = -1 } } },
@@ -293,12 +339,16 @@ P:NPC {
       { id = "tp_knows", text = "I know the graves, the ruins and the roads between them. Ask about any of these." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even speak of the things I usually keep to myself. Which would you hear?" },
     },
-    background = { { id = "tp_bg", text = "A druid of the Circle, younger than I look, sent here because someone had to keep watch and I was foolish enough to volunteer." } },
+    background = { { id = "tp_bg", text = "A druid of the Circle, younger than I look by kaldorei reckoning, sent here because someone had to keep watch and I was foolish enough to volunteer." } },
     advice = { { id = "tp_ad", text = "If you hear weeping in the ruins, don't follow it. Mark the place, and come and tell me." } },
     southwind = { { id = "tp_southwind", text = "Our old village to the southwest. Its dead are my charge now.", next = "southwind" } },
     ahn_qiraj = { { id = "tp_aq", text = "The city behind the Scarab Wall. I've seen the wall from a distance, and that was close enough." } },
     cenarion_circle = { { id = "tp_circle", text = "We argue, between Darnassus and Moonglade, but out here the Circle is one thing: the people who stayed." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know. Cenarion Hold might; it's down the road, in the heart of the desert." } },
+    bronze_dragonflight = { { id = "tp_bronze_dragonflight", text = "There's a grave here for every soldier who fell in the old war, and some of the old soldiers spoke of bronze wings above them. I tend their graves and believe their stories." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives were here when the old war began, and they were here when it ended, and they'll be here when I'm laid beside my soldiers. I pray they won't outlast the living." } },
+    elune = { { id = "tp_elune", text = "Elune keeps watch over the dead at Valor's Rest, and I keep watch with her. It's quiet company, and I've grown used to it." } },
+    tyrande = { { id = "tp_tyrande", text = "Fandral led our soldiers south a thousand years ago, and I buried the ones who didn't come home. I don't blame him, but I don't forget either." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. Cenarion Hold might; it's down the road, in the heart of the desert, and the moon will light your way there." } },
   },
 }
 
@@ -328,6 +378,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_cult = {
+      lines = {
+        { id = "opc_q", text = "You know what I left behind me. Now I'll tell you what keeps me up at night, which is everyone else: what do you think of the Twilight's Hammer?" },
+      },
+      choices = {
+        { text = "Madmen. Every one of them should be put down.", next = "op_cult_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { twilights_hammer = "hate" } } },
+        { text = "Some of them are lost fools. They could leave, like you did.", next = "op_cult_r2", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 }, opinion = { twilights_hammer = "pity" } } },
+        { text = "They frighten me more than the bugs do.", next = "op_cult_r3", fx = { trait = { cautious = 1 }, opinion = { twilights_hammer = "fear" } } },
+        { text = "I'd rather not talk about them here.", next = "BACK" },
+      },
+    },
+    op_cult_r1 = {
+      lines = {
+        { id = "op_cult_r1", text = "Every one of them? Even the ones who left, like me? No, no, I'm sure you meant the ones who stayed, yes, of course you did." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_cult_r2 = {
+      lines = {
+        { id = "op_cult_r2", text = "They could, they could! It's easy, really, you only have to be clever and lie about Westfall, which most of them aren't, and can't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_cult_r3 = {
+      lines = {
+        { id = "op_cult_r3", text = "Good! Fear is very healthy, I've found, and it's kept me alive in this cave for a good long while." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Drag me back to the camp and hand me to their big brutes, the ones who swing before they ask, a bit like you, no offence. I told them I was going to Westfall, and with any luck they're searching every farm from Sentinel Hill to the coast." } },
@@ -424,9 +509,9 @@ P:NPC {
         { text = "Would the cult have welcomed someone like me?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "The cult worships the elements. My people respect them.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "What did the Twilight's Hammer mages do?", next = "xmage", when = { class = "MAGE" } },
-        { text = "What would a spy need to fool the Hammer?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "A spy would need a good deal to fool the Hammer.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would the cult want a Horde priest as a recruit, Ortell?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What would the Hammer do if they found you, Ortell?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The Hammer won't be kind if they find you, Ortell.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why are you so afraid of being tracked, Ortell?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your hiding.", next = "END" },
       },
@@ -441,7 +526,7 @@ P:NPC {
       big = true,
       lines = { { id = "hu_default", text = "Because the Twilight's Hammer doesn't let anyone leave. They've hunted me from camp to camp like a beast, and I'd be dead by now if I weren't cleverer than every one of them put together." } },
       choices = {
-        { text = "How have you stayed hidden?", next = "hunted_westfall" },
+        { text = "You've done well to stay hidden this long.", next = "hunted_westfall" },
         { text = "Why did you join them in the first place?", tag = "Intimidate", next = "ort_why",
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { class = { "WARRIOR", "PALADIN" } } } } },
           fail = { next = "ort_out", fx = { affinity = -1 } } },
@@ -485,7 +570,10 @@ P:NPC {
         { id = "ce_purpose", when = { questDone = TODO_QUEST("A Terrible Purpose") },
           text = "You've read what was on that tablet, or the Commander has, so you know more than most of the cult does. I'd sleep with a candle lit, if I were you." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of the cult now?", next = "op_cult" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     code = {
       lines = { { id = "co_default", text = "The Twilight Lexicon: the book their scribes use to hide their messages, split in three chapters so no one keeper can read everything. You swap words from one chapter with words from another in a pattern, and out comes sense." } },
@@ -553,6 +641,10 @@ P:NPC {
     twilights_hammer = { { id = "tp_hammer", text = "My old family, and they want me back, in pieces.", next = "cult" } },
     abyssal_council = { { id = "tp_council", text = "The voices in the wind stones. I never heard one myself, thank the stars; only the officers do." } },
     ortell = { { id = "tp_ortell", text = "That's me. Don't say it so loudly." } },
+    cthun = { { id = "tp_cthun", text = "Don't say that name in here, friend, the walls have ears, or worse. The cult whispers it like a lover's name, and I left because I didn't want to know who it belonged to." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The cult feeds the hives, did you know that? They think the bugs are their friends, and the bugs think the cult is lunch, which I'd call justice." } },
+    westfall = { { id = "tp_westfall", text = "I told the cult I was going to Westfall, and they believed me, because they're cultists. Ever been to Westfall? Neither have I, which is why it's such a good lie." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied a bit in Dalaran before I went wrong, and I'd go back if they'd let me in. They won't, which I quite understand." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I make a point of hearing about everything." } },
   },
 }
@@ -569,6 +661,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_mag_distant", when = { gossip = { topic = "magni", stance = "distant" } }, text = "Larksbane tells me ye think the king forgets his dwarves out here. Aye, well, I'd not say it in Ironforge, but I'll not argue with ye in this desert." },
     { id = "g_default", text = "Bronzebeard's gone missing again, if you're looking for him. If ye're not, welcome." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Grab a crate, mind the monkey." },
   },
@@ -582,6 +675,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_explorers = {
+      lines = {
+        { id = "ope_q", text = "Brann's out there somewhere making the League famous, and I'm in here doing the sorting. What do ye think of the Explorers' League, while I've got ye?" },
+      },
+      choices = {
+        { text = "The finest scholars Ironforge has. Brann's a legend.", next = "op_explorers_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Treasure-hunters with a royal charter, nothing more.", next = "op_explorers_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { explorers_league = "distrust" } } },
+        { text = "Useful work, if Ironforge would only fund it.", next = "op_explorers_r3", fx = { affinity = 1, opinion = { explorers_league = "useful" } } },
+        { text = "I've no view on it, Rutgar.", next = "BACK" },
+      },
+    },
+    op_explorers_r1 = {
+      lines = {
+        { id = "op_explorers_r1", text = "A legend who never leaves a forwarding address, but aye, he is. I'll tell him ye said so, if he ever turns up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r2 = {
+      lines = {
+        { id = "op_explorers_r2", text = "Treasure-hunters! Ye'll be telling me Brann's in it for the gold next. Get out of my tent before I set the monkey on ye." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_explorers_r3 = {
+      lines = {
+        { id = "op_explorers_r3", text = "Now ye're speaking my language, which is mostly complaints about funding." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Glyphs, mostly, an' stonework that runs deeper than any shaft we've sunk. If the stone remembers who built it, ask it, because Ironforge won't send an army on my say-so." } },
@@ -694,7 +822,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, eh? We could use someone wi' light fingers tae get into the ruins the bugs are guardin', an' I'll not ask how ye do it." },
         { id = "h_default", key = true,
-          text = "Rutgar Glyphshaper, holding this camp for the Explorers' League while Brann's off somewhere getting himself into trouble. That dwarf didn't get a scrap of his brothers' good sense, and we're onto something huge down here." },
+          text = "Rutgar Glyphshaper, holding this camp for the Explorers' League while Brann's off somewhere getting himself into trouble. That dwarf didn't get a scrap of his brothers' good sense, and we're onto something huge down here, though it's already cost us poor Natalia Mar'alith." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
           text = "The Commander sent ye about his wife, eh? Have a seat, then; this is going to be a long one." },
         { id = "h_glyphs", when = { questActive = TODO_QUEST("Glyph Chasing") },
@@ -714,25 +842,25 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, eh? Brann'd want tae write ye up, an' I want tae know if the stone round here's said anythin' tae ye about what's under it." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got rubbings to sort." },
-        { id = "h_again2", text = "Spit it out, then." },
+        { id = "h_again", text = "What else? I've got rubbings to sort, {g:lad|lass}, and they'll no' sort themselves." },
+        { id = "h_again2", text = "Spit it out, then, before my beard grows another inch." },
       },
       choices = {
         { text = "What has the League dug up here, Rutgar?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "The ground here hums. What have your digs found under it?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What happened to Natalia Mar'alith?", next = "natalia" },
-        { text = "Where's Brann Bronzebeard?", next = "brann" },
+        { text = "Brann Bronzebeard doesn't seem to be in camp.", next = "brann" },
         { text = "What are you digging for?", next = "dig" },
         { text = "Why won't Ironforge send help?", next = "ironforge" },
-        { text = "Who's the monkey?", next = "monkey" },
+        { text = "There's a monkey in your camp, Rutgar.", next = "monkey" },
         { text = "I'll carry word to Ironforge myself.", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "Did the rubbings make any sense?", next = "glyphs", when = { questDone = TODO_QUEST("Glyph Chasing") } },
+        { text = "I'd guess the rubbings made little sense.", next = "glyphs", when = { questDone = TODO_QUEST("Glyph Chasing") } },
         { text = "A gnome could help with those glyphs, Rutgar.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "What has the Explorers' League found here?", next = "xmage", when = { class = "MAGE" } },
         { text = "What's in the ruins the silithid guard?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What are you digging for out here, Rutgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have your digs turned up anything holy, Rutgar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the silithid trouble the camp often?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The silithid must trouble the camp often.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need guarded at the encampment, Rutgar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What wanders into your camp from the desert at night, Rutgar?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the League often take warlocks into the hives, Rutgar?", next = "xlock", when = { class = "WARLOCK" } },
@@ -774,6 +902,7 @@ P:NPC {
     ironforge = {
       lines = { { id = "i_default", text = "Because we're stretched too thin protecting the realm, or some such nonsense, according to the last three letters. A camp of explorers in a desert full of bugs isn't anybody's idea of a front line, until it is." } },
       choices = {
+        { text = "What do you think of the Explorers' League?", next = "op_explorers" },
         { text = "Ironforge has wars of its own. Be patient.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget Ironforge. Find your own army.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -811,6 +940,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never touch a glowing rock with your face. Should be obvious, but here we are." } },
     explorers_league = { { id = "tp_league", text = "The finest scholars in Ironforge, and the worst letter-answerers." } },
     natalia = { { id = "tp_natalia", text = "Poor lass. She wasn't herself, at the end.", next = "natalia" } },
+    magni = { { id = "tp_magni", text = "King Magni sends his best wishes and none of his soldiers, which is a very kingly thing to do. We'll find something here that'll make him sit up, mark my words." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman told us the titans shaped the world, and Silithus has titan bones under the sand too, I'd wager. Brann thinks so, and Brann's usually right, when he's not lost." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "There's a city behind that wall in the south older than anything in Ironforge's histories. The League would give its eyes for one look inside, and I'd give my beard." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The bugs keep digging up our dig sites, which is rude, since we were digging first. A dwarf could get very cross about it." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "We had a gnome on the team for a while, but he went home to help with Gnomeregan. That city'll come back, if anyone can make it come back." } },
     _none = { { id = "tp_none", text = "Ask Frankal. He likes talking." } },
   },
 }
@@ -827,6 +961,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "Rutgar says ye called us treasure-hunters, friend! Well, we are, a bit, but don't tell him I said so, because he's awful touchy about it." },
     { id = "g_default", text = "Look up there, friend, higher than that, over the dunes! Ah, ye've gone and missed it." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. Sit down, then, before I start shouting at the sky." },
   },
@@ -926,7 +1061,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! The dragons overhead don't like yer sort, I'll wager, an' neither do the bugs, so keep yer demon close while ye're in my camp." },
         { id = "h_default", key = true,
-          text = "Look up at the sky, friend! There are dragons over this desert, when not one of the flights has come near Silithus in a thousand years, so the Qiraji are up to something, mark my words." },
+          text = "Look up at the sky, friend! There are dragons over this desert, when not one of the flights has come near Silithus in a thousand years, so the Qiraji are up to something, mark my words. After what happened to Natalia, I take nothing out here lightly." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
           text = "Not this again! Fine, sit down; Rutgar's told ye the boring part, so I'll skip straight to the bit with the screaming." },
         { id = "h_brains", when = { questActive = TODO_QUEST("Breaking the Code") },
@@ -938,7 +1073,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've a feel for the land, so tell me, does it feel to you like something's waking under this desert? Because it feels that way to me." },
       },
       again = {
-        { id = "h_again", text = "What else? The sky's not going anywhere." },
+        { id = "h_again", text = "What else? The sky's not going anywhere, and neither am I till my ale runs dry." },
         { id = "h_again2", text = "Go on, then, I do like an audience." },
       },
       choices = {
@@ -946,15 +1081,15 @@ P:NPC {
         { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What became of Natalia?", next = "natalia" },
         { text = "Dragons? Over Silithus?", next = "skies" },
-        { text = "How many languages did you say?", next = "languages" },
-        { text = "What do you want with silithid brains?", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
+        { text = "How many languages do you lot speak?", next = "languages" },
+        { text = "Silithid brains seem an odd thing to want.", next = "brains", when = { any = { { questActive = TODO_QUEST("Breaking the Code") }, { questDone = TODO_QUEST("Breaking the Code") } } } },
         { text = "Those spells she used... I know them.", next = "priest", when = { class = "PRIEST" } },
         { text = "Natalia's magic: was it arcane at all?", next = "x_mage", when = { class = "MAGE" } },
-        { text = "Is Glibb really a thief?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "That monkey looks like a born thief.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do you watch the dragons so closely?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What sort of dragons fly over Silithus, Frankal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What would a warrior do against a dragon, Frankal?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Why doesn't your monkey like me, Frankal?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "A warrior would stand little chance against a dragon.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Your monkey doesn't seem to like me, Frankal.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Have you really seen dragons over Silithus, Frankal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
@@ -972,7 +1107,7 @@ P:NPC {
     nat_spells = {
       lines = { { id = "ns_default", text = "Listen here, whatever came at us was no priestess. Her eyes were glowing, she screamed so we all ran off in different directions, and then she went into our heads one at a time, words of shadow ringing in my skull while the others dropped like sacks." } },
       choices = {
-        { text = "How did you survive?", next = "nat_hive" },
+        { text = "You were lucky to survive that.", next = "nat_hive" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1024,6 +1159,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep a monkey about the place, and ye'll thank me one day." } },
     bronze_dragonflight = { { id = "tp_bronze", text = "They fought here once, the stories say. If they're back, something's coming.", next = "skies" } },
     natalia = { { id = "tp_natalia", text = "Don't get me started. Too late, you've got me started.", next = "natalia" } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives grow bigger every week, and the bugs come out at night and dig under the camp. Natalia said they whisper, and I'd laugh, but I've heard 'em." } },
+    magni = { { id = "tp_magni", text = "The king's a fine dwarf and a great drinker, but he's never set foot in Silithus. Can't blame him, it's no place for a dwarf with a good beard." } },
+    cthun = { { id = "tp_cthun", text = "Natalia went mad shouting that word, and I've heard it in my sleep since. Doesn't sound like any dwarven word, nor elven, nor anything else proper." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "We get our water from Gadgetzan, and it arrives warm and costs more than ale. That's no way for a dwarf to live." } },
     _none = { { id = "tp_none", text = "Not a clue, and that's rare. Ask Rutgar; he'll pretend he knows." } },
   },
 }

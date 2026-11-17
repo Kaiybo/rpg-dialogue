@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons_myth", when = { opinion = { topic = "dragons", stance = "myth" } }, text = "Ah. The traveller who considers dragons tavern talk. The court welcomes you all the same, and it will be delighted to be proven wrong." },
     { id = "g_brief", text = "Be brief, if you please; the orcs never are." },
     { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still standing in my hall? Take the letter to Westfall, and go quickly." },
     { id = "g_hero", when = { townStanding = { town = "lakeshire", min = 55 } }, text = "Ah, Lakeshire's champion. Sit, if you like; you're the only visitor I don't mind." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dragons = {
+      lines = {
+        { id = "op_dragons_a", text = "The court has a suspicion it can't yet prove. The Blackrock fight like an army with a general behind them, and the old soldiers in the inn swear they've seen black wings over the Steppes at dusk. You've travelled further than my bailiff, so tell me: do dragons meddle in the affairs of men?" },
+      },
+      choices = {
+        { text = "They do. The black dragonflight is behind more than orcs.", next = "op_dragons_1", fx = { opinion = { black_dragonflight = "fight", dragons = "dangerous" }, align = { order = 1 }, affinity = 2 } },
+        { text = "Dragons? That's tavern talk. The orcs need no masters to raid.", next = "op_dragons_2", fx = { opinion = { black_dragonflight = "myth", dragons = "myth" }, align = { order = -1 }, trait = { skeptical = 1 }, affinity = -1 } },
+        { text = "Whoever leads them, Lakeshire needs soldiers more than answers.", next = "op_dragons_3", fx = { opinion = { dragons = "unknown", stormwind = "abandoned_its_own" }, trait = { practical = 1 } } },
+        { text = "The red dragonflight were slaves of the orcs. Dragons can be used.", next = "op_dragons_4", when = { origin = "dwarf_military_ward" }, fx = { opinion = { dragons = "dangerous", orcs = "distrust" }, trait = { curious = 1 } } },
+        { text = "The court should ask someone wiser than me.", next = "BACK" },
+      },
+    },
+    op_dragons_1 = {
+      lines = { { id = "op_dragons_r1", text = "The court is gratified to hear it from someone who doesn't sign his letters 'Magistrate'. Write it down, sign it, and I'll send it to the Keep with the rest." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_dragons_2 = {
+      lines = { { id = "op_dragons_r2", text = "The Keep says the same, word for word, in rather finer handwriting. The court notes your view, and the court also notes how many orcs it has buried this year." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_dragons_3 = {
+      lines = { { id = "op_dragons_r3", text = "Spoken like a bailiff, and I mean that kindly. Soldiers first, then, and the truth when someone has time to climb the Spire and ask for it." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_dragons_4 = {
+      lines = { { id = "op_dragons_r4", text = "Grim Batol, yes, I'd forgotten your people saw that firsthand. Then perhaps the question isn't whether dragons serve orcs, but who's holding whose leash this time." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
     xcl_ubrs = {
       big = true,
       lines = { { id = "xcl_ubrs_default", text = "I said so in forty letters, and the forty-first is on my desk now, informing the Keep that the matter was resolved by a private citizen at no cost to the crown. I'd hoped to feel vindicated, but mostly I feel tired, because the Blackrock are still in my hills and no dragon's death will move them." } },
@@ -82,14 +111,27 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xalt_solomon = {
+      big = true,
+      lines = { { id = "xalt_solomon_default", text = "{alt}, a {altclass}, who read my letters to Stormwind without once telling me they were too long. Lakeshire remembers the few who came when the Regent did not, and that name is written in the court's book in my own hand." } },
+      choices = {
+        { text = "The Crown will answer in its time, Magistrate. Keep writing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget Stormwind. Free swords will serve Lakeshire better.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "The court has had dealings with a {altrace} {altclass} called {alt}, and I note for the record that you bear a strong resemblance. If you share that one's sense of duty, Lakeshire will be glad of you." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} called on the court only recently, and I put that visit in the record beside yours. It is a sad thing when a magistrate can count his town's friends by name, but Lakeshire has so few that I can." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
           text = "The court is informed that General Drakkisath is dead in Blackrock Spire, and that you were present. The court would like it entered in the record that Lakeshire said so first, and was told it lacked proof." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid of the kaldorei in Lakeshire. I confess I have little notion what your people make of ours." },
         { id = "h_default", key = true,
-          text = "I am Solomon, elected Magistrate of Lakeshire, which means the people chose me to be the one who writes the letters nobody answers." },
+          text = "I am Solomon, elected Magistrate of Lakeshire, which means the people chose me to be the one who writes the letters nobody answers, most of them about Stonewatch Keep." },
         { id = "h_new", when = { maxLevel = 17 },
           text = "You've come up from Elwynn? Good, because Lakeshire needs every blade it can borrow, even the short ones." },
         { id = "h_westfall", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Westfall") },
@@ -128,7 +170,7 @@ P:NPC {
       choices = {
         { text = "The orcs are stripping the Redridge hills bare for timber.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What does Lakeshire need?", next = "need" },
-        { text = "Why won't Stormwind help?", next = "stormwind" },
+        { text = "Stormwind seems in no hurry to help.", next = "stormwind" },
         { text = "What happened at Stonewatch Keep?", next = "stonewatch" },
         { text = "Tell me about the Court of Lakeshire.", next = "court" },
         { text = "I can tend your wounded, Magistrate.", next = "priest", when = { class = "PRIEST" } },
@@ -139,12 +181,13 @@ P:NPC {
         { text = "Highlord Bolvar's deputy, reporting.", next = "deputy", when = { questDone = TODO_QUEST("The True Masters") } },
         { text = "Put me on the walls, Magistrate. I can hold a line.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I've been tracking gnolls through your hills.", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Morganth's tower. What do you know of his arts?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I sense fel magic in your hills. Who practises it?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Gnomeregan knows what it is to lose a city.", next = "gnome", when = { race = "Gnome" } },
         { text = "Someone in Stormwind may be reading your letters before the nobles do.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Morganth's tower belonged to a wizard once, didn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Has Stormwind answered your letters, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "There's a wizard's tower in the hills. Who holds it now?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Stormwind seems slow to answer your letters, Magistrate.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Magistrate. Dragons stood behind the orcs, as you said.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
+        { text = "Who is this other visitor in your record, Magistrate?", next = "xalt_solomon", when = { alt = true } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },
@@ -183,7 +226,7 @@ P:NPC {
           text = "The Highlord told Westfall the kingdom is stretched thin? He told me the same, almost word for word. I begin to think someone is writing his answers for him." },
       },
       choices = {
-        { text = "Who did you write to?", next = "letters" },
+        { text = "You must have written to half the kingdom.", next = "letters" },
         { text = "The kingdom's failing you.", next = "BACK", fx = { opinion = { westfall = "abandoned" }, affinity = 1 } },
         { text = "Maybe the city has its reasons.", next = "reasons", fx = { opinion = { westfall = "patience" } } },
       },
@@ -237,7 +280,8 @@ P:NPC {
           fx = { learn = { "westfall", "night_watch" } } },
       },
       choices = {
-        { text = "You think someone at court wants Lakeshire to fall?", next = "amiss_court" },
+        { text = "Three is a pattern. Whose pattern, Magistrate?", next = "op_dragons" },
+        { text = "It sounds as if someone at court wants Lakeshire to fall.", next = "amiss_court" },
         { text = "Lady Prestor counsels patience at court.", next = "prestor", when = { heardClaim = "prestor_patience" } },
         { text = "Something else.", next = "BACK" },
       },
@@ -272,7 +316,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Gath'Ilzogg?", next = "gath" },
-        { text = "Morganth turned on his own allies?", next = "morganth" },
+        { text = "So Morganth turned on his own allies.", next = "morganth" },
         { text = "Was anyone taken alive?", next = "keeshan" },
         { text = "Something else.", next = "BACK" },
       },
@@ -329,7 +373,7 @@ P:NPC {
       },
       choices = {
         { text = "What does the law say about the gnolls?", next = "court_law" },
-        { text = "Has Lakeshire always been this embattled?", next = "court_history" },
+        { text = "Lakeshire seems to have known little peace.", next = "court_history" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -368,7 +412,7 @@ P:NPC {
           journal = { first = "Magistrate Solomon told me Lakeshire has no priest of its own. I said I'd see to the wounded.",
                       third = "{name} offered to tend Lakeshire's wounded." } },
         { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "Has the Church sent no one?", next = "priest_church" },
+        { text = "I'd have thought the Church would send someone.", next = "priest_church" },
       },
     },
     priest_church = {
@@ -485,7 +529,7 @@ P:NPC {
           text = "A Stormwind hunter, and not a ranger from the north. I'd heard the young ones were taking up the bow and the beast; I hadn't expected one in my hall." },
       },
       choices = {
-        { text = "Are they working with the orcs?", next = "hunter_orcs" },
+        { text = "They may be working with the orcs.", next = "hunter_orcs" },
         { text = "I'll bring you a count.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -526,6 +570,18 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade was meant to keep Stormwind's worst where they couldn't harm anyone, and now the prisoners hold it. If the King's own prison can't be held, I don't know how Stormwind expects Lakeshire to hold its walls." } },
+    bolvar = { { id = "tp_bolvar", text = "I have written to Highlord Fordragon so many times that his clerks must recognise my seal by now. He means well, I believe, but meaning well has never yet driven an orc out of Redridge." } },
+    prestor = {
+      { id = "tp_prestor", text = "Lady Prestor sends replies to my letters on the Regent's behalf, gracious and long and entirely empty of soldiers. I'm beginning to wonder whether the Highlord sees my letters at all." },
+      { id = "tp_prestor2", when = { disposition = { min = 65 } }, text = "Between us, I've begun to wonder whether Lady Prestor reads my letters before the Regent does, and whether he ever sees them at all. I'd say that to no one else, so keep it to yourself." },
+    },
+    varian = { { id = "tp_varian", text = "King Varian never would have left a town of his to hold the line alone, and I believe that with all my heart. But he's gone, and Lakeshire is still here, and someone must write the letters." } },
+    second_war = { { id = "tp_second_war", text = "Lakeshire was burned to the waterline in the Second War and rebuilt on the King's promises. I'm still waiting for the King's promises, so you see my patience is quite well practised." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs who raid Redridge answer to that black mountain north of the Steppes, I'm told, and no army of Stormwind's has gone near it in years. I'd like to know why before I write my next letter." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild rebuilt Stormwind and was never paid, and now they're the Defias, and now we pay for it in Redridge too. The House of Nobles may yet learn that a debt never stays where it was left." } },
+    syndicate = { { id = "tp_syndicate", text = "Letters from Arathi say the Syndicate is a band of fallen Alterac nobles playing at being thieves. I've enough trouble with honest orcs without dishonest lords." } },
+    theramore = { { id = "tp_theramore", text = "Lady Proudmoore holds Theramore with a fleet and a handful of soldiers, and I'm told the city is safe. I'd like her to write to me and explain how, because I've a handful of soldiers and no fleet at all." } },
     knows = {
       { id = "tp_knows", text = "Every report from the ridge and every letter from the Keep crosses this table, so the court is well informed, if poorly defended. Ask me about any of this." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "The court will answer on these matters, and only these." },

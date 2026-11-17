@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Welcome to Misty Reed Post, where the sea stinks, the murlocs gurgle, and the stew is the only good thing for a league." },
-    { id = "g_back", when = { metBefore = true }, text = "Glad to see you're alive and well. Sit down, the pot's on." },
+    { id = "g_back", when = { metBefore = true }, text = "Glad to see you're alive and well, {class}. Sit down, the pot's on, and an orc's stew is the best thing on this beach." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nobody else brought me meat the whole while. The soldiers have been eating boiled reeds and blaming me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've got bigger since you were last here, or I've got smaller, and it isn't me. Good, the murlocs won't like it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Stonard's saying you're a help to people. I'll believe it when you bring me claws, but it's a good start." },
@@ -50,8 +50,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more? The pot doesn't stir itself." },
       },
       choices = {
-        { text = "What do you make from the claws?", next = "claws" },
-        { text = "Why guard this beach?", next = "post" },
+        { text = "What do you smith out here?", next = "claws" },
+        { text = "This beach seems an odd thing to guard.", next = "post" },
         { text = "Tell me about the others here.", next = "camp" },
         { text = "What's in the stew?", next = "stew" },
         { text = "Show me how you work the claws.", next = "xsmith", when = { profession = "Blacksmithing" } },
@@ -84,7 +84,7 @@ P:NPC {
         { id = "po_default", text = "The murlocs on this coast are getting bolder, and if they ever come at Stonard in numbers, somebody has to see them first. That's us, and it doesn't leave much time for anything else." },
       },
       choices = {
-        { text = "Are there enough of you?", next = "post_numbers" },
+        { text = "There don't look to be enough of you.", next = "post_numbers" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -103,8 +103,8 @@ P:NPC {
         { id = "ca_default", text = "Katar runs the patrols, and he hates the sea more than anything alive, which makes him good at his job and terrible at supper. The rest are louses, mostly, but they're our louses." },
       },
       choices = {
-        { text = "Why does Katar hate the sea?", next = "camp_katar" },
-        { text = "What about Dar in Stonard?", next = "camp_dar" },
+        { text = "Katar seems to hate the sea.", next = "camp_katar" },
+        { text = "Who supplies the camp from Stonard?", next = "camp_dar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -155,8 +155,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A cook who learned smithing because nobody else on this beach would. It's worked out, mostly." } },
+    background = { { id = "tp_ba", text = "A cook who learned smithing because nobody else on this beach would. My father beat iron for the Horde before the camps, so it was in the blood, mostly." } },
     advice = { { id = "tp_ad", text = "Never eat anything that comes out of the sea with a face like a murloc's." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief would like my stew, I'm sure of it. Nobody's ever told him about it, which is a crime." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, and I learned smithing then because the smiths kept getting killed. It's worked out, mostly." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fish on the coast, they say, but I've never been. Misty Reed's fish are good enough." } },
     _none = { { id = "tp_none", text = "Don't know it, but if it can be stewed, bring it here and we'll find out." } },
   },
 }

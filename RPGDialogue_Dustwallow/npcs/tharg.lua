@@ -32,6 +32,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dragons = {
+      lines = {
+        { id = "opd_q", text = "Tharg asks every traveller the same thing, because Tharg is old and wants to know if Tharg is mad. The black dragons in the Wyrmbog, what do you think of them?" },
+      },
+      choices = {
+        { text = "They're monsters. Every one of them should die.", next = "op_dragons_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { black_dragonflight = "hate" } } },
+        { text = "Not every dragon is wicked, Tharg, but those ones are.", next = "op_dragons_r2", fx = { affinity = 1, align = { light = 1 }, opinion = { dragons = "mixed" } } },
+        { text = "They're too strong to fight. Best leave them be.", next = "op_dragons_r3", fx = { affinity = -1, trait = { cautious = 1 }, opinion = { black_dragonflight = "fear" } } },
+        { text = "I don't know enough of dragons to say.", next = "BACK" },
+      },
+    },
+    op_dragons_r1 = {
+      lines = {
+        { id = "op_dragons_r1", text = "Good. Tharg is not mad, then, only angry. Tharg will wait for the day you kill one." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_dragons_r2 = {
+      lines = {
+        { id = "op_dragons_r2", text = "Tharg has never met a good dragon, but Tharg has never been far from the swamp either. Maybe you are right about the others." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_dragons_r3 = {
+      lines = {
+        { id = "op_dragons_r3", text = "That is what the Overlord says too, and the Overlord is fat and safe. Tharg's wife was not safe." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Tharg is Stonemaul, from the village in the south, before the black dragons came. Now Tharg sits in Brackenwall and waits, and Tharg hates waiting." },
@@ -54,11 +89,11 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the Stonemaul village?", next = "village" },
-        { text = "You lost someone to the dragons.", next = "wife" },
-        { text = "What do you think of Mok'Morokk?", next = "overlord" },
+        { text = "Did you lose anyone when the dragons came?", next = "wife" },
+        { text = "You don't seem to think much of Mok'Morokk.", next = "overlord" },
         { text = "You were there when Rexxar came?", next = "rexxar" },
         { text = "I hunt beasts too. Tell me about Rexxar's way.", next = "rexxar_hunt", when = { class = "HUNTER" } },
-        { text = "Could the spirits carry a word to your wife?", next = "spirits", when = { class = "SHAMAN" } },
+        { text = "Could the spirits carry a word to those you lost?", next = "spirits", when = { class = "SHAMAN" } },
         { text = "The Firemane are fewer now, Tharg.", next = "after", when = { questDone = TODO_QUEST("Army of the Black Dragon") } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Farewell, Tharg.", next = "END" },
@@ -67,13 +102,14 @@ P:NPC {
     village = {
       lines = { { id = "v_default", text = "Stonemaul village sat in the south, with dry stone and good hunting and ogres who were proud. Then the black dragons came down out of the bog, and fire came with them, and now Tharg's home is ruins full of dragon whelps." } },
       choices = {
-        { text = "Who drove you out?", next = "village_who" },
+        { text = "Somebody must have driven you out.", next = "village_who" },
         { text = "Something else, Tharg.", next = "BACK" },
       },
     },
     village_who = {
       lines = { { id = "vw_default", text = "The Firemane, they call themselves, and they serve the black dragonflight's lady in the Wyrmbog. Tharg does not say her name, because saying it makes Tharg's hands shake, and old ogres should not shake." } },
       choices = {
+        { text = "What does Tharg think of the black dragons?", next = "op_dragons" },
         { text = "Will the Stonemaul ever go back?", next = "village_back" },
         { text = "Let me ask something else.", next = "BACK" },
       },
@@ -110,7 +146,7 @@ P:NPC {
     overlord = {
       lines = { { id = "o_default", text = "Mok'Morokk was made Overlord by Rexxar, and Mok'Morokk cares more for being Overlord than for ogres. When the dragons came, Mok'Morokk told the Stonemaul to run, and so we ran, and Tharg is still ashamed." } },
       choices = {
-        { text = "Does anyone else in Brackenwall feel the same?", next = "overlord_who" },
+        { text = "You can't be the only one who feels that way.", next = "overlord_who" },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -168,6 +204,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tharg is Stonemaul. Tharg had a home and a wife, and the black dragons took both, so now Tharg is old and angry in a wet village." } },
     advice = { { id = "tp_ad", text = "Do not run from what hurts you, because the running never stops after that. Tharg knows." } },
     black_dragonflight = { { id = "tp_black", text = "They burned Tharg's village and took Tharg's wife, and they sit in the south like they own it. Tharg has nothing good to say about black dragons, so Tharg says nothing else." } },
+    onyxia = { { id = "tp_onyxia", text = "Onyxia's whelps burned Tharg's village, and Tharg's wife was inside. Tharg would kill the big black dragon himself if Tharg's knees were young again, and if Tharg had an army." } },
+    thrall = { { id = "tp_thrall", text = "The orc chief let the Stonemaul who lived come to Brackenwall, and Tharg is grateful for it. Tharg's people had nowhere else to go." } },
+    theramore = { { id = "tp_theramore", text = "The humans have big boats and big walls, and they do not come to the south of the marsh where the dragons are. Tharg does not blame them for that." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Tharg hears the black dragons have a mountain far away, where the dragon's brother sits on top. Too many black dragons in the world, Tharg thinks, far too many." } },
     _none = { { id = "tp_none", text = "Tharg does not know about that. Ask Draz'Zilb, because Draz'Zilb knows everything and says half of it." } },
   },
 }

@@ -56,8 +56,8 @@ P:NPC {
       },
       choices = {
         { text = "What are these sprites?", next = "sprites" },
-        { text = "Who is stirring them up?", next = "cult" },
-        { text = "What's it like being Rorian's apprentice?", next = "rorian" },
+        { text = "Someone seems to be stirring them up.", next = "cult" },
+        { text = "Does Rorian keep you busy?", next = "rorian" },
         { text = "Do you think the true spirits will return?", next = "spirits" },
         { text = "The spirits still answer me, Yala.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "Winds guide you, Yala.", next = "END" },
@@ -145,7 +145,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go calmly among the stones. The sprites give back whatever you bring them." } },
     al_aketh = { { id = "tp_alak", text = "Grey robes and shaved heads, shouting at the sky. They've made the winds in our own grove hate us." } },
     windstones = { { id = "tp_ws", text = "The winds' last gift to us, and we're spending them faster than I like. Ask Dalia; she counts every one." } },
-    _none = { { id = "tp_none", text = "I don't know. Rorian might; he knows most things, eventually." } },
+    the_elements = { { id = "tp_the_elements", text = "The sprites aren't wicked, they only feel what's near them, and something near them has been angry. Rorian says I must learn to tell the anger that's theirs from the anger that's ours." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne used magic without asking anything first, Rorian says, and the sprites remember that kind of carelessness. I try very hard to ask first." } },
+    elune = { { id = "tp_elune", text = "I've never prayed to the moon, but I sometimes thank it when it lights my way back from the stones. I don't think it minds." } },
+    _none = { { id = "tp_none", text = "I don't know. Rorian might; he knows most things eventually, the way the wind finds every gap in a wall." } },
   },
 }
 
@@ -164,11 +167,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Pests. Everywhere, pests. What can I do for you?" },
+    { id = "g_default", text = "Pests, everywhere pests, riding every draught through the grove. Gale's greetings, and what can I do for you?" },
     { id = "g_infest", when = { questActive = TODO_QUEST("Infestation Investigation") }, text = "The eastern end of the grove. Don't let the swarm grow, and don't let them land on you." },
     { id = "g_queen", when = { questActive = TODO_QUEST("The Cirrusfly Queen") }, text = "Watch the big ones. The bigger they are, the meaner they get." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Cirrusfly Queen") }, text = "The grove's quieter without that queen. One less problem to think about." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the cirrusflies didn't miss you. I did, a little." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the cirrusflies didn't miss you. I did, a little, though I'd not say so in front of the other rangers." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way from bug duty. The rangers notice that sort of thing." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word is you've been helping around the village. Good; we've more work than rangers." },
   },
@@ -200,8 +203,8 @@ P:NPC {
       },
       choices = {
         { text = "What are cirrusflies?", next = "flies" },
-        { text = "Where's the queen?", next = "queen" },
-        { text = "What do the rangers do?", next = "rangers" },
+        { text = "Is something leading the swarm?", next = "queen" },
+        { text = "The rangers must have their hands full out here.", next = "rangers" },
         { text = "I hunt for a living. Bugs included.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Winds be with you, Elatrell.", next = "END" },
       },
@@ -211,7 +214,7 @@ P:NPC {
         { id = "f_default", text = "Insects, about the size of your hand, that drift on the wind and bite when they land. One or two are a nuisance, but a swarm can strip a grove bare, and they've been breeding at the eastern end." },
       },
       choices = {
-        { text = "Why so many now?", next = "flies_why" },
+        { text = "There seem to be far more of them now.", next = "flies_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,7 +251,7 @@ P:NPC {
         { id = "r_default", text = "We keep the beasts away from the village and the village away from the edges, and we watch for anything the elders ought to hear about. Halaan sees farthest, Myriaal jokes loudest, and I mostly deal with bugs." },
       },
       choices = {
-        { text = "Do you mind the bug work?", next = "rangers_mind" },
+        { text = "Bug work can't be anyone's favourite duty.", next = "rangers_mind" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -273,9 +276,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Thendal born, ranger by trade, bug-catcher by misfortune." } },
+    background = { { id = "tp_bg", text = "Thendal born, ranger by trade, and bug-catcher by misfortune, which is not a heirloom anyone hopes to inherit." } },
     advice = { { id = "tp_ad", text = "Watch the big ones. It's good advice for bugs and better advice for people." } },
-    _none = { { id = "tp_none", text = "Not my department. Ask Rorian, or Aetheen, if you've the nerve." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds used to keep the pests down, and now the cirrusflies breed unchecked. When the spirits come back, I hope they bring a swatter." } },
+    highborne = { { id = "tp_highborne", text = "The High Order keeps telling me I'm Highborne, as if I'd misplaced it. I'm a ranger, and that's a perfectly good thing to be." } },
+    elune = { { id = "tp_elune", text = "The rangers pray to the winds before a hunt and to nothing after. A few of the young ones have taken to the moon, and they shoot no straighter for it." } },
+    _none = { { id = "tp_none", text = "Not my department. Ask Rorian, or Aetheen, if you've the nerve to interrupt an elder reading the winds." } },
   },
 }
 
@@ -294,12 +300,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Keep clear of the southwest paths if you can. The ursera are restless." },
+    { id = "g_default", text = "Keep clear of the southwest paths if you can. The ursera are restless, and the winds carry our scent straight to their den." },
     { id = "g_active", when = { questActive = TODO_QUEST("Aggressive Encroachment") }, text = "The scrawny ones, outside the den. Bring me their claws." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Aggressive Encroachment") }, text = "The Rangers of the Grove are in your debt. I mean that." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Aggressive Encroachment") }, text = "The Rangers of the Grove are in your debt, and I mean that as surely as I mean the winds be with you." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. The ursera haven't quieted, but I'm glad you're back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your weapons since you first stood here, and I'm glad to see it." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the village is angry with you. It's a small grove, so please mend it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the village is angry with you. It's a small grove on a small isle, and our people have carried enough old grudges across the ages already, so please mend it." },
   },
 
   notice = {
@@ -327,7 +333,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the boy?", next = "boy" },
-        { text = "Why are the ursera so bold?", next = "why" },
+        { text = "The ursera have grown very bold.", next = "why" },
         { text = "Is killing them the only answer?", next = "kill" },
         { text = "Couldn't a druid calm the ursera?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Winds be with you, Valreaa.", next = "END" },
@@ -393,9 +399,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the southwest paths, and the children off them. That's my whole story, and it's enough." } },
+    background = { { id = "tp_bg", text = "I keep the southwest paths, and the children off them. That's my whole story, and on an isle that has lost so much, it's enough." } },
     advice = { { id = "tp_ad", text = "A hungry beast is more dangerous than an angry one. Remember that, wherever you go." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you. Ask Aetheen; she knows the grove's winds better than anyone." } },
+    the_elements = { { id = "tp_the_elements", text = "When the winds were with us, the beasts were calmer, I'm certain of it. The ursera came to the elder tree out of hunger, and I think the island is hungry too." } },
+    elune = { { id = "tp_elune", text = "I've started speaking to the moon at night, after the ursera. I don't know whether I believe, but I need to speak to someone who won't tell me it was necessary." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were said to command beasts with a word. I'd give a great deal for a word that would have turned that ursera aside." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. Ask Aetheen; she reads the grove's winds better than anyone on the Council." } },
   },
 }
 
@@ -414,9 +423,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello there! Have you seen any blue crystals lying about?" },
+    { id = "g_default", text = "Hello there, and winds be with you! Have you seen any blue crystals lying about?" },
     { id = "g_active", when = { questActive = TODO_QUEST("Harvesting Windstones") }, text = "The raw windstones are all over the grove; you can't miss them, they glow." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Harvesting Windstones") }, text = "Thank you again for those stones. Every one matters now." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Harvesting Windstones") }, text = "Thank you again for those stones. Every one matters now, with the pylons failing and the isle's magic thinning year by year." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? You didn't bring me any windstones, I suppose. No, I didn't think so." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you went crystal-hunting for me. I hope you kept one of those manuals." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "People in the village speak well of you. I'd trade a windstone for that, very nearly." },
@@ -447,10 +456,22 @@ P:NPC {
       },
       choices = {
         { text = "What exactly is a windstone?", next = "stones" },
-        { text = "Why is the island's magic fading?", next = "fading" },
+        { text = "The island's magic seems to be fading.", next = "fading" },
         { text = "What happens to the stones you collect?", next = "use" },
-        { text = "Could I study a windstone's magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'd like to study a windstone's magic.", next = "xmage", when = { class = "MAGE" } },
+        { text = "I carried windstones between Valanaar and Shen'dramar, Dalia. Quietly.", next = "xorig_runner", when = { origin = "skyborne_windstone_runner" } },
         { text = "Winds guide you, Dalia.", next = "END" },
+      },
+    },
+    xorig_runner = {
+      big = true,
+      lines = {
+        { id = "xru_default", text = "Quietly, you say, which means past the Council's counters, which means some of the stones I've been counting all season might have gone through your hands first! Oh, don't look like that; I'm not cross, only curious. Where did they all end up?" },
+      },
+      choices = {
+        { text = "With people who needed them more than the Council did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Somewhere they shouldn't. I'd like to put that right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     stones = {
@@ -458,7 +479,7 @@ P:NPC {
         { id = "s_default", text = "A piece of the wind made solid, more or less, left behind where the elementals used to gather. They're not without their limits, but they're a reliable source of power, and nothing else on Zephras is reliable any more." },
       },
       choices = {
-        { text = "Will they run out?", next = "stones_out", fx = { learn = { "windstones" } } },
+        { text = "Surely they'll run out one day.", next = "stones_out", fx = { learn = { "windstones" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -513,6 +534,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I collect windstones. Before that I collected other things, but nothing that mattered as much." } },
     advice = { { id = "tp_ad", text = "Learn to gather from the land, whatever you gather. The island won't always provide as it once did." } },
     windstones = { { id = "tp_ws", text = "The winds' own energy, made solid. I could talk about them all day, and some days I do." } },
-    _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid. Ask Rorian." } },
+    the_elements = { { id = "tp_the_elements", text = "The windstones are what the winds left behind, and I count every one, because nobody's seen a new one form since the spirits went quiet. As far as anyone can tell, that is." } },
+    highborne = { { id = "tp_highborne", text = "The High Order's apprentices drain a windstone a week practicing Highborne spells, and I've told the elders so. They don't count, so I count for them." } },
+    elune = { { id = "tp_elune", text = "The moon doesn't make windstones, so I've no professional interest in her. Personally, I think she's lovely." } },
+    _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid, and I've collected a great deal. Ask Rorian." } },
   },
 }

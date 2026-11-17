@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_forsaken_hate", when = { opinion = { topic = "forsaken", stance = "hate" } }, text = "Back again? Good. I've been thinking about what you said of the Forsaken, and I'd like you to stay for evening prayers before you go north." },
     { id = "g_default", text = "Brother Wilhelm. Mind the forge smoke, it gets everywhere." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Back for more? Good, sit down, if you can find a dry spot." },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "Lost? The smith's round the front. I only mend souls, and slowly." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      lines = {
+        { id = "op_forsaken_a", text = "That's the question the old knights quarrel over at night, when they've had too much of Farley's wine. Some of the Forsaken were Lordaeron's own priests and farmers once, and some of them still pray. You've seen more of the world than I have lately, so what do you make of them?" },
+      },
+      choices = {
+        { text = "They're victims of the Scourge. They deserve pity, not a pyre.", next = "op_forsaken_1", fx = { opinion = { forsaken = "pity", undeath = "curse" }, align = { light = 1 }, trait = { kind = 1 }, affinity = 1 } },
+        { text = "They're dead things that walk. The Light should finish them.", next = "op_forsaken_2", fx = { opinion = { forsaken = "hate", undeath = "abomination" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Pity the ones who were. Watch the Dark Lady who leads them.", next = "op_forsaken_3", fx = { opinion = { forsaken = "distrust", sylvanas = "distrust" }, trait = { cautious = 1 } } },
+        { text = "I've walked the Light longer than you, Brother. It turns from no one.", next = "op_forsaken_4", when = { race = "Dwarf", class = "PALADIN" }, fx = { opinion = { forsaken = "pity", the_light = "for_all" }, affinity = 2 } },
+        { text = "I'd rather not say, Brother.", next = "BACK" },
+      },
+    },
+    op_forsaken_1 = {
+      lines = { { id = "op_forsaken_r1", text = "That's the hardest mercy there is, and I'm glad someone in this yard can manage it. Uther would have, I think, though he'd have kept his hammer close." } },
+      choices = { { text = "Something else, Brother.", next = "BACK" } },
+    },
+    op_forsaken_2 = {
+      lines = { { id = "op_forsaken_r2", text = "A great many good paladins say exactly that, and some of them say it in red tabards now. Be careful what you let that thought turn you into." } },
+      choices = { { text = "Something else, Brother.", next = "BACK" } },
+    },
+    op_forsaken_3 = {
+      lines = { { id = "op_forsaken_r3", text = "The banshee queen, yes, and nobody can say what she wants. A sensible answer, and a paladin needs sense as much as he needs mercy." } },
+      choices = { { text = "Something else, Brother.", next = "BACK" } },
+    },
+    op_forsaken_4 = {
+      lines = { { id = "op_forsaken_r4", text = "Spoken like Ironforge, and I'll take the correction. The Light is older than any of our orders, and it's never once asked my permission." } },
+      choices = { { text = "Something else, Brother.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I think anything that makes a person stand straighter is good. Your spirits might do that, in their way." } },
@@ -126,20 +155,20 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
-        { text = "What is the Tome of Divinity?", next = "tome" },
+        { text = "What is the Tome of Divinity?", next = "tome", when = { class = "PALADIN" } },
         { text = "What's the hardest part of the oath?", next = "oath" },
         { text = "Why teach behind a smithy?", next = "smithy" },
         { text = "What do paladins learn that priests don't?", next = "priest", when = { class = "PRIEST" } },
         { text = "I squired for the Silver Hand, before it broke.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "What should I be practising, Brother?", next = "practise", when = { class = "PALADIN" } },
         { text = "Ironforge has plenty of anvils, Brother. I came to learn.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
-        { text = "Du Lac says a paladin is a warrior who prays.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Do you know what goes on in the inn's cellar?", next = "cellar" },
-        { text = "Can a paladin really see through a rogue, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Isn't a paladin just a warrior who prays?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Does anything in Goldshire trouble you, Brother?", next = "cellar" },
+        { text = "I'd guess a paladin can see through a rogue, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do you think a warlock can ever be redeemed, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt a warlock can ever be redeemed, Brother.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour hunters, Brother Wilhelm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do the Light and nature serve the same end, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The Light and nature seem to serve the same end, Brother.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think spirits can mend a soul, Brother Wilhelm?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
@@ -183,6 +212,7 @@ P:NPC {
         { id = "d_default", text = "No, and that's rather the point of it. If they deserved it, it would just be fairness." },
       },
       choices = {
+        { text = "Even the Forsaken, Brother? Does mercy reach that far?", next = "op_forsaken" },
         { text = "I hadn't thought of it like that.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Fairness suits me fine.", next = "BACK", fx = { align = { order = 1 } } },
       },
@@ -265,14 +295,14 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "warrior_l", text = "She would say that, and she'd mean it kindly, more or less. A paladin is a warrior who's promised the Light he'll stop when it tells him to, and that promise is the whole difference." } },
+      lines = { { id = "warrior_l", text = "Lyria Du Lac would say that, and she'd mean it kindly, more or less. A paladin is a warrior who's promised the Light he'll stop when it tells him to, and that promise is the whole difference." } },
       choices = {
         { text = "I'd rather decide for myself when to stop.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "That's a promise worth making.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     cellar = {
-      lines = { { id = "cellar_l", text = "I know, and I look at the door every time I pass, and I don't go in. The kingdom permits them, and the Light hasn't told me to break down a door yet; when it does, I'll know." } },
+      lines = { { id = "cellar_l", text = "The warlocks in the inn's cellar. I look at the door every time I pass, and I don't go in. The kingdom permits them, and the Light hasn't told me to break down a door yet; when it does, I'll know." } },
       choices = {
         { text = "Some doors you break without being told.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "The kingdom's law comes first.", next = "BACK", fx = { align = { order = 1 } } },
@@ -289,5 +319,13 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "Farley pours a fair cup. I've been known to sit in the corner and pretend I'm not listening." } },
     northshire_abbey = { { id = "tp_abbey", text = "Brother Sammuel's floor, worn smooth where every one of us has knelt." } },
     _none = { { id = "tp_none", text = "I'm a trainer behind a smithy, friend. That's beyond my little patch." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light isn't earned in one great deed but in a thousand small mercies nobody sees. The great deeds come after, if they come at all." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You carry the Light now, and it will feel heavy on the days you'd rather be angry. Carry it anyway, because those are the days it matters most." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was the finest order of knights the world has known, and it broke when Lordaeron fell. Those of us who still wear the Light's armor carry what's left of it, whether or not we carry the name." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The Tome's trail leads to Heroes' Vigil, to a dwarf who gave his life on that island and had it given back by the Light. If you're my student, you may walk that road yourself one day." } },
+    arthas = { { id = "tp_arthas", text = "Arthas was a paladin, taught the same prayers we teach, and he turned his hammer on his own people. Every paladin should think on that once, and then pray never to think on it again." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is an abomination before the Light, and if you're sent against it, go with a clear heart and a heavy hammer. Bring both back if you can." } },
   },
 }

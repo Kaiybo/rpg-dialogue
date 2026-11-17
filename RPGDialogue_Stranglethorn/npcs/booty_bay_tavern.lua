@@ -79,7 +79,7 @@ P:NPC {
         { text = "What's the talk on the coast these days?", next = "gossip" },
         { text = "You don't sound like you're from the Bay.", next = "origin" },
         { text = "Who comes to you for lessons?", next = "students" },
-        { text = "How does the trade work down here?", next = "trade", when = { class = "ROGUE" } },
+        { text = "The trade must work differently down here.", next = "trade", when = { class = "ROGUE" } },
         { text = "Is there more to learn than you can teach?", next = "higher", when = { class = "ROGUE", minLevel = 20 } },
         { text = "Why would a Stormwind man train Horde rogues?", next = "horde_students", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The Watchers taught me to move unseen.", next = "k_nelf", when = { class = "ROGUE", race = "NightElf" } },
@@ -89,7 +89,7 @@ P:NPC {
         { text = "Do your students ever ask the Light's forgiveness?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What could a rogue teach a warrior?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Can a beast learn to move quietly?", next = "xhunt", when = { class = "HUNTER" } },
-        { text = "Do your students ever fear a mage?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Your students must fear a mage or two.", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you ever traded secrets with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a cat teach your students more than you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits ever give a rogue away?", next = "xsham", when = { class = "SHAMAN" } },
@@ -141,7 +141,7 @@ P:NPC {
         { text = "The Bloodsail.", next = "g_bloodsail" },
         { text = "The Defias. Do they come this far south?", next = "g_defias" },
         { text = "Does SI:7 keep eyes in Booty Bay?", next = "g_si7", when = { faction = "Alliance" } },
-        { text = "Do Horde spies come through here?", next = "g_horde", when = { faction = "Horde" } },
+        { text = "Horde spies must come through here.", next = "g_horde", when = { faction = "Horde" } },
         { text = "Who's the orc nursing grog in the far corner?", next = "g_corner" },
         { text = "And the night elf in plate down by the water?", next = "g_elril" },
         { text = "That's enough gossip for one night.", next = "hello" },
@@ -219,7 +219,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did you leave Stormwind?", next = "origin_left" },
-        { text = "Do you miss the city?", next = "origin_miss" },
+        { text = "You must miss the city.", next = "origin_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -276,7 +276,7 @@ P:NPC {
       choices = {
         { text = "What are the rules in Booty Bay?", next = "trade_rules" },
         { text = "Tell me about poisons.", next = "trade_poison" },
-        { text = "Who's buying, down here?", next = "trade_buyers" },
+        { text = "Someone down here must be buying.", next = "trade_buyers" },
         { text = "Enough shop talk for now.", next = "hello" },
       },
     },
@@ -449,6 +449,15 @@ P:NPC {
     defias = { { id = "tp_defias", text = "Red bandanas in pockets, asking who buys Stormwind silver. Kebok answers them, and I don't." } },
     si7 = { { id = "tp_si7", text = "If they're here, they're better than I am, and I'd rather not find out by accident." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've a man in this tavern every night, and I nod to him like an old friend." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is the only port where Stormwind's spies and the Horde's spies can drink at the same bar without anybody pretending otherwise. It makes my work simpler, and much more expensive." } },
+    varian = { { id = "tp_varian", text = "The king went to a peace talk and never arrived, and the people who should be asking questions are very busy not asking them. I find that more interesting than the disappearance itself." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor appeared at court with a pedigree nobody can quite trace, and now half the nobles in Stormwind answer to her smile. I'd love to know where she came from, and so would a few of my old friends." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is an honest soldier in a nest of courtiers, and that makes him either very brave or very blind. I haven't decided which." } },
+    ravenholdt = {
+      { id = "tp_ravenholdt", text = "Ravenholdt is a manor in the hills of Alterac that doesn't exist, and if you ever find it, they'll have found you first. I've never been invited, and I prefer it that way." },
+      { id = "tp_ravenholdt2", when = { class = "ROGUE" }, text = "You've heard of Ravenholdt, then, and you know better than to talk about it in a tavern. Keep your blades clean and your mouth shut, and maybe one day they'll come looking for you." },
+    },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena is where people go to die for a box, and it's also where I go to watch who carries what out of it. Everyone's honest when they think they're about to die." } },
     _none = { { id = "tp_none", text = "If it didn't happen in this tavern or on the docks below, I didn't hear it, and neither did you." } },
   },
 }
@@ -467,10 +476,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_corner", text = "Something you want? Say it quickly, then, because I'm not sitting here for the company." },
+    { id = "g_corner", text = "Something you want? Say it quickly, then, because an orc doesn't sit in a goblin tavern for the company." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit down if you're sitting, and keep your voice low." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "You're not riding with that marshal, are you? No, you haven't got the boots for it." },
-    { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors. Don't salute me, because I stopped saluting a while back and I haven't missed it." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors. Don't salute me, because I stopped saluting when I struck my sergeant, and I haven't missed it." },
   },
 
   notice = {
@@ -485,7 +494,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Tokal. I'm waiting on a boat, and until it comes I'm minding my own business, which is a habit I'd recommend to anybody who wanders into this corner." },
+          text = "Tokal. I'm waiting on a boat, and until it comes I'm minding my own business, which is a habit I'd recommend to anybody, orc or otherwise, who wanders into this corner." },
         { id = "h_lam", tags = { "news" }, when = { questActive = TODO_QUEST("On the Lam") },
           text = "That goblin in Desolace sent you after me, didn't he? Well, you've found me, so say what you came to say and make it quick, because I don't sit still for long." },
         { id = "h_cherry", tags = { "news" }, when = { questActive = TODO_QUEST("Cherry for Your Thoughts?") },
@@ -511,31 +520,31 @@ P:NPC {
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "One of Strom's students, I'd guess, from the way you came in along the wall. Tell your teacher to stop staring at my boots." },
         { id = "h_warrior", when = { class = "WARRIOR" },
-          text = "I swung an axe for a living long enough to know a soldier when I see one, so stand easy and don't loom." },
+          text = "I swung an axe for the Horde long enough to know a soldier when I see one, so stand easy and don't loom." },
         { id = "h_wait", when = { metBefore = true },
           text = "Still no boat. Skindle keeps telling me tomorrow, and he's been saying tomorrow for three weeks now." },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere to be, but I'd rather not advertise it." },
+        { id = "h_again", text = "What else? I've nowhere to be, but an orc with no clan doesn't advertise it." },
         { id = "h_again2", text = "Go on. The grog's not getting any warmer, or any colder either." },
         { id = "h_again3", text = "Ask, then, and keep your eyes off the door while you do it." },
       },
       choices = {
         { text = "Bibbly sent me. You rode with the Desolace marauders.", next = "lam", when = { questActive = TODO_QUEST("On the Lam") } },
-        { text = "Who are you, exactly?", next = "who" },
+        { text = "You don't look like any common sellsword.", next = "who" },
         { text = "Why hide out in Booty Bay?", next = "boat" },
-        { text = "What happened in Desolace?", next = "drink_first", when = { ["not"] = { questDone = TODO_QUEST("Cherry for Your Thoughts?") } } },
+        { text = "Where were you before Booty Bay?", next = "drink_first", when = { ["not"] = { questDone = TODO_QUEST("Cherry for Your Thoughts?") } } },
         { text = "So what happened in Desolace?", next = "desolace", when = { questDone = TODO_QUEST("Cherry for Your Thoughts?") } },
         { text = "Tell me about Illari Duskfeather.", next = "illari", when = { questDone = TODO_QUEST("Cherry for Your Thoughts?") } },
         { text = "What do you make of the folk in this tavern?", next = "bay" },
         { text = "Why not go home to Orgrimmar?", next = "orcs" },
-        { text = "What's so special about Cherry Grog?", next = "grog" },
+        { text = "What's so special about Cherry Grog?", next = "grog", when = { any = { { questActive = TODO_QUEST("Cherry for Your Thoughts?") }, { questDone = TODO_QUEST("Cherry for Your Thoughts?") } } } },
         { text = "Give me one reason not to fetch the marshal.", next = "k_alliance", when = { faction = "Alliance" } },
         { text = "Raiders like you give the Horde a bad name.", next = "k_horde", when = { faction = "Horde" } },
         { text = "Not every night elf is your Illari.", next = "k_nelf", when = { race = "NightElf", questDone = TODO_QUEST("Cherry for Your Thoughts?") } },
         { text = "What clan were you, Tokal?", next = "k_orc", when = { race = "Orc" } },
         { text = "You move like you've done some quiet work yourself.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "You carry yourself like a soldier. Were you one?", next = "xwar", when = { class = "WARRIOR" } },
+        { text = "You carry yourself like a soldier.", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Desolace must make for hard hunting.", next = "xhunt", when = { class = "HUNTER" } },
         { text = "Have you asked the ancestors for guidance?", next = "xsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Desolace is full of the Burning Blade, isn't it?", next = "xlock", when = { class = "WARLOCK" } },
@@ -561,7 +570,7 @@ P:NPC {
     },
 
     who = {
-      lines = { { id = "wh_default", text = "An orc with an axe and no clan worth naming, who rode with a crew in Desolace until the crew stopped existing. Now I'm a customer of the Salty Sailor, and as long as I keep paying, Skindle calls me his favorite." } },
+      lines = { { id = "wh_default", text = "I'm an orc with an axe and no clan worth naming, who rode with a crew in Desolace until the crew stopped existing. Now I'm a customer of the Salty Sailor, and as long as I keep paying, Skindle calls me his favorite." } },
       choices = {
         { text = "Tell me about the crew.", next = "who_crew" },
         { text = "Something else.", next = "BACK" },
@@ -571,7 +580,7 @@ P:NPC {
       lines = { { id = "wc_default", text = "Six of us at the start: two orcs, an ogre who couldn't count past his fingers, a pair of trolls, and a human deserter who cooked better than the rest of us put together. We were good at the work, and that was the trouble, because when you're good at something somebody always notices." } },
       choices = {
         { text = "What happened to them?", next = "crew_fate" },
-        { text = "A human rode with orcs?", next = "crew_human" },
+        { text = "A human riding with orcs. That's a strange crew.", next = "crew_human" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -635,7 +644,7 @@ P:NPC {
       choices = {
         { text = "You raided them for the Horde?", next = "raids_horde" },
         { text = "Who paid you?", next = "illari" },
-        { text = "What did you take?", next = "raids_loot" },
+        { text = "You must have taken something worth the trouble.", next = "raids_loot" },
         { text = "Did anyone die in those raids?", next = "raids_dead" },
         { text = "Enough about Desolace.", next = "hello" },
       },
@@ -718,7 +727,7 @@ P:NPC {
     orcs = {
       lines = { { id = "oc_default", text = "Because Orgrimmar is full of orcs who want to tell me what an orc ought to be, and I spent my whole life before Desolace being told that. Thrall's a fine Warchief and his peace is a fine peace, but there's not much room in it for an orc who doesn't fit in a barracks." } },
       choices = {
-        { text = "What happened to you, back home?", next = "orcs_exile" },
+        { text = "Something must have happened to you, back home.", next = "orcs_exile" },
         { text = "The Horde needs every orc it has. Go home.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some orcs aren't made for barracks. I understand.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -812,7 +821,7 @@ P:NPC {
     },
     xwar = {
       big = true,
-      lines = { { id = "xwar_default", text = "For a while, in a grunt's mail with a sergeant's boot behind me, and I was good at it until I wasn't. A soldier's the same anywhere, because you hold the line until somebody tells you why, and one day I asked why." } },
+      lines = { { id = "xwar_default", text = "I was, for a while, in a grunt's mail with a sergeant's boot behind me, and I was good at it until I wasn't. A soldier's the same anywhere, because you hold the line until somebody tells you why, and one day I asked why." } },
       choices = {
         { text = "A soldier holds the line without asking.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Asking why is the first thing a free orc does.", next = "BACK", fx = { align = { order = -1 } } },
@@ -861,10 +870,18 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Durotar, then a sergeant's jaw, then Desolace, then this stool. That's the short of it, and the long of it costs a drink.", next = "who" } },
-    advice = { { id = "tp_ad", text = "Never work for anybody who pays too well. I learned that one the expensive way." } },
+    advice = { { id = "tp_ad", text = "Never work for anybody who pays too well. I learned that one the expensive way, and there's no honor in the lesson either." } },
     burning_blade = { { id = "tp_blade", text = "Demon-drunk orcs out in Desolace. Even raiders kept clear of them." } },
     steamwheedle = { { id = "tp_cartel", text = "The goblins run this town, and they'll sell you out with a smile, which is more honest than some." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care, and I'm not paid to find out." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief got us out of the camps and gave us a home in Durotar, and I owe him for that, same as every orc. That doesn't mean I agree with every orc he gives a sergeant's stripes to." } },
+    internment = {
+      { id = "tp_internment", text = "I was a child in the internment camps, and I remember the guards and the mud and the cold. Durotar's better, even if the sun tries to kill you there." },
+      { id = "tp_internment2", when = { race = "Orc" }, text = "You'd remember them too, then, or your parents would. Don't let anyone in Orgrimmar tell you the camps made us soft, because the camps made us patient." },
+    },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I fought in the Arena once, for the chest, and I won it, and there was nothing inside but a few coins and a rusty sword. I still think about that fight." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of Desolace are the worst enemies I've fought, and I've fought plenty. They ride like the wind and they never take prisoners." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is the one town where nobody asks an orc why she's sitting in a corner. That makes it the best town I know." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care, and I'm not paid to find out. Ask someone who still has a warchief." } },
   },
 }
 
@@ -882,7 +899,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah, friend, and welcome to the quietest stretch of boards in Booty Bay. The gulls make up for it." },
-    { id = "g_back", when = { metBefore = true }, text = "You've come back to the water's edge. It does that to people, and to me most of all." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back to the water's edge. The sea does that to people, as Elune's tides do, and to me most of all." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You wear Horde colors and this is neutral ground, so you have my courtesy, and I hope I have yours." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The moon's up, so speak softly; she's listening, and so are the pickpockets." },
   },
@@ -899,7 +916,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Elril Everlight. Half the Bay thinks I'm a paladin and the other half has a wager on it, and I've found it's more fun for everyone if I don't settle the matter." },
+          text = "Elril Everlight, of the kaldorei, a long way from the forests. Half the Bay thinks I'm a paladin and the other half has a wager on it, and I've found it's more fun for everyone if I don't settle the matter." },
         { id = "h_pala", when = { class = "PALADIN" },
           text = "Another paladin, come to greet a fellow servant of the Light, I expect. Look at me as long as you like, and if you see a glow, do tell me, because I've never managed to catch it myself." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -924,13 +941,13 @@ P:NPC {
           text = "Still no glow, before you ask. I checked in a puddle this morning, just to be sure." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? The tide's in no hurry, and neither am I." },
-        { id = "h_again2", text = "Go on. I'm better at listening than talking, but I'll do my best." },
+        { id = "h_again", text = "What else would you ask? The tide's in no hurry, and after a few centuries neither am I." },
+        { id = "h_again2", text = "Go on. My people are better at listening than talking, and I'm no exception, but I'll do my best." },
         { id = "h_again3", text = "Another question? Ask it, and I'll decide how much of it to answer." },
       },
       choices = {
         { text = "Are you a paladin, Elril?", next = "paladin" },
-        { text = "Why the plate and the hammer?", next = "hammer" },
+        { text = "Plate and a hammer seem an odd choice for a night elf.", next = "hammer" },
         { text = "Who are you, really?", next = "who" },
         { text = "What brings a night elf to Booty Bay?", next = "why_here" },
         { text = "Where have your travels taken you?", next = "travels" },
@@ -943,8 +960,8 @@ P:NPC {
         { text = "Do I frighten you, Elril?", next = "k_scourge", when = { race = "Scourge" } },
         { text = "How do you fight in plate without a paladin's prayers?", next = "k_war", when = { class = "WARRIOR" } },
         { text = "Do you miss the nightsabers?", next = "k_hunt", when = { class = "HUNTER" } },
-        { text = "Strom says you guard nothing in particular.", next = "k_rogue", when = { class = "ROGUE" } },
-        { text = "Does the Alliance know where you are?", next = "k_alliance", when = { faction = "Alliance", ["not"] = { race = "NightElf" } } },
+        { text = "Strom says you guard nothing in particular.", next = "k_rogue", when = { class = "ROGUE", heardLine = "ianstrom.ge_default" } },
+        { text = "I doubt the Alliance knows where you are.", next = "k_alliance", when = { faction = "Alliance", ["not"] = { race = "NightElf" } } },
         { text = "Have you heard of Illari Duskfeather?", next = "illari", when = { any = { { heardLine = "tokal.il_default" }, { questActive = TODO_QUEST("No Honor Among Thieves") } } } },
         { text = "May the tides be kind to you.", next = "END" },
       },
@@ -1036,7 +1053,7 @@ P:NPC {
       lines = { { id = "hm_default", text = "The salt air eats an edge in a week, and a hammer doesn't care how dull it gets, which suits me, since I'm terrible at sharpening anything. As for the plate, a lady in Booty Bay ought to have a little mystery, and it hides a great deal of it." } },
       choices = {
         { text = "Why not a glaive, like the Sentinels?", next = "sentinels" },
-        { text = "Where does a night elf buy plate that fits?", next = "hammer_dwarf" },
+        { text = "Plate that fits a night elf can't be easy to find.", next = "hammer_dwarf" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1100,7 +1117,7 @@ P:NPC {
       lines = { { id = "ba_default", text = "Kind, in their way, if you don't count the pickpockets, and I don't, since they've never found anything worth stealing on me. Ian Strom nods to me every evening, Tokal glares at me from the tavern door, and Skindle has finally stopped asking me to bless the cellar." } },
       choices = {
         { text = "Why does Tokal glare at you?", next = "bay_tokal" },
-        { text = "What do you make of Ian Strom?", next = "bay_ian" },
+        { text = "I'd like to hear what you make of Ian Strom.", next = "bay_ian" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1129,7 +1146,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Ashenvale.", next = "t_ashenvale" },
         { text = "What's Feralas like?", next = "t_feralas" },
-        { text = "Have you ever been to Desolace?", next = "t_desolace" },
+        { text = "I'd guess you've been to Desolace.", next = "t_desolace" },
         { text = "What do you make of the human kingdoms?", next = "t_humans" },
         { text = "Enough roads for one evening.", next = "hello" },
       },
@@ -1285,6 +1302,15 @@ P:NPC {
     sentinels = { { id = "tp_sentinels", text = "I carried their water once. They fight like the wind, and I've never been the wind." } },
     silver_hand = { { id = "tp_silver_hand", text = "Good people, and terribly earnest. They've never once asked me to join, which I find a little hurtful." } },
     sisterhood_of_elune = { { id = "tp_sisterhood", text = "They taught me the rites, and I walked away before the vows. They were kinder about it than I deserved." } },
+    elune = { { id = "tp_elune", text = "Elune is the light I was raised under, in a temple in Ashenvale, and I still pray to her every night by the water. The moon looks the same from Booty Bay, and that's a comfort." } },
+    holy_light = { { id = "tp_holy_light", text = "I carry a hammer and wear plate, and people here assume it's for the Light. I've let them, because the Light and the moon seem to want the same things from the people who serve them." } },
+    tyrande = {
+      { id = "tp_tyrande", text = "Tyrande Whisperwind is the High Priestess of Elune, and the Sentinels follow her as they always have. I've never spoken with her, but I heard her bless the temple once, and I've never forgotten it." },
+      { id = "tp_tyrande2", when = { race = "NightElf" }, text = "You've stood in her temple too, I'd guess, and felt the moonlight come through the roof. Tell me, does Darnassus feel like home yet, or is the tree still a stranger?" },
+    },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the World Tree, and it gave us our immortality, and we gave that up to save the world. I don't regret it, though I feel the years now in a way I never did before." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is the new tree, grown without the dragons' blessing, and I'm not sure what it will grow into. I haven't been home since it was planted." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is loud and greedy and full of people who would sell their mothers, and I've never been happier anywhere. There's a freedom in it." } },
     _none = { { id = "tp_none", text = "That's beyond what the moon has shown me, friend, and further still beyond what I've bothered to learn." } },
   },
 }

@@ -2,6 +2,16 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- New people to talk to: Tharm, Gereck and Kulwia at Sun Rock, Jeeda in Jin'Zil's cave. Teloren and Mor'rogal have more to say. New files: restart the game fully (a /reload won't load them).
+- Prejudices (0.80.0): Teloren (gnomes). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- New Forever-only characters (new files: full game restart): Tuu'li and Xaphod Bizznox.
+- New people to talk to: Grawnal, Kulwia, Krond, Borand, Tharm, Gereck, Hgarth, Jeeda, Chylina, Illyanie, Piznik. New files: restart the game fully (a /reload won't load them).
+- New people to talk to: Xen'Zilla, Ken'zigla, Piznik, Tharm, Gereck, Jeeda.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.21.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

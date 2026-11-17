@@ -51,7 +51,7 @@ P:NPC {
       choices = {
         { text = "Why are you so short of weapons?", next = "short" },
         { text = "What's in the woods that takes them?", next = "woods" },
-        { text = "Do you enjoy counting swords?", next = "ledger" },
+        { text = "You seem to enjoy counting swords.", next = "ledger" },
         { text = "Do you have a list of your losses?", next = "list", when = { class = { "ROGUE", "WARRIOR", "HUNTER" } } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "I'll let you count.", next = "END" },
@@ -61,7 +61,7 @@ P:NPC {
     short = {
       lines = { { id = "sh_default", text = "Because a Deathguard who falls in Silverpine falls with his sword in his hand, and nobody goes back for the sword. I'd send for the soldiers too, if anybody were taking orders for those." } },
       choices = {
-        { text = "Who supplies you?", next = "short_supply" },
+        { text = "Someone must be supplying you.", next = "short_supply" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,7 +85,7 @@ P:NPC {
     woods = {
       lines = { { id = "wo_default", text = "Scourge, and worse, as the High Executor puts it. Worgen out of Pyrewood, the Dalaran wizards behind their wall at Ambermill, and gnolls in the southern hills who'll take a sword just to have something shiny." } },
       choices = {
-        { text = "Which is the worst?", next = "woods_worst" },
+        { text = "I'd guess the worgen are the worst.", next = "woods_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -125,6 +125,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A soldier who turned out to be a better clerk. The Deathguard needs both, whatever the young ones think." } },
     advice = { { id = "tp_ad", text = "Count your arrows before the fight, not after, because after is too late to send for more." } },
     worgen = { { id = "tp_worgen", text = "They cost me more blades than everything else in Silverpine put together, and I've the numbers to prove it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need every sword I can find, and I keep the Sepulcher's racks full because no one else bothers. You'd be amazed how quickly a soldier loses track of his blade when he can't feel his hand." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal's keep is full of worgen and worse, and the Deathguard keeps a close eye on its gates. If they ever come out in force, I mean for us to be overstocked, not caught short." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge still wanders in from the north and east, and every one of them gets a blade through the skull. I count those too, though I count the blades more carefully." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans hide behind their wall, and their wall is very well built. I've never seen a Gilnean soldier, and I'd like to count their swords one day." } },
     _none = { { id = "tp_none", text = "That isn't in my ledger. Ask Bates at the inn; he keeps a different kind of accounts." } },
   },
 }

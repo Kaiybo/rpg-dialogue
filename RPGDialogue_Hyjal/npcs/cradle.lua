@@ -42,10 +42,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "My kind are hated by the Watchers and scorned by the priestesses, and we hunt the Legion anyway. You have seen me fight, so tell me what you think of those who take a demon's power to kill demons." },
+      },
+      choices = {
+        { text = "You do what must be done. I respect that.", next = "op_r1", fx = { affinity = 1, align = { order = -1 }, opinion = { demon_hunters = "respect" } } },
+        { text = "You've let the enemy inside you. That's how it starts.", next = "op_r2", fx = { align = { order = 1 }, trait = { cautious = 1 }, opinion = { demon_hunters = "distrust" } } },
+        { text = "Illidan's followers belong in the Watchers' chains.", next = "op_r3", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 }, opinion = { demon_hunters = "hate" } } },
+        { text = "We both bargain with demons. We're not so different.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful", demon_hunters = "kin" } }, when = { class = "WARLOCK" } },
+        { text = "I'll keep my judgment to myself.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Respect is rare and cheap at the same time. Keep yours until you have seen me hungry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "It started ten thousand years ago, mortal. I am only what was left over when it ended." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Watchers agree with you, and they have had ten thousand years of practice with chains. Leave me to the Legion and leave the chains to them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "I do not bargain, warlock. I take, and I never let what I took speak back to me, so pray that you can say the same." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_talon_caution_act", tags = { "news" }, when = { gossip = { topic = "talon_caution", stance = "act" } },
+          text = "The druid says you favour burning over watching. Then you understand my way better than hers." },
+        { id = "o_burning_legion_beaten", tags = { "news" }, when = { gossip = { topic = "burning_legion", stance = "beaten" } },
+          text = "The orc says you think the Legion is finished. It is never finished; it is only elsewhere." },
         { id = "h_default", key = true,
-          text = "Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and what still hides on its slopes. If this is what we call a victory, you would not want to know the full breadth of a defeat." },
+          text = "I am Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and what still hides on its slopes. I have hunted the Legion since the Well of Eternity burned, and if this is what we call a victory, you would not want to know the full breadth of a defeat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the human Light. You will want to save me, I expect, and I will decline politely, and we will both be disappointed." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -64,11 +97,11 @@ P:NPC {
         { id = "h_again2", text = "What else would you know? Speak, or let me return to watching." },
       },
       choices = {
-        { text = "What do you mean, a victory?", next = "victory" },
-        { text = "What exactly are you?", next = "what" },
+        { text = "That hardly sounds like a victory.", next = "victory" },
+        { text = "I've never seen anyone quite like you.", next = "what" },
         { text = "What lies under the mountain?", next = "under" },
         { text = "Why keep watch in the Cradle?", next = "cradle" },
-        { text = "What do you think of Yashiro?", next = "yashiro" },
+        { text = "Who else hunts demons on this mountain?", next = "yashiro" },
         { text = "Your power is fel. How can it be trusted?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Sentinels say your kind betrayed us.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I stood on these slopes when the Tree gave up its gifts.", next = "xsurvivor", when = { origin = "nightelf_hyjal_survivor" } },
@@ -98,7 +131,7 @@ P:NPC {
       choices = {
         { text = "I went home. Someone had to carry the living.", next = "BACK", fx = { affinity = -1, align = { honor = 1 }, trait = { kind = 1 } } },
         { text = "I kept fighting. Grief could wait for the Legion to be gone.", next = "BACK", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 } } },
-        { text = "Does the mountain remember that day?", next = "xsurvivor_mem" },
+        { text = "The mountain must still remember that day.", next = "xsurvivor_mem" },
       },
     },
     xsurvivor_mem = {
@@ -161,7 +194,7 @@ P:NPC {
         { id = "un_default", text = "Barrow dens, dug long ago by the druids and guarded by the Watchers. They held a prisoner there for ten millennia, and the deeps run further down than anyone living has walked. Prisons remember what they held, and I do not think these are as empty as the Circle hopes." },
       },
       choices = {
-        { text = "What do you think is down there?", next = "under_what" },
+        { text = "You think something is waiting down there.", next = "under_what" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -199,6 +232,7 @@ P:NPC {
         { id = "ya_default", text = "The orc is a good hunter and a better killer, and his grief makes him careless with his own life. I have watched him from the ridge; we want the same thing, and neither of us would say so to the other." },
       },
       choices = {
+        { text = "Does everyone distrust you the way Yashiro does?", next = "op_ask" },
         { text = "You should hunt together.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let him take the risks. You watch.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -257,7 +291,17 @@ P:NPC {
     burning_legion = { { id = "tp_bl", text = "They are patient, and they are not finished. The ones hiding in Dae'gun are the least of them." } },
     highborne = { { id = "tp_hb", text = "Their hunger for magic called the Legion here the first time. I see little reason to admire them." } },
     malfurion = { { id = "tp_malf", text = "The Shan'do called the wisps and saved us all. He would not want me here, I think; he has never forgiven anyone who walked his brother's road." } },
-    _none = { { id = "tp_none", text = "I do not know, and if it is not a demon, I likely do not care." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil stood when the Legion came, and it still stands, scarred to the heartwood. I stood beneath it that night, and I do not go up to look at it now." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge marched before Archimonde on this mountain, and they died here in their thousands. Their master is still in the north, and he has not forgotten what he lost at Hyjal." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is the lich who called Archimonde into this world at Dalaran, and the mountain paid for it. He leads the plague from Naxxramas now, and I would very much like to finish what Hyjal began." } },
+    tyrande = {
+      { id = "tp_tyrande", text = "The High Priestess does not trust me, and she is right not to. I would rather be distrusted by her than trusted by most." },
+      { id = "tp_tyrande2", when = { race = "NightElf" }, text = "Your Sentinels watch me as though I might turn at any moment, sister. Tell your High Priestess that I have not turned yet." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The banshee queen of the Forsaken was once the Ranger-General of Quel'Thalas, and the Scourge made her what she is. I know something of being changed into a weapon, so I watch her closely." } },
+    thrall = { { id = "tp_thrall", text = "The orcs fought beside us on this mountain because Thrall chose to bring them. Whatever they are doing in Ashenvale now, that choice was made, and it held." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids look to the Dream for answers, and I look to the ground for demons. I find mine more often." } },
+    _none = { { id = "tp_none", text = "I do not know, and if it is not a demon, I likely do not care. Ten thousand years of hunting leaves little room for other questions." } },
   },
 }
 
@@ -288,8 +332,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The kaldorei grew a new tree on Teldrassil without the Aspects' blessing, while Nordrassil stands wounded above us. The mountain has an opinion, and so do I. What is yours?" },
+      },
+      choices = {
+        { text = "Teldrassil gives the kaldorei a home. That matters most.", next = "op_r1", fx = { align = { order = 1 }, opinion = { teldrassil_tree = "home" } } },
+        { text = "They should have healed Nordrassil before planting another.", next = "op_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "Fandral's ambition will cost them, sooner or later.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { fandral = "distrust" } } },
+        { text = "I have no opinion on trees.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "A home grown in pride is still a home, I suppose. The mountain remembers which tree came first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "So say the wild gods, in our way. The Archdruid did not come to ask us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Ambition is a seed like any other. What it grows into depends on who waters it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_demon_hunters_respect", tags = { "news" }, when = { gossip = { topic = "demon_hunters", stance = "respect" } },
+          text = "You told the demon hunter you respect his kind. I allow him in the Cradle, and that is not the same thing as respect." },
         { id = "h_default", key = true,
           text = "I am Jereman, and the Cradle rests under my wings. Below me the slopes are still sick, and above me the great tree is still burned, and here, for a little while, there is quiet. Ask what you came to ask." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "A {g:son|daughter} of the stars, returned to the mountain at last. Your people once came to the Cradle to rest; now they send only those they have cast out." },
@@ -297,7 +367,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Another question. Ravens are patient, little one; ask it." } },
       choices = {
-        { text = "What is the Cradle of Tranquility?", next = "cradle" },
+        { text = "What do the wild gods make of Teldrassil?", next = "op_ask" },
+        { text = "This Cradle of Tranquility feels strangely calm.", next = "cradle" },
         { text = "Why do you allow the demon hunter here?", next = "maerion" },
         { text = "What did you see when the Legion came?", next = "legion" },
         { text = "How do I keep my mind clear up here?", next = "xshadow", when = { form = "shadow" } },
@@ -370,6 +441,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am old, and I am a raven, and I watch. That is all the history a raven needs." } },
     burning_legion = { { id = "tp_bl", text = "They came twice to this mountain. I would prefer they did not come a third time." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The great tree remembers, little one, and so do I. The songs say it was saved, but the songs never tell you what it cost." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the green behind your eyelids, little one, and the ravens fly there too. Something nests in its far corners now that was not there before." } },
+    scourge = { { id = "tp_scourge", text = "The dead came up the mountain once, and they fed the ground for years after. The ravens remember them as a feast, little one, and the mountain remembers them as a wound." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children and I have known one another a long time, little one. They have stopped visiting, and I have stopped asking why." } },
+    highborne = { { id = "tp_highborne", text = "I remember the Highborne, little one, when they were beautiful and terrible. The songs make them only terrible, which is kinder than they deserve." } },
     _none = { { id = "tp_none", text = "That is not a thing the wind has carried to me, little one." } },
   },
 }

@@ -84,13 +84,13 @@ P:NPC {
       },
       choices = {
         { text = "I serve the Light. Your craft makes my skin crawl.", next = "paladin", when = { class = "PALADIN" } },
-        { text = "How do you know the Crusade so well?", next = "crusade" },
+        { text = "You seem to know the Crusade very well.", next = "crusade" },
         { text = "How does your illusion work?", next = "illusion" },
-        { text = "Why help Tirion Fordring?", next = "tirion" },
+        { text = "Why help anyone against the Crusade?", next = "tirion" },
         { text = "What do you know of shadow magic, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Who taught you to work illusions, Myranda?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Someone must have taught you to work illusions, Myranda.", next = "xmage", when = { class = "MAGE" } },
         { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Could your seeming really pass me off as a Crusader?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I doubt your seeming could pass me off as a Crusader.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can your seemings fool a beast's nose, Myranda?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do your seemings deceive the beasts as well as people?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits really dislike your seemings, Myranda?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -132,7 +132,7 @@ P:NPC {
       lines = {
         { id = "cr_default", text = "I studied with their priests, back when they still pretended they were saving people. They taught me to see the dark in others, and I found I was rather better at using it." },
       },
-      choices = { { text = "Why did you leave them?", next = "crusade_left" } },
+      choices = { { text = "You must have had reason to leave them.", next = "crusade_left" } },
     },
     crusade_left = {
       lines = {
@@ -151,7 +151,7 @@ P:NPC {
     },
     tirion = {
       lines = {
-        { id = "ti_default", text = "Because his son sits at the Crusade's table in Hearthglen, and anything that hurts the Crusade pleases me. That the old man's heart might mend a little is, well, a pleasant accident." },
+        { id = "ti_default", text = "Because old Tirion Fordring's son sits at the Crusade's table in Hearthglen, and anything that hurts the Crusade pleases me. That the old man's heart might mend a little is, well, a pleasant accident." },
       },
       choices = { { text = "That's kinder than you let on.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -163,6 +163,10 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "Red robes, white knuckles, and a fire for every question. I know them far too well." } },
+    scarlet_monastery = { { id = "tp_scarlet_monastery", text = "The Crusade taught me my first spells at their monastery, and they taught me well. They never imagined I'd use those lessons to walk among them wearing a borrowed face." } },
+    holy_light = { { id = "tp_holy_light", text = "The Crusade's priests say the Light shows them who is pure and who is damned. I've stood in their halls wearing a stranger's skin, and the Light didn't say a word." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has no interest in an old woman on a hill, and I've given it no reason to. I'm much more interested in the Crusade." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a sour lot, but they pay well for what I know about the Crusade. I'm not particular about my customers." } },
     _none = { { id = "tp_none", text = "Ask the bones by the door, dearie. They're better listeners than talkers." } },
   },
 }
@@ -281,14 +285,14 @@ P:NPC {
       choices = {
         { text = "Fellow gnome, you're hiding something.", next = "gnome", when = { race = "Gnome" } },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
-        { text = "Who are you, really?", next = "who" },
+        { text = "There's more to you than you let on.", next = "who" },
         { text = "Why stay in Andorhal of all places?", next = "andorhal" },
         { text = "You talk like someone who's studied time, Chromie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Few people catch me coming. How did you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Were the dead of Darrowshire never given proper rites?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did Joseph Redpath die a knight of the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "How long did Darrowshire's defenders hold?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What is it you track, Chromie?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Darrowshire's defenders must have held as long as they could.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You seem to be tracking something, Chromie.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should the dead of Darrowshire be left to rest?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why do you care what the ground remembers, Chromie?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you know what's good for anyone in the long run?", next = "xlock", when = { class = "WARLOCK" } },
@@ -350,6 +354,9 @@ P:NPC {
 
   topics = {
     darrowshire = { { id = "tp_darrowshire", text = "A brave little town, and a terrible day, and a story with one more chapter in it." } },
+    andorhal = { { id = "tp_andorhal", text = "Andorhal was the busiest grain town in the north, and the Cult of the Damned shipped its plague out through these very streets. I like to stand here and remember how it was, and how it is, both at once." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is a city with a very bad day stuck in it, and the day hasn't ended for some of its people. I'd rather not talk about it, which is unusual for me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is everywhere in Andorhal, and they never notice me. I'm very small, and I'm very good at being somewhere they aren't." } },
     _none = { { id = "tp_none", text = "I could tell you, but then it wouldn't be a surprise later." } },
   },
 }

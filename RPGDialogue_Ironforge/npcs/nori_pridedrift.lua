@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "What's in Scalding Mornbrew?", next = "brew" },
         { text = "Why do you worry so much about mugs?", next = "mugs" },
-        { text = "Who are your best customers?", next = "customers" },
+        { text = "You must have a few regular customers.", next = "customers" },
         { text = "Couldn't a mage just warm the cup?", next = "mage", when = { class = "MAGE" } },
         { text = "I can run it for you.", next = "BUSINESS" },
         { text = "I'll let you get on, Nori.", next = "END" },
@@ -71,7 +71,7 @@ P:NPC {
       lines = { { id = "ba_default", text = "Ale in the mornin' makes a dwarf sleepy by noon, an' mornbrew keeps him swingin' an axe till supper. The Thunderbrews down in Kharanos don't like me sayin' it, so I say it quietly." },
       },
       choices = {
-        { text = "Do the Thunderbrews see you as a rival?", next = "brew_rival" },
+        { text = "The Thunderbrews must see you as a rival.", next = "brew_rival" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Durnan in Anvilmar, every mornin' without fail, an' Grelin out by the troll caves, for he says it keeps him awake through the watch. Sten drinks it standin' up at the post, which I take as a compliment." },
       },
       choices = {
-        { text = "Grelin drinks it on watch?", next = "customers_grelin" },
+        { text = "So Grelin drinks it on watch.", next = "customers_grelin" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,6 +124,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I make mornbrew an' I carry it round the valley before it goes cold. That's the whole of me, near enough." } },
     advice = { { id = "tp_ad", text = "Drink it hot an' bring back the mug. That's all I ask of anybody." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sends up coffee beans now an' then, an' they're bitter as a pirate's heart. I put them in the brew anyway, an' nobody's noticed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells hot cocoa that's mostly water, an' I'd be ashamed tae serve it. Come by my stand an' I'll show ye what a hot drink should be." } },
+    everlook = { { id = "tp_everlook", text = "Everlook should have the best hot drinks in the world, bein' that cold, but the goblins water everythin' down. I'd open a stand there if I could stand the goblins." } },
     _none = { { id = "tp_none", text = "No idea, friend, but ask me again after a cup. Everythin's clearer after a cup." } },
   },
 }

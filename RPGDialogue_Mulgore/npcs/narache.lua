@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "Welcome to the Hawkwind's fire. Sit if you're tired, or stand if you're ready to work." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned to the fire, and the tribe notices." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned to the fire, and the tribe notices, as the herd notices one of its own coming home." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the fire {away}, and the young ones asked whether you'd return. I told them you would, and here you stand." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came to my fire young and untried, and now you stand straighter than many of my own hunters. The Greatmother would have been glad to see it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp tells me of the work you've done for us. You honour the Hawkwind's fire, and we will remember it." },
@@ -33,6 +33,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_grimtotem = {
+      lines = {
+        { id = "opg_q", text = "My braves argue about them at the fire every night now, and I let them, because a chief should know what his young think. What do you think of the Grimtotem, traveller?" },
+      },
+      choices = {
+        { text = "They're traitors to Cairne and to every tauren. They should be broken.", next = "op_grimtotem_r1", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { grimtotem = "lost" } } },
+        { text = "Some of them could still come home, if we gave them the chance.", next = "op_grimtotem_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { grimtotem = "redeemable" } } },
+        { text = "They want what's ours. That's all I need to know.", next = "op_grimtotem_r3", fx = { trait = { practical = 1 }, opinion = { grimtotem = "distrust" } } },
+        { text = "I'm Grimtotem-born, Chief, and I'd rather they changed than burned.", next = "op_grimtotem_r4", fx = { affinity = 2, opinion = { grimtotem = "redeemable" } }, when = { origin = "tauren_grimtotem_born" } },
+        { text = "I don't know enough of them to judge.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r1 = {
+      lines = {
+        { id = "op_grimtotem_r1", text = "Strong words, and I'll not punish a brave for saying them. But remember they are still tauren, and the Earth Mother counts their dead as she counts ours." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r2 = {
+      lines = {
+        { id = "op_grimtotem_r2", text = "The Greatmother believed that, and she'd have been glad to hear you say it. I'm less sure, but I'll keep the fire lit for any who try." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r3 = {
+      lines = {
+        { id = "op_grimtotem_r3", text = "That's how a hunter thinks, and it'll keep you alive on Red Cloud Mesa. A chief has to think further, but it'll do for now." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r4 = {
+      lines = {
+        { id = "op_grimtotem_r4", text = "Then you'll be the proof of it, young one, and my braves will watch you closer than they'd ever admit." },
+      },
+      choices = {
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "She would have been curious, and not afraid. She taught that every creature walks the path the Earth Mother gave it, even those whose path was broken. Yours was broken by death, and still you walk it, straighter than some of the living." } },
@@ -86,6 +130,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another young one with your face came through Camp Narache, the one called {alt}. Our elders say the spirits send kin along the same trail, and I think they've done it again." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "I remember {alt} as a youngling chasing plainstriders below the camp, and now I hear that {altclass} spoken of in Thunder Bluff. Walk as far as that one has, and remember the camp that raised you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. My mother would have wanted to hear your story, and I will listen in her place." },
         { id = "h_default", key = true,
           text = "I am Hawkwind, chief of this camp. The Bristleback took my mother from us, the Greatmother of this tribe, and we mourn her by standing straighter, not by bending." },
@@ -111,9 +159,9 @@ P:NPC {
         { text = "The trainer says I'm to be a druid.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I was born Grimtotem, Chief. I chose Bloodhoof.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
         { text = "My mother hunted the mesa for this camp, Chief.", next = "xmother", when = { origin = "tauren_narache_hunter" } },
-        { text = "Did the Greatmother walk with the spirits, Chief?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Greatmother must have walked with the spirits, Chief.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Bristleback won't see me coming, Chief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Could the arcane have saved the Greatmother, Chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Perhaps the arcane could have saved the Greatmother.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you want a prayer said for the Greatmother, Chief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will you trust a warlock in your camp, Chief?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would the Greatmother have made of me, Chief?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -177,6 +225,7 @@ P:NPC {
         { id = "gm_default", text = "The Bristleback came into our lands, and she fell before them. Every brave who trains at this camp honors her, and so will you, by doing well." },
       },
       choices = {
+        { text = "What do your braves say about the Grimtotem?", next = "op_grimtotem" },
         { text = "She sounds brave.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then let's make them pay.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
@@ -196,7 +245,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The hunters bring word back to this fire, and some of it is worth hearing. Ask about these, and I'll tell you what the tribe knows." },
     },
-    _none = { { id = "tp_none", text = "Ask in Bloodhoof Village. Baine knows the wider world better than an old chief." } },
+    earth_mother = { { id = "tp_earth_mother", text = "My mother is with the Earth Mother now, and I speak to them both when I stand on the hill above Narache. Neither answers, but I feel them listening." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback killed my mother, and they think they can take Narache next. They are wrong, and every brave I send out proves it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent word from the bluff when he heard of my mother's death, and his words carried me through the first nights. I will never forget that, and I will serve him until I die." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided us when we wandered, and they still raid the Barrens to the east. Mulgore is safe from them, and I mean to keep it that way." } },
+    _none = { { id = "tp_none", text = "Ask in Bloodhoof Village. Baine knows the wider world better than an old chief, and may the Earth Mother walk with you there." } },
   },
 }
 
@@ -211,7 +264,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hunt", text = "You've come to hunt? Good, because Mulgore is full of things that need hunting." },
+    { id = "g_hunt", text = "You've come to hunt? Good, because Mulgore is full of things that need hunting, and the Earth Mother feeds those who work for it." },
     { id = "g_back", when = { metBefore = true }, text = "Ready for more? The hunt doesn't rest, and neither should we." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the hunt carried on without you, so you've a lot of catching up to do. Are you ready?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since our first hunt together, and I can see it in how you hold yourself. Soon you'll be the one setting the pace." },
@@ -310,20 +363,20 @@ P:NPC {
         { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Ha, the mesa hunter's calf! Your mother let me carry her spears once when I was small, and I dropped every one of them in the creek, so I've been trying to outhunt her ever since." },
       },
       choices = {
-        { text = "Will you lead well?", next = "lead" },
+        { text = "Leading will be a heavy burden.", next = "lead" },
         { text = "Can my beast hunt beside your braves?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Race you to Red Cloud Mesa, Grull. My mother would want it.", next = "xmesa", when = { origin = "tauren_narache_hunter" } },
         { text = "Should a shaman hunt, Grull, or only bless the hunters?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Rite of Strength ask of a warrior, Grull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Will you take a priest on your next hunt, Grull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Could a rogue scout your hunts, Grull?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A rogue could scout your hunts, Grull.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would a mage be welcome on your hunts, Grull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Your father doesn't trust warlocks, Grull?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your father doesn't seem to trust warlocks, Grull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you hunt beside a Forsaken paladin, Grull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, the plainstriders won't stand still for long." },
+        { id = "h_again", text = "What else? Quickly, the plainstriders won't stand still for long, and An'she won't either." },
       },
     },
     hunter = {
@@ -362,6 +415,9 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask my father. I'm better at the hunt than at answers." } },
+    _none = { { id = "tp_none", text = "Ask my father. I'm better at the hunt than at answers, and he's had more seasons to gather them." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are cowards who strike from the brush and run. I hunt them, and I am faster than they are." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest hunter of our people, and I want to be like him. My father says I am too eager, and Cairne says the same, so I suppose they are both right." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives the hunt its meaning, and I thank her for every kill. My father taught me that, and I have never forgotten it." } },
   },
 }

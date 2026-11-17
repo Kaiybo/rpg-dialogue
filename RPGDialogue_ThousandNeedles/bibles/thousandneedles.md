@@ -57,3 +57,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 - none: service NPCs (Jinky's quests are Cataclysm, not used).
 ### Voices (authored, not canon)
 - Nyse: calm, loves the wind off the needles; hopes for something better than war with the Galak. Awenasa: gentle; a bear that wouldn't step off the lift. Jinky: cheerful gnome who sells to both teams and won't say who buys more.
+
+## Prejudices (0.80.0, authored, not canon)
+- Pozzik treats every gnome as Fizzle's spy (`prejudice` Gnome 12): Fizzle's crew copied his exhaust twice and his red-and-yellow paint once (with a smile on the nose), which cost him three wagers.

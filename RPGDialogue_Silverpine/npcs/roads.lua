@@ -26,6 +26,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_varimathras = {
+      big = true,
+      lines = {
+        { id = "opvm_default", text = "To Lord Varimathras, and most of us would rather not think too hard about what that means. Does it bother you, a dreadlord standing at the Dark Lady's side?" },
+      },
+      choices = {
+        { text = "Yes. A demon serves no one but himself.", next = "op_varimathras_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { varimathras = "distrust" } } },
+        { text = "She chose him. That's enough for me.", next = "op_varimathras_r2", fx = { align = { order = 1 }, opinion = { varimathras = "trust" } } },
+        { text = "Demons can be bound. She's clearly bound him well.", next = "op_varimathras_r3", fx = { trait = { practical = 1 }, opinion = { varimathras = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "Not my business, Erland.", next = "BACK" },
+      },
+    },
+    op_varimathras_r1 = {
+      lines = { { id = "opvm_r1", text = "Keep your voice down, even out here. I think the same, and I think it very quietly, and I'm still alive, more or less." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_varimathras_r2 = {
+      lines = { { id = "opvm_r2", text = "That's what the Sepulcher's officers say, and I'd like to believe them. I'll go on watching the woods and leave the dreadlord to the Dark Lady." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_varimathras_r3 = {
+      lines = { { id = "opvm_r3", text = "If anyone would know, it's you, so I'll take that as a comfort. Just don't tell me how the binding works, because I'll sleep worse for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "Then I owe you, and so does every deathstalker who's had to walk this road at night. Adamant and Vincent went into that keep before I ever joined the Sepulcher, and the older stalkers still talk about it in low voices, so now they'll have something better to talk about." } },
@@ -92,13 +116,14 @@ P:NPC {
         { text = "I was a deathstalker recruit. Tell me what to watch for.", next = "recruit", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "What are the worgen?", next = "worgen" },
         { text = "Who is Rane Yorick?", next = "yorick" },
-        { text = "A deathstalker afraid of the dark?", next = "afraid" },
+        { text = "You seem afraid of the dark, for a deathstalker.", next = "afraid" },
         { text = "How does a rogue move through Silverpine unseen, Erland?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can fire keep the worgen off, Erland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Fire should keep the worgen off, Erland.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could a demon track a worgen, Erland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do you want a shield beside you on the road, Erland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "You could use a shield beside you on the road, Erland.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the worgen really fear the Light, Erland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "It's true, Erland. Arugal is dead, and his keep is quiet.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
+        { text = "Who do the deathstalkers answer to?", next = "op_varimathras" },
         { text = "Good luck on the road.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Speak low; the trees are listening." } },
@@ -107,7 +132,7 @@ P:NPC {
       lines = {
         { id = "wo_default", text = "Arugal's work, the mage from Dalaran who called them up to fight us and then lost his mind to them. They walk like men and hunt like wolves, and they don't stay dead the first time." },
       },
-      choices = { { text = "Where did Arugal go?", next = "worgen_arugal" } },
+      choices = { { text = "Arugal must be hiding somewhere close.", next = "worgen_arugal" } },
     },
     worgen_arugal = {
       lines = {
@@ -197,13 +222,17 @@ P:NPC {
       choices = {
         { text = "I'll set it loose at night, where it hunts best.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll do it in daylight, openly, as you say.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A deathstalker afraid of the dark?", next = "afraid" },
+        { text = "You seem afraid of the dark, for a deathstalker.", next = "afraid" },
       },
     },
   },
 
   topics = {
     worgen = { { id = "tp_worgen", text = "Wolves that walk like men. Keep your fire bright and your back to a wall." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal's worgen pour out of that keep like water out of a broken dam. I've no wish to go anywhere near it, and I'll admit it freely." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans built a wall to keep the world out, and now they've got worgen inside it, I hear. Serves them right, though I wouldn't say so near the woods at night." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are meant to be fearless, and mostly we are. Silverpine at night is the exception, and you'll understand once you've heard the howling." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady wants her enemies dead and her roads safe. I'm working on the roads, and I'd appreciate a little company while I do it." } },
     _none = { { id = "tp_none", text = "Ask Yorick; she knows the woods, and I know the road." } },
   },
 }
@@ -275,15 +304,15 @@ P:NPC {
         { text = "What happens in Pyrewood at night, Yorick?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the worgen fear anything, Yorick?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could the worgen curse be broken, Yorick?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "You keep watch alone out here, Yorick?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "Do the gnolls trouble you this far south?", next = "gnolls" },
-        { text = "What's happening in Pyrewood?", next = "pyrewood" },
+        { text = "You keep watch alone out here, Yorick.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "I'd guess the gnolls trouble you even this far south.", next = "gnolls" },
+        { text = "Something is wrong in Pyrewood.", next = "pyrewood" },
         { text = "What do the scouts report?", next = "reports" },
         { text = "I'm a deathstalker too. Any orders?", next = "deathstalker", when = { origin = "forsaken_deathstalker_recruit" } },
-        { text = "What do your scouts see of Ambermill's mages, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What can a mage do against the worgen, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could send an imp to watch Pyrewood for you.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a hunter learn from the worgen tracks, Yorick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Would the Light draw the worgen out for you, Yorick?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Light might draw the worgen out for you, Yorick.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Be quick, the light's going." } },
@@ -292,7 +321,7 @@ P:NPC {
       lines = {
         { id = "py_default", text = "The villagers are living, by day, and they lock their doors well before dusk. By night, something else walks their streets, and I've not yet decided whether they know." },
       },
-      choices = { { text = "You think the villagers are the worgen?", next = "pyrewood_curse" } },
+      choices = { { text = "You think the villagers are the worgen.", next = "pyrewood_curse" } },
     },
     pyrewood_curse = {
       lines = {
@@ -366,12 +395,15 @@ P:NPC {
       choices = {
         { text = "Then I'll go myself and keep the imp close.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The imp goes where I send it, Yorick.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What's happening in Pyrewood?", next = "pyrewood" },
+        { text = "Something is wrong in Pyrewood.", next = "pyrewood" },
       },
     },
   },
 
   topics = {
+    shadowfang = { { id = "tp_shadowfang", text = "Shadowfang Keep sits on the hill above Pyrewood, and its master breeds the wolves that walk on two legs. I watch the road for them, and I've seen enough to fill a ledger." } },
+    forsaken = { { id = "tp_forsaken", text = "My brother and I came back together, which is more than most Forsaken can say. I'd take that over a full heart any day." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's ghouls shamble past the farm sometimes, and I let them pass if they don't stop. Worgen are a different story." } },
     _none = { { id = "tp_none", text = "That's not my concern, for Pyrewood is my concern." } },
   },
 }
@@ -388,6 +420,8 @@ P:NPC {
 
   greetings = {
     { id = "g_bats", text = "Don't wave your arms about; the bats think it's a challenge." },
+    { id = "g_kback", when = { metBefore = true }, text = "You again. The bats remember you, which is more than I can say for most of my visitors." },
+    { id = "g_knight", when = { timeOfDay = "night" }, text = "Night flights are the best flights, if you ask the bats, and nobody ever does but me." },
   },
 
   notice = {
@@ -453,22 +487,45 @@ P:NPC {
         { text = "Do your bats trust the living, Karos?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you trade your bats for a living beast, Karos?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Will the bats carry a hunter's beast, Karos?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "Where do the bats come from?", next = "bats" },
+        { text = "These bats must come from somewhere dark.", next = "bats" },
         { text = "Are the roads really that bad?", next = "roads" },
         { text = "Can I ride a bat out quietly, Karos?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your bats tolerate a demon riding along?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Can your bats carry a warrior in full mail, Karos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I doubt your bats can carry a warrior in full mail, Karos.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why would a mage need your bats, Karos?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does anything about a paladin interest you, Karos?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just passing.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? The bats are getting restless." } },
+      again = { { id = "h_again", text = "Something else? The bats are getting restless, and they've more patience with the dead than I have with the living." } },
     },
     bats = {
       lines = {
         { id = "ba_default", text = "Bred under the Undercity, in the dark where they're happiest. They're loyal, quiet and never ask questions, which makes them better company than most." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Do you name them?", next = "bats_names" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bats_names = {
+      lines = {
+        { id = "bn_default", text = "Every one, though I don't tell the riders, because nobody wants to hear that they're flying on Moppet. The big grey one is Hadrec, and I'd thank you not to mention that to the High Executor." },
+      },
+      choices = {
+        { text = "Your secret's safe. Which one would I ride?", next = "bats_mine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bats_mine = {
+      big = true,
+      lines = {
+        { id = "bm_default", text = "That depends on you. The steady ones go to riders who sit still and say thank you, and the young ones go to riders who kick, so they'll learn better or fall off. Which sort are you, would you say?" },
+      },
+      choices = {
+        { text = "The sort who sits still and says thank you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Give me the young one. I like a lively ride.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhhunt = {
       big = true,
@@ -485,7 +542,31 @@ P:NPC {
       lines = {
         { id = "ro_default", text = "Worgen at night and gnolls by day, so yes. The bats fly over all of it, which is why I'm the most popular person in the Sepulcher, and the least thanked." },
       },
-      choices = { { text = "Thank you, then, Karos.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What do you see from up there?", next = "roads_view" },
+        { text = "Thank you, then, Karos.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    roads_view = {
+      lines = {
+        { id = "rv_default", text = "The whole forest laid out like a sick man on a table: the Sepulcher, the smoke from Pyrewood, and the keep on its hill with lights in it all night. Out over the lake you'll see Dalaran's dome, glowing violet, as if the wizards wanted everyone to know they're still there." },
+      },
+      choices = {
+        { text = "What do you make of Dalaran?", next = "roads_dalaran" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads_dalaran = {
+      big = true,
+      lines = {
+        { id = "rd_default", text = "I make nothing of it, except that the bats won't fly near the dome, and I trust their noses. The wizards sit behind their shield and send their people into Ambermill, and Hadrec grinds his teeth about it, and I feed bats." },
+        { id = "rd_mage", when = { class = "MAGE", race = "Scourge" }, text = "You'd know better than I, mage, since you might have studied there once. The bats won't fly near the dome, and I trust their noses, so if you ever go back, you'll be walking." },
+      },
+      choices = {
+        { text = "Dalaran should be left alone behind its wall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dalaran's walls should come down, the sooner the better.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = "dalaran" } },
+      },
     },
     xhsham = {
       big = true,
@@ -526,12 +607,15 @@ P:NPC {
       choices = {
         { text = "I'll dismiss it first. The bats deserve that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The demon stays with me, Karos.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Where do the bats come from?", next = "bats" },
+        { text = "These bats must come from somewhere dark.", next = "bats" },
       },
     },
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride bats because bats don't fear the dead the way horses do. I've grown fond of them, more than I'm fond of most people." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has gargoyles that hunt in the night sky, and my bats know to fly low when they hear them. I've lost one or two, and I don't care to lose more." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The bats know every road from here to Tarren Mill, and they'll carry you over the ruins of Lordaeron in a night. Mind you don't fall off." } },
     _none = { { id = "tp_none", text = "Ask someone with fewer bats to feed, and fewer droppings in their hair." } },
   },
 }

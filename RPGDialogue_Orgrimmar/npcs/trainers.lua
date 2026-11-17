@@ -120,6 +120,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_same", tags = { "news" }, when = { alt = { sameClass = true } },
+          text = "I trained a {altclass} called {alt} not long ago, with the same habit you have of dropping the shield arm when tired. Whoever taught the pair of you, they taught you both the same bad lesson." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true, class = "WARRIOR" } },
+          text = "{alt} still comes back to my yard now and then, and I'd put that {altclass} against most of the Warchief's guard. You'll need a good many more bruises before I say the same about you." },
         { id = "h_pt_pair", tags = { "news" }, when = { class = "WARRIOR", party = { sameClass = true } },
           text = "Two warriors in one company, and both still standing. Most bands I've seen with two of you end up arguing over who goes through the door first, so settle that now, before it gets one of you killed." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in the Valley of Honor. The last knight of the Silver Hand I saw was guarding a camp, recruit, so you'll forgive me if I hit you twice as hard." },
@@ -134,15 +138,15 @@ P:NPC {
       },
       choices = {
         { text = "Do your warriors respect a priest who never swings an axe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Is it honorable to strike with lightning, Grezz?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Some would call it dishonorable to strike with lightning.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a druid's strength honorable, Grezz?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What does honor mean to you?", next = "honor" },
         { text = "Who else trains in the valley?", next = "valley" },
         { text = "Honor doesn't win wars, Grezz. Results do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What makes a warrior of the Horde, Grezz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a hunter learn to fight up close, Grezz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do warlocks have any honor, Grezz?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "What do your warriors think of mages, Grezz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I doubt warlocks have any honor, Grezz.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess your warriors think little of mages.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you train beside a paladin, Grezz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Two warriors in one band. How should we fight together?", next = "xpt_grezz", when = { class = "WARRIOR", party = { sameClass = true } } },
         { text = "Farewell, Grezz.", next = "END" },
@@ -167,6 +171,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know steel and I know sweat. Anything else, ask Gryshka at the inn." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I lost, and I learned more in the losing than I ever did in the winning. I teach that, and I teach it with bruises." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief fought in a human arena before he fought in a war. That's the kind of warrior I respect, one who's been knocked down and got back up." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge don't feel pain, which means you have to hit them harder. I teach my students to hit hard, so I suppose I'm ready." } },
   },
 }
 
@@ -274,6 +281,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_raptor = {
+      lines = { { id = "xrp_default", text = "Good, that's how a raptor ought to be. The Darkspear raise them from the egg and they never forget the first hand that fed them, which is more than I can say for most wolves. Has she ever bitten you?" } },
+      choices = {
+        { text = "Once, as a hatchling. Never since.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Every morning, but only gently.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. Not my students, but I'll watch you anyway, because I watch everything that moves in this valley." },
@@ -288,8 +302,8 @@ P:NPC {
       },
       choices = {
         { text = "Would you really trust a priest with a hunter's pet?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do shamans and hunters see the land differently?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do hunters and druids want the same things from the wild, Ormak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Shamans and hunters must see the land differently.", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Hunters and druids must want the same things from the wild.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How do you choose a companion?", next = "pet" },
         { text = "Where's the best hunting near Orgrimmar?", next = "hunt" },
         { text = "Hunters and rogues both track prey. Which is better?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -297,7 +311,8 @@ P:NPC {
         { text = "What can a warrior learn from a hunter, Ormak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should I train my companion, Ormak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "How would you judge a warlock's demon, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "What do hunters think of the Light, Ormak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Hunters can't think much of the Light, I'd guess.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "My raptor's from the Sen'jin pens. She bites everyone but me.", next = "xorig_raptor", when = { origin = "troll_raptor_rider" } },
         { text = "Farewell, Ormak.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Make it quick, the wolves need feeding." } },
@@ -320,11 +335,15 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Unless it leaves tracks or wears fur, I've nothing to teach you about it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur run fast, and a hunter's pet runs faster. Teach your beast to go for the legs, and the centaur won't run at all." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar keep boars, and boars make good pets if you can tame them. They're stubborn, but they're loyal, which I like." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a wolf, and I've watched the way he talks to it. That's a hunter's heart, whatever else he is." } },
   },
 }
 
 P:NPC {
   key = "kardris", id = TODO_NPC("Kardris Dreamseeker"), name = "Kardris Dreamseeker",
+  prejudice = { race = "Orc", class = "WARLOCK", amount = 12, why = "An orc who takes up the fel again is, to her, choosing the old sickness twice; she is gentler with warlocks of other races." },
   bible = "bibles/orgrimmar.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "devout" },
   notices = { "class" },
@@ -333,10 +352,31 @@ P:NPC {
     third = "{name} met Kardris Dreamseeker, a shaman trainer in Orgrimmar's Valley of Wisdom.",
   },
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "The spirits draw away from you, warlock, and so do I. Our people drank the demon's blood once and burned Draenor for it, so tell me why an orc would reach for that cup again." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I was hard on you when we met, warlock, and the spirits have since told me what you are, which is not what I feared. Sit, if you like; I'll not move my mat away." },
     { id = "g_hi", text = "The spirits are restless in the city today. Come, sit where they are quieter." },
   },
   start = "hello",
   nodes = {
+    prej_kardris = {
+      big = true,
+      lines = { { id = "prej_kardris_default", text = "It is, and I'll not hide it. I grew up in the camps on the stories of what the warlocks did to us, how Gul'dan sold our grandfathers to the Legion for power. When an orc comes to me with that stink on him, I see the whole history standing behind him." } },
+      choices = {
+        { text = "I master the fel so it never masters our people again.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Power is power. Your spirits never freed us from the camps.", next = "BACK", fx = { align = { light = -1, order = -1 }, affinity = -1 } },
+        { text = "You're right; I'll leave the fel behind when I can.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Watch me, then. I'm not Gul'dan's and I'm not the Blade's.", next = "prej_kardris_calm", fx = { affinity = 1 } },
+        { text = "Were there warlocks in the camps too?", next = "prej_kardris_why" },
+      },
+    },
+    prej_kardris_why = {
+      lines = { { id = "prej_kardris_why_default", text = "There were, and the humans let them be, because a warlock who'd lost his demons was just another hungry orc. Some taught the young ones in secret, and some of those young ones are the Burning Blade now, in the canyons south of here." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_kardris" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_kardris_calm = {
+      lines = { { id = "prej_kardris_calm_default", text = "Then I'll watch, and listen, and the spirits will tell me the rest. They have a way of knowing which hands are only borrowing a thing and which hands mean to keep it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_kardris = {
       big = true,
       lines = { { id = "xpt_kardris_default", text = "Respect, first and always, because the elements answer a shaman's call as a favour and never as a duty. A shaman who must heal a careless war band again and again begins to wonder whom the spirits are really serving, so be a companion worth the trouble." } },
@@ -352,7 +392,7 @@ P:NPC {
       choices = {
         { text = "Every element has its place, and his isn't here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Places change, Kardris. Let the strong elements take what they can.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Will Ragnaros return?", next = "xcl_mc2" },
+        { text = "Ragnaros may return one day.", next = "xcl_mc2" },
       },
     },
     xcl_mc2 = {
@@ -439,6 +479,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_tsham = {
+      lines = { { id = "xts_default", text = "Your grandmother isn't wrong to worry, because orcs know better than anyone what it costs to forget the voices that raised you. But the earth under Durotar is the same earth under the Echo Isles, and I don't think your loa and my spirits are jealous of each other. Do you still keep their offerings?" } },
+      choices = {
+        { text = "Every night, beside the totems.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Not as often as she'd like.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_sham", tags = { "news" }, when = { party = { class = "SHAMAN" } },
@@ -454,25 +501,27 @@ P:NPC {
         { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core", faction = "Horde" }, text = "The fire spirits have been quieter these past days, as if something in Blackrock Mountain stopped burning so hot. I think you know why, because your boots still stink of the Firelord's hall." },
       },
       choices = {
+        { text = "You flinch from me, Dreamseeker. Is it the fel you smell?", next = "prej_kardris", when = { prejudiced = true } },
         { text = "Do the spirits mind that a priest prays to something else?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do shaman and druid hear the same voices?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Shaman and druid must hear the same voices.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What were the orcs before the demons?", next = "before" },
-        { text = "Why are the spirits restless?", next = "restless" },
+        { text = "The spirits seem restless here.", next = "restless" },
         { text = "Did the orc shamans ever study the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the elements care for warriors, Kardris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The elements can't care much for warriors.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the spirits watch over my companion, Kardris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The spirits must hate me, Kardris.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the elements care what a rogue does?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the spirits reject a Forsaken paladin, Kardris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The spirits must reject a Forsaken paladin, Kardris.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I faced Ragnaros in the Molten Core, Kardris.", next = "xcl_mc", when = { cleared = "Molten Core", faction = "Horde" } },
         { text = "Our shaman keeps us alive. What do they owe the spirits?", next = "xpt_kardris", when = { party = { class = "SHAMAN" } } },
+        { text = "My grandmother says your teaching made me forget the loa.", next = "xorig_tsham", when = { origin = "troll_orgrimmar_shaman" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you wish. Wisdom grows by sharing it." } },
     },
     before = {
       lines = { { id = "b_default", text = "Clans who honored the land and its spirits, and shaman who listened rather than commanded. The warlocks taught us to take, and the Warchief is teaching us again to ask." } },
-      choices = { { text = "Can the old ways really return?", next = "before_return" } },
+      choices = { { text = "The old ways might return someday.", next = "before_return" } },
     },
     before_return = {
       lines = { { id = "br_default", text = "They already have, in every shaman who answers the elements' call. It is slow, and some orcs still long for the fel, but the spirits are patient with us." } },
@@ -488,6 +537,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "The spirits have not shown me that. Perhaps they will, in time." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements spoke to the orcs long before the demons came, and they speak to us again now. Listen to them, and they will tell you more than any book." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is the greatest shaman of our people, and he learned it from Drek'Thar in the mountains of Alterac. He is proof that the old ways can come back." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of the Earth Mother, and the spirits of earth know her well. I find their faith a comfort, though I do not share it." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The warlocks turned away from the spirits and called demons instead, and the spirits went silent for a generation. I do not forgive that, and I do not forget it." } },
   },
 }
 
@@ -601,20 +654,20 @@ P:NPC {
         { text = "Is a priest's shadow anything like your craft, Zevrost?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Your kind traded the elements for demons. Was it worth it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How can you call demon magic a mere tool, Zevrost?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Isn't this the magic that ruined the orcs?", next = "ruin" },
+        { text = "This is the magic that ruined the orcs.", next = "ruin" },
         { text = "What is the Cleft of Shadow?", next = "cleft" },
-        { text = "Rogues and warlocks share the Cleft. Friendly neighbors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues and warlocks share the Cleft. Friendly neighbors, I'm sure.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The arcane is cleaner than what you teach, Zevrost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warlocks have any use for warriors, Zevrost?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How is a demon different from a hunter's beast, Zevrost?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Does the Light threaten your arts, Zevrost?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Light must threaten your arts, Zevrost.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = { { id = "h_again", text = "More questions? Curiosity is the first step to power, after all." } },
     },
     ruin = {
       lines = { { id = "r_default", text = "The orcs were ruined by bowing to demons, not by learning their names. A warlock commands, and a slave obeys, and there is all the difference in the world between them." } },
-      choices = { { text = "And if the demon wins?", next = "ruin_wins" } },
+      choices = { { text = "And if the demon wins, the warlock is lost.", next = "ruin_wins" } },
     },
     ruin_wins = {
       lines = { { id = "rw_default", text = "Then the warlock was weak, and the Horde is better rid of him. That is the price of the art, and every student of mine pays it willingly." } },
@@ -630,5 +683,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Some things are better left unasked in the Cleft, friend." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's power is a tool, nothing more, and a tool can be used by anyone with the will to master it. The old warlocks lost that mastery, and I do not intend to make their mistake." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief tolerates us, which is wiser than most. He knows the Horde needs every weapon it can find, even ones that make him uncomfortable." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have warlocks too, and they are less squeamish than ours. I find them refreshing company, if a little cold." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal was our door into this world, and the warlocks of the old Horde opened it. Whatever lies on the other side is still waiting, and I would very much like to know what." } },
   },
 }

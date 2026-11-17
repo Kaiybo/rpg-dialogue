@@ -101,16 +101,16 @@ P:NPC {
       },
       choices = {
         { text = "What's this challenge of yours?", next = "gauntlet" },
-        { text = "What's in Barleybrew Scalder?", next = "scalder" },
+        { text = "What are you pouring there, Yorus?", next = "scalder" },
         { text = "Why Redridge, of all places?", next = "redridge" },
-        { text = "Is it wise to drink before a fight?", next = "wisdom" },
+        { text = "Drinking before a fight hardly seems wise.", next = "wisdom" },
         { text = "I'm no warrior. Can I still run it?", next = "notwarrior", when = { class = { "PRIEST", "MAGE", "WARLOCK", "ROGUE", "HUNTER", "DRUID", "PALADIN", "SHAMAN" } } },
         { text = "A dwarf can hold his drink, Yorus.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Have many warriors run your Gauntlet and finished, Yorus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter run your Gauntlet, Yorus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your challengers ever come back hurt, Yorus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could a paladin pass your challenge without the drink, Yorus?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Is your brew really a test of courage, Yorus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your brew hardly seems a test of courage, Yorus.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Pour me one, Yorus.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -194,6 +194,11 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons brew a stout down in their mountain that's said to melt a man's teeth, and I'd risk my teeth for a taste. That's the only thing I'd ever thank them for, mind, and I'd still hit them afterward." } },
+    magni = { { id = "tp_magni", text = "King Magni can drink any dwarf in Ironforge under the table, and I've tried twice, though not with him personally. Some day I'll have the honour, and I'll lose gladly." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs in that mountain north of the Steppes drink some foul black grog, I hear, and they fight better for it. That's a lesson in brewing nobody should take, and I'll not say it twice." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers drink their ale on the backs of gryphons, which is a courage test I've never dared set anyone. Come to think of it, I might write that down for later." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "They sell a drink at the Darkmoon Faire that makes you see things that aren't there, and they charge twice what my family's brew does. Mine makes you see gnolls, and those are real enough." } },
     knows = { { id = "tp_knows", text = "I know brewin', fightin' and the shortest way to the Rethban Caverns, in roughly that order. What'll it be?" } },
     background = { { id = "tp_bg", text = "A Barleybrew, a warrior and a dwarf a long way from home, and only the first one matters to my mother." } },
     advice = { { id = "tp_ad", text = "Run west o' town past the herb garden before ye turn north, and ye'll miss most o' the gnolls." } },
@@ -324,16 +329,16 @@ P:NPC {
       },
       choices = {
         { text = "What do you teach, exactly?", next = "teach" },
-        { text = "What's at Alther's Mill?", next = "mill", when = { class = "ROGUE" } },
+        { text = "What would you have me do, Lucius?", next = "mill", when = { class = "ROGUE" } },
         { text = "Who are you working for?", next = "who" },
         { text = "What do you make of Lakeshire?", next = "town" },
-        { text = "Is opening other people's locks honest work?", next = "honest" },
+        { text = "Opening other people's locks hardly seems honest work.", next = "honest" },
         { text = "Gnomes build better locks than this.", next = "gnome", when = { race = "Gnome" } },
         { text = "You train rogues. Ever met a mage worth his salt?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do rogues and warriors ever work together, Lucius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter learn something from a rogue, Lucius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "We both deal in things decent folk won't name, Lucius.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you ever worry what becomes of the folk you train?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must worry what becomes of the folk you train.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Marshal Marris know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "My people walk unseen in the forest. Could I teach your students?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you really prefer locks to people, Lucius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -412,6 +417,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "There's a manor in the Alterac foothills where the best of my trade gather, and you'll find it when they decide you've found it. Don't ask me where, because I'd only tell you wrong on purpose." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves with family crests, which makes them worse thieves and worse nobles. I'd not take a job from one, because they'd pay in a knife." } },
+    the_stockade = { { id = "tp_the_stockade", text = "A good half of my old students have done a spell in the Stockade, and a few of them are running it now, from what I hear. I'm proud and ashamed in about equal measure." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the only port in the world where a rogue can walk down the street with his hood down. The goblins don't care what you've done, just what you're spending." } },
     knows = { { id = "tp_knows", text = "I know locks, boats and who's been where they shouldn't, which is a longer list than you'd think. Choose." } },
     background = { { id = "tp_bg", text = "I'm a dwarf on a dock, and that's as much as anyone gets, friend." } },
     advice = { { id = "tp_ad", text = "Never pick a lock you haven't looked at twice, and never trust a door that's already open." } },
@@ -532,7 +541,7 @@ P:NPC {
         { text = "Tell me about the necklace.", next = "necklace" },
         { text = "Why don't you swim for it?", next = "swim" },
         { text = "Do you really want to be a hero?", next = "hero" },
-        { text = "Catching anything?", next = "fish" },
+        { text = "It doesn't look like you're catching much.", next = "fish" },
         { text = "This is {pet}. Want to say hello?", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'm a paladin. That's a sort of hero.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I could teach you to sneak, Shawn.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -607,6 +616,10 @@ P:NPC {
   },
 
   topics = {
+    onyxia = { { id = "tp_onyxia", text = "Is there really a dragon in a swamp who eats knights for breakfast? Hilary says she's real, and I said I'd fight her, and now Hilary won't stop laughing at me." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My da took me to Stormwind once, and I saw the statues in the Valley of Heroes, and they were so big I fell over looking up. I'm going to be up there one day, right next to the biggest one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Hilary and I saved our coppers all year for the Darkmoon Faire, and then I spent mine on a whistle and she got a little stuffed murloc. She won, I think, though the whistle's very loud." } },
+    thrall = { { id = "tp_thrall", text = "The soldiers say the orcs have a big chief called Thrall who lives across the sea. I asked if he was bigger than the Blackrock ones, and they told me to go fish." } },
     knows = { { id = "tp_knows", text = "I know lots of things! Mostly about the dock, and Hilary, and Effsee. Ask me!" } },
     background = { { id = "tp_bg", text = "I live in Lakeshire and I'm going to be a hero, that's my whole story so far." } },
     advice = { { id = "tp_ad", text = "Don't swim in the lake, my mom says, so I'm saying it too." } },
@@ -744,7 +757,7 @@ P:NPC {
       choices = {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's wrong with the lake?", next = "lake" },
-        { text = "Is there really something big out there?", next = "thresher" },
+        { text = "Does the lake have any old legends?", next = "thresher" },
         { text = "What do you think of the murlocs?", next = "murlocs" },
         { text = "Is fishing anything like fighting, Matthew?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What lives in Lake Everstill besides fish, Matthew?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -754,7 +767,7 @@ P:NPC {
         { text = "Is fishing really like a rogue's work, Matthew?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do mages ever take up fishing, Matthew?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does fishing really quiet a troubled head, Matthew?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Was the lake always so troubled, Matthew?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The lake can't always have been so troubled, Matthew.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing, Matthew.", next = "END" },
       },
     },
@@ -796,6 +809,10 @@ P:NPC {
   },
 
   topics = {
+    murlocs_east = { { id = "tp_murlocs_east", text = "The murlocs in Everstill have learned where every good trout lies, and they get there first and leave nothing behind. I've fished this lake since I was a boy, and I've never been out-fished by a fish before." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the world, so the sailors say, and a goblin there pays good gold for a big catch. I'd go and see, but somebody's got to keep this lake honest." } },
+    gilneas = { { id = "tp_gilneas", text = "I fished with a Gilnean once, a sour old fellow who said the sea had better manners than people. I didn't argue with him, because I'd met people." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet sell a lure they swear brings fish leaping into the boat, and I bought one once, out of curiosity. It exploded in my tackle box, which I suppose is a goblin's idea of fishing." } },
     knows = { { id = "tp_knows", text = "I know the lake, its fish, and a few of its stories, true and otherwise. Which do you want?" } },
     background = { { id = "tp_bg", text = "I fish, and I teach others to fish, and that's been enough for one life so far." } },
     advice = { { id = "tp_ad", text = "Fish where the guards can see you; no fish is worth an arrow in the back." } },
@@ -932,7 +949,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
-        { text = "A bartender without ale?", next = "noale" },
+        { text = "A bartender without ale is a strange sight.", next = "noale" },
         { text = "Who eats here?", next = "eaters" },
         { text = "How's the town holding up?", next = "town" },
         { text = "I know where a cask of ale might fall off a wagon.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -943,7 +960,7 @@ P:NPC {
         { text = "What do the soldiers need most, Wental, besides ale?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does your milk come from, with the farms under threat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does conjured food hurt your trade, Wental?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why don't you serve ale, Wental?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'd have expected an inn to serve ale, Wental.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just the bread, thanks.", next = "END" },
       },
     },
@@ -985,6 +1002,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Half my customers ask if I've got Booty Bay rum, and I don't, and I've got milk, which somehow disappoints them more. The road from the south has orcs on it, and milk doesn't sail." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a cheese that's been aged in a cave somewhere in Kalimdor, and I tasted it once. I've been ashamed of my own cheese ever since, though nobody else seems to mind." } },
+    dark_iron = { { id = "tp_dark_iron", text = "I was asked for Dark Iron ale three times this morning by a dwarf, and I told him I had milk. He looked at me the way an orc looks at a gnoll, and I've decided to take it as a compliment." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm not much of a churchman, but I bless the bread before I set it out, the way my mother did. It's a habit more than a prayer, though the Light can take it either way." } },
     knows = { { id = "tp_knows", text = "Everyone talks at a bar, even one with no ale, so I hear a fair bit. What would you like to know?" } },
     background = { { id = "tp_bg", text = "I'm the bartender who doesn't serve drink, which is the only interesting thing about me." } },
     advice = { { id = "tp_ad", text = "Eat before you go into the hills; a hungry fighter makes mistakes, and gnolls don't." } },
@@ -1092,7 +1113,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
+        { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't, Martie by the lake among them. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
         { id = "h_bellygrub", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
           text = "Martie says you dealt with that boar in her garden. I've been telling her to build a better fence for years, so I'm glad somebody solved it the other way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll ask you nicely, the same as I ask everyone: don't trample my herbs on your way out to fight." },
@@ -1109,13 +1130,13 @@ P:NPC {
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows around Lakeshire?", next = "herbs" },
-        { text = "Do you and Martie work together?", next = "martie" },
+        { text = "You and Martie must work together.", next = "martie" },
         { text = "Should herb lore be shared freely?", next = "share" },
         { text = "Herbs are fine, but reagents are what I really need.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your herbs help warriors in a fight, Alma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter look for in the hills, Alma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some plants grow better where there's been death.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Have the hills always been this trampled, Alma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The hills can't always have been this trampled, Alma.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you gather herbs for the wounded out in gnoll country?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would you warn a rogue off certain herbs, Alma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think the hills are a trampled garden, Alma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1128,7 +1149,7 @@ P:NPC {
         { id = "he_default", text = "Peacebloom and silverleaf near the water, briarthorn and bruiseweed in the hills, and a little mageroyal if you look under the pines. The gnolls trample half of it, and the guards bleed on the other half." },
       },
       choices = {
-        { text = "The guards use your herbs?", next = "herbs_guards" },
+        { text = "So the guards use your herbs.", next = "herbs_guards" },
         { text = "Something else.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
       },
     },
@@ -1144,13 +1165,13 @@ P:NPC {
         { id = "ma_default", text = "We share a name and a love of growing things, and she keeps the prettier garden, which she'll tell you herself. I teach, she grows, and between us half the town's cuts get mended." },
       },
       choices = {
-        { text = "She seems sweet on Guard Parker.", next = "martie_parker" },
+        { text = "She seems sweet on someone, doesn't she?", next = "martie_parker" },
         { text = "Something else.", next = "BACK" },
       },
     },
     martie_parker = {
       lines = {
-        { id = "mp_default", text = "Seems? She talks about his patrols the way I talk about rare herbs. I keep my opinions to myself, because Darcy at the inn has opinions enough for all of Lakeshire." },
+        { id = "mp_default", text = "Seems? She talks about Guard Parker's patrols the way I talk about rare herbs. I keep my opinions to myself, because Darcy at the inn has opinions enough for all of Lakeshire." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1169,6 +1190,10 @@ P:NPC {
   },
 
   topics = {
+    emerald_dream = { { id = "tp_emerald_dream", text = "A night elf druid passed through looking for herbs once and spoke of a green dream where the world grows as it should. I'd like to sleep there one night, if it's anything like the hills before the gnolls." } },
+    elune = { { id = "tp_elune", text = "The night elves leave a little water out for their moon-goddess before they cut any herb, and I've started doing it too. I don't know if it helps the plants, but it slows me down, and that does." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids of the Cenarion Circle know more about growing things than anyone in Stormwind, and they're kind enough to share it if you don't trample their roots. I'd study with them if I could get to Moonglade." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs stripped the hills bare all the way north to the Steppes, and from what I hear, nothing grows near that black mountain of theirs. I can't imagine living somewhere with no green at all." } },
     knows = { { id = "tp_knows", text = "Herbs, soil, and who in Lakeshire needs a poultice this week, which is most of us. Ask away." } },
     background = { { id = "tp_bg", text = "I grow things and teach others to, and that's all the story I've got." } },
     advice = { { id = "tp_ad", text = "Cut the stem and leave the root, and the plant will be there for the next person." } },
@@ -1303,7 +1328,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I could use the rest, and I've a blister on my palm the size of a copper." },
       },
       choices = {
-        { text = "How's the bridge coming?", next = "bridge" },
+        { text = "The bridge doesn't look much closer to done.", next = "bridge" },
         { text = "What's Foreman Oslow like to work for?", next = "oslow" },
         { text = "Is the work dangerous?", next = "danger" },
         { text = "Should Stormwind pay you more for this?", next = "pay" },
@@ -1315,7 +1340,7 @@ P:NPC {
         { text = "Should Stormwind send soldiers to guard your crew, Trent?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does the stone for the bridge come from, Trent?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What's Foreman Oslow like to work for, Trent?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you really carry the bridge stone by stone, Trent?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You must carry the bridge stone by stone, Trent.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Back to work with you.", next = "END" },
       },
     },
@@ -1368,6 +1393,10 @@ P:NPC {
   },
 
   topics = {
+    thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span over a gorge you could drop a city into, and Oslow still says ours is harder. That's because he's not had to carry stone across theirs." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the old Moonbrook mines, I hear, and they took half Stormwind's stonemasons with them. Oslow's never been prouder that we stayed honest, and never been shorter of good hands." } },
+    stonemasons = { { id = "tp_stonemasons", text = "A lot of the lads I trained with joined the Stonemasons' Guild and went bad when the nobles wouldn't pay them. I'd have gone too, maybe, if Oslow hadn't found me first and shouted at me until I stayed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I won a strength contest at the Darkmoon Faire once, and the prize was a ribbon and a very sore back. Oslow made me carry stone the next morning anyway." } },
     knows = { { id = "tp_knows", text = "I know stone, the bridge, and what the foreman likes for breakfast. That's about the lot." } },
     background = { { id = "tp_bg", text = "I carry stone for a living, and I'm carrying this bridge across a lake, that's all." } },
     advice = { { id = "tp_ad", text = "Lift with your legs, not your back, and never stand downhill of a block." } },

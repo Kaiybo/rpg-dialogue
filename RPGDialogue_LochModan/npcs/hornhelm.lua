@@ -67,7 +67,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Ironband's dig.", next = "dig" },
         { text = "Where has the blastpowder gone?", next = "powder" },
-        { text = "Who is Prospector Stormpike?", next = "stormpike" },
+        { text = "Who reads Ironband's reports in Ironforge?", next = "stormpike" },
         { text = "I've heard about Saean.", next = "saean", when = { questDone = TODO_QUEST("Protecting the Shipment") } },
         { text = "I dig for the League too, Jern.", next = "league_kin", when = { origin = "dwarf_explorers_league" } },
         { text = "Who'd steal powder from a cart?", next = "rogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -81,7 +81,7 @@ P:NPC {
       },
       choices = {
         { text = "What's he hoping to find?", next = "dig_find" },
-        { text = "Why would results be slow?", next = "dig_slow" },
+        { text = "Results always come slowly on a dig, I'd imagine.", next = "dig_slow" },
         { text = "Something else, Jern.", next = "BACK" },
       },
     },
@@ -113,7 +113,7 @@ P:NPC {
           text = "We know now, or we know enough. Saean was passin' it tae the Dark Irons, an' I'd wager some o' it's packed against a wall I'd rather no' think about." },
       },
       choices = {
-        { text = "Who handles the barrels on the road?", next = "powder_who" },
+        { text = "Someone on that road must be handling the barrels.", next = "powder_who" },
         { text = "Count the barrels at both ends from now on.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Let the dig blow its own walls without powder.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -126,7 +126,7 @@ P:NPC {
           text = "Huldar an' Miran still, bless them, an' they've no' missed a day since the ambush. Saean's name I've struck from the ledger, an' I pressed hard enough tae tear the page." },
       },
       choices = {
-        { text = "A Dark Iron spy was seen in town, too.", next = "powder_spy" },
+        { text = "Could someone outside the League be behind it?", next = "powder_spy" },
         { text = "Something else, Jern.", next = "BACK" },
       },
     },
@@ -147,7 +147,7 @@ P:NPC {
           text = "He'll be wantin' that report, an' he'll no' like it. Hand it over, stand back, an' let him finish shoutin' before ye ask about the powder." },
       },
       choices = {
-        { text = "Does he shout at you, too?", next = "stormpike_you" },
+        { text = "I'd wager he shouts at you, too.", next = "stormpike_you" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -205,5 +205,9 @@ P:NPC {
     dark_iron = { { id = "tp_di", text = "They want our powder, an' I'd give a year's wages tae know what for.", next = "powder" } },
     troggs = { { id = "tp_troggs", text = "Ironband's got them in his trench an' Rugelfuss has them in the valley. They seem tae come up wherever a dwarf puts a shovel in." } },
     _none = { { id = "tp_none", text = "That's no' in any ledger o' mine, friend. Try the Stoutlager, for they keep a different sort o' book." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's down in the Badlands, an' the League wants in very badly. Ironband says the troggs came up out o' the same kind o' digs, an' I've the reports tae prove it." } },
+    magni = { { id = "tp_magni", text = "King Magni reads every report I send, or his clerks say he does. I write them neat just in case." } },
+    grim_batol = { { id = "tp_grim_batol", text = "The League's filed Grim Batol under 'dangerous, best left'. It's the only entry in our books wi' no reports at all, an' I like it that way." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan tae troggs an' worse, an' the troggs here came out o' our own digs. I file those two reports side by side an' lose sleep over it." } },
   },
 }

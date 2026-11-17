@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hi there, I'm Gubber Blump, and I love fishing. The Blump family is known for fishing, so I guess it runs in the blood, like gills, except we don't have gills." },
+          text = "Hi there, I'm Gubber Blump, and I love fishing. The Blump family is known for fishing, so I guess it runs in the blood, like gills, except we don't have gills. Only nobody takes the boats out no more, not since them murlocs moved in." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Family and the Fishing Pole") },
           text = "I like to catch Darkshore grouper, but no boats go out for 'em since them mean old murlocs moved in. Say, you wanna help me catch some? I'd give you a real good Blump Family Fishing Pole for it." },
         { id = "h_grouper_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Family and the Fishing Pole"), days = 3 } },
@@ -54,7 +54,7 @@ P:NPC {
         { text = "How do I fish?", next = "howto" },
         { text = "Tell me about crab.", next = "crab" },
         { text = "Tell me about your family.", next = "family" },
-        { text = "Why don't the boats go out?", next = "murlocs" },
+        { text = "The boats here never seem to go out.", next = "murlocs" },
         { text = "I've fished all my life too, Gubber.", next = "fisher_g", when = { profession = { name = "Fishing", min = 75 } } },
         { text = "Can you teach me, or sell me a pole?", next = "BUSINESS" },
         { text = "Bye, Gubber.", next = "END" },
@@ -66,7 +66,7 @@ P:NPC {
         { id = "ho_default", text = "It's real easy. You take a pole with a line on it, put some bait on if you got some, and cast it out in the water, and sure enough, them fish start biting." },
       },
       choices = {
-        { text = "What if they don't bite?", next = "howto_wait" },
+        { text = "They might not bite at all.", next = "howto_wait" },
         { text = "I don't have a pole.", next = "BUSINESS" },
       },
     },
@@ -96,7 +96,7 @@ P:NPC {
         { id = "cr_default", text = "You can bake it, boil it, grill it, fry it, and you can put it in a pie or a soup or a stew. There's crab cakes and crab on a stick and Ironforge surprise crab, which is my favourite, 'cause it's a surprise." },
       },
       choices = {
-        { text = "What's the surprise?", next = "crab_surprise" },
+        { text = "I hope the surprise is a good one.", next = "crab_surprise" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -154,6 +154,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm Gubber Blump, and I fish, and that's most of it, really." } },
     advice = { { id = "tp_ad", text = "Always bring more bait than you think. Fish don't care what you think." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the biggest fishing contest anywhere, I hear, and I'd love to enter. I'd probably lose, but I'd fish the whole time, so that's a win." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's goblins buy fish, and they buy it quick, and that's all I ask of anybody." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's marsh water has catfish as big as you are, sailors say. I'd go, if I had a boat that floated." } },
     _none = { { id = "tp_none", text = "I don't know nothing about that. I know about fish, though, and crab." } },
   },
 }

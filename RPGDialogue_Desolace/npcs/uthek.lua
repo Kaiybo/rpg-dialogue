@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you hate the Magram?", next = "magram", when = { reputation = { faction = "Gelkis Clan Centaur", min = "neutral" } } },
-        { text = "Who is the earth mother you speak of?", next = "theradras", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
+        { text = "Who do the Gelkis pray to, Uthek?", next = "theradras", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "Why should the Gelkis trust outsiders?", next = "trust", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "Our peoples are old enemies, Uthek.", next = "tauren_u", when = { race = "Tauren", reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "What would the Gelkis have me do?", next = "BUSINESS", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "ma_default", text = "The Magram spit on our mother and laugh at her, and they say the centaur need no one. Fools! Without her, we would be dust blowing over Desolace." },
       },
       choices = {
-        { text = "And the Magram say the same of you?", next = "magram_say" },
+        { text = "I'd wager the Magram say the same of you.", next = "magram_say" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -84,8 +84,8 @@ P:NPC {
         { id = "mp_default", text = "Peace? When the Magram bow to our mother, there will be peace, and not before. You are strange, outsider, to ask it while their blood is on you." },
       },
       choices = {
-        { text = "Then the Magram must break. I'll see to it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I fight for you, but I'd rather end this war.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then the Magram must break. I'll see to it.", next = "BACK", fx = { align = { light = -1 }, opinion = { centaur = "divide" } } },
+        { text = "I fight for you, but I'd rather end this war.", next = "BACK", fx = { align = { light = 1 }, opinion = { centaur = "peace" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -96,8 +96,35 @@ P:NPC {
       },
       choices = {
         { text = "And the other clans?", next = "theradras_clans" },
+        { text = "Why tell an outsider of her?", next = "faith_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    faith_op = {
+      lines = { { id = "fa_default", text = "Because you have walked on her ground and spilled Magram blood upon it, and she has tasted you. Now I ask you, outsider, and the earth listens: do you believe Theradras watches over her children?" } },
+      choices = {
+        { text = "I've felt the earth here. I believe she watches.", next = "fa_believe", fx = { affinity = 2, align = { order = 1 }, opinion = { theradras = "believe" } } },
+        { text = "Your goddess is a story to make you fight.", next = "fa_doubt", fx = { affinity = -2, align = { order = -1 }, opinion = { theradras = "doubt" } } },
+        { text = "Your gods are your own. The Gelkis are useful allies.", next = "fa_use", fx = { opinion = { gelkis = "useful" } } },
+        { text = "The Earth Mother holds all children. Perhaps Theradras too.", next = "fa_tauren", when = { race = "Tauren" }, fx = { affinity = 1, opinion = { theradras = "kin" } } },
+        { text = "I cannot say, Uthek.", next = "BACK" },
+      },
+    },
+    fa_believe = {
+      lines = { { id = "fab_default", text = "Then she will know your footsteps from the Magram's, and that is no small gift. Walk softly, and she may yet thank you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_doubt = {
+      lines = { { id = "fad_default", text = "You speak like a Magram, outsider, and it does not suit you. The earth heard it, and the earth is patient, but it does not forget." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_use = {
+      lines = { { id = "fau_default", text = "Honest, at least, and the Gelkis honor honesty even when it is cold. We use you, you use us, and the earth sees both." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_tauren = {
+      lines = { { id = "fat_default", text = "A strange thing for a tauren to say, and a kind one. Perhaps your mother and ours were never enemies, only their children." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     theradras_clans = {
       big = true,
@@ -134,6 +161,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am Uthek, and I hear the earth for the Gelkis. There is nothing else you need." } },
     advice = { { id = "tp_ad", text = "Walk softly on Desolace, outsider. The ground here remembers every footstep." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar, the Gelkis, the Magram, the Maraudine and the Galak are all children of Zaetar, and only the Gelkis remember the earth that bore him. The others worship only themselves." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon is the tomb of our father, and our mother Theradras guards it still. The Maraudine fool themselves that they serve her, but she weeps, and the earth tells me so." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of an Earth Mother, and I hear something like our own faith in their words. The earth does not care what name we use, only that we listen." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The Circle calls Zaetar a son of Cenarius, and they are right, and they forget that Zaetar chose our mother over his father's forest. I do not forget." } },
+    scourge = { { id = "tp_scourge", text = "The Magram raise the dead in the Valley of Bones, and they call it strength. It is a sickness, and the earth refuses it." } },
     _none = { { id = "tp_none", text = "The earth does not speak of that to me, so I do not speak of it to you." } },
   },
 }

@@ -30,6 +30,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_post = {
+      lines = {
+        { id = "opo_default", text = "That be the question I ask the sky every night, mon, and the sky never answer. The Warlord got Blackrock on every side, and my Sha'ni be out there alone. You tell me, is he right?" },
+      },
+      choices = {
+        { text = "Orders are orders. The Warlord is right to hold you.", next = "op_post_right", fx = { align = { order = 1 }, opinion = { goretooth = "respect" } } },
+        { text = "Your wife comes first. The orders can wait.", next = "op_post_wrong", fx = { affinity = 2, align = { order = -1 }, opinion = { goretooth = "wrong" } } },
+        { text = "I'll judge the Warlord when Sha'ni's home.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_post_right = {
+      lines = {
+        { id = "opor_default", text = "Yeah, mon, I know it, and I hate that I know it. If every soldier left, the Blackrock would walk in, so I stand here and I hate it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_post_wrong = {
+      lines = {
+        { id = "opow_default", text = "You say it like it be easy, and I love you for saying it, mon. But Sha'ni would box my ears if she found out I deserted, so I'll keep standing, and you keep looking." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -50,8 +72,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I be listening, with one eye on the road." },
       },
       choices = {
-        { text = "Tell me about Sha'ni.", next = "shani" },
-        { text = "What was her platoon doing out there?", next = "mission" },
+        { text = "Tell me about your wife.", next = "shani" },
+        { text = "What took her out there?", next = "mission" },
         { text = "Why don't you go after her yourself?", next = "post" },
         { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Krom'Grul") } },
         { text = "The spirits might know where she is.", next = "xspirit", when = { class = { "SHAMAN", "PRIEST" } } },
@@ -127,6 +149,7 @@ P:NPC {
         { id = "po_default", text = "Because the Warlord say I can't leave my post, mon, and if every soldier in Kargath went running after someone they love, there be no Kargath. I know that, I just don't like it." },
       },
       choices = {
+        { text = "Is the Warlord right to keep you here?", next = "op_post" },
         { text = "You could go anyway.", next = "post_desert" },
         { text = "Something else.", next = "BACK" },
       },
@@ -179,6 +202,14 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Darkspear, mon, from the Echo Isles, and a soldier of the Horde since the Warchief bring us across the sea. Kargath be where they put me." } },
     advice = { { id = "tp_ad", text = "Say the important things before somebody leave on a mission, mon, because you don't always get to say them after." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he bring us across the sea to the Warchief. Sha'ni say he be the wisest troll alive, and I believe her." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my people, mon, and they be good people, but Sha'ni's mother and father live in the Hinterlands. We was going to live there with them, after." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be where I grew up, mon, before the sea witch came. I'd like to take Sha'ni there someday, to see the water." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief give the Darkspear a home when we had none, mon, and I fight for him because of it. That be all there is to it." } },
+    firegut = {
+      { id = "tp_firegut", text = "The Firegut ogres took Sha'ni's platoon, mon, I know it in my bones. Some day I go up that mountain myself." },
+      { id = "tp_firegut2", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "The Firegut be fewer now, mon, because of you. It don't bring her back, but it be something." },
+    },
     _none = { { id = "tp_none", text = "I don't know nothing about that, mon. Ask me about the road east, that be all I watch." } },
   },
 }

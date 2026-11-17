@@ -140,16 +140,16 @@ P:NPC {
       choices = {
         { text = "Elves caged my people too, once. I'll get you out.", next = "troll", when = { race = "Troll" } },
         { text = "Why did the elves cage you?", next = "caged" },
-        { text = "What secret could a prisoner have?", next = "secret" },
+        { text = "I doubt a prisoner has any secrets worth hearing.", next = "secret" },
         { text = "Why should I trust a troll?", next = "trust" },
         { text = "Should I break the bars or the guards first, Rin'ji?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What were you hunting when the elves caught you, Rin'ji?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "You must have been hunting something when the elves caught you.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why did the elves of Quel'Danil cage you, Rin'ji?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why should a paladin free a troll, Rin'ji?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "How did the elves catch you, Rin'ji?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "The elves must have caught you off guard, Rin'ji.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the loa listen to you, Rin'ji?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What do you need from a shaman, Rin'ji?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What kind of spell is on the lock, Rin'ji?", next = "xmage", when = { class = "MAGE" } },
+        { text = "There's a spell on that lock, Rin'ji.", next = "xmage", when = { class = "MAGE" } },
         { text = "Are you one of the Vilebranch, Rin'ji?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why should a paladin of the Horde free you, Rin'ji?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck, Rin'ji.", next = "END" },
@@ -160,7 +160,7 @@ P:NPC {
       lines = {
         { id = "ca_default", text = "Because I be a troll in their woods, mon, and that be crime enough to an elf. Trolls and elves been killin' each other since before the dwarves came out of their mountains, so nobody be askin' my side of it." },
       },
-      choices = { { text = "What is your side of it?", next = "caged_side" } },
+      choices = { { text = "There must be another side to it.", next = "caged_side" } },
     },
     caged_side = {
       lines = {
@@ -190,6 +190,9 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer and the elves of Quel'Danil both hunt my people, mon, and they been doin' it longer than anybody remember. I'd take a dwarf's axe over an elf's cage, though, since at least the axe be quick." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be wise, mon, throwin' in with the orcs while the rest of us were busy starvin' in the hills. I'd walk all the way to their islands if somebody would open this cage." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi woke their blood god down south, mon, and the drums can be heard all the way up here at night. I want no part of it, and I'd be far away from it already if it weren't for these bars." } },
     _none = { { id = "tp_none", text = "Rin'ji don't know, and Rin'ji don't care, not while he be in this cage." } },
   },
 }

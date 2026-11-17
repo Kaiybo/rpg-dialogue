@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_necro", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "Ah, my understanding friend! Do come in. The work has come along wonderfully since we talked, and I'd so like a second opinion." },
     { id = "g_hermit", text = "A visitor, how lovely! I don't get many, dear, not living ones." },
     { id = "g_supplies", when = { questActive = TODO_QUEST("Supplies from Darkshire") }, text = "Back from Darkshire already, dear? No, of course not; everyone's so slow these days, though I'm not, not anymore." },
     { id = "g_after", when = { questDone = TODO_QUEST("Translation to Ello") }, text = "Oh, hello again, dear. It's been a busy week, and a busy week for everyone, I hear." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dead = {
+      lines = {
+        { id = "op_dead_a", text = "Would they, dear? The priests in Darkshire say so, and they say it very firmly, with their hands folded. But I've always thought that love is a sort of craft, and a craftsman doesn't stop just because the work is difficult. What do you think?" },
+      },
+      choices = {
+        { text = "The dead should rest. Holding on only hurts the living.", next = "op_dead_1", fx = { opinion = { undeath = "abomination", necromancy = "forbid" }, align = { light = 1 }, affinity = -2 } },
+        { text = "If I could bring someone back, I would. Hang the priests.", next = "op_dead_2", fx = { opinion = { necromancy = "tempting", undeath = "acceptable" }, align = { light = -1 }, affinity = 3 } },
+        { text = "Love doesn't end, but the body does. Let her go.", next = "op_dead_3", fx = { opinion = { necromancy = "forbid" }, trait = { kind = 1 } } },
+        { text = "The Light forbids what you're hinting at. It's a sin.", next = "op_dead_4", when = { class = "PRIEST" }, fx = { opinion = { necromancy = "forbid", the_light = "faith" }, affinity = -2 } },
+        { text = "That's between you and the Light, I think.", next = "BACK" },
+      },
+    },
+    op_dead_1 = {
+      lines = { { id = "op_dead_r1", text = "Oh. Yes, I suppose that's what they'd say at the Cathedral. Never mind, dear, never mind; it was only an old man's fancy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dead_2 = {
+      lines = { { id = "op_dead_r2", text = "Would you? Would you really? Oh, how lovely to meet someone who understands. Come back soon, dear, and I may have something to show you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dead_3 = {
+      lines = { { id = "op_dead_r3", text = "Let her go. Everyone says it so easily, as if she were a sparrow. You're kind to say it gently, dear, but I'm afraid I'm too old to learn new tricks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dead_4 = {
+      lines = { { id = "op_dead_r4", text = "A sin! Such a heavy word for a little hobby, dear. You priests do so love your heavy words, and you never stay for supper." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Oh, all the time, friend, all the time. The dead are never very far in Duskwood, are they? I find them quite good company, really, once you get used to the smell." } },
@@ -115,10 +144,10 @@ P:NPC {
       },
       choices = {
         { text = "The trees around your shack are dead, and not from age.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "What are you working on?", next = "work" },
+        { text = "You look busy with some work of your own.", next = "work" },
         { text = "Tell me about your wife.", next = "wife" },
         { text = "Don't the dead bother you, up here?", next = "dead" },
-        { text = "Why not live in Darkshire?", next = "town" },
+        { text = "Darkshire's a long walk from here.", next = "town" },
         { text = "Let me say the rites at her grave.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know necromancy when I smell it.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "What do you preserve, exactly?", next = "alchemy", when = { profession = "Alchemy" } },
@@ -126,7 +155,7 @@ P:NPC {
         { text = "You've a lot of locked crates for a lonely old man.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "There's a strange smell of preservatives here, Abercrombie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the dead around Raven Hill trouble you, old man?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "You live alone among the graves. Do you need protecting, old man?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You live alone among the graves. You need protecting, old man.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever feel the spirits near your hut, Abercrombie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
@@ -141,7 +170,7 @@ P:NPC {
       choices = {
         { text = "I'm sure they'll love it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something about this feels wrong.", next = "wrong", fx = { trait = { skeptical = 1 } } },
-        { text = "What's all the thread for?", next = "work_thread" },
+        { text = "There's thread strung all over this place.", next = "work_thread" },
       },
     },
     wrong = {
@@ -181,6 +210,7 @@ P:NPC {
     didnt = {
       lines = { { id = "d_default", text = "I didn't bear the grief, dear, that's all I meant. I'm a hermit, and we're allowed to be strange about such things." } },
       choices = {
+        { text = "Some would say grief should end at the grave.", next = "op_dead" },
         { text = "Strange how?", next = "didnt_strange" },
         { text = "Something else.", next = "BACK" },
       },
@@ -219,7 +249,7 @@ P:NPC {
         { id = "to_default", text = "It's a long road, and I'm not getting any younger. Besides, Darkshire has been unkind about my hobbies, with all its whispers and its looks." },
       },
       choices = {
-        { text = "Who's been unkind?", next = "town_unkind" },
+        { text = "Darkshire's folk seem to talk about you.", next = "town_unkind" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -293,5 +323,9 @@ P:NPC {
     morbent_fel = { { id = "tp_morbent", text = "The fellow on the hill? Crude work, all bones and no heart, and I'd never let anything of mine go out looking like that." } },
     embalmer = { { id = "tp_embalmer", text = "It's a silly story they tell children in Darkshire, and I've always thought the ending was unkind." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. I'm out of touch up here, pleasantly out of touch." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a lovely little village once, dear, with a church and a well and my Eliza's garden. It's quieter now, and the cemetery's grown, as cemeteries do." } },
+    scourge = { { id = "tp_scourge", text = "They say in Lordaeron the dead get up and walk about at somebody else's bidding, which seems terribly rude to them, dear. Here, at least, our dead only get up for love." } },
+    holy_light = { { id = "tp_holy_light", text = "Eliza used to take me to the chapel every week to hear about the Light, and I'd sit at the back counting herbs in my head. I miss those mornings more than I can say." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Those riders come through the hills on black horses some nights, dear, and I draw the curtains and keep very still. They've never knocked, and I'd rather they never did." } },
   },
 }

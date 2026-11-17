@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "The ghost in the cage tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
     { id = "g_default", text = "Mind Raze; he's harmless unless I say otherwise, and I rarely say otherwise to people who are useful." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. Good, I prefer my helpers that way." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun a great deal in that time. Someone always comes to take it, so I'm glad you're back." },
@@ -50,11 +51,11 @@ P:NPC {
       },
       choices = {
         { text = "What is shadow silk?", next = "silk" },
-        { text = "Who are the Undermarket?", next = "market" },
+        { text = "Who else troubles your trade here?", next = "market" },
         { text = "Tell me about Raze.", next = "raze" },
         { text = "Why live here, so near Blackrock Mountain?", next = "camp" },
         { text = "How do you weave shadow silk?", next = "xtailor", when = { profession = "Tailoring" } },
-        { text = "How did you bind an infernal?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Binding an infernal takes more than most warlocks have.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your silk.", next = "END" },
       },
     },
@@ -90,7 +91,7 @@ P:NPC {
 
     market = {
       lines = {
-        { id = "ma_default", text = "Cutthroat traders who'll sell, move or trade anything for the right price, and they've set up a base here with close ties to the Dark Iron. Trade Master Kovic runs it, with a great lump named Clunk to do his lifting." },
+        { id = "ma_default", text = "The Undermarket, cutthroat traders who'll sell, move or trade anything for the right price, and they've set up a base here with close ties to the Dark Iron. Trade Master Kovic runs it, with a great lump named Clunk to do his lifting." },
       },
       choices = {
         { text = "Why do you care about traders?", next = "market_why" },
@@ -115,7 +116,7 @@ P:NPC {
         { id = "ra_default", text = "An infernal, bound to me some years ago, and the best guard I've ever had, since he doesn't sleep, drink or ask for wages. He's helped more than one of my errand-runners when the poachers turned out to be more than they could manage." },
       },
       choices = {
-        { text = "Isn't a demon dangerous to keep?", next = "raze_danger" },
+        { text = "A demon seems a dangerous thing to keep.", next = "raze_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,6 +170,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A tailor first and a warlock second, though the second has been very useful to the first." } },
     advice = { { id = "tp_ad", text = "Never buy silk from someone who can't tell you which nest it came from." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's servants are useful, and Raze is the most useful of all. I don't worship them, I employ them." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain spin no silk worth having, but their spiders are excellent. I've sent people to fetch me some." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages would have called me a heretic, and they'd have been right. Their city's in ruins now, and I'm still sewing." } },
     _none = { { id = "tp_none", text = "I know thread and spiders and the people who steal both, and that's the end of my expertise." } },
   },
 }

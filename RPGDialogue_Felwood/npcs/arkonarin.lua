@@ -52,8 +52,8 @@ P:NPC {
       choices = {
         { text = "Who did you come here with?", next = "trey" },
         { text = "What is the Council doing down here?", next = "council" },
-        { text = "How do I get you out?", next = "out" },
-        { text = "Jessir Moonbow is waiting for you.", next = "jessir" },
+        { text = "There must be some way to get you out.", next = "out" },
+        { text = "Jessir Moonbow is waiting for you.", next = "jessir", when = { questActive = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "I'm a paladin. Who was your friend?", next = "xpala", when = { class = "PALADIN" } },
         { text = "I'm no Council warlock. I'm here to help.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Hold on. I'll be back.", next = "END" },
@@ -123,7 +123,7 @@ P:NPC {
         { id = "o_key", when = { questActive = TODO_QUEST("A Strange Red Key") }, text = "You've already got the key, so let me out! Then we find our gear and Trey's sword, and we fight our way up together." },
       },
       choices = {
-        { text = "And after that?", next = "out_after" },
+        { text = "You must have plans for after that.", next = "out_after" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,6 +172,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't let them take you alive. Whatever happens on the stairs, don't let them take you alive." } },
     silver_hand = { { id = "tp_sh", text = "Trey's order. He'd want me to say something kind about them, so I'll say they make friends worth dying for." } },
     burning_legion = { { id = "tp_bl", text = "They're here, walking around this barrow as if it were theirs. Whoever says the demons left Felwood has never been down these stairs." } },
-    _none = { { id = "tp_none", text = "I don't care about that right now. Get me out of here and I'll answer anything you like." } },
+    elune = { { id = "tp_elune", text = "I've prayed to Elune every night in this cage, and she sent you, so I suppose she listens after all. I'd like her to send a key next." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess would never have let us come here without a full company of Sentinels. That's why we didn't ask her." } },
+    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he says it goes with him even into a place like this. I hope he's right, because he's somewhere in here too." } },
+    satyrs = { { id = "tp_satyrs", text = "The satyrs of Shadow Hold are the worst of them, cruel and clever both. They laughed while they put me in here, and I've been listening to them laugh ever since." } },
+    _none = { { id = "tp_none", text = "I don't care about that right now. Get me out of here, by Elune, and I'll answer anything you like." } },
   },
 }

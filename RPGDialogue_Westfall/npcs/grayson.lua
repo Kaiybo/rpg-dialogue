@@ -123,9 +123,9 @@ P:NPC {
       },
       choices = {
         { text = "Why do you stay?", next = "stay" },
-        { text = "Were you really a pirate?", next = "pirate" },
-        { text = "Tell me about Old Murk-Eye.", next = "murkeye" },
-        { text = "What's it like, being dead?", next = "dead" },
+        { text = "You have the look of a pirate about you.", next = "pirate" },
+        { text = "What threatens this stretch of coast?", next = "murkeye" },
+        { text = "Being dead can't be pleasant.", next = "dead" },
         { text = "I could help you find rest, captain.", next = "priest", when = { class = "PRIEST" } },
         { text = "We're both dead. Why aren't you bitter?", next = "scourge", when = { race = "Scourge" } },
         { text = "My people scatter the dead to the wind, Captain.", next = "skyborne", when = { race = "Skyborne" } },
@@ -133,7 +133,7 @@ P:NPC {
         { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can my beast actually see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does the Light trouble you, Captain, being what you are?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd think the Light would trouble one like you, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "My people teach that every spirit should pass on. Why do you stay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you mind being a ghost, Captain Grayson?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest easy, captain.", next = "END" },
@@ -191,7 +191,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll put him down.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
-        { text = "Why does he hate the lighthouse?", next = "murkeye_why" },
+        { text = "He seems to hate the lighthouse.", next = "murkeye_why" },
       },
     },
     murkeye_why = {
@@ -266,6 +266,12 @@ P:NPC {
   },
 
   topics = {
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail fly a flag I flew myself once, and I'm not proud of it now. They're cruel even by a pirate's measure, and they'd sink this whole coast for a chest of silver." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I made port at Booty Bay more times than I can count, and I left more coin there than I'll ever see again. The goblins were kind to me while my purse was full, and that was kind enough." } },
+    deadmines = { { id = "tp_deadmines", text = "They've built a ship inside the hill, I'm told, which is a fool's place for a ship and a ghost's joke if ever I heard one. Every night I watch the coast for it to sail, and every night it doesn't." } },
+    third_fleet = { { id = "tp_third_fleet", text = "The Third Fleet sailed for Stormwind once, and I raced them along this coast in my younger days. They're gone now, scattered or sunk, and I wish I had a few of their lanterns to keep this one lit." } },
+    gilneas = { { id = "tp_gilneas", text = "I sailed past Gilneas once, in a fog thick enough to chew, and the wall they'd built was black against the cliffs. Nobody came out to hail us, and I've wondered since whether anybody's left behind it." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's harbour was a pirate's grave in my day, with Lady Proudmoore's ships lying in wait. I'm glad I never tried it, because I'd not like to haunt that marsh." } },
     knows = {
       { id = "tp_knows", text = "A dead man sees a good deal from the top of a lighthouse, and hears even more in the wind off the water. Ask me about any of this." },
     },

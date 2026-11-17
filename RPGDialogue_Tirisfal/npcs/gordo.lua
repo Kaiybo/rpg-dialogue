@@ -52,9 +52,9 @@ P:NPC {
       choices = {
         { text = "Who is your master, Gordo?", next = "master" },
         { text = "Why do you say \"us\"?", next = "us" },
-        { text = "What do you see on this road?", next = "road" },
+        { text = "You must see a great deal on this road.", next = "road" },
         { text = "I know herbs. Let me show you how to pick them.", next = "teach", when = { profession = "Herbalism" } },
-        { text = "Who made you, Gordo?", next = "made", when = { class = { "WARLOCK", "PRIEST", "MAGE" } } },
+        { text = "Someone must have made you, Gordo.", next = "made", when = { class = { "WARLOCK", "PRIEST", "MAGE" } } },
         { text = "I'll help you with the weeds.", next = "BUSINESS" },
         { text = "Goodbye, Gordo.", next = "END" },
       },
@@ -103,7 +103,7 @@ P:NPC {
     road = {
       lines = { { id = "ro_default", text = "Gordo sees the new dead walking from Deathknell, very wobbly, and the men in red hiding in the trees. The red men shoot arrows at Gordo, but the arrows is small." } },
       choices = {
-        { text = "The Scarlet Crusade shoots at you?", next = "road_scarlet" },
+        { text = "The Scarlet Crusade shoots at you, then.", next = "road_scarlet" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,6 +135,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Us does not remember before. Before is very dark and very cold, and now is weeds." } },
     advice = { { id = "tp_ad", text = "Do not pick the weeds too hard, because then they is not weeds anymore, they is mush." } },
+    scourge = { { id = "tp_scourge", text = "Gordo was Scourge, before, and Gordo did not like it. Gordo likes Brill better, because here nobody shouts in Gordo's head." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken let Gordo stay and give Gordo jobs. Gordo is Forsaken now too, Gordo thinks, but Gordo does not ask, in case the answer is no." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Gordo saw the Dark Lady once, from far away. She was very small and very scary, and Gordo stood up very straight." } },
     _none = { { id = "tp_none", text = "Gordo does not know that one. Ask Master; he knows all the words." } },
   },
 }

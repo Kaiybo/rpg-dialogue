@@ -18,6 +18,7 @@ P:NPC {
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
   },
   greetings = {
+    { id = "o_grim_redeem", when = { gossip = { topic = "grimtotem", stance = "redeemable" } }, text = "The Chief told me you think the Grimtotem could still come home. I hope you're right, though I'd keep my spear close while you wait." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "Come, young brave, and plant your hooves. Let us see what the plains have taught you since you last stood here." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Walk with the Earth Mother, friend. You are not one of my braves, but you are welcome at my fire." },
   },
@@ -117,21 +118,21 @@ P:NPC {
       choices = {
         { text = "Why should a hunter learn to stand firm, Harutt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "Must a shaman be as strong as a warrior, Harutt?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "A shaman needn't be as strong as a warrior, Harutt.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does patience have to do with fighting?", next = "patience" },
-        { text = "What dangers face the camp?", next = "danger" },
+        { text = "The camp seems to face plenty of danger.", next = "danger" },
         { text = "Who else trains here?", next = "others" },
-        { text = "Can a priest stand as firmly as a brave, Harutt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "A priest can't stand as firmly as a brave, Harutt.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a druid's bear any different from a warrior's strength?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What could a rogue learn from you, Harutt?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do the braves trust mages, Harutt?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The braves don't seem to trust mages, Harutt.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do the braves fear warlocks, Harutt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you train beside a paladin, Harutt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Harutt.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Ask what you will, young one. The sun is high, and there is time." },
-        { id = "h_again2", text = "Something more? Speak, and I will listen." },
+        { id = "h_again2", text = "Something more? Speak, and I will listen, as the mesa listens to the wind." },
       },
     },
     patience = {
@@ -144,7 +145,7 @@ P:NPC {
     },
     danger = {
       lines = { { id = "d_default", text = "The Bristleback quilboar who dig in Brambleblade Ravine, below the mesa, and the plainstriders and battleboars that roam the grass. Grull Hawkwind sends the braves against them, and I make sure they come back." } },
-      choices = { { text = "Why do the quilboar attack you?", next = "danger_why" } },
+      choices = { { text = "The quilboar seem to attack you often.", next = "danger_why" } },
     },
     danger_why = {
       lines = { { id = "dw_default", text = "They are greedy for land, and they think Red Cloud Mesa should belong to them. Chief Hawkwind would share the plains with almost anyone, but the quilboar do not want to share anything." } },
@@ -166,6 +167,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That I do not know, young one. Ask Grull or the chief, who see farther than I do." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are the first enemy every brave in Narache meets, and they are a good teacher. Tough, mean, and never willing to give up, which is what I want my braves to learn." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carried river stones up the hill when he was a calf, just as my braves do now. He told me so himself, and I believe him." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us these stones and this hill, and I use them both. My braves complain, but they get stronger, and she is pleased." } },
   },
 }
 
@@ -181,7 +185,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "The wind told me you were coming, young one. Sit with me, and tell me what the elements have whispered to you." },
-    { id = "g_other", when = { ["not"] = { class = "SHAMAN" } }, text = "Peace be on you, traveler. The morning is clear, and the spirits are calm." },
+    { id = "g_other", when = { ["not"] = { class = "SHAMAN" } }, text = "Peace be on you, traveler. The morning is clear, An'she is warm, and the spirits are calm." },
   },
   notice = {
     { id = "n_ghost", cat = "form", when = { form = { "ghostwolf" } },
@@ -189,6 +193,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_elements = {
+      lines = {
+        { id = "ope_q", text = "Every people I've met treats the elements differently, and I've learned not to call any of them wrong too quickly. What do you think the elements are owed, young one?" },
+      },
+      choices = {
+        { text = "Respect, the way you'd treat an elder. They're not ours to use.", next = "op_elements_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "Nothing. They're a force like any other, to be bent to need.", next = "op_elements_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { the_elements = "useful" } } },
+        { text = "Thanks, and sometimes a bargain. The orcs' way works too.", next = "op_elements_r3", fx = { trait = { practical = 1 }, opinion = { the_elements = "mixed" } } },
+        { text = "I hear them, Meela. They're owed listening.", next = "op_elements_r4", fx = { affinity = 2, opinion = { the_elements = "respect" } }, when = { class = "SHAMAN" } },
+        { text = "I've never thought about it, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r1 = {
+      lines = {
+        { id = "op_elements_r1", text = "That's the tauren way, and I couldn't have put it better. Go and listen to the wind for a while, and it'll thank you for it." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r2 = {
+      lines = {
+        { id = "op_elements_r2", text = "The orc warlocks thought that way about other powers, once, and you've seen what became of their land. Be careful, young one." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r3 = {
+      lines = {
+        { id = "op_elements_r3", text = "Thrall would say much the same, I think, and I'll not argue with the Warchief about the spirits. Only remember to thank them first." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
+    op_elements_r4 = {
+      lines = {
+        { id = "op_elements_r4", text = "Then you've learned the hardest lesson already, and everything after is only practice." },
+      },
+      choices = {
+        { text = "Something else, Meela.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They do not resent it; they do not know it. The first lesson I teach is to listen before you ask, and you, I think, had to learn to listen in a very dark place. If the Light is how you listen, I'll not argue with it." } },
@@ -284,15 +332,15 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "How do you listen to the elements?", next = "listen" },
-        { text = "Who taught the tauren the shaman's way?", next = "tradition" },
-        { text = "I'm an orc shaman. Is our way different?", next = "orc", when = { race = "Orc" } },
+        { text = "Someone must have taught the tauren the shaman's way.", next = "tradition" },
+        { text = "I'm an orc shaman. Is our way different?", next = "orc", when = { race = "Orc", class = "SHAMAN" } },
         { text = "Your elements don't fear my demon, do they?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is the arcane so different from the elements?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior thank the elements, Meela?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What does my companion hear, Meela?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do the elements and my prayers ever quarrel, Meela?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "I'd guess the elements and my prayers quarrel sometimes, Meela.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does a druid's path differ from a shaman's, Meela?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do the spirits forgive a rogue, Meela?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "The spirits must find it hard to forgive a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the elements resent the Light, Meela?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Meela.", next = "END" },
       },
@@ -302,7 +350,7 @@ P:NPC {
     },
     listen = {
       lines = { { id = "l_default", text = "Sit still on the grass until you can feel the earth under you, and then wait until you can feel the wind on your face without thinking about it. When you stop noticing yourself, the spirits begin to notice you." } },
-      choices = { { text = "What if they never answer?", next = "listen_none" } },
+      choices = { { text = "They might never answer.", next = "listen_none" } },
     },
     listen_none = {
       lines = { { id = "ln_default", text = "Then you are still talking inside your own head, and you should try again tomorrow. The spirits answer everyone in time, but they do not answer anyone who is in a hurry." } },
@@ -314,7 +362,10 @@ P:NPC {
     },
     tradition = {
       lines = { { id = "t_default", text = "No one taught us; the tauren have always spoken with the spirits of the earth, as long as there have been tauren. Our elders say the Earth Mother gave us her ears so we would never be lonely on the plains." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think the spirits are owed?", next = "op_elements" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     orc = {
       lines = { { id = "o_default", text = "The orcs lost the elements for a time and found them again through Thrall, so your way is younger and fiercer than ours. The spirits are the same spirits, though, and they were glad to have your people back." } },
@@ -323,6 +374,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That is not mine to know, little one. Ask the elders at Bloodhoof, or the chief." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements are not servants, and they are not to be commanded. A shaman listens first, asks second, and only acts when the spirits agree." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the source of all the spirits, and every shaman must honour her. I teach the young to thank her before they ask anything of the elements." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman, and that is a great comfort to me. A leader who listens to the spirits will not lead his people astray." } },
   },
 }
 
@@ -346,6 +400,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_druidism = {
+      lines = {
+        { id = "opdr_q", text = "I've told you how we learned the old ways from the kaldorei. Now I'd like to hear you: do you think a druid should stand apart from the wars of their people?" },
+      },
+      choices = {
+        { text = "Yes. The wild has no side, and neither should a druid.", next = "op_druidism_r1", fx = { affinity = 2, align = { order = -1 }, opinion = { druidism = "neutral" } } },
+        { text = "No. A druid who won't defend their people isn't worth much.", next = "op_druidism_r2", fx = { affinity = -1, align = { order = 1 }, opinion = { druidism = "duty" } } },
+        { text = "I'm a druid, and I'd guard Mulgore before any grove.", next = "op_druidism_r3", fx = { opinion = { druidism = "duty" } }, when = { class = "DRUID" } },
+        { text = "I don't know enough of druids to say.", next = "BACK" },
+      },
+    },
+    op_druidism_r1 = {
+      lines = {
+        { id = "op_druidism_r1", text = "That's what they teach in Moonglade, and it's what I try to live by here. It's harder than it sounds, when your people are bleeding." },
+      },
+      choices = {
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    op_druidism_r2 = {
+      lines = {
+        { id = "op_druidism_r2", text = "Hamuul's heard that from many of our braves, and he answers it better than I can. I only know the forest doesn't care whose banner's on the axe." },
+      },
+      choices = {
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    op_druidism_r3 = {
+      lines = {
+        { id = "op_druidism_r3", text = "Then guard it well, and don't let anyone in Moonglade tell you that's a lesser thing." },
+      },
+      choices = {
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Not fear, I think, only uncertainty. They know life and they know death, and you are both and neither. The night elves taught us to see the balance in things, and you are a balance I have not seen before." } },
@@ -433,30 +522,31 @@ P:NPC {
       },
       choices = {
         { text = "What does a druid know of fighting, Gart?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is the hunter's path like the druid's, Gart?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The hunter's path seems much like the druid's, Gart.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who taught the tauren to be druids?", next = "history" },
         { text = "What does a druid do for Mulgore?", next = "land" },
-        { text = "I'm a night elf druid as well.", next = "elf", when = { race = "NightElf" } },
-        { text = "Do the elements and the beasts share the same spirits, Gart?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'm a night elf druid as well.", next = "elf", when = { race = "NightElf", class = "DRUID" } },
+        { text = "The elements and the beasts must share the same spirits.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would the creatures here make of a priest, Gart?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a rogue learn from the creatures, Gart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why are the night elves wary of mages, Gart?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the creatures fear my demon, Gart?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The creatures seem to fear my demon, Gart.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the creatures fear me, Gart?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Gart.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Ask what you will, and I will answer as well as I can." },
+        { id = "h_again", text = "Ask what you will, and I will answer as well as I can, Earth Mother willing." },
       },
     },
     history = {
       lines = { { id = "h2_default", text = "The demigod Cenarius taught us long ago, in the time of the ancient war, and the knowledge never left us. Today the Cenarion Circle still welcomes tauren in Moonglade, though not every elf is pleased about it." } },
-      choices = { { text = "Do the elves resent you?", next = "history_elves" } },
+      choices = { { text = "The elves must resent you.", next = "history_elves" } },
     },
     history_elves = {
       lines = { { id = "he_default", text = "Some do, because we stand with the Horde and the orcs cut down their forests in Ashenvale. But a druid is a druid first, and in Moonglade we try to remember that, whatever our peoples do outside it." } },
       choices = {
+        { text = "Should druids stand apart from war, Gart?", next = "op_druidism" },
         { text = "Nature matters more than any war.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "The Horde comes first, even for druids.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -481,7 +571,11 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know the beasts and the grass, but I don't know that. Ask Grull Hawkwind." } },
+    _none = { { id = "tp_none", text = "I know the beasts and the grass, but I don't know that. Ask Grull Hawkwind; he roams farther than I do." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is where the druids go in sleep, and the night elves taught us how. I am grateful to them for that, whatever the orcs think of them." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and the tauren pray to the Earth Mother. I think they are both looking at the same moon, but the night elves never let us say so." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every creature in Mulgore, and I spend my days learning about them. I am more interested in the plainstriders than in the people, I confess." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The Cenarion Circle is the order of druids that the night elves founded, and they let the tauren join after the war on Hyjal. Hamuul is one of them, and I hope to be one day." } },
   },
 }
 
@@ -500,8 +594,9 @@ P:NPC {
     third = "{name} met Krang Stonehoof, the warrior trainer of Bloodhoof Village.",
   },
   greetings = {
+    { id = "o_dw_distrust", when = { gossip = { topic = "dwarves", stance = "distrust" } }, text = "I hear you think the dwarves would dig up the whole world. Good, because then you'll understand why my braves keep their axes sharp near Bael'dun." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior comes down from the mesa! Come here, and let us see whether Harutt taught you anything." },
-    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Welcome to Bloodhoof, stranger. Keep your weapon sheathed in the village, and we will get along." },
+    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Welcome to Bloodhoof, stranger. Keep your weapon sheathed in the village, as the bull keeps his horns low in the herd, and we will get along." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -509,6 +604,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_q", text = "That's why I fight. But you've walked with the orcs more than some, so tell me what you think of them, and don't dress it up." },
+      },
+      choices = {
+        { text = "Brothers in arms. The tauren owe them everything.", next = "op_orcs_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { orcs = "kin" } } },
+        { text = "Useful allies. But they started this war with the Alliance.", next = "op_orcs_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { orcs = "useful" } } },
+        { text = "Too hot-blooded. The tauren should lead with calm, not fury.", next = "op_orcs_r3", fx = { trait = { patient = 1 }, opinion = { orcs = "rash" } } },
+        { text = "Lok'tar, Krang. My people won't forget what yours gave.", next = "op_orcs_r4", fx = { affinity = 3, opinion = { tauren = "kin" } }, when = { race = "Orc" } },
+        { text = "I'll let my axe speak for me, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r1 = {
+      lines = {
+        { id = "op_orcs_r1", text = "Spoken like a warrior of Bloodhoof! Come and tell my students that, because some of them think the debt's already paid." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r2 = {
+      lines = {
+        { id = "op_orcs_r2", text = "Useful, he says! The orcs bled for us at the centaur camps before you were born, so mind how you weigh it." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r3 = {
+      lines = {
+        { id = "op_orcs_r3", text = "Hmph. Cairne would agree with you, and he's earned the right to say it. I'm not sure you have yet." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
+    op_orcs_r4 = {
+      lines = {
+        { id = "op_orcs_r4", text = "Lok'tar! Sit at my fire any night you like, orc, because the tauren don't forget either." },
+      },
+      choices = {
+        { text = "Something else, Krang.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll fight beside anyone who stands with Mulgore. The orcs told us stories of the Silver Hand and the camps, and some braves will be wary. Fight beside them well, and the stories will change." } },
@@ -595,21 +734,21 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "How do shamans fight beside the Horde's warriors, Krang?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What threats does Mulgore face?", next = "threats" },
-        { text = "What do you think of the Horde?", next = "horde" },
+        { text = "The tauren seem fond of the Horde.", next = "horde" },
         { text = "Your warriors fight in the open. I prefer the flanks.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why should a hunter learn the shield-wall, Krang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "A warlock fights for the Horde too, Krang.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do your warriors trust priests, Krang?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Your warriors must trust priests, Krang.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should druids fight in the Horde's battles, Krang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do mages belong at the borders, Krang?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will the braves fight beside a paladin, Krang?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
-      again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it." } },
+      again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it, before my old bones stiffen." } },
     },
     threats = {
       lines = { { id = "t_default", text = "The Venture Company goblins cut down our trees and dig in our hills to the north, and the Palemane gnolls hold Palemane Rock to the southwest. Worse are the dwarves at Bael'dun, who dig into Mulgore's earth without asking anyone." } },
-      choices = { { text = "What are the dwarves digging for?", next = "threats_dwarves" } },
+      choices = { { text = "The dwarves must be digging for something.", next = "threats_dwarves" } },
     },
     threats_dwarves = {
       lines = { { id = "td_default", text = "Nobody knows for sure, but the earth groans where they dig, and the shaman don't like it. Baine Bloodhoof watches them, and if they go any deeper, the village will have to answer." } },
@@ -621,7 +760,10 @@ P:NPC {
     },
     horde = {
       lines = { { id = "h2_default", text = "The orcs saved us from the centaur when we were wandering and dying, and Thrall asked nothing for it but friendship. That's a debt I will pay with my axe until the day I die." } },
-      choices = { { text = "That's a good reason to fight.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "What do you make of the orcs, then?", next = "op_orcs" },
+        { text = "That's a good reason to fight.", next = "BACK", fx = { affinity = 2 } },
+      },
     },
     xhsham = {
       big = true,
@@ -635,6 +777,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That is beyond an axe-teacher, friend, so take your question to Baine Bloodhoof." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior the tauren have ever had, and he has never needed to prove it. He is proof that strength and wisdom can live in the same body." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided our borders for generations, and I have fought them more times than I can count. Mulgore is ours now, and I walk its borders so it stays ours." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief helped us drive off the centaur, and he asked only for our friendship. The tauren became warriors of the Horde because of him, and I am proud of it." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback press on our southern border, and I send my students there first. A tauren who can fight a quilboar can fight anything." } },
   },
 }
 
@@ -649,7 +795,7 @@ P:NPC {
     third = "{name} met Mahnott Roughwound, the weaponsmith of Bloodhoof Village.",
   },
   greetings = {
-    { id = "g_shop", text = "Maces, axes and staves, all made big enough for a tauren's hands. Take a look." },
+    { id = "g_shop", text = "Maces, axes and staves, all made big enough for a tauren's hands and blessed by the Earth Mother's good oak. Take a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend? I hope you're here to buy, and not to complain about the last one." },
   },
   notice = {
@@ -756,13 +902,13 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where does your wood and iron come from?", next = "materials" },
         { text = "What weapon would you choose for me?", next = "advice" },
-        { text = "So you don't sell daggers, then, Mahnott?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "So you don't sell daggers, then, Mahnott.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'd want a staff, Mahnott, and a light one.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What's the heaviest weapon you sell, Mahnott?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter carry for close work, Mahnott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would a priest need a big weapon, Mahnott?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a druid need your weapons, Mahnott?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do you sell weapons to warlocks, Mahnott?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you won't sell weapons to warlocks.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you sell a hammer to a paladin, Mahnott?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -794,7 +940,10 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Weapons I know, but not that. Ask someone else in the village." } },
+    _none = { { id = "tp_none", text = "Weapons I know, but not that. Ask someone else in the village; the elders keep the long stories." } },
+    centaur = { { id = "tp_centaur", text = "The centaur use spears, which are fine weapons for a centaur. A tauren needs something bigger, because a spear looks like a toothpick in our hands." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar use thorns and bones, which break easily. A good tauren axe will last a lifetime, and I have the axes to prove it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carries a runespear that is taller than most orcs, and it suits him. I would like to make a weapon that fine one day." } },
   },
 }
 
@@ -809,7 +958,7 @@ P:NPC {
     third = "{name} bought bread from Jhawna Oatwind, the baker of Bloodhoof Village.",
   },
   greetings = {
-    { id = "g_shop", text = "Fresh bread from Mulgore's wheat, still warm. Come and have a look, little one." },
+    { id = "g_shop", text = "Fresh bread from Mulgore's wheat, still warm, and the Earth Mother gave every grain of it. Come and have a look, little one." },
     { id = "g_morning", when = { timeOfDay = "dawn" }, text = "You're up with the sun, and so is the bread. Come and take some while it's hot." },
   },
   notice = {
@@ -914,15 +1063,15 @@ P:NPC {
         { text = "Do the old songs over the wheat still matter, Jhawna?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your bread.", next = "BUSINESS" },
         { text = "Where does the wheat come from?", next = "wheat" },
-        { text = "What's the news in the village?", next = "news" },
+        { text = "You must hear all the village news here.", next = "news" },
         { text = "I can cook too.", next = "cook", when = { profession = "Cooking" } },
         { text = "Your bread cart could feed a whole thieves' camp, Jhawna.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A conjured loaf is lighter to carry than yours.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the braves eat your bread before battle, Jhawna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The braves must eat your bread before battle.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you bake with a hunter's game, Jhawna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Would you want a blessing on your ovens, Jhawna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Your ovens could use a blessing, Jhawna.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a druid help the eastern farms, Jhawna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do warlocks buy your bread, Jhawna?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess even warlocks buy your bread, Jhawna.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the tauren mind a paladin's company, Jhawna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Jhawna.", next = "END" },
       },
@@ -955,6 +1104,10 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Oh, I wouldn't know that, little one. I know flour and ovens, and that's about it." } },
+    _none = { { id = "tp_none", text = "Oh, I wouldn't know that, little one. I know flour and ovens and the Earth Mother's wheat, and that's about it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the wheat, and I thank her for every loaf. The fields of Mulgore are her gift, and I bake her thanks into the bread." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes, I sell more bread than in the whole season before it. The Faire folk eat like they have never seen bread before, and maybe they haven't." } },
+    cairne = { { id = "tp_cairne", text = "Cairne likes my bread, and he always asks which farm the wheat came from. He is a chieftain who remembers the small things, and that is why we love him." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback trample the southern fields, and the farmers are angry. I wish someone would teach them to grow their own grain." } },
   },
 }

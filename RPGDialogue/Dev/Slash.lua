@@ -19,6 +19,7 @@ commands.help = function()
   printList(L.HELP_HEADER, L.HELP_LINES)
 end
 
+commands.kin = function() if ns.Kin then ns.Kin.Print() end end
 commands.version = function() ns.Print(L.VERSION_SHORT:format(ns.VERSION)) end
 
 commands.dev = function(args)
@@ -165,6 +166,25 @@ commands.die = function(args)
 end
 
 commands.journal = function() ns.Journal.Toggle() end
+
+-- letters: open the letters panel anywhere. letters send <id>: deliver that letter now (testing).
+commands.letters = function(args)
+  if args[1] == "send" and args[2] then
+    if not ns.Letters.Def(args[2]) then ns.Print(L.LETTER_UNKNOWN:format(args[2])); return end
+    local r = ns.char.letters and ns.char.letters[args[2]]
+    if r then ns.char.letters[args[2]] = nil end
+    ns.Letters.Queue(args[2], C.Now())
+    ns.char.letters[args[2]].due = C.Now()
+    ns.Letters.Deliver(C.Now())
+    return
+  end
+  if args[1] == "random" then
+    local id = ns.Letters.RollRandom(C.Now(), true)
+    if id then ns.char.letters[id].due = C.Now(); ns.Letters.Deliver(C.Now()) else ns.Print(L.LETTER_NO_RANDOM) end
+    return
+  end
+  ns.UI.Letters.Toggle()
+end
 
 commands.errands = function()
   local lines = ns.Errands.Describe()

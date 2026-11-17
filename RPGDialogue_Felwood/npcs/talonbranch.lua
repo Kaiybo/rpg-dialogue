@@ -123,7 +123,7 @@ P:NPC {
           text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
-        { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river." },
+        { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river. I remember Felwood when it was still Ashenvale, and I stay for that." },
         { id = "h_hood", when = { metBefore = true },
           text = "You're wondering about the hood, as everyone does. It keeps the ash off, and that's all, though people prefer a better story." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -132,19 +132,19 @@ P:NPC {
           text = "A priest, at the last clean moonwell. Whether you pray to Elune or the Light, your prayers are welcome here, so long as you say them quietly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. I teach druids to heal what is broken, and I'd wager the earth teaches you the same lesson in a rougher voice." },
       },
-      again = { { id = "h_again", text = "What else?" } },
+      again = { { id = "h_again", text = "What else? Ask, and I'll answer, though the moonwell has been my only company for a long while." } },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why teach here?", next = "why" },
-        { text = "What's Talonbranch Glade like?", next = "glade" },
+        { text = "Talonbranch Glade seems to have held out well.", next = "glade" },
         { text = "What does a druid learn here that she can't at home?", next = "lesson", when = { class = "DRUID" } },
         { text = "I mean the moonwell no harm. Why so wary?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the arcane help cleanse the moonwell's water?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a warrior learn in a forest like this, Golhine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Will the moonwell's water heal a sick beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The moonwell's water might heal a sick beast.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why teach druids in a sick forest, Golhine?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "What listens in Felwood, Golhine?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Something always seems to be listening in Felwood, Golhine.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do druids and shamans heal the land the same way?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -153,11 +153,67 @@ P:NPC {
       lines = {
         { id = "w_default", text = "Because a forest this sick needs druids who aren't afraid of it. I can't make the young ones unafraid, but I can make them used to it." },
       },
-      choices = { { text = "That's a hard lesson.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = {
+        { text = "That's a hard lesson.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Do many of them stay?", next = "why_stay" },
+      },
+    },
+    why_stay = {
+      lines = {
+        { id = "ws_default", text = "Two in five, perhaps, and the ones who leave aren't worse druids for it. Some go back to Moonglade and some go to the Emerald Sanctuary, where the work is harder still, and I don't ask which they chose until they're ready to say." },
+      },
+      choices = {
+        { text = "And the ones who stay?", next = "why_young" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_young = {
+      big = true,
+      lines = {
+        { id = "wy_default", text = "They learn to hear the forest without weeping at it, which takes most of a year. I'm never sure whether I've taught them strength or only taught them to stop feeling, and I don't have an answer for that under the hood either." },
+      },
+      choices = {
+        { text = "A healer has to bear the pain. That is strength.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them weep. A druid who stops feeling is lost.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     glade = {
       lines = { { id = "g_default", text = "It's a clearing that's held out longer than most, and the moonwell keeps it clean, mostly. We guard the well, and the well guards us." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who else keeps the glade?", next = "glade_folk" },
+        { text = "What threatens it?", next = "glade_threat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glade_folk = {
+      lines = {
+        { id = "gf_default", text = "Mishellena and her hippogryphs, who carry everything we eat, and Malygen, who sells reagents and fusses about the damp. Taronn Redfeather studies the wildkin of Winterspring and talks about them to anyone who sits still, so don't sit still near him unless you have an afternoon to give." },
+      },
+      choices = {
+        { text = "I'll keep moving, then.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glade_threat = {
+      lines = {
+        { id = "gt_default", text = "The Deadwood to the north, the satyrs to the south, and the slow rot of the streams, which is the worst of them because it never sleeps. The Sentinels keep the first two off, and the moonwell keeps the third, for now." },
+      },
+      choices = {
+        { text = "For now?", next = "glade_now" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glade_now = {
+      big = true,
+      lines = {
+        { id = "gn_default", text = "Each year the moonwell's light reaches a step less far into the trees. One day it will reach only the water's edge, and then we'll have to choose whether to stay and keep it, or carry what we can south and let the forest have the glade." },
+      },
+      choices = {
+        { text = "Stay. Abandoning the well is giving Felwood to the demons.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Go south. A druid alive does more good than a dead one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -165,6 +221,12 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a teacher of druids, and the rest is under the hood, where it stays." } },
     advice = { { id = "tp_ad", text = "Learn the sick places as well as the healthy ones. A healer who only knows health is no healer." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle heals the south of the forest and we hold the north, but the middle belongs to the demons, for now." } },
-    _none = { { id = "tp_none", text = "I don't know." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "Every druid I teach finds the Dream sooner or later, and I tell them not to stay too long. The waking world needs us more." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You've touched the Dream, I think, so I'll say it plainly. It is beautiful and it is not yours, so come back each time." },
+    },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the oldest furbolgs, and the wisest. I'd send any druid to learn from them if they'd allow it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is our oldest tree, and Felwood was its forest. I teach here because I'd like to see it green again." } },
+    _none = { { id = "tp_none", text = "I don't know, and I've lived long enough not to pretend otherwise." } },
   },
 }

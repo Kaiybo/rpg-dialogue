@@ -24,6 +24,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_league = {
+      lines = {
+        { id = "opl_default", text = "There's folk in Ironforge who say we dig where we shouldnae, that the titans sealed their vaults for a reason. Hammertoe used tae laugh at them, an' now he's buried under one. So what say ye, friend?" },
+      },
+      choices = {
+        { text = "Dig it all up. The past belongs to whoever finds it.", next = "op_league_dig", fx = { affinity = 1, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Some vaults were sealed for a reason. Leave them be.", next = "op_league_seal", fx = { align = { order = 1 }, trait = { cautious = 1 }, opinion = { explorers_league = "distrust" } } },
+        { text = "The League's looking for where we came from. That matters.", next = "op_league_dig", fx = { affinity = 2, opinion = { explorers_league = "respect", dwarves = "proud" } }, when = { race = "Dwarf" } },
+        { text = "I'd ask Hammertoe, if I could.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_league_dig = {
+      lines = {
+        { id = "opld_default", text = "Aye, that's the League talkin', an' that's what Hammertoe would've said, rest his bones. I'll go back in, when I've the stomach, an' I'll bring out whatever he died lookin' for." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_league_seal = {
+      lines = {
+        { id = "opls_default", text = "Maybe ye're right, an' maybe that's the sense I should've had a month ago. Still, a dwarf who leaves a door shut is no' much of a dwarf, an' I'll go back in all the same." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_gnome = {
       big = true,
       lines = { { id = "xpt_gnome_default", text = "Always, but what it needs most is clever hands and quiet feet, because the troggs come up out of Uldaman whenever we make too much noise. A gnome or two with sense and a few fighters to keep the troggs off them would set the dig forward a month." } },
@@ -128,26 +151,38 @@ P:NPC {
       again = { { id = "h_again", text = "Aye? I'm listenin', for there's not much else tae do out here but listen an' dig." } },
       choices = {
         { text = "Was this land always so barren, Prospector?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's Uldaman?", next = "uldaman" },
+        { text = "What were you digging for out here?", next = "uldaman" },
         { text = "Tell me about Hammertoe.", next = "hammertoe" },
-        { text = "What chased you out of the dig?", next = "chased" },
+        { text = "Something chased you out of that dig in a hurry.", next = "chased" },
         { text = "I'm with the League too.", next = "league", when = { origin = "dwarf_explorers_league" } },
         { text = "I'll go in after Hammertoe. I'm a fighter.", next = "k_fighter", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Could I slip into the dig unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What did Hammertoe write that troubles you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Hammertoe's writing seems to trouble you, Prospector.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you like me to pray for Hammertoe, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's in Uldaman that's worse than demons, Prospector?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the League make anything of a dwarf who hears the stone?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I went down into Uldaman, Ryedol, to the very bottom.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
-        { text = "Does the League need help at the dig, Prospector?", next = "xpt_gnome", when = { party = { race = "Gnome" }, faction = "Alliance" } },
+        { text = "The League looks like it could use help at the dig.", next = "xpt_gnome", when = { party = { race = "Gnome" }, faction = "Alliance" } },
+        { text = "The League sent me into Uldaman as its priest, Prospector.", next = "xorig_chaplain", when = { origin = "dwarf_league_chaplain" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
+      },
+    },
+    xorig_chaplain = {
+      lines = {
+        { id = "xochaplain_default", text = "Did they, now? Then ye've seen those halls, an' the faces carved on the walls that are no' dwarven an' no' anythin' else I can name. Hammertoe used tae say ye could feel the Light down there, older than Ironforge itself. Do ye think he was right?" },
+      },
+      choices = {
+        { text = "I think so. The Light was there before us.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I think the stones only echo our own prayers.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     uldaman = {
       lines = {
-        { id = "u_default", text = "Old, older than Ironforge, a vault the titans may have built, if ye believe the scholars. Hammertoe believed, an' look where it got him." },
+        { id = "u_default", text = "Uldaman, an' it's old, older than Ironforge, a vault the titans may have built, if ye believe the scholars. Hammertoe believed, an' look where it got him." },
       },
       choices = {
+        { text = "Should vaults like that be opened at all?", next = "op_league" },
         { text = "I'm sorry about your partner.", next = "BACK", fx = { affinity = 3, learn = { "uldaman" } } },
         { text = "Is it worth it?", next = "uldaman_worth" },
       },
@@ -212,6 +247,12 @@ P:NPC {
     background = { { id = "tp_ba", text = "Ironforge born, Explorers' League sworn, an' now a dwarf in the Badlands without his partner.", next = "hammertoe" } },
     advice = { { id = "tp_ad", text = "Mark yer way in, so ye can find yer way out. Hammertoe never did." } },
     uldaman = { { id = "tp_uldaman", text = "If the League's right, the answer tae where we dwarves came from is under these hills, an' that's worth a few bruises. Maybe it's no' worth Hammertoe." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni sent the League out to find our people's past, an' some days I think he'd rather we found it than kept findin' our own graves. I'd like to bring him somethin' worth the cost." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye've got the mountain in yer voice, friend, so ye'll know what it means when the king takes an interest. Magni wants Uldaman's secrets, an' I mean to give them to him." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are sniffin' round the dig sites, an' I don't like it. Whatever they want in the Badlands, it's no' for the good o' Ironforge." } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up out o' Uldaman like water out o' a broken pipe. They're stupid an' strong an' there's no end to them." } },
     _none = { { id = "tp_none", text = "Couldnae say; I'm a digger, no' a sage." } },
   },
 }
@@ -228,7 +269,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, mostly, and don't touch anything glowing, or humming, or warm." },
+    { id = "g_op_league", when = { opinion = { topic = "explorers_league", stance = "distrust" } }, text = "I heard you think some old vaults are best left shut! Nonsense, friend; nothing is ever best left shut, though I say that as someone missing two eyebrows." },
+    { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, roughly ninety percent of the time, and don't touch anything glowing, or humming, or warm." },
   },
 
   notice = {
@@ -242,6 +284,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_elements = {
+      lines = {
+        { id = "ope_default", text = "Cruel to a rock? The shamans do say so, very loudly, and one of them threw a sandal at Lucien once. I've never had an elemental complain, but I'd like an outside opinion: is it cruel?" },
+      },
+      choices = {
+        { text = "Elementals aren't toys. Let them go.", next = "op_el_free", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "A rock is a rock. Bind it and learn something.", next = "op_el_bind", fx = { affinity = 1, align = { light = -1 }, opinion = { the_elements = "useful" } } },
+        { text = "The spirits remember every chain, Lotwil.", next = "op_el_free", fx = { affinity = -1, opinion = { the_elements = "respect" } }, when = { class = "SHAMAN" } },
+        { text = "I'll leave that to you and the shamans.", next = "BACK" },
+      },
+    },
+    op_el_free = {
+      lines = {
+        { id = "opef_default", text = "Let them go? But they'd only go back to being rocks with opinions! I'll consider it, I promise, right after this experiment, and maybe the one after that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_el_bind = {
+      lines = {
+        { id = "opeb_default", text = "Exactly what I said to the sandal-thrower! Knowledge doesn't come from asking politely, it comes from shackles, measurements and a very good pair of goggles." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone has to stand near the rock elementals while I take readings, and they agitate rather easily. The last time I tried it myself I spent an afternoon flattened under a boulder, and the readings were dreadful." } },
@@ -325,7 +390,7 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman" },
           text = "I'm told you've been to the very bottom of Uldaman and survived the stone keepers! I've a dozen questions about how they move, and Lucien says I'm only allowed to ask you three." },
         { id = "h_default", key = true,
-          text = "Lotwil Veriatus, founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here." },
+          text = "Lotwil Veriatus, late of Gnomeregan and founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here and none of it is radioactive, which after home is a pleasant change." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Study of the Elements: Rock") },
           text = "Rock elementals! They wander the Dustbowl like they own it, and perhaps they do. Bring me what's left of a few, would you, for science?" },
         { id = "h_hard", when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
@@ -339,20 +404,20 @@ P:NPC {
         { id = "h_texts", when = { origin = "gnome_forbidden_texts" },
           text = "Oh! You're the one who reads the books with the clasps on, aren't you? Word gets round the Assembly, you know. I'm all for every discipline sitting at the same table, but I do wish yours didn't keep bringing guests that set the tablecloth on fire." },
       },
-      again = { { id = "h_again", text = "More? Wonderful, but mind the sample tray." } },
+      again = { { id = "h_again", text = "More? Wonderful, every question is a data point, but do mind the sample tray." } },
       choices = {
         { text = "Do the elementals suffer under your experiments?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's the Assembly?", next = "assembly" },
-        { text = "Who's Lucien?", next = "lucien" },
+        { text = "Lucien seems to keep a close eye on you.", next = "lucien" },
         { text = "Why rock?", next = "rock" },
         { text = "Engineer to engineer: what are you building?", next = "engineer", when = { profession = "Engineering" } },
         { text = "I study magic too, Lotwil.", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "The elements speak to me. You only measure them.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "What would a thief want with rock elemental samples?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do you need a warrior for, Lotwil?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Why do you think the beasts avoid the elementals?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "The beasts round here keep well clear of your elementals.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would holy light make a rock elemental flinch, Lotwil?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why doesn't your elemental like prayer, Lotwil?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Your elemental doesn't seem to care for prayer, Lotwil.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I've been to the bottom of Uldaman, Lotwil.", next = "xcl_ulda", when = { cleared = "Uldaman" } },
         { text = "I apprenticed to a tinker. Three explosions and one workshop fire.", next = "xorig_appr", when = { origin = "gnome_tinker_apprentice" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -394,15 +459,18 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
     lucien = {
-      lines = { { id = "l_default", text = "My assistant, patient, practical, and convinced I'll explode one day. He's not wrong to be convinced; he's just early." } },
+      lines = { { id = "l_default", text = "He's my assistant, patient and practical, and convinced I'll explode one day. He's not wrong to be convinced, statistically speaking; he's just early." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rock = {
       lines = { { id = "r_default", text = "Because it's honest! Fire lies about how hot it is, water won't hold still and air's never where you left it, but rock just sits there being exactly what it is." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "The shamans say binding elementals is cruel. Is it?", next = "op_elements" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     engineer = {
-      lines = { { id = "e_default", text = "A device to read what an elemental was thinking when it fell apart. It doesn't work yet. When it does, it'll be the most interesting failure I've ever had." } },
+      lines = { { id = "e_default", text = "It's a device to read what an elemental was thinking when it fell apart, and it doesn't work yet, though the third prototype only smoked a little. When it does work, it'll be the most interesting failure since Gnomeregan, and I mean that kindly." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     assembly_members = {
@@ -459,7 +527,11 @@ P:NPC {
       { id = "tp_knows", text = "Oh, I know a great many things, and some of them are even about rocks! Ask me about any of these, and mind the sample tray." },
     },
     background = { { id = "tp_ba", text = "A scholar with too many subjects and one very patient assistant. The Assembly is the rest of my life's work, once it exists.", next = "assembly" } },
-    advice = { { id = "tp_ad", text = "Never assume a rock is just a rock. Out here, about one in fifty is an elemental having a nap." } },
+    advice = { { id = "tp_ad", text = "Never assume a rock is just a rock, because out here about one in fifty, or two percent by my last count, is an elemental having a nap." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman is a wonder, a titan vault with stone guardians that still answer to old commands. I'd give anything to understand how they're made." } },
+    the_elements = { { id = "tp_the_elements", text = "The elementals of the Badlands are fascinating, made of stone and bound by forces I can only guess at. I'd like to bind one myself, very carefully, of course." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's scholars would laugh at my Assembly, I suspect, and then they'd steal the plans. I'll keep my work in the desert, where only the vultures can read it." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor never quite approved of my research, and I never quite asked them to. We've reached an understanding." } },
     _none = { { id = "tp_none", text = "Fascinating! I know nothing about it, so tell me everything." } },
   },
 }

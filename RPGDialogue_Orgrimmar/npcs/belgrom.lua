@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Belgrom Rockmaul. I'd travel in the Warchief's name, but Thrall needs me here in the city, and he asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara." },
+        { id = "h_default", key = true, text = "Belgrom Rockmaul. I'd travel in the Warchief's name, but Thrall needs me here in the city, and he asks my opinion often. My agents watch half of Kalimdor for him, from the Barrens to the coast of Azshara, though I'd sooner not speak of the elf I trusted there." },
         { id = "h_betrayed_before", when = { questBefore = TODO_QUEST("Betrayed") },
           text = "That thieving elf! I may have made a grave mistake, {name}. She promised riches from the ruins of Azshara if I sent warriors to guard her diggers, and now she's killed them, every one, and I can't afford to send more." },
         { id = "h_betrayed_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 5 } },
@@ -50,7 +50,7 @@ P:NPC {
       choices = {
         { text = "What happened with the elf?", next = "elf" },
         { text = "Who are these agents of yours?", next = "agents" },
-        { text = "Does the Warchief really ask your opinion?", next = "warchief" },
+        { text = "I doubt the Warchief really asks your opinion.", next = "warchief" },
         { text = "I'm a warrior. What does the hall behind you teach?", next = "hall", when = { class = "WARRIOR" } },
         { text = "I've seen the insects Korran writes about.", next = "silithid", when = { questDone = TODO_QUEST("The Swarm Grows") } },
         { text = "What work do you have?", next = "BUSINESS" },
@@ -60,7 +60,7 @@ P:NPC {
     elf = {
       lines = { { id = "e_default", text = "Magus Rimtori, she called herself, and she said the old elf ruins in Azshara were full of treasure and power. All I had to do was lend her a few warriors to guard her diggers, and I'd share in what they found." } },
       choices = {
-        { text = "And you believed her?", next = "elf_believed" },
+        { text = "And you believed her.", next = "elf_believed" },
         { text = "What happened to the warriors?", next = "elf_dead" },
       },
     },
@@ -124,6 +124,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters already arrive chewed by the wind riders, so I need the other half." } },
     rimtori = { { id = "tp_rim", text = "Don't say that name too loudly in this valley. When she's dead, I'll say it myself, and gladly." } },
     silithid = { { id = "tp_sil", text = "Korran's bugs. I thought it was nothing, and I've been told it's something, and I'm not too proud to change my mind about bugs." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief relies on me to know what's happening across Kalimdor, and I don't intend to disappoint him again. I won't make the same mistake twice, I'll tell you that." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar and the Galak and their cousins in Desolace are all the same breed, and they're all trouble. My agents watch them, and I watch my agents." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow Marsh, and my agents say she's got her claws in more than her own swamp. I don't know what that means yet, and I don't like not knowing." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are rebuilding their city, and they're not letting anyone through the gates. If an elf mage could fool me in Azshara, I can only guess what the Kirin Tor are hiding." } },
     _none = { { id = "tp_none", text = "Not my concern. If it mattered, one of my agents would have told me already." } },
   },
 }

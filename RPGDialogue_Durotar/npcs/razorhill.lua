@@ -13,10 +13,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_barracks", text = "Speak quickly. Razor Hill has work, and work doesn't wait for conversation." },
-    { id = "g_back", when = { metBefore = true }, text = "Report, and keep it short." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Razor Hill kept its watch without you. Now you're back, so make yourself useful." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You left here a recruit and came back looking like a soldier. Good, because I have harder work for you now." },
+    { id = "g_barracks", text = "Speak quickly, {class}. Razor Hill has work, and an orc proves himself with his axe, not his mouth." },
+    { id = "g_back", when = { metBefore = true }, text = "Report, grunt, and keep it short." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Razor Hill kept its watch without you, as the Horde always does. Now you're back, so make yourself useful." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You left here a recruit and came back looking like a warrior of the Horde. Good, because I have harder work for you now, and harder blood to spill." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you put the fear into somebody around here without spilling blood. Durotar respects that, and so do I." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts tell me you've been doing work for Razor Hill, and doing it properly. Keep that up and you'll have a name here." },
   },
@@ -36,7 +36,7 @@ P:NPC {
       choices = {
         { text = "I did my duty, commander. That's all a grunt needs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I went down for the fight, commander, not the orders.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Does Skull Rock connect to the chasm?", next = "xcl_rfc2" },
+        { text = "Skull Rock might connect to the chasm.", next = "xcl_rfc2" },
       },
     },
     xcl_rfc2 = {
@@ -100,12 +100,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_spear = {
+      lines = { { id = "xsp_default", text = "Then you're one of the spears keeping the Kolkar honest on the south road. Your village and my hill hold the same coast between us, and I've never once had to send a grunt to cover a gap in your watch. What do your people need most from Razor Hill?" } },
+      choices = {
+        { text = "Steel, Commander. Good spearheads are hard to come by.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Nothing, Commander. Sen'jin holds its own.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You have the look of {alt}, the {altclass} who helped drive the humans out of Tiragarde Keep. If that's your blood, then Razor Hill already knows what your family is worth." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "{alt} has gone on to fight in places I only read about in Nazgrel's reports, and I'll admit I'm proud of it. Do half as well and I'll be satisfied." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Razor Hill. Nazgrel taught me to judge a soldier by his reports, not his glow, so report, and we'll see what you are." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my grunts come back from Tiragarde with Kul Tiran arrows in them, and I've no use for a grunt who can't stand." },
         { id = "h_default", key = true,
-          text = "Gar'Thok, commander of Razor Hill. I served under Nazgrel before this. Now I hold Durotar's crossroads, and I hold them well." },
+          text = "Gar'Thok, commander of Razor Hill. I served under Nazgrel before this, and before that I wore chains in the camps. Now I hold Durotar's crossroads for the Warchief, and I hold them well." },
         { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "My runners tell me you went down into Ragefire Chasm and came back up, and that pleases me, because the Warchief's city should have nothing beneath it that doesn't answer to him." },
         { id = "h_betrayers", tags = { "news" }, when = { questActive = TODO_QUEST("Vanquish the Betrayers") },
           text = "Kul Tirans hold a keep on our coast. They call it a garrison and I call it a knife at our throat, so pull it out." },
@@ -123,21 +134,22 @@ P:NPC {
       },
       choices = {
         { text = "Where does Razor Hill need a priest most, Commander?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do you trust the spirits to guard Razor Hill, Commander?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The spirits could help guard Razor Hill, Commander.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you endure this land, Commander?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why does Razor Hill matter?", next = "why" },
+        { text = "Razor Hill doesn't look like much.", next = "why" },
         { text = "Put me on the wall, commander.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can scout Tiragarde Keep without being seen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I track well. Where do you need eyes?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Do the Darkspear stand your watch too?", next = "troll", when = { race = "Troll" } },
+        { text = "I see Darkspear standing your watch too.", next = "troll", when = { race = "Troll" } },
         { text = "Where could a mage be useful to Razor Hill?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you still give orders to a warlock, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you take a Forsaken paladin's report, commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragefire Chasm is cleared, commander.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "I hold the Sen'jin gate, Commander. We share a coast.", next = "xorig_spear", when = { origin = "troll_senjin_spear" } },
         { text = "Lok'tar, commander.", next = "END", fx = { affinity = 1, standing = { razor_hill = 1 } } },
       },
       again = {
-        { id = "h_again", text = "What else? Make it a report, not a story." },
+        { id = "h_again", text = "What else? Make it a report, not a story; deeds speak louder here." },
         { id = "h_again2", text = "Go on. The next runner from Sen'jin is due, and you have until he arrives." },
       },
     },
@@ -173,11 +185,38 @@ P:NPC {
       lines = { { id = "tr_default", text = "They do, and they keep better watch at night than my orcs, which I'll deny if you repeat it. The Darkspear hold Sen'jin and I hold Razor Hill, and between us the coast stays ours." } },
       choices = { { text = "Your secret's safe, commander.", next = "BACK", fx = { affinity = 2 } } },
     },
+    keep_op = {
+      lines = { { id = "ko_default", text = "There's a Kul Tiran keep on my coast full of marines who never heard of any peace, and the Warchief tells me to hold Razor Hill and not march on Theramore over it. Report, {class}: if Tiragarde were yours to decide, what would you do?" } },
+      choices = {
+        { text = "Burn Tiragarde to the sand, and Theramore after it.", next = "ko_war", fx = { affinity = 1, align = { order = -1 }, opinion = { peace = "against", theramore = "war" } } },
+        { text = "Clear the keep, but leave Theramore to Lady Proudmoore.", next = "ko_hold", fx = { affinity = 2, align = { order = 1 }, opinion = { peace = "for", tiragarde = "strike" } } },
+        { text = "Hold the walls. One raid could start the whole war again.", next = "ko_wait", fx = { trait = { cautious = 1 }, opinion = { peace = "for" } } },
+        { text = "The humans kept me in a camp. I'd see them all gone.", next = "ko_camps", when = { race = "Orc" }, fx = { opinion = { humans = "hate" } } },
+        { text = "That's for the Warchief to say, commander.", next = "BACK" },
+      },
+    },
+    ko_war = {
+      lines = { { id = "kow_default", text = "That's what half my grunts say at the fire, and it's why they're grunts and not commanders. Theramore has walls and ships and Lady Proudmoore, and Razor Hill has me." } },
+      choices = { { text = "Something else, commander.", next = "BACK" } },
+    },
+    ko_hold = {
+      lines = { { id = "koh_default", text = "Good report. The marines at Tiragarde are Admiral Proudmoore's leftovers, not Theramore's, and I'll pull them out one at a time without the Warchief losing any sleep over it." } },
+      choices = { { text = "Something else, commander.", next = "BACK" } },
+    },
+    ko_wait = {
+      lines = { { id = "kowt_default", text = "Nazgrel would have liked you. Still, a wall that never sends anyone out gets climbed sooner or later, so don't sit on it too long." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_camps = {
+      lines = { { id = "koc_default", text = "So would half of Razor Hill, and I don't blame them. But the Warchief was in those camps longer than any of us, and if he can keep his axe sheathed, so can you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     why = {
-      lines = { { id = "w_default", text = "Roads to Orgrimmar, to Sen'jin and to the Barrens all run through here. Hold Razor Hill and you hold Durotar. Lose it and you lose the rest." } },
+      lines = { { id = "w_default", text = "Roads to Orgrimmar, to Sen'jin and to the Barrens all run through here. Hold Razor Hill and you hold Durotar, and lose it and the Horde bleeds for it." } },
       choices = {
         { text = "Then we won't lose it.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A good ambush on those roads would do more than any wall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "And the Kul Tirans? Will the Warchief's peace hold here?", next = "keep_op" },
       },
     },
   },
@@ -189,12 +228,22 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask your question, and then get out of my barracks." },
     },
     burning_blade = { { id = "tp_blade", text = "That's Orgnil's business, and he's good at it. I give him whatever he asks for." } },
-    _none = { { id = "tp_none", text = "Not now; ask Orgnil, or the innkeeper." } },
+    thrall = { { id = "tp_thrall", fx = { learn = { "internment" } }, text = "The Warchief freed me from the camps with his own hands, and I've followed him ever since. Razor Hill is his, and I'll hold it for him the way he held the line for us." } },
+    second_war = { { id = "tp_second_war", text = "I was a grunt in the Second War and a prisoner after it. I learned more about holding ground in the camps than I ever did on a battlefield." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls of Sen'jin are good fighters and better neighbours, and they never ask me for anything they wouldn't give back. I'd trust a Darkspear at my side before half the orcs in this town." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar have been pushing in from the west, and Lar Prowltusk watches them for me. If they come over the ridge in force, Razor Hill will meet them, and they won't like the meeting." } },
+    theramore = { { id = "tp_theramore", text = "The humans' fortress is across the water to the south, and Lady Proudmoore keeps her soldiers on her side of it. That's the kind of peace I can respect, as long as it lasts." } },
+    forsaken = {
+      { id = "tp_forsaken", when = { race = "Undead" }, text = "You're one of the Dark Lady's dead, and the Warchief says you're Horde. That's good enough for me, so keep your hands clean in my town." },
+      { id = "tp_forsaken2", text = "The Warchief brought the dead of Lordaeron into the Horde, and some of my grunts don't like it. I tell them what I tell anyone: keep your eyes open and your mouth shut." },
+    },
+    _none = { { id = "tp_none", text = "Not now. Ask Orgnil, or the innkeeper, and leave me to my reports." } },
   },
 }
 
 P:NPC {
   key = "orgnil", id = TODO_NPC("Orgnil Soulscar"), name = "Orgnil Soulscar",
+  prejudice = { { class = "WARLOCK", amount = 10, why = "He hunts the Burning Blade, and every warlock is a cultist he hasn't caught yet." }, { origin = "orc_blade_defector", amount = 8, why = "He believes no one truly leaves the Blade." } },
   bible = "bibles/durotar.md", role = "soldier", tier = "quest",
   communities = { "razor_hill" }, temper = { "grim" }, values = { "lawful", "protective" },
   notices = { "class", "stealth" },
@@ -204,9 +253,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow." },
+    { id = "g_prej", when = { prejudiced = true }, text = "A warlock in Razor Hill. I'll be honest with you, because I'm honest with everyone I might have to kill: every Burning Blade cultist I ever buried started out telling me they could control it." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I've watched you a long while now, warlock, and you've given me nothing to hunt. That's rarer than you'd think, and I'll say so to anyone who asks." },
+    { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow. Our people drank demon blood once; I won't let the Blade pour it for us again." },
     { id = "g_bb_resolved", when = { thread = { id = "burning_blade", state = "resolved" } }, text = "Word came down from Orgrimmar that the Warchief has heard the Blade's whole road from you, valley to Cleft. Good, then; I'll keep watching the hills, and he can keep watching the smiles." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons?" },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons, or any blood on your blade?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade hasn't rested in that time, so neither have I, and my back has the knots to prove it. Tell me what you saw out there." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your stories didn't hold up in Razor Hill. The Blade lie for a living, and I've learned to listen hardest to the ones who smile." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round recently, which is a useful talent. Use it on the right people and you'll make a fine hunter of cultists." },
@@ -221,13 +272,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_orgnil = {
+      big = true,
+      lines = { { id = "prej_orgnil_default", text = "I do, and I'll keep it there until you give me cause to move it. The Burning Blade are cutting through Skull Rock and the Valley of Trials, and half of them were respectable warlocks in Orgrimmar a year ago. The fel has a voice, and it is very patient." } },
+      choices = {
+        { text = "I've heard that voice and I refuse it, every day.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Your fear makes you blind. Power isn't the same as the Legion.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Then keep your hand there. I'll give you nothing to use it on.", next = "prej_orgnil_calm", fx = { affinity = 1 } },
+        { text = "Did you know any of them before they turned?", next = "prej_orgnil_why" },
+      },
+    },
+    prej_orgnil_why = {
+      lines = { { id = "prej_orgnil_why_default", text = "My own brother-in-arms, Zelk, a good warlock who taught at the Cleft. He went south to hunt the Blade the way I do, and he came back wearing their sigil and calling me by my old camp number. I put him down myself at Skull Rock." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_orgnil" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_orgnil_calm = {
+      lines = { { id = "prej_orgnil_calm_default", text = "Hm. A warlock who doesn't argue. I've not met many of those, and none of them were Burning Blade, so perhaps there's hope for you yet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_rfc = {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Some of them are, and that's more than I've managed. The Searing Blade are the Burning Blade's young, the ones the old cult raises in the dark beneath our feet, and they've been feeding a demon down there since the city was built. I hunt them in the hills because I can reach them there, but the ones I really want are closer than that, and they smile at me in the street." } },
       choices = {
         { text = "Bring proof to the Warchief, and let him judge them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Kill them where they stand, Orgnil, inside the walls or not.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who sends the cultists their orders?", next = "xcl_rfc2" },
+        { text = "Someone must be sending the cultists their orders.", next = "xcl_rfc2" },
       },
     },
     xcl_rfc2 = {
@@ -301,6 +370,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_bhunt = {
+      lines = { { id = "xbh_default", text = "I know you have, because I've found their cultists with their throats cut and nobody claiming the work. Whoever taught you to move that quietly taught you well, but tell me plainly, why does someone so young spend their nights hunting the Blade?" } },
+      choices = {
+        { text = "Because they'd drag us back to the demons.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Somebody has to, and nobody else would.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man with the Light in his hands. I hunt cultists who smile and hide what they serve, so forgive me for wanting a long look at you." },
@@ -320,17 +396,19 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Every one of them you put down is one less traitor whispering to the Legion." },
       },
       choices = {
+        { text = "You keep one hand on your blade around me, Soulscar.", next = "prej_orgnil", when = { prejudiced = true } },
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Could a shaman find the Blade by the ground they've poisoned?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does the Burning Blade's magic poison Durotar?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "A shaman could find the Blade by the ground they've poisoned.", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Burning Blade's magic must be poisoning Durotar.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where do the Blade hide?", next = "hide" },
         { text = "You watch me like I'm one of them, Orgnil.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I could carry false messages to the Blade for you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Would a mage be any use against the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where do the Burning Blade hide, Orgnil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a hunter track a demon, Orgnil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you suspect me, Orgnil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You seem to suspect me, Orgnil.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "The cultists under Orgrimmar are dead, Orgnil.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "I've hunted the Blade in the caves myself, Orgnil.", next = "xorig_bhunt", when = { origin = "orc_blade_hunter" } },
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
       again = {
@@ -367,7 +445,11 @@ P:NPC {
       { id = "tp_knows", text = "I hear what the Blade whisper, and what the grunts whisper about the Blade. Ask about these, and I'll tell you what I've found." },
     },
     burning_blade = { { id = "tp_blade", text = "They're orcs who chose the demons twice. Once might be forgiven, but twice, never." } },
-    _none = { { id = "tp_none", text = "I hunt the Blade, and nothing else is my concern." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the hope of every orc who's ever been free. That's a weight the Burning Blade would love to see him stumble under, and that's why I'm here." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons wanted us for their weapon, and some fools still want to be one. I'll see every cultist in Durotar ash before they get their wish." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal brought us here from a dying world, and what came through with us was worse than any human army. Some of those things are still waiting, and some orcs are still listening." } },
+    scourge = { { id = "tp_scourge", text = "The dead in the north are someone else's war, for now. I've enough living traitors to keep me busy, but I keep an eye on the other one." } },
+    _none = { { id = "tp_none", text = "I hunt the Blade, and nothing else is my concern. Let the young ones chase the rest." } },
   },
 }
 
@@ -489,10 +571,20 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another one with your face slept here, {alt} by name, and left the bed tidier than any grunt ever has. If that's family, I'll expect the same from you." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} named {alt} stopped here out of the sun not long ago and complained about the scorpids the whole night through. You look like you've got complaints of your own, so sit and have them over an ale." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. I've a bed, ale and a roof against the sun, and I don't suppose you need any of them, but the rate's the same." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my inn. The beds are clean, and the ale isn't holy, but it'll do." },
         { id = "h_default", key = true,
-          text = "I'm Grosk, the innkeeper. I've a bed, ale and a roof against the sun, and everything outside is rocks and scorpids." },
+          text = "I'm Grosk, the innkeeper. I've a bed, ale and a roof against the sun, which is more than any of us had in the camps, and everything outside is rocks and scorpids." },
+        { id = "h_op_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "against" } },
+          text = "Gar'Thok's grunts say you'd burn Tiragarde and Theramore with it. They've been buying rounds in your name all week, so sit, you might as well drink some of them." },
+        { id = "h_op_hold", tags = { "news" }, when = { gossip = { topic = "tiragarde", stance = "strike" } },
+          text = "Word from the barracks is the commander liked your report about the Kul Tirans. He doesn't like anybody's reports, so you'll want to remember the day." },
+        { id = "h_op_jaina", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "distrust" } },
+          text = "I hear you don't trust the Proudmoore woman. Neither does anyone who drinks here, but say it outside, because Gar'Thok's under orders and he hates being reminded." },
         { id = "h_burden", when = { questActive = TODO_QUEST("A Peon's Burden") },
           text = "That bundle is for the right hands only. Get it there, and don't let a peon sit on it." },
         { id = "h_scorpid", when = { metBefore = true }, text = "I shook a scorpid out of the blankets this morning. They weren't yours, probably, but check anyway." },
@@ -507,16 +599,16 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Ask, then, before the next caravan comes in thirsty." },
-        { id = "h_again2", text = "Go on. The ale isn't going anywhere." },
+        { id = "h_again2", text = "Go on. The ale isn't going anywhere, and neither am I, Throm-ka." },
       },
       choices = {
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the spirits ever trouble your inn, Grosk?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'd guess no spirits trouble your inn, Grosk.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Do rogues cause much trouble at your inn?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues must cause trouble at your inn.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who troubles Razor Hill most, Grosk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do hunters bring you to cook, Grosk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do many warlocks stop at the inn?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess few warlocks stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the grunts here mind a Forsaken paladin, Grosk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
@@ -525,7 +617,11 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I pour drinks; I don't keep track of things. Ask Gar'Thok." } },
+    _none = { { id = "tp_none", text = "I pour drinks for grunts; I don't keep track of things. Ask Gar'Thok, he likes knowing everything." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief stayed at my inn once, before he had a city, and he paid. That's more than most of his grunts can say." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls drink as hard as orcs and pay for it slower, but they're never mean drunks. I'll take a troll at the bar over a Kolkar at the gate any day." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar want Durotar, and I'm not sure why, since it's nothing but rock and scorpids. Maybe they want the beds." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins down in Ratchet sell my ale for twice what I charge, I hear. Good for them, as long as they keep buying." } },
   },
 }
 
@@ -625,7 +721,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin walking Durotar. My journal will want to hear about you, because I've never written anything like you before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on the road. Sit by the fire, then, and tell me what you pray to out here, because I've always wondered what holy folk say when there's nobody listening." },
         { id = "h_default", key = true,
-          text = "I'm Brakk. I walk Durotar and camp wherever I stop, and my journal says more about it than I do." },
+          text = "I'm Brakk. I walk Durotar and camp wherever I stop, because I spent too many years behind human fences to stay inside walls now. My journal says more about it than I do." },
         { id = "h_journal", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
           text = "My journal! I thought the scorpids had it. Every camp I've ever made is written in there, so you have my thanks." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
@@ -639,10 +735,10 @@ P:NPC {
       choices = {
         { text = "What do you pray to on the road, Brakk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have you noticed about this land, Brakk?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why sleep out here?", next = "why" },
+        { text = "You seem to prefer sleeping out here.", next = "why" },
         { text = "My beast and I sleep rough too.", next = "hunter", when = { class = "HUNTER" } },
-        { text = "Do you ever hear the spirits by the fire?", next = "shaman", when = { class = "SHAMAN" } },
-        { text = "Did you ever get your purse back?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "A fire like this must draw the spirits.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "I'd guess you never got your purse back.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you ever wish you could conjure your own fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you write about me, Brakk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have you met many warlocks on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -673,13 +769,17 @@ P:NPC {
       choices = { { text = "It says it's glad of the company.", next = "BACK", fx = { affinity = 2 } } },
     },
     why = {
-      lines = { { id = "w_default", text = "Walls are for people who've stopped walking. Out here, any traveler can share the fire. A camp belongs to whoever sits at it." } },
+      lines = { { id = "w_default", text = "Walls are for people who've stopped walking, and I had my fill of walls in the camps. Out here, any traveler can share the fire, and a camp belongs to whoever sits at it." } },
       choices = { { text = "Show me how.", next = "BACK", fx = { affinity = 2, learn = { "camping" } } } },
     },
   },
 
   topics = {
     camping = { { id = "tp_camping", text = "Fire first, and then whatever your trade adds: a tent, a rack for fish, a pot. The more hands, the better the rest." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar camp in the open like I do, but they don't put out their fires, and that's how you find them. It's also how they find you, so I put mine out." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane are thick down in the Barrens, and they don't like campfires that aren't theirs. If you camp south of the river, sleep light." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief understands the open road, because he walked a long way before he got here. I'd guess he misses it, some nights." } },
+    everlook = { { id = "tp_everlook", text = "I walked to Everlook once, in Winterspring, and I learned that walls have their uses after all. Don't tell anyone in Razor Hill." } },
     _none = { { id = "tp_none", text = "I only know the road and the fire. Ask in Razor Hill." } },
   },
 }

@@ -42,8 +42,8 @@ P:NPC {
       },
       choices = {
         { text = "Why did you come back?", next = "why" },
-        { text = "What happened to Southwind?", next = "southwind" },
-        { text = "Silithid chitin, for leather?", next = "chitin" },
+        { text = "Something terrible happened to Southwind, I think.", next = "southwind" },
+        { text = "What do you work with now?", next = "chitin" },
         { text = "Will you teach me your craft?", next = "teach", when = { profession = "Leatherworking" } },
         { text = "Let me see your patterns.", next = "BUSINESS" },
         { text = "Rest well, Aendel.", next = "END" },
@@ -52,7 +52,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because every craft dies a little with each crafter, and I had too much left in my hands to let it go. Elune allowed it, or at least did not forbid it, and here I am." } },
       choices = {
-        { text = "Is it lonely?", next = "why_lonely" },
+        { text = "It must be lonely out here.", next = "why_lonely" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -64,7 +64,7 @@ P:NPC {
       lines = { { id = "s_default", text = "It was a fine village, a watch post of our people at the edge of the sands, and the hives overran it. I do not speak of how it ended, and I would ask you not to ask the others either." } },
       choices = {
         { text = "I understand. Something else.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Layo Starstrike frees the dead here.", next = "southwind_layo" },
+        { text = "Does anyone try to free the dead here?", next = "southwind_layo" },
       },
     },
     southwind_layo = {
@@ -97,6 +97,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A leatherworker of Southwind, famous once, dead a long while, and not finished yet." } },
     advice = { { id = "tp_ad", text = "Never hurry a hide. The hide remembers, and so does whoever wears it." } },
     southwind = { { id = "tp_sw", text = "My home. Speak of it gently, if you speak of it at all." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "The hives grow like tumors on the desert, and the chitin they shed is the finest hide I have ever worked. I wish it came from a gentler beast." } },
+    elune = { { id = "tp_elune", text = "I died with Elune's name on my lips, a long time ago, and she let me come back to teach. I do not question a gift like that." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "I saw the walls of Ahn'Qiraj from a distance, in life, when the Shifting Sands war was young. I was a craftswoman, not a soldier, and I made armor for those who went closer." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande was High Priestess even in my day, and she will be High Priestess long after mine. Some lights do not go out." } },
     _none = { { id = "tp_none", text = "That was not in the world when I lived, or not in my corner of it." } },
   },
 }

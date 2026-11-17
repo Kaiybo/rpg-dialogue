@@ -14,7 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_lift", text = "You came up the lift? Good, then you've seen the drop. Stay away from the edge, traveler." },
+    { id = "o_grim_lost", when = { opinion = { grimtotem = "lost" } }, text = "Word at Freewind is you've no time for the Grimtotem at all. Good, because the looks they've been giving us at the lift lately aren't friendly ones." },
+    { id = "g_lift", text = "You came up the lift? Good, then you've seen the drop. Stay away from the edge, traveler; the Earth Mother made the canyon deep for a reason." },
     { id = "g_active", when = { questActive = TODO_QUEST("Message to Freewind Post") }, text = "Freewind Post, to the southeast. Give the message to Cliffwatcher Longhorn, and no one else." },
     { id = "g_done", when = { questDone = TODO_QUEST("Message to Freewind Post") }, text = "Longhorn has my message, then. Good. I can watch the lift without worrying about the road." },
     { id = "g_away", when = { away = 14 }, text = "You're back, after {away}! The lift's kept running, and the centaur have kept raiding, so not much has changed." },
@@ -45,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "What are the centaur doing?", next = "centaur" },
-        { text = "What's wrong with the Grimtotem?", next = "grimtotem" },
+        { text = "What do you make of the Grimtotem?", next = "grimtotem" },
         { text = "Tell me about the Great Lift.", next = "lift" },
         { text = "The Grimtotem are tauren. Why fear them?", next = "kin", when = { race = "Tauren" } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -55,12 +56,12 @@ P:NPC {
     centaur = {
       lines = { { id = "c_default", text = "The Galak used to keep to the canyons below, raiding a caravan now and then. Now they come up onto the mesas in bands, and they don't run when we come out to meet them." } },
       choices = {
-        { text = "What changed?", next = "changed" },
+        { text = "Something must have changed.", next = "changed" },
         { text = "Something else, Moonhorn.", next = "BACK" },
       },
     },
     changed = {
-      lines = { { id = "ch_default", text = "I don't know, and that's what frightens me. Something's given the centaur confidence, or something's driven them out of the canyons, and I don't like either answer." } },
+      lines = { { id = "ch_default", text = "I don't know, and that's what frightens me. Something's given the centaur confidence, or something's driven them out of the canyons, and I don't like either answer, Earth Mother help us." } },
       choices = {
         { text = "Then we find out which.", next = "changed_end" },
         { text = "Maybe they're just hungry.", next = "changed_end" },
@@ -100,6 +101,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a brave of Freewind Post, posted to the lift. It isn't glorious, but it's needed." } },
     advice = { { id = "tp_ad", text = "Never stand with your back to a canyon in the Needles. Something's always climbing up it." } },
     grimtotem = { { id = "tp_grim", text = "Tauren who'd rather we weren't here. Watch them, and don't let them get behind you." } },
-    _none = { { id = "tp_none", text = "I only know the lift and the road, traveler. Ask at Freewind." } },
+    centaur = { { id = "tp_centaur", text = "The Galak raid from the south, and they grow bolder every season. I warn every traveller who comes up the lift, and I hope they listen." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the High Chieftain, and he trusts Freewind to hold the Needles. I mean to prove him right, even if the Grimtotem make it harder." } },
+    razorfen = { { id = "tp_razorfen", text = "The Razorfen Downs lie to the north, and the quilboar there have grown strange and cold. I don't know what has happened to them, and I'd rather not find out." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the Needles tall so that her children could see far. I watch from the top of the lift, and I see more than I'd like." } },
+    _none = { { id = "tp_none", text = "I only know the lift and the road, traveler. Ask at Freewind, and may the Earth Mother keep the centaur off your trail." } },
   },
 }

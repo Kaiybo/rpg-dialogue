@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "What are the Deathstalkers?", next = "deathstalkers" },
         { text = "What happens to people who ignore your summons?", next = "summons" },
-        { text = "Andron Gant. What do you make of him?", next = "andron", when = { questDone = TODO_QUEST("The Deathstalkers") } },
+        { text = "Andron Gant seems to know a great many people.", next = "andron", when = { questDone = TODO_QUEST("The Deathstalkers") } },
         { text = "Who was Fenwick Thatros?", next = "fenwick", when = { questDone = TODO_QUEST("Fenwick Thatros") } },
         { text = "Teach me something, Mennet.", next = "lesson", when = { class = "ROGUE" } },
         { text = "What do you need from me?", next = "BUSINESS" },
@@ -72,7 +72,7 @@ P:NPC {
     deathstalkers_join = {
       lines = { { id = "dj_default", text = "By passing tests you don't know you're taking, mostly. I won't lie to you: some of those tests have killed better candidates than you, and the ones who pass don't talk about it." } },
       choices = {
-        { text = "And you serve Varimathras willingly?", next = "deathstalkers_lord" },
+        { text = "You don't sound fond of serving Varimathras.", next = "deathstalkers_lord" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,7 +89,7 @@ P:NPC {
     summons = {
       lines = { { id = "su_default", text = "Nothing dramatic. They simply stop being people I send for, and then, after a while, they stop being people anyone sends for." } },
       choices = {
-        { text = "That's a threat, isn't it?", next = "summons_threat" },
+        { text = "That sounds like a threat.", next = "summons_threat" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -140,6 +140,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've had a few lives, and only the current one is any of your business." } },
     advice = { { id = "tp_ad", text = "Always know who in the room is lying, and if you can't tell, assume it's everyone, yourself included." } },
     syndicate = { { id = "tp_syndicate", text = "The old nobles of Alterac, gone to knives and ledgers. They're good at secrets, but not quite good enough to keep them from us." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are surrounded by enemies who would burn us if they could, and the Deathstalkers make sure they never get the chance. That's all most of our people need to know about us." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Deathstalkers serve the Dark Lady directly, and we answer to no one else. If you're asking whether she's watching you, the answer is yes." } },
+    alterac = { { id = "tp_alterac", text = "The Syndicate grew up in the ruins of Alterac's nobility, and they still think they deserve a kingdom. We've been correcting that assumption, one by one." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "There's a manor in the hills above Hillsbrad where certain people of my profession gather. I can't tell you more, and I'd advise you not to go looking." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran sits behind its shields and pretends the Forsaken don't exist. We have people watching those walls, and we know more about them than they'd like." } },
     _none = { { id = "tp_none", text = "If I knew, I wouldn't say, and if I didn't, I certainly wouldn't admit it." } },
   },
 }

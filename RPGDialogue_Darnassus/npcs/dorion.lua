@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Dorion. I teach hunters here at the Enclave, and this is Shadow, who teaches them more than I do. Mind your manners around her, and she'll mind hers around you." },
+          text = "I am Dorion, and I teach hunters here at the Enclave, as I taught them in Ashenvale before the tree was planted. This is Shadow, who teaches them more than I do, so mind your manners around her and she'll mind hers around you." },
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter. Then sit, and tell me what you've tracked and what's tracked you, and I'll tell you what you did wrong." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -45,7 +45,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Shadow.", next = "shadow" },
         { text = "What makes a good hunter?", next = "hunting" },
-        { text = "How do I bond with a beast?", next = "bond", when = { class = "HUNTER" } },
+        { text = "I'd like to learn how to bond with a beast.", next = "bond", when = { class = "HUNTER" } },
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Goodbye, Dorion.", next = "END" },
       },
@@ -93,6 +93,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter who got too old to range far and too stubborn to stop. So I teach." } },
     advice = { { id = "tp_ad", text = "Watch your companion's ears. They'll hear trouble a full breath before you do." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hunt like a pack and fight like a herd, so you'll lose if you try to outrun them. Find high ground and let them come to you, and keep your companion close." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Furbolgs who still have their wits, up in Felwood's passes. Shadow likes them, and she doesn't like anyone." } },
+    green_dragons = { { id = "tp_green_dragons", text = "There's something wrong with the green dragons' places, the hunters say, in Ashenvale and in the human woods too. The beasts won't go near them anymore, and beasts know." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The old temple drowned off Ashenvale's coast, and nothing good comes out of it now. Hunters who go down there come back smelling of brine and fear." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. Shadow might know, but she isn't saying, and nightsabers keep their secrets longer than elves do." } },
   },
 }

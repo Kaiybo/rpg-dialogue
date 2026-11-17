@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Hanashi · Valley of Honor, Orgrimmar · Horde · Darkspear Troll · Weapon Master
-Personality: calm, spiritual, patient
-Speech: Darkspear 'mon', 'be'
+Personality: calm, spiritual, patient; treats weapons like restless relatives that need names and work
+Speech: Darkspear 'mon', 'be'; names weapons; gentle teasing of Sayoc and the orcs
 Knows and cares about: staves, spears, thrown weapons, weapon spirits, the Echo Isles
 Relationships: Vol'jin, Sayoc
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Believes weapons carry spirits; gender not stated in lines (confirm).
+Authored, not canon: Believes weapons carry spirits; gender not stated in lines (confirm). Names weapons (a staff called Old Patience, a spear called Little Thunder); claims to have seen Sayoc whisper to his axe; throws a thousand times at the same knot and speaks to the blade first.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

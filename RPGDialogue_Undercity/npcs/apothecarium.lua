@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_again", text = "Another question? I'm in the middle of a distillation, but it'll take an hour whatever I do." },
       },
       choices = {
-        { text = "What happened to your patients?", next = "patients" },
+        { text = "You speak of your patients as if they're gone.", next = "patients" },
         { text = "What does the Society actually make here?", next = "society" },
         { text = "Teach me alchemy.", next = "BUSINESS", when = { profession = "Alchemy" } },
         { text = "Good day, Doctor.", next = "END" },
@@ -48,7 +48,7 @@ P:NPC {
     patients = {
       lines = { { id = "pa_default", text = "They died in the plague, every one, and I tried every cure in my books and a few I invented. None of them worked, and I've kept the notes, because a failed cure still teaches you what the sickness wants." } },
       choices = {
-        { text = "Do you still look for a cure?", next = "patients_cure" },
+        { text = "I'd guess you still look for a cure.", next = "patients_cure" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -87,7 +87,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Oh, mind the pot, dearie. That's my peacebloom, and it's the only one in the city." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Did you bring me anything green? No? Well, never mind." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did you bring me anything green? No? Well, never mind; nothing grows down here but mould and grudges." },
   },
 
   notice = {
@@ -108,7 +108,7 @@ P:NPC {
         { id = "h_again", text = "Anything else, dear? I've all the time in the world, and nothing to plant it in." },
       },
       choices = {
-        { text = "How does the peacebloom grow down here?", next = "peacebloom" },
+        { text = "I'm surprised peacebloom grows down here at all.", next = "peacebloom" },
         { text = "Tell me about the farm.", next = "farm" },
         { text = "Teach me herbalism.", next = "BUSINESS", when = { profession = "Herbalism" } },
         { text = "Take care, Martha.", next = "END" },
@@ -136,6 +136,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask me about roots, and I'll talk your ear off." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask me about roots, and I'll talk your ear off, since I've no breath left to run short of." } },
   },
 }

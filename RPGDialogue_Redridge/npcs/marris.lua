@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_demons_forbid", when = { opinion = { topic = "demons", stance = "forbid" } }, text = "You again, the one who'd close the Slaughtered Lamb. My fourth report went off with your opinion in it; I said a sensible traveller agreed." },
+    { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Keeshan says you've no time for any orc, Thrall's or otherwise. Good, because my walls have no time for them either, so take a post." },
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
     { id = "g_menace", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "Back from the valley already? Good, now tell me how many." },
     { id = "g_keeshan", when = { questDone = TODO_QUEST("Missing In Action") }, text = "You're the one who brought Keeshan home, and I won't forget it." },
@@ -35,6 +37,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "op_demons_a", text = "Sit right? There's a cellar under the Slaughtered Lamb where they teach demon-calling to anyone with the coin, and the same orbs are killing my men up on that ridge. The Keep says it's better to know the enemy's tricks. What do you say?" },
+      },
+      choices = {
+        { text = "Demons are demons. Stormwind should shut that cellar down.", next = "op_demons_1", fx = { opinion = { demons = "forbid" }, align = { light = 1 }, trait = { pious = 1 }, affinity = 2 } },
+        { text = "A weapon's a weapon. Better ours than only the orcs'.", next = "op_demons_2", fx = { opinion = { demons = "useful" }, align = { light = -1 }, trait = { practical = 1 }, affinity = -1 } },
+        { text = "Train them, and watch them. Closely.", next = "op_demons_3", fx = { opinion = { demons = "dangerous" }, trait = { cautious = 1 } } },
+        { text = "I command demons myself, Marshal, and I'm on your wall.", next = "op_demons_4", when = { class = "WARLOCK" }, fx = { opinion = { demons = "useful" }, affinity = -2 } },
+        { text = "That's the Keep's business, not mine.", next = "BACK" },
+      },
+    },
+    op_demons_1 = {
+      lines = { { id = "op_demons_r1", text = "That's what I've written in three reports, and I'll write it in a fourth with your name under mine. The Light help any city that keeps a demon in its basement." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_demons_2 = {
+      lines = { { id = "op_demons_r2", text = "You sound like the clerks at the Keep. Come stand on my wall at night and watch one of those orbs light up the dark, and then tell me again." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_demons_3 = {
+      lines = { { id = "op_demons_r3", text = "Watch them with what? I can't spare a guard to watch my own bridge. Still, I'll grant that a leash is better than nothing." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_demons_4 = {
+      lines = { { id = "op_demons_r4", text = "So you are, and I'll take the help, because I'd take a gnoll's help this month. Keep that thing behind you and away from my men, or we'll have words." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
     xcl_lbrs = {
       big = true,
       lines = { { id = "xcl_lbrs_default", text = "Bleeding isn't beaten, and they've more warriors in that mountain than Lakeshire has people, so I'll keep my guard on the bridge all the same. Still, every orc who dies at home is one who never comes down the Burning Steppes road, and that's a thing I can put in my report." } },
@@ -80,7 +110,7 @@ P:NPC {
       choices = {
         { text = "East it is. Let them taste their own magic.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll call on it sparingly, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Who is Tharil'zun?", next = "tharil" },
+        { text = "Who leads the orc raiders?", next = "tharil" },
       },
     },
     druid_talk = {
@@ -115,7 +145,7 @@ P:NPC {
           text = "The guards tell me you've been inside Blackrock Spire itself, where the orcs that raid my lake come from. I'll believe it from you, and I'll sleep a little better tonight, which is more than I've managed in a month." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
-        { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake and orcs who never sleep. What do you need?" },
+        { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake, orcs who never sleep and a boar called Bellygrub in the gardens. What do you need?" },
         { id = "h_menace", when = { questBefore = TODO_QUEST("Blackrock Menace") },
           text = "The Blackrock came out of the Burning Steppes and took Stonewatch Keep. Now they raid everything north of town, and there's another nest of them in Render's Valley. I want their numbers down." },
         { id = "h_menace_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackrock Menace"), days = 3 } },
@@ -143,8 +173,8 @@ P:NPC {
         { text = "Your gnolls are only hungry. Something drives them down from the hills.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened at Stonewatch?", next = "stonewatch" },
         { text = "How bad is it?", next = "bad" },
-        { text = "Who is Tharil'zun?", next = "tharil" },
-        { text = "Who named that boar Bellygrub?", next = "bellygrub" },
+        { text = "Who leads the orc raiders?", next = "tharil" },
+        { text = "Someone gave that boar a fine name in Bellygrub.", next = "bellygrub" },
         { text = "Keeshan's home. How is he?", next = "keeshan_after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "My people have fought the Blackrock for generations.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Give me a post, Marshal. I'll hold it.", next = "warrior", when = { class = "WARRIOR" } },
@@ -169,7 +199,7 @@ P:NPC {
         { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "You did what you could.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Who did you lose?", next = "stonewatch_lost" },
+        { text = "You must have lost good soldiers there.", next = "stonewatch_lost" },
       },
     },
     stonewatch_lost = {
@@ -209,6 +239,7 @@ P:NPC {
         { id = "o_default", text = "Midnight orbs, demon-tainted every one. The orbs in their hands have struck my men down from across a field, and I want them out of this war." },
       },
       choices = {
+        { text = "Stormwind trains its own warlocks, Marshal. Does that sit right with you?", next = "op_demons" },
         { text = "I'll bring you the orbs.", next = "BACK", fx = { affinity = 1 } },
         { text = "Smashing them may not be enough. Let me see them first.", next = "orbs_priest", when = { class = "PRIEST" } },
         { text = "Something else.", next = "BACK" },
@@ -225,7 +256,7 @@ P:NPC {
 
     tharil = {
       lines = {
-        { id = "t_default", text = "He leads their Outrunners. He picks the ground between here and Stonewatch, hits my patrols, and he's gone before the horn sounds; he's crafty, and I hate crafty." },
+        { id = "t_default", text = "Tharil'zun, who leads their Outrunners. He picks the ground between here and Stonewatch, hits my patrols, and he's gone before the horn sounds; he's crafty, and I hate crafty." },
         { id = "t_done", when = { questDone = TODO_QUEST("Tharil'zun") },
           text = "He led them, past tense, thanks to you. The road to Stonewatch is only dangerous now, not murderous." },
       },
@@ -248,7 +279,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll deal with your boar.", next = "BACK", fx = { affinity = 1, standing = { lakeshire = 1 } } },
-        { text = "You named the garden's worst enemy?", next = "bellygrub_name" },
+        { text = "So you named the garden's worst enemy.", next = "bellygrub_name" },
       },
     },
     bellygrub_name = {
@@ -296,6 +327,18 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I was a sergeant in the Second War, and I watched orcs take hills like these in an afternoon. I'm not ashamed to say the Blackrock frighten me, because a soldier who isn't frightened of them hasn't been paying attention." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Tharil'zun's orders come down from that black mountain to the north, I'm sure of it, and the mountain has more orcs than Stormwind has soldiers. I'd like a hundred men to hold the passes, and I'd settle for fifty." } },
+    bolvar = { { id = "tp_bolvar", text = "I've written to the Highlord three times, and the replies are courteous and empty. I don't blame him, because I know what's on his desk, but I wish Redridge were nearer the top of it." } },
+    prestor = { { id = "tp_prestor", text = "The Regent's letters come back in a lady's hand these days, I'm told, and they're very polite. Politeness doesn't hold a bridge, so I've stopped reading the second page." } },
+    varian = { { id = "tp_varian", text = "King Varian went to make peace and vanished on the way, and the kingdom hasn't been the same since. He'd have sent us soldiers, I believe that, though I suppose every captain says the same." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I pray to the Light before every patrol goes out, and I count heads when they come back. Some days the prayer works, and some days I just count." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "I pray before every patrol, paladin, and I'd ask you to say one too, because yours seem to carry further. I count the heads when they come back, and I'd like the count to come out right." },
+    },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs came through that gate in the Black Morass, and the Blackrock were the first of them. I'm told it lies broken now, and I'd still like more soldiers between it and Lakeshire than the few I have." } },
+    thrall = { { id = "tp_thrall", text = "Thrall leads the orcs in Kalimdor and talks of peace with Theramore, and the Blackrock clearly didn't get the letter. Either he can't control them, or he doesn't want to, and I don't like either answer." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons fight the Blackrock in the Steppes, and if they'd only finish each other I'd buy them both an ale. They won't, though, because neither side ever loses quickly enough to do us any good." } },
     knows = {
       { id = "tp_knows", text = "Every guard on the lake reports to me, so I hear the bad news before the town does. Ask me about any of this." },
     },

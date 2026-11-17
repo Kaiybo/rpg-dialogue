@@ -28,6 +28,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_goblins = {
+      lines = {
+        { id = "opg_default", text = "Especially goblins, friend, because they've got the coin and the roads, from here to Booty Bay. Some of my old partners say they're crooks with nice ledgers, and some say they're the only honest traders left. What do you say?" },
+      },
+      choices = {
+        { text = "Crooks with better ledgers, every one of them.", next = "op_goblins_crooks", fx = { align = { honor = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "They keep trade moving. Good for them.", next = "op_goblins_useful", fx = { affinity = 1, align = { honor = -1 }, opinion = { goblins = "useful" } } },
+        { text = "Gnomes and goblins both tinker. Only one of us cheats.", next = "op_goblins_crooks", fx = { trait = { witty = 1 }, opinion = { goblins = "rivals" } }, when = { race = "Gnome" } },
+        { text = "Let's get you out of that cage first.", next = "BACK" },
+      },
+    },
+    op_goblins_crooks = {
+      lines = {
+        { id = "opgc_default", text = "Ha, you sound like my late partner, who said the same thing right up until a goblin bought his debts. Me, I'd rather be cheated by a goblin than robbed by a murloc, and I've now tried both." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_goblins_useful = {
+      lines = {
+        { id = "opgu_default", text = "See, a sensible sort, I knew it! Gold's gold, friend, and a goblin's gold spends just as well as a dwarf's, and I'm not proud about where it's been." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because I'm a trader, friend, not a soldier, and there were about twenty of them and one of me, and they had nets. A warrior like you would have scattered them in a heartbeat, which is exactly why you should be the one to get me out." } },
@@ -142,14 +165,14 @@ P:NPC {
       choices = {
         { text = "Do the murlocs here worship anything, Galen?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the murlocs here use any magic, Galen?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Why did you come into this swamp alone?", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "How did you end up in there?", next = "caught" },
+        { text = "Only a fool would come into this swamp alone.", next = "druid_talk", when = { class = "DRUID" } },
+        { text = "You must have walked straight into the murlocs.", next = "caught" },
         { text = "What's in this strongbox?", next = "box" },
-        { text = "What is this place?", next = "place" },
+        { text = "This place stinks of murloc.", next = "place" },
         { text = "Did you get your strongbox back?", next = "after", when = { questDone = TODO_QUEST("Galen's Escape") } },
         { text = "I could pick this lock, Galen. What's it worth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Shall I turn your guards into sheep, Galen?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Did you really pray every night, Galen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess you prayed every night in that cage.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would murlocs run from a paladin, Galen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why didn't you fight off the murlocs, Galen?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where might the murlocs have taken your strongbox, Galen?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -179,7 +202,10 @@ P:NPC {
       lines = {
         { id = "cl_default", text = "This and that, whatever sells, friend, and I'll trade with anybody who pays honest coin. Next time I'll hire a guard, I swear it, though I said the same last time too." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Even goblins?", next = "op_goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     box = {
       lines = {
@@ -213,6 +239,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a trader, friend, an honest one, mostly. I buy cheap and sell dear, and sometimes I get caught by murlocs." } },
     advice = { { id = "tp_ad", text = "Don't take shortcuts through the swamp, friend. Take it from a man who's been sitting in a cage for days." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'd sell this strongbox's contents, friend, if I ever get out of this cage. Help me out, and I'll tell you what's in it." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon's a fine man, friend, I'm sure, but he's never sent a single patrol to this swamp. A trader's on his own out here." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in Stormwind during the Second War, and I learned then that a trader should always keep one foot out the door. I forgot the lesson, apparently." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls around the Sunken Temple are bad for business, friend, and worse for your health. I'd keep well clear." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, friend. Can we talk about getting me out of here?" } },
   },
 }
@@ -349,9 +379,9 @@ P:NPC {
         { text = "What orders do you mean?", next = "orders" },
         { text = "What lies in the Blasted Lands?", next = "lands" },
         { text = "Ruag swears he sent those orders.", next = "ruag", when = { questDone = TODO_QUEST("The Missing Orders") } },
-        { text = "Do my demons trouble your rest, spirit?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do you think someone stole your orders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "What kind of warriors were Thrall's Grasp?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "My demons seem to trouble your rest, spirit.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd wager someone stole your orders.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Thrall's Grasp must have been fine warriors.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter look for out there, spirit?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why won't the swamp let you rest, Fallen Hero?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Could the Light bring you peace, spirit?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -406,6 +436,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a commander of the Horde, and now I am a shade on a swamp road. That is all the tale I'll tell for now." } },
     advice = { { id = "tp_ad", text = "When you lead, young one, know where your orders are. I did not, and nineteen soldiers paid for it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief named my regiment for himself, and I gave the orders that broke it. I hope he never learns my name, so he can't curse it." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War when I was young, and I came through it whole. This swamp did what the Alliance couldn't." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The demons came from the Portal's shadow, from the Tainted Scar, and they took my men one by one. Kirith was the last, and the worst." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's servants still walk the Blasted Lands, and they remember the old Horde's pacts. They used that to break my regiment." } },
     _none = { { id = "tp_none", text = "I know nothing of that. The dead hear little news." } },
   },
 }

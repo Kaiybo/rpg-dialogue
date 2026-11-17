@@ -49,9 +49,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, but watch the trees while you talk." },
       },
       choices = {
-        { text = "Why so secretive?", next = "secret" },
-        { text = "How do you know Elling Trias?", next = "trias" },
-        { text = "What's out on this road?", next = "road" },
+        { text = "You're awfully secretive for a watchman.", next = "secret" },
+        { text = "Who hears what you see, besides the Watch?", next = "trias" },
+        { text = "This road seems lonely for one watchman.", next = "road" },
         { text = "What was in that Defias docket?", next = "docket", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Watch yourself, Backus.", next = "END" },
@@ -76,10 +76,10 @@ P:NPC {
       },
     },
     trias = {
-      lines = { { id = "t_default", text = "He sells cheese in Stormwind, and he hears things the way some men hear music. I pass him what I see out here when it seems to matter, and I don't ask what he does with it." },
+      lines = { { id = "t_default", text = "A man named Elling Trias does; he sells cheese in Stormwind, and he hears things the way some men hear music. I pass him what I see out here when it seems to matter, and I don't ask what he does with it." },
       },
       choices = {
-        { text = "A cheesemonger? Really?", next = "trias_cheese" },
+        { text = "A cheesemonger. That's an odd friend for a watchman.", next = "trias_cheese" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,5 +105,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand still in Duskwood after dark. Something always notices." } },
     defias = { { id = "tp_defias", text = "They pass through here from Westfall more often than the council knows.", next = "road" } },
     _none = { { id = "tp_none", text = "Couldn't say, and wouldn't if I could. Ask in Darkshire." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill's on the far side of my road, and some nights I can hear the bell from my post. I stay on the road and let it ring." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've seen them pass twice on the road to the manor, and both times I stood very still and let them go. A watcher who lives is worth more than a brave one who doesn't." } },
+    scourge = { { id = "tp_scourge", text = "If the dead in the north are anything like ours, I'm glad I'm not up there. I'm not sure I'd be glad to be anywhere else, either." } },
   },
 }

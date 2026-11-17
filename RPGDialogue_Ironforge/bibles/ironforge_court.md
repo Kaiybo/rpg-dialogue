@@ -36,7 +36,7 @@
 ## Voices (whole sentences; personality in word choice, not chopped lines)
 - Mekkatorque: quick, warm, self-deprecating engineer who runs his thoughts together; carries the guilt of approving the plan and says so plainly.
 - Archesonus: learns visitors by voice; long-winded, exact; "I record that it's said."
-- Magellas: eager, serious about discovery, frets over his Prospectors; less brogue than most dwarves.
+- Magellas: eager, serious about discovery, frets over his Prospectors; less brogue than most dwarves, but still a light burr (ye, o') and stone, beard and pick imagery.
 - Stormpike: curt and hot-tempered, but in whole sentences; wants to be left alone with his reading.
 - Stonehallow: brisk public servant with dirty boots; mild jokes about long speeches.
 - Firebrew: jolly host; the Stonefire's rule is story for story.
@@ -59,3 +59,6 @@
 
 ## 0.34.0
 - Mekkatorque (Persuade, `whose_list`): he made a list of every survivor on the tram platform with a borrowed pencil, and reads it every night looking for a name he missed.
+
+## Prejudice (0.80.0, authored, not canon)
+- Senator Mehr Stonehallow (prejudice, NightElf): counts the Kaldorei as allies who never paid for the Second War; grumbles that Darnassus wants dwarven rifles at Auberdine.

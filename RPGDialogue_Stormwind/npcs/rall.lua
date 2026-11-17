@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_crusade", when = { opinion = { topic = "scarlet_crusade", stance = "hardline" } }, text = "I hear you've a taste for the Crusade's way of doing things. Sit with me a while before you ride north, and let me tell you what Hearthglen was before the red." },
     { id = "g_test", text = "Ready? No one ever is, so come anyway." },
     { id = "g_wilhelm", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tome of Divinity"), days = 2 } }, text = "Wilhelm sent you, and he thinks well of you. Let us see if he's right." },
     { id = "g_tome", when = { questActive = TODO_QUEST("The Tome of Divinity") }, text = "Still at your task? Good, because haste is not a virtue in this work." },
@@ -29,6 +30,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_silverhand = {
+      lines = {
+        { id = "op_silverhand_a", text = "No. Uther is dead, Lordaeron is a grave, and the knights who are left have gone three ways: some to Hearthglen in red, some to Light's Hope with the Argent Dawn, and some here, teaching recruits. I ask every paladin I test where they'd stand, so where would you?" },
+      },
+      choices = {
+        { text = "With the Argent Dawn. They fight the Scourge without hating the living.", next = "op_silverhand_1", fx = { opinion = { argent_dawn = "admire", silver_hand = "respect" }, align = { light = 1 }, affinity = 2 } },
+        { text = "With the Crusade. The Scourge is evil, and mercy won't burn it.", next = "op_silverhand_2", fx = { opinion = { scarlet_crusade = "hardline", silver_hand = "weak" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Here, with Stormwind. Our own lands need us first.", next = "op_silverhand_3", fx = { opinion = { silver_hand = "respect", westfall = "send_soldiers" }, align = { order = 1 } } },
+        { text = "The order died with Uther. I serve the Light on my own.", next = "op_silverhand_4", when = { class = "PALADIN" }, fx = { opinion = { silver_hand = "dead" }, align = { order = -1 } } },
+        { text = "I haven't chosen yet, Lord Rall.", next = "BACK" },
+      },
+    },
+    op_silverhand_1 = {
+      lines = { { id = "op_silverhand_r1", text = "That's where I'd send my best, if I could spare them. Mercy and a blade together; Uther would have recognised it." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_silverhand_2 = {
+      lines = { { id = "op_silverhand_r2", text = "I hear that from good recruits more often than I'd like. Go to Hearthglen if you must, but watch what they do to the living, because that's where they stopped being knights." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_silverhand_3 = {
+      lines = { { id = "op_silverhand_r3", text = "Westfall, Redridge, Duskwood; there's more work south of this city than the order has hands. Stay, then, and I'll keep you busy." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_silverhand_4 = {
+      lines = { { id = "op_silverhand_r4", text = "Then you'll serve it alone, and alone is how good paladins become strange ones. I hope you prove me wrong, and I'll pray on it." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
     xpt_rall = {
       big = true,
       lines = { { id = "xpt_rall_default", text = "Because pride tells you to stand in front of every blow, and the Light has no need of your pride. A company where one person insists on bearing everything loses that person first, and then everyone else after." } },
@@ -146,14 +175,14 @@ P:NPC {
         { id = "h_again2", text = "Go on; I've time for questions, though not for excuses." },
       },
       choices = {
-        { text = "What does the Light ask of a paladin?", next = "ask" },
+        { text = "The Light must ask a great deal of a paladin.", next = "ask" },
         { text = "Why test us at all?", next = "why" },
-        { text = "Tell me about the Tome of Divinity.", next = "tome" },
-        { text = "You spoke of a test of valor.", next = "valor", when = { class = "PALADIN", minLevel = 20 } },
-        { text = "Henze lives. What became of the Defias script?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
+        { text = "How do you test the paladins they send you?", next = "tome" },
+        { text = "Is there a further test for me, Rall?", next = "valor", when = { class = "PALADIN", minLevel = 20 } },
+        { text = "Henze lives. That Defias script must have reached someone.", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "I was a squire when the Order fell.", next = "squire", when = { origin = "human_paladin_squire" } },
-        { text = "Do priests and paladins learn the same Light?", next = "priest", when = { class = "PRIEST" } },
-        { text = "Does the Light have any use for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Priests and paladins must learn the same Light.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I doubt the Light has much use for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What separates a warrior from a paladin, Duthorian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would a paladin learn from a hunter, Duthorian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -205,6 +234,7 @@ P:NPC {
     why_self = {
       lines = { { id = "ws_default", text = "Every paladin I send out who comes back worse than they left. I keep count, and it's a short list, but I'd like it shorter." } },
       choices = {
+        { text = "Is the Silver Hand still what it was?", next = "op_silverhand" },
         { text = "I won't be on it.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The field changes everyone, so I won't promise anything.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -225,7 +255,7 @@ P:NPC {
     valor = {
       lines = { { id = "v_default", text = "Daphne Stilwell's farm, in Westfall above the shore, and the Defias want it. Stand with her, and afterwards her husband in Ironforge will want to hear it from you." } },
       choices = {
-        { text = "Who's her husband?", next = "valor_jordan" },
+        { text = "I don't think I know her husband.", next = "valor_jordan" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -258,6 +288,17 @@ P:NPC {
   },
 
   topics = {
+    heroes_vigil = {
+      { id = "tp_heroes_vigil", text = "Henze Faulk fell on Heroes' Vigil holding off the Defias so Gazin could escape. The Light can bring him back, if the paladin who carries it is steady, and I've sent the steadiest I could find." },
+      { id = "tp_heroes_vigil2", when = { class = "PALADIN" }, text = "If you go to Heroes' Vigil, go with the Symbol of Life and a clear heart, and the Light will do the rest. Henze gave his life for his friend, and that's the sort of soul the Light is eager to return." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand trained me, and I train the young paladins who come after, so its oath doesn't die with us. Uther would say the order is in the hearts of those who serve, not in the halls we've lost." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a debt we owe to the people who can never repay us, and a paladin is the one who pays it. That's all I teach, and it takes most of a lifetime to learn." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire sends me their best young paladins, and they come well grounded in the Light. Brother Sammuel does fine work there, though I'd not tell him so, because he'd become insufferable." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron and most of the Silver Hand with it, and I lost brothers I'd fought beside for twenty years. I pray for them every night, and I pray they're at rest." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil was trained by Uther himself, and he fell further than any paladin in history. I teach his story to every squire, because the Light doesn't protect anyone who stops listening to it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was purged by the prince, and the Silver Hand broke over it. I wasn't there, and I've thanked the Light every day since that I wasn't, and asked its forgiveness for thanking it." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias have a nest under Moonbrook, and Stoutmantle will need paladins when he goes in after VanCleef. If you go, carry the Light into the dark, and bring it back out with you." } },
     knows = {
       { id = "tp_knows", text = "I've trained paladins for this Cathedral long enough to know a good deal, and to keep most of it to myself. These, I'll speak to." },
     },

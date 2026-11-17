@@ -49,9 +49,9 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm listening, though half my mind is on the circle behind you." },
       },
       choices = {
-        { text = "What is a voidwalker, exactly?", next = "void" },
+        { text = "What sort of thing do you call out of the Nether?", next = "void" },
         { text = "Why does the Dark Lady allow warlocks?", next = "allow" },
-        { text = "Where did you learn all this?", next = "learned" },
+        { text = "You didn't learn all this from books alone.", next = "learned" },
         { text = "I'm ready for the binding, Halgar.", next = "binding", when = { class = "WARLOCK" } },
         { text = "What would you have me do?", next = "BUSINESS" },
         { text = "I'll leave you to your chalk.", next = "END" },
@@ -68,7 +68,7 @@ P:NPC {
     void_slip = {
       lines = { { id = "vs_default", text = "Then it stops serving and starts feeding, and someone like me is sent to tidy up what's left. I've tidied up three students so far, and I keep their chalk in a box by the door." } },
       choices = {
-        { text = "Does it frighten you, holding them like that?", next = "void_fear" },
+        { text = "Holding them like that would frighten me.", next = "void_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -108,7 +108,7 @@ P:NPC {
         { id = "le_cult", when = { origin = "forsaken_cult_remnant" }, text = "From the same people who taught you, I suspect, before the Dark Lady broke their hold on us. The Cult of the Damned was generous with its lessons and careless about whom it taught." },
       },
       choices = {
-        { text = "You were one of the Cult?", next = "learned_cult" },
+        { text = "So you were one of the Cult.", next = "learned_cult" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,7 +177,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does careful matter so much?", next = "careful" },
-        { text = "What were you before the plague?", next = "before" },
+        { text = "You have the manner of a teacher.", next = "before" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Good day, Kerwin.", next = "END" },
       },
@@ -248,7 +248,7 @@ P:NPC {
         { id = "h_again2", text = "What else stirs in that head of yours?" },
       },
       choices = {
-        { text = "Was Soulreaper your name in life?", next = "name" },
+        { text = "Soulreaper can't have been your name in life.", next = "name" },
         { text = "What are soul shards for, really?", next = "shards" },
         { text = "Teach me, Soulreaper.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
@@ -387,14 +387,25 @@ P:NPC {
         { id = "h_troll", when = { race = "Troll", class = "MAGE" }, text = "A troll mage! I've read that your people's magic comes from the old spirits, and I'd love to hear how it sits with the arcane, if you've a moment." },
       },
       again = {
-        { id = "h_again", text = "Yes? Oh, yes, you were asking something. Go on." },
+        { id = "h_again", text = "Yes? Oh, yes, you were asking something; my memory came back from the grave with a few pages missing. Go on." },
         { id = "h_again2", text = "Another question? Splendid, I'd nearly run out of things to think about." },
       },
       choices = {
-        { text = "What happened to your school?", next = "school" },
+        { text = "Your school must have closed long ago.", next = "school" },
         { text = "Do the dead learn magic differently?", next = "dead" },
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "I kept the archives in Stratholme, Pierce, until the Culling.", next = "xorig_archive", when = { origin = "forsaken_stratholme_archivist" } },
         { text = "Goodbye, Pierce.", next = "END" },
+      },
+    },
+    xorig_archive = {
+      lines = {
+        { id = "xar_default", text = "Stratholme's archives! I wrote to your keepers twice for a copy of an old treatise on ley lines, and nobody ever answered. I suppose that wasn't your fault. Did any of it survive, do you think?" },
+      },
+      choices = {
+        { text = "I never learned. One day I'd like to go and look.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "No. Arthas left nothing in that city worth reading.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I may have lost your letters, Pierce. Sorry.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
     school = {
@@ -431,20 +442,23 @@ P:NPC {
   key = "uc_gregorian", id = TODO_NPC("Josef Gregorian"), name = "Josef Gregorian", title = "Artisan Enchanter",
   bible = "bibles/uc_gregorian.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "proud", "precise" }, values = { "ambitious" },
-  notices = { "craft" },
+  notices = { "craft", "class" },
   impression = {
-    first = "Josef Gregorian teaches enchanting at the artisan's level and does not let anyone forget the distinction. He handled my gear like a jeweller handling paste, which was humbling.",
+    first = "Josef Gregorian teaches enchanting at the artisan's level and does not let anyone forget the distinction. He talks about dust the way a sommelier talks about wine, and he handled my gear like a jeweller handling paste, which was humbling.",
     third = "{name} met Josef Gregorian, the Undercity's artisan enchanter.",
   },
 
   greetings = {
     { id = "g_default", text = "Please don't lean on the table. The runes on it are older than this city's new name." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. I hope your rods are cleaner than last time." },
+    { id = "g_artisan", when = { profession = { name = "Enchanting", min = 225 } }, text = "Ah, an enchanter of some standing at last. Come in, and do wipe your rod before it touches anything of mine." },
   },
 
   notice = {
     { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
       text = "An enchanter. Show me your rod; I can tell more from a rod than from any letter of introduction." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage. You'll understand, then, that magic poured into steel is a different thing from magic flung across a room, and considerably more refined." },
   },
 
   start = "hello",
@@ -456,10 +470,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something further? Speak; the runes can wait, as they've waited for centuries." },
+        { id = "h_again2", text = "Yes? Do be concise. Enchanting is the art of saying exactly enough, and I prefer conversation the same way." },
       },
       choices = {
         { text = "What separates an artisan from the rest?", next = "artisan" },
-        { text = "Where did you learn the craft?", next = "learned" },
+        { text = "You learned your craft somewhere fine, by the look of it.", next = "learned" },
+        { text = "Isn't dust just dust?", next = "dust" },
+        { text = "What do you think of Lavinia Crowe's teaching?", next = "crowe" },
+        { text = "I disenchant everything I find. It's quicker.", next = "everything", when = { profession = "Enchanting" } },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Enchanting" } },
         { text = "Good day, Gregorian.", next = "END" },
       },
@@ -475,7 +493,7 @@ P:NPC {
     learned = {
       lines = { { id = "le_default", text = "In the palace above, as a junior to the court enchanter, who put a shine on King Terenas's ceremonial blades. I was polishing one of them on the day Prince Arthas came home, and I've not polished a blade for royalty since." } },
       choices = {
-        { text = "You saw Arthas return?", next = "learned_arthas" },
+        { text = "So you saw Arthas return.", next = "learned_arthas" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -483,10 +501,51 @@ P:NPC {
       lines = { { id = "la_default", text = "I saw the bells ring and the petals fall, and I went back to my bench, because the work wasn't finished. I've thought a great deal since about that unfinished blade." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+
+    dust = {
+      lines = { { id = "du_default", text = "Dust is no more just dust than wine is just grapes. Strange dust from a farmhand's boots is thin and sour, but strange dust from a good soldier's blade has body to it, and a little warmth on the finish, and I can tell the two apart blindfolded." } },
+      choices = {
+        { text = "Blindfolded? How?", next = "dust_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dust_how = {
+      lines = { { id = "dh_default", text = "By the way it settles in the bowl, and by the faint hum against the rod, which most enchanters are far too hurried to hear. Let me test your eye in return: when you look at a fine sword, what do you see first?" } },
+      choices = {
+        { text = "The edge, and whether it'll hold.", next = "see_edge", fx = { trait = { practical = 1 } } },
+        { text = "The hand that made it.", next = "see_maker", fx = { trait = { curious = 1 }, affinity = 1 } },
+        { text = "What it would fetch at auction.", next = "see_price", fx = { trait = { greedy = 1 } } },
+      },
+    },
+    see_edge = {
+      lines = { { id = "se_default", text = "A soldier's answer, sensible and a little dull. You'll keep your weapons sharp, and I'll keep the poetry, and we needn't trouble one another." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    see_maker = {
+      lines = { { id = "sm_default", text = "Ah, now that is the beginning of taste. Every blade remembers its maker a little, and the best enchantments only coax that memory out." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    see_price = {
+      lines = { { id = "sp_default", text = "Then you've the soul of a goblin, and I'll thank you to keep it on your side of the table. Some things are worth more than they fetch, though I don't expect you to believe me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    crowe = {
+      lines = { { id = "cr_default", text = "Lavinia is thorough, and patient, and I could never do what she does with beginners. I do wish she'd stop letting them handle rods with bare hands, mind you, because I can taste their fingers in the dust for weeks afterwards." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    everything = {
+      lines = { { id = "ev_default", text = "Everything? You break good steel and bad steel alike and call it efficiency? That is the habit of a quarry, not a craftsman, and I'll ask you to say it more quietly near my bench." } },
+      choices = {
+        { text = "Quick work keeps the Scourge back. That's what counts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "You're right. I'll learn to choose with care.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "That's no concern of an enchanter, and therefore none of mine." } },
+    _none = { { id = "tp_none", text = "That's no concern of an enchanter, and therefore none of mine. Bring me something that hums, and we'll talk." } },
   },
 }
 
@@ -499,13 +558,14 @@ P:NPC {
   communities = { "undercity" }, temper = { "brisk", "warm" }, values = { "practical" },
   notices = { "class" },
   impression = {
-    first = "Hannah Akeley sells reagents to the Magic Quarter and keeps a running tally of which customers come back. She was cheerful about it, which in the Undercity feels almost rebellious.",
+    first = "Hannah Akeley sells reagents to the Magic Quarter and keeps a running tally of which customers come back. She has a horseshoe nailed over her table and a superstition for every occasion, and she was cheerful about it all, which in the Undercity feels almost rebellious.",
     third = "{name} met Hannah Akeley, who sells reagents in the Undercity's Magic Quarter.",
   },
 
   greetings = {
-    { id = "g_default", text = "Powders, candles, chalk, the usual things for the unusual folk. What'll it be?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you would be; everyone runs out of something." },
+    { id = "g_default", text = "Powders, candles, chalk and grave dust, the usual things for the unusual folk. What'll it be?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you would be; everyone runs out of something, and down here the dead run out of patience first." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Evening, love. Mind you step in with your right foot first; it's a dark night, and I'm not taking chances." },
   },
 
   notice = {
@@ -517,15 +577,19 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Hannah Akeley, reagents and supplies. Mages, priests, warlocks, anyone who needs a pinch of something before the magic works, they all end up at my table eventually." },
+        { id = "h_default", key = true, text = "Hannah Akeley, reagents and supplies. Mages, priests, warlocks, anyone who needs a pinch of something before the magic works, living or otherwise, they all end up at my table eventually." },
         { id = "h_warrior", when = { class = { "WARRIOR", "ROGUE" } }, text = "You don't look like a spellcaster, love. If you're lost, the War Quarter is that way, but you're welcome to browse." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've a queue of warlocks behind you, and they're not patient." },
+        { id = "h_again2", text = "Go on, love, ask away. Just don't whistle while you do it; it's bad luck indoors." },
       },
       choices = {
-        { text = "Who are your best customers?", next = "customers" },
+        { text = "I'd guess the warlocks are your best customers.", next = "customers" },
         { text = "Where do you get it all?", next = "source" },
+        { text = "Why is there a horseshoe over your table?", next = "horseshoe" },
+        { text = "Do you sell soul shards?", next = "shards", when = { class = "WARLOCK" } },
+        { text = "I'll need an ankh or two, Hannah.", next = "ankh", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Goodbye, Hannah.", next = "END" },
       },
@@ -542,9 +606,46 @@ P:NPC {
       lines = { { id = "so_default", text = "Here and there, and from the apothecaries when they've something left over. I don't ask what was boiled to make the ash, and I'd recommend you don't either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+
+    horseshoe = {
+      lines = { { id = "ho_default", text = "For luck, dear, same as it hung over my mother's door in Tirisfal. I know, I know, I died anyway, but I'd have died a good deal sooner without it, I'm sure of that." } },
+      choices = {
+        { text = "You're superstitious, then?", next = "superstition" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    superstition = {
+      lines = { { id = "su_default", text = "Dying didn't cure me of it, love, if that's what you're asking. I never sell the last candle in a box, I tap the table three times after a warlock pays, and I keep salt by the till, though I've no idea any longer which shoulder it goes over. What about you, have you got a lucky charm?" } },
+      choices = {
+        { text = "I do. I never fight without it.", next = "charm_yes", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "Luck is for people without a good blade.", next = "charm_no", fx = { trait = { skeptical = 1 } } },
+        { text = "You're my lucky charm now, Hannah.", next = "charm_you", fx = { trait = { witty = 1 }, affinity = 1 } },
+      },
+    },
+    charm_yes = {
+      lines = { { id = "cy_default", text = "Good, and don't you dare tell me what it is, or it'll stop working. Keep it in the left pocket; that's the side nearer the heart, even if yours has stopped." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    charm_no = {
+      lines = { { id = "cn_default", text = "That's what my husband said, love, and he was the first in our street to go. I'm not saying the two are connected, but I'm not saying they aren't, either." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    charm_you = {
+      lines = { { id = "cx_default", text = "Oh, go on with you! Well, then, you'd better come back regularly, because a charm only works if you keep it close." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    shards = {
+      lines = { { id = "sh_default", text = "Light, no, dear, you make those yourself, and I'd thank you not to do it near my table. I'll sell you candles and chalk all day long, but whatever goes into those little purple stones, I want no part of." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ankh = {
+      lines = { { id = "an_default", text = "Ankhs, yes, I keep a few for the shamans that come through on the zeppelin. Strange things, love, a charm that brings you back from the dead, and I'll admit it's the only one I sell that I'm a little jealous of." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not a thing I sell, dear, and not a thing I know." } },
+    _none = { { id = "tp_none", text = "Not a thing I sell, dear, and not a thing I know. Knock on wood before you ask anyone else, just in case." } },
   },
 }

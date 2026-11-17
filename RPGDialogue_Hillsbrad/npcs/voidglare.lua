@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Magus Wordeen Voidglare, of the Undercity. I came to Tarren Mill to research, and instead I spend my days resolving crises and peering at a dome that someone else built." },
+          text = "Magus Wordeen Voidglare, of the Undercity. I came to Tarren Mill to research, and instead I spend my days resolving crises and peering at a dome that someone else built, when I'm not chasing thieves who fled behind it." },
         { id = "h_prison", when = { questActive = TODO_QUEST("Prison Break In") },
           text = "Four Forsaken fled the Undercity with artifacts stolen from the Dark Lady's own vault, and the wizards locked them in the Lordamere Internment Camp. Find the thieves, and more importantly, find what they stole." },
         { id = "h_prison_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Prison Break In"), days = 3 } },
@@ -58,7 +58,7 @@ P:NPC {
       choices = {
         { text = "Why do you want Dalaran so badly?", next = "dalaran" },
         { text = "Who were the thieves?", next = "thieves" },
-        { text = "What do you research here?", next = "research" },
+        { text = "Your notes look like serious research, Magus.", next = "research" },
         { text = "What will you do with the arcane mote?", next = "mote", when = { questDone = TODO_QUEST("Heart of Disruption") } },
         { text = "I studied in Dalaran, once.", next = "apprentice", when = { origin = "forsaken_dalaran_apprentice" } },
         { text = "Good day, Magus.", next = "END" },
@@ -100,7 +100,7 @@ P:NPC {
         { id = "th_default", text = "Four Forsaken, Kegan among them, who turned their backs on their brethren and broke into a secure vault for artifacts our apothecaries required. They fled to Dalaran, perhaps hoping for sanctuary, and the wizards caged them like any other trespasser." },
       },
       choices = {
-        { text = "Why would they steal from Sylvanas?", next = "thieves_why" },
+        { text = "Stealing from Sylvanas seems a foolish thing to do.", next = "thieves_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -161,6 +161,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A magus of the Undercity, sent to Tarren Mill to study. I study, among other things." } },
     advice = { { id = "tp_ad", text = "Never trust a wizard's door that's left unlocked. It's either a trap or a joke, and both are at your expense." } },
     alterac = { { id = "tp_alterac", text = "Ogres in the ruins, Syndicate in the hills and wizards in the crater. Alterac has always been a crowded place to die." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran shut its gates on me, and I'll find a way in, and when I do, I'll show them what a real mage can do. I'm brilliant, and they know it, and that's why they fear me." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are better than me, I'll admit that, but only because they've had longer to practice. Give me a century and I'll outshine them all." } },
+    forsaken = { { id = "tp_forsaken", text = "The Dark Lady lets her Forsaken study in peace, which is more than the Kirin Tor ever allowed me while I breathed. I'm grateful, in my way, and my way is a brilliant one." } },
     _none = { { id = "tp_none", text = "Beneath my notice, I'm afraid. Bel'varil may know, for he notices everything I don't." } },
   },
 }
@@ -213,8 +216,8 @@ P:NPC {
       },
       choices = {
         { text = "How do the wizards bind elementals?", next = "binding" },
-        { text = "What's it like working for Voidglare?", next = "magus" },
-        { text = "What was that about your timing?", next = "timing" },
+        { text = "Working for Voidglare can't be easy.", next = "magus" },
+        { text = "What was that about your timing?", next = "timing", when = { heardLine = "hb_belvaril.h_bracers_done" } },
         { text = "I've bound a creature or two myself.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Good day, Keeper.", next = "END" },
       },
@@ -225,7 +228,7 @@ P:NPC {
         { id = "bi_default", text = "Stone tokens hold the command, and bracers set round the elemental's wrists hold the creature. Together they make a servant of a thing that would otherwise tear its summoner into gravel." },
       },
       choices = {
-        { text = "Is it cruel, binding them like that?", next = "binding_cruel" },
+        { text = "Binding them like that seems cruel.", next = "binding_cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -282,6 +285,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know elementals, Dalaran's habits and the Magus's moods, roughly in that order. Ask." } },
     background = { { id = "tp_bg", text = "I keep things for the Magus: his specimens, his notes and, occasionally, his temper." } },
     advice = { { id = "tp_ad", text = "Hunt at the internment camp, not in Dalaran itself. It's safer, and the wizards there are careless." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's bracers and tokens are for the Magus, and I gather them as best I can. Have you heard the one about the mage who walked into a ward? It came as quite a shock to him, and to the ward." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken got their minds back from the Lich King, and I got everything back except my comic timing. I keep hoping it'll turn up in a crypt somewhere, slightly late." } },
+    scourge = { { id = "tp_scourge", text = "I've tried my best jokes on the Scourge, and they just keep shambling at me, which is a harsher review than I ever had from the living." } },
     _none = { { id = "tp_none", text = "No idea, I'm afraid. I'd ask the Magus, but he'd only say it's beneath his notice." } },
   },
 }

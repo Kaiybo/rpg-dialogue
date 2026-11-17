@@ -6,6 +6,7 @@ P:NPC {
   key = "falstad", id = TODO_NPC("Falstad Wildhammer"), name = "Falstad Wildhammer",
   bible = "bibles/hinterlands.md", role = "noble", tier = "major",
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
+  prejudice = { race = "Dwarf", faction = "Alliance", exceptOrigin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" }, amount = 6, why = "Old Wildhammer grudge against Ironforge since the War of the Three Hammers." },
   notices = { "race", "class" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ironforge! I can smell the forge-smoke an' the paperwork on ye from here. Come in anyway, for Aerie Peak's never shut its gate on a cousin, even one who lives in a hole." },
+    { id = "g_prej2", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Another Bronzebeard come tae see how the wild folk live! Mind the gryphon dung, for we've no royal servants here tae sweep it." },
+    { id = "g_prej_over", when = { prejudiced = "overcome", ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ye're a Bronzebeard, an' ye've fought trolls in my hills like a Wildhammer born, so I'll stop teasin' ye. Mostly." },
     { id = "g_keep", text = "Ha! A visitor tae Wildhammer Keep! Come in, come in, an' tell me ye're here tae fight trolls!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good! I like a face that keeps comin' back, for it means the trolls didnae get it." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "Ha, there ye are, after {away} away! I'd started tae think the trolls had finally got ye, an' I'm glad tae be wrong." },
@@ -32,6 +36,74 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Aye, an' my grandfather had a worse one! Ye know the War o' the Three Hammers as well as I do, how the Bronzebeards took Ironforge an' showed us the door, an' a clan doesnae forget that because a king sends a letter." } },
+      choices = {
+        { text = "That's an old grudge. We bled side by side in the Second War.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Grudges keep a clan proud. I'd not drop it either.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Tease away. I'll still out-drink you.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What do your folk really think of Ironforge?", next = "prej_why" },
+        { text = "Something else, Falstad.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "That ye live under a mountain an' call it a kingdom, an' ye've forgotten the sky. My riders say Magni's a fair king, an' I'll grant it, but a fair king in a cave is still a king in a cave." } },
+      choices = {
+        { text = "The mountain kept us alive when Lordaeron fell.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Aye, I miss the sky too, some days.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Falstad.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Ha! A Bronzebeard who drinks! Ye'll have tae prove it in my keep, an' I'll be keepin' count." } },
+      choices = {
+        { text = "Something else, Falstad.", next = "BACK" },
+      },
+    },
+    opn_magni = {
+      lines = {
+        { id = "opn_magni_q", text = "Magni? He's a fine dwarf for one who lives in a hole, an' he's never once flown, which tells ye most o' what ye need tae know. Our grandfathers fell out over Grim Batol an' we've been politely annoyed ever since. But ye've stood in his hall, so tell me what ye think o' him." },
+      },
+      choices = {
+        { text = "A good king. Your clans should stand closer together.", next = "opn_magni_r_respect", fx = { affinity = -1, align = { order = 1 }, opinion = { magni = "respect", wildhammer = "kin" } } },
+        { text = "Stuffy, and too fond of his Senate. Your sky suits me better.", next = "opn_magni_r_stuffy", fx = { affinity = 2, align = { order = -1 }, opinion = { magni = "stuffy", wildhammer = "admire" } } },
+        { text = "He keeps his word to the Alliance. Can you say the same?", next = "opn_magni_r_loyal", fx = { affinity = -1, trait = { stern = 1 }, opinion = { magni = "loyal" } } },
+        { text = "He's grieving, Thane. Muradin's loss sits heavy on him.", next = "opn_magni_r_respect", when = { heardLine = "magni.bl_default" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { magni = "respect" } } },
+        { text = "I'll keep out of dwarf feuds, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r = {
+      lines = {
+        { id = "opn_magni_r_default", text = "Wise. Dwarf feuds outlast everyone who starts 'em, an' most who finish 'em too." },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r_respect = {
+      lines = {
+        { id = "opn_magni_r_respect", text = "Closer! Ha, ye sound like a Bronzebeard envoy. I'll stand beside 'em in a war, an' I have, but I'll no' stand under their mountain." },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r_stuffy = {
+      lines = {
+        { id = "opn_magni_r_stuffy", text = "Ha! That's the truest thing a flatlander's said in my hall this season. Thulfram, a mug for this one, an' put it on the Bronzebeards' tab!" },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r_loyal = {
+      lines = {
+        { id = "opn_magni_r_loyal", text = "Careful. The Wildhammer bled for the Alliance in the Second War an' sent Kurdran through the Portal wi' it, so dinnae lecture me on keepin' faith." },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
     xpt_dwarf = {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "Odds is a strong word for brothers who argue at the same table, though we've been arguing since the War of the Three Hammers and we'll argue long after this one. Ironforge digs and counts and we ride and drink, and each of us thinks the other forgot what it means to be a dwarf." } },
@@ -119,7 +191,7 @@ P:NPC {
         { text = "Tell me about the gryphon riders.", next = "gryphons" },
         { text = "Who are these trolls?", next = "trolls" },
         { text = "Are the Wildhammer part of the Alliance?", next = "alliance" },
-        { text = "Who are your allies out here?", next = "allies" },
+        { text = "The Wildhammer must have allies out here.", next = "allies" },
         { text = "Ironforge sends its regards.", next = "bronzebeard", when = { race = "Dwarf" } },
         { text = "My people glide on the wind.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Do the Wildhammer count me a friend yet?", next = "friend", when = { townStanding = { town = "aerie_peak", min = 30 } } },
@@ -128,13 +200,14 @@ P:NPC {
         { text = "The Hinterlands' forests are sick. I can feel it.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Could a gnome ride one of your gryphons?", next = "xgnome", when = { race = "Gnome" } },
         { text = "Will Aerie Peak suffer a warlock who fights the trolls?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Could the arcane help you against the trolls, Thane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "The arcane could help you against the trolls, Thane.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Wildhammer have any use for someone who works unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the Wildhammer have any place for the Light, Thane?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess the Wildhammer have little place for the Light, Thane.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin's hammer do the most good, Thane?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Am I welcome here, High Thane, as a shaman of Ironforge?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I was in Zul'Gurub when Hakkar fell, High Thane.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
-        { text = "Are the Wildhammer and Ironforge still at odds, Thane?", next = "xpt_dwarf", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
+        { text = "The Wildhammer and Ironforge still seem at odds, Thane.", next = "xpt_dwarf", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
+        { text = "You've a mouth on you about Ironforge, Falstad.", next = "prej", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } } },
         { text = "I'm here to fight trolls.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { aerie_peak = 1 } } },
       },
     },
@@ -184,7 +257,7 @@ P:NPC {
         { id = "t_default", text = "Witherbark in the west, Vilebranch up in Jintha'Alor, Revantusk on the coast. Three tribes, all hatin' each other, all hatin' us more. It's very nearly cosy." },
       },
       choices = {
-        { text = "Which are the worst?", next = "trolls_worst" },
+        { text = "One tribe must be worse than the others.", next = "trolls_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -196,6 +269,7 @@ P:NPC {
       big = true,
       lines = { { id = "a_default", text = "We fought for it an' bled for it, then came home an' decided we'd rather answer tae our own sky. We're friends tae any who prove themselves, so prove yerself." } },
       choices = {
+        { text = "What do you make of Magni and his Bronzebeards?", next = "opn_magni" },
         { text = "That's fair.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
         { text = "The Alliance needs every hammer it can get.", next = "BACK", fx = { affinity = -1, align = { order = 2 } } },
         { text = "You miss the riders who flew off with the Alliance.", tag = "Persuade", next = "kurdran",
@@ -284,6 +358,14 @@ P:NPC {
     background = { { id = "tp_ba", text = "Wildhammer born, gryphon raised, an' Thane by right o' bein' the loudest! The Second War made a rider o' me, an' the Hinterlands made a Thane.", next = "gryphons" } },
     advice = { { id = "tp_ad", text = "Never fight a troll on its own ground; fight it from above, for everythin' is easier from above." } },
     dark_iron = { { id = "tp_dark_iron", text = "Dark Irons! Don't get me started, or we'll be here till the sun's down an' up again." } },
+    wildhammer = { { id = "tp_wildhammer", text = "We're the Wildhammer, lad, the dwarves who chose the sky over the stone, an' we've never once regretted it. Aerie Peak's our home, an' every gryphon in it is kin." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine king fer the Bronzebeards, an' I'll drink tae his health any day. He rules his mountain an' I rule my sky, an' that suits us both." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol was ours once, before the Dark Irons' witch cursed it wi' her dyin' breath. We left it tae the dark an' the Dragonmaw, an' we built Aerie Peak instead, an' it's the better home." } },
+    second_war = { { id = "tp_second_war", text = "We flew wi' the Alliance in the Second War, an' Kurdran an' his riders were the terror o' the Horde. We bled fer the humans, an' we'd do it again, though we'd want a thank ye this time." } },
+    thrall = { { id = "tp_thrall", text = "The orc warchief's made peace wi' some an' war wi' others, an' now he's got trolls in Revantusk right on my doorstep. I'll judge him by them, an' so far they've kept tae their side o' the hills." }, { id = "tp_thrall2", when = { faction = "Horde" }, text = "Yer warchief's Revantusk friends sit on my coast an' call it an alliance. Mind yer manners in my aerie, an' we'll get along fine." } },
+    green_dragons = { { id = "tp_green_dragons", text = "There's a portal tae their Dream in the Seradane, an' the green dragons that guard it have gone strange o' late. My riders give it a wide berth, an' so should ye." } },
+    the_elements = { { id = "tp_the_elements", text = "We Wildhammer still talk tae the spirits, as the Bronzebeards stopped doin' long ago. Fraggar can tell ye more, if ye can get him tae stop listenin' tae the wind long enough." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken their blood god down in Stranglethorn, an' the Vilebranch up here have been dancin' tae the same drums. I dinnae like it, an' I like it less every night." } },
     _none = { { id = "tp_none", text = "Never heard o' it! Is it a troll, now? Then I'll hear of it soon enough." } },
   },
 }
@@ -292,6 +374,7 @@ P:NPC {
   key = "talonaxe", id = TODO_NPC("Gryphon Master Talonaxe"), name = "Gryphon Master Talonaxe",
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "gruff" }, values = { "loyal", "practical" },
+  prejudice = { race = "Gnome", amount = 8, why = "Gnomish flying machines spook his gryphons." },
   notices = { "class" },
 
   impression = {
@@ -300,6 +383,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A gnome. Keep yer tools in yer pack an' nothin' that ticks near my birds, for the last one o' yer folk who came up here brought a flyin' machine, an' I'm still pickin' feathers off the walls." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Gnome, is it? Stand downwind o' the aviary, if ye please. The gryphons can smell engine oil a mile off, an' they hate it worse than I do." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ye've been round my birds an' not one o' them has bolted, so I'll admit ye're no' like the rest o' yer tinkerin' lot. Come in." },
     { id = "g_aviary", text = "Aye, what is it? I'd rather be up in the air than down here talkin', but the gryphons won't take orders from the ground, so somebody has tae." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the gryphons noticed before I did, which tells ye somethin'. Right, what is it?" },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone at the Peak intae somethin'. Dinnae try it wi' me, for I answer tae gryphons, an' they dinnae listen tae reason either." },
@@ -312,6 +398,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I don't care for what gnomes build, which is different, though it's hard tae tell the two apart. A gnome flew a whirlin' contraption over the Peak last summer, an' three o' my best birds broke their tethers an' I didnae see them for a week." } },
+      choices = {
+        { text = "Machines and gryphons can share a sky. Learn to live with it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then keep the sky wild. Gryphons don't need gnomish gadgets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my tools packed and stay downwind.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Did the gryphons come back?", next = "prej_why" },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Two did, an' the third came home a month later wi' a cut wing an' a temper. She won't let anyone ride her now but me, an' every time she hears a whistle she looks at me like it's my fault." } },
+      choices = {
+        { text = "That gnome should answer for it, not every gnome.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Blame's easier spread wide. I understand that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Aye, well, that's sensible, an' sensible's rarer than ye'd think. Mind ye, if anythin' ticks, ye're out." } },
+      choices = {
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "A grown gryphon can, but it won't thank you, and it'll remember who sat on its tail long after you've forgotten the flight. We fly the Wildhammer way, one rider and one bird bound for life, and anyone who treats a gryphon like a cart horse gets bitten and deserves it." } },
@@ -383,7 +493,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? Say a word for the birds while ye're here, {class}, for every gryphon that flies over Jintha'Alor comes back wi' somethin' I'd rather no' see." },
         { id = "h_default", key = true,
-          text = "Gryphon Master Talonaxe. I keep the aviary, an' the trolls keep tryin' tae get at the aeries, an' I keep stoppin' 'em." },
+          text = "Gryphon Master Talonaxe. I keep the aviary, an' the trolls keep tryin' tae get at the aeries, an' I keep stoppin' 'em, mostly. They got young Sharpbeak, though, an' I'd sooner be in the air after him than standin' here." },
         { id = "h_cages", tags = { "news" }, when = { questActive = TODO_QUEST("Witherbark Cages") },
           text = "The Witherbark have cages in their villages, so go an' see what's in 'em, though I've a nasty feelin' I know." },
         { id = "h_altar", when = { questActive = TODO_QUEST("The Altar of Zul") },
@@ -410,19 +520,20 @@ P:NPC {
       choices = {
         { text = "Who's Sharpbeak?", next = "sharpbeak" },
         { text = "Why do the trolls want the gryphons?", next = "trolls" },
-        { text = "You'd rather be flying?", next = "flying" },
-        { text = "What's Rhapsody brewing?", next = "rhapsody" },
+        { text = "You look like you'd rather be flying.", next = "flying" },
+        { text = "Rhapsody seems to be brewing something strong.", next = "rhapsody", when = { any = { { questActive = TODO_QUEST("Rhapsody Shindigger") }, { questDone = TODO_QUEST("Rhapsody Shindigger") } } } },
         { text = "My pet won't bother your birds.", next = "pet", when = { class = "HUNTER" } },
         { text = "My people ride hippogryphs. Are they so different?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Couldn't a mage simply teleport, instead of flying?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Have the trolls ever crept into your aviary?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'd guess the trolls have crept into your aviary before.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the gryphons ever come back hurt from the troll lands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should the trolls be driven from the aeries for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would a paladin be any use against Jintha'Alor, Talonaxe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would Keenclaw really attack a warlock, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do the gryphons really sense the spirits, Talonaxe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Could a gryphon carry two riders, Gryphon Master?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
+        { text = "The gryphons seem to sense the spirits, Talonaxe.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "A gryphon could surely carry two riders, Gryphon Master.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
+        { text = "You don't care much for gnomes, Talonaxe.", next = "prej", when = { prejudiced = true } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -490,6 +601,9 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "Rider, then trainer, then the one who never gets tae ride, an' funny how that happens.", next = "flying" } },
     advice = { { id = "tp_ad", text = "Bring a gryphon a fish an' it'll remember ye. Bring it two, an' it'll follow ye home." } },
+    wildhammer = { { id = "tp_wildhammer", text = "A Wildhammer's gryphon is his brother an' his blade both, an' we fly together or no' at all. I've no patience fer dwarves who keep them in a stable like rams." } },
+    magni = { { id = "tp_magni", text = "The Bronzebeards ride their gryphons like carts, an' Magni's lot are the worst o' them. Still, he's a fine dwarf in a fight, an' I'll no' say otherwise." } },
+    second_war = { { id = "tp_second_war", text = "My father flew wi' Kurdran in the Second War, an' he came home wi' a gryphon an' a story, an' no' much else. I've the gryphon's grandson in my aerie now." } },
     _none = { { id = "tp_none", text = "Does it fly? If no', then I've no idea." } },
   },
 }
@@ -519,6 +633,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_trolls = {
+      lines = {
+        { id = "opn_trolls_q", text = "The riders say so, an' they've buried enough friends tae say it loud. The spirits say different, but the spirits are kinder than most dwarves. The Revantusk on the coast never bled a gryphon on an altar, as far as I know. What d'ye think, then?" },
+      },
+      choices = {
+        { text = "A troll is a troll. They'll all turn on you.", next = "opn_trolls_r_hate", fx = { align = { light = -1 }, opinion = { trolls = "hate" } } },
+        { text = "The Vilebranch are the enemy. Leave the coast tribe be.", next = "opn_trolls_r_some_good", fx = { affinity = 1, align = { light = 1 }, opinion = { trolls = "some_good" } } },
+        { text = "They're bleeding the spirits as much as us. I pity them.", next = "opn_trolls_r_pity", fx = { trait = { kind = 1 }, opinion = { trolls = "pity" } } },
+        { text = "The spirits answer trolls too. That's enough for me.", next = "opn_trolls_r_some_good", when = { class = "SHAMAN" }, fx = { affinity = 2, opinion = { trolls = "some_good", the_elements = "respect" } } },
+        { text = "I can't say, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r = {
+      lines = {
+        { id = "opn_trolls_r_default", text = "Nor can I, most days. My eyes are bad an' my heart's worse at it." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r_hate = {
+      lines = {
+        { id = "opn_trolls_r_hate", text = "Ye'll be welcome at the bar wi' that, an' I'll no' argue wi' a dwarf's grief. But the spirits dinnae care whose blood it is on the altar, an' I'd rather ye listened tae them than tae the riders." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r_some_good = {
+      lines = {
+        { id = "opn_trolls_r_some_good", text = "Aye. Dinnae say it too loud near Talonaxe, but aye. The spirits'll be glad o' ye, an' so am I." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r_pity = {
+      lines = {
+        { id = "opn_trolls_r_pity", text = "Pity's a heavy thing tae carry intae Jintha'Alor, {g:lad|lass}. Carry it anyway, but carry an axe beside it." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
     xpt_shaman = {
       big = true,
       lines = { { id = "xpt_shaman_default", text = "Some of us never let them go, friend, for the Wildhammer kept to the sky and the storm when Ironforge went down into the stone. It does me good to see a dwarf of any clan call on the wind again, though I'd not say so too loudly in the Great Forge." } },
@@ -589,7 +747,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "There's Light on ye, {class}, warm as a hearthstone. The spirits dinnae mind it, for it's an honest sort o' power, an' it's no' the Light they fear in these hills." },
         { id = "h_default", key = true,
-          text = "Fraggar Thundermantle, an' I speak for the spirits o' this land. The Vilebranch spill blood on their altars an' call it worship, but the land remembers every drop." },
+          text = "Fraggar Thundermantle, an' I speak for the spirits o' this land. The Vilebranch spill blood on their altars an' call it worship, but the land remembers every drop, an' it tells me what my failin' eyes cannae see." },
         { id = "h_necklace", tags = { "news" }, when = { questActive = TODO_QUEST("Troll Necklace Bounty") },
           text = "Bring me the trolls' necklaces, for each one's a charm against the spirits I serve, an' each one I take is a little less o' their dark work." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" },
@@ -609,21 +767,32 @@ P:NPC {
       again = { { id = "h_again", text = "Aye? I'm listenin', as I'm always listenin'." } },
       choices = {
         { text = "What do the spirits say?", next = "spirits" },
-        { text = "Your eyes?", next = "eyes" },
-        { text = "What happens at the altars?", next = "altars" },
+        { text = "Your eyes seem clouded.", next = "eyes" },
+        { text = "Something foul must happen at those altars.", next = "altars" },
         { text = "An Ironforge dwarf who hears the elements. What do you make of me?", next = "dwarfshaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "I hear them too.", next = "hear", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "Why do the spirits dislike the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How did you know I was there, Fraggar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can the Light and your spirits work together, Fraggar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does the land care if a warrior walks on it, Fraggar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Can you hear the beasts of the Hinterlands, Fraggar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I doubt the land cares if a warrior walks on it, Fraggar.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You must hear the beasts of the Hinterlands, Fraggar.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can the Light and the spirits stand together, Fraggar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I fought the Soulflayer in Zul'Gurub, Fraggar.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "My companion is a shaman. Do the Wildhammer keep the old ways?", next = "xpt_shaman", when = { party = { class = "SHAMAN" }, faction = "Alliance" } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I learned from your elders, Fraggar. Ironforge calls it backsliding.", next = "xorig_windshaman", when = { origin = "dwarf_wildhammer_shaman" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
+      },
+    },
+    xorig_windshaman = {
+      lines = {
+        { id = "xowindshaman_default", text = "Backslidin', is it? Ironforge stopped listenin' tae the land the day it started diggin' through it, an' the spirits remember that even if the Bronzebeards dinnae. What do the winds say tae ye now, child o' the mountain?" },
+      },
+      choices = {
+        { text = "That the land up here is angry.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "That Ironforge will remember too, in time.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
@@ -666,6 +835,7 @@ P:NPC {
       big = true,
       lines = { { id = "a_default", text = "Blood, an' bindin', an' callin' on things that should stay asleep. The Vilebranch think the spirits answer them, an' somethin' answers, but it isnae the spirits." } },
       choices = {
+        { text = "Are all the trolls here the same, Fraggar?", next = "opn_trolls" },
         { text = "Then the altars must fall.", next = "BACK", fx = { affinity = 2, align = { light = 2 } } },
         { text = "If something answers them, maybe it's worth hearing out.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
@@ -698,6 +868,10 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "Wildhammer, shaman an' listener; the spirits found me young, an' they've no' let go since." } },
     advice = { { id = "tp_ad", text = "When the wind goes quiet in the Hinterlands, listen harder, for somethin's holdin' its breath." } },
+    the_elements = { { id = "tp_the_elements", text = "The land here's no' happy, friend, an' it's the Vilebranch an' their blood magic that's sickened it. The spirits speak through the wind an' the stone, an' I listen as best my old ears can." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons in the Seradane were guardians o' the Dream, an' somethin's gone wrong wi' them. The spirits flinch when I speak their names, an' I've stopped speakin' them." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai trolls who worship the blood god have a temple in the swamps tae the south, an' their kin up here have been hearin' its call. I feel it in the earth like a sickness." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream's a place the druids o' the night elves know better than I, but the spirits speak o' it as somewhere sick. That's no' a good thing fer anybody, dwarf or dragon." } },
     _none = { { id = "tp_none", text = "The spirits haven't spoken o' that, an' so neither will I." } },
   },
 }
@@ -714,6 +888,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_magni_stuffy", tags = { "news" }, when = { gossip = { topic = "magni", stance = "stuffy" } },
+      text = "Here's the one who told the Thane that Magni's stuffy! He's had me pour ye a mug on the Bronzebeards' tab every night since, an' the Bronzebeards dinnae know they've a tab." },
+    { id = "o_trolls_hate", tags = { "news" }, when = { gossip = { topic = "trolls", stance = "hate" } },
+      text = "Fraggar says ye'd see every troll in these hills gone, Revantusk an' all. The riders cheered it, an' Fraggar went quiet, an' that's never a good sign wi' him." },
     { id = "g_inn", text = "Come in, come in, an' pull up a bench! There's ale, there's stew, an' there's a fire hot enough tae thaw a gryphon." },
     { id = "g_home", when = { homeInn = { "Aerie Peak", "Wildhammer Keep" } }, text = "Home again! Yer bed's warm an' yer mug's full. What more could a body want?" },
     { id = "g_away", when = { away = 14 }, text = "Back after {away} away! Pull up yer bench, for the stew's been on since ye left, near enough, an' it's only got better." },
@@ -826,18 +1004,18 @@ P:NPC {
       again = { { id = "h_again", text = "Anythin' else? Yer mug's no' empty yet." } },
       choices = {
         { text = "I'd like a room.", next = "BUSINESS" },
-        { text = "What do the riders talk about?", next = "riders" },
+        { text = "Your riders seem to have plenty to talk about.", next = "riders" },
         { text = "What's the strongest thing you pour?", next = "strong" },
         { text = "Will you serve a warlock under your roof, innkeeper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do many spellcasters come through Aerie Peak?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd guess few spellcasters come through Aerie Peak.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you hear much worth knowing behind that bar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do the riders pray to before they fly, Thulfram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Wildhammer think well of paladins, innkeeper?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do the Wildhammer warriors drink here after a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Wildhammer warriors must drink here after a fight.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the riders say about the Hinterlands forests?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Wildhammer revere the wild as my people do?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will the Wildhammer really welcome an Ironforge shaman, Thulfram?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Do many travellers make it up to the Peak?", next = "xpt_table", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
+        { text = "I'd guess few travellers make it up to the Peak.", next = "xpt_table", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
         { text = "A mug, please.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -884,6 +1062,9 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I've poured for this keep longer than some o' the gryphons have been alive. They don't drink, but they listen." } },
     advice = { { id = "tp_ad", text = "Eat before ye drink, an' drink before ye fly, an' never the other way round." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Every Wildhammer ends up at my bar, sooner or later, an' every one o' them tells me their gryphon's the best. I agree wi' every one o' them, an' I pour." } },
+    magni = { { id = "tp_magni", text = "The Bronzebeards send their ambassadors now an' then, an' they drink our ale an' complain about the weather. Magni himself has never come, but I'd pour fer him if he did." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum comes up on the gryphons sometimes, an' it's no' bad, though it's no' Wildhammer stout. The riders love it, an' I keep a barrel fer them." } },
     _none = { { id = "tp_none", text = "No idea! Ask the Thane, an' he'll tell ye, loud." } },
   },
 }

@@ -38,7 +38,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Welcome to Dalaran, {class}! Pay no mind to the building work, and should anything glowing and angry come round a corner, find a magus first and the way out second, at a sensible walk." },
+          text = "Welcome to Dalaran, {class}, and to the skycutter landing! Pay no mind to the building work, and should anything glowing and angry come round a corner, find a magus first and the way out second, at a sensible walk." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Welcome down from Zephras! Take a moment to find your feet; they always seem to arrive a little after the rest of you." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -57,9 +57,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask away. Visitors are the best part of this post." },
       },
       choices = {
-        { text = "What's the skycutter?", next = "skycutter" },
+        { text = "That skycutter is a strange-looking ship.", next = "skycutter" },
         { text = "What kind of trouble should I expect here?", next = "trouble" },
-        { text = "Is the city really safe?", next = "safe" },
+        { text = "This city doesn't look all that safe to me.", next = "safe" },
         { text = "How long have you kept this post?", next = "post" },
         { text = "Can I ride that ship home to Valanaar?", next = "xhome", when = { race = "Skyborne" } },
         { text = "You laughed just now. Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
@@ -73,7 +73,7 @@ P:NPC {
         { id = "sc_default", key = true, text = "It's the ship that runs between this landing and Valanaar on Zephras Isle, which is up in Skywall, in the Plane of Air, if you can believe it. Archmage Ansirem worked a long while to make the crossing steady, and steady is a generous word for it." },
       },
       choices = {
-        { text = "Can anyone ride it?", next = "skycutter_any" },
+        { text = "I'd guess not just anyone can ride it.", next = "skycutter_any" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,7 +134,7 @@ P:NPC {
         { id = "po_default", text = "Only since the dome came down, so not long. They wanted someone cheerful at the landing, and I am cheerful, mostly, whenever the ship comes in on time." },
       },
       choices = {
-        { text = "Are you a magus of the Kirin Tor?", next = "post_rank" },
+        { text = "You have the look of a Kirin Tor magus.", next = "post_rank" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -182,6 +182,10 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the landing, the ship and the way to every exit, and a little gossip besides. What would you like?" } },
     advice = { { id = "tp_ad", text = "Walk, don't run, and always know where the nearest magus is. That's the whole of the procedure, really." } },
+    dalaran = { { id = "tp_dalaran", text = "Welcome, welcome, and yes, it's still being rebuilt, and no, that tower isn't supposed to lean like that! We're doing our best, and the dome came down only lately, so mind the scaffolding and smile at the magi." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor run Dalaran, and they're very wise and very busy, so please don't interrupt any of them mid-spell. I'm one rung below an archmage, which means I get all the greeting and none of the authority." } },
+    scourge = { { id = "tp_scourge", when = { faction = "Horde" }, text = "I'm told we're to be polite to you, and I'm trying, so please don't make me regret it! The Scourge came within sight of these walls once, and I'd rather we kept our enemies to the dead ones." }, { id = "tp_scourge2", text = "The Scourge came within sight of these very walls, and we lost good magi stopping them. I still check the north road from the landing every morning, though I'm told that's not my job." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Oh, please don't say that name too loudly, everyone here gets twitchy. He was one of ours once, a member of the council, and he left with his necromancy and our secrets." } },
     _none = { { id = "tp_none", text = "Oh, I couldn't say! Try one of the magi in the Citadel; they know everything, or say they do." } },
   },
 }
@@ -198,7 +202,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Wind's greetings, friend." },
+    { id = "g_default", text = "Wind's greetings, friend, and welcome to the Sky Enclave's portal." },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "Winds be with you, {g:kinsman|kinswoman}. Stormwind is only a step away." },
   },
 
@@ -223,18 +227,29 @@ P:NPC {
           text = "Wind's greetings. You're from Stormwind, perhaps? I'd ask you a hundred questions about it, if I didn't think it would be rude." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've nowhere to be but here." },
+        { id = "h_again", text = "Anything else? I've nowhere to be but here, and the ley lines under this city are louder than anything I knew on Zephras, so I'm glad of a voice to listen to instead." },
       },
       choices = {
-        { text = "Why only Skyborne through the portal?", next = "only" },
+        { text = "Only Skyborne come through that portal, I notice.", next = "only" },
         { text = "What's this part of the city?", next = "enclave" },
         { text = "What did you make of Stormwind?", next = "stormwind" },
         { text = "Do you miss Zephras?", next = "xmiss", when = { race = "Skyborne" } },
         { text = "I'm from Stormwind, as it happens.", next = "xhuman", when = { race = "Human" } },
+        { text = "Evengale expects us to bring something useful home, Denaaris.", next = "xorig_enclave", when = { origin = "skyborne_sky_enclave_student" } },
         { text = "Winds be with you.", next = "END" },
       },
     },
 
+    xorig_enclave = {
+      lines = {
+        { id = "xen_default", text = "She does, and she'll ask you what it is the moment you walk in, so I'd have an answer ready. It's the word home that I keep turning over, though. When you say it, do you still mean the isle, or do you mean here?" },
+      },
+      choices = {
+        { text = "The isle, always.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Wherever the High Order stands now.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     only = {
       lines = {
         { id = "on_default", text = "The Kirin Tor were generous to open a door for us at all, and they asked that it stay a door for the High Order and not a public road. I don't argue with the people holding up the roof I sleep under." },
@@ -247,7 +262,7 @@ P:NPC {
         { id = "en_default", key = true, text = "The Sky Enclave, the corner of Dalaran the Kirin Tor set aside for the High Order. Belanaa takes in cloth for our people, Alfina teaches our druids, and the cats wander through as if they signed the agreement." },
       },
       choices = {
-        { text = "Who's Alfina?", next = "alfina" },
+        { text = "I don't know this Alfina you mention.", next = "alfina" },
         { text = "Why do your people need cloth?", next = "cloth" },
         { text = "Something else.", next = "BACK", fx = { learn = { "two_orders" } } },
       },
@@ -301,7 +316,11 @@ P:NPC {
 
   topics = {
     two_orders = { { id = "tp_orders", text = "Our cousins chose the Horde and the old spirits; we chose the Alliance and the arcane. I'd rather not say more than that in a city that's been kind to us." } },
-    _none = { { id = "tp_none", text = "I'm afraid I've only been on Azeroth a little while. Ask one of the Kirin Tor." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran is a city of wonders, and I've counted every flagstone in this hall twice. The magi here are kind to us, and I'm grateful, though I do miss the winds of home." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor welcomed my people when we needed allies, and I'll not forget it. They're careful, and they keep their secrets close, but they keep their word too." } },
+    holy_light = { { id = "tp_holy_light", text = "The humans in Stormwind pray to the Light, and their great cathedral is full of it, warm and golden. I don't understand it, but I stood in the doorway for an hour and didn't want to leave." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord of Stormwind received our envoys himself, and he was courteous and very tired. He holds a kingdom for a boy king, and it shows in his face." } },
+    _none = { { id = "tp_none", text = "I'm afraid I've only been on Azeroth a little while, and my studies so far have taught me how much I don't know. Ask one of the Kirin Tor." } },
   },
 }
 
@@ -312,27 +331,39 @@ P:NPC {
   notices = { "skyborne" },
 
   impression = {
-    first = "Belanaa Windveil gathers cloth for the High Order and thanks people for it as if each bolt were a personal favour. She is careful not to say much about her people's crafts to outsiders.",
+    first = "Belanaa Windveil gathers cloth for the High Order and thanks people for it as if each bolt were a personal favour, though her fingers are already testing the weave while she does. She is careful not to say much about her people's crafts to outsiders.",
     third = "{name} met Belanaa Windveil, who collects cloth for the High Order in Dalaran's Sky Enclave.",
   },
 
   greetings = {
     { id = "g_default", text = "Have you any cloth to spare for the High Order?" },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "Winds be with you. Come to help clothe our people?" },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, and I remember your last bundle, so I hope this one's been kept out of the rain." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "You've a tailor's hands, I can see the needle calluses from here. Come in, but please don't judge my seams, for I sew them in a hurry these days." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Belanaa Windveil, and I act for the High Order here on Azeroth, in matters of cloth at least. If you've any to give, we'd be most grateful." },
+        { id = "h_default", key = true, text = "I'm Belanaa Windveil, and I act for the High Order here on Azeroth, in matters of cloth at least. If you've any to give, we'd be most grateful, and I promise every thread of it will be looked over properly." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you. Every bolt you bring me becomes a cloak for someone still learning what snow is, so bring what you can." },
+        { id = "h_mage", when = { class = "MAGE" },
+          text = "You're a mage, so perhaps you can tell me why the Kirin Tor dye every curtain in this city the same violet. I've asked three of them, and each gave me a lecture instead of an answer." },
       },
-      again = { { id = "h_again", text = "Anything else I can tell you?" } },
+      again = {
+        { id = "h_again", text = "Anything else I can tell you? Winds be with you, whatever you need." },
+        { id = "h_again2", text = "Go on, I'm listening, though I'll keep sorting while you talk, if you don't mind." },
+        { id = "h_again3", text = "What else? This wool won't grade itself, more's the pity." },
+      },
       choices = {
         { text = "Why does the High Order need cloth?", next = "why" },
-        { text = "Does clothcraft matter to your people?", next = "craft" },
+        { text = "Your people seem to set great store by clothcraft.", next = "craft" },
+        { text = "What happens to the cloth once I give it?", next = "sorting" },
+        { text = "What do you make of Dalaran?", next = "violet" },
+        { text = "How are our people faring down here?", next = "kin", when = { race = "Skyborne" } },
+        { text = "I'm a tailor. Could I learn a Skyborne stitch?", next = "stitch", when = { profession = "Tailoring" } },
         { text = "I have cloth for you.", next = "BUSINESS" },
         { text = "Winds be with you.", next = "END" },
       },
@@ -352,11 +383,113 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sorting = {
+      lines = {
+        { id = "so_default", text = "Every bundle is opened, shaken out and graded by hand, because a cloak is only as warm as its worst thread. Linen goes to wraps for the children, wool to cloaks, and silk I set aside for our weavers, who can do things with it I won't describe to you." },
+      },
+      choices = {
+        { text = "Graded? You sound particular.", next = "sorting_fussy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sorting_fussy = {
+      lines = {
+        { id = "sf_default", text = "Particular is a kind word for it, and my own cousin uses a less kind one. I've unpicked whole hems that came to me stitched by someone in a hurry, because a seam that gives way in the first snow is worse than no seam at all." },
+      },
+      choices = {
+        { text = "Don't people mind you unpicking their work?", next = "sorting_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sorting_ask = {
+      lines = {
+        { id = "sk_default", text = "They never see it, so they never mind. May I ask where your cloth tends to come from, though? Some of it reaches me with stains I'd rather not explain to a weaver." },
+      },
+      choices = {
+        { text = "From those I've fought. They had no further use for it.", next = "sk_fought", fx = { trait = { practical = 1 } } },
+        { text = "I bought it honestly, at market.", next = "sk_bought", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "Better you don't ask, I think.", next = "sk_secret", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    sk_fought = {
+      lines = {
+        { id = "skf_default", text = "Then I'll scrub it twice and say nothing to the weavers, and the cloak won't know the difference. Still, I'd thank you to bring me less of the bloodied kind when you can manage it." },
+      },
+      choices = { { text = "I'll do what I can.", next = "BACK" } },
+    },
+    sk_bought = {
+      lines = {
+        { id = "skb_default", text = "Then you've paid for it twice, once at market and once by giving it away, and I'm grateful for both. I'll mark your name in the ledger beside the clean bundles, which is a very short list." },
+      },
+      choices = { { text = "Something else, Belanaa.", next = "BACK" } },
+    },
+    sk_secret = {
+      lines = {
+        { id = "sks_default", text = "Then I won't, and the snow won't ask either. I've learned a kind of tact on Azeroth, and I'm told it's mostly a matter of not looking too closely at a gift." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    violet = {
+      lines = {
+        { id = "vi_default", text = "It's a kind city to us, and I'd never say otherwise to the Kirin Tor's faces. But they dye every curtain, banner and robe the same violet, and after a month of it I've started to dream in purple." },
+      },
+      choices = {
+        { text = "What's wrong with violet?", next = "violet_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    violet_why = {
+      big = true,
+      lines = {
+        { id = "vw_default", text = "Nothing at all, in its place. At home a weaver chose a colour for the sky it would be worn under, pale for the high winds and dark for the storms, and here it seems colour is chosen so everyone knows who owns the building." },
+      },
+      choices = {
+        { text = "A city should show who keeps it. That's only right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Colour should belong to the wearer, not the council.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = {
+        { id = "ki_default", text = "Better than when we first came down, and worse than I'd like. The young ones love the snow until their fingers go numb, and the elders ask me every day whether the isles have settled, which is not a question cloth can answer." },
+      },
+      choices = {
+        { text = "Then we'll keep them warm in the meantime.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stitch = {
+      lines = {
+        { id = "st_default", text = "I'm afraid not, though it's kind of you to ask so nicely. The old patterns belong to the weavers who keep them, and I'd sooner give away my own cloak than one of their stitches." },
+      },
+      choices = {
+        { text = "I understand. A craft is its keepers' to share.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Not even one small stitch?", next = "stitch_push" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stitch_push = {
+      lines = {
+        { id = "sp_default", text = "Well, there's one every Skyborne child learns, a double turn at the hem so the wind can't get under it, and you'd have worked it out yourself within a week. That's all you'll have from me, and you didn't hear it here." },
+      },
+      choices = { { text = "My lips are sealed, Belanaa.", next = "BACK" } },
+    },
   },
 
   topics = {
     two_orders = { { id = "tp_orders", text = "I keep the High Order's accounts, not its quarrels. Ask someone with a louder voice than mine." } },
-    _none = { { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it." } },
+    kirin_tor = {
+      { id = "tp_kirin_tor", text = "The Kirin Tor are generous with their halls and careful with their questions, and I respect that. I gather cloth for the High Order, and they let me work in peace." },
+    },
+    dalaran = {
+      { id = "tp_dalaran", text = "Dalaran's tailors are fine, but they've never seen silk from home. I don't speak of our crafts to outsiders, but I'll admit their stitching is very good." },
+    },
+    scourge = {
+      { id = "tp_scourge", text = "The magi say the dead walk to the north and east of here, and I've seen the soldiers come back from it. I gather cloth for bandages too, now, and I thank everyone who brings it." },
+    },
+    _none = {
+      { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it, and I'd rather not guess at the rest in a city where everyone else knows everything." },
+    },
   },
 }
 
@@ -389,7 +522,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the sea still sits where our capital used to be." },
+          text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the sea still sits where our capital used to be, yet here I am, teaching the Skyborne's druids among the towers." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, here among the towers! Sit with me a moment, {class}, and let's both remember what living ground feels like." },
         { id = "h_nightelf", when = { race = "NightElf" },
@@ -404,15 +537,26 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've seedlings to see to, but they're patient." } },
       choices = {
         { text = "Why would a druid teach in Dalaran?", next = "why" },
-        { text = "What does all this magic do to the land?", next = "land" },
-        { text = "The Skyborne have druids?", next = "skydruids" },
+        { text = "All this magic can't be good for the land.", next = "land" },
+        { text = "I didn't know the Skyborne had druids.", next = "skydruids" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Does Darnassus know you're here?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Do my spells trouble you?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The Circle taught me, Alfina, though I listen for the wind, not Elune.", next = "xorig_circle", when = { origin = "skyborne_circle_student" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
 
+    xorig_circle = {
+      lines = {
+        { id = "xci_default", text = "So did half my students, and I've stopped minding, because a forest doesn't care which name you thank it by as long as you tend it. Did your teachers ever lose patience with you over it?" },
+      },
+      choices = {
+        { text = "We agreed not to argue about it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Only once, and the wind won the argument.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     why = {
       lines = {
         { id = "wy_default", text = "Because the Skyborne asked for a teacher, and there are few enough druids willing to live inside a mage's city. Someone has to remind these towers that there's soil underneath them." },
@@ -477,6 +621,11 @@ P:NPC {
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the balance where it can, and it would like to know what grows in a city like this one." } },
+    elune = { { id = "tp_elune", text = "Elune watches over us all, even in a city of mages, and I pray to her every night. The Skyborne honour her less than the winds, and I've learned to leave that between them and the Dream." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it should be, and the Cenarion Circle guards its paths. Something troubles it lately, and the magic of this city doesn't help." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the World Tree, and it binds the Dream to the waking world. We fought the Legion beneath it, and I'll not forget the sight of it burning." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind leads my people, priestess and general both, and she does not trust the Kirin Tor any more than I do. I came here anyway, because the Skyborne asked and the Circle should know what they learn." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Dream, and lately their guardians have gone strange near the great trees. I'd like to know why, and I've written to Moonglade twice asking." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask the trees, if you can find one here." } },
   },
 }

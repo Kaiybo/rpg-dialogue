@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_peace_against", when = { gossip = { topic = "peace", stance = "against" } }, text = "Farley tells me you'd never make peace with the orcs. Good, keep that, but keep it for the real ones, and not the Defias who wear scarves." },
+    { id = "g_op_varian_dead", when = { opinion = { topic = "varian", stance = "dead" } }, text = "Ah, it's you. I'll ask you again not to tell my farmers the king is dead; they've enough to frighten them with the gnolls." },
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },
     { id = "g_liked", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Good to see you, and I mean it. Don't let it go to your head." },
     { id = "g_distrust", when = { townStanding = { town = "goldshire", max = -20 } }, text = "Keep your hands where my guards can see them, and we'll get along." },
@@ -34,6 +36,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_varian = {
+      lines = {
+        { id = "op_varian_a", text = "Officially, the crown expects His Majesty's return any day, and I've said so to every frightened farmer who's asked. Unofficially, I'm a sergeant at heart, and sergeants want to know what the man beside them believes. So what do you believe?" },
+      },
+      choices = {
+        { text = "He's alive. A king like Varian doesn't simply vanish.", next = "op_varian_1", fx = { opinion = { varian = "alive" }, align = { light = 1 }, affinity = 1 } },
+        { text = "He's dead, Marshal, and the court is lying to keep order.", next = "op_varian_2", fx = { opinion = { varian = "dead", stormwind = "abandoned_its_own" }, align = { light = -1 }, trait = { blunt = 1 } } },
+        { text = "Alive or not, the boy needs good men around him now.", next = "op_varian_3", fx = { opinion = { varian = "unknown", bolvar = "trusted" }, align = { order = 1 }, trait = { practical = 1 } } },
+        { text = "Someone at court wanted him gone. I'd look there first.", next = "op_varian_4", fx = { opinion = { varian = "betrayed", prestor = "distrust" }, trait = { skeptical = 1 } } },
+        { text = "That's above my station, Marshal.", next = "BACK" },
+      },
+    },
+    op_varian_1 = {
+      lines = { { id = "op_varian_r1", text = "I'd like to think so, and I'd like it in writing from someone who knows. Until then I'll keep his peace for him, the same as if he were coming home tomorrow." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_varian_2 = {
+      lines = { { id = "op_varian_r2", text = "Keep your voice down in my office. You may be right, and that's exactly why it shouldn't be said where Remy can hear it and sell it by supper." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_varian_3 = {
+      lines = { { id = "op_varian_r3", text = "That's a soldier's answer, and the one I'd have given. Highlord Bolvar's a good man, and Goldshire will hold for the boy whether his father comes home or not." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
+    op_varian_4 = {
+      lines = { { id = "op_varian_r4", text = "That's the kind of thought that gets a marshal posted to the Burning Steppes. I didn't hear it, and you didn't say it, and we'll both sleep better." } },
+      choices = { { text = "Something else, Marshal.", next = "BACK" } },
+    },
     xpt_dughan = {
       big = true,
       lines = { { id = "xpt_dughan_default", text = "Because Stormwind's soldiers are guarding Stormwind, and the rest are in Redridge or on the road to Lakeshire, or watching the Stockade. So I've a handful of guards and whatever good-hearted adventurers wander through, and you'd be surprised how far that goes." } },
@@ -111,8 +141,21 @@ P:NPC {
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
+    xalt_dughan = {
+      big = true,
+      lines = { { id = "xalt_dughan_default", text = "{alt}, a {altrace} {altclass}, came through Goldshire green as grass and left Hogger's pack a good deal thinner and a fair name at the Lion's Pride. Whether you're kin or only a likeness, you've a reputation to live up to on this road." } },
+      choices = {
+        { text = "I'll make my own name, Marshal, not borrow one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the likeness gets me better work, I'll take it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You've the look of {alt}, a {altclass} who cleared a fair few gnolls off the Goldshire road for me. Same family, I'd guess, and if you work half as hard I'll be glad to see you." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
+          text = "Word from the city is that {alt}, who once took my bounties the way you do, is off fighting in places I've only seen on maps. Goldshire breeds them hardy, it seems, so keep at it." },
         { id = "h_pt_dughan", tags = { "news" }, when = { party = true },
           text = "Ah, a proper party. Good, because I've been sending lone farmhands after the gnolls for weeks and I'm running out of farmhands, so if you and your friends have a spare afternoon, Elwynn has a spare gnoll or two." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
@@ -172,14 +215,14 @@ P:NPC {
         { id = "h_again3", when = { townStanding = { town = "goldshire", min = 30 } }, text = "Go on; for you, I've a minute more." },
       },
       choices = {
-        { text = "Couldn't some of the beasts just be left alone?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Some of the beasts could surely be left alone.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "What about the Defias?", next = "defias" },
         { text = "McBride says someone is training them.", next = "confront",
           when = { any = { { heardLine = "mcbride.d_default" }, { heardClaim = "defias_trained" } } } },
         { text = "Tell me about Hogger.", next = "hogger", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") } },
         { text = "How bad is Elwynn, really?", next = "threats" },
-        { text = "Where's the rest of the army?", next = "army" },
+        { text = "Goldshire seems short of soldiers.", next = "army" },
         { text = "Tell me about yourself, Marshal.", next = "dg_self" },
         { text = "I'm from Westfall. Nobody came for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "My family has a name in the city.", next = "noble", when = { origin = "human_minor_noble" } },
@@ -190,11 +233,12 @@ P:NPC {
         { text = "Do dwarves turn up in Goldshire much, Marshal?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Where could a mage be of use to you, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you leave the cellar alone, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "How many soldiers have you lost this season, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must have lost a good many soldiers this season, Marshal.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good in Elwynn, Marshal?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you trust a shaman to fight for Goldshire, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You don't seem to trust a shaman to fight for Goldshire.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Stockade's quiet now, Marshal. Your prisoners won't trouble Goldshire.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "Why doesn't Stormwind send more soldiers to Goldshire?", next = "xpt_dughan", when = { party = true } },
+        { text = "Who's this other one you compare me to, Marshal?", next = "xalt_dughan", when = { alt = true } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -260,7 +304,7 @@ P:NPC {
           fx = { learn = { "hogger" } } },
       },
       choices = {
-        { text = "Why hasn't the army dealt with him?", next = "hogger_army" },
+        { text = "I'd have thought the army would deal with him.", next = "hogger_army" },
         { text = "I'll bring you his claw.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Not my problem.", next = "BACK", fx = { standing = { goldshire = -1 } } },
       },
@@ -287,7 +331,7 @@ P:NPC {
       choices = {
         { text = "The mines.", next = "mines" },
         { text = "The west.", next = "west" },
-        { text = "Murlocs? Really?", next = "murlocs" },
+        { text = "Murlocs, this far inland. That's hard to credit.", next = "murlocs" },
         { text = "Back to other business.", next = "hello" },
       },
     },
@@ -311,7 +355,7 @@ P:NPC {
       },
       choices = {
         { text = "The kobolds, then?", next = "BACK", fx = { learn = { "gold_dust" } } },
-        { text = "Remy buys gold dust.", next = "mines_remy" },
+        { text = "Could a merchant be buying it up?", next = "mines_remy" },
       },
     },
     mines_remy = {
@@ -354,9 +398,10 @@ P:NPC {
 
     army = {
       lines = {
-        { id = "ar_default", text = "Abroad. Doing who knows what, for who knows which noble. I keep the order here with whoever's left, and whoever walks through that door." },
+        { id = "ar_default", text = "That's because the army's abroad, doing who knows what, for who knows which noble. I keep the order here with whoever's left, and whoever walks through that door." },
       },
       choices = {
+        { text = "Do you think King Varian's coming back, Marshal?", next = "op_varian" },
         { text = "That sounds like a complaint, Marshal.", next = "army_politics" },
         { text = "Then I'll walk through it more often.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The nobles' wars aren't my concern, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
@@ -484,8 +529,8 @@ P:NPC {
       },
       choices = {
         { text = "How did you come to be marshal here?", next = "dg_past" },
-        { text = "How many guards do you really have?", next = "dg_guards" },
-        { text = "What do you make of McBride and Stoutmantle?", next = "dg_others" },
+        { text = "You can't have many guards to spare.", next = "dg_guards" },
+        { text = "What do you make of the other marshals?", next = "dg_others" },
         { text = "What do you need from me, Marshal?", next = "dg_ask" },
         { text = "Should Elwynn's farmers arm themselves, Marshal?", next = "dg_militia" },
         { text = "I walked the Trade District for the Watch, Marshal.", next = "dg_watch", when = { origin = "human_city_guard" } },
@@ -570,7 +615,7 @@ P:NPC {
         { id = "dxm_default", text = "McBride and I go back to the Second War, and he's been right about the Defias more often than I'd like, which I'll deny if you repeat it. He sends me his recruits with their papers in order, and I send him back my worst news along with his own." },
       },
       choices = {
-        { text = "He thinks you're playing the Defias down.", next = "confront" },
+        { text = "Then why play the Defias down, Marshal?", next = "confront" },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
@@ -579,7 +624,7 @@ P:NPC {
         { id = "dxgr_default", text = "Stoutmantle went to Lordaeron a farm boy and came home a knight to find Westfall in thieves' hands, and he's never once written to ask me for soldiers, because he knows I haven't any. I send him every volunteer I can spare, and I'd send more if Elwynn didn't need them too." },
       },
       choices = {
-        { text = "Do you think he can hold?", next = "dg_gryan2" },
+        { text = "I'm not sure he can hold.", next = "dg_gryan2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -716,5 +761,19 @@ P:NPC {
     kobolds = { { id = "tp_kobolds", text = "In Fargodeep, in Jasperlode, in my sleep. Count them before you fight them.", next = "threats" } },
     westfall = { { id = "tp_westfall", text = "It's not mine to hold. Some days I wish it were, and other days I'm glad it isn't." } },
     _none = { { id = "t_none", text = "Not a matter for the Guard." } },
+    varian = {
+      { id = "tp_varian", text = "The king has been missing for months and the army's been told to say nothing, so I'll say nothing too. I'll only tell you I'd give a year's pay to see him ride back through the gate." },
+      { id = "tp_varian2", when = { disposition = { min = 70 } }, text = "Between us, I think somebody in the Keep knows more than they've told the army. I've no proof of it, so it stays between us and this desk." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Bolvar holds the kingdom together for the boy king, and he does it honestly. I've served under worse men and been paid more for it." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor has the Highlord's ear and the House of Nobles in her pocket, and she's done more for the nobles than she's ever done for Goldshire. That's all a marshal ought to say about a lady of the court." } },
+    scourge = { { id = "tp_scourge", text = "Refugees came south after Lordaeron fell, and they told stories I didn't believe until the second hundred told the same ones. Pray it stays north of the Thandol Span." } },
+    second_war = { { id = "tp_second_war", text = "I was a young footman under Lord Lothar's banner in the Second War, and I've been holding lines ever since. The orcs were the worst thing I ever faced, until the paperwork." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Every Defias I catch goes to the Stockade in the city, and the warden writes to me complaining that it's full. I send him more Defias by way of reply." } },
+    stonemasons = { { id = "tp_stonemasons", text = "Westfall's thieves started as the city's stonemasons, unpaid for raising the walls, and I'll grant they had a grievance. A grievance doesn't give a man the right to burn a farm, though." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The stone on the island in Stone Cairn Lake remembers Goldshire's dead from the First War, and now rogue wizards squat on it. It shames me every time I ride past, and I haven't the men to fix it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps near Goldshire I double the night watch and still lose three purses a day. I like the music well enough, mind you." } },
+    si7 = { { id = "tp_si7", text = "SI:7 doesn't report to marshals, and marshals don't ask SI:7 questions. I'll leave it there, and so should you." } },
+    thrall = { { id = "tp_thrall", text = "They say the orcs have a new warchief across the sea, one who broke out of an internment camp and took half the prisoners with him. I stood guard at one of those camps once, and I'm not sorry I'm in Goldshire now.", fx = { learn = { "internment" } } } },
   },
 }

@@ -98,22 +98,22 @@ P:NPC {
         { text = "Do you trust the Horde's gold, Mister Montague?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the Forsaken keep in your vaults, Mister Montague?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Open my vault.", next = "BUSINESS" },
-        { text = "Were you a banker in life?", next = "life" },
+        { text = "You have the look of a man who kept accounts in life.", next = "life" },
         { text = "What do the dead need with gold?", next = "gold" },
-        { text = "Who owned these vaults before?", next = "vaults" },
+        { text = "These vaults look older than the Forsaken.", next = "vaults" },
         { text = "Your vaults must tempt a few thieves, Mister Montague.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages bank their reagents with you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Is my gear safer in your vaults than on my back, Mister Montague?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "My gear might be safer in your vaults than on my back.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bank much with you, Mister Montague?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do warlocks keep strange things in your vaults?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Does a paladin unsettle you, Mister Montague?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I seem to unsettle you, Mister Montague.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Mister Montague.", next = "END" },
       },
     },
     life = {
       lines = { { id = "l_default", text = "A clerk at a counting house in the capital, three streets from the palace. When the plague came I was in the middle of a ledger, and when I woke up in the Undercity, I'm told the first thing I asked for was a pen." } },
       choices = {
-        { text = "Do you miss your old life?", next = "life_miss" },
+        { text = "You must miss your old life.", next = "life_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -167,7 +167,7 @@ P:NPC {
       choices = {
         { text = "Your vaults are safe from me, sir.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No ledger catches everything, Mister Montague.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who owned these vaults before?", next = "vaults" },
+        { text = "These vaults look older than the Forsaken.", next = "vaults" },
       },
     },
     xmage = {
@@ -186,6 +186,9 @@ P:NPC {
 
   topics = {
     new_plague = { { id = "tp_plague", text = "The Royal Apothecary Society's business, not mine. I only keep their accounts, and their accounts are alarming." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken keep their accounts in good order, which is more than I could say for the living nobility of Lordaeron. A ledger is a ledger, whoever holds the pen." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I kept accounts for a banking house in the capital, back when the capital was above us and full of gold. The vault doors are still down here, and some of them still have the old crests on them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never paid its debts, and it left a great many accounts unsettled. I've closed most of them, and the rest belong to names I'll never find." } },
     _none = { { id = "tp_none", text = "That isn't in my ledgers. Try Innkeeper Norman; he hears everything that's said in the Trade Quarter." } },
   },
 }
@@ -202,7 +205,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Quietly, please; the beasts startle easily down here." },
+    { id = "g_hi", text = "Quietly, please; the beasts startle easily down here, and they've never cared for the smell of the dead." },
     { id = "g_back", when = { metBefore = true }, text = "Come for your beast? It's been fed, and it has nearly forgiven me for smelling the way I do." },
   },
 
@@ -262,18 +265,18 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The beasts don't like the cold you carry, so stand back a little from the cages." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and one of ours. The beasts went very still when you came in, and I can't tell yet whether it's the Light that calms them or frightens them." },
       },
-      again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would." } },
+      again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would; the beasts already think I'm something to run from." } },
       choices = {
         { text = "Do the beasts here fear the Forsaken, Anya?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the beasts' spirits to trust you, Anya?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does it hurt, Anya, that the beasts fear you?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "It must hurt, Anya, that the beasts fear you.", next = "druid_q", when = { class = "DRUID" } },
         { text = "I need the stables.", next = "BUSINESS", when = { class = "HUNTER" } },
-        { text = "Do the animals fear you?", next = "fear" },
+        { text = "I'd guess the animals fear you.", next = "fear" },
         { text = "How do the beasts fare underground?", next = "under" },
         { text = "Why tend beasts at all, now?", next = "why" },
         { text = "Your beasts never hear me coming, Anya.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your beasts tolerate my demon, Anya?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Would your beasts take to a warrior, Anya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I doubt your beasts would take to a warrior, Anya.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the beasts fear mages, Anya?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your beasts fear the Light I carry, Anya?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
@@ -329,7 +332,7 @@ P:NPC {
       choices = {
         { text = "I'll leave your beasts in peace, Anya.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Creeping's my trade. Your bats will cope.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Do the animals fear you?", next = "fear" },
+        { text = "I'd guess the animals fear you.", next = "fear" },
       },
     },
     xwarlock = {
@@ -347,6 +350,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken keep beasts too, though most animals shy away from us at first. Patience is the whole secret, and the dead have plenty of that." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge raises dead beasts as well as dead men, and I can't bear to look at them. A dead wolf ought to be left in peace." } },
+    thrall = { { id = "tp_thrall", text = "The orcs ride wolves, and they treat them better than most people treat their children. I like the orcs for that, whatever else they do." } },
     _none = { { id = "tp_none", text = "I'm afraid I only know about beasts. Ask at the inn; the innkeeper knows everyone." } },
   },
 }
@@ -368,7 +374,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Stand up straight. You'd be amazed how many of the dead forget." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more drills? Good, because nobody ever practised too much." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more drills? Good; nobody ever practised too much, and the dead can't claim they were tired." },
   },
 
   notice = {
@@ -446,15 +452,15 @@ P:NPC {
         { text = "Will you teach a shaman the mace, weapon master?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a staff worth learning, when I fight with claws?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me a new weapon.", next = "BUSINESS" },
-        { text = "Were you a soldier in life?", next = "life" },
+        { text = "You carry yourself like a soldier.", next = "life" },
         { text = "Is it harder for the dead to fight?", next = "dead" },
         { text = "Which weapon should I learn?", next = "which" },
         { text = "Teach me daggers, Archibald, not swords.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is a staff worth learning properly, Archibald?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which weapon suits a warrior best, weapon master?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is a crossbow worth learning over a bow, weapon master?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "A crossbow seems a poor trade for a good bow.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a warlock learn a blade, Archibald?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Will you drill a paladin like any other soldier, Archibald?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I expect you'll drill me like any other soldier, Archibald.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -526,6 +532,10 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "Former comrades, some of them, and fanatics now. They'd kill me again without blinking, so I'll return the favour." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken fight with whatever their bodies will still do, and some days that isn't much. I teach them to make the most of it, and I expect them to listen." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge comes at you without fear, so a good soldier must meet it without fear too. Anything less and you'll be marching in its ranks before nightfall." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I was a weapons master for the king's guard, and I trained some of the soldiers who now serve the Crusade. They were good boys, and now they're my enemies." } },
+    second_war = { { id = "tp_second_war", text = "I drilled the infantry that stood against the orcs at Lordaeron's walls. Now I share a war with them, and I've learned to keep my old opinions behind my teeth." } },
     _none = { { id = "tp_none", text = "Not my field, soldier. I teach steel, so ask a scholar for the rest." } },
   },
 }
@@ -621,13 +631,13 @@ P:NPC {
       choices = {
         { text = "Would you forge a censer again, Van Brunt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could the earth spirits help your smithing, Van Brunt?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Does a smith ever tire of the same work, Van Brunt?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "A smith must tire of the same work, Van Brunt.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
         { text = "Is smithing different when you're dead?", next = "dead" },
-        { text = "Where do you get your ore?", next = "ore" },
-        { text = "What does the Deathguard need most?", next = "guard" },
+        { text = "That ore must come from a long way off.", next = "ore" },
+        { text = "The Deathguard must keep you busy.", next = "guard" },
         { text = "Can you forge a dagger that doesn't catch the light?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do warlocks ask you for anything strange, Van Brunt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess warlocks ask you for strange things, Van Brunt.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What armour should a warrior trust, Van Brunt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can you make mail light enough for a hunter, Van Brunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a mage learn smithing, Van Brunt?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -684,7 +694,7 @@ P:NPC {
       choices = {
         { text = "A dark blade for dark work. Good.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather my enemies see the blade coming.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "What does the Deathguard need most?", next = "guard" },
+        { text = "The Deathguard must keep you busy.", next = "guard" },
       },
     },
     xwarlock = {
@@ -703,6 +713,9 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "They make decent plate, I'll give them that. It comes back here in pieces for melting down." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need good steel more than anyone, since we can't feel when our armor has failed. I make it so it doesn't fail." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I forged blades for the king's army, and every one of them was sent to Stratholme with the prince. Not one of them came back, and neither did the men who carried them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge doesn't care what your sword is made of, as long as it's in your hand. Keep it sharp and keep it close, and you'll outlast most." } },
     _none = { { id = "tp_none", text = "If it isn't metal, I don't care to know. Ask someone else." } },
   },
 }
@@ -798,12 +811,12 @@ P:NPC {
         { text = "What moods do the hills have, Killian?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where should I mine near here?", next = "where" },
-        { text = "Was this city dug by miners?", next = "city" },
+        { text = "This city looks like miners' work.", next = "city" },
         { text = "Your tunnels must be handy for going unseen, Killian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can magic find ore faster than a pick, Killian?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Is mining much use to a warrior, Killian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Mining can't be much use to a warrior, Killian.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where do the hills hide their ore, Killian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Could a demon dig your tunnels, Killian?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "A demon could dig your tunnels for you, Killian.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does a paladin's Light have any use in the mines, Brom?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -854,7 +867,7 @@ P:NPC {
       choices = {
         { text = "I'll ask Ward first. Her quarter, her rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll go where I like below the city.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Was this city dug by miners?", next = "city" },
+        { text = "This city looks like miners' work.", next = "city" },
       },
     },
     xmage = {
@@ -873,7 +886,10 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Thieves in the Alterac foothills. They take the ore you've just dug, so dig quickly." } },
-    _none = { { id = "tp_none", text = "I don't know. I'm only good with rocks; ask someone who reads books." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken dig better than the living, because we don't need air and we never tire. There are tunnels under this city that go deeper than anyone alive has ever been." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's capital was built over old mines and crypts, and most people never knew it. I knew it, and I'm the happiest dead man in the Undercity for knowing it." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves dig deep, I'll give them that, deeper than anyone. I'd love to see their tunnels, though I'd want to be dead first, and I already am." } },
+    _none = { { id = "tp_none", text = "I don't know. I'm only good with rocks; ask someone who still has the eyes for books." } },
   },
 }
 
@@ -963,11 +979,11 @@ P:NPC {
         { text = "Could you enchant something to change as I do, Lavinia?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me enchanting.", next = "BUSINESS" },
         { text = "How does enchanting work?", next = "how" },
-        { text = "Did you learn this in Dalaran?", next = "dalaran" },
-        { text = "Is it hard for the dead to work magic?", next = "dead" },
+        { text = "You must have learned this in Dalaran.", next = "dalaran" },
+        { text = "I'd have thought it hard for the dead to work magic.", next = "dead" },
         { text = "Can enchanting bind a demon, Lavinia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Could enchanting make my blades quieter, Lavinia?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Could enchanting make my weapon strike harder, Lavinia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Enchanting could make my weapon strike harder, Lavinia.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can enchanting do anything for a hunter, Lavinia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What would a paladin's essence look like to an enchanter?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
@@ -976,7 +992,7 @@ P:NPC {
     how = {
       lines = { { id = "hw_default", text = "You take an item that has some magic in it, and you break it down into dust and essences. Then you take that dust and put it into something else, a sword or a cloak, and it holds the magic for you." } },
       choices = {
-        { text = "Doesn't that destroy the first item?", next = "how_destroy" },
+        { text = "That must destroy the first item.", next = "how_destroy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1041,12 +1057,15 @@ P:NPC {
       choices = {
         { text = "A sharper edge suits a fair fight too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A crueller edge suits me better.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Is it hard for the dead to work magic?", next = "dead" },
+        { text = "I'd have thought it hard for the dead to work magic.", next = "dead" },
       },
     },
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's enchanters were the finest in the world, and they knew it, and they made sure everyone else knew it too. They're rebuilding behind closed gates now, and I don't miss their lectures." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me my trade, and I'll grant them that much. They also taught me that a mage who won't share his secrets is a very lonely mage." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken make fine enchanters, because the arcane doesn't care whether your hands are warm. Precision is what matters, and death has made me very precise." } },
     _none = { { id = "tp_none", text = "I don't know, and I'd rather not guess. Ask in the Magic Quarter; someone there will pretend to." } },
   },
 }
@@ -1128,7 +1147,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've known priests who made fine liars, because people tell them everything, and I wonder which kind you are." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The last of your order I saw in Lordaeron were burning our dead in the streets, so forgive me if I watch your hands rather than your face." },
       },
-      again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere." } },
+      again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere, and the people expecting me are not the forgiving sort." } },
       choices = {
         { text = "Do you trust priests, Carolyn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your rogues ever work with the Horde's shamans, Carolyn?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1136,12 +1155,12 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What does a rogue do for the Dark Lady?", next = "lady" },
         { text = "What's the most important thing a rogue can learn?", next = "lesson" },
-        { text = "Are there rogues who aren't loyal?", next = "disloyal" },
+        { text = "Not every rogue can be loyal.", next = "disloyal" },
         { text = "Do rogues and mages ever work together, Ward?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Have your rogues any use for a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your rogues ever need a warrior, Carolyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could a hunter learn anything from your rogues, Carolyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you think I'm loyal to the Silver Hand still, Carolyn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You seem to think I'm still loyal to the Silver Hand, Carolyn.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1206,13 +1225,17 @@ P:NPC {
       choices = {
         { text = "I'll learn to work quietly, then.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll fight in the open, demon and all.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Are there rogues who aren't loyal?", next = "disloyal" },
+        { text = "Not every rogue can be loyal.", next = "disloyal" },
       },
     },
   },
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Alterac's nobility turned to cutthroats. They're good, I'll grant them, but they'd sell their mothers." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have enemies on every border, and some of them are already inside our walls. I teach my students to notice which is which before it's too late." } },
+    sylvanas = { { id = "tp_sylvanas", text = "I serve the Dark Lady, and that's all you need to know about my loyalties. The rest of my business is my own." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "You've heard that name somewhere, haven't you? Some doors open only for those who already know where they are, and I'm not going to point you to this one." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles sold out their own kingdom, and their children run the Syndicate now. A family that's done it once will do it again." } },
     _none = { { id = "tp_none", text = "That's not something the Rogues' Quarter has told me about, and if it had, I'd want to know why you were asking." } },
   },
 }
@@ -1288,11 +1311,11 @@ P:NPC {
       choices = {
         { text = "Do you ever sell to priests, Ezekiel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your poisons trouble a shaman's work, Graves?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Shouldn't you be glad someone can cure them, Graves?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "You should be glad someone can cure them, Graves.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Who buys poison in this city?", next = "who" },
-        { text = "Isn't selling poison wicked?", next = "wicked" },
-        { text = "What's the strangest thing you sell?", next = "strange" },
+        { text = "Selling poison seems a wicked trade.", next = "wicked" },
+        { text = "Some of your wares look very strange indeed.", next = "strange" },
         { text = "What would a mage want from your shelves, Graves?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your poisons work on demons, Graves?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What poisons should a warrior watch for, Graves?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -1315,7 +1338,7 @@ P:NPC {
     strange = {
       lines = { { id = "s_default", text = "There's a powder from the Apothecarium that makes a man forget his own name for an hour. I don't sell it often, and never to anyone who asks about it as eagerly as you just did." } },
       choices = {
-        { text = "Who would want that?", next = "strange_who" },
+        { text = "I can't think who would want that.", next = "strange_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1362,13 +1385,16 @@ P:NPC {
       choices = {
         { text = "A wise warlock keeps a vial for his own demon.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon won't turn. I don't need your vials.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What's the strangest thing you sell?", next = "strange" },
+        { text = "Some of your wares look very strange indeed.", next = "strange" },
       },
     },
   },
 
   topics = {
     new_plague = { { id = "tp_plague", text = "Oh, that's the apothecaries' business, and far above my little shop. I hear things, but I don't repeat them." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken appreciate a fine poison more than any other people, because we're the only ones who can taste it without worrying. Try this one, it's divine." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge spread its plague without any craft at all, just grain and rot and numbers. A poison should be an art, and theirs was an insult to the trade." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I hear Booty Bay has some very interesting customers in my line of work. The pirates there pay well and ask no questions, which is my favorite kind of customer." } },
     _none = { { id = "tp_none", text = "Can't say I know that one! Ask me about anything that kills, and I'll talk all day." } },
   },
 }
@@ -1469,21 +1495,21 @@ P:NPC {
         { text = "Do you ever tend tauren, Mary, or only the Forsaken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why would the dead need bandages?", next = "dead" },
-        { text = "Were you a healer in life?", next = "life" },
+        { text = "You have a healer's hands.", next = "life" },
         { text = "Where can I learn more than you teach?", next = "more" },
         { text = "Rogues bleed more than they admit, Edras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Life Tap leaves me hollow, Edras. Can you help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "What do warriors get wrong about their wounds, Mary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Warriors seem to get their wounds all wrong, Mary.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I tend my beast's wounds before my own, Mary?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a mage learn first aid, Mary?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Is it foolish to heal with the Light when it burns me?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "It may be foolish to heal with the Light when it burns me.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
     dead = {
       lines = { { id = "d_default", text = "Because our bodies still break and still mend, only slower, and we don't feel the breaking. A bandage holds you together while the mending happens, and that matters more for us than for anyone." } },
       choices = {
-        { text = "So the dead can still heal?", next = "dead_heal" },
+        { text = "So the dead can still heal.", next = "dead_heal" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1542,13 +1568,16 @@ P:NPC {
       choices = {
         { text = "I'll listen, Edras, before I faint.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fainting is the price of power, Edras.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Were you a healer in life?", next = "life" },
+        { text = "You have a healer's hands.", next = "life" },
       },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know, love. I only know how to keep people in one piece." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken can't feel how badly we're hurt, so we walk about with half our ribs broken and wonder why we fall over. That's why you need me, whether you like it or not." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never bandaged anything in its existence. When I see one of our soldiers come back in pieces, I think of that, and I stitch faster." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I bandaged soldiers in Lordaeron's field hospitals before the plague came. Now I bandage the same sort of soldiers, except they complain less." } },
+    _none = { { id = "tp_none", text = "I don't know, love. I only know how to keep people in one piece, and with the dead that's work enough." } },
   },
 }
 
@@ -1637,27 +1666,27 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fishing in the canals! Don't eat what you catch unless you're dead, and even then I'd think twice." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, fishing in a canal of green poison? I've seen everything now, though I'll admit I'm curious whether the Light would clean the water or only make the fish glow." },
       },
-      again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
+      again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing, and less still once you're dead." } },
       choices = {
         { text = "Do you pray over the float, Armand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the water spirits about the canals, Armand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Don't you miss the taste of what you catch, Armand?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing near here?", next = "where" },
-        { text = "Why do the dead fish if they don't eat?", next = "why" },
+        { text = "It's odd to see the dead fishing when they don't eat.", next = "why" },
         { text = "The canals would hide a body nicely, Cromwell.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Could I freeze the canal and fish through the ice?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I could freeze the canal and fish through the ice.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can fishing teach a warrior, Armand?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is fishing much different from hunting, Armand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a warlock learn to fish, Cromwell?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Could the Light ever cleanse these canals, Armand?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Light might cleanse these canals, Armand.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
     where = {
       lines = { { id = "w_default", text = "Brightwater Lake, north of Brill, is the best in Tirisfal, and the coast to the west is good too, if you can stand the murlocs. Never the canals, though; whatever lives in that sludge isn't a fish any more." } },
       choices = {
-        { text = "What lives in the canals?", next = "where_canal" },
+        { text = "Something must live in those green canals.", next = "where_canal" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1700,7 +1729,7 @@ P:NPC {
       choices = {
         { text = "I'll keep my business out of your canals.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The canals keep secrets. That's their use.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why do the dead fish if they don't eat?", next = "why" },
+        { text = "It's odd to see the dead fishing when they don't eat.", next = "why" },
       },
     },
     xmage = {
@@ -1718,6 +1747,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have all the time in the world, and fishing is the perfect use of it. Nothing in these canals is edible, mind you, but it passes the hours." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I used to fish Lordamere Lake when the king's barges still sailed it. The water was clean then, and the fish were fat, and I didn't know how lucky I was." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the real fishermen gather, I'm told, with sharks and sea monsters and goblins betting on all of it. I'd like to try my line there one day." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask me about fish, and I'll talk until you beg me to stop." } },
   },
 }

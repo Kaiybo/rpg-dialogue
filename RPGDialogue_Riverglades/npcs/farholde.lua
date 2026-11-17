@@ -84,6 +84,13 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, this far from your own forests. The glades round Sunnyglade are sick with the Hammer's filth, and I'm told your kind takes that personally." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } }, text = "The patrols say the Twilight camps on the ridge are thinner this month, and the bodies they find have your work on them. Keep at it, and my riders might see the Sunnyglade road again before I'm grey." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Stormwind left us nothing, and now Ironforge sends me a shaman, so I'll not argue with what comes." },
+        -- Opinion pass: word of what the player said to someone else at Farholde.
+        { id = "h_o_patience", once = true, when = { gossip = { topic = "stormwind", stance = { "patience", "trust_crown" } } },
+          text = "Word in the keep is you think Stormwind had its reasons for leaving us. You and Ashe can share a bench, then, and the dead in the courtyard can decide which of us is right." },
+        { id = "h_o_common", once = true, when = { gossip = { topic = "horde", stance = { "common_cause", "useful" } } },
+          text = "I hear you've been telling my riders the orcs across the river are some kind of ally. They burned Sunnyglade, and I'll thank you not to say it again inside these walls." },
+        { id = "h_o_never", once = true, when = { gossip = { topic = "horde", stance = { "never", "hate" } } },
+          text = "Riftan says you've no more love for the Horde than he has. Good; the Riverglades could use a few more who remember." },
       },
       again = {
         { id = "h_again", text = "What else? The day's short and the Riverglades are long." },
@@ -91,9 +98,9 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then. I'm not sleeping anyway." },
       },
       choices = {
-        { text = "What happened to this land?", next = "history" },
+        { text = "This land looks like it's seen hard fighting.", next = "history" },
         { text = "You don't think much of Stormwind.", next = "stormwind" },
-        { text = "Who's the enemy out here?", next = "enemy" },
+        { text = "You must have enemies on every side out here.", next = "enemy" },
         { text = "Tell me about the memorials in the courtyard.", next = "memorials" },
         { text = "The Brotherhood had paladins once.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Stormwind left Westfall to rot too.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
@@ -105,9 +112,9 @@ P:NPC {
         { text = "A warrior's sword, Commander, if the Brotherhood will have it.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Your memorial names a Ravenholdt agent. Fern.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I scout. Where do you need eyes?", next = "xhunter", when = { class = "HUNTER" } },
-        { text = "What use is a mage to the Brotherhood?", next = "xmage", when = { class = "MAGE" } },
+        { text = "A mage can't be much use to a cavalry order.", next = "xmage", when = { class = "MAGE" } },
         { text = "Will the Brotherhood take a warlock's help, Commander?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "What has the Hammer done to these glades?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "The Hammer seems to have spoiled these glades.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the Brotherhood have a use for a shaman, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -170,7 +177,7 @@ P:NPC {
       choices = {
         { text = "Stormwind had its own war to fight.", next = "stormwind_defend", fx = { align = { order = 2 }, affinity = -1 } },
         { text = "They abandoned you. That's unforgivable.", next = "stormwind_agree", fx = { align = { order = -2 }, affinity = 2, opinion = { stormwind = "abandoned_its_own" } } },
-        { text = "Does Ashe feel the same?", next = "stormwind_ashe" },
+        { text = "Does everyone in Farholde feel the same?", next = "stormwind_ashe" },
       },
     },
     stormwind_defend = {
@@ -198,7 +205,7 @@ P:NPC {
     },
     enemy_hammer = {
       lines = {
-        { id = "eh_default", text = "Cultists and ogres, in Sunnyglade and up in the hills, and they take prisoners. I stopped asking what for; the answers kept me awake.",
+        { id = "eh_default", text = "Cultists and ogres, in Sunnyglade and the hills and the caves of Krol'dok, and they take prisoners. I stopped asking what for; the answers kept me awake.",
           fx = { learn = { "twilights_hammer" } } },
       },
       choices = {
@@ -268,7 +275,7 @@ P:NPC {
           fx = { learn = { "fern_crimsonleaf" } } },
       },
       choices = {
-        { text = "Could she have lived?", next = "fern_lived" },
+        { text = "She might have lived, with a little luck.", next = "fern_lived" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -457,6 +464,20 @@ P:NPC {
     krol_dok = { { id = "tp_kroldok", text = "Where they ran after the siege, and where they plan the next one." } },
     fern_crimsonleaf = { { id = "tp_fernnext", text = "Our knife in the dark, and the best of us. Ask what you came to ask.", next = "fern" }, { id = "tp_fern", text = "She's dead, and a hero, and dead all the same. Don't let Gray tell you different." } },
     defias = { { id = "tp_defias", text = "Stormwind's own mess, on its own doorstep, and even then they couldn't be bothered. I'm not surprised." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar holds Stormwind for a boy king, and he holds it tight, because he hasn't spared a single rider for the Riverglades. I'll respect him the day he sends us more than letters." } },
+    varian = { { id = "tp_varian", text = "King Varian went missing, and Stormwind's been run by nobles and committees ever since. If he were here, I'd tell him to his face what his kingdom has done to mine." } },
+    prestor = { { id = "tp_prestor", text = "Lord Prestor has the court's ear and the Regent's patience, and he's never once looked east of Stormwind's walls. A noble who's never smelled a battlefield shouldn't decide who gets steel." } },
+    second_war = {
+      { id = "tp_second_war", text = "The Horde came to Farholde's gate in the old war and found the Brotherhood waiting for them. We broke them then, and we'll break whoever comes next, Horde or cult or anything else." },
+      { id = "tp_second_war2", when = { faction = "Horde" }, text = "Your people came to Farholde's gate once, and we sent them back down the road in pieces. I'll remember that, so you'd better give me reason to forget it." },
+    },
+    thrall = { { id = "tp_thrall", text = "The orcs have a new warchief who's said to be honorable, and I'll believe that when his warriors stop raiding my loggers. Until then, they're invaders in my glades, whatever their chief says." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock clan led the Horde against us in the old war, and their remnants still crawl about the mountains to the west. I'd wager some of the cult's muscle comes from that stock." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light didn't hold Farholde's walls, my riders did, and I'll thank the Light when it starts carrying a lance. Sister Rowland would scold me for saying that, and she'd be right to." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "A paladin in the Riverglades is worth ten soldiers who stayed home in Stormwind. Stand with my riders, and the Light will have more to do here than it's ever had." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hold the mountain to the west, and they've no love for anyone. I keep a watch on that side, though they haven't troubled us yet." } },
     _none = { { id = "tp_none", text = "If it isn't in the Riverglades, it isn't my concern. Ask Ashe; she reads." } },
   },
 }
@@ -504,7 +525,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Ashe Amberhall, advisor to the Knight Commander. I answer visitors' questions about Farholde. We get so few visitors that I'm out of practice, and likely to say too much." },
+          text = "Ashe Amberhall, advisor to the Knight Commander. I answer visitors' questions about Farholde. We get so few visitors that I'm out of practice, and likely to say too much, as my father always warned me." },
         { id = "h_satchel", tags = { "news" }, when = { questActive = TODO_QUEST("Lingering Essence") },
           text = "Riftan sent you with those? Put them down, but not on that table, on the stone one, and then step back, please." },
         { id = "h_satchel_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lingering Essence"), days = 3 } },
@@ -529,17 +550,17 @@ P:NPC {
       choices = {
         { text = "Tell me about Farholde.", next = "farholde" },
         { text = "Who was your father?", next = "father" },
-        { text = "What is the Twilight's Hammer doing here?", next = "hammer" },
-        { text = "What's in the old mage tower at Sunnyglade?", next = "tower" },
+        { text = "The Twilight's Hammer seems busy around here.", next = "hammer" },
+        { text = "Is there anything at Sunnyglade worth a scholar's eye?", next = "tower" },
         { text = "Shop talk, then. What are you working on?", next = "shop", when = { class = "MAGE" } },
         { text = "You've read about my people?", next = "skyborne", when = { race = "Skyborne" } },
-        { text = "How close is the Hammer's magic to mine?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "The Hammer's magic must be close to mine.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Riftan says you're a pain.", next = "riftan", when = { heardLine = "riftan.a_pain" } },
         { text = "Gnomeregan had libraries too, once.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Can your magic help a soldier, or only a scholar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Light do anything to the Hammer's curios?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do animals really shy away from the trinkets?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Would anyone notice if one of those curios went missing?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Animals seem to shy away from those trinkets.", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Nobody would notice if one of those curios went missing.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What's on the stone table that needs a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you like to know about the Circle?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What have your books said about shamans, Ashe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -555,6 +576,7 @@ P:NPC {
       choices = {
         { text = "But you stayed.", next = "farholde_stayed" },
         { text = "Demar calls that cowardice.", next = "farholde_demar", when = { heardLine = "demar.s_default" } },
+        { text = "So what should Farholde do now?", next = "fa_ask" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -579,6 +601,37 @@ P:NPC {
         { text = "He's right. Stormwind failed you.", next = "BACK", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned_its_own" } } },
         { text = "You're right. It was the sensible choice.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
       },
+    },
+    -- Opinion pass: Ashe asks what the player would have Farholde do about the crown.
+    fa_ask = {
+      big = true,
+      lines = {
+        { id = "fq_default", text = "That's the question, isn't it, and I've been asking it of everyone who comes through the gate. You've walked Stormwind's streets more recently than I have, so tell me honestly: do we keep writing to the crown, or stop waiting for it?" },
+        { id = "fq_mage", when = { class = "MAGE" }, text = "That's the question, and I've been asking it of everyone. You'll know how Dalaran thinks better than most, so tell me honestly: do we keep writing to the crown, or try someone who still reads letters?" },
+      },
+      choices = {
+        { text = "Keep writing. Lord Bolvar would help if the nobles let him.", next = "fa_ask_bolvar", fx = { opinion = { bolvar = "trust", stormwind = "patience" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Stop waiting. Stormwind forgot you twenty years ago.", next = "fa_ask_forgot", fx = { opinion = { stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "Write to the Kirin Tor instead. They answer their letters.", next = "fa_ask_kt", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "trust" }, trait = { curious = 1 } } },
+        { text = "The Riverglades are yours. Hold them yourselves.", next = "fa_ask_hold", fx = { opinion = { rg_farholde = "self_reliant" }, trait = { brave = 1 } } },
+        { text = "I'd rather not stand between you and Demar.", next = "BACK" },
+      },
+    },
+    fa_ask_bolvar = {
+      lines = { { id = "fqb_default", text = "That's what I tell Demar, and he looks at me as though I'd suggested we surrender the keep. You may be right about the regent, mind; it's the nobles I'd never trust with a pen." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_ask_forgot = {
+      lines = { { id = "fqf_default", text = "You sound like Demar, which I suppose means he'll like you. Twenty years is a long time to wait, I know, and I've been waiting less of it than he has." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_ask_kt = {
+      lines = { { id = "fqk_default", text = "My father would have said the same, and Dalaran was his home before this was. I may write to them after all; at worst they'll send a letter back explaining at length why they can't help." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_ask_hold = {
+      lines = { { id = "fqh_default", text = "We have been, for twenty years, and it's cost us half the names on those memorials. But you're right that nobody will hold them for us, and I'd sooner hear that than another promise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     father = {
@@ -619,7 +672,7 @@ P:NPC {
           fx = { learn = { "twilights_hammer" } } },
       },
       choices = {
-        { text = "What do you think they're for?", next = "hammer_for" },
+        { text = "Those things must be for something.", next = "hammer_for" },
         { text = "Is it safe, keeping them here?", next = "hammer_safe" },
         { text = "Something else.", next = "BACK" },
       },
@@ -635,7 +688,7 @@ P:NPC {
 
     tower = {
       lines = {
-        { id = "t_default", text = "The Horde spared it to learn how our magic worked; now the Hammer sits in it. I'd give a great deal for an hour in that tower, and rather less to be carried out.",
+        { id = "t_default", text = "The old mage tower. The Horde spared it to learn how our magic worked, and now the Hammer sits in it. I'd give a great deal for an hour in that tower, and rather less to be carried out.",
           fx = { learn = { "sunnyglade" } } },
       },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -802,6 +855,16 @@ P:NPC {
     sunnyglade = { { id = "tp_sunnyglade", text = "There's a mage tower in the ruins that the Horde couldn't bring themselves to burn. I think about it more than is healthy." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Knights, mostly, and a few of us who can't sit a horse but can read. It works, somehow." } },
     fern_crimsonleaf = { { id = "tp_fern", text = "Presumed dead, the stone says. My father said she could vanish in a lit room. I like to think she's still practising." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was where every mage dreamed of studying, and my father did, and he wanted me to as well, but I learned from him instead, which was better. They're rebuilding it now behind shields, and I'd love to see their libraries, though I doubt they'd let me in." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are very great and very slow, and they'd still be debating the siege of Farholde if they'd been here. I'm sorry, I'm being unkind, but it's true." } },
+    second_war = { { id = "tp_second_war", text = "The old war broke against these walls, and the book in the hall tells it far better than I can. Have you read it? You should, and then come back and tell me what you thought." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar is a good man with too many duties, and I think the Knight Commander is unfair to him. I'd never say so in front of Demar, mind, so please don't repeat it." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I'm no priest, but I've seen Sister Rowland keep a dying soldier calm with nothing but a prayer and a steady voice. I don't understand it, but I'd never mock it." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "Sister Rowland would be glad of another pair of hands in the chapel, and so would the soldiers. Go and see her, because she won't ask for help herself." },
+    },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs were the Horde's iron fist in the old war, and the histories say they came this way more than once. I keep wondering whether any of them stayed in the mountains." } },
+    theramore = { { id = "tp_theramore", text = "Lady Proudmoore's Theramore is the only Alliance city that's made peace with the orcs, and I think it's very brave of her. Demar thinks it's very foolish, so I don't mention it." } },
     _none = { { id = "tp_none", text = "I don't know! I'd love to, though, so write it down for me, would you? I'll look into it." } },
   },
 }
@@ -843,7 +906,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Sergeant Riftan, Brotherhood of the Horse. I've been fighting these cultists longer than some of our riders have been alive, and don't ask how long, because I stopped counting." },
+          text = "Sergeant Riftan, Brotherhood of the Horse. I've been fighting these cultists longer than some of our riders have been alive, and don't ask how long, because I stopped counting. Their dead carry odd carved trinkets, and I send them up to Ashe at the keep." },
         { id = "h_mementos", when = { questActive = TODO_QUEST("Twilight Mementos") },
           text = "Their dead carry little carved things. Bring me some, and don't hold them longer than you have to." },
         { id = "h_satchel", when = { questActive = TODO_QUEST("Lingering Essence") },
@@ -868,17 +931,18 @@ P:NPC {
         { id = "h_again2", text = "Go on, quietly." },
       },
       choices = {
-        { text = "How long have you been out here?", next = "long" },
+        { text = "You look like you've been out here a long while.", next = "long" },
         { text = "What are these trinkets?", next = "trinkets" },
-        { text = "What's Ashe like?", next = "ashe" },
+        { text = "Ashe seems an odd sort.", next = "ashe" },
+        { text = "What do the lads make of the Horde across the river?", next = "rf_horde" },
         { text = "Need another sword on the line?", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Ashe worries about you.", next = "worried", when = { heardLine = "ashe.rh_default" } },
         { text = "What's coming down off that ridge?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Need someone to get behind their lines?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "How are your men holding up, Sergeant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Your men look worn thin, Sergeant.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would fire do the most good?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the cultists summon things too?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Why have the woods gone quiet?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "The woods have gone very quiet.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do I seem like the cultists to you, Sergeant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Sergeant.", next = "END", fx = { affinity = 1 } },
       },
@@ -886,7 +950,7 @@ P:NPC {
     long = {
       lines = { { id = "l_default", text = "Long enough that the cultists know my face. I take that as a compliment, though they don't mean it as one." } },
       choices = {
-        { text = "Do you ever rest?", next = "long_rest" },
+        { text = "You never seem to rest.", next = "long_rest" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -918,6 +982,32 @@ P:NPC {
     line = {
       lines = { { id = "ln_default", text = "Always. Stand there, face the ridge, and don't move when they start chanting, because the chanting's the worst part, until it isn't." } },
       choices = { { text = "Understood.", next = "BACK", fx = { affinity = 2, standing = { farholde = 1 } } } },
+    },
+    -- Opinion pass: Riftan asks whether the orcs of Rog'mar are enemies.
+    rf_horde = {
+      big = true,
+      lines = {
+        { id = "rh2_default", text = "Most of the lads would as soon shoot an orc as a cultist, and the old ones remember Sunnyglade. Thing is, Krom'rosh's lot kill Twilight on the far bank the same as we do on this one. You've seen them, so tell me: enemies or not?" },
+      },
+      choices = {
+        { text = "They kill the same cultists. Leave them be.", next = "rf_horde_leave", fx = { opinion = { horde = "common_cause" }, align = { honor = 1 } } },
+        { text = "An orc is an orc. Shoot first, Sergeant.", next = "rf_horde_shoot", fx = { opinion = { horde = "never" }, align = { honor = -1 } } },
+        { text = "Let the orcs bleed on the ridge first. Then we'll see.", next = "rf_horde_use", fx = { opinion = { horde = "useful" }, trait = { practical = 1 } } },
+        { text = "They're cutting down Ashenvale too. Never trust them.", next = "rf_horde_shoot", when = { race = "NightElf" }, fx = { opinion = { horde = "never", ashenvale = "war" } } },
+        { text = "That's the Commander's call, not mine.", next = "BACK" },
+      },
+    },
+    rf_horde_leave = {
+      lines = { { id = "rhl_default", text = "Maybe. I've watched them from the ridge, and they fight like they mean it, which is more than I can say for some of our recruits. I'll not say that to the Commander, and neither will you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rf_horde_shoot = {
+      lines = { { id = "rhs_default", text = "That's how the old hands see it, and I'll not argue with men who were at the siege. Just don't go starting a second war out here while we're still losing the first one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rf_horde_use = {
+      lines = { { id = "rhu_default", text = "Cold, but sensible. Every cultist they put down is one less coming over my wall, and I'm too old to be choosy about who does the killing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     worried = {
       lines = { { id = "w_default", text = "She worries. Tell her I'm fine, and tell her I said it twice; she'll believe it more." } },
@@ -998,6 +1088,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Brotherhood a long time, out here longer. That's all of it." } },
     advice = { { id = "tp_ad", text = "When they start chanting, back up. Whatever they're calling, you don't want to be the first thing it sees." } },
     twilights_hammer = { { id = "tp_hammer", text = "They pray louder than they fight. I'd rather they just fought." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy when the old war came, and I remember the drums. I've heard drums in my sleep ever since, though these days they're cultist drums." } },
+    holy_light = { { id = "tp_holy_light", text = "I don't pray much, but Sister Rowland does enough for the whole keep. I let her pray for me, and I keep the cultists off her." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind's Regent doesn't know my name, and I don't need him to. I need him to send us more men, which he won't." } },
+    blackrock = { { id = "tp_blackrock", text = "The orcs in the mountains wear Blackrock colors sometimes, and they fight beside the cult. Or near it, anyway, and I've stopped caring which." } },
     _none = { { id = "tp_none", text = "Nothing I'd know about out here. Ask at the keep." } },
   },
 }
@@ -1059,14 +1153,14 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with them?", next = "illness" },
-        { text = "How do you keep going?", next = "going" },
+        { text = "I don't know how you keep going in here.", next = "going" },
         { text = "Can I help?", next = "help" },
         { text = "Let me pray with you.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know some field medicine.", next = "aid", when = { profession = "First Aid" } },
-        { text = "Is there anything a soldier can do in here?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A soldier can't do much good in here.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could an animal help them, Sister?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you need anything brought in quietly?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Could magic tell what the illness is?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Magic might tell what the illness is.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you refuse my help, Sister?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The Light keep you, Sister.", next = "END", fx = { align = { light = 1 } } },
         { text = "I'm a druid. I know herbs that ease fever.", next = "xdruid", when = { class = "DRUID" } },
@@ -1077,12 +1171,12 @@ P:NPC {
     illness = {
       lines = { { id = "i_default", text = "I don't know. That's the honest answer, and I've stopped being ashamed of it. It's no plague I've read about, and it isn't a curse I can feel." } },
       choices = {
-        { text = "Could it be the Hammer's doing?", next = "illness_hammer" },
+        { text = "It could be the Hammer's doing.", next = "illness_hammer" },
         { text = "Something else.", next = "BACK" },
       },
     },
     illness_hammer = {
-      lines = { { id = "ih_default", text = "Everyone asks that, and everyone wants it to be. I won't blame anyone until I know, because the moment I do, I'll stop looking." } },
+      lines = { { id = "ih_default", text = "Everyone says that, and everyone wants it to be. I won't blame anyone until I know, because the moment I do, I'll stop looking." } },
       choices = {
         { text = "That's wise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd blame them anyway.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
@@ -1181,6 +1275,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I go where the sick are. Farholde has more than its share, so here I am." } },
     advice = { { id = "tp_ad", text = "Boil your water and wash your wounds. The Light helps those who've already done the dull part." } },
     twilights_hammer = { { id = "tp_hammer", text = "I pray for them too. Someone should, and nobody else will." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light doesn't always heal, and I never tell the soldiers that it does. It gives them comfort, though, and that's more than nothing." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "A paladin in the chapel would lift the soldiers' spirits more than any prayer of mine. Come and sit with them, if you've a moment." },
+      { id = "tp_holy_light3", when = { class = "PRIEST" }, text = "You know what it's like, then, to pray over someone and not know if it's working. Keep praying anyway, because they're listening even when the Light isn't." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "The Regent writes to us about duty, and the Knight Commander burns the letters. I keep one, because I think he meant well." } },
+    theramore = { { id = "tp_theramore", text = "I've heard Theramore has fine healers, trained by Lady Proudmoore's own priests. I'd give a great deal for one of them here." } },
     _none = { { id = "tp_none", text = "I'm sorry; my world's been this room, lately." } },
   },
 }
@@ -1197,7 +1298,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the cradle." },
+    { id = "g_default", text = "Mind the cradle, please, and mind your voice; elven ears hear everything." },
     { id = "g_dog", text = "Aedamas likes you. Don't be flattered; he likes everyone." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Luna's sitting on the cradle again; don't take it personally." },
   },
@@ -1230,7 +1331,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cady Lloydriel. I ride with the Brotherhood and keep an eye on the walls, and on this one." },
+        { id = "h_default", key = true, text = "Cady Lloydriel. I left Quel'Thalas a long time ago to ride with the Brotherhood, and now I keep an eye on the walls, and on this one." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, please; it took an hour to get the little one down. Luna helped, and Luna takes all the credit." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Walk softly past the cradle, if you know how; most of your kind don't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Brotherhood will be glad of you, and the little one likes shiny things, so mind your gauntlets." },
@@ -1242,23 +1343,23 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shh. The cat's watching you, and the cat doesn't like strangers, so stand still." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? I've a century or two of patience, but the little one hasn't." },
         { id = "h_again2", text = "Go on, quietly." },
       },
       choices = {
         { text = "Whose child is that?", next = "child" },
         { text = "Tell me about the animals.", next = "animals" },
         { text = "An elf, in a Stormwind order?", next = "elf" },
-        { text = "What do you watch for, on the walls?", next = "walls" },
+        { text = "You must watch for a great deal from these walls.", next = "walls" },
         { text = "Fine dog. Did you train him yourself?", next = "hunter", when = { class = "HUNTER" } },
         { text = "You were staring.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "You're quel'dorei. We don't often share a wall.", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Need another pair of hands on the walls?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do the Brotherhood's knights trust an elf?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Brotherhood's knights can't fully trust an elf.", next = "xapala", when = { class = "PALADIN" } },
         { text = "How did your dog hear me?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "May I bless the little one?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you have any magic of your own, ranger?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Does your cat hiss at every warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Your cat seems to hiss at every warlock.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would Aedamas like me better in another shape?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does your cat know something about me, Cady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
@@ -1290,12 +1391,41 @@ P:NPC {
       lines = { { id = "e_default", text = "Rangers go where they're needed, and I was needed here. The Brotherhood didn't ask for my family tree, and I didn't ask for theirs." } },
       choices = {
         { text = "And Quel'Thalas?", next = "elf_quel" },
+        { text = "What do you make of the Alliance, then?", next = "elf_alliance" },
         { text = "Something else.", next = "BACK" },
       },
     },
     elf_quel = {
       lines = { { id = "eq_default", text = "I don't talk about Quel'Thalas with strangers. Ask me again when we aren't." } },
       choices = { { text = "I understand.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    -- Opinion pass: Cady turns the question back on the player.
+    elf_alliance = {
+      big = true,
+      lines = { { id = "ea_default", text = "You first. My king took Quel'Thalas out of the Alliance after the Second War, and the Alliance let him. Which of them was wrong?" } },
+      choices = {
+        { text = "Anasterian. He walked away from his allies.", next = "elf_alliance_king", fx = { opinion = { high_elves = "stubborn", alliance = "united" }, align = { order = 1 } } },
+        { text = "The Alliance. It owed your people more than it gave.", next = "elf_alliance_fail", fx = { opinion = { alliance = "failed", high_elves = "respect" }, align = { order = -1 } } },
+        { text = "The elves who stayed and fought are the wise ones.", next = "elf_alliance_stay", fx = { opinion = { high_elves = "respect" }, affinity = 1 } },
+        { text = "Your Highborne cousins chose exile. Don't expect pity from us.", next = "elf_alliance_kal", when = { race = "NightElf" }, fx = { opinion = { high_elves = "distrust" }, affinity = -1 } },
+        { text = "I don't know enough to judge.", next = "BACK" },
+      },
+    },
+    elf_alliance_king = {
+      lines = { { id = "eak_default", text = "Most humans say that. Some of them even say it kindly, and you did. He had his reasons, and I had mine for coming south anyway." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf_alliance_fail = {
+      lines = { { id = "eaf_default", text = "Careful. People here would call that ungrateful, and they'd be half right. Still, I've heard it said less often than I've thought it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf_alliance_stay = {
+      lines = { { id = "eas_default", text = "Or the stubborn ones. Either way, I'm still here, and so is the wall." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elf_alliance_kal = {
+      lines = { { id = "eal_default", text = "I don't want your pity, kaldorei. I want you to keep your arrows pointed the same way as mine while we're both on this wall." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     walls = {
       lines = { { id = "w_default", text = "The river fog, mostly, and the things that come out of it: cultists sometimes, pirates from up the coast sometimes, and once a very confused cow." } },
@@ -1403,9 +1533,13 @@ P:NPC {
       { id = "tp_knows", text = "I watch the walls and I watch the people inside them, so I know a fair bit. Ask, and I'll decide what to tell you." },
     },
     background = { { id = "tp_bg", text = "No. That one stays with me." } },
-    advice = { { id = "tp_ad", text = "Watch the birds over the river. When they go quiet, something's moving in the fog." } },
+    advice = { { id = "tp_ad", text = "Watch the birds over the river, the way the rangers of Eversong taught me. When they go quiet, something's moving in the fog." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Good riders and bad singers, and they keep their word, which is rarer than either." } },
-    _none = { { id = "tp_none", text = "Not mine to know." } },
+    sylvanas = { { id = "tp_sylvanas", text = "She was the Ranger-General of Silvermoon, and I trained under her rangers when I was young. I won't say what she is now, but I'll say she was the best of us once." } },
+    arthas = { { id = "tp_arthas", text = "Arthas marched on Quel'Thalas and burned it. I don't talk about him, and I'd thank you not to either." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to the moon, and I've never seen the harm in it. Luna seems to like the moonlight too, though she likes most things that aren't the dog." } },
+    dalaran = { { id = "tp_dalaran", text = "My people studied in Dalaran alongside the humans, before the Scourge came. I don't know who's left, and I've stopped asking." } },
+    _none = { { id = "tp_none", text = "Not mine to know, and I've learned that even an elf's long life doesn't cover everything." } },
   },
 }
 
@@ -1461,14 +1595,14 @@ P:NPC {
         { text = "Who kept the stables before you?", next = "brienne" },
         { text = "Best horse you've ever had?", next = "best" },
         { text = "Do you stable druids?", next = "druid", when = { class = "DRUID" } },
-        { text = "What makes a good warhorse?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A good warhorse must be a big one.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could my charger stable here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the horses mind my companion?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Has anyone ever tried to steal a horse here?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Someone must have tried to steal a horse here once.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Shall I bless the horses before a ride?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could magic make a horse faster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why do the horses fear me?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Where do the Brotherhood's new horses come from?", next = "remounts" },
+        { text = "The Brotherhood must need a steady supply of new horses.", next = "remounts" },
         { text = "Do you think the horses have spirits, Wheatley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -1590,6 +1724,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've been around horses since before I could walk. Ask them about me; they're more honest." } },
     advice = { { id = "tp_ad", text = "A horse that won't cross a bridge has a reason. Get off and look." } },
     siege_of_farholde = { { id = "tp_siege", text = "We lost more horses than riders, and I mourned every one. Don't tell the riders." } },
+    second_war = { { id = "tp_second_war", text = "The Brotherhood's horses broke the Horde at Farholde in the old war, and I'll tell anyone who'll listen. The riders get the credit, but it was the horses that did the work." } },
+    thrall = { { id = "tp_thrall", text = "Orcs ride wolves, and I'll say this for them, they keep their wolves well. I'd still rather a horse." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has pony rides for children, and I went once just to check on the ponies. They were well kept, I'll give them that." } },
     _none = { { id = "tp_none", text = "Does it eat hay? If not, you'd best ask somebody else." } },
   },
 }
@@ -1643,17 +1780,17 @@ P:NPC {
       choices = {
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "Gryphons, this far from Ironforge?", next = "gryphons" },
-        { text = "How's the flying out here?", next = "flying" },
+        { text = "The flying can't be easy out here.", next = "flying" },
         { text = "Walk on Air beats a gryphon.", next = "glide", when = { race = "Skyborne" } },
-        { text = "Are gryphons any use in a fight?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Gryphons must be useful in a fight.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do your gryphons fly to the front?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where did you learn to handle gryphons?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can a gryphon fly quietly?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What's wrong with the sulking one?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "That one seems to be sulking.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why fly when a portal is faster?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why don't the birds like warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why won't she eat fish?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Which route gives you the most trouble?", next = "route" },
+        { text = "One of your routes must give you trouble.", next = "route" },
         { text = "Does the river wind trouble your gryphons, Gretchen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -1764,7 +1901,7 @@ P:NPC {
     route = {
       lines = { { id = "rt_default", text = "The run to Powderfuse, over the river mouths. The wind comes off the sea sideways, and the goblins set off fireworks whenever a ship comes in, and I've had birds land a mile off course because of it." } },
       choices = {
-        { text = "Have you complained to the goblins?", next = "route_goblins" },
+        { text = "You ought to complain to the goblins.", next = "route_goblins" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1781,6 +1918,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I learned to fly before I learned to swim, and Farholde's surrounded by water, so that's been an education." } },
     advice = { { id = "tp_ad", text = "Visit every roost you pass. The birds don't forget a face that brought them a treat." } },
+    second_war = { { id = "tp_second_war", text = "The Wildhammer flew gryphons in the old war, and they taught the Alliance how. I've kept the tradition going, and my birds are the best in the Riverglades." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer know gryphons better than anyone, and I'd give a year's pay to learn from them. My birds are grumpy, but they'd be grumpier without what the Wildhammer taught us." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind sends us gryphons now and then, and I'm grateful for every one. I'd be more grateful if they sent riders to go with them." } },
     _none = { { id = "tp_none", text = "Can't help you there. I only know the sky and the birds in it." } },
   },
 }
@@ -1841,16 +1981,16 @@ P:NPC {
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Go on; the hammer's not listening." } },
       choices = {
         { text = "Show me what you've got.", next = "BUSINESS" },
-        { text = "Why's iron so short?", next = "iron" },
+        { text = "Iron seems short around here.", next = "iron" },
         { text = "What will that key open?", next = "key",
           when = { any = { { questActive = TODO_QUEST("Key Ingredients") }, { questDone = TODO_QUEST("Key Ingredients") }, { questActive = TODO_QUEST("Krol'dok Moulding") } } } },
-        { text = "How long have you worked this forge?", next = "forge" },
+        { text = "You must have worked this forge a long time.", next = "forge" },
         { text = "Any advice for another smith?", next = "teach", when = { profession = "Blacksmithing" } },
-        { text = "My armour took a beating at Krol'dok.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "My armour's taken a beating out in these glades.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Will you look at my plate?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need for arrowheads?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can you make a blade that doesn't catch the light?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you ever pray at the forge?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must say a prayer at the forge now and then.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What odd things has Ashe asked for?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why don't your embers like it?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where does your charcoal come from?", next = "xdruid", when = { class = "DRUID" } },
@@ -1974,6 +2114,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A smith, and a smith's son, and that's the whole of it." } },
     advice = { { id = "tp_ad", text = "Oil your blade after the river. The damp here eats steel faster than cultists do." } },
     krol_dok = { { id = "tp_kroldok", text = "Ogre steel's thick and stupid, like ogres." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, and the worst tempers. I'd learn their secrets if I could, and I'd keep my distance while I did it." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs forge crude and heavy, all strength and no patience. You can tell an orc blade by the way it's never been properly tempered." } },
+    second_war = { { id = "tp_second_war", text = "My master forged blades for Farholde in the old war, and I learned on his anvil. I still use his hammer." } },
     _none = { { id = "tp_none", text = "Don't know, and don't need to." } },
   },
 }

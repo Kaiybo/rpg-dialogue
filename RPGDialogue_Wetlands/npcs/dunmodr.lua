@@ -31,6 +31,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_stromgarde = {
+      lines = {
+        { id = "opn_stromgarde_q", text = "Worth it? I'd say aye, but then I'm holdin' the edge o' a fortress that's already lost, so ye'd expect me tae. The Highlands are full o' ogres an' worse, an' Stromgarde's half rubble. Ye've walked further than me; what d'ye think o' it?" },
+      },
+      choices = {
+        { text = "A kingdom's worth fighting for, even in rubble.", next = "opn_stromgarde_r_retake", fx = { affinity = 1, align = { honor = 1 }, opinion = { stromgarde = "retake" } } },
+        { text = "It's gone. They should save the living instead.", next = "opn_stromgarde_r_lost", fx = { align = { honor = -1 }, trait = { practical = 1 }, opinion = { stromgarde = "lost" } } },
+        { text = "Pride got Stromgarde out of the Alliance. Pride won't save it.", next = "opn_stromgarde_r_proud", fx = { trait = { skeptical = 1 }, opinion = { stromgarde = "proud" } } },
+        { text = "I fled the north myself. Every kingdom left standing matters.", next = "opn_stromgarde_r_retake", when = { race = "Human", origin = "human_lordaeron_refugee" }, fx = { affinity = 2, opinion = { stromgarde = "retake" } } },
+        { text = "I haven't been to the Highlands.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r = {
+      lines = {
+        { id = "opn_stromgarde_r_default", text = "Nor have I, an' at this rate I never will, so I'll take yer silence for a kindness." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r_retake = {
+      lines = {
+        { id = "opn_stromgarde_r_retake", text = "Aye, an' I'll drink tae it, if I ever get leave tae drink. Tell Nials that if ye pass Refuge Pointe; he'll like hearin' it from someone who isnae under his command." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r_lost = {
+      lines = {
+        { id = "opn_stromgarde_r_lost", text = "Ye might be right, an' that's a hard thing tae hear on a wall like this one, for they'd say the same about us. Don't say it tae Longbraid, I beg ye." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
+    opn_stromgarde_r_proud = {
+      lines = {
+        { id = "opn_stromgarde_r_proud", text = "They did leave, aye, after the Second War, an' we never understood it. But a proud man still bleeds the same as a humble one, an' they've bled plenty." },
+      },
+      choices = {
+        { text = "Something else, Rhag.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -59,10 +103,10 @@ P:NPC {
         { id = "h_again2", text = "Ask what ye like, friend, for there's little else tae do but wait." },
       },
       choices = {
-        { text = "What happened at the Thandol Span?", next = "span" },
-        { text = "Who was Ol' Rustlocke?", next = "rustlocke" },
+        { text = "The Thandol Span looks badly broken.", next = "span" },
+        { text = "Who did you lose defending the Span?", next = "rustlocke" },
         { text = "Tell me about Longbraid.", next = "longbraid" },
-        { text = "Why hasn't Ironforge sent help?", next = "help" },
+        { text = "Ironforge seems slow to send help.", next = "help" },
         { text = "I've spoken with King Magni about Dun Modr.", next = "king_word",
           when = { thread = { id = "dwarves_and_dark_iron", beat = "b4_magni", state = { "stirring", "unfolding" } } } },
         { text = "How long has the Span stood?", next = "dwarf", when = { race = "Dwarf" } },
@@ -75,7 +119,7 @@ P:NPC {
         { id = "sp_default", text = "The Dark Irons packed the bridge wi' powder an' blew the near span intae the gorge. 'Twas horrible, I tell ye, for half o' the guard was standin' on it when it went." },
       },
       choices = {
-        { text = "Who planned it?", next = "span_who" },
+        { text = "Somebody must have planned it.", next = "span_who" },
         { text = "Something else, Rhag.", next = "BACK" },
       },
     },
@@ -130,7 +174,7 @@ P:NPC {
         { id = "lb_default", text = "Longbraid the Grim, an' he's earned the name twice over this year. He says we'll take revenge on the Dark Irons before all's said an' done, an' I believe him, for he's never said a thing he didnae mean." },
       },
       choices = {
-        { text = "Can he hold Dun Modr?", next = "longbraid_hold" },
+        { text = "He can't hold Dun Modr for long.", next = "longbraid_hold" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -154,7 +198,10 @@ P:NPC {
       lines = {
         { id = "hn_default", text = "That Stromgarde's fallen, an' they'll no' leave the Highlands till its banner flies again. I understand him, for I'd say the same o' Dun Modr, but it doesnae put a single axe on our wall." },
       },
-      choices = { { text = "Something else, Rhag.", next = "BACK", fx = { learn = { "thandol_span" } } } },
+      choices = {
+        { text = "Is Stromgarde worth Nials's stubbornness?", next = "opn_stromgarde" },
+        { text = "Something else, Rhag.", next = "BACK", fx = { learn = { "thandol_span" } } },
+      },
     },
 
     king_word = {
@@ -199,5 +246,10 @@ P:NPC {
     dark_iron = { { id = "tp_di", text = "They took Dun Modr an' broke the Span, an' they'll want more. They always do." } },
     dragonmaw = { { id = "tp_dm", text = "Orcs on the hills tae the east, wi' red dragons over Grim Batol. As if we hadnae enough trouble." } },
     _none = { { id = "tp_none", text = "Cannae say, friend. Out here we hear about the Dark Irons an' little else." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's east o' here over the hills, an' no dwarf wi' sense goes near it. It was the Wildhammer's hold once, the Dark Irons cursed it, an' then the orcs filled it wi' dragons, so that's three good reasons." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer were Ironforge's kin before the War o' the Three Hammers, an' they're kin still, if ye squint. They fly over the Span now an' then, an' I'll admit it's a fine sight." } },
+    magni = { { id = "tp_magni", text = "King Magni sent us tae hold Dun Modr's edge, an' we'll hold it till he says otherwise. He's a king who remembers his soldiers' names, an' that's worth a great deal." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's men held the north end o' the Span once, an' now Stromgarde itself is half ogres an' half ruins. They were good allies, an' I'd like them back." } },
+    scourge = { { id = "tp_scourge", text = "There are dead men walkin' in Lordaeron, I hear, an' the Span's the only dry road south for them. That's another reason we cannae let it fall." } },
   },
 }

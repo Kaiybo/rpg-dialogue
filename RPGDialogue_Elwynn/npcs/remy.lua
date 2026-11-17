@@ -20,6 +20,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_goblins", when = { opinion = { topic = "goblins", stance = "fair" } }, text = "Friend, friend! You're the one who likes goblins! I've been thinking about Booty Bay ever since, thinking very hard, thinking about prices." },
     { id = "g_dust", text = "Gold dust? Got any gold dust, friend, any at all, any at all?" },
     { id = "g_friend", when = { affinity = { min = 3 } }, text = "My friend, my good friend! What news have you got for Remy, what news?" },
     { id = "g_cold", when = { affinity = { max = -3 } }, text = "Oh, it's you. You again, is it, you again." },
@@ -38,6 +39,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_goblins = {
+      lines = {
+        { id = "op_goblins_a", text = "Undercut me, undercut me! The Steamwheedle goblins sell anything to anyone, Alliance or Horde, it's all the same coin to them, and they still make more than an honest man. What's your view, friend? Are goblins good for trade or bad for it?" },
+      },
+      choices = {
+        { text = "Good for trade. They'll sell to anyone, and that keeps prices honest.", next = "op_goblins_1", fx = { opinion = { goblins = "fair", steamwheedle = "useful" }, align = { honor = -1 } } },
+        { text = "Selling to the Horde is treason. They should be barred from our ports.", next = "op_goblins_2", fx = { opinion = { goblins = "distrust", steamwheedle = "traitors" }, align = { honor = 1 } } },
+        { text = "Goblins are only merchants with fewer scruples. Like you, Remy.", next = "op_goblins_3", fx = { opinion = { goblins = "contract" }, trait = { witty = 1 }, affinity = -1 } },
+        { text = "Gnomes build better and sell cheaper. Goblins just shout louder.", next = "op_goblins_4", when = { race = "Gnome" }, fx = { opinion = { goblins = "distrust", gnomes = "admire" }, affinity = 1 } },
+        { text = "I don't care who sells what, Remy.", next = "BACK" },
+      },
+    },
+    op_goblins_1 = {
+      lines = { { id = "op_goblins_r1", text = "Honest, he says, honest! Well, perhaps, perhaps, and perhaps I'll go to Booty Bay and learn their tricks, if I can find a cart that won't explode." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
+    op_goblins_2 = {
+      lines = { { id = "op_goblins_r2", text = "Barred! Yes, yes, barred, and then who'll buy my dust, I ask you? Nobody, that's who. Still, you've a fine stern face for a magistrate." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
+    op_goblins_3 = {
+      lines = { { id = "op_goblins_r3", text = "Like me, like me? I have scruples, friend, a great many of them, and I keep them in a little box at home, very safe. Very safe." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
+    op_goblins_4 = {
+      lines = { { id = "op_goblins_r4", text = "Cheaper! Is that so, is that so? Then I'll be wanting a gnome supplier, friend, and you'll tell me where to find one, and I'll tell nobody else." } },
+      choices = { { text = "Something else, Remy.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Something special! Something special, I promise! Totem polish? Spirit charms? Count your coins first. Count them!" } },
@@ -88,7 +117,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell half of it, and the cellar's in the other half." } },
+      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell half of it, and the cellar's in the other half." } },
       choices = {
         { text = "Your secret's safe with me, Remy. I won't tell Farley.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your silence has a price, Remy. Mine does too.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -148,19 +177,19 @@ P:NPC {
       },
       choices = {
         { text = "What are you buying?", next = "BUSINESS" },
-        { text = "Any news, Remy?", next = "news" },
-        { text = "Where are you from, Remy?", next = "home" },
-        { text = "Who are these associates of yours?", next = "associates", when = { questDone = TODO_QUEST("Gold Dust Exchange") } },
+        { text = "You look like a man with news, Remy.", next = "news" },
+        { text = "You don't sound like you're from Goldshire, Remy.", next = "home" },
+        { text = "You keep mentioning associates of yours.", next = "associates", when = { questDone = TODO_QUEST("Gold Dust Exchange") } },
         { text = "I know a fence when I see one.", next = "fence", when = { class = "ROGUE" } },
         { text = "Who else buys dust around here? Talk.", tag = "Intimidate", next = "talks",
           when = { thread = { id = "elwynn_gold", beat = "b1_dust" } },
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { band = { "Seasoned", "Veteran", "Champion" } } } } },
           fail = { next = "clams", fx = { affinity = -1 } } },
         { text = "What sort of books would curl my hair, Remy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why are you so worried about telling me, Remy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You seem worried about telling me, Remy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there anything you could get a warrior, Remy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you sell a hunter, Remy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is there anything you'd like to confess, Remy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You look like a man with something to confess, Remy.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who's been buying stolen goods in Goldshire, Remy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does your fellow sell that comes from the forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do you have for a shaman, Remy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -213,6 +242,7 @@ P:NPC {
         { id = "hw_default", text = "Why does anybody leave anywhere? Better prices, better prices! Don't ask me about Redridge, friend; ask me about dust, because I like dust." },
       },
       choices = {
+        { text = "Better prices? Do the goblins undercut you, then?", next = "op_goblins" },
         { text = "All right. Tell me about the dust.", next = "dust" },
         { text = "Something else.", next = "BACK" },
       },
@@ -269,5 +299,10 @@ P:NPC {
     the_collector = { { id = "t_collector", text = "Never heard of him, never heard of him. Why do you ask, why?" } },
     hogger = { { id = "t_hogger", text = "Don't sell to gnolls, because gnolls don't pay, and Hogger especially doesn't pay." } },
     _none = { { id = "t_none", text = "Don't know, don't know! Ask Farley; he hears everything twice as fast as me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire, the Faire! Best week of the year, friend, best week, and I hear more news there than anywhere. Not that I sell news, I give it away, free, free!" } },
+    booty_bay = { { id = "tp_booty_bay", text = "A goblin from Booty Bay told me he'd buy all the gold dust I could carry, and then he offered half what Remy pays, half! Goblins, friend, goblins." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, I hear, walk and walk and never sleep! I sleep twice as much now, just to spite them, twice as much." } },
+    varian = { { id = "tp_varian", text = "The king's gone, gone! Taken by pirates, I heard, or married in secret, or lost at sea, and I've heard all three in one day, all three!" } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor, Lady Prestor, very beautiful and very clever, the nobles say. I've never seen her, but I'd sell to her, I'd sell her anything!" } },
   },
 }

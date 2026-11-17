@@ -14,9 +14,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Have you come to free me? Please say that you have, because I've run out of bottles." },
+    { id = "g_default", text = "Have you come to free me? Please say that you have, by the Earth Mother, because I've run out of bottles." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! Is the great Skymane dealt with, or have you simply come to admire my predicament?" },
-    { id = "g_freed", when = { questDone = TODO_QUEST("Message in a Bottle") }, text = "Thank you again for your aid. May the wind always be at your back during your travels." },
+    { id = "g_freed", when = { questDone = TODO_QUEST("Message in a Bottle") }, text = "Thank you again for your aid. May the winds always be at your back, and may the eternal sun shine upon your travels." },
   },
 
   notice = {
@@ -31,22 +31,22 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Princess Poobah, and a great Skymane holds me captive on this wretched island, which is no way to treat royalty. I threw messages in bottles toward the ships for days, and you're the first to answer." },
+          text = "I am Princess Poobah, and a great Skymane holds me captive on this wretched island, which is no way to treat a daughter of the plains. I threw messages in bottles toward the ships for days, and you're the first to answer." },
         { id = "h_bottle", tags = { "news" }, when = { questActive = TODO_QUEST("Message in a Bottle") },
           text = "You found one of my bottles! I knew my throwing arm was good for something. King Mukla is the beast who keeps me here, and as long as he lives, I'll never leave this beach." },
         { id = "h_free", tags = { "news" }, when = { questRecent = { TODO_QUEST("Message in a Bottle"), days = 3 } },
-          text = "Free! Truly free, and on my way at last. I'll tell everyone I meet of your courage, or at least the ones who'll listen." },
+          text = "Free! Truly free, and on my way at last, like a kodo let out of the pen. I'll tell everyone I meet of your courage, or at least the ones who'll listen." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde colours, how wonderful! I don't suppose Thunder Bluff knows I'm missing? No? Well, they will once I've told the story properly." },
       },
       again = {
         { id = "h_again", text = "What else? A princess is always ready to hold court, even on sand." },
-        { id = "h_again2", text = "Go on, I'm listening, though I must keep an eye out for that monkey." },
+        { id = "h_again2", text = "Go on, I'm listening, though I must keep one ear turned to the trees for that monkey, the way a calf learns to listen for wolves." },
       },
       choices = {
         { text = "Princess of what, exactly?", next = "princess" },
-        { text = "Who is King Mukla?", next = "mukla" },
-        { text = "How did you end up here?", next = "captive" },
+        { text = "Who is this great Skymane?", next = "mukla" },
+        { text = "You look like you've had a hard time of it.", next = "captive" },
         { text = "How did you throw bottles all the way to the shore?", next = "bottles" },
         { text = "Mulgore's a long way from here, Princess.", next = "xtauren", when = { race = "Tauren" } },
         { text = "I'll see what I can do.", next = "END" },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "ca_default", text = "It's a long and very tragic story, and I've been held by worse than gorillas, if you'd believe it. There was a troll called Zanzil before this, with his potions and his zombies, and Mukla is an improvement, which tells you something." },
       },
       choices = {
-        { text = "Zanzil the Outcast held you?", next = "captive_zanzil" },
+        { text = "This Zanzil held you?", next = "captive_zanzil" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,7 +143,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "A princess of the tauren, I'll have you know, captured twice and rescued once, so far." } },
-    advice = { { id = "tp_ad", text = "Never swim when you're upset. You end up on islands." } },
-    _none = { { id = "tp_none", text = "A princess doesn't concern herself with that sort of thing." } },
+    advice = { { id = "tp_ad", text = "Never swim when you're upset. The Earth Mother gave tauren hooves for walking, and you end up on islands." } },
+    _none = { { id = "tp_none", text = "A princess doesn't concern herself with that sort of thing, and the Earth Mother can't hear me out here anyway." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the high chieftain of my people, and I'll have you know he's met me personally, once. He'll be very upset to hear how I've been treated." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother watches over all her children, even princesses kidnapped by gorillas. I pray to her every night, very loudly, so the gorilla king hears." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I was on my way to Booty Bay for a little shopping when the gorillas took me. I suppose I'll have to buy twice as much when I get there now." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is an orc of great taste, I'm sure, and he'd never allow a princess to be held by a gorilla. Somebody should write to him about this." } },
   },
 }

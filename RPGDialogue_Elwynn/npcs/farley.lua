@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_forsaken_pity", when = { gossip = { topic = "forsaken", stance = "pity" } }, text = "Wilhelm says you'd show mercy to the walking dead! He said it proudly, mind, and I'll take his word on it, since I'll never be brave enough to try." },
+    { id = "g_op_warchief", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "Here's the one who trusts the orcs! Sit down, sit down; Dobbins has a bet that you've met one, and I'd like to know who wins." },
     { id = "g_welcome", text = "Welcome to the Lion's Pride! Sit anywhere the dog isn't." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! Your usual corner's free." },
     { id = "g_home", when = { homeInn = { "Goldshire", "Lion's Pride Inn" } }, text = "Home again! Boots off by the fire, if you please." },
@@ -39,6 +41,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "op_orcs_a", text = "The old folk swear it every winter, when the wind's from the south. But the travellers say Thrall's orcs have a land of their own across the sea now, and they claim they only want to be left alone. Would you trust them, friend?" },
+      },
+      choices = {
+        { text = "I would. Thrall freed his people. He's not the old Horde.", next = "op_orcs_1", fx = { opinion = { warchief = "trust", peace = "for" }, align = { light = 1 } } },
+        { text = "Never. They burned this town once and they'll do it again.", next = "op_orcs_2", fx = { opinion = { warchief = "distrust", peace = "against" }, align = { light = -1 } } },
+        { text = "I'd trust them across the sea. Here, I'd want walls.", next = "op_orcs_3", fx = { opinion = { warchief = "wary", peace = "for" }, trait = { cautious = 1 }, affinity = 1 } },
+        { text = "I lost my home up north to them. Ask me after a drink.", next = "op_orcs_4", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { peace = "against" }, affinity = 2 } },
+        { text = "I'd rather not talk about the war, Farley.", next = "BACK" },
+      },
+    },
+    op_orcs_1 = {
+      lines = { { id = "op_orcs_r1", text = "Well, I hope you're right, and I'll pour you a drink on it. Verina says I'd trust a gnoll if it paid in coin, so maybe I'm not the man to judge." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
+    op_orcs_2 = {
+      lines = { { id = "op_orcs_r2", text = "That's what my father said, and he rebuilt the Lion's Pride with his own two hands, so I'll not argue with you. Keep that sword close; I keep a cudgel under the bar myself." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
+    op_orcs_3 = {
+      lines = { { id = "op_orcs_r3", text = "Ha! That's the best answer I've heard at this bar, and I've heard a few hundred. Across the sea is exactly where I like my orcs." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
+    op_orcs_4 = {
+      lines = { { id = "op_orcs_r4", text = "Then you'll have that drink, and we'll not talk about orcs at all tonight. Frandis went north too, and I know what that question costs." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
     xpt_farley = {
       big = true,
       lines = { { id = "xpt_farley_default", text = "More than any inn in the kingdom, friend, and I've sent them off to the Fargodeep and Jasperlode and the Deadmines with a good meal in them. Some came back rich and some came back limping, and a few I still keep a candle for." } },
@@ -103,6 +133,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You've a face I half know, and it's taken me a moment to place it. There was a {altrace} {altclass} called {alt} who sat by my fire not long back, and you could pass for that one in poor lamplight." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "Back again! {alt} was in only the other night and ate two bowls of the stew, and I said to myself that the Lion's Pride must be getting a name among your sort." },
         { id = "h_pt_farley", tags = { "news" }, when = { party = { size = { min = 2 } } },
           text = "A whole company! Well, I've rooms upstairs and a floor that's seen worse, and the Lion's Pride has never turned a party away yet, so come in and shut the door behind you." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The rowdy ones sit up straighter when there's plate at the bar, so stay as long as you like." },
@@ -138,18 +172,18 @@ P:NPC {
       choices = {
         { text = "What do you like about Elwynn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
-        { text = "Heard anything interesting?", next = "rumors" },
+        { text = "Goldshire seems quiet enough tonight.", next = "rumors" },
         { text = "Tell me about the inn.", next = "inn" },
         { text = "What's good to eat?", next = "food" },
-        { text = "Ever had trouble in here?", next = "trouble" },
+        { text = "An inn like this must see its share of trouble.", next = "trouble" },
         { text = "Falkhaan sent me down the road.", next = "falkhaan", when = { questDone = TODO_QUEST("Rest and Relaxation") } },
-        { text = "What's down in your cellar, Farley?", next = "cellar", when = { class = "WARLOCK" } },
+        { text = "Your cellar seems a busy place, Farley.", next = "cellar", when = { class = "WARLOCK" } },
         { text = "What ale do you keep, Farley?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Can {pet} sleep in my room?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
-        { text = "Does the mage upstairs ever complain?", next = "mage", when = { class = "MAGE" } },
+        { text = "The mage upstairs must complain about the noise.", next = "mage", when = { class = "MAGE" } },
         { text = "Do rogues give you much trouble at the Lion's Pride?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you get much trouble from warriors at the Lion's Pride?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you see many wounded come through the Lion's Pride, Farley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must see a good many wounded come through, Farley.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Brother Wilhelm keep the peace in your inn, Farley?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has the Lion's Pride always been in your family, Farley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Has the Lion's Pride seen many companies like ours?", next = "xpt_farley", when = { party = true } },
@@ -201,6 +235,7 @@ P:NPC {
         { id = "i_default", text = "Rest for the tired, a fire for the cold! Goldshire fell in the First War and was built again after the Second. There's been a Farley pouring here on both sides of it." },
       },
       choices = {
+        { text = "Do you think the orcs will ever come back this way?", next = "op_orcs" },
         { text = "And the Farleys now?", next = "family" },
         { text = "Something else.", next = "BACK" },
       },
@@ -286,7 +321,7 @@ P:NPC {
       },
       choices = {
         { text = "What frightened him?", next = "messenger_why" },
-        { text = "Did he ever come back?", next = "messenger_back" },
+        { text = "I'd guess he never came back.", next = "messenger_back" },
       },
     },
     messenger_why = {
@@ -370,5 +405,14 @@ P:NPC {
     gold_dust = { { id = "t_dust", text = "Remy buys it, Remy sells it, Remy talks about it. Mostly he talks about it." } },
     stalvan = { { id = "tp_stalvan", text = "He stayed a few nights, years back, a quiet man. The messenger who ran off screaming was carrying one of his letters.", next = "messenger_back" } },
     _none = { { id = "t_none", text = "Not a word of that's reached my bar, and that's rare." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire camps by Goldshire, I don't see my own bed for a week, and I wouldn't change it. Silas Darkmoon's folk pay in good coin and sing better than my regulars." } },
+    lordaeron = { { id = "tp_lordaeron", text = "My brother Frandis guarded caravans to Lordaeron, and his last one went north just as the plague came. He didn't come home, friend, and I still keep his cup on the top shelf." } },
+    scourge = { { id = "tp_scourge", text = "Travellers from the north talk about the Scourge over their third ale, and the whole inn goes quiet every time. I'd rather hear about Hogger, and that tells you something." } },
+    varian = { { id = "tp_varian", text = "King Varian took ship and never came back, and every soul in this inn has a theory about it. I don't, and I'll thank you not to start one at my bar." } },
+    prestor = { { id = "tp_prestor", text = "The nobles say Lady Prestor is the cleverest head at court, and the farmers say she's never set foot on a farm. I serve both kinds, so I keep my mouth shut and the cups full." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The stone on the lake island remembers the folk who died when the orcs burned Goldshire, my own great-grandfather's folk among them. Rogue wizards sit there now, and that's a sin in my book." } },
+    thrall = { { id = "tp_thrall", text = "They say there's an orc warchief across the sea now who talks of peace and means some of it. My father would have spat at that, but then my father also rebuilt this inn twice." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Sailors from Booty Bay drink here on their way to the city, and they tip in coins I've never seen before. I keep a jar of them behind the bar, and Verina says it's the ugliest jar in Elwynn." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a good man and a tired one, I hear. Folk from the Keep say he hasn't had a decent supper since the king went missing, and I'd send him one if they'd let me." } },
   },
 }

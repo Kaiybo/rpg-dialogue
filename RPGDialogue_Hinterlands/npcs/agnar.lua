@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Agnar Beastamer, animal handler for the Wildhammer. If it's got feathers, fur or scales an' it lives at Aerie Peak, I've fed it, mended it an' been bitten by it." },
+          text = "Agnar Beastamer, animal handler for the Wildhammer. If it's got feathers, fur or scales an' it lives at Aerie Peak, I've fed it, mended it an' been bitten by it, though I've never yet had the luck tae raise a faerie dragon." },
         { id = "h_egg", tags = { "news" }, when = { questActive = TODO_QUEST("The Newest Member of the Family") },
           text = "Well, well, well, I haven't seen one o' these in a dragon's age! Faerie dragon, if I'm no' mistaken, o' the sprite darter variety, an' ye got it here in time, which is no small thing." },
         { id = "h_fed", tags = { "news" }, when = { questRecent = { TODO_QUEST("Food for Baby"), days = 3 } },
@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "Tell me about faerie dragons.", next = "faerie" },
         { text = "How do you raise a gryphon?", next = "gryphons" },
-        { text = "What does a beast handler do here?", next = "work" },
+        { text = "A beast handler must have plenty to do here.", next = "work" },
         { text = "Why are you jealous of my egg?", next = "jealous", when = { questDone = TODO_QUEST("The Newest Member of the Family") } },
         { text = "How do you tame a beast like mine?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Thanks, Agnar.", next = "END" },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "fa_default", text = "Wee dragons o' the forests, mostly in Feralas an' the night elves' woods, quick as a thought an' about as hard tae catch. They eat both meat an' greens, an' fresh flank's the best first meal for one, though I never could find out why." },
       },
       choices = {
-        { text = "Why do they like meat?", next = "faerie_why" },
+        { text = "It's strange that they like meat.", next = "faerie_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,6 +138,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know beasts, the Peak's an' a few from further off. Ask about any creature ye like." } },
     background = { { id = "tp_bg", text = "Wildhammer born, an' I was raisin' gryphon chicks before I could ride one." } },
     advice = { { id = "tp_ad", text = "Feed a beast first an' ask it questions after. It works on dwarves, too." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The faerie dragons are cousins tae the great green ones, so the druids say, an' they're the sweetest beasts in the Hinterlands. The big ones are another matter entirely." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Every beast in Aerie Peak is a Wildhammer at heart, gryphon or hound or dragonhawk. I raise them like nephews, an' they behave about as well." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the faerie dragons come from the Dream, an' I believe it, fer they've a look in their eyes like they're seein' somethin' else. Lovely creatures, every one." } },
     _none = { { id = "tp_none", text = "No' a beast I know, friend. Ask the riders, they've seen more o' the world than me." } },
   },
 }

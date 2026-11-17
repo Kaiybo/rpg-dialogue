@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "nat_pagle", id = TODO_NPC("Nat Pagle"), name = "Nat Pagle",
   bible = "bibles/nat_pagle.md", role = "questgiver", tier = "quest",
+  prejudice = { race = "Gnome", amount = 6, why = "a gnome's humming fish-caller once brought a crocolisk that took half his dock; he thinks gnomes can't sit still" },
   temper = { "easygoing", "dry" }, values = { "patient", "honest" },
   notices = { "craft", "drink" },
   impression = {
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_gnome", when = { prejudiced = true }, text = "A gnome, on my dock. Now, I'm not sayin' anythin', but if there's a contraption in that pack that ticks or hums, I'd ask you to leave it ashore, because the last gnome who fished here did it with a bang." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I'll admit somethin', since nobody's listenin' but the fish: you've sat a line longer than most dwarves, and I had you down as the type to blow the pond up. Shows what I know." },
     { id = "g_default", text = "Sit down if you're stayin', and hush if you're sittin'. The fish can hear you." },
     { id = "g_active", when = { questActive = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "Anything bitin' today? No rush, there never is." },
     { id = "g_done", when = { questDone = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "Well, if it ain't my best student. Don't tell the others I said so; there ain't any others." },
@@ -30,6 +33,57 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_nat = {
+      lines = { { id = "pj_nat_default", text = "I think gnomes can do anythin' they set their minds to, which is the trouble. Fishin' is about not settin' your mind to anythin' at all, and I've never met one of your folk who could sit still long enough to let a fish make the first move." } },
+      choices = {
+        { text = "What happened with the gnome who fished here?", next = "pj_nat2" },
+        { text = "Patience is a choice, and I'll sit as long as it takes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a bang gets the fish, I'll use a bang.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Maybe you're right. Show me how to sit still.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_nat2 = {
+      lines = { { id = "pj_nat2_default", text = "He built a little brass box that hummed under the water and called the fish to it, he said, and it called the fish all right, along with a crocolisk the size of a rowboat that took the box, the line and half my dock. I'm still rebuildin', and I still flinch when somethin' hums." } },
+      choices = {
+        { text = "I promise not to hum, Nat.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_theramore = {
+      lines = {
+        { id = "opt_q", text = "Well now, everybody who comes past here's either goin' to Theramore or comin' from it, and they all got an opinion. What do you make of the place?" },
+      },
+      choices = {
+        { text = "A good town, and the Lady's doing right by everyone.", next = "op_theramore_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { theramore = "admire" } } },
+        { text = "Too many soldiers, too many rules. I'd rather your island.", next = "op_theramore_r2", fx = { affinity = 2, align = { order = -1 }, opinion = { theramore = "stifling" } } },
+        { text = "It's a target. One bad day and the Horde burns it.", next = "op_theramore_r3", fx = { trait = { cautious = 1 }, opinion = { theramore = "doomed" } } },
+        { text = "Haven't made my mind up yet, Nat.", next = "BACK" },
+      },
+    },
+    op_theramore_r1 = {
+      lines = {
+        { id = "op_theramore_r1", text = "Can't argue, and I won't, 'cause arguin' is work. Their docks are fine for fishin', mind, when the guards ain't marchin' up and down 'em." },
+      },
+      choices = {
+        { text = "Something else, Nat.", next = "BACK" },
+      },
+    },
+    op_theramore_r2 = {
+      lines = {
+        { id = "op_theramore_r2", text = "Ha! Now you're talkin' sense. Pull up a stump and sit a while, 'cause the fish don't salute anybody." },
+      },
+      choices = {
+        { text = "Something else, Nat.", next = "BACK" },
+      },
+    },
+    op_theramore_r3 = {
+      lines = {
+        { id = "op_theramore_r3", text = "Maybe so, but I been hearin' that for years and it ain't happened yet. I'll worry about it when the smoke's close enough to spoil the bait." },
+      },
+      choices = {
+        { text = "Something else, Nat.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Nat Pagle. Folks come a long way to find me, and I've never understood it, since all I do is sit on a dock and wait for somethin' to happen." },
@@ -50,19 +104,20 @@ P:NPC {
       },
       choices = {
         { text = "Why fish, if you don't enjoy it?", next = "why" },
-        { text = "Who comes all this way to see you?", next = "visitors" },
+        { text = "Folk must come a long way to see you.", next = "visitors" },
         { text = "Do you ever go to Theramore?", next = "theramore" },
-        { text = "Is that a bottle in your tackle box?", next = "drink" },
+        { text = "There's a bottle in your tackle box, unless I'm mistaken.", next = "drink" },
         { text = "I've fished my whole life. What am I missing?", next = "fisher", when = { profession = "Fishing" } },
         { text = "What do you know about these waters, Nat?", next = "waters", when = { class = { "SHAMAN", "DRUID", "HUNTER" } } },
         { text = "Give me the list, Nat.", next = "BUSINESS" },
+        { text = "You don't think gnomes can fish, do you, Nat?", next = "pj_nat", when = { prejudiced = true } },
         { text = "I'll leave you to it, Nat.", next = "END" },
       },
     },
     why = {
       lines = { { id = "w_default", key = true, text = "If you ask me, the best part about fishin' is how slow it is. It gives a fella time to think over what's been and plan for what's comin', and somewhere in there a fish usually shows up." } },
       choices = {
-        { text = "What do you think about, out here?", next = "why_think" },
+        { text = "You must do a lot of thinking out here.", next = "why_think" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +157,10 @@ P:NPC {
     },
     theramore_horde = {
       lines = { { id = "th_default", text = "The ogres don't come down this far, and the orcs leave me be. A fella with a fishin' pole ain't much of a threat to anybody but the fish, and the fish don't belong to the Horde or the Alliance." } },
-      choices = { { text = "Something else, Nat.", next = "BACK" } },
+      choices = {
+        { text = "What do you make of Theramore yourself?", next = "op_theramore" },
+        { text = "Something else, Nat.", next = "BACK" },
+      },
     },
     drink = {
       lines = { { id = "d_default", text = "It might be, and it might be empty, which is a worse question. Fishin' is a fine excuse to drink, and I take my excuses seriously." } },
@@ -131,6 +189,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fish, I drink, and I sit. Been doin' all three a good long while, and I'm still not tired of the last one." } },
     advice = { { id = "tp_ad", text = "Don't yank the line the second it twitches, or you'll spend the afternoon fishin' your hook out of the reeds. Let the fish think it's winnin'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing on the coast and the worst company to go with it, which is how you know it's good water. I'd go back if the pirates would let a man sit still." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's a fine little town with too many boots marching on the docks, and every one of them scares the fish. I come out here where the water's quiet." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got good docks and goblins who'll sell you bait that's half sawdust. Fished there a season, and I've no complaints about the fish." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a dragon down in the south of the marsh, they tell me, and I don't fish down there. A man who wants peace and a full bottle doesn't go poking at dragons." } },
+    jaina = { { id = "tp_jaina", text = "The Lady built a town on the best stretch of coast in the marsh, so she knows her water, I'll give her that. Never seen her fish, though, and I think it's a pity." } },
     _none = { { id = "tp_none", text = "Can't say I know a thing about that. Ask me about fish, or don't ask me at all." } },
   },
 }

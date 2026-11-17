@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Dustwallow Marsh |cff8a8a8a1.25.1|r
+## Title: RPG Dialogue: Dustwallow Marsh |cff8a8a8a1.26.0|r
 ## Notes: Theramore and Brackenwall Village: Jaina's island of peace, a burned inn both sides want answers for, and an orc boss whose Warchief's orders were broken.
 ## Author: RPG Dialogue
-## Version: 1.25.1
+## Version: 1.26.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.dustwallow
@@ -14,10 +14,13 @@ pack.lua
 pools.lua
 npcs\theramore.lua
 npcs\theramore_more.lua
+npcs\theramore_citadel.lua
 npcs\brackenwall.lua
+npcs\brackenwall_folk.lua
 npcs\marsh.lua
 npcs\unsung.lua
 npcs\tharg.lua
 npcs\dogol.lua
 npcs\mudcrush.lua
 npcs\nat_pagle.lua
+npcs\doraan.lua

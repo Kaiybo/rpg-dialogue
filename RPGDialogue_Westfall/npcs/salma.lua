@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_leave_go", when = { opinion = { topic = "westfall_leave", stance = "go" } }, text = "There you are! I told Theodore you said go while there's a road, and he looked so relieved I gave him a second bowl." },
     { id = "g_welcome", text = "Come in, come in! There's always a pot on." },
     { id = "g_stew", when = { questActive = TODO_QUEST("Westfall Stew") }, text = "Here on stew business? Good, because the pot's getting impatient." },
     { id = "g_after", when = { questDone = TODO_QUEST("Westfall Stew") }, text = "There's my stew-gatherer! Sit down and eat something, you're far too thin." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_leave = {
+      lines = {
+        { id = "op_leave_a", text = "Oh, you've asked the question that's ruined more suppers out here than any burnt stew. Theodore says go while there's a road, Saldean says stay till they bury him, and I stand in the middle with a ladle. What do you say, dear?" },
+      },
+      choices = {
+        { text = "Stay. If the farmers leave, the Defias win for good.", next = "op_leave_1", fx = { opinion = { westfall_leave = "stay", westfall = "patience" }, align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Go. No field is worth a knife in the dark.", next = "op_leave_2", fx = { opinion = { westfall_leave = "go", westfall = "abandoned" }, align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "Stay or go, everyone should eat first.", next = "op_leave_3", fx = { opinion = { westfall_leave = "undecided" }, trait = { kind = 1 }, affinity = 2 } },
+        { text = "I left once. I'm back now, and I'm staying.", next = "op_leave_4", when = { origin = "human_westfall_farmhand" }, fx = { opinion = { westfall_leave = "stay" }, affinity = 3 } },
+        { text = "That's not my place to say, Salma.", next = "BACK" },
+      },
+    },
+    op_leave_1 = {
+      lines = { { id = "op_leave_r1", text = "That's Saldean's answer, and I'll tell him a stranger agrees with him, which will make him unbearable for a week. Mind you, staying's easier for those with a pitchfork and a full larder." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
+    op_leave_2 = {
+      lines = { { id = "op_leave_r2", text = "Theodore will be glad to hear it, and Verna will cry, and I'll pretend I'm not. There's no shame in going, dear; there's only shame in what drove them out." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
+    op_leave_3 = {
+      lines = { { id = "op_leave_r3", text = "Now that's an answer I can cook to. Sit down, then, because the pot's on and nobody leaves my kitchen hungry, staying or going." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
+    op_leave_4 = {
+      lines = { { id = "op_leave_r4", text = "Are you, now? Then you'll eat here every night you're near, and I'll hear no argument. A Westfall child coming home is the best news this kitchen's had all year." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short. Your spirits needn't fret. It's filling." } },
@@ -100,6 +129,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Come in and sit, because you've the same hungry look {alt} had when that one came to my door, and I fed that {altclass} until the pot was scraped clean." },
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was by again with a bag of goretusk livers, and I said to Saldean that you two must be kin, the way you both turn up just when I'm short of something." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Goretusk", min = 20 } }, text = "I've heard you've been thinning out the goretusks, and Saldean says the fields are quieter for it. Bring me a liver or two while you're at it, because nothing goes to waste in this kitchen." },
         { id = "h_default", key = true, text = "I'm Salma. My husband farms and I cook, and anyone who comes to that door hungry leaves full. That's the rule of this house." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Westfall Stew") },
@@ -130,20 +163,31 @@ P:NPC {
       },
       choices = {
         { text = "What's cooking?", next = "pot" },
-        { text = "How do you keep going out here?", next = "going" },
-        { text = "Do you need help around the farm?", next = "help" },
-        { text = "Tell me about the Furlbrows.", next = "furlbrows" },
+        { text = "I don't know how you keep going out here.", next = "going" },
+        { text = "You look like you could use help around the farm.", next = "help" },
+        { text = "Who are your neighbours out here?", next = "furlbrows" },
         { text = "You do a priest's work with that ladle.", next = "priest", when = { class = "PRIEST" } },
         { text = "Any tricks for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "Could you spare a scrap for {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I could conjure bread for your pot, Salma.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does your kindness feed strays like me too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the militia warriors eat at your table, Salma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you ever turn anyone away from your table, Salma?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess you never turn anyone away from your table, Salma.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you grow anything yourself, Salma, or is it all gathered?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Doesn't feeding everyone mean feeding Defias too, Salma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's in today's stew, Salma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I tended the Militia's wounded, Salma. You fed them.", next = "xorig_militiahealer", when = { origin = "human_sentinel_hill_healer" } },
         { text = "I'd best be off.", next = "END" },
+      },
+    },
+    xorig_militiahealer = {
+      lines = {
+        { id = "xomilitiahealer_default", text = "Oh, I remember you! You'd come to my door at midnight with blood to your elbows and eat standing up, then go straight back up the hill. Do you still eat standing up, love, or has somebody finally taught you to sit?" },
+      },
+      choices = {
+        { text = "I'm learning to sit, Salma.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Not while the Defias are still out there.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pot = {
@@ -153,7 +197,7 @@ P:NPC {
       choices = {
         { text = "Smells wonderful.", next = "BACK", fx = { affinity = 1 } },
         { text = "Buzzard?", next = "vulture", fx = { trait = { witty = 1 } } },
-        { text = "What goes in Westfall stew?", next = "recipe" },
+        { text = "Westfall stew must have a recipe of its own.", next = "recipe" },
       },
     },
     vulture = {
@@ -170,7 +214,7 @@ P:NPC {
     recipe_verna = {
       lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. Born for the city, that one, whatever she tells you. It'll be the making of her." } },
       choices = {
-        { text = "Verna says she never wanted to leave.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Does Verna really want to leave?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "You'll miss her.", next = "furlbrows_miss" },
       },
     },
@@ -192,7 +236,7 @@ P:NPC {
     defias = {
       lines = { { id = "d_default", text = "No, that's Gryan's work. Mine is making sure there's someone left to thank him." } },
       choices = {
-        { text = "They say you've fed Defias at this door.", next = "fed" },
+        { text = "Have you ever fed a Defias at this door?", next = "fed" },
         { text = "I'll leave that be. Something else.", next = "BACK" },
       },
     },
@@ -226,8 +270,9 @@ P:NPC {
       },
     },
     furlbrows = {
-      lines = { { id = "fu_default", text = "Verna's my dearest friend out here. Theodore's a good man who lost his nerve with his farm. They'll be off to Elwynn the minute that wagon rolls." } },
+      lines = { { id = "fu_default", text = "The Furlbrows, up at the old Jansen place. Verna's my dearest friend out here. Theodore's a good man who lost his nerve with his farm. They'll be off to Elwynn the minute that wagon rolls." } },
       choices = {
+        { text = "Should folk leave Westfall, or stay and see it through?", next = "op_leave" },
         { text = "Will you miss them?", next = "furlbrows_miss" },
         { text = "Something else.", next = "BACK", fx = { learn = { "old_blanchy" } } },
       },
@@ -286,6 +331,11 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and I'd rather it found us both thankful." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, they say, and they're eating our grain while they're down there. I hope they choke on it, though I'd feed them myself if they came to my door hungry." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I bought a recipe at the Darkmoon Faire once from a dwarf who swore it would make even murloc palatable. He wasn't lying, and that's why there's murloc in tonight's stew." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor from Booty Bay stopped here once and told me the goblins eat crocolisk tail fried in butter. I've never seen a crocolisk, but I've got butter, and I've thought about it a good deal since." } },
+    second_war = { { id = "tp_second_war", text = "My mother fed soldiers on this farm during the Second War, and she said a hungry man is more dangerous than an orc. I've kept her pot on the stove ever since." } },
     knows = {
       { id = "tp_knows", text = "Half of Westfall eats at my table sooner or later, and they all talk with their mouths full. Ask me about any of this while I stir." },
     },

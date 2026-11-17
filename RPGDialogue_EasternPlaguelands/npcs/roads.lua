@@ -159,15 +159,15 @@ P:NPC {
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've met Marlene on Sorrow Hill. She asks after you.", next = "marlene", when = { questDone = TODO_QUEST("Little Pamela") } },
-        { text = "What happened at Darrowshire?", next = "battle" },
+        { text = "Darrowshire seems to weigh on you.", next = "battle" },
         { text = "Tell me about Joseph.", next = "joseph" },
-        { text = "Are there others of your family?", next = "family" },
+        { text = "You must have other family somewhere.", next = "family" },
         { text = "Is that why you joined the Argent Dawn, Carlin?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would you have done with more warning?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Were Darrowshire's priests ever laid to rest, Carlin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did Joseph stay loyal to the Silver Hand until the end?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Was Joseph much of a fighter, Carlin?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "The hounds knew the Scourge was coming before you did?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Joseph must have been a fine fighter, Carlin.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "So the hounds knew the Scourge was coming before you did.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would Joseph have made of the Horde today, Carlin?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Were the Cult's necromancers at Darrowshire, Carlin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you think the Light could find Joseph too, Carlin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -230,6 +230,9 @@ P:NPC {
 
   topics = {
     darrowshire = { { id = "tp_darrowshire", text = "My home, and my brother's grave, and the worst day of my life." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came to Darrowshire, and my brother Joseph rode out to meet them. I lived, and he didn't, and I've never understood why it went that way." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Darrowshire was a good village in a good kingdom, and both are gone now. I'm still here, and I wish I could say why." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed for Joseph every night after Darrowshire. I don't know if it helped him, but it helped me a little." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend; my head's full of one day, and there's not much room left." } },
   },
 }
@@ -362,14 +365,14 @@ P:NPC {
       choices = {
         { text = "Would you like me to hold your hand a while?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Where is your papa, Pamela?", next = "papa" },
-        { text = "Who are the pale people?", next = "pale" },
+        { text = "You keep talking about the pale people.", next = "pale" },
         { text = "Do you have any family left?", next = "family" },
-        { text = "Did your papa have many soldiers, Pamela?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What happened to your kitten, Pamela?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Your papa must have had many soldiers, Pamela.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You seem to be missing your kitten, Pamela.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Where did you hide when the pale people came, Pamela?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Did your papa tell you stories about the Horde, Pamela?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Would you like to see some sparkles, Pamela?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Are you frightened of my little friend, Pamela?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You look frightened of my little friend, Pamela.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What was your kitten's name, Pamela?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you know any stories about knights, Pamela?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Did your papa tell you stories about dwarves, Pamela?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -411,6 +414,8 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The pale people walk past sometimes, but they don't stop to play. I don't like them very much." } },
+    holy_light = { { id = "tp_holy_light", text = "Auntie Marlene says the Light watches over good little girls. I'm a good little girl, mostly." } },
     _none = { { id = "tp_none", text = "I don't know that one. Do you know any songs instead?" } },
   },
 }
@@ -539,14 +544,14 @@ P:NPC {
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What does the compound do?", next = "compound" },
-        { text = "Why does everyone call you Smokey?", next = "name" },
+        { text = "That compound smells dreadful.", next = "compound" },
+        { text = "I'd guess they call you Smokey for a reason.", next = "name" },
         { text = "Do you ever use fel in your brews, Smokey?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What exactly do you want cut off the dead?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Isn't brewing with Scourge parts desecration, Smokey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Brewing with Scourge parts seems like desecration, Smokey.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Dawn's knights approve of your work, Smokey?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your brew do anything for a soldier's armour?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do you brew with plagued beasts too, Smokey?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "You must brew with plagued beasts too, Smokey.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you ever wonder what the spirits think of your brews, Smokey?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Can magic really help with your brewing, Smokey?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a dwarf of the Dawn trust a Forsaken paladin, Smokey?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -590,6 +595,9 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge leaves good parts lyin' about all over these fields, and I know every spot. The Dawn pays well for 'em, and I don't ask what they do with 'em." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme's full o' Scourge parts, more than I could carry in a lifetime. I'd go myself, if my knees were younger." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "That lich up in his floatin' tomb is the source o' all this mess. I'd like a pipe of whatever he's smokin'." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, an' ye're blockin' me light." } },
   },
 }
@@ -705,7 +713,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, how lovely. You must tell me whether my holy vapours bother the plants, because I'd hate to make things worse out here." },
         { id = "h_default", key = true,
-          text = "Betina Bigglezink, of the Argent Dawn. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
+          text = "Betina Bigglezink, of the Argent Dawn, and of Gnomeregan before it got rather radioactive. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned in their Scholomance." },
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
           text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -728,21 +736,21 @@ P:NPC {
         { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Gnomeregan's loss made us all inventors, didn't it?", next = "gnome", when = { race = "Gnome" } },
         { text = "What is Scholomance?", next = "scholo" },
-        { text = "What exactly are you building?", next = "gambit" },
-        { text = "How did a gnome end up at Light's Hope?", next = "why" },
-        { text = "Could fel power your contraptions, Betina?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You seem to be building something clever.", next = "gambit" },
+        { text = "A gnome seems far from home at Light's Hope.", next = "why" },
+        { text = "Fel could power your contraptions, Betina.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What's your device for, Betina?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a blessing work through gnomish machinery, Betina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why fight the Scholomance with devices instead of knights, Betina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would a warrior do with your devices, Betina?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "A mechanical hound? What went wrong, Betina?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Your mechanical hound seems to have gone wrong, Betina.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would you need from a quiet sort, Betina?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you want to bottle lightning, Betina?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How would a Forsaken paladin help your Gambit, Betina?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "My companion is a gnome. Do many gnomes fight out here?", next = "xpt_gnome", when = { party = { race = "Gnome" } } },
         { text = "Good luck with it.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },
+      again = { { id = "h_again", text = "Something else? I can talk and solder at the same time, mostly, with a failure rate well under nine percent!" } },
     },
     xmage = {
       big = true,
@@ -766,7 +774,7 @@ P:NPC {
       lines = {
         { id = "sc_default", text = "A school for necromancers in the old Barov family keep on Caer Darrow, in the middle of Darrowmere Lake. They teach the dead to stand up and the living to help them, and they keep very good records." },
       },
-      choices = { { text = "And you mean to stop the lessons?", next = "scholo_stop" } },
+      choices = { { text = "So you mean to stop the lessons.", next = "scholo_stop" } },
     },
     scholo_stop = {
       lines = {
@@ -796,6 +804,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Hmm, no, but if you find out, write it down for me!" } },
+    scholomance = { { id = "tp_scholomance", text = "Scholomance is a dreadful place with dreadful architecture, all crooked hallways and nasty little rooms! I'd knock the whole thing down and start over, given half a chance." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's students run Scholomance now, and they've made a terrible mess of it. I'd love to see his notes, purely for scientific purposes, you understand." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a very big problem, and I've built a very big contraption to deal with it. It doesn't work yet, but it's very big." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the finest city in the world, and we lost it to troggs and our own clever mistakes. I'd rather fight the Scourge than think about it." } },
+    _none = { { id = "tp_none", text = "Hmm, no, but if you find out, write it down for me, with measurements if you can!" } },
   },
 }

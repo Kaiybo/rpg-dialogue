@@ -32,6 +32,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_centaur = {
+      lines = {
+        { id = "opc_q", text = "The young braves ask me whether the Galak can ever be lived beside, and I tell them to ask a traveller, because I've watched the centaur too long to answer fairly. So I'm asking you: what do you make of them?" },
+      },
+      choices = {
+        { text = "They raid and kill and never stop. They can't be lived beside.", next = "op_centaur_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "war" } } },
+        { text = "They're a people like any other. Someone should try talking.", next = "op_centaur_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { centaur = "peace" } } },
+        { text = "Keep them divided. Galak, Kolkar, Maraudine, all fighting each other.", next = "op_centaur_r3", fx = { trait = { practical = 1 }, opinion = { centaur = "divide" } } },
+        { text = "The tauren have fought them for generations. I'll not forgive them.", next = "op_centaur_r4", fx = { affinity = 2, opinion = { centaur = "hate" } }, when = { race = "Tauren" } },
+        { text = "I've seen too little of them to say.", next = "BACK" },
+      },
+    },
+    op_centaur_r1 = {
+      lines = {
+        { id = "op_centaur_r1", text = "That's my answer too, on most nights, and I'm too old to be ashamed of it. Keep your eyes on the ridges as you go." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    op_centaur_r2 = {
+      lines = {
+        { id = "op_centaur_r2", text = "Someone has tried, and come back on a stretcher, but I'll not tell you you're wrong to hope. Go to Splithoof with a strong escort if you mean to try." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    op_centaur_r3 = {
+      lines = {
+        { id = "op_centaur_r3", text = "The clans manage that well enough without our help, though I'll admit it has saved Freewind more than once. You think like a cliffwatcher." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    op_centaur_r4 = {
+      lines = {
+        { id = "op_centaur_r4", text = "Nor I, calf, and the Earth Mother will have to forgive us both for that one day." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Anyone who stands firm is useful against the Galak, and the Light makes a fine thing to stand behind. The centaur fear what they don't understand, and they will not understand you any more than I do." } },
@@ -133,22 +177,22 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
-        { id = "h_again2", text = "Go on. The Galak won't wait for us to finish talking." },
+        { id = "h_again2", text = "Go on. The Galak won't wait for us to finish talking, and the canyon has eyes of its own." },
       },
       choices = {
         { text = "Can the canyon floor recover from the Galak?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why build so high?", next = "high" },
+        { text = "You built this post very high.", next = "high" },
         { text = "What do you know of the Grimtotem?", next = "grimtotem" },
         { text = "What did the centaur do this time?", next = "galak" },
-        { text = "You have a brother?", next = "nataka" },
+        { text = "Do you have family beyond Freewind?", next = "nataka" },
         { text = "What happens at Highperch?", next = "highperch" },
         { text = "Arnak Grimtotem is dead.", next = "arnak", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "What did the secret notes mean?", next = "notes", when = { questDone = TODO_QUEST("Grimtotem Spying") } },
         { text = "The Grimtotem shame every tauren.", next = "x_tauren", when = { race = "Tauren" } },
         { text = "Send me against the Galak, Cliffwatcher.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "The Horde stands with Freewind.", next = "x_orc", when = { race = "Orc" } },
-        { text = "Do the Galak centaur have shamans, Longhorn?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What do the Galak windchasers call down on the canyon?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "The Galak centaur must have shamans of their own, Longhorn.", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Galak windchasers seem to call down storms on the canyon.", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Could a rogue be of use against the Galak?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "You think my power no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Where do the Galak raiders go after a raid, Cliffwatcher?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -162,7 +206,7 @@ P:NPC {
         { id = "hi_default", text = "Centaur don't climb. Harpies do, but harpies are a nuisance; the Galak are a war." },
       },
       choices = {
-        { text = "How do you get up and down?", next = "lifts" },
+        { text = "Getting up and down must be a long trip.", next = "lifts" },
         { text = "I'll help you fight it.", next = "BACK", fx = { affinity = 2, standing = { freewind = 1 } } },
       },
     },
@@ -199,6 +243,7 @@ P:NPC {
         { id = "ga_default", text = "They raided one of my supply caravans on the road and slaughtered every soul in it. This is an outrage, and it will not go unpunished while I watch these cliffs." },
       },
       choices = {
+        { text = "What do you think of the centaur yourself?", next = "op_centaur" },
         { text = "Where do they camp?", next = "splithoof" },
         { text = "Something else.", next = "BACK" },
       },
@@ -326,7 +371,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I watch the cliffs for Freewind, and I have a brother in Desolace who thinks I've forgotten him. I'm better at one of those duties than the other.", next = "nataka" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, smile at the Grimtotem and keep your back to the wall." } },
     grimtotem = { { id = "tp_grimtotem", text = "Watch them. Smile if you must, but watch them." } },
-    _none = { { id = "tp_none", text = "That is beyond what I can see from this mesa." } },
+    centaur = { { id = "tp_centaur", text = "The Galak think the Needles are theirs, and they'll fight for every mesa. I see them long before they see me, and I make them pay for every step." } },
+    razorfen = { { id = "tp_razorfen", fx = { learn = { "scourge" } }, text = "The Razorfen Downs sit right on our northern edge, and the quilboar there have taken up with something dead and cold. My scouts won't go near it, and I don't blame them." } },
+    cairne = { { id = "tp_cairne", text = "Cairne set Freewind Post here to hold the Needles for the tauren. I hold it for him, and I hold it hard." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's orcs helped us drive off the centaur once. I'd like their help again, but I'll settle for their good wishes." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's soldiers come down through the Needles sometimes, on their way south to Gadgetzan. They keep to the road, and so do I, which is the closest thing to peace I've seen." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's south of the Shimmering Flats, through Tanaris, and every caravan that goes there passes under my watch. The goblins pay for a safe road, and I don't mind taking their coin." } },
+    _none = { { id = "tp_none", text = "That is beyond what I can see from this mesa, and I can see a long way when An'she is high." } },
   },
 }
 
@@ -342,7 +393,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_study", text = "Ah, a visitor. Forgive the mess; I've been staring at centaur carvings since dawn." },
+    { id = "g_study", text = "Ah, a visitor. Forgive the mess; I've been staring at centaur carvings since An'she rose." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! I hoped you might, because I've had questions piling up." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and my questions have been piling up the entire time! Sit down, please, I've a dozen carvings to ask you about." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I heard you talked someone round to your way of thinking, which is a fine scholarly skill. I wish you could persuade the centaur to let me see their carvings up close." },
@@ -446,19 +497,19 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've been staring at centaur carvings all morning, and now I have something even more puzzling to stare at." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until the moon sets." },
+        { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until Mu'sha sets." },
         { id = "h_again2", text = "Go on, ask. Questions are the only thing I never tire of." },
       },
       choices = {
         { text = "How did you learn to listen to the land?", next = "listen" },
-        { text = "What is the Cloven Hoof?", next = "hoof" },
+        { text = "I've heard talk of something called the Cloven Hoof.", next = "hoof" },
         { text = "How do you get moonwell water in Thousand Needles?", next = "moonwell" },
         { text = "What have you learned from the Hoof?", next = "study", when = { questDone = TODO_QUEST("The Sacred Flame") } },
         { text = "I'm a druid too. What does the Hoof feel like to you?", next = "druid", when = { class = "DRUID" } },
         { text = "Do the spirits speak through the Cloven Hoof?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "A flame without fuel must be magic, Rau.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You think something darker answers the centaur?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "What do the centaur carvings show of their wars, Rau?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The centaur carvings must show something of their wars, Rau.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the centaur hunt the beasts of the canyon, Rau?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you want from the Galak hold, Rau?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you think the flame is holy, Rau?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -472,7 +523,7 @@ P:NPC {
         { id = "ho_default", text = "Something strange; I can feel it from here, the way you feel weather turning. Centaur history, perhaps, or centaur trouble." },
       },
       choices = {
-        { text = "How old is it?", next = "ancestry" },
+        { text = "It must be very old.", next = "ancestry" },
         { text = "Maybe both.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -545,7 +596,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I study the centaur from up here, and the Circle's teachers taught me to listen before I study anything." } },
     advice = { { id = "tp_ad", text = "Never fight the Galak on open ground. Make them come up to you; centaur hate a slope." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul's teachers. I owe them more than I can say; the land speaks to me because they taught me to listen." } },
-    _none = { { id = "tp_none", text = "I don't know, but now I want to. Thank you for that." } },
+    centaur = { { id = "tp_centaur", text = "The Galak carvings tell a story older than the tauren, older than the centaur's own memory of it. I want to read every line before the Galak decide I've read too much." } },
+    maraudon = { { id = "tp_maraudon", text = "The centaur say they were born in Maraudon, in Desolace, from a son of Cenarius and a princess of the earth. I believe their carvings, and I'd give a great deal to see the place." } },
+    cairne = { { id = "tp_cairne", text = "Cairne understands the value of the past, and he lets me study it. I only wish he could come and see these carvings for himself." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother keeps her secrets in the stone, and I am trying to read them. It's slow work, but I am a patient bull." } },
+    _none = { { id = "tp_none", text = "I don't know, but now I want to, and the Earth Mother loves a curious calf. Thank you for that." } },
   },
 }
 
@@ -655,11 +710,11 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? Forgive me, my mind keeps wandering back to that shell." },
-        { id = "h_again2", text = "Ask, please. I've been talking to myself for days." },
+        { id = "h_again2", text = "Ask, please. I've been talking to myself for days, and the wind serpents make poor listeners." },
       },
       choices = {
         { text = "Should that egg be disturbed at all, Hagar?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What kind of egg?", next = "egg" },
+        { text = "That must be some egg.", next = "egg" },
         { text = "Why come all this way for an egg?", next = "why" },
         { text = "What is Arikara?", next = "legend", when = { questDone = TODO_QUEST("Alien Egg") } },
         { text = "My companion? Born, not hatched.", next = "pet", when = { pet = { type = "Beast" } } },
@@ -669,7 +724,7 @@ P:NPC {
         { text = "A strange egg might well hold magic, Hagar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You want me to steal an egg?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What if the egg's mother comes looking, Hagar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "What do you think will hatch from this egg, Hagar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Something big must hatch from that egg, Hagar.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Am I really as surprising as your egg, Hagar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with your egg.", next = "END" },
       },
@@ -707,7 +762,7 @@ P:NPC {
         { id = "l_default", text = "I'd have called anyone a liar who told me, and then I saw it hatch. Arikara is the Vengeance of our old stories, a serpent that comes only when some terrible wrong has been done, and it has come to the Needles." },
       },
       choices = {
-        { text = "What wrong could have called it?", next = "motega" },
+        { text = "Something wrong must have called it.", next = "motega" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -761,6 +816,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a scholar from Thunder Bluff with a weakness for strange eggs. That's how I came to be sitting on a mesa." } },
     advice = { { id = "tp_ad", text = "If a wind serpent is guarding something, there's a reason, and it's usually a good one. Go carefully." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother lays every egg in the world, in a way, and I find that very comforting. Have you seen a very large egg, by any chance?" } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a nuisance, but they don't eat eggs, which is the most important thing. I'd forgive them a great deal for that." } },
+    cairne = { { id = "tp_cairne", text = "Cairne once told me a story about an egg the size of a kodo calf, and I've been looking for it ever since. I'm almost certain he was joking, but I'm not entirely certain." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid, unless it hatches, and then it's my field." } },
   },
 }
@@ -777,7 +835,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Sit if you like, but don't expect me to be good company." },
+    { id = "g_inn", text = "Sit if you like, but don't expect me to be good company; the Earth Mother hasn't given me much to be good company about." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Have you come with news, or just for the stew? It's kodo and grit today, and the grit's free." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nothing has changed here, which is about what I expected. Sit if you like." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I heard one of your lies was found out at the post. I've no patience for lies any more, not since the Grimtotem told so many." },
@@ -790,6 +848,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_grimtotem = {
+      lines = {
+        { id = "opg_q", text = "You've been up the pinnacle, or you will be, so you'll see them for yourself. Before you do, tell me straight: what do you think of the Grimtotem?" },
+      },
+      choices = {
+        { text = "They're murderers, all of them. Arnak only did what his tribe allows.", next = "op_grimtotem_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { grimtotem = "lost" } } },
+        { text = "Arnak's an outcast, Thalia. Hate him, not every Grimtotem child.", next = "op_grimtotem_r2", fx = { affinity = -1, align = { light = 1 }, opinion = { grimtotem = "redeemable" } } },
+        { text = "They want the Horde out of Kalimdor. That makes them enemies.", next = "op_grimtotem_r3", fx = { trait = { stern = 1 }, opinion = { grimtotem = "enemy" } } },
+        { text = "I'll judge them when I've seen them.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r1 = {
+      lines = {
+        { id = "op_grimtotem_r1", text = "That's what I've been saying to anyone who'll listen, and most won't. Thank you." },
+      },
+      choices = {
+        { text = "Something else, Thalia.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r2 = {
+      lines = {
+        { id = "op_grimtotem_r2", text = "Maybe you're right, and maybe one day I'll be able to hear it. Not today, though, not with this cord still in my hand." },
+      },
+      choices = {
+        { text = "Something else, Thalia.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r3 = {
+      lines = {
+        { id = "op_grimtotem_r3", text = "Enemies of the Horde and enemies of their own kin, which is worse. I'm glad you see it." },
+      },
+      choices = {
+        { text = "Something else, Thalia.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I don't know. Arnak Grimtotem took her and killed her brother, and I've prayed to the Earth Mother until my voice gave out. If the Light can walk into that pinnacle in one of the dead, then perhaps it can bring her out." } },
@@ -867,16 +960,16 @@ P:NPC {
       choices = {
         { text = "How did the Grimtotem stray so far from the Earth Mother?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why so bitter?", next = "bitter" },
-        { text = "What happened to Lakota?", next = "lakota" },
+        { text = "Something terrible must have happened to Lakota.", next = "lakota" },
         { text = "Lakota spoke of her brother. I'm sorry.", next = "brother", when = { questDone = TODO_QUEST("Free at Last") } },
         { text = "Arnak is dead. I killed him.", next = "arnak_dead", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "I'm tauren. I know what the Grimtotem should be to us.", next = "kin", when = { race = "Tauren" } },
         { text = "I'd have stood with Lakota's brother that night.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "Have you asked the spirits about Lakota, Thalia?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Could magic help find Lakota?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Magic might help find Lakota.", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Could I get Lakota out quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Vengeance doesn't need the Earth Mother's blessing.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Could a hunter follow the Grimtotem up the pinnacle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "A hunter might follow the Grimtotem up the pinnacle.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Could the Light help you find Lakota, Thalia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
@@ -887,6 +980,7 @@ P:NPC {
         { id = "b_default", text = "Because the Grimtotem are tauren, and they do this to tauren. A centaur I could hate cleanly." },
       },
       choices = {
+        { text = "What do you think should happen to them?", next = "op_grimtotem" },
         { text = "Then let's make it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, learn = { "grimtotem" } } },
         { text = "It isn't my fight, Thalia.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Not every Grimtotem is Arnak.", next = "grimtotem" },
@@ -981,7 +1075,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "Lakota Windsong is my friend, and that's all you need to know about me right now.", next = "lakota" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, don't trust a single smile you see there." } },
     grimtotem = { { id = "tp_grimtotem", text = "Ask me again when they've answered for it." } },
-    _none = { { id = "tp_none", text = "I don't care about that, not today." } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a danger, but they kill quickly and in the open. The Grimtotem took my friend in the dark, and that is what I cannot forgive." } },
+    cairne = { { id = "tp_cairne", text = "Cairne knows what the Grimtotem are doing, I think, and he hasn't stopped them. I don't understand it, but I don't understand much since my friend was taken." } },
+    earth_mother = {
+      { id = "tp_earth_mother", text = "The Earth Mother sees everything, and she saw what the Grimtotem did. I hope she remembers, because I won't forget." },
+      { id = "tp_earth_mother2", when = { disposition = { min = 65 } }, text = "You ask as a friend, so I'll tell you I haven't prayed since they took her. The Earth Mother saw it happen, and I'm still waiting for her to explain herself." },
+    },
+    _none = { { id = "tp_none", text = "I don't care about that, not today, not while Lakota's still on that pinnacle." } },
   },
 }
 
@@ -997,6 +1097,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_cent_peace", when = { gossip = { topic = "centaur", stance = "peace" } }, text = "Longhorn says you think someone should try talking to the centaur. Sleep with your boots on, then, dear, because they come at night when they come." },
     { id = "g_inn", text = "Rest here, traveler. The wind sings over the mesa at night; most guests find it soothing." },
     { id = "g_home", when = { homeInn = { "Freewind Post" } }, text = "Back to your own bed above the canyons. I kept the blankets dry." },
     { id = "g_away", when = { away = 14 }, text = "Back above the canyons after {away}, traveler! I kept your blankets dry, and the wind's been singing every night." },
@@ -1091,12 +1192,12 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Welcome to Freewind, and don't look down. You're the first Forsaken paladin to sleep at my inn, and the wind will sing louder for you, I think." },
       },
       again = {
-        { id = "h_again", text = "Something more, friend? There's no hurry on the mesa." },
+        { id = "h_again", text = "Something more, friend? There's no hurry on the mesa; the Earth Mother made the canyons over a great many seasons." },
         { id = "h_again2", text = "Ask away. The stew won't spoil while we talk." },
       },
       choices = {
         { text = "What does the wind over the mesas say?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's the news on the mesa?", next = "news" },
+        { text = "The mesa seems to have news of its own.", next = "news" },
         { text = "How did anyone build up here?", next = "mesa" },
         { text = "Who else lodges here?", next = "guests" },
         { text = "Make this my home.", next = "BUSINESS" },
@@ -1105,7 +1206,7 @@ P:NPC {
         { text = "Does the wind up here do anything to magic?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Mages aren't hearth-keepers, Abeqwa.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "The lift's too slow and too open.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do warriors rest easy up here on the mesa, Abeqwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Warriors must rest easy up here on the mesa, Abeqwa.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the hawks of the mesa trouble your guests, Abeqwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would the wind sing louder for me, Abeqwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a bed, thank you.", next = "END" },
@@ -1133,7 +1234,7 @@ P:NPC {
         { id = "m_default", text = "With lifts and rope bridges, friend, and a great deal of patience. The centaur can't follow us up, and that's worth every aching back it took." },
       },
       choices = {
-        { text = "And the harpies?", next = "harpies" },
+        { text = "The harpies must trouble you too.", next = "harpies" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1185,6 +1286,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the inn at Freewind, and I keep it high and dry. That's the whole of me, friend." } },
     advice = { { id = "tp_ad", text = "Hold the rope rail on the bridges, and never cross one after a second mug." } },
     grimtotem = { { id = "tp_grimtotem", text = "I feed whoever comes to my door, but I've never fed a Grimtotem, and I don't expect to." } },
-    _none = { { id = "tp_none", text = "Ask the Cliffwatcher; little happens in the Needles that he misses." } },
+    centaur = { { id = "tp_centaur", text = "The Galak raid the canyon roads, and the travellers come up the lift with their stories. I give them a dry blanket and a hot bowl, and the stories always get smaller after that." } },
+    cairne = { { id = "tp_cairne", text = "Cairne stayed at my inn once, on his way south. He said the wind sounded like music, and I've never been prouder of my mesa." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Half my guests are on their way to Gadgetzan, and the other half are coming back sunburned. I sell them both a drink and a warning." } },
+    mirage_raceway = { { id = "tp_mirage_raceway", text = "The racers' engines on the Shimmering Flats echo up the canyon on a quiet night. My guests ask about it, and I tell them it's goblins, and that explains everything." } },
+    _none = { { id = "tp_none", text = "Ask the Cliffwatcher; little happens in the Needles that he misses, and nothing that the wind doesn't tell him." } },
   },
 }

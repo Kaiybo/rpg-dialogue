@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and you're not wearing their robes, so come closer and keep your voice down." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back, and nobody followed you, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
+    { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and ye're not wearing their robes, so come closer, {g:lad|lass}, and keep your voice down." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye came back, and nobody followed ye, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted every night of it, because the ground hums louder when nobody listens with me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown stronger since you last stood here, I can see it in how you hold yourself. Good, because you'll need it for what sleeps below." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone says you told them a lie, and I know all about lies, for I wore a robe full of them once. Don't let it become a habit." },
@@ -50,18 +50,18 @@ P:NPC {
           text = "A warlock, and I've met your kind in the cult, where they'd bargain with anything that answered. Keep your little friend back from me and we'll get along." },
       },
       again = {
-        { id = "h_again", text = "What else, what else? Ask quickly before the ground starts humming again." },
+        { id = "h_again", text = "What else, what else? Ask quickly, {g:lad|lass}, before the stone starts humming again." },
         { id = "h_again2", text = "Go on, I'm listening, though I'm also listening to the rocks, so speak up." },
         { id = "h_again3", text = "Anything else? I've plenty of fears to share, so don't be shy." },
       },
       choices = {
         { text = "Why do they call you 'the Lost'?", next = "lost" },
-        { text = "What doom are you talking about?", next = "doom" },
-        { text = "Tell me about the Scroll of Myzrael.", next = "scroll" },
-        { text = "What is this place?", next = "agmond" },
+        { text = "You talk of doom like a man who's seen it.", next = "doom" },
+        { text = "What are you guarding out here?", next = "scroll" },
+        { text = "This place has the feel of a grave about it.", next = "agmond" },
         { text = "Shouldn't a priest tell you the stone is silent?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I've heard the stone speak too, Theldurin.", next = "xshaman", when = { class = "SHAMAN" } },
-        { text = "The Hammer could be using you, even now.", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Could whatever you fear be using you, even now?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "I'll leave you to your rocks.", next = "END" },
       },
     },
@@ -71,7 +71,7 @@ P:NPC {
         { id = "lo_default", text = "Because I ran with the Twilight's Hammer when I was young and stupid, and they promised me the end of the world as if it were a gift. I believed them, friend, for longer than I like to admit." },
       },
       choices = {
-        { text = "What made you leave them?", next = "lost_why" },
+        { text = "Something must have turned you against them.", next = "lost_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
       },
       choices = {
         { text = "Where is the scroll now?", next = "scroll_torn" },
-        { text = "Why not destroy it outright?", next = "scroll_burn" },
+        { text = "I'd burn a thing like that outright.", next = "scroll_burn" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,8 +219,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I was a miner, then a cultist, then a thief, and now I'm a madman on a rock, and of the four I liked mining best." } },
+    background = { { id = "tp_ba", text = "I was a miner, then a cultist, then a thief, and now I'm a madman on a rock, and of the four I liked mining best, for honest stone never lied to me." } },
     advice = { { id = "tp_ad", text = "Never say a name you don't want answering you, friend, because some of them are always listening." } },
-    _none = { { id = "tp_none", text = "I don't know that one, and I'm glad of it, for every new thing I learn seems to be something else to be afraid of." } },
+    uldaman = { { id = "tp_uldaman", text = "There's something under the stone at Uldaman, and it breathes. I heard it when I was digging, and I'll never dig again." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "The Hammer took me in, once, and I served them. They wanted the thing under the stone, and I ran before they found it." } },
+    the_elements = { { id = "tp_the_elements", text = "The earth here is angry, and I don't know why. It shakes when nobody's watching." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and by my beard I'm glad of it, for every new thing I learn seems to be something else to be afraid of." } },
   },
 }

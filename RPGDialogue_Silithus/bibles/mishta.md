@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Mishta · Cenarion Hold · neutral (Cenarion Circle) · night elf (female) · trade supplies
 Personality: fussy, anxious, kind underneath
-Speech: quick, exclamatory, "oh dear"
+Speech: quick, exclamatory, "oh dear"; kaldorei: "by Elune", a Darnassian's long patience wearing thin
 Relationships: the late goblin supplier (authored, not canon: a Gadgetzan trader, unnamed); Vargus wants his flux
 Never says: the goblin's name
 

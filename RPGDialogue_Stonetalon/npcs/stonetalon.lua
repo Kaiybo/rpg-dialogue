@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rock", text = "The wind is strong on Sun Rock and the sun stronger, which is good for old wounds. Say what you need." },
+    { id = "g_rock", text = "The wind is strong on Sun Rock and An'she stronger, which is good for old wounds. Say what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the rock, good. I've work for the ones who come back." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the rock {away}, and the wind has been blowing hard the whole time. I've work for the ones who come back, so say what you need." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were green when you first climbed to Sun Rock, and now you carry yourself like a warrior who has bled for it. The years do that, and so do battles." },
@@ -145,7 +145,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Sun Rock. I was gentle once. The Silver Hand's camps took some of that, and the wars took the rest." },
         { id = "h_default", key = true,
-          text = "I'm Maggran Earthbinder. Cairne gave me Sun Rock to hold, and the wind and sun here to ease what the years did to me. I was gentle once, but I'm not anymore." },
+          text = "I'm Maggran Earthbinder. Cairne gave me Sun Rock to hold, and the wind and sun here to ease what the years and a spider's fang did to me. I was gentle once, but I'm not anymore." },
         { id = "h_harpies", tags = { "news" }, when = { questActive = TODO_QUEST("Harpies Threaten") },
           text = "The Bloodfuries are why there are more harpies in Kalimdor every year, and they hem in every living thing near their roosts. Cull them in the Charred Vale, and strike hard." },
         { id = "h_bloodfury", when = { questActive = TODO_QUEST("Bloodfury Bloodline") },
@@ -173,7 +173,7 @@ P:NPC {
       },
       choices = {
         { text = "What hardened you?", next = "hard" },
-        { text = "What troubles Sun Rock?", next = "troubles" },
+        { text = "Sun Rock seems troubled.", next = "troubles" },
         { text = "Tell me about the spider that nearly had you.", next = "besseleth" },
         { text = "What does Sun Rock do up here?", next = "work" },
         { text = "The Ripper is dead. How do you feel?", next = "after", when = { questDone = TODO_QUEST("Bloodfury Bloodline") } },
@@ -186,10 +186,21 @@ P:NPC {
         { text = "Do you blame all fire for the Charred Vale?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What beasts threaten Sun Rock, Maggran?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will you take a warlock's help against the harpies?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Will Sun Rock stand against the Venture Company, Maggran?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Does Sun Rock need a healer, Maggran?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Sun Rock must stand against the Venture Company too, Maggran.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Sun Rock must need a healer, Maggran.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you hold the Light against me, Maggran?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been replanting the stumps below Sun Rock, Maggran.", next = "xorig_regrow", when = { origin = "tauren_stonetalon_regrower" } },
         { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
+      },
+    },
+    xorig_regrow = {
+      lines = {
+        { id = "xrg_default", text = "I've seen your saplings on the slopes toward Windshear Crag, and I've watched the goblins cut a few of them down again. It's slow work, and some days it looks hopeless from up here. Why do you keep at it?" },
+      },
+      choices = {
+        { text = "Because the mountain deserves someone who won't give up on it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+        { text = "Because I'd rather plant trees than kill goblins, most days.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Because every tree I grow costs them a second cut.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     hard = {
@@ -217,7 +228,7 @@ P:NPC {
       },
       choices = {
         { text = "How do we break them?", next = "ripper" },
-        { text = "What else?", next = "troubles2" },
+        { text = "There must be something else.", next = "troubles2" },
       },
     },
     ripper = {
@@ -235,6 +246,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll help keep them.", next = "BACK", fx = { affinity = 1, learn = { "venture_company" } } },
+        { text = "And the Grimtotem on these roads?", next = "grimtotem_op" },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },
     },
@@ -243,7 +255,7 @@ P:NPC {
         { id = "b_default", text = "Besseleth is an old predator of these parts, larger than any of her brood. She took me on the Webwinder Path in the dark, and I fought her off and crawled to safety, and I've a scar to rub when the weather turns." },
       },
       choices = {
-        { text = "Is there a bounty?", next = "bounty" },
+        { text = "There must be a bounty on her.", next = "bounty" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -287,6 +299,32 @@ P:NPC {
           fail = { next = "after_wall", fx = { affinity = -1 } } },
       },
     },
+    grimtotem_op = {
+      lines = { { id = "gt_default", text = "The Grimtotem walk these hills too, and they call Cairne's peace with the orcs a weakness. Magatha sits on the Elder Rise smiling at him while her clan kills travelers on my roads, so tell me what you think should be done about them." } },
+      choices = {
+        { text = "Cairne should cast Magatha out of Thunder Bluff.", next = "gt_cast", fx = { affinity = 1, align = { light = -1 }, opinion = { grimtotem = "lost", cairne = "too_patient" } } },
+        { text = "Cairne's patience is right. Some may still come home.", next = "gt_patient", fx = { align = { light = 1 }, opinion = { grimtotem = "redeemable", cairne = "admire" } } },
+        { text = "Kill the ones on the roads and leave Magatha to Cairne.", next = "gt_roads", fx = { affinity = 2, trait = { stern = 1 }, opinion = { grimtotem = "lost" } } },
+        { text = "They shame every tauren. I'd face them myself.", next = "gt_tauren", when = { race = "Tauren" }, fx = { affinity = 2, opinion = { grimtotem = "hate" } } },
+        { text = "That's Thunder Bluff's business, chieftain.", next = "BACK" },
+      },
+    },
+    gt_cast = {
+      lines = { { id = "gtc_default", text = "I've said the same, louder than I should have, and it's part of why I'm out here instead of on the bluff. You'll find others who agree with us, and a few who'd report you for saying it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_patient = {
+      lines = { { id = "gtp_default", text = "That's Cairne's own answer, near enough. I'm trying to learn it, but it's hard to be patient when you've buried braves the Grimtotem killed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_roads = {
+      lines = { { id = "gtr_default", text = "A soldier's answer, and one I can act on. Kaya Flathoof walked that road to Camp Aparaje with an escort for exactly that reason." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_tauren = {
+      lines = { { id = "gtt_default", text = "Then do it with your eyes open, because they wear the same hides and paint as we do. That's what makes them dangerous, and what makes it hurt." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     cairne = {
       lines = {
         { id = "c_default", text = "Because he's wiser than I am, and he saw I'd stopped being humble before I did. He gave me a hard post and a gentle wind, and I think he meant me to mend here, so I'm still trying." },
@@ -323,7 +361,13 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't walk the Webwinder Path at night, and if you must, don't walk it alone." } },
     venture_company = { { id = "tp_venture", text = "Goblins with saws who think a mountain's worth what they can cut off it. We spend our days mending after them." } },
     cenarion_circle = { { id = "tp_circle", text = "Their keeper watches the peak to the north. We leave each other be, mostly. Mostly is a fragile word up here." } },
-    _none = { { id = "tp_none", text = "That's not my concern. Ask Tammra; she has more patience than I do." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent me to Sun Rock because the wind and sun ease my old pains, he said. He did not say that the Venture Company would ease them too, by giving me something to hate." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a strong orc and a fair one. He came to the tauren's aid against the centaur, and I would follow him into battle without question." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided the tauren for generations, and I fought them for most of my life. That is where my gentleness went, if you want to know." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem attacked Camp Aparaje and killed tauren who had done them no wrong. Magatha sits on Elder Rise and pretends to know nothing about it, and Cairne lets her." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us this land to protect, and the goblins are tearing it apart. I fight for her, though I am no druid." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are Horde, and I will not question the Warchief's choice. But I have seen what the dead can do, and I do not sleep easily near them." } },
+    _none = { { id = "tp_none", text = "That's not my concern. Ask Tammra; she has more patience than I do, and the Earth Mother gave her my share of it." } },
   },
 }
 
@@ -452,18 +496,18 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, while my hands are in the dirt? I can listen and plant at once." },
-        { id = "h_again2", text = "Ask on. The seeds don't mind company." },
+        { id = "h_again2", text = "Ask on. The seeds don't mind company, and the Earth Mother likes a little talk over her soil." },
       },
       choices = {
         { text = "Why bring the ground back?", next = "why" },
         { text = "What happened to the land here?", next = "land" },
-        { text = "What are you planting?", next = "seeds" },
+        { text = "You seem to be planting something.", next = "seeds" },
         { text = "How is your niece?", next = "kaya", when = { questDone = TODO_QUEST("Kaya's Alive") } },
         { text = "I'm a druid. Could I help the shoots along?", next = "druid", when = { class = "DRUID" } },
         { text = "Did the seeds take, in the Charred Vale?", next = "future", when = { questDone = TODO_QUEST("New Life") } },
         { text = "The earth spirits here are angry. I can feel it.", next = "shaman_ta", when = { class = "SHAMAN" } },
         { text = "Could quiet feet be any use to your garden?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can anything grow back in the Charred Vale, Tammra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Nothing could grow back in the Charred Vale, surely, Tammra.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are the beasts returning to the burned land, Tammra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does my magic really harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can a priest help you mend the land, Tammra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -488,16 +532,43 @@ P:NPC {
         { id = "v_default", text = "The Venture Company, chasing lumber, and the war that came with them, and then the fire spirits they angered. Greed and war together will wreck any land; it takes the Earth Mother's blessing to cure it." },
       },
       choices = {
-        { text = "Then the Venture Company has a lot to answer for.", next = "BACK", fx = { learn = { "venture_company" }, trait = { stern = 1 } } },
+        { text = "Then the Venture Company has a lot to answer for.", next = "BACK", fx = { learn = { "venture_company" }, trait = { stern = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "Can goblins ever be trusted on this mountain?", next = "goblins_op" },
         { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } },
       },
+    },
+    goblins_op = {
+      lines = { { id = "gb_default", text = "I want to say yes, because the Ratchet goblins are kind enough when they trade for my seeds. But when I walk past the stumps at Windshear Crag, I find it hard, so tell me, friend: are the goblins all alike?" } },
+      choices = {
+        { text = "The Venture Company isn't all goblins. Ratchet's are different.", next = "gb_mixed", fx = { affinity = 2, align = { light = 1 }, opinion = { goblins = "mixed", venture_company = "hate" } } },
+        { text = "A goblin is a goblin. They'd all strip this mountain for coin.", next = "gb_all", fx = { affinity = -1, opinion = { goblins = "distrust" } } },
+        { text = "The Horde needs goblin trade, whatever it costs the hills.", next = "gb_trade", fx = { affinity = -2, align = { light = -1 }, opinion = { goblins = "useful" } } },
+        { text = "The trees will outlast every saw. Plant, and wait them out.", next = "gb_wait", when = { class = "DRUID" }, fx = { affinity = 2, opinion = { venture_company = "temporary" } } },
+        { text = "I don't know, Tammra.", next = "BACK" },
+      },
+    },
+    gb_mixed = {
+      lines = { { id = "gbm_default", text = "I hope so. I'll keep trading with the Ratchet ones, then, and I'll try not to flinch when I hear an engine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gb_all = {
+      lines = { { id = "gba_default", text = "Maybe, but a seed doesn't care who plants it, so I try not to care who sells me the sack. It's harder some days than others." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gb_trade = {
+      lines = { { id = "gbt_default", text = "Then I hope the Horde gets something better for it than stumps and fire spirits. That's what it got last time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gb_wait = {
+      lines = { { id = "gbw_default", text = "That's what I tell myself every morning, and it helps to hear a druid say it back to me. Thank you, friend." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     why = {
       lines = {
         { id = "w_right", text = "Because the mountain's been cut and burned, and someone ought to make it right. It doesn't much matter who, and it happens to be me." },
       },
       choices = {
-        { text = "How do you make it right?", next = "blessing" },
+        { text = "You must have some way to make it right.", next = "blessing" },
         { text = "I'm glad it's you.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Let the mountain mend itself. It isn't your burden.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -569,7 +640,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never step on a green shoot up here. It might be the only one for a mile." } },
     venture_company = { { id = "tp_venture", text = "They cut until there's nothing left to cut, and then they move on and leave the burning for us." } },
     cenarion_circle = { { id = "tp_circle", text = "They want the same thing I want, a living mountain. I wish we could plant side by side instead of glaring across the ridges." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm afraid; I mostly know seeds." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem took my niece Kaya from Camp Aparaje, and they would have killed her if no one had come. I do not know what has become of the tauren who could do that." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is patient, and so am I. Five shoots living and two dead is a good night, and the next night will be better." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts us to heal Stonetalon, and I mean to prove him right. Every shoot I raise is a promise to him." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is greener than the waking world, and I believe them. I would like Stonetalon to look like the Dream one day, and I mean to help it." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm afraid; I mostly know seeds, and what the Earth Mother is willing to grow in burned ground." } },
   },
 }
 
@@ -661,17 +736,17 @@ P:NPC {
       choices = {
         { text = "Why do you hate the druids?", next = "hate" },
         { text = "What's wrong with the magic here?", next = "magic" },
-        { text = "Who sent you to these mountains?", next = "master" },
+        { text = "What brought you to these mountains?", next = "master" },
         { text = "I'm a mage. I feel it too.", next = "mage", when = { class = "MAGE" } },
-        { text = "Jaedenar? That's the Shadow Council's hold.", next = "council", when = { class = "WARLOCK" } },
+        { text = "Jaedenar? That's the Shadow Council's hold.", next = "council", when = { class = "WARLOCK", heardLine = "braelyn.ma_default" } },
         { text = "You knew Ordanus. What was he to you?", next = "ordanus", when = { any = { { questActive = TODO_QUEST("Ordanus") }, { questDone = TODO_QUEST("Ordanus") } } } },
         { text = "I'm a druid. You're speaking of my order.", next = "druid", when = { class = "DRUID" } },
         { text = "I studied in Dalaran, before I died.", next = "forsaken_b", when = { race = "Scourge", class = "MAGE" } },
         { text = "Do you trust shamans more than druids, Braelyn?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What do you want from the druids of the Talon Den?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "You seem to want something from the druids of the Talon Den.", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What secrets are the druids of the Talon Den keeping?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "What do you want a warrior to do about the Talon Den?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do the Talon druids take beast form, Braelyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess the Talon druids take beast form, Braelyn.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the druids hate the Light, Braelyn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll think about it.", next = "END" },
       },
@@ -690,8 +765,35 @@ P:NPC {
       lines = { { id = "g2_default", text = "It is a grudge, and a very old one. Old grudges are the only kind worth keeping." } },
       choices = {
         { text = "How old?", next = "temple" },
+        { text = "And who do you think is right about magic?", next = "arcane_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    arcane_op = {
+      lines = { { id = "ao_default", text = "No, you tell me, {class}, since you've walked both sides of this mountain. Is magic a gift to be used, or a fire to be feared, as the druids on the peak would have it?" } },
+      choices = {
+        { text = "A gift. Anyone who fears it is weak.", next = "ao_gift", fx = { affinity = 2, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
+        { text = "The druids are right. Magic broke the world once.", next = "ao_fear", fx = { affinity = -2, align = { light = 1 }, opinion = { arcane_magic = "dangerous", druidism = "respect" } } },
+        { text = "A tool like any other. The hand matters more.", next = "ao_tool", fx = { affinity = 1, opinion = { arcane_magic = "tool" } } },
+        { text = "I feel it too. Life without it would be grey.", next = "ao_mage", when = { class = "MAGE" }, fx = { affinity = 3, opinion = { arcane_magic = "need" } } },
+        { text = "I'll keep my own counsel.", next = "BACK" },
+      },
+    },
+    ao_gift = {
+      lines = { { id = "aog_default", text = "Then we understand each other, which is more than I can say for most who climb up to Sun Rock. Come and talk with me again when the druids have tried to lecture you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ao_fear = {
+      lines = { { id = "aof_default", text = "The world broke because of what was done with magic, not because magic was in it. I've heard your answer from far older mouths than yours, and I liked it no better then." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ao_tool = {
+      lines = { { id = "aot_default", text = "A careful answer. A tool you can set down, though, and I've never met anyone who truly set this one down." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ao_mage = {
+      lines = { { id = "aom_default", text = "Yes, grey, exactly that. Mind you don't let anyone shame you out of it, least of all a druid with leaves in her hair." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     magic = {
       lines = {
@@ -707,8 +809,8 @@ P:NPC {
         { id = "r_default", text = "Because life without magic coursing through your veins is a pale, grey mockery of living. The kaldorei spurn that gift and call themselves wise for it, and I'll never understand them." },
       },
       choices = {
-        { text = "Some would call that hunger.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = 1 } } },
-        { text = "I know the feeling.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Some would call that hunger.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = 1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "I know the feeling.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
       },
     },
     temple = {
@@ -801,6 +903,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a mage, and I'm here on business that isn't yours. That's all the story you'll get." } },
     advice = { { id = "tp_ad", text = "Never let anyone tell you which magic you're allowed to love." } },
     cenarion_circle = { { id = "tp_circle", text = "Gardeners with claws, so don't let their smiles fool you." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the greatest city of magic in the world, and the Legion burned it to ash. The Kirin Tor are rebuilding, but they will never be what they were, and they do not deserve to be." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor were arrogant, and the Legion punished them for it. I knew some of them, long ago, and I do not miss them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned my homeland, and the prince who led them burned it with a smile. I do not speak of it often, and I will not speak of it now." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil killed my people and defiled the Sunwell, and I would see him dead a thousand times over. I hope he is suffering in the north, wherever he went." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a practical orc, and he does not ask too many questions about my magic. I respect that, and I serve him well for it." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is a green paradise, and they walk it in their sleep. I have seen what their arrogance costs others, and I do not trust their paradise." } },
     _none = { { id = "tp_none", text = "Irrelevant, unless it's magic, and then it's mine." } },
   },
 }
@@ -939,18 +1047,18 @@ P:NPC {
       },
       choices = {
         { text = "What's in the cages?", next = "cages" },
-        { text = "How do you know Darsok?", next = "darsok" },
+        { text = "You seem to know Darsok well.", next = "darsok" },
         { text = "What do the spirits tell you?", next = "spirits" },
-        { text = "What became of the elves in the cages?", next = "after", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
+        { text = "Something must have become of the elves in the cages.", next = "after", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
         { text = "The Echo Isles send their greetings, uncle.", next = "troll", when = { race = "Troll" } },
         { text = "I hear another voice when I cast, uncle. Not the loa.", next = "warlock_j", when = { race = "Troll", class = "WARLOCK" } },
         { text = "Want an extra pair of hands at the pot, uncle?", next = "xpot", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "Who caught the elves for your cages, Jin'Zil?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is your magic so different from mine, Jin'Zil?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "What do you need a warrior for, Jin'Zil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "You seem to need a warrior, Jin'Zil.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What beasts does Jin'Zil want for his cauldron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What is in the cages, Jin'Zil?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do you and the priests get along, Jin'Zil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "You and the priests must get along, Jin'Zil.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do trolls fear the Light, Jin'Zil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -1036,12 +1144,12 @@ P:NPC {
       choices = {
         { text = "Never. You learn what a brew wants before you stir.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { cautious = 1 } } },
         { text = "Sometimes stirring is how you find out, Jin'Zil.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { curious = 1 } } },
-        { text = "What is in it, then?", next = "xpot_what" },
+        { text = "There must be more in it than that.", next = "xpot_what" },
       },
     },
     xpot_what = {
       lines = {
-        { id = "xpw_default", text = "Ha! A good apprentice always ask, and a good witch doctor never tell da whole of it. Some of it be for Darsok's sore knees and some of it be for da elves up at da peak, and you can guess which half Jin'Zil enjoy more." },
+        { id = "xpw_default", text = "Ha! A good apprentice always want to know, and a good witch doctor never tell da whole of it. Some of it be for Darsok's sore knees and some of it be for da elves up at da peak, and you can guess which half Jin'Zil enjoy more." },
       },
       choices = {
         { text = "I'll leave the guessing to you, uncle.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -1053,6 +1161,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Jin'Zil be a witch doctor of da Darkspear, mon. Dat be all da story you need, and most of it true." } },
     advice = { { id = "tp_ad", text = "Never eat nothin' in a witch doctor's cave, mon, not even if he say it be stew, and especially if it blink at you." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be the finest witch doctors in Kalimdor, mon, and Jin'Zil be the finest of the Darkspear. Darsok will tell you different, but Darsok be wrong." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be a good chief, and he lets Jin'Zil do his work without asking too many questions. That's the best kind of chief, if you ask me." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits and the loa be different things, mon, and a witch doctor knows both. The spirits be the wind and the rain, and the loa be older and hungrier." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi be fools, trying to wake the blood god in Zul'Gurub. Hakkar don't care who feeds him, mon, and he'll eat the Gurubashi first." } },
     _none = { { id = "tp_none", text = "Da spirits don't say, mon. Ask again tomorrow; maybe dey change dey minds." } },
   },
 }
@@ -1068,7 +1180,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock." },
+    { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock, and how my clan did it round the fires in Durotar." },
     { id = "g_home", when = { homeInn = { "Sun Rock Retreat" } }, text = "Home on the rock again! The wind's howling tonight, so it's a good night to be indoors." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back on the rock after {away}! Weapons down, boots off, and tell me everybody you fought while you were gone." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The whole inn's been talking about the help you've given Sun Rock. Sit down and tell me the story yourself, and your drink's on me." },
@@ -1124,7 +1236,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Weapons down, boots off, and tell me who you've been fighting. I don't care what you pray to." },
-        { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and that's the job." },
+        { id = "h_default", text = "I'm Jayka, and I keep the inn on Sun Rock. Warriors come in tired and leave rested, or at least less tired, and an orc who feeds the Horde's fighters serves it as well as any grunt." },
+        { id = "h_op_magatha", tags = { "news" }, when = { gossip = { topic = "grimtotem", stance = "lost" } },
+          text = "Maggran says you'd see the Grimtotem gone from the bluff. Keep your voice down about Magatha in here, because you never know which of my guests paints their face at night." },
+        { id = "h_op_arcane", tags = { "news" }, when = { gossip = { topic = "arcane_magic", stance = "gift" } },
+          text = "Braelyn's been almost cheerful since you two talked about magic, and I'd like to know what you said, because nobody else has managed it in years." },
+        { id = "h_op_goblins", tags = { "news" }, when = { gossip = { topic = "goblins", stance = "useful" } },
+          text = "Tammra came in quiet tonight and said someone told her the Horde needs goblin trade whatever it costs. I'm not saying it was you, but you've the look." },
         { id = "h_harpies", when = { metBefore = true }, text = "The harpies screamed all night, the braves screamed back, and nobody slept. Breakfast?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, take your boots off, and tell me who you've been patching up, because the braves who come in here never tell me the whole story." },
@@ -1136,19 +1254,19 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and I can see the forest on you, leaves and all. Boots off, sit down, and tell me what's been happening down in the Charred Vale." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so take your time." },
-        { id = "h_again2", text = "Sit a while longer if you like. Nobody hurries on the rock." },
+        { id = "h_again", text = "Anything else? The fire's warm and the stew's hot, so sit and tell me a story with some blood in it." },
+        { id = "h_again2", text = "Sit a while longer if you like. Nobody hurries on the rock, and a warrior who rests fights better." },
       },
       choices = {
         { text = "Do you like it up here?", next = "rock" },
-        { text = "What's the news on the rock?", next = "news" },
+        { text = "The rock must have news of its own.", next = "news" },
         { text = "Want to hear how my last fight went?", next = "story" },
         { text = "Is the wind on Sun Rock as friendly as you say, Jayka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What troubles Sun Rock that magic might help with?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Who's been talking in your inn lately?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Your inn must hear plenty of talk.", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do many warriors rest at Sun Rock, Jayka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do travellers say about the hills, Jayka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you hear much news from the Charred Vale, Jayka?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "You must hear news from the Charred Vale, Jayka.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do the tauren of Sun Rock welcome a paladin, Jayka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
@@ -1233,6 +1351,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the inn on Sun Rock, and I've heard more battle stories than any war chronicler alive." } },
     advice = { { id = "tp_ad", text = "Sleep while you can up here. The harpies don't keep regular hours, and they shriek like a kodo with its tail in a door." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built a home for the orcs, and he gave me the chance to build one too. My inn is small, but it's mine, and that's thanks to him." } },
+    cairne = { { id = "tp_cairne", text = "Cairne's tauren built Sun Rock, and they let me run the inn. They're good folk, though they eat more than orcs." } },
+    second_war = { { id = "tp_second_war", text = "Half my guests are old soldiers from the Second War, and they tell the same stories every night. I don't mind, because the stories get better every time." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken stop at my inn sometimes, and they don't eat or drink or sleep. I charge them for the chair anyway, because it's still my chair." } },
     _none = { { id = "tp_none", text = "Ask Maggran. He knows the mountain; he just doesn't like saying much about it until his third mug." } },
   },
 }
@@ -1249,7 +1371,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_grove", text = "Peace, little one. This grove is old, and wise, and wary. Tread softly and you'll find it kind." },
+    { id = "g_grove", text = "Peace, little one, and Elune's light upon you. This grove is old, and wise, and wary; tread softly and you'll find it kind." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, little one, and the grove has grown a little older while you were gone. Tread softly, and welcome back." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I heard someone on the peak was left angry after speaking with you, little one. Anger spreads like fire in dry timber, so I'd ask you to be careful." },
   },
@@ -1400,15 +1522,15 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of the mountain folk, little one. The earth of Stonetalon remembers the fires in the vale, and I think you will hear it weeping." },
       },
       again = {
-        { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },
+        { id = "h_again", text = "Ask what you will, little one. The grove has time, as it has had since before the Sundering, and so do I." },
         { id = "h_again2", text = "Speak on. The wind is gentle up here, and so are the trees, most days." },
       },
       choices = {
         { text = "How old is the grove?", next = "age" },
-        { text = "What happened to the vale?", next = "vale" },
-        { text = "Who keeps the Talon Den?", next = "den" },
+        { text = "The vale looks like it burned for days.", next = "vale" },
+        { text = "Who else guards this peak, Keeper?", next = "den" },
         { text = "Faldreas in Astranaar sent me to you.", next = "faldreas", when = { any = { { questActive = TODO_QUEST("Journey to Stonetalon Peak") }, { questDone = TODO_QUEST("Journey to Stonetalon Peak") } } } },
-        { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
+        { text = "Humans must have come up here before.", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
         { text = "What would you ask of a paladin, Keeper Albagorm?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Princess Theradras is dead, Keeper. I fought her in Maraudon.", next = "xcl_mara", when = { cleared = "Maraudon" } },
@@ -1417,7 +1539,7 @@ P:NPC {
         { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Do you think I'd steal from the grove, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the trees really hold the arcane against me?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Would the grove welcome a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The grove might welcome a warrior, Keeper.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can I hunt in your forest, Keeper?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the grove fear from my demon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would you ask of a Forsaken paladin, Keeper?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1467,7 +1589,7 @@ P:NPC {
         { id = "t_default", text = "The old stones you walked past were a temple of Queen Azshara, long ago, before the world broke. Not everyone is glad that druids tend those ruins now, and some would rather see us gone from them." },
       },
       choices = {
-        { text = "Who would rather you were gone?", next = "raiders" },
+        { text = "Someone must want you gone.", next = "raiders" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1479,7 +1601,34 @@ P:NPC {
       choices = {
         { text = "I'll stand with your kin.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, standing = { stonetalon_peak = 1 } } },
         { text = "Do the druids choke their magic?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "What would you have the Horde do, Keeper?", next = "forest_op" },
       },
+    },
+    forest_op = {
+      lines = { { id = "fo_default", text = "I would rather hear what you would have it do, little one. The orcs who cut Ashenvale say they need timber to live, and my kin say every tree is sacred, so tell an old tree what you believe." } },
+      choices = {
+        { text = "The orcs have no right to these forests. Drive them out.", next = "fo_drive", fx = { affinity = 2, align = { light = 1 }, opinion = { ashenvale = "defend", warsong = "hate" } } },
+        { text = "Trees grow back. The Horde's need comes first.", next = "fo_need", fx = { affinity = -2, align = { light = -1 }, opinion = { ashenvale = "necessary" } } },
+        { text = "Let them take deadfall and leave the living trees.", next = "fo_dead", fx = { affinity = 1, opinion = { ashenvale = "compromise" } } },
+        { text = "My people have guarded these forests for ten thousand years.", next = "fo_elf", when = { race = "NightElf" }, fx = { affinity = 2, opinion = { night_elves = "proud" } } },
+        { text = "I'm not wise enough to answer that, Keeper.", next = "BACK" },
+      },
+    },
+    fo_drive = {
+      lines = { { id = "fod_default", text = "Spoken like a Sentinel, and the Sentinels will thank you. I only hope you have the patience to keep driving, for the orcs are as stubborn as the stone they build with." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_need = {
+      lines = { { id = "fon_default", text = "Trees grow back, yes, in a hundred years, and the creatures who lived in them do not wait. I will not argue, little one, but I will remember." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_dead = {
+      lines = { { id = "fodd_default", text = "A gentle answer, and an old one. My kin offered something like it, long ago, and no one on either side was listening." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_elf = {
+      lines = { { id = "foe_default", text = "We have, and the trees know it. Guard them with patience, child of Elune, not only with glaives." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     den = {
       lines = {
@@ -1529,7 +1678,12 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go around the Charred Vale if you can, little one, and if you can't, go quickly and look up. The harpies come from above." } },
     venture_company = { { id = "tp_venture", text = "They brought fire and machines to a sacred mountain and called it business. The mountain will outlast them, but not without help." } },
     cenarion_circle = { { id = "tp_circle", text = "My father's children and their students. We keep the old places, and not everyone thanks us for it." } },
-    _none = { { id = "tp_none", text = "The grove doesn't know, little one. Nor do I." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of Elune and the leader of the Sentinels. She is wise, little one, though some say she is too quick to draw her glaive." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion Stormrage sleeps in the Dream, and the Circle waits for him to wake. I have waited a long time, little one, and I will wait longer." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the night elves and the druids both, and her light guides us in the dark. I pray to her, though I am more of the forest than of the temple." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it was meant to be, little one, and the druids walk it in their sleep. Something troubles it now, and I fear for those who sleep there." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief is wiser than the last, I am told, and he keeps a peace with Theramore. But his people still cut our forests, little one, and crimes are done with hands, not banners." } },
+    _none = { { id = "tp_none", text = "The grove doesn't know, little one, nor do I. Some things not even ten thousand years will tell you." } },
   },
 }
 
@@ -1544,7 +1698,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Rest here. It's quiet on the peak, and the trees keep the wind off." },
+    { id = "g_inn", text = "Ishnu-alah. Rest here; it's quiet on the peak, and the trees keep the wind off." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've counted a great many stars from this step without you. Rest here a while, it's quiet tonight." },
     { id = "g_word_helped", when = { word = "helped" }, text = "People on the peak say you've been helping out, and I'm glad of it. Rest here as long as you like, and mind the path down after dark." },
   },
@@ -1645,20 +1799,20 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up on the peak. The wind here is strong enough to carry a voice to the stars, so if the spirits ever answer you, tell them I've been counting." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
+        { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak; it has watched the moon rise for longer than my people can remember." },
         { id = "h_again2", text = "Ask whatever you like while the kettle's on." },
       },
       choices = {
         { text = "Who comes up here?", next = "visitors" },
-        { text = "How do people get up and down the peak?", next = "roads" },
-        { text = "You pray to Elune? I pray to the Light.", next = "elune", when = { class = "PRIEST" } },
+        { text = "Getting up and down the peak can't be easy.", next = "roads" },
+        { text = "Do you pray to Elune, Faralia? I pray to the Light.", next = "elune", when = { class = "PRIEST" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do rogues often climb this far up the peak?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are mages so rare on the peak?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is the peak safe for travellers, Faralia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The peak doesn't look safe for travellers, Faralia.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts live up on the peak, Faralia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is the path down the peak dangerous after dark?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Are the Talon Den druids troubled by the goblins below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The goblins below must trouble the Talon Den druids.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will the druids mind a warlock on the peak?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the spirits up here answer you, Faralia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
@@ -1684,7 +1838,7 @@ P:NPC {
         { id = "r_default", text = "Teloren keeps the hippogryphs here on the peak, and they'll take you to Auberdine, Astranaar or Nijel's Point. Otherwise it's the long walk down past Windshear Crag, and I wouldn't do it after dark." },
       },
       choices = {
-        { text = "What's wrong with the road after dark?", next = "dark" },
+        { text = "You seem worried about the road after dark.", next = "dark" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1708,6 +1862,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the inn on the peak. There isn't much more to it than that, and I like it that way." } },
     advice = { { id = "tp_ad", text = "You look worn through. Rest under a roof tonight, and let Elune see to your dreams." } },
-    _none = { { id = "tp_none", text = "Ask the Keeper. He's lived here longer than the trees." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the travellers who sleep beneath her stars. I ask her to guide your dreams each night, and I hope she listens." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is our high priestess and our leader, and she watches over us all. I have seen her only once, in Darnassus, and I have never forgotten it." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is the new World Tree, and Darnassus sits in its branches. It is beautiful, but I prefer the stars here on the peak." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids walk the Dream in their sleep, and they say it is greener than anything in this world. I dream of the stars instead, and I think they are just as beautiful." } },
+    _none = { { id = "tp_none", text = "Ask the Keeper. He's lived here longer than the trees, and he remembers what the Sentinels have long forgotten." } },
   },
 }

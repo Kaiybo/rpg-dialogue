@@ -102,7 +102,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Darkshire could use you more than this altar can, {class}, but I'll ask what's weighing on you first, as I ask everyone." },
-        { id = "h_default", text = "I'm Bishop Farthing. People come to this altar with heavy things on their backs, and I've found it's kinder to ask about the burden before the business. What's yours?" },
+        { id = "h_default", text = "I'm Bishop Farthing. People come to this altar with heavy things on their backs, lately most of them from Darkshire, where a necromancer has the dead walking, and I've found it's kinder to ask about the burden before the business. What's yours?" },
         { id = "h_journal", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Wisdom") },
           text = "You've come from Darkshire; I can tell by the way you keep glancing at the corners. Give me Jitters' journal, and then tell me plainly what you mean to do about Morbent Fel." },
         { id = "h_fleet", tags = { "news" }, when = { questActive = TODO_QUEST("The Doomed Fleet") },
@@ -127,11 +127,11 @@ P:NPC {
       },
       choices = {
         { text = "Why does Darkshire trust you, and not the city?", next = "darkshire" },
-        { text = "What is lightforge iron?", next = "iron" },
-        { text = "How do you fight a necromancer with faith?", next = "fel" },
-        { text = "Bishop, what do you teach young priests?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I've never heard of lightforge iron.", next = "iron", when = { any = { { questActive = TODO_QUEST("Seeking Wisdom") }, { questActive = TODO_QUEST("The Doomed Fleet") }, { questDone = TODO_QUEST("The Doomed Fleet") } } } },
+        { text = "I don't see how faith alone fights a necromancer.", next = "fel" },
+        { text = "Bishop, you must have taught a great many young priests.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've come from the Night Watch in Darkshire.", next = "watch", when = { questDone = TODO_QUEST("Seeking Wisdom") } },
-        { text = "Did Morbent Fel start out as someone like me?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Morbent Fel may have started out much like me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Would Darkshire welcome a mage, Bishop?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What burden do warriors bring to your altar, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there room for a hunter's prayers, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -170,7 +170,7 @@ P:NPC {
     iron = {
       lines = { { id = "i_default", text = "Metal forged with prayer as well as fire, so that a blade made from it carries the Light into whatever it strikes. The Third Fleet of Kul Tiras sank off the Wetlands with a hold full of it, years ago, and no one has brought it up since." } },
       choices = {
-        { text = "Why did the fleet go down?", next = "iron_fleet" },
+        { text = "That fleet went down for a reason, I'd wager.", next = "iron_fleet" },
         { text = "Who could find it?", next = "iron_glorin" },
         { text = "Something else.", next = "BACK" },
       },
@@ -191,7 +191,7 @@ P:NPC {
       choices = {
         { text = "Then the Light is a weapon too.", next = "fel_weapon", fx = { align = { light = 1 } } },
         { text = "I'd sooner trust steel than prayers.", next = "fel_weapon", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
-        { text = "Do you think he can be beaten?", next = "fel_weapon" },
+        { text = "He sounds hard to beat.", next = "fel_weapon" },
       },
     },
     fel_weapon = {
@@ -204,7 +204,7 @@ P:NPC {
     },
     priest = {
       big = true,
-      lines = { { id = "p_default", text = "That a priest who only heals in the Cathedral has learned half the craft. The other half is out where the wounded can't walk to us: Darkshire, the Wetlands, the roads between. Go where you're least comfortable, and you'll find the Light was there first." } },
+      lines = { { id = "p_default", text = "I teach them that a priest who only heals in the Cathedral has learned half the craft. The other half is out where the wounded can't walk to us: Darkshire, the Wetlands, the roads between. Go where you're least comfortable, and you'll find the Light was there first." } },
       choices = {
         { text = "I'll go where I'm needed.", next = "priest_where", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
         { text = "My skills are wasted on backwater villages.", next = "priest_where", fx = { align = { light = -1 }, trait = { stern = 1 } } },
@@ -224,7 +224,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the question didn't frighten me. Every one of them was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
+      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Every one of them was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
       choices = {
         { text = "I'll never become that.", next = "warlock2", fx = { align = { light = 1 } } },
         { text = "Power isn't evil. What he did with it was.", next = "warlock2", fx = { align = { light = -1 } } },
@@ -237,6 +237,12 @@ P:NPC {
   },
 
   topics = {
+    worgen = { { id = "tp_worgen", text = "The worgen of Duskwood are beasts that walk like men, and the people of Darkshire live behind their walls in terror of them. I pray for the town every night, and I pray the Night Watch has enough silver." } },
+    stalvan = { { id = "tp_stalvan", text = "Stalvan Mistmantle was a man of good family who did a terrible thing in a tower in Duskwood, years ago. Darkshire still won't speak of it plainly, and I've learned not to press." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is in Darkshire too, even in the gloom, and the people there cling to it harder than any congregation in Stormwind. I'd trade a dozen grand sermons here for one evening service there." } },
+    scourge = { { id = "tp_scourge", text = "Darkshire's graveyards have begun to stir, and I'm told it's not the Scourge, only something like it. I've sent priests and holy water, and I've asked the Light to make the distinction clearer." } },
+    raven_hill = { { id = "tp_raven_hill", text = "The dead of Raven Hill don't stay in their graves, and the Night Watch has buried some of them twice. I've given up asking why, and I've started asking for more priests instead." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire sent two of their brothers to Darkshire last winter, and only one came back. He doesn't speak of it, and I don't ask, because I can see it in his eyes." } },
     knows = {
       { id = "tp_knows", text = "Letters reach this altar from every frightened corner of the kingdom, and Darkshire's most of all. Ask me what you like, {g:brother|sister}; I'll tell you what I've read and what I've prayed over." },
     },
@@ -371,11 +377,11 @@ P:NPC {
       choices = {
         { text = "Why a book about iron?", next = "iron" },
         { text = "Let me hear the opening.", next = "opening" },
-        { text = "Where is the book now?", next = "book" },
-        { text = "What does Fortitude mean to you, Brother?", next = "fortitude", when = { class = "PRIEST" } },
+        { text = "I'd like to see that book for myself.", next = "book" },
+        { text = "Fortitude must mean something special to you, Brother.", next = "fortitude", when = { class = "PRIEST" } },
         { text = "I know iron, Brother, and it's honest stuff.", next = "smith", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } } },
         { text = "Fortitude is getting up after you're knocked down, Brother.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Would you really put a rogue in your sermon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I doubt you'd really put a rogue in your sermon.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does your book say anything about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does fletching fit into a sermon on fortitude, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does iron teach about a paladin's faith, Brother?", next = "xapala", when = { class = "PALADIN" } },
@@ -430,7 +436,7 @@ P:NPC {
     },
     fortitude = {
       big = true,
-      lines = { { id = "f_default", text = "That when we lay that prayer on someone, we aren't making them stronger than they are; we're reminding their body of what it can already bear. I think the spirit works the same way, if someone's there to remind it." } },
+      lines = { { id = "f_default", text = "It means that when we lay that prayer on someone, we aren't making them stronger than they are; we're reminding their body of what it can already bear. I think the spirit works the same way, if someone's there to remind it." } },
       choices = {
         { text = "I'll remember that when I cast it.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
         { text = "It's a spell, Brother, so don't dress it up.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
@@ -457,6 +463,10 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni's dwarves have a faith in the stone as deep as ours in the Light, and I'm building a sermon on it. Fortitude of the spirit, I'll call it, and the iron will be the metaphor." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a forge, I'll tell the congregation, and the spirit is the iron that's tempered in it. I've rehearsed it forty times, and it gets better every time, though the sexton disagrees." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League dig up the old world to find where the dwarves came from, and I'm told they think they were made from stone. I'd like to fit that into my sermon too, but I fear it's getting rather long." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a lesson in what happens when iron forgets its maker, and I'll use them as a warning in my sermon. I just need to find a way to say it that won't offend the dwarves in the front pew." } },
     knows = {
       { id = "tp_knows", text = "I stand outside the Cathedral all day rehearsing, so people tell me things to make me stop. Ask me about any of it." },
     },
@@ -601,14 +611,14 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening. The door can keep itself a moment." },
       },
       choices = {
-        { text = "Who should I see in here?", next = "who" },
-        { text = "What's this about Techbot?", next = "techbot" },
+        { text = "I don't know who to see in here.", next = "who" },
+        { text = "I keep hearing about something called Techbot.", next = "techbot", when = { any = { { questActive = TODO_QUEST("Tinkmaster Overspark") }, { heardLine = "sarno.h_quest_before" } } } },
         { text = "Do you really greet everyone?", next = "everyone" },
         { text = "Tell me about Gnomeregan's fall.", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "I'm a priest of this house, Brother.", next = "priest", when = { class = "PRIEST" } },
         { text = "Doesn't anyone get past you, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do many soldiers come to the Cathedral, Brother Sarno?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you like animals, Brother Sarno?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I've seen plenty of soldiers at prayer here, Brother Sarno.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You seem fond of animals, Brother Sarno.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Am I really welcome here, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many paladins pass through your doors, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cathedral ever feel too closed in, even for you, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -620,7 +630,7 @@ P:NPC {
     who = {
       lines = { { id = "w_default", text = "The Archbishop, of course, if he's free, and High Priestess Laurena for prayers and training. Bishop Farthing listens better than anyone in the building, and if you're a paladin, Duthorian Rall will find you before you find him." } },
       choices = {
-        { text = "And the man in red downstairs?", next = "who_crowley" },
+        { text = "There's a man in red downstairs too.", next = "who_crowley" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -678,6 +688,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I greet everyone who walks through these doors, because the Light lives in every one of them. Even the ones who come in to get out of the rain are welcome, and I tell them so." } },
+    scourge = { { id = "tp_scourge", text = "Some of the refugees who come through these doors have lost everything to the Scourge, even their names. I give them a blessing and a bowl, and I hope that's a start." } },
+    magni = { { id = "tp_magni", text = "King Magni gave the gnomes of Gnomeregan a home in Ironforge after their city was poisoned, and that's the Light at work, whether the dwarves call it that or not. I pray for him every week." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire visited Goldshire once while I was there, and a gnome there showed me a mechanical bird that sang hymns. I've not stopped thinking about it, and I'm sure the Light was pleased." } },
     knows = {
       { id = "tp_knows", text = "Everyone who comes through the Cathedral door says a little something to me on the way in, and it adds up. Ask me about any of it!" },
     },
@@ -808,10 +822,10 @@ P:NPC {
         { id = "h_again2", text = "Ask me anything, I know where all the priests are." },
       },
       choices = {
-        { text = "What's the Bishop's secret, Thomas?", next = "secret" },
-        { text = "Do you like serving at the altar?", next = "altar" },
-        { text = "Who's the strictest priest here?", next = "strict" },
-        { text = "Would you like to be a priest someday?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I'd wager the Bishop has some secret, Thomas.", next = "secret", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { heardLine = "thomas_altar.h_diplomat" } } } },
+        { text = "You seem to like serving at the altar.", next = "altar" },
+        { text = "Some of these priests must be strict.", next = "strict" },
+        { text = "You'll make a fine priest someday, I'd guess.", next = "priest", when = { class = "PRIEST" } },
         { text = "Would you like to be a paladin someday?", next = "paladin", when = { class = "PALADIN" } },
         { text = "Do you notice everyone who sneaks in here, Thomas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Shall I light the high candles for you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -835,7 +849,7 @@ P:NPC {
     secret_good = {
       lines = { { id = "sg_default", text = "I'm not telling, because I don't know anything else, which is a good way to keep a secret, Brother Joshua says. He says most people who leak secrets didn't need to know them in the first place." } },
       choices = {
-        { text = "Who's Bishop DeLavey?", next = "delavey" },
+        { text = "Which bishop do you mean, Thomas?", next = "delavey" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -855,7 +869,7 @@ P:NPC {
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     priest = {
-      lines = { { id = "p_default", text = "More than anything! Only I'm worried I won't be good enough at the healing part, because I faint when I see blood, a bit. Did you ever faint?" } },
+      lines = { { id = "p_default", text = "I hope so, more than anything! Only I'm worried I won't be good enough at the healing part, because I faint when I see blood, a bit. Did you ever faint?" } },
       choices = {
         { text = "Once or twice, and you get past it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "Never. You'll have to toughen up.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -875,6 +889,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I'm going to be a priest someday and fill the whole Cathedral with Light, enough so you can see it from Goldshire. Brother Joshua says I'll need to practise a lot more first." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a fortune-teller, and she said I'd become a great man of the Light! I asked her if she'd tell the Archbishop, and she just laughed at me." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I ran messages to the Valley of Heroes once, and I stopped to look up at the statues, and I was very late. Brother Joshua said they'd waited a long time already and could wait a little more." } },
+    scourge = { { id = "tp_scourge", text = "The new orphans from Lordaeron sometimes cry at night about the dead walking. I tell them the Light won't let it happen here, and I hope I'm right, because I promised them." } },
     knows = {
       { id = "tp_knows", text = "I hear lots of things walking up and down, because grown-ups forget I'm there. Ask me, but not about the secret." },
     },
@@ -887,6 +905,7 @@ P:NPC {
 -- Orphan Matron Nightingale: the costs of war, counted one child at a time.
 P:NPC {
   key = "nightingale", id = TODO_NPC("Orphan Matron Nightingale"), name = "Orphan Matron Nightingale",
+  prejudice = { class = "WARLOCK", amount = 12, why = "An imp from a Slaughtered Lamb lodger set the orphanage linen alight two winters back." },
   bible = "bibles/cathedral_square.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "dutiful" },
   notices = { "refugee", "young", "priest" },
@@ -896,6 +915,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "You again, and I'll thank you to stay on the step. I've forty children in this house, and not one of them needs to see what follows a warlock home." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, then, and mind the boots by the door. I was wrong about you, I think, though I'll still count the children after you've gone." },
     { id = "g_door", text = "Mind the step; small feet have worn it crooked." },
     { id = "g_week", when = { questActive = TODO_QUEST("Children's Week") }, text = "Take good care of your little one, {class}. They'll remember this week for years." },
     { id = "g_letter", when = { questActive = TODO_QUEST("Remember That I Love You") }, text = "You're carrying something for me, I think. Bring it here, gently." },
@@ -912,6 +933,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "No, I don't, and I'll not dress it up for you. Two winters back a warlock lodging at the Slaughtered Lamb let his imp loose, and it came through our kitchen window and set the linen alight with the little ones asleep upstairs." } },
+      choices = {
+        { text = "I bind demons so they can't hurt anyone. That's the whole point.", next = "prej_a", fx = { align = { light = -1 } } },
+        { text = "You're right to be careful. I'll keep my distance from the children.", next = "prej_b", fx = { align = { light = 1 } } },
+        { text = "What would put your mind at ease, Matron?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Then bind them somewhere else, {class}. I've heard every clever word about mastery and control, and none of it puts out a fire in a nursery." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Thank you. It isn't you I hate, and I'm not sure I could tell you what it is, only that I smelled that smoke for a month." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Time, I suppose, and you being decent with it. Leave whatever you keep in that satchel at the inn, and bring the little ones something sweet now and then." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Bread, shoes, and someone who stays. The war cost this city a generation of parents, and the crown counts it in coin when it should count it in children." } },
@@ -1016,10 +1059,11 @@ P:NPC {
         { id = "h_again2", text = "Go on. The children can manage without me for a minute or two." },
       },
       choices = {
-        { text = "Where do the children come from?", next = "where" },
-        { text = "What is Children's Week?", next = "week" },
-        { text = "Who helps you here?", next = "help" },
-        { text = "What became of Jeremy Heartweaver?", next = "jeremy", when = { questDone = TODO_QUEST("Remember That I Love You") } },
+        { text = "You don't want me near the children, do you, Matron?", next = "prej", when = { prejudiced = true } },
+        { text = "These children come from all over, by the look of them.", next = "where" },
+        { text = "Do the children ever get out of the city?", next = "week" },
+        { text = "You can't run this place alone.", next = "help" },
+        { text = "I've wondered what became of Jeremy Heartweaver.", next = "jeremy", when = { questDone = TODO_QUEST("Remember That I Love You") } },
         { text = "I was one of them, once. From Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Would the children like to see a bear, Matron?", next = "druid", when = { class = "DRUID" } },
         { text = "Do your children ever run off to the canals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1039,7 +1083,7 @@ P:NPC {
       choices = {
         { text = "Then the wars must end.", next = "where_end", fx = { align = { light = 1 } } },
         { text = "Wars make soldiers of orphans. That's the way of it.", next = "where_end", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "How many have you now?", next = "where_end" },
+        { text = "You'll have a houseful by now, I expect.", next = "where_end" },
       },
     },
     where_end = {
@@ -1101,6 +1145,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge sends me more orphans than the orcs ever did, and they come with nightmares the orcs never gave anyone. I've given up asking the Keep for more beds and started asking for more candles." } },
+    second_war = { { id = "tp_second_war", text = "The Second War filled this orphanage once, and I thought we'd never see it so full again. Then the plague came, and I learned I was wrong, and I've stopped making that sort of promise." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias take older boys from the streets and teach them to steal, and some of them go west to the mines under Moonbrook. I've lost three that way, and I remember every one." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light keeps the roof over our heads and the bread on the table, with some help from the Cathedral's purse. I pray every night, and I count the beds every morning." } },
     knows = {
       { id = "tp_knows", text = "Children tell you everything if you wait long enough, and their parents' friends tell you the rest. Ask me what you like." },
     },
@@ -1231,10 +1279,10 @@ P:NPC {
         { id = "h_again", text = "Something else, dear? Quickly, before they find the jam." },
       },
       choices = {
-        { text = "How are the children?", next = "children" },
-        { text = "Do you really think all will be well?", next = "well" },
+        { text = "The children seem in good spirits.", next = "children" },
+        { text = "You seem sure all will be well.", next = "well" },
         { text = "Let me bless them before I go.", next = "bless", when = { class = "PRIEST" } },
-        { text = "Who's the best little sneak in the orphanage?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "There must be a little sneak or two in the orphanage.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a little light help them sleep, Shellene?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the children play at being soldiers, Shellene?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the children ever leave the city, Shellene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1271,6 +1319,10 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light will see the children right, I'm sure of it, though I give it a nudge now and then. I tell them stories of the saints at bedtime, and they fall asleep before the end, which is the trick." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "We took the children to the Darkmoon Faire once, and one of them ate so much candy he turned green. The Light forgive me, but I laughed until I wept." } },
+    scourge = { { id = "tp_scourge", text = "The children from Lordaeron draw pictures of the dead walking, and I hang them on the wall because they asked me to. I pray for them every night, and some nights I pray I'll know what to say." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I take the orphans to the Valley of Heroes so they'll know there were brave people in the world before them. Some of them ask if their mothers and fathers will have statues, and I never know what to say." } },
     knows = {
       { id = "tp_knows", text = "Not much gets past a houseful of children, and they tell me all of it. Ask, dear." },
     },

@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "xylem", id = TODO_NPC("Archmage Xylem"), name = "Archmage Xylem",
   bible = "bibles/azshara.md", role = "scholar", tier = "major",
+  prejudice = { class = "DRUID", amount = 10, why = "a human archmage who thinks the Circle squandered the Highborne's knowledge and lectures anyone who studies it" },
   communities = { "xylems_tower" }, temper = { "proud", "sharp" }, values = { "curious", "proud" },
   notices = { "class", "race", "arcane" },
 
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_druid", when = { prejudiced = true }, text = "A druid, climbing my tower, how bracing. Your Circle drove the Highborne's learning out of Kalimdor and then spent ten thousand years asleep in trees, so you'll forgive me if I don't expect a scholarly conversation." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My druid! I told Sanath you were the exception that proves the rule, and he asked which rule, and I couldn't remember, which tells you how thoroughly you've ruined it." },
+    { id = "g_op_arcane", when = { opinion = { topic = "arcane_magic", stance = "dangerous" } }, text = "I'm told you think magic should be locked away by wiser heads than ours. Wiser than mine? Name one, and I'll write to them." },
     { id = "g_default", text = "Ah, a visitor who survived Sanath's manners. Come in, and do try not to touch anything that glows." },
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}. Good; the last three visitors were disappointments." },
     { id = "g_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") }, text = "My favourite drake-slayer! Sit, sit; the shard has been singing all week." },
@@ -36,6 +40,45 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_xylem = {
+      lines = { { id = "pj_xylem_default", text = "To me? Nothing, which is rather the point. Your Circle had the greatest library of magic this world has ever known lying in the rubble of Zin-Azshari, and it chose to grow moss over it and lecture anyone who picked up a page." } },
+      choices = {
+        { text = "Is there more to it than books, Archmage?", next = "pj_xylem2" },
+        { text = "Some knowledge should stay buried. The Sundering proved that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Knowledge belongs to whoever is bold enough to dig.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then let me show you a druid who reads.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_xylem2 = {
+      lines = { { id = "pj_xylem2_default", text = "A little. When I first came to this coast, a Cenarion druid followed me for a month, undoing my wards at night and leaving acorns on my desk as a kind of sermon. I burned the acorns, and I'm told that was the worst thing I could have done." } },
+      choices = {
+        { text = "Acorns as a sermon? I'd have burned them too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirintor = {
+      lines = {
+        { id = "opk_default", text = "They think I'm a renegade with a nice tower, which is half right. They'd have every Highborne rune sealed in a vault and every student who reads one sent home in disgrace. Tell me, are they right?" },
+      },
+      choices = {
+        { text = "They're right. Some knowledge should stay buried.", next = "op_kt_right", fx = { affinity = -1, align = { order = 1 }, opinion = { kirin_tor = "trust" } } },
+        { text = "The Kirin Tor are timid. Study what you like.", next = "op_kt_timid", fx = { affinity = 1, align = { order = -1 }, opinion = { kirin_tor = "contempt" } } },
+        { text = "Dalaran taught me caution, Archmage. You might try some.", next = "op_kt_right", fx = { affinity = -1, trait = { stern = 1 }, opinion = { kirin_tor = "respect" } }, when = { class = "MAGE" } },
+        { text = "I'm here for the work, not the politics.", next = "BACK" },
+      },
+    },
+    op_kt_right = {
+      lines = {
+        { id = "opkr_default", text = "Buried knowledge doesn't stay buried; it only waits for someone less careful than me to find it. But do go on, you sound exactly like my old examiners, and I've missed them terribly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_kt_timid = {
+      lines = {
+        { id = "opkd_default", text = "Timid! I'll have that carved over my door, and I'll send them a drawing of it. You and I are going to get along splendidly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Grim is a fine word for anywhere trolls and dragons share a cellar. The dragonkin down there guard the Atal'ai's mistakes for their mistress, and I find it fascinating that creatures with so much power choose to spend it as jailers." } },
@@ -140,7 +183,7 @@ P:NPC {
           text = "A hunter. You'll not be interested in my research, I suppose, unless it involves something with fur and teeth, which, now that I think of it, it often does." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my tower? How quaint. I suppose you've come to tell me the Highborne relics upset the local spirits, and I suppose I'll pretend to listen." },
         { id = "h_default", key = true,
-          text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't." },
+          text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't, not least the drake Morphaz." },
         { id = "h_dust", when = { questActive = TODO_QUEST("Magic Dust") },
           text = "The elves on the northern cliffs grind their relics to a glittering dust, and they killed the apprentice I sent to buy some. We'll take it the other way, then; violence is only a less polite kind of trade." },
         { id = "h_coral", when = { questActive = TODO_QUEST("The Siren's Coral") },
@@ -169,9 +212,9 @@ P:NPC {
       },
       choices = {
         { text = "Does the Highborne magic here twist the elements, Archmage?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What do you study up here?", next = "study" },
+        { text = "You must study something important up here.", next = "study" },
         { text = "Who is Morphaz?", next = "morphaz" },
-        { text = "What do you want with the naga?", next = "naga" },
+        { text = "You seem very interested in the naga.", next = "naga" },
         { text = "Where did you come from, Archmage?", next = "past" },
         { text = "Tell me about your apprentices.", next = "apprentices" },
         { text = "I've come to learn, Archmage.", next = "mage", when = { class = "MAGE" } },
@@ -182,10 +225,11 @@ P:NPC {
         { text = "My ancestors were Highborne of Eldre'Thalas.", next = "sky_xy", when = { race = "Skyborne" } },
         { text = "What does an archmage make of a priest's power, Xylem?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use has an archmage for a warrior?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What beasts does your research involve, Archmage?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Your research must involve some dangerous beasts, Archmage.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why study the magic that broke this land?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What does an archmage think of the Light, Xylem?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I've been through the Sunken Temple, Archmage. It was grim.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
+        { text = "You sneer at druids, Archmage. What did the Circle do to you?", next = "pj_xylem", when = { prejudiced = true } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },
@@ -210,6 +254,7 @@ P:NPC {
     study_danger = {
       lines = { { id = "sd_default", text = "Their appetite broke the world, which is a different thing entirely. A knife cuts bread or throats, and nobody blames the knife; I simply intend to be a better cook than they were." } },
       choices = {
+        { text = "What do the Kirin Tor think of your work here?", next = "op_kirintor" },
         { text = "Knowledge is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Some doors should stay shut, Archmage.", next = "BACK", fx = { affinity = -1, align = { order = 1 }, trait = { cautious = 1 } } },
       },
@@ -217,7 +262,7 @@ P:NPC {
     study_found = {
       lines = { { id = "sf_default", text = "Runes on the old walls that explain how the Highborne kept their towers standing, a ward I still can't break, and four tablets named for their wizards that an enterprising orc keeps selling to everyone in Kalimdor. I bought one, naturally." } },
       choices = {
-        { text = "The orc is Jediga, at Valormok.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "The orc is Jediga, at Valormok.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "jediga.h_default" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -245,7 +290,7 @@ P:NPC {
       },
       choices = {
         { text = "You mourn the shard more than the apprentice.", next = "morphaz_cold" },
-        { text = "Where is the drake now?", next = "morphaz_where" },
+        { text = "The drake must be somewhere.", next = "morphaz_where" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -270,7 +315,7 @@ P:NPC {
           text = "The Spitelash have learned which of this coast's treasures are rare, which is inconvenient of them. They've stripped the bay of enchanted coral, and their warlord Krellian sits in the Temple of Zin-Malor on top of things I'd very much like to have." },
       },
       choices = {
-        { text = "What are the naga, really?", next = "naga_what" },
+        { text = "The naga don't look like any beast I know.", next = "naga_what" },
         { text = "Why not take it yourself?", next = "naga_tower" },
         { text = "Something else.", next = "BACK" },
       },
@@ -292,7 +337,7 @@ P:NPC {
         { id = "pa_default", text = "Dalaran trained me, and the war took me west with the expedition to Kalimdor. I was in the Stonetalon Mountains when Hellscream's Warsong came down on our camp, and after that I decided I preferred my own company and a tower nobody could climb." },
       },
       choices = {
-        { text = "You fought the Warsong?", next = "past_war" },
+        { text = "So you fought the Warsong.", next = "past_war" },
         { text = "Why Azshara, of all places?", next = "past_why" },
         { text = "Something else.", next = "BACK" },
       },
@@ -387,6 +432,11 @@ P:NPC {
     spitelash = { { id = "tp_spite", text = "Naga with taste, which is the worst kind. They've learned what's valuable on this coast.", next = "naga" } },
     xylem = { { id = "tp_self", text = "Ah, the subject I know best. I'm brilliant, impatient and right more often than is fair; ask anyone." } },
     rimtori = { { id = "tp_rimtori", text = "Thalassian scavengers with good instincts and bad manners. They killed my apprentice over a sack of dust." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was always too full of committees for my taste, and the Legion made it rather more empty. I prefer my tower, where the committee is one man and he always agrees with himself." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor would very much like to know what I keep in this tower, and I would very much like them not to. We have an understanding, which is that neither of us mentions it." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Queen Azshara commanded the greatest sorcery the world has ever known, and the night elves would rather I didn't study it. I study it anyway, very carefully." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is a regrettable consequence of excellent research. I do not intend to repeat the consequence, only the research." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, I hear, and Deathwing's own daughter. I would not study her, because some subjects study you back." } },
     _none = { { id = "tp_none", text = "Not my field, and I don't waste time outside my field. Try someone with less to do." } },
   },
 }
@@ -403,6 +453,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kirintor", when = { gossip = { topic = "kirin_tor", stance = "contempt" } }, text = "The Archmage says you called the Kirin Tor timid. He's been insufferable all week, so I hope you're pleased with yourself." },
     { id = "g_default", text = "Another pilgrim at my master's door, and how dreary you all are." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and wearing the same dreadful clothes, which is almost impressive." },
   },
@@ -531,15 +582,15 @@ P:NPC {
       choices = {
         { text = "Do these cliffs hold anything the spirits care for?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Send me up to your master.", next = "up" },
-        { text = "You used to charge for this?", next = "toll" },
+        { text = "So you used to charge for this.", next = "toll" },
         { text = "What is your master like?", next = "master" },
-        { text = "Where are you from, Sanath?", next = "home" },
+        { text = "You don't sound like you're from around here, Sanath.", next = "home" },
         { text = "You're a long way from Quel'Thalas.", next = "home", when = { race = "Skyborne" } },
-        { text = "Has anyone ever tried to rob Xylem's tower?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Someone must have tried to rob Xylem's tower.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does Xylem study demonology too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does your master have no use for the Light at all?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does your master hate all priests, Sanath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Does your master need a warrior's help, Sanath?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Your master seems to need a warrior's help, Sanath.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Will your master let my beast into the tower?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What's it like, serving the archmage?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why does the Archmage hate blessings, Sanath?", next = "xapala", when = { class = "PALADIN" } },
@@ -556,7 +607,7 @@ P:NPC {
     toll = {
       lines = { { id = "t_default", text = "Once, I could ask whatever I liked of the people who wanted to see him. Now my master takes in any stray who asks, and I am reduced to sneering at their boots for entertainment." } },
       choices = {
-        { text = "What did you used to ask?", next = "toll_price" },
+        { text = "You must have asked a fine price, once.", next = "toll_price" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -605,6 +656,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Dress better before you meet the Archmage. He notices, and then I have to hear about it." } },
     xylem = { { id = "tp_xylem", text = "My master. Go up and see for yourself, and stop asking me about him.", next = "master" } },
     rimtori = { { id = "tp_rimtori", text = "Thalassians who've forgotten their manners along with their homes. I am not one of them, before you ask." } },
+    dalaran = { { id = "tp_dalaran", text = "My master looks down on Dalaran, which is the only thing he and I agree on. Every mage I ever met from there dressed even worse than you." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are a gaggle of old men in purple robes, and my master is one old man in purple robes. I fail to see the improvement." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The queen of this land drowned a whole city, and I've still not been allowed to see the sea from this tower. Some people have all the luck." } },
     _none = { { id = "tp_none", text = "How tedious. I neither know nor care." } },
   },
 }

@@ -15,8 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_warchief", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "You're the one who thinks Thrall's worth talking to. I've been chewing on that since, and I've not decided you're wrong." },
     { id = "g_cell", text = "You took your time, but it doesn't matter now. You're here." },
     { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "There's my escort, still standing, I see. Good, so am I." },
+    { id = "g_blackrock_resolved", when = { thread = { id = "blackrock_down", state = "resolved" } }, text = "Word's come down from Morgan's Vigil that the Spire's lost three of its masters and fewer orcs are coming over the passes. I've slept through two nights running since I heard, and I'd forgotten I could." },
   },
 
   notice = {
@@ -28,6 +30,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "op_orcs_a", text = "I heard the guards on the rock talk about him, if you can believe it. They called him a slave-born whelp who'd made the Horde soft and given it to trolls and cow-men, and they spat after his name. I've had weeks to think about it, so what's your view?" },
+      },
+      choices = {
+        { text = "If the Blackrock hate him, Thrall might be worth talking to.", next = "op_orcs_1", fx = { opinion = { warchief = "trust", peace = "for" }, align = { light = 1 } } },
+        { text = "An orc's an orc. Thrall's lot would have done the same to you.", next = "op_orcs_2", fx = { opinion = { warchief = "distrust", orcs = "hate" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Different orcs, same axes. I'll judge them when they're in front of me.", next = "op_orcs_3", fx = { opinion = { orcs = "wary" }, trait = { cautious = 1 }, affinity = 1 } },
+        { text = "Redridge has buried too many of ours to think kindly of any orc.", next = "op_orcs_4", when = { origin = "human_redridge_born" }, fx = { opinion = { orcs = "hate", peace = "against" }, affinity = 1 } },
+        { text = "Let's get you home first, Corporal.", next = "BACK" },
+      },
+    },
+    op_orcs_1 = {
+      lines = { { id = "op_orcs_r1", text = "That's more or less where I landed, round about the third week. Don't tell the Marshal; he'd have me back on latrine duty for treason." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+    op_orcs_2 = {
+      lines = { { id = "op_orcs_r2", text = "Maybe, maybe not, but you'll not hear me argue with anybody who wants orcs dead tonight. Ask me again when the ringing stops." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+    op_orcs_3 = {
+      lines = { { id = "op_orcs_r3", text = "A soldier's answer, and a good one. That's how I'd have said it before Stonewatch, and it's how I'll say it again once I've slept." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+    op_orcs_4 = {
+      lines = { { id = "op_orcs_r4", text = "Born here, are you? Then you know the 12th Sabre weren't the first, and they'll not be the last. Walk me home, and we'll both say a few names on the way." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
     xcl_ubrs = {
       big = true,
       lines = { { id = "xcl_ubrs_default", text = "They'll boast anyway, because an orc boasts with his last breath, but I'd give a month's pay to hear the camp at Stonewatch go quiet when the news reaches it. The men I served with died to hold Redridge, and this is the first news in a year that makes it feel like it counted." } },
@@ -90,6 +120,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You're the second soul to come looking for a Stormwind corporal in these hills, if my head's still straight. The other was a {altclass} called {alt}, and you've the same look, so I'll trust you the way I trusted that one." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
           text = "You've been to the top of Blackrock Spire and come down again, and I was a prisoner of the Blackrock long enough to know what that costs. They used to boast about the Spire in my hearing every night, as though I'd never live to see it." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -118,7 +150,7 @@ P:NPC {
         { text = "Can you walk?", next = "walk" },
         { text = "Hold still. Let me see to that head.", next = "priest", when = { class = "PRIEST" } },
         { text = "Shield up, Corporal. We go together.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "How are you holding up, Corporal?", next = "after", when = { questDone = TODO_QUEST("Missing In Action") } },
+        { text = "You look like you haven't slept in days, Corporal.", next = "after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "The Light kept you alive, Corporal. Stand with me.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'll scout ahead. Stay in my shadow.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'd have burned your cell door off, Corporal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -136,7 +168,7 @@ P:NPC {
         { id = "s_default", text = "There are more of them than Lakeshire thinks, and better armed. And they take orders from someone who isn't an orc; I heard them argue about it." },
       },
       choices = {
-        { text = "Someone's directing them?", next = "who", fx = { learn = { "blackrock" } } },
+        { text = "It sounds as if someone's directing them.", next = "who", fx = { learn = { "blackrock" } } },
         { text = "How many more?", next = "numbers" },
         { text = "Tell the Marshal.", next = "BACK" },
       },
@@ -166,6 +198,7 @@ P:NPC {
     regiment = {
       lines = { { id = "rg_default", text = "Good riders, the best I served with. When I'm home I'll write down every name I remember for the Marshal. Somebody should say them out loud." } },
       choices = {
+        { text = "Some say Thrall's orcs aren't like the Blackrock. Do you believe that?", next = "op_orcs" },
         { text = "Say them to me, on the way down.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -218,6 +251,15 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "My grandfather fought the Horde in the Second War, and he'd say the orcs never fought for land, only for the fighting. I didn't believe him until I saw the inside of Stonewatch after they took it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "When they had me in the cages, the guards talked about the mountain to the north as if it were their capital. Every order seemed to come down from that spire, and every captive who went up the road never came back." } },
+    internment = { { id = "tp_internment", text = "One of the guards at Render's Rock spoke good Common, and he told me he'd spent ten years in one of our camps. He said it like I owed him something, and I'm not sure he was wrong, which is the worst thing he did to me." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Blackrock were among the first orcs through the Dark Portal, so I'm told, and they've never once gone home. I'll say this for them: they're stubborn, which is the only thing we have in common." } },
+    bolvar = { { id = "tp_bolvar", text = "I'd like a word with the Highlord about how many men Stonewatch had when it fell. I'd say it politely, mind, because I'm still a soldier, but I'd say it." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I prayed to the Light every night in the cage, and some nights it was the only thing that answered. I'm not a pious man, but I'm not ashamed to say that." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "I prayed every night in that cage, paladin, and you're the first of the Light's soldiers I've seen since. I don't know if that's an answer or a coincidence, and I'll take either." },
+    },
     knows = {
       { id = "tp_knows", text = "I've seen more of the Blackrock than any man in Lakeshire would want to, from both sides of the bars. Ask me about any of this." },
     },

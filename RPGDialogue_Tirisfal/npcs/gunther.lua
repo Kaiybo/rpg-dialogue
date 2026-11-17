@@ -31,8 +31,38 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_necromancy = {
+      big = true,
+      lines = {
+        { id = "opnc_default", text = "Dalaran said so, and then Kel'Thuzad went and proved them right in the worst way imaginable. You've walked past my servants on the shore, though, so you tell me: is raising the dead a crime, or only a tool that fell into the wrong hands?" },
+      },
+      choices = {
+        { text = "It's a crime. The dead should be allowed to rest.", next = "op_necromancy_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { necromancy = "wrong" } } },
+        { text = "A tool. Kel'Thuzad was the crime, not the craft.", next = "op_necromancy_r2", fx = { affinity = 1, align = { light = -1 }, trait = { practical = 1 }, opinion = { necromancy = "tool" } } },
+        { text = "I was raised against my will. I'm not fond of the craft.", next = "op_necromancy_r3", fx = { trait = { stern = 1 }, opinion = { necromancy = "hate" } }, when = { race = "Scourge" } },
+        { text = "Power is power. I'd not lecture a necromancer.", next = "op_necromancy_r4", fx = { affinity = 1, opinion = { necromancy = "tool" } }, when = { class = "WARLOCK" } },
+        { text = "I'll not judge it, Gunther.", next = "BACK" },
+      },
+    },
+    op_necromancy_r1 = {
+      lines = { { id = "opnc_r1", text = "Rest is a fine thing, I'm told, though I never got much of it myself. I'll take it under consideration, which is what I always told my tutors too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necromancy_r2 = {
+      lines = { { id = "opnc_r2", text = "Thank you! I've waited years for someone to say that without a Kirin Tor hood on, and of course it's a stranger on my beach." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necromancy_r3 = {
+      lines = { { id = "opnc_r3", text = "Fair, and I'll not argue with a man about his own grave. My servants were raised by me and not by him, and I like to think that's a difference, though they can't tell me so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_necromancy_r4 = {
+      lines = { { id = "opnc_r4", text = "Says a warlock, and I mean that kindly. You and I both bargain with things Dalaran pretends aren't there, so we'd best not throw stones at each other's cellars." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = "blame" } }, text = "Bethor writes that you blame Dalaran for Kel'Thuzad. So do I, on my better days, and on my worse ones I blame myself for not seeing it first." },
         { id = "h_default", key = true, text = "I am Gunther Arcanus, and this island is mine. If the Lich King sent you, you may tell him I'm not coming back, and I have a great many corpses to prove it." },
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("Return the Book") },
           text = "My book! So you're the thief who took it. But there's a new enchantment on the pages, and I know the hand that wove it... Bethor? Bethor is free?" },
@@ -51,8 +81,8 @@ P:NPC {
       },
       choices = {
         { text = "Why do you live out here alone?", next = "alone" },
-        { text = "You knew Bethor Iceshard?", next = "bethor" },
-        { text = "What were you, before the plague?", next = "dalaran" },
+        { text = "Did you have friends, before all this?", next = "bethor" },
+        { text = "You have the look of a scholar.", next = "dalaran" },
         { text = "Lillith Nefara. Who was she?", next = "lillith", when = { questDone = TODO_QUEST("Proving Allegiance") } },
         { text = "I was Kirin Tor too, before I died.", next = "kirin", when = { class = "MAGE", race = "Scourge" } },
         { text = "Necromancy, then. Is that what you study?", next = "necro", when = { class = { "WARLOCK", "PRIEST" } } },
@@ -112,7 +142,7 @@ P:NPC {
     dalaran = {
       lines = { { id = "da_default", text = "A student of the Kirin Tor, and a better one than my tutors liked to admit. My field was the boundary between life and death, which Dalaran pretended was not a field at all." } },
       choices = {
-        { text = "Necromancy is forbidden in Dalaran, isn't it?", next = "necro" },
+        { text = "Necromancy is forbidden in Dalaran.", next = "necro" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,6 +150,7 @@ P:NPC {
       lines = { { id = "ne_default", text = "It is, which is why I studied it in a cellar, by candlelight, like every other interesting thing in Dalaran. The irony is not lost on me that it's the forbidden work that's kept me alive, in a manner of speaking." } },
       choices = {
         { text = "And the servants on the shore?", next = "necro_servants" },
+        { text = "Is it wrong, what you do with the dead?", next = "op_necromancy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -152,6 +183,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "Kirin Tor once, a corpse briefly, and a free man since, if a man is what I am. That's the short version, and the long one is mostly cellars." } },
     advice = { { id = "tp_ad", text = "Never trust a friend who hasn't died. That's a joke, mostly, but it's served me well." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "The last living men who rowed out here wore red and carried torches, and they called me an abomination before they'd even reached the beach. My servants sent them home, those who could still swim." } },
+    scourge = { { id = "tp_scourge", text = "For years I thought every corpse that walked past my island belonged to the Lich King, and I hid from all of them. I learned too late that some of them had minds of their own, and a few were even good company." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a curious people, and I count myself among them now, though they'd rather I didn't. I spent too long alone to trust a crowd." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran, in the old days, among the finest libraries in the world. The city is rising again, I'm told, but I doubt the Kirin Tor would care to see me at its gates." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me to read the stars and keep my books dry, and then they forgot I existed. I return the favor most days." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "I knew of Kel'Thuzad when he was a magus of the Kirin Tor with odd ideas about death. Everyone thought him an eccentric, and I'll tell you that I thought the same, to my shame." } },
     _none = { { id = "tp_none", text = "I've been on this island too long to know about that. Ask someone in Brill, if Brill is still there." } },
   },
 }

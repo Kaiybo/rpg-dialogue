@@ -81,14 +81,14 @@ P:NPC {
         { text = "Should the scavenged dead get a blessing, Saltain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you leave anything for the dead, Deathguard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could Deathknell's gardens grow again, Deathguard?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Need another blade on the road, Deathguard?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "You look like you could use another blade on the road.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a soldier of Lordaeron. I know how to forage.", next = "soldier", when = { origin = "forsaken_lordaeron_soldier" } },
-        { text = "Whose things were they?", next = "whose" },
-        { text = "What happened to Deathknell?", next = "town" },
+        { text = "These things must have belonged to someone.", next = "whose" },
+        { text = "Deathknell looks like it was a village once.", next = "town" },
         { text = "Why should I serve the Dark Lady?", next = "lady" },
         { text = "I can find what you need faster unseen, Deathguard.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could you use a mage, Deathguard, or just a pack mule?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do you need hides for Deathknell, Deathguard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Deathknell must need hides, Deathguard.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can my demon help you scavenge, Saltain?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Deathguard have use for a paladin, Saltain?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
@@ -99,7 +99,7 @@ P:NPC {
       lines = {
         { id = "wh_default", text = "Farmers, a smith, a schoolmistress, I'd guess, from the slates. They died when the plague came through, and some of them rose and some of them didn't." },
       },
-      choices = { { text = "Doesn't taking their things trouble you?", next = "whose_trouble" } },
+      choices = { { text = "Taking their things would trouble me.", next = "whose_trouble" } },
     },
     whose_trouble = {
       lines = {
@@ -173,13 +173,16 @@ P:NPC {
       choices = {
         { text = "I'll fetch the supplies first, as ordered.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I didn't study for years to haul sacks.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What happened to Deathknell?", next = "town" },
+        { text = "Deathknell looks like it was a village once.", next = "town" },
       },
     },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "No idea. Go and scavenge something useful instead." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge left bodies all over these fields, and some of them are still useful. I collect them in tidy piles so the apothecaries don't have to go hunting." } },
+    forsaken = { { id = "tp_forsaken", text = "You're Forsaken now, so you'll need boots, a blade and somewhere to keep your bits together. I can't help you with the last one." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sets the order, and the order is that the newly risen get what they need and stop moaning. I find it a very sensible arrangement." } },
+    _none = { { id = "tp_none", text = "No idea. Go and scavenge something useful instead; the dead can't afford idle hands." } },
   },
 }
 
@@ -265,12 +268,12 @@ P:NPC {
         { text = "Shall I ask the spirits whether the Damned can rest, Elreth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you think the dead belong to the land, Elreth?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I prayed to the Light once, too. Does it still answer?", next = "priest", when = { class = "PRIEST" } },
-        { text = "Who are the Damned?", next = "damned" },
-        { text = "Tell me about Marla.", next = "marla" },
-        { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
+        { text = "The Damned seem to wander without any purpose.", next = "damned" },
+        { text = "Is there anyone whose rest you worry about?", next = "marla" },
+        { text = "What does Sarvis teach about the Light?", next = "light" },
         { text = "Does Sarvis teach anything a mage could use, Elreth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Shadow and fel aren't so different, Elreth.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Is it a mercy to cut the Damned down, Elreth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Cutting the Damned down seems a mercy, Elreth.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Shall I track the Damned through the fields for you, Elreth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do you pity the mindless dead, Elreth?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What do you believe, Elreth, when you see me?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -282,7 +285,7 @@ P:NPC {
       lines = {
         { id = "da_default", text = "The ones the Lich King's grip held onto when ours slipped free. They don't remember their names, and they don't know they've died, which may be a mercy or may be the cruellest part." },
       },
-      choices = { { text = "Do they suffer?", next = "damned_suffer" } },
+      choices = { { text = "I wonder if they suffer.", next = "damned_suffer" } },
     },
     damned_suffer = {
       lines = {
@@ -295,7 +298,7 @@ P:NPC {
     },
     marla = {
       lines = {
-        { id = "ma_default", text = "A farmwife, buried before the plague took the rest of her family. Her husband died later and rose with the Damned, and it seemed wrong to me that they'd stay apart forever." },
+        { id = "ma_default", text = "Marla Fowler, a farmwife buried before the plague took the rest of her family. Her husband died later and rose with the Damned, and it seemed wrong to me that they'd stay apart forever." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
@@ -348,12 +351,16 @@ P:NPC {
       choices = {
         { text = "Say your word, Elreth. I won't mind it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Save your prayers. I chose this freely.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
+        { text = "What does Sarvis teach about the Light?", next = "light" },
       },
     },
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge's mindless dead don't know what they are, and I can't help pitying them. We were all like them once, weren't we?" } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are taught that the will is everything and the Light is nothing. I'm still learning to believe it, and some days I'm not sure I ever will." } },
+    holy_light = { { id = "tp_holy_light", text = "I was taught to pray to the Light as a girl, and now I'm told it's a lie. It still feels warm when I remember it, which I'm not supposed to admit." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gave us back our minds, and we owe her for it. I only wish I knew what she means for us to do with them." } },
     _none = { { id = "tp_none", text = "I'm only a novice, I'm afraid; ask Sarvis, if you're brave." } },
   },
 }
@@ -422,11 +429,11 @@ P:NPC {
       },
       choices = {
         { text = "Would you fight a priest who heals himself, Montague?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Afraid of a little lightning, Montague?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You look afraid of a little lightning, Montague.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did it end with the cat, Montague?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've been tracking something through these fields.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I was a rogue before I died. Let's see who's faster.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "What's a living man doing out here?", next = "why" },
+        { text = "A living man seems out of place out here.", next = "why" },
         { text = "Why pick fights with the Forsaken?", next = "fights" },
         { text = "What do I win, exactly?", next = "wager" },
         { text = "Would you still want a fight against a mage, Montague?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -524,6 +531,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "You're one of those walking corpses, aren't you? I don't care whose army you march in now, you're still a corpse, and I'm still the best fighter in Tirisfal." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge killed half my village, and I've been waiting for the chance to pay it back. You'll do for practice." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Crusade wanted me to join them, but I don't take orders from anybody, least of all men in red dresses. I'll fight the dead my own way." } },
     _none = { { id = "tp_none", text = "Ask me after you've beaten me, and even then I might lie." } },
   },
 }
@@ -539,7 +549,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_holland", text = "Oh, good, a pair of hands! The Society always needs more hands, especially ones that don't shake." },
+    { id = "g_holland", text = "Oh, good, a pair of hands! The Society always needs more hands, especially ones that don't shake or drop off in the doom weed." },
   },
 
   notice = {
@@ -602,7 +612,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Johaan's teaching me, and I'm learning fast, and the fields around Brill are full of useful things." },
+          text = "Junior Apothecary Holland, of the Royal Apothecary Society, though I won't be junior for long. Johaan's teaching me, and the fields around Brill are full of useful things, most of them deadly to the living, which is rather the point." },
         { id = "h_weed", tags = { "news" }, when = { questActive = TODO_QUEST("Doom Weed") },
           text = "Doom weed grows in the fields around the town, and in the graveyard, too, where it's thickest. Gather me a good bundle, and mind the roots; they're the part I want." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the elements have any use for doom weed, do you think? I've so much of it, and only one Johaan to give it to." },
@@ -617,25 +627,25 @@ P:NPC {
         { text = "Do the apothecaries pray, Holland?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the Society really want with all this doom weed?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does doom weed grow best in the graveyard, Holland?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "I know my herbs. Could the Society use me?", next = "herb", when = { profession = { "Herbalism", "Alchemy" } } },
+        { text = "I know my herbs. The Society could use me.", next = "herb", when = { profession = { "Herbalism", "Alchemy" } } },
         { text = "What is doom weed for?", next = "weed" },
-        { text = "How do you find working for Johaan?", next = "johaan" },
+        { text = "Working for Johaan can't be easy.", next = "johaan" },
         { text = "What does the Society actually do?", next = "society" },
         { text = "I can collect doom weed quietly, Holland.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does the Society ever study demons, Holland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Does the Society need muscle in the fields, Holland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The Society could use some muscle in the fields, Holland.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I bring you anything from the beasts around Brill, Holland?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do mages help the apothecaries, Holland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'd guess the mages help the apothecaries, Holland.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you want to test on a paladin, Holland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Holland.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? I've a pot about to boil, but talk fast." } },
+      again = { { id = "h_again", text = "Something else? I've a pot about to boil, and the fumes would kill you if you were still breathing, so talk fast." } },
     },
     weed = {
       lines = {
         { id = "we_default", text = "Poisons and tonics, mostly, and the Society has its own uses for it, which I'm not allowed to tell you. I'm not allowed to tell myself, honestly; I only gather it." },
       },
-      choices = { { text = "Doesn't that bother you?", next = "weed_bother" } },
+      choices = { { text = "Not knowing would bother me.", next = "weed_bother" } },
     },
     weed_bother = {
       lines = {
@@ -707,6 +717,9 @@ P:NPC {
   },
 
   topics = {
+    new_plague = { { id = "tp_new_plague", text = "I'm not supposed to talk about the Society's work, but between us, it's going to change everything. And I'll be a full apothecary by then, if Master Johaan ever stops hogging the good reagents." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need clever minds as much as strong arms, and I intend to be one of the cleverest. Doom weed has its own surprising uses, you know." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge spreads its sickness, and we spread ours, except ours will be better. That's all I can say, really, and it may be more than I should." } },
     _none = { { id = "tp_none", text = "No idea, but I'll look it up, if you let me forget the doom weed." } },
   },
 }

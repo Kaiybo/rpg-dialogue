@@ -54,12 +54,12 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. Uzer'i likes da curious ones." },
       },
       choices = {
-        { text = "What is a muisek?", next = "muisek" },
-        { text = "Whose head did you send to Neeru?", next = "head" },
-        { text = "Why do the Horde need beast spirits?", next = "why" },
+        { text = "What power do you draw from the creatures?", next = "muisek" },
+        { text = "What was in the sack you sent Neeru?", next = "head", when = { questDone = TODO_QUEST("A Strange Request") } },
+        { text = "Why does the Horde need that power?", next = "why" },
         { text = "How do you get on with the tauren here?", next = "tauren" },
         { text = "Binding spirits in jars is cruel, Uzer'i.", next = "shaman", when = { class = { "SHAMAN", "DRUID" } } },
-        { text = "Is my companion's muisek safe from you?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Is my companion's spirit safe from you?", next = "hunter", when = { class = "HUNTER" } },
         { text = "What work do you have?", next = "BUSINESS" },
         { text = "Later, witch doctor.", next = "END" },
       },
@@ -67,7 +67,7 @@ P:NPC {
     muisek = {
       lines = { { id = "m_default", text = "Da muisek is da spirit of a creature, mon, its strength and its anger together. When a beast die violent, da muisek may run off and take a bigger shape, and come back lookin' for whoever killed it." } },
       choices = {
-        { text = "So you shrink the body first?", next = "muisek_shrink" },
+        { text = "So you shrink the body first.", next = "muisek_shrink" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,7 +83,7 @@ P:NPC {
       choices = { { text = "Something else, Uzer'i.", next = "BACK" } },
     },
     head = {
-      lines = { { id = "hd_default", text = "Some poor dwarf I came across in da forest, mon. He was lost, and now he's found, and Neeru was very pleased with him." } },
+      lines = { { id = "hd_default", text = "A head, mon, from some poor dwarf I came across in da forest. He was lost, and now he's found, and Neeru was very pleased with him." } },
       choices = {
         { text = "That's ghoulish, even for a witch doctor.", next = "head_stance" },
         { text = "What was a dwarf doing in Feralas?", next = "head_stance" },
@@ -130,6 +130,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "Darkspear born, witch doctor trained, and sent out here to find what da land got to give. Dat's all you need, mon." } },
     advice = { { id = "tp_ad", text = "Never kill a big beast and walk away whistlin'. Somethin' might be followin' you home." } },
     cenarion_circle = { { id = "tp_cc", text = "Da druids would not like my jars, mon, so I don't invite dem over." } },
-    _none = { { id = "tp_none", text = "Dat I don't know, and da spirits not tellin' me either." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin lead the Darkspear well, mon, and he keep us close to the Warchief, which is smart. A troll alone in this world is a troll in a cookpot." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be small in number and big in spirit, mon. We come from the Echo Isles, and one day we be going back there to clean house." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Zul'Gurub got the Blood God himself wakin' up, and the Gurubashi priests be fools for it. You don't want a god who drinks blood, mon, because he never stop being thirsty." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief save the Darkspear from the sea witch and the humans both, and Uzer'i don't forget a debt like that. Uzer'i put a little extra spirit in the weapons for him." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The ogres in Dire Maul got all kinds of spirits trapped in that place, old ones, elf ones. Uzer'i would like a jar or two of them, mon, if anybody be brave enough to fetch them." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elf priestess think her moon goddess keep her safe. Uzer'i got a little vessel ready for her too, just in case." } },
+    _none = { { id = "tp_none", text = "Dat I don't know, mon, and da loa not tellin' me either, no matter how many chickens I offer." } },
   },
 }

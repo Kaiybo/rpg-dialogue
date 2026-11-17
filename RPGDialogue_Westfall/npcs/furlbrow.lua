@@ -133,22 +133,22 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm only watching the road for a wheelwright." },
       },
       choices = {
-        { text = "What became of the old trees here?", next = "druid_talk", when = { class = "DRUID" } },
+        { text = "There used to be trees here, by the look of the stumps.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Will you go back to your farm?", next = "back" },
         { text = "What happened the night you left?", next = "night" },
-        { text = "Why not fix the wagon and go?", next = "wagon" },
-        { text = "Tell me about your deed.", next = "deed" },
+        { text = "You could fix the wagon and go.", next = "wagon" },
+        { text = "What did the thieves take from you?", next = "deed" },
         { text = "Fear isn't a sin, Theodore.", next = "courage", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I remember your pumpkins. Everyone did.", next = "pumpkins", when = { origin = "human_westfall_farmhand" } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I could get your deed back from the Defias.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Couldn't magic mend your wagon, Theodore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Could a warrior have saved your farm, Theodore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "A warrior might have saved your farm, Theodore.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happened to your dog, Theodore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you prayed about the farm, Theodore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who'll answer for taking your farm, Theodore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you take back your farm by any means, Theodore?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you think you'll get your farm back, Theodore?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I'd guess you'll get your farm back one day, Theodore.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care, Theodore.", next = "END" },
       },
     },
@@ -178,7 +178,7 @@ P:NPC {
           text = "We ran so fast I left the one thing I'd have carried through fire, and you fetched it back. I still can't believe it." },
       },
       choices = {
-        { text = "Did you leave anything behind?", next = "watch" },
+        { text = "You must have left things behind.", next = "watch" },
         { text = "Running kept you both alive.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -192,19 +192,19 @@ P:NPC {
     wagon = {
       lines = { { id = "wg_default", text = "With what? The wheel's split clean through, and nobody out here mends wheels anymore, because they've all gone east. So we sit, and Verna calls it resting." } },
       choices = {
-        { text = "Saldean stayed. Why not you?", next = "saldean" },
+        { text = "Others stayed on their farms. Why not you?", next = "saldean" },
         { text = "Something else.", next = "BACK" },
       },
     },
     saldean = {
       lines = { { id = "sd_default", text = "Saldean's as stubborn as a stump. I begged him to pack up and come with us, and he laughed at me. Well, I'm not stubborn, I'm stuck, and there's a difference." } },
       choices = {
-        { text = "He calls you the fool.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'd wager he says the same of you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Maybe staying takes a different courage.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
     deed = {
-      lines = { { id = "de_default", text = "The thieves leaned on me till I signed it over, and I'm not proud of it. They'd have burned the house with us in it." } },
+      lines = { { id = "de_default", text = "Our deed, to start with. The thieves leaned on me till I signed it over, and I'm not proud of it. They'd have burned the house with us in it." } },
       choices = {
         { text = "Why would thieves want a deed?", next = "forgery" },
         { text = "You did what you had to.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -243,6 +243,11 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias are down in the old Moonbrook mines, they say, and that's where all our stolen grain must have gone. I'd like to see it again, just to know it went somewhere." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Verna and I went to the Darkmoon Faire when it camped by Goldshire, years back, and I bought her a little carved horse. She said it looked just like Blanchy, and I thought so too." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm no churchman, but I've prayed more since we lost the farm than I did in thirty years of having one. The Light hasn't answered yet, but Verna says it's thinking it over." } },
+    second_war = { { id = "tp_second_war", text = "The orcs came within a mile of this farm in the Second War and turned back for reasons nobody ever explained. The Defias didn't turn back, and that's the difference, I suppose." } },
+    theramore = { { id = "tp_theramore", text = "A man came through on the road saying Lady Proudmoore's giving land to settlers in Theramore. Verna says we'd never survive a sea crossing with Blanchy, and she's right, and I'd never leave her anyway." } },
     knows = {
       { id = "tp_knows", text = "I've had a lot of time to think, sitting here by a broken wagon. Ask me about any of this, if you've a mind to." },
     },

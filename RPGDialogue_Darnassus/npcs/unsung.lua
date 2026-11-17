@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Good day to you. If you are here to deposit something, I can help, and if you are here to admire the gardens, they are free." },
+    { id = "g_default", text = "Elune's light on you. If you are here to deposit something, I can help, and if you are here to admire the gardens, they are free." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Nothing in your box has moved since you last stood here, because nothing in my care ever does." },
   },
 
@@ -119,7 +119,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to deposit something before Ashenvale, I expect; they generally do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you mean to deposit anything that's still moving, I'm afraid I must refuse." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll have little to deposit, I expect, since your Circle thinks a pouch of seeds is a fortune, but the vault is yours as much as anyone's." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I count coin as carefully as a priestess counts prayers. Your spirits may watch, if they wish." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I count coin as carefully as a priestess counts prayers, and your spirits may watch, if they wish." },
       },
       again = {
         { id = "h_again", text = "Anything further? The ledger is open." },
@@ -128,7 +128,7 @@ P:NPC {
       choices = {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Why keep a bank beside the Temple?", next = "temple" },
-        { text = "Has anything ever gone missing?", next = "missing" },
+        { text = "I'd guess nothing ever goes missing here.", next = "missing" },
         { text = "Do night elves really trust in coin?", next = "coin" },
         { text = "Does the vault really object to enchanted goods?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the strangest thing a warrior has left with you?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -185,6 +185,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the ledgers in the Temple Gardens with Idriana and Lairn. Nobody ever shouts at a ledger, which suits me." } },
     trade = { { id = "tp_trade", text = "More coin comes up from the boats every season. Most of it leaves again for Auberdine, but some of it stays with me for a while." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblin bank in Booty Bay charges for keeping your gold and charges again for giving it back. Ours does neither, though we do insist on legible handwriting." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle goblins keep accounts in four colours of ink and a code nobody else can read. I admire the discipline, though not the interest." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's credit is good at our counter. Lady Proudmoore runs a tidy treasury, which is rarer than you'd think among wizards." } },
     _none = { { id = "tp_none", text = "That isn't written in any ledger I keep, so I'm afraid I can't help you with it." } },
   },
 }
@@ -309,7 +312,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Shoulders back, shield up, and tell me who trained you before I decide whether to start you over." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You're welcome to watch, but keep that beast out of the sparring ring." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my Terrace! Keep your servant out of the drill lines, because my students will swing at anything that moves, and they've no notion yet of friend or foe." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Stand straight. No excuses. Your spirits will not excuse you either." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Stand straight, and make no excuses, because your spirits will not excuse you either, and neither will a Sentinel's drill." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short; I've a drill starting." },
@@ -336,7 +339,7 @@ P:NPC {
         { id = "st_default", text = "Young kaldorei who are tired of waiting for the Sentinels to take them, mostly, and lately humans and dwarves off the boats. The dwarves are the easiest to teach, because they already expect to get hit." },
       },
       choices = {
-        { text = "And the night elves?", next = "students2" },
+        { text = "You haven't mentioned the night elves.", next = "students2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -373,7 +376,10 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "The Sentinels take the best of us to Ashenvale, and I train the ones they haven't taken yet." } },
     background = { { id = "tp_bg", text = "I've been teaching on this terrace since Darnassus had a terrace. Before that I held a line in Ashenvale, and I'll leave it there." } },
     advice = { { id = "tp_ad", text = "Mend your shield before you sharpen your sword. A blunt sword still keeps you alive, but a cracked shield won't." } },
-    _none = { { id = "tp_none", text = "I don't know, and I won't guess. Ask someone who isn't busy shouting at recruits." } },
+    warsong = { { id = "tp_warsong", text = "I held a line against the Warsong in Ashenvale, and I'm here now, so I suppose I held it well enough. They swing hard and they don't plan, so plan." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are all strength and charge. Make them turn, and make them turn again, and they'll tire before you." } },
+    burning_legion = { { id = "tp_burning_legion", text = "I was a girl at Hyjal, carrying arrows, and I saw the demons come over the hill. I'm still teaching because of that day." } },
+    _none = { { id = "tp_none", text = "I don't know, and I won't guess. Ask someone who isn't busy shouting at recruits who think a few decades of practice is a lifetime." } },
   },
 }
 
@@ -389,7 +395,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come and look, but pick them up properly, because a blade tells you more in the hand than on the rack." },
+    { id = "g_default", text = "Ishnu-alah. Come and look, but pick them up properly, because a blade tells you more in the hand than on the rack." },
     { id = "g_back", when = { metBefore = true }, text = "There you are. Did the last one serve you well, or have you come to tell me otherwise?" },
   },
 
@@ -491,7 +497,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see your grip, because I can tell more from that than from any story you'd tell me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I don't sell bows, but I've a few good daggers for when the beast gets inside your reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Most of your Circle buy one good staff and keep it for a hundred years, which is wonderful for the staff and terrible for my trade." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance and grip are family to me. Let me see how you hold your weapon." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance and grip have been family to me for longer than I can remember, so let me see how you hold your weapon." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? Ask before you buy, never after." },
@@ -500,7 +506,7 @@ P:NPC {
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How do I choose the right weapon?", next = "choose" },
-        { text = "Who buys from you?", next = "buyers" },
+        { text = "You must have plenty of customers up here.", next = "buyers" },
         { text = "Where do your blades come from?", next = "smiths" },
         { text = "Would you recommend a staff or a dagger for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What blade would you sell a warrior like me?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -553,7 +559,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell weapons on the Warrior's Terrace. I've handled more blades than I could count, and I still like the feel of a good one." } },
     advice = { { id = "tp_ad", text = "Oil your blade after the rain, even if you're tired. Rust doesn't care how tired you are." } },
-    _none = { { id = "tp_none", text = "I only know about steel and the people who carry it, so ask someone else about that." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The smiths of Booty Bay can make a fine cutlass, I'll admit, for twice the price and half the balance. Buy local." } },
+    magni = { { id = "tp_magni", text = "Ironforge steel is the best there is, and King Magni knows it. I stock a little when I can get it, and it sells before I've finished unpacking." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The arena in Stranglethorn wears blades out faster than anywhere I know. Good for business, if I sold there." } },
+    _none = { { id = "tp_none", text = "I only know about steel and the people who carry it, as my mother did before me, so ask someone else about that." } },
   },
 }
 
@@ -676,7 +685,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The sabers are calm around healers, I've noticed, as though they can tell your hands are meant for mending." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My sabers don't usually carry so much steel, {class}, so be gentle with them, for they feel the weight more than they show." },
-        { id = "h_default", text = "I am Lelanai, and I raise and train the nightsabers and frostsabers that carry our people. They are not beasts of burden to us, so a saber goes only to someone who will treat it as a companion." },
+        { id = "h_default", text = "I am Lelanai, and I raise and train the nightsabers and frostsabers that have carried our people since the forests of the old world. They are not beasts of burden to us, so a saber goes only to someone who will treat it as a companion." },
         { id = "h_elf_young", when = { race = "NightElf", maxLevel = 39 },
           text = "You're one of ours, so one day one of these will be yours. Come back when you've seen more of the world and you can afford to feed her properly." },
         { id = "h_elf_ready", when = { race = "NightElf", minLevel = 40 },
@@ -691,7 +700,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll understand the sabers better than most, since you already share your life with a beast." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. My sabers knew you were coming before you reached the pen, because you smell of cat, and they never quite know what to make of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My sabers are twitching their ears at you, because they can feel the arcane on your skin, though they'll settle if you're gentle." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My nightsabers are my children. Would your spirits treat one as a companion?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My nightsabers are my children, and Elune's before they were mine, so tell me, would your spirits treat one as a companion?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the tail on that one." },
@@ -700,7 +709,7 @@ P:NPC {
       choices = {
         { text = "Let me see the sabers.", next = "BUSINESS" },
         { text = "Where do frostsabers come from?", next = "frost" },
-        { text = "How do you train a saber to carry a rider?", next = "train" },
+        { text = "Training a saber to carry a rider must take years.", next = "train" },
         { text = "Why won't you sell to everyone?", next = "outsiders", when = { ["not"] = { race = "NightElf" } } },
         { text = "Would a saber make a good companion for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your sabers ride into battle with warriors?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -748,6 +757,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've raised sabers since before Teldrassil was planted. I'll raise them until the sabers tell me to stop." } },
     advice = { { id = "tp_ad", text = "Never feed a saber from your hand unless you mean to do it every day after. They keep score." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Sabers don't like furbolgs, even friendly ones, and the Timbermaw don't like sabers. I've stopped trying to make introductions." } },
+    centaur = { { id = "tp_centaur", text = "I've heard the centaur ride their own kind into battle, in a manner of speaking. A saber would make short work of that." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring's frostsabers are the finest cats there are, and Everlook's goblins would sell them if they could catch one. They can't, and I'm glad." } },
     _none = { { id = "tp_none", text = "I couldn't tell you; my days are cats and more cats. Ask Jartsam, he talks to people more than I do." } },
   },
 }
@@ -860,7 +872,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I see more bruised pride than bruised bones in this job, so you'd be welcome on the riding ground, though mostly for the bones." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on a saber? Now that I'd like to see, {class}, because a saber doesn't care how holy you are if you sit on it like a sack of grain." },
-        { id = "h_default", text = "I'm Jartsam. Lelanai raises the sabers, and I teach people how to stay on them, which is harder than it looks, because a saber moves like water and doesn't wait for you." },
+        { id = "h_default", text = "I am Jartsam. Lelanai raises the sabers, and I teach people how to stay on them, which is harder than it looks, because a saber moves like moonlight on water and doesn't wait for you." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, come to learn riding when you could turn into a cat yourself? I suppose even a druid tires of running on all fours." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Rogues make good riders, I've found, because they're used to balancing on rooftops. Just don't try to ride standing up." },
@@ -868,7 +880,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll fall off heavier than most, so I'll warn the ground before your first lesson." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You already know how to talk to cats, which puts you ahead of every warrior I've ever taught." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your kind ride horses made of fire eventually, so I'm curious whether you'll fall off a saber as fast as everyone else." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Your first fall will be funny. Do your spirits catch you?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Your first fall will be funny, I promise, so tell me whether your spirits will catch you." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a student due who still can't find the stirrups." },
@@ -877,7 +889,7 @@ P:NPC {
       choices = {
         { text = "Teach me to ride.", next = "BUSINESS" },
         { text = "What's the hardest part of riding a saber?", next = "hard" },
-        { text = "Do you work for Lelanai?", next = "lelanai" },
+        { text = "I take it you work for Lelanai.", next = "lelanai" },
         { text = "Is riding a saber really harder than a horse?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is riding worth learning when I can teleport?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is riding any harder in full armor, Jartsam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -921,6 +933,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've taught riding for a long time. I've only been thrown twice, and I'll deny one of those." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away from them. Your mount will thank you, and so will your back." } },
+    brotherhood_horse = { { id = "tp_brotherhood_horse", text = "Human horsemen, the Brotherhood of the Horse. They tame their mounts the way I tame mine, with patience and a few bruises." } },
+    centaur = { { id = "tp_centaur", text = "Centaur ride nothing, which seems a great waste of good legs. I'd like to teach one to ride a saber, just to see the look on its face." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has strider races, I'm told, and the goblins bet on them. I could win that if anyone let me enter." } },
     _none = { { id = "tp_none", text = "No idea, I'm afraid. Ask me about stirrups and I'm your elf." } },
   },
 }
@@ -937,7 +952,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome. If you mean to found a guild, sit down, because I'll want to hear why." },
+    { id = "g_default", text = "Ishnu-alah. If you mean to found a guild, sit down, because I'll want to hear why." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you found your companions, or are you still looking?" },
   },
 
@@ -1049,7 +1064,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your kind tend to join guilds late and leave them early, since you have company enough already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Circle rarely asks me for a charter, because it is a fellowship of its own and older than any I've written down, so I'm curious what brings you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you've come to register a guild of scholars, I'll want to know what you mean to study, because the Sentinels will ask me later." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. A guild is a serious promise. What purpose would your spirits serve in one?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. A guild is a serious promise, and my people keep their promises for centuries, so what purpose would your spirits serve in one?" },
       },
       again = {
         { id = "h_again", text = "Is there more you wish to ask before you sign anything?" },
@@ -1058,7 +1073,7 @@ P:NPC {
       choices = {
         { text = "I'd like to see about a charter.", next = "BUSINESS" },
         { text = "Why do you care what a guild is for?", next = "purpose" },
-        { text = "What makes a guild last?", next = "last" },
+        { text = "Most guilds don't seem to last.", next = "last" },
         { text = "Where do I get a guild tabard?", next = "tabard" },
         { text = "Do you refuse charters to bands of rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors make good guild founders, Lysheana?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1112,6 +1127,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the guild rolls of Darnassus. Every name in them made me a promise of some kind." } },
     advice = { { id = "tp_ad", text = "Choose your companions slowly and keep them long. Gold is easier to find." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Half the guilds in Darnassus were founded over a drink at the Darkmoon Faire, according to their charters. The other half were founded in arguments." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Many a new guild has gone into Blackfathom together and come back as old friends. Some came back as fewer friends, but they all came back closer." } },
+    onyxia = { { id = "tp_onyxia", text = "I've had guilds come in talking about Onyxia's lair, very bold. I've updated more than one roster afterwards." } },
     _none = { { id = "tp_none", text = "I can't say. If there's a guild that knows, I'll have its name in my rolls, but not the answer." } },
   },
 }
@@ -1228,7 +1246,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a tabard that shows up against blood and mud, so don't let anyone sell you pale silver." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Hunters are the only ones who ever ask me for tabards that blend into the forest." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Leaf green and moonsilver, I'd say, though your Circle has never once asked me for a tabard, and I've had one sketched for years." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! What colours would your spirits choose for a tabard? Do not rush me, please." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! What colours would your spirits choose for a tabard? Take your time, please, because I never rush a colour." },
       },
       again = {
         { id = "h_again", text = "Something else? I have all afternoon for colors." },
@@ -1237,7 +1255,7 @@ P:NPC {
       choices = {
         { text = "I'd like to design a tabard.", next = "BUSINESS" },
         { text = "What makes a good tabard?", next = "good" },
-        { text = "What's the worst one you've made?", next = "worst" },
+        { text = "You must have made a few ugly ones.", next = "worst" },
         { text = "What would you put on a rogue's tabard?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you stitch a tabard with an enchantment?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What colors suit a warrior's tabard, Shalumon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1264,7 +1282,7 @@ P:NPC {
         { id = "wo_default", text = "I won't name the guild, because they're still customers. But they wanted purple, orange and a green emblem all at once, and I made it, and I have not slept well since." },
       },
       choices = {
-        { text = "Did they like it?", next = "worst2" },
+        { text = "I hope they at least liked it.", next = "worst2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1281,6 +1299,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I design tabards on the Craftsmen's Terrace. My aunt wove banners for the Sentinels, and I suppose it runs in the family." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's tents are the brightest cloth I've ever seen, dyed in colours I can't name. I'd love to know where they get them." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's tabards are blue and gold, very neat, and very human. My aunt would have liked them." } },
+    sentinels = { { id = "tp_sentinels", text = "My aunt wove the Sentinels' banners for years, and I still use her patterns. Every owl on those banners has her stitch in the eye." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, I'm afraid. Ask me about dyes and I'll talk until dusk." } },
   },
 }
@@ -1401,7 +1422,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want meat, not berries, whatever the druids tell you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Half the meat on this counter came in on a hunter's back, so you're among friends here." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I've had cutpurses on the Terrace before, so you'll forgive me for keeping my eye on the venison while you look." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Night elves do not live on moonlight and berries. Buy some venison, and your spirits will thank you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Whatever the stories say, night elves do not live on moonlight and berries, so buy some venison, and your spirits will thank you." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a queue forming." },
@@ -1410,7 +1431,7 @@ P:NPC {
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Do the druids object to your trade?", next = "druids" },
-        { text = "Who brings you your meat?", next = "hunters" },
+        { text = "Your meat looks fresh off the hunt.", next = "hunters" },
         { text = "Is conjured food any threat to your trade?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Will your meat keep a warrior going in Ashenvale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who brings you your venison, Jaeana?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1455,6 +1476,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell meat on the Tradesmen's Terrace. Somebody in this city has to feed people who don't live on dew." } },
     advice = { { id = "tp_ad", text = "Salt anything you mean to carry past Darkshore. The damp there ruins meat in a day." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay they eat raptor and call it a delicacy. I'll stay on my terrace and sell honest boar." } },
+    centaur = { { id = "tp_centaur", text = "I'm told the centaur eat what they kill, and they kill a great deal. Not a customer base I'm after." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells meat on sticks, and everyone loves it. I've thought about trying it here, but the priestesses would talk." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask me what's fresh today and I'll tell you." } },
   },
 }
@@ -1471,7 +1495,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Sit down a moment and let me see your hands. Steady hands make good bandages." },
+    { id = "g_default", text = "Elune's peace on you. Sit down a moment and let me see your hands, because steady hands make good bandages." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope you've needed my lessons less than you feared." },
   },
 
@@ -1587,7 +1611,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have two of you to keep standing, I expect, since your companion can't tie its own bandages." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You can mend a wound with a word, I know, but the word costs mana and the linen doesn't, so I'd still like you to learn bandaging." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll be the first to go down when the Gnarlpine get close, so you'd do well to learn how to bandage yourself before it happens." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bandaging matters. I have seen what happens when it is done badly. Your spirits will not save everyone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bandaging matters, for I have seen what happens when it is done badly, all the way back to the war against the Legion, and your spirits will not save everyone." },
       },
       again = {
         { id = "h_again", text = "Another question? My bandages can wait on the table a while." },
@@ -1596,7 +1620,7 @@ P:NPC {
       choices = {
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why should I learn this?", next = "why" },
-        { text = "What's the hardest wound to treat?", next = "wound" },
+        { text = "Some wounds must be harder to treat than others.", next = "wound" },
         { text = "Where do I get linen?", next = "linen" },
         { text = "Do rogues really come to you more than warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's the first thing a warrior should learn about bandaging?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1650,7 +1674,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I teach first aid on the Craftsmen's Terrace. I learned it bandaging Sentinels in Ashenvale, which is all I'll say about that." } },
     advice = { { id = "tp_ad", text = "Bandage before the fight is over, not after. Find a moment, even a short one." } },
-    _none = { { id = "tp_none", text = "I'm only a healer of small hurts, so I couldn't say. Ask someone wiser." } },
+    scourge = { { id = "tp_scourge", text = "The human priests who come here talk about plague wounds that won't close. I've taught bandaging for a hundred years, and I've nothing for that." } },
+    warsong = { { id = "tp_warsong", text = "I bandaged Sentinels after Warsong raids for longer than I want to remember. Axe wounds are deep, so press hard and press long." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Bring extra linen to the Deeps, because everything gets wet and then everything gets worse. I've seen it more than once." } },
+    _none = { { id = "tp_none", text = "I'm only a healer of small hurts, so I couldn't say. Ask someone wiser, perhaps a priestess of the Temple." } },
   },
 }
 
@@ -1666,7 +1693,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Careful, that one's still warm. What can I do for you?" },
+    { id = "g_default", text = "Careful, that one's still warm, and it has been brewing since the last new moon. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. You still have all your eyebrows, so you must be doing something right." },
   },
 
@@ -1768,7 +1795,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of my best customers, I'm sure, though I wish you'd learn to measure before you drink." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know where the herbs grow, I imagine, which makes you more useful to me than most of my students." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll know the herbs better than my students do, though I suspect you'll also want to argue with me about how much of each one to pick." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Measures matter. Your spirits must be exact, or the flask will crack." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Measures matter more than any spell, so your spirits must be exact, or the flask will crack." },
       },
       again = {
         { id = "h_again", text = "Yes? Ask, but quietly, this needs to settle." },
@@ -1778,7 +1805,7 @@ P:NPC {
         { text = "Train me in alchemy.", next = "BUSINESS" },
         { text = "What should a new alchemist learn first?", next = "first" },
         { text = "Where do the best herbs grow?", next = "herbs" },
-        { text = "Is alchemy dangerous?", next = "danger" },
+        { text = "Alchemy looks a dangerous craft.", next = "danger" },
         { text = "Do you disapprove of rogues brewing poisons?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Which potions does a warrior need most, Ainethil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters find good herbs along their tracks, Ainethil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1830,6 +1857,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I teach alchemy on the Craftsmen's Terrace. I've stained my fingers green for longer than I care to count." } },
     advice = { { id = "tp_ad", text = "Label every vial, every time. You will forget, and you won't like guessing." } },
-    _none = { { id = "tp_none", text = "Not my field, I'm afraid. I only know what boils and what doesn't." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the bane of every alchemist I know. It looks like any other moss until you try to brew it, and then it tries to brew you." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say plants in the Dream are perfect, every one. I'd give a year to harvest there, though I suppose that's not what it's for." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblin alchemists in Booty Bay sell potions that explode, and some that are meant to. I prefer recipes where you know which is which." } },
+    _none = { { id = "tp_none", text = "Not my field, I'm afraid. I only know what boils and what doesn't, and I have spent a long life learning even that." } },
   },
 }

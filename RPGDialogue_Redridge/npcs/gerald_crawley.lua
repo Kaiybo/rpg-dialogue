@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "Who buys poison in a town like this?", next = "who" },
-        { text = "Isn't this trade a little dishonourable?", next = "honour" },
+        { text = "This trade seems a little dishonourable to me.", next = "honour" },
         { text = "What do you use against orcs?", next = "orcs", when = { class = "ROGUE" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "I'll be going.", next = "END" },
@@ -56,7 +56,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Rogues, mostly, and the odd hunter with a gnoll problem. Some of the guards, though they'd never say so, because orcs don't fight fair either." },
       },
       choices = {
-        { text = "The guards buy from you?", next = "who_guards" },
+        { text = "So the guards buy from you.", next = "who_guards" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,6 +83,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "Some of my customers speak of a manor in the Alterac foothills where people like them are welcomed, if they can find it. I've never been asked to visit, and I'm in no hurry to be." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate buys from the same kind of seller as I do, but they don't pay, they steal, and they make the trade look bad. I keep my stock locked and my door shut when a man in a black mask asks about it." } },
+    si7 = { { id = "tp_si7", text = "SI:7 has never troubled my shop, and I've never troubled them, which is the best sort of friendship. I suspect a few of my regulars draw their wages from that office in Old Town." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The jungle trolls of Stranglethorn brew poisons that would make my stock look like table salt. I'd give a good deal to see their recipes, and a good deal more not to see their altars." } },
     background = { { id = "tp_bg", text = "I sell what I sell, and I've no story worth telling you." } },
     advice = { { id = "tp_ad", text = "Always wipe your blade before you sheathe it. You'd be surprised how many lose a finger to that." } },
     _none = { { id = "tp_none", text = "I don't know, and if I did I'd charge you for it." } },

@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Be silent a moment. Even over the sea's roar, you can hear the fish men gurgling." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back. How many did you kill?" },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. How many did you kill, and did they die screaming?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}. The fish men haven't, so neither have I." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The tide's in, and they come up with it at night. Keep your weapon close." },
   },
@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Katar, and I lead the patrols along this beach. I've no love for the sea, nor for any creature I've seen come from it, and if it were in my power I'd slay the fish men by the hundreds." },
+          text = "Katar, and I lead the patrols along this beach for the Horde. I've no love for the sea, nor for any creature I've seen come from it, and if it were in my power I'd slay the fish men by the hundreds, as my clan once slew its enemies." },
         { id = "h_threat_active", tags = { "news" }, when = { questActive = TODO_QUEST("Threat From the Sea") },
           text = "How many can you slay, {class}? The marsh murlocs, their inkspewers and their flesheaters, and I'll take my pleasure in hearing them die." },
         { id = "h_threat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Threat From the Sea"), days = 3 } },
@@ -45,11 +45,11 @@ P:NPC {
           text = "A tauren, from the dry plains. You've never had the sea try to swallow you, so you may not understand me, but you can still kill what comes out of it." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak low." },
+        { id = "h_again", text = "What else? Speak low, the way an orc speaks on the hunt." },
         { id = "h_again2", text = "Go on. I'm listening to you and the sea both." },
       },
       choices = {
-        { text = "Why do you hate the sea?", next = "sea" },
+        { text = "You speak of the sea like an old enemy.", next = "sea" },
         { text = "What are the murlocs doing on this coast?", next = "murlocs" },
         { text = "How do the patrols work?", next = "patrol" },
         { text = "The water spirits aren't cruel, Katar.", next = "xshaman", when = { class = "SHAMAN" } },
@@ -92,7 +92,7 @@ P:NPC {
         { id = "mu_default", text = "Breeding, and gathering, and growing bolder, with marsh oracles among them now who chant over the tide. Their stupidity forces them to refortify after every slaughter, and that's good, because it keeps them busy." },
       },
       choices = {
-        { text = "Could they really threaten Stonard?", next = "murlocs_stonard" },
+        { text = "I doubt murlocs could ever threaten Stonard.", next = "murlocs_stonard" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "pa_default", text = "Two at a time along the tideline, from the post to the rocks and back, and never closer to the water than a spear's throw. The ones who get careless at the water's edge are the ones I don't see again." },
       },
       choices = {
-        { text = "Do you need more soldiers?", next = "patrol_more" },
+        { text = "You look like you need more soldiers.", next = "patrol_more" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,6 +153,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've lived by this beach long enough to hate it, and the sand's in every seam of my armour. Ask me something else." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the tide, for it's always coming back." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask me about the fish men instead." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave us Durotar, and I left it for this swamp, which shows how little sense I have. I'd follow him anywhere, but not back to this beach, if I had the choice." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, on ships off the coast of Lordaeron. The sea took more of us than the Alliance did, and I've hated it since." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls in that temple on the lake chant all night, and the sound carries over the water to my beach. I don't sleep much anymore." } },
+    internment = { { id = "tp_internment", text = "I spent years in an internment camp after the war, and when I got out I came to the sea. I don't know why, it's never done me any good." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask me about the fish men instead, because that's where my blood runs hot." } },
   },
 }

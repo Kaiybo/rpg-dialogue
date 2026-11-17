@@ -14,7 +14,7 @@
 ## Identity
 Dorn Plainstalker · Weathered Nook, Thousand Needles · Horde · Tauren · tester
 Personality: cryptic, calm, kindly, withholding
-Speech: measured; spirit/body/mind triad
+Speech: measured; spirit/body/mind triad; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: faith, the tests, the Nether
 Relationships: Braug Dimspirit
 Default attitudes: tests anyone who finds him

@@ -16,6 +16,8 @@ P:Pool {
     { id = "g_distrust", when = { townStanding = { town = "crossroads", max = -20 } }, text = "Thork knows your name, stranger, so mind yourself while you're inside these walls." },
   },
   notice = {
+    { id = "n_xbeast", cat = "origin", when = { origin = "orc_barrens_beastmaster" },
+      text = "You hunt the old way, beside a beast you tamed yourself. Sergra sends her best out past the walls like that, so I'll not ask you to leash it inside the gate." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The Barrens has been chewing on you. Traugh can stitch that up, though the Barrens will only open you again, and she's not gentle with the needle." },
     { id = "n_alliance", cat = "race", when = { faction = "Alliance" },
@@ -23,7 +25,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Something in the grass! Out where I can see you, or I'll put a spear where I think you are." } },
   lines = {
-    { id = "l_default", text = "Quilboar to the south, centaur to the west, harpies in the hills and the Alliance at Northwatch. The Crossroads sits in the middle and holds, on stale bread and less sleep than you'd believe." },
+    { id = "l_default", text = "Quilboar to the south, centaur to the west, harpies in the hills and the Alliance at Northwatch. The Crossroads sits in the middle and holds for the Horde, on stale bread and less sleep than you'd believe." },
     { id = "l_disrupt", when = { questDone = TODO_QUEST("The Disruption Ends") }, text = "The centaur raids have slowed. I don't trust it yet, but I'll take the sleep, and so will my feet." },
   },
   choices = { { text = "Lok'tar.", next = "END", fx = { standing = { crossroads = 1 } } } },

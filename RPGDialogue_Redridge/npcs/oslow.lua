@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "oslow", id = TODO_NPC("Foreman Oslow"), name = "Foreman Oslow",
+  prejudice = { race = "Gnome", amount = 8, why = "A mason's scorn for gnomish engineering; blames Gnomeregan's fall on building it wrong." },
   bible = "bibles/oslow.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "craft", "swim" },
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A gnome. If you're from the Tinker Town office with another plan for a bridge that folds up and walks away, the answer's still no, and I'll thank you not to measure anything." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, it's you. I was wrong about gnomes, or about one of them at least, and I've told my lads to stop calling the leaning post 'the Gnomeregan'." },
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
     { id = "g_tools", when = { questActive = TODO_QUEST("The Lost Tools") }, text = "My toolbox? Have you got my toolbox? Then why on earth are you dry?" },
     { id = "g_after", when = { questDone = TODO_QUEST("The Everstill Bridge") }, text = "Look at that span, go on, look at it. That's craftsmanship, that is." },
@@ -32,6 +35,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust stone, mortar and an honest plumb line. Gnomes trust gears and steam and their own cleverness, and look what happened to their city, gassed and flooded under their own feet." } },
+      choices = {
+        { text = "Gnomeregan fell to treachery, not to bad engineering.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "Stone is stone. Nobody ever went wrong building with it.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "I'd like to see how a mason builds, Foreman.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Treachery, they say, and maybe so, but a city you can poison from the inside was never built right. You'll not talk me round on that one." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Now you're talking sense! Stone doesn't blow up, stone doesn't need oiling, and stone doesn't sit in a workshop three weeks waiting on a part from Ironforge." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Would you, now? Then come by the bridge any morning and I'll show you a keystone set properly. You might take it home to your people, for all the good it'll do." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not if the orcs keep interfering. They've taken it personally, it seems. Your spirits might help, if they're willing." } },
@@ -145,8 +170,9 @@ P:NPC {
         { id = "h_again2", text = "Go on. The bridge isn't going anywhere, which is rather the problem." },
       },
       choices = {
+        { text = "You don't trust gnomish engineering, do you, Foreman?", next = "prej", when = { prejudiced = true } },
         { text = "Why does the bridge matter so much?", next = "why" },
-        { text = "What happened to your tools?", next = "tools" },
+        { text = "Your crew seems to be working without its tools.", next = "tools" },
         { text = "Where are your building supplies?", next = "supplies" },
         { text = "Brother Paxton needs Rethban ore for his ink.", next = "paxton", when = { questActive = TODO_QUEST("Ink Supplies") } },
         { text = "Northshire's library writes with your ore, I hear.", next = "novice", when = { origin = "human_abbey_novice" } },
@@ -160,7 +186,7 @@ P:NPC {
         { text = "Does your crew ever ask for a blessing before work, Foreman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the bridge worth the lives it's cost, Foreman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will the new bridge be strong enough to stand against the orcs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Will your bridge be done before the rains, Oslow?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your bridge might be done before the rains, Oslow.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My father helped rebuild Stormwind and never saw his wages.", next = "xorig_mason", when = { origin = "human_stonemason_child" } },
         { text = "Good luck with the rains.", next = "END" },
       },
@@ -192,7 +218,7 @@ P:NPC {
       choices = {
         { text = "I'll help you finish it.", next = "BACK", fx = { affinity = 2, learn = { "everstill_bridge" } } },
         { text = "Pretty speech for a builder.", next = "speech", fx = { trait = { witty = 1 } } },
-        { text = "How did it come down?", next = "collapse" },
+        { text = "That must have been some blow to bring it down.", next = "collapse" },
       },
     },
     speech = {
@@ -253,7 +279,7 @@ P:NPC {
       lines = { { id = "sn_default", text = "Iron pikes and iron rivets. A bridge is mostly the bits nobody looks at. Take them off the gnolls and I'll have a span up before the rains." } },
       choices = {
         { text = "Consider it done.", next = "BUSINESS", fx = { affinity = 1, standing = { lakeshire = 1 } } },
-        { text = "Gnolls with good iron. Verner must be furious.", next = "supplies_verner" },
+        { text = "Gnolls with good iron. The town smith must be furious.", next = "supplies_verner" },
       },
     },
     supplies_verner = {
@@ -320,6 +346,11 @@ P:NPC {
   },
 
   topics = {
+    thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span in stone and iron without a foreman shouting at them, they say, which is how I know it's a legend. I'd have finished my own bridge by now if I had their stone and half their patience." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild built half of Stormwind and was cheated out of the pay, and I lost good men to that business. I kept my lads honest by keeping them busy, and the Everstill Bridge is still not done, so it's working." } },
+    deadmines = { { id = "tp_deadmines", text = "They say the Defias have dug themselves a hideout in the old Moonbrook mines and built a whole ship inside it. That's the sort of engineering I'd admire if it weren't done by thieves with my old crew in their ranks." } },
+    second_war = { { id = "tp_second_war", text = "The orcs pulled down this bridge's grandfather in the Second War, and we rebuilt it with our hands. Now they're pulling at it again, and I'm out of patience, out of tools, and very nearly out of stone." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My father helped raise the Valley of Heroes gate, and every time I go to the city I check his joints for cracks. There aren't any, which is the best thing anyone can say about a builder." } },
     knows = {
       { id = "tp_knows", text = "A foreman hears plenty from a crew on a long shift, and most of it's about the lake. Ask me about any of this, and mind the measuring line." },
     },

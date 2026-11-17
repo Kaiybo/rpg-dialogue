@@ -36,6 +36,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "o_zenn_foulhoof_harmless", tags = { "news" }, when = { opinion = { topic = "zenn_foulhoof", stance = "harmless" } },
+          text = "Oh, you're the one who called me harmless in front of the Council. I could weep with gratitude, if satyrs did that sort of thing." },
+        { id = "o_zenn_foulhoof_hard", tags = { "news" }, when = { opinion = { topic = "zenn_foulhoof", stance = "hard" } },
+          text = "Ah, here comes the one who wants me run off the island! Do sit down; I'm told I'm much less frightening up close." },
         { id = "h_default", key = true,
           text = "Zenn Foulhoof, at your service, and you at mine, I hope. I have a little business in this forest, and a little business needs a little help." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Zenn's Bidding") },
@@ -59,8 +63,8 @@ P:NPC {
       },
       choices = {
         { text = "What business does a satyr have in this forest?", next = "business" },
-        { text = "Why do the night elves let you stay here?", next = "council" },
-        { text = "What happened to your kind?", next = "satyrs" },
+        { text = "I'm surprised the night elves let you stay here.", next = "council" },
+        { text = "Your kind weren't always satyrs, I've heard.", next = "satyrs" },
         { text = "You were one of us once.", next = "kin", when = { race = "NightElf" } },
         { text = "You reek of fel, Zenn.", next = "druid_z", when = { class = "DRUID" } },
         { text = "What do you know of my sort of magic?", next = "lock_z", when = { class = "WARLOCK" } },
@@ -85,7 +89,7 @@ P:NPC {
         { id = "bw_default", text = "Now that would be telling, and I'd have no customers left if I told. Let's say not everyone in Teldrassil is as pure as the Temple would like." },
       },
       choices = {
-        { text = "You're lying, aren't you?", next = "business_lie" },
+        { text = "You're lying to me.", next = "business_lie" },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -106,7 +110,7 @@ P:NPC {
       choices = {
         { text = "Tiresome? You're a satyr. You should be driven out.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If you've done no harm, they've no right to chase you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What does the Council think you're doing?", next = "council_think" },
+        { text = "The Council must wonder what you're up to.", next = "council_think" },
       },
     },
     council_think = {
@@ -199,6 +203,10 @@ P:NPC {
     satyrs = { { id = "tp_satyrs", text = "Most of my cousins are rude, loud and fond of fire. I'm the charming one, and you'll find I'm also the only one who talks.", next = "satyrs" } },
     fel_moss = { { id = "tp_felmoss", text = "Ugly stuff, and nothing to do with me, whatever the druids whisper. Ask the grells in Fel Rock where it comes from." } },
     teldrassil = { { id = "tp_tree", text = "A very large tree full of very proud people. I'd have chosen somewhere warmer myself." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion, the Legion, everyone's always worried about the Legion. I'm only a humble satyr with a fondness for the forest, little one, and I've no idea what you're implying." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were such fun, little one, before your people took offence at a few small bargains. I knew one or two of them, socially, a long time ago." } },
+    elune = { { id = "tp_elune", text = "Elune and I aren't on speaking terms, little one, which is her loss. I can be very good company." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids' green dream, all leaves and naps. I've never cared for it, and I believe the feeling is mutual." } },
     _none = { { id = "tp_none", text = "Never heard of it, and if I had, you couldn't afford it." } },
   },
 }

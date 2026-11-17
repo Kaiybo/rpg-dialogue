@@ -141,11 +141,11 @@ P:NPC {
         { text = "I was a novice here, Brother.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I fled Lordaeron as a child.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
-        { text = "Does the Light really watch over rogues, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Can the Light and the arcane share a roof, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I doubt the Light watches over rogues, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Light and the arcane seem uneasy under one roof, Brother.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you think the Light cares for beasts, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Surely the Light cares for beasts as well, Brother.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think the spirits chose me, Brother Sammuel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
@@ -189,7 +189,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me the Abbey's, then.", next = "abbey" },
-        { text = "Did you ever doubt?", next = "again" },
+        { text = "You must have doubted, now and then.", next = "again" },
       },
     },
     again = {
@@ -276,5 +276,14 @@ P:NPC {
       { id = "t_abbey2", text = "Sit, and I'll tell you what this house cost.", next = "abbey" },
     },
     _none = { { id = "t_none", text = "The Light doesn't tell me everything. Neither does Marshal McBride." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire is Archbishop Faol's legacy, a house of the Light rebuilt on the ruins the orcs and the Twilight's Hammer left behind. It's my honor to teach in it, and my burden to live up to it." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light isn't a weapon we carry, friend, it's a promise we keep, and the hammer only comes after the keeping. Remember that and you'll serve better than most." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Kneel and listen, young paladin: the Light will give you strength for exactly as long as you use it for others. The day you use it for yourself, you'll learn how heavy a hammer is." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Knights of the Silver Hand were Uther's order, raised with the Archbishop's blessing, and they fell with Lordaeron and with Uther himself. Some still carry the name, and I pray they carry it well." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the Light's enemy as no orc ever was, because it takes the dead we've prayed over and puts them to work. I've no mercy in me for it, and I don't apologise for that." } },
+    arthas = { { id = "tp_arthas", text = "Prince Arthas was a paladin of the Silver Hand, taught the same prayers I teach. That's the thing I can't make my peace with, friend, and I'm not sure I'm meant to." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "I send young paladins to Echo Ridge with Marshal McBride's blessing and mine, and they come back knowing a good deal more about humility. Kobolds are patient teachers." } },
   },
 }

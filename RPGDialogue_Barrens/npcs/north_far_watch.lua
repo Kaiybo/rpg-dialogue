@@ -11,6 +11,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 ---------------------------------------------------------------------------
 P:NPC {
   key = "kargal", id = TODO_NPC("Kargal Battlescar"), name = "Kargal Battlescar",
+  prejudice = { race = "Skyborne", amount = 8, why = "He doesn't trust anything new on the border, and the Skyborne came out of nowhere as far as Far Watch is concerned." },
   bible = "bibles/kargal.md", role = "soldier", tier = "quest",
   temper = { "gruff", "proud" }, values = { "proud", "loyal" },
   notices = { "gender", "kit" },
@@ -20,6 +21,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Skyborne. I've got a whole border to watch, and now there's people coming down out of the sky that nobody told me about. Don't take it personally that I keep an eye on you." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You know, I wrote to Orgrimmar about you lot the first time you came through. I might write again and tell them you're all right, if I can find the ink." },
     { id = "g_watch", text = "Far Watch Post. If you're lost, the Crossroads is west, and if you're not, state your business." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, because nobody else climbs up here unless Sergra sends them, and you don't look like one of hers." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back in one piece? Most of the runners who leave this post can't say that." },
@@ -34,6 +37,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_kargal = {
+      big = true,
+      lines = { { id = "prej_kargal_default", text = "Course I have. I've watched this border since the Horde came to Durotar, and I know every face that crosses it, and then one day your people turn up out of the clouds with no warning and a lot of questions. A watchman doesn't like surprises, and you're a big one." } },
+      choices = {
+        { text = "We came in good faith. Your suspicion insults the Horde.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Good. A watchman who trusts strangers dies young.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Nobody needs your permission to cross the sky, old orc.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Ask what you like. I'll answer straight.", next = "prej_kargal_calm", fx = { affinity = 1 } },
+        { text = "Has anyone from the sky caused you trouble?", next = "prej_kargal_why" },
+      },
+    },
+    prej_kargal_why = {
+      lines = { { id = "prej_kargal_why_default", text = "Not yet, which is what bothers me. In my experience, trouble that hasn't happened yet is just trouble that's still on the road, and I'd like to know which road it's coming down." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_kargal" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_kargal_calm = {
+      lines = { { id = "prej_kargal_calm_default", text = "Hm. Straight answers. Sergra Darkthorn never gave me one of those in her life, so you're already ahead of her." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kargal Battlescar. I hold Far Watch Post for the Horde, which means I watch the river, the hills and the road, and nobody at the Crossroads thanks me for any of it." },
@@ -46,10 +68,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The river isn't going anywhere." },
       },
       choices = {
+        { text = "You've had your eyes on me since I came up the path, Battlescar.", next = "prej_kargal", when = { prejudiced = true } },
         { text = "What does Far Watch Post guard?", next = "post" },
-        { text = "You don't think much of Sergra Darkthorn.", next = "sergra" },
+        { text = "You don't think much of the Crossroads command.", next = "sergra" },
         { text = "How did you get that scar?", next = "scar" },
-        { text = "What's been moving in the hills lately?", next = "hills" },
+        { text = "You keep a close eye on those hills.", next = "hills" },
         { text = "I serve under Sergra at the Crossroads.", next = "hers", when = { questDone = TODO_QUEST("Plainstrider Menace") } },
         { text = "Women have held the line for the Horde since Durotar.", next = "women", when = { gender = "female", faction = "Horde" } },
         { text = "Watch well, Kargal.", next = "END" },
@@ -73,7 +96,7 @@ P:NPC {
     sergra = {
       lines = { { id = "s_default", text = "I don't think much of being passed over, which isn't the same thing. I've held a wall since before she could lift an axe, and when the Warchief needed someone to command the Crossroads, he gave it to her and gave me a hill." } },
       choices = {
-        { text = "Is she bad at the job?", next = "job" },
+        { text = "It sounds like she's bad at the job.", next = "job" },
         { text = "Maybe a hill is where you're most useful.", next = "useful" },
         { text = "Something else.", next = "BACK" },
       },
@@ -96,7 +119,7 @@ P:NPC {
     scar = {
       lines = { { id = "sc_default", text = "An internment camp guard, outside Durnholde, with a sword he'd taken off a better soldier than he was. I got this scar, he got my axe in his ribs, and the Warchief got one more orc who was done with cages." } },
       choices = {
-        { text = "You were in the camps?", next = "camps" },
+        { text = "So you were in the internment camps.", next = "camps" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -113,7 +136,7 @@ P:NPC {
     hills = {
       lines = { { id = "hl_default", text = "Harpies in the Dry Hills to the north, screeching all night, and the Burning Blade on Dreadmist Peak lighting fires they shouldn't. There's an orc called Ak'Zeloth camped out that way who claims to know their business, and I'd like to know how." } },
       choices = {
-        { text = "You don't trust Ak'Zeloth?", next = "akz" },
+        { text = "You don't sound like you trust Ak'Zeloth.", next = "akz" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -145,7 +168,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Internment camps, then the Warchief's crossing, then every wall in Durotar that needed holding. Now this hill." } },
     sergra = { { id = "tp_sergra", text = "Commands the Crossroads, and does it well, and I'll deny I said that.", next = "sergra" } },
     burning_blade = { { id = "tp_bb", text = "A cult of demon-lovers who should have died with the old Horde. They squat on Dreadmist Peak to the north." } },
-    _none = { { id = "tp_none", text = "Never heard of it, and up on this hill, I hear about everything eventually." } },
+    _none = { { id = "tp_none", text = "Never heard of it, grunt, and up on this hill, I hear about everything eventually." } },
   },
 }
 
@@ -190,7 +213,7 @@ P:NPC {
         { id = "h_again2", text = "Ask quickly. The fires on the peak are lit again tonight." },
       },
       choices = {
-        { text = "What is the Demon Seed?", next = "seed" },
+        { text = "What gives the cultists their power?", next = "seed" },
         { text = "How do you know so much about the Burning Blade?", next = "know" },
         { text = "What happens on Dreadmist Peak?", next = "peak" },
         { text = "What do you make of Neeru Fireblade?", next = "neeru", when = { questDone = TODO_QUEST("Ak'Zeloth") } },
@@ -235,7 +258,7 @@ P:NPC {
     peak = {
       lines = { { id = "p_default", text = "Cultists in red robes, mostly young, mostly orcs who came to Kalimdor too late to remember the blood. The Burning Blade tells them Thrall made the Horde weak and promises them the strength the clans used to have, and some of them are fool enough to want it." } },
       choices = {
-        { text = "Can they be turned back?", next = "turned" },
+        { text = "Some of them might still be turned back.", next = "turned" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -266,7 +289,7 @@ P:NPC {
   topics = {
     burning_blade = { { id = "tp_bb", text = "Cultists who worship what the old Horde served. They have a foothold on Dreadmist Peak and, I'd wager, other places closer to the Warchief than he'd like." } },
     neeru = { { id = "tp_neeru", text = "Neeru Fireblade, in Orgrimmar's Cleft of Shadow. He knows a great deal, and he shares a little of it." } },
-    _none = { { id = "tp_none", text = "That's outside my study. I watch the Blade, and the Blade doesn't care about that." } },
+    _none = { { id = "tp_none", text = "That's outside my study. I watch the Blade, and the Blade cares for nothing but demon blood." } },
   },
 }
 
@@ -320,7 +343,7 @@ P:NPC {
     alone = {
       lines = { { id = "a_default", text = "Because the wind up here feeds it and the land below it is dry enough to burn for a week if I'm careless. A fire kept where it could do harm teaches you respect faster than one kept in a hearth." } },
       choices = {
-        { text = "Isn't that dangerous?", next = "danger" },
+        { text = "That sounds dangerous.", next = "danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,7 +365,7 @@ P:NPC {
     shows = {
       lines = { { id = "s_default", text = "Your anger, mostly, at first. Every young orc who sits at this fire finds out how much rage they carry from the camps and the old wars, and the fire will burn it out of them or burn them with it." } },
       choices = {
-        { text = "Did it burn yours out?", next = "mine" },
+        { text = "I'd guess it burned yours out, in time.", next = "mine" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -412,7 +435,7 @@ P:NPC {
         { id = "h_path_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Path of Defense"), days = 3 } }, text = "You did it, and you came back standing. That's the lesson, if you were wondering: the one who stands longest wins." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again", text = "What else? Make it quick, and stand like a warrior while you ask." },
         { id = "h_again2", text = "Go on. My knees aren't getting younger." },
       },
       choices = {
@@ -442,7 +465,7 @@ P:NPC {
     learn = {
       lines = { { id = "l_default", text = "In the Second War, on a wall in Lordaeron, holding off human knights for a day and a night. Most of my clan charged out to meet them, and I stayed on that wall, and that's why I'm here to tell you about it." } },
       choices = {
-        { text = "What happened to the ones who charged?", next = "charged" },
+        { text = "The ones who charged never came back, I'd guess.", next = "charged" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -482,6 +505,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Second War, then the camps, then Thrall. Now I teach, which is easier on the knees." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask someone who isn't busy." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask some grunt who isn't busy." } },
   },
 }

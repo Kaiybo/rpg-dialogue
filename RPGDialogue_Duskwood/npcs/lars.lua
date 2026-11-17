@@ -52,16 +52,16 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, as long as you don't mind me skinning while you talk." },
       },
       choices = {
-        { text = "Why do you stay out here with Sven?", next = "sven" },
+        { text = "Not many would stay out here with Sven.", next = "sven" },
         { text = "What's worse here, wolves or the dead?", next = "danger" },
-        { text = "Who's the necromancer to the east?", next = "necro" },
+        { text = "Who else makes trouble in these woods?", next = "necro" },
         { text = "Let me teach you a better snare.", next = "snare", when = { class = { "HUNTER", "DRUID" } } },
         { text = "I'll help with the wolves.", next = "BUSINESS" },
         { text = "Good hunting, Lars.", next = "END" },
       },
     },
     sven = {
-      lines = { { id = "s_default", text = "Because nobody else would, and a man who's lost what Sven's lost shouldn't sit by a fire on his own. He'd tell you he doesn't need me, and he'd be wrong." },
+      lines = { { id = "s_default", text = "Nobody else would, so I do, and a man who's lost what Sven's lost shouldn't sit by a fire on his own. He'd tell you he doesn't need me, and he'd be wrong." },
       },
       choices = {
         { text = "What did he lose?", next = "sven_loss" },
@@ -72,7 +72,7 @@ P:NPC {
       lines = { { id = "sl_default", text = "His family, his farm, and most of his reasons for getting up in the morning. He'll tell you himself if he wants to, so I'll not tell it for him." },
       },
       choices = {
-        { text = "Does he want revenge?", next = "sven_revenge" },
+        { text = "He sounds like a man who wants revenge.", next = "sven_revenge" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -92,7 +92,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     necro = {
-      lines = { { id = "n_default", text = "Morbent Fel, up past Raven Hill. Sven says his name the way other folk spit, and I don't ask him why, because I can guess." },
+      lines = { { id = "n_default", text = "A necromancer called Morbent Fel, up past Raven Hill. Sven says his name the way other folk spit, and I don't ask him why, because I can guess." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -111,5 +111,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry the meat on your back, not in your hand. A wolf goes for the hand first." } },
     morbent_fel = { { id = "tp_morbent", text = "Sven's business, mostly, though I'd not weep if somebody finished him.", next = "necro" } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Sven, if you can get more than three words out of him." } },
+    dark_riders = { { id = "tp_dark_riders", text = "Sven wants the riders dead, and so do I, but I want Sven alive more. I keep the fire low and one eye on the road." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Game's thin near Raven Hill, because the wolves have more sense than we do and stay away. I don't hunt there, and neither should you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I won a knife at the Faire in Elwynn years back for throwing a ring over a bottle. It's the best knife I own, and I've skinned half of Duskwood with it." } },
   },
 }

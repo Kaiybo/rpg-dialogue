@@ -50,7 +50,7 @@ P:NPC {
       choices = {
         { text = "Raptors stole silver? Really?", next = "raptors" },
         { text = "How are the guards taking it?", next = "guards" },
-        { text = "How's the Crossroads holding up?", next = "crossroads" },
+        { text = "The Crossroads seems to have trouble on every side.", next = "crossroads" },
         { text = "I'm looking for word of Grunt Dogran.", next = "dogran", when = { class = "WARLOCK" } },
         { text = "I've got work in me.", next = "BUSINESS" },
         { text = "Good luck with the lizards.", next = "END" },
@@ -106,6 +106,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm an orc who keeps a strongbox and a tower. I was good at it until the lizards came." } },
     advice = { { id = "tp_ad", text = "Lock your valuables up high. Raptors can't climb, or I hope they can't, anyway." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask Thork, he knows everything that happens here." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar can't steal from a tower, which is why it was raptors that got the silver. But they're out there, and I'd rather fight them than face the guards again." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane come up the road and test our walls like they think we won't notice. We notice, and we have arrows enough for all of them." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins would've kept the silver in a vault with three locks and a trap. I'm starting to think the goblins have a point." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief trusts the Crossroads to us, and here I am losing silver to lizards. If he ever hears about it, I'd like it to be after I've got it back." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask Thork; he knows everything that happens here, and he never lets an orc forget it." } },
   },
 }

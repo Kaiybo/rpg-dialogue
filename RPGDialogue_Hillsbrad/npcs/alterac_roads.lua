@@ -24,6 +24,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_alterac = {
+      lines = {
+        { id = "opn_alterac_q", text = "My house has watched the Perenoldes for a long time, and it has had very little reason to admire what it saw. Stromgarde wants the land, the Syndicate wants the titles, and the ogres want the furniture. Whose claim would you honour, if anyone's?" },
+      },
+      choices = {
+        { text = "Stromgarde's. They bled for it when Alterac betrayed them.", next = "opn_alterac_r_stromgarde_claim", fx = { align = { honor = 1 }, opinion = { alterac = "stromgarde_claim", stromgarde = "retake" } } },
+        { text = "Nobody's. Let the mountains keep it.", next = "opn_alterac_r_dead", fx = { affinity = 1, align = { honor = -1 }, opinion = { alterac = "dead" } } },
+        { text = "Whoever pays the house best, my lord.", next = "opn_alterac_r_for_sale", when = { class = "ROGUE" }, fx = { affinity = 2, trait = { cunning = 1 }, opinion = { alterac = "for_sale" } } },
+        { text = "Its common folk deserve better than any of them.", next = "opn_alterac_r_pity", fx = { trait = { kind = 1 }, opinion = { alterac = "pity" } } },
+        { text = "I'd rather not choose sides in Alterac.", next = "BACK" },
+      },
+    },
+    opn_alterac_r = {
+      lines = {
+        { id = "opn_alterac_r_default", text = "Wise. Alterac has a long habit of punishing those who choose sides." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_stromgarde_claim = {
+      lines = {
+        { id = "opn_alterac_r_stromgarde", text = "An honest claim, and an expensive one. Stromgarde cannot hold its own keep at present, so it will be some time before it holds anyone else's." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_dead = {
+      lines = {
+        { id = "opn_alterac_r_dead", text = "The mountains are excellent keepers. They do not sell their secrets, which is more than I can say for the Perenoldes." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_for_sale = {
+      lines = {
+        { id = "opn_alterac_r_sale", text = "Spoken like one of mine. I'll pretend that was a jest, and keep a note that it wasn't." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_pity = {
+      lines = {
+        { id = "opn_alterac_r_pity", text = "They do, and they will not get it. Still, it is pleasant to hear someone say it at Ravenholdt, where we seldom say anything pleasant." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     xpt_rogue = {
       big = true,
       lines = { { id = "xpt_rogue_default", text = "Not every one, only the ones worth the ink, and the ones who travel in company tend to live long enough to become worth it. Your friend has chosen their companions well, I think, though I'd rather they had chosen Ravenholdt." } },
@@ -147,14 +199,14 @@ P:NPC {
         { text = "Do the spirits of Alterac speak to your house, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the Syndicate keep spellcasters of their own, my lord?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why does the Syndicate trouble you so much?", next = "syndicate" },
-        { text = "What is this house, exactly?", next = "house" },
+        { text = "I can't tell what sort of house this is.", next = "house" },
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Does Ravenholdt have dealings with the Kirin Tor, my lord?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Dalaran sits close to your hills, my lord.", next = "xmage", when = { class = "MAGE" } },
         { text = "Why does Ravenholdt watch warlocks so closely, my lord?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does a house of shadows need a priest's prayers, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Silver Hand ever know of Ravenholdt, my lord?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does a house of shadows have any use for a warrior, my lord?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Your hills are full of game. Do you keep hounds here, my lord?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "A house of shadows can have little use for a warrior, my lord.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Your hills are full of game. I'd guess you keep hounds, my lord.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does Ravenholdt watch every rogue in the land?", next = "xpt_rogue", when = { party = { class = "ROGUE" } } },
         { text = "I'll leave you to your counsel, my lord.", next = "END" },
       },
@@ -168,7 +220,7 @@ P:NPC {
         { id = "sy_default", text = "Because they are thieves who call themselves an army, and they serve Alterac's disgraced nobles who sold their own kingdom to the Horde. Assassins should have masters with better taste than that." },
       },
       choices = {
-        { text = "And the nobles who lead them?", next = "perenolde" },
+        { text = "The nobles who lead them must be the worse lot.", next = "perenolde" },
         { text = "Thieves are thieves. You're no different, my lord.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Every trade needs a few rules. I'll respect yours.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
       },
@@ -178,6 +230,7 @@ P:NPC {
         { id = "pe_default", text = "The Perenoldes cling to the ruins of Alterac and Strahnbrad and pay the Syndicate with coin they stole from their own people. Bring me the emblems their hirelings carry, and I will see your name remembered kindly in this house." },
       },
       choices = {
+        { text = "What should become of Alterac, Lord Ravenholdt?", next = "opn_alterac" },
         { text = "Then I'll bring you emblems.", next = "BACK", fx = { affinity = 1, learn = "syndicate" } },
         { text = "I'll think on it.", next = "BACK" },
       },
@@ -207,6 +260,13 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Hired knives with a noble's crest stitched on. Cut away the crest and they are only thugs." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "You are standing in it, which tells me someone thought you worth the directions. Ravenholdt has outlived kings and kingdoms by being exactly as visible as it wishes to be." } },
+    alterac = { { id = "tp_alterac", text = "Alterac was a kingdom of proud fools who sold their neighbours to the Horde and then wondered why the Alliance dissolved them. Its heirs now play at banditry in the hills, and badly, which is why we watch them." } },
+    scourge = { { id = "tp_scourge", text = "The dead have no purses, no secrets and no fear of a knife in the dark, so they are of very little interest to my house. That they are also of very great danger to everyone else is a matter I leave to paladins." } },
+    prestor = { { id = "tp_prestor", text = "A lady of very sudden consequence in Stormwind, whose family seat is a place I cannot quite find on any map. I find that interesting, and I do not find many things interesting." } },
+    varian = { { id = "tp_varian", text = "A king does not vanish on a short road without someone having been paid to look the other way. I have my suspicions about who did the paying, and I am choosing, for now, to keep them." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A port where every guest is a thief and every host a goblin, which makes it the most honest town in the world. Several of my people keep rooms there." } },
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor have reopened their gates a little, and they have closed their eyes a little less than before. Mages and my house have always had an arrangement of mutual polite indifference." } },
     _none = { { id = "tp_none", text = "That is a question for someone who answers questions. I am not that person." } },
   },
 }
@@ -234,6 +294,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_kirintor = {
+      lines = {
+        { id = "opn_kirintor_q", text = "That is the question the Council asks of itself behind this barrier, and the one the rest of the Alliance asks of us in less polite language. Kel'Thuzad was one of ours, and Stormwind's lords have not forgotten it. What is your verdict?" },
+      },
+      choices = {
+        { text = "Rebuild it. The world needs the Kirin Tor's learning.", next = "opn_kirintor_r_rebuild", fx = { affinity = 2, align = { order = 1 }, opinion = { kirin_tor = "rebuild" } } },
+        { text = "Your arrogance bred the Cult of the Damned. Let it lie.", next = "opn_kirintor_r_arrogant", fx = { affinity = -2, align = { order = -1 }, opinion = { kirin_tor = "arrogant" } } },
+        { text = "Rebuild it, but let someone watch the watchers.", next = "opn_kirintor_r_watched", fx = { trait = { careful = 1 }, opinion = { kirin_tor = "watched" } } },
+        { text = "Magic is a craft. Teach it openly and the rot can't hide.", next = "opn_kirintor_r_reform", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "reform", arcane_magic = "craft" } } },
+        { text = "That's for the Council to judge, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r = {
+      lines = {
+        { id = "opn_kirintor_r_default", text = "It will, eventually, at length, and in committee." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_rebuild = {
+      lines = {
+        { id = "opn_kirintor_r_rebuild", text = "It does, though it rarely says so. I'll mention to the Council that one traveller at our walls had sense, and they'll ask your name and then forget it." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_arrogant = {
+      lines = {
+        { id = "opn_kirintor_r_arrogant", text = "Kel'Thuzad was expelled long before he raised a single corpse, and we paid for him in our own blood. Arrogant we may be, but we were not the only ones who failed to see it." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_watched = {
+      lines = {
+        { id = "opn_kirintor_r_watched", text = "The Kirin Tor watching itself has a mixed record, I'll grant you. Perhaps Modera would agree, though she would say it in a footnote." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_reform = {
+      lines = {
+        { id = "opn_kirintor_r_reform", text = "Openly. The old masters would faint at the word, and the masters in Stormwind would say they do it already. Perhaps you're right, but not this century." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "Then the Kirin Tor's worst mistake in Silverpine is finally closed, and I'll write it into the council's record myself before someone tidies it away. Arugal called those creatures out of somewhere to fight the Scourge when the rest of us were losing, and they took Pyrewood and Baron Silverlaine's house and, last of all, his reason." } },
@@ -343,15 +455,15 @@ P:NPC {
       },
       choices = {
         { text = "Why was the city sealed so long?", next = "dome" },
-        { text = "Who wants Dalaran to stay broken?", next = "enemies" },
+        { text = "Someone must want Dalaran to stay broken.", next = "enemies" },
         { text = "I studied magic once. Does the Kirin Tor still teach?", next = "teach", when = { class = "MAGE" } },
         { text = "Has anyone tried to sneak into the vaults, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Was Kel'Thuzad really one of the Kirin Tor, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "They say Kel'Thuzad was one of the Kirin Tor, Archmage.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Were the Kirin Tor's dead given proper rites, Archmage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Kirin Tor have stood with the Silver Hand sooner?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Did Dalaran have no soldiers when Archimonde came, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Dalaran seems to have had few soldiers when Archimonde came.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hunts the hills around Dalaran these days, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does Dalaran's magic harm the land around it, Archmage?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The trees near your walls look sickly, Archmage.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the Kirin Tor think shamans lesser casters, Archmage?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Arugal is dead, Archmage. I climbed his tower myself.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Alliance" } },
         { text = "Good day, Archmage.", next = "END" },
@@ -363,6 +475,7 @@ P:NPC {
         { id = "do_default", text = "Archimonde broke the city when the Legion came, and the Scourge stripped what was left. The barrier kept thieves and worse out while we mended the towers, and now that it's open, the wards that remain keep our mistakes in." },
       },
       choices = {
+        { text = "Should Dalaran be rebuilt at all?", next = "opn_kirintor" },
         { text = "Sealing yourselves away while the world burns seems wrong.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Rebuilding first is wise. The world can wait a little.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else, Archmage.", next = "BACK" },
@@ -384,6 +497,11 @@ P:NPC {
 
   topics = {
     dalaran = { { id = "tp_dalaran", text = "A city of violet towers that will stand again, though not this year, I think." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have lost Antonidas, and Kel'Thuzad, and very nearly the city, and we are a smaller council and a warier one for it. Archmage Modera holds us together with a firmness I did not know she had." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "He sat at our tables and argued at our councils, and then he took his necromancy to the Cult of the Damned. That we did not see him for what he was is a shame every mage of my age carries." } },
+    scourge = { { id = "tp_scourge", text = "The plague came through Alterac and the hills below this very gate, and Dalaran's walls held it back only so long. We remember who brought it, and we keep the dome raised partly so that we never forget." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore was a student here, and one of Antonidas's best, before she led her people across the sea. She writes to the council now and then, and her letters are always sensible, which is more than I can say for most." } },
+    alterac = { { id = "tp_alterac", text = "The ogres have Alterac's ruins now, and the Syndicate its old estates, and neither has the manners to keep off our roads. We ward the gates and let the soldiers of Southshore do the rest." } },
     _none = { { id = "tp_none", text = "I'm afraid that falls outside my studies, and my studies are rather wide." } },
   },
 }
@@ -489,7 +607,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
           text = "You came in quietly, and the guards never heard a thing. Good, because a Syndicate camp is full of men who sleep with one eye open and a hand on a knife." },
         { id = "h_default", key = true,
-          text = "I am Gol'dir, and the Syndicate has kept me in chains longer than I care to count. They move me between their camps so nobody can find me, and still you found me." },
+          text = "I am Gol'dir, and the Syndicate has kept me in chains longer than I care to count. When Thrall broke the camps I swore no human would cage me again, and yet they move me from camp to camp and set me digging at Strahnbrad so nobody can find me. Still, you found me." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "An Alliance face, and you have not drawn steel. Strange times, when a human's enemy and an orc's enemy are the same men in black cloaks." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Gol'dir") },
@@ -503,13 +621,13 @@ P:NPC {
         { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the Syndicate's shadow mages do in these camps, Gol'dir?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where do the guards keep the keys, and when do they change watch?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Why did the Syndicate take you?", next = "taken" },
-        { text = "Who is Krusk to you?", next = "krusk" },
+        { text = "The Syndicate must have had a reason to take you.", next = "taken" },
+        { text = "Is anyone looking for you?", next = "krusk" },
         { text = "What are they digging for at Strahnbrad?", next = "dig" },
         { text = "Lok'tar, brother. We'll get you home.", next = "BACK", when = { faction = "Horde" }, fx = { affinity = 2 } },
-        { text = "How did the Syndicate take a warrior like you, Gol'dir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "It must have taken a lot of them to bring you down, Gol'dir.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Syndicate keep dogs to guard you, Gol'dir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Have the Syndicate treated you like an animal, Gol'dir?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "They've treated you like an animal, Gol'dir.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you think the Light hears your captors, Gol'dir?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I can't free you today. I'm sorry.", next = "END" },
       },
@@ -555,7 +673,10 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Cowards in black who beat chained men. I have long memory for their faces." } },
-    _none = { { id = "tp_none", text = "Ask me again when I am not wearing iron." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief freed my people from the camps, and one day his warriors will free me from these chains. Until then I wait, and I remember every face that held the whip." } },
+    internment = { { id = "tp_internment", text = "I was in Durnholde's camp before Thrall broke it, and the Syndicate put me back in chains as if nothing had changed. Humans are very fond of locks, and I am very tired of them." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles keep me in their hills like a prize ram, moving me from camp to camp. Their grandfathers sold their own people to the Horde, and now they sell orcs to anyone who'll pay." } },
+    _none = { { id = "tp_none", text = "Ask me again when I am not wearing iron, because an orc in chains thinks of nothing else." } },
   },
 }
 
@@ -677,14 +798,14 @@ P:NPC {
       choices = {
         { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there anything in Hillsbrad you can't brew without magic, Serge?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What do you brew out here?", next = "brews" },
+        { text = "Your bench is crowded with flasks, Serge.", next = "brews" },
         { text = "How do you get along with Apothecary Lydon?", next = "lydon" },
         { text = "What poisons does Tarren Mill make for its rogues, Serge?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you ever use fel reagents in your alchemy, Serge?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would you brew for someone who fights on the front line?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you make from the beasts I bring you, Hinott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You brew with the land's herbs. Do you waste them?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Would you brew poisons for a paladin's blade, Serge?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I doubt you'd brew poisons for a paladin's blade, Serge.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The flask on the left is about to do something, and I'd rather be standing behind you when it does." } },
@@ -708,6 +829,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "We are the Dark Lady's people, and we brew what we brew because the living gave us no other choice. I measure my reagents with care, because carelessness was a luxury of the breathing." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gave us our minds back and a reason to use them, and that is more than any king of Lordaeron ever did for me. I serve her with my hands and my vials, and gladly." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge made me, and the Dark Lady unmade what it made of me, and I have not forgiven either half of that. My work is aimed at the Lich King's servants first, whatever Southshore believes." } },
     _none = { { id = "tp_none", text = "If it doesn't dissolve or distill, I've no opinion of it." } },
   },
 }

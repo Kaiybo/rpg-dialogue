@@ -52,9 +52,9 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the pit.", next = "pit" },
-        { text = "Who's Egan?", next = "egan" },
+        { text = "Who's Egan?", next = "egan", when = { any = { { questActive = TODO_QUEST("The Restless Souls") }, { questDone = TODO_QUEST("The Restless Souls") } } } },
         { text = "Why do you stay at a job you hate?", next = "job" },
-        { text = "You don't hate the Scourge's victims, do you?", next = "souls", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
+        { text = "You don't seem to hate the Scourge's victims.", next = "souls", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
         { text = "Can I bless the pit before you fill it again?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Show me what you're selling.", next = "BUSINESS" },
         { text = "I'll let you get back to it.", next = "END" },
@@ -64,7 +64,7 @@ P:NPC {
     pit = {
       lines = { { id = "pi_default", text = "Everything the Dawn kills that used to be a person goes in there, so it can't get up again. We burn it when the wind's right, and when it's not, well, you've smelled it." } },
       choices = {
-        { text = "Do you ever wonder who they were?", next = "pit_who" },
+        { text = "You must wonder who they were.", next = "pit_who" },
         { text = "Something else, Alen.", next = "BACK" },
       },
     },
@@ -136,6 +136,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Never you mind what I was. Now I'm the fellow with the shovel, and that's enough of a story for anybody." } },
     advice = { { id = "tp_ad", text = "Don't stand downwind of the pit, and don't ask for a raise. Trust me on both." } },
     argent_dawn = { { id = "tp_argent", text = "Good folk, mostly. Terrible pay." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge sends me more work than any honest man could keep up with, and the Dawn pays me the same whether I toss in ten or a hundred. I don't complain, except to anyone who'll listen." } },
+    stratholme = { { id = "tp_stratholme", text = "There are souls still wandering Stratholme that never got a proper burial, and it keeps me up some nights. Somebody ought to see to them, and it won't be me, because I'm not that brave." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "That's his necropolis up in the sky to the east, and I've learned not to look at it too long. It gives me a crick in the neck and a chill in the heart." } },
+    holy_light = { { id = "tp_holy_light", text = "The chapel ground keeps the dead off it, and I thank the Light for that every morning. It's the only safe place I've slept in years." } },
     _none = { { id = "tp_none", text = "How should I know? I shovel things. Ask the Duke, he reads." } },
   },
 }

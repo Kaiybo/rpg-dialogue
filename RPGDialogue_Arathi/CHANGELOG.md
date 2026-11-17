@@ -2,6 +2,14 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+- Prejudices (0.80.0): Captain Nials (rogues) and Gor'mul (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+- New Forever-only characters (new files: full game restart): Muggol Breezebeard.
+- New people to talk to: Field Marshal Oslight, Deathmaster Dwire, Doctor Gregory Victor, Narj Deepslice, Tharlidun, Keena.
+- New files: restart the game fully (a /reload won't load them).
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.24.0 (2026-11-17)
 - Shakes O'Breen and Captain Steelgut at Faldir's Cove have much more to say about the Raiders, the wreck and each other.
 

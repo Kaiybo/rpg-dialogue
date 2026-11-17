@@ -31,7 +31,8 @@
 - Goretooth: loud, bored, dreams of glorious death; secretly sweet on the two Forsaken.
 - Theodora: dramatic gossip, calls people darling.
 - Vivian: theatrical, insists she's composed, isn't.
-- Lexlort: few words, all of them useful.
+- Lexlort: few words, all of them useful; an orc's sense of honor about traitors.
+- Race voice (0.80.0): the Kargath orcs speak plain and proud (honor, blood, the Horde as clan, the camps, Thrall); Theodora and Vivian keep a Forsaken chill under the charm; Lotwil talks in percentages, prototypes and Gnomeregan.
 - Shul'kar: warm orc innkeeper, wants your war stories.
 - Ryedol: weary dwarf prospector, grieving his partner.
 - Lotwil: absent-minded gnome, everything is fascinating.
@@ -65,7 +66,7 @@ Sources read (warcraft.wiki.gg, Classic sections): Kargath (NPC list), Neeka_Blo
 ### Voices
 - Neeka: proud, dry head scout; measures people by their legs and eyes; teases Helgrum as a rival colleague (never his mate: Cataclysm).
 - Jarkal: Darkspear merchant-alchemist, "mon", always pitching a better offer.
-- Gorrik: gruff, fights the heat for his riders. Grawl: gruff quartermaster, everything measured in water.
+- Gorrik: gruff, fights the heat for his riders. Grawl: gruff quartermaster, everything measured in water, a camp-born orc's hatred of waste.
 
 ### What they notice
 - Neeka: class (hunter's pet paws, a rogue downwind), level. Jarkal: race (Darkspear kin, Forsaken apothecaries), class (shaman and the rock spirits). Gorrik: race (weight, smell), level. Grawl: weariness, level.
@@ -73,3 +74,4 @@ Sources read (warcraft.wiki.gg, Classic sections): Kargath (NPC list), Neeka_Blo
 ### Authored, not canon
 Neeka and Helgrum's rivalry over running versus tracking; her watching red whelps in Lethlor Ravine from the ridge; Jarkal choosing the inn's quiet floor and Shul'kar's onions; Gorrik's Barrens past, soaked blankets and his running complaint with Breyk at Stonard; Grawl's Orgrimmar past and grain-pile vigil. Kargath additions to old NPCs: Goretooth on Neeka; Shul'kar on Jarkal and a troll reply.
 Left out as unsure for Classic: Thunderheart, Grunt Gargal, Initiate Amakkar, Galamav the Marksman, Razal'blade, Greth, Sranda (listed on the wiki without a Classic marker). Gorn was added in 0.72.0 (Broken Alliances is a Classic quest).
+- Goretooth: distrusts Horde warlocks (`prejudice`, class WARLOCK) because he sees Gul'dan in every one; he drank the demon's blood with everyone else and remembers it as "a fire that made everything simple".

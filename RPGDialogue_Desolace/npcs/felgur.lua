@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Make it quick, {race}." },
+    { id = "g_hello", text = "Make it quick, {race}; an orc's time is for the hunt." },
     { id = "g_ears", when = { questActive = TODO_QUEST("Centaur Bounty") }, text = "I want ears from any clan and any camp, and I want a great many of them." },
     { id = "g_khan", when = { questActive = TODO_QUEST("Khan Dez'hepah") }, text = "Dez'hepah's still breathing, I take it, so go and fix that." },
     { id = "g_done", when = { questDone = TODO_QUEST("Khan Dez'hepah") }, text = "The Kolkar are still fighting over who leads them now. Good; let them." },
@@ -36,6 +36,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Felgur Twocuts. I was sent to gather what I could on the centaur of Desolace, and what I've gathered is that there are too many of them and they all hate us." },
+        { id = "h_clans_resolved", tags = { "news" }, when = { thread = { id = "desolace_clans", state = "resolved" }, faction = "Horde" },
+          text = "Hratha's dead and your centaur friends are drunk on it. The rest of the clans are still killing each other, which is how I like them, so sit down and tell me which camps moved." },
+        { id = "h_op_war", when = { opinion = { topic = "centaur", stance = "war" } },
+          text = "Regthar's runners say you'd carry the war right into Desolace. Well, you're here now, so start with the Kolkar and work your way south." },
+        { id = "h_op_people", when = { gossip = { topic = "centaur", stance = "people" } },
+          text = "Takata tells me you think the centaur are a people. Keep thinking it, if you like, but keep your shield up while you do." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("The Kolkar of Desolace") },
           text = "You're here on Regthar's orders? Then you're here to deal with the centaur. Good; sit, listen, and don't expect this to end quickly." },
         { id = "h_bounty_before", when = { questBefore = TODO_QUEST("Centaur Bounty") },
@@ -48,13 +54,13 @@ P:NPC {
           text = "Dez'hepah's dead, and the Kolkar camps are howling about it. That's the sound of a good week's work." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it, because I've centaur to count." },
+        { id = "h_again", text = "What else? Be quick about it, because I've centaur to count, and they don't count themselves." },
         { id = "h_again2", text = "Something more, {race}? Then spit it out before the next raid." },
       },
       choices = {
         { text = "Why do the centaur hate us?", next = "hate" },
         { text = "Why collect ears?", next = "ears" },
-        { text = "What do you know of the clans?", next = "clans" },
+        { text = "You must know the clans well by now.", next = "clans" },
         { text = "Why do they call you Twocuts?", next = "name" },
         { text = "The Earth Mother weeps for this killing.", next = "tauren_f", when = { race = "Tauren" } },
         { text = "Give me a target.", next = "BUSINESS" },
@@ -68,8 +74,35 @@ P:NPC {
       },
       choices = {
         { text = "Is there any talking to them?", next = "hate_talk" },
+        { text = "Do you think they're beasts, then?", next = "centaur_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    centaur_op = {
+      lines = { { id = "co_default", text = "Doesn't matter what I think, I count ears for a living. You've seen them up close now, though, and some of the tauren say there's a people under all that cruelty, so tell me: is there?" } },
+      choices = {
+        { text = "They're beasts, every clan of them.", next = "co_beasts", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "hate" } } },
+        { text = "They're a people, cruel or not. Kill only who you must.", next = "co_people", fx = { affinity = -1, align = { light = 1 }, opinion = { centaur = "people" } } },
+        { text = "They're most useful when they're killing each other.", next = "co_useful", fx = { opinion = { centaur = "divide" } } },
+        { text = "Kolkar spears killed my grandfather. I'll never forgive them.", next = "co_blood", when = { race = "Tauren" }, fx = { affinity = 2, opinion = { centaur = "blood" } } },
+        { text = "I'm still making up my mind.", next = "BACK" },
+      },
+    },
+    co_beasts = {
+      lines = { { id = "cob_default", text = "Beasts with bows and khans and grudges, which is worse than beasts. Bring me ears, and we'll agree on everything." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_people = {
+      lines = { { id = "cop_default", text = "Maybe they are. People can be worth killing too, and these ones burn tauren camps for sport, so I'll take your mercy under advisement." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_useful = {
+      lines = { { id = "cou_default", text = "Now you sound like Pentigast over at Nijel's Point, and I mean that as half an insult. The other half's a compliment, because he's still alive." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_blood = {
+      lines = { { id = "cobl_default", text = "Then you've more right to that bag of ears than I have. Fill it, and say his name over every one if it helps." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     hate_talk = {
       lines = {
@@ -83,11 +116,11 @@ P:NPC {
     hate_knife = {
       big = true,
       lines = {
-        { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief." },
+        { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief, and he's earned the right to choose." },
       },
       choices = {
-        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "I'd rather fight them face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 }, opinion = { centaur = "divide" } } },
+        { text = "I'd rather fight them face to face.", next = "BACK", fx = { align = { honor = 1 }, opinion = { centaur = "war" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,8 +177,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A grunt who could count, so they made me a scout. That's all of it." } },
+    background = { { id = "tp_bg", text = "A grunt who could count, so they made me a scout. I was born in an internment camp, and I've been fighting for the Horde since the day the gates broke, and that's all of it." } },
     advice = { { id = "tp_ad", text = "Centaur ride in circles before they charge. When they stop circling, run or swing." } },
-    _none = { { id = "tp_none", text = "I don't know, and I don't much care, so ask me something useful." } },
+    centaur = { { id = "tp_centaur", text = "All five clans want us dead, and they all want each other dead more, so we have time. Bring me ears." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs this coast held, so it is held. Do you have more questions, or ears?" } },
+    maraudon = { { id = "tp_maraudon", text = "The centaur call Maraudon holy, and they defend it like rabid wolves, so no orc goes there. Good, there is enough to kill out here." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Takata hunts demon-lovers. I hunt centaur. Both of us have more work than hands, so if you want work, ask either of us and stop talking." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't much care, so ask me something useful, something with blood in it." } },
   },
 }

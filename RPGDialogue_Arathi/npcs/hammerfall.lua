@@ -6,6 +6,7 @@ P:NPC {
   key = "gormul", id = TODO_NPC("Gor'mul"), name = "Gor'mul",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "bitter" }, values = { "loyal" },
+  prejudice = { race = "Scourge", amount = 12, why = "The Forsaken were Lordaeron's humans, and some of them kept the camps." },
   notices = { "race" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A Forsaken. I spent years behind a human fence in this valley, and some of the faces walking around the Undercity now used to stand on the other side of it." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "You smell of cellars, dead one. Say what you came to say, and don't come any closer than that post." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, dead one. I've stopped looking for a guard's face under yours, which is something, and you can thank your own patience for it." },
     { id = "g_default", text = "What do you want? There is nothing here worth the walk, unless you came for the flies." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still hoping to find something in me worth saving?" },
     { id = "g_better", when = { questDone = TODO_QUEST("Guile of the Raptor") }, text = "Ah, you. Sit, if you like. I find I can stand company again, some days." },
@@ -26,6 +30,82 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Maybe you did and maybe you didn't, and that's the trouble. The humans who ran the camps died in the plague like everyone else in Lordaeron, and I've never known which of them got up again and joined the Horde." } },
+      choices = {
+        { text = "The Horde forgave you. You can forgive us.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I owe you nothing for a dead man's sins.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand. Look as long as you need to.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Tell me about the camp.", next = "prej_why" },
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Mud, a fence and a ladle of grey porridge, and the worst of it wasn't the guards' sticks, it was the way they talked over us like cattle. Thrall broke the fences, and I'm free, but I still hear those voices when a Forsaken speaks." } },
+      choices = {
+        { text = "Then let the fences stay broken, in your head as well.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hold on to it. That anger kept you alive in there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Hm. You'd make a poor guard; you don't shout. Sit, then, if you want to sit." } },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall = {
+      lines = {
+        { id = "opn_thrall_q", text = "Go on, then, and don't dress it up for an old orc with one bad leg. I've heard enough songs about him at Drum's fire to fill a camp." },
+      },
+      choices = {
+        { text = "He's the best thing that's happened to our people.", next = "opn_thrall_r_trust", fx = { affinity = -1, align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's a good chieftain. He's no Doomhammer.", next = "opn_thrall_r_lesser", fx = { affinity = 1, align = { light = -1 }, opinion = { warchief = "lesser" } } },
+        { text = "He keeps faith with his people. That's all I ask.", next = "opn_thrall_r_respect", fx = { trait = { practical = 1 }, opinion = { warchief = "respect" } } },
+        { text = "He was a slave in a camp too. He knows, Gor'mul.", next = "opn_thrall_r_kin", when = { faction = "Horde" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { warchief = "kin" } } },
+        { text = "On second thought, I'll keep it to myself.", next = "BACK" },
+      },
+    },
+    opn_thrall_r = {
+      lines = {
+        { id = "opn_thrall_r_default", text = "Wise. Words about a warchief have a way of finding their way back to him." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_trust = {
+      lines = {
+        { id = "opn_thrall_r_trust", text = "The best thing. Doomhammer was the best thing, too, until a knight came out of the dark behind him. I hope your Warchief watches his back." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_lesser = {
+      lines = {
+        { id = "opn_thrall_r_lesser", text = "No, he isn't. Nobody is, and I'd be a liar to say I'd follow anyone the way I followed him. Thank you for not singing at me." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_respect = {
+      lines = {
+        { id = "opn_thrall_r_respect", text = "That is all anyone should ask, and more than most chieftains give. Perhaps I'll believe in him a little, then, on the days my leg doesn't ache." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_kin = {
+      lines = {
+        { id = "opn_thrall_r_kin", text = "He was, they say, in Durnholde. Then he knows the smell. That is worth more to me than any song Drum's fire can sing." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Hate takes strength, and I left mine in these chains. The humans who killed the Warchief prayed to that Light, and now you stand here holding it for the Horde, and I do not know what to feel." } },
@@ -85,7 +165,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Doomhammer had little use for spell-throwers, and neither did the guards who kept us here, so I don't know what to make of you, and I'm too tired to try." },
         { id = "h_default", key = true,
-          text = "I am Gor'mul. I was chained in this very camp, and I saw the Warchief come for us in his black armor with his hammer raised, and I saw a coward on a horse put a lance through his back. Tell me what use hope is after a thing like that." },
+          text = "I am Gor'mul. I was chained in this very camp, and I saw the Warchief come for us in his black armor with his hammer raised, and I saw a coward on a horse put a lance through his back. Tor'gan the shaman keeps telling me to hope, so tell me what use hope is after a thing like that." },
         { id = "h_amulet", when = { questActive = TODO_QUEST("Raising Spirits") },
           text = "Tor'gan sent you with some bauble, didn't he? Polished bone will not mend what was broken here." },
         { id = "h_orb", tags = { "news" }, when = { questActive = TODO_QUEST("Guile of the Raptor") },
@@ -111,16 +191,17 @@ P:NPC {
         { text = "The spirits haven't abandoned you, Gor'mul. Will you let me ask them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Who still threatens Hammerfall, Gor'mul?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Tell me about that night.", next = "night" },
-        { text = "Why did you stay here?", next = "stayed" },
+        { text = "I'm surprised you stayed here.", next = "stayed" },
         { text = "What do you think of Tor'gan?", next = "torgan" },
         { text = "Thrall leads a new Horde now.", next = "thrall" },
         { text = "I was born in the camps too.", next = "camp", when = { origin = "orc_camp_born" } },
         { text = "The dead don't always stay dead, orc.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The Warchief freed you from chains, not from fire.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you wish you had run that night too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do you think the beasts remember that night, Gor'mul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Is there hope for the orcs still in the camps?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The beasts seem to remember that night, Gor'mul.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "There must be some hope for the orcs still in the camps.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you hate the Light for what its knights did, Gor'mul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You glare at me as if I'd wronged you, Gor'mul.", next = "prej", when = { prejudiced = true } },
         { text = "Leave him be.", next = "END" },
       },
     },
@@ -184,7 +265,10 @@ P:NPC {
     },
     thrall = {
       lines = { { id = "th_default", text = "So they tell me, a young one raised by humans who freed the camps and leads us across the sea. I would like to believe in him, but I believed in Doomhammer, and I saw what believing is worth." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Let me tell you what I think of Thrall.", next = "opn_thrall" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhwar = {
       big = true,
@@ -209,6 +293,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A prisoner here, then a wanderer, then a prisoner here again, of a different kind.", next = "night" } },
     advice = { { id = "tp_ad", text = "Never turn your back on a horseman. That is the only lesson the camps taught me worth keeping." } },
     doomhammer = { { id = "tp_doom", text = "He came for us, and he died for it, here.", next = "night" } },
+    internment = { { id = "tp_internment", text = "I was in this camp, chained and beaten, the night the Warchief and Doomhammer came. Doomhammer died here, and I watched him fall, and I've never stopped seeing it." } },
+    thrall = { { id = "tp_thrall", text = "Thrall was a slave like me, and he became the Warchief, and he came back for us. I'd die for him, if he asked, and I'd die gladly." } },
+    second_war = { { id = "tp_second_war", text = "The Second War was glory and then it was chains, and I don't remember which came first anymore. It doesn't matter, I suppose." } },
     _none = { { id = "tp_none", text = "I don't know, and I find I don't care. Ask Tor'gan; he cares about everything." } },
   },
 }
@@ -290,7 +377,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Earth Mother come to Hammerfall! The spirits here be thin and tired, friend, but they be glad of anyone who listens to them." },
         { id = "h_default", key = true,
-          text = "I be Tor'gan, shaman of Hammerfall. The Warchief gave our people back their hope, and here in the ruins of the old prison I tend what's left of it like a small fire in the wind." },
+          text = "I be Tor'gan, shaman of Hammerfall. The Warchief gave our people back their hope, and here in the ruins of the old prison I tend what's left of it like a small fire in the wind, for old Gor'mul most of all, who never left this camp." },
         { id = "h_hammerfall", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hammerfall"), days = 2 } },
           text = "Ah, you speak of Gor'mul. He was a captive here when Thrall and Orgrim broke the camp, and when the earth shook he was left behind, and he never found his way out of that night." },
         { id = "h_spirits", when = { questActive = TODO_QUEST("Raising Spirits") },
@@ -318,16 +405,16 @@ P:NPC {
         { text = "Why are the spirits here so tired, Tor'gan?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Highlands are wide. What should a hunter track first?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Why help Gor'mul?", next = "gormul" },
-        { text = "What did you find at Northfold Manor?", next = "northfold" },
-        { text = "You rebuilt a sigil for Zengu?", next = "sigil" },
-        { text = "How did a troll come to be shaman here?", next = "shaman" },
+        { text = "Have the spirits felt anything foul nearby, Tor'gan?", next = "northfold" },
+        { text = "I hear you rebuilt a sigil for Zengu.", next = "sigil", when = { heardLine = "zengu.st_default" } },
+        { text = "I'd not expected a troll shaman at an orc fort.", next = "shaman" },
         { text = "Teach me something of the raptor spirits.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Can a Forsaken be healed by spirits?", next = "forsaken", when = { race = "Scourge" } },
-        { text = "Can the spirits forgive a warlock, Tor'gan?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I doubt the spirits can forgive a warlock, Tor'gan.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does your slow fire burn, Tor'gan?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the spirits care why a warrior fights, Tor'gan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the spirits whisper about me, Tor'gan?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Could my prayers help Gor'mul, Tor'gan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "My prayers might help Gor'mul, Tor'gan.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits think I'm a wonder or a wound, Tor'gan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll help Gor'mul.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
@@ -373,7 +460,7 @@ P:NPC {
     northfold = {
       lines = { { id = "nf_default", text = "Traces of demon summonin', fresh, and a bloodstone amulet drained dry on the ground. The Syndicate hold that manor, and their dealings with dark magic trouble me more than their knives do." } },
       choices = {
-        { text = "Why would thieves call demons?", next = "northfold_why" },
+        { text = "Thieves calling demons makes little sense.", next = "northfold_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -415,6 +502,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Darkspear, shaman, and keeper of Hammerfall's small fire of hope.", next = "shaman" } },
     advice = { { id = "tp_ad", text = "Never call on a spirit you won't thank afterward. They remember rudeness." } },
     syndicate = { { id = "tp_syn", text = "Thieves who play with demons. Watch them closely.", next = "northfold" } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of Arathi are angry, mon, angry at the ogres and the Syndicate and the bad magic in the ground. I listen to them, and I try to calm them, and sometimes they listen back." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are my people, and Vol'jin is my chief, and I came here to heal the orcs who need it. It's good work, mon, even if they don't always want to be healed." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman, a true one, and the spirits speak to him like they speak to me. That's why I trust him, mon." } },
     _none = { { id = "tp_none", text = "The spirits say nothin' about that, friend, and I don't make up what they don't say." } },
   },
 }
@@ -431,7 +521,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Quietly, please. My husband has sharp ears for anything that sounds like a battle he isn't in." },
+    { id = "g_default", text = "Quietly, please. My husband has sharp ears for anything that sounds like a battle he isn't in, as every orc of his blood does." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Did the bones lie to me, or did you come back safe?" },
   },
 
@@ -476,7 +566,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, on the very day the bones turned up a bear's tooth. I do not believe in chance, tauren, and I would not advise you to either." },
         { id = "h_default", key = true,
-          text = "I am Korin, wife of Drum Fel. He leads Hammerfall and I read the auguries for it, and lately the auguries say things I cannot tell him." },
+          text = "I am Korin, wife of Drum Fel. He leads Hammerfall and I read the auguries for it, as the old clan seers did before the demon blood, and lately the auguries say things I cannot tell him, of an ogre called Or'Kalar and a trap laid for my husband." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("The Real Threat") },
           text = "Or'Kalar waits in Stromgarde with a trap laid for my husband. Kill him before Drum learns he's there, and bring me his head so I can stop dreaming of it." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Real Threat"), days = 3 } },
@@ -496,13 +586,13 @@ P:NPC {
       },
       choices = {
         { text = "What else have the bones told you, Korin?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Forsaken and orcs fight side by side here. Does that sit well?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Forsaken and orcs fighting side by side must sit poorly with some.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who is Or'Kalar?", next = "orkalar" },
         { text = "Why hide it from your husband?", next = "secret" },
-        { text = "How do you read the auguries?", next = "auguries" },
+        { text = "Reading auguries seems an uncertain art.", next = "auguries" },
         { text = "I read the bones as well.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "What do your bones say about demons, Korin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do your auguries ever show you the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Your auguries must show you the arcane at times.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do the auguries say about a knife in the dark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What tracks did your stones see in Stromgarde, Korin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do your auguries say about a paladin's fate, Korin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -553,7 +643,7 @@ P:NPC {
       choices = {
         { text = "He'd want to know. You should tell him.", next = "secret_tell", fx = { align = { honor = 1 } } },
         { text = "A wise lie keeps him alive. I'll say nothing.", next = "secret_tell", fx = { align = { honor = -1 }, affinity = 2 } },
-        { text = "Does he suspect?", next = "secret_suspect" },
+        { text = "He must suspect something.", next = "secret_suspect" },
       },
     },
     secret_tell = {
@@ -589,6 +679,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know what the bones tell me, and a little of what Drum doesn't. Ask carefully." } },
     background = { { id = "tp_bg", text = "Drum's wife, and Hammerfall's augur. The second job is harder.", next = "secret" } },
     advice = { { id = "tp_ad", text = "Never tell a proud orc where his old enemy sleeps. Tell me instead." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps the Horde together with hope, and some days I think that hope is all we have. Drum believes in it, and I pray he's right." } },
+    the_elements = { { id = "tp_the_elements", text = "I read the auguries in the bones and the smoke, and they tell me things I don't want to hear. The spirits are troubled in Arathi, and so am I." } },
+    internment = { { id = "tp_internment", text = "I was young in the camps, and I remember the hunger more than the chains. Drum remembers the chains, and that is the difference between us." } },
     _none = { { id = "tp_none", text = "I've cast no augury on that, and I'll not waste good bones finding out." } },
   },
 }
@@ -605,7 +698,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a wind rider? They're saddled and restless, so don't keep them waiting, or one of them will start chewing your pack." },
+    { id = "g_default", text = "Need a wind rider, {class}? They're saddled and restless, so don't keep them waiting, or one of them will start chewing your pack." },
     { id = "g_back", when = { metBefore = true }, text = "You return to Hammerfall. My wind riders know your scent now, and they don't snap at it." },
   },
 
@@ -672,7 +765,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Wind riders hate the smell of demons, so send yours away before you mount, or you'll be flying sideways the whole way to Tarren Mill." },
         { id = "h_default", key = true,
-          text = "Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
+          text = "I am Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Night flights over the Highlands are cold but quiet. The Witherbark can't aim what they can't see." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -691,11 +784,11 @@ P:NPC {
         { text = "Shall I speak to the winds before your riders fly?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the Witherbark do when your riders pass overhead?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
-        { text = "What are the winds like here?", next = "winds" },
-        { text = "Do the trolls shoot at your riders?", next = "trolls" },
+        { text = "The winds look rough up here.", next = "winds" },
+        { text = "I'd guess the trolls shoot at your riders.", next = "trolls" },
         { text = "Do the Highlands' winds trouble your beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could I fly out without the guards knowing?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Has a wind rider ever thrown a warrior, Urda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I'd wager a wind rider has thrown a warrior or two, Urda.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should the wind riders be ridden into battle?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why would the wind riders trust a paladin over other Forsaken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
@@ -749,8 +842,11 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Winds and routes are what I know, so ask me about those." } },
-    background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone. Here I am." } },
+    background = { { id = "tp_bg", text = "Orgrimmar trained me, and Hammerfall needed someone, and an orc goes where the Horde needs her. Here I am." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the Alterac foothills. The gusts come without warning." } },
-    _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rode a wind rider once, they say, and he didn't fall off. That's more than I can say for most orcs I've taught." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds of the Highlands are the fiercest I've ever flown, and they respect nothing but courage. I've learned to respect them back." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken fly bats from Tarren Mill, and I've raced them once or twice. My wind riders win, always, but the bats are faster on a turn." } },
+    _none = { { id = "tp_none", text = "That's not my business, friend, since my business is wings and the Horde's letters." } },
   },
 }

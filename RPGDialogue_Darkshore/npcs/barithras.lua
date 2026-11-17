@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Good day to you. Mind the jars; some of them are not as harmless as they look." },
+    { id = "g_hello", text = "Elune's light on you. Mind the jars, for some of them are not as harmless as they look." },
     { id = "g_mush", when = { questActive = TODO_QUEST("Cave Mushrooms") }, text = "Scaber stalks and a death cap, and a careful look around that cave. Have you been yet?" },
     { id = "g_onu", when = { questActive = TODO_QUEST("Onu") }, text = "Onu is waiting for you at the Grove of the Ancients. The Ancients do not wait lightly, so I would not keep him long." },
     { id = "g_onu_done", when = { questDone = TODO_QUEST("Onu") }, text = "Whatever Onu told you, I hope you listened carefully. He chooses his words over centuries." },
@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Barithras Moonshade. I make potions here in Auberdine, and the one I am working on needs mushrooms that grow in only one place on this whole coast." },
+          text = "I am Barithras Moonshade. I make potions here in Auberdine, as I have for longer than the village has stood, and the one I am working on needs mushrooms that grow in only one place on this whole coast, a cave behind Cliffspring Falls that the Ancients of the grove, old Onu among them, have warned me away from." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Cave Mushrooms") },
           text = "The mushrooms grow in a cave behind Cliffspring Falls, to the east and a little north. I would fetch them myself, but the Grove of the Ancients has warned me away, for they sense a new evil hiding there." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cave Mushrooms"), days = 3 } },
@@ -49,8 +49,8 @@ P:NPC {
         { id = "h_again2", text = "I am listening, friend, though the potion is not." },
       },
       choices = {
-        { text = "What potion are you making?", next = "potion" },
-        { text = "Why do the Ancients fear that cave?", next = "cave" },
+        { text = "That potion smells strong.", next = "potion" },
+        { text = "It's strange that the Ancients fear that cave.", next = "cave" },
         { text = "Why not go yourself?", next = "coward" },
         { text = "Tell me about Onu.", next = "onu_b" },
         { text = "I found naga in the cave.", next = "naga", when = { questDone = TODO_QUEST("Cave Mushrooms") } },
@@ -80,10 +80,10 @@ P:NPC {
 
     cave = {
       lines = {
-        { id = "ca_default", text = "They did not say, and I did not presume to ask more than once. The Ancients speak slowly, and they speak of what they feel rather than what they see, so all I know is that something has come to Darkshore that was not here before." },
+        { id = "ca_default", text = "They did not say why, and I did not presume to ask more than once. The Ancients speak slowly, and they speak of what they feel rather than what they see, so all I know is that something has come to Darkshore that was not here before." },
       },
       choices = {
-        { text = "And you sent me there anyway?", next = "cave_sent" },
+        { text = "And still you sent me there.", next = "cave_sent", when = { any = { { questActive = TODO_QUEST("Cave Mushrooms") }, { questDone = TODO_QUEST("Cave Mushrooms") } } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +114,7 @@ P:NPC {
         { id = "ob_default", text = "Onu is an Ancient of Lore at the Grove, to the south near the mountains. He has watched this coast longer than Auberdine has stood, and he does not ask to see anyone without reason." },
       },
       choices = {
-        { text = "What should I say to him?", next = "onu_say" },
+        { text = "I'm not sure what to say to him.", next = "onu_say" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -144,6 +144,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A maker of potions, and a careful one. Careful people live long in Darkshore; I would like to be one of them." } },
     advice = { { id = "tp_ad", text = "When the Ancients warn you away from a place, believe them. Then, if you must go, go carefully." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and I'd rather be dull and alive." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The water near Blackfathom is fouled with something I can't name, and I don't want to name it. I keep my vials far from that coast." } },
+    highborne = { { id = "tp_highborne", text = "Highborne alchemy was brilliant and reckless, and the ruins prove both. I've found their vials, and I've put them back where I found them." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the Grove of the Ancients, if you have the patience for the answer." } },
   },
 }

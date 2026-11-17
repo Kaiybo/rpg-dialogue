@@ -41,6 +41,67 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_light = {
+      lines = {
+        { id = "opn_light_q", text = "Now there's a question that's emptied a few tankards in this Hall. Some o' my priests say it shines on everyone whether they like it or no', an' some say ye have tae reach for it first. Which way d'ye lean, yerself?" },
+      },
+      choices = {
+        { text = "It shines on everyone. That's what makes it the Light.", next = "opn_light_r_faith", fx = { affinity = 1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "It's a power like any other, Father. Use it well.", next = "opn_light_r_tool", fx = { align = { light = -1 }, trait = { practical = 1 }, opinion = { the_light = "tool" } } },
+        { text = "I've seen too many prayers go unanswered to say.", next = "opn_light_r_doubt", fx = { trait = { skeptical = 1 }, opinion = { the_light = "doubt" } } },
+        { text = "It answers those who keep their oaths. I've felt it.", next = "opn_light_r_devotion", when = { class = { "PALADIN", "PRIEST" } }, fx = { affinity = 1, trait = { pious = 1 }, opinion = { the_light = "devotion" } } },
+        { text = "The stone was here before the Light, Father.", next = "opn_light_r_stranger", when = { class = "SHAMAN" }, fx = { opinion = { the_light = "stranger", the_elements = "first" } } },
+        { text = "I'll leave theology to the priests.", next = "BACK" },
+      },
+    },
+    opn_light_r = {
+      lines = {
+        { id = "opn_light_r_default", text = "Wise of ye. The priests have been arguin' it for a thousand years an' havenae finished yet." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_faith = {
+      lines = {
+        { id = "opn_light_r_faith", text = "That's my lean too, though I'll warn ye it makes for a crowded Hall. Come an' help wi' the soup some evenin', an' ye'll see who it shines on." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_tool = {
+      lines = {
+        { id = "opn_light_r_tool", text = "A hammer's a power like any other, too, an' ye'll notice nobody prays tae their hammer. Use it well, aye, but don't forget it's lookin' back at ye." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_doubt = {
+      lines = {
+        { id = "opn_light_r_doubt", text = "So have I, {g:lad|lass}, so have I. Doubt's no' the opposite o' faith; it's only faith wi' its eyes open, an' I'd rather that than the other kind." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_devotion = {
+      lines = {
+        { id = "opn_light_r_devotion", text = "Aye, an' keep feelin' it on the days ye've broken one, for those are the days it matters. Brandur would like ye; he says the same thing louder." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_stranger = {
+      lines = {
+        { id = "opn_light_r_stranger", text = "So it was, an' I'll no' quarrel wi' the stone. The Light never claimed tae be the oldest thing under the mountain, only the kindest." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
     xpt_rohan = {
       big = true,
       lines = { { id = "xpt_rohan_default", text = "The Light does, if ye let it, an' a pint an' a good night's sleep do the rest. I've seen healers pour themselves out for their friends till there was nothin' left, an' the Light never asked that o' them; they asked it o' themselves." } },
@@ -99,10 +160,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_crusade_gossip", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "admire" } },
+          text = "Brandur tells me ye spoke well o' the Scarlet Crusade in his hall. I'll say only this: zeal's a fine fire, but ye want tae know what it's burnin'." },
         { id = "h_pt_rohan", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
           text = "Ye're the only one in yer company who mends, aren't ye? I can tell by how ye stand, a wee bit behind an' watchin' everyone, an' I'll tell ye what I tell my acolytes: watch yerself too, because nobody else will." },
         { id = "h_default", key = true,
-          text = "Rohan, High Priest o' the Hall o' Mysteries. I walk this floor from mornin' tae night, because the young priests ask better questions when they have tae keep up." },
+          text = "Rohan, High Priest o' the Hall o' Mysteries. I walk this floor from mornin' tae night, because the young priests ask better questions when they have tae keep up, an' this old censer swings better on the move." },
         { id = "h_fear", tags = { "news" }, when = { questActive = TODO_QUEST("A Lack of Fear") },
           text = "Ye came quickly, an' that's a good sign. There's a ward against fear that belongs tae dwarves who serve the Light, an' I've been waitin' tae teach it tae ye." },
         { id = "h_fear_done", when = { questDone = TODO_QUEST("A Lack of Fear") },
@@ -137,10 +200,10 @@ P:NPC {
       },
       choices = {
         { text = "Is the Light really so different from nature?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why do you never stand still?", next = "pacing" },
+        { text = "You never seem to stand still, High Priest.", next = "pacing" },
         { text = "How did the Light come to Ironforge?", next = "came" },
-        { text = "They say you keep an exorcism censer.", next = "censer" },
-        { text = "What work is there for a priest?", next = "work" },
+        { text = "What's that old censer for, High Priest?", next = "censer" },
+        { text = "There must be plenty of work for a priest here.", next = "work" },
         { text = "Teach me something, High Priest.", next = "lesson", when = { class = "PRIEST" } },
         { text = "Does the Light listen to gnomes?", next = "gnome", when = { race = "Gnome" } },
         { text = "What troubles you, High Priest?", tag = "Persuade", next = "worry",
@@ -234,7 +297,8 @@ P:NPC {
           text = "Ye'd think it was always here, the way the young ones talk, but yer grandfather would ha' looked at this Hall an' asked where the forge was. The Light came up from the humans, after the Second War, an' it took root." },
       },
       choices = {
-        { text = "Do dwarves pray differently from humans?", next = "came_diff" },
+        { text = "Does the Light answer everyone, or only the faithful?", next = "opn_light" },
+        { text = "I'd guess dwarves pray differently from humans.", next = "came_diff" },
         { text = "Who sends the young priests on, after you?", next = "came_send" },
         { text = "The mountain was fine before the Light came.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
         { text = "It's good that it found its way here.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
@@ -277,7 +341,7 @@ P:NPC {
         { id = "ce_default", text = "Aye, an old thing, an' I've swung it over more than one poor soul that had somethin' unwelcome livin' in them. Lord Shadowbreaker's paladins come for it now, an' I give it tae them for a donation." },
       },
       choices = {
-        { text = "You sell a holy relic?", next = "censer_sell" },
+        { text = "Selling a holy relic seems a strange thing for a priest.", next = "censer_sell" },
         { text = "What were the exorcisms like?", next = "censer_rite" },
         { text = "Something else.", next = "BACK" },
       },
@@ -289,7 +353,7 @@ P:NPC {
       choices = {
         { text = "Bread for the hungry is a holier use than any rite.", next = "BACK", fx = { align = { light = 1, order = -1 }, affinity = 2, trait = { generous = 1 } } },
         { text = "Holy things shouldn't carry a price.", next = "BACK", fx = { align = { order = 1 }, affinity = -1, trait = { stern = 1 } } },
-        { text = "Why are the stores low?", next = "censer_stores" },
+        { text = "The stores seem low for a temple this size.", next = "censer_stores" },
       },
     },
     censer_stores = {
@@ -477,6 +541,12 @@ P:NPC {
     cenarion_circle = { { id = "tp_cenarion", text = "Druids, an' no' my faith, but they've asked for the Light's help in Azshara, an' we answer when asked.", next = "work_druids" } },
     silver_hand = { { id = "tp_silver_hand", text = "It brought the Light up this mountain. Tiza an' Brandur carry its oaths in this Hall now, an' they carry them well." } },
     tome_of_divinity = { { id = "tp_tome", text = "That's Tiza's charge, no' mine. I only patch up the paladins she sends out, an' patch up her husband when they bring him back." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light asks a dwarf tae do what dwarves already do: stand fast, keep faith wi' yer neighbours, an' work hard at somethin' worth doin'. The rest is just learnin' the words fer it." }, { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "Ye know it already, I'd wager, as a warmth that comes when ye've nothin' left tae give an' give anyway. Keep that, an' ye'll never need my sermons." } },
+    scourge = { { id = "tp_scourge", text = "The dead are an offence tae the Light, an' the Argent Dawn is right tae march against them. I send priests north every season, an' fewer come back each time." } },
+    forsaken = { { id = "tp_forsaken", text = "They say the Forsaken have their own minds now an' hate the Lich King as much as we do. I'd still no' turn my back on one, an' I'd still pray fer what they were." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "The Crusade was born o' grief an' good intentions, an' it's gone sour as old milk. They've burned priests o' the Light fer bein' too gentle wi' the sick." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the dead wi' faith an' good sense in equal measure, an' they take anyone who'll stand. That's the Light as I understand it." } },
+    elune = { { id = "tp_elune", text = "The night elves pray tae their moon goddess wi' as much faith as any priest o' the Light. I've talked wi' their priestesses, an' I'll no' say they're wrong." } },
     _none = { { id = "tp_none", text = "That's beyond the Hall's walls an' my knowledge, I'm afraid. Ask in the Commons; somebody there always thinks they know." } },
   },
 }
@@ -609,7 +679,7 @@ P:NPC {
         { text = "How could the arcane lead a soul from the Light?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there any road back for a warlock, Theodrus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How does the Light stand beside a warrior, Theodrus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Is the Light any comfort out in the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The Light must be some comfort out in the high snows.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's a paladin's greatest danger, Theodrus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is Elune's light so different from the Holy Light?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a shaman keep faith with the Light as well, Theodrus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -660,6 +730,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I'm a trainer, no' a gossip, but I've ears. Here's what I've heard worth repeatin'." } },
     background = { { id = "tp_bg", text = "I teach priests in the Hall, an' that's the whole o' it. My history's my own business, an' it's no' very interestin' besides." } },
     advice = { { id = "tp_ad", text = "Don't turn yer back on the Light. I say it tae everyone, an' I'll say it tae ye twice, for ye asked." } },
+    holy_light = { { id = "tp_holy_light", text = "Dinnae turn yer back on the Light, for it won't turn its back on ye, an' that's the whole sermon. I've given it a thousand times an' I'll give it a thousand more." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk because men turned their backs on the Light, an' I'll stand by that till I'm grey. Look at Lordaeron, an' tell me I'm wrong." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead who think they're free are still dead, an' they'll find that out soon enough. I'll no' pray fer them, an' I'll no' apologise fer it." } },
     _none = { { id = "tp_none", text = "Nae idea, an' I'll no' pretend tae one. Ask the High Priest; he walks about enough tae hear everythin'." } },
   },
 }
@@ -797,7 +870,7 @@ P:NPC {
         { text = "I came out of the abbey at Northshire.", next = "abbey", when = { origin = "human_abbey_novice" } },
         { text = "Do rogues often come to you for quiet healing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a priest offer a warlock, Toldren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do many warriors come to you for healing, Toldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Many warriors must come to you for healing, Toldren.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters come to you often, Toldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins come to you for help, Toldren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How would a priest of the Light help a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -851,6 +924,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I train priests in the Hall o' Mysteries, an' I keep the night lamps lit. That's about all there is tae me." } },
     advice = { { id = "tp_ad", text = "Let someone help ye now an' then. It's harder than helpin', an' it's good practice." } },
     thandol_span = { { id = "tp_span", text = "The bridge where the Dark Irons struck. More than one family in Ironforge waits on news from it.", next = "night_widow" } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's a warm hand on a tired shoulder, an' I try tae be that fer anyone who comes through the Hall. Ye look tired, if ye dinnae mind my sayin'." } },
+    scourge = { { id = "tp_scourge", text = "I've sat wi' soldiers back from the north who couldnae sleep fer the screaming. The dead are hard enough tae fight an' harder tae forget." } },
+    stromgarde = { { id = "tp_stromgarde", text = "There's a priest at Refuge Pointe who writes me every month, an' every letter's more tired than the last. I send back what comfort I can, an' it's never enough." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. If it's important, the High Priest might, or the Library in the Hall o' Explorers." } },
   },
 }
@@ -1040,6 +1116,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Priest trainer, letter-sorter, an' the one who finds folk when the High Priest cannae. I like the work." } },
     advice = { { id = "tp_ad", text = "Write tae someone when ye've a moment. A priest on the road forgets that somebody's prayin' for her too." } },
     teldrassil = { { id = "tp_teldrassil", text = "That's where Alathea's letters come from, the Temple o' the Moon. They smell o' leaves, which is a strange thing tae find in a mountain." } },
+    elune = { { id = "tp_elune", text = "The night elf priestesses write tae us now an' then, an' their letters smell o' moonflowers. They pray tae Elune as we pray tae the Light, an' I think both prayers end up in the same place." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind leads the night elves, priestess an' general both, an' her letters tae the Hall are courteous an' very short. I've a great respect fer anyone who can say a lot in few words." } },
+    theramore = { { id = "tp_theramore", text = "The priests at Theramore send word through us now an' then, for Lady Jaina takes in all sorts an' needs all sorts o' help. I make sure their letters go out by the first gryphon." } },
     _none = { { id = "tp_none", text = "No letters about that, I'm afraid. Try the Commons, or the Library." } },
   },
 }
@@ -1165,9 +1244,9 @@ P:NPC {
       },
       choices = {
         { text = "What does the path to virtue ask?", next = "path" },
-        { text = "Who's being stitched over there?", next = "husband" },
+        { text = "Someone over there is the wounded dwarf up.", next = "husband" },
         { text = "How did you come to the Light?", next = "came" },
-        { text = "Brandur speaks highly of you.", next = "brandur" },
+        { text = "Brandur speaks highly of you.", next = "brandur", when = { heardLine = "brandur.tz_default" } },
         { text = "I've earned my oaths, Tiza.", next = "oath", when = { class = "PALADIN" } },
         { text = "My family's carried the Silver Hand since the Second War.", next = "hand", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "I'm no paladin, but I'd stand with one.", next = "warrior", when = { class = "WARRIOR" } },
@@ -1236,7 +1315,7 @@ P:NPC {
         { id = "ca_default", text = "The same way as most dwarves o' my years: the Silver Hand needed hands, an' I had two. The oaths took longer than the hammer-work, but they've held better." },
       },
       choices = {
-        { text = "Do the oaths ever chafe?", next = "came_chafe" },
+        { text = "Those oaths must chafe at times.", next = "came_chafe" },
         { text = "Something else.", next = "BACK", fx = { learn = { "silver_hand" } } },
       },
     },
@@ -1297,6 +1376,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Help someone who cannae repay ye, an' don't tell anyone ye did it. That's the whole lesson; the rest is practice.", next = "path" } },
     tome_of_divinity = { { id = "tp_tome", text = "It's the book I give the young ones. It asks them tae be charitable an' patient, an' most find patience the harder.", next = "path" } },
     dark_iron = { { id = "tp_dark_iron", text = "There's a camp o' them south o' Helm's Bed Lake, an' a commander givin' orders. My husband has the stitches tae prove it.", next = "husband" } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's best served in the dirt, helpin' folk who'll never know yer name. That's where I send my young paladins, an' it's where they learn what they're for." }, { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Ye've chosen the hardest road there is, an' I'm proud o' ye fer it. Dinnae let anyone tell ye the Light's only fer the battlefield." } },
+    silver_hand = { { id = "tp_silver_hand", text = "Uther's order is broken, but the Hand still lives in every paladin who helps somebody who cannae pay. That's the oath, an' it outlives any banner." } },
+    scourge = { { id = "tp_scourge", text = "My husband's fought the dead, an' he came home quiet. Send yer prayers north, fer the paladins there need every one." } },
     _none = { { id = "tp_none", text = "That's no' somethin' I can speak tae. Ask the High Priest, or ask Muiredon, who'll talk about anythin'." } },
   },
 }
@@ -1410,7 +1492,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Tiza's lot, are ya? Then ye'll know she'll have ya walkin' further than ya want, an' ye'll thank her for it after, same as I did." },
-        { id = "h_default", text = "Muiredon Battleforge, Tiza's husband, an' presently the Hall's favorite pincushion. I had a wee disagreement wi' some Dark Irons, an' they won the first round." },
+        { id = "h_default", text = "Muiredon Battleforge, Tiza's husband, an' presently the Hall's favorite pincushion. My friend Narm an' I had a wee disagreement wi' some Dark Irons, an' they won the first round." },
         { id = "h_symbol", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity"), class = "PALADIN" },
           text = "Tiza's sent ya tae hear it from me, has she? Then sit, an' I'll tell ya the whole of it, about me an' Narm an' the Dark Irons." },
         { id = "h_symbol2", tags = { "news" }, when = { questActive = TODO_QUEST("The Symbol of Life") },
@@ -1434,9 +1516,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Talkin' takes me mind off the needle." },
       },
       choices = {
-        { text = "What happened at Helm's Bed Lake?", next = "lake" },
+        { text = "Where did you run into these Dark Irons?", next = "lake" },
         { text = "Tell me about Narm.", next = "narm" },
-        { text = "Are you badly hurt?", next = "hurt" },
+        { text = "You look badly hurt.", next = "hurt" },
         { text = "Let me pray over those wounds.", next = "pray", when = { class = "PRIEST" } },
         { text = "Tell me how to fight the Dark Irons, Muiredon.", next = "fight", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "What happened south of Helm's Bed Lake?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1444,7 +1526,7 @@ P:NPC {
         { text = "How did the Dark Irons get the better of you, Muiredon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What did you see south of Helm's Bed Lake, Muiredon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did the Dark Irons teach you, Muiredon?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Did the Dark Irons give you those wounds, Muiredon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The Dark Irons gave you those wounds, I'd guess.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you fight Dark Irons beside a warlock, Muiredon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call on fire against you, Muiredon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Mend well, Muiredon.", next = "END" },
@@ -1456,7 +1538,7 @@ P:NPC {
       },
       choices = {
         { text = "What were they after?", next = "lake_after" },
-        { text = "Why didn't you report back first?", next = "lake_why" },
+        { text = "You ought to have reported back first.", next = "lake_why" },
       },
     },
     lake_after = {
@@ -1541,6 +1623,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tiza's husband an' Narm's friend, an' that's about all anyone needs tae know about ol' Muiredon." } },
     advice = { { id = "tp_ad", text = "Don't go peekin' at Dark Irons wi' only two o' ya. Take five, an' a priest." } },
     dark_iron = { { id = "tp_dark_iron", text = "South o' Helm's Bed Lake, wi' a leader an' some writin's they guard close. I've the holes tae show for it.", next = "lake" } },
+    scourge = { { id = "tp_scourge", text = "I've only fought Dark Irons, an' look at me, so I'll leave the walkin' dead tae braver dwarves. Narm says they dinnae flinch at a hammer, an' Narm's never wrong about hammers." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light kept me breathin' long enough fer this priest tae stitch me up, an' I've thanked it twice already this mornin'. I'll thank it again when she's done." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Narm an' I spent a season at Refuge Pointe, an' Stromgarde's soldiers fight like they've nothin' left tae lose, because they don't. I'd go back wi' him tomorrow, once we're both on our feet." } },
     _none = { { id = "tp_none", text = "Couldnae tell ya, friend. I've been lyin' here gettin' stitched, no' readin' the news." } },
   },
 }
@@ -1558,7 +1643,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_advice", text = "Well met! Here's free advice: make friends with a mage, because our sleeves are absolutely full of tricks." },
+    { id = "g_advice", text = "Well met! Here's free advice, and I've run the numbers on it: make friends with a mage, because our sleeves are absolutely full of tricks, and roughly a third of them work as intended." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Come in, come in, mind the frost on the floor; that was a demonstration." },
   },
 
@@ -1643,7 +1728,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I like priests, because when my students set themselves on fire, which happens, your sort are the ones who put them out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a list of paladins who've been very rude about my lightning, and I hope you won't be on it." },
-        { id = "h_default", text = "Bink, mage trainer, and the Hall's best argument for keeping a bucket of sand by every door. What can I do for you?" },
+        { id = "h_default", text = "Bink, mage trainer, and the Hall's best argument for keeping a bucket of sand by every door; I've measured, and three buckets is the safe ratio. What can I do for you?" },
         { id = "h_tabetha", tags = { "news" }, when = { questActive = TODO_QUEST("Tabetha's Task") },
           text = "Off to see Tabetha, are we? Her cottage is west of Theramore, past the Stonemaul ruins, and take friends, because Tabetha's errands tend to end in Zul'Farrak." },
         { id = "h_mage_high", when = { class = "MAGE", minLevel = 40 },
@@ -1658,7 +1743,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please tell me you're better with fire than my students. I've used two buckets of sand already this morning." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, before the frost melts." },
+        { id = "h_again", text = "What else? Quickly, before the frost melts, because I timed it at four minutes and I've already lost two to chatting." },
         { id = "h_again2", text = "Ask away! I love questions; they're like spells that haven't gone off yet." },
       },
       choices = {
@@ -1669,7 +1754,7 @@ P:NPC {
         { text = "What should I study next, Bink?", next = "study", when = { class = "MAGE" } },
         { text = "I studied in the Mage Quarter of Stormwind.", next = "quarter", when = { race = "Human", class = "MAGE" } },
         { text = "I'd have made a fine mage, once.", next = "lock", when = { class = "WARLOCK" } },
-        { text = "Have rogues really tried to steal spells from you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Rogues must have tried to steal spells from you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a mage trainer want a warrior nearby, Bink?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do mages and hunters have in common, Bink?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do mages and priests get along in the Hall, Bink?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1700,16 +1785,16 @@ P:NPC {
     },
     hall = {
       lines = {
-        { id = "ha_default", text = "Lovely, mostly! The dwarves pray on that side and we study on this side, and every so often a fireball goes the wrong way and High Priest Rohan comes over very calmly to ask about it." },
+        { id = "ha_default", text = "Lovely, mostly! The dwarves pray on that side and we study on this side, and about once a week by my count a fireball goes the wrong way and High Priest Rohan comes over very calmly to ask about it." },
       },
       choices = {
-        { text = "Do the priests mind?", next = "hall_mind" },
+        { text = "The priests can't be pleased about it.", next = "hall_mind" },
         { text = "Something else.", next = "BACK" },
       },
     },
     hall_mind = {
       lines = {
-        { id = "hm_default", text = "Less than you'd think! They heal our burns and we keep their lamps lit with a cantrip, and my brother Dink says it's the most sensible arrangement in Ironforge." },
+        { id = "hm_default", text = "Less than you'd think! They heal our burns and we keep their lamps lit with a cantrip, which is the sort of tidy exchange we'd have built a machine for back in Gnomeregan, and my brother Dink says it's the most sensible arrangement in Ironforge." },
       },
       choices = {
         { text = "Faith and study belong under one roof.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -1762,9 +1847,12 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I hear everything twice in this Hall, once from the mages and once from the priests, and they never agree. Here's my half." } },
-    background = { { id = "tp_bg", text = "I'm a mage trainer, and a gnome, and I've got a brother called Dink who trains mages too, so yes, we've heard all the jokes." } },
+    background = { { id = "tp_bg", text = "I'm a mage trainer, and a gnome, and I taught arcane theory in Gnomeregan before the troggs gave us all an early recess. I've got a brother called Dink who trains mages too, so yes, we've heard all the jokes." } },
     advice = { { id = "tp_ad", text = "Befriend a mage! And if you are one, befriend a priest, because somebody has to put out the fires." } },
-    _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, because I hate not knowing things." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's the greatest city of mages in the world, and they're rebuilding it, and I'd love to go back. Mind you, they'd want to know where I got some of my tricks, and I'd rather they didn't." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are stuffy, slow and terribly clever, and they'll tell you so if you sit still long enough. I made a friend of one once, and he still won't lend me his books." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor before he turned to necromancy, and they don't like to talk about it. I'd not like to talk about it either, if I'd been the one who let him in." } },
+    _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, because not knowing things gives me a sort of itch, like an unsolved equation." } },
   },
 }
 
@@ -1835,7 +1923,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Only if a mage opens it for ye, an' I'd want tae know where ye're goin' an' why. A portal's no' a back door, though I've had more than one o' yer kind ask me tae make it one." } },
+      lines = { { id = "xrogue_default", text = "Only if a mage opens it for you, and I'd want to know where you're going and why, to the yard. A portal isn't a back door, though I've had more than one of your kind ask me to make it one." } },
       choices = {
         { text = "I'll never ask you to make a portal a back door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Every door is a back door if you use it right.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1844,7 +1932,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Close enough tae worry me, for both tear a hole in the world, an' only one o' them asks permission o' what's on the other side. I've studied this longer than ye've been alive, so dinnae argue it." } },
+      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." } },
       choices = {
         { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Permission is for the weak. I take what I need.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1873,26 +1961,26 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I doubt you've come to study portal magic, but I'll admit your kind understand discipline, which is more than I can say for most mages." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I very much doubt you've the mental acuity for portals, but I'll admit you've the discipline, which is half the battle." },
-        { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another, which is the most difficult thing in this Hall, and I include praying in that." },
+        { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another to within a hand's width, which is the most difficult thing in this Hall, and I include praying in that." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 40 },
           text = "You've reached the point where walking becomes optional. Portals, then, and do pay attention, because a portal opened carelessly arrives somewhere carelessly." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue wantin' tae know about portals? I doubt ye've the mental acuity, but go on." },
+          text = "A rogue wanting to know about portals? I doubt you possess the mental acuity, but go on, and keep your hands where I can measure them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock askin' about portals, are ye? I'll tell ye now, I'll no' teach ye tae open anythin', for yer kind's openin's have a habit o' lettin' things in." },
+          text = "A warlock asking about portals, are you? I'll tell you now, I won't teach you to open anything, because your kind's openings have a habit of letting things in, and I've the figures to prove it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I doubt very much that you're here to study portal magic, but do go on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please do keep any beast you have well away from the portal stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm told your people can step to Moonglade without a single equation, and I find that personally offensive." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fold space, and you, I'm told, speak to the ground beneath it. One day we'll have to compare which of us gets lost more often." },
       },
       again = {
-        { id = "h_again", text = "Something else? Make it a sensible something." },
+        { id = "h_again", text = "Something else? Make it a sensible something, with defined terms." },
         { id = "h_again2", text = "Well? I've calculations cooling." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
         { text = "How does a portal work?", next = "how" },
-        { text = "What happens to a careless portal?", next = "careless" },
+        { text = "A careless portal sounds a dangerous thing.", next = "careless" },
         { text = "Why must I wait for portals?", next = "wait", when = { class = "MAGE", maxLevel = 39 } },
         { text = "The Kirin Tor brought my people to Dalaran.", next = "sky", when = { race = "Skyborne", class = "MAGE" } },
         { text = "Could a rogue ever use one of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1956,8 +2044,11 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know a great deal, most of it beyond you. Here is the part that isn't." } },
-    background = { { id = "tp_bg", text = "I teach portal magic in the Hall of Mysteries. Before that I studied portal magic, and before that I wanted to study it, so you see the pattern." } },
+    background = { { id = "tp_bg", text = "I teach portal magic in the Hall of Mysteries. Before that I studied portal magic in Gnomeregan, and before that I wanted to study it, so you see the pattern." } },
     advice = { { id = "tp_ad", text = "Check where you're going before you go there. You'd be astonished how many people don't." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's portals are the finest ever woven, and I'd wager you wouldn't understand a single strand of them. The Kirin Tor are rebuilding, slowly, which is the proper speed for anything worth doing." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the only body of mages worth the name, and I've met most of them. They'd find you underqualified, I'm sure, but don't let that stop you trying." } },
+    theramore = { { id = "tp_theramore", text = "Lady Jaina's portal work is elegant, I'll grant you, though she cuts corners I wouldn't. Theramore's a fine city for a young mage, if you don't mind the swamp." } },
     _none = { { id = "tp_none", text = "That isn't a portal, so it isn't my concern." } },
   },
 }

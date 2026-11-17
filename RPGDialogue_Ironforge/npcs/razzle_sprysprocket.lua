@@ -53,12 +53,23 @@ P:NPC {
       },
       choices = {
         { text = "What happened at Gnomeregan?", next = "gnomeregan" },
-        { text = "How does the Recombobulator work?", next = "machine" },
+        { text = "What are you and Ozzie building?", next = "machine" },
         { text = "Tell me about Ozzie.", next = "ozzie" },
         { text = "Can I look at the schematics?", next = "schematics", when = { profession = "Engineering" } },
         { text = "Do you think the lepers can really be saved?", next = "saved", when = { race = "Gnome" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "My brother is one of the lepers outside Gnomeregan, Razzle.", next = "xorig_leperkin", when = { origin = "gnome_leper_kin" } },
         { text = "Good luck, Razzle.", next = "END" },
+      },
+    },
+    xorig_leperkin = {
+      lines = {
+        { id = "xoleperkin_default", text = "Oh! Oh, I'm so sorry, and I'm sorry I talked about putting the race back together as though it were a clock. Your brother is exactly who the machine is for, and if it works he'll be first through it, or second, after Ozzie tests it on himself. What was his trade, before?" },
+      },
+      choices = {
+        { text = "He mended clocks. Thank you, Razzle.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Test it properly first. I won't lose him twice.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     gnomeregan = {
@@ -91,7 +102,7 @@ P:NPC {
       lines = { { id = "m_default", text = "You put a leper gnome in one end and a gnome comes out the other, in theory! In practice, it's a matter of viscosity in the electrogum gel and getting the inner combustion pistons to agree with each other." },
       },
       choices = {
-        { text = "Have you tested it on anyone?", next = "machine_test" },
+        { text = "I'd hope you've tested it on someone.", next = "machine_test" },
         { text = "I understood about half of that.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
       },
     },
@@ -128,6 +139,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tinker, Gnomeregan born, Kharanos for now. That's the short version, and the long one has more explosions." } },
     advice = { { id = "tp_ad", text = "Always label your wires. I didn't once, and my eyebrows still haven't grown back." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Home, until the troggs and the radiation. We'll have it back one day.", next = "gnomeregan" } },
+    scourge = { { id = "tp_scourge", text = "A plague that turns the living into the dead is the opposite of everything I'm trying to do here, and it frightens me more than the radiation. If I can clean one, maybe someday someone can clean the other." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have some cleansing spells I'd dearly love to study, but they won't answer my letters. I'd send another, but I've run out of polite ways to ask." } },
+    magni = { { id = "tp_magni", text = "King Magni took us in when Gnomeregan fell, and he never once asked what we'd pay him back with. I'm going to cure the lepers and pay him that way, I've decided." } },
     _none = { { id = "tp_none", text = "Ooh, no idea, but if you find out, write it down for me. I collect facts like other people collect spoons." } },
   },
 }

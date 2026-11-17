@@ -47,7 +47,7 @@ P:NPC {
       choices = {
         { text = "Who's hiding in the bushes by your well?", next = "well" },
         { text = "Tell me about Markus.", next = "markus" },
-        { text = "Who are the apples for?", next = "apples" },
+        { text = "Those apples look too fine for the table.", next = "apples" },
         { text = "I've been watching the men by your well.", next = "ambush", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Good day, Clara.", next = "END" },
       },
@@ -56,7 +56,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Nobody, if you ask me in front of the boy. Every time I go for water, two men in red masks rise up out of the brush and then think better of it and sink back down again." },
       },
       choices = {
-        { text = "And you keep going to the well?", next = "well_why" },
+        { text = "And still you keep going to the well.", next = "well_why" },
         { text = "Have you told the guards?", next = "well_guards" },
       },
     },
@@ -84,7 +84,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     apples = {
-      lines = { { id = "a_default", text = "For selling, in the city, when I can get them there. They're the best thing this farm grows, and folk ask after them, so I keep them where I can count them." },
+      lines = { { id = "a_default", text = "They're for selling, in the city, when I can get them there. They're the best thing this farm grows, and folk ask after them, so I keep them where I can count them." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -103,5 +103,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't walk past a hedge without looking at it twice. Not on this road." } },
     defias = { { id = "tp_defias", text = "They're by my well most days, and I've learned to pretend they aren't.", next = "well" } },
     _none = { { id = "tp_none", text = "I wouldn't know, dear. I don't get to the city as often as I'd like." } },
+    stonemasons = { { id = "tp_stonemasons", text = "My cousin carried stone for the guild when they raised the city walls, and he came home with blistered hands and no wages. I'd not say it loud, but I know why some of those boys went to the hedges." } },
+    varian = { { id = "tp_varian", text = "The king rode off and never came home, and the city is quieter about it than I'd like. A farm notices when the man who's meant to keep the roads safe isn't there." } },
+    the_stockade = { { id = "tp_the_stockade", text = "They take the ones they catch to the Stockade, and a few weeks later the same faces are by my well again. I've stopped counting them." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Markus begs to go every time the Faire comes to Goldshire, and every time I tell him there are apples to pick. One year I'll let him, when the road's safer." } },
   },
 }

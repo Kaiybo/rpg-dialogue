@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_again2", text = "Talk to me, mon. It keep me awake." },
       },
       choices = {
-        { text = "How bad is the sting?", next = "sting" },
+        { text = "Are you hurt, Rhinag?", next = "sting" },
         { text = "Who is Kor'ghan to you?", next = "korghan" },
         { text = "What do you do out here?", next = "farm" },
         { text = "Let me see if I can slow the poison.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
@@ -86,7 +86,7 @@ P:NPC {
       lines = { { id = "k_default", text = "My teacher, mon, and a hard one. He keep to the Cleft of Shadow and set me rituals to prove myself, killing boars, gathering tails, and every one of them come with a lecture about understanding what you hunt." } },
       choices = {
         { text = "He'll save you, then.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Will he be angry you got stung?", next = "angry" },
+        { text = "He'll be angry you got stung.", next = "angry" },
       },
     },
     angry = {
@@ -112,6 +112,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear, a boar-keeper, and Kor'ghan's worst student this week. Ask me next week, mon, maybe it change." } },
     advice = { { id = "tp_ad", text = "Carry the antidote before you need it, mon, because by the time you need it, you can't walk to get it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's got the finest axe in Durotar, and he's never once been stung by a venomtail. That's the kind of leader I want, one who doesn't step on scorpids." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls at Sen'jin know more about poisons than anybody in Durotar. I wish I'd asked one about venomtails before I got stung." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar have their own poisons, and they're worse than a scorpid's. That's the only good news I've had all day." } },
     _none = { { id = "tp_none", text = "Don't know that one, mon. My head be full of poison and boars right now." } },
   },
 }

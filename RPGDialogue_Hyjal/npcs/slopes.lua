@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Watch your step; half of what's green on this slope wants to bite you." },
+    { id = "g_default", text = "Watch your step, for half of what's green on this slope wants to bite you, and the other half remembers the Legion." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The weeds have grown since you left, but then, they always do." },
     { id = "g_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "There's the one who cut down Celastrus. The eastern hollow is greening already; go and look, when you've the time." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the slope has grown back over half the paths you knew, so mind your boots." },
@@ -38,7 +38,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "The mountain is overrun with wild growth, swollen by the fel that rained down on it so long ago. The weeds and the brambles are angry now, poisoned through, and they strangle everything else. They have to be cleared, or the mountain will never regrow." },
+          text = "The mountain is overrun with wild growth, swollen by the fel that rained down on it when Archimonde climbed toward the World Tree. The weeds and the brambles are angry now, poisoned through, and they strangle everything else, so they must be cleared, or Nordrassil's mountain will never regrow." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Celastrus the Bitter") },
           text = "You're going after Celastrus, then. Take friends, take a sharp blade, and bring me its broken frond so I know it's truly finished." },
         { id = "h_recent", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Celastrus the Bitter"), days = 3 } },
@@ -48,11 +48,11 @@ P:NPC {
         { id = "h_horde", when = { faction = "Horde" },
           text = "Horde or not, a pair of hands is a pair of hands. The brambles don't ask who you're loyal to before they bite." },
       },
-      again = { { id = "h_again", text = "What else? Be quick, or something will have grown over your boots." } },
+      again = { { id = "h_again", text = "What else? Be quick, or something will have grown over your boots; the fel makes even the brambles impatient." } },
       choices = {
-        { text = "What is Celastrus?", next = "celastrus" },
+        { text = "Which of the brambles is the worst?", next = "celastrus" },
         { text = "How did the plants turn so foul?", next = "fel" },
-        { text = "What grows back once they're cleared?", next = "regrow" },
+        { text = "I'd like to see what grows back once they're cleared.", next = "regrow" },
         { text = "Why not just burn it all?", next = "xburn", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Can the Light cleanse the ground?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Good luck with the weeding.", next = "END" },
@@ -79,14 +79,14 @@ P:NPC {
         { id = "f_default", text = "When the Legion came up the mountain, its fire fell on the forest, and the poison soaked into the soil. The trees mostly endured, but the small, quick-growing things drank it down and changed, and they've been spreading ever since." },
       },
       choices = {
-        { text = "Can they be saved?", next = "fel_saved" },
+        { text = "Those brambles look past saving.", next = "fel_saved" },
         { text = "Something else.", next = "BACK" },
       },
     },
     fel_saved = {
       big = true,
       lines = {
-        { id = "fs_default", text = "I don't think so. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
+        { id = "fs_default", text = "I fear you're right. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
       },
       choices = {
         { text = "Cut them out. The mountain comes first.", next = "BACK", fx = { align = { light = -1 } } },
@@ -129,7 +129,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I tend green things. On this mountain, that mostly means killing them." } },
     advice = { { id = "tp_ad", text = "Never sit down on a slope you haven't looked at first." } },
     burning_legion = { { id = "tp_bl", text = "They've been gone for years, and I'm still pulling up what they left behind." } },
-    _none = { { id = "tp_none", text = "Couldn't say. Ask me about weeds, and I'll talk all day." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil's roots run through this whole mountain, and the poisoned growth reaches for them. I cut what reaches, because cutting is how this mountain heals." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows this mountain clean and green, the druids tell me. I keep that picture in my head while I cut, and it helps." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is a smaller cousin of what grows here. Burn it, never compost it, and never touch it with bare hands." } },
+    _none = { { id = "tp_none", text = "Couldn't say. Ask me about weeds, and I'll talk until the moon sets, for I've been pulling them since the battle." } },
   },
 }
 
@@ -177,8 +180,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Somethin' else, mon? Talk while I fletch." } },
       choices = {
-        { text = "Why can't you leave?", next = "leave" },
-        { text = "Why owl feathers?", next = "owls" },
+        { text = "You'd have left this place long ago if you could.", next = "leave" },
+        { text = "What do you need for the arrows?", next = "owls" },
         { text = "What's attacking the camp?", next = "threat" },
         { text = "How fare the Darkspear here?", next = "xtroll", when = { race = "Troll" } },
         { text = "Stay strong, Zet'gan.", next = "END" },
@@ -215,7 +218,7 @@ P:NPC {
         { id = "t_default", text = "Demons from Dae'gun, mostly, an' da dead from da west, an' sometimes da plants, if ya believe it. Dis mountain be fightin' everybody, mon, an' we just happen ta be standin' in da middle." },
       },
       choices = {
-        { text = "An orc called Yashiro hunts those demons.", next = "threat_yashiro" },
+        { text = "Does anyone else hunt those demons?", next = "threat_yashiro" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -241,6 +244,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Darkspear, born on da islands, now freezin' on a mountain. Life be funny dat way, mon." } },
     advice = { { id = "tp_ad", text = "Keep ya quiver full an' ya back ta da fire. Dat be all da wisdom I got." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chieftain, mon, and he don't send his Darkspear anywhere for nothin'. If he says freeze on a mountain, I freeze on a mountain." } },
+    thrall = { { id = "tp_thrall", text = "Thrall saved de Darkspear when de sea witch and de murlocs nearly finished us. I owe him, even if I be owin' him from up here in de snow." } },
+    echo_isles = { { id = "tp_echo_isles", text = "I miss da Echo Isles, mon, da warm water and da sun on my back. Up here, my back don't even remember what sun be." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar's people be stirrin' in Zul'Gurub, de Darkspear say. Dat be a bad thing, and I be glad I'm up here away from it." } },
+    scourge = { { id = "tp_scourge", text = "De dead came up dis mountain in de war, de old ones say. If dey come again, I be ready, mon, though I'd rather be warm when I do it." } },
     _none = { { id = "tp_none", text = "Don't know nothin' 'bout dat, mon. Ask somebody wit' more time ta think." } },
   },
 }

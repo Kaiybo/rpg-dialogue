@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "corithras", id = TODO_NPC("Corithras Moonrage"), name = "Corithras Moonrage",
+  prejudice = { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." },
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time the third well has not grown any sweeter. Listen to it with me, and tell me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you last carried water for me. Strong enough, I hope, to face whatever is fouling the wells." },
@@ -27,6 +30,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I would rather the tree were given time to heal before a thousand boots tread on it. The Arch Druid planted it for our people, and something in it already sickens, and I can't help wondering what visitors carry up from the shore." } },
+      choices = {
+        { text = "Your tree sickened before we came. Look closer to home.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "Then I'll walk softly and keep to your paths.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "What sickens in the tree, Corithras?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "You say that as if I hadn't thought it in the small hours myself. Keep that thought quiet in Darnassus, outsider, but don't think I'll forget you said it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Then you're a better guest than many. Teldrassil remembers who treads softly, and so do I." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Something in the roots, and in the Gnarlpine, who were gentle once. I won't say more to an outsider yet, but thank you for asking rather than telling." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The third one does, and I am certain of it. The water is blessed by Elune, yet something sour has crept in. If your spirits of water feel it too, then I am not a foolish old elf." } },
@@ -103,7 +128,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, so far from your kingdoms? The moonwells are Elune's, but I will not turn away anyone who comes to guard them." },
         { id = "h_default", key = true,
-          text = "Corithras Moonrage. I watch the moonwells of Teldrassil. Something is wrong with them, and I mean to learn what." },
+          text = "I am Corithras Moonrage, and I have kept the moonwells of Teldrassil since the first of them was blessed. Something is wrong with them, and by Elune, I mean to learn what." },
         { id = "h_crown", tags = { "news" }, when = { questActive = TODO_QUEST("Crown of the Earth") },
           text = "Tenaron sent the vessel; good. Fill a phial at each well I name and bring it back to me, for the waters will tell us what the tree will not." },
         { id = "h_third", when = { metBefore = true }, text = "I tasted the third well again at dawn, and it is still wrong. I've stopped telling the Sentinels, because they think I fuss." },
@@ -115,15 +140,16 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with spirits. Then perhaps you will taste what I taste in the third moonwell, for the Sentinels think I fuss over nothing." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak softly near the well." },
+        { id = "h_again", text = "What else? Speak softly near the well, for the water has heard enough loud voices since the sundering of the world." },
         { id = "h_again2", text = "Ask what you like. The water is patient, and so am I, though my knees are less so after a night kneeling on wet stone." },
       },
       choices = {
+        { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
-        { text = "Tell me the story Tenaron began.", next = "story" },
-        { text = "Which wells do you watch?", next = "which" },
+        { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
+        { text = "You must have more than one well to watch over.", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
-        { text = "Could the Light help guard your moonwells, Corithras?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Light could help you guard your moonwells, Corithras.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the moonwells feel wrong to you, Corithras?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If something fouls the wells, I'll cut it down.", next = "warrior_c", when = { class = "WARRIOR" } },
@@ -183,7 +209,15 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Drink from a moonwell only if a priestess says it is well, and even then, only sip." } },
     teldrassil = { { id = "tp_teldrassil", text = "Young, and not as well as it looks. The wells say so before anyone else does." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle says the tree will grow strong in time, and I hope so, though the wells are less certain." } },
-    _none = { { id = "tp_none", text = "The wells don't speak of that, and neither can I." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil drank from the Well and grew true, and our long lives came with it. Teldrassil drinks from the moonwells, and I listen to them every night for any sign that it is not enough." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The moonwells hum a little like the Dream, if you sit with them long enough. Lately the hum has been fainter on this tree, and I have not yet found out why." } },
+    elune = { { id = "tp_elune", text = "The moonwells are Elune's gift as much as the Circle's, and the priestesses never let us forget it. I don't mind, because the water has never once cared who blessed it." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children never blessed Teldrassil as they blessed the first tree. Fandral says it doesn't matter, and the moonwells say otherwise, very quietly." } },
+    tyrande = {
+      { id = "tp_tyrande", text = "The High Priestess comes to the moonwells herself now and then, and she listens to them longer than anyone but me. I think she hears what I hear, though she is too careful to say it." },
+      { id = "tp_tyrande2", when = { disposition = { min = 65 } }, text = "Since you ask kindly, I'll tell you that the High Priestess asked me once what the wells were saying. I told her, and she went very quiet, and she has not asked again." },
+    },
+    _none = { { id = "tp_none", text = "The wells do not speak of that, and I have listened to little else for more years than I care to count." } },
   },
 }
 
@@ -269,7 +303,7 @@ P:NPC {
       choices = {
         { text = "I'll only watch. They deserve a chance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the shaman's to blame, I'll remove him quietly.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Were they really your friends?", next = "friends" },
+        { text = "It's hard to believe they were ever your friends.", next = "friends" },
       },
     },
     hunter_a = {
@@ -295,6 +329,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_furbolgs_pity", tags = { "news" }, when = { gossip = { topic = "furbolgs", stance = "pity" } },
+          text = "Tallonkai says you think the Gnarlpine were poisoned, not born wicked. I've thought the same for a long while, and it's good to hear it from someone else." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and welcome. The Gnarlpine were a gentle people once, and I would have you remember that before you raise a hand against them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order hunts the corrupted, I am told, but the Gnarlpine are sick rather than wicked, and I ask you to remember the difference." },
         { id = "h_default", key = true,
@@ -310,22 +346,24 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Gnarlpine are not your enemies by choice, so remember that when you draw on them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned the cost of the arcane long ago, but I'll judge you by what you do, not by what the Highborne did." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gnarlpine", min = 40 } },
+        { id = "h_shores_resolved", tags = { "news" }, when = { thread = { id = "both_shores", state = "resolved" } },
+          text = "Thundris Windweaver wrote to me from Auberdine about a satyr and the Blackwood's food, and I have read his letter more times than I should. If the Gnarlpine were given their sickness by a hand, then I was right to grieve for them and wrong to think it was only the moss." },
           text = "You have killed a great many Gnarlpine, and I'll not pretend it doesn't grieve me, though I know it had to be done. They were our friends once, so when you think of them, remember that too." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak plainly, then, as I do. The Gnarlpine were never our enemies, and I would know whether your spirits can tell me what poisoned them." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak quickly, if you would." },
+        { id = "h_again", text = "What else? Speak quickly, if you would; I watched the Gnarlpine for centuries, and I never saw them fall so fast." },
         { id = "h_again2", text = "Speak, then, for the Gnarlpine won't wait on us." },
       },
       choices = {
         { text = "Were the Gnarlpine ever friends?", next = "friends" },
         { text = "Can the furbolgs be saved?", next = "saved" },
-        { text = "Who are the sleeping druids?", next = "talon" },
+        { text = "Is anything else in danger from the Gnarlpine?", next = "talon" },
         { text = "I can tell a sick beast from an angry one.", next = "druidtest", when = { class = "DRUID" } },
         { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
-        { text = "That fel moss. I know the stink of it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "There's a stink of fel on the Gnarlpine. I know it well.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Must I fight the Gnarlpine, Athridas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd rather not fight the Gnarlpine, Athridas.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can prayer reach the Gnarlpine, Athridas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Gnarlpine guilty, or only sick, Athridas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you blame mages for what the Highborne did?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -342,7 +380,7 @@ P:NPC {
     },
     friends = {
       lines = {
-        { id = "f_trade", text = "When the tree was young, yes. They kept to their hills in peace, and the Sentinels called them friends. I miss that more than I expected to." },
+        { id = "f_trade", text = "They were, when the tree was young. They kept to their hills in peace, and the Sentinels called them friends. I miss that more than I expected to." },
       },
       choices = {
         { text = "What changed them?", next = "moss" },
@@ -357,9 +395,9 @@ P:NPC {
       },
     },
     talon = {
-      lines = { { id = "t_default", text = "They are the Druids of the Talon, hibernating in the Ban'ethil Barrow Den by a pact with Ysera, and Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
+      lines = { { id = "t_default", text = "The sleeping Druids of the Talon are, for they hibernate in the Ban'ethil Barrow Den by a pact with Ysera, and Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
       choices = {
-        { text = "Lost in the Dream?", next = "talon2" },
+        { text = "Being lost in the Dream sounds a lonely fate.", next = "talon2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -386,7 +424,11 @@ P:NPC {
     fel_moss = { { id = "tp_moss", text = "It is the Gnarlpine's ruin, for wherever it grows, they turn." } },
     furbolgs = { { id = "tp_furbolgs", text = "They were peaceful, once. Ask me again when Ursal is dead." } },
     cenarion_circle = { { id = "tp_circle", text = "I serve the Circle as best I can from Dolanaar. They have bigger worries than furbolgs. Somebody has to have this one." } },
-    _none = { { id = "tp_none", text = "That's not my concern; the Gnarlpine are." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw of Felwood are what the Gnarlpine were before the corruption took them, proud and clear-eyed. I think of them when I put down another of our own furbolgs, and it doesn't help." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream shows the world as it should be. I'd like it to show me Teldrassil before the Gnarlpine went mad." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The fel in the Gnarlpine smells of the Legion, and I fought the Legion at Hyjal. I'd hoped never to smell it again, and certainly not on our own tree." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was blessed and this tree was not, and the Gnarlpine are suffering for the difference. I won't say more than that inside Dolanaar." } },
+    _none = { { id = "tp_none", text = "That is not my concern, friend. The Gnarlpine are, and they have been since long before Teldrassil bore its first leaf." } },
   },
 }
 
@@ -415,6 +457,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Some blame the Gnarlpine, and some blame whatever turned them, and some blame us for not seeing it sooner. You have been among the furbolgs now. What do you think of them?" },
+      },
+      choices = {
+        { text = "They're beasts now. Put them down before they kill again.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { furbolgs = "hate" } } },
+        { text = "They were our friends once. Something poisoned them.", next = "op_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { furbolgs = "pity" } } },
+        { text = "I don't care why. I care that the village is safe.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { furbolgs = "guard" } } },
+        { text = "I don't know enough to judge.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Many in Dolanaar say the same, and I said it myself the night Starbreeze burned. I find it harder to say now that the ash has cooled." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "They were, and the old ones in Dolanaar still remember trading with them. Find what poisoned them, {class}, and you'll do more good than any arrow." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "That is a guard's answer, and the village needs guards. I only hope someone else is asking why." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It keeps the nightmares from the young ones who guard the groves. Without it, their sleep is troubled. Perhaps your spirits know of such things." } },
@@ -508,7 +574,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for Dolanaar has had wounded enough since the Gnarlpine grew bold, and the Sentinels bring me more of them every week." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Dolanaar, in armor that rings like a temple bell! The Gnarlpine will hear you coming, but perhaps that's no bad thing." },
         { id = "h_default", key = true,
-          text = "Tallonkai Swiftroot. The Gnarlpine have grown bold, and they hold something of mine. I'd like it back, and I'd like them to stop." },
+          text = "I am Tallonkai Swiftroot. The Gnarlpine have grown bold, and they hold something of mine, and I'd like it back. More than that, I'd like them to remember the peace our peoples kept for so long." },
         { id = "h_dreamcatcher", tags = { "news" }, when = { questActive = TODO_QUEST("The Emerald Dreamcatcher") },
           text = "My dreamcatcher is still in my dresser in Starbreeze Village, and the furbolgs hold Starbreeze now. Bring it back, please." },
         { id = "h_ferocitas", when = { questActive = TODO_QUEST("Ferocitas the Dream Eater") },
@@ -523,14 +589,15 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking among my young ones. Your spirits are rougher than our druids' ways, but I sense no harm in them. Have you seen my dreamcatcher?" },
       },
       again = {
-        { id = "h_again", text = "Anything else, young one?" },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again", text = "Anything else, young one? Ask freely, for the young always have one more question, and the old have the time to answer it." },
+        { id = "h_again2", text = "Go on, I'm listening, as patiently as the groves themselves." },
       },
       choices = {
-        { text = "What was the dreamcatcher to you?", next = "dreamcatcher" },
-        { text = "What happened to Starbreeze Village?", next = "starbreeze" },
-        { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
-        { text = "I could slip into Starbreeze and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
+        { text = "Who do you blame for Starbreeze?", next = "op_ask" },
+        { text = "They took something that mattered to you.", next = "dreamcatcher" },
+        { text = "Where are the Gnarlpine causing trouble?", next = "starbreeze" },
+        { text = "I keep hearing the name of Lord Melenas.", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
+        { text = "I could slip in and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
         { text = "Who tends the wounded the Gnarlpine leave behind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin face the Gnarlpine, Tallonkai?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a mage welcome in Dolanaar, Tallonkai?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -544,7 +611,7 @@ P:NPC {
     },
     dreamcatcher = {
       lines = {
-        { id = "d_gift", text = "A gift from Gaerolas Talvethren, who wards the sleeping druids. It draws a little luck out of the Emerald Dream. Few are ever given one." },
+        { id = "d_gift", text = "My dreamcatcher, a gift from Gaerolas Talvethren, who wards the sleeping druids. It draws a little luck out of the Emerald Dream. Few are ever given one." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 2 } },
@@ -556,7 +623,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     starbreeze = {
-      lines = { { id = "sb_default", text = "The Gnarlpine overran it. It was a quiet place once. My dresser is still there, and so is everything else we left behind." } },
+      lines = { { id = "sb_default", text = "They overran Starbreeze Village, east of here, and it was a quiet place once. My dresser is still there, and so is everything else we left behind." } },
       choices = {
         { text = "Will you go back?", next = "starbreeze2" },
         { text = "Something else.", next = "BACK" },
@@ -578,6 +645,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My dresser is still in Starbreeze Village, with my good cloak in it, and some Gnarlpine is probably sleeping on both. These days I stay wherever the Gnarlpine aren't." } },
     advice = { { id = "tp_ad", text = "Help where the forest needs it. Dolanaar notices who does." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are furbolgs who never lost their minds, which makes them better neighbours than the ones who stole my dresser. I'd trade them for the Gnarlpine any day." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune that Starbreeze gets cleared out before my cloak is entirely chewed. She hasn't answered, but she's had a lot on." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took a girl from Starbreeze to the Darkmoon Faire once, years back. I won her a fish in a bowl, and the fish outlived the romance." } },
     _none = { { id = "tp_none", text = "Ask Athridas; he knows the furbolgs. I know only what they've done." } },
   },
 }
@@ -603,6 +673,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Council argues it every season. Some say a satyr who stays in sight is better than one who hides, and some say we should have shot him the day he arrived. You've met him, I expect, so what would you do with Zenn?" },
+      },
+      choices = {
+        { text = "Drive him off Teldrassil before he corrupts someone.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { zenn_foulhoof = "hard" } } },
+        { text = "Watch him closely. He's done nothing we can prove.", next = "op_r2", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { zenn_foulhoof = "watch" } } },
+        { text = "He's lonely and harmless. Let him be.", next = "op_r3", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { zenn_foulhoof = "harmless" } } },
+        { text = "The forest will judge him in its own time.", next = "op_r4", fx = { trait = { patient = 1 }, opinion = { zenn_foulhoof = "forest_judges" } }, when = { class = "DRUID" } },
+        { text = "That's for the Council to decide.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "That is what the Sentinels said, nearly word for word. The druids answered that a satyr driven off is a satyr nobody is watching." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That is the Council's answer as well, more or less, and it is the reason I keep a scout within sight of his glade." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Harmless is what satyrs want you to think, {class}. Every one of them was Highborne once, and every one of them chose the Legion." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "The forest is slow and Zenn is quick, though I take your point, and so would the Council." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The ones about the furbolgs and the spiders, always. Your spirits might tell you where the danger lies before my Sentinels find it." } },
@@ -693,10 +792,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_fandral_doubt", tags = { "news" }, when = { opinion = { topic = "fandral", stance = "doubt" } },
+          text = "Word is you'd follow neither the High Priestess nor the Archdruid. Keep thinking for yourself; the Council could use more of it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Council's orders are mostly for blades and bows, but there is always someone on the list who needs mending more than fighting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order is sworn to obey, they tell me, which makes you easier to give orders to than most of the adventurers I see." },
         { id = "h_default", key = true,
-          text = "Syral Bladeleaf. I carry the Council of the Forest's orders to those who'll follow them. There are always more orders than hands." },
+          text = "I am Syral Bladeleaf, and I carry the Council of the Forest's orders to those who will follow them. My people have had ten thousand years to learn patience, and still there are more orders than hands." },
         { id = "h_redemption", tags = { "news" }, when = { questActive = TODO_QUEST("Seek Redemption!") },
           text = "The Council knows you ran errands for Zenn Foulhoof. Feed that satyr a few fel cones, and the forest will call it even." },
         { id = "h_denalan", when = { questActive = TODO_QUEST("Denalan's Earth") },
@@ -705,19 +806,20 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Council always has more orders than hands, and hunters can carry the ones that lead into the deep wood." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Council of the Forest has work for the Circle's young as well as for the Sentinels, and I have more of it than I have druids to carry it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Council sent me no orders concerning your kind, which means I'll have to decide for myself, and I'd rather you made that easy for me." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I have more orders than hands, and I sort them by which ones get someone hurt if they wait. Can your spirits help with any of them?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. I have more orders than hands, and I sort them by which ones will get someone hurt if they wait, so perhaps your spirits can carry one or two." },
       },
       again = {
         { id = "h_again", text = "What else? There are always more orders." },
         { id = "h_again2", text = "Speak, and I'll find you something useful." },
       },
       choices = {
+        { text = "Should Zenn Foulhoof be allowed to stay?", next = "op_ask" },
         { text = "What is the Council of the Forest?", next = "council" },
-        { text = "Who is Denalan?", next = "denalan" },
-        { text = "Who is Zenn Foulhoof?", next = "zenn" },
-        { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "Who is Denalan?", next = "denalan", when = { questActive = TODO_QUEST("Denalan's Earth") } },
+        { text = "Who is Zenn Foulhoof?", next = "zenn", when = { any = { { questActive = TODO_QUEST("Seek Redemption!") }, { questActive = TODO_QUEST("Zenn's Bidding") }, { questDone = TODO_QUEST("Zenn's Bidding") } } } },
+        { text = "I'm an herbalist, and the plants here look strange to me.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Has the Council any orders for a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does the Council trust a paladin's oath, Syral?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd hope the Council trusts a paladin's oath, Syral.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which order is most urgent, Syral?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Give me the orders nobody else will take.", next = "warrior_sy", when = { class = "WARRIOR" } },
@@ -769,7 +871,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I bear the Council's orders. If I had a story, I'd have had to file it in triplicate." } },
     advice = { { id = "tp_ad", text = "Don't make bargains with anything that has hooves and smiles." } },
-    _none = { { id = "tp_none", text = "The Council hasn't spoken on that, so neither will I." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess's orders come down to me sealed, and I carry them sealed. I have never read one, and I sleep well because of it." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar sends the Council correspondence in a very fine human hand, and very long. I file it, and someone more important reads it." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels keep the roads and I keep the paperwork, and between us nothing is ever lost. Well, almost nothing." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's dispatches come in on the Auberdine boat, stamped with Lady Proudmoore's seal. Human seals use far too much wax." } },
+    _none = { { id = "tp_none", text = "The Council of the Forest hasn't spoken on that, and I'll not speak before my elders do." } },
   },
 }
 
@@ -784,7 +890,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Rest a while; the inn is yours for as long as you need it." },
+    { id = "g_inn", text = "Ishnu-alah, traveler. Rest a while; the inn is yours for as long as you need it, and Elune keeps the night watch so that you need not." },
     { id = "g_home", when = { homeInn = { "Dolanaar" } }, text = "Welcome home. The fire's low and warm, the way you like it." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you look as though the road took its toll. Sit, and the tea will be ready in a moment." },
     { id = "g_away_long", when = { away = 60 }, text = "It's been {away} since you last rested here, and I'm glad the road has brought you back. Your fire's still low and warm, the way you like it." },
@@ -854,7 +960,7 @@ P:NPC {
       choices = {
         { text = "Of course. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My spells go where I go, innkeeper.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who usually stays here?", next = "inn" },
+        { text = "You must see all sorts pass through here.", next = "inn" },
       },
     },
     xlock = {
@@ -889,10 +995,16 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Welcome to Dolanaar. You walk in the way {alt} did, a {altrace} {altclass} who rested here on the road to Darnassus, and I've a fondness for travelers who stop long enough to be remembered." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} passed through only a little while ago and asked whether the road to Darnassus was safe. I said it was, mostly, which is the same answer I'll give you." },
+        { id = "o_kaldorei_immortality_loss", tags = { "news" }, when = { gossip = { topic = "kaldorei_immortality", stance = "loss" } },
+          text = "Zarrin says you'd trade anything to have our immortality back. Sit down and have a cup first, because you can't trade what's already gone." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest under my roof! The road from Shadowglen is kind, mostly, but now and then someone comes in limping, and it helps to have a healer near." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and a long way from home! Leave your hammer by the door if you like, for nobody in Dolanaar will touch it, though they will certainly stare." },
         { id = "h_default", key = true,
-          text = "Innkeeper Keldamyr. Travelers between Shadowglen and Darnassus all stop here, sooner or later. I like to think they leave lighter." },
+          text = "I am Keldamyr, and I keep the inn for travelers between Shadowglen and Darnassus. They all stop beneath these boughs sooner or later, and I like to think they leave lighter." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Dolanaar Delivery") },
           text = "So these are the herbs from Porthannius. It's a pity he couldn't bring them himself, for we've a great deal to talk about, he and I." },
         { id = "h_joke", when = { metBefore = true }, text = "A Sentinel told me a joke last night. It wasn't funny, but she laughed so hard I laughed too. That's the inn on a good night." },
@@ -902,7 +1014,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is welcome by the fire, so long as it doesn't mind the other guests' boots." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Sit, and I'll bring you some tea, because the young ones from Shadowglen always arrive with that tired look that comes from listening to the forest too hard." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came in so quietly that the kettle didn't even notice, and it notices everyone. Sit down, and I won't ask where you've been." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit, and have some tea. Nobody here will ask why you look tired, and your spirits may rest too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, far from your mountains. Sit and have some tea, for nobody here will ask why you look tired, and your spirits may rest beneath the leaves as well." },
       },
       again = {
         { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some, though I'd skip the moonberry; it's gone a bit fizzy." },
@@ -910,7 +1022,7 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How's the inn?", next = "inn" },
-        { text = "Any word from the road?", next = "road" },
+        { text = "I'd guess you hear all the road's news in here.", next = "road" },
         { text = "Is a mage welcome under your roof?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do many warriors stop here on the way to Darnassus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters stay at the inn, or sleep in the woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -948,7 +1060,11 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep a fire lit between Shadowglen and Darnassus. It's a good place for a fire." } },
     advice = { { id = "tp_ad", text = "Rest when you can, and take your boots off to do it. I've seen Sentinels lose toenails to Teldrassil's damp." } },
-    _none = { { id = "tp_none", text = "I hear only the gentle gossip. Ask a Sentinel for the other kind." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Folks who've been to the Darkmoon Faire come back with stories that grow every time they tell them at my fire. I let them, because a good story keeps people buying cider." } },
+    theramore = { { id = "tp_theramore", text = "We get a few humans through from Theramore, mostly on their way to Darnassus, mostly lost. I give them a bed and the right road in the morning." } },
+    elune = { { id = "tp_elune", text = "I keep a lamp lit for Elune at the window, as my mother did. Travellers see it from the road, and that's half of what prayer is for." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Sailors say Booty Bay's inn is built over a harbour full of sharks. I'll keep my little fire and my quiet road, thank you." } },
+    _none = { { id = "tp_none", text = "I hear only the gentle gossip, the kind that drifts in with the moonlight. Ask a Sentinel for the other kind." } },
   },
 }
 
@@ -1017,7 +1133,7 @@ P:NPC {
       choices = {
         { text = "Teach me properly. I'll do it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll take the useful bits and leave the rest.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why sleep outside at all?", next = "why" },
+        { text = "Most folk would take a roof over the open sky.", next = "why" },
       },
     },
     xmage = {
@@ -1066,14 +1182,14 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have you ever prayed under the open sky, with no roof between you and whatever's listening? It's the only way I'd do it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You're wearing more metal than I've carried in my whole life, {class}. Have you ever tried sleeping in it under a tree? I'd like to watch." },
         { id = "h_default", key = true,
-          text = "Lyreena Duskblade. I'd rather sleep under the canopy than under a roof. If you want to learn how, I'll teach you." },
+          text = "I am Lyreena Duskblade. I'd rather sleep beneath the canopy with Elune's light in the leaves than under any roof, and if you want to learn how, I'll teach you." },
         { id = "h_outdoors", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire and stay there until you feel rested through. It comes slowly, then all at once." },
         { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep, and I got to forty, which is further than usual." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll sleep in the wilds often enough on campaign, so you might as well learn to do it well." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll already know half of what I teach, since your kind sleep under the leaves as easily as most folk sleep in a bed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, out here by my fire. Your servant can sit on the far side of it if it likes, though I'd rather it didn't count the stars with me." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit by my fire, if you like. I count stars through the leaves until I sleep. Do your spirits count anything?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit by my fire, if you like, and I'll count the stars through the leaves until I sleep, as my people have since before there were roofs. Do your spirits count anything?" },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's still going, so there's no hurry." },
@@ -1081,7 +1197,7 @@ P:NPC {
       choices = {
         { text = "Teach me.", next = "teach", fx = { affinity = 2, learn = { "camping" } } },
         { text = "Why sleep outdoors?", next = "why" },
-        { text = "Where have you camped?", next = "where" },
+        { text = "You look like you've camped in a good many places.", next = "where" },
         { text = "I'm a cook. What can I bring to a camp?", next = "cook", when = { profession = "Cooking" } },
         { text = "A hunter sleeps outdoors already.", next = "hunter_ly", when = { class = "HUNTER" } },
         { text = "I sleep light and move quietly. What else is there to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1124,6 +1240,9 @@ P:NPC {
     camping = { { id = "tp_camping", text = "A fire, first. Then each trade brings its piece: a tent, a rack for fish, a pot. Anyone who passes may share it." } },
     background = { { id = "tp_bg", text = "I'd rather sleep under the canopy than under a roof. That's most of my story." } },
     advice = { { id = "tp_ad", text = "Sit by a fire before you sleep, even a small one. You wake up a different person." } },
-    _none = { { id = "tp_none", text = "I'm only passing through, I'm afraid, so ask in the village." } },
+    timbermaw = { { id = "tp_timbermaw", text = "I've camped near Timbermaw ground in Felwood, and they knew I was there before I'd lit a fire. They let me sleep, which is a kind of welcome." } },
+    centaur = { { id = "tp_centaur", text = "Centaur don't camp, from what the scouts say, they just ride until the beasts drop. I like a good night's sleep too much to respect that." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring's beautiful and Everlook is the only roof for miles. I've slept outside it in the snow, and I don't recommend it, though the stars were very good." } },
+    _none = { { id = "tp_none", text = "I am only passing through, as my people have passed through forests since long before the maps were drawn, so ask in the village." } },
   },
 }

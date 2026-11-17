@@ -13,7 +13,7 @@
 ## Identity
 Theldurin the Lost · Agmond's End, Badlands · neutral · dwarf · quest giver
 Personality: frightened, garrulous, wry about his own madness, stubborn, guilty
-Speech: tumbling run-on sentences, "friend", stops himself from saying names; no stacked fragments
+Speech: tumbling run-on sentences with a dwarf burr ("ye", "{g:lad|lass}", stone and beard), "friend", stops himself from saying names; no stacked fragments
 Knows and cares about: the Scroll of Myzrael, the Twilight's Hammer, something under the earth, Uldaman
 Relationships: hunted by the Twilight's Hammer; aware of Prospector Ironband's search for Agmond
 Default attitudes: wary of mages and warlocks (cult memories), fond of dwarves who "listen to the stone"

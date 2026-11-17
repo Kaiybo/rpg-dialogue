@@ -10,7 +10,7 @@
 ## Identity
 TODO_NPC · Torek · near the Warsong Labor Camp · Orgrimmar · orc · warrior, raid leader
 Personality: eager, boisterous, honest, respectful of foes
-Speech: loud, cheerful, "{class}".
+Speech: loud, cheerful, "{class}". Orc voice (0.80.0): blunt and proud; honor, blood, deeds over talk; "Lok'tar" sparingly.
 Relationships: Ertog Ragetusk (superior, Splintertree), his raiders.
 Never says: anything after Year 1.
 
@@ -31,3 +31,6 @@ Honest but one-sided about Warsong's logging.
 
 ## Topics
 background, advice, warsong, sentinels, _none.
+
+## Prejudices (0.80.0, authored, not canon)
+- Torek distrusts the Forsaken (`prejudice` Scourge 8): they fight without joy and can't earn scars, and the grunts' fireside rumour of plague vats under the Undercity (dramatic irony only) feeds it.

@@ -125,7 +125,7 @@ P:NPC {
       },
       choices = {
         { text = "Teach me the craft.", next = "BUSINESS" },
-        { text = "Has the Great Forge really never gone out?", next = "forge" },
+        { text = "They say the Great Forge has never gone out.", next = "forge" },
         { text = "What makes a good smith?", next = "good" },
         { text = "Where should a new smith find ore?", next = "ore" },
         { text = "A paladin's hammer is only as good as its maker.", next = "k_pally", when = { class = "PALADIN" } },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "go_default", text = "Patience first, then strength, an' then a stubbornness that won't let ye hand over a blade ye know is flawed. I've sent apprentices back tae the anvil four times in a mornin', an' the good ones thanked me for it later." },
       },
       choices = {
-        { text = "Did any of them quit?", next = "good_quit" },
+        { text = "I'd guess a few of them quit.", next = "good_quit" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -202,6 +202,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "The Deepforges have worked metal beside the Great Forge since before there was a king in this mountain, an' I'm the latest an' the loudest of them." } },
     advice = { { id = "tp_ad", text = "Quench slowly, an' never in front o' the customer." } },
+    second_war = { { id = "tp_second_war", text = "I forged blades fer the Second War, day an' night fer months, an' every one o' them saw a Horde shield. Soft hands didnae win that war, I'll tell ye." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons have the best forges in the world under that mountain, an' it pains me tae say it. They've fire from the Firelord himself, an' they use it fer weapons that'd make ye weep." } },
+    thaurissan = { { id = "tp_thaurissan", text = "A smith-king who sold his people tae a fire lord fer better forges, an' what's left o' them is still payin'. Never trust a dwarf who wants the fire hotter than the work needs." } },
     _none = { { id = "tp_none", text = "I hammer metal, {g:lad|lass}, no' rumors. Ask someone who's got the time." } },
   },
 }
@@ -342,12 +345,12 @@ P:NPC {
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "How do I find a seam?", next = "seam" },
         { text = "What happened to the mines near Gnomeregan?", next = "troggs" },
-        { text = "Who sells the picks around here?", next = "golnir" },
+        { text = "Someone around here must sell picks.", next = "golnir" },
         { text = "Could a rogue learn something useful from a miner?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have your miners seen many troggs lately?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do miners need warriors with them these days, Geofram?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there anything worth hunting in the mines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Are your miners getting hurt in the tunnels, Geofram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Your miners seem to be getting hurt in the tunnels, Geofram.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the miners abandon the deep seams near Gnomeregan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever leave a seam unmined for the mountain's sake?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there magic in the deep stone, Geofram?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -393,6 +396,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I dug for forty years before my knees told me tae teach instead, an' I listened tae them for once." } },
     advice = { { id = "tp_ad", text = "If the tunnel goes quiet, stop swingin' an' listen. Stone talks before it falls." } },
+    troggs = { { id = "tp_troggs", text = "Troggs dinnae mine, they dig, an' there's a world o' difference. They wreck a good seam an' leave nothin' but rubble an' stink." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons mine deeper than anybody, down where the stone's hot tae the touch. I'd give my pick tae see one o' their seams, though I'd want it back after." } },
+    uldaman = { { id = "tp_uldaman", text = "The League found titan stone in Uldaman, harder than any ore I know, an' I'd love tae put a pick tae it. They say it hums when ye strike it, an' I believe them." } },
     _none = { { id = "tp_none", text = "If it isnae in the rock, I couldnae tell ye about it." } },
   },
 }
@@ -531,13 +537,13 @@ P:NPC {
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What should a beginner cook first?", next = "first" },
         { text = "What's the finest dish in Ironforge?", next = "finest" },
-        { text = "Who's the dwarf selling spices out front?", next = "emrul" },
+        { text = "The dwarf selling spices out front looks like kin of yours.", next = "emrul" },
         { text = "Do dwarves eat anything that isn't meat?", next = "k_elf", when = { race = "NightElf" } },
         { text = "Has anyone tried to steal your recipes, Daryl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why not let a mage conjure your ingredients?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior know how to cook, Daryl?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What meat do you most want hunters to bring you?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you ever cook for the sick, Daryl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess you cook for the sick now and then, Daryl.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin eat before a long march, Daryl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could you cook something without meat for a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a good meal really help a warlock, Daryl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -586,7 +592,7 @@ P:NPC {
         { id = "em_default", text = "That's my brother Emrul, an' he sells the spices an' recipes I teach wi', at prices I'd call criminal if he werenae family. We've shared this shop for years an' argued in it every day." },
       },
       choices = {
-        { text = "What do you argue about?", next = "emrul_argue" },
+        { text = "You two must argue a great deal.", next = "emrul_argue" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -610,6 +616,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Our father ran a kitchen in the Military Ward, an' Emrul an' me grew up peelin' potatoes for half the army." } },
     advice = { { id = "tp_ad", text = "Taste as ye go. A cook who doesn't taste is only guessin'." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The pirates in Booty Bay eat better than kings, so I've heard, all fish an' spice an' rum. I'd like tae cook fer them one night, though I'd want my wages paid in advance." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Food on a stick, every bit o' it, an' half o' it fried in oil older than me. Still, I've never had a better roast from a cart in my life." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins import their spice from Booty Bay an' sell it fer triple. My brother Emrul thinks that's a fine business model, an' it's why I'm worried about him." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend. If it's no' edible, it's no' my business." } },
   },
 }
@@ -746,7 +755,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
-        { text = "Daryl says your prices are criminal.", next = "prices" },
+        { text = "Daryl says your prices are criminal.", next = "prices", when = { heardLine = "if_daryl.em_default" } },
         { text = "Where do your spices come from?", next = "spices" },
         { text = "Which recipe would you recommend?", next = "recipe" },
         { text = "Do rogues steal spices from you often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -754,7 +763,7 @@ P:NPC {
         { text = "Why should a warrior care about spices, Emrul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What spice would you put on wild boar, Emrul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN", heardLine = "if_daryl.em_default" } },
         { text = "Where do your spices come from, Emrul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can't conjured spices match yours, Emrul?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a kind word to your spice chest get you?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -777,7 +786,7 @@ P:NPC {
         { id = "sp_default", text = "Mild spices come up from Stormwind on the tram, an' the hot ones come by ship tae Menethil an' then over the mountains. Every time the Dragonmaw block the Wetlands road, my prices go up, an' Daryl calls me a thief." },
       },
       choices = {
-        { text = "The tram brings spices?", next = "spices_tram" },
+        { text = "So the tram brings spices too.", next = "spices_tram" },
         { text = "Something else.", next = "BACK", fx = { learn = { "dragonmaw" } } },
       },
     },
@@ -799,6 +808,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Daryl got the cookin' an' I got the head for figures, an' between us we make one decent dwarf." } },
     advice = { { id = "tp_ad", text = "Keep yer salt dry. Ye'd be amazed how many adventurers don't." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The finest spices in the world come through Booty Bay, an' I pay through the beard fer them. My brother complains about my prices, but I'd like tae see him haggle wi' a goblin." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells spices from the desert that'd blister yer tongue, an' I keep a pinch on the shelf fer the brave. Daryl says it's a menace, an' he's right." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys my cheapest spices an' sells them back tae the crowds as Darkmoon magic. I'm no' complainin', mind, fer they pay on time." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' I've heard of most things that come through the Great Forge." } },
   },
 }
@@ -938,7 +950,7 @@ P:NPC {
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "Why learn bandages when there are priests?", next = "why" },
         { text = "Who can teach me beyond what you know?", next = "beyond" },
-        { text = "What sort of wounds do you see most?", next = "wounds" },
+        { text = "You must see a great many forge burns.", next = "wounds" },
         { text = "Why would mages fall first in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warlocks really steal life to heal themselves?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn bandaging, Nissa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1001,6 +1013,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I patched up soldiers in the Second War, an' I've been patchin' up adventurers ever since. Adventurers are worse patients." } },
     advice = { { id = "tp_ad", text = "Bandage first, ask questions after. The wound won't wait for yer curiosity." } },
+    scourge = { { id = "tp_scourge", text = "The plague wounds dinnae close right, an' they smell wrong, an' I've seen a few come through here from the north. Burn the bandages an' wash yer hands twice." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests mend with prayer an' I mend wi' linen, an' between us we lose fewer than we would alone. Dinnae tell Rohan I said that, for he'd be insufferable." } },
+    second_war = { { id = "tp_second_war", text = "I learned my trade in the Second War, stitchin' soldiers who came back from the front wi' axe cuts I couldnae believe they'd survived. Most o' them did, an' I'm proud o' that." } },
     _none = { { id = "tp_none", text = "That's no' a wound, so it's no' my concern." } },
   },
 }
@@ -1018,8 +1033,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Who's there? Oh, a customer. You might have knocked, you know." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since you didn't steal anything last time." },
+    { id = "g_default", text = "Who's there? Oh, a customer, and you set off my door ward, which I calibrated myself to catch exactly that. You might have knocked, you know." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since my inventory still balances to the last strange dust from your last visit." },
   },
 
   notice = {
@@ -1100,21 +1115,21 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, good, you're not here to steal my formulas, are you? No, priests never steal formulas; they only bless them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, you'll want your hammer enchanted, I suppose, and I can do that, as long as you promise not to tell anyone how I did it." },
         { id = "h_default", key = true,
-          text = "Gimble Thistlefuzz, enchanter, and you've found the Arcanery, which most people don't. I can teach you to bind magic into cloth and steel, if you promise not to tell anyone how I do it." },
+          text = "Gimble Thistlefuzz, enchanter, and you've found the Arcanery, which most people don't, by design. I can teach you to bind magic into cloth and steel with proper runic precision, if you promise not to tell anyone how I do it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "You're not here to learn enchanting, are you? Nobody sneaks into the Arcanery to learn enchanting." },
+          text = "You're not here to learn enchanting, are you? Nobody sneaks into the Arcanery to learn enchanting, and I've a ward on the stairs that's never been wrong yet, well, hardly ever." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, you're not here to steal my formulas, are you? No, you'd be much quieter about it, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must have very good eyes, so please don't use them on my notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're not here to steal my formulas, are you? No, of course not, your people are much too dignified for that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Enchanting binds magic into things, and you seem to persuade things to do magic on their own. I'd love to compare notes." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs." },
-        { id = "h_again2", text = "Go on, then, but close the door first, if you please." },
+        { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs and trips the ward again; the recalibration takes me an hour." },
+        { id = "h_again2", text = "Go on, then, but close the door first, if you please, and all the way, because a door left a hair open bleeds arcane residue like a cracked steam pipe." },
       },
       choices = {
         { text = "Teach me enchanting.", next = "BUSINESS" },
-        { text = "Why are you so nervous?", next = "nervous" },
+        { text = "You seem awfully nervous.", next = "nervous" },
         { text = "How does enchanting actually work?", next = "how" },
         { text = "Who's the gnome downstairs?", next = "tilli" },
         { text = "Why would anyone sneak into the Arcanery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1130,7 +1145,7 @@ P:NPC {
 
     nervous = {
       lines = {
-        { id = "ne_default", text = "I'm not nervous, I'm careful, which is different, and you'd be careful too if you'd lost everything once already. When Gnomeregan fell I left behind ten years of notes, and I've no intention of losing the next ten." },
+        { id = "ne_default", text = "I'm not nervous, I'm careful, which is different, and you'd be careful too if you'd lost everything once already. When Gnomeregan fell I left behind ten years of notes, four thousand pages in my own cipher, and I've no intention of losing the next ten." },
       },
       choices = {
         { text = "I'm sorry you lost so much.", next = "nervous_lost" },
@@ -1149,10 +1164,10 @@ P:NPC {
 
     how = {
       lines = {
-        { id = "hw_default", text = "You take something that already holds magic, a wand or a ring or even a cloak, and you break it down into dust and essence. Then you use a rod to put that magic back into something else, in a shape you choose, and that's the trick of it." },
+        { id = "hw_default", text = "You take something that already holds magic, a wand or a ring or even a cloak, and you break it down into dust and essence; think of it as dismantling an engine for parts. Then you use a rod to put that magic back into something else, in a shape you choose, and that's the trick of it." },
       },
       choices = {
-        { text = "So you destroy one thing to improve another?", next = "how_destroy" },
+        { text = "So you destroy one thing to improve another.", next = "how_destroy" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1172,8 +1187,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I enchanted in Gnomeregan before the fall, and I enchant here now, upstairs, where I can hear people coming." } },
+    background = { { id = "tp_bg", text = "I enchanted in Gnomeregan before the fall, three levels down from the Clean Room, and I enchant here now, upstairs, where I can hear people coming." } },
     advice = { { id = "tp_ad", text = "Never disenchant anything you might want back later. I turned my grandmother's brooch into dust once, and she still writes to remind me." } },
-    _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran once, for a season, and they nearly caught me reading a formula I wasn't supposed to have. Oh, you didn't hear that, and if anyone asks, I was in the library the whole time." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor guard their secrets like dragons guard gold, and they think a gnome can't be trusted with any of them. They're right, of course, but it's rude of them to say so." } },
+    scourge = { { id = "tp_scourge", text = "Necromancy is enchanting gone wrong, just wrong in every possible direction, and I won't have it near my shop. Kel'Thuzad was a Dalaran mage once, you know, and it makes my skin crawl.", fx = { learn = { "kelthuzad" } } } },
+    _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly, because every new fact is one more thing somebody can steal." } },
   },
 }

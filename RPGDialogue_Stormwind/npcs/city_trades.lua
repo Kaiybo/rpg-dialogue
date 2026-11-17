@@ -13,7 +13,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Have you come to learn which leaves heal and which ones kill?" },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have your hands learned the difference between peacebloom and silverleaf yet?" },
+    { id = "g_back", when = { metBefore = true }, text = "Elune's light on you again. Have your hands learned the difference between peacebloom and silverleaf yet, or must the moon turn a few more times?" },
   },
   start = "hello",
   nodes = {
@@ -57,7 +57,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "That it hungers, and that those who feed it are one day fed upon, which is why the kaldorei turned from it after the Sundering. I do not ask you to give it up, but I ask you to remember the price." } },
+      lines = { { id = "xmage_default", text = "We learned that it hungers, and that those who feed it are one day fed upon, which is why the kaldorei turned from it after the Sundering. I do not ask you to give it up, but I ask you to remember the price." } },
       choices = {
         { text = "I'll remember the price, Tannysa, and wield it carefully.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The price was your people's, Tannysa. I'll take my chances.", next = "BACK", fx = { align = { light = -1 } } },
@@ -107,7 +107,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The sisters of Elune grow herbs for healing in our temples, and I think you'd find our ways and yours closer than either would admit." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Park! You walk heavily for a guest of the trees, but you mean well, I think, and that counts for something." },
-        { id = "h_default", text = "I am Tannysa. I teach herbalism to any who will listen, though in this city most would rather buy their herbs than gather them." },
+        { id = "h_default", text = "I am Tannysa. On Teldrassil every child learns the herbs at her mother's knee, but in this city most would rather buy them than gather them, so I teach any who will listen." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A sister of the forest, so far from home! You will find the herbs here tamer than ours, but they still answer to a gentle hand." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk softly, as the Sentinels do, though I suspect you learned it in a different forest. Mind the seedlings, because they cannot hear you coming." },
@@ -126,11 +126,11 @@ P:NPC {
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "Why teach here, and not in Darnassus?", next = "a" },
-        { text = "What grows best in Elwynn?", next = "b" },
+        { text = "Elwynn is thick with herbs along every road.", next = "b" },
         { text = "Do the herbs of Elwynn hide any poisons, Tannysa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What did your people learn about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your people learned hard lessons about the arcane, I hear.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why should a warrior learn herbalism, Tannysa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What herbs should a hunter watch for, Tannysa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "A hunter should know the herbs of these lands, Tannysa.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your people's priestesses heal with herbs, Tannysa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the kaldorei have warriors of faith like paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the human gardens make you homesick, Tannysa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -160,7 +160,11 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I crossed the sea when our peoples first made their pact, and I have not regretted it." } },
+    elune = { { id = "tp_elune", text = "Elune's light falls on Stormwind too, though your city's lamps hide it. I walk the Park at night to see her properly, and the guards think I'm lost." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is the great tree my people grew to be our home, and I miss its roots and its quiet. Your gardens are tidy and lovely, but they don't sing the way it does." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids of my people walk the Emerald Dream, where the world grows as it was meant to. I'm only an herbalist, but I dream of it sometimes, and I wake up wanting to weed your Park." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the great World Tree on Mount Hyjal, and it gave its strength to stop the Burning Legion. My people grew Teldrassil to take its place, and I'm not sure it ever will." } },
+    background = { { id = "tp_bg", text = "I crossed the sea when our peoples first made their pact, and traded Teldrassil's shade for these tidy human gardens. I have not regretted it, though I miss the moonwells." } },
     _none = { { id = "tp_none", text = "That I do not know, and the trees have not told me." } },
   },
 }
@@ -287,10 +291,10 @@ P:NPC {
       },
       choices = {
         { text = "Teach me first aid.", next = "BUSINESS" },
-        { text = "Who do you bandage most?", next = "a" },
-        { text = "What's the first thing to learn?", next = "b" },
-        { text = "What's the worst wound you've seen, Shaina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "How should a warrior bandage a wound in the field, Shaina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You'll bandage all sorts here, I expect.", next = "a" },
+        { text = "There must be a first thing to learn.", next = "b" },
+        { text = "You must have seen some terrible wounds, Shaina.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "A warrior ought to know how to bandage a wound, Shaina.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does first aid work on a hunter's pet, Shaina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many warlocks come to you for bandages?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do bandages still matter when there are healers, Shaina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -322,6 +326,10 @@ P:NPC {
     },
   },
   topics = {
+    scourge = { { id = "tp_scourge", text = "I wrap more refugees' wounds than soldiers' these days, and the refugees from Lordaeron have the worst. Their wounds don't heal right, and I've learned to boil my bandages twice." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests heal with the Light, and I heal with linen and clean water. Between us, we get most people back on their feet, though I'm faster." } },
+    second_war = { { id = "tp_second_war", text = "I learned to bandage in the Second War, when there were more wounded than healers. I've never stopped since, and I don't think I ever will." } },
+    the_stockade = { { id = "tp_the_stockade", text = "They brought me a guard from the Stockade last week with a shiv wound in his side. He wouldn't say who did it, and I didn't ask, because I've learned not to." } },
     background = { { id = "tp_bg", text = "I learned from the Cathedral's sisters during the Second War, and I've had plenty of practice since." } },
     _none = { { id = "tp_none", text = "I couldn't tell you that, but I can tell you how to stop bleeding." } },
   },
@@ -449,10 +457,10 @@ P:NPC {
       },
       choices = {
         { text = "Show me your bows.", next = "BUSINESS" },
-        { text = "Where does your yew come from?", next = "a" },
-        { text = "Do you sell much to the army?", next = "b" },
-        { text = "Why would a rogue need a bow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Did the mage's flaming arrows work?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "That's fine yew you work with.", next = "a" },
+        { text = "I'd have thought the army bought plenty of bows from you.", next = "b" },
+        { text = "I can't see what a rogue would want with a bow.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I doubt the mage's flaming arrows worked.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior carry a bow, Frederick?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What makes a good bow for a hunter, Frederick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do pilgrims ever buy bows from you, Frederick?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -464,7 +472,7 @@ P:NPC {
       },
     },
     a = {
-      lines = { { id = "a_default", text = "Elwynn, mostly, from the woods past the lumber mill. Though since the Defias took to those woods, the cutters charge me twice and bring half as much." } },
+      lines = { { id = "a_default", text = "It's from Elwynn, mostly, from the woods past the lumber mill. Though since the Defias took to those woods, the cutters charge me twice and bring half as much." } },
       choices = {
         { text = "Would you buy from the Defias?", next = "a2" },
         { text = "Something else.", next = "BACK" },
@@ -484,6 +492,10 @@ P:NPC {
     },
   },
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The night elf Sentinels make bows that sing when they're drawn, and I'd give my whole stock for one. I've tried to make one myself, and it just creaked." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make crossbows that could put a bolt through a door, and I've seen a few. They're ugly, but they work, and I respect that more than I'd like to." } },
+    teldrassil = { { id = "tp_teldrassil", text = "A night elf merchant brought me a stave of wood from Teldrassil once, and I made it into the finest bow I've ever strung. I sold it to a ranger, and I've regretted it every day since." } },
+    second_war = { { id = "tp_second_war", text = "My father made bows for the Alliance in the Second War, and he said a good bow saved more lives than any wall. I believe him, and I build every bow as if a life depended on it." } },
     background = { { id = "tp_bg", text = "My father was a bowyer and his father before him, all of us right here in the Trade District." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend, unless it's made of yew." } },
   },
@@ -612,10 +624,10 @@ P:NPC {
       },
       choices = {
         { text = "Show me your flowers.", next = "BUSINESS" },
-        { text = "Why so many funerals?", next = "a" },
-        { text = "What's your best seller?", next = "b" },
-        { text = "Do people buy flowers for secret sweethearts?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do soldiers ever buy flowers before they march, Felicia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "There seem to be a great many funerals.", next = "a" },
+        { text = "Roses seem to sell well here.", next = "b" },
+        { text = "I'd guess some flowers go to secret sweethearts.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I expect soldiers buy flowers before they march, Felicia.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which flowers grow wild near Stormwind, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your flowers often wilt near people, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why are there so many funerals lately, Felicia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -647,6 +659,10 @@ P:NPC {
     },
   },
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I sell more lilies to the Cathedral than to anyone else in the city, for weddings and funerals both. The Light's been good for business, though I'd rather it weren't for the funerals." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells flowers that glow in the dark, and I've tried to grow them myself. They don't glow for me, and I'm convinced it's a trick, though I can't work out how." } },
+    scourge = { { id = "tp_scourge", text = "The Lordaeron refugees buy flowers for the graves they couldn't visit, and I sell them for half price. I'd give them away, but I've got rent to pay, and the Light understands." } },
+    elune = { { id = "tp_elune", text = "A night elf lady buys white roses from me every week, she says for her goddess, Elune. I've started saving the best ones for her, and she's never once haggled." } },
     background = { { id = "tp_bg", text = "My shop's been in the family since before the city was burned, and we rebuilt it with the rest." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know, dear, unless it blooms." } },
   },

@@ -2,6 +2,167 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.81.0 (2026-11-17)
+Everything from the parallel 0.80 work in one release. **New files: restart the game fully (a /reload won't load them).** Most packs got a minor version bump.
+
+### A new Myself page in the journal.
+
+- **Who you are, at the top.** Your name, level, race and class, your origin and its words, and a line of counts: people met, conversations, tasks seen through, books read.
+- **Where you stand, drawn as gauges.** Light and Shadow, Order and Wild, Honor and Cunning each get a bar with a marker, plus the words for how far you lean.
+- **How you come across.** Your strongest traits, and the ones that only show now and then.
+- **The people in your life.** Up to five who think best of you and five who'd rather you kept walking, with how each regards you and where you last spoke.
+- **Your beliefs in your own words.** Each opinion now quotes what you actually said, to whom, and when, and notes it if you once said otherwise. (Only for things said from now on; older ones show the stance as before.)
+- Towns are listed from warmest to coldest; books and subjects heard of sit together under "What I've learned".
+
+### Much more to ask about. Every named NPC in every pack has new "Ask about..." answers, and townsfolk, guards and innkeepers everywhere have their own takes on the big subjects of the world.
+
+- **52 new topics:** the Scourge, the Forsaken, Kel'Thuzad, Prince Arthas, the fall of Lordaeron, Stratholme, Shadowfang Keep, the internment camps, the Second War, Gilneas, Stromgarde, the Wildhammer; Thrall, Sylvanas, Cairne, Vol'jin and the Darkspear, Jaina, Bolvar, the missing king, Lady Prestor, Magni, Tyrande; Theramore, Booty Bay, Gadgetzan, Ratchet, Everlook, Dalaran and the Kirin Tor, Nordrassil, Zul'Gurub, Zul'Farrak, the Sunken Temple, Dire Maul, Razorfen, Maraudon, Blackfathom Deeps, the Gurubashi Arena, the Darkmoon Faire; Onyxia, the Emerald Dream, the green dragons, the centaur, the quilboar, the Timbermaw, Ravenholdt; the Holy Light, Elune, the Earth Mother, the spirits and the elements. Hear one named in conversation and it becomes a link, as usual.
+- **About 5,400 new answers from named NPCs** (plus about 460 from townsfolk and roles), 3 to 6 each, and 7 to 16 for leaders (Thrall, Cairne, Vol'jin, Sylvanas, Bolvar, Anduin, Magni, Tyrande, Jaina and others). Many react to who's asking: your faction, your race (Forsaken get their own answers), your class, or how much they like you.
+- **Topics that almost nobody answered now have plenty of answers**: the Deadmines, the Stockade, the Valley of Heroes, Heroes' Vigil, the Brotherhood of Northshire, the hives of Silithus, C'Thun, the Firegut, Dreadmaul and others.
+- **Everyone else:** each role (guards, innkeepers, citizens, soldiers, priests, scholars, nobles, vendors, trainers and more) answers the big topics with Alliance, Horde and Forsaken versions; every town's citizens have 2 to 6 local takes; capital guards and class trainers have their own; goblin staff in Booty Bay, Gadgetzan, Ratchet and Everlook stay neutral and talk business.
+
+### Betty Quin has something to say.
+
+- **Betty Quin** (Stormwind 1.27.0), who teaches enchanting upstairs at Cordell's in the Mage Quarter, now has a full conversation: what enchanting is and why you have to break things to make things, how a cooper's daughter from Goldshire ended up working for Lucan and Jessara Cordell, the jar from Dalaran that nobody should open, life in a Mage Quarter that the whole city now leans on, and her lesson for campers (Camping 101: Enchanting). She notices fellow enchanters, mages, paladins, young humans and anyone who grew up on the Mage Quarter's streets.
+
+### Adair Gilroy has something to say.
+
+- **Adair Gilroy, the Mage Quarter's Librarian**, now talks: a scroll-seller who calls himself a librarian even though everything he sells crumbles when it's read. Ask him how scrolls work and which to buy for your class, about his years copying in Dalaran's Violet Citadel, his monthly supper-and-argument with Milton Sheaf of the Royal Library, his apprentice, the Slaughtered Lamb's cellar, and the Quarter's cat. Mages, warlocks, rogues, priests, Dalaran strays and Mage Quarter natives get lines of their own.
+
+### Mazen Mac'Nadir, the Academy's librarian in Stormwind.
+
+- **A full conversation:** the library and its three fires, Khadgar's essays and "Mazen's Behest" (before, during and after), his hapless assistant Dellis and the plant in the Swamp of Sorrows, Watcher Mahar Ba's lonely letters, why some books stay locked away, and the strange happenings that send everyone to his door.
+- He reacts to mages, warlocks, gnomes, night elves and Explorers' League dwarves, to Dalaran-trained, Mage Quarter and Gnomeregan-student origins, and to you having delivered the essays.
+
+### Twelve new Stories for the journal, across both continents and both factions.
+
+- **The hexed of the Echo Isles** (Horde): Master Gadrin, Lar Prowltusk, Gar'Thok and Vol'jin on the Darkspear lost to Zalazane's hex. Vol'jin asks what the hexed are to the tribe now, and your answer decides the ending.
+- **The Soulflayer's priests** (both): the Zandalarian Emissary, Mok'thardin or Nimetz, and Yeh'kinya on the drums in Zul'Gurub.
+- **The hills above Jintha'Alor**: Falstad and Fraggar for the Alliance, Otho and Primal Torntusk for the Horde.
+- **The sickness of Felwood** (both): from the Deadwood furbolgs to the Shadow Council in Jaedenar, through Talonbranch Glade or Bloodvenom Post.
+- **The Winterfall's firewater** (both): Donova Snowden, the Timbermaw and Himmik. Donova asks what to tell Everlook, and your answer decides the ending.
+- **The rot on both shores** (Alliance): Teldrassil's moonwells and the Gnarlpine, the timberlings, and the Blackwood furbolgs of Darkshore.
+- **Who lost Gnomeregan** (Alliance): everyone in Ironforge blames someone different. Mekkatorque asks what to tell his people, and your answer decides the ending.
+- **The watch on the Dark Portal** (both): Nethergarde Keep and Stonard keep watch on the Portal and the Dragonmaw.
+- **The Blackrock come down the mountain** (Alliance): Redridge's watch, Keeshan and Maxwell at Morgan's Vigil.
+- **Gadgetzan's water** (both): the Wastewanderers hold half the springs. Marin Noggenfogger asks whether to pay them or guard the pipes, and your answer decides the ending.
+- **The clans of Desolace**: Nijel's Point and Shadowprey Village both keep the centaur clans fighting each other.
+- **The ruins in the hills**: Feathermoon and Camp Mojache watch the Gordunni, each other and Dire Maul.
+- The people who carry these Stories greet you differently once one has ended.
+
+### Spoogledorf, as he really is.
+
+- **Spoogledorf rewritten to match the game:** he's an old gnome in Stormwind, not a travelling hunter. Now he's a Gnomeregan refugee who founded Uber Town and keeps its two ledgers (one for coin, one for promises), with new talk about his name (a "spoogle" is a watch spring), Tinker Town and the day he fled, Stormwind's too-tall stairs, and whether the gnomes should retake Gnomeregan or build anew.
+- Uber Town's young members are still there, Biscuit the bad-tempered pet now belongs to their hunter, and you can still ask to join (the Horde get an honorary line in the promise ledger). Gnome, dwarf and human players get their own lines.
+
+### Archmage Malin.
+
+- **Archmage Malin** in the Wizard's Sanctum (Stormwind 1.27.0) now has a full conversation: his old master Archmage Trelane and the tower in the Arathi Highlands, what the Boulderfist took, Skuerto and Kryten, the fall of Stromgarde, Dalaran, and life in the Mage Quarter. He reacts to Malin's Request and to how the work at Refuge Pointe went, notices mages, warlocks and Mage Quarter apprentices, and has replies for Dalaran's strays, Stromgarde's sellswords, Gnomeregan's last students, dwarves, gnomes and night elves.
+
+### More rumors.
+
+- **About 90 new rumors** for innkeepers in places that had none: Stormwind, Ironforge and Dun Morogh, Loch Modan, Undercity and Tirisfal, Silverpine, Stranglethorn, Arathi, the Badlands and Searing Gorge, the Swamp of Sorrows and Blasted Lands, the Burning Steppes, the Hinterlands, the Plaguelands and Alterac; and in Kalimdor, Orgrimmar and Durotar, Darkshore, Stonetalon, Desolace, Thousand Needles and Feralas, Dustwallow Marsh, Tanaris and Un'Goro, Felwood, Winterspring, Azshara, and word of Silithus.
+- As before, some only come up at the right level, for your faction, or before or after certain quests. Anyone in those zones can pass them on when you ask them for the latest rumors.
+
+### A content push across ten zones: about 40 new people to talk to, and longer conversations for some 20 more.
+
+- **Loch Modan:** Ironband's Excavation (Magmar Fellhew, who warned Ironband about that wall; Huldar; Miran and his mules), Thelsamar (Ghak Healtouch, Torren Squarejaw, Bailor Stonehand, Brock Stoneseeker) and three Mountaineers on patrol.
+- **Swamp of Sorrows:** Stonard's trainers and traders: Kartosh, Ogromm, Grokor, Rogvar (Thrall himself asked him here), Hekkru, Thultash, Thultazor, Hartash, Grimnal and Thralosh, with their small feuds and friendships.
+- **Felwood:** Gorn One Eye and Meilosh at Timbermaw Hold (they warm up as your standing does), Taronn Redfeather and Malygen at Talonbranch Glade, and Lord Banehollow in Jaedenar, who isn't fooled by your disguise. Golhine has more to say.
+- **Eastern Plaguelands:** Joseph Redpath's ghost at Darrowshire, Augustus the Touched and his shop at Terrordale, Eris Havenfire at Light's Hope. Egan and Zverenhoff go deeper.
+- **Silverpine:** Deathstalker Adamant and Sorcerer Ashcrombe, the prisoners of Shadowfang Keep, and Abigail Sawyer at the Sepulcher. Wallace and Karos (who names his bats) have more to say.
+- **Un'Goro:** Simone the Inconspicuous (a hunter may see through her), Shizzle and his flying machine, Quixxil the camp cook. Karna, Larion, Petra and Spark go deeper.
+- **Stonetalon:** Tharm, Gereck and Kulwia at Sun Rock, Jeeda in Jin'Zil's cave. Teloren and Mor'rogal go deeper.
+- **Searing Gorge:** Master Smith Burninate and Taskmaster Scrange at Thorium Point; Hansel and Lolo have more to say.
+- **Moonglade:** Fariel Starsong, the Lunar Festival vendor (Valadar's sister). Sindrayl and Faustron now have real conversations, and each offers flights only to their own faction.
+- **Blasted Lands:** Bloodmage Drazial, Bloodmage Lynnore, Daio the Decrepit and the Spirit of Kirith have about half as much again to say.
+
+### People have political opinions, and want yours.
+
+- **Guards argue politics.** Ask any town guard "What do the soldiers say about the court?" (Alliance) or "What are the grunts arguing about around the fires?" (Horde). Alliance: the regency and who has the boy king's ear, Lady Proudmoore's peace with Thrall, the refugees from Lordaeron, Greymane's wall. Horde: the peace with Theramore, the Forsaken in the Horde, the Warsong in Ashenvale, and whether anyone misses the old ways.
+- **Merchants too.** Ordinary vendors answer "Do your customers argue about politics?": war tolls and the nobles (Alliance), the goblin cartels (Horde), and whether peace is good for trade.
+- **Your answers count.** Picking a side shifts your alignment and is remembered. Other people in the same town hear about it later, and say so. Tell one crowd one thing and the next crowd the opposite, and someone will notice.
+- **Townsfolk talk politics** without being asked: the missing king, the war debts, Gilneas, the Warsong, the goblins of Ratchet.
+- The journal's "What I've said I believe" shows these opinions with proper names.
+
+### Prejudices. Some people now hold something against your race, your faction, your class or where you come from.
+
+- **How it works:** a prejudice lowers how someone regards you (the disposition shown on hover lists it as "What they hold against your kind"), so they're harder to persuade and slower to confide. Every point of goodwill you earn with them wears it down, and once it's gone they say so, grudgingly.
+- **What you can do:** while they hold it, they let it show when you walk up, and a new reply lets you have it out with them. Push back hard, take it on the chin, or answer calmly and start winning them round.
+- **55 people across 40 packs**, chosen where it's true to who they are. A few of them:
+  - **Alliance:** Fandral Staghelm on mages, Senator Stonehallow on night elves who sat out the Second War, Farmer Saldean on minor nobles, Commander Althea Ebonlocke on rogues, Matron Nightingale on warlocks (an imp set the orphanage linen alight), and Ragnar Thunderbrew on the gnomes who rewired his mash tun.
+  - **Horde:** Magatha Grimtotem on anyone who isn't tauren, Overlord Runthak and Harken Windtotem on the Forsaken, Orgnil Soulscar on warlocks, Royal Overseer Bauhaus on the living, Gazlowe on night elves (bad customers), and Kargal Battlescar on the Skyborne.
+  - **Out in the world:** Shandris Feathermoon and Vahlarriel Demonslayer on warlocks, Falstad Wildhammer on Ironforge dwarves (Wildhammer origins are spared), Nathanos Blightcaller on trolls, Mystic Yayo'jin on the Forsaken who cheated Bwonsamdi, Pozzik and Krazek on gnomes, Archmage Xylem on druids, and Nat Pagle on the gnome whose fish-caller brought a crocolisk.
+- For pack authors: NPCs take `prejudice = { race, faction, class, origin, exceptOrigin, amount, why }`; lines can check `prejudiced = true` or `"overcome"`.
+
+### People with grudges. Nine townsfolk across seven packs now carry an old prejudice of their own, and who you are decides how they treat you.
+
+- **Stormwind:** Osric Strang (Limited Immunity, Old Town) hates orcs after the First War and his years guarding a camp, and has no patience for night elves.
+- **Ironforge:** Senator Barin Redstone hates the Dark Iron, blames gnomes for Gnomeregan and scorns the Wildhammer.
+- **Darnassus:** Erion Shadewhisper distrusts humans as short-lived oath-breakers; Firodren Mooncaller resents dwarves for digging up Darkshore.
+- **Orgrimmar:** Galthuk calls the Forsaken "the corpses Thrall let in the door" and sneers at troll voodoo.
+- **Thunder Bluff:** Kaga Mistrunner despises the Forsaken apothecaries, the Venture Company and orc warlocks.
+- **Undercity:** Gordon Wendham holds the living in contempt, his own Horde allies included.
+- **Hillsbrad:** Hal McAllister of Southshore hates the Forsaken; Christoph Jeffcoat of Tarren Mill, Southshore-born, hates orcs and the town that turned him away.
+- Play the race they dislike and you get a colder, different conversation. Agree with them or push back (both count toward your alignment), and a [Persuade] digs out the story behind the grudge, which softens them on later visits.
+
+### Kin: people notice your other characters.
+
+- **Your characters leave a mark.** The addon now remembers, across your whole account, which of your characters has spoken with whom. Talk to someone your other character already knows and they may say you have the look of them, ask if you're kin, or remember the trouble they caused. Nobody knows they're you; to them it's a relative, a look-alike, or a face they remember.
+- **About 75 people react:** Bolvar, Anduin, Magni, Mekkatorque, Tyrande, Fandral, Dughan, Topper McNabb and others in the Alliance lands; Thrall, Vol'jin, Sylvanas, Varimathras, Cairne, Magatha, Baine, Eitrigg, Thork and others in the Horde's; and in the neutral towns (Booty Bay, Gadgetzan, Everlook, Ratchet, Moonglade, Cenarion Hold, Marshal's Refuge, Dalaran) people who served your other character *on the other side of the war*. Around 25 of them let you ask more about the person they remember.
+- **Guards, townsfolk and innkeepers** everywhere can notice it too (now and then, like their other remarks).
+- Same race, another class, a higher-level veteran or the other faction: lines change with who your other character is.
+- Characters you played before this version count once you log each of them in.
+- `/rpgd kin` lists the characters the addon remembers. For testing: `/rpgd spoof alt=Name:Orc:WARRIOR`.
+
+### The Forever patch: about 145 characters who exist only in World of Warcraft: Forever now talk.
+
+- **Forsaken paladins.** Bandarion Keep and its order (Danitha Morr, Breton Samuels, Hilda the Breaker and the rest), Shari Stilwell in Brill, Bareth Dawnstone, Morbin Lightbane and Tanis Alderwood in the Undercity. A Forsaken paladin hears things nobody else does.
+- **Tirisfal and Silverpine:** Deathknell's trainers, Hadric Harlson, Deathguard Kristof, the Bulwark, the Sepulcher's Baldren, Tabitha Heartweaver and Trevan Rol, Lumina Windsinger, and the Image of Archmage Modera.
+- **Horde capitals:** fourteen new Undercity residents (Glix Xizzix, Rugbul Boomfirst and more), Thatog and the Valley of Wisdom children, the Skyborne Windshapers in Grommash Hold, Borook Gallfist, and the **Darkspear Emissary** in every Horde capital.
+- **Horde lands:** Durotar (Turroc, Pa'zula, Pal'juh, Slizzy Kreeg and the Den), Gur'ak at the Crossroads, Camp Narache's new trainers, Aka'rai and Umarak in Desolace, Tuu'li and Xaphod in Stonetalon.
+- **Alliance:** Elwynn's new trainers and quest givers (Josephine Carson, Tordrin Sternblade, Kelsey Fargo, Blixie Fitzwink), Stormwind Harbor and Abigail Lawson, the Odd Child in Moonbrook, Old Ironforge and Dun Morogh (Afadra Dunwall, Thom Filch, Earthseer Farsen, Grund and Gozwin), Aldrassil's trainers, Teuren in Darnassus, Agriel Firebrew and Ardin Grassman in the Wetlands, Muggol Breezebeard, Pelluk, and the dragon Doraan.
+- **Dalaran:** the archivists, the Skyborne scholars at Tempered Tomes, Ranath Nightstride, and the Orphanage (with its rabbits and Luna).
+- **Zephras Isle:** nineteen more islanders, including every quest giver we'd missed and the camping teacher Raan Wildwind.
+- Gabbi Goodwhistle, the goblin peddler, in case she turns up outside the beta event.
+
+### About 116 more people to talk to in fifteen zones that were thin on named characters.
+
+- **Tirisfal and Silverpine (21):** Brill's Deathguards Simmer, Burgess and Linnea, a captured Scarlet zealot, Dark Cleric Beryl and the town's trainers and shopkeepers, Deathknell's trainers; at the Sepulcher, Mura Runetotem, the courier Astor Hadren and the market stalls.
+- **Stonetalon and Desolace (24):** Sun Rock's traders, wind rider master and hidden enchanter; Piznik at the Talon Den; Gurda Wildmane at Ghost Walker Post; Shadowprey's elders, Drulzegar's fishing crew and the inn; Corporal Melkins and Talendria at Nijel's Point; the dryad Cavindra by Maraudon.
+- **Loch Modan, Searing Gorge and the Badlands (20):** Brock Stoneseeker and the Healtouches in Thelsamar, the Stoutlager stalls, the Deepwaters and Mountaineer Pebblebitty; Master Smith Burninate, Taskmaster Scrange and Sarah Tanner; Lucien Tosselwrench, Garek and the Kargath garrison.
+- **Swamp of Sorrows and Burning Steppes (15):** Watcher Biggs, Magtoor at the Harborage, Infiltrator Marksen, Stonard's trainers and traders; three traders in the Steppes.
+- **Plaguelands and Hinterlands (20):** Augustus the Touched, Eris Havenfire, the Redpath and Lightfire spirits of Darrowshire, the Argent quartermasters, Flint Shadowmore at Chillwind; Aerie Peak's gryphon keepers and shops; Elder Torntusk and Renn'az of the Revantusk.
+- **Felwood, Un'Goro and Moonglade (16):** Gorn One Eye, Kernda and Meilosh at Timbermaw Hold, the imp Impsy; A-Me 01 and Marshal's Refuge's goblins; Tajarri, Fariel Starsong and Nighthaven's shops.
+- Each answers to your class, race and faction, with their quests before, during and after.
+
+### About 260 people who had nothing to say now do: quest givers, innkeepers, flight and stable masters, trainers and shopkeepers that earlier passes missed, in 41 zone packs.
+
+- **Eastern Kingdoms:** Stonard's traders and trainers, Thorium Point's Taskmaster Scrange, Lucien Tosselwrench in the Badlands, Morgan's Vigil; Brill, Deathknell and the Sepulcher; Mickey Levine at the Bulwark and the Argent quartermasters; Huldar and Miran in Loch Modan, "Slim" in Menethil, the Arathi Basin envoys at Refuge Pointe and Hammerfall, Aerie Peak, Revantusk, Southshore and Tarren Mill; Kharanos's rival brewers, Talvash del Kissel, Shoni the Shilent; Grom'gol, the Rebel Camp and the Zandalar on Yojamba Isle; Darkshire, Lakeshire and Westfall's Odd Child.
+- **Kalimdor:** Auberdine, Ashenvale's Alliance and Horde outposts, the Aldrassil class trainers and Darnassus; Sen'jin, Razor Hill and Bloodhoof; Gadgetzan and Narain Soothfancy; Malaka'jin and Sun Rock, Shadowprey and Nijel's Point, Feathermoon and Camp Mojache, Freewind, Theramore and Brackenwall; Felwood's Emerald Circle and Timbermaw Hold, Nighthaven's market, A-Me 01, Cenarion Hold and the Silithus war camps, Everlook's weapon masters and shops, and Azshara's stranded sailors.
+- **Horde capitals and the Barrens:** the Cleft of Shadow's errands, Orokk Omosh, the Apothecarium's chemists, Sharlindra, Orm and Karn Stonehoof, the Bluff Runner, the Barrens' shaman seers, Ratchet's brewmaster and crane operator, and the Dogran chain at Camp Taurajo.
+- Quest givers react before, during and after their quests; most people have a reply or two only certain races, classes or factions get.
+
+### Every origin is noticed now.
+
+- **The 72 newer origins from 0.70.0 come up in conversation.** Until now only the older backgrounds got recognised. About 490 new lines across 31 packs: each newer origin gets a greeting from the townsfolk or guards of its home town, a stranger who notices it, and a new reply with a named person tied to it. A few examples: Eitrigg remembers a Doomhammer veteran, Commander Ebonlocke a Darkshire watchman, Keeper Remulos one of his own keepers, Baine a Bloodhoof brave and Tinkmaster Overspark an arcane engineer. Skyborne backgrounds are noticed on Zephras, in Dalaran and in Mulgore.
+
+### Lines that know what you know
+- **About 850 replies no longer name people, places or secrets your character hasn't heard of yet.** They're reworded, wait until you've heard the name or taken the quest, or the person says it first.
+
+### You say things, not only ask them
+- **About a third of the replies that open a new subject are now remarks:** something you've noticed, a guess or a plain statement, and people answer in kind.
+
+### Opinions and how people take them
+- **More replies where your character says what they think**, across every pack, and the person reacts to the stance you took.
+
+### People who sound like who they are
+- **Non-human people sound like their race:** orcs, trolls, tauren, dwarves, gnomes, night elves and the Forsaken, across every pack.
+- **39 trainers and vendors** in Undercity, Orgrimmar, Dalaran and the Crossroads now have more personality and more to say.
+
+### Letters at the mailbox
+- **People you've helped (or crossed) can write to you**, and your origin brings letters from home, along with the odd random note and some junk mail. Open them from the Letters panel beside the mailbox. You can turn letters off in the settings ("Around you"); `/rpgd letters` lists them.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

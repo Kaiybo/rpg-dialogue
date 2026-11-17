@@ -132,19 +132,19 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wondered whether a lightning totem would charge a battery. Purely theoretically, of course. I wouldn't sell it without testing it twice." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a box of springs to count." },
-        { id = "h_again2", text = "Next question, please." },
+        { id = "h_again", text = "Anything else? I've a box of springs to count, four hundred and twelve at last tally, and I'd like to know if it's still four hundred and twelve." },
+        { id = "h_again2", text = "Next question, please, and in order of size, if you can manage it." },
       },
       choices = {
         { text = "Let me see your parts.", next = "BUSINESS" },
         { text = "What does a new engineer need?", next = "need" },
-        { text = "Where do your parts come from now?", next = "parts" },
-        { text = "Is engineering really so dangerous?", next = "danger" },
+        { text = "Parts must be hard to come by since Gnomeregan.", next = "parts" },
+        { text = "Engineering seems a dangerous trade.", next = "danger" },
         { text = "Do you really sell lockpicks to anyone who asks?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has fel energy melted your parts before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would blasting powder be any use to a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a scope really improve my aim, Gearcutter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do many engineers come to you hurt, Gearcutter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Many engineers must come to you hurt, Gearcutter.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is honest work rarer than it should be, Gearcutter?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does all this blasting powder ever harm the land outside?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has a mage really blown up your stock, Gearcutter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -190,7 +190,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sorted parts in the great workshops of Gnomeregan, and I sort them here, though the workshops were rather larger." } },
     advice = { { id = "tp_ad", text = "Label your powders. Black powder and pepper look much the same in a dark tunnel." } },
-    _none = { { id = "tp_none", text = "That's not a part I stock, I'm afraid, or one I've ever heard of." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins sell parts that'll fail you in a week, and they'll sell you the replacement just as quick. I've built my whole business on the people who come back from there angry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys my washers by the crate, and I've no idea what the pirates do with them. I've stopped asking, and I've raised the price." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Every part in this shop could've come from Gnomeregan once, and some of them did. I salvaged what I could on the way out, and I'm not ashamed of it." } },
+    _none = { { id = "tp_none", text = "That's not a part I stock, I'm afraid, or one I've ever heard of, and I've catalogued every part that came out of Gnomeregan." } },
   },
 }
 
@@ -328,13 +331,13 @@ P:NPC {
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "What's wrong with the wheel?", next = "wheel" },
         { text = "What's the difference between gnomish and goblin engineering?", next = "spec" },
-        { text = "Have you ever been hurt by an invention?", next = "hurt" },
+        { text = "You look like you've been hurt by an invention or two.", next = "hurt" },
         { text = "I studied tinkering in Gnomeregan as well.", next = "k_tinker", when = { origin = "gnome_tinker_apprentice" } },
         { text = "Why would an arcane wheel replacement keep exploding?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did your last prototype really catch fire on its own?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would replace the wheel on a battlefield, Springspindle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What have hunters' beasts taught you, Springspindle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you ever worry your inventions might hurt someone, Springspindle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must worry your inventions might hurt someone, Springspindle.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a mechanical charger be as good as a living one?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do night elves even need the wheel, Springspindle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why would a rogue care about the end of the wheel?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -399,6 +402,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I designed pumps in Gnomeregan, and now I design legs, and someday I'll design something that does both." } },
     advice = { { id = "tp_ad", text = "Always keep a bucket of water near your workbench. Two, if you're working with powder." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the finest workshop the world's ever known, and I left half a prototype on my bench there. If the troggs have touched it, I'll never forgive them." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan build things that explode, and they think that's the point. A gnome builds things that explode only when we mean them to, and that's called engineering." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got a steam tonk that I designed, and somebody stole it, and they're running races on it now. I want royalties, or at least a ride." } },
     _none = { { id = "tp_none", text = "I'm sure I could invent something to do with that, but I don't know anything about it yet." } },
   },
 }
@@ -416,8 +422,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, and please don't mix them up." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because it was meant to." },
+    { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, a precise three feet between them, and please don't mix them up." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because I measured it to the drop, and it was meant to." },
   },
 
   notice = {
@@ -509,7 +515,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want healing potions, I expect, for when your prayers run low, and they will; I've seen it happen to the very best of them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want healing potions, I expect, though your sort heal yourselves, so maybe something for the troggs instead." },
         { id = "h_default", key = true,
-          text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, and I've never yet lost a student, or not for very long." },
+          text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, with the proportions written down exactly, and I've never yet lost a student, or not for very long." },
         { id = "h_tinkertown", when = { origin = "gnome_ironforge_raised" },
           text = "Oh, you're a Tinker Town child, I'd know that quiet anywhere! We all learned to keep our voices down when the dwarves were drinking, didn't we? Well, you can be as loud as you like in my shop." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -524,7 +530,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The herbs you pick must be happier than mine. Mine always look a little offended by the time they reach the bench." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know? I've a kettle on." },
+        { id = "h_again", text = "What else would you like to know? I've a kettle on, and it boils over at exactly nine minutes, so we've about six." },
         { id = "h_again2", text = "Ask away, while the potion bubbles." },
       },
       choices = {
@@ -546,10 +552,10 @@ P:NPC {
 
     drinks = {
       lines = {
-        { id = "dr_default", text = "Because the dwarves wanted a drink and the adventurers wanted a potion, and I thought, why not both? The mixed drinks pay the rent, and the potions pay for the next experiment, so everybody wins." },
+        { id = "dr_default", text = "Because the dwarves wanted a drink and the adventurers wanted a potion, and I thought, why not both, with a shared still and half the overhead? The mixed drinks pay the rent, and the potions pay for the next experiment, so everybody wins." },
       },
       choices = {
-        { text = "Has anyone mixed them up?", next = "drinks_mixed" },
+        { text = "Someone must have mixed them up by now.", next = "drinks_mixed" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -581,6 +587,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I mixed potions in Gnomeregan, before, and I mixed drinks in Gnomeregan too, just never in the same shop." } },
     advice = { { id = "tp_ad", text = "Stir clockwise, unless the recipe says otherwise. And if it smokes, step back." } },
-    _none = { { id = "tp_none", text = "I don't know about that, sorry! Ask me about potions instead." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan sell potions that do exactly what the label says, at least until they don't. I've a cousin who drank one and spoke only in rhymes for a week." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken brew plagues, so the rumors go, and I'd like a sample just to see how they did it. Purely for science, and with the lid on very tight, I promise." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sell my brightest potions at the Faire, the ones that make you glow for an hour, and the children love them. Don't tell their mothers, please." } },
+    _none = { { id = "tp_none", text = "I don't know about that, sorry, and I can't distil an answer out of nothing, though I've tried! Ask me about potions instead." } },
   },
 }

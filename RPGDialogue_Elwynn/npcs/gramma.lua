@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_alliance_betrayed", when = { opinion = { topic = "alliance", stance = "betrayed" } }, text = "There's the one who agrees with my kettle. Sit, dear, and don't tell the Marshal what we said about kings." },
     { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },
     { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "The boy sent you. I know that face; it's the face of someone sent." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my accomplice! Come in, come in and sit down." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alliance = {
+      lines = {
+        { id = "op_alliance_a", text = "That's what I ask the fire every night, dear, and it never answers. The Alliance came asking for our men, and half the kingdoms that asked went home before the fighting was done. You tell me, then: was the Alliance worth our boys?" },
+      },
+      choices = {
+        { text = "It was. Without the Alliance, the Horde would have taken everything.", next = "op_alliance_1", fx = { opinion = { alliance = "worth_it" }, align = { order = 1 } } },
+        { text = "No. The kings used our men and walked away when it suited them.", next = "op_alliance_2", fx = { opinion = { alliance = "betrayed", stromgarde = "deserters" }, align = { order = -1 }, affinity = 1 } },
+        { text = "I can't weigh a whole war against one good man.", next = "op_alliance_3", fx = { opinion = { alliance = "mixed" }, trait = { kind = 1 }, affinity = 2 } },
+        { text = "Ironforge stood by you, Gramma. We never walked away.", next = "op_alliance_4", when = { race = "Dwarf" }, fx = { opinion = { alliance = "worth_it", dwarves = "loyal" }, affinity = 1 } },
+        { text = "That's not for me to say, Gramma.", next = "BACK" },
+      },
+    },
+    op_alliance_1 = {
+      lines = { { id = "op_alliance_r1", text = "I suppose that's so, and Bernice's husband would have said the same, because he went proud. I only wish the Alliance had sent him home again." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
+    op_alliance_2 = {
+      lines = { { id = "op_alliance_r2", text = "That's what I say to the kettle when nobody's listening, dear. Mind you, say it in Goldshire and the Marshal will give you that look of his." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
+    op_alliance_3 = {
+      lines = { { id = "op_alliance_r3", text = "No, and nobody should have to, least of all Bernice. Go and buy one of her loaves, dear; it's the only answer I've ever found." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
+    op_alliance_4 = {
+      lines = { { id = "op_alliance_r4", text = "No, you didn't, and I'll say that for your folk at any table. Stubborn as a Stonefield, the lot of you, and I mean it kindly." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Ending this foolish feud, dear. The Maclures and the Stonefields have wasted good years on it. Your spirits might knock some sense into them." } },
@@ -142,21 +171,21 @@ P:NPC {
       },
       choices = {
         { text = "Do you believe in magic, Gramma?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why do you help them?", next = "why" },
-        { text = "How did the feud start?", next = "feud" },
-        { text = "How do you know William Pestle?", next = "william" },
+        { text = "Why do you call the feud a waste, Gramma?", next = "why" },
+        { text = "Nobody seems to agree on how the feud started.", next = "feud" },
+        { text = "How do you know William Pestle?", next = "william", when = { any = { { questActive = TODO_QUEST("Note to William") }, { questDone = TODO_QUEST("Note to William") } } } },
         { text = "Tell me about the Stonefields.", next = "family" },
-        { text = "Did she reach the river?", next = "escape_done", when = { questDone = TODO_QUEST("The Escape") } },
+        { text = "I hope she reached the river.", next = "escape_done", when = { questDone = TODO_QUEST("The Escape") } },
         { text = "I'll pray the two families make peace.", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has feuds too, in Stormwind.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Dwarves feud for generations, Gramma. It never ends well.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Who is the pie spoken for, Gramma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Does it trouble you to sit with a warlock, Gramma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Most folk don't care to sit with a warlock, Gramma.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have a warrior fight for, Gramma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Did your family hunt, in the old days?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Your family must have hunted, in the old days.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would mend the feud between the families, Gramma?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there anything magic could do for the feud, Gramma?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What are you scheming, Gramma Stonefield?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You look like you're scheming something, Gramma Stonefield.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -217,7 +246,7 @@ P:NPC {
         { id = "wi_default", text = "Since we were both young and foolish. He went off to make potions in the city; I stayed and made Stonefields. We each think the other got the worse bargain." },
       },
       choices = {
-        { text = "Will his potion work?", next = "william_potion" },
+        { text = "I hope his potion works.", next = "william_potion" },
         { text = "Something else.", next = "BACK", fx = { learn = { "lions_pride" } } },
       },
     },
@@ -236,7 +265,7 @@ P:NPC {
         { id = "fa_default", text = "Bernice bakes, Ma fights a pig, and the boy moons at the river. I sit here and watch the lot of them." },
       },
       choices = {
-        { text = "Bernice seems unhappy.", next = "family_bernice" },
+        { text = "Is Bernice all right?", next = "family_bernice" },
         { text = "A pig?", next = "family_pig" },
       },
     },
@@ -245,6 +274,7 @@ P:NPC {
         { id = "fb_default", text = "Her husband went off on campaign and didn't come home. She bakes the way some folk pray. Don't bring him up unless she does." },
       },
       choices = {
+        { text = "Was it worth it, sending Elwynn's men to that war?", next = "op_alliance" },
         { text = "I won't.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -336,5 +366,10 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "William Pestle keeps a room there. We go back further than either of us likes to say." } },
     defias = { { id = "tp_defias", text = "Thieves in red. When I was a girl, thieves had the decency to be ashamed of themselves." } },
     _none = { { id = "tp_none", text = "At my age you stop collecting gossip. You start collecting chairs." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "I was a girl when the orcs came through and put Goldshire to the torch, child, and some of the names on the stone at Stone Cairn Lake were folk I knew. I don't go out there now, but I remember them on the right days." } },
+    holy_light = { { id = "tp_holy_light", text = "I've prayed to the Light every morning for longer than most folk have been alive, and it's never once answered me in words. It answers in other ways, if you're patient and don't mind waiting." } },
+    varian = { { id = "tp_varian", text = "I remember when the king came home from Lordaeron as a young man to take his father's throne, and the whole valley turned out to cheer him. I hope that wherever he is now, somebody's feeding him properly." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's been coming to Goldshire for years, child, and I've not missed it once, though I only watch now. A little music does an old woman more good than any of William's tonics." } },
+    scourge = { { id = "tp_scourge", text = "William tells me the plague in the north came in the grain and turned folk into walking dead, and he's a sensible man. I've told Tommy Joe to buy no grain he can't trace, and he looks at me as though I'm wandering." } },
   },
 }

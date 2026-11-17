@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_light_doubt", when = { opinion = { topic = "the_light", stance = "doubt" } }, text = "The sceptic returns. Sit, sit; the Blade has been turning up all week, and I suspected it was waiting for you." },
+    { id = "g_op_necro_eva", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "The cards turned up the Needle when you walked in, and the Lovers reversed beside it. Somewhere, you told someone you'd bring back the dead. Be careful who heard you." },
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
     { id = "g_back", when = { metBefore = true }, text = "Sit, please. The cards have been restless since you left." },
     { id = "g_comb", when = { questActive = TODO_QUEST("Return the Comb") }, text = "You have seen Blind Mary; it is written on your face. Give me the comb, child." },
@@ -36,6 +38,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_light = {
+      lines = {
+        { id = "op_light_a", text = "Ah, the question every visitor comes to ask and nobody asks plainly. The priests say the Light guards the faithful, and the graveyards of Duskwood are full of faithful people. So I put it back to you: what do you believe watches over you here?" },
+      },
+      choices = {
+        { text = "The Light. Faith isn't a promise you won't die.", next = "op_light_1", fx = { opinion = { the_light = "faith" }, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Nothing watches over anyone. A sharp blade and good sense.", next = "op_light_2", fx = { opinion = { the_light = "doubt" }, align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "Fate, maybe. Your cards seem sure of it.", next = "op_light_3", fx = { opinion = { the_light = "fate" }, trait = { curious = 1 }, affinity = 2 } },
+        { text = "Elune watches this wood still, whatever has happened here.", next = "op_light_4", when = { race = "NightElf" }, fx = { opinion = { the_light = "elune" }, affinity = 1 } },
+        { text = "I'd rather not tempt fate, Madame.", next = "BACK" },
+      },
+    },
+    op_light_1 = {
+      lines = { { id = "op_light_r1", text = "A good answer, and an honest one, which the Church rarely manages. The cards like you better for it; they turned the Lamp just now, see?" } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
+    op_light_2 = {
+      lines = { { id = "op_light_r2", text = "Then the cards will bore you, and you'll come back anyway, because the sceptics always do. The Blade turns up for people like you, and it cuts both ways." } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
+    op_light_3 = {
+      lines = { { id = "op_light_r3", text = "My cards are sure of nothing, child; they only see further than you do. Still, I'm flattered, and you may sit a little longer for free." } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
+    op_light_4 = {
+      lines = { { id = "op_light_r4", text = "Does she? Then she watches very quietly. The cards turn up the Moon for your people, and it's always half in shadow." } },
+      choices = { { text = "Something else, Madame.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A blade raised against a thing with many faces, and a choice about whether to strike or to wait. The cards don't say which is right, only that you'll have to make it, and soon." } },
@@ -122,18 +152,29 @@ P:NPC {
         { text = "What do you hear when the forest screams?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Read my cards.", next = "cards" },
         { text = "What waits in the night?", next = "night" },
-        { text = "Who is Blind Mary?", next = "mary" },
-        { text = "Why does Stalvan frighten you?", next = "granddaughter", when = { questActive = TODO_QUEST("The Legend of Stalvan") } },
+        { text = "Is every spirit near Darkshire a monster?", next = "mary" },
+        { text = "Stalvan's name seems to frighten you.", next = "granddaughter", when = { questActive = TODO_QUEST("The Legend of Stalvan") } },
         { text = "What is ghost hair thread really for?", next = "thread", when = { questDone = TODO_QUEST("Return the Comb") } },
         { text = "The Light doesn't need cards.", next = "priest", when = { class = "PRIEST" } },
         { text = "Deal for me. If you dare.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The spirits speak to me too, madame.", next = "dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
-        { text = "You knew I'd come. Did your cards see my knives too?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You knew I'd come. Your cards must have seen my knives too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fortune telling isn't magic, Madame. It's guesswork.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did the cards show about my sword, Madame?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did your cards say about the Knight, madame?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I dug graves at Raven Hill, Madame. The dead talked back.", next = "xorig_gravedigger", when = { origin = "human_raven_hill_gravedigger" } },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    xorig_gravedigger = {
+      lines = {
+        { id = "xogravedigger_default", text = "Of course they did, and you answered, which is where the trouble always starts. The cards turned up the Gravedigger for you before you'd opened your mouth, and beside it the Bargain, upright. Tell me, child, have the voices kept their side of it?" },
+      },
+      choices = {
+        { text = "So far they have, Madame.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "They're servants now, not voices, and they know it.", next = "BACK", fx = { trait = { cruel = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -195,9 +236,10 @@ P:NPC {
         { id = "n_default", text = "The dead walking and the worgen howling, and men who choose to be monsters, who are worse than either, because they could have chosen otherwise." },
       },
       choices = {
+        { text = "What guards a person in a wood like this, Madame?", next = "op_light" },
         { text = "I'll remember.", next = "BACK", fx = { learn = { "stalvan" } } },
         { text = "Which men?", next = "night_men" },
-        { text = "And the dead? Are they restless?", next = "night_spirits" },
+        { text = "The dead must be restless here.", next = "night_spirits" },
       },
     },
     night_men = {
@@ -219,7 +261,7 @@ P:NPC {
 
     mary = {
       lines = {
-        { id = "ma_default", text = "She is a poor, sad spirit in the old farmhouse south of town. She was lovely once, and carried a looking glass wherever she went." },
+        { id = "ma_default", text = "Not every one. Blind Mary is a poor, sad spirit in the old farmhouse south of town. She was lovely once, and carried a looking glass wherever she went." },
       },
       choices = {
         { text = "What happened to her?", next = "mary_eyes" },
@@ -239,10 +281,10 @@ P:NPC {
     granddaughter = {
       big = true,
       lines = {
-        { id = "gd_default", text = "Because of Alyssa, my granddaughter. Death lay on the table for her, and after a long trance I found one name beside it, Stalvan, so bring me proof he can harm no one." },
+        { id = "gd_default", text = "It does, because of Alyssa, my granddaughter. Death lay on the table for her, and after a long trance I found one name beside it, Stalvan, so bring me proof he can harm no one." },
       },
       choices = {
-        { text = "Does she know?", next = "granddaughter_know" },
+        { text = "I'd guess she doesn't know.", next = "granddaughter_know" },
         { text = "I'll find him.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I won't hunt a man down on the word of a card.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
       },
@@ -319,5 +361,11 @@ P:NPC {
     ladimore = { { id = "tp_ladimore", text = "The Knight, reversed: a good man turned upside down by grief. He walks Raven Hill because he cannot forgive himself." } },
     embalmer = { { id = "tp_embalmer", text = "That is the Needle, and I see it more often than I'd like. Don't ask me whose hand holds it." } },
     _none = { { id = "tp_none", text = "The cards are silent on that, and they are rarely silent, so make of it what you will." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's fortune teller offered me a tent once, child, and I told her the cards had already shown me how badly that would end. She didn't ask what they showed, which proved my point." } },
+    raven_hill = { { id = "tp_raven_hill", text = "The spirits at Raven Hill are the loudest in Duskwood, child, and most of them only want to go home. Some of them are home, and that's the trouble." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The cards turn black when I ask about the riders, every card, every time. I've stopped asking, and I suggest you do the same." } },
+    scourge = { { id = "tp_scourge", text = "The spirits that drift down from the north are the saddest I've ever heard, child, because they weren't allowed to leave their bodies even after death. I light a candle for them, and it gutters every time." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and the moon answers them, or so they say. The moon has only ever told me one thing, and that was to stay indoors." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I dreamed once of a green dragon sleeping in Twilight Grove, and the next morning a hunter told me he'd seen one there. The cards had nothing to say about it, which is how I know it matters." } },
   },
 }

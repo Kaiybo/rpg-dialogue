@@ -31,6 +31,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_orcs = {
+      lines = {
+        { id = "opn_orcs_q", text = "After the war? They went intae the camps, an' then a good many o' them walked out again under this Thrall. My da says they should've been put tae the axe, an' my mam says they were sick wi' some warlock's poison an' couldnae help it. Where d'ye stand, then?" },
+      },
+      choices = {
+        { text = "They burned this valley. Your da's right.", next = "opn_orcs_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "Your mam's right. They were poisoned by their own warlocks.", next = "opn_orcs_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { orcs = "pity" } } },
+        { text = "It doesn't matter now. They're free, and they're on Kalimdor.", next = "opn_orcs_r_wary", fx = { trait = { practical = 1 }, opinion = { orcs = "wary" } } },
+        { text = "I've met orcs since. Some are honest enough.", next = "opn_orcs_r_respect", when = { minLevel = 30 }, fx = { opinion = { orcs = "respect" } } },
+        { text = "I'd rather hear about the loch.", next = "BACK" },
+      },
+    },
+    opn_orcs_r = {
+      lines = {
+        { id = "opn_orcs_r_default", text = "The loch it is, then. It's a safer subject, unless ye're a fish." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_hate = {
+      lines = {
+        { id = "opn_orcs_r_hate", text = "Ha! I'll tell him a {class} agreed wi' him, an' he'll be insufferable at supper for a week. There's catapults on the bottom o' this loch that'd agree wi' ye too." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_pity = {
+      lines = {
+        { id = "opn_orcs_r_pity", text = "Mam'll be glad tae hear it, though I'll no' tell da. I've never met one, ye see, so I don't know what tae think, only what they think." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_wary = {
+      lines = {
+        { id = "opn_orcs_r_wary", text = "Aye, an' Kalimdor's a long way off, an' I'd like it tae stay that way. That's the sort o' answer my captain gives when he doesnae want tae argue." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_respect = {
+      lines = {
+        { id = "opn_orcs_r_respect", text = "Have ye now? Ye'll have tae tell me about it some time, quietly, an' no' anywhere near the Stoutlager." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Now there's a thought! He's a Dark Iron, an' they've their own dealings wi' the fire under the mountains, so maybe the stone would know him. I'll take any help I can get, so long as ye bring him tae me an' dinnae leave it tae the earth tae swallow him." } },
@@ -155,11 +207,11 @@ P:NPC {
         { id = "h_again2", text = "Ask away. I've a post tae watch an' all day tae watch it." },
       },
       choices = {
-        { text = "Have the hills been changing lately?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's this about a spy?", next = "spy" },
+        { text = "The hills seem to have changed lately.", next = "druid_q", when = { class = "DRUID" } },
+        { text = "I keep hearing talk of a spy.", next = "spy" },
         { text = "How's the loch?", next = "loch" },
         { text = "Who needs a hand around here?", next = "jobs" },
-        { text = "So, how was that stout?", next = "stout", when = { questDone = TODO_QUEST("Stout to Kadrell") } },
+        { text = "You look like a dwarf who's had a good stout.", next = "stout", when = { questDone = TODO_QUEST("Stout to Kadrell") } },
         { text = "The troggs came up under my city first.", next = "gnome", when = { race = "Gnome" } },
         { text = "I track for a living, Mountaineer. Need eyes on the hills?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Your loch is lovely, but where are the trees?", next = "k_elf", when = { race = "NightElf" } },
@@ -200,7 +252,7 @@ P:NPC {
         { id = "s_default", text = "A Dark Iron, poking about the town an' the dam. There's a poster out by the League, so if ye see a dwarf who looks a wee bit too sooty, give us a shout." },
       },
       choices = {
-        { text = "Why would they want the dam?", next = "spy_dam" },
+        { text = "The dam seems a strange thing for a spy to want.", next = "spy_dam" },
         { text = "I'll keep an eye out.", next = "BACK", fx = { affinity = 2, learn = { "dark_iron" } } },
       },
     },
@@ -213,7 +265,7 @@ P:NPC {
     loch = {
       lines = { { id = "l_default", text = "Beautiful, an' full o' trouble, like most things worth havin'. Ye should see it at dawn from the dam." } },
       choices = {
-        { text = "What's in the loch?", next = "loch_what" },
+        { text = "That loch must hide a few things beneath the water.", next = "loch_what" },
         { text = "I'll go and see it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -221,7 +273,10 @@ P:NPC {
       lines = {
         { id = "lw_default", text = "Crocolisks an' threshers, an' the Second War, for there's broken catapults on the bottom if ye dive. The orcs held this valley once, though no' for long." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think should have been done with the orcs?", next = "opn_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     jobs = {
       lines = {
@@ -283,11 +338,16 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "Stonesplinter, out o' the hills. Captain Rugelfuss counts 'em down in the Valley o' Kings, an' he's run out o' fingers." } },
     stonewrought_dam = { { id = "tp_dam", text = "It's holdin', though Hinderweir would tell ye otherwise every mornin'.", next = "spy_dam" } },
     _none = { { id = "tp_none", text = "Couldnae say. Ask at the inn, for they hear everythin'." } },
+    magni = { { id = "tp_magni", text = "King Magni's Mountaineers hold Loch Modan for him, an' I'm proud tae be one. He sends word tae Thelsamar now an' then, an' we all stand a bit straighter for a week." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer riders come down tae the Stoutlager now an' then, loud as a storm an' twice as thirsty. I like them, whatever the old folk say." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's over the mountains in the Wetlands, an' a dark place by every account. The Dragonmaw use it now, an' I'm glad there's a range o' hills between them an' my road." } },
+    scourge = { { id = "tp_scourge", text = "If the dead come south, they'll come over the Span an' down through Algaz, an' I'll be standin' on this road when they do. Ironforge won't fall the way Lordaeron did." } },
   },
 }
 
 P:NPC {
   key = "ironband", id = TODO_NPC("Prospector Ironband"), name = "Prospector Ironband",
+  prejudice = { race = "NightElf", amount = 8, why = "A druid sat in his cousin Durn's Darkshore trench humming until the crew walked off." },
   bible = "bibles/thelsamar.md", role = "scholar", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "honest", "practical" },
   notices = { "craft" },
@@ -298,6 +358,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A night elf at my dig. If you've come to tell me the ground is sacred and the stones are sleeping, my cousin heard that speech in Darkshore last summer, and it cost him a season." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, there's my night elf. You've not once called my trenches a wound in the earth, and I've started saving you a seat by the fire." },
+    { id = "o_league_dangerous_lm", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "dangerous" } },
+      text = "Word gets around, an' I hear ye think we're diggin' up trouble. Come an' stand in the trench a night, an' then tell me again." },
     { id = "g_dig", text = "Watch the trench, an' the ropes, an' the lads, for they're workin', slowly but workin'." },
     { id = "g_back", when = { metBefore = true }, text = "Good, ye came back. We could always use another pair o' hands that know which end's the shovel." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the dig's moved on a good few feet since. Slowly, mind, but it's movin'." },
@@ -312,6 +376,80 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "My cousin Durn had a dig on the Darkshore coast with a permit from Magni himself, and a druid sat in his trench for a week humming at him until the crew walked off. Your people don't own the past, friend, they only act as though they do." } },
+      choices = {
+        { text = "Some ruins should stay buried. My people have their reasons.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Dig where you like. The past belongs to everyone.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What are you hoping to find here, Prospector?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Reasons, aye, and they never tell anyone what they are, which is the part that drives an honest digger mad. Tell me one someday, and I might listen." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Ha, now you sound like a dwarf! Mind you don't say it in Darnassus, or they'll have you sitting in a trench humming." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "The truth about where we came from, and maybe the Titans' own hand in it. The troggs make that hard going, mind, but it's worth a few bruises." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    opn_dig = {
+      lines = {
+        { id = "opn_dig_q", text = "Magellas would have my beard for askin', but I've asked it myself at three in the mornin' wi' the troggs howlin' in the trench. Ye've seen the dig an' ye've seen what came up out of it. What would ye do in my boots?" },
+      },
+      choices = {
+        { text = "Keep digging. The past is worth the risk.", next = "opn_dig_r_admire", fx = { affinity = 1, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Fill in the trench. Some doors should stay shut.", next = "opn_dig_r_dangerous", fx = { affinity = -1, align = { order = 1 }, opinion = { explorers_league = "dangerous" } } },
+        { text = "Dig, but put a garrison on the hole first.", next = "opn_dig_r_useful", fx = { trait = { practical = 1 }, opinion = { explorers_league = "useful" } } },
+        { text = "The earth is restless. Listen to it before you dig.", next = "opn_dig_r_careless", when = { class = "SHAMAN" }, fx = { affinity = 1, opinion = { explorers_league = "careless", the_elements = "listen" } } },
+        { text = "That's for the League to decide.", next = "BACK" },
+      },
+    },
+    opn_dig_r = {
+      lines = {
+        { id = "opn_dig_r_default", text = "Aye, an' the League decides from a warm hall in Ironforge. Never mind me; I'm only tired." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_admire = {
+      lines = {
+        { id = "opn_dig_r_admire", text = "That's what I tell myself at dawn, an' it's good tae hear it from someone else for a change. I'll keep diggin', then, an' keep a sword by the trowels." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_dangerous = {
+      lines = {
+        { id = "opn_dig_r_dangerous", text = "Shut? We're the ones who opened it, so we're the ones who have tae stand in it. I hear ye, mind, an' I'll no' pretend I've an answer that'd satisfy ye." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_useful = {
+      lines = {
+        { id = "opn_dig_r_useful", text = "A garrison! I've asked for one twice, an' Rugelfuss sends me his regrets an' a Mountaineer wi' a cold. Still, ye're right, an' I'll ask again." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_careless = {
+      lines = {
+        { id = "opn_dig_r_careless", text = "Listen tae it, aye, an' if it says anythin' useful, ye'll come straight back an' tell me, for I've been listenin' for months an' all I hear is troggs." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." } },
@@ -435,10 +573,11 @@ P:NPC {
         { id = "h_again2", text = "Ask away; diggin's slow, an' half the lads are nursin' blisters, so talkin's the only quick thing round here." },
       },
       choices = {
+        { text = "You've had trouble with my people, Prospector?", next = "prej", when = { prejudiced = true } },
         { text = "What did the last druid say about your digging?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are you digging for?", next = "dig" },
-        { text = "Why is the dig so slow?", next = "slow" },
-        { text = "Where does your blastpowder go?", next = "powder" },
+        { text = "The dig seems to be going slowly.", next = "slow" },
+        { text = "Does anything go missing from your dig?", next = "powder" },
         { text = "Stormpike sent me. You need legwork?", next = "agmond", when = { questActive = TODO_QUEST("Ironband Wants You!") } },
         { text = "The stone at your dig is restless, Ironband.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Your dig could use a gnome's touch.", next = "k_gnome", when = { race = "Gnome" } },
@@ -479,7 +618,7 @@ P:NPC {
         { id = "d_default", text = "The past, our past: what the old dwarves left in these hills before Ironforge was a single hall. Every shard's a page o' a book nobody's read." },
       },
       choices = {
-        { text = "Found anything yet?", next = "idols" },
+        { text = "You must have found something by now.", next = "idols" },
         { text = "That's worth digging for.", next = "BACK", fx = { affinity = 2, learn = { "explorers_league" } } },
       },
     },
@@ -499,6 +638,7 @@ P:NPC {
         { id = "iw_default", text = "Maybe, an' an honest dwarf says maybe. If our diggin' woke 'em, it's ours tae put right, an' I'll no' leave this site till it is." },
       },
       choices = {
+        { text = "Should the League stop digging, then?", next = "opn_dig" },
         { text = "Spoken like an honest dwarf.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Or leave them be and fill the hole.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
       },
@@ -567,6 +707,10 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "They're big an' mean, an' they go berserk near our idols. I'd like tae know why before they do.", next = "idols" } },
     uldaman = { { id = "tp_uldaman", text = "That's the big dig, down south. If my idols stir troggs, I shudder tae think what Uldaman stirs." } },
     _none = { { id = "tp_none", text = "That's no' my field. My field's six feet down." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol has the oldest dwarven stonework in Khaz Modan, an' I'd give my left hand tae dig it. The Dragonmaw would take my right, so I'm stayin' here." } },
+    magni = { { id = "tp_magni", text = "King Magni's set on findin' where dwarves came from, an' bless him for it, because his gold pays my diggers. I'll find his answers, or at least a very interestin' rock." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer's old songs speak o' stone men an' makers, an' my digs keep turnin' up things that sound like the songs. I'm no' sayin' they're right; I'm sayin' I'm listenin'." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city tae troggs that came up from below, an' my digs here turned up troggs too. I don't like what that says about what's under Khaz Modan." } },
   },
 }
 
@@ -582,6 +726,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_alliance_burden", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "burden" } },
+      text = "The Magistrate's been tellin' half the bar ye think the Alliance bleeds us dry. The Mountaineers drink here too, mind, so I'd sit near the door if I were ye." },
+    { id = "o_orcs_hate", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "hate" } },
+      text = "Young Kadrell says ye'd have put every orc in the camps tae the axe. His da's been buyin' rounds in yer name ever since, so drink up." },
     { id = "g_inn", text = "The Stoutlager welcomes ye! Sit down, have a pint an' tell us a tale, in that order." },
     { id = "g_home", when = { homeInn = { "Thelsamar", "Stoutlager Inn" } }, text = "The Stoutlager missed ye! Yer bed's warm an' yer mug's clean, or clean enough, anyway." },
     { id = "g_away", when = { away = 14 }, text = "The Stoutlager's missed ye these {away}! Sit down, have a pint, an' then I'll want a tale fer every one o' those days." },
@@ -678,6 +826,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Ye've the same thirst on ye as {alt}, a {altclass} who drank my Stoutlager an' didnae complain once, which is rarer than ye'd think in Thelsamar. Sit, an' let's see if ye've the same good manners." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was in again the other night, singin' about the dam wi' the miners like a local. If ye're kin, tell that one they've a voice like a rockslide, an' I mean it fondly." },
         { id = "h_default", text = "Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
         { id = "h_brawl", when = { metBefore = true }, text = "Two miners fought over the last stool last night an' broke it, so now neither of 'em has a stool. There's a lesson in that somewhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, an' the miners are singin' about the dam again. Every verse is the same verse, only louder." },
@@ -698,7 +850,7 @@ P:NPC {
       choices = {
         { text = "What do you love most about Loch Modan?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Make this my home.", next = "BUSINESS" },
-        { text = "Who drinks here?", next = "regulars" },
+        { text = "You must see all sorts at this bar.", next = "regulars" },
         { text = "What do the miners sing about?", next = "song" },
         { text = "I used to run casks across the loch, quiet-like.", next = "k_smuggle", when = { class = "ROGUE" } },
         { text = "I could chill your ale for you, if you like.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -706,7 +858,7 @@ P:NPC {
         { text = "Do many warriors drink at the Stoutlager, Hearthstove?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does your kitchen buy what hunters bring in?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the mountaineers bring their grief here, Hearthstove?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do brawls break out at the Stoutlager often, Hearthstove?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess brawls break out here often enough, Hearthstove.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do folk in Thelsamar mind a shaman at the Stoutlager?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My family brews. I came to see where the barrels end up.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
         { text = "Just a pint.", next = "END" },
@@ -773,6 +925,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Sit wi' yer back tae the wall an' yer face tae the fire, an' ye'll see everyone an' stay warm besides." } },
     stonewrought_dam = { { id = "tp_dam", text = "Ask the miners, for they've a song about it. Just don't ask them tae sing it.", next = "song" } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Buy a round an' ask the whole inn; ye'll get six answers." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've heard the Darkmoon Faire's ale is weak, an' I've told everyone who'll listen. Nobody's come from the Faire tae argue, so I must be right." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer riders drink here when they pass through, an' they drink as if the barrels had insulted them. I keep the tab honest, which is more than they do." } },
+    magni = { { id = "tp_magni", text = "There's a toast tae King Magni every night at the Stoutlager, an' I've never once had tae start it. That's the kind o' king he is." } },
+    scourge = { { id = "tp_scourge", text = "A refugee from Lordaeron stopped here once on his way tae Ironforge, an' he wouldnae sit near the fire. Said he'd seen too many villages burnin', so I gave him the corner table an' left him be." } },
   },
 }
 
@@ -893,7 +1049,7 @@ P:NPC {
         { id = "h_again2", text = "Ask quick, for sausages burn." },
       },
       choices = {
-        { text = "What goes in the sausages?", next = "what" },
+        { text = "Those sausages smell like nothing I've eaten before.", next = "what" },
         { text = "Who eats them all?", next = "who" },
         { text = "Can I help?", next = "help" },
         { text = "I cook too. Trade secrets?", next = "cook", when = { profession = "Cooking" } },
@@ -901,7 +1057,7 @@ P:NPC {
         { text = "I could lift a few ingredients from the hills for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could I warm the sausages for you? It'd save the coal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors really eat as much as they say, Vidra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you feed the families who've lost their providers, Vidra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'd guess you feed the families who've lost their providers, Vidra.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is Thelsamar safe enough for your kitchen, Vidra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What goes into a Thelsamar blood sausage, Vidra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What goes into a Thelsamar blood sausage, Vidra?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -914,7 +1070,7 @@ P:NPC {
         { id = "wt_default", text = "Bear meat, boar guts for the casings, an' a dash o' spider ichor for spice. Don't make that face; ye've eaten worse an' liked it less." },
       },
       choices = {
-        { text = "Spider ichor?", next = "what_ichor" },
+        { text = "Spider ichor sounds a strange sort of spice.", next = "what_ichor" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -971,6 +1127,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I cook, an' that's my story, an' it's got sausages in it." } },
     advice = { { id = "tp_ad", text = "Eat it fresh. That goes for everythin', but sausages most of all." } },
     _none = { { id = "tp_none", text = "I cook; ask someone who talks." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells sausages on sticks, I'm told, an' they're no' a patch on mine. I'd like tae go an' prove it." } },
+    magni = { { id = "tp_magni", text = "King Magni's a famous eater, an' I've heard he likes his sausages spiced. If he ever comes tae Thelsamar, I'll have a pot on." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor told me they put fish in their sausages down in Booty Bay. I've never been so offended in my life." } },
   },
 }
 
@@ -986,8 +1145,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_ease", text = "At ease. Ceremony can wait until the troggs do." },
-    { id = "g_away", when = { away = 14 }, text = "At ease, and welcome back after {away} away. The troggs kept the same hours while you were gone, so nothing's changed on this hill." },
+    { id = "g_ease", text = "At ease, {g:lad|lass}. Ceremony can wait until the troggs do, and they never do." },
+    { id = "g_away", when = { away = 14 }, text = "At ease, and welcome back after {away} away. The troggs kept the same hours while ye were gone, so nothing's changed on this hill but the depth of my trenches." },
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away}, and you've come back with the bearing of a seasoned fighter. I'll forgo the ceremony, but consider yourself saluted." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "A report reached me that someone in Thelsamar caught you in a falsehood. I run this post on honest reports, so see that yours stay that way." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I'm told you've been of service to the town these past days. Well done, and I mean that formally." },
@@ -995,11 +1154,63 @@ P:NPC {
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "A fighting sort, good. The King's lands need defenders more than they need visitors." },
+      text = "A fighting sort, good. The King's lands need defenders more than they need visitors, and the stone here has had its fill of visitors." },
   },
 
   start = "hello",
   nodes = {
+    opn_wildhammer = {
+      lines = {
+        { id = "opn_wildhammer_q", text = "Officially, Captain Rugelfuss has no opinion on the Wildhammer clan, who are allies of the throne. Unofficially, the captain notes they fly about on gryphons with their beards in braids and never once filled a garrison roster. What does the traveller think?" },
+      },
+      choices = {
+        { text = "They fought the Horde at Grim Batol. That's worth respect.", next = "opn_wildhammer_r_respect", fx = { affinity = -1, align = { order = -1 }, opinion = { wildhammer = "respect" } } },
+        { text = "Undisciplined and proud of it. Ironforge is better off.", next = "opn_wildhammer_r_distrust", fx = { affinity = 1, align = { order = 1 }, opinion = { wildhammer = "distrust" } } },
+        { text = "Brothers who fell out. Both statues still face the same pass.", next = "opn_wildhammer_r_kin", fx = { trait = { kind = 1 }, opinion = { wildhammer = "kin" } } },
+        { text = "The Wildhammer are my clan, Captain. Mind your roster.", next = "opn_wildhammer_r_proud", when = { race = "Dwarf", origin = "dwarf_wildhammer_kin" }, fx = { affinity = -1, opinion = { wildhammer = "proud" } } },
+        { text = "I couldn't say, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r = {
+      lines = {
+        { id = "opn_wildhammer_r_default", text = "A careful answer. You'd make a fine captain, which I mean as a warning." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_respect = {
+      lines = {
+        { id = "opn_wildhammer_r_respect", text = "Grim Batol was a long time ago and a long way from the Valley of Kings. The captain will grant it was well fought, and note that it is not on his roster." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_distrust = {
+      lines = {
+        { id = "opn_wildhammer_r_distrust", text = "The captain could not possibly agree with you in uniform. He will, however, buy you a drink at the Stoutlager when he is out of it." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_kin = {
+      lines = {
+        { id = "opn_wildhammer_r_kin", text = "They do, don't they? I'd never thought of it that way. Madoran and Khardros, looking south together, and neither one of them willing to turn his head." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_proud = {
+      lines = {
+        { id = "opn_wildhammer_r_proud", text = "The captain meant no offence to any clan of the Alliance, and he will mind his roster. He would mind it better, mind you, if a few of your cousins were on it." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If they come in time, they could save lives. My soldiers say the ground hums before a trogg rush, and I've ordered them to stop saying it because it frightens the new recruits. If you tell me the hum means something, I'll stop ordering them and start listening." } },
@@ -1087,19 +1298,19 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge. The troggs rise from under the hills faster than we can put them down." },
+        { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge and King Magni. The troggs rise from under the hills faster than we can put them down, like water through a cracked seam." },
         { id = "h_trogg", tags = { "news" }, when = { questActive = TODO_QUEST("The Trogg Threat") },
           text = "The troggs have dug in close. Thin them out and bring me proof, for I want the King to read numbers, not complaints." },
         { id = "h_lands", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
           text = "These are the King's lands, and the King's statues watch over them. I'll not have troggs nesting at their feet." },
-        { id = "h_count", when = { metBefore = true }, text = "We put down eleven troggs yesterday, and twelve more came up where they fell. I've stopped counting and started digging trenches." },
+        { id = "h_count", when = { metBefore = true }, text = "We put down eleven troggs yesterday, and twelve more came up where they fell. I've stopped counting and started digging trenches, which at least is honest dwarven work." },
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
           text = "A Mountaineer of Dun Morogh, good. You'll know what a short-handed post looks like, and this is one." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Ah, good, it's you. The regiment's glad of you on these hills, and the captain is too, though he'll only say so the once." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, is it? I've a district full o' bears, boars an' angry wolves, an' I'll take any help that can speak tae them." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I've been holding this valley with tired soldiers, and a fresh arm is the best news I've had all week." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I've been holding this valley with tired soldiers and blunt axes, and a fresh arm is the best news I've had all week." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I could use one; the troggs come out of holes I didn't know were there, and somebody has to find them first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I have soldiers who have fought the troggs too long, and it's not only their bodies that need mending." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The King's statues have seen your order before, and they'd be glad to see it again." },
@@ -1108,12 +1319,12 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've held this valley against troggs for months, and if you can feel them coming through the stone, you're worth ten of my tired soldiers." },
       },
       again = {
-        { id = "h_again", text = "Is there anything further?" },
-        { id = "h_again2", text = "Speak plainly, if you would; I prefer it." },
+        { id = "h_again", text = "Is there anything further? Speak it, an' I'll hear it." },
+        { id = "h_again2", text = "Speak plainly, if ye would; I prefer it, as any dwarf o' the regiment does." },
       },
       choices = {
         { text = "What would you have me tell the beasts?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Where are your soldiers?", next = "reserve" },
+        { text = "Your soldiers seem thin on the ground, Captain.", next = "reserve" },
         { text = "Who leads the troggs?", next = "leader" },
         { text = "Tell me about the statues.", next = "statues" },
         { text = "Why trogg teeth?", next = "teeth" },
@@ -1125,7 +1336,7 @@ P:NPC {
         { text = "I can get behind the trogg lines for you, Captain.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Troggs fear fire. My demons could help hold the Valley.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do your soldiers bear the endless fighting, Captain?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do the troggs dishonour the statues, Captain?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The troggs seem to have no respect for the statues, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where could a mage do the most good, Captain?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could a shaman's warnings help hold the Valley, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
@@ -1143,7 +1354,7 @@ P:NPC {
     },
     reserve_worth = {
       lines = {
-        { id = "rw_default", text = "The King says it is, and I'm a captain. I say 'Yes, my king,' and I count troggs." },
+        { id = "rw_default", text = "The King says it is, and I'm a captain. I say 'Aye, my king,' and I count troggs." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1163,7 +1374,7 @@ P:NPC {
     },
     leader2 = {
       lines = {
-        { id = "l2_default", text = "Then we kill the next one, for troggs have more chieftains than sense." },
+        { id = "l2_default", text = "Then we kill the next one, for troggs have more chieftains than sense, and less sense than a stone." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
@@ -1172,6 +1383,7 @@ P:NPC {
         { id = "su_default", text = "Madoran Bronzebeard and Khardros Wildhammer, raised by their sons. They watch the pass south, where the land still burns. A warning to the Dark Iron." },
       },
       choices = {
+        { text = "The Wildhammer left Ironforge. What do you make of them?", next = "opn_wildhammer" },
         { text = "Do the Dark Iron heed it?", next = "statues2" },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
@@ -1237,11 +1449,15 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The regiment's book records most of what happens in these hills, and I've read every page. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "I'm the King's captain in the Valley of Kings. My history is the regiment's history, and the regiment keeps a book." } },
+    background = { { id = "tp_bg", text = "I'm the King's captain in the Valley of Kings. My history is the regiment's history, an' the regiment keeps a book, bound in ram's hide and older than my beard." } },
     advice = { { id = "tp_ad", text = "Bring proof, always. Nobody argues with a sack of teeth." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The same troggs, or their cousins. They came up under the gnomes, and now they're coming up under us." } },
     troggs = { { id = "tp_troggs", text = "They're Stonesplinter, tunneling up from every crevice in the loch's hills.", next = "leader" } },
-    _none = { { id = "tp_none", text = "That's not my post, I'm afraid. Ask in Thelsamar." } },
+    _none = { { id = "tp_none", text = "That's not my post, I'm afraid. Ask in Thelsamar, at the Stoutlager, where every dwarf in the loch has an opinion." } },
+    magni = { { id = "tp_magni", text = "The regiment serves King Magni, and the regiment's book records every order he has sent us. There are fewer pages than I'd like, but each one is in his own hand." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons have a chapter in the regiment's book that goes back to the War of the Three Hammers. We're still writing it." } },
+    second_war = { { id = "tp_second_war", text = "The regiment's book has a whole volume on the Second War, when the Horde marched through Khaz Modan. Every name in it fought, and too many of them died in this valley." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer appear in our book as allies, which surprises the young soldiers. A dwarf is a dwarf when there's an orc in front of him." } },
   },
 }
 
@@ -1257,7 +1473,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_dam", text = "Careful on the walkway! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
+    { id = "g_dam", text = "Careful on the walkway, {g:lad|lass}! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you're back after {away}! The dam held the whole time, of course it held, it was engineered to hold." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown rather sturdy since your last visit. Do be gentle on the walkway, though, because it's rated for sturdy, but only just." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Thelsamar has been speaking well of you! It's nice to hear good news, because I usually only hear about cracks." },
@@ -1307,7 +1523,7 @@ P:NPC {
       choices = {
         { text = "I'll show you every gap and tell no one else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll show you, but knowledge like that isn't free.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Where have your guards gone?", next = "guards" },
+        { text = "Your guards seem to have gone missing.", next = "guards" },
       },
     },
     xlock = {
@@ -1349,47 +1565,58 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh of the name, and I'll not be the one remembered for the day it fell." },
+          text = "Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh o' the name, an' I'll not be the one remembered for the day she fell, not while there's a beard on my chin." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("A Dark Threat Looms") },
           text = "Someone's been at the dam. Things have moved that shouldn't move and things have been left that shouldn't be here, so find out who, before it's too late to find out anything." },
-        { id = "h_crack", when = { metBefore = true }, text = "I found a hairline crack on the east face this morning, which is nothing, probably nothing. I'll check it again tonight, and tomorrow, and forever." },
+        { id = "h_crack", when = { metBefore = true }, text = "I found a hairline crack on the east face this morning, which is nothing, probably nothing, stone settles, ye know. I'll check it again tonight, and tomorrow, and forever." },
         { id = "h_saved", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Dark Threat Looms"), days = 7 } },
           text = "You saved her, the dam, my dam! She's safe, for the time being, though I've started checking at noon as well." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at the dam! I'll have ye know the Stonewrought Dam is the finest piece o' engineering in Khaz Modan, an' the fish don't seem tae mind it." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank goodness, for if the Dark Irons come for the dam, I'd much prefer you between them and the sluice gates." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank the stone, for if the Dark Irons come for the dam, I'd much prefer you between them and the sluice gates." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? You'll have keen eyes, then, and I'd be ever so grateful if you'd turn them on the hills above the dam." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, could you bless the dam? I've tried everything else, and my grandfather swore by a good blessing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Thank goodness, because if the Dark Irons come for the dam, you'll shine so brightly they'll know they're not welcome." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, could you ask the water whether it's content behind the dam? My grandfather would turn in his grave if it wasn't, and so would his." },
       },
       again = {
-        { id = "h_again", text = "Yes? Quickly, please; I've readings due." },
+        { id = "h_again", text = "Yes? Quickly, please, for I've readings due an' the stone won't wait." },
         { id = "h_again2", text = "Go on, and hold the rail while you do." },
       },
       choices = {
         { text = "Does the dam harm the land around it?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "How old is the dam?", next = "old" },
-        { text = "What are the Dark Iron after?", next = "threat" },
+        { text = "The dam looks older than anything in Thelsamar.", next = "old" },
+        { text = "Who would want the dam to fall?", next = "threat" },
         { text = "Where are your guards?", next = "guards" },
-        { text = "Who built the dam?", next = "built" },
+        { text = "Whoever built this dam knew their stonework.", next = "built" },
         { text = "The stonewrought method was a Dark Iron's, I'm told.", next = "forgewright", when = { heardLine = "archesonus.d_default" } },
         { text = "A gnome would like a look at your dam, Chief Engineer.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "A mage's ward could shore up the dam.", next = "k_mage", when = { class = "MAGE" } },
         { text = "Your guards would never see a saboteur coming, Engineer.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Dark Irons wield fire. I know how to answer it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you fear the Dark Irons will attack the dam?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You look like a dwarf who fears for this dam.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for in the hills above the dam?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would happen to the valley if the dam ever failed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "If you caught a Dark Iron at the dam, what would you do?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the water restless behind the Stonewrought Dam, Engineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My uncle taught me the rifle on your dam, Engineer.", next = "xorig_damrifle", when = { origin = "dwarf_dam_rifleman" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xorig_damrifle = {
+      lines = {
+        { id = "xodamrifle_default", text = "Did he, now! I've had a good few riflemen on my walls, an' the troggs in Stonesplinter know every one o' them by the sound o' their shot. If ye've come home, there's always a post on the dam for a steady eye, so will ye take a turn on the wall while ye're here?" },
+      },
+      choices = {
+        { text = "Aye, a turn or two, Engineer.", next = "BACK", fx = { affinity = 2, standing = { thelsamar = 1 } } },
+        { text = "The trail's my home now, but I'll come by.", next = "BACK", fx = { trait = { independent = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     old = {
       big = true,
       lines = {
-        { id = "o_default", text = "Older than my grandfather's grandfather, and holding back the whole loch. If it goes, the valley below goes with it. I check it every morning, every night, and sometimes in between." },
+        { id = "o_default", text = "Older than my grandfather's grandfather, and holding back the whole loch with dwarven stone and dwarven stubbornness. If it goes, the valley below goes with it, so I check it every morning, every night, and sometimes in between." },
       },
       choices = {
         { text = "What happens if it goes?", next = "old_goes" },
@@ -1404,10 +1631,10 @@ P:NPC {
     },
     threat = {
       lines = {
-        { id = "tr_default", text = "First they brought down the Thandol Span, then they pillaged Dun Modr. You needn't be a genius to see what's next on their list. I am one, and I see it plainly." },
+        { id = "tr_default", text = "The Dark Irons, who else? First they brought down the Thandol Span, then they pillaged Dun Modr. You needn't be a genius to see what's next on their list. I am one, and I see it plainly." },
       },
       choices = {
-        { text = "What would they use?", next = "threat_how" },
+        { text = "They'd need a great deal of powder to crack that dam.", next = "threat_how" },
         { text = "Then we stop them.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "I'm an engineer. Let me check the ramp.", next = "BACK", when = { profession = "Engineering" }, fx = { affinity = 2 } },
       },
@@ -1431,7 +1658,7 @@ P:NPC {
     },
     built = {
       lines = {
-        { id = "bu_default", text = "Before my time, and before my father's. It's stonewrought work, the finest in the world, and who laid the first stone matters less than who keeps the last one." },
+        { id = "bu_default", text = "Before my time, and before my father's. It's stonewrought work, the finest in the world, an' who laid the first stone matters less than who keeps the last one." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1466,10 +1693,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know, well, I know a great deal, mostly about the dam, but also other things, which I'll gladly tell you about if you ask about any of these, quickly, before I have to go and check the dam again." },
     },
-    background = { { id = "tp_bg", text = "I'm the seventh of the name and Chief Engineer of the dam, and that's all of me; the rest is readings." } },
+    background = { { id = "tp_bg", text = "I'm the seventh o' the name and Chief Engineer of the dam, and that's all of me; the rest is readings an' a very worried beard." } },
     advice = { { id = "tp_ad", text = "Check it twice, then check it again, and then hold the rail." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't say that name near my dam, please, just don't. I've enough to worry about as it is.", next = "threat" } },
     stonewrought_dam = { { id = "tp_dam", text = "She's mine. Well, she's the King's, but she's mine.", next = "old" } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything but the dam right now. I rarely can." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I cannae think about anything but the dam right now. I rarely can." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was an engineering marvel, a marvel, and now it's lost, which is, well, it's a lesson in maintenance, really. I check my seals twice a day because of it." } },
+    magni = { { id = "tp_magni", text = "King Magni visited the dam once, well, my grandfather says he did, or his father did, and called it a fine piece of work. Every Hinderweir since has been living up to it." } },
+    troggs = { { id = "tp_troggs", text = "The troggs dig, you see, and digging near a dam is, well, it's the worst thing, really, the very worst. I've asked the Mountaineers to keep them at least a mile off, and they've asked me how." } },
   },
 }

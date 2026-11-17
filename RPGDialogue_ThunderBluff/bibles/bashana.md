@@ -10,7 +10,7 @@
 ## Identity
 Bashana Runetotem · Elder Rise · Horde · Tauren · druid, Cenarion Circle
 Personality: brisk, warm, impatient, devoted
-Speech: quick, wry about her father's slowness
+Speech: quick, wry about her father's slowness; tauren floor: Earth Mother, An'she and Mu'sha, plains and herd imagery, unhurried
 Knows and cares about: seeds, morrowgrain, Un'Goro, Felwood, the Circle
 Relationships: Hamuul (father); Magatha (watched)
 Never says: anything after Year 1

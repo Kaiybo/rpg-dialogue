@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Welcome, friend. Your vault is safe, as it was when you left it." },
+    { id = "g_hi", text = "Welcome, friend. Your vault is safe, as safe as a calf in the middle of the herd." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your things have waited patiently for you. Shall I open the vault?" },
     { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "Welcome, friend. You came here on the long walk, so you'll remember when everything a family owned fit on one kodo's back, and you'll forgive an old banker for marvelling at how full these vaults have grown." },
   },
@@ -124,14 +124,14 @@ P:NPC {
         { text = "Do you count a priest's work as wealth, Chesmu?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans keep anything in your vaults, Chesmu?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like my vault.", next = "BUSINESS" },
-        { text = "Did the tauren always have banks?", next = "history" },
+        { text = "I'd guess the tauren haven't always had banks.", next = "history" },
         { text = "What do tauren keep in their vaults?", next = "keep" },
-        { text = "Is Thunder Bluff safe for my things?", next = "safe" },
+        { text = "Thunder Bluff seems safe enough for my things.", next = "safe" },
         { text = "Your vaults look sturdy, Chesmu. How sturdy, I wonder?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do mages keep anything strange in your vaults?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Mages must keep strange things in your vaults.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do warriors usually leave with you, Chesmu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters keep their trophies here, Chesmu?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do druids really own nothing, Chesmu?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Druids seem to own almost nothing, Chesmu.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you trust warlocks with your vaults, Chesmu?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do you count a paladin's wealth, Chesmu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Chesmu.", next = "END" },
@@ -140,7 +140,7 @@ P:NPC {
     history = {
       lines = { { id = "h2_default", text = "No. When we wandered the plains, a tauren's wealth was the herd, and the friends who'd help guard it. The High Chieftain built this city so we could stop running from the centaur, and a city needs a place to keep things." } },
       choices = {
-        { text = "Do you miss the old ways?", next = "history_miss" },
+        { text = "You must miss the old ways.", next = "history_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,7 +173,10 @@ P:NPC {
 
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "They keep their own counsel on Elder Rise. I keep their coin the same as anyone's, and say no more." } },
-    _none = { { id = "tp_none", text = "I don't know, friend. Ask Innkeeper Pala; everyone talks to her." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts me with the wealth of the bluff, and I keep it as carefully as I kept the herds. Gold is easier to count than kodo, but harder to love." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief taught the tauren to keep coin, and we learned. I still count wealth in friends first, though, and Thrall is a good one to count." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay keep a bank too, and they count every copper three times. I admire their care, if not their manners." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. Ask Innkeeper Pala; everyone talks to her, as the whole herd drinks at one river." } },
   },
 }
 
@@ -189,7 +192,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "The wind is good today. Where shall it carry you?" },
+    { id = "g_hi", text = "The wind is good today, and An'she is high. Where shall it carry you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back on the tower. The wind riders remember you, friend." },
     { id = "g_windshaper", when = { origin = "skyborne_windshaper" }, text = "One of Ayessa's Windshapers, up on my tower again. You stand into the wind like my riders do, as if you're listening for something in it, and I hope one day it tells you what you want to hear." },
   },
@@ -299,12 +302,12 @@ P:NPC {
       again = { { id = "h_again", text = "Anything more? The wind won't wait forever, and neither will that wyvern, who bit a goblin last week for dawdling." } },
       choices = {
         { text = "Do your riders ever come back hurt, Tal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the wind riders feel the air spirits, Tal?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The wind riders must feel the air spirits, Tal.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Take me somewhere.", next = "BUSINESS" },
-        { text = "What is it like to fly?", next = "fly" },
+        { text = "I've never flown on a wind rider.", next = "fly" },
         { text = "Where do the wind riders come from?", next = "beasts" },
         { text = "Why don't you fly to Bloodhoof Village?", next = "bloodhoof" },
-        { text = "Who watches the tower while you sleep, Tal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Someone must watch the tower while you sleep, Tal.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the wind riders take warriors, Tal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do you care for the wind riders, Tal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will your wind riders carry a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -324,7 +327,7 @@ P:NPC {
     beasts = {
       lines = { { id = "b_default", text = "From the high places of Kalimdor, where the winds are strong. They are proud creatures, and they don't serve; they agree to carry us, as long as we treat them with respect." } },
       choices = {
-        { text = "What happens if they're disrespected?", next = "beasts_respect" },
+        { text = "I'd hate to disrespect one.", next = "beasts_respect" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -348,7 +351,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I know the wind and the routes it takes. For anything else, ask someone on the ground." } },
+    _none = { { id = "tp_none", text = "I know the wind and the routes it takes. For anything else, ask someone whose hooves stay on the ground." } },
+    cairne = { { id = "tp_cairne", text = "Cairne flew with me once, and he held on so tightly that my wind rider complained for a week. He is a great chieftain, but a poor flyer." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief flies often, and he flies well. I think he likes the sky as much as I do." } },
+    ratchet = { { id = "tp_ratchet", text = "The flight to Ratchet is long and windy, but the sea at the end is worth it. I go there sometimes to remember that the world is bigger than Mulgore." } },
   },
 }
 
@@ -368,7 +374,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come to learn a new weapon? Good; a warrior with only one is half armed." },
+    { id = "g_hi", text = "Come to learn a new weapon? Good; a warrior with only one is half armed, and the herd needs you whole." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me how your practice has gone." },
   },
 
@@ -481,7 +487,7 @@ P:NPC {
     prefer = {
       lines = { { id = "p_default", text = "The mace, because it's honest. It doesn't pretend to be beautiful, and it hits just as hard whether you're skilled or not. A young tauren learns the mace first and then the finer things." } },
       choices = {
-        { text = "What about guns?", next = "prefer_gun" },
+        { text = "You haven't mentioned guns.", next = "prefer_gun" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -509,7 +515,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I teach weapons, friend, not lore. Ask one of the elders on Elder Rise." } },
+    _none = { { id = "tp_none", text = "I teach weapons, friend, not lore. Ask one of the elders on Elder Rise; they keep the ancestors' memory." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carries a runespear taller than most orcs, and he uses it to protect the herd. I teach my students to do the same with every weapon." } },
+    centaur = { { id = "tp_centaur", text = "The centaur use spears and bows, and they use them well. A tauren must be better, and I teach them to be." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the Doomhammer, and he lifts it only when talking has failed. That is the mark of a true warrior." } },
   },
 }
 
@@ -524,7 +533,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in, come in. Test the draw on any of them; that's what they're for." },
+    { id = "g_hi", text = "Come in, come in. Test the draw on any of them; that's what they're for, and the wood was given by the Earth Mother to be used." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want arrows, I'd guess, and plenty of them. Hunters always run out of arrows first." },
   },
 
@@ -588,7 +597,7 @@ P:NPC {
       choices = {
         { text = "Perhaps. There's something to be said for simple tools.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic is magic, borrowed or not. It works.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
+        { text = "Is the hunter trainer on this rise your kin?", next = "holt" },
       },
     },
     xdruid = {
@@ -626,16 +635,16 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Take your time choosing; a bow is a long friendship." } },
       choices = {
         { text = "Do hunters here ever pray before a hunt, Kuna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do shamans ever take up the bow, Kuna?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'd guess few shamans take up the bow.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What makes a good bow?", next = "bow" },
-        { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
+        { text = "Is the hunter trainer on this rise your kin?", next = "holt" },
         { text = "Why sell guns, if you make bows?", next = "guns" },
-        { text = "Do rogues ever buy your bows, Kuna?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues must buy your bows too, Kuna.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Bows are clumsy. A wand fires just as true.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior carry a bow, Kuna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes a Thunderhorn bow special, Kuna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do the druids mind you cutting wood for bows, Kuna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The druids must mind you cutting wood for bows.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Would a warlock ever need a bow, Kuna?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would a paladin carry a Thunderhorn bow, Kuna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
@@ -675,7 +684,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know, friend. Ask Holt; he knows more than I do about most things." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. Ask Holt; he's tracked more of the plains than I have, and knows more about most things." } },
+    centaur = { { id = "tp_centaur", text = "The centaur make bows from the Barrens' thornwood, and they are poor bows. My family's bows are better, and they last longer." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar make no bows at all, which is why they lose. A hunter needs a good bow, and I make the best." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the wood, and I thank her for every bow I make. A bow made without thanks will always miss." } },
   },
 }
 
@@ -695,7 +707,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Ho, friend. Come to learn the patient art?" },
+    { id = "g_hi", text = "Ho, friend. Come to learn the patient art? The lakes of Mulgore are as calm as a sleeping kodo today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Tell me what you caught, and don't make it bigger than it was." },
   },
 
@@ -804,14 +816,14 @@ P:NPC {
       again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking, since the fish won't bite and something keeps stealing the ones that do." } },
       choices = {
         { text = "Do you ever pray for fish, Kah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Why do you think the fish bite better after rain, Kah?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The fish seem to bite better after rain, Kah.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why would a warrior need to fish, Kah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is fishing much like hunting, Kah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Fishing can't be much like hunting, Kah.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is it fair to fish as a seal, Kah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing in Mulgore?", next = "where" },
         { text = "Why do tauren fish?", next = "why" },
-        { text = "Are you kin to Aska Mistrunner?", next = "aska" },
+        { text = "Do you have family in Thunder Bluff, Kah?", next = "aska" },
         { text = "Can a rogue make a good angler, Kah?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why fish when a mage can conjure food, Kah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can a warlock learn to fish, Kah?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -822,7 +834,7 @@ P:NPC {
     where = {
       lines = { { id = "w_default", text = "Stonebull Lake, in the south of Mulgore, is the best, though the gnolls of the Palemane like it too. The streams around Bloodhoof Village are good for a beginner, and nobody will laugh at you there." } },
       choices = {
-        { text = "Do the gnolls bother you?", next = "where_gnolls" },
+        { text = "The gnolls must bother you out here.", next = "where_gnolls" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -839,7 +851,7 @@ P:NPC {
       },
     },
     aska = {
-      lines = { { id = "a_default", text = "She's my sister, and she'll cook whatever I catch, which is how she ended up teaching cooking. Some days I think I fish only so she has something to complain about." } },
+      lines = { { id = "a_default", text = "My sister Aska cooks whatever I catch, which is how she ended up teaching cooking. Some days I think I fish only so she has something to complain about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhsham = {
@@ -854,7 +866,10 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Can't say I know it. Ask Aska; she listens to more gossip than I do." } },
+    _none = { { id = "tp_none", text = "Can't say I know it. Ask Aska; she hears more gossip round the cookfire than I do by the water." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet has the best fishing in the Barrens, and the goblins sell the best bait. I go there when the mesa gets too dry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay hold a fishing contest every week, they say. I would like to try it, but I am too old to cross the sea." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the fish and the rivers, and she made them to be enjoyed. I enjoy them very much, though there is no river up here." } },
   },
 }
 
@@ -870,7 +885,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "You look hungry. Everyone does, but you look hungrier than most." },
+    { id = "g_hi", text = "You look hungry. Everyone does, but you look hungrier than a kodo at the end of a dry season." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you been eating properly, or only that dry trail bread?" },
   },
 
@@ -976,8 +991,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm. Some young brave burned the last one so badly I scoured it with Barrens sand." } },
       choices = {
-        { text = "Do you ever cook for the sick, Aska?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do shamans cook differently from other tauren, Aska?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'd guess you cook for the sick, Aska.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Shamans must cook differently from other tauren, Aska.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What should I cook first?", next = "first" },
         { text = "What's the best food in Mulgore?", next = "best" },
@@ -987,7 +1002,7 @@ P:NPC {
         { text = "Why should a warrior learn to cook, Aska?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's the best game to cook in Mulgore, Aska?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What should a druid cook out on the plains, Aska?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do warlocks eat properly, Aska?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I doubt warlocks eat properly, Aska.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why would a paladin need friends, Aska?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Aska.", next = "END" },
       },
@@ -1027,6 +1042,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know, dear. Have something to eat and think about it; that always helps." } },
+    cairne = { { id = "tp_cairne", text = "Cairne eats like a calf, and he never says no to seconds. I cook for him whenever he asks, and he asks often." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is too thin for an orc, and I told him so when he visited the bluff. Cairne laughed for a good long while, and Thrall ate a second bowl to make me stop." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes to Mulgore, I cook for the whole crowd, and they eat like they've never seen food. It is the happiest week of my year." } },
   },
 }
 
@@ -1042,6 +1060,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_tau_soft", when = { gossip = { topic = "tauren", stance = "soft" } }, text = "I'm told you think the tauren are slow and sentimental. Perhaps we are, traveller, but we're still standing, and we're still kind to people who say so." },
     { id = "g_hi", text = "Mind the vials. Some of them are still warm." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Have you been practising, or only buying potions from merchants?" },
   },
@@ -1055,6 +1074,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      lines = {
+        { id = "opf_q", text = "I watch them, and I worry, and I'm told I worry too loudly. You've met more of them on the road than I have, so what do you honestly think of the Forsaken?" },
+      },
+      choices = {
+        { text = "They're Horde, the same as you and I. That's enough for me.", next = "op_forsaken_r1", fx = { align = { order = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "They're walking corpses brewing poisons. Mulgore should be rid of them.", next = "op_forsaken_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { forsaken = "hate" } } },
+        { text = "Their apothecaries know things worth learning, whatever their reasons.", next = "op_forsaken_r3", fx = { trait = { curious = 1 }, opinion = { forsaken = "useful" } } },
+        { text = "Some of us only want to heal, Bena.", next = "op_forsaken_r4", fx = { affinity = 2, trait = { kind = 1 }, opinion = { forsaken = "redeemable" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not judge a whole people, Bena.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = {
+        { id = "op_forsaken_r1", text = "The Chieftain would say the same, and he's wiser than I am. I only wish the Forsaken talked about healing half as often as they talk about killing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_forsaken_r2 = {
+      lines = {
+        { id = "op_forsaken_r2", text = "I'd not go that far, and I'd not say it on Spirit Rise either. Still, I'm glad I'm not the only one who lies awake over those cauldrons." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_forsaken_r3 = {
+      lines = {
+        { id = "op_forsaken_r3", text = "That's what Zamah says, too, and it's what frightens me. Knowledge goes where it's carried, and I'd like to see who's carrying it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_forsaken_r4 = {
+      lines = {
+        { id = "op_forsaken_r4", text = "Then you're welcome at my bench any day, and I'm sorry if I've spoken too hard of your people. Come and show me what you know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I hope so. They make poisons from the Earth Mother's herbs; you carry a Light that heals, the orcs say, even if it burns you. If you use it to mend, you're closer to an alchemist than they'll ever be." } },
@@ -1151,16 +1214,16 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over, because the last batch took the fur off my left arm and it still hasn't grown back." } },
       choices = {
         { text = "Can alchemy and prayer work together, Bena?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Should a shaman worry about the Forsaken on Spirit Rise, Bena?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "A shaman should worry about the Forsaken on Spirit Rise.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
-        { text = "What do you think of the Forsaken apothecaries?", next = "forsaken" },
+        { text = "You must have opinions on the Forsaken apothecaries.", next = "forsaken" },
         { text = "What potion should I learn first?", next = "first" },
-        { text = "Is the Winterhoof Water Well named for your clan?", next = "well" },
+        { text = "The Winterhoof Water Well must be named for your clan.", next = "well" },
         { text = "My poisons are alchemy too, Bena.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Which potions should a warrior carry, Bena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do hunters bring you herbs, Bena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Hunters must bring you herbs, Bena.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Warlocks use reagents too, Bena. Any advice?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Should druids keep an eye on the apothecaries, Bena?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Someone should keep an eye on the apothecaries, Bena.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What do you think of mages, Bena?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Am I different from the apothecaries, Bena?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
@@ -1172,12 +1235,15 @@ P:NPC {
       choices = {
         { text = "Knowledge is knowledge, whatever its use.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You're right to be wary of them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Why let them stay on Spirit Rise?", next = "forsaken_why" },
+        { text = "I'm surprised they're allowed to stay on Spirit Rise.", next = "forsaken_why" },
       },
     },
     forsaken_why = {
       lines = { { id = "fw_default", text = "The High Chieftain and the Arch Druid spoke for them when they joined the Horde, and the Grimtotem welcome them for reasons of their own. It isn't my place to argue with Cairne, but I watch them." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } } },
+      choices = {
+        { text = "What do you think of the Forsaken yourself?", next = "op_forsaken" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
+      },
     },
     first = {
       lines = { { id = "fi_default", text = "A minor healing potion, from Peacebloom and Silverleaf. It's simple, and it'll save your life one day when there's no healer near, so learn it well." } },
@@ -1204,7 +1270,10 @@ P:NPC {
 
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "Magatha's clan. They keep close to the Forsaken, and I'd like to know why." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you. Ask on Elder Rise; the elders know more than I do." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken apothecaries on Spirit Rise make poisons and call it medicine. I make medicine and call it medicine, and I think the difference matters." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a poison, and the Forsaken study it. I would rather they studied how to cure it, but they do not listen to me." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us herbs to heal, not to harm. I teach that every alchemist must remember it." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. Ask on Elder Rise; the elders know more than I do, and they listen to the earth longer." } },
   },
 }
 
@@ -1220,6 +1289,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_fk_hate", when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "My sister tells me you'd see the Forsaken gone from Mulgore. Be careful who you say that to, because the Chieftain gave them his word." },
     { id = "g_hi", text = "Welcome, friend. Come and smell the Peacebloom; it's fresh today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you thanked the Earth Mother for what you've gathered?" },
   },
@@ -1316,19 +1386,19 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Welcome, friend; I teach herbs here, and I'd guess you've pressed a few leaves into a wound alongside your prayers." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The plants droop when you pass, did you know? I'm sure it isn't personal." },
       },
-      again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things." } },
+      again = { { id = "h_again", text = "Something more? I'm always glad to talk about green things; the Earth Mother puts them everywhere for us to notice." } },
       choices = {
         { text = "Do your herbs carry the Earth Mother's blessing, Nida?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the earth spirits mind when we gather herbs, Nida?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The earth spirits must mind when we gather herbs.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What herbs grow in Mulgore?", next = "herbs" },
         { text = "Why thank the Earth Mother for weeds?", next = "thanks" },
-        { text = "Do you work with Bena?", next = "bena" },
+        { text = "Who makes potions from what you gather?", next = "bena" },
         { text = "I gather herbs too, though not always for healing.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages ever come to you for herbs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior learn herbalism, Nida?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Which herbs grow on the plains of Mulgore, Nida?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do plants fear warlocks, Nida?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Plants seem to fear warlocks, Nida.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do herbs and the Light work alike, Nida?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Nida.", next = "END" },
       },
@@ -1353,7 +1423,7 @@ P:NPC {
       },
     },
     bena = {
-      lines = { { id = "b_default", text = "She's my cousin, and she makes potions from what I gather. We argue about whether the herbs are for healing or for learning, and she always wins, because she's louder." } },
+      lines = { { id = "b_default", text = "My cousin Bena makes potions from what I gather. We argue about whether the herbs are for healing or for learning, and she always wins, because she's louder." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhsham = {
@@ -1369,6 +1439,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know, friend. Perhaps the Earth Mother will tell you, if you listen." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us every herb, and every herb must be thanked. I thank them as I gather them, and they grow back stronger." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is greener than this world, and I believe them. I dream of the herbs there sometimes, and wake up hungry." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken's apothecaries buy my herbs and never thank me. I sell to them anyway, because Cairne says they are our allies." } },
   },
 }
 
@@ -1384,7 +1457,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Come in. Mind the hides drying on the poles." },
+    { id = "g_hi", text = "Come in. Mind the hides drying on the poles; each one was a gift from the Earth Mother." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. Show me your stitching; I'll know whether you've practised." },
   },
 
@@ -1491,15 +1564,15 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? Ask while I stitch, and pardon the stink, for these kodo hides came a week late from the Barrens." } },
       choices = {
         { text = "Do you say a prayer over each hide, Una?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Do the spirits of the beasts stay with their hides, Una?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I'd guess something of the beast stays with its hide.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "What's the best hide in Mulgore?", next = "best" },
         { text = "How do you honour a beast you've skinned?", next = "honour" },
         { text = "Rogues wear leather too. What would you recommend?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Mages wear cloth, Una. Leather's too heavy.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do warriors wear leather, Una?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Warriors can't have much use for leather, Una.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should a hunter treat a hide, Una?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do the druids object to your work, Una?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The druids must object to your work, Una.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do warlocks ever learn leatherworking, Una?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does that trouble you, Una?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Una.", next = "END" },
@@ -1508,7 +1581,7 @@ P:NPC {
     best = {
       lines = { { id = "b_default", text = "Kodo, for its thickness. A kodo hide will turn a centaur's arrow if it's cured well, and our braves wore it long before we had steel. Plainstrider hide is lighter, and good for a beginner's hands." } },
       choices = {
-        { text = "How long does curing take?", next = "best_cure" },
+        { text = "Curing must take a long while.", next = "best_cure" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1536,6 +1609,9 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I don't know. Ask someone who doesn't spend all day with hides." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask someone who doesn't spend all day with hides, and give my thanks to the ancestors on your way." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the beasts, and the beasts give us their hides. I thank them both for every piece I make." } },
+    centaur = { { id = "tp_centaur", text = "The centaur wear hides poorly, all ragged edges and no care. I would teach them better, if they would stop raiding long enough to learn." } },
+    cairne = { { id = "tp_cairne", text = "Cairne wears a hide I made for him, and he wears it well. I am prouder of that than of anything else I have made." } },
   },
 }

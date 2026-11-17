@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Arrows, bows, quivers, whatever you need for the road, and advice for free if you stand still long enough." },
-    { id = "g_back", when = { metBefore = true }, text = "Back already? You must be using those arrows, which is the whole idea." },
+    { id = "g_default", text = "Arrows, bows, quivers, whatever you need for the road, and advice for free if you stand still long enough. Every Sentinel on Teldrassil has heard it, so you may as well too." },
+    { id = "g_back", when = { metBefore = true }, text = "Back already? You must be using those arrows, which is the whole idea. Elune guide the next ones straighter." },
   },
 
   notice = {
@@ -119,6 +119,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_night_elves_distrust", tags = { "news" }, when = { gossip = { topic = "night_elves", stance = "distrust" } },
+          text = "Kyra tells me you think we keep secrets better than friends. Here's one for nothing, then: my bows are better than the ones in Darnassus." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You won't need a bow, I suppose, but come and look anyway, because half the Sentinels I sell to say a prayer before they loose their first arrow of the day." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, with a hammer instead of a bow, I'll wager! I won't try to sell you anything, {class}, but I'm curious how you fight without ever loosing from a distance." },
         { id = "h_default", text = "I'm Jeena Featherbow, and I sell bows and arrows here in Dolanaar. Every young hunter on Teldrassil buys their first quiver from me, and most of them come back to tell me what they shot with it." },
@@ -126,17 +128,17 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a bow I didn't sell you, by the look of it. Let me see how you hold it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need my bows, I know, but half the young druids who pass through still buy a quiver for a friend, so I'm always glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can't draw a bow, I know, but I'd love to know what you'll do when the Gnarlpine get close and your spells run dry." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You hold your bow wrong, spirits or no. Let me show you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You hold your bow wrong, spirits or no, and the Sentinels have shot this way since the War of the Ancients, so let me show you." },
       },
       again = {
         { id = "h_again", text = "What else? I've arrows to fletch, but I can talk while I do it." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening. Fletching is slow work, and my people have never minded slow work." },
       },
       choices = {
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "What makes a good bow?", next = "bow" },
         { text = "What should I be shooting around here?", next = "targets" },
-        { text = "Do the Sentinels buy from you?", next = "sentinels" },
+        { text = "I'd guess the Sentinels buy from you too.", next = "sentinels" },
         { text = "Have you anything for throwing? Knives, perhaps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I've never needed a bow. I have fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior carry a bow, Jeena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -190,7 +192,10 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine used to be peaceful, but now they snarl at anyone who goes near Ban'ethil. Shoot first if they come running." } },
     background = { { id = "tp_bg", text = "I make and sell bows in Dolanaar. My hands have more splinters than skin." } },
     advice = { { id = "tp_ad", text = "Carry twice the arrows you think you need. You'll lose half of them in the undergrowth." } },
-    _none = { { id = "tp_none", text = "I don't know about that. Ask Keldamyr at the inn; everyone talks to her." } },
+    centaur = { { id = "tp_centaur", text = "Centaur use short horn bows, I've heard, very strong and very stubborn to draw. I'd like to get my hands on one and see what I could learn." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw make bows of their own, rough-cut but true. I traded one off a Sentinel once, and I still use it to teach." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring yew is the best there is, but the goblins of Everlook sell it at prices that make my splinters ache. I buy a little anyway." } },
+    _none = { { id = "tp_none", text = "I don't know about that. Ask Keldamyr at the inn; everyone talks to her, and she remembers all of it." } },
   },
 }
 
@@ -206,7 +211,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Dolanaar. If you've come to learn the blade, you've found the right elf." },
+    { id = "g_default", text = "Ishnu-alah, and welcome to Dolanaar. If you've come to learn the blade, you've found the right elf, though I warn you that the Sentinels trained me hard." },
     { id = "g_back", when = { metBefore = true }, text = "There you are. You're standing better than last time, so something's sinking in." },
   },
 
@@ -219,6 +224,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_kin", when = { race = "NightElf" }, text = "You were born under these branches, so tell me straight: are we as strong as we like to think we are?" },
+        { id = "op_ask_default", text = "Most outsiders think the kaldorei are all moonlight and soft words until a Sentinel puts an arrow past their ear. What do you make of my people, now that you've seen us up close?" },
+      },
+      choices = {
+        { text = "Proud and strong. The Sentinels are the finest soldiers I've met.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "Too proud. You still think it's ten thousand years ago.", next = "op_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Your people keep secrets better than they keep friends.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { night_elves = "distrust" } } },
+        { text = "I'm still making up my mind.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Then you haven't met many soldiers, but I'll take it gladly. Tell the dwarves, because they never believe us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "You're not the first to say so, and the ones who did were usually right, which is far more irritating than being wrong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "We had ten thousand years to practise keeping secrets and only a few to practise keeping friends. Give us time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It does, if you rise again. Your spirits will not catch you every time. Learn to stand." } },
@@ -310,16 +340,17 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't train with me, but I've watched young druids take a beating from the Gnarlpine and get back up in bear shape, and that's half of what I teach." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, in Dolanaar? You're a long way from any tower, and I'd guess you've noticed by now how far a Gnarlpine can run while you're still casting." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I train warriors to stand their ground, and I see you've brought something to stand it for you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I measure students by how they get up, not how they fall. Your spirits might help you up." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I measure students by how they get up, not by how they fall, and I suspect your spirits have helped you up more than once." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, I don't bite." },
         { id = "h_again2", text = "Go on. The next student can wait." },
       },
       choices = {
+        { text = "What do outsiders get wrong about the kaldorei?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS" },
-        { text = "What comes after Dolanaar for a warrior?", next = "after" },
-        { text = "What's the most common mistake you see?", next = "mistake" },
+        { text = "A warrior must outgrow Dolanaar soon enough.", next = "after" },
+        { text = "You must see young warriors make the same mistakes.", next = "mistake" },
         { text = "Why do so few kaldorei become warriors?", next = "few" },
         { text = "Should your students learn to lean on a healer, Kyra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have your students learn from a paladin?", next = "xapala", when = { class = "PALADIN" } },
@@ -373,7 +404,10 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "The Sentinels guard our forests and our roads, and every warrior I train might one day stand beside them." } },
     background = { { id = "tp_bg", text = "I teach the first lessons of the blade in Dolanaar. Someone has to, and I like seeing them improve." } },
     advice = { { id = "tp_ad", text = "Fight one enemy at a time when you can. Pull them apart and you can beat them all." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you. My world is drills and bruises." } },
+    centaur = { { id = "tp_centaur", text = "I teach the young ones to fight what's in front of them, but some will meet centaur down south one day. Tell them from me to plant their feet and keep their shields up." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong are the reason so many of my students go to Ashenvale. I train them hard because the orcs won't be gentle." } },
+    blackfathom = { { id = "tp_blackfathom", text = "When my students are ready, Blackfathom Deeps is where they go to find out. The ones who come back walk a little taller." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. My world is drills and bruises, and has been for longer than you'd believe." } },
   },
 }
 
@@ -389,7 +423,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello. Please keep your voice low, the tincture is settling." },
+    { id = "g_default", text = "Ishnu-alah. Please keep your voice low, for the tincture is settling, and it is as easily startled as a fawn." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have you found any interesting herbs since we last spoke?" },
   },
 
@@ -497,11 +531,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You walk where the herbs grow, so tell me, have you seen any peacebloom near the lake?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm glad, because you'll hear what the herbs are saying better than I can, and I've been worried about the peacebloom near the Gnarlpine camps." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll teach you alchemy if you'd like, the same as anyone, though I'll ask you to leave your servant outside, because the herbs don't like it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in, please. I speak softly. Every herb has something to tell me, and perhaps your spirits do too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in, please, for I speak softly. Every herb on Teldrassil has something to tell me, and perhaps your spirits do too." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
-        { id = "h_again2", text = "Go on, quietly." },
+        { id = "h_again", text = "What else would you like to know? Ask gently, as you would ask the forest." },
+        { id = "h_again2", text = "Go on, quietly, as if Elune herself were listening." },
       },
       choices = {
         { text = "Teach me alchemy.", next = "BUSINESS" },
@@ -541,7 +575,7 @@ P:NPC {
         { id = "fo_default", text = "For the Sentinels, mostly, and for anyone who comes back from Ban'ethil bleeding. Lately I've been sending more down to the moonwell than I'd like, because the furbolgs are not as gentle as they used to be." },
       },
       choices = {
-        { text = "Should the furbolgs be cured or driven out?", next = "for2" },
+        { text = "Perhaps the furbolgs can still be cured.", next = "for2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -561,7 +595,10 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine have gone wild, and I treat the wounds they leave. I pray Athridas finds a cure." } },
     background = { { id = "tp_bg", text = "I teach alchemy in Dolanaar, mostly to students who taste things they shouldn't." } },
     advice = { { id = "tp_ad", text = "Keep a healing potion on your belt, not in your pack. You won't have time to dig." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm sorry. Perhaps someone at the inn could tell you." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is where my students learn not to taste things. The ones who don't learn it are why I keep a bucket by the door." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream's herbs are perfect, and I'd love to brew with them. I'd love even more not to fall asleep doing it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells potions that will kill you or cure you, and the goblins won't say which until you've paid. My students learn better than that." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry. Perhaps someone at the inn could tell you, or a druid of the Enclave." } },
   },
 }
 
@@ -679,16 +716,16 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll trample half my peacebloom walking in, so please step where I step." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have walked over more herbs than you know, chasing whatever you were chasing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll want to know which herbs your potions need, I expect, and I'll teach you, so long as you take them the way the forest offers them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every root is borrowed from the forest. Do your spirits borrow too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every root I gather is borrowed from the forest and repaid in time, so tell me, do your spirits borrow too?" },
       },
       again = {
         { id = "h_again", text = "What else would you know? Speak softly; the seedlings are listening." },
-        { id = "h_again2", text = "Ask what you will." },
+        { id = "h_again2", text = "Ask what you will. The forest has waited this long for its answers, and so can I." },
       },
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "How do I gather without harming the plant?", next = "gather" },
-        { text = "What grows best on Teldrassil?", next = "grows" },
+        { text = "Teldrassil's glades must be thick with herbs.", next = "grows" },
         { text = "What does an herbalist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "I'll take what I need from the forest. It won't notice.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there any use for herbs in a warrior's kit?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -742,7 +779,11 @@ P:NPC {
     teldrassil = { { id = "tp_teld", text = "The tree is young and its soil is thin. It gives freely, but it can't give forever." } },
     camping = { { id = "tp_camp", text = "Lyreena teaches the fire, and I teach the herbs that go beside it. Ask her first." } },
     background = { { id = "tp_bg", text = "I teach herbalism in Dolanaar. I've walked every glade on this tree with my eyes on the ground." } },
-    _none = { { id = "tp_none", text = "That is beyond my knowledge. The forest hasn't told me." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Every herb grows true in the Dream, the druids say, with no blight and no rot. I'd like to see it, though I'd probably spend the whole visit on my knees." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss creeps in the wrong places on this tree, and I pull it up wherever I find it. Wear gloves when you do, and don't breathe it in." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw know every herb in Felwood, including the ones that grow clean in all that rot. I'd give a lot to walk their tunnels with one." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The herbs on Hyjal's slopes grow under Nordrassil's shade, and they're stronger for it. I keep a few seeds I'm afraid to plant here." } },
+    _none = { { id = "tp_none", text = "That is beyond my knowledge, and the forest has not seen fit to tell me." } },
   },
 }
 
@@ -758,7 +799,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come in, come in, you're welcome here. We haven't much, but what we have is yours to share." },
+    { id = "g_default", text = "Ishnu-alah, come in, you're welcome here. We haven't much beneath this roof, but what we have is yours to share." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to our home. Let me see your stitches; I hope they've gotten smaller." },
   },
 
@@ -869,7 +910,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting leather that moves quietly through the brush, and that I can do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in our house! Come in, and mind the hides by the door, because Radnaal says the Circle always looks at them as though they were old friends." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Come in all the same, but mind that your servant doesn't scorch my hides, because a scorch mark ruins a whole day's stitching." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, welcome as a guest! I am particular about small things. Your spirits must be particular too." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome as a guest! I am particular about small things, the way my mother's mother was, and I imagine your spirits must be particular too." },
       },
       again = {
         { id = "h_again", text = "What else, dear? Sit down by the fire, if you like." },
@@ -933,6 +974,9 @@ P:NPC {
     camping = { { id = "tp_camp", text = "A leatherworker brings the tent. Without one, a camp is just a fire and wet blankets." } },
     background = { { id = "tp_bg", text = "Radnaal and I keep a house up the road from Dolanaar, and I teach leatherworking from it." } },
     advice = { { id = "tp_ad", text = "Mend your armor before it tears. A small stitch today saves a big patch tomorrow." } },
+    centaur = { { id = "tp_centaur", text = "I've seen centaur hide on a Sentinel's quiver, and it's tougher than anything we tan here. I didn't ask where she'd got it." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins pay very well for winter furs, and Radnaal sends them some each year. I write the letters, because he won't." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw tan their hides with something I've never managed to copy. Radnaal thinks it's bark, and I think it's spite." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, dear. Ask in Dolanaar; they hear more news than we do out here." } },
   },
 }
@@ -949,7 +993,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hm, a visitor. If you're here to learn skinning, come and stand by the rack." },
+    { id = "g_default", text = "Hm, a visitor. If you're here to learn skinning, come and stand by the rack, and thank the beast before you touch the knife." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your knife looks sharper than last time." },
   },
 
@@ -1015,7 +1059,7 @@ P:NPC {
       choices = {
         { text = "Then I'll take my time with it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fast and clean is the only way I know.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Do you mind the work?", next = "mind" },
+        { text = "Skinning seems grim work.", next = "mind" },
       },
     },
     xlock = {
@@ -1059,16 +1103,16 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know already that a clean kill makes a clean hide." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll understand if you'd rather not watch me work, though I'd sooner you did, because I skin nothing that wasn't hunted with respect." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll want to learn skinning, I suppose, or you've come to see Nadyia. Either way, the hides are out back." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I skin with respect. Do your spirits respect the beasts?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I skin nothing without thanking it and the forest that fed it, so tell me, do your spirits respect the beasts as well?" },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Ask, if you need to." },
+        { id = "h_again", text = "What else? Ask plainly; Elune gave me hands for skinning, not a tongue for speeches." },
+        { id = "h_again2", text = "Ask, if you need to. The hides will wait, and so will I." },
       },
       choices = {
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "Do you mind the work?", next = "mind" },
-        { text = "What's the best beast to skin on Teldrassil?", next = "best" },
+        { text = "The nightsabers here have fine pelts.", next = "best" },
         { text = "Skinning's just knifework. I've plenty of that.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should I skin what I kill, Radnaal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you honor the beasts you skin, Radnaal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1113,7 +1157,10 @@ P:NPC {
   topics = {
     camping = { { id = "tp_camp", text = "A skinner brings hides to sit on. Ask Lyreena about the rest." } },
     background = { { id = "tp_bg", text = "I skin, and I teach skinning. Nadyia does the talking for both of us." } },
-    _none = { { id = "tp_none", text = "Don't know, so ask Nadyia." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw skin a beast in half the cuts I use. I watched one do it once, and I still think about it." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring pelts, and Everlook buys them. That's all I need to know about the place." } },
+    centaur = { { id = "tp_centaur", text = "Centaur skin what they kill and wear it. Good work, ugly people." } },
+    _none = { { id = "tp_none", text = "Don't know, so ask Nadyia. She has a longer memory for gossip than I have for anything." } },
   },
 }
 
@@ -1129,7 +1176,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Rut'theran! Lines, hooks and bait, and the best gossip on the shore for nothing." },
+    { id = "g_default", text = "Ishnu-alah, and welcome to Rut'theran! Lines, hooks and bait, and the best gossip on the shore of Teldrassil for nothing." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Did the fish bite, or did you only feed them?" },
   },
 
@@ -1241,7 +1288,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll appreciate a good catch more than most, since you know what it took to land it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've seen your sort slip into the water as a seal and come up halfway to Auberdine, and you don't know how much I envy you on a cold morning." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Rut'theran! The fish won't bite with your servant leaning over the water, I promise you, so let it wait on the dock." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every boat and every fisherman. Auberdine is like home across the water." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every boat and every fisherman on this shore, and Auberdine across the water is like a second home to me." },
       },
       again = {
         { id = "h_again", text = "Anything else? The boats won't be in for a while yet." },
@@ -1250,7 +1297,7 @@ P:NPC {
       choices = {
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "What do you send to Auberdine?", next = "bounty" },
-        { text = "Where's the best fishing around here?", next = "fishing" },
+        { text = "There must be good fishing off these docks.", next = "fishing" },
         { text = "What's Rut'theran like?", next = "village" },
         { text = "Smugglers would love a dock like this.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "There's a great power in this tree. I can feel it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1316,6 +1363,10 @@ P:NPC {
     teldrassil = { { id = "tp_teld", text = "From down here at the roots you can't even see the top. I've never minded; the sea is more interesting." } },
     background = { { id = "tp_bg", text = "I sell fishing supplies in Rut'theran. I've traded with Auberdine for longer than I can remember." } },
     advice = { { id = "tp_ad", text = "Bring bait you're willing to lose. The fish here are smarter than they look." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a goblin port on the far side of the world where every fishing boat is a pirate ship on its days off. I'd love to fish there once, and I'd keep my coin in my boot." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's fishermen come up the coast now and then, and they swear their marsh fish are the best in Kalimdor. I've tasted them, and they're wrong, but I let them talk." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's waters were lovely fishing once, before the temple and the cultists. Now nothing I'd want to eat comes out of there." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a goblin port on the Barrens coast, and its fishing contests are rowdy and very well paid. Laird went once and came home with a sunburn and no prize." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask me about fish, though, and I'll talk until the boat leaves." } },
   },
 }
@@ -1398,7 +1449,7 @@ P:NPC {
       choices = {
         { text = "Teach me the patient way, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather get it over with quickly.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Is there a secret to it?", next = "secret" },
+        { text = "There must be some secret to it.", next = "secret" },
       },
     },
     xmage = {
@@ -1435,12 +1486,12 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit down if you like, because fishing's the nearest thing to prayer I know, and nobody has to say a word." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've the look of someone who doesn't sit still often, so I'll warn you now that my lessons go slowly." },
-        { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a great deal of time to practice." },
+        { id = "h_default", text = "I'm Androl Oakhand, and I teach fishing here at the foot of Teldrassil. It's the most patient trade there is, and I've had a few centuries to practice it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit down, put the sword aside and hold this pole, and see whether you can stand to wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know about waiting already, I expect, so we'll get along." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Patience is the heart of fishing, and I'm told the Circle can sleep for years, so you may be the only students who find my lessons too short." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll have to be patient to learn fishing, and I've found your kind usually are, if only because you're waiting for something." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I do everything slowly, fishing and talking alike. Your spirits might enjoy the pace." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I do everything slowly, fishing and talking alike, as my people always have, and your spirits might enjoy the pace." },
       },
       again = {
         { id = "h_again", text = "Another question? The fish are patient, and so am I." },
@@ -1451,7 +1502,7 @@ P:NPC {
         { text = "What's the secret of fishing?", next = "secret" },
         { text = "Why fish, when you could hunt?", next = "why" },
         { text = "Patience is half my trade too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Couldn't I just freeze the lake and pick them out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I could just freeze the lake and pick them out.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What can fishing teach a warrior, Androl?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing much like the hunt, Androl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is fishing really so much like prayer, Androl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1494,6 +1545,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I teach fishing at Rut'theran. I've sat on this dock since the first boats came over from Auberdine." } },
     advice = { { id = "tp_ad", text = "Fish in the morning, when the water's still. And don't talk; the fish can hear you." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a fishing contest that the whole world comes to, I hear, and the goblins take a cut of every catch. I'll sit on my quiet dock and keep my fish." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's goblins pay for good fish, and they pay quickly. That's more than I can say for anyone in Auberdine." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The deep water off Ashenvale had the best fishing on the coast once. Now the nagas fish there, and they don't share." } },
     _none = { { id = "tp_none", text = "I don't know about that. I know a fair bit about fish, though, if that helps." } },
   },
 }

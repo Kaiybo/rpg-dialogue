@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons", when = { gossip = { topic = "black_dragonflight", stance = "fight" } }, text = "The Magistrate's been in a fine temper since you told him the black dragons were real. He's writing his forty-somethingth letter, and he's humming." },
     { id = "g_court", text = "The Court of Lakeshire is in session whenever the Magistrate is at his desk, which is always, so state your matter." },
     { id = "g_back", when = { metBefore = true }, text = "Citizen, the court recognises you. You may approach." },
     { id = "g_away", when = { away = 14 }, text = "Citizen, the court notes your return after {away} away. You may state your matter." },
@@ -136,7 +137,7 @@ P:NPC {
         { text = "Someone has to keep the law.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Death warrants for orcs who'll never read them are a waste of ink.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Sounds like a lot of paper.", next = "paper" },
-        { text = "Who's on your docket?", next = "docket" },
+        { text = "Your docket must be a full one these days.", next = "docket" },
       },
     },
     paper = {
@@ -205,6 +206,11 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade holds the worst of Stormwind, and when the Magistrate sentences a man to it, I'm the one who walks him to the cart. Now they tell me the prisoners hold the place, which makes my job look rather pointless." } },
+    syndicate = { { id = "tp_syndicate", text = "We've had letters from the north about a gang of disgraced Alterac nobles called the Syndicate, and the Magistrate wants their faces posted. So far nobody here has seen one, and I'd like to keep it that way." } },
+    bolvar = { { id = "tp_bolvar", text = "The Magistrate writes to Highlord Fordragon every week, citizen, and I carry the letters to the gryphon master. I'd like to believe someone in the Keep reads them, and I'd like it in writing." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor sends very gracious replies to the Magistrate's letters, I'm told, and not one soldier with them. Gracious doesn't hold a bridge, though I'd not say that in her hearing." } },
+    second_war = { { id = "tp_second_war", text = "Lakeshire burned in the Second War and was built again from the ground up, and the Magistrate's books go back only that far. Everything before the orcs came is just a story the old folk tell." } },
     background = { { id = "tp_bg", text = "Bailiff to the Court of Lakeshire. I serve writs, swear in witnesses, and stand where the Magistrate points." } },
     advice = { { id = "tp_ad", text = "Answer a court plainly; it saves everyone a morning." } },
     morganth = { { id = "tp_morganth", text = "A sorcerer in the eastern foothills, with the Shadowhides at his heel. Formally he's an enemy of the kingdom, and informally he's worse." } },
@@ -331,7 +337,7 @@ P:NPC {
       choices = {
         { text = "How bad is it?", next = "bad" },
         { text = "Why count gnolls at all?", next = "counting" },
-        { text = "Who watches the road south?", next = "parker" },
+        { text = "Someone must be watching the road south.", next = "parker" },
         { text = "I'm good with numbers. Let me help.", next = "gnome", when = { race = "Gnome" } },
         { text = "I counted them for you. What now?", next = "after", when = { questDone = TODO_QUEST("Assessing the Threat") } },
         { text = "I track things for a living. Want help counting?", next = "hunter", when = { class = "HUNTER" } },
@@ -340,7 +346,7 @@ P:NPC {
         { text = "How many gnolls are out there now, Deputy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you count the fallen as carefully as the gnolls, Deputy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has Stormwind answered any of your reports, Deputy?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why have the gnolls grown so bold, Deputy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The gnolls seem to have grown bold, Deputy.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Which column would you put a warlock in, Deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many gnolls are there now, Deputy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
@@ -371,7 +377,7 @@ P:NPC {
     counting = {
       lines = { { id = "c_default", text = "Because a report without numbers is only a complaint. Stormwind ignores complaints, and it ignores numbers more slowly." } },
       choices = {
-        { text = "Who reads your reports?", next = "reports" },
+        { text = "I'd guess nobody in Stormwind reads your reports.", next = "reports" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -414,6 +420,10 @@ P:NPC {
   },
 
   topics = {
+    worgen = { { id = "tp_worgen", text = "Parker swears the Duskwood road has wolves walking on two legs past the border, and I'd laugh if he weren't the soberest man in Lakeshire. I count gnolls, and gnolls are bad enough." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The gnolls answer to the orcs, the orcs answer to that mountain, and the mountain answers to nobody, as far as I can tell. I'd like to count what's inside it, but I'd need a bigger ledger." } },
+    second_war = { { id = "tp_second_war", text = "Every old man in Lakeshire fought in the Second War, and every one of them will tell you about it whether you ask or not. I've learned to count gnolls while they talk, which is the only skill the war gave me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire on my one leave last year and lost to a gnome at a shooting gallery. I've told everyone it was a rigged gun, and I've half convinced myself." } },
     background = { { id = "tp_bg", text = "I'm a deputy at the south end of the bridge, and I count." } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. If the road's not safe, stay in town. If the town's not safe, tell me first." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Redridge clans, mostly, bigger than the Riverpaw in Westfall and meaner than the Elwynn ones. They've started building." } },
@@ -488,7 +498,7 @@ P:NPC {
       choices = {
         { text = "Far side it is. Your girl's safe from it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "She'll get used to it, Parker.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Tell me about Darcy.", next = "darcy" },
+        { text = "Who's the girl at the inn?", next = "darcy" },
       },
     },
     xapriest = {
@@ -543,8 +553,8 @@ P:NPC {
       },
       choices = {
         { text = "What's out on the road?", next = "road" },
-        { text = "So, Darcy...", next = "darcy" },
-        { text = "What's the trouble in Redridge?", next = "trouble" },
+        { text = "Is there anyone waiting for you back in town?", next = "darcy" },
+        { text = "Redridge seems full of trouble these days.", next = "trouble" },
         { text = "Darcy made you lunch.", next = "lunch", when = { questActive = TODO_QUEST("A Free Lunch") } },
         { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I came up that road and you never saw me.", next = "rogue", when = { class = "ROGUE" } },
@@ -554,7 +564,7 @@ P:NPC {
         { text = "Your road would be safer with a demon walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you worry about not coming back from the road, Parker?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should someone walk the road with you, Parker?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What worries you most about the hills, Parker?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Something about these hills worries you, Parker.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the hills hold more trouble than usual, Parker?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Carry on.", next = "END" },
       },
@@ -563,7 +573,7 @@ P:NPC {
       lines = { { id = "r_default", text = "Gnolls in the hills, worse in the woods past the Duskwood line. Things come up out of that fog I don't have names for." } },
       choices = {
         { text = "Stay sharp.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
-        { text = "Gnolls this close to Elwynn?", next = "elwynn" },
+        { text = "That's far too close to Elwynn for gnolls.", next = "elwynn" },
       },
     },
     elwynn = {
@@ -621,6 +631,11 @@ P:NPC {
   },
 
   topics = {
+    dark_riders = { { id = "tp_dark_riders", text = "Some nights a rider in black comes down the road from Duskwood and doesn't stop at my challenge. I've never seen his face, and I'd sooner the next fellow on this road had one." } },
+    stalvan = { { id = "tp_stalvan", text = "Old folk on the Darkshire side tell of a man named Stalvan who did something terrible in a tower long ago. They won't say what, and I've stopped asking because I've started believing them." } },
+    night_watch = { { id = "tp_night_watch", text = "The Night Watch in Darkshire are farmers and old soldiers holding a town with lanterns. I've a lot of time for them, because I'm one man on a road holding nothing at all." } },
+    shadowfang = { { id = "tp_shadowfang", text = "A wizard in Silverpine let loose the same sort of beast that walks Duskwood now, or so the merchants say, and he's holed up in a keep there called Shadowfang. I'd like to have a word with any mage who thinks wolves need help." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, I'm told, and I've stood on this road at midnight enough to imagine what that's like. I'd take a hundred gnolls over one of those, because a gnoll at least stays down." } },
     background = { { id = "tp_bg", text = "I'm a Stormwind guard. They gave me a road and told me to watch it, and I'm watching it." } },
     advice = { { id = "tp_ad", text = "Keep your eye on the job, because everything else is how you get jumped." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "They move at dusk and they're getting bolder. Last week one came right down to the road and just looked at me." } },
@@ -754,9 +769,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm all ears, love. Well, ears and plates." },
       },
       choices = {
-        { text = "Anything good tonight?", next = "food" },
+        { text = "Something smells good tonight.", next = "food" },
         { text = "Heard any gossip?", next = "gossip" },
-        { text = "So... Parker.", next = "parker" },
+        { text = "Is there anyone special in your life, Darcy?", next = "parker" },
         { text = "I delivered the lunch. He ate every bite.", next = "lunch_done", when = { questDone = TODO_QUEST("A Free Lunch") } },
         { text = "Do you like the daffodils?", next = "daffodils", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I could conjure you bread for the tables.", next = "mage", when = { class = "MAGE" } },
@@ -806,14 +821,14 @@ P:NPC {
       lines = { { id = "g2_default", text = "Martie's boar's been in her garden again, and the Marshal's gone and named it Bellygrub. Now nobody can take it seriously, which is a problem, because it's enormous." } },
       choices = {
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
-        { text = "What about Martie herself?", next = "martie" },
+        { text = "Martie herself seems a sweet sort.", next = "martie" },
       },
     },
     martie = {
       lines = { { id = "m_default", text = "Martie Jainrose? Sweet as honey to your face. I'd count my flowers after, that's all." } },
       choices = {
         { text = "That's unkind, Darcy.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
-        { text = "You think she likes Parker?", next = "martie_parker" },
+        { text = "It sounds as if she likes Parker.", next = "martie_parker" },
       },
     },
     martie_parker = {
@@ -855,6 +870,12 @@ P:NPC {
   },
 
   topics = {
+    sylvanas = { { id = "tp_sylvanas", text = "A soldier at table four says the dead have a queen now, love, a dead elf with a voice that kills. I took his plate away, because nobody needs to hear that over stew." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's a lovely day out, and I heard the fortune-teller there told Brianna she'd marry a sailor. She's been watching the docks ever since, though she'll deny it." } },
+    jaina = { { id = "tp_jaina", text = "I hear Lady Jaina Proudmoore keeps an island all her own over the sea, and she's not wed, love, not to anyone. Half Lakeshire's girls think that's romantic and the other half think it's sensible." } },
+    onyxia = { { id = "tp_onyxia", text = "Somebody told me there's a black dragon in a swamp past Theramore, sleeping on the gold of every ship that ever sank there. I don't believe a word of it, love, but it made a lovely story for the table by the window." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a handsome man for a regent, love, and I'll hear nothing said against him. I've only seen a portrait, mind, but a portrait's enough for me." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor's at the Highlord's side every day, the soldiers say, and I've no love for her. Call it gossip if you like, love, but a lady who's never been seen in a market makes me suspicious." } },
     knows = {
       { id = "tp_knows", text = "I hear everything at the tables, though I only pass on the nice parts, mostly. Ask me about any of this!" },
     },
@@ -877,6 +898,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_gnolls_driven", when = { gossip = { topic = "redridge_gnolls", stance = "driven" } }, text = "Verner tells me you think the gnolls were driven down off the mountains, same as I do. Well, Bellygrub's still eating my garden, but I'm glad somebody listens to an old woman." },
     { id = "g_garden", text = "Step round the beds, dear, they're only just coming up. Lovely weather for it, if it holds." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! The tulips have opened, well, two of them have, and two's a start." },
   },
@@ -974,7 +996,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Martie Jainrose. I keep the garden by the lake and grow what the town needs: herbs for the healer, and flowers for nobody in particular." },
+        { id = "h_default", text = "I'm Martie Jainrose. I keep the garden by the lake and grow what the town needs: herbs for the healer, and flowers for nobody in particular, whenever that great boar Bellygrub leaves them standing." },
         { id = "h_boar", tags = { "news" }, when = { questActive = TODO_QUEST("An Unwelcome Guest") },
           text = "That great fat boar the Marshal calls Bellygrub has trampled the beds I'd dug for daffodils, and that's a whole season gone. Bring me his tusk, would you?" },
         { id = "h_boar_done", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
@@ -994,7 +1016,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The weeds will wait, and so will that great lump of a boar, right until I turn my back." },
       },
       choices = {
-        { text = "What grows well here?", next = "grow" },
+        { text = "Your garden seems to grow well, for Redridge.", next = "grow" },
         { text = "I grew up on this lake, Martie. Is the garden what it was?", next = "xorig_home", when = { origin = "human_redridge_born" } },
         { text = "Tell me about Bellygrub.", next = "boar" },
         { text = "You seem sad about the flowers.", next = "sad" },
@@ -1004,9 +1026,9 @@ P:NPC {
           fx = { align = { honor = -1 } } },
         { text = "Why do you grow flowers for nobody, Martie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
-        { text = "Could I tame Bellygrub?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I could tame Bellygrub, I think.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Some of your herbs would make fine poisons.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the gnolls come near your garden, Martie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The gnolls must come near your garden at times, Martie.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your garden is the only thing in Redridge that isn't frightened.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Which of your herbs go to the wounded, Martie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the guard post someone at your garden, Martie?", next = "xapala", when = { class = "PALADIN" } },
@@ -1018,7 +1040,7 @@ P:NPC {
       lines = { { id = "g_default", text = "Peacebloom, silverleaf, a little briarthorn by the wall. Anything, really, if the boars and the orcs leave it alone." } },
       choices = {
         { text = "Thanks.", next = "BACK" },
-        { text = "Who uses your herbs?", next = "buyers" },
+        { text = "Your herbs must go to the healers.", next = "buyers" },
       },
     },
     buyers = {
@@ -1043,7 +1065,7 @@ P:NPC {
       },
       choices = {
         { text = "Here you are.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Is it about Parker?", next = "parker" },
+        { text = "I'd guess this is about Parker.", next = "parker" },
       },
     },
     parker = {
@@ -1085,6 +1107,10 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "A night elf lady passed through once and told me my daffodils looked like little moons. She said her goddess would like them, and I've been leaving one by the window since, in case she does." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "That night elf I mentioned spoke of a dream-place where the whole world grows the way it was meant to. I'd like to see my garden there, before the gnolls trampled it." } },
+    holy_light = { { id = "tp_holy_light", text = "I put a sprig of rosemary on the Light's altar every week, because I think anything as warm as the Light must like something that smells nice. The priests haven't said I'm wrong." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells seeds from places I can't pronounce, and I bought a packet once that grew something purple and shy. It only blooms at night, and I sit out with a candle to see it." } },
     background = { { id = "tp_bg", text = "I keep the garden at the west end of town. It keeps me, too, some years." } },
     advice = { { id = "tp_ad", text = "Plant early, weed young, and never let a soldier name your boar." } },
     blackrock = { { id = "tp_blackrock", text = "They burned a farm last month, and the smoke went on all day; you could smell it over the lake." } },
@@ -1187,7 +1213,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Breanna. I feed every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them, and both of those are problems." },
+        { id = "h_default", text = "I'm Breanna. I feed goulash to every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them, and both of those are problems." },
         { id = "h_goulash", tags = { "news" }, when = { questActive = TODO_QUEST("Redridge Goulash") },
           text = "Goulash? My cupboard's bare; I fed the whole Stormwind brigade through the last attack. Bring me condor, spider and goretusk snouts, and your bowl's the first one filled." },
         { id = "h_goulash_done", when = { questDone = TODO_QUEST("Redridge Goulash") },
@@ -1206,7 +1232,7 @@ P:NPC {
       },
       choices = {
         { text = "How are the soldiers?", next = "soldiers" },
-        { text = "What goes in the goulash?", next = "goulash" },
+        { text = "That goulash smells of something I can't place.", next = "goulash" },
         { text = "Who works your kitchen?", next = "kitchen" },
         { text = "I cook. Can I lend a hand?", next = "cook", when = { profession = "Cooking" } },
         { text = "Shall I bless the pot?", next = "priest", when = { class = "PRIEST" } },
@@ -1215,7 +1241,7 @@ P:NPC {
         { text = "What meat do you need for the soldiers' stew, Chef?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your kitchen could use a fire that never goes out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers you feed get enough to fight on, Chef?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why are the hills so empty of game this season?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The hills seem empty of game this season.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is food really that short in Lakeshire, Breanna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are there too few soldiers in Lakeshire, Chef?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
@@ -1283,6 +1309,10 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I was a cook in the army in the Second War, and I fed men who went out and didn't come back to eat. I swore then I'd never let a soldier go out hungry, and I haven't." } },
+    bolvar = { { id = "tp_bolvar", text = "Tell the Highlord I'm feeding a garrison on what a garrison half this size would eat. That's not a complaint, it's a sum, and he can check it himself." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'd trade my best knife for a crate of Booty Bay spice, because half my soldiers have forgotten what pepper tastes like. The orcs on the road aren't interested in my menu." } },
+    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot that leaves this kitchen, loud enough for the soldiers to hear. The Light doesn't fill bellies, but it does make thin soup go down easier." } },
     background = { { id = "tp_bg", text = "I cook for Lakeshire's garrison, with the same pots as before the attacks and a good many more mouths." } },
     advice = { { id = "tp_ad", text = "Eat when there's food, because in Redridge that isn't every day." } },
     blackrock = { { id = "tp_blackrock", text = "I count the bowls that don't come back to the kitchen. That's how I know how the fighting's going." } },

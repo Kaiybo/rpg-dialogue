@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_gnomes", when = { opinion = { topic = "gnomes", stance = "reckless" } }, text = "Ah, the one who thinks gnomes reckless! Gaxim wrote last month, and only two pages of the letter were singed, so I'm counting it as progress." },
     { id = "g_study", text = "Good day. Mind the scale dust on the table; a pinch of it costs more than your boots." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, hello again. Have you come back from somewhere interesting? People usually have." },
     { id = "g_scales", when = { questActive = TODO_QUEST("Retrieval for Mauren") }, text = "Have you already returned from the Charred Vale? Take your time; the dragonkin aren't going anywhere, and neither am I." },
@@ -33,9 +34,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_gnomes = {
+      lines = {
+        { id = "op_gnomes_a", text = "Half the Mage Quarter thinks Gaxim's people poisoned their own city out of carelessness, and the other half is quietly buying their devices. I've never quite decided myself, so I'll ask you: what do you think of gnomish tinkering?" },
+      },
+      choices = {
+        { text = "Brilliant work. Gnomes will build things men can't imagine.", next = "op_gnomes_1", fx = { opinion = { gnomes = "admire" }, align = { order = -1 }, trait = { curious = 1 }, affinity = 1 } },
+        { text = "They lost a whole city to their own machines. That's reckless.", next = "op_gnomes_2", fx = { opinion = { gnomes = "reckless", gnomeregan = "their_fault" }, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Useful allies. Their machines saved us more than once in the war.", next = "op_gnomes_3", fx = { opinion = { gnomes = "useful" }, trait = { practical = 1 } } },
+        { text = "Gnomeregan was taken from us by a traitor. Mind that.", next = "op_gnomes_4", when = { race = "Gnome" }, fx = { opinion = { gnomeregan = "betrayed", gnomes = "admire" }, affinity = 2 } },
+        { text = "I'd rather not judge a whole people.", next = "BACK" },
+      },
+    },
+    op_gnomes_1 = {
+      lines = { { id = "op_gnomes_r1", text = "That's Gaxim's view exactly, though he usually adds 'and then they explode'. I'll tell him you said it; he collects compliments the way I collect scales." } },
+      choices = { { text = "Something else, Collin.", next = "BACK" } },
+    },
+    op_gnomes_2 = {
+      lines = { { id = "op_gnomes_r2", text = "It's the very thing I worry about with my own craft: power first, understanding later. I'd only add that they were betrayed from inside, and that's harder to guard against." } },
+      choices = { { text = "Something else, Collin.", next = "BACK" } },
+    },
+    op_gnomes_3 = {
+      lines = { { id = "op_gnomes_r3", text = "Their flying machines, yes, and their cannons, all through the war against the Horde. A sensible answer, and the one I'd give at court." } },
+      choices = { { text = "Something else, Collin.", next = "BACK" } },
+    },
+    op_gnomes_4 = {
+      lines = { { id = "op_gnomes_r4", text = "Forgive me, I put that badly. Gaxim speaks of the traitor's name the way some men speak of the plague, and I should have remembered it." } },
+      choices = { { text = "Something else, Collin.", next = "BACK" } },
+    },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Collin Mauren. I create spells, mostly from things other people throw away, and I find that the oddest reagents make the most interesting results." },
+        { id = "h_default", key = true, text = "Collin Mauren. I create spells, mostly from things other people throw away, and I find that the oddest reagents make the most interesting results. Lately it's basilisk scales from the Charred Vale I'm after." },
         { id = "h_scroll", tags = { "news" }, when = { questActive = TODO_QUEST("A Scroll from Mauren") },
           text = "Gaxim sent you? Now, a spell that lets you detonate explosives from a distance, hmm. I believe a messaging spell would carry the effect he wants." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Retrieval for Mauren"), minLevel = 20 },
@@ -48,8 +77,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Questions are the best reagent of all." },
       },
       choices = {
-        { text = "How do you make a spell from scales?", next = "craft" },
-        { text = "Who is Gaxim Rustfizzle?", next = "gaxim" },
+        { text = "I don't see how you make a spell from scales.", next = "craft" },
+        { text = "Who is Gaxim Rustfizzle?", next = "gaxim", when = { any = { { questActive = TODO_QUEST("A Scroll from Mauren") }, { questDone = TODO_QUEST("A Scroll from Mauren") } } } },
         { text = "Why the Charred Vale basilisks?", next = "vale" },
         { text = "Show me how you work your reagents.", next = "mage", when = { class = "MAGE" } },
         { text = "Can I help?", next = "BUSINESS" },
@@ -85,7 +114,8 @@ P:NPC {
     gaxim = {
       lines = { { id = "g_default", text = "A gnome friend of mine, out in Kalimdor, who has a talent for explosions and a weakness for plans that need someone else's help. I enjoy hearing about his adventures, from a safe distance." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = {
+        { text = "What do people here make of gnomes, after Gnomeregan?", next = "op_gnomes" }, { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     vale = {
       lines = { { id = "v_default", text = "The Charred Vale was burned black, and the creatures that stayed took on something of the fire. I've never been myself; I'm better at grinding than travelling." },
@@ -103,6 +133,10 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are rebuilding Dalaran, I'm told, and I'd give anything to see their libraries again. I studied there once, and I learned more in a week than in a year anywhere else." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and they're very slow to share what they know. I've learned to make my own spells from scraps, because I couldn't wait for them." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a fine mage, before he turned to the dead, and I read his early work as a student. It's a terrible thing to admire a man's mind and despise everything he did with it." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal was a fine mage too, before he summoned the worgen and lost himself in Shadowfang Keep. I'm always careful with the spells I make, because I've seen what happens when a mage isn't." } },
     background = { { id = "tp_bg", text = "A spellcrafter of the Mage Quarter, neither famous nor dangerous, which I've found is the best combination." } },
     advice = { { id = "tp_ad", text = "Always ask where your power comes from. It's polite, and it keeps you alive." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Try the Wizard's Sanctum; they collect everything there, including gossip." } },

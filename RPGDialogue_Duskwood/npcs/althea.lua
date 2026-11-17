@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "althea", id = TODO_NPC("Commander Althea Ebonlocke"), name = "Commander Althea Ebonlocke",
+  prejudice = { class = "ROGUE", amount = 8, why = "A smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits; three watchmen died." },
   rivals = { "ello" },
   bible = "bibles/althea.md", role = "soldier", tier = "major",
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A rogue in Darkshire. My watchmen already jump at shadows, {class}, so keep to the lamplight while you're in town and we'll get along." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and in the lamplight, as I asked. I don't care much for your trade, but I've come to trust the one practising it." },
+    { id = "g_op_dead_fel", when = { opinion = { topic = "duskwood_dead", stance = "kill_fel" } }, text = "There's the one who wants Fel dead before we argue about funerals. Have you been up Forlorn Rowe yet, or are you still sharpening?" },
     { id = "g_watch", text = "Night Watch. State your business, {class}, and then make yourself useful." },
     { id = "g_recruit", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You're one of mine now, or near enough, so report." },
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "There's the reason half my watchers are still alive. Sit down, if only for a moment." },
@@ -35,6 +39,56 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust what I can see, and your trade is built on not being seen. Half the knives in Duskwood belong to bandits who'd sell a Night Watch patrol to the worgen for a pair of boots, and they learned the same tricks you did." } },
+      choices = {
+        { text = "Shadows hide me from worgen too. That makes me useful to you.", next = "prej_a", fx = { align = { honor = -1 } } },
+        { text = "Then I'll walk openly while I'm in Darkshire.", next = "prej_b", fx = { align = { honor = 1 } } },
+        { text = "What happened to make you so wary, Commander?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Useful, yes, I suppose you are, and I've never turned down a useful blade. I'll still have Sorigal count the strongbox when you leave." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "That's more than I usually get from your sort. Walk openly, then, and the Watch will treat you as one of its own." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "A man came to us two winters ago with a fine tongue and a rogue's hands, and he sold the payroll and a patrol route to bandits on the Westfall road in the same night. Three of my watchmen died on that road." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_dead = {
+      lines = {
+        { id = "op_dead_a", text = "Now you've found the argument that splits this town down the middle. Half the council wants every body burned before it's cold, and the other half says we're Darkshire, not the Scourge, and we bury our own with the proper words. You've seen what walks out of Raven Hill, so you tell me which half is right." },
+      },
+      choices = {
+        { text = "Burn them. A pyre is kinder than waking up in Fel's army.", next = "op_dead_1", fx = { opinion = { duskwood_dead = "burn", necromancy = "fight_hard" }, align = { light = -1 }, trait = { practical = 1 }, affinity = 1 } },
+        { text = "Bury them with the rites. Fel doesn't get to take that too.", next = "op_dead_2", fx = { opinion = { duskwood_dead = "bury", the_light = "faith" }, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Neither works while Fel lives. Kill the necromancer first.", next = "op_dead_3", fx = { opinion = { duskwood_dead = "kill_fel", necromancy = "fight_hard" }, trait = { brave = 1 }, affinity = 2 } },
+        { text = "I saw Lordaeron's dead rise. Burn them, every one.", next = "op_dead_4", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { duskwood_dead = "burn", scourge = "hate" }, affinity = 1 } },
+        { text = "That's for the families to decide, Commander.", next = "BACK" },
+      },
+    },
+    op_dead_1 = {
+      lines = { { id = "op_dead_r1", text = "That's my vote, though I'd not say so in front of the widows. I've put down too many watchers who used to be watchers, and I'll not do it to the same man twice." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_dead_2 = {
+      lines = { { id = "op_dead_r2", text = "That's the other half's answer, and I can't say it's wrong, only that it's harder on my watchers. Go and say it at Raven Hill, then, and see if the graves agree." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_dead_3 = {
+      lines = { { id = "op_dead_r3", text = "Now that's an answer I can act on. Sven Yorgen's been saying the same for years; go and find him, and then go up Forlorn Rowe with a good blade." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_dead_4 = {
+      lines = { { id = "op_dead_r4", text = "Then you know better than any of us what Fel is building up there. I'll tell the council a northerner said it, and for once they might listen." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
     xcl_scholo = {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Good, though schools outlive their masters, and every necromancer who passed through that place is still out there with what he learned. Men like Morbent Fel don't find their trade in a book lying in a ditch, and I'd wager the road from Raven Hill runs north to Caer Darrow sooner or later." } },
@@ -72,7 +126,7 @@ P:NPC {
       choices = {
         { text = "Lamps and good order, then. I'll help.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your watch needs fire, not lamps.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who is Mor'Ladim?", next = "morladim" },
+        { text = "What's the worst thing your watch faces?", next = "morladim" },
       },
     },
     druid_talk = {
@@ -132,11 +186,12 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then, and keep half an eye on the gate while you do." },
       },
       choices = {
+        { text = "You don't trust rogues, Commander.", next = "prej", when = { prejudiced = true } },
         { text = "Can Duskwood still be healed?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What's out in the woods?", next = "woods" },
-        { text = "How can I help the Watch?", next = "help" },
-        { text = "Who are your watchers?", next = "watchers" },
-        { text = "What is Mor'Ladim?", next = "morladim" },
+        { text = "I'd like to help the Watch.", next = "help" },
+        { text = "Your watchers don't look like soldiers.", next = "watchers" },
+        { text = "Who's been killing your watchers on patrol?", next = "morladim" },
         { text = "You and the mayor are kin?", next = "ello" },
         { text = "Let me tend your wounded watchers.", next = "priest", when = { class = "PRIEST" } },
         { text = "Did Stalvan Mistmantle do it?", next = "stalvan", when = { topicKnown = "stalvan" } },
@@ -149,7 +204,18 @@ P:NPC {
         { text = "What does the Night Watch need from a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have a shaman do for the Night Watch, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Gandling is dead, Commander. The Scholomance has lost its headmaster.", next = "xcl_scholo", when = { cleared = "Scholomance" } },
+        { text = "I stood your wall before the Cathedral took me, Commander.", next = "xorig_nightwatch", when = { origin = "human_darkshire_watch" } },
         { text = "I'll keep to the lamplight.", next = "END" },
+      },
+    },
+    xorig_nightwatch = {
+      lines = {
+        { id = "xonightwatch_default", text = "I remember. You were the one who'd swing a hammer with the torch still lit in your other hand, and Ladimore swore you'd burn the gatehouse down before you ever hit a ghoul. Now you come back wearing the Light, so tell me, will you stand a night with us again?" },
+      },
+      choices = {
+        { text = "Any night you need me, Commander.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
+        { text = "I've other oaths now, but I'll do what I can.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -160,7 +226,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll take them all.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1, learn = { "worgen" } } },
-        { text = "How do you live like this?", next = "live" },
+        { text = "I don't know how anyone lives like this.", next = "live" },
         { text = "Where do the dead come from?", next = "woods_dead" },
       },
     },
@@ -183,6 +249,7 @@ P:NPC {
           fx = { learn = { "morbent_fel" } } },
       },
       choices = {
+        { text = "Could Darkshire burn its dead, so Fel can't raise them?", next = "op_dead" },
         { text = "Why hasn't the Watch gone after him?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -212,7 +279,7 @@ P:NPC {
         { id = "wa_default", text = "Farmers, bakers, a tanner, and two brothers who never agree on anything. Stormwind pulled its guards out, so we trained our own, and they're good." },
       },
       choices = {
-        { text = "Do they get paid?", next = "watchers_pay" },
+        { text = "I'd guess the pay is poor.", next = "watchers_pay" },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
       },
     },
@@ -264,7 +331,7 @@ P:NPC {
         { id = "el_default", text = "Kin, yes. He talks to Stormwind and I talk to the dead, mostly with a pike, and we each think the other is wasting their time. We're both right." },
       },
       choices = {
-        { text = "Does he know you think that?", next = "ello_know" },
+        { text = "I'd wager he knows you think that.", next = "ello_know" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,13 +433,13 @@ P:NPC {
           text = "A dwarf on my roster would steady the young ones, since they think anything short and armoured is too stubborn to die. Stand from dusk to dawn, and don't let them see you yawn." },
       },
       choices = {
-        { text = "Why is dawn the worst of it?", next = "warrior_dawn" },
+        { text = "I'd have thought dawn was the safest hour.", next = "warrior_dawn" },
         { text = "Orders are orders. Tell me where to stand.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { darkshire = 1 } } },
         { text = "I'd rather hunt them in the woods than wait at a wall.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
     warrior_dawn = {
-      lines = { { id = "cwd_default", text = "Because the worgen know it too. We lost two watchers last spring in the grey hour, men who'd lowered their shields because the sky was turning pink." } },
+      lines = { { id = "cwd_default", text = "Everyone thinks so, and the worgen know it too. We lost two watchers last spring in the grey hour, men who'd lowered their shields because the sky was turning pink." } },
       choices = {
         { text = "I'll keep my shield up.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Something else, Commander.", next = "BACK" },
@@ -435,5 +502,14 @@ P:NPC {
     morbent_fel = { { id = "tp_morbent", text = "He's a necromancer up on Forlorn Rowe. The dead he raises are my watchers' business, but the man himself is Sven Yorgen's." } },
     embalmer = { { id = "tp_embalmer", text = "That was a children's story until it walked down my road, and I've doubled the lamps on the Raven Hill side since." } },
     _none = { { id = "tp_none", text = "That's not a Watch matter, and if it ever becomes one, it'll find me." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill's cemetery has more walking dead than buried ones now, and I can't spare the Watch to hold it. I send adventurers, and I count them when they come back." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders come out of Deadwind Pass and go wherever they like, and my watchers have yet to catch one. Somebody sends them, and I'd give a great deal to know who." } },
+    scourge = { { id = "tp_scourge", text = "The dead in Duskwood aren't the Scourge's, as far as anyone can tell; they're our own, and somebody is raising them here. I'd almost sooner it were the Scourge, because then Stormwind might send an army." } },
+    varian = { { id = "tp_varian", text = "Lord Ello writes to the Crown every week asking for soldiers, and the answer is always that the army is stretched. With the king gone, I doubt anybody in the Keep is reading those letters at all." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord is a good soldier, and I believe he'd help us if he could. I also believe somebody between him and Darkshire is making sure he can't." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is said to advise the Highlord on everything, and Darkshire has had nothing from the Keep since she came to court. I'll draw no conclusions; a commander doesn't, not out loud." } },
+    holy_light = { { id = "tp_holy_light", text = "Half my watchers pray to the Light before every patrol and the other half pray during it. I don't stop either kind." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Hunters near Twilight Grove swear there are great green dragons sleeping among the trees, and I've no reason to doubt them. So long as they keep sleeping, they aren't my concern." } },
+    second_war = { { id = "tp_second_war", text = "The Watch is mostly farmers and their sons, and the few veterans among them fought orcs in the Second War. They all say the same thing: they'd rather face orcs than what's in our woods." } },
   },
 }

@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons", when = { opinion = { topic = "black_dragonflight", stance = "respect" } }, text = "Word's come down the road that you've spoken well of the black dragonflight, deputy. I'll assume it was a joke, and I'll expect you not to repeat it inside my walls." },
     { id = "g_default", text = "Another Alliance face this far north? That's the best news I've had all week." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the mountain in one piece, I see. Pull up a crate; it's the only furniture we have." },
     { id = "g_deputy", when = { questDone = TODO_QUEST("The True Masters") }, text = "Deputy. Sit down and tell me what the Steppes did to you today." },
@@ -40,6 +41,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_regent = {
+      lines = {
+        { id = "opr_default", text = "That's not a question a marshal answers in a report, deputy. The Highlord asks for proof, and Lady Prestor at his side asks for more, and Windsor is in chains while they ask. You've stood in that throne room, so you tell me." },
+      },
+      choices = {
+        { text = "Bolvar's a good man in an impossible seat.", next = "op_reg_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { bolvar = "trust" } } },
+        { text = "The Regent dithers while soldiers die. He's failing us.", next = "op_reg_weak", fx = { align = { order = -1 }, opinion = { bolvar = "distrust" } } },
+        { text = "It's Lady Prestor who stalls, Marshal. Watch her.", next = "op_reg_prestor", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "Bolvar is a knight of the Silver Hand. I trust him.", next = "op_reg_trust", fx = { affinity = 1, opinion = { bolvar = "trust", silver_hand = "respect" } }, when = { class = "PALADIN" } },
+        { text = "That's above my rank, Marshal.", next = "BACK" },
+      },
+    },
+    op_reg_trust = {
+      lines = {
+        { id = "oprt_default", text = "I'd have said the same a year ago, and I'd like to say it again. He held the city when the king vanished, and that's no small thing, but holding isn't the same as acting." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_reg_weak = {
+      lines = {
+        { id = "oprw_default", text = "Careful, deputy. I'll not hear the Highlord called a coward in my camp, though I'll admit I've written him three letters this month and torn up two of them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_reg_prestor = {
+      lines = {
+        { id = "oprp_default", text = "You're not the first to say it, and you won't be the last, and every one of them ends up posted somewhere very far from Stormwind. Keep it out of your reports and keep your eyes open." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then you'll fight them on their ground, which is ash and fire and slopes that favour whoever stands highest, and they always stand highest. I'd ask you to hold the road to Redridge before you go hunting glory at the Spire, because if the Vigil falls, Lakeshire is next." } },
@@ -133,21 +164,21 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask away. The orcs won't move before dawn, and neither will I." },
       },
       choices = {
-        { text = "What happened to Marshal Windsor?", next = "windsor" },
-        { text = "What are you up against out here?", next = "enemy" },
+        { text = "Who commanded here before you, Marshal?", next = "windsor" },
+        { text = "You look badly outnumbered out here, Marshal.", next = "enemy" },
         { text = "Why won't Stormwind send more soldiers?", next = "stormwind" },
-        { text = "Who else holds this camp?", next = "vigil" },
+        { text = "This camp holds more than soldiers, by the look of it.", next = "vigil" },
         { text = "Your soldiers look like they need a healer.", next = "priest", when = { class = "PRIEST" } },
         { text = "The Light sends you one more paladin, Marshal.", next = "paladin", when = { class = "PALADIN" } },
         { text = "My people owe the Dark Irons a debt.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Windsor's alive. I saw him in the Depths.", next = "windsor_alive", when = { questDone = TODO_QUEST("Marshal Windsor") } },
         { text = "Bijou's map names their master: Nefarian.", next = "nefarian", when = { questDone = TODO_QUEST("Message to Maxwell") } },
         { text = "Put me on the line, Marshal. I'm a soldier.", next = "k_warrior", when = { class = "WARRIOR" } },
-        { text = "What happened to Jalinda's mages?", next = "k_mage", when = { class = "MAGE" } },
+        { text = "I heard mages came up here. What became of them?", next = "k_mage", when = { class = "MAGE" } },
         { text = "I could scout the mountain for you, unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
-        { text = "Would you put a warlock on your line, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Few marshals would put a warlock on their line.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Stormwind ever send anything to help this land, Marshal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does it trouble you, Marshal, that I fight with the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Some would be troubled that I fight with the elements, Marshal.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Marshal. The upper Spire is broken.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "We've come to fight the Blackrock, Marshal.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll see what I can do, Marshal.", next = "END", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
@@ -162,7 +193,7 @@ P:NPC {
       },
       choices = {
         { text = "Did anyone survive?", next = "windsor_john" },
-        { text = "What kind of man was he?", next = "windsor_man" },
+        { text = "He sounds like a hard man to serve under.", next = "windsor_man" },
         { text = "I'm sorry, Marshal.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -202,7 +233,7 @@ P:NPC {
           text = "The Blackrock orcs hold the mountain's foot and everything north of us, the Firegut ogres hold Dreadmaul Rock, and both of them answer to whatever sits in Blackrock Spire. Below the Spire, the Dark Irons have a city of their own, and they hate the orcs nearly as much as they hate us." },
       },
       choices = {
-        { text = "Who commands the Spire?", next = "enemy_spire" },
+        { text = "The Spire must have a commander worth fearing.", next = "enemy_spire" },
         { text = "Who's really behind the orcs?", next = "enemy_dragons" },
         { text = "That's a lot of enemies for one ridge.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
@@ -249,6 +280,7 @@ P:NPC {
     stormwind_court = {
       lines = { { id = "sc_default", text = "I'm sure it does, and I'm sure they're excellent reasons when you hear them in a warm room. Fight on two fronts, Windsor used to say: the orcs in front of you and the fools behind you." } },
       choices = {
+        { text = "What do you make of the Regent, Marshal?", next = "op_regent" },
         { text = "Careful, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "He wasn't wrong.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
       },
@@ -259,7 +291,7 @@ P:NPC {
         { id = "v_default", text = "Helendis Riverhorn, who reads this land like a book and found the first proof of the dragons; Jalinda Sprig and what's left of her mages; a lady from Stormwind hunting treasures for a count; and Oralius, who fought harder than any of us before the Steppes got into his head." },
       },
       choices = {
-        { text = "What's wrong with Oralius?", next = "vigil_oralius" },
+        { text = "Something seems wrong with Oralius.", next = "vigil_oralius" },
         { text = "Why call it Morgan's Vigil?", next = "vigil_name" },
         { text = "Something else.", next = "BACK" },
       },
@@ -406,6 +438,16 @@ P:NPC {
     blackrock_spire = { { id = "tp_spire", text = "It's their citadel, built into the mountain by the Dark Irons and taken by the orcs. Every road in the Steppes leads to its gate eventually.", next = "enemy_spire" } },
     black_dragonflight = { { id = "tp_dragons", text = "Helendis says they're the true masters of the Blackrock, and I've stopped arguing with Helendis." } },
     dark_iron = { { id = "tp_darkiron", text = "They took Windsor alive, which is more mercy than I expected of them. I don't expect any more." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a good man, and I'd trust him with my life, but my reports go to Stormwind and nothing comes back. Somebody's sitting on them, and I don't think it's him." } },
+    varian = { { id = "tp_varian", text = "The king vanished, and the court went quiet, and my reports started going unanswered. I don't like the way those things line up." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor seems to have the ear of everyone in Stormwind, and none of them have answered my letters. I'd like to know what she's telling them." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War as a young man, and we drove the orcs back through these very hills. I never thought I'd be back here." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock are restless, and they've been raiding our supply lines. I'd like to see them driven off the mountain." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow, they say, and she's the daughter of Deathwing himself. I'd rather fight a hundred orcs than one of her." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I pray to the Light every night, and I ask it to send me reinforcements. So far, it's sent me you." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You serve the Light as I do, so you know it doesn't always answer how we'd like. Keep faith, and keep your shield up." },
+    },
     _none = { { id = "tp_none", text = "Not my department, deputy. Ask Helendis; he knows a little of everything." } },
   },
 }
@@ -422,6 +464,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_prestor", when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Marshal tells me you share his doubts about Lady Prestor. I've never met her, but I notice that everyone who has grows very quiet when her name comes up." },
     { id = "g_default", text = "Ishnu-alah. Mind the edge of the ridge; the ground is softer than it looks." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; I have been reading the smoke over the mountain, and I'd welcome another pair of eyes." },
     { id = "g_proved", when = { questDone = TODO_QUEST("Dragonkin Menace") }, text = "The dragonkin below the ridge remember you now. So do I." },
@@ -442,6 +485,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kaldorei = {
+      lines = {
+        { id = "opk_default", text = "Some of my elders think so. We hid behind our trees for ten thousand years, and it took the Legion at Hyjal to bring us out. The young races have opinions about that, so tell me yours." },
+      },
+      choices = {
+        { text = "The world needs the kaldorei. I'm glad you came out.", next = "op_ne_glad", fx = { affinity = 1, align = { honor = 1 }, opinion = { night_elves = "admire" } } },
+        { text = "Stay in your forests. This isn't your fight.", next = "op_ne_stay", fx = { affinity = -1, align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Tyrande was right to stand with the others at Hyjal.", next = "op_ne_glad", fx = { affinity = 2, opinion = { tyrande = "trust", night_elves = "admire" } }, when = { race = "NightElf" } },
+        { text = "Ironforge always wondered what the elves were hiding.", next = "op_ne_mixed", fx = { trait = { witty = 1 }, opinion = { night_elves = "mixed" } }, when = { race = "Dwarf" } },
+        { text = "That's for the kaldorei to decide.", next = "BACK" },
+      },
+    },
+    op_ne_glad = {
+      lines = {
+        { id = "opng_default", text = "Then I'll take that gladness north with me, when I go. The black flight learned its tricks here on people who had no one to warn them, and I mean to be the warning." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_ne_stay = {
+      lines = {
+        { id = "opns_default", text = "You may be right that it isn't my fight. But the dragon that burns the Steppes today will reach for Ashenvale tomorrow, and I would rather meet it here, on borrowed ground." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_ne_mixed = {
+      lines = {
+        { id = "opnm_default", text = "Old secrets, mostly, and old shame. Your people dug too deep and woke a fire, and mine drank too deep and woke a Legion, so perhaps we should compare notes." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_kaldorei = {
       big = true,
       lines = { { id = "xpt_kaldorei_default", text = "Because the black dragonflight is old, older than the humans can easily imagine, and my people remember what its master did in the War of the Ancients. Someone who remembers ought to be watching from this ridge." } },
@@ -523,7 +596,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. Questions are how I found everything I know here." },
       },
       choices = {
-        { text = "What happened to this land?", next = "ruins" },
+        { text = "This land looks as if it burned long ago.", next = "ruins" },
         { text = "Why are the dragonkin here?", next = "dragons" },
         { text = "Where do the Blackrock get their worgs?", next = "worgs" },
         { text = "Why would Darnassus care about these mountains?", next = "why" },
@@ -535,8 +608,8 @@ P:NPC {
         { text = "My people came from Eldre'Thalas, long ago.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "My saber hates these ashes.", next = "k_saber", when = { race = "NightElf", class = "HUNTER" } },
         { text = "What did the arcane draw down on your people?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Does my craft frighten you, Helendis?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "You've been watching someone. Who?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You look at my craft as if it frightens you.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You've been watching someone, I can tell.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Blackrock orcs be fought, or only watched, Helendis?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do you see the Blackrock orcs, Helendis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why did you come so far from Kalimdor?", next = "xpt_kaldorei", when = { party = { race = "NightElf" }, faction = "Alliance" } },
@@ -584,7 +657,7 @@ P:NPC {
       },
       choices = {
         { text = "Who leads the dragons?", next = "dragons_who" },
-        { text = "Does Stormwind know this?", next = "dragons_letter" },
+        { text = "Stormwind ought to hear of this.", next = "dragons_letter" },
         { text = "That's a frightening thought.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -647,7 +720,10 @@ P:NPC {
     },
     why_old = {
       lines = { { id = "yo_default", text = "Tore it open, ten thousand years ago, or so our oldest tell it. I'm not so old as that, but I was raised on the story, and I don't like seeing black wings over any land." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "Should your people have stayed in their forests?", next = "op_kaldorei" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
     },
 
     kaldorei = {
@@ -736,6 +812,12 @@ P:NPC {
     black_dragonflight = { { id = "tp_dragons", text = "The true masters of the Blackrock, as I wrote to Lakeshire. I'd be glad to be wrong, but I am not.", next = "dragons" } },
     blackrock = { { id = "tp_blackrock", text = "Savage, yes, but savage on someone else's orders. That's what makes them dangerous now." } },
     thaurissan = { { id = "tp_thaurissan", text = "The Dark Iron city that woke the fire. Its ruins lie north of here, and something in them still whispers to anyone who touches the stones." } },
+    elune = {
+      { id = "tp_elune", text = "Elune's light is dimmer here, under the smoke, but it's still there. I pray to her every night, and I'm grateful for every star I can see." },
+      { id = "tp_elune2", when = { race = "NightElf" }, text = "You'll have felt it too, then, how the smoke hides the moon. Pray with me tonight, if you can find a clear patch of sky." },
+    },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande sent me to read the old places, and I've read many of them. This one is the hardest." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil still stands on Hyjal, wounded, and the Circle tends it. We gave up our immortality to save the world, and here in the smoke I feel every year of it." } },
     _none = { { id = "tp_none", text = "I know the land, not that. Marshal Maxwell may know, or will pretend to." } },
   },
 }
@@ -752,8 +834,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand at attention when you approach, soldier! Winky, look sharp, we've got company." },
-    { id = "g_back", when = { metBefore = true }, text = "Soldier! Back on the ridge and reporting, are we? Good, good, because Winky's been telling lies about you again." },
+    { id = "g_default", text = "Stand at attention when ye approach, soldier! Winky, look sharp, we've got company, and by my beard it's a sturdy one." },
+    { id = "g_back", when = { metBefore = true }, text = "Soldier! Back on the ridge and reporting, are we? Aye, good, because Winky's been telling lies about ye again." },
     { id = "g_away", when = { away = 14 }, text = "Soldier! You've been absent without leave for {away}, and Winky noticed first, so I'll let it slide this once if you fall in smartly." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Winky tells me you were caught fibbing to someone on the ridge, soldier. Winky's a liar himself, mind, but he's never once been caught." },
   },
@@ -823,7 +905,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Winky says we oughtn't to enlist demons, soldier, but Winky also says the moon is a cheese, so I've stopped listening to Winky." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, reporting for duty! Excellent, soldier; Winky says artillery wins wars, and you're the nearest thing to artillery we've had all month." },
         { id = "h_default", key = true,
-          text = "Oralius, of the Vigil, and the only one here who keeps his head about him, whatever Captain Winky says. We strike the enemy before the enemy strikes us, soldier, and today is a striking sort of day." },
+          text = "Oralius, of the Vigil and of Ironforge before that, and the only one here who keeps his head about him, whatever Captain Winky says. We strike the enemy before the enemy strikes us, soldier, and today is a striking sort of day." },
         { id = "h_firegut", when = { questActive = TODO_QUEST("Extinguish the Firegut") },
           text = "The Firegut keep Dreadmaul Rock and the Blackrock supply lines open, and the plan is to cripple them, so why is there so little blood on your uniform? Out you go, soldier." },
         { id = "h_gortesh", when = { questActive = TODO_QUEST("Gor'tesh the Brute Lord") },
@@ -843,13 +925,13 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, soldier? Speak up, because Winky's listening and he's a terrible gossip." },
-        { id = "h_again2", text = "Next item on the agenda! Quickly now, the war won't wait." },
+        { id = "h_again2", text = "Next item on the agenda! Quickly now, {g:lad|lass}, the war won't wait." },
       },
       choices = {
         { text = "Who's Captain Winky?", next = "winky" },
         { text = "What are my orders, sir?", next = "orders" },
-        { text = "What's the ogre ear for?", next = "ear" },
-        { text = "Where did you serve before the Vigil?", next = "served" },
+        { text = "What's that thing you keep holding to your ear?", next = "ear" },
+        { text = "You must have served somewhere before the Vigil, sir.", next = "served" },
         { text = "Reporting for duty, sir!", next = "salute", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Are you well, Oralius? The Light can ease a troubled mind.", next = "priest", when = { class = "PRIEST" } },
         { text = "Does Captain Winky need a rogue on his crew?", next = "k_rogue", when = { class = "ROGUE" } },
@@ -930,7 +1012,7 @@ P:NPC {
       lines = { { id = "s_default", text = "Served? I'm still serving, soldier, I've never stopped, not for one day, not since the first horn. The rest of it's classified, and Winky's not cleared to hear it either." } },
       choices = {
         { text = "Of course, sir.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Was it bad, wherever it was?", next = "served_bad", fx = { trait = { kind = 1 } } },
+        { text = "It sounds like it was bad, wherever it was.", next = "served_bad", fx = { trait = { kind = 1 } } },
       },
     },
     served_bad = {
@@ -974,10 +1056,14 @@ P:NPC {
       { id = "tp_knows", text = "Intelligence, soldier, I've got it coming out of my ears, and Winky's got the rest. Ask me about any of this and keep your voice down." },
     },
     background = { { id = "tp_bg", text = "A soldier, soldier, which is all you need to know and all the Marshal knows too. Winky says otherwise, but Winky would.", next = "served" } },
-    advice = { { id = "tp_ad", text = "Always keep a horn handy and a head on a pike, soldier. You'd be amazed how many problems one or the other solves." } },
+    advice = { { id = "tp_ad", text = "Always keep a horn handy and a head on a pike, soldier, and a wee flask of stout for after. You'd be amazed how many problems one or the other solves." } },
     firegut = { { id = "tp_firegut", text = "Big, blue, stupid and frightened of their own shadows, once you know which shadow to show them.", next = "orders" } },
     blackrock = { { id = "tp_blackrock", text = "They wear medallions like they're proud of something, soldier. Bring me fifty and we'll find out what." } },
-    _none = { { id = "tp_none", text = "That's classified, soldier, and Winky can stop laughing right now." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I'm still fighting it, as far as I'm concerned. Captain Winky says the war's over, but Winky's a liar." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire are the enemy, and I'll see them burned. Winky says we need more men, but Winky always says that." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a fine soldier, and I'd follow him into any fight. Winky says he's too soft, but Winky would." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow? I'll fight her myself, given half a chance. Winky says I'm mad, and Winky's probably right." } },
+    _none = { { id = "tp_none", text = "That's classified, soldier, by order of the forge and the hammer, and Winky can stop laughing right now." } },
   },
 }
 
@@ -993,8 +1079,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Oh! Oh, you startled me. Everything up here is either on fire or about to be, so I've become rather jumpy." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back, and you're not even singed! Well, not very singed." },
+    { id = "g_default", text = "Oh! Oh, you startled me. By my count about eighty percent of everything up here is on fire and the rest is about to be, so I've become rather jumpy." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and you're not even singed! Well, not very singed, perhaps two or three percent at the cuffs." },
   },
 
   notice = {
@@ -1051,7 +1137,7 @@ P:NPC {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Oh, you startled me, though everything startles me lately, so please don't take it personally." },
         { id = "h_default", key = true,
-          text = "Jalinda Sprig. I lead the expedition that's meant to get into Blackrock Depths, which is going very badly, because everything that guards the way in is made of fire." },
+          text = "I'm Jalinda Sprig, and I lead the expedition that's meant to get into Blackrock Depths, which is going very badly, because everything that guards the way in is made of fire and none of my calculations allowed for quite so much of it." },
         { id = "h_pyron", when = { questActive = TODO_QUEST("Overmaster Pyron") },
           text = "Overmaster Pyron guards the quarry at the mountain's foot, and every time we try to get past him we lose eyebrows. Please, please be careful." },
         { id = "h_incendius", tags = { "news" }, when = { questActive = TODO_QUEST("Incendius!") },
@@ -1069,11 +1155,11 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, I promise. I'm only looking at the mountain because it keeps looking at me." },
       },
       choices = {
-        { text = "What happened to your mages?", next = "mages" },
+        { text = "Has anyone tried to get into the mountain yet?", next = "mages" },
         { text = "What's inside the mountain?", next = "mountain" },
         { text = "Why would a gnome come up here?", next = "why" },
-        { text = "Any advice for a mage near that much fire?", next = "mage", when = { class = "MAGE" } },
-        { text = "Do you ever think of Gnomeregan?", next = "gnome", when = { race = "Gnome" } },
+        { text = "A mage needs to be careful near that much fire.", next = "mage", when = { class = "MAGE" } },
+        { text = "You must think of Gnomeregan often.", next = "gnome", when = { race = "Gnome" } },
         { text = "Let me look at your mages' burns.", next = "priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "My imps don't mind fire, Jalinda.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I could scout Pyron's quarry for you, Jalinda.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1171,9 +1257,16 @@ P:NPC {
       { id = "tp_knows", text = "Oh, I've taken measurements of nearly everything around here, though not all of it was wise. Ask me about any of these, if you like." },
     },
     background = { { id = "tp_bg", text = "A gnome of Gnomeregan who now measures volcanoes for a living. I don't recommend the career; I've lost both eyebrows twice.", next = "why" } },
-    advice = { { id = "tp_ad", text = "Carry water, carry more water, and if anything made of fire starts talking to you, don't answer it." } },
+    advice = { { id = "tp_ad", text = "Carry water, then carry more water, roughly twice what any sensible formula suggests, and if anything made of fire starts talking to you, don't answer it." } },
     blackrock_depths = { { id = "tp_depths", text = "The Dark Iron city, built into the mountain's heart. My expedition was meant to go in, but the fire elementals had other ideas.", next = "mountain" } },
     dark_iron = { { id = "tp_darkiron", text = "They serve the fire, or the fire owns them, and I'm honestly not sure which is worse." } },
+    gnomeregan = {
+      { id = "tp_gnomeregan", text = "Gnomeregan was home, and I lost my eyebrows there long before I lost them here. I'd like to see it again, but not until it's safe." },
+      { id = "tp_gnomeregan2", when = { race = "Gnome" }, text = "You'll remember it too, then, the halls and the lights. Do you dream about it? I do, nearly every night." },
+    },
+    dalaran = { { id = "tp_dalaran", text = "The mages in my expedition trained in Dalaran, before it fell. They talk about it all the time, and I try not to listen." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons make the ground shake when they fly, and I've measured it. It's terrifying, and fascinating, and I'd rather not measure it again." } },
+    thaurissan = { { id = "tp_thaurissan", text = "The ruins of Thaurissan are full of old magic, and my mages are studying it very carefully. I'm studying it from a long way off." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, I'm afraid. Helendis might; he knows a great deal and is very patient about it." } },
   },
 }
@@ -1298,16 +1391,16 @@ P:NPC {
       },
       choices = {
         { text = "What brings a Stormwind lady to the Steppes?", next = "errand" },
-        { text = "What did you find in Thaurissan?", next = "ruins" },
-        { text = "What does Marshal Maxwell make of you?", next = "maxwell" },
-        { text = "The Spire's no place to go shopping.", next = "spire" },
+        { text = "What have you found in the ruins so far?", next = "ruins" },
+        { text = "Marshal Maxwell doesn't seem to think much of you.", next = "maxwell" },
+        { text = "The Steppes are no place to go shopping.", next = "spire" },
         { text = "My family dines with the Ridgewells.", next = "noble", when = { origin = "human_minor_noble" } },
-        { text = "The Light keeps you alive, you said?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Do you pray much out here, my lady?", next = "priest", when = { class = "PRIEST" } },
         { text = "Treasure hunting's my trade too, my lady.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Do the Dark Iron relics still carry enchantments?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Has the Count ever bought anything demonic?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd wager the Count has bought something demonic before.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you sell relics of the Silver Hand to collectors, Mayara?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does the Count collect Dark Iron weapons?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Count must want a few Dark Iron weapons.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What sort of trophies does the Count want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should a dead kingdom's treasures go to a count's collection, Mayara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Count really collect a shaman's totems, Mayara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1318,7 +1411,7 @@ P:NPC {
     errand = {
       lines = { { id = "e_default", text = "The Count sent me to scout the ruined city of Thaurissan for pieces worthy of his family's museum. He'd come himself, he says, if the Steppes weren't so dreadfully far from his tailor." } },
       choices = {
-        { text = "Isn't this grave-robbing?", next = "errand_robbing" },
+        { text = "This looks a lot like grave-robbing to me.", next = "errand_robbing" },
         { text = "What's in the museum?", next = "errand_museum" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1390,7 +1483,7 @@ P:NPC {
       choices = {
         { text = "Found. Always found.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1, trait = { witty = 1 } } },
         { text = "Lifted, from people who'd earned it.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "What have you found in Thaurissan?", next = "ruins" },
+        { text = "What have you found in the ruins?", next = "ruins" },
       },
     },
   },
@@ -1403,6 +1496,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never pick up anything that hums, and never sell anything the day you find it. Both lessons cost me dearly." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dead city full of beautiful things and unhappy voices. I took the first and left the second.", next = "ruins" } },
     blackrock_spire = { { id = "tp_spire", text = "A vault with orcs in it. That's all a fortress ever is, if you think about it.", next = "spire" } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have the finest treasures in the Eastern Kingdoms, and I'd catalogue them all, if I could get in. The Count would pay handsomely." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are dreadful neighbors and wonderful craftsmen. I'd love to see their workshops, and I'd love to see them gone, in that order." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the toast of Stormwind, and the Count dines with her often. He says she has the most remarkable eyes." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where the Count's treasures are shipped, and where the goblins try to steal them. I keep a very close eye on the manifests." } },
     _none = { { id = "tp_none", text = "If it isn't old and it isn't valuable, I'm afraid I haven't paid it any attention." } },
   },
 }
@@ -1419,6 +1516,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kaldorei", when = { gossip = { topic = "night_elves", stance = "distrust" } }, text = "Helendis says ye told him tae go back tae his forests. He took it well, for an elf, which means he's said nothin' tae anyone for two days." },
     { id = "g_default", text = "Need a bird? Mind the ash; they hate it on their feathers." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. The birds remember ye, which is more than they do for most." },
   },
@@ -1540,12 +1638,12 @@ P:NPC {
         { text = "How do the birds stand the heat?", next = "heat" },
         { text = "Show me the routes.", next = "BUSINESS" },
         { text = "Do gryphons mind a mage on their backs, Borgus?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What happens if I sneak up on a gryphon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could sneak up on a gryphon easily enough.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you lost many gryphons to the Blackrock, Borgus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do the Blackrock orcs ever come for the Vigil, Borgus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Blackrock must come for the Vigil now and then.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have your gryphons ever carried soldiers into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons hunt anything in the Steppes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Could a druid help your gryphons with the ash, Borgus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "A druid might help your gryphons with the ash, Borgus.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock at all, Borgus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your gryphons feel the spirits, Borgus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, Borgus.", next = "END" },
@@ -1575,6 +1673,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the Vigil's birds, and I keep 'em alive, and that's the whole of my tale worth tellin'." } },
     advice = { { id = "tp_ad", text = "Never feed a gryphon from yer hand in the Steppes; the ash makes 'em bitey." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught me gryphons, an' they'd laugh at the way I fuss over mine. I don't care, my birds are the happiest in the Steppes." } },
+    magni = { { id = "tp_magni", text = "The king's a good king, an' I'd fly him anywhere he wanted. He'd have to sit still, mind." } },
+    firegut = { { id = "tp_firegut", text = "The Firegut ogres throw rocks at my birds when they fly over Dreadmaul. I'd like to drop a few rocks on them." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, eh? My birds would smell her from a hundred miles off, an' they'd refuse to fly. I'd not blame them." } },
     _none = { { id = "tp_none", text = "I fly birds. Ask the Marshal about the rest." } },
   },
 }

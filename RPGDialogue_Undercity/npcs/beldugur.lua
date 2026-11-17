@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Keeper Bel'dugur. I gather the writings of those who came before us, so that we needn't repeat their mistakes, or their scruples." },
+        { id = "h_default", key = true, text = "Keeper Bel'dugur. I gather the writings of those who came before us, Ur of Dalaran's above all, for certain parties among the Forsaken, so that we needn't repeat their mistakes, or their scruples." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Book of Ur") },
           text = "Shadowfang Keep holds a book I'd prize above most, the Book of Ur. Ur was a great mage of Dalaran before the Scourge came, and his studies of other worlds are of real value to certain parties among the Forsaken." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Book of Ur"), days = 7 } },
@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "Who was Ur?", next = "ur" },
-        { text = "What do you keep here?", next = "collection" },
+        { text = "You keep a strange collection here.", next = "collection" },
         { text = "Who are these \"certain parties\"?", next = "parties" },
         { text = "Some knowledge is forbidden for a reason.", next = "forbidden", when = { class = { "PRIEST", "PALADIN", "MAGE" } } },
         { text = "Do you have work for me?", next = "BUSINESS" },
@@ -59,7 +59,7 @@ P:NPC {
     ur = {
       lines = { { id = "ur_default", text = "A mage of Dalaran who looked beyond this world and wrote down what he saw. He studied the places past the edges, and then he stopped short, as good men do, and died with his best work unfinished." } },
       choices = {
-        { text = "Why is his book in Shadowfang Keep?", next = "ur_sfk" },
+        { text = "Shadowfang Keep seems an odd place for his book.", next = "ur_sfk" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -123,6 +123,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep books. What I was before I kept them doesn't merit a page." } },
     advice = { { id = "tp_ad", text = "Never let a scruple stop you halfway. Either don't begin, or finish." } },
     worgen = { { id = "tp_worgen", text = "Arugal's failure, walking on four legs. Instructive, if you study it rather than run from it." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages hoard knowledge they're too squeamish to use, and they keep it behind walls now while they rebuild. I've made a career of collecting what they left behind." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are brilliant, timid people who would rather debate a spell for a decade than cast it. Their dead are far more useful to me than their living." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal called the worgen into Silverpine because the Kirin Tor's courage failed them, and the wolves ate him from the inside out. I find the whole affair very instructive." } },
+    scholomance = { { id = "tp_scholomance", text = "The school at Caer Darrow teaches what Dalaran forbade, and it does so with appalling sloppiness. I'd study its library, given the chance, and then I'd burn it." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was the most gifted necromancer the Kirin Tor ever produced, and they expelled him for it. They're still paying for that mistake, which I find rather satisfying." } },
     _none = { { id = "tp_none", text = "Not a subject I've collected. Perhaps you'll bring me a book on it someday." } },
   },
 }

@@ -64,7 +64,7 @@ P:NPC {
       choices = {
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "How does a goblin become a master smith?", next = "past" },
-        { text = "What's the hardest part of smithing here?", next = "rust" },
+        { text = "Smithing in this salt air can't be easy.", next = "rust" },
         { text = "Who else works iron in Booty Bay?", next = "around" },
         { text = "What are you working on right now?", next = "project" },
         { text = "Armorsmith or weaponsmith, Brikk? Which should I choose?", next = "xspec", when = { profession = "Blacksmithing" } },
@@ -73,7 +73,7 @@ P:NPC {
         { text = "What makes a blade last in this jungle?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Does polished plate really draw Bloodsail fire?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Can you put a better edge on my daggers?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Have you ever forged beside a shaman's fire?", next = "xsham", when = { class = "SHAMAN" } },
+        { text = "You must have forged beside a shaman's fire once or twice.", next = "xsham", when = { class = "SHAMAN" } },
         { text = "Do Nesingwary's hunters bring you their rifles?", next = "xhunt", when = { class = "HUNTER" } },
         { text = "I'll leave you to your forge.", next = "END" },
       },
@@ -119,7 +119,7 @@ P:NPC {
       lines = { { id = "ru_default", text = "The salt, chum, the salt in the air, which eats iron faster than a Bruiser eats a free lunch. Leave a blade on a table overnight in this cove and it's got freckles by breakfast and a beard by the end of the week." } },
       choices = {
         { text = "How do you fight it?", next = "rust_fight" },
-        { text = "Doesn't that hurt your business?", next = "rust_biz" },
+        { text = "That must hurt your business.", next = "rust_biz" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +165,7 @@ P:NPC {
       choices = {
         { text = "What about Jansen Underwood?", next = "jansen" },
         { text = "Tell me about the Plate-n-Chain.", next = "plate" },
-        { text = "And Zarena Cromwind?", next = "zarena" },
+        { text = "You haven't mentioned Zarena Cromwind.", next = "zarena" },
         { text = "Does the Baron ever come down to the forge?", next = "baron" },
         { text = "Enough about the neighbors.", next = "hello" },
       },
@@ -233,7 +233,7 @@ P:NPC {
     project_hull = {
       lines = { { id = "pjh_default", text = "Too much anchor and not enough rope, pal, and a deckhand who wanted to show off by tossing it over himself. The ship settled in the shallows, the captain sued, and the Baron ruled that the anchor had worked perfectly, which is the finest decision I ever paid a court fee for." } },
       choices = {
-        { text = "A court fee? You paid the Baron to win?", next = "project_fee" },
+        { text = "A court fee. Sounds like you paid the Baron to win.", next = "project_fee" },
         { text = "That's the most goblin story I've heard.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -383,7 +383,7 @@ P:NPC {
         { text = "Tell me about Hurklor.", next = "hurklor" },
         { text = "Why call the shop Plate-n-Chain?", next = "sign" },
         { text = "You sell plate to the Horde, human?", next = "k_horde", when = { faction = "Horde" } },
-        { text = "Do you ever miss the north, Fargon?", next = "k_human", when = { race = "Human" } },
+        { text = "You must miss the north sometimes, Fargon.", next = "k_human", when = { race = "Human" } },
         { text = "Who taught you to set a rivet like that?", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "How should a warrior wear plate in this heat?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Fit my plate as you would a knight's.", next = "xpala", when = { class = "PALADIN" } },
@@ -399,7 +399,7 @@ P:NPC {
       lines = { { id = "pa_default", text = "I was armorer to Colonel Kurzen's column when it marched into this jungle, fitting soldiers who came to fight trolls and stayed to fight each other. When the Colonel stopped making sense, I packed my tools and walked south along the coast until I smelled goblin cooking." } },
       choices = {
         { text = "What became of Kurzen's men?", next = "past_kurzen" },
-        { text = "So you deserted?", next = "past_desert" },
+        { text = "So you deserted.", next = "past_desert" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -431,13 +431,13 @@ P:NPC {
     fit = {
       lines = { { id = "fi_default", text = "Fit, fit and fit again, because armor that doesn't fit is just a heavy way to get killed. In this heat a loose plate rubs a man raw inside a week and a tight one cooks him, so I fit every piece to the body that walks in, and I won't sell off the rack to anyone in a hurry." } },
       choices = {
-        { text = "How do you keep a man from cooking in plate?", next = "fit_heat" },
+        { text = "A man must cook alive in plate down here.", next = "fit_heat" },
         { text = "That sounds slow for a goblin town.", next = "fit_slow" },
         { text = "Something else.", next = "BACK" },
       },
     },
     fit_heat = {
-      lines = { { id = "fh_default", text = "Linen padding, never wool, and soaked in seawater before a march so it cools as it dries, which is a trick I learned from a troll scout in Kurzen's column. He laughed at our wool for a month before he told us, and I've never quite forgiven him for the month." } },
+      lines = { { id = "fh_default", text = "He will, unless he wears linen padding, never wool, soaked in seawater before a march so it cools as it dries, which is a trick I learned from a troll scout in Kurzen's column. He laughed at our wool for a month before he told us, and I've never quite forgiven him for the month." } },
       choices = {
         { text = "Seawater in the padding. I'll try it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -458,7 +458,7 @@ P:NPC {
       lines = { { id = "hu_default", text = "Hurklor holds the plates while I rivet, and holds them steadier than any vise I've ever owned, which is a fine thing in a partner and a rare one. He doesn't say much, but he can hear a bad rivet the way Brikk hears a bad blade, and that's how I knew to keep him." } },
       choices = {
         { text = "How did you two meet?", next = "hurklor_met" },
-        { text = "Does he ever talk?", next = "hurklor_talk" },
+        { text = "He doesn't seem one for talking.", next = "hurklor_talk" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -621,7 +621,7 @@ P:NPC {
       choices = {
         { text = "What can I buy here?", next = "BUSINESS" },
         { text = "What's living in that helm on the bench?", next = "rivet" },
-        { text = "How long have you worked with Fargon?", next = "fargon" },
+        { text = "You seem to have worked with Fargon a long while.", next = "fargon" },
         { text = "You look strong enough to be a Bruiser.", next = "bruisers" },
         { text = "What do you do with all the dents?", next = "dents" },
         { text = "Who would win a fight, you or me?", next = "xwar", when = { class = "WARRIOR" } },
@@ -639,7 +639,7 @@ P:NPC {
       lines = { { id = "ri_default", text = "That is Rivet. He is a hermit crab, and he lives in an old helmet, because he grew too big for his shell and I had a helmet nobody wanted." } },
       choices = {
         { text = "Where did you find him?", next = "rivet_found" },
-        { text = "Doesn't Fargon mind a crab in the shop?", next = "rivet_fargon" },
+        { text = "I'd guess Fargon minds a crab in the shop.", next = "rivet_fargon" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -826,7 +826,7 @@ P:NPC {
         { text = "Why call the shop 'A Tailor to Cities'?", next = "name" },
         { text = "Tell me about the Goodstitch family.", next = "family" },
         { text = "Who are your best customers?", next = "customers" },
-        { text = "What makes a good tailor?", next = "craft" },
+        { text = "A good tailor must need a deal of patience.", next = "craft" },
         { text = "What should I master next with the needle?", next = "xlearn", when = { profession = "Tailoring" } },
         { text = "Is there any cloth that won't burn?", next = "xmage", when = { class = "MAGE" } },
         { text = "What should a priest wear in this heat?", next = "xpriest", when = { class = "PRIEST" } },
@@ -856,7 +856,7 @@ P:NPC {
     name_ambition = {
       lines = { { id = "nma_default", text = "Ambition is the only thread that never runs out, sweetheart, and I've been spinning it since before my teeth came in. My cousins think a tailor should stick to hems, but hems never bought anybody a balcony overlooking the harbor." } },
       choices = {
-        { text = "Do your cousins agree with you on anything?", next = "family" },
+        { text = "Your cousins can't agree with you on much.", next = "family" },
         { text = "I hope you get your balcony.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -871,8 +871,8 @@ P:NPC {
       },
       choices = {
         { text = "What about Xizk?", next = "xizk" },
-        { text = "And Qixdi?", next = "qixdi" },
-        { text = "Isn't Blixrez a Goodstitch too?", next = "blixrez" },
+        { text = "Who sells the family's robes?", next = "qixdi" },
+        { text = "Does anyone in the family work leather?", next = "blixrez" },
         { text = "Enough about the family.", next = "hello" },
       },
     },
@@ -926,7 +926,7 @@ P:NPC {
       lines = { { id = "cu_default", text = "The Baron, first and always, because Revilgaz wears a new coat for every ship that docks and every one of them comes out of my back room. After the Baron come the captains, and after the captains, whoever's got coin and no taste, which is most of the town." } },
       choices = {
         { text = "You dress Baron Revilgaz himself?", next = "baron" },
-        { text = "Do pirates buy from you?", next = "pirates" },
+        { text = "Pirates must buy from you too.", next = "pirates" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1080,12 +1080,12 @@ P:NPC {
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why call it Tan-Your-Hide?", next = "name" },
-        { text = "Why leather, in a family of tailors?", next = "family" },
+        { text = "Leather seems an odd choice in a family of tailors.", next = "family" },
         { text = "Where do your hides come from?", next = "hides" },
         { text = "Isn't Rikqiz selling the same things?", next = "rikqiz" },
         { text = "What's the trick to a good tan in this heat?", next = "xtan", when = { profession = "Leatherworking" } },
         { text = "I hunt for Nesingwary. Want my hides?", next = "xhunt", when = { class = "HUNTER" } },
-        { text = "Doesn't it trouble you, selling the jungle's creatures?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Selling the jungle's creatures must trouble you a little.", next = "xdruid", when = { class = "DRUID" } },
         { text = "What keeps leather quiet?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Relax, Blixrez. I'm not here about kodo.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "I'll leave you to your vats.", next = "END" },
@@ -1132,7 +1132,7 @@ P:NPC {
       lines = { { id = "hi_default", text = "Nesingwary's hunters up the coast, mostly, who shoot the tigers and panthers for sport and then remember they need money for powder. I buy the pelts, I tan the pelts, I sell the leather to you, and everybody's happy except the tigers." } },
       choices = {
         { text = "Are they emptying the jungle?", next = "hides_jungle" },
-        { text = "Who else sells you hides?", next = "hides_other" },
+        { text = "Someone else must sell you hides.", next = "hides_other" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1232,7 +1232,7 @@ P:NPC {
 
   greetings = {
     { id = "g_bench", text = "Oglethorpe Obnoticus, master of gnomish engineering and the only sane engineer in this entire cove. Mind the wires, please, because they're live, and so, thank goodness, am I." },
-    { id = "g_back", when = { metBefore = true }, text = "My friend, back again! Nothing has exploded since your last visit, which I'm told is a record for this boardwalk." },
+    { id = "g_back", when = { metBefore = true }, text = "My friend, back again! Nothing has exploded since your last visit, which by my count is eleven days and a record for this boardwalk." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've built and lost three prototypes in the meantime. Come and admire the pieces." },
     { id = "g_horde", when = { faction = "Horde" }, text = "The Horde! Splendid, because unlike certain councils I could name, I don't care who you are as long as you can hold a wrench the right way up." },
   },
@@ -1262,14 +1262,14 @@ P:NPC {
           text = "Welcome, welcome! I teach gnomish engineering to anyone with steady hands and good sense, and I find the Horde has as many of both as Ironforge, which I'll thank you not to repeat in Ironforge." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, please, I've a capacitor warming up and it doesn't like to wait." },
+        { id = "h_again", text = "What else? Quickly, please, I've a capacitor warming up at sixty percent charge and it doesn't like to wait." },
         { id = "h_again2", text = "Go on, my friend. Ask me about anything but the council." },
         { id = "h_again3", text = "Another question! Excellent, questions are the lubricant of genius." },
       },
       choices = {
         { text = "Teach me gnomish engineering.", next = "BUSINESS" },
         { text = "Why is a gnome engineer in Booty Bay?", next = "exile" },
-        { text = "What are these homing robots of yours?", next = "oox" },
+        { text = "These homing robots of yours look like a fine piece of work.", next = "oox" },
         { text = "How do you like working among goblins?", next = "goblins" },
         { text = "What are you building now?", next = "project" },
         { text = "Overspark says you set the Pummeler loose.", next = "k_gnome", when = { race = "Gnome" } },
@@ -1287,7 +1287,7 @@ P:NPC {
       lines = { { id = "ex_default", text = "Exiled, my friend, banished from Tinker Town by Tinkmaster Overspark and the council over an incident that was not, I repeat not, my fault. Somebody let the Crowd Pummeler 9-60 out of its cage, and because the cage was mine and the key was mine and the Pummeler was mine, they decided it must have been me." } },
       choices = {
         { text = "Wasn't it your machine, though?", next = "exile_mine" },
-        { text = "Who do you think let it loose?", next = "exile_who" },
+        { text = "Somebody must have let it loose.", next = "exile_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1320,7 +1320,7 @@ P:NPC {
       lines = { { id = "ox_default", text = "The OOX series, my masterpieces! Robots that fly out across the world, survey the land and home back to my workbench on a beacon of my own design, or at least they would, if they didn't keep crashing in the most inconvenient places imaginable." } },
       choices = {
         { text = "Where have they crashed?", next = "oox_where" },
-        { text = "How would anyone find one?", next = "oox_find" },
+        { text = "Finding one of those robots must be no easy thing.", next = "oox_find" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1374,7 +1374,7 @@ P:NPC {
     project = {
       lines = { { id = "pr_default", text = "A transporter, my friend, a device to send a gnome across the world in the blink of an eye, from here to the gates of Gadgetzan. It works perfectly four times in five, and the fifth time it's still very educational." } },
       choices = {
-        { text = "What happens the fifth time?", next = "project_fifth" },
+        { text = "I'd hate to see what happens the fifth time.", next = "project_fifth" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1436,7 +1436,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know gnomish engineering better than anyone alive, whatever Tinker Town says, and I know where three of my robots crashed." } },
+    knows = { { id = "tp_knows", text = "I know gnomish engineering better than anyone who got out of Gnomeregan, whatever Tinker Town says, and I know to within a hundred yards where three of my robots crashed." } },
     background = { { id = "tp_bg", text = "Tinker Town engineer, inventor of the Crowd Pummeler, wrongly banished, now teaching in Booty Bay among the goblins.", next = "exile" } },
     advice = { { id = "tp_ad", text = "Never buy fuel from a goblin with no eyebrows, my friend, because that's a goblin who knows exactly how good it is." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "My Pummeler walks those halls still, and I'd rather not think about who's in there with it." } },

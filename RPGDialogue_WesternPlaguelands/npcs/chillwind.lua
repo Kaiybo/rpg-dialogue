@@ -34,6 +34,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_stormwind = {
+      big = true,
+      lines = {
+        { id = "opsw_default", text = "The court, which these days means Highlord Bolvar's seal and Lady Prestor's advice on nearly every letter. I'm a soldier and I don't trade in gossip, but you've been to Stormwind more recently than I have, so what do you make of the court?" },
+      },
+      choices = {
+        { text = "Bolvar's a good man holding a hard throne.", next = "op_stormwind_r1", fx = { align = { order = 1 }, opinion = { stormwind = "trust", bolvar = "trust" } } },
+        { text = "Something's wrong in that court. I don't trust Lady Prestor.", next = "op_stormwind_r2", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { stormwind = "distrust", prestor = "distrust" } } },
+        { text = "Ironforge would send you men, Commander, if you asked Magni.", next = "op_stormwind_r3", fx = { affinity = 1, opinion = { stormwind = "mixed", magni = "trust" } }, when = { race = "Dwarf" } },
+        { text = "I'll leave the court to you, Commander.", next = "BACK" },
+      },
+    },
+    op_stormwind_r1 = {
+      lines = { { id = "opsw_r1", text = "That's what I tell my soldiers, and most days I believe it. A good man can only send what he has, and I'll make do with it." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_stormwind_r2 = {
+      lines = { { id = "opsw_r2", text = "Careful, now. I've thought much the same reading her letters, but a commander who says so aloud gets posted somewhere even colder than this." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
+    op_stormwind_r3 = {
+      lines = { { id = "opsw_r3", text = "I've asked, and the King sends what he can, which is more than most. Ironforge has its own troubles with the Dark Iron, and I'll not begrudge it." } },
+      choices = { { text = "Something else, Commander.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then I'll tell you what I tell every company: stay together north of the river, don't split to chase a straggler, and burn what you kill, because what you leave lying in the Plaguelands gets up again by morning. The Scourge would sooner take one of you than kill all five, since one of you is a new soldier for them." } },
@@ -85,6 +109,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_fkhate", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "The High Priestess says you'd put every Forsaken back in the ground. Do it on the far side of the field, if you must, and don't start a war I can't afford." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Five of you, and every one looking like they can hold a line, which is more than I can say for half the volunteers Stormwind sends me. The Scourge come at Chillwind in numbers, so I think in numbers too, and you've just made my count a good deal kinder." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've a handful of soldiers to break Andorhal with, {class}, so I'll not be choosy about where my help comes from, and I suspect the earth here could do with someone listening." },
@@ -129,16 +154,16 @@ P:NPC {
         { text = "What do you need?", next = "need" },
         { text = "Why is Stormwind fighting here?", next = "why" },
         { text = "Tell me about Andorhal.", next = "andorhal" },
-        { text = "Who serves here with you?", next = "camp" },
+        { text = "You seem to have a small company here.", next = "camp" },
         { text = "Lord Shadowbreaker sent me to you.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'm a priest. Where do you need me?", next = "priest", when = { class = "PRIEST" } },
         { text = "I was born in Lordaeron, before the plague.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Put me on the line, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I can scout the watchtowers for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Ironforge has a stake in this fight too.", next = "x_dwarf", when = { race = "Dwarf" } },
-        { text = "Will your soldiers fight beside a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt your soldiers will fight beside a warlock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Wouldn't Dalaran send help against Andorhal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Does SI:7 really operate this far north, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I'm surprised SI:7 operates this far north, Commander.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Scourge's farms be burned, or reclaimed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a shaman be of use against Andorhal, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Darkmaster Gandling is dead, Commander. The Scholomance has no master.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
@@ -191,6 +216,7 @@ P:NPC {
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Clear the Way") }, { trait = "brave" } } } },
           fail = { next = "need_shut", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Who decides what Stormwind sends you, Commander?", next = "op_stormwind" },
       },
     },
     why = {
@@ -236,7 +262,7 @@ P:NPC {
         { id = "c_default", text = "High Priestess MacDonnell is my second, and the best I could ask for. Arbington does our alchemy and complains about his wages, Pureheart keeps the Argent Dawn's people in line, and the gryphon master keeps us in touch with the world." },
       },
       choices = {
-        { text = "And the nobleman by the cliff?", next = "camp_barov" },
+        { text = "There's a nobleman camped by the cliff.", next = "camp_barov" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -338,6 +364,14 @@ P:NPC {
     scholomance = { { id = "tp_scholomance", text = "That's the Barovs' old home on Caer Darrow, where the necromancers learn their trade. Arbington knows more about it than any sane man should." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're holding Hearthglen and they don't want our help, which is fine by me. They don't get to shoot at my scouts either, though, and they do." } },
     argent_dawn = { { id = "tp_dawn", text = "They're Pureheart's people, and they'll fight beside anyone at all. I don't care for all the company they keep, but I've never turned down a sword." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge holds Andorhal and every field from here to the Thondroril, and it doesn't need to sleep or eat or be paid. All I have is soldiers who do, and I spend them carefully." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sits in a floating necropolis over the east and sends his liches to Andorhal and Caer Darrow. I've never seen him, and I'd like to keep it that way until I've an army big enough to change my mind." } },
+    arthas = { { id = "tp_arthas", text = "I never met the prince, but I've buried enough of the men he betrayed. Lordaeron's veterans don't speak his name in this camp, and I don't ask them to." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Stormwind sent me north to fight for a kingdom that's already dead, and I've decided that the people still living in it are reason enough. Every farm we take back is a farm someone can go home to." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar holds Stormwind for the boy king, and he's the one who signed my orders north. I'd ask him for more soldiers, but I know what he'd say, and he'd be right." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken hold the Bulwark, and they fight the same Scourge we do. I don't like them and I don't trust them, but I'll grant they bleed for it, or whatever it is they do." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's heart in Lordaeron, and the Crusade throws itself at the gates like a man throwing stones at a mountain. I've no soldiers to spare for that." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen holds the old capital and calls it her kingdom. She hates the Scourge as much as we do, and I'm told that's the only thing we have in common." } },
     _none = { { id = "tp_none", text = "If it isn't a threat to this camp, it isn't on my desk. Try Pureheart, who has more patience than I do." } },
   },
 }
@@ -371,6 +405,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      big = true,
+      lines = {
+        { id = "opfk_default", text = "They dose them from the other side of the field, with brews I'd not touch with tongs. They say they're free of the Lich King, and some of them even pray, so tell me, do you believe them?" },
+      },
+      choices = {
+        { text = "They deserve a chance, if the Light can forgive them.", next = "op_forsaken_r1", fx = { align = { light = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "They're dead, Priestess. They belong in the ground.", next = "op_forsaken_r2", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { forsaken = "hate" } } },
+        { text = "Some of them still hold the Light. I've heard it.", next = "op_forsaken_r3", fx = { trait = { pious = 1 }, opinion = { forsaken = "pity" } }, when = { class = "PALADIN" } },
+        { text = "I'll keep my view to myself, Priestess.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = { { id = "opfk_r1", text = "If, you say, and you say it gently. I'll pray on that, though I warn you my prayers tend to come out with a sword in them." } },
+      choices = { { text = "Something else, Priestess.", next = "BACK" } },
+    },
+    op_forsaken_r2 = {
+      lines = { { id = "opfk_r2", text = "That's my instinct too, and I'm not proud of how quickly it comes. Still, they burn cauldrons, so I'll leave them be until the cauldrons are gone." } },
+      choices = { { text = "Something else, Priestess.", next = "BACK" } },
+    },
+    op_forsaken_r3 = {
+      lines = { { id = "opfk_r3", text = "So I've heard as well, and it troubles me more than any ghoul. If the Light answers the dead, then I have a great many sermons to unwrite." } },
+      choices = { { text = "Something else, Priestess.", next = "BACK" } },
+    },
     xpt_pala = {
       big = true,
       lines = { { id = "xpt_pala_default", text = "The Silver Hand was broken when Uther fell, and what's left of it is scattered among the Argent Dawn and the Crusade and a few stubborn souls who keep the old oaths alone. I pray every night that someone gathers them again before the Crusade finishes twisting what's left." } },
@@ -436,6 +494,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_swdistrust", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Commander says you've doubts about Lady Prestor. Pray on them, by all means, but keep them out of his letters home." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" }, faction = "Alliance" },
           text = "You've brought {companion} to Chillwind, and I'd know a paladin's bearing anywhere, for I've buried enough of them. It does me good to see the Light still carried in armour after everything Lordaeron has seen." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and an Ironforge dwarf! The Light burns the Scourge out of the land, {class}, and I'm told your elements burn it too, so I'll not quibble over which fire does the work." },
@@ -474,13 +533,13 @@ P:NPC {
       choices = {
         { text = "What happens when you dose a cauldron?", next = "dose" },
         { text = "Where are the cauldrons?", next = "cauldrons" },
-        { text = "What's the commander like to serve under?", next = "commander" },
+        { text = "The commander seems a hard man to serve under.", next = "commander" },
         { text = "Teach me how the Light burns.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Poisoning the poisoners? That's my kind of work.", next = "x_warlock", when = { class = "WARLOCK" } },
-        { text = "Fire would spread the plague. Isn't that a risk?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Fire would spread the plague. That's a risk.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Light judge what's done in shadow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What guards the cauldrons, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Is any of the wildlife here still clean?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I doubt any of the wildlife here is still clean.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can the cauldrons' plague be cleansed from the soil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does a shaman's fire offend the Light, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Stratholme, High Priestess.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Alliance" } },
@@ -513,7 +572,7 @@ P:NPC {
       choices = {
         { text = "Poison against poison.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "It's a tidy answer, and it keeps the farmers alive.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Is that the Light's way?", next = "light" },
+        { text = "That hardly seems the Light's way.", next = "light" },
       },
     },
     light = {
@@ -532,6 +591,7 @@ P:NPC {
       },
       choices = {
         { text = "Which is the worst?", next = "worst" },
+        { text = "Do the Forsaken work the cauldrons too?", next = "op_forsaken" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -555,7 +615,7 @@ P:NPC {
         { id = "pr_default", text = "You ask it the way you'd ask for healing, but you hold the dead in your mind instead of the wounded. The Light knows the difference, and it answers hard when it finds something that oughtn't to be walking." },
       },
       choices = {
-        { text = "I'll try it at Felstone Field.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll try it at the first cauldron.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = -1 } } },
         { text = "Does the burning ever frighten you, Priestess?", tag = "Persuade", next = "priest_fear",
           check = { pass = { any = { { disposition = { min = 60 } }, { trait = "pious" }, { questDone = TODO_QUEST("Target: Felstone Field") } } } },
@@ -599,6 +659,13 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep a clean cloth over your mouth near the cauldrons, and say a prayer before you open any jar I give you." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "They're Kel'Thuzad's work, or his servants', eight pots across Lordaeron keeping the land sick. We can't break them, but we can spoil the recipe." } },
     andorhal = { { id = "tp_andorhal", text = "Andorhal's dead were people once, and I keep that in my prayers. I keep the rest of me for burning them." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light burns in me, and I mean it to burn the Scourge to ash, every last cauldron and corpse of it. That's my faith, and I've never once doubted it." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You feel it too, don't you, the fire in your hands when you face the dead? Hold on to that, because the Scourge has no answer to it." },
+    },
+    scourge = { { id = "tp_scourge", text = "The Scourge breathes its plague over our farms through those wretched cauldrons, and every one of them is a personal insult. I'll see them all turned to our purpose before the year's out." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is the father of the plague, and I pray every night that the Light lets me see him burn. I'm not a patient woman, but I'll wait for that." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme fell to the plague before any other city of note, and the Scourge still holds it. I'd march there tomorrow if Valorfist would let me." } },
     _none = { { id = "tp_none", text = "Unless it's in a jar, I'm afraid I don't know it. Try the commander." } },
   },
 }
@@ -728,18 +795,18 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the Scholomance.", next = "scholo" },
-        { text = "What's this key you're making?", next = "key" },
-        { text = "Is the pay really that bad?", next = "pay" },
-        { text = "Could the Light help with your work?", next = "priest", when = { class = "PRIEST" } },
-        { text = "How does the focuser work?", next = "alch", when = { profession = "Alchemy" } },
-        { text = "Did you study in Dalaran, Arbington?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "What else are you working on?", next = "key" },
+        { text = "The pay must be poor out here.", next = "pay" },
+        { text = "The Light could help with your work.", next = "priest", when = { class = "PRIEST" } },
+        { text = "How do you collect what you need from the dead?", next = "alch", when = { profession = "Alchemy" } },
+        { text = "You must have studied in Dalaran, Arbington.", next = "x_mage", when = { class = "MAGE" } },
         { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Need anything fetched quietly from the Scholomance?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the elements upset your work, Arbington?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Scholomance is finished, Arbington. Gandling is dead.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
         { text = "What have you read about the Scholomance that frightens you?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do warriors break much of your glassware, Arbington?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd guess warriors break a lot of your glassware, Arbington.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why wouldn't the beasts go near Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your brews harm the land as well as the Scourge?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
@@ -767,7 +834,7 @@ P:NPC {
         { id = "s_default", text = "It was the Barovs' keep on Caer Darrow, and they gave it to Kel'Thuzad, who made it a school for necromancers. Its door doesn't open for the likes of us, hence the key, and hence my nightmares.", fx = { learn = { "scholomance" } } },
       },
       choices = {
-        { text = "How do you know so much?", next = "know" },
+        { text = "You know a great deal about it.", next = "know" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -782,7 +849,7 @@ P:NPC {
     },
     key = {
       lines = {
-        { id = "ke_default", text = "It's a skeleton key in the most literal sense, I'm sorry to say. Bone fragments for the body, a mold to shape it, a fire hot enough to set it, and Araj's scarab for the head, and every one of those is somebody else's errand, which is to say yours." },
+        { id = "ke_default", text = "A key to the Scholomance, and a skeleton key in the most literal sense, I'm sorry to say. Bone fragments for the body, a mold to shape it, a fire hot enough to set it, and Araj's scarab for the head, and every one of those is somebody else's errand, which is to say yours." },
       },
       choices = {
         { text = "Why a mold from Gadgetzan?", next = "key_krinkle" },
@@ -839,6 +906,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, since it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
     scholomance = { { id = "tp_scholomance", text = "Don't go in without a key and don't go in without friends, and if you can possibly manage it, don't go in at all." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Bring me what the creatures carry, with the focuser on you, or it's just bones. Osseous, somatic and ectoplasmic sound terribly grand, but I promise you they aren't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's necromancers learn their craft at Scholomance, and I've spent years studying how they do it. I wash my hands after every chapter and still don't feel clean." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned and taught the Barovs to bargain away their own island. Every horror in Scholomance traces back to him, and I'd rather not say his name too often." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran had the finest libraries in the world, and some of what they kept would have helped us here. They're rebuilding behind closed gates, and they don't answer my letters." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is a dead city full of Scourge and Crusaders, and both would kill me on sight. I'll study it from a very great distance, thank you." } },
     _none = { { id = "tp_none", text = "That's out of my field, I'm afraid, as most things are out here. My field is very small and rather full of bones." } },
   },
 }
@@ -870,6 +941,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_barov = {
+      big = true,
+      lines = {
+        { id = "opbv_default", text = "Deserve them? I'm the only Barov left with a pulse, which ought to settle it. But you seem the judging sort, so go on and tell me: does House Barov deserve its lands back, after everything?" },
+      },
+      choices = {
+        { text = "Your parents sold Lordaeron to Kel'Thuzad. You forfeited everything.", next = "op_barov_r1", fx = { affinity = -2, align = { honor = 1 }, opinion = { barov = "forfeit" } } },
+        { text = "A deed's a deed. If the paper's good, the land's yours.", next = "op_barov_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { greedy = 1 }, opinion = { barov = "deserve" } } },
+        { text = "Stormwind should decide who holds Lordaeron's lands now.", next = "op_barov_r3", fx = { trait = { practical = 1 }, opinion = { barov = "crown" } }, when = { race = "Human" } },
+        { text = "I'll not judge your family, Weldon.", next = "BACK" },
+      },
+    },
+    op_barov_r1 = {
+      lines = { { id = "opbv_r1", text = "Forfeited! My parents did the selling, not me, and I'll thank you not to say that word anywhere near the Commander." } },
+      choices = { { text = "Something else, Barov.", next = "BACK" } },
+    },
+    op_barov_r2 = {
+      lines = { { id = "opbv_r2", text = "Exactly! A sensible person at last. Bring me my brother's half of the paper, and you'll see how grateful a Barov can be." } },
+      choices = { { text = "Something else, Barov.", next = "BACK" } },
+    },
+    op_barov_r3 = {
+      lines = { { id = "opbv_r3", text = "Stormwind can barely decide who holds Westfall. I'd rather trust a good lawyer and a better deed, thank you." } },
+      choices = { { text = "Something else, Barov.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Anyone with land in Lordaeron and the deeds to prove it, which these days means me, my brother Alexi, and a few desperate barons hiding in Southshore. Caer Darrow was ours before Kel'Thuzad's lot took it, and the family that clears it will keep it." } },
@@ -990,21 +1085,21 @@ P:NPC {
       choices = {
         { text = "What happened at Caer Darrow?", next = "darrow" },
         { text = "Your brother has a claim too.", next = "claim" },
-        { text = "What's in these deeds?", next = "deeds" },
+        { text = "What exactly are you heir to?", next = "deeds" },
         { text = "My family lost everything in Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
-        { text = "Was it worth it, now he's gone?", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
+        { text = "I doubt it was worth it, now he's gone.", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
         { text = "Your brother might hire someone like me, you know.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "If I were Alexi's, you'd already be dead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Did the Barovs know Kel'Thuzad well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "The Barovs must have known Kel'Thuzad well.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you have me speak to your brother's spirit, Weldon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through Caer Darrow, Weldon. Your family's house is quiet.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "Who would hire a company like ours out here?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What did your family's bargain cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would you really hire a sword against Alexi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Your family's hounds still roam Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What did your family's fall cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You'd hire a sword against your own brother.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I hear your family's hounds still roam Caer Darrow.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should Caer Darrow's lands be left to heal on their own?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
@@ -1051,7 +1146,7 @@ P:NPC {
         { id = "c_default", text = "A claim? He's a corpse, and corpses don't inherit, they get buried. I'd have done him the courtesy myself, if I'd had a shovel and a little more spine." },
       },
       choices = {
-        { text = "You spared him once, though.", next = "claim_spared" },
+        { text = "You had your chance once, then?", next = "claim_spared" },
         { text = "Whose name is on those deeds, Weldon? Don't lie to me.", tag = "Intimidate", next = "claim_truth",
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { class = { "WARRIOR", "PALADIN" } } } } },
           fail = { next = "claim_guards", fx = { affinity = -1 } } },
@@ -1073,6 +1168,7 @@ P:NPC {
       },
       choices = {
         { text = "Southshore's people may disagree.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Do you think you deserve those lands, Weldon?", next = "op_barov" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1132,6 +1228,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, and the only one of us still breathing. Whatever else you've heard was put about by my brother.", next = "darrow" } },
     advice = { { id = "tp_ad", text = "Never sign anything a necromancer hands you, however good the terms look. It's the only family wisdom I have left." } },
     scholomance = { { id = "tp_scholomance", text = "It was my home, and a beautiful one once. Now they teach the dead to walk in my mother's ballroom." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "My father made a bargain with Kel'Thuzad, and I escaped the massacre that followed. I've slept with a sword under my blanket ever since." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The Barovs were a great house of Lordaeron, with lands that stretched further than you can see from here. Those lands are mine now, by right, whatever my brother says." } },
+    forsaken = { { id = "tp_forsaken", text = "My brother serves the Forsaken now, and he'd see me dead to claim the inheritance. The Forsaken are welcome to him." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Caer Darrow and everything my family built. I'll have it back, one way or another, and the Scourge can find somewhere else to live." } },
     _none = { { id = "tp_none", text = "Does it concern my inheritance? If not, it doesn't concern me." } },
   },
 }
@@ -1162,6 +1262,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_silver_hand = {
+      big = true,
+      lines = {
+        { id = "opsh_default", text = "I ask myself that most mornings. The Crusade wears the order's tabards and the Dawn tries to keep its vows, and the name belongs to neither of us now. You've heard the stories, so what do you think: can the Silver Hand rise again?" },
+      },
+      choices = {
+        { text = "Yes, if men like you keep its vows.", next = "op_silver_hand_r1", fx = { align = { order = 1 }, opinion = { silver_hand = "hope" } } },
+        { text = "It died with Uther. Let the name go.", next = "op_silver_hand_r2", fx = { align = { order = -1 }, opinion = { silver_hand = "dead" } } },
+        { text = "I carry its teachings, whatever the order calls itself.", next = "op_silver_hand_r3", fx = { affinity = 1, trait = { pious = 1 }, opinion = { silver_hand = "faith" } }, when = { class = "PALADIN" } },
+        { text = "I'll leave that to paladins, officer.", next = "BACK" },
+      },
+    },
+    op_silver_hand_r1 = {
+      lines = { { id = "opsh_r1", text = "That's kind of you, and heavier than you'd think. I'll try to be worth it, though some days the vows are all I have left of it." } },
+      choices = { { text = "Something else, officer.", next = "BACK" } },
+    },
+    op_silver_hand_r2 = {
+      lines = { { id = "opsh_r2", text = "Maybe it did, and maybe that's why the Crusade fights so hard over its corpse. The work goes on whatever we call it." } },
+      choices = { { text = "Something else, officer.", next = "BACK" } },
+    },
+    op_silver_hand_r3 = {
+      lines = { { id = "opsh_r3", text = "Then the Silver Hand isn't dead while you're standing, and I'm glad to hear it said. Uther taught that the order was its people, not its banner." } },
+      choices = { { text = "Something else, officer.", next = "BACK" } },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Rarer than it should be, because half the bold young things who come north think a sharp blade is all they need, and the plague teaches them otherwise within a day or two. The Dawn will take any soul willing to fight the Scourge, but I'll always think a little better of the ones who plan on coming back." } },
@@ -1249,19 +1373,19 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like, friend; the Dawn's work keeps till you're done." },
       },
       choices = {
-        { text = "Why did you leave the Silver Hand?", next = "left" },
+        { text = "Where did the Argent Dawn come from?", next = "left" },
         { text = "What does the Dawn ask of me?", next = "commission" },
-        { text = "Who is Gregor, in Everlook?", next = "gregor" },
+        { text = "Does the Dawn keep people beyond the Plaguelands?", next = "gregor" },
         { text = "I serve the Light too. Where do priests stand?", next = "priest", when = { class = "PRIEST" } },
         { text = "I was raised in the Silver Hand's teachings.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Your soldiers don't look pleased to see me.", next = "horde", when = { faction = "Horde" } },
         { text = "Is there room in the Dawn for the spirits too?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "Does that hold even for fel magic?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Do mages of both sides really work together here?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I'm surprised mages of both sides work together here.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Dawn ever need something done quietly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why must a soldier's weapon stay by the door?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do Horde and Alliance hunters really work together here?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Is there life left under the Plaguelands' rot?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I doubt Horde and Alliance hunters really work together here.", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "There must be life left under the Plaguelands' rot.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I fought my way through Stratholme, Officer.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "Our healer keeps the plague off us. Is that rare out here?", next = "xpt_priest", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
@@ -1303,6 +1427,7 @@ P:NPC {
         { text = "You chose rightly.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hate or not, the Crusade gets results against the dead.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
         { text = "The Crusade still fights the Scourge.", next = "crusade" },
+        { text = "Can the Silver Hand ever be what it was?", next = "op_silver_hand" },
       },
     },
     crusade = {
@@ -1376,6 +1501,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Fight beside whoever's fighting the dead, and argue about the rest when the dead are gone." } },
     argent_dawn = { { id = "tp_dawn", text = "Lord Tyrosus leads us from Light's Hope, but out here it's me, a few defenders and whoever answers the call, and more answer every month." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They were my brothers and sisters, and I miss who they were, but I'm afraid of who they've become." } },
+    silver_hand = { { id = "tp_silver_hand", text = "I was a paladin of the Silver Hand, and when the order turned Scarlet, I left it with Tyrosus. I still wear the Light, but I don't wear their colors." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light doesn't belong to the Crusade, whatever they say, and it doesn't care which kingdom you serve. It cares whether you'll stand against the dark." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the enemy of every living thing, and some of the dead besides. That's why the Dawn has no politics, because the Scourge has none either." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are dead, and some of them are cruel, and some of them fight the Scourge harder than any knight I've known. I judge them by what they do, which is all any of us can ask." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad rules the Scourge in the east, and the Dawn keeps watch on his necropolis from Light's Hope. Someday we'll bring it down, and I'd like to be there." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend. If it has to do with the Scourge, ask me again, and for anything else, try the commander." } },
   },
 }
@@ -1493,19 +1623,19 @@ P:NPC {
         { id = "h_again2", text = "Still here? Good, it's nice to have someone to talk to who isn't a soldier." },
       },
       choices = {
-        { text = "What happened to your family?", next = "family" },
+        { text = "Your family must have suffered in the plague.", next = "family" },
         { text = "Why termites?", next = "termites" },
         { text = "Tell me about the mill.", next = "mill" },
         { text = "I fled Lordaeron too, when I was young.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Termites in a mill? Nature can be cruel.", next = "x_druid", when = { class = "DRUID" } },
         { text = "Would the mill still run, if you got it back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What's the Crusade doing in your father's mill?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Crusade must be using your father's mill for something.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the Crusade really burn your father's mill, Nathaniel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What did your father say about the Northridge trees, Nathaniel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
         { text = "Would you want the mill blessed after the Crusade leaves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Crusaders in Northridge still knights, or only squatters?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "How many Crusaders hold the Northridge mill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "There must be a good many Crusaders at the Northridge mill.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What became of the Northridge trappers?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
       },
     },
@@ -1547,7 +1677,7 @@ P:NPC {
         { id = "te_default", text = "Because I'm one man with a jar and they're a whole garrison with swords. A mill is wood from top to bottom, and the Plaguewood termites will eat through it faster than any carpenter could mend it." },
       },
       choices = {
-        { text = "You'd ruin your own mill?", next = "termites_ruin" },
+        { text = "You'd ruin your own mill, then.", next = "termites_ruin" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1595,6 +1725,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a miller's son from Northridge who grew up in Stormwind, and now I've come home to a place that doesn't want me back.", next = "family" } },
     advice = { { id = "tp_ad", text = "Don't drink from the rivers up here, however clear they look. The plague's in the water as much as the soil." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They fight the Scourge, and I'll grant them that, but they also took a family's home and called it holy work." } },
+    lordaeron = { { id = "tp_lordaeron", text = "My father ran the Northridge Lumber Mill, and I grew up with sawdust in my hair and the whole of Lordaeron's forests outside the door. We fled south when the plague came, and I've come back to see what's left." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took most of my friends and half my family, and I still can't quite believe it. I came back because somebody has to remember them." } },
+    stratholme = { { id = "tp_stratholme", text = "My mother had cousins in Stratholme, and I've never learned what happened to them. I suppose I already know." } },
+    forsaken = { { id = "tp_forsaken", text = "Some of the Forsaken might have been people I knew, once. I try not to think about it, and I don't always manage." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, I'm afraid. I know timber, and I know grief, so pick one of those." } },
   },
 }
@@ -1710,19 +1844,19 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
-      again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
+      again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time; I've measured their patience at about eleven minutes, give or take a feather." } },
       choices = {
         { text = "Where's safest to fly?", next = "routes" },
-        { text = "How do the gryphons cope up here?", next = "gryphons" },
+        { text = "The gryphons can't like it up here.", next = "gryphons" },
         { text = "Let's fly.", next = "BUSINESS" },
         { text = "Do your gryphons know Wildhammer riders?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Teleport can't bring me to the Plaguelands, though.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could I hitch a ride without signing your ledger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do gryphons feel the Light, do you think?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it safe to fly over Uther's tomb, Bibilfaz?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do your gryphons mind carrying heavy armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Your gryphons must mind carrying heavy armour.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons get along with hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do the gryphons hate flying over the Plaguelands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The gryphons must hate flying over the Plaguelands.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How do you persuade a gryphon to carry a warlock, Bibilfaz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do your gryphons think of the plague winds, Bibilfaz?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
@@ -1777,6 +1911,10 @@ P:NPC {
 
   topics = {
     advice = { { id = "tp_ad", text = "Never feed a gryphon from your hand unless you're fond of only having nine fingers!" } },
-    _none = { { id = "tp_none", text = "No idea at all, I'm afraid! But I can fly you to someone who might know." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost to the troggs and the radiation, and I haven't seen home in a long while. I talk to my gryphons about Tinker Town pastries, and they listen very politely." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I saw the Darkmoon Faire once, all lights and music and gnomes being fired out of cannons on purpose. I mean to go again when this war gives me a day off, which may be some time." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the gloomiest thing I've ever seen, and I've seen a gnome's face when his invention blows up. I keep cheerful because somebody has to." } },
+    magni = { { id = "tp_magni", text = "King Magni keeps a fine hall and a finer table, and he's never once made a gnome feel small, which is hard when you're my height. I'd raise a pint to him if I had one." } },
+    _none = { { id = "tp_none", text = "No idea at all, I'm afraid! But I can fly you to someone who might know, at a very respectable forty miles an hour with a tailwind." } },
   },
 }

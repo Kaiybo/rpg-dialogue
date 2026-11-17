@@ -54,9 +54,9 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Trollplow.", next = "trollplow" },
-        { text = "You and Bellowfiz argue a lot.", next = "fizzer" },
+        { text = "Do you get on with Pilot Bellowfiz?", next = "fizzer" },
         { text = "What's the Siege Brigade doing out here?", next = "brigade" },
-        { text = "This incendicite. Is it safe?", next = "incendicite", when = { questDone = TODO_QUEST("Stonegear's Search") } },
+        { text = "This incendicite doesn't look entirely safe.", next = "incendicite", when = { questDone = TODO_QUEST("Stonegear's Search") } },
         { text = "I know my way around a mine.", next = "miner", when = { profession = "Mining" } },
         { text = "Got any work for me?", next = "BUSINESS" },
         { text = "Mind the treads, Stone.", next = "END" },
@@ -67,7 +67,7 @@ P:NPC {
       },
       choices = {
         { text = "Why call her Trollplow?", next = "trollplow_name" },
-        { text = "Cannon over armour, then?", next = "trollplow_armour" },
+        { text = "So you'd take cannon over armour.", next = "trollplow_armour" },
       },
     },
     trollplow_name = {
@@ -97,7 +97,7 @@ P:NPC {
       lines = { { id = "f_default", text = "Bellowfiz? He thinks a good steam engine is the finest sound in the world, an' I say it's a Crater Cannon goin' off. We've had the same argument fer years, an' neither o' us has won it yet." },
       },
       choices = {
-        { text = "But you're friends?", next = "fizzer_friends" },
+        { text = "You two sound like friends, all the same.", next = "fizzer_friends" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,6 +137,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Siege Brigade, since I was old enough tae lift a shell. Trollplow's my third engine an' my favourite." } },
     advice = { { id = "tp_ad", text = "Nerves o' steel an' an iron grip. If ye've got one, work on the other." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The Trollplow was built from parts we salvaged from Gnomeregan, an' I'd love tae drive her back intae the city an' see what the troggs make o' her. She's got a big enough cannon fer it." } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane hear the Trollplow comin' an' scatter, which is half the fun. The other half's when they dinnae scatter fast enough." } },
+    second_war = { { id = "tp_second_war", text = "My grandfather drove a steam tank in the Second War an' told me about it every night. The Trollplow's no' as big, but she's got more heart." } },
     _none = { { id = "tp_none", text = "No idea. Ask me about cannons an' I'll talk till the sun goes down." } },
   },
 }

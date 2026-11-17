@@ -52,3 +52,6 @@ Remulos on a priest's Light ("the beast never asks whose prayer saved it"); the 
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Remulos (Persuade, zaetar_regret): he warned Zaetar that Theradras would ruin him and was right, but spoke as the son Cenarius favored, and thinks that is all Zaetar heard.
+
+## Prejudices (0.80.0, authored, not canon)
+- Loganaar is uneasy around the Forsaken (`prejudice` Scourge 12): a druid of balance, he feels nothing return to the earth from them, and admits he sees the plague-makers' work instead of the face.

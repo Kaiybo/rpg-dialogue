@@ -141,16 +141,16 @@ P:NPC {
       },
       choices = {
         { text = "Does anyone in Everlook respect the spirits of this land?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do the goblins care about Winterspring's woods?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "The goblins don't seem to care much for Winterspring's woods.", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's wrong with Umi's inventions?", next = "umi" },
-        { text = "What's there to do in Everlook?", next = "town" },
+        { text = "There can't be much to do in Everlook.", next = "town" },
         { text = "Scared of yetis, are you?", next = "yetis", when = { questActive = TODO_QUEST("Are We There, Yeti?") } },
         { text = "Are you hiding from a mechanical yeti?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you want to melt a yeti?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you really think Umi's yeti is dangerous?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Everlook have any room for faith, Legacki?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you really hide behind me, Legacki?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do you think Umi's yeti walks about at night?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Those tracks outside could be Umi's yeti walking about at night.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think my demon is scarier than Umi's yeti?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -186,6 +186,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came north for the Cartel's trade, darling, and stayed because nobody up here ever banged on anything. Then Umi arrived with a hammer and a mechanical yeti, and the rent went up besides." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a goblin who's whistling, darling. That's free, and it's the best bargain you'll get up here." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's a lovely little town, cold as a banker's heart and twice as profitable. I've got no complaints, except for Umi and whatever she's building this week." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the place to be if you want to get rich or get stabbed, and usually both. I prefer the snow." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's gone, and every gnome in the world wants to tell you about it. I'd rather they told me something useful, like where they hid the treasure." } },
     _none = { { id = "tp_none", text = "No idea, sugar, and if Umi told you about it, don't believe a word, and don't pay for any of it either." } },
   },
 }
@@ -266,7 +269,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Tinkee wants them for her work in the Burning Steppes, and I don't ask what for, because the answer would only make me nervous. They have to be uncracked, mind, which means someone has to take them off live chimaeras very carefully." } },
+      lines = { { id = "xmage_default", text = "Chillwind horns, which Tinkee wants for her work in the Burning Steppes, and I don't ask what for, because the answer would only make me nervous. They have to be uncracked, mind, which means someone has to take them off live chimaeras very carefully." } },
       choices = {
         { text = "Better not to ask, when the coin is good.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You ought to know what your work is used for.", next = "BACK", fx = { align = { order = 1 } } },
@@ -311,6 +314,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_mekkatorque_blame", tags = { "news" }, when = { opinion = { topic = "mekkatorque", stance = "blame" } },
+          text = "I hear you've been saying the High Tinker poisoned his own city. Mekkatorque made a hard choice to save who he could, and I'll hear no different in my workshop." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, is it? Gloves on, please, and keep whatever you've summoned well back, because a chillwind horn cracks if you so much as breathe on it wrong, let alone burn it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -325,7 +330,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Gloves, rogue, gloves. If you're going to handle anything on my bench, you'll wear gloves, and you'll not pocket a single spring, because I count them." },
         { id = "h_default", key = true,
-          text = "Felnok Steelspring, and I build things for people who can't build them for themselves. Right now that's Tinkee Steamboil, down in the Burning Steppes, and she wants her order finished yesterday." },
+          text = "Felnok Steelspring, and I build things for people who can't build them for themselves, to tolerances you could measure a gnat's whisker by. Right now that's Tinkee Steamboil, down in the Burning Steppes, and she wants her order finished yesterday, which is a schedule I've never once managed." },
         { id = "h_from_tinkee", tags = { "news" }, when = { questActive = TODO_QUEST("Felnok Steelspring") },
           text = "Tinkee sent you? Then she's sent me something she needs freezing, and I'm nearly ready for it. Nearly, mind you, because I'm missing one thing." },
         { id = "h_horns_before", when = { questDone = TODO_QUEST("Felnok Steelspring"), questBefore = TODO_QUEST("Chillwind Horns") },
@@ -340,21 +345,21 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, all the way up here in the snow? I build machines for a living, so I expect you'll disapprove of me, but I'll answer anything you like while I work." },
       },
       again = {
-        { id = "h_again", text = "What else? I've a coil to wind and it won't wind itself." },
+        { id = "h_again", text = "What else? I've a coil to wind to exactly forty-two and a half turns, and it won't wind itself." },
         { id = "h_again2", text = "Ask, but mind the bench." },
         { id = "h_again3", text = "Go on. I'll listen while I count these springs again." },
       },
       choices = {
-        { text = "Why do the chillwind horns hold the cold so well?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why does that horn hold the cold so well?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Tinkee need all this for?", next = "tinkee" },
-        { text = "Why do the horns matter so much?", next = "horns" },
+        { text = "What goes into Tinkee's order?", next = "horns" },
         { text = "Why work out here in the cold?", next = "cold" },
-        { text = "How do you build something that stays cold?", next = "eng", when = { profession = "Engineering" } },
-        { text = "What are the chillwind horns for, anyway?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Building something that stays cold must be tricky.", next = "eng", when = { profession = "Engineering" } },
+        { text = "What are you working on, Felnok?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone actually stolen from you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a tinker make of a priest's work, Felnok?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Have you any use for a warrior, Felnok?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A warrior could be of some use to you, Felnok.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why would a hunter bring you better horns, Felnok?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you take what you need from the land, Felnok?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What's your theory about blessings and frost, Felnok?", next = "xapala", when = { class = "PALADIN" } },
@@ -378,7 +383,7 @@ P:NPC {
       },
     },
     horns = {
-      lines = { { id = "hr_default", text = "A chillwind horn holds the cold the way a bottle holds water, and I use them to line the cases. Crack one and the cold leaks out, and then whatever's inside spoils." } },
+      lines = { { id = "hr_default", text = "Chillwind horns, mostly, because a chillwind horn holds the cold the way a bottle holds water, and I use them to line the cases. Crack one and the cold leaks out, and then whatever's inside spoils." } },
       choices = {
         { text = "Where do the chillwinds live?", next = "horns_where" },
         { text = "Something else.", next = "BACK" },
@@ -401,7 +406,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I make parts, I make them right and I make them on time. That's all there is to tell, and it's more than most can say." } },
     advice = { { id = "tp_ad", text = "Wear gloves. Always wear gloves, in Winterspring and everywhere else." } },
-    _none = { { id = "tp_none", text = "Not my department, friend. Ask somebody who isn't busy." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My employer works near Blackrock Spire, and that's all I'll say about it. I make the parts, and I don't ask what they're for, because asking isn't part of the price." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's cold enough to keep a horn from cracking, which is the whole reason I'm here. The goblins are pleasant enough, though I wear gloves when I shake their hands." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I lost a good workshop with it. I don't talk about it much, and I'd rather you didn't either." } },
+    _none = { { id = "tp_none", text = "Not my department, friend. Ask somebody who isn't busy recalibrating a frost coil for the third time since breakfast." } },
   },
 }
 
@@ -543,6 +551,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_scarlet_crusade_useful", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "useful" } },
+          text = "Gregor says you'd forgive the Crusade a lot for killing Scourge. I've heard what they do to the villages they cleanse, so forgive me if I can't." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. I've heard what the Cult of the Damned did with the dark arts back home, so forgive me if I stand a little further off, though I'll still ask you whether you've been east." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -578,17 +588,17 @@ P:NPC {
       choices = {
         { text = "How does Winterspring compare to the land you left?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Tell me about your family.", next = "family" },
-        { text = "How did you end up in Everlook?", next = "everlook" },
+        { text = "Everlook seems a long way from home for you.", next = "everlook" },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
         { text = "I found Pamela in Darrowshire.", next = "found", when = { questDone = TODO_QUEST("Sister Pamela") } },
         { text = "My family fled the north too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Have you asked mages about your family?", next = "xmage", when = { class = "MAGE" } },
-        { text = "What would I find in Darrowshire?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Darrowshire must hold something for you.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Tell me what you pray for, Jessica.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you blame the Silver Hand for what happened?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What would you have a priest pray for, Jessica?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Did the defenders of Darrowshire fight well, Jessica?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Do you think a hunter could follow your family's trail?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "A hunter might still pick up your family's trail.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is there any news you'd want me to bring you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you think all warlocks serve the Scourge, Jessica?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do I remind you of Lordaeron, Jessica?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -652,6 +662,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a daughter of Lordaeron once, and now I'm a refugee in the snow. Neither one was my idea." } },
     advice = { { id = "tp_ad", text = "Say what you mean to the people you love before you leave home. I didn't." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I fled Lordaeron before the Scourge came, and I've been waiting for news of my family ever since. I came all the way to Everlook because a trader said he'd heard of them, and he hadn't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Darrowshire, I'm told, and my family with it. I don't know what happened to them, and I'm afraid to know." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a day's ride from home, and we used to go to market there. I can't imagine it as it is now, and I don't want to." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is the farthest I could get from Lordaeron without falling into the sea. It's cold here, but nobody asks about the plague." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Gregor might; he hears more than I do." } },
   },
 }
@@ -681,6 +695,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Most ants who see a soot-black face reach for their axe first and ask my business after. I'll ask you plainly, then: what do you think of the Dark Iron clan?" },
+      },
+      choices = {
+        { text = "Your clan started the War of the Three Hammers. Never forget.", next = "op_r1", fx = { affinity = -1, align = { honor = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "The Brotherhood broke from Ragnaros. That earns respect.", next = "op_r2", fx = { affinity = 2, align = { honor = 1 }, opinion = { dark_iron = "respect" } } },
+        { text = "Your clan's work is the finest in the world.", next = "op_r3", fx = { affinity = 1, trait = { witty = 1 }, opinion = { dark_iron = "admire" } } },
+        { text = "A Bronzebeard trusts no Dark Iron, smith. Not yet.", next = "op_r4", fx = { trait = { cautious = 1 }, opinion = { dark_iron = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "I've no quarrel with you, smith.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "The Sorcerer-Thane is two hundred years dead, and plenty of my clan curse his name as hard as you do. The Brotherhood bends no knee to Ragnaros, and you'd do well to remember it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "It does, and it costs plenty as well. There's not a Brotherhood smith alive who hasn't been spat at in Ironforge." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Flattery, but accurate flattery, which I'll allow. Bring me the hide and I'll show you how accurate." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Not yet is better than never, {g:lad|lass}, and I'll take not yet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_malyfous = {
       big = true,
       lines = { { id = "xpt_malyfous_default", text = "Most of them do, and I can hardly blame them, given what Thaurissan's people have done since the War of the Three Hammers. But the Brotherhood left the Emperor's halls to work for ourselves, and I'll not apologize for the blood of a clan I walked away from." } },
@@ -824,16 +867,16 @@ P:NPC {
       },
       choices = {
         { text = "Does a Dark Iron forge answer to the fire spirits?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What is the Thorium Brotherhood?", next = "brotherhood" },
-        { text = "What could you make from the Beast's hide?", next = "hide" },
-        { text = "Why work in Everlook, so far from home?", next = "everlook" },
+        { text = "I've heard of the Thorium Brotherhood.", next = "brotherhood" },
+        { text = "What's the finest thing you could make?", next = "hide" },
+        { text = "Everlook is a long way from home for a Dark Iron.", next = "everlook" },
         { text = "A Dark Iron, trading with my people?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Teach me something about the forge.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Ragnaros enslaved your people?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the Thorium Brotherhood make a better blade?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Have the Dark Irons ever known the Light, Malyfous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess the Dark Irons have never known the Light, Malyfous.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a Dark Iron smith put faith in anything, Malyfous?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What's wrong with my armour, Malyfous?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You're frowning at my armour, Malyfous.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What hides would the Brotherhood want from a hunter?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you feel the mountain's fire up here, Malyfous?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Is a mage's fire really so different from a forge's, Malyfous?", next = "xmage", when = { class = "MAGE" } },
@@ -845,6 +888,7 @@ P:NPC {
     brotherhood = {
       lines = { { id = "b_default", text = "Smiths of my clan who were slaves to the Firelord in the depths of Blackrock, and who broke their chains and walked out. We trade with anyone who pays, and we bow to no one, least of all fire." } },
       choices = {
+        { text = "What do people make of your clan, out here?", next = "op_ask" },
         { text = "Escaping Ragnaros can't have been easy.", next = "brotherhood_escape" },
         { text = "Something else.", next = "BACK" },
       },
@@ -858,9 +902,9 @@ P:NPC {
       },
     },
     hide = {
-      lines = { { id = "h_line", text = "Armour, and armour of a caliber you have never worn: a breastplate for a fighter, leggings for a spellcaster, and more besides. Every piece needs the Beast's hide, whole and unmarked, and other things harder still to find." } },
+      lines = { { id = "h_line", text = "Armour, and armour of a caliber you have never worn: a breastplate for a fighter, leggings for a spellcaster, and more besides. Every piece needs the hide of the Beast in Blackrock Spire, whole and unmarked, and other things harder still to find." } },
       choices = {
-        { text = "One in a million, you said?", next = "hide_odds" },
+        { text = "How hard is that hide to come by?", next = "hide_odds" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -889,6 +933,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was born under the mountain and I forged for a master of fire. Now I forge for myself, and for whoever pays." } },
     advice = { { id = "tp_ad", text = "Don't bring me anything less than perfect. It saves us both a walk." } },
+    dark_iron = { { id = "tp_dark_iron", text = "My people are slaves to the fire in the mountain, the ones who stayed, and the Brotherhood is what's left of the ones who chose otherwise. Don't call me Dark Iron unless you mean it as a compliment, ant." } },
+    thaurissan = { { id = "tp_thaurissan", text = "Emperor Thaurissan rules the Dark Irons in Blackrock Depths, and he's welcome to it. I'd sooner forge in the snow than kneel to that one." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths is a city of fire and chains under the mountain, and I spent enough of my life there. The Brotherhood's forge is the only thing I miss." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is cold and quiet, and the goblins pay on time, which is more than I can say for most ants. The forge burns hot enough up here, if you feed it right." } },
     _none = { { id = "tp_none", text = "The Brotherhood doesn't waste time on that. Neither will I." } },
   },
 }
@@ -921,6 +969,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "My chieftain Cairne gave the tauren a home in the Horde, and some of our elders still grumble that we traded the old ways for orc friendship. What do you think of Cairne's choice?" },
+      },
+      choices = {
+        { text = "Cairne chose wisely. Thrall helped save your people.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { cairne = "respect" } } },
+        { text = "The tauren were stronger before the orcs came.", next = "op_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { cairne = "doubt" } } },
+        { text = "Any alliance that holds through hard winters is worth keeping.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { horde = "useful" } } },
+        { text = "Cairne is wise. The Earth Mother guided him to Thrall.", next = "op_r4", fx = { affinity = 1, opinion = { cairne = "admire" } }, when = { race = "Tauren" } },
+        { text = "That's for the tauren to say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "He did, and the centaur learned what an orc's axe and a tauren's totem can do together. I would make the same choice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Stronger? We were running from the centaur, stranger, and the orcs ran with us. I will not hear the old days spoken of so kindly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Spoken like someone who has seen a hard winter. This one is long, so I hope the Horde holds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "She did, and she walks with you so far north, which I am glad to see." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I might, if the warlock did not send the demon in to do the killing. A beast of Winterspring deserves to die facing the one who hunts it, and there is no honour in a death dealt by something that never lived at all." } },
@@ -1020,7 +1097,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, in a land of frost. You will feel at home here, I think, though the ice in Winterspring does not answer to any spell I have seen." },
         { id = "h_default", key = true,
-          text = "I am Storm Shadowhoof, and I hunt the great beasts of Winterspring. Every herd and pack in these hills has a leader, and those leaders are the hunts worth telling of." },
+          text = "I am Storm Shadowhoof, and I hunt the great beasts of Winterspring, as my fathers hunted the plains of Mulgore. Every herd and pack in these hills has a leader, and those leaders are the hunts the Earth Mother means to test us with." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You are of the Alliance, and I don't share my hunts with the Alliance lightly. Still, the goblins say this is neutral ground, so speak, and I will listen." },
         { id = "h_ursius", tags = { "news" }, when = { questActive = TODO_QUEST("Ursius of the Shardtooth") },
@@ -1033,18 +1110,19 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The great beasts of Winterspring do not fear prayers, but they respect anyone who stands their ground, and so do I." },
       },
       again = {
-        { id = "h_again", text = "Ask what you will, for the tracks will keep a while." },
+        { id = "h_again", text = "Ask what you will, for the tracks will keep a while, and a tauren does not hurry a hunt." },
         { id = "h_again2", text = "Speak on, but quietly; sound carries over snow." },
       },
       choices = {
+        { text = "How do the tauren feel about the Horde?", next = "op_ask" },
         { text = "Do the spirits favour the great beasts of Winterspring?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Which beasts of Winterspring do you hunt, Storm?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "You must hunt the greatest beasts in Winterspring, Storm.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Which beasts do you hunt?", next = "beasts" },
-        { text = "Why come so far north to hunt?", next = "why" },
-        { text = "Shy-Rotam is sacred to my people.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "You've come a long way north to hunt.", next = "why" },
+        { text = "Do you hunt frostsabers? They're sacred to my people.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "How do tauren hunt in the snow?", next = "tauren", when = { race = "Tauren" } },
         { text = "Would you hunt a great beast from hiding?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you think magic has a place in the hunt?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Magic seems to have a place in the hunt as well.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you ask the Earth Mother's blessing before a hunt, Storm?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why ask whether I'd stand still, Storm?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which hunt here would you call the greatest, Storm?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -1073,7 +1151,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kaldorei = {
-      lines = { { id = "k_default", text = "I have heard this from the night elves before, and I know the frostsabers fought beside your people long ago. I don't hunt her out of disrespect, but because she is the greatest of her kind, and that is the highest honour a hunter can give." } },
+      lines = { { id = "k_default", text = "I have heard this from the night elves before, and I know the frostsabers fought beside your people long ago. I don't hunt Shy-Rotam, their old matriarch, out of disrespect, but because she is the greatest of her kind, and that is the highest honour a hunter can give." } },
       choices = {
         { text = "Then hunt something else, and honour her by letting her live.", next = "BACK", fx = { affinity = -2, align = { honor = 1 } } },
         { text = "I understand. The hunt has its own law.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
@@ -1089,7 +1167,12 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I learned the hunt on the plains of Mulgore, and I came north to test it. So far, the north is winning." } },
     advice = { { id = "tp_ad", text = "Watch the tracks, not the trees. The beasts here are white, and they hide in plain sight." } },
-    _none = { { id = "tp_none", text = "I know tracks and beasts. That is neither." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the great beasts of the snow, and I've come to hunt them with respect. A bear here will teach you more about her than a year on the plains." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of our people, and he'd stand in front of a charging bear without blinking. I measure everyone else against him." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is a good warchief, and he's been a friend to the tauren. He hunts like an orc, though, all charge and no patience." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are proud hunters in their own way, and they guard their tunnels well. I've learned to respect them, and they've learned to respect me." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a good place to rest between hunts, and the goblins don't bother you much. The cold keeps the meat fresh, too." } },
+    _none = { { id = "tp_none", text = "I know tracks and beasts, and the Earth Mother's ways in the snow. That is neither." } },
   },
 }
 
@@ -1200,6 +1283,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_cairne_doubt", tags = { "news" }, when = { gossip = { topic = "cairne", stance = "doubt" } },
+          text = "Storm tells me you think the tauren were better off without us orcs. Tell that to the centaur; they'd agree with you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. You'll want a seat in the back where nobody sees you come and go, I suppose, and my riders don't care who climbs on, so long as you don't steal their blankets." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -1212,7 +1297,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde! If you've got a spell to keep the cold off my wind riders, I'd like to hear it, because these blankets only do so much." },
         { id = "h_default", key = true,
-          text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde." },
+          text = "I am Yugrek, and I keep the wind riders here for the Horde. They'll take you south to Felwood and on to Orgrimmar, if your business is with the Horde, and no orc should stay in this cold longer than his honor demands." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "My riders don't carry the Alliance. The night elf with the hippogryphs will see to you; she's just over there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, this far north! The wind riders will carry you south over Felwood, though I'd keep my eyes shut over the worst of it, because the trees down there aren't right." },
@@ -1220,12 +1305,12 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, in the snow. My riders are wrapped in blankets and still they shiver, but you won't feel the cold at all, I suppose." },
       },
       again = {
-        { id = "h_again", text = "Something else? The riders grow cold while we talk." },
+        { id = "h_again", text = "Something else? The riders grow cold while we talk, and an orc doesn't waste his beasts." },
         { id = "h_again2", text = "Speak, then, and quickly." },
       },
       choices = {
         { text = "Is the wind over Winterspring as harsh as it seems?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's wrong with the trees of Felwood?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "The trees of Felwood look sick from the air.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do wind riders stand the cold?", next = "cold" },
         { text = "You and the night elf work side by side?", next = "maethrya" },
@@ -1233,8 +1318,8 @@ P:NPC {
         { text = "How do the wind riders take the cold?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why keep your riders in the snow at all, Yugrek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors make good wind rider passengers, Yugrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "How do you keep the wind riders warm up here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do rogues often fly out of Everlook, Yugrek?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Keeping wind riders warm up here can't be easy.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess a few rogues fly out of Everlook, Yugrek.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does a Forsaken paladin seem strange in Everlook, Yugrek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -1263,7 +1348,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I flew for the Horde across the Barrens before they sent me here to freeze. I don't complain much, though the riders do." } },
     advice = { { id = "tp_ad", text = "Wear something warm when you fly. The wind up there bites harder than the riders." } },
-    _none = { { id = "tp_none", text = "I keep wind riders, and that's all I know." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built Orgrimmar out of the desert and sent us to the ends of the world to keep the Horde strong. I'd follow him anywhere, even here, where the snow comes up to your knees." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's too cold for an orc, but the wind riders like it, and the goblins pay well. I keep my beasts wrapped in blankets and my complaints to myself, mostly." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw don't trust orcs, and I don't blame them, since we've given them reason. I keep my distance, and they keep theirs." } },
+    _none = { { id = "tp_none", text = "I keep wind riders, and that's all I know. Ask a shaman if you want the spirits' answers." } },
   },
 }
 
@@ -1387,27 +1475,27 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. My hippogryphs are nervous around the arcane, so speak softly near them and keep your hands still while they settle." },
         { id = "h_default", key = true,
-          text = "I am Maethrya, and I keep the hippogryphs for the Alliance in Everlook. They will carry you to Talonbranch Glade in Felwood, and on to the rest of Kalimdor." },
+          text = "I am Maethrya, and I keep the hippogryphs for the Alliance in Everlook. They will carry you to Talonbranch Glade in Felwood and on to the rest of Kalimdor, over forests my people have known since the world was whole." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "My birds will not carry you, but Yugrek's wind riders will, and he keeps them well enough. You'll find him a few paces away, complaining about the cold." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. My hippogryphs fly south over Felwood every day, and they always climb higher over the worst of it, as if they can smell what's wrong with the trees." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance. Everlook has the goblins' bruisers and the goblins' prices, but it has no shrine at all, and I have missed the sound of prayer." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. My hippogryphs have never flown one of you, but the winds of Winterspring seem to know you already." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. My hippogryphs have never flown one of you, but the winds of Winterspring seem to know you already, and they are older than either of our peoples." },
       },
       again = {
-        { id = "h_again", text = "Is there something else you wish to know?" },
+        { id = "h_again", text = "Is there something else you wish to know? Ask; Elune has granted me patience enough for the cold." },
         { id = "h_again2", text = "Speak; the birds are patient, and so am I." },
       },
       choices = {
         { text = "Can Felwood still be saved, Maethrya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
-        { text = "What do you think of Everlook?", next = "everlook" },
-        { text = "What do the hippogryphs make of the snow?", next = "birds" },
+        { text = "You seem uneasy in Everlook.", next = "everlook" },
+        { text = "The hippogryphs must find the snow strange.", next = "birds" },
         { text = "You don't trust the goblins much, do you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are the hippogryphs afraid of magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is there really no place for prayer in Everlook?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why do your hippogryphs dislike steel, Maethrya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Your hippogryphs seem to dislike steel, Maethrya.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your hippogryphs trust other beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the hippogryphs flinch at a paladin's plate, Maethrya?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Would your hippogryphs really refuse a warlock, Maethrya?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -1439,6 +1527,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I have tended hippogryphs since before the Third War, and I go wherever they are needed." } },
     advice = { { id = "tp_ad", text = "Do not stare at the hippogryphs when you mount. They find it rude." } },
-    _none = { { id = "tp_none", text = "I do not know, and I do not think the hippogryphs do either." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess leads our people from Darnassus, and her wisdom has kept us whole through every trial. I serve her by keeping the Alliance's birds ready for flight." } },
+    elune = { { id = "tp_elune", text = "Elune watches over us from the moon, and in Winterspring the nights are long enough to feel her watching. My hippogryphs fly by her light." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a goblin town, and the goblins trade with everyone, Horde and Alliance alike. I watch their bargains carefully, though I keep my opinions to myself." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree stands on Mount Hyjal, just south of here, and my people guard it still. I've seen it from a hippogryph's back, and I'll never forget it." } },
+    _none = { { id = "tp_none", text = "I do not know, and I do not think the hippogryphs do either, though they remember more than they let on." } },
   },
 }

@@ -12,7 +12,7 @@
 ## Identity
 TODO_NPC · Orendil Broadleaf · Maestra's Post · Darnassus · night elf · herbalist and healer
 Personality: gentle, earnest, humble, observant
-Speech: warm, "friend"; botanical detail.
+Speech: warm, "friend"; botanical detail. Night elf voice (0.80.0): measured and a little formal, long memory, Elune and the old forests, "Ishnu-alah" sparingly.
 Relationships: Pelturas and Relara Whitemoon; the Sentinels at the post.
 Never says: the Horde's later invasion of Maestra's Post; anything after Year 1.
 

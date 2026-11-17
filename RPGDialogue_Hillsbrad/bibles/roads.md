@@ -17,3 +17,6 @@
 
 ## Authored, not canon
 - Ravenholdt's "the drop below the ridge"; Gol'dir sending his jailers up cold hillsides; Hinott's distance from Lydon's cellar.
+
+## Race voice (0.80.0)
+- Gol'dir: orc; proud in chains, remembers Thrall breaking the camps, plain and unbowed.

@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_quil_peace", when = { gossip = { topic = "quilboar", stance = "peace" } }, text = "Windfeather tells me you'd make peace with the quilboar. I've buried too many braves for that, young one, but I'll not stop you trying." },
+    { id = "o_grim_lost", when = { gossip = { topic = "grimtotem", stance = "lost" } }, text = "The Chief says you'd break the Grimtotem. Remember the quilboar first, young one, because they're closer and they don't argue at the fire." },
     { id = "g_mesa", text = "Stand still a moment, young one. The mesa speaks, if you let it." },
     { id = "g_strength", when = { questActive = TODO_QUEST("Rite of Strength") }, text = "The thornsnarl, and the Bristleback in it. Return when your Rite is done." },
     { id = "g_done", when = { questDone = TODO_QUEST("Rite of Strength") }, text = "You carry the Rite of Strength in your stride now. I see it from here." },
@@ -43,12 +45,12 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" }, text = "A young druid. The Earth Mother gives us her shapes so we can protect her, so remember that the claws are a gift and not a toy." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
-        { id = "h_again2", text = "Ask. The mesa has time." },
+        { id = "h_again", text = "What else would you know, young one?" },
+        { id = "h_again2", text = "Ask. The mesa has time, as the Earth Mother does." },
       },
       choices = {
         { text = "What is the Rite of Strength?", next = "rite" },
-        { text = "Why do you hate the Bristleback?", next = "bristleback" },
+        { text = "You seem to hate the Bristleback.", next = "bristleback" },
         { text = "Tell me of the Earth Mother.", next = "earthmother" },
         { text = "I walk the druid's path, Seer.", next = "druid", when = { class = "DRUID" } },
         { text = "I'm not tauren. Will the Rites still count?", next = "outsider", when = { ["not"] = { race = "Tauren" } } },
@@ -57,7 +59,7 @@ P:NPC {
       },
     },
     rite = {
-      lines = { { id = "r_default", text = "Strength is the first Rite, then Vision, then Wisdom. Each one teaches the next, so a brave who skips strength will never have the vision to see what it is for." } },
+      lines = { { id = "r_default", text = "Strength is the first Rite, then Vision, then Wisdom, as the Earth Mother set them. Each one teaches the next, so a brave who skips strength will never have the vision to see what it is for." } },
       choices = {
         { text = "And what is strength for?", next = "rite2" },
         { text = "Something else, Seer.", next = "BACK" },
@@ -82,7 +84,7 @@ P:NPC {
     bristleback = {
       lines = { { id = "b_default", text = "I do not hate them, any more than I hate a fire. But a fire must be put out before it reaches the village, and the Bristleback burn through the plains, digging and fouling, and they leave nothing growing behind them." } },
       choices = {
-        { text = "Could they be reasoned with?", next = "reason" },
+        { text = "Perhaps they could be reasoned with.", next = "reason" },
         { text = "Then they must be stopped.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -114,6 +116,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I have been a seer on this mesa longer than most braves have been alive. The rest is between me and the Earth Mother." } },
     advice = { { id = "tp_ad", text = "Protect first, and ask questions after. The Earth Mother forgives a careful brave far more often than a late one." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Bristleback took the Greatmother, and they will take more if we let them. I send the young out to face them because a tauren who has met the quilboar is a tauren who will not be surprised by them." } },
+    centaur = { { id = "tp_centaur", text = "The centaur are older enemies, and harder ones, but the quilboar are closer. One threat at a time, I tell the young, and the nearest one first." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives each of us a test, and the Rite of Strength is only the first. Pass it, and she will give you another, because that is how she shows her love." } },
     _none = { { id = "tp_none", text = "That is beyond what the mesa tells me, young one. Ask in Bloodhoof Village." } },
   },
 }

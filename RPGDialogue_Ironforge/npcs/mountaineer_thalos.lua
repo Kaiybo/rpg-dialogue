@@ -53,7 +53,7 @@ P:NPC {
         { text = "What's waiting in the pass?", next = "pass" },
         { text = "What's on the other side?", next = "kharanos" },
         { text = "Who decides what counts as a good reason?", next = "reason" },
-        { text = "Grelin's report. Is it trouble?", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
+        { text = "Grelin's report looks like trouble.", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "Any errands before I go through?", next = "BUSINESS" },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -62,7 +62,7 @@ P:NPC {
       lines = { { id = "p_default", text = "Troggs, dug intae the walls like ticks in a hide. The tunnel was built fer carts an' travellers, an' now it's full o' the ugly beasts, comin' up from somewhere deeper." },
       },
       choices = {
-        { text = "Why not clear them out?", next = "pass_clear" },
+        { text = "Someone ought to clear them out.", next = "pass_clear" },
         { text = "How do I get through alive?", next = "pass_alive" },
       },
     },
@@ -122,6 +122,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A mountaineer o' Ironforge, posted where the troggs are thickest. That's all the story I need." } },
     advice = { { id = "tp_ad", text = "Don't stop in the tunnel. Whatever ye hear, keep walkin' toward the light." } },
     troggs = { { id = "tp_troggs", text = "They're in the walls o' the pass, an' they'll be in the walls o' yer dreams after." , next = "pass" } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane keep tae their caves, mostly, but they watch the pass, an' so do I. A troll in the snow can see further than ye'd think." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are mountaineers o' a sort, though they'd sooner fly over a peak than climb it. Cheats, the lot o' them, but fine company in a fight." } },
+    scourge = { { id = "tp_scourge", text = "I keep the pass fer the troggs an' the trolls, an' I thank the stone there's no worse tae keep it from. I hear the north's no' so lucky." } },
     _none = { { id = "tp_none", text = "Not my business, friend. My business is this tunnel." } },
   },
 }

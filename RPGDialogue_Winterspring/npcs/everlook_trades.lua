@@ -149,12 +149,12 @@ P:NPC {
       choices = {
         { text = "Does the land up here ever cost the Cartel, Grizzlin?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see the auctions.", next = "BUSINESS" },
-        { text = "What sells well up here?", next = "sells" },
+        { text = "Something must sell well up here.", next = "sells" },
         { text = "Why put an auction house in the snow?", next = "why" },
-        { text = "Has anyone ever robbed a Steamwheedle auction house?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Someone must have tried robbing a Steamwheedle auction house.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages sell much through the auction house?", next = "xmage", when = { class = "MAGE" } },
         { text = "Doesn't it trouble you, selling to both Horde and Alliance?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What do you make of priests who sell their services, Grizzlin?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Priests selling their services must seem odd to you, Grizzlin.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Where does all that armour come from, Grizzlin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why wouldn't anyone ask where a frostsaber pelt came from?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you ever turn away goods taken cruelly?", next = "xdruid", when = { class = "DRUID" } },
@@ -188,6 +188,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I go where the Cartel sends me, and the Cartel sent me somewhere cold. That's all the story you'll get without a bid, chum, and the reserve's high." } },
     advice = { { id = "tp_ad", text = "List your runecloth in stacks, friend, because single bolts sit on the board for days." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel built Everlook, guards Everlook and takes a share of everything sold in Everlook. That's how a town stays neutral." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the best place in the world to run an auction house, because nobody stands about in the snow to haggle. They bid fast, and they bid high, and I like that." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got an auction house too, and the bidding is cutthroat, and now and then it's cutthroat in the other sense too. I prefer Everlook, where the only thing that freezes is the price." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the other neutral house, down in Tanaris, and the Cartel likes to keep an eye on all three. Prices travel faster than you'd think." } },
     _none = { { id = "tp_none", text = "If I can't list it, pal, I can't tell you about it, and I can't take a cut of it either." } },
   },
 }
@@ -195,6 +198,7 @@ P:NPC {
 P:NPC {
   key = "wixxrak", id = TODO_NPC("Wixxrak"), name = "Wixxrak", title = "Weaponsmith & Gunsmith",
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
+  prejudice = { race = "Dwarf", amount = 8, why = "a gunsmith's trade grudge: every dwarf tells him Ironforge does it better, and Ironforge powder cost a cousin his eyebrows" },
   communities = { "everlook" }, temper = { "eager" }, values = { "profit", "craft" },
   notices = { "class" },
 
@@ -204,6 +208,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_pj_dwarf", when = { prejudiced = true }, text = "A dwarf, in my shop. Lemme guess, pal, you're gonna pick up my best rifle, squint down the barrel and tell me Ironforge does it better, and then you're gonna buy it anyway." },
+    { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My favourite dwarf! I never thought I'd say those words, so I wrote 'em in the ledger in case I needed proof, but you've never once said Ironforge to me, and that's worth a line item." },
     { id = "g_default", text = "Blades, guns, shot and powder, pal, all of it kept warm by the stove! Cold steel's a saying, friend, not a selling point, and it's sure not my selling point." },
   },
 
@@ -216,6 +222,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pj_wixx = {
+      lines = { { id = "pj_wixx_default", text = "Against their mouths, sure. Every dwarf who comes through Everlook tells me the Ironforge stock is better, the Ironforge powder's drier and the Ironforge barrels are straighter, and then they walk out with my rifle anyway and tell their friends they got robbed." } },
+      choices = {
+        { text = "Is Ironforge powder really better?", next = "pj_wixx2" },
+        { text = "Your guns speak for themselves. I won't run them down.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll say whatever gets me a better price, Wixxrak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Show me what you've got, and I'll judge the steel.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    pj_wixx2 = {
+      lines = { { id = "pj_wixx2_default", text = "Drier, maybe, because Dun Morogh's cold is a dry cold and ours comes off the snowfields wet, but better? My cousin lost both eyebrows to a keg of Ironforge powder that went off sealed, so don't tell me those dwarves know everything about keeping a charge quiet." } },
+      choices = {
+        { text = "So the grudge is about eyebrows. I can respect that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because demons are fickle, friend, and steel isn't. I sold a lovely dagger to a warlock last winter who swore he'd never need it, and he came back a month later, without his voidwalker, to thank me personally, and he bought a second one in case." } },
@@ -302,6 +324,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Hey, pal, I sold a rifle to a {altrace} named {alt} not long ago, other side of the war, and you've got the same look of somebody who's gonna ask for a discount. The answer's the same for both sides, and it's no, but I said it real friendly." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}! {alt} bought steel off me a while back and complained the whole time about the cold, so you've got a lot to live up to, pal, or down to, depending how you look at it." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! You don't need much from me, I suppose, but every warlock I've met has wished for a good dagger the day their demon wandered off, so take a look at the case." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -327,23 +353,24 @@ P:NPC {
       choices = {
         { text = "Who in Winterspring arms against the Winterfall furbolgs?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
-        { text = "Does the cold really hurt a gun?", next = "cold" },
+        { text = "I wouldn't have thought the cold could hurt a gun.", next = "cold" },
         { text = "Who buys weapons up here?", next = "buyers" },
         { text = "Why would cold weather ruin a dagger?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do mages really need a dagger?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you sell weapons to anyone who pays, Wixxrak?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess you sell weapons to anyone who pays, Wixxrak.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do priests ever buy your guns, Wixxrak?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a sword go brittle in the cold, Wixxrak?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What's so special about your gun oil?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Your gun oil must be something special.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you sell to the hunters who chase the frostsabres?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why would a warlock need one of your daggers, Wixxrak?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You've got something against dwarves, Wixxrak?", next = "pj_wixx", when = { prejudiced = true } },
         { text = "Goodbye.", next = "END" },
       },
     },
     cold = {
       lines = { { id = "c_default", text = "It thickens the oil and cracks the stock, and then your shot goes wide at the worst possible moment. I keep my stock by the stove and oil it with something I mix myself, and I'm not saying what's in it." } },
       choices = {
-        { text = "Go on, what's in it?", next = "cold_secret" },
+        { text = "Go on, you can tell me what's in it.", next = "cold_secret" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -371,6 +398,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've sold guns in warmer places, pal, and I'll sell 'em in warmer places again, but right now the money's in the snow, and I go where the money is." } },
     advice = { { id = "tp_ad", text = "Keep your powder inside your coat, friend, next to your chest, where it stays dry." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's cold enough to freeze a gun barrel, which is why I sell only the ones that work in the cold. Gun oil's the secret, pal, and I've got the best there is." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got good gunsmiths, but they don't know the first thing about the cold. Try firing one of their pieces up here, and you'll see what I mean." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw don't use guns, and they don't like them either. I keep my stock out of sight when they come through." } },
     _none = { { id = "tp_none", text = "If it doesn't fire or cut, pal, I've no idea and no margin in it." } },
   },
 }
@@ -508,12 +538,12 @@ P:NPC {
       choices = {
         { text = "Do the storms up here ever cut Everlook off, Qia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
-        { text = "What do crafters here need most?", next = "needs" },
+        { text = "The crafters here must be short of something.", next = "needs" },
         { text = "Where does your stock come from?", next = "stock" },
-        { text = "Where does felcloth even come from?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I've never known where felcloth comes from.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many warlocks buy from you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do priests often come to you for robe cloth, Qia?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Does the cold really rot the padding under armour?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I'd have thought the padding under armour would keep in the cold.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What hides sell best in Everlook, Qia?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Where do your trade goods come from, Qia?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the cold really crack armour straps, Qia?", next = "xapala", when = { class = "PALADIN" } },
@@ -545,6 +575,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I sell supplies, friend. I've always sold supplies, my mother sold supplies, and I expect I'll be selling 'em at a fair markup when the snow finally melts." } },
     advice = { { id = "tp_ad", text = "Buy thread before you need it, because nobody likes running out halfway through a cloak." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's tailors are always short of something, and I know exactly what to the copper. Thread is a serious matter up here, because a torn seam in this cold is the end of you." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw make their own cloth from their own fur, and it's warmer than anything I sell. I've tried to buy some, and they looked at me as though I'd asked for their ears." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's tailors sell silk and nothing else, and silk is no use at all up here. I'll take wool every time." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, and I don't stock it either, which in my book is the same thing." } },
   },
 }
@@ -668,14 +701,14 @@ P:NPC {
       choices = {
         { text = "Do the wild beasts of Winterspring fare well, Azzleby?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
-        { text = "How do you keep them warm up here?", next = "warm" },
+        { text = "Keeping beasts warm up here can't be easy.", next = "warm" },
         { text = "Do hunters tame much in Winterspring?", next = "tame" },
         { text = "Is a demon really so different from a pet?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would a polymorphed sheep be welcome in your stables?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the beasts in your stable suffer the cold, Azzleby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why keep my voice down near the stalls?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Are the animals well cared for in this cold?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "What was wrong with the last paladin who stabled here, Azzleby?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The last paladin who stabled here must have left an impression.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Someone's stealing from your feed bins, Azzleby?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -692,7 +725,7 @@ P:NPC {
       lines = { { id = "t_default", text = "Frostsabers, mostly, the white cats, and the odd bear from the woods. A frostsaber's a beautiful animal, but it sulks if you board it with a wolf, so I keep them apart." },
         { id = "t_nelf", when = { race = "NightElf" }, text = "Frostsabers, mostly, and you'd know more about those cats than I would, being a night elf. They sulk if you board them beside a wolf, so I keep them well apart." } },
       choices = {
-        { text = "Why do they sulk?", next = "tame_sulk" },
+        { text = "They seem to sulk, the cats and wolves both.", next = "tame_sulk" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -705,6 +738,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I like animals more than I like people, pal, and the Cartel was kind enough to give me a job where that counts as a skill and draws a wage." } },
     advice = { { id = "tp_ad", text = "Feed your pet before a long walk in the snow, because it burns food faster than you do." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's stables are the warmest in the north, and the animals sleep better than most of their owners. I like it that way." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep no mounts that I've ever seen, and I can't say I blame them. Their tunnels are too low for a horse." } },
+    thrall = { { id = "tp_thrall", text = "Orcs ride wolves, and they treat them better than most folk treat their horses. I've a soft spot for an orc and his wolf." } },
     _none = { { id = "tp_none", text = "No idea, pal. Ask me about a beast and I'll talk your ear off, free of charge." } },
   },
 }
@@ -854,14 +890,14 @@ P:NPC {
         { text = "Do the hot springs here hold any power, Evie?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why pack everything in straw?", next = "straw" },
-        { text = "What grows in Winterspring worth brewing?", next = "herbs" },
+        { text = "Something in Winterspring must be worth brewing.", next = "herbs" },
         { text = "Do you sell poisons too?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Black lotus grows in Winterspring?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I didn't know black lotus grew in Winterspring.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think potions and prayer do the same work?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you really think icecap is half holy, Evie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors really drink that many potions, Evie?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Would you buy herbs a hunter finds in the wild?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Where do you find herbs in all this snow?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I find plenty of herbs out in the wild, if you're buying.", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "I can't think where you'd find herbs in all this snow.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you really think the Light is just a slow potion, Evie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why keep the fel reagents on the high shelf, Evie?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
@@ -891,6 +927,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I mix potions and I sell what other people need to mix theirs, love, at prices that keep the stove lit. The snow is new to me, but the bubbling isn't, and neither are the little explosions." } },
     advice = { { id = "tp_ad", text = "Keep your potions inside your coat in Winterspring, because a frozen potion is just a cold rock." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the best place in the world for snow herbs, and I find a new one every week. The cold keeps them fresh, and my bottles packed in straw keep them safe." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got herbs too, but they're all sweaty and wilting. I like a herb that stands up straight in the snow." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I've heard the druids say every herb has a twin in their Dream, all greener and finer. I'd love to see it, but I'm told it's not a place you can buy a ticket to." } },
     _none = { { id = "tp_none", text = "Oh, I don't know about that, love, but I'd love to know if it can go in a potion, and what it'd sell for if it did." } },
   },
 }

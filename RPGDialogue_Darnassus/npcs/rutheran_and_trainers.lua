@@ -111,7 +111,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hippogryphs carry the wounded home more often than I'd like, and they're always calmer when a healer rides with them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My hippogryphs have never carried so much armor, {class}, but they're stronger than they look, and they won't let you fall." },
-        { id = "h_default", text = "I am Vesprystus. My hippogryphs carry our people from the foot of Teldrassil to Auberdine across the water, and from there to the rest of the world." },
+        { id = "h_default", text = "I am Vesprystus, keeper of the hippogryphs. They carry our people from the roots of Teldrassil to Auberdine across the water, and from there to the rest of a world that has grown very large since the Sundering." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, here at the roots of our tree! Our hippogryphs are gentler than your gryphons, I think, though I would not say so in Ironforge." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "My hippogryphs are fond of you, rogue, which is odd, since they're usually wary of anyone who walks that quietly." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage taking the long way! I'd heard your kind can step from one place to another with a word, so it's a compliment that you'd choose my birds." },
@@ -119,10 +119,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My birds can smell your companion from here, so let me settle them before you come any closer." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You could swim to Auberdine in seal shape if you liked, but my hippogryphs are faster and a good deal drier." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Rut'theran. My hippogryphs will carry you across to Auberdine, but not your servant, because they've a long memory of the Legion's fires." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The sea wind is an old friend of mine. Does your wind spirit know it too?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The sea wind has been an old friend of mine for longer than your mountains have been mined, so tell me, does your wind spirit know it too?" },
       },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again", text = "What else would you ask? The wind can wait, and so can I." },
         { id = "h_again2", text = "Speak. The birds can wait a moment." },
       },
       choices = {
@@ -163,7 +163,10 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I have kept beasts of the air since long before Teldrassil was planted." } },
-    _none = { { id = "tp_none", text = "That is beyond my knowledge. Ask in the city above." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds came down from Hyjal with us, and they still turn their heads north sometimes. I think they remember the first tree, the way we do." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a goblin town up in Winterspring, and my birds hate the cold of it. Druids fly there anyway, being druids." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a long way south by hippogryph, over the Barrens and its Horde. I don't send my birds there lightly." } },
+    _none = { { id = "tp_none", text = "That is beyond my knowledge. Ask in the city above, where the priestesses keep longer memories than mine." } },
   },
 }
 
@@ -178,7 +181,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "You wish to learn a new weapon? Show me your stance first." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. I trust you have been practicing." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. I trust you have been practicing, for the Sentinels practiced for a thousand years before they called themselves ready." },
   },
   start = "hello",
   nodes = {
@@ -284,16 +287,16 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I teach bows here, though the hunters always tell me they know better." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll want a staff or a mace, and I'll teach you either, though you'll fight half your battles with claws and never thank me for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I can teach you the staff and the dagger, though most of your kind would rather let something else hold the line." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your footwork is sloppy, spirits or no. Stand properly." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your footwork is sloppy, spirits or no, so stand properly, as a Sentinel would." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else? Ask with your weight on both feet." },
         { id = "h_again2", text = "Ask, but stand straight while you do." },
       },
       choices = {
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "What do the Sentinels favor?", next = "a" },
-        { text = "Who else trains here?", next = "b" },
+        { text = "You can't be the only trainer here.", next = "b" },
         { text = "Do the Sentinels train with daggers as rogues do?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Will I really need a staff in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which weapon should a warrior master first, Ilyenia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -309,7 +312,7 @@ P:NPC {
     a = {
       lines = { { id = "a_default", text = "The glaive and the bow, for they keep the enemy at a distance and the forest quiet. Our sisters have fought with them since long before your kingdoms rose." } },
       choices = {
-        { text = "Is distance not a coward's way?", next = "a2" },
+        { text = "Fighting from a distance seems a coward's way.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -328,13 +331,17 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I served among the Sentinels before I came to teach. My hands remember more than my mouth will tell." } },
-    _none = { { id = "tp_none", text = "That is not something a blade can answer." } },
+    centaur = { { id = "tp_centaur", text = "I fought centaur once in the Barrens, when our patrols ran farther south. They're stronger than you'd think, and smarter than they let you see." } },
+    warsong = { { id = "tp_warsong", text = "I've fought the Warsong in Ashenvale, and I'll fight them again if they ask. Strong arms, poor patience, which is what I teach my students to use against them." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The deeps swallowed a temple and more than one patrol. Fight with your back to stone and your feet out of the water." } },
+    _none = { { id = "tp_none", text = "That is not something a blade can answer, and I have asked my blades a great many things." } },
   },
 }
 
 -- Jeen'ra Nightrunner: hunter trainer in Darnassus.
 P:NPC {
   key = "jeenra", id = TODO_NPC("Jeen'ra Nightrunner"), name = "Jeen'ra Nightrunner", title = "Hunter Trainer",
+  prejudice = { race = "Human", amount = 8, why = "Saw a Stormwind hunting party leave stags to rot on the Darkshore coast." },
   bible = "bibles/rutheran_and_warriors.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "quiet" }, values = { "nature", "freedom" },
   impression = {
@@ -342,11 +349,35 @@ P:NPC {
     third = "{name} met Jeen'ra Nightrunner, a quiet hunter trainer of Darnassus.",
   },
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A human, come to learn the bow from me. I'll teach you, {class}, but you'll learn first that a hunter here kills to eat, and not to hang a head over the hearth." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you again. You've not brought me a single trophy to admire in all this time, and I've stopped waiting for one." },
     { id = "g_default", text = "Speak softly. The beasts are listening, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Your companion looks well, and so do you." },
   },
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I think humans hunt hungrily. A party from Stormwind came through Darkshore last spring, twelve men and their hounds, and they left four stags on the shore with only the antlers taken." } },
+      choices = {
+        { text = "Then those men shamed every hunter, human or not.", next = "prej_a", fx = { align = { light = 1 } } },
+        { text = "A kill is a kill. What's taken is the hunter's business.", next = "prej_b", fx = { align = { light = -1 } } },
+        { text = "What would you have a hunter take from a kill?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Yes, they did, and I'm glad to hear a human say it. Say it to the next party that sails over from Menethil, if you can do it without getting shot." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Then we'll disagree, and I'll still teach you, because Elune doesn't ask me to like my students. Only remember that the forest keeps count." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Everything you can use, and a word of thanks for the rest. Take the hide, the sinew and the meat; leave the antlers if you must, but leave nothing to rot that something else could have eaten." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They trust those who listen. You listen, it seems. I am more at ease with beasts than with people, and you may be the same." } },
@@ -441,7 +472,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hunters come back bitten and clawed, and they rarely think to ask a healer, so I'm glad to see one of you here." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk loudly for these woods, {class}, but the beasts of Teldrassil will forgive you that if you come in peace." },
-        { id = "h_default", text = "I am Jeen'ra Nightrunner. I teach the hunters of Darnassus to track, to shoot and to bond with the wild beasts of Teldrassil." },
+        { id = "h_default", text = "I am Jeen'ra Nightrunner, and I teach the hunters of Darnassus to track, to shoot and to bond with the wild beasts of Teldrassil, as our hunters did in the forests of the old world." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. I can teach you skills, but I can't teach that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd make a fine tracker, rogue, if only you'd learn to follow something other than a purse." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has her ears flat and her tail low, warlock, and I've learned to trust her over my own eyes." },
@@ -449,16 +480,17 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Come and sit, and tell me what walks beside you; the people can wait." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The cats in the pens have stopped pacing, and they only do that for one of the Circle, so come in and let them look at you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My cat doesn't like the smell of the arcane, so forgive her if she growls at you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The beasts here are calm around you. That is rare." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The beasts here are calm around you, and that is rare in a stranger, so I think the forest has already decided about you." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Speak, but softly." },
+        { id = "h_again", text = "What else? Speak as you would on the hunt, softly and to the point." },
+        { id = "h_again2", text = "Speak, but softly, for a nightsaber hears a careless word a long way off." },
       },
       choices = {
+        { text = "You think humans hunt badly, Jeen'ra?", next = "prej", when = { prejudiced = true } },
         { text = "I want training.", next = "BUSINESS" },
         { text = "How do you bond with a beast?", next = "a" },
-        { text = "Where should a young hunter go?", next = "b" },
+        { text = "A young hunter needs somewhere to start.", next = "b" },
         { text = "What would a hunter teach a rogue about tracking?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there anything a warrior can learn from hunters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter of Darnassus learn first, Jeen'ra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -493,6 +525,9 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I have hunted these woods since before the tree was grown. Before that, I hunted the old forests of Ashenvale." } },
+    centaur = { { id = "tp_centaur", text = "Centaur ride the southern plains in war bands, and they hunt the way we do, without mercy. I respect them, and I'd shoot one without hesitation." } },
+    green_dragons = { { id = "tp_green_dragons", text = "In the old forest I saw a green dragon once, sleeping under a great tree. The beasts all went quiet around it, and so did I." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw used to trade furs with us before the corruption came. Those who are left are as proud as ever, and twice as wary." } },
     _none = { { id = "tp_none", text = "I do not know. Ask the wind; it knows more than I." } },
   },
 }

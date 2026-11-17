@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Hail, friend, a moment of your time, if I may. Have you any cloth to spare?" },
+    { id = "g_hello", text = "Ishnu-alah, friend, and a moment of your time, if I may. Have you any cloth to spare?" },
     { id = "g_wool", when = { questDone = TODO_QUEST("A Donation of Wool") }, text = "Your wool went to the Sentinels at Astranaar last week. They'll sleep warmer for it." },
     { id = "g_rune", when = { questDone = TODO_QUEST("A Donation of Runecloth") }, text = "Runecloth from you again? I keep a tally, friend, and your name is near the top of it." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and the shelves are as bare as ever. I'm glad to see you all the same." },
@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Raedon Duskstriker, quartermaster for the Alliance's cloth here in Darnassus. We have endured a great deal in building a home on Teldrassil, and now, on top of everything, we find ourselves in a dire shortage of cloth." },
+          text = "I am Raedon Duskstriker, quartermaster for the Alliance's cloth here in Darnassus. My people have endured a great deal since we left the old forests for Teldrassil, and now, on top of everything, we find ourselves in a dire shortage of cloth." },
         { id = "h_young", when = { maxLevel = 25 },
           text = "You're young for this work, friend, and I'd not ask much of you yet. When you've cloth to spare, though, bring it here, because every bundle counts." },
         { id = "h_rune", when = { minLevel = 50 },
@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does Darnassus need so much cloth?", next = "shortage" },
-        { text = "Where does the cloth go?", next = "where" },
+        { text = "That's a great deal of cloth.", next = "where" },
         { text = "Why should I give cloth away?", next = "why" },
         { text = "I'm a tailor. I could sew instead of giving.", next = "tailor_r", when = { profession = "Tailoring" } },
         { text = "I'd like to donate.", next = "BUSINESS" },
@@ -91,7 +91,7 @@ P:NPC {
         { id = "wh_default", text = "Linen and wool go for bandages and bedrolls, and silk and mageweave for the priestesses' robes and the Sentinels' cloaks. Runecloth, the finest, we keep for those standing in the worst of it." },
       },
       choices = {
-        { text = "Who stands in the worst of it?", next = "where_worst" },
+        { text = "Someone must stand in the worst of it.", next = "where_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,6 +131,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I count cloth, friend. It isn't glorious, but I've never had a Sentinel complain that her bedroll arrived." } },
     advice = { { id = "tp_ad", text = "Never sell your spare linen to a vendor for copper when someone might need a bandage. That's my whole philosophy, really." } },
     sentinels = { { id = "tp_sentinels", text = "They ask for so little and get even less, so I do what I can from up here." } },
-    _none = { { id = "tp_none", text = "I only know cloth, friend, and I know a great deal about cloth. Ask me about that." } },
+    thrall = { { id = "tp_thrall", text = "The Horde's warchief, and he keeps his armies supplied better than I'd like. I count our cloth and I worry about his." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong cut Ashenvale and the Sentinels hold the line, and every bale of cloth I send goes to that line. Most of it comes back as bandages." } },
+    theramore = { { id = "tp_theramore", text = "Theramore requisitions cloth from us when their ships are late, and Lady Proudmoore always pays her debts. I like a quartermaster on the other end of the ledger who keeps her word." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A goblin port that sells to both sides and smiles at each. I've bought cloth there when I had to, and I counted it twice." } },
+    _none = { { id = "tp_none", text = "I only know cloth, friend, and I have had a long life to learn a great deal about it. Ask me about that." } },
   },
 }

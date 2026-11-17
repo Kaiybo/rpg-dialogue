@@ -14,11 +14,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_camp", text = "This is Grom'gol, and everyone in Grom'gol works. Are you here to work?" },
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "useful" } }, text = "Mok'thardin tells me you think demons can be bound and put to work. The last orcs who believed that are why my grandfather died with green skin, so keep that thinking out of my camp." },
+    { id = "g_camp", text = "This is Grom'gol, and every orc, troll and tauren behind these walls works for the Horde. Are you here to work, {class}?" },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good, because the last grunt I sent to the river came back without his boots, and I need hands." },
-    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Grom'gol did your work for you. Now you're back, so work." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here. Good, because the jungle has gotten no kinder." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've worked hard for Grom'gol. That's the only praise I give, and I just gave it." },
+    { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Grom'gol bled and sweated your share while you were away. Now you're back, so earn it." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here, and the blood in you runs hotter. Good, because the jungle has gotten no kinder." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've worked hard for Grom'gol. That's the only praise an orc commander gives, and I just gave it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear you were caught in a lie in my camp. Everyone in Grom'gol works, and nobody here works for a liar." },
   },
 
@@ -31,6 +32,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_warchief = {
+      lines = {
+        { id = "opw_default", text = "He sent me here, so he remembers. The old grunts in Stonard say Thrall made peace with the humans too cheaply, and they say it louder every year. You've walked his city, so tell me what you say." },
+      },
+      choices = {
+        { text = "He freed our people. His word is good enough for me.", next = "op_wc_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { warchief = "trust" } } },
+        { text = "The old grunts are right. He made peace too cheaply.", next = "op_wc_soft", fx = { align = { order = -1 }, trait = { stern = 1 }, opinion = { warchief = "soft", peace = "war" } } },
+        { text = "Vol'jin follows him, and the Darkspear follow Vol'jin.", next = "op_wc_respect", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { race = "Troll" } },
+        { text = "He gave the Forsaken a place. That's more than anyone else did.", next = "op_wc_respect", fx = { opinion = { warchief = "respect" } }, when = { race = "Scourge" } },
+        { text = "I'll judge him by whether this road stays open.", next = "op_wc_mixed", fx = { affinity = 1, opinion = { warchief = "mixed" } } },
+        { text = "That's a matter for the Warchief, not for me.", next = "BACK" },
+      },
+    },
+    op_wc_trust = {
+      lines = {
+        { id = "opwt_default", text = "Good. Then do what he sent us here to do, and leave the arguing to the grunts with nothing better to fill their mouths with." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_soft = {
+      lines = {
+        { id = "opws_default", text = "Say that quietly in my camp. I've heard it before, and I've half thought it on bad nights, but Thrall was in the camps and I wasn't, so I'll trust that he knows what a cage costs." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_respect = {
+      lines = {
+        { id = "opwr_default", text = "Then you understand him better than half my grunts do. The Horde is more than orcs now, and some of the old ones still haven't learned that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wc_mixed = {
+      lines = {
+        { id = "opwm_default", text = "That's how I judge every orc in Azeroth, Warchief or grunt. The road's open today, so today he's a good Warchief." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "If you can hold a line against the Bloodscalp and patch up whoever falls on it, you can serve anywhere I command. The Light's a strange thing to see on one of the dead, but the ogres won't stop to wonder about it, and neither will I." } },
@@ -94,13 +132,13 @@ P:NPC {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid of the tauren. Good. My grunts fight better with one of your kind nearby to mend them." },
         { id = "h_default", key = true,
-          text = "Commander Aggro'gosh. This camp keeps the road to Stonard open, and that road feeds the Horde. The ogres and the Bloodscalp make it hard, and I make it happen anyway." },
+          text = "Commander Aggro'gosh. This camp keeps the road to Stonard open, and that road feeds the Horde. The ogres and the Bloodscalp make it hard, and I make it happen anyway, because that is what the Warchief asked of me." },
         { id = "h_defense", tags = { "news" }, when = { questActive = TODO_QUEST("The Defense of Grom'gol") },
           text = "Something out there tests our walls every night. Go out and test it in return, and test it harder." },
         { id = "h_defense_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Defense of Grom'gol"), days = 3 } },
-          text = "The caravan masters say the road is quieter since you went out, and caravan masters never say anything kind. You did your duty, and you did it with honor." },
+          text = "The caravan masters say the road is quieter since you went out, and caravan masters never say anything kind. You did your duty, and you did it with honor, which is all the Horde asks of its blood." },
         { id = "h_road", when = { metBefore = true }, text = "Three caravans reached Stonard this week, all three, and the ogres got none of them. Write that down; I want to read it later." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The Bloodscalp drums are close tonight. Let them drum, for we have walls, and all they have is drums." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The Bloodscalp drums are close tonight. Let them drum, for we have walls and axes, and all they have is noise." },
         { id = "h_zeppelin", when = { race = "Scourge" },
           text = "Off the zeppelin from the Undercity, are you? Good. The Dark Lady's people don't tire and don't complain, which makes you the best grunts I've had all month." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the Bloodscalp trolls on the ridges are watching Grom'gol day and night, and I need someone who can watch them back without being seen." },
@@ -108,14 +146,14 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I don't care what you pray to, only whether you're here to work, because the road to Stonard needs keeping." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it; the next caravan won't guard itself." },
+        { id = "h_again", text = "What else? Be quick about it, warrior; the next caravan won't guard itself." },
         { id = "h_again2", text = "Speak, then, but speak while you walk if you can." },
       },
       choices = {
         { text = "Do your grunts still remember the shamans from before the warlocks?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Grom'gol need from its spellcasters, Commander?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do your grunts respect this jungle, or only fight it?", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "How's the supply line?", next = "road" },
+        { text = "Your supply line must be stretched thin out here.", next = "road" },
         { text = "What do you need most?", next = "need" },
         { text = "Who are you watching the walls for?", next = "threats" },
         { text = "Who else is in this camp?", next = "camp" },
@@ -126,7 +164,7 @@ P:NPC {
         { text = "The living sweat in this jungle. I don't.", next = "k_scourge", when = { race = "Scourge" } },
         { text = "I can keep the raptors off your caravans.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Why are the Bloodscalp watching Grom'gol, Commander?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do the trolls fear warlocks, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The trolls must fear warlocks, Commander.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can a Forsaken paladin serve at Grom'gol, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { gromgol = 1 } } },
       },
@@ -140,7 +178,7 @@ P:NPC {
       },
       choices = {
         { text = "Who's hitting the caravans?", next = "road_raiders" },
-        { text = "Why does Stonard matter so much?", next = "road_stonard" },
+        { text = "Stonard seems to matter a great deal to you.", next = "road_stonard" },
         { text = "Then I'll help you count.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Stonard's caravans are someone else's problem.", next = "BACK", fx = { align = { honor = -1 } } },
       },
@@ -164,7 +202,10 @@ P:NPC {
       lines = {
         { id = "rs_default", text = "Stonard is one of the oldest orc towns in Azeroth, built when the Dark Portal first opened, and it's the Horde's eyes on the swamp and the Blasted Lands. Eyes don't see far on an empty stomach, so we feed them." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Does the Warchief still remember Stonard, Commander?", next = "op_warchief" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     need = {
@@ -197,7 +238,7 @@ P:NPC {
       },
       choices = {
         { text = "Booty Bay is neutral, isn't it?", next = "threats_bay" },
-        { text = "Naga? Here?", next = "threats_naga" },
+        { text = "Naga, here. I'd not have expected that.", next = "threats_naga" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -270,7 +311,7 @@ P:NPC {
       choices = {
         { text = "Holding is a soldier's honor. I'll take dawn.", next = "BACK", fx = { align = { order = 1 }, affinity = 2, standing = { gromgol = 1 } } },
         { text = "Holding is how you lose. Let me hunt the raiders.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
-        { text = "Who's raiding the caravans?", next = "road_raiders" },
+        { text = "Somebody must be raiding the caravans.", next = "road_raiders" },
       },
     },
     k_scourge = {
@@ -305,7 +346,18 @@ P:NPC {
       { id = "tp_ba2", text = "I command a camp, I guard caravans, and I count crates. If you want a song about it, ask Thulbek to make one up." },
     },
     advice = { { id = "tp_ad", text = "Never walk the jungle road alone at night, and never trust the quiet. When the birds stop, something bigger than you is listening." } },
-    _none = { { id = "tp_none", text = "That's not my problem. Find someone with time to talk." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief gave me this command and told me to hold the road to Stonard, and I've held it. He doesn't ask for much, only that we do what we say we'll do." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the same Warchief I do, so you know what he asks of us. Hold your post, keep your word and don't let the jungle beat you, and he'll never forget it." },
+    },
+    voljin = { { id = "tp_voljin", text = "Vol'jin lent us his trolls for this camp, and they're the best jungle fighters the Horde has. I'd follow his lead in these trees before I'd follow mine." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear know this jungle better than any orc ever will, and they remember what the Gurubashi did to them before they came to us. I'm glad they're on our side of the wall." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a goblin town that sells to everyone, including the Alliance, and that's how it stays alive. I trade with them because I need the supplies, and I count my fingers after." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi priests at Zul'Gurub are bringing back their blood god, and if he walks, this camp won't be the first thing he eats, but it'll be close. The Zandalari are calling for help on Yojamba Isle, and I've sent whoever I can spare." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "My grunts go to the Arena to blow off steam, and I let them, because it keeps them sharp and keeps them out of Booty Bay's taverns. Most of them come back." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, on the other side of this coast, and I remember the jungle then too. It hasn't gotten any friendlier." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Forsaken have joined the Horde, and the Warchief says that's good enough for him. I'll take a dead soldier who holds the line over a living one who runs." } },
+    _none = { { id = "tp_none", text = "That's not my problem, and I don't waste breath on what isn't. Find someone with time to talk." } },
   },
 }
 
@@ -398,6 +450,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_guru = {
+      lines = { { id = "xgu_default", text = "Gurubashi, you say. Then you know the jungle tribes better than Nimboya ever will, and you know why I don't turn my back on a jungle troll, even one wearing our colors. Tell me what the Bloodscalp do with their captives, and maybe I believe you ran." } },
+      choices = {
+        { text = "Nothing good. That's why I ran.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I owe you no proof, Nimboya.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodscalp", min = 30 } }, text = "The Bloodscalp camps be quieter since you start walking through them, mon, and quiet Bloodscalp be the best kind, while Nimboya keep looking for the boy." },
@@ -433,9 +492,9 @@ P:NPC {
       choices = {
         { text = "Who is Yenniku?", next = "yenniku" },
         { text = "Do the jungle trolls fear a warrior's axe, Nimboya?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "And the Bloodscalp?", next = "bloodscalp" },
-        { text = "Why punish the Witherbark?", next = "witherbark" },
-        { text = "Do the Darkspear miss this jungle?", next = "walls" },
+        { text = "Who do you think took him?", next = "bloodscalp" },
+        { text = "Have any trolls betrayed the Horde?", next = "witherbark" },
+        { text = "The Darkspear must miss this jungle.", next = "walls" },
         { text = "I'm Darkspear. Tell me what the chief needs.", next = "kin", when = { race = "Troll" } },
         { text = "His soul is free. Is it over?", next = "after", when = { questDone = TODO_QUEST("Saving Yenniku") } },
         { text = "Could I track Yenniku through the jungle, Nimboya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -445,8 +504,9 @@ P:NPC {
         { text = "The spirits might know where Yenniku is.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "Where do you think the Bloodscalp hold Yenniku, Nimboya?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you use a demon to rescue Yenniku, Nimboya?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Could the jungle's beasts really lead us to Yenniku, Nimboya?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "The jungle's beasts might lead us to Yenniku, Nimboya.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Would the Light help you find Yenniku, Nimboya?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I was born Gurubashi, Nimboya. I ran from Hakkar's priests.", next = "xorig_guru", when = { origin = "troll_gurubashi_runaway" } },
         { text = "Good hunting, but the chief's son is no business of mine.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -458,7 +518,7 @@ P:NPC {
       },
       choices = {
         { text = "Your people gave a child away?", next = "yenniku_custom" },
-        { text = "The chief trusts you with this?", next = "yenniku_trust" },
+        { text = "The chief must trust you a great deal.", next = "yenniku_trust" },
         { text = "Something else.", next = "BACK", fx = { learn = { "yenniku" } } },
       },
     },
@@ -477,11 +537,11 @@ P:NPC {
 
     bloodscalp = {
       lines = {
-        { id = "bs_default", text = "Their witch doctor, Nezzliok, know where the boy be. Alive or dead, he going to tell me." },
+        { id = "bs_default", text = "The Bloodscalp, mon, and their witch doctor, Nezzliok, know where the boy be. Alive or dead, he going to tell me." },
       },
       choices = {
         { text = "How does a dead troll tell you anything?", next = "bloodscalp_cauldron" },
-        { text = "And their chief?", next = "bloodscalp_chief" },
+        { text = "You haven't said a word about their chief.", next = "bloodscalp_chief" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -573,6 +633,11 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "Every day he be gone, the chief carry it. I carry it too.", next = "yenniku" } },
     background = { { id = "tp_ba", text = "Nimboya be Darkspear, sent by the chief from Orgrimmar. That all you need to know, and more than most get." } },
     advice = { { id = "tp_ad", text = "The Bloodscalp hunt heads, so keep yours low in the ruins along the coast. They come from above, mon, always from above." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be the chief of the Darkspear, and he send Nimboya to find his son. Nimboya not go home without Yenniku, not ever." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be the best of the trolls, mon, and Nimboya be proud to be one of them. We be the ones who remember what loyalty mean." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be our home, mon, where the Darkspear lived before the sea witch drove us out. Nimboya hope to see them again someday, with Yenniku beside him." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi in Zul'Gurub be calling on Hakkar again, mon, the soulflayer, and that be bad for every troll in the world. The Darkspear remember what Hakkar did to our people." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave the Darkspear a home when we had none, mon, and Nimboya not forget that. We be his, and he be ours." } },
     _none = { { id = "tp_none", text = "Nimboya got one thing on his mind, and that not it." } },
   },
 }
@@ -711,9 +776,9 @@ P:NPC {
         { text = "Do the jungle's spirits trust Horde shamans, or only the Darkspear?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What dark magic stirs in this jungle, Kin'weelay?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What can't be seen?", next = "unseen" },
-        { text = "Why do you want Bloodscalp necklaces?", next = "trophies" },
-        { text = "What's down at the Vile Reef?", next = "reef" },
-        { text = "Can Yenniku still be saved?", next = "hope" },
+        { text = "Why fight the Bloodscalp, witch doctor?", next = "trophies" },
+        { text = "Are there old troll places on this coast?", next = "reef" },
+        { text = "Is there hope for the boy Nimboya seeks?", next = "hope" },
         { text = "I carry an orc's head from Dustwallow.", next = "marg", when = { questActive = TODO_QUEST("The Troll Witchdoctor") } },
         { text = "A Darkspear warlock. What do the spirits make of me?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I'm a Windshaper. Do your spirits know mine?", next = "skyborne", when = { race = "Skyborne" } },
@@ -721,7 +786,7 @@ P:NPC {
         { text = "Do the spirits really notice rogues, Kin'weelay?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why don't the spirits like a mage's magic, Kin'weelay?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why would the spirits like a warrior, Kin'weelay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do the beasts' spirits watch the hunters, Kin'weelay?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The beasts' spirits must watch the hunters, Kin'weelay.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the spirits say about me, Kin'weelay?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, witch doctor.", next = "END" },
       },
@@ -772,7 +837,7 @@ P:NPC {
         { id = "rf_default", text = "Long ago the earth shudder and an old troll city sink under the waves off the Savage Coast, and murlocs live in it now. Among the ruins be a tablet telling the tale of Gri'lek, a hero of our legends." },
       },
       choices = {
-        { text = "Why does the Darkspear want it?", next = "reef_why" },
+        { text = "The Darkspear must want it for a reason.", next = "reef_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -871,6 +936,11 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "His spirit wander, mon. I bring it home, one way or another.", next = "hope" } },
     background = { { id = "tp_ba", text = "They call Kin'weelay the strongest witch doctor of the Darkspear, and I don't argue, because arguing be bad luck. The chief send me here, so here I be." } },
     advice = { { id = "tp_ad", text = "If a trinket in the ruins hum at you, leave it be, mon. Old magic in Stranglethorn always want a new owner." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar the Soulflayer be trying to come back through his priests at Zul'Gurub, and Kin'weelay can feel it in the spirits, mon. They be restless, and they be scared, and that make them rude." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be the chief, and he be wise, and he listen to the spirits better than he let on. Kin'weelay do what he say, mostly." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits talk to Kin'weelay all day long, mon, and most of them be complaining. The elements be the loudest, and the most impatient." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai priests in the Sunken Temple be trying to call Hakkar too, mon, in the swamp to the north. Two doors for one bad god, and Kin'weelay don't like it one bit." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be full of good spirits and bad ones, mon, and the sea witch's magic still be there. Kin'weelay would like to clean it out someday." } },
     _none = { { id = "tp_none", text = "Even the spirits don't know that one. Or they not telling." } },
   },
 }
@@ -887,8 +957,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fire", text = "The camp is loud, but here by the fire it's quieter. Speak, and I'll listen." },
-    { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you. Sit." },
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Aggro'gosh tells me you stand behind the Warchief without a doubt in you. The spirits favour a steady heart, so come and sit, steady one." },
+    { id = "g_fire", text = "The camp is loud with grunts and drums, but here by the fire the spirits are quieter. Speak, and I'll listen." },
+    { id = "g_back", when = { metBefore = true }, text = "The fire kept your place for you, and the ancestors watched it burn. Sit." },
     { id = "g_away", when = { away = 14 }, text = "The fire kept your place for {away}, and now you're back to sit in it. Sit, then." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the camp carries anger from their talk with you, and the fire knows it. Make peace while it's small, because nothing stays small in this jungle." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you gave someone here a good word, and the camp is better for it. The spirits notice small things too." },
@@ -901,6 +972,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_demons = {
+      lines = {
+        { id = "opd_default", text = "They do say it, and the Warchief allows the warlocks their school in the Cleft of Shadow, for now. I am an old shaman and my answer is easy to guess, but I would hear yours, because the young ones will decide this, not me." },
+      },
+      choices = {
+        { text = "Demons poisoned the orcs once. Never again.", next = "op_demons_hate", fx = { affinity = 1, align = { light = 1 }, opinion = { demons = "hate" } } },
+        { text = "A tool is a tool. Bind the demon and make it work.", next = "op_demons_useful", fx = { affinity = -1, align = { light = -1 }, opinion = { demons = "useful" } } },
+        { text = "I command my demons, Far Seer. They don't command me.", next = "op_demons_useful", fx = { affinity = -1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "Let the warlocks serve, but watch them closely.", next = "op_demons_mixed", fx = { opinion = { demons = "dangerous" } } },
+        { text = "I don't know enough to say.", next = "BACK" },
+      },
+    },
+    op_demons_hate = {
+      lines = {
+        { id = "opdh_default", text = "The elements thank you, and so do I. Never again is a promise every orc should make, though it is a hard one to keep when the enemy is stronger and the demons offer so much." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_demons_useful = {
+      lines = {
+        { id = "opdu_default", text = "So said Gul'dan, and so said every orc who drank from Mannoroth's cup. I do not call you a fool, but I will pray to the spirits that you never learn what I mean the hard way." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_demons_mixed = {
+      lines = {
+        { id = "opdm_default", text = "Watching is the hard part, because a demon is patient and an orc is not. Still, that is a wiser answer than most I hear in Orgrimmar." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_mokthardin = {
       big = true,
       lines = { { id = "xpt_mokthardin_default", text = "Because the trolls here have bled this land for their gods for longer than any orc has lived, and the earth remembers every drop. Ask your shaman to listen closely while you hunt, because a war band that ignores the spirits in this jungle tends not to come home." } },
@@ -999,7 +1100,7 @@ P:NPC {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
         { id = "h_default", key = true,
-          text = "Far Seer Mok'thardin, of Orgrimmar. The beasts of Stranglethorn carry old power in their blood and bones, and I'm learning to draw it out." },
+          text = "Far Seer Mok'thardin, of Orgrimmar. Thrall taught us to ask the spirits before we take, and the beasts of Stranglethorn carry old power in their blood and bones that I'm learning to ask for." },
         { id = "h_ench", when = { questActive = TODO_QUEST("Mok'thardin's Enchantment") },
           text = "The enchantment needs what only those beasts can give. Bring it, and I'll show you what it becomes." },
         { id = "h_ench_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mok'thardin's Enchantment"), days = 2 } },
@@ -1018,7 +1119,7 @@ P:NPC {
       choices = {
         { text = "The jungle spirits are angry here. The trolls stir them.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What kind of power?", next = "power" },
-        { text = "What are you making?", next = "ench" },
+        { text = "Whatever you're making looks like fine work.", next = "ench" },
         { text = "Why send a far seer to a supply camp?", next = "why" },
         { text = "What do you make of the trolls' magic?", next = "trolls" },
         { text = "The elements speak to me as well.", next = "shaman", when = { class = "SHAMAN" } },
@@ -1028,7 +1129,7 @@ P:NPC {
         { text = "Why do you want the old power out of the beasts, Far Seer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a mage learn wisdom from the elements, Far Seer?", next = "xmage", when = { class = "MAGE", race = { "Troll", "Scourge" } } },
         { text = "How do I keep hold of the fury, Far Seer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "What power do you draw from the beasts, Far Seer?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "You seem to draw your power from the beasts, Far Seer.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a priest's prayers reach the power in these beasts, Far Seer?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light sit well with a far seer, Mok'thardin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Hakkar is dead, Far Seer. Do the spirits rest now?", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
@@ -1042,7 +1143,7 @@ P:NPC {
         { id = "p_default", text = "The kind that settles into anything that's lived long in a wild place. Orgrimmar teaches us to ask before we take, so I ask." },
       },
       choices = {
-        { text = "And if the answer's no?", next = "power_no", fx = { affinity = 2 } },
+        { text = "The answer might well be no.", next = "power_no", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1088,7 +1189,10 @@ P:NPC {
       lines = {
         { id = "w_default", text = "The jungle's magic should be understood and harnessed for the Horde before someone else harnesses it against us. My rituals have worked so far, and the Warchief's defenders wear the proof." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Some in Orgrimmar say warlocks have their uses again.", next = "op_demons" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     trolls = {
@@ -1140,7 +1244,15 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was trained in Orgrimmar to listen to the elements, and Orgrimmar sent me here to listen to the jungle. So far the jungle mostly talks about rain." } },
     advice = { { id = "tp_ad", text = "Thank what you kill, even a raptor. It costs you nothing, and the land remembers the ones who don't." } },
-    _none = { { id = "tp_none", text = "That is beyond what the elements tell me." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements in this jungle are old and wild, and the beasts here carry some of that power in their blood. I'd like to bring it out of them, and give it back to the land." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall was the first shaman of our people in a generation, and he taught us to listen to the elements again. I wouldn't be here without him." },
+      { id = "tp_thrall2", when = { class = "SHAMAN" }, text = "You're a shaman yourself, so you know what the Warchief gave back to us. We were warlocks and slaves once, and now we listen, and that's his doing." },
+    },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren call the land the Earth Mother, and I've come to think they hear the same voice we do, by a gentler name. I don't argue with them." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The spirits around Zul'Gurub are sick, poisoned by blood magic, and the jungle feels it. I won't go near that place without a full war party." } },
+    burning_blade = { { id = "tp_burning_blade", text = "The Burning Blade still traffics with demons, and they'd have us go back to the old ways. They'll have to kill me first." } },
+    _none = { { id = "tp_none", text = "That is beyond what the elements tell me, and I'll not invent an answer the spirits never gave." } },
   },
 }
 
@@ -1156,8 +1268,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in and sit by the fire! Out here a fire keeps things away, not cold." },
-    { id = "g_home", when = { homeInn = { "Grom'gol Base Camp" } }, text = "Home again. Your bed's dry, which in Stranglethorn counts as a luxury." },
+    { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Commander says you think the Warchief went soft on the humans. Say that by my fire and the old grunts will buy you a drink, while the young ones start a fight, so sit on the end." },
+    { id = "g_inn", text = "Come in and sit by the fire, {class}! Out here a fire keeps things away, not cold, and an orc's stew keeps the rest away." },
+    { id = "g_home", when = { homeInn = { "Grom'gol Base Camp" } }, text = "Home again, and with all your limbs. Your bed's dry, which in Stranglethorn counts as a luxury." },
   },
 
   notice = {
@@ -1238,25 +1351,25 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit close to the fire; whether you pray to the loa or the shadows, you'll do it better on a full stomach." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Sit and eat; your demon can have the scraps, and the grunts can stop staring, because I've told them to." },
         { id = "h_default", key = true,
-          text = "Innkeeper Thulbek. As long as Grom'gol stands, there's a bed here for you. All I ask is a story of the fighting while you eat." },
+          text = "Innkeeper Thulbek. As long as Grom'gol stands, there's a bed here for any blood of the Horde. All I ask is a story of the fighting while you eat, because an orc's dinner goes down easier with a battle in it." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he wrestled a gorilla. By morning it was two gorillas, and by noon, a gorilla king, which makes a good story and a bad liar." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The jungle never sleeps. Listen, and you'll hear that everything out there is either hunting or hiding, so eat your stew." },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The jungle never sleeps. Listen, and you'll hear that everything out there is either hunting or hiding, the way it was on the old world before the Horde came through the Portal, so eat your stew." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Sit down and tell me a story, and make it a good one, since I trade beds for stories and you look like you've got a few." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could light the fire with a flick of your hand, I suppose, but I'd rather you told me a story instead, since I've plenty of wood." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit, eat, and tell me who you've fought this week, because a warrior always has the best stories and the worst table manners." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit, eat, and tell me who you've fought this week, because a warrior always has the best stories and the worst table manners, and I've never held either against one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of Thunder Bluff, at my fire. Tell me a story of the plains, friend, because all I hear down here is the jungle trying to get in." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at my fire! Now that's a story I'd trade a bed for, so sit down and tell it while you eat, or while you pretend to eat." },
       },
-      again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
+      again = { { id = "h_again", text = "Still here? Good, the stew's still hot and the grog's still angry, so what else?" } },
       choices = {
         { text = "Have any shamans told stories at your fire, Thulbek?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do the grunts here tell stories about the casters among them?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "The grunts here must tell stories about the casters among them.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Does Grom'gol need meat for the cookfire, Thulbek?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I've a story or two.", next = "story" },
         { text = "What's the talk in camp?", next = "talk" },
         { text = "Where does the zeppelin go?", next = "zeppelin" },
         { text = "Do you even cook for the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
-        { text = "Who else keeps this camp running?", next = "keepers" },
+        { text = "Somebody else must keep this camp running.", next = "keepers" },
         { text = "This jungle was my people's home once.", next = "k_troll", when = { race = "Troll" } },
         { text = "What sort of stories do you like best, Thulbek?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you rather a story than a spell, Thulbek?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -1296,7 +1409,7 @@ P:NPC {
         { id = "ke_default", text = "Uthok sells supplies off the zeppelin crates, Thysta keeps the wind riders, and that goblin Nez'raz runs the zeppelin to Orgrimmar and never stops talking. Between the four of us, the Commander's grunts are fed, armed and shipped." },
       },
       choices = {
-        { text = "Nez'raz never stops talking?", next = "keepers_nezraz" },
+        { text = "So Nez'raz never stops talking.", next = "keepers_nezraz" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1337,8 +1450,12 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "Just an innkeeper who goes where the Horde goes, because the Horde has to eat wherever it ends up." } },
+    background = { { id = "tp_ba", text = "Just an orc who cooks where the Horde camps, because the Horde has to eat wherever it ends up, and a hungry grunt fights like a peon." } },
     advice = { { id = "tp_ad", text = "Sleep with your boots on and your axe within reach. Not because of anything in particular, just because it's Stranglethorn." } },
-    _none = { { id = "tp_none", text = "Ask the Commander. He hears everything in this camp, and complains about most of it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief eats at the same table as his grunts when he can, and I respect a leader who knows what a stew costs. That's the kind of chief I'd cook for." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got better rum than I do, and they charge three times as much for it. I tell the grunts to drink here and save their silver for something important." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The grunts come back from the Arena with cuts and bruises and stories, and they eat twice as much as usual. I'm glad they go, it's good for my business." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, before the camps, and the food was worse then than it is now. That's the one thing I'm proud of in my life." } },
+    _none = { { id = "tp_none", text = "Ask the Commander. He hears everything in this camp, and he complains about most of it like a proper old warrior." } },
   },
 }

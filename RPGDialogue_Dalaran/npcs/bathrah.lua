@@ -33,10 +33,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_elements = {
+      lines = {
+        { id = "opn_elements_q", text = "Dat be de question I been askin' de river for many seasons, and de river only answer with more water. De old orc warlocks commanded, and look what dey become. But de wind lord be a danger to everyone if nobody hold him. What you think, young one?" },
+      },
+      choices = {
+        { text = "Ask, never command. That's the shaman's way.", next = "opn_elements_r_respect", fx = { affinity = 1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "If a power threatens the land, bind it and use it.", next = "opn_elements_r_power", fx = { align = { light = -1 }, opinion = { the_elements = "power" } } },
+        { text = "I'd leave the wind lord sleeping. Some things are too dangerous.", next = "opn_elements_r_dangerous", fx = { trait = { careful = 1 }, opinion = { the_elements = "dangerous" } } },
+        { text = "The spirits turned from you, Bath'rah. Listen to them.", next = "opn_elements_r_respect", when = { class = "SHAMAN" }, fx = { affinity = -1, opinion = { the_elements = "respect" } } },
+        { text = "I couldn't say.", next = "BACK" },
+      },
+    },
+    opn_elements_r = {
+      lines = {
+        { id = "opn_elements_r_default", text = "Den you be like me. De wind don't mind; it never answer neither." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
+    opn_elements_r_respect = {
+      lines = {
+        { id = "opn_elements_r_respect", text = "Yes, dat be de way, and I know it, and still I sit here with de wind lord's heart in my mind. Maybe one day I walk away from dis place. Not today." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
+    opn_elements_r_power = {
+      lines = {
+        { id = "opn_elements_r_power", text = "Careful, young one. Dat be how it start, every time, wit' a good reason and a bit of binding." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
+    opn_elements_r_dangerous = {
+      lines = {
+        { id = "opn_elements_r_dangerous", text = "Sleepin' be de best thing for him, maybe. But a sleepin' storm be still a storm, and somebody got to watch it." },
+      },
+      choices = {
+        { text = "Something else, Bath'rah.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I be Bath'rah, and dey call me de Windwatcher because I watch dis place for de wind lord. I make weapons for great warriors, and I wait for one great enough to face him." },
+          text = "I be Bath'rah, and dey call me de Windwatcher because I watch dis place for Cyclonian, de wind lord. I make weapons from his storm for great warriors, and de spirits here hate me for it, but still I wait for one great enough to face him." },
         { id = "h_windwatcher", tags = { "news" }, when = { questActive = TODO_QUEST("The Windwatcher") },
           text = "You have traveled far, and I see fire in your eyes. You seek a weapon of great power, yes? I can help you with your quest, and you can help me with mine." },
         { id = "h_heart", tags = { "news" }, when = { questReady = TODO_QUEST("The Summoning") },
@@ -55,7 +99,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. Old Bath'rah got time." },
       },
       choices = {
-        { text = "Who is Cyclonian?", next = "cyclonian" },
+        { text = "You keep speaking of Cyclonian.", next = "cyclonian" },
         { text = "Why do you watch this place?", next = "watch" },
         { text = "Why are the spirits angry with you?", next = "spirits" },
         { text = "How do you forge a weapon from a storm?", next = "forge" },
@@ -118,6 +162,7 @@ P:NPC {
         { id = "sf_default", text = "Maybe, young one, and maybe not. A shaman be askin' de elements for help, not orderin' dem around, and I wonder sometimes if I forgot de difference." },
       },
       choices = {
+        { text = "Should a shaman ever command the elements?", next = "opn_elements" },
         { text = "Then make peace with them. Ask their forgiveness.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Spirits that turn on you deserve to be bound.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -147,6 +192,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A hermit, a shaman and a maker of weapons. I watch, mostly." } },
     advice = { { id = "tp_ad", text = "Never fight de wind, young one. Bend with it, and strike when it turns." } },
     alterac = { { id = "tp_alterac", text = "Cold mountains, full of ogres, wizards and men with grudges. I keep to my river." } },
+    the_elements = { { id = "tp_the_elements", text = "De spirits of de wind and de stone be angry wit' me, young one, ever since I started watchin' dis place. Dey don't like what I be waitin' for, and I don't blame dem." } },
+    scourge = { { id = "tp_scourge", text = "De dead walk in de plaguelands just east of here, mon, and dey come up de river sometimes. I send dem back down it, and I don't sleep much." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "De Atal'ai worship de blood god in their swamp temple, and dey be fools, every one. De feathers from their trolls be good for my voodoo, though, so I don't complain too loud." } },
+    darkspear = { { id = "tp_darkspear", text = "De Darkspear be clever trolls, mon, siding wit' de orcs and keepin' their heads. I be no Darkspear, but I tip my hat to dem." } },
     _none = { { id = "tp_none", text = "De wind never told me dat one, mon. Ask somebody with more neighbours." } },
   },
 }

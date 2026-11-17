@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down and have a pint, {class}, because the Pig and Whistle could use someone to bless the ale, and nobody else here will." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I fought beside your sort in the war, {class}, and I'll say this, they were the last ones off the field every time." },
         { id = "h_default", key = true,
-          text = "Harry Burlguard. I carried a sword for the kingdom more years than you've been alive, and now I sit here and teach the young ones how to keep breathing. It's quieter, mostly." },
+          text = "Harry Burlguard. I carried a sword for the kingdom more years than you've been alive, and now I sit here and teach the young ones how to keep breathing, usually by setting them on Bartleby, the drunk at the end of the bar. It's quieter, mostly." },
         { id = "h_training", tags = { "news" }, when = { questActive = TODO_QUEST("A Warrior's Training") },
           text = "Lyria sent you, did she? She's a fine teacher, and she knows when a student's ready for the rough part. Let's see what you've got, then." },
         { id = "h_bartleby", tags = { "news" }, when = { questActive = TODO_QUEST("Bartleby the Drunk") },
@@ -140,12 +140,12 @@ P:NPC {
       choices = {
         { text = "Teach me to fight.", next = "teach", when = { class = "WARRIOR" } },
         { text = "Why set your students on a drunk?", next = "bartleby" },
-        { text = "What's the first thing you teach?", next = "lesson" },
-        { text = "Do you miss soldiering?", next = "soldiering" },
-        { text = "Who's Marshal Haggard?", next = "haggard",
+        { text = "There must be a first lesson you teach.", next = "lesson" },
+        { text = "You must miss soldiering.", next = "soldiering" },
+        { text = "I've heard the name Marshal Haggard.", next = "haggard",
           when = { any = { { questActive = TODO_QUEST("Marshal Haggard") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
         { text = "Did you trust the rogues you fought beside?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What did soldiers think of mages in the war?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Soldiers can't have thought much of mages in the war.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did hunters do for your company, Harry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Did your company have a priest in the war, Harry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What were paladins like on the battlefield, Harry?", next = "xapala", when = { class = "PALADIN" } },
@@ -174,7 +174,7 @@ P:NPC {
     bartleby = {
       lines = { { id = "b_default", text = "Because a training dummy doesn't hit back, and a drunk who's fond of his mug does. You learn more in one fight with someone who doesn't want to lose than in a month of drills." } },
       choices = {
-        { text = "Isn't it cruel to Bartleby?", next = "bartleby_cruel" },
+        { text = "That seems a bit cruel to Bartleby.", next = "bartleby_cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -187,7 +187,7 @@ P:NPC {
     },
 
     lesson = {
-      lines = { { id = "l_default", text = "That the fight you walk away from is the one you win. Young ones hate hearing it, so I make them learn it with a drunk instead of an orc, because Bartleby forgives you." } },
+      lines = { { id = "l_default", text = "It's that the fight you walk away from is the one you win. Young ones hate hearing it, so I make them learn it with a drunk instead of an orc, because Bartleby forgives you." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
 
@@ -214,6 +214,12 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I'll tell you about it whether you ask or not, so you might as well ask. The orcs were bigger than they are now, and so was I, and I'd like to think we both shrank about the same." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's the warchief of the orcs now, and they say he's a different sort than the ones I fought. I'll believe it when I see him at this table, and I'll buy him a drink if he behaves." } },
+    internment = { { id = "tp_internment", text = "I guarded an internment camp for a year after the war, and it was the worst job I ever had. The orcs were broken and the guards were bored, and nobody was happy, and then they all walked out anyway." } },
+    dark_portal = { { id = "tp_dark_portal", text = "I stood in the Black Morass the day the expedition marched through the Dark Portal, and I watched good men walk into that red light and never come back. That's a story for another night, and another round." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of men and women I fought beside, and they were all a good deal less handsome in person. I'll tell you which ones snored, if you buy the next round." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've heard of an arena in Stranglethorn where they fight for gold, and I've sent a few of my students there to learn. Most of them came back, and the ones that did were better for it." } },
     knows = { { id = "tp_knows", text = "Old soldiers drink here, and they talk when they drink. Ask me, and I'll tell you what I've heard over the rim of a mug." } },
     background = { { id = "tp_bg", text = "A soldier long enough to know better, and a teacher now. That's the whole of it, and I'll not dress it up.", next = "soldiering" } },
     advice = { { id = "tp_ad", text = "Keep your guard up even when you're winning, especially then. That's when they get you." } },
@@ -362,12 +368,12 @@ P:NPC {
         { id = "h_again2", text = "You still here? Buy a round or get on with it." },
       },
       choices = {
-        { text = "What's so special about that mug?", next = "mug" },
+        { text = "That mug must be special to you.", next = "mug" },
         { text = "Hand it over, Bartleby.", next = "fight" },
-        { text = "How many fights have you lost?", next = "record" },
-        { text = "Shouldn't you go home?", next = "home" },
+        { text = "You must have lost a few fights by now.", next = "record" },
+        { text = "You ought to go home.", next = "home" },
         { text = "Has anyone ever stolen that mug off you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Have you ever fought, Bartleby?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "You look like you've fought before, Bartleby.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why keep beasts away from your end, Bartleby?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my imp bother you, Bartleby?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I pray for you, Bartleby?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -429,6 +435,10 @@ P:NPC {
   },
 
   topics = {
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena down in Stranglethorn where they'll fight you for a chest of gold, and I'd go if I could find my boots. Last time I looked they were under a dwarf." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I spent a night in the Stockade once for a disagreement with a chair, and it was the best sleep I've had in years. Now the prisoners run it, I hear, so I'll not be back, unless they're serving ale." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons brew a stout so black you can't see the bottom of the mug, and I've only had it once. I've been chasing that mug ever since, and I'll catch it someday." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a contest where you drink until you fall, and I've won it twice. They've asked me not to come back, which I count as a third win." } },
     knows = { { id = "tp_knows", text = "I hear everything said at this bar, though I remember about half of it. Ask, and we'll see which half." } },
     background = { { id = "tp_bg", text = "I drink, I fight, I keep my mug. You want more than that, buy me another." } },
     advice = { { id = "tp_ad", text = "Never fight a man for his drink unless you're willing to buy him the next one. That's manners." } },
@@ -571,10 +581,10 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your drinks.", next = "BUSINESS" },
-        { text = "Who are the regulars?", next = "regulars" },
-        { text = "Is the food any good?", next = "food" },
-        { text = "Do many rogues drink at the Pig and Whistle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do many brawls start in the Pig and Whistle, Elly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "This place looks like it has its regulars.", next = "regulars" },
+        { text = "The food here smells good.", next = "food" },
+        { text = "I'd guess a few rogues drink at the Pig and Whistle.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Pig and Whistle sees its share of brawls, I'd wager, Elly.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters drink in the Pig and Whistle often, Elly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mind serving the Lamb's crowd, Elly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers really want their pints blessed, Elly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -606,6 +616,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's folk come in here when they're in the city, and they tip better than any soldier. I've had a juggler leave me a silver and a fire-eater leave me burns, so it evens out." } },
+    dark_iron = { { id = "tp_dark_iron", text = "A dwarf asked me for Dark Iron ale once, and I told him we don't serve it here, and he cried. I gave him a Thunderbrew on the house, and he forgave me by the third." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum is the only drink that's ever made Burlguard stop talking about the Second War. I keep a bottle for emergencies, and I've used it twice." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The guards from the Stockade drink here after their shifts, and they've been drinking more since the riot. They don't talk about it, and I don't ask, but I keep their mugs full." } },
     knows = { { id = "tp_knows", text = "A barmaid hears every secret in Old Town, love, though she keeps most of them. Ask." } },
     background = { { id = "tp_bg", text = "I carry drinks at the Pig and Whistle, and I'm good at it. That's my story, and it's a busy one." } },
     advice = { { id = "tp_ad", text = "Never sit with your back to the door in Old Town, love. Everybody who matters already knows that." } },
@@ -746,10 +760,10 @@ P:NPC {
       },
       choices = {
         { text = "Teach me to cook.", next = "BUSINESS" },
-        { text = "What's in the ribs?", next = "ribs" },
-        { text = "The guards say you weren't always a cook.", next = "past" },
-        { text = "Is that how you size people up, by their hands?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Can't I just conjure my food?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Those ribs smell like there's a secret in them.", next = "ribs" },
+        { text = "Were you always a cook, Stephen?", next = "past" },
+        { text = "So that's how you size people up, by their hands.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could just conjure my food.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior eat before a fight, Stephen?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What game do you most like to cook, Stephen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Did you see many healers in the war, Stephen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -773,7 +787,7 @@ P:NPC {
     },
     past = {
       big = true,
-      lines = { { id = "p_default", text = "The guards say a lot of things. I'm a cook, and I'm a good one, and that's all anybody in this tavern needs to know about me." } },
+      lines = { { id = "p_default", text = "Folk ask me that more than you'd think. I'm a cook, and I'm a good one, and that's all anybody in this tavern needs to know about me." } },
       choices = {
         { text = "A man's past is his own business.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
         { text = "A cook doesn't hold a knife like that.", next = "past_knife", fx = { trait = { curious = 1 } } },
@@ -781,12 +795,16 @@ P:NPC {
       },
     },
     past_knife = {
-      lines = { { id = "pk_default", text = "A good cook holds a knife exactly like that. Sit down and eat something, and stop listening to guards." } },
+      lines = { { id = "pk_default", text = "A good cook holds a knife exactly like that. Sit down and eat something, and stop asking questions." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The cooks in Booty Bay do things with spice I'd not have believed, and I've stolen a few of their tricks. I'll not tell you which ones, because a cook's secrets are his own." } },
+    si7 = { { id = "tp_si7", text = "I'm just a cook, and SI:7 is just the building next door. If you've any other questions about it, I'd ask them somewhere else." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena is a pit full of fools fighting for gold, and I've no interest in it. I've done enough fighting for one life, if you take my meaning, and now I do ribs." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells ribs that would make a dwarf weep, and I've been trying to make them for years. I'm close, I think, though the secret's probably in the smoke." } },
     knows = { { id = "tp_knows", text = "Folk talk while they eat. Ask, and I'll tell you what came back with the plates." } },
     background = { { id = "tp_bg", text = "I'm a cook. You can ask again, but you'll get the same answer.", next = "past" } },
     advice = { { id = "tp_ad", text = "Learn to cook what you kill. You'll eat better on the road, and you'll waste less." } },
@@ -930,9 +948,9 @@ P:NPC {
         { text = "Tell me about Randal.", next = "randal" },
         { text = "Do your students stay?", next = "students" },
         { text = "Why does creaking leather matter so much?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do warriors really wear leather under their armour, Simon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What makes a good hide for leatherworking, Simon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do warlocks come to you often, Simon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt warriors really wear leather under their armour, Simon.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Choosing a good hide is an art, I'd guess, Simon.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I'd not have thought warlocks came to you often, Simon.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does working with the dead ever trouble you, Simon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many paladins buy leather from you, Simon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a hide remembers the animal it came from, Simon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -959,6 +977,9 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's tents are leather, and the finest I've ever seen, stitched by someone who knew what he was about. I'd give a year's earnings to meet the man who made them." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The furbolgs of the Timbermaw make leather armour that's lasted a hundred years, so the hunters say. I'd like to learn from them, though I'm told they don't care for visitors." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The finest leather in the world comes from the raptors of Stranglethorn, and Booty Bay's the only port that sells it. I buy when I can, and I curse the price every time." } },
     knows = { { id = "tp_knows", text = "Hunters and skinners bring me their hides and their stories together. Ask, and I'll tell you what came in with them." } },
     background = { { id = "tp_bg", text = "A leatherworker and a teacher, in Old Town most of my life. The hides tell better stories than I do." } },
     advice = { { id = "tp_ad", text = "Skin carefully, because a torn hide's only fit for scraps. Patience at the carcass saves you coin at the bench." } },
@@ -1099,14 +1120,14 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Why do they call you the Night Man?", next = "name" },
-        { text = "What's behind that door?", next = "door" },
-        { text = "Who's Lord Ravenholdt?", next = "ravenholdt", when = { class = "ROGUE", minLevel = 50 } },
-        { text = "Do you trust the people you train?", next = "trust" },
-        { text = "What should I be practising?", next = "practise", when = { class = "ROGUE" } },
+        { text = "That door looks like it hides something.", next = "door" },
+        { text = "I've heard the name Lord Ravenholdt.", next = "ravenholdt", when = { class = "ROGUE", minLevel = 50 } },
+        { text = "I doubt you trust the people you train.", next = "trust" },
+        { text = "I should be practising something, I suppose.", next = "practise", when = { class = "ROGUE" } },
         { text = "The Defias pay better than SI:7, I hear.", next = "defias_pay", when = { class = "ROGUE" } },
         { text = "Ironforge taught me a smuggler's tricks. Any use here?", next = "dwarf_rogue", when = { race = "Dwarf", class = "ROGUE" } },
         { text = "A gnome can go where your people can't.", next = "gnome_rogue", when = { race = "Gnome", class = "ROGUE" } },
-        { text = "What do you make of the other trainers in the city?", next = "others" },
+        { text = "You must have opinions on the other trainers in the city.", next = "others" },
         { text = "Does SI:7 ever use mages, Osborne?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has SI:7 ever trained a warrior, Osborne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are hunters and rogues much alike, Osborne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1229,6 +1250,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt Manor is somewhere in the Alterac foothills, and they find you, not the other way round. I've heard they're very selective, and I'm told I was nearly selected once." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are noble thieves, which is two kinds of thief at once. I'd not work for them, and I'd advise you don't either, because they never pay what they promise." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of rogues who got caught, and a few of them were mine. I'd like to say it was their fault, but I taught them, so I suppose it's partly mine." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best port in the world for a rogue to lose himself, and the goblins never ask questions. I spent a year there once, and I've still got the scars and most of the coin." } },
     knows = { { id = "tp_knows", text = "Plenty passes this door that never gets written down. Ask, and I'll decide what you can hear." } },
     background = { { id = "tp_bg", text = "I'm the Night Man. Anything before that was somebody else's life, and I've forgotten it on purpose." } },
     advice = { { id = "tp_ad", text = "Learn to listen before you learn to pick a lock. Most doors open once you know who has the key." } },
@@ -1373,12 +1398,12 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
-        { text = "How do you know about Moonbrook?", next = "moonbrook" },
-        { text = "What does a shady dealer sell?", next = "wares" },
+        { text = "You seem to know a lot about Moonbrook.", next = "moonbrook", when = { any = { { questActive = TODO_QUEST("Detonation at a Distance") }, { questDone = TODO_QUEST("Detonation at a Distance") } } } },
+        { text = "I'd guess a shady dealer sells all sorts.", next = "wares" },
         { text = "Why keep quiet from my elf friend?", next = "alba",
           when = { any = { { questActive = TODO_QUEST("Detonation at a Distance") }, { questDone = TODO_QUEST("Detonation at a Distance") } } } },
         { text = "Want a gnome to look over that powder?", next = "gnome", when = { race = "Gnome" } },
-        { text = "Does SI:7 know where your stock comes from?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I doubt SI:7 knows where your stock comes from.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What would a mage want with flash powder?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What could a warrior buy from your stall, Jasper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters use poison on their arrows, Jasper?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1443,6 +1468,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt's the finest school of my trade, and its master makes poisons that could kill a dragon. I've had a few of his vials, and I've never been so jealous of anything in my life." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate buy from me now and then, through people who think I don't know who they work for. I know, and I sell to them anyway, because their gold's as good as anyone's." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The jungle trolls of Zul'Gurub brew poisons that make my stock look like water. I'd like a sample, though I'd not like to collect it myself." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Half the poisons in the Stockade came from my shelves, though I'll not say how they got there. The prisoners know how to find what they need, which is a skill I respect." } },
     knows = { { id = "tp_knows", text = "Everything that comes through SI:7's door passes my counter sooner or later. Ask carefully, and I'll answer carefully." } },
     background = { { id = "tp_bg", text = "I sell supplies to SI:7. Before that, I sold them to somebody else, and that's all I'll say." } },
     advice = { { id = "tp_ad", text = "Never tell a man more than he needs to know, and never trust a man who tells you more than you need. Both will get you killed." } },

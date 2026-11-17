@@ -10,7 +10,7 @@
 ## Identity
 Clarice Foster · Pools of Vision, Thunder Bluff · Horde · Forsaken · citizen
 Personality: bitter, sharp, proud, wounded
-Speech: biting, dry, Lordaeron-human cadence
+Speech: biting, dry, Lordaeron-human cadence; Forsaken chill: the grave, unlife, no warmth by accident
 Knows and cares about: Yuriv, being undead, Thunder Bluff's strangeness
 Relationships: Yuriv (dead husband)
 Default attitudes: cold to the Light's servants; kinder to other Forsaken

@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Hello, friend. Mind the nest on your left; that one bites, and she's only two weeks old." },
+    { id = "g_hello", text = "Ishnu-alah, friend. Mind the nest on your left; that one bites, and she's only two weeks old." },
     { id = "g_feathers", when = { questActive = TODO_QUEST("Favored of Elune?") }, text = "Any luck in the Hinterlands? Bring the feathers carefully, if you can, and not too bloodied." },
     { id = "g_moon", when = { questActive = TODO_QUEST("Moontouched Wildkin") }, text = "Winterspring feathers, friend, the ones that have fallen in the snow. I can hardly sit still waiting for them." },
     { id = "g_answer", when = { questDone = TODO_QUEST("Wildkin of Elune") }, text = "I still think about what you found at that altar. Elune's own guardians, and we never knew!" },
@@ -54,13 +54,13 @@ P:NPC {
           text = "A druid of the Circle! Then you'll understand why I'd rather raise hippogryphs than argue in the Enclave." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? I can talk and clean nests at the same time." },
+        { id = "h_again", text = "What else, friend? I can talk and clean nests at the same time, for the hippogryphs have kept me humble these many centuries." },
         { id = "h_again2", text = "Go on. The chicks like the sound of voices, I think." },
       },
       choices = {
         { text = "Where do the hippogryph eggs come from?", next = "eggs" },
         { text = "Why study the wildkin?", next = "wildkin" },
-        { text = "Who is Ranshalla?", next = "ranshalla", when = { any = { { questActive = TODO_QUEST("Find Ranshalla") }, { questDone = TODO_QUEST("Moontouched Wildkin") } } } },
+        { text = "You speak of Ranshalla as though you miss her.", next = "ranshalla", when = { any = { { questActive = TODO_QUEST("Find Ranshalla") }, { questDone = TODO_QUEST("Moontouched Wildkin") } } } },
         { text = "What did the altar tell you?", next = "altar", when = { questDone = TODO_QUEST("Wildkin of Elune") } },
         { text = "Can I hold one of the chicks?", next = "chick" },
         { text = "How does a moonkin form compare?", next = "druid_e", when = { class = "DRUID" } },
@@ -165,6 +165,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If a creature is fierce about something, find out what it's protecting before you decide it's a monster." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle sends me eggs and questions, and I send back hippogryphs and more questions. It's a fair trade." } },
     teldrassil = { { id = "tp_tree", text = "Rut'theran sits at the tree's roots, so I get the sea air and the arrivals and none of the stairs. I wouldn't trade it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The hippogryphs came down from Hyjal with us, and the old ones still turn their heads north when the wind's right. I think they miss the first tree as much as we do." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The Circle says Ysera's flight was cool toward this tree, and I believe it. The wildkin here hatch a little restless, and I've wondered if that's why." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I've walked the edge of the Dream once, and there were hippogryphs there as well, bigger and calmer than mine. I came back and fed mine extra, out of guilt." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins have asked me twice to sell them hatchlings. They didn't like my answer either time." } },
     _none = { { id = "tp_none", text = "I'm afraid I know hippogryphs and wildkin and not much else, friend. Vesprystus might know; he talks to everyone who flies." } },
   },
 }

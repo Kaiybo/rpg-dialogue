@@ -87,11 +87,11 @@ P:NPC {
       },
       choices = {
         { text = "What's the Super Reaper 6000?", next = "reaper" },
-        { text = "Why do you hate the Venture Company?", next = "venture" },
+        { text = "You seem to hate the Venture Company.", next = "venture" },
         { text = "Isn't it dangerous hiding here?", next = "crag" },
         { text = "I'd only want a peek at the schematics.", next = "gnome", when = { race = "Gnome" } },
         { text = "The earth here hates the Venture Company. Does that bother you, Ziz?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's the Venture Company really doing at Windshear?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "The Venture Company must be doing more than cutting at Windshear.", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How many guards on the Venture Company's camp?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How tough are the Venture Company's operators, Ziz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have the Venture Company's saws driven the beasts out, Ziz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -173,6 +173,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm an engineer, pal, between employers, with very big plans and a very small hut." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's got the best shredder plans this side of Undermine and the worst security, pal, so I'm liberatin' 'em in the name of free trade. They'd do the same to me, and they'd charge me for the privilege." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'm selling these plans, once I've got 'em, to the highest bidder with the shortest memory. Every engineer in the Cartel wants a shredder, and every one of 'em's too cheap to build their own." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's full of engineers who'd kill for a good shredder design, and some of 'em would, given the chance. That's why I'm selling through a cousin, at a reasonable markup." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's Gazlowe's town, and he don't ask where your goods come from as long as the duty gets paid. My kinda place, chum." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's legit, and the Venture boys ain't, and I'm somewhere in the middle, with a hut and a pair of binoculars. Business is business, kid." } },
     _none = { { id = "tp_none", text = "Couldn't tell ya, pal, and I don't do anything for free, including not knowing things." } },
   },
 }
@@ -247,18 +252,18 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! The Earth Mother's own healers, here at last, and the Charred Vale has waited a long time for hands like yours." },
       },
       again = {
-        { id = "h_again1", text = "What else, friend?" },
+        { id = "h_again1", text = "What else, friend? Speak freely; the seedlings like a gentle voice." },
         { id = "h_again2", text = "Ask what you like while I sort these seeds by size." },
       },
       choices = {
         { text = "What are you planting?", next = "seeds" },
-        { text = "What happened to the Charred Vale?", next = "vale" },
+        { text = "The Charred Vale looks like it burned for days.", next = "vale" },
         { text = "How is Sun Rock holding?", next = "sunrock" },
         { text = "I'll help heal her.", next = "tauren", when = { race = "Tauren" } },
         { text = "How can the land here heal, Tsunaman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could magic help the land here heal faster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Where do the Venture Company keep their fuel and machines?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Should the Venture Company be fought, or driven off, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The Venture Company must keep their fuel and machines somewhere close.", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "The Venture Company will have to be fought, Tsunaman.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where have the beasts gone since the vale burned, Tsunaman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a druid's magic help the seedlings take root, Tsunaman?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Can the Light heal the forest, Tsunaman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -270,7 +275,7 @@ P:NPC {
         { id = "seeds_default", text = "Gaea seeds, which grow quickly where the earth is wounded, if they're planted in the right places. I need hands to carry them to the burned ground, where the Venture shredders still roam." },
       },
       choices = {
-        { text = "Won't the goblins just cut them down again?", next = "seeds2" },
+        { text = "The goblins will only cut them down again.", next = "seeds2" },
       },
     },
     seeds2 = {
@@ -337,7 +342,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a planter of seeds, and Sun Rock is my home." } },
-    _none = { { id = "tp_none", text = "That I don't know, but the earth might, if you listen long enough." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company cuts the forest faster than I can plant it, but trees grow slowly and goblins grow old. I will outlast them, and so will the forest." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us seeds to remind us that nothing ends for good. I plant her reminders where the goblins have been, and she does the rest." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent us here to heal the land, and he trusts me with the seeds. I would rather plant a hundred trees than fight one goblin, and he understands that." } },
+    centaur = { { id = "tp_centaur", text = "The Gelkis and Magram to the south fight each other, and the land in Desolace suffers for it. I worry that Stonetalon will become the same if no one plants anything here." } },
+    _none = { { id = "tp_none", text = "That I don't know, but the Earth Mother might, if you put your hand on the soil and listen long enough." } },
   },
 }
 
@@ -416,14 +425,14 @@ P:NPC {
       },
       choices = {
         { text = "Why did the Grimtotem attack?", next = "grimtotem" },
-        { text = "Who's waiting for you at Sun Rock?", next = "uncle" },
+        { text = "Someone must be waiting for you at Sun Rock.", next = "uncle" },
         { text = "Is the road dangerous?", next = "road" },
         { text = "They've betrayed every tauren.", next = "tauren", when = { race = "Tauren" } },
-        { text = "Were there Grimtotem shamans at Camp Aparaje, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Did the Grimtotem use magic when they attacked you?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Did the Grimtotem bring shamans to your camp, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The Grimtotem must have used magic when they attacked you.", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Did you see where the Grimtotem went after the attack?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How many Grimtotem attacked your camp, Kaya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do the Grimtotem hunt along this road, Kaya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I'd guess the Grimtotem hunt along this road, Kaya.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you want to become a druid one day, Kaya?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'm here to help, Kaya. You're safe.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll take you home soon, Kaya.", next = "END" },
@@ -501,6 +510,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Kaya, from Camp Aparaje, though there isn't much of the camp left now." } },
-    _none = { { id = "tp_none", text = "I don't know, I'm sorry. I only want to get home." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem killed my family at Camp Aparaje and took me, and they did it smiling. I do not understand how a tauren could do that, and I do not want to." } },
+    cairne = { { id = "tp_cairne", text = "Cairne will punish the Grimtotem for what they did, I know he will. He is the High Chieftain, and he does not forgive cruelty." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother saw what the Grimtotem did, and she will judge them. I only want to go home, and let her do the judging." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were the monsters of my grandmother's stories, but the Grimtotem are worse. They look like us, and that is the most frightening thing of all." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry. I only want to get home, Earth Mother keep me." } },
   },
 }

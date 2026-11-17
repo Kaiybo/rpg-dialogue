@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_grave", text = "Ah, you're up. Sit a moment if you need to; the first few minutes are the strangest." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and still yourself. That's a fine sign." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and still yourself. That's a fine sign; not everyone I dig up stays that way." },
     { id = "g_xremember", when = { origin = "forsaken_scourge_remembered" }, text = "You remember it, don't you, the time under the Lich King's hand? I can see it in how you look at your own fingers. Sit with it as long as you need, because the graves here don't hurry anyone." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and still yourself, by the look of you. That's a fine sign, and the graves are none the worse for missing you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8, race = "Scourge" }, text = "I remember you sitting on the edge of your own grave, wondering what had happened, and now look at you. You've grown into this second life better than most." },
@@ -60,6 +60,13 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
+          text = "I raised one called {alt} from these same graves, and you came up with the same twist at the corner of the mouth. Perhaps you were family in life, or perhaps the grave just likes a pattern, and I've stopped trying to tell which." },
+        { id = "h_alt_living", tags = { "news" }, when = { alt = { notKin = true, race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
+          text = "A {altrace} came through Deathknell a while ago, {alt} by name, and asked me what it felt like to dig up the dead for a living. I told them it pays about as well as you'd expect, but the company's quieter than most." },
+        { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
+          text = "You've a look of {alt}, one of the risen I dug out of this churchyard myself. If you're kin of theirs from before, go gently, because most of mine don't remember the families they had." },
+        { id = "o_tlaband", tags = { "news" }, when = { gossip = { topic = "the_light", stance = "abandoned" } }, text = "Sarvis says you've given up on the Light already. Quick work, for someone I stitched together so recently." },
         { id = "h_default", key = true,
           text = "I'm Undertaker Mordo. I tend the graves here, and sometimes the graves tend to stir, as you did. Welcome back." },
         { id = "h_rude", tags = { "news" }, when = { questActive = TODO_QUEST("Rude Awakening") },
@@ -74,18 +81,29 @@ P:NPC {
         { text = "What words do you say over the ones who don't wake?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the earth mind holding so many dead, Mordo?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could the old yew be brought back, Mordo?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "My hands still know a sword. Is that normal?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "My hands still know a sword, though I don't remember learning.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I remember the Scourge's voice, Mordo.", next = "remember", when = { origin = "forsaken_scourge_remembered" } },
         { text = "What happened to me?", next = "what" },
         { text = "My hands itch for locks and pockets, Mordo.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the dead learn their magic, Mordo?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the risen ever turn to warlockry, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do beasts dig at your graves, Mordo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Did you bury many paladins here, Mordo?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I'd guess beasts dig at your graves, Mordo.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "You must have buried paladins here too, Mordo.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You were there when I woke, Mordo. Remember what I asked?", next = "xorig_binder", when = { origin = "forsaken_vengeful_binder" } },
         { text = "I'll find Sarvis.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Something else? Take your time; the graves aren't going anywhere." },
+      },
+    },
+    xorig_binder = {
+      lines = {
+        { id = "xbd_default", text = "You asked how to hurt him back. Not where you were, or who you'd been, only that, and I've buried enough of the fresh ones to know it's rare. Has the asking done you any good since?" },
+      },
+      choices = {
+        { text = "Every demon I bind is a debt the Lich King will pay.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I've started to wonder if there's more than revenge.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Less than I hoped, Mordo.", next = "BACK" },
       },
     },
     warrior = {
@@ -163,6 +181,10 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "You're Forsaken now, which means you're one of us, and one of us is better than one of the mindless. Welcome back, and mind your step." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge keeps the dead walking without a thought in their heads, and I spend my days putting them back in the ground where they belong. It's honest work, and the pay never changes, since there isn't any." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Deathknell was a village before the plague, with a church and a well and a churchyard I kept tidy. I keep it tidy still, though the residents are less patient than they used to be." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us, so I bury what she tells me to and leave the thinking to her. That suits an undertaker." } },
     _none = { { id = "tp_none", text = "I bury things; I don't explain them. Ask Sarvis." } },
   },
 }
@@ -195,6 +217,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_the_light = {
+      big = true,
+      lines = {
+        { id = "optl_default", text = "Every one of them, sooner or later, usually while they're still picking grave dirt out of their teeth. So I'll ask you what they ask me: did the Light abandon us, or did we never matter to it?" },
+      },
+      choices = {
+        { text = "It never left. Some of us can still feel it.", next = "op_the_light_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "It abandoned us. The shadow asks less and gives more.", next = "op_the_light_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { the_light = "abandoned" } } },
+        { text = "I don't know. I keep praying and waiting for an answer.", next = "op_the_light_r3", fx = { trait = { pious = 1 }, opinion = { the_light = "doubt" } }, when = { class = "PRIEST" } },
+        { text = "I'll keep my faith to myself, Sarvis.", next = "BACK" },
+      },
+    },
+    op_the_light_r1 = {
+      lines = { { id = "optl_r1", text = "Then hold it close, and see whether it holds you back. I've watched a great many hands reach for it, and very few come back warm." } },
+      choices = { { text = "Something else, Sarvis.", next = "BACK" } },
+    },
+    op_the_light_r2 = {
+      lines = { { id = "optl_r2", text = "Good. You'll learn faster than most, and you'll waste less of your second life on your knees." } },
+      choices = { { text = "Something else, Sarvis.", next = "BACK" } },
+    },
+    op_the_light_r3 = {
+      lines = { { id = "optl_r3", text = "That's an honest answer, and honesty is where the Forgotten Shadow begins. Come back to me when the waiting tires you." } },
+      choices = { { text = "Something else, Sarvis.", next = "BACK" } },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Will, more than anything, because the shadow isn't a god and it won't carry you the way the Light pretended to. Learn to make your own faith out of what you've got, and you'll find it's harder to lose than the old kind." } },
@@ -235,12 +281,12 @@ P:NPC {
       choices = {
         { text = "What does the shadow ask of a priest, Sarvis?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You trust the shadow, Sarvis. Why not the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Can the land here be cleansed, Sarvis?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "This land needs cleansing, Sarvis.", next = "druid_q", when = { class = "DRUID" } },
         { text = "I woke with a sword arm and no prayers, Sarvis.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who are the Forsaken?", next = "forsaken" },
         { text = "The Light still answers me, Sarvis.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I deal in fel and shadow, like you.", next = "warlock", when = { class = "WARLOCK" } },
-        { text = "I studied magic in life. Does it still matter?", next = "mage", when = { class = "MAGE" } },
+        { text = "I studied magic in life. I doubt it matters now.", next = "mage", when = { class = "MAGE" } },
         { text = "I'd rather work where nobody's looking.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Is there anything worth hunting near Deathknell, Sarvis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll get to work.", next = "END" },
@@ -299,6 +345,7 @@ P:NPC {
         { text = "For the Dark Lady.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I serve myself now, not the Dark Lady.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "And what do we want?", next = "want" },
+        { text = "Do the new risen ask you about the Light?", next = "op_the_light" },
       },
     },
     want = {
@@ -338,6 +385,21 @@ P:NPC {
       { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
     },
     scarlet_crusade = { { id = "tp_crusade", text = "They burn what they don't understand, and they don't understand very much." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, risen from the Lich King's army with our minds our own again, and a little bitter about how we spent the interval. You'll find the bitterness is useful, since it keeps you moving." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge is a great machine of the dead with a cold will at its heart, and you were one of its parts until the Dark Lady pulled you out. Don't feel guilty about it, because guilt is a habit for the living." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You remember the voice in your head, I expect, the one that told you what to do. That silence you hear now is freedom, and you'll grow to like it." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady was a ranger-general of Quel'Thalas, and Arthas killed her and made her serve him. She broke free and took us with her, so you could say we owe her our afterlives, and she certainly would say so." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light burns those of us who've died, which I always thought a bit petty of it. We get by on will and shadow now, and I find both far more dependable." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You hold the Light in dead hands, and I expect it hurts. Aramis would tell you that's the point, and I'd tell you Aramis has always been a little odd." },
+    },
+    arthas = { { id = "tp_arthas", text = "Arthas is the prince who killed his father and gave Lordaeron to the plague, and then he went north to serve his master. I hope he finds the weather there as unpleasant as I find him." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned, and the plague in your blood was his gift to Lordaeron. He rules the Scourge in the east now from a floating necropolis, and I'm told he's very pleased with himself." } },
+    lordaeron = { { id = "tp_lordaeron", text = "This was the greatest kingdom of men, and now it's a graveyard with a few of us walking about in it. I find there are worse places to be dead." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde took us in when the living would only burn us. The orcs are wary of us and they're right to be, but an alliance doesn't need affection to work." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the city of the Kirin Tor, and Archimonde knocked it flat. They say they're rebuilding behind their shields now, and I'd wager they'll be very sorry they didn't let more of us in." } },
     _none = { { id = "tp_none", text = "A good question for someone with more patience than I have." } },
   },
 }
@@ -422,9 +484,9 @@ P:NPC {
         { text = "Give me a post, Executor. I can fight.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Point me at a Crusade camp, Executor. They won't see me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My fire is yours to aim, Executor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Would the Executor take a warlock's help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess the Executor would take a warlock's help.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you want me to shame the Crusade with the Light, Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I could shame the Crusade with the Light, Executor.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
       },
       again = {
@@ -504,6 +566,10 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "Zealots in red. Ask Executor Zygand in Brill; he's been fighting them longer than I have." } },
+    forsaken = { { id = "tp_forsaken", text = "We are what the Dark Lady made of the Lich King's leavings, and we serve her alone. That's all you need to know on your first day." } },
+    scourge = { { id = "tp_scourge", text = "The mindless dead still wander these fields, and they'll come at you without a thought. Put them down, and don't mistake them for your old neighbors, because your neighbors are gone." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gives the orders, and I carry them out. If you want to know her mind, prove yourself useful and you may live long enough to hear it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron is dead, and the Crusade hasn't noticed. We have, and we're building on its bones." } },
     _none = { { id = "tp_none", text = "That is no concern of Deathknell's, nor of mine." } },
   },
 }
@@ -595,13 +661,13 @@ P:NPC {
         { text = "I was a knight of the Silver Hand, before.", next = "knight", when = { class = "PALADIN", origin = "forsaken_risen_knight" } },
         { text = "The Crusade calls on the same Light against us.", next = "crusade", when = { class = "PALADIN" } },
         { text = "What does the Dark Lady think of us?", next = "sylvanas", when = { class = "PALADIN" } },
-        { text = "How can you stand it, a dead man in the Light?", next = "other", when = { ["not"] = { class = "PALADIN" } } },
+        { text = "A dead man in the Light. I can't think how you stand it.", next = "other", when = { ["not"] = { class = "PALADIN" } } },
         { text = "The arcane doesn't burn me the way your Light burns you.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You hold the Light and I hold demons. We're both mad.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll keep training.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Does the Light still have room for a plain soldier, Aramis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The Light may have no room for a plain soldier, Aramis.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Light and the hunt have anything in common, Aramis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Does the Light condemn rogues, Aramis?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I'd guess the Light condemns rogues, Aramis.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The Light left me when I died, and I'm done with it.", next = "END", fx = { align = { light = -1 } } },
       },
       again = {
@@ -683,7 +749,7 @@ P:NPC {
       choices = {
         { text = "Study is a steadier path than faith, Aramis.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Your faith takes more courage than my spells.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "How can you stand it, a dead man in the Light?", next = "other" },
+        { text = "A dead man in the Light. I can't think how you stand it.", next = "other" },
       },
     },
     xwarlock = {
@@ -701,6 +767,13 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light burns me every time I call it, and I call it anyway. It never asked whether I was alive, only whether I was willing." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You feel it too, the heat at the edges of your hands when you pray. Don't let go of it, because the burning is how you know it hasn't let go of you." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "I was never one of Uther's knights, though I prayed beside some of them. The order is broken now, and the Crusade wears its colors and does it no honor." } },
+    forsaken = { { id = "tp_forsaken", text = "Most of the Forsaken have turned their backs on the Light, and I understand why. I simply couldn't, and I've stopped apologizing for it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has no faith at all, only hunger. If I must choose between a painful faith and an easy hunger, I'll choose the pain." } },
     _none = { { id = "tp_none", text = "I can't say. Ask me about the Light; I've thought about little else." } },
   },
 }

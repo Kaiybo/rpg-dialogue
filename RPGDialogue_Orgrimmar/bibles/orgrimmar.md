@@ -27,7 +27,7 @@
 - Vol'jin: wry, dropped verbs, "mon" sparingly; loyal to Thrall, wary of the Blade, carries Yenniku quietly.
 - Neeru: silky, ironic, "useful friends".
 - Gryshka: hearty innkeeper, flustered about Zargh.
-- Gamon: resigned, gentle, keeps getting knocked down.
+- Gamon: resigned, gentle, keeps getting knocked down. A tauren far from Mulgore: slow, soft-spoken, plains and herd imagery, the Earth Mother; never an orc backstory (no camps, no Lordaeron).
 
 ## Depth pass (0.25.0, authored, not canon)
 Gryshka sends Zargh's bones back clean after Meats to Orgrimmar and is still wondering what it means herself; a quiet Tusk means trouble; Gamon's short list of people who didn't hit him.
@@ -36,3 +36,6 @@ Gryshka sends Zargh's bones back clean after Meats to Orgrimmar and is still won
 - Thrall (Persuade, `neeru_suspect`): he has suspected Neeru since the day Neeru offered to watch the Burning Blade for him; he keeps Neeru in the Cleft, "a snake I can see", and lets him think he is grateful.
 - Vol'jin (Persuade, `zalazane_friend`): as boys, Zalazane dared him to swim to the far rock and swam out after him when he tired; Vol'jin still half hopes his friend is under the voodoo, and does not tell Thrall.
 - Neeru (Deceive, `neeru_opinion`): his "real opinion" of Thrall, irony only: the Warchief's patience lets enemies "grow rather powerful"; to warlocks, the Horde was strong "when it wasn't afraid of what made it strong". He never admits what he is.
+
+## Authored, not canon
+- Kardris's prejudice (0.80.0): hard on orc warlocks in particular (the old sin twice); gentler with warlocks of other races.

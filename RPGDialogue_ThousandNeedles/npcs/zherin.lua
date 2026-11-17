@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_raceway = {
+      lines = {
+        { id = "opr_q", text = "I'm paid to keep the track clear, not to like it, and on most days I don't. What do you think of all this, the racing and the rockets and the wagers?" },
+      },
+      choices = {
+        { text = "It's harmless fun. Let them race.", next = "op_raceway_r1", fx = { align = { order = -1 }, opinion = { mirage_raceway = "fun" } } },
+        { text = "It's a waste of good salt flats and better lives.", next = "op_raceway_r2", fx = { affinity = 2, align = { order = 1 }, opinion = { mirage_raceway = "waste" } } },
+        { text = "Anything that keeps goblins and gnomes busy is good for everyone.", next = "op_raceway_r3", fx = { trait = { witty = 1 }, opinion = { mirage_raceway = "useful" } } },
+        { text = "I've no opinion on it yet.", next = "BACK" },
+      },
+    },
+    op_raceway_r1 = {
+      lines = {
+        { id = "op_raceway_r1", text = "Harmless until a basilisk wanders onto the track, which happens more than they'd like you to know. Still, the crowd seems happy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_raceway_r2 = {
+      lines = {
+        { id = "op_raceway_r2", text = "The salt flats would agree with you, if they could talk. I'm only here for the pay, and for the basilisks, which are honest about what they want." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_raceway_r3 = {
+      lines = {
+        { id = "op_raceway_r3", text = "Ha! I hadn't thought of it that way, and I like it. Better they blow up a rocket out here than a town somewhere else." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Trackmaster Zherin. After a goblin racer met a basilisk at full speed and nobody walked away happy, the raceway hired me to keep the course clear of the flats' beasts." },
@@ -42,13 +77,13 @@ P:NPC {
           text = "Alliance, eh? The raceway doesn't care, and neither do the basilisks. Out here we've all got the same enemy, and it's got a stony stare." },
       },
       again = {
-        { id = "h_again", text = "What else? The next race is in an hour." },
+        { id = "h_again", text = "What else? The next race is in an hour, and the basilisks never ask the goblins' permission." },
         { id = "h_again2", text = "Go on. I can listen and watch the flats at the same time." },
       },
       choices = {
         { text = "What happened in the crash?", next = "crash" },
         { text = "Why are the beasts so big out here?", next = "beasts" },
-        { text = "A tauren tracker at a goblin raceway?", next = "why" },
+        { text = "I didn't expect a tauren tracker at a goblin raceway.", next = "why" },
         { text = "How do you track on salt?", next = "track", when = { class = { "HUNTER", "DRUID" } } },
         { text = "I'll take the work.", next = "BUSINESS" },
         { text = "Good luck with the races.", next = "END" },
@@ -64,7 +99,7 @@ P:NPC {
     driver = {
       lines = { { id = "d_default", text = "Walked away, somehow, with no eyebrows and a lot of opinions. Goblins are tougher than they look, and they bounce, which I'd never have believed if I hadn't seen it." } },
       choices = {
-        { text = "Do the gnomes and goblins ever stop competing?", next = "rivals" },
+        { text = "The gnomes and goblins never seem to stop competing.", next = "rivals" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,20 +107,21 @@ P:NPC {
       big = true,
       lines = { { id = "r_default", text = "Never, as far as I can tell. They build faster cars to beat each other, and they crash them faster too, and in between they sabotage each other's tents. I just keep the track clear and try not to take sides." } },
       choices = {
+        { text = "What do you make of the raceway yourself?", next = "op_raceway" },
         { text = "Competition drives them to build better things.", next = "BACK", fx = { align = { order = -1 }, learn = { "mirage_raceway" } } },
         { text = "Someone should set rules before someone dies.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "mirage_raceway" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "mirage_raceway" } } },
       },
     },
     beasts = {
-      lines = { { id = "b_default", text = "I've been trying to work that out since I came. The salt crystals in the flats get into everything, the water, the plants, the basilisks' hides, and the beasts here grow harder and bigger than any I saw in Mulgore." } },
+      lines = { { id = "b_default", text = "I've been trying to work that out since I came. The salt crystals in the flats get into everything, the water, the plants, the basilisks' hides, and the beasts here grow harder and bigger than any the Earth Mother raised in Mulgore." } },
       choices = {
         { text = "That's worth studying.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     why = {
-      lines = { { id = "w_default", text = "The raceway pays well, and nobody else wanted to walk the flats all day in this heat. Thunder Bluff gave me my tracking, and the goblins give me my coin, and I don't see why I can't keep both." } },
+      lines = { { id = "w_default", text = "The raceway pays well, and nobody else wanted to walk the flats all day under An'she's full glare. Thunder Bluff gave me my tracking, and the goblins give me my coin, and I don't see why I can't keep both." } },
       choices = {
         { text = "Coin is coin. Smart choice.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Your people might need that skill more.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -102,6 +138,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A tracker from Thunder Bluff, working for goblins. My mother would have opinions about that." } },
     advice = { { id = "tp_ad", text = "Don't stand still on salt flats in the afternoon. Things here think anything still is either food or a rock." } },
     mirage_raceway = { { id = "tp_mr", text = "Gnomes on one side, goblins on the other, and a track down the middle that I keep clear. It's the loudest place in Kalimdor, and I've gotten used to it." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask a goblin; they'll tell you something, even if it's wrong." } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a danger in the canyons, but the salt flats are too open for them. They don't like being seen, and out here, you see everything." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the salt flats, and she made them strange. I've walked them for years, and I still find new things every day." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins from Gadgetzan hired me to keep the track clear, and they pay well. I don't understand why they race, but I understand their coin." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city to something they built, I'm told, and now they build race cars. I find that either very brave or very foolish, and I haven't decided which." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask a goblin; they'll tell you something, even if it's wrong, and charge you for the privilege." } },
   },
 }

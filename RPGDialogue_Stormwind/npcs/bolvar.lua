@@ -15,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_argent", when = { gossip = { topic = "argent_dawn", stance = "admire" } }, text = "Lord Rall tells me you favour the Argent Dawn. So do I, quietly, and I'd thank you to keep it quiet, since the Crusade still has friends at court." },
+    { id = "g_op_peace_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "I'm told you've no use for peace with the Horde. Keep that sword sharp, then, but point it where I tell you, and not at Theramore's envoys." },
+    { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "The king tells me you think orcs understand nothing but the sword. I fought them in the Second War, so I won't argue, but I'd thank you not to teach it to a ten-year-old." },
     { id = "g_court", text = "Speak plainly. The court has enough of the other kind." },
     { id = "g_hero", when = { townStanding = { town = "stormwind", min = 55 } }, text = "Ah. I've read your name in more reports than I can count. Good reports, mostly." },
     { id = "g_distrust", when = { townStanding = { town = "stormwind", max = -20 } }, text = "The Watch has spoken of you. Be brief, and be careful." },
@@ -33,6 +36,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_jaina = {
+      lines = {
+        { id = "op_jaina_a", text = "She keeps faith with peace, which isn't always the same thing. Jaina Proudmoore writes that Thrall's orcs want only to be left alone in Durotar, and half the House of Nobles calls her a fool for believing it. You've seen more of the world than they have, so what do you make of it?" },
+      },
+      choices = {
+        { text = "Lady Proudmoore is right. Peace with Thrall is worth the risk.", next = "op_jaina_1", fx = { opinion = { jaina = "trust", peace = "for" }, align = { light = 1 } } },
+        { text = "The orcs burned this city once. I'd never trust them again.", next = "op_jaina_2", fx = { opinion = { jaina = "naive", peace = "against" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Trust Thrall's word, but keep the scouts out and the walls manned.", next = "op_jaina_3", fx = { opinion = { jaina = "respect", peace = "for" }, trait = { cautious = 1 }, affinity = 2 } },
+        { text = "Ironforge remembers Grim Batol, my lord. The orcs owe us blood.", next = "op_jaina_4", when = { race = "Dwarf" }, fx = { opinion = { orcs = "hate", peace = "against" } } },
+        { text = "The Light asks mercy even for orcs, my lord.", next = "op_jaina_5", when = { class = "PALADIN" }, fx = { opinion = { orcs = "pity", peace = "for" }, trait = { pious = 1 } } },
+        { text = "I'd rather not speak for the kingdom, Highlord.", next = "BACK" },
+      },
+    },
+    op_jaina_1 = {
+      lines = { { id = "op_jaina_r1", text = "Then you and she would get on, and I hope you're both right. I'll keep the garrison ready all the same, because hope has never yet held a wall." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_2 = {
+      lines = { { id = "op_jaina_r2", text = "Plenty in this hall would cheer you for that, and I saw the old city burn, so I don't blame them. But I'd rather not start a war while Westfall is still on fire." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_3 = {
+      lines = { { id = "op_jaina_r3", text = "That's very nearly what I wrote back to her, word for word. You'd make a fair regent, and I wouldn't wish the chair on you." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_4 = {
+      lines = { { id = "op_jaina_r4", text = "They do, and Magni has never let me forget it. If it comes to war again, I'll want every dwarf who feels as you do on the wall beside me." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_5 = {
+      lines = { { id = "op_jaina_r5", text = "It does, and Uther said the same when they filled the camps after the war. He was a better man than most of us, and I try to remember him when the nobles shout." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
     xpt_bolvar = {
       big = true,
       lines = { { id = "xpt_bolvar_default", text = "More than the army would like to admit. The regulars hold the roads and the walls, but it's companies like yours that go into the Deadmines and the Stockade and come back with what we needed to know, and half my reports these days are written by people who never swore an oath to anyone." } },
@@ -136,8 +172,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_bolvar = {
+      big = true,
+      lines = { { id = "xalt_bolvar_default", text = "A {altrace} {altclass} called {alt}, who gave me a plain answer on a day when the court had given me nothing else. I keep a short list of people I'd trust with a hard errand, and that name is on it, so you'll forgive me for hoping you're cut from the same cloth." } },
+      choices = {
+        { text = "Then I'll try to deserve a place on that list.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A borrowed reputation still opens doors. I'll use it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Highlord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Forgive me for staring. A {altrace} named {alt} stood in this hall not long ago, and you carry yourself so much like that one that I took you for kin before you'd said a word." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
+          text = "Your name isn't in my reports yet, but there's a {altclass} called {alt} whose name is in a good many of them. You've something of the same look about you, and I hope you'll earn the same kind of reports." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came through the Keep a little while ago with news from the roads, and it matched yours so closely that I've begun to think the two of you ride the same circuit. Is there a word between you I ought to know about?" },
         { id = "h_pt_bolvar4", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, armed and walking the Keep as one company. That's how Stormwind was held in the Second War, {name}, by small bands who trusted each other more than they trusted orders, and I'm glad to see it hasn't gone out of fashion." },
         { id = "h_pt_bolvar", tags = { "news" }, when = { party = true },
@@ -181,13 +232,13 @@ P:NPC {
         { id = "h_again2", text = "Go on. I have a moment, for once." },
       },
       choices = {
-        { text = "What of Westfall?", next = "westfall" },
+        { text = "Westfall seems left to fend for itself.", next = "westfall" },
         { text = "What do you make of Lady Prestor?", next = "prestor" },
-        { text = "Does the Church have the crown's ear?", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "The Church seems to have the crown's ear.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Stormwind took my family in, after Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
-        { text = "Any word of King Varian?", next = "varian" },
-        { text = "How do you bear it?", next = "bear" },
-        { text = "I'm a soldier, Highlord. Where do you want me?", next = "soldier", when = { class = "WARRIOR" } },
+        { text = "There's still no word of King Varian, I take it.", next = "varian" },
+        { text = "I don't know how you bear it.", next = "bear" },
+        { text = "I'm a soldier, Highlord, and I'm yours to send.", next = "soldier", when = { class = "WARRIOR" } },
         { text = "Ironforge stands with Stormwind, Highlord.", next = "ironforge", when = { race = "Dwarf" } },
         { text = "My people lost Gnomeregan. Will Stormwind help take it back?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Why should the kaldorei trust Stormwind, Highlord?", next = "kaldorei", when = { race = "NightElf" } },
@@ -203,6 +254,7 @@ P:NPC {
         { text = "Onyxia is dead, Highlord. I was there in her lair.", next = "xcl_onyxia", when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") } },
         { text = "Nefarian is dead. What becomes of Blackrock Mountain now?", next = "xcl_bwl", when = { cleared = "Blackwing Lair", faction = "Alliance" } },
         { text = "Do small companies like ours still matter to Stormwind, Highlord?", next = "xpt_bolvar", when = { party = true } },
+        { text = "You mentioned someone else like me, Highlord?", next = "xalt_bolvar", when = { alt = true } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },
@@ -283,7 +335,7 @@ P:NPC {
       choices = {
         { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Prayers won't bring a king home, my lord.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "And for the people outside the walls?", next = "church_outside" },
+        { text = "The people outside the walls need it too.", next = "church_outside" },
       },
     },
     church_outside = {
@@ -323,6 +375,7 @@ P:NPC {
       big = true,
       lines = { { id = "if_default", text = "It always has. When Stromgarde walked away from the Alliance and Gilneas shut its gate, King Magni kept his word, and every dwarf who walks this hall reminds me what that word cost Ironforge." } },
       choices = {
+        { text = "And Theramore? Does Lady Proudmoore keep faith with Stormwind?", next = "op_jaina" },
         { text = "What did it cost us?", next = "ironforge_cost" },
         { text = "An alliance is only worth the oaths kept in it.", next = "BACK", fx = { affinity = 1, align = { honor = 2 } } },
         { text = "Ironforge keeps faith, but it minds its own halls first.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -401,6 +454,23 @@ P:NPC {
   },
 
   topics = {
+    varian = {
+      { id = "tp_varian", text = "Varian set out for Theramore to speak of peace, and his ship never made port. I hold this throne for his son, and I'll hold it until the day he walks back through that door, however long it takes." },
+      { id = "tp_varian2", when = { disposition = { min = 65 } }, text = "Some nights I think he's dead and some nights I'm sure he isn't, and I can't decide which hurts more. The boy asks me every morning, and I've run out of new ways to say I don't know." },
+    },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor has been a great help to me since the King vanished, and the House of Nobles listens to her as it never listens to me. I'm grateful for her counsel, though she's very sure of herself, and I suppose a regent needs someone who is." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore is a friend of this throne, and she's done more for peace between the races than any of us. If anyone can keep the orcs and Theramore from each other's throats, it's her." } },
+    thrall = { { id = "tp_thrall", text = "Thrall leads the orcs in Kalimdor now and speaks of peace with Theramore, and Jaina vouches for him. I've buried too many men to trust an orc on his word, but I'll trust Jaina on hers." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge holds Lordaeron, the kingdom I served before this one, and I've seen what they do to a city. If they ever turn their eyes south, Stormwind will need every sword and every prayer it has." } },
+    silver_hand = {
+      { id = "tp_silver_hand", text = "I was a knight of the Silver Hand before I was Regent of Stormwind, and I still wear its oath under this armour. The order's scattered now, but I'll not let its name be forgotten while I hold this seat." },
+      { id = "tp_silver_hand2", when = { class = "PALADIN" }, text = "You carry the Light as we did in the Silver Hand, and the order lives as long as people like you do. Remember that Uther's oath was to serve the people, not the crown, and I'll ask nothing more of you." },
+    },
+    holy_light = { { id = "tp_holy_light", text = "The Light has carried me through two wars and a regency I never wanted, and I trust it more than I trust any council. Pray for this kingdom, if you would, because I have run short of other options." } },
+    magni = { { id = "tp_magni", text = "Magni Bronzebeard is the staunchest ally this kingdom has, and he's never once asked what we can pay. Ironforge stood with us in the Second War, and it stands with us now, which is more than I can say for some." } },
+    onyxia = { { id = "tp_onyxia", text = "Theramore's soldiers write of a black dragon in Dustwallow Marsh, and Jaina has asked for help. I've sent letters, and I'll send soldiers when I can spare them, which is a phrase I'm sick of writing." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade has fallen to its own prisoners, and the city guard holds the doors and nothing else. I've had requests to storm it, and I've had requests to leave it be, and I'm told by people I trust that the second is wiser." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of the heroes of the Second War, and I pass them every morning on my way to council. I remind myself what they gave, and I try to be worthy of standing in their shadow." } },
     knows = {
       { id = "tp_knows", text = "Every report in the kingdom crosses this desk sooner or later, so I know a little of most things. Ask, and I'll tell you what a regent may." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll spare the council a few more minutes. Ask me about any of this, and I'll answer as plainly as I'm able." },

@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ungoro = {
+      lines = {
+        { id = "opu_q", text = "Everybody up here keeps tellin' me what a wonder this crater is, and I'd like one person to agree with me for once. What do you think of Un'Goro, pal?" },
+      },
+      choices = {
+        { text = "It's a wonder. There's nowhere else like it in the world.", next = "op_ungoro_r1", fx = { affinity = -2, align = { light = 1 }, opinion = { ungoro = "wonder" } } },
+        { text = "It's a death trap with nice flowers. You're right to hate it.", next = "op_ungoro_r2", fx = { affinity = 3, align = { light = -1 }, opinion = { ungoro = "dangerous" } } },
+        { text = "It's a fortune in crystals, if you're brave enough to dig.", next = "op_ungoro_r3", fx = { trait = { greedy = 1 }, opinion = { ungoro = "profit" } } },
+        { text = "I'm still making my mind up about it.", next = "BACK" },
+      },
+    },
+    op_ungoro_r1 = {
+      lines = {
+        { id = "op_ungoro_r1", text = "A wonder, you say, like the dinosaurs are gonna sign autographs. Fine, enjoy your wonder, and I'll be over here not gettin' eaten." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_ungoro_r2 = {
+      lines = {
+        { id = "op_ungoro_r2", text = "Finally! Somebody with sense, and a pulse! I'd shake your hand, but I'm keepin' both mine ready for runnin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_ungoro_r3 = {
+      lines = {
+        { id = "op_ungoro_r3", text = "Brave enough, sure, and fast enough, and lucky enough. I'm one out of three, pal, and it ain't the first one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "For the love of all that's holy, pal, tell me you've come to deliver us from this forsaken land. I'm with Marshal Expeditions, but I'd give you the gold teeth from my mouth to climb inside your backpack and leave." },
@@ -50,11 +85,13 @@ P:NPC {
       },
       choices = {
         { text = "Why did you sign on, if you hate it?", next = "why" },
-        { text = "What's in Terror Run?", next = "terror" },
-        { text = "What do you think of Dadanga?", next = "dadanga" },
-        { text = "Do the Marshals know where the bones come from?", next = "marshals" },
+        { text = "Where do they have you digging?", next = "terror" },
+        { text = "What do you think of Dadanga?", next = "dadanga", when = { heardLine = "petra.h_default" } },
+        { text = "The Marshals can't know where these bones come from.", next = "marshals", when = { any = { { questActive = TODO_QUEST("Roll the Bones") }, { questDone = TODO_QUEST("Roll the Bones") } } } },
         { text = "I dig for a living too. Any tips?", next = "miner", when = { profession = "Mining" } },
-        { text = "Hunting those beasts for bones is wrong.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "Hunting those beasts for bones is wrong.", next = "druid", when = { class = { "DRUID", "SHAMAN" }, any = { { questActive = TODO_QUEST("Roll the Bones") }, { questDone = TODO_QUEST("Roll the Bones") } } } },
+        { text = "What would you do if you got out?", next = "out" },
+        { text = "Are you really buying a seat on Shizzle's flyer?", next = "flyer" },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Hang in there, Spark.", next = "END" },
       },
@@ -68,7 +105,10 @@ P:NPC {
     },
     why_leave = {
       lines = { { id = "wl_default", text = "Alone? Through that jungle? I'd be a snack before I made the first ridge, pal, and a cheap one. No, I wait for an escort, or a miracle, or a really big bird." } },
-      choices = { { text = "I'll keep an eye out for the bird.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = {
+        { text = "What do people think of Un'Goro?", next = "op_ungoro" },
+        { text = "I'll keep an eye out for the bird.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
     terror = {
       lines = { { id = "t_default", text = "Terror Run, which is a FANTASTIC name, by the way, really sells it. Stegodons, diemetradons and all their bones, pal, and most of the bones are still walking around inside them." } },
@@ -101,6 +141,26 @@ P:NPC {
       lines = { { id = "m_default", text = "Officially, they think the bones are dug up, the old-fashioned way, by me. Unofficially, pal, I'm a very good digger when you're the one doing the digging, and I'm a very good manager when it comes to taking the credit." } },
       choices = { { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } } },
     },
+    out = {
+      lines = { { id = "o_default", text = "Gadgetzan first, pal, for a bath, a bed and a drink with ice in it. Then I'd go somewhere cold and boring, like Everlook, and sell shovels to people who don't know any better." } },
+      choices = {
+        { text = "And the expedition? You'd just leave them?", next = "out_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    out_stance = {
+      big = true,
+      lines = { { id = "os_default", text = "Look, pal, I like the Marshals fine, but liking somebody isn't a reason to get eaten next to 'em. My contract says chief digger, not chief martyr, and I've read the small print twice." } },
+      choices = {
+        { text = "You signed on. See the job through.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair. Nobody's owed your life for a wage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flyer = {
+      lines = { { id = "fl_default", text = "I called it a flaming coffin once, pal, and I stand by that, but a flaming coffin that leaves the crater beats a comfy tent that doesn't. Shizzle's asking forty gold a seat, which is robbery, and I'm still thinkin' about it." } },
+      choices = { { text = "Wait until it lands somewhere safe twice.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
     miner = {
       lines = { { id = "mi_default", text = "Dig where somebody else already dug, pal, and bring a big friend. That's the whole art, and it's served me well and cheap." } },
       choices = { { text = "Words to live by.", next = "BACK", fx = { trait = { witty = 1 } } } },
@@ -114,6 +174,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Chief digger, Marshal Expeditions, pal. It sounded important when I signed, and it means I hold the shovel and the blame." } },
     advice = { { id = "tp_ad", text = "Read the brochure carefully, pal, and then assume everything it doesn't mention wants to eat you and isn't covered." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got cold drinks and a bank and no dinosaurs, pal, and I'd give everything I've got to be sitting there right now. I'd even pay full price." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay I could at least drown in style, buddy. Here I'm going to get eaten by something with a bill I can't pay." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's lawyers drew up my contract, and I read every word of it, and it still somehow says I'm stuck here. That's craftsmanship, that is." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League wants bones, the boss wants bones, and I dig bones, and nobody ever asks what the bones want. The bones want to stay buried, pal, I'm sure of it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, pal. I've been in this crater so long I've forgotten what the rest of the world looks like, and what a decent wage looks like too." } },
   },
 }

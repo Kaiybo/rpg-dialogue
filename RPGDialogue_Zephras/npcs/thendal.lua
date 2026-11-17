@@ -67,12 +67,12 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the relic you give the young.", next = "relic" },
-        { text = "Why are the beasts of the grove so restless?", next = "vuldren" },
+        { text = "The beasts of the grove seem very restless.", next = "vuldren" },
         { text = "What do you know of the Al'Aketh?", next = "cult" },
-        { text = "Myriaal says jumping off the watchtower is good practice.", next = "gifts" },
+        { text = "Myriaal says jumping off the watchtower is good practice.", next = "gifts", when = { any = { { heardLine = "zep_myriaal.ga_default" }, { questActive = TODO_QUEST("Falling With Style") }, { questDone = TODO_QUEST("Falling With Style") } } } },
         { text = "Who should I train with?", next = "trainers", when = { race = "Skyborne" } },
         { text = "What is this village, and who are your people?", next = "village", when = { ["not"] = { race = "Skyborne" } } },
-        { text = "What troubles you about my craft?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Something about my craft troubles you, I can tell.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the Al'Aketh make you wary of priests?", next = "xpriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } } },
         { text = "The Light holds me up. Shall I tell you of it?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Winds be with you, Rorian.", next = "END" },
@@ -164,7 +164,7 @@ P:NPC {
       },
       choices = {
         { text = "Why didn't you act sooner?", next = "cult_wait" },
-        { text = "Who leads them?", next = "cult_lead" },
+        { text = "A cult like that must have a leader.", next = "cult_lead" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -174,8 +174,8 @@ P:NPC {
         { id = "cw_default", text = "Because they are shen'dorei, child, the same as you and I, and many of them only joined because they were frightened. It's a hard thing to draw a blade on your own cousins, and I'd hoped the fear would pass before the blades were needed." },
       },
       choices = {
-        { text = "They're still our people. Turn them back where you can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They chose the grey robes. Cut them down.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "They're still our people. Turn them back where you can.", next = "BACK", fx = { opinion = { zep_alaketh = "redeemable" }, affinity = 1, align = { light = 1 } } },
+        { text = "They chose the grey robes. Cut them down.", next = "BACK", fx = { opinion = { zep_alaketh = "hate" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -234,7 +234,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did your ancestors leave Kalimdor?", next = "village_why" },
-        { text = "What's it like, seeing outsiders after so long?", next = "village_out" },
+        { text = "Your people can't have seen outsiders in a long while.", next = "village_out" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -299,6 +299,10 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads and a High Priestess at the Shrine of Akir. We watched them too long.", next = "cult" } },
     two_orders = { { id = "tp_orders", text = "In my grove they share a roof. Outside it, they'd rather share nothing at all." } },
     windstones = { { id = "tp_stones", text = "Dalia the Collector has the young gathering them all over the grove, because the isle's magic is fading and every stone counts." } },
+    highborne = { { id = "tp_highborne", text = "Our ancestors were Highborne, child of Zephras, and they wielded gifts so great they broke the world with them. That is why I scold you when you play with yours." } },
+    the_elements = { { id = "tp_the_elements", text = "The wind spirits gave us these islands and the gifts we carry, and they asked only that we honor them. They have gone quiet now, and I still honor them, because a debt doesn't vanish when the lender leaves the room." } },
+    elune = { { id = "tp_elune", text = "The moon is lovely, and our cousins on the ground pray to it, but here we answered to the winds first. I won't stop anyone from praying, so long as they don't stop listening." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The Highborne served a queen who thought herself greater than the sky, and the sky remembered. Don't ever let me hear you speak her name with admiration." } },
     _none = { { id = "tp_none", text = "That's beyond the grove, child, and I keep to the grove. Ask in Valanaar." } },
   },
 }
@@ -365,14 +369,26 @@ P:NPC {
       },
       choices = {
         { text = "What does the Council of Elders do?", next = "council" },
-        { text = "What do the winds tell you?", next = "winds" },
+        { text = "The winds must tell you a great deal.", next = "winds" },
         { text = "Why test the young at all?", next = "trial" },
         { text = "Where should I go after Thendal?", next = "shendar", when = { race = "Skyborne" } },
         { text = "How do your people see us outsiders?", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
         { text = "We kaldorei remember Eldre'Thalas too.", next = "xnelf", when = { race = "NightElf" } },
-        { text = "Why would the dead trouble you?", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "Do the walking dead trouble your people?", next = "xforsaken", when = { race = "Scourge" } },
         { text = "I don't know whose peace I'm keeping anymore, Elder.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
+        { text = "I carried word between the orders, Elder, and trusted neither.", next = "xorig_between", when = { origin = "skyborne_go_between" } },
         { text = "Winds be with you, Elder.", next = "END" },
+      },
+    },
+    xorig_between = {
+      big = true,
+      lines = {
+        { id = "xbe_default", text = "I know, because some of those messages came across the Council's table, and I remember the name of the one who carried them. You heard what both sides were hiding and kept most of it to yourself, which is either loyalty or caution. Which is it?" },
+      },
+      choices = {
+        { text = "Loyalty to the Skyborne, not to either order.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Caution. A secret's worth more kept than spent.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
       },
     },
     council = {
@@ -381,7 +397,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did the Shal'nan give up his rule?", next = "shalnan" },
-        { text = "What is the High Elder like?", next = "talaanis" },
+        { text = "The High Elder seems a careful sort.", next = "talaanis" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -400,8 +416,8 @@ P:NPC {
         { id = "sg_default", text = "Nobody knows, and I've no patience for anyone who claims otherwise. He spent his last years among us tending our bond with the wind spirits, and now he is gone and so are they, and the Council must manage without either." },
       },
       choices = {
-        { text = "A council of many is safer than one ruler.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "shal_nan" } } },
-        { text = "In a crisis, one strong leader would serve better.", next = "BACK", fx = { align = { order = -1 }, learn = { "shal_nan" } } },
+        { text = "A council of many is safer than one ruler.", next = "BACK", fx = { opinion = { zep_council = "trust" }, affinity = 1, align = { order = 1 }, learn = { "shal_nan" } } },
+        { text = "In a crisis, one strong leader would serve better.", next = "BACK", fx = { opinion = { zep_council = "weak" }, align = { order = -1 }, learn = { "shal_nan" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "shal_nan" } } },
       },
     },
@@ -410,8 +426,32 @@ P:NPC {
         { id = "ta_default", text = "Careful, patient and honest to a fault, which is why the Council keeps choosing her. She'd tell you herself that she never wanted the seat, and she'd be telling the truth." },
       },
       choices = {
+        { text = "Does she rule well, though?", next = "ta_ask" },
         { text = "Something else, Elder.", next = "BACK" },
       },
+    },
+    -- Opinion pass: Aetheen turns the question into one of her trials.
+    ta_ask = {
+      big = true,
+      lines = { { id = "tq_default", text = "Everything here is a trial, child, and so is that question, so I'll hand it back to you. Does the High Elder rule well, holding two quarrelling orders together, or does she keep the peace only by deciding nothing?" } },
+      choices = {
+        { text = "Holding them together is ruling well.", next = "ta_ask_well", fx = { opinion = { zep_talaanis = "trust" }, align = { order = 1 } } },
+        { text = "She waits too long. Someone has to decide.", next = "ta_ask_slow", fx = { opinion = { zep_talaanis = "slow" }, align = { order = -1 } } },
+        { text = "The Shal'nan would have done better.", next = "ta_ask_shalnan", fx = { opinion = { zep_shalnan = "missed" }, learn = { "shal_nan" } } },
+        { text = "I'm too new here to judge an elder.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    ta_ask_well = {
+      lines = { { id = "tqw_default", text = "A fair answer, and one the Council would like to hear. I'll add only that a rope that holds two weights is not the same as a bridge, and leave you to think on it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ta_ask_slow = {
+      lines = { { id = "tqs_default", text = "You sound like half the young Peacekeepers, and like me on my worse days. Be careful, though; a quick decision is how our people came to be living in the sky." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ta_ask_shalnan = {
+      lines = { { id = "tqh_default", text = "Perhaps he would, and perhaps that is why he left; a man that sure of himself may have grown tired of being right alone. We'll not see him again to ask, I think." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     winds = {
       lines = {
@@ -458,7 +498,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll go.", next = "BACK" },
-        { text = "Why have the ursera turned on us?", next = "matriarch_why" },
+        { text = "Something must have turned the ursera against us.", next = "matriarch_why" },
       },
     },
     matriarch_why = {
@@ -552,6 +592,10 @@ P:NPC {
     shal_nan = { { id = "tp_shal", text = "He gave up his rule when the Shrine of the Four Winds was begun. Then he gave up us, or we lost him.", next = "shalnan" } },
     al_aketh = { { id = "tp_aketh", text = "Zealots of a Windlord our spirits wouldn't even name. Brutal, and growing bolder." } },
     two_orders = { { id = "tp_orders", text = "Two halves of one people, and both certain the other half is the trouble." } },
+    highborne = { { id = "tp_highborne", text = "The High Order says we are Highborne and should reclaim it, and the Windshapers say we are Highborne and should repent of it. Tell me which you think, and I'll learn more about you than you mean me to." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds speak in patterns, and I read them as others read a page. Lately the page is half blank, and that is a message of its own." } },
+    elune = { { id = "tp_elune", text = "A few of our young have taken to praying to the moon, as our cousins do. I watch to see whether the moon answers, and so far she's been quiet, like everything else." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Our oldest stories speak of a queen who wanted the sky as her crown. Ask yourself whether you would have followed her, and answer honestly." } },
     _none = { { id = "tp_none", text = "The winds don't carry that to me, and I don't guess for the Council." } },
   },
 }
@@ -606,7 +650,18 @@ P:NPC {
         { text = "Why tease Halaan?", next = "halaan" },
         { text = "What do the rangers do up here?", next = "rangers" },
         { text = "I can't walk on air. Can I still play?", next = "xnoair", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "I hunted off the Siroccas cliffs. Fancy a shooting match?", next = "xorig_cliff", when = { origin = "skyborne_siroccas_cliff_hunter" } },
         { text = "Take care, Myriaal.", next = "END" },
+      },
+    },
+    xorig_cliff = {
+      lines = {
+        { id = "xcf_default", text = "A Siroccas archer! Oh, Halaan will hate this, because he swears nobody hits a mark past the third tree without the wind helping them. Is it true the gusts off those cliffs would carry an arrow half again as far?" },
+      },
+      choices = {
+        { text = "Every word, and I've been missing it ever since.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll never tell, and neither will you.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     game = {
@@ -614,7 +669,7 @@ P:NPC {
         { id = "ga_default", text = "It's very simple: you step off the ledge, then walk on the air to slow your fall and see how far forward you can float. The rules are whatever I say they are, and the best score is landing on Rorian's toes." },
       },
       choices = {
-        { text = "Won't Rorian be angry?", next = "game_rorian" },
+        { text = "Rorian will be angry about this.", next = "game_rorian" },
         { text = "Is it dangerous?", next = "game_safe" },
         { text = "Something else.", next = "BACK" },
       },
@@ -624,7 +679,7 @@ P:NPC {
         { id = "gr_default", text = "Furious, every time, and that's half the fun. He'll tell you our gifts are sacred and not for amusement, and then he'll say something about youths, and then he'll quietly admit a little practice is acceptable." },
       },
       choices = {
-        { text = "Does he have a point?", next = "game_point" },
+        { text = "He might have a point, you know.", next = "game_point" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -719,6 +774,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the grove, the gossip, and exactly where Rorian stands every afternoon." } },
     advice = { { id = "tp_ad", text = "Take your fun where you can get it, because the island certainly won't hand you any." } },
     al_aketh = { { id = "tp_aketh", text = "Shaved heads and long faces. They'd be terrible at my game." } },
+    highborne = { { id = "tp_highborne", text = "Our ancestors were Highborne, and from what I hear they wore enormous hats and never once laughed. I'm doing my part to correct the family record." } },
+    the_elements = { { id = "tp_the_elements", text = "The sprites used to play with us up here, little gusts that tugged your hair and stole your hat. Now they just sulk, and I miss them, and don't tell Halaan I said so." } },
+    elune = { { id = "tp_elune", text = "Halaan says I should take up prayer to keep me out of trouble. I told him I'd pray to whatever spirit gets me off this tower first." } },
     _none = { { id = "tp_none", text = "No idea, but if you find out, come and tell me, because I'm bored." } },
   },
 }
@@ -768,12 +826,23 @@ P:NPC {
         { id = "h_again", text = "Something more? I have time; the pylon isn't going anywhere, I hope." },
       },
       choices = {
-        { text = "What's wrong with the pylons?", next = "pylon" },
+        { text = "Something seems wrong with the pylons.", next = "pylon" },
         { text = "Tell me about your gift.", next = "gift" },
-        { text = "Myriaal calls you a stuffy old wretch.", next = "myriaal" },
+        { text = "Myriaal calls you a stuffy old wretch.", next = "myriaal", when = { heardLine = "zep_myriaal.ha_default" } },
         { text = "Do your eyes reach as far as mine, ranger?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "The forests below are bigger than ours, Halaan, and quieter.", next = "xranger", when = { origin = "skyborne_thendal_ranger" } },
+        { text = "I watched the pylons fail at Anvilas. Staring won't stop it, Halaan.", next = "xorig_pylon", when = { origin = "skyborne_anvilas_pylon_guard" } },
         { text = "Farewell, Halaan.", next = "END" },
+      },
+    },
+    xorig_pylon = {
+      lines = {
+        { id = "xpy_default", text = "Perhaps not, but I'd rather see it coming than feel it come, and so would you, or you'd not have stood your post as long as you did. What was it like at the end, when the light went out of them?" },
+      },
+      choices = {
+        { text = "Quiet. That was the worst of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Like losing a fight I never got to have.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pylon = {
@@ -782,7 +851,7 @@ P:NPC {
       },
       choices = {
         { text = "What happens if they fail?", next = "pylon_fail" },
-        { text = "Could someone be harming them?", next = "pylon_harm" },
+        { text = "Someone could be harming them on purpose.", next = "pylon_harm" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -821,7 +890,7 @@ P:NPC {
       },
       choices = {
         { text = "Could you lend it to me?", next = "gift_lend" },
-        { text = "Don't you wish for more?", next = "gift_wish" },
+        { text = "I'd wish for more, in your place.", next = "gift_wish" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -899,6 +968,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the pylon, the grove, and how to keep still, which is rarer than you'd think." } },
     advice = { { id = "tp_ad", text = "Be grateful for what you have. I spent years wishing for the mainland, and all it gave me was a crick in my neck from staring at clouds." } },
     windstones = { { id = "tp_stones", text = "They hold the winds' strength, and they grow more precious as the pylons weaken." } },
+    the_elements = { { id = "tp_the_elements", text = "The pylon still stands because the winds once willed it, and I watch it so I'll know if they ever stop willing. Be grateful for what holds, I tell the young, and do not ask too much of it." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were our ancestors, and they took everything they wanted. I'd rather be grateful for less, and I'd rather Myriaal were grateful for anything at all." } },
+    elune = { { id = "tp_elune", text = "The moon rises over the pylon each night, and I find it steadying. Whether it is a goddess or only a moon, I am grateful for the light." } },
     _none = { { id = "tp_none", text = "That's beyond what I can see from here, and I can see a long way." } },
   },
 }

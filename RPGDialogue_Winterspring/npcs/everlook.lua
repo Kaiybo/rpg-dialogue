@@ -111,8 +111,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_vizzie = {
+      lines = {
+        { id = "xalt_vizzie_default", text = "{alt}, sugar, and a lovely guest, because {alt} squashed a beetle by the hearth without my even asking, and you can't put a price on that. Stayed a night, ate two bowls of soup and went off toward the hot springs." },
+        { id = "xalt_vizzie_other", when = { alt = { faction = "other" } }, text = "{alt}, sugar, a {altrace} from the other side, and if you two ever end up in my inn the same night, I'm putting you at opposite ends of the room, related or not. Not because I expect trouble, mind, but because the beetle likes a crowd." },
+      },
+      choices = {
+        { text = "Kin or not, I'd share a fire with anyone up here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Opposite ends sounds right. Some lines shouldn't be crossed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh, sugar, you gave me a turn, because a {altrace} called {alt} sat right there by the fire a while back, from the other side of things, with exactly your way of eyeing the rafters for beetles. Is everybody in the world related except me?" },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
+          text = "You've got kin come through Everlook, I'd bet my best mop on it, because {alt} stamped the snow off a pair of boots just like yours and told me there were no bugs in Winterspring, the sweet liar." },
+        { id = "o_steamwheedle_distrust", tags = { "news" }, when = { gossip = { topic = "steamwheedle", stance = "distrust" } },
+          text = "Harlo says you called us thieves with a ledger. Thieves don't give receipts, sweetheart, and I give receipts!" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half, just not the hearth." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
@@ -140,19 +157,20 @@ P:NPC {
       },
       choices = {
         { text = "Does the wind up here ever let up, Vizzie?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What's happened to the Winterfall, Vizzie?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "The Winterfall seem to have turned nasty, Vizzie.", next = "druid_q", when = { class = "DRUID" } },
         { text = "A room, please.", next = "BUSINESS", fx = { affinity = 1 } },
         { text = "Who comes through Everlook?", next = "guests" },
-        { text = "Why are you so scared of bugs?", next = "bugs" },
+        { text = "You seem awfully scared of bugs.", next = "bugs" },
         { text = "Who are your neighbours here?", next = "neighbours" },
-        { text = "I could track that beetle for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
+        { text = "I could track down your bugs for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
         { text = "Do rogues cause much trouble in Everlook?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "You came all the way up here to get away from bugs?", next = "xmage", when = { class = "MAGE" } },
+        { text = "So you came all the way up here to get away from bugs.", next = "xmage", when = { class = "MAGE" } },
         { text = "My imp's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What do the folk at your fire need most, Vizzie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The folk at your fire look like they've had a hard road, Vizzie.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you get many warriors through Everlook, Vizzie?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Someone like me stayed at your inn, Vizzie?", next = "xalt_vizzie", when = { alt = true } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -179,7 +197,7 @@ P:NPC {
       },
     },
     beetle_hunt = {
-      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, sugar, because we've got a truce, and if you scare it off it'll only come back angrier with its cousins and I'll be payin' for traps all winter. Just keep your pet off the bar, that's all I ask." } },
+      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, sugar, because me and the one beetle by the hearth have got a truce, and if you scare it off it'll only come back angrier with its cousins and I'll be payin' for traps all winter. Just keep your pet off the bar, that's all I ask." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     bugs = {
@@ -192,6 +210,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "Tanaris girl, bug survivor, innkeeper at the top of the world. I followed the cold, sugar, and the cold was hiring." } },
     advice = { { id = "tp_ad", text = "Shake out your bedroll before you sleep in it, sugar. Up here it's yetis; anywhere else, it's worse." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel set this place up for trade, and I set up the inn because traders need beds and beds pay by the night. It's good business, sugar, if cold business." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the top of the world, pal, too cold for bugs and too far for trouble, or that's what the brochure said. The brochure lied about the bugs, and I'm still fighting one beetle that won't quit." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine town if you like sweat, sharks and every insect ever hatched. I worked a kitchen there for a season, and I still check my boots every morning." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got scorpids the size of a hound, and I'm not going back there for any price. Everlook's cold, but at least the bugs freeze." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw come through the tunnel sometimes, and they're polite enough, if you don't mind fur on the furniture. I check them for fleas when they're not looking." } },
     _none = { { id = "tp_none", text = "No idea, sugar, so ask a trader, because they know everything worth money and charge for the rest." } },
   },
 }
@@ -336,7 +358,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, eh? You've got the right hands for fiddly work, and I always need someone to slip a part into somebody's shop when they're not looking, purely for science." },
         { id = "h_default", key = true,
-          text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful. It's big, it's furry, it's mechanical, and it's going to scare the bolts off every goblin I know." },
+          text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful that's roughly seventy percent fur, twenty-five percent gears and five percent pure Gnomeregan genius, and it's going to scare the bolts off every goblin I know." },
         { id = "h_yeti", tags = { "news" }, when = { questActive = TODO_QUEST("Are We There, Yeti?") },
           text = "Yeti parts, real fur and real horns! The mechanical bits I've got already, so bring me the rest and we'll make a monster." },
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },
@@ -347,22 +369,22 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You can turn into a bear, can't you? I'm building a yeti, and I'd love to know how a real animal moves, because mine keep falling over on the ice." },
       },
       again = {
-        { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." },
+        { id = "h_again", text = "More? Ooh, I love questions, because questions are how experiments start, and experiments are how pranks start, which is the proper scientific order." },
         { id = "h_again2", text = "Ask away, but quickly, because something on that bench is ticking." },
       },
       choices = {
         { text = "Does the cold up here trouble your machines, Umi?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Who are you scaring?", next = "prank" },
+        { text = "Somebody in Everlook is in for a fright.", next = "prank" },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Why a yeti?", next = "yeti" },
         { text = "A gnome scaring goblins? Count me in.", next = "gnome_um", when = { race = "Gnome" } },
         { text = "Why build a mechanical yeti at all?", next = "xmage", when = { class = "MAGE" } },
         { text = "Slip a part into someone's shop? Whose?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is all this mischief really worth the trouble, Umi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "All this mischief hardly seems worth the trouble, Umi.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your mechanical yeti really just a harmless prank, Umi?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why measure your yeti against a warrior, Umi?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you want a hunter's opinion of your yeti, Umi?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Why build a mechanical yeti at all, Umi?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "A mechanical yeti seems a strange thing to build, Umi.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why would a holy sort make your yeti's eyes glow, Umi?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would my imp teach a mechanical yeti, Umi?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
@@ -393,7 +415,11 @@ P:NPC {
     background = { { id = "tp_ba", text = "Inventor, prankster, engineering trainer by day and menace by night! My friends say menace all day, but they're biased." } },
     advice = { { id = "tp_ad", text = "Always build an off switch, then hide it somewhere you'll remember." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their whole city to their own machines, and I just want to frighten a few people, on a small, responsible scale." } },
-    _none = { { id = "tp_none", text = "Never heard of it, but does it have gears?" } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the perfect place for an inventor, because nobody comes up here to tell you not to build things. Well, Legacki does, but she doesn't count." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages build everything with magic and nothing with gears, which I think is very lazy of them. I'd love a look at their workshops all the same." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has the best mechanical wonders in the world, and I'm going to have something on display there one day. It'll be furry, and someone will scream." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are big and furry and very polite, and they'd make a wonderful test subject for my latest work. They said no, rather firmly." } },
+    _none = { { id = "tp_none", text = "Never heard of it, but does it have gears? If it has gears, I can probably make it louder by at least a third." } },
   },
 }
 
@@ -425,6 +451,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Crusade calls us soft, the Dawn calls them mad, and the Scourge doesn't care which of us is right. You've seen both, I expect, so tell me what you make of the Scarlet Crusade." },
+      },
+      choices = {
+        { text = "Zealots. They murder the innocent and call it purging.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "They kill Scourge. I'll forgive them a great deal for that.", next = "op_r2", fx = { align = { honor = -1 }, trait = { stern = 1 }, opinion = { scarlet_crusade = "useful" } } },
+        { text = "Some are good men lost in a bad cause.", next = "op_r3", fx = { trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They'd burn me on sight. That tells you enough.", next = "op_r4", fx = { affinity = 1, opinion = { scarlet_crusade = "hate" } }, when = { race = "Scourge" } },
+        { text = "They shame the Light I serve, Gregor.", next = "op_r5", fx = { affinity = 1, opinion = { scarlet_crusade = "wrong", the_light = "trust" } }, when = { class = "PALADIN" } },
+        { text = "I'd rather not judge them.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "You've seen Hearthglen, then, or heard from someone who has. The Dawn won't stain itself that way, whatever it costs us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "They kill a great deal more than Scourge, friend, and they keep poor records of which was which." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Some are, and the Dawn takes them in when they come to their senses. More come every season than you'd guess." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "It does, and the Dawn will not, and you've my word on that much, for whatever an old soldier's word is worth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "Aye, and they'd say you shame it by talking to me. The Light will sort it out, though I wish it would hurry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_gregor = {
       big = true,
       lines = { { id = "xpt_gregor_default", text = "I'd never tell anyone who to trust, because trust is earned at the campfire and not at the cradle. But the Dawn takes dwarf and human, elf and orc alike, and we've found the fight against the dead goes better when nobody is fighting the living too." } },
@@ -536,6 +596,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You remind me of {alt}, a {altrace} who came through Everlook not long ago and asked how the Dawn might use another blade. Horde and Alliance both fight the Scourge, friend, and I was glad to see the same resolve on {alt}'s face that I see on yours." },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
+          text = "One of your people stood here only a little while ago, a {altclass} called {alt}, and asked about the Plaguelands with the same frown you're wearing now. The Dawn will take every one of you who comes, and gladly." },
         { id = "h_pt_gregor", tags = { "news" }, when = { party = { kin = true } },
           text = "You travel with your own kin, I see, and there's comfort in that this far north. Still, the Argent Dawn would remind you that the Scourge doesn't care whose cousin you are." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" }, text = "Word has reached even Everlook that Darkmaster Gandling is dead and Scholomance has lost its headmaster. The Dawn owes you more than I can say, and I'll say it anyway, to anyone who'll listen." },
@@ -564,14 +628,14 @@ P:NPC {
         { text = "Does the plague reach even this far north, Gregor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is the plague a sickness of the land too?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about the Argent Dawn.", next = "dawn" },
-        { text = "What does the Dawn want with Winterspring?", next = "why_here" },
+        { text = "Winterspring seems a long way from the Plaguelands for the Dawn.", next = "why_here" },
         { text = "What's the difference between you and the Scarlet Crusade?", next = "scarlet" },
         { text = "Jessica Redpath says you're kind to her.", next = "jessica", when = { heardLine = "jessica.h_default" } },
-        { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I didn't think the Dawn would take one of the Forsaken.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Does the Dawn really accept warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How bad is it in the Plaguelands now?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the Argent Dawn take a Horde priest's help, Gregor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "What does the Dawn need from a warrior, Gregor?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I'd guess the Dawn needs warriors more than most, Gregor.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could the Dawn use a hunter in the Plaguelands?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should a company keep to its own kind, Gregor?", next = "xpt_gregor", when = { party = { kin = true } } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
@@ -588,7 +652,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd like to help.", next = "BACK", fx = { affinity = 3, learn = { "argent_dawn" } } },
-        { text = "How do I prove myself?", next = "dawn_prove" },
+        { text = "I'd like to prove myself to the Dawn.", next = "dawn_prove" },
       },
     },
     dawn_prove = {
@@ -602,6 +666,7 @@ P:NPC {
     scarlet = {
       lines = { { id = "s_default", text = "They began where we began, with the dead walking in Lordaeron. Then they decided everyone not wearing red was the enemy. We decided the enemy was the enemy." } },
       choices = {
+        { text = "And what do you make of the Crusade yourself?", next = "op_ask" },
         { text = "Is the Dawn really so different, inside?", tag = "Persuade", next = "scarlet_inside",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PRIEST", "PALADIN" } }, { questDone = TODO_QUEST("The Everlook Report") } } } },
           fail = { next = "scarlet_record", fx = { affinity = -1 } } },
@@ -650,6 +715,12 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry holy water if you're going east, and a friend, though the holy water's easier to find." } },
     argent_dawn = { { id = "tp_argent_dawn", text = "Prove yourself against the Scourge, and the Dawn will remember you. We keep good records." } },
     scarlet_crusade = { { id = "tp_scarlet_crusade", text = "They began where we began, with the dead walking in Lordaeron, but they took a darker road. Pity them, and then stay well away from them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge holds the north, and the Dawn needs eyes everywhere, even up here in the snow. I listen to what the traders say and send it south to Light's Hope." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's necropolis floats over the east, and every trader who's seen it says the same thing. It doesn't move, and it doesn't sleep, and it watches." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is the Dawn's great concern in the east, and every scourgestone you bring me helps the fight there. That's why I'm here, so far from it." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a neutral town, and the goblins take anyone's gold, which makes it a good place to keep the Dawn's ear. Horde and Alliance both pass through, and I greet them the same." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm not a priest, but I've seen the Light do great things at Light's Hope. I'd like to see it again someday, when I've a moment to eat." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken bring me scourgestones as readily as anyone, and I give them the same thanks. The Dawn doesn't ask what you are, only whom you fight." } },
     _none = { { id = "tp_none", text = "I can't say, but if it touches the Scourge, I'd ask about it at Light's Hope." } },
   },
 }

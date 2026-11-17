@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "wl_rethiel", id = TODO_NPC("Rethiel the Greenwarden"), name = "Rethiel the Greenwarden",
+  prejudice = { race = "Dwarf", amount = 8, why = "Holds dwarven digs (Dun Modr, Thelgen Rock, Whelgar's site) to blame for what wakes in the marsh." },
   bible = "bibles/greenwarden.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "calm", "proud" }, values = { "nature", "patient", "wise" },
   notices = { "form", "fel", "class" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A dwarf. Your kind cut into this marsh before the harbor had walls, small one, and the reeds still flinch at the sound of a pick." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "The dwarf returns, and the moss does not draw back. I spoke hard words of your kind's picks and fires, and you have walked more gently here than many." },
     { id = "g_default", text = "The roots and ferns speak of you, small one. Come, and step softly on the moss." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the grove. The reeds bent toward you as you came, and that is a good sign." },
     { id = "g_away", when = { away = 14 }, text = "The marsh has turned many times since you were here, small one. It has missed few things, and it did not miss your absence." },
@@ -33,6 +36,72 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "Your kind love stone so well they forget what lives on top of it. Dun Modr, Thelgen Rock, the Whelgar dig, and every one of them a wound that woke something worse than what slept there before." } },
+      choices = {
+        { text = "You're right. Some places should be left to sleep.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Dwarves dig and raptors bite. That's the world, Greenwarden.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What lives here that I should know about?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Then you are a rarer dwarf than any I have known, and the marsh will remember it. Speak to the diggers at Whelgar's camp for me; they hear it better from a beard than from a bog." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "That is the world, yes, and it is the excuse every pick and axe has ever given. I will go on disagreeing with you, small one, and the marsh will go on keeping score." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "The raptors you know, and the crocolisks. But there are herons in the reeds that nest nowhere else on this coast, and the bog beasts of the south marsh are older than Menethil's first stone." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    opn_marsh = {
+      lines = {
+        { id = "opn_marsh_q", text = "The dwarves built their road across me, and the men of the harbour would drain me for barley if they could. They believe the land is theirs because they have cut it. You are one of the short-lived, small one, so tell me what your people believe." },
+      },
+      choices = {
+        { text = "The land should feed people. Farms and roads are worth it.", next = "opn_marsh_r_tame", fx = { affinity = -1, align = { order = 1 }, opinion = { wl_marsh = "tame" } } },
+        { text = "Leave the marsh as it is. It was here first.", next = "opn_marsh_r_protect", fx = { affinity = 1, align = { order = -1 }, opinion = { wl_marsh = "protect" } } },
+        { text = "Take only what you need, and give some back.", next = "opn_marsh_r_balance", fx = { trait = { kind = 1 }, opinion = { wl_marsh = "balance" } } },
+        { text = "The Dream holds every marsh. We are bound to tend it.", next = "opn_marsh_r_protect", when = { class = "DRUID" }, fx = { affinity = 2, opinion = { wl_marsh = "protect", druidism = "duty" } } },
+        { text = "I couldn't speak for my people.", next = "BACK" },
+      },
+    },
+    opn_marsh_r = {
+      lines = {
+        { id = "opn_marsh_r_default", text = "Then speak for yourself, in time. There is no hurry, for me." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
+    opn_marsh_r_tame = {
+      lines = {
+        { id = "opn_marsh_r_tame", text = "Then you are honest, at least, and honesty is rarer than barley. The marsh will outlast your farms, small one, as it has outlasted every road before them." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
+    opn_marsh_r_protect = {
+      lines = {
+        { id = "opn_marsh_r_protect", text = "Here first, and here last. I will remember that you said it, and the reeds will remember too, for they are slower to forget than I am." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
+    opn_marsh_r_balance = {
+      lines = {
+        { id = "opn_marsh_r_balance", text = "That is the oldest bargain there is, and the one your kind forgets first. Remember it when your hunger grows, which it will." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,9 +126,10 @@ P:NPC {
         { id = "h_again2", text = "The reeds are listening. Ask what you would ask." },
       },
       choices = {
+        { text = "You don't think much of dwarves, Greenwarden.", next = "prej", when = { prejudiced = true } },
         { text = "What are you, Rethiel?", next = "what" },
         { text = "What wounds the land?", next = "wounds" },
-        { text = "Why do the Mosshides trouble you?", next = "gnolls" },
+        { text = "The Mosshides seem to trouble you.", next = "gnolls" },
         { text = "Why do you hate fire so?", next = "fire" },
         { text = "How does the marsh speak to you?", next = "druid", when = { class = "DRUID" } },
         { text = "I will tread softly. Farewell, Rethiel.", next = "END" },
@@ -71,7 +141,7 @@ P:NPC {
         { id = "wh_default", text = "A warden, grown from the marsh and bound to it, as old as the oldest roots beneath your feet. The townsfolk call me a beast and tell travellers to leave their gold behind, and I let them, for fear keeps them out of my grove." },
       },
       choices = {
-        { text = "How old are you?", next = "what_old" },
+        { text = "You must be very old.", next = "what_old" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,7 +209,10 @@ P:NPC {
       lines = {
         { id = "fw_default", text = "Dead wood fallen to the ground keeps a gnoll as warm as a living tree, and the marsh drops plenty of it. They cut because it is easier, and the easier way is how every wound begins." },
       },
-      choices = { { text = "Something else, Rethiel.", next = "BACK" } },
+      choices = {
+        { text = "Should the marsh be tamed, for farms and roads?", next = "opn_marsh" },
+        { text = "Something else, Rethiel.", next = "BACK" },
+      },
     },
 
     druid = {
@@ -159,5 +232,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Burn nothing that still grows, small one, and the marsh will be kinder to you." } },
     dragonmaw = { { id = "tp_dm", text = "Orcs with chained beasts in the eastern hills. They burn more than any gnoll, and I can do nothing about them." } },
     _none = { { id = "tp_none", text = "The roots have said nothing of that. Ask in the harbour, where the small ones gather." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green ones dream over the old forests, and the marsh remembers when they passed this way. They were gentle then, small one, and I have not felt them close in a long while." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Beneath the waking world there is a dreaming one, the oldest roots say, and I have touched its edge in my long sleeps. It is greener than this, and quieter." } },
+    the_elements = { { id = "tp_the_elements", text = "Water, stone and the slow fire under the hills all speak in the marsh, small one. The orcs on the highland make the stone angry, and I feel it in my roots." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "Night elf druids walked these marshes once, and they spoke to me as an equal. Few do now, but you are speaking to me, which is a beginning." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol sits on the land like a wound that will not close. The roots grow around it, and so should you." } },
   },
 }

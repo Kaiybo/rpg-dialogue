@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_worgen_cursed", when = { opinion = { topic = "worgen", stance = "cursed" } }, text = "You're the one who thinks the worgen are cursed men. A watcher sat there last night and said the same, sober as a judge, and the whole room went quiet." },
     { id = "g_raven", text = "Welcome to the Scarlet Raven, friend, the warmest room in Duskwood, which isn't saying much." },
     { id = "g_back", when = { metBefore = true }, text = "Back in out of the fog, are you? Your stool's free." },
     { id = "g_home", when = { homeInn = { "Darkshire", "Scarlet Raven Tavern" } }, text = "Home from the woods! Put your boots by the fire and they'll be dry by midnight." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_worgen = {
+      lines = {
+        { id = "op_worgen_a", text = "Depends how much they've had. Sober, they say wolves, big ones, out of the east woods. Drunk, they say the worgen were men once, cursed by something old, and that's why they howl like they're grieving. You've met them in the trees, so what are they to you?" },
+      },
+      choices = {
+        { text = "Beasts. Whatever they were, kill them before they kill you.", next = "op_worgen_1", fx = { opinion = { worgen = "beasts" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Cursed men. Somebody should be trying to cure them.", next = "op_worgen_2", fx = { opinion = { worgen = "cursed" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Cursed or not, they're a threat. Pity them from behind a wall.", next = "op_worgen_3", fx = { opinion = { worgen = "cursed" }, trait = { cautious = 1 }, affinity = 1 } },
+        { text = "My people woke something in those woods. The Scythe was ours.", next = "op_worgen_4", when = { race = "NightElf" }, fx = { opinion = { worgen = "cursed", night_elves = "responsible" }, affinity = 2 } },
+        { text = "I'd rather not think about them, Smitts.", next = "BACK" },
+      },
+    },
+    op_worgen_1 = {
+      lines = { { id = "op_worgen_r1", text = "That's the sober answer, and it's kept a lot of watchers alive. Have a drink anyway; you'll need one if you ever hear them up close." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
+    op_worgen_2 = {
+      lines = { { id = "op_worgen_r2", text = "That's what the drunk ones say, and I've always liked the drunk ones better. If anybody ever finds a cure, I'll pour for them free until the barrel's dry." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
+    op_worgen_3 = {
+      lines = { { id = "op_worgen_r3", text = "Behind a wall and a stout door, and a lamp in the window. You'd make a fine Darkshire citizen; you've already got the habits." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
+    op_worgen_4 = {
+      lines = { { id = "op_worgen_r4", text = "Was it, now? Then you're the first to stand at my bar and own a piece of it. Sit down; that one's worth a whole evening, and I'll not charge you for the listening." } },
+      choices = { { text = "Something else, Smitts.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It wants to forget the dead, the worgen and the missing. I keep the warmest room in Duskwood, which isn't saying much." } },
@@ -69,7 +98,7 @@ P:NPC {
       choices = {
         { text = "I'll not chase ghosts without good reason.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Karazhan's secrets are worth the risk.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What do you hear about the murders?", next = "murders" },
+        { text = "What's the darkest story in your record, Smitts?", next = "murders" },
       },
     },
     xlock = {
@@ -131,21 +160,21 @@ P:NPC {
       },
       choices = {
         { text = "A drink, please.", next = "BUSINESS" },
-        { text = "What did you and Haggard investigate?", next = "murders" },
+        { text = "What does this town want to forget?", next = "murders" },
         { text = "Heard anything?", next = "rumors" },
         { text = "Who drinks here these days?", next = "regulars" },
         { text = "I found your jumpy writer.", next = "jitters", when = { questDone = TODO_QUEST("Finding the Shadowy Figure") } },
-        { text = "Would your regulars take a blessing?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Your regulars look like they could use a blessing.", next = "priest", when = { class = "PRIEST" } },
         { text = "Was it Mistmantle? Be honest.", next = "suspect", when = { topicKnown = "stalvan" } },
         { text = "That juice you sent the hermit...", next = "juice", when = { questDone = TODO_QUEST("Juice Delivery") } },
         { text = "People tell barkeeps things. Tell me what they don't say.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You serve dwarven stout here, I hope.", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "A gnome in Darkshire. Does anyone notice?", next = "gnome", when = { race = "Gnome" } },
+        { text = "A gnome in Darkshire must turn a few heads.", next = "gnome", when = { race = "Gnome" } },
         { text = "What does Darkshire make of mages, Smitts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do the Watch talk about over a drink, Smitts?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do hunters tell tall tales in your tavern, Smitts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I'd wager hunters tell tall tales in here, Smitts.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you still want justice for those murdered nobles, Smitts?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You still want justice for those murders, I'd wager.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you write down about the forest, Smitts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does Darkshire want to forget, Smitts?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },
@@ -162,7 +191,7 @@ P:NPC {
         { text = "I'll find out who did it.", next = "BACK", fx = { affinity = 2, learn = { "stalvan" }, trait = { curious = 1 } } },
         { text = "Some things stay buried.", next = "buried" },
         { text = "What was on the pages?", next = "murders_pages" },
-        { text = "What was Haggard like, then?", next = "murders_haggard" },
+        { text = "Haggard must have been quite a man, then.", next = "murders_haggard" },
       },
     },
     buried = {
@@ -174,7 +203,7 @@ P:NPC {
         { id = "mp_default", text = "A man's hand, neat and schooled and careful with its letters, going on about tears and blood. We showed it round half the county and nobody knew it." },
       },
       choices = {
-        { text = "Schooled. A teacher, then?", next = "murders_teacher" },
+        { text = "Schooled. Sounds like a teacher's hand.", next = "murders_teacher" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -202,6 +231,7 @@ P:NPC {
         { id = "r_default", text = "There are lights at Manor Mistmantle again, the mayor's written another letter, and somebody's been buying a great deal of thread up at Raven Hill." },
       },
       choices = {
+        { text = "And the worgen? What do the regulars say about them?", next = "op_worgen" },
         { text = "Thread?", next = "rumors_thread", fx = { trait = { curious = 1 } } },
         { text = "Lights at the manor?", next = "rumors_manor" },
         { text = "Something else.", next = "BACK" },
@@ -267,7 +297,7 @@ P:NPC {
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Take one? Look at them. Bless the room if you like, but quietly, because some of them lost friends up at Raven Hill and haven't said a word since." },
+        { id = "pr_default", text = "They could. Look at them. Bless the room if you like, but quietly, because some of them lost friends up at Raven Hill and haven't said a word since." },
       },
       choices = {
         { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
@@ -350,5 +380,13 @@ P:NPC {
     ladimore = { { id = "tp_ladimore", text = "He was a knight of this town, before the war, and what walks the cemetery now is what's left of him. I don't talk about it at the bar." } },
     embalmer = { { id = "tp_embalmer", text = "It's a story we told children to keep them out of the graveyard. It worked on me, but it didn't work on him." } },
     _none = { { id = "tp_none", text = "That's not in my book, and my book's thick, so try Daltry at the Town Hall." } },
+    raven_hill = { { id = "tp_raven_hill", text = "Raven Hill was a fine village once, with a stone church and a cemetery so peaceful folk picnicked in it. I've the old drawings in my book, and nobody believes me when I show them." } },
+    dark_riders = { { id = "tp_dark_riders", text = "The Dark Riders turned up in the same years the dead started walking, and I don't think that's coincidence. I've a page on them in my book, and it's all questions." } },
+    scourge = { { id = "tp_scourge", text = "Travellers from the north drink here on their way to Stormwind, and every one of them has a story about the Scourge he can't finish. I write them down after they've gone; it seems the decent thing." } },
+    varian = { { id = "tp_varian", text = "When the king went missing, the Watch stopped expecting the army and I stopped expecting good news. I pour the same beer either way." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor's name comes up in my tavern more than you'd expect for a town this far from court, and never fondly. I only pour and listen." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire won't come to Darkshire, and I don't blame them, but I've a copy of their song sheet behind the bar. On a bad night, Hann plays it on a spoon." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A Booty Bay captain once told me their rum is distilled from bad decisions. I bought a barrel to see if he was right, and he was." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light keeps Darkshire going as much as the Watch does, and the chapel lamp has never once gone out in all my years here. I check it every night on my way home." } },
   },
 }

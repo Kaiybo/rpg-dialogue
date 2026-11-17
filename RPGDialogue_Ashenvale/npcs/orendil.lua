@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Orendil Broadleaf. I gather herbs and do what healing I can for the Sentinels at the post, and lately for folk further afield as well." },
+          text = "I am Orendil Broadleaf. I gather herbs and do what healing I can for the Sentinels at the post, as my people have done since before there were posts to keep, and lately for folk further afield as well." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Bathran's Hair") },
           text = "There's a plant called Bathran's Hair that once grew in the old ruins of Bathran's Haunt, and it was known to cure ailments of the spirit. A child in Astranaar is sick, and I believe it is more than a sickness of the body, so I may need it." },
         { id = "h_hair_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bathran's Hair"), days = 3 } },
@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "What's wrong with the child?", next = "child" },
         { text = "What is Bathran's Haunt?", next = "haunt" },
-        { text = "How is Maestra's Post holding up?", next = "post" },
+        { text = "Maestra's Post looks worn thin.", next = "post" },
         { text = "I saw Forsaken at Bathran's Haunt.", next = "forsaken", when = { questDone = TODO_QUEST("Bathran's Hair") } },
         { text = "Teach me something about Ashenvale's herbs.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Could my healing help the child?", next = "heal_o", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "ch_default", text = "Fevers that come and go, and nightmares that leave her shaking in the morning. Pelturas has tried every remedy the priestesses could offer, and none of them reach whatever it is." },
       },
       choices = {
-        { text = "What do you think it is?", next = "child_think" },
+        { text = "You must have some idea what it is.", next = "child_think" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -156,6 +156,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "An herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
     advice = { { id = "tp_ad", text = "Never pick a plant you can't name, friend. Ashenvale is generous, but it isn't always kind." } },
     sentinels = { { id = "tp_sentinels", text = "Brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
-    _none = { { id = "tp_none", text = "That's beyond my herb bag, friend. Ask in Astranaar." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune while I work, mostly for patience with the roots. She seems to answer that prayer more than others." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids tell me herbs in the Dream grow without blight. I'd like to see that, though I doubt I'd ever want to come back." } },
+    green_dragons = { { id = "tp_green_dragons", text = "There's a grove south of here where a green dragon sleeps, and the herbs there grow strangely. I gather near it carefully, and I don't stay long." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss creeps into the wrong places and kills what it touches. I pull it out where I can, and wash my hands three times after." } },
+    _none = { { id = "tp_none", text = "That's beyond my herb bag, friend. Ask in Astranaar, where the Sentinels keep longer memories than mine." } },
   },
 }

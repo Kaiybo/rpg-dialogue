@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Rhapsody Shindigger, brewer, an' once the finest gryphon rider Aerie Peak ever had, if I say so myself, an' I do. Did ye feel that just now? The ground's a-shakin', friend, so I need a drink." },
+          text = "Rhapsody Shindigger, brewer, an' once the finest gryphon rider Aerie Peak ever had, if I say so myself, an' I do. Did ye feel that just now? The ground's a-shakin', friend, so I need a drink. I've had the shakes ever since that business in the swamp." },
         { id = "h_sent", tags = { "news" }, when = { questActive = TODO_QUEST("Rhapsody Shindigger") },
           text = "Talonaxe sent ye, did he, hic? He let me go, ye know, but I don't hold it against him, for I'd have let me go too." },
         { id = "h_brohann", when = { questActive = TODO_QUEST("Rhapsody's Kalimdor Kocktail") },
@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did Aerie Peak let you go?", next = "grounded" },
-        { text = "What happened in the swamp?", next = "swamp" },
+        { text = "Something must have happened in the swamp.", next = "swamp" },
         { text = "Tell me about your brews.", next = "brews" },
         { text = "What's the elf next door selling?", next = "gilveradin" },
         { text = "I ride gryphons too, Rhapsody.", next = "rider", when = { origin = "dwarf_wildhammer_kin" } },
@@ -66,7 +66,7 @@ P:NPC {
         { id = "gr_default", text = "I took tae the liquor like a gryphon takes tae the sky, an' a rider who cannae stay in the saddle is a danger tae his bird. Talonaxe had nae choice, an' I've told him so, though I was drunk when I told him." },
       },
       choices = {
-        { text = "Do you miss flying?", next = "grounded_miss" },
+        { text = "You must miss flying.", next = "grounded_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -86,7 +86,7 @@ P:NPC {
 
     swamp = {
       lines = {
-        { id = "sw_default", text = "Before the flight I drank a whole keg o' stout, an' what a flight it was, zippin' over the Swamp o' Sorrows wi' Brohann behind me. I didnae see any temple, mind, till I got a wee bit tipsy an' fell off my mount." },
+        { id = "sw_default", text = "Before the flight I drank a whole keg o' stout, an' what a flight it was, zippin' over the Swamp o' Sorrows wi' Brohann behind me. I didnae see any temple, mind, till I got a wee bit tipsy an' fell off my mount, an' the rest I'll only tell over a Kalimdor Kocktail." },
         { id = "sw_before", when = { questBefore = TODO_QUEST("Rhapsody's Tale") },
           text = "It wasnae a pretty scene, an' I'll no' tell it dry. Bring me what I need for a Kalimdor Kocktail, an' I'll tell ye all about it." },
       },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "br_default", text = "Rhapsody Malt's my finest, an' the Thunderbrews use it for their ales, so ye've likely tasted it without knowin'. The Kalimdor Kocktail's a different beast: roc gizzards an' groddoc an' ironfur livers, an' it'll make a troll talk." },
       },
       choices = {
-        { text = "Livers and gizzards? In a drink?", next = "brews_livers" },
+        { text = "Livers and gizzards seem an odd thing to put in a drink.", next = "brews_livers" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,6 +150,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know brewin' an' flyin', an' a wee bit about sunken temples. Ask, an' I'll answer, though maybe no' in order." } },
     background = { { id = "tp_bg", text = "Gryphon rider o' Aerie Peak, retired, involuntarily. Brewer, voluntarily." } },
     advice = { { id = "tp_ad", text = "Never fly on a full keg o' stout. I'm the cautionary tale." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I was the finest rider in all o' Aerie Peak once, an' now I'm the finest brewer in the Hinterlands, or the drunkest, dependin' who ye ask. Either way I still look up every time a gryphon goes over." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum's near as good as my brew, an' I'll no' say that sober. I'd fly down an' fetch a barrel if anybody would still lend me a gryphon." } },
+    magni = { { id = "tp_magni", text = "Magni's a fine dwarf fer a Bronzebeard, but he's never tasted my brew, an' that's a gap in his education. I'd send him a barrel if I could stop drinkin' it long enough tae seal one." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend, hic. Ask Gilveradin, he's read every book there is." } },
   },
 }
@@ -185,7 +188,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gilveradin Sunchaser, at your service, a connoisseur of the finer things and a merchant of their appearance. I trouble myself little with kings and flags, for a good bottle has no faction." },
+          text = "Gilveradin Sunchaser, at your service, a connoisseur of the finer things and a merchant of their appearance. I trouble myself little with kings and flags, for a good bottle has no faction, and some of my dearest customers are orcs." },
         { id = "h_ripple", tags = { "news" }, when = { questActive = TODO_QUEST("Ripple Recovery") },
           text = "Dran Droffers seeks ripple, does he? I possess the original packaging, and I shall assist you, for a fee of two additional bottles, naturally." },
         { id = "h_sticky_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Sticky Situation"), days = 3 } },
@@ -201,8 +204,8 @@ P:NPC {
       },
       choices = {
         { text = "What exactly is Honey Ripple?", next = "ripple" },
-        { text = "You're friends with orcs?", next = "orcs" },
-        { text = "Isn't selling empty bottles a swindle?", next = "swindle" },
+        { text = "I hear you're friends with orcs.", next = "orcs" },
+        { text = "Selling empty bottles sounds like a swindle.", next = "swindle" },
         { text = "What brings a high elf out here?", next = "here" },
         { text = "Shouldn't you be with the other elves at Quel'Danil?", next = "queldanil", when = { faction = "Alliance" } },
         { text = "Farewell, Gilveradin.", next = "END" },
@@ -286,6 +289,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know drink and I know people, and the two are seldom far apart. Ask, and I shall endeavour to enlighten." } },
     background = { { id = "tp_bg", text = "A high elf of no particular allegiance, which my family considers a scandal and I consider a liberation." } },
     advice = { { id = "tp_ad", text = "Never jostle the ripple. In life, as in wine, patience is everything." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was a city of real scholarship once, and I'm told it's being rebuilt. I'd return, if the Kirin Tor would have me, and if the honey trade weren't so lucrative." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are fine mages, but they've no head for commerce. I've often thought I'd teach them a thing or two, if they'd only listen." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins buy my bottles by the crate, and they sell them for triple. I admire their business sense, though I'd not say so in polite company." } },
     _none = { { id = "tp_none", text = "Alas, that lies beyond even my considerable learning. Rhapsody might know, if you catch him between drinks." } },
   },
 }

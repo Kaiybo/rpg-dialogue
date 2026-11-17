@@ -153,10 +153,10 @@ P:NPC {
       },
       choices = {
         { text = "What do you mean, magic burns?", next = "burn" },
-        { text = "Who is Archmage Xylem?", next = "xylem" },
+        { text = "I've heard of Archmage Xylem.", next = "xylem", when = { any = { { questActive = TODO_QUEST("Magecraft") }, { questDone = TODO_QUEST("Magecraft") }, { heardLine = "maginor.h_magecraft" } } } },
         { text = "Tell me about the Wizard's Sanctum.", next = "sanctum" },
-        { text = "What should a mage of my level study?", next = "mage", when = { class = "MAGE" } },
-        { text = "Is the Light a discipline like yours?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I'm not sure what a mage of my level should study.", next = "mage", when = { class = "MAGE" } },
+        { text = "The Light seems a discipline much like yours.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Kirin Tor sent the High Order to Stormwind's mages.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Gnomeregan's mages need a new home, Master Dumas.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Does the Sanctum know what goes on under the Lamb?", next = "lamb", when = { class = "WARLOCK" } },
@@ -169,7 +169,18 @@ P:NPC {
         { text = "Is shamanism dangerous, Master Dumas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Arugal is dead, Master Dumas, but his worgen still prowl Silverpine.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep" } },
         { text = "What should I know about travelling with a mage?", next = "xpt_maginor", when = { party = { class = "MAGE" } } },
+        { text = "I was a student in Dalaran when it fell, Master Dumas.", next = "xorig_dalstray", when = { origin = "human_dalaran_stray" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
+      },
+    },
+    xorig_dalstray = {
+      lines = {
+        { id = "xodalstray_default", text = "Then you've seen what I warn everyone of, and better than any book of mine could tell it. The Kirin Tor will take their students back when the dome comes down, I'm told, though I've stopped asking them when. Until then, would you study here, under a master who at least answers his letters?" },
+      },
+      choices = {
+        { text = "I'd be glad to, Master Dumas.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll find my own way, without masters.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     burn = {
@@ -200,7 +211,7 @@ P:NPC {
       lines = { { id = "x_default", text = "An archmage of great power who has made his home in a tower in Azshara, far from anyone who might ask him to share. He takes the occasional student, and the ones he sends back are worth ten of mine.",
         fx = { learn = { "xylem" } } } },
       choices = {
-        { text = "Why Azshara?", next = "xylem_why" },
+        { text = "Azshara seems a long way to go.", next = "xylem_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -263,6 +274,12 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran is rebuilding behind its walls, and the Kirin Tor have yet to open its gates to the rest of us. I've written three books on the city's history, and I'd like to finish the fourth inside it." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and they're very slow to forgive those who left. I stayed in Stormwind to teach, and they've not forgiven me, though they've not said so in writing." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was one of the Kirin Tor's brightest, and he turned to necromancy when they wouldn't let him study it. Every mage I teach hears his name in the first lesson, because he's the warning that matters most." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal summoned the worgen to fight the Scourge, and they turned on everyone, including him. I've told my students that story many times, and I'll tell it to you: magic burns the untrained, and sometimes the trained too." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was the most gifted student of her generation, and she proved it when she led her people across the sea. I envy her talent, and I don't envy her burdens at all." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is the source of all fel magic, and the warlocks under the Lamb know it as well as I do. I'd have them closed down, but the Regent says it's better to know where they are." } },
     knows = {
       { id = "tp_knows", text = "The Sanctum hears from magi across the Alliance, and I read every letter, slowly. Ask, and I'll tell you what is known, and be honest about what is merely believed." },
     },
@@ -336,7 +353,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Sentinels, who have guarded our forests for ten thousand years, and they move with a patience your soldiers would find maddening. They wait in the trees for hours, and then a battle is over in a breath." } },
+      lines = { { id = "xwarcl_default", text = "The Farstriders, who guarded our forests for thousands of years, and they move with a patience your soldiers would find maddening. They wait in the trees for hours, and then a battle is over in a breath." } },
       choices = {
         { text = "Patience is a weapon too. I'll learn it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Waiting is wasted time. Strike first and strike hard.", next = "BACK", fx = { align = { order = -1 } } },
@@ -389,7 +406,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I can feel the fel on you, faint as old smoke, and it troubles me. Even so, I'd rather talk to you than about you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind always arrives in such a rush, with your armour clanking and your hand on your sword, as if the room might attack." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the hunters walk beside the Sentinels and the night sabers walk beside them, so I feel a little less far from home." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the rangers walked the woods of Eversong with hawks on their wrists, so I feel a little less far from home." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, in my classroom. Our peoples parted long ago, cousin, and I sometimes wonder what you see when you look at me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My people learned the arcane from careful study, and I confess spirits seem strange to me. But I have learned patience with strange things." },
       },
@@ -398,16 +415,16 @@ P:NPC {
       },
       choices = {
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "Why stay here, so far from Quel'Thalas?", next = "stay" },
-        { text = "What are your apprentices like?", next = "apprentices" },
-        { text = "What should I be practising, Elsharin?", next = "practise", when = { class = "MAGE" } },
+        { text = "You're a long way from Quel'Thalas.", next = "stay" },
+        { text = "Your apprentices look like a handful.", next = "apprentices" },
+        { text = "I'd welcome your advice on my practice, Elsharin.", next = "practise", when = { class = "MAGE" } },
         { text = "My people came from the Highborne too, long ago.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Why do you speak to a kaldorei so carefully?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Do you teach gnomes differently?", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
-        { text = "What do you think of the other teachers here?", next = "others" },
-        { text = "Do your apprentices ever try to sneak out?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the kaldorei have warriors as well, Elsharin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you miss the forests of Teldrassil, Elsharin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The other teachers here seem a clever lot.", next = "others" },
+        { text = "I'd wager your apprentices try to sneak out sometimes.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did Quel'Thalas have warriors of its own, Elsharin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you miss the forests of Quel'Thalas, Elsharin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my kind of magic frighten you, Elsharin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did your people pray in Quel'Thalas, Elsharin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the high elves still honour the Alliance, Elsharin?", next = "xapala", when = { class = "PALADIN" } },
@@ -424,7 +441,7 @@ P:NPC {
       choices = {
         { text = "I learned more from their mistakes than their lectures.", next = "xorig_mq2", fx = { trait = { witty = 1 }, affinity = 1 } },
         { text = "They earned that pride. Dalaran made them.", next = "xorig_mq2", fx = { trait = { stern = 1 } } },
-        { text = "Did you ever study there yourself?", next = "xorig_mq2", fx = { trait = { curious = 1 } } },
+        { text = "You speak as if you've seen the place yourself.", next = "xorig_mq2", fx = { trait = { curious = 1 } } },
       },
     },
     xorig_mq2 = {
@@ -498,7 +515,7 @@ P:NPC {
     others = {
       lines = { { id = "others_l", text = "Jennea is brilliant and impatient, Maginor is brilliant and knows it, and Larimaine is brilliant at portals and nothing else. I am the patient one, which in this building makes me the odd one out." } },
       choices = {
-        { text = "And the cellar under the Lamb?", next = "others_lamb" },
+        { text = "There's still the cellar under the Lamb.", next = "others_lamb" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -509,6 +526,11 @@ P:NPC {
   },
 
   topics = {
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was the Ranger-General of Silvermoon, and she died defending our gates against the prince. Now she leads the dead, they tell me, and I can't decide whether to pray for her or for us." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil marched on Quel'Thalas and broke our gates and our Sunwell, and I watched my homeland burn from a hill above the city. I stayed here to teach, because there was nothing left to go back to." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took my homeland, and I've seen what's left of it, which is very little. I teach the young mages here so they'll be ready if the dead ever come south." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran for a century before the plague, and I loved its libraries more than my own home. They're rebuilding it now, and I'd go back if they'd let me, though I don't know what I'd find." } },
+    forsaken = { { id = "tp_forsaken", text = "Some of my people are among the Forsaken now, raised by the Scourge and freed by Sylvanas. I don't know if I'd want to meet them, and I don't know if they'd want to meet me." } },
     knows = {
       { id = "tp_knows", text = "I've watched this city for longer than most of its citizens have been alive, and I listen more than I speak. Ask." },
     },
@@ -639,11 +661,11 @@ P:NPC {
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
-        { text = "How does a portal work?", next = "how" },
+        { text = "A portal must be a difficult thing to hold open.", next = "how" },
         { text = "Why so sure I couldn't learn it?", next = "acuity" },
         { text = "Could a thief ever make use of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever sent warriors through a portal, Larimaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What does a portal do to an animal, Larimaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "A portal must frighten an animal, Larimaine.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Surely your portals and my summonings aren't so different?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Has anyone ever been lost in a portal, Larimaine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you trust a student's portal yourself, Larimaine?", next = "xapala", when = { class = "PALADIN" } },
@@ -674,6 +696,10 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are rebuilding Dalaran, and portal magic was one of its great arts. I learned mine from a master there, and I doubt anyone in Stormwind could follow half of what he taught me." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor understood portal magic as no one else does, and they've kept their best secrets very close. I don't blame them, because most people would open a portal into a wall." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore is said to be the finest teleporter of her age, and I'd like to see her work before I believe it. I'm told she moved a whole people across the sea, which is either brilliant or reckless, and possibly both." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is very far away, and a portal to it would take more power than most mages could manage. Lady Proudmoore manages it, they say, and I'd like to know how." } },
     knows = {
       { id = "tp_knows", text = "I know where every portal in the Alliance opens and who opened it last. Ask, if you think you'll follow the answer." },
     },
@@ -802,15 +828,15 @@ P:NPC {
         { id = "h_again2", text = "Go on. Discretion is my favourite subject." },
       },
       choices = {
-        { text = "What do you want with Wishock?", next = "wishock" },
-        { text = "What is this place?", next = "cellar" },
-        { text = "What's in the brew, Zardeth?", next = "brew", when = { questActive = TODO_QUEST("A Noble Brew") } },
+        { text = "What do you want with Wishock?", next = "wishock", when = { any = { { questActive = TODO_QUEST("A Noble Brew") }, { questDone = TODO_QUEST("A Noble Brew") }, { heardLine = "zardeth.h_brew_before" }, { heardLine = "gakin.ln_default" } } } },
+        { text = "This place doesn't feel like part of the Mage Quarter.", next = "cellar" },
+        { text = "That brew smells like more than ale, Zardeth.", next = "brew", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "I know what you are. The Light will find you.", next = "priest", when = { class = "PRIEST" } },
-        { text = "I'm one of the cellar's own. What do you need?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I'm one of the cellar's own, and I'm at your service.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Does SI:7 watch the Lamb's cellar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why does Master Dumas tolerate you down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would the Black Claw want with a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What does my pet smell down here, Zardeth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "My pet smells something down here, Zardeth.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What keeps me from turning this cellar out, Zardeth?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What becomes of the green things that come down here, Zardeth?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did the orcs truly turn from shamans to warlocks, Zardeth?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -892,7 +918,7 @@ P:NPC {
       choices = {
         { text = "Then he'll have to be silenced.", next = "BACK", fx = { align = { light = -1, honor = -1 } } },
         { text = "I'll not poison a man for a speech.", next = "BACK", fx = { affinity = -1, align = { light = 1, honor = 1 } } },
-        { text = "Does Gakin know about this?", next = "warlock2" },
+        { text = "I doubt Gakin knows about this.", next = "warlock2" },
       },
     },
     warlock2 = {
@@ -902,6 +928,10 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is an endless sea of power, and we merely dip our cups in it, very carefully. Those who drink too deeply are soon drunk, and soon dead, and soon very useful to someone else." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs' warlocks opened the Dark Portal, and every warlock since has been blamed for it. I find that terribly unfair, though I'll admit I'd have liked to see it open." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad traded his life for power, which is a poor bargain, as I'd have told him had he asked. I prefer to trade other people's lives, which keeps the books much more balanced." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal's mistake was to summon what he couldn't control, and then to love it. I'd never make the second mistake, and I'm very careful with the first." } },
     knows = {
       { id = "tp_knows", text = "A great many people pass through this tavern on their way somewhere they shouldn't go. I listen to all of them. Ask." },
     },
@@ -1036,11 +1066,11 @@ P:NPC {
       choices = {
         { text = "I'm ready to train.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What do you mean, corrupts the weak?", next = "weak" },
-        { text = "What happened to your last student?", next = "student" },
-        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Have you ever lost a student?", next = "student" },
+        { text = "I should be practising something, I suppose.", next = "practise", when = { class = "WARLOCK" } },
         { text = "Is the power worth what it costs?", next = "price", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's warlocks were stronger than you think.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
-        { text = "What do you think of Gakin?", next = "gakin" },
+        { text = "You don't seem fond of Gakin.", next = "gakin" },
         { text = "Why would SI:7 care what you teach?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Stricter than the Sanctum's? How so?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would my sword sing down here, Ursula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1092,7 +1122,7 @@ P:NPC {
       choices = { { text = "Then I'll write a better manual.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     gakin = {
-      lines = { { id = "gakin_l", text = "That he's clever, and soft, and too fond of the students who disappoint him. He still says Surena's name like a wound, and I've told him that's a weakness." } },
+      lines = { { id = "gakin_l", text = "He's clever, and soft, and too fond of the students who disappoint him. He still says Surena's name like a wound, and I've told him that's a weakness." } },
       choices = {
         { text = "Or a kindness.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "You're right. Sentiment gets warlocks killed.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1101,6 +1131,13 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = {
+      { id = "tp_burning_legion", text = "The Burning Legion corrupts the weak, and the strong learn to bend it to their will. I've seen both kinds pass through this cellar, and I can tell which is which in a single look." },
+      { id = "tp_burning_legion2", when = { class = "WARLOCK" }, text = "You've touched the Legion's fire, warlock, so you know how it whispers. Learn to hear the lie in every word it speaks, and you might survive long enough to be worth teaching." },
+    },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened the Dark Portal with fel magic, and they were consumed by it. That's the lesson every warlock must learn, and most never do." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was weak, for all his power, and he let the dead own him. I'd never be owned by anything, and I'd like to see the power that tried." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is necromancy on a scale I've never seen, and I'll admit I'm curious about it. Curiosity is a dangerous thing in our trade, though, and I keep mine on a very short leash." } },
     knows = {
       { id = "tp_knows", text = "Ask. I'll answer if it pleases me." },
     },
@@ -1232,16 +1269,16 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your elementals have little personalities? My demons certainly do. One of them sulks. It's adorable." },
       },
       again = {
-        { id = "h_again", text = "What else? I love a good chat between customers." },
+        { id = "h_again", text = "What else? I love a good chat between customers, and by my own tally I sell eleven percent more grimoires while I'm talking." },
       },
       choices = {
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "How does a gnome end up down here?", next = "gnome" },
-        { text = "What exactly is a grimoire?", next = "grimoire" },
-        { text = "What's a dreadsteed?", next = "dreadsteed", when = { class = "WARLOCK", minLevel = 50 } },
+        { text = "I didn't expect to find a gnome down here.", next = "gnome" },
+        { text = "I've never quite understood what a grimoire is.", next = "grimoire" },
+        { text = "I've heard warlocks speak of a dreadsteed.", next = "dreadsteed", when = { class = "WARLOCK", minLevel = 50 } },
         { text = "Which grimoire should I start with?", next = "first", when = { class = "WARLOCK" } },
         { text = "I studied Gnomeregan's forbidden shelves too.", next = "shelves", when = { race = "Gnome", class = "WARLOCK" } },
-        { text = "What do the other trainers make of you?", next = "others" },
+        { text = "The other trainers must have opinions about you.", next = "others" },
         { text = "Do you get many thieves down here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Sanctum know what you sell down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a voidwalker block a sword, Spackle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1254,7 +1291,7 @@ P:NPC {
       },
     },
     gnome = {
-      lines = { { id = "g_default", text = "Same as most of us end up anywhere these days: Gnomeregan fell, we ran, and we took whatever work would have us. I was always good with instructions and little monsters, so here I am, and I do very well, thank you." } },
+      lines = { { id = "g_default", text = "I ended up here the same way most of us end up anywhere these days: Gnomeregan fell, we ran, and we took whatever work would have us. I was always good with instructions and little monsters, so here I am, and I do very well, thank you." } },
       choices = {
         { text = "You sound like you miss it.", next = "gnome_miss" },
         { text = "Something else.", next = "BACK" },
@@ -1312,6 +1349,10 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is full of the most fascinating creatures, and I've catalogued over two hundred of them! Most of them would eat me, of course, but that's what the binding circles are for." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened the Dark Portal, and I'd love to study the mechanism, from a safe distance, with notes. It's a magnificent piece of work, even if it nearly ended the world." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons have demons of their own, I'm told, summoned from the fires under their mountain. I'd love to compare notes, but I'm told they'd rather compare me to a furnace." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet sold me a book on summoning that turned out to be a cookbook. I tried a few recipes anyway, and one of them summoned something, so I'd call it a fair trade." } },
     knows = {
       { id = "tp_knows", text = "Customers chatter, and demons chatter more, if you know how to listen. Ask me anything!" },
     },

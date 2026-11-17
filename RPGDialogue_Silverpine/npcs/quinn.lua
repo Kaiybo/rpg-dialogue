@@ -51,8 +51,8 @@ P:NPC {
       },
       choices = {
         { text = "What happened with Ivar?", next = "ivar" },
-        { text = "You don't trust Renferrel's potions?", next = "renferrel" },
-        { text = "Tell me about your sister.", next = "rane" },
+        { text = "You don't seem to trust Renferrel's potions.", next = "renferrel", when = { questDone = TODO_QUEST("Return to Quinn") } },
+        { text = "Who is Rane?", next = "rane" },
         { text = "Let me look at that wound.", next = "wound", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Rest well, Quinn.", next = "END" },
@@ -62,7 +62,7 @@ P:NPC {
     ivar = {
       lines = { { id = "iv_default", text = "Ivar owned this farm before the plague, and when it took him, it took his family and his farmhands too. They still work the patch, after a fashion, and they didn't like a stranger in their yard." } },
       choices = {
-        { text = "They're still working the farm?", next = "ivar_farm" },
+        { text = "So they're still working the farm.", next = "ivar_farm" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -128,6 +128,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Deathstalker, Rane's brother, and lately a piece of furniture. That's about the shape of it." } },
     advice = { { id = "tp_ad", text = "Never cross a farmyard in daylight because you're in a hurry. It's the only advice I'm qualified to give." } },
+    forsaken = { { id = "tp_forsaken", text = "I'm Forsaken, and I'm stuck in a farmhouse with a bad leg and a ghoul for a neighbor. The Dark Lady doesn't come to visit much, but my sister does, and that's worth more." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's ghouls are thick around here, and they're not much for conversation. I keep telling them so, but they never listen." } },
+    shadowfang = { { id = "tp_shadowfang", text = "I've heard the worgen howling from Shadowfang Keep since I got here. My sister says I shouldn't listen, but what else am I meant to do in this bed?" } },
     _none = { { id = "tp_none", text = "Ask Rane. She knows everything, and I just lie here and agree with her, which saves my stitches the strain." } },
   },
 }

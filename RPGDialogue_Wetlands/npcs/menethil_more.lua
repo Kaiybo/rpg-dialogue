@@ -35,6 +35,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_dragonmaw = {
+      lines = {
+        { id = "opn_dragonmaw_q", text = "Have ye, now? Then ye'd be the third this week, an' the other two were sailors who've never held a pike. Go on, I'll write it down, for the Captain likes tae know what the town's sayin'. March or hold?" },
+      },
+      choices = {
+        { text = "March on Grim Batol. Break them before they rebuild.", next = "opn_dragonmaw_r_march", fx = { affinity = 1, align = { order = -1 }, trait = { brave = 1 }, opinion = { wl_dragonmaw = "march" } } },
+        { text = "Hold the walls. The harbour matters more than the hills.", next = "opn_dragonmaw_r_hold", fx = { align = { order = 1 }, trait = { careful = 1 }, opinion = { wl_dragonmaw = "hold" } } },
+        { text = "Neither. Send adventurers and save your soldiers.", next = "opn_dragonmaw_r_adventurers", fx = { trait = { practical = 1 }, opinion = { wl_dragonmaw = "adventurers" } } },
+        { text = "Never mind, Valstag. I'd rather not be in the report.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r = {
+      lines = {
+        { id = "opn_dragonmaw_r_default", text = "Fair, an' I'll leave ye out, though the Captain'll ask." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r_march = {
+      lines = {
+        { id = "opn_dragonmaw_r_march", text = "Noted, an' underlined, for ye've the look o' someone who'd go first. I'd march beside ye, off the record, but we'd want three times what we've got." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r_hold = {
+      lines = {
+        { id = "opn_dragonmaw_r_hold", text = "That's the Captain's own mind most mornings, an' mine on the days I've read the casualty lists. I'll put ye down wi' the sensible ones." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
+    opn_dragonmaw_r_adventurers = {
+      lines = {
+        { id = "opn_dragonmaw_r_adventurers", text = "Ha! That's what we've been doin' all along, only nobody's said it out loud. I'll write it more politely than ye said it." },
+      },
+      choices = {
+        { text = "Something else, Valstag.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd take it, an' I'd mark it 'unconfirmed', same as any scout's rumour. Captain Stoutfist wants facts, an' the earth's no' known for givin' those. But I've had scouts come back wi' less, an' some o' them didnae come back at all." } },
@@ -137,14 +180,14 @@ P:NPC {
         { text = "Have you fought beside druids before?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's happening in Dun Algaz?", next = "algaz" },
         { text = "Why does the road matter so much?", next = "road" },
-        { text = "What's Captain Stoutfist like?", next = "stoutfist" },
+        { text = "Captain Stoutfist seems a hard man to serve.", next = "stoutfist" },
         { text = "How should we deal with the Dragonmaw?", next = "dragonmaw" },
         { text = "I came through Algaz. It's bad.", next = "through", when = { questDone = TODO_QUEST("The Algaz Gauntlet") } },
         { text = "Send me to Algaz, Ironjaw. I'll hold the pass.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "I can carry your reports where the road's cut.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Dragonmaw are orcs. I know their old magic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you need watched on the Algaz road, Ironjaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "How many have the Dragonmaw killed at Algaz, Ironjaw?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "The Dragonmaw must have killed a good many at Algaz, Ironjaw.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Algaz reports say about the Dragonmaw, Ironjaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a mage help against the Dragonmaw, Ironjaw?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you take a shaman's report from the earth, Valstag?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -158,7 +201,7 @@ P:NPC {
           text = "The Dragonmaw have pushed out o' their hills an' into the pass, scouts an' grunts both. Normally they skulk up there an' leave Algaz be, so somethin's stirred them, an' that worries me more than the orcs themselves." },
       },
       choices = {
-        { text = "What could have stirred them?", next = "algaz_why" },
+        { text = "Something must have stirred them.", next = "algaz_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -198,7 +241,10 @@ P:NPC {
       lines = {
         { id = "dy_default", text = "I think I write reports, an' the Captain decides. Off the record, I'd march, but I'd want a lot more than we've got to do it." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "March on the Dragonmaw, or hold? I have a view.", next = "opn_dragonmaw" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     through = {
@@ -222,6 +268,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Count the orcs before ye fight them, an' count them again after, so the report's right." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "Orcs who lost their dragons an' kept their tempers. They've pushed into Algaz, an' I'd like to know why.", next = "algaz" } },
     _none = { { id = "tp_none", text = "Not in any report o' mine." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Every report from the highland mentions Grim Batol sooner or later, an' never wi' good news. The Dragonmaw use it as a den, an' I'd sooner count orcs anywhere else." } },
+    magni = { { id = "tp_magni", text = "I send King Magni's officers a report every week, an' I like tae think somebody in the High Seat reads them. Ironforge is a long way off when ye're wet." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's remnant at Refuge Pointe sends us news o' the Highlands, an' we send them ours. They're short o' everythin' but courage." } },
+    scourge = { { id = "tp_scourge", text = "Reports from across the water say the dead are thick on the Lordaeron shore. I file them under 'pray it stays there'." } },
+    second_war = { { id = "tp_second_war", text = "I fought the orcs in the Second War when they came up through these very wetlands, an' I'm still countin' them. The Dragonmaw were the worst o' the lot, an' they're still here." } },
   },
 }
 
@@ -361,9 +412,9 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Merrin.", next = "merrin" },
-        { text = "What's the excavation looking for?", next = "dig" },
-        { text = "Who's Longbraid?", next = "longbraid" },
-        { text = "Why not go yourself?", next = "go" },
+        { text = "The excavation must be after something special.", next = "dig" },
+        { text = "Did anyone promise to look for them?", next = "longbraid" },
+        { text = "You could go yourself.", next = "go" },
         { text = "When will the killing end, do you think?", next = "killing", when = { questDone = TODO_QUEST("In Search of The Excavation Team") } },
         { text = "Dwarves don't leave kin in the marsh, Tarrel.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I can reach the dig without the raptors smelling me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -372,7 +423,7 @@ P:NPC {
         { text = "What should I look for on the road east, Tarrel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I pray for Merrin's safe return, Tarrel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should I bring back from the dig, Tarrel?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Have the raptors always been so bold near Whelgar's dig?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The raptors seem bolder near Whelgar's dig than they used to be.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you trust a warlock to look for Merrin, Tarrel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I ask the earth about Merrin, Tarrel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
@@ -439,6 +490,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write home often. Somebody's always waitin' on a bridge for it." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "One more reason the letters might not come." } },
     _none = { { id = "tp_none", text = "Sorry, friend, my head's full o' Merrin." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Merrin says nobody digs anywhere near Grim Batol, an' for once I'm glad she listens tae someone. I'd no' sleep at all otherwise." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League has my wife, my letters an' half my wages in postage. They give back a very fine map now an' then." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire bought a bolt o' my plaid once for their tents, an' I've been tellin' folk about it ever since. Merrin says I've told the story more times than I've woven the cloth." } },
   },
 }
 
@@ -563,13 +617,13 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about James.", next = "james" },
-        { text = "Why did he leave?", next = "leave" },
-        { text = "Why didn't you go with him?", next = "stay" },
+        { text = "He must have had his reasons for leaving.", next = "leave" },
+        { text = "You could have gone with him.", next = "stay" },
         { text = "Was it right to abandon Lordaeron?", next = "abandon" },
         { text = "Lady Proudmoore was a student of Dalaran, like me.", next = "xmage", when = { class = "MAGE" } },
         { text = "Did your brother fight when he went west with Proudmoore?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's the hunting like across the sea, by Theramore?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Do you pray for James across the sea, Vincent?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must pray for James across the sea, Vincent.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did you ever think of taking up arms yourself, Vincent?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there anything you'd want me to tell James, if I reach Theramore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did your tavern get much trouble from my sort, Vincent?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -634,6 +688,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I worked a tavern with my brother, and now I mostly sit in one and miss him." } },
     advice = { { id = "tp_ad", text = "If you ever eat at an inn James Hyal runs, order whatever he says." } },
     _none = { { id = "tp_none", text = "Can't say, friend, but ask me about James and I'll talk all night." } },
+    theramore = { { id = "tp_theramore", text = "My brother James keeps the inn at Theramore now, and he writes that the marsh is awful and the people are wonderful. I'd go to him if I could stand the boat." } },
+    jaina = { { id = "tp_jaina", text = "James says Lady Jaina eats at his inn sometimes and always thanks the cook. That tells you more about a ruler than any speech, I think." } },
+    onyxia = { { id = "tp_onyxia", text = "James writes that a black dragon has a lair somewhere in the Dustwallow swamps, and the soldiers won't go near it. I'd have him come home if he'd listen." } },
   },
 }
 
@@ -773,16 +830,16 @@ P:NPC {
       },
       choices = {
         { text = "What's in Kalimdor?", next = "kalimdor" },
-        { text = "Who's Fiora Longears?", next = "fiora" },
+        { text = "Who meets folk on the other side?", next = "fiora" },
         { text = "Why don't you go to sea yourself?", next = "sea" },
         { text = "Is it right to send folk away from home?", next = "away" },
         { text = "Kalimdor is my home, sailor.", next = "xnightelf", when = { race = "NightElf" } },
         { text = "You sell Kalimdor like a man with a cut of the fare.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is it true the night elves despise magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is there real fighting in Kalimdor, Red Jack?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "There can't be much real fighting in Kalimdor.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts would a hunter find in Kalimdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the folk you send across ever find comfort there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is Theramore safe for the folk you send, Jack?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Theramore must be safe for the folk you send, Jack.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you tell folk about Kalimdor, Red Jack?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would Kalimdor welcome a warlock, Jack?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a dwarf shaman be welcome in Kalimdor, Red Jack?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -795,7 +852,7 @@ P:NPC {
         { id = "k_default", text = "Forests older than kingdoms, deserts, mountains, and towns built by brave folk with their own hands. There's room there, friend, room to make a name, which is more than you'll find in a harbour full of rain." },
       },
       choices = {
-        { text = "What about the dangers?", next = "kalimdor_danger" },
+        { text = "You haven't mentioned the dangers.", next = "kalimdor_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -845,6 +902,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A sailor, once, and a recruiter now, which is a sailor with dry boots." } },
     advice = { { id = "tp_ad", text = "Go and see the world before it comes to see you." } },
     _none = { { id = "tp_none", text = "Not a thing, friend, but have I told you about Kalimdor?" } },
+    theramore = { { id = "tp_theramore", text = "Theramore is the Alliance's foothold in Kalimdor, built by Lady Jaina's people after the war at Hyjal. Take the boat and see it, friend; it's worth the seasickness." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I lost my first ship and won my second, both at cards. A sailor should see it once, and leave before the dice come out." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The night elves had a tree at Hyjal so tall it touched the clouds, and they broke a demon army at its roots. I've only heard it told by sailors, but every one of them told it the same way." } },
+    jaina = { { id = "tp_jaina", text = "Lady Jaina led the survivors of Lordaeron across the sea to Kalimdor and built a city out of a swamp. That's the kind of captain I'd sail for." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a goblin port on the Barrens coast that sells to anybody, Horde or Alliance, with a smile and a bill. I've docked there twice and kept a hand on my purse both times." } },
   },
 }
 
@@ -966,10 +1028,10 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm still a bit shaky, so talk slow." },
       },
       choices = {
-        { text = "Why visit Ironbeard's Tomb?", next = "tomb" },
+        { text = "You seem set on visiting Ironbeard's Tomb.", next = "tomb" },
         { text = "What's in the bag?", next = "bag" },
         { text = "Which ooze took it?", next = "ooze" },
-        { text = "Do you have family here?", next = "family" },
+        { text = "You must have family here.", next = "family" },
         { text = "My pet could sniff out which ooze took it.", next = "xhunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Oozes burn nicely, if you know the spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I could fish your bag out of the ooze. Quick fingers.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -978,7 +1040,7 @@ P:NPC {
         { text = "Should the tomb be cleansed of the oozes for good, Sida?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The oozes are spreading through the tomb. Should it be cleansed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What are those oozes at Ironbeard's Tomb, Sida?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is the earth at Ironbeard's Tomb restless, Sida?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The earth at Ironbeard's Tomb seems restless, Sida.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -1041,6 +1103,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a dwarf with a weekly errand an' a husband who sulks. That's plenty." } },
     advice = { { id = "tp_ad", text = "Don't throw yer bag at an ooze. Throw yer shoe; ye can always get another shoe." } },
     _none = { { id = "tp_none", text = "That's none o' my concern, an' I've concerns enough." } },
+    grim_batol = { { id = "tp_grim_batol", text = "My husband's old granda wouldnae even look east toward Grim Batol, an' he sulked about it worse than my husband does. That's sayin' somethin'." } },
+    holy_light = { { id = "tp_holy_light", text = "I say a prayer at Ironbeard's Tomb every week for the old fellow, whoever he was. It's only manners, an' the oozes don't seem tae mind." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went tae the Faire once in Elwynn an' won a hat at their games, an' my husband sulked for a week because I wouldnae let him wear it." } },
   },
 }
 
@@ -1171,12 +1236,12 @@ P:NPC {
       choices = {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What wrecks?", next = "wrecks" },
-        { text = "What's good to catch here?", next = "catch" },
-        { text = "Do the murlocs bother you?", next = "murlocs" },
+        { text = "This looks like good fishing water.", next = "catch" },
+        { text = "The murlocs must bother you out here.", next = "murlocs" },
         { text = "Patience and a quiet step. Fishing's not so different from my trade.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I can conjure food. Why fish at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would a warrior bother with fishing, Riggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Is fishing much like hunting, Riggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Fishing seems a lot like hunting, Riggs.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the sailors ask you for luck before they sail, Riggs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the drowned sailors in the bay trouble your fishing, Riggs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lives deepest in the bay, Riggs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1219,6 +1284,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I fish, I teach, and I talk too much; ask anyone." } },
     advice = { { id = "tp_ad", text = "Never fish over a wreck after dark. Just trust me on that." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, but ask me about fish and I'll never stop." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay holds a fishing contest, I'm told, and the goblins give a prize for the biggest catch. I'd go if I didn't get seasick, and yes, I know, a seasick fisherman, so don't start." } },
+    third_fleet = { { id = "tp_third_fleet", text = "I won't fish over the Third Fleet's wrecks, and I tell all my students the same. Something down there bites lines clean through, and it isn't a fish." } },
+    theramore = { { id = "tp_theramore", text = "The fish off Theramore are bigger and uglier than ours, they say, and twice as hard to land. I'll take their word for it." } },
   },
 }
 
@@ -1342,7 +1410,7 @@ P:NPC {
       },
       choices = {
         { text = "Play me something.", next = "song" },
-        { text = "Why can't you leave?", next = "stuck" },
+        { text = "You seem stuck here in Menethil.", next = "stuck" },
         { text = "What do you sing about here?", next = "subjects" },
         { text = "Should a song tell the truth?", next = "truth" },
         { text = "Here's a hymn you could learn.", next = "hymn", when = { class = "PRIEST" } },
@@ -1350,9 +1418,9 @@ P:NPC {
         { text = "I studied at Dalaran. There must be songs about it.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you write a song about a warrior, Camerick?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need to see a raptor to write about one?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Will you sing of the soldiers at Menethil, Camerick?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You ought to sing of the soldiers at Menethil, Camerick.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What songs do humans sing about my people, Camerick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you write a song about a warlock, Camerick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Nobody would write a song about a warlock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would your song about a Bronzebeard shaman say, Camerick?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Some other time.", next = "END" },
       },
@@ -1407,6 +1475,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A wandering minstrel who stopped wandering; that's the whole tragedy, in one verse." } },
     advice = { { id = "tp_ad", text = "Always learn one cheerful song. You'll need it more than the sad ones." } },
     _none = { { id = "tp_none", text = "I've no song for that, so I've no idea." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I played a season with the Darkmoon Faire once, and I learned more songs in a month than in ten years on the road. Silas Darkmoon pays well and talks faster than any goblin." } },
+    arthas = { { id = "tp_arthas", text = "There's a ballad about Prince Arthas I won't sing anymore, a fine old thing from before he went north. It's hard to sing about a hero when everyone knows the ending." } },
+    jaina = { { id = "tp_jaina", text = "Everybody wants a song about Lady Jaina, and I've written three, but none of them is right yet. Nothing decent rhymes with Theramore." } },
+    grim_batol = { { id = "tp_grim_batol", text = "There's an old dwarven song about Grim Batol that makes grown dwarves weep, and they'd never let me sing it. I only know the tune, and that's frightening enough." } },
   },
 }
 
@@ -1540,8 +1612,8 @@ P:NPC {
       },
       choices = {
         { text = "Show me your horses.", next = "BUSINESS", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } },
-        { text = "Why so particular about buyers?", next = "buyers" },
-        { text = "How do horses fare in the Wetlands?", next = "wetlands" },
+        { text = "You seem very particular about your buyers.", next = "buyers" },
+        { text = "The Wetlands can't be kind to horses.", next = "wetlands" },
         { text = "Is it fair, selling only to some?", next = "fair" },
         { text = "A quiet horse is worth more to some of us.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll have a mount of my own in time, I'm told.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -1549,7 +1621,7 @@ P:NPC {
         { text = "Do hunters make good horse owners, Unger?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you bless the foals when they're born, Unger?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have your horses carried knights into battle before, Unger?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do your horses mind the marsh, Unger?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Your horses don't look fond of the marsh, Unger.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would one of your horses carry a mage, Unger?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do your horses make of a shaman, Unger?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
@@ -1588,5 +1660,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "I breed horses, and I've spent my life at it, and I don't regret a day." } },
     advice = { { id = "tp_ad", text = "Check your horse's hooves every night in the Wetlands. Mud rots them faster than you'd think." } },
     _none = { { id = "tp_none", text = "Not a horse question, so not my question." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire bought two of my ponies for their children's rides, and I hear they're the most spoiled ponies in the kingdom now. Good for them." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer think horses are slow and gryphons are better, and they're right about the speed. But you can't stable a gryphon in a shed." } },
+    stromgarde = { { id = "tp_stromgarde", text = "I bred warhorses for Stromgarde's knights before their kingdom fell to ruin. There's nobody left there to buy them, so I sell to the garrison and to Stormwind." } },
   },
 }

@@ -6,6 +6,7 @@ P:NPC {
   key = "nials", id = TODO_NPC("Captain Nials"), name = "Captain Nials",
   bible = "bibles/arathi.md", role = "soldier", tier = "major",
   communities = { "refuge_pointe" }, temper = { "firm" }, values = { "dutiful", "proud" },
+  prejudice = { class = "ROGUE", amount = 10, why = "Syndicate cutthroats in the same leathers keep killing his lookouts." },
   notices = { "kit", "race" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A rogue in my camp. Keep your hands out of my supplies and in plain sight, because the last one who walked in looking like you was a Syndicate scout." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "I know that walk; it's a cutthroat checking for the exits. Stand where my sentries can see you, and then we'll talk." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've been in and out of Refuge Pointe and nothing's gone missing, which is more than I can say for my own sentries. Come in, then." },
     { id = "g_tent", text = "Captain Nials. Make it quick; the highlands don't wait, and neither do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills, are you? What did you find?" },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the highlands haven't got any quieter. Tell me you're back to stay a while." },
@@ -32,6 +36,82 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because the Syndicate wear the same dark leathers and the same soft boots, and they've cut the throats of three of my lookouts this season. I can't read a man's heart, so I read his boots." } },
+      choices = {
+        { text = "Judge me by what I do, Captain, not by my boots.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right to be wary. I'd watch me too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Put a sentry on me, then. I've nothing to hide.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Who are the Syndicate, exactly?", next = "prej_why" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Alterac's nobles, or what's left of them, carrying Lord Perenolde's debts and a crowd of hired knives. They sold the Horde passage through their mountains in the war, and now they sell whatever they can steal out of Arathi." } },
+      choices = {
+        { text = "Thieves or nobles, they answer to the law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The law failed Alterac first. That's how thieves get made.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Brave words, or clever ones, and I'll find out which in time. Go on; the sentry will only follow you halfway now." } },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac = {
+      lines = {
+        { id = "opn_alterac_q", text = "Lord Perenolde sold the Alliance to the Horde in the Second War, and Stromgarde paid for it in blood before anyone else did. Some say his common folk were never asked, and should be forgiven. You've seen what his nobles have become; what do you say?" },
+      },
+      choices = {
+        { text = "Alterac betrayed everyone. Its nobles deserve the rope.", next = "opn_alterac_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { alterac = "hate" } } },
+        { text = "The farmers never chose treason. Punish the lords, not them.", next = "opn_alterac_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { alterac = "pity" } } },
+        { text = "Alterac is dead. The Syndicate is just thieves now.", next = "opn_alterac_r_dead", fx = { trait = { practical = 1 }, opinion = { alterac = "dead", stromgarde = "retake" } } },
+        { text = "Perenolde tried to save his people. He chose wrong.", next = "opn_alterac_r_mistaken", when = { origin = "human_minor_noble" }, fx = { affinity = -2, opinion = { alterac = "mistaken" } } },
+        { text = "That's for Stromgarde to judge, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac_r = {
+      lines = {
+        { id = "opn_alterac_r_default", text = "Stromgarde has judged, and the Syndicate is what came of it. Ask me something else." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_hate = {
+      lines = {
+        { id = "opn_alterac_r_hate", text = "The rope, and the gibbet after it, and I'd tie the knots myself. Bring me their badges and I'll count them as a down payment." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_pity = {
+      lines = {
+        { id = "opn_alterac_r_pity", text = "Merciful of you. I'd like to be that merciful, and perhaps I will be, once the Syndicate stops robbing our dead." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_dead = {
+      lines = {
+        { id = "opn_alterac_r_dead", text = "Thieves with long memories and old titles, but thieves, yes. That makes them easier to hang and harder to forgive." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_mistaken = {
+      lines = {
+        { id = "opn_alterac_r_mistaken", text = "Tried to save his people? He fed mine to the orcs to do it. I'll thank you not to say that again inside Refuge Pointe, {class}." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight for Stromgarde's people and not for its stones, because the stones have changed hands more times than I can count and the people only once, when they ran here. Hammerfall's orcs and the Syndicate both want this land, and I'd sooner see you guard a farmer than take back a tower." } },
@@ -90,20 +170,32 @@ P:NPC {
       choices = {
         { text = "Why do the Witherbark know these hills so well, Captain?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why not leave and regroup?", next = "leave" },
-        { text = "Who holds the keep now?", next = "keep" },
+        { text = "The keep doesn't seem to be in Stromgarde's hands.", next = "keep" },
         { text = "Who are the Syndicate?", next = "syndicate" },
         { text = "There's a Horde camp east of here.", next = "hammerfall" },
         { text = "Lordaeron fell too. I know what that's like.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Put me in the line, Captain.", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
         { text = "The Syndicate use dark magic. Why not answer in kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Will Stromgarde fight beside a dwarf shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I doubt Stromgarde will fight beside a dwarf shaman, Captain.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We've come to fight for the Highlands, Captain.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Your sentries follow me everywhere, Captain. Why?", next = "prej", when = { prejudiced = true } },
+        { text = "I fought for Stromgarde once, Captain, until the pay stopped.", next = "xorig_sellsword", when = { origin = "human_stromgarde_sellsword" } },
         { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
+      },
+    },
+    xorig_sellsword = {
+      lines = {
+        { id = "xosellsword_default", text = "I know, and I'll not pretend I've forgotten the day you walked out, because I signed your last pay slip myself and there was nothing in the chest to honour it. You came back, though, which is more than most of them did. Is it the coin that brought you, or the Syndicate?" },
+      },
+      choices = {
+        { text = "The coin, Captain, and I'll not pretend otherwise.", next = "BACK", fx = { trait = { greedy = 1 } } },
+        { text = "The Syndicate. I've unfinished business with them.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {
@@ -134,7 +226,7 @@ P:NPC {
       lines = { { id = "k_default", text = "Syndicate in the halls, ogres in the yard, trolls on the walls: everyone but the people it belongs to. I can see the towers from the ridge, and I go and look, some evenings." } },
       choices = {
         { text = "You'll take it back.", next = "BACK", fx = { affinity = 2 } },
-        { text = "With what army?", next = "keep_army", fx = { trait = { skeptical = 1 } } },
+        { text = "You'd need an army for that.", next = "keep_army", fx = { trait = { skeptical = 1 } } },
       },
     },
     keep_army = {
@@ -147,7 +239,7 @@ P:NPC {
       },
     },
     syndicate = {
-      lines = { { id = "s_default", text = "Alterac's leftovers, nobles who lost their kingdom and found a trade in knives. They rob the dead and call it business." } },
+      lines = { { id = "s_default", text = "Alterac's leftovers, nobles who lost their kingdom and found a trade in knives. They rob the dead, even cut the badges off our fallen, and call it business." } },
       choices = {
         { text = "Why take the badges?", next = "syndicate_badges" },
         { text = "Then they'll answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -156,7 +248,10 @@ P:NPC {
     },
     syndicate_badges = {
       lines = { { id = "sb_default", text = "To sell, or to wear, or to walk into a village as one of ours; I don't know which. I know the families get nothing to bury." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Should Alterac's people pay for Perenolde's treason?", next = "opn_alterac" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     hammerfall = {
       lines = { { id = "h2_default", text = "Hammerfall was a camp for orc prisoners, once, and they broke it open and kept the ruins. We leave each other alone, most days, and most days is enough, for now." } },
@@ -226,7 +321,7 @@ P:NPC {
       lines = { { id = "xma_default", text = "So the old stories say: a hundred of Arathor's people taught by the elves to fight the trolls, and Strom stood at the heart of it. I'd give a great deal for one of those hundred today, so you'll have to do." } },
       choices = {
         { text = "I'll do.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Who holds the keep now?", next = "keep" },
+        { text = "The keep doesn't seem to be in Stromgarde's hands.", next = "keep" },
       },
     },
   },
@@ -237,6 +332,13 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I'm a soldier of Stromgarde and captain of what's left of it, and that's the whole of my story until the keep is ours again.", next = "keep" } },
     advice = { { id = "tp_ad", text = "Never sleep in the open in the highlands. Ogres, trolls or Syndicate: one of them is always awake." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde was the strongest of the human kingdoms once, and it held the line against the Horde when others ran. Now ogres sit in our halls and the Syndicate picks through our dead, and I mean to take it back stone by stone." } },
+    scourge = { { id = "tp_scourge", text = "The dead haven't reached the Highlands yet, and I thank the Light for it, because I haven't the soldiers for both them and the ogres. If they come, Refuge Pointe will be the first to know and the last to fall." } },
+    thrall = { { id = "tp_thrall", text = "The orc warchief has a camp at Hammerfall, built on the bones of an internment camp, and his people watch us as closely as we watch them. I'll not start a war I can't finish, and neither will they, for now." }, { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief's people sit in Hammerfall and stare at my walls, and I stare right back. Be quick about your business and keep your hand off your weapon in my camp." } },
+    alterac = { { id = "tp_alterac", text = "Perenolde's treachery cost Stromgarde dearly in the Second War, and his heirs are picking at our ruins today. I'd hang every one of the Syndicate if I had the rope and the soldiers to carry it." } },
+    magni = { { id = "tp_magni", text = "King Magni sends what he can, and the dwarves of the Thandol Span were the first to answer when Stromgarde called. I owe Ironforge more than I can repay." } },
+    second_war = { { id = "tp_second_war", text = "Stromgarde fought in the Second War from the first battle to the last, and we lost more than any kingdom but Lordaeron. We're still paying for it, and I'll not have it forgotten." } },
+    bolvar = { { id = "tp_bolvar", text = "Stormwind's regent sends letters full of sympathy and very few soldiers. I understand why, and I don't have to like it." } },
     _none = { { id = "tp_none", text = "That's not Stromgarde's concern, so ask someone with more soldiers than we have." } },
   },
 }
@@ -253,8 +355,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fort", text = "You're in Hammerfall, where we fight now and soon we'll prosper. Which are you here for?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves." },
+    { id = "g_fort", text = "You're in Hammerfall, {class}, built where the humans once kept us in chains, and here we fight now and soon we'll prosper. Which are you here for?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves, and your axe has honor in it." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Hammerfall kept fighting without you. Now you're back, so fight with us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here, I can see it in your stance. The hills will notice it too." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts say you've done good work for Hammerfall. That's how a stranger earns a place by our fire." },
@@ -270,6 +372,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_peace = {
+      lines = {
+        { id = "opn_peace_q", text = "The Warchief freed us, and I'd die for him without asking why. But he signs his name beside Lady Proudmoore's while there's a Stromgarde soldier on the next hill who'd see us all back in chains. Some at this fire say Doomhammer would never have made that bargain. Where do you stand?" },
+      },
+      choices = {
+        { text = "Peace lets our children grow up free. Thrall is right.", next = "opn_peace_r_peace", fx = { align = { honor = 1 }, opinion = { peace = "peace", warchief = "trust" } } },
+        { text = "The humans built the camps. There's no peace with that.", next = "opn_peace_r_war", fx = { affinity = 1, align = { honor = -1 }, opinion = { peace = "war" } } },
+        { text = "Peace in Kalimdor. Out here, we fight for what we hold.", next = "opn_peace_r_local_war", fx = { affinity = 1, trait = { practical = 1 }, opinion = { peace = "local_war" } } },
+        { text = "Thrall's soft on humans. Doomhammer knew better.", next = "opn_peace_r_soft", when = { race = "Orc" }, fx = { opinion = { warchief = "soft" } } },
+        { text = "That's for the Warchief to decide.", next = "BACK" },
+      },
+    },
+    opn_peace_r = {
+      lines = {
+        { id = "opn_peace_r_default", text = "Good answer. It's the one I give when the hotheads ask me." },
+      },
+      choices = {
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
+    opn_peace_r_peace = {
+      lines = {
+        { id = "opn_peace_r_peace", text = "Free. Aye, that's the word that matters. I'll build the walls high anyway, so our children get to be free behind them." },
+      },
+      choices = {
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
+    opn_peace_r_war = {
+      lines = {
+        { id = "opn_peace_r_war", text = "Say that louder at the fire and you'll have friends for life, and Korin will glare at you across it. I won't argue, though I'll follow the Warchief." },
+      },
+      choices = {
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
+    opn_peace_r_local_war = {
+      lines = {
+        { id = "opn_peace_r_local", text = "Ha! That's Hammerfall's answer exactly, and you didn't even need to be in a camp to learn it." },
+      },
+      choices = {
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
+    opn_peace_r_soft = {
+      lines = {
+        { id = "opn_peace_r_soft", text = "Careful. Doomhammer named Thrall himself, with his last breath, on this ground. Say what you like about the humans, but not about him in Hammerfall." },
+      },
+      choices = {
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Hammerfall trusts anyone who bleeds for it, or whatever it is your people do instead. The orcs who were chained here saw the Light in the hands of their jailers, so some will glare, but I will tell them to judge you by your deeds." } },
@@ -322,7 +476,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid in Hammerfall! The Earth Mother's children are welcome among us, and so are their claws, for the Boulderfist have plenty of hide to tear." },
         { id = "h_default", key = true,
-          text = "I am Drum Fel, and I lead Hammerfall. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
+          text = "I am Drum Fel, and I lead Hammerfall, which we raised on the ashes of an internment camp in Orgrim Doomhammer's name. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
           text = "The Boulderfist hit our walls and think we'll sit and take it. Show them otherwise." },
         { id = "h_tallow", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Hammer May Fall"), days = 2 } },
@@ -348,19 +502,19 @@ P:NPC {
       choices = {
         { text = "Must the ogres be driven out, or can the highlands be shared?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about this place.", next = "history" },
-        { text = "Who's attacking Hammerfall?", next = "enemies" },
+        { text = "Hammerfall looks like it's been under attack.", next = "enemies" },
         { text = "Where do their leaders hide?", next = "stromgarde" },
-        { text = "What will Hammerfall become?", next = "future" },
+        { text = "Hammerfall seems more camp than stronghold.", next = "future" },
         { text = "Lok'tar, chieftain. I came to fight.", next = "orc", when = { race = "Orc" } },
         { text = "The Witherbark are trolls. Do you trust me?", next = "troll", when = { race = "Troll" } },
         { text = "Korin worries for you, Drum Fel.", next = "korin", when = { questDone = TODO_QUEST("The Real Threat") } },
         { text = "The elements are with Hammerfall, chieftain.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I wield fel magic. Does that trouble you?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The Dark Lady sends her regards to Hammerfall.", next = "xforsaken", when = { race = "Scourge" } },
-        { text = "Are the Boulderfist ogres afraid of magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "The Boulderfist ogres must fear magic.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What should I look for among the Witherbark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Hammerfall need most from its warriors, Drum Fel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Should I hunt the raptors along the caravan roads, Drum Fel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I could hunt the raptors along the caravan roads, Drum Fel.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Where does Hammerfall need a healer most, Drum Fel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Hammerfall trust a Forsaken who calls on the Light, Drum Fel?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, standing = { hammerfall = 1 } } },
@@ -392,7 +546,7 @@ P:NPC {
       },
       choices = {
         { text = "Who lives here now?", next = "history_refuge" },
-        { text = "Do the old camps still haunt you?", next = "history_camps" },
+        { text = "The old camps must still haunt you.", next = "history_camps" },
         { text = "Lok'tar ogar.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Doomhammer's way got him killed. I'd rather live to fight again.", next = "BACK", fx = { align = { honor = -1 } } },
       },
@@ -407,7 +561,10 @@ P:NPC {
       lines = {
         { id = "hc_default", text = "Every orc behind these walls was in a camp, or was born to someone who was. We don't talk about it at the fire; we build on top of it, and that's our answer." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "Thrall keeps peace with the humans now. What do you think?", next = "opn_peace" },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
 
     enemies = {
@@ -415,7 +572,7 @@ P:NPC {
         { id = "e_default", text = "The Witherbark trolls to the south and the Boulderfist ogres to the west, and they work together to drive us out of this land. We won't meet our end at their hands or anyone else's." },
       },
       choices = {
-        { text = "Trolls and ogres together?", next = "enemies_why" },
+        { text = "Trolls and ogres together seems an odd pairing.", next = "enemies_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -509,7 +666,12 @@ P:NPC {
     burning_blade = { { id = "tp_blade", text = "Not here, they're not; Doomhammer would have broken their necks himself." } },
     background = { { id = "tp_ba", text = "I beat an ogre called Or'Kalar once, years ago, and I've been fighting his kind ever since. That's the only story an orc in Hammerfall needs." } },
     advice = { { id = "tp_ad", text = "The Witherbark fight from the trees, so look up before you look ahead. The Boulderfist fight from the front, so look up anyway." } },
-    _none = { { id = "tp_none", text = "That's not my concern; Hammerfall is." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief freed us from the camps, and Hammerfall is proof of it, built on the very ground where we were chained. One day this will be the strongest Horde city in the east, and he will see it." } },
+    internment = { { id = "tp_internment", text = "Hammerfall was an internment camp, and Orgrim Doomhammer died breaking it open. We built our city on that ground so no orc would ever forget what it cost to be free." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are allies of the Horde, and they send their warriors from Tarren Mill when we ask. I don't understand them, but I respect that they fight." } },
+    stromgarde = { { id = "tp_stromgarde", text = "The humans at Refuge Pointe cling to their ruined kingdom like a dog to a bone, and the ogres take more of it every season. When the ogres are gone, we'll see whose land this is." } },
+    second_war = { { id = "tp_second_war", text = "The Second War ended with us in chains, and I'll not pretend I was proud of everything we did in it. The Warchief has given us a better way, and I mean to follow it." } },
+    _none = { { id = "tp_none", text = "That's not my concern, {class}. Hammerfall is, and the Horde." } },
   },
 }
 
@@ -589,7 +751,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, mon! If you be Darkspear, the loa walk with you, and if you be Forsaken, well, Zengu hope somethin' walk with you, because these hills be cold." },
         { id = "h_default", key = true,
-          text = "Zengu, of the Darkspear. Vol'jin send me for a sword, Trol'kalar, made by humans to kill trolls, and we going to use it against the Gurubashi, which be a fine joke, mon." },
+          text = "Zengu, of the Darkspear. Vol'jin send me for a sword, Trol'kalar, made by humans to kill trolls and sleepin' now in Trollbane's tomb in Stromgarde, and we going to use it against the Gurubashi, which be a fine joke, mon." },
         { id = "h_trollbane", tags = { "news" }, when = { questActive = TODO_QUEST("Trollbane") },
           text = "The sword sleep in Trollbane's tomb, in Stromgarde, and the humans guard it, so we going to need a key first." },
         { id = "h_sigil", when = { any = { { questActive = TODO_QUEST("Sigil of Strom") }, { questActive = TODO_QUEST("The Broken Sigil") }, { questActive = TODO_QUEST("Sigil of Thoradin") }, { questActive = TODO_QUEST("Sigil of Arathor") }, { questActive = TODO_QUEST("Sigil of Trollbane") } } },
@@ -613,16 +775,16 @@ P:NPC {
         { text = "Will the spirits bless a human sword against the Gurubashi?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there magic guarding Trollbane's tomb, Zengu?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "A human sword against trolls?", next = "joke" },
-        { text = "Why does Vol'jin want it?", next = "why" },
+        { text = "Vol'jin must want that sword badly.", next = "why" },
         { text = "How do we open the tomb?", next = "sigils" },
-        { text = "How do you hunt in these hills?", next = "hunt" },
+        { text = "These hills look hard to hunt in.", next = "hunt" },
         { text = "Teach me your patience.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'm Darkspear. What does the chief need of me?", next = "troll", when = { race = "Troll" } },
         { text = "I've met Nimboya, in Grom'gol.", next = "nimboya", when = { heardLine = "nimboya.h_default" } },
         { text = "I hear voices the loa don't send.", next = "xwarlock", when = { race = "Troll", class = "WARLOCK" } },
-        { text = "Do the Darkspear trust mages, Zengu?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'd guess the Darkspear don't trust mages, Zengu.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why steal a human sword instead of forging your own?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Would you trust a warrior to carry Trol'kalar, Zengu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I'd guess you'd trust a warrior to carry Trol'kalar, Zengu.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should we use a troll-killing sword against trolls?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does it amuse you that the Light now serves the Horde, Zengu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -758,6 +920,9 @@ P:NPC {
     echo_isles = { { id = "tp_isles", text = "One day, mon, but first the sword, then the rest." } },
     background = { { id = "tp_ba", text = "A Darkspear hunter, sent by the chief because I be patient, and stealing a sword out of a tomb take patience.", next = "why" } },
     advice = { { id = "tp_ad", text = "The Syndicate in Stromgarde wear masks, but their boots be loud. Listen for the boots, mon." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear stand with the Horde, and I am proud of it, mon, even this far from the Echo Isles. Vol'jin leads us well, and he don't forget a debt." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin is a clever leader, and he knows what it is to lose a home and build another. He sent me to watch the Witherbark here, and I watch them well." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Zul'Gurub is the heart of the Gurubashi, and they have woken Hakkar again in there. The Zandalar are gathering to stop it, and I hope they move quickly." } },
     _none = { { id = "tp_none", text = "Zengu only know the hunt, and the sword." } },
   },
 }
@@ -774,11 +939,15 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there's a soft hide by my fire." },
-    { id = "g_home", when = { homeInn = { "Hammerfall" } }, text = "Welcome back to Hammerfall. Your place by the fire is waiting." },
-    { id = "g_away", when = { away = 14 }, text = "Ah, you be back after {away} away! Come sit by the fire, mon, because the stone don't get any softer while you be gone." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Hammerfall been smilin' all day after talkin' with you. That be rare in this hard place, so Adegwa thank you for it." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody here be sour about you, mon, after whatever you said. Adegwa don't take sides, but maybe you sit with your back to the wall tonight." },
+    { id = "o_warchief_lesser", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "lesser" } },
+      text = "Gor'mul told the fire you said Thrall is no Doomhammer, and then he sat with the others for a whole evening. I've never seen him do that, so whatever you said, thank you." },
+    { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
+      text = "The young ones at the fire are repeating what you told Drum Fel about the humans and their camps. They sing it louder each night, and I hum a little quieter." },
+    { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there is a soft kodo hide by my fire, and the Earth Mother does not ask who you are before she lets you sleep." },
+    { id = "g_home", when = { homeInn = { "Hammerfall" } }, text = "Welcome back to Hammerfall, {class}. Your place by the fire is waiting, as the grass waits for the rain." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you have come back to us after {away} away. Come and sit by the fire, for the stone did not grow any softer while you were gone, and the Earth Mother kept your place warm." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in Hammerfall has been smiling all day after speaking with you. That is as rare in this hard place as rain on the Barrens, so I thank you for it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone here has turned sour toward you, after whatever you said. I take no sides at my fire, but perhaps you should sit with your back to the wall tonight, as a wary calf keeps close to the herd." },
   },
 
   notice = {
@@ -868,18 +1037,18 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
       choices = {
-        { text = "Do you miss Mulgore, Adegwa?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "You must miss Mulgore, Adegwa.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Are the spirits of the Highlands angry, Adegwa?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What troubles Hammerfall that magic might mend, Adegwa?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "How does a tauren fare among orcs?", next = "among" },
+        { text = "A tauren must stand out among all these orcs.", next = "among" },
         { text = "What do the grunts sing about?", next = "songs" },
         { text = "We're a long way from Mulgore, you and I.", next = "home", when = { race = "Tauren" } },
         { text = "Thunder Bluff sent me here, innkeeper.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Would the Earth Mother turn me away, innkeeper?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the tauren think well of the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do many quiet travelers come through Hammerfall?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I'd guess few quiet travelers come through Hammerfall.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do many warriors find rest here, Adegwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do tauren hunters ever come this far from Mulgore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Tauren hunters rarely come this far from Mulgore.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the tauren see the Light as the Earth Mother's gift?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
@@ -942,7 +1111,7 @@ P:NPC {
       lines = { { id = "xsk_default", text = "Then you are welcome twice, once for the Horde and once for the Bluff. I have not met your people before, so forgive me if I stare; sit by the fire, and the grunts will soon find someone else to look at." } },
       choices = {
         { text = "Winds be with you, innkeeper.", next = "BACK", fx = { affinity = 2 } },
-        { text = "How does a tauren fare among orcs?", next = "among" },
+        { text = "A tauren must stand out among all these orcs.", next = "among" },
       },
     },
   },
@@ -951,8 +1120,12 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Every traveller who warms himself at my fire leaves a story behind. Ask me, and I will share what the fire has heard." },
     },
-    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That's all there is to tell." } },
+    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That is all there is to tell, and may the Earth Mother keep you as you go." } },
     advice = { { id = "tp_ad", text = "Eat before you climb to Stromgarde. Nobody fights well hungry, not even an orc, though they'll swear otherwise." } },
-    _none = { { id = "tp_none", text = "Ask Drum Fel, for he knows the fort, and I know the fire." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother walks beneath every land, even these hard stones of Arathi. I feel her here, faintly, and I think she is tired of so much fighting." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the wisest of the tauren, and he gave us a home in Mulgore when we had none. I miss him, and I miss the grass of Mulgore more." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief helped my people reach Mulgore when the centaur would have killed us all. I serve his Horde gladly, even here, so far from home." } },
+    centaur = { { id = "tp_centaur", text = "The centaur hunted my people across the plains for generations, and they are still there, in the Barrens and Desolace. I pray to the Earth Mother that they find peace, and that they find it far from us." } },
+    _none = { { id = "tp_none", text = "Ask Drum Fel, for he knows the fort, and I know only the fire and the long grass of home." } },
   },
 }

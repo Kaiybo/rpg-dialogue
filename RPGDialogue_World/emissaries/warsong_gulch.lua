@@ -56,10 +56,10 @@ P:NPC {
       },
       choices = {
         { text = "What is Warsong Gulch?", next = "gulch" },
-        { text = "Why does the Warsong clan cut the forest?", next = "mill" },
+        { text = "Why do the orcs cut the forest?", next = "mill" },
         { text = "How does the fighting there work?", next = "flags" },
         { text = "What do the Marks of Honor mean to the Sentinels?", next = "marks" },
-        { text = "How do you find it, standing in this city?", next = "city" },
+        { text = "You seem out of place among these walls.", next = "city" },
         { text = "Did the Warsong really kill Cenarius?", next = "x_druid", when = { class = "DRUID" } },
         { text = "Our ancestors' forest is dying. What would you have me do?", next = "k_nelf", when = { race = "NightElf" } },
         { text = "Dwarves fight for stone, lass. Why should we bleed for trees?", next = "k_dwarf", when = { race = "Dwarf" } },
@@ -79,7 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do the Warsong want that valley in particular?", next = "gulch_why" },
-        { text = "Who holds Silverwing Hold?", next = "gulch_hold" },
+        { text = "Silverwing Hold must be well defended.", next = "gulch_hold" },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
@@ -108,7 +108,7 @@ P:NPC {
       },
       choices = {
         { text = "Couldn't they take wood from somewhere else?", next = "mill_else" },
-        { text = "Is there no peace to be made with them?", next = "mill_peace" },
+        { text = "Surely some peace could be made with them.", next = "mill_peace" },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -125,8 +125,8 @@ P:NPC {
         { id = "mp_default", text = "When the orcs first came to Ashenvale, Grom Hellscream's warriors slew Cenarius himself, and that was before any of them had asked us for so much as a branch. Some of my sisters say the young orcs aren't to blame for that, and others say every axe in the Gulch is Hellscream's axe. Which would you say, friend?" },
       },
       choices = {
-        { text = "The orcs need wood to live. Let them take what they need, no more.", next = "BACK", fx = { align = { order = 1 }, learn = { "ashenvale" } } },
-        { text = "The forest has its own law. Drive every axe out of it.", next = "BACK", fx = { align = { order = -1 }, learn = { "ashenvale" } } },
+        { text = "The orcs need wood to live. Let them take what they need, no more.", next = "BACK", fx = { opinion = { ashenvale = "share" }, align = { order = 1 }, learn = { "ashenvale" } } },
+        { text = "The forest has its own law. Drive every axe out of it.", next = "BACK", fx = { opinion = { ashenvale = "war" }, align = { order = -1 }, learn = { "ashenvale" } } },
         { text = "Hellscream died killing a demon. Doesn't that count for something?", next = "mill_grom" },
       },
     },
@@ -146,7 +146,7 @@ P:NPC {
       },
       choices = {
         { text = "Why a banner? Why not simply burn the mill?", next = "flags_why" },
-        { text = "What makes a good flag-runner?", next = "flags_run" },
+        { text = "A flag-runner must need more than fast legs.", next = "flags_run" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -212,8 +212,8 @@ P:NPC {
       big = true,
       lines = { { id = "xd_default", text = "They did, in the war when the orcs first came to Kalimdor, and the forest still remembers where he fell. Some in the Circle say he'll return in time, as the Wild Gods do, and some say the orcs must pay for him first. What does your heart tell you, druid?" } },
       choices = {
-        { text = "The forest heals. Vengeance won't bring the Lord of the Grove back.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Blood was spilled first. The Warsong must answer for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The forest heals. Vengeance won't bring the Lord of the Grove back.", next = "BACK", fx = { opinion = { warsong = "forgive" }, align = { light = 1 } } },
+        { text = "Blood was spilled first. The Warsong must answer for it.", next = "BACK", fx = { opinion = { warsong = "hate" }, align = { light = -1 } } },
         { text = "I don't know yet. I need time with the trees.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -249,8 +249,8 @@ P:NPC {
       big = true,
       lines = { { id = "xp_default", text = "Elune is our light, and I won't ask you to bow to her, but I've seen paladins at the Hold shield a fallen runner and carry the flag home after. Some of them refuse to strike an orc who has laid down his axe, and some of them don't, and I've learned not to judge either." } },
       choices = {
-        { text = "Spare those who yield. The Light asks mercy of us.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "An orc who yields today cuts trees tomorrow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Spare those who yield. The Light asks mercy of us.", next = "BACK", fx = { opinion = { orcs = "mercy" }, align = { light = 1 } } },
+        { text = "An orc who yields today cuts trees tomorrow.", next = "BACK", fx = { opinion = { orcs = "hate" }, align = { light = -1 } } },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
@@ -327,7 +327,7 @@ P:NPC {
       },
       choices = {
         { text = "What is Warsong Gulch?", next = "gulch" },
-        { text = "Why does the Horde need Ashenvale's wood?", next = "wood" },
+        { text = "I'd have thought the Horde had wood enough at home.", next = "wood" },
         { text = "How does the fighting go there?", next = "flags" },
         { text = "What are these Marks of Honor worth to you?", next = "marks" },
         { text = "Tell me about Hellscream's clan.", next = "grom" },
@@ -349,7 +349,7 @@ P:NPC {
       },
       choices = {
         { text = "What's the mill like?", next = "gulch_mill" },
-        { text = "Who are the Silverwing?", next = "gulch_elves" },
+        { text = "I've heard the Silverwing are hard to fight.", next = "gulch_elves" },
         { text = "Something else, Outrider.", next = "BACK" },
       },
     },
@@ -377,7 +377,7 @@ P:NPC {
         { id = "wd_uc", when = { zone = "Undercity" }, text = "Your Forsaken have a whole dead city to build from, but in Durotar we have red rock and thorns and nothing more. Without timber we can't build houses or ships or wagons, so the Horde goes north, because the Horde has to live somewhere." },
       },
       choices = {
-        { text = "Couldn't you trade for wood instead?", next = "wood_trade" },
+        { text = "You could trade for wood instead.", next = "wood_trade" },
         { text = "The night elves say the forest is sacred.", next = "wood_sacred" },
         { text = "Something else.", next = "BACK" },
       },
@@ -393,8 +393,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "They say it, and maybe they believe it, but they have a whole forest and we have a desert. Thrall teaches us to respect the land, and the Warsong do try, in our way, but no orc child ever grew up warm on respect. Which matters more, do you think?" } },
       choices = {
-        { text = "The Horde's survival comes first. Cut what you need.", next = "BACK", fx = { align = { order = 1 }, learn = { "ashenvale" } } },
-        { text = "A forest is not ours to tame. Take less, or nothing.", next = "BACK", fx = { align = { order = -1 }, learn = { "ashenvale" } } },
+        { text = "The Horde's survival comes first. Cut what you need.", next = "BACK", fx = { opinion = { ashenvale = "necessary" }, align = { order = 1 }, learn = { "ashenvale" } } },
+        { text = "A forest is not ours to tame. Take less, or nothing.", next = "BACK", fx = { opinion = { ashenvale = "wrong" }, align = { order = -1 }, learn = { "ashenvale" } } },
         { text = "I'll have to think about that.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -407,7 +407,7 @@ P:NPC {
       },
       choices = {
         { text = "Why a banner? Why not just burn their hold?", next = "flags_why" },
-        { text = "What does it take to carry the flag?", next = "flags_run" },
+        { text = "Carrying the flag must take some nerve.", next = "flags_run" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +461,7 @@ P:NPC {
     grom_god = {
       lines = { { id = "gg_default", text = "Cenarius, they call him, and he came at us with the trees themselves as his army. The night elves say we owe them for it forever, but he struck first and we answered, and that's the way of war." } },
       choices = {
-        { text = "And then Hellscream freed you?", next = "grom_free" },
+        { text = "So Hellscream freed you in the end.", next = "grom_free" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -469,8 +469,8 @@ P:NPC {
       big = true,
       lines = { { id = "gf_default", text = "He killed the demon who first put the curse on us, and the blood-lust broke with him. Some in the clan say we should carry on his fury in Ashenvale, and others say his death was to free us from that fury forever. Where do you stand, {g:brother|sister}?" } },
       choices = {
-        { text = "Honor his sacrifice. The fury should end with him.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "His fury won the war. Carry it into the Gulch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Honor his sacrifice. The fury should end with him.", next = "BACK", fx = { opinion = { warsong = "restrain" }, align = { light = 1 } } },
+        { text = "His fury won the war. Carry it into the Gulch.", next = "BACK", fx = { opinion = { warsong = "support" }, align = { light = -1 } } },
         { text = "I'd rather hear what you think.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -501,8 +501,8 @@ P:NPC {
       big = true,
       lines = { { id = "xs_default", text = "I'm no shaman, but our shamans at the mill say the spirits there are restless and that we owe them offerings for every tree we take. Some of my clan listen, and some say the spirits forgot the orcs long ago and we owe them nothing." } },
       choices = {
-        { text = "Make the offerings. The spirits keep the balance.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "The spirits don't feed the Horde. Cut what you need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Make the offerings. The spirits keep the balance.", next = "BACK", fx = { opinion = { the_elements = "respect" }, align = { order = 1 } } },
+        { text = "The spirits don't feed the Horde. Cut what you need.", next = "BACK", fx = { opinion = { the_elements = "useful" }, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

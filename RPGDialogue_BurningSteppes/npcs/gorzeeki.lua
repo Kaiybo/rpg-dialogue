@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "fear" } }, text = "The boss says you told him you're scared of his little friends. Smart, pal, real smart, because I'm scared of 'em too, and I get paid to be." },
     { id = "g_default", text = "Got any spiders or beetles on you, pal? They scurry fast, but if you're faster, they're a treat, and the best part is they don't cost a copper!" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you bring bugs this time? No? Well, I'll forgive you, chum, just this once, and I'll put it on your account." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, pal, and I ate every beetle on this hill while you were away, so now I have to walk further for lunch. I'm billing that to you somehow, I just haven't worked out the paperwork yet." },
@@ -51,9 +52,9 @@ P:NPC {
       },
       choices = {
         { text = "Why do you work for Mor'zul?", next = "master" },
-        { text = "Tell me about your imp.", next = "jar" },
+        { text = "Do you keep any demons of your own?", next = "jar" },
         { text = "You really eat bugs?", next = "bugs" },
-        { text = "What are the shadowy potions for?", next = "xpotion", when = { class = "WARLOCK" } },
+        { text = "What do you brew for warlocks?", next = "xpotion", when = { class = "WARLOCK" } },
         { text = "A goblin should be selling, not serving.", next = "xgoblin", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -64,13 +65,13 @@ P:NPC {
         { id = "ma_default", text = "Because he pays well and he doesn't mind my diet, pal, and do you know how rare that is in an employer? I worked for a trading company once, and they said I scared the customers, which was only true on Tuesdays and I never once charged extra for it." },
       },
       choices = {
-        { text = "Doesn't Mor'zul frighten you?", next = "master_fear" },
+        { text = "Mor'zul looks like he'd frighten anyone.", next = "master_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },
     master_fear = {
       lines = {
-        { id = "mf_default", text = "All the time, and isn't it wonderful? He's so enamored with blood, and he loves to see it spilled, whereas I like it in a small rodent's veins, where it stays warm and doesn't go to waste. We understand each other perfectly, like a good contract." },
+        { id = "mf_default", text = "He frightens me all the time, and isn't it wonderful? He's so enamored with blood, and he loves to see it spilled, whereas I like it in a small rodent's veins, where it stays warm and doesn't go to waste. We understand each other perfectly, like a good contract." },
       },
       choices = {
         { text = "You two are monsters.", next = "master_monster" },
@@ -113,7 +114,7 @@ P:NPC {
         { id = "bu_default", text = "Of course, pal! Spiders, beetles, the odd scorpid when I'm feeling fancy, and they're full of good things for the brain and cost nothin'. The Steppes are crawling with them, so it's practically a free buffet out here, and I hate to waste a free buffet." },
       },
       choices = {
-        { text = "What's the best one?", next = "bugs_best" },
+        { text = "Some bugs must taste better than others.", next = "bugs_best" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -150,6 +151,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A goblin alchemist who left trading for demons, pal, best career move I ever made, and I've never looked back, except to check for bugs." } },
     advice = { { id = "tp_ad", text = "Eat what scurries, friend, because it's free and it's everywhere, and free is the best price there is." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's demons are wonderful, pal, just wonderful, and they pay in power instead of gold. Mor'zul says I'm too enthusiastic, but I say there's no such thing." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I started, pal, selling potions to pirates. Demons are a much better class of customer." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons under the mountain have reagents I'd kill for, pal, and maybe I will someday. Mor'zul says to be patient." } },
     _none = { { id = "tp_none", text = "No idea, pal! But if it has six legs, I'll tell you how it tastes, and if it hasn't, I'll tell you what it's worth." } },
   },
 }

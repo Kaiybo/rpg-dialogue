@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Ironforge |cff8a8a8a1.21.1|r
+## Title: RPG Dialogue: Ironforge |cff8a8a8a1.22.0|r
 ## Notes: The High Seat, the Hall of Mysteries, the Commons and the gates.
 ## Author: RPG Dialogue
-## Version: 1.21.1
+## Version: 1.22.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.ironforge
@@ -16,18 +16,24 @@ npcs\ironforge_folk.lua
 npcs\ironforge_court.lua
 npcs\dunmorogh.lua
 npcs\mystic_ward.lua
+npcs\mystic_ward_scholars.lua
 npcs\military_ward.lua
 npcs\tinker_town.lua
 npcs\commons.lua
 npcs\dunmorogh_roads.lua
+npcs\dunmorogh_more.lua
 npcs\commons_trade.lua
 npcs\great_forge_crafts.lua
 npcs\tinker_town_shops.lua
 npcs\wards_cavern.lua
 npcs\kharanos_shops.lua
+npcs\kharanos_brewers.lua
 npcs\talin_keeneye.lua
 npcs\balir_frosthammer.lua
 npcs\nori_pridedrift.lua
 npcs\mountaineer_thalos.lua
 npcs\pilot_stonegear.lua
 npcs\razzle_sprysprocket.lua
+npcs\barin_redstone.lua
+npcs\old_ironforge_forever.lua
+npcs\dunmorogh_forever.lua

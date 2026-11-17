@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Lorekeeper Raintotem. Only the most valiant tauren are laid to rest at Red Rocks, the great warriors who founded and defended Thunder Bluff and those who gave their lives for their tribes, and I keep their names." },
+        { id = "h_default", key = true, text = "I am Lorekeeper Raintotem. Only the most valiant tauren are laid to rest at Red Rocks, the great warriors who founded and defended Thunder Bluff and those who gave their lives for their tribes, and I keep their names, though lately the Bristleback have been digging among them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Sacred Burial") },
           text = "A foul menace has come onto our holy ground, {class}. A band of Bristleback interlopers is ravaging the grave sites, and I am too old and too far past my prime to drive them away, so they must be driven off by someone else." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Sacred Burial"), days = 3 } },
@@ -41,14 +41,14 @@ P:NPC {
           text = "Eyahn sent you with the ceremony preparations? Good, then the dead will be honored properly, once the quilboar are gone from among them." },
       },
       again = {
-        { id = "h_again", text = "What else would you know of this place?" },
-        { id = "h_again2", text = "Ask, and I will answer, as the lorekeepers always have." },
+        { id = "h_again", text = "What else would you know of this place, and of the honored dead who rest here?" },
+        { id = "h_again2", text = "Ask, and I will answer, as the lorekeepers always have, since the tribes first wandered." },
       },
       choices = {
         { text = "Who is buried at Red Rocks?", next = "buried" },
-        { text = "Why would quilboar dig up graves?", next = "quilboar" },
+        { text = "It's strange that quilboar would dig up graves.", next = "quilboar" },
         { text = "What does a lorekeeper do?", next = "lorekeeper" },
-        { text = "Do the spirits here speak to you?", next = "spirits", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
+        { text = "The spirits here must speak to you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
         { text = "How can I help the honored dead?", next = "BUSINESS" },
         { text = "Rest well, Lorekeeper.", next = "END" },
       },
@@ -100,6 +100,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A lorekeeper, and an old one. My life has been other people's names, and I've found that enough." } },
     advice = { { id = "tp_ad", text = "Learn the names of those who came before you. You will be surprised how often they help." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother holds our dead in her arms at Red Rocks, and I keep their names so she does not have to. It is a heavy task, and an honourable one." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar desecrate our sacred ground, and I am too old to drive them off. That shames me more than I can say, and I am grateful to anyone who does it for me." } },
+    cairne = { { id = "tp_cairne", text = "Cairne will be laid at Red Rocks one day, among the greatest of our people. I pray to the Earth Mother that the day is far off, and that I am not the one to carve his name." } },
+    second_war = { { id = "tp_second_war", text = "The orcs speak of the Second War, but the tauren had their own wars in those years, against the centaur. I have carved the names of those who fell, and there are many." } },
     _none = { { id = "tp_none", text = "That is not among the things I keep, {class}. Ask the elders in Thunder Bluff." } },
   },
 }

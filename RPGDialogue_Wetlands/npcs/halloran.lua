@@ -60,8 +60,8 @@ P:NPC {
       choices = {
         { text = "What makes Wetlands crocolisk so prized?", next = "crocs" },
         { text = "How's your apprentice?", next = "apprentice" },
-        { text = "Who's Einar?", next = "einar" },
-        { text = "How does a hide go from marsh to market?", next = "trade" },
+        { text = "Who brings you your skins?", next = "einar" },
+        { text = "A hide must pass through many hands before market.", next = "trade" },
         { text = "Any tips for a working leatherworker?", next = "craft", when = { profession = { name = "Leatherworking" } } },
         { text = "Good day, James.", next = "END" },
       },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "ei_default", text = "Einar Stonegrip, one of the hunters who brings me croc skins. He camps out on the road east and won't set foot in Menethil, which suits the harbour fine and suits me less." },
       },
       choices = {
-        { text = "Why won't he come into town?", next = "einar_why" },
+        { text = "He never seems to come into town.", next = "einar_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "tr_default", text = "The hunters bring them in raw, I salt and cure them, and the bales go aboard whatever ship's sailing south. Half the leather in Booty Bay started life in that marsh out there." },
       },
       choices = {
-        { text = "Does the Third Fleet trouble the shipping?", next = "trade_fleet" },
+        { text = "Is the bay safe for your shipments?", next = "trade_fleet" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -151,5 +151,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never wade after a croc. Make it come to you, on dry land, where you've got your footing and it hasn't." } },
     third_fleet = { { id = "tp_fleet", text = "Ghost ships in the bay, and sailors won't take my bales out past them at night. It's bad for business, and worse for the sailors." } },
     _none = { { id = "tp_none", text = "No idea, friend, but ask at the inn. Somebody there always knows, or says they do." } },
+    theramore = { { id = "tp_theramore", text = "Half my hides go to Theramore on the boat, because Lady Jaina's soldiers wear out boots faster than anybody. I've never been there, but my leather has." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's tanners work shark and crocolisk and things I've never heard of, and they charge for it like it's silk. I'd like a look at their vats someday." } },
+    scourge = { { id = "tp_scourge", text = "I won't buy hides from across the water anymore, not since the plague. You can't scrape that out of a skin, whatever anybody tells you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys fancy leather for their tents and dancers, and they pay well, but they always want it purple. Do you know how hard it is to dye croc hide purple?" } },
   },
 }

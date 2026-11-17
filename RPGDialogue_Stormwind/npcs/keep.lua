@@ -123,13 +123,13 @@ P:NPC {
         { id = "h_again2", text = "Go on. The petitioners can wait a little longer; they're used to it." },
       },
       choices = {
-        { text = "Who is this missing diplomat?", next = "diplomat" },
-        { text = "What does the Church want from the court?", next = "court" },
-        { text = "Why trust a fisherman over the guard?", next = "contacts" },
+        { text = "This missing diplomat must be someone important.", next = "diplomat", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
+        { text = "The Church wants something from the court, I'd wager.", next = "court" },
+        { text = "Why trust a fisherman over the guard?", next = "contacts", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "Your Grace, how does a priest serve at court?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
-        { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Does the Church trust the Mage Quarter, Your Grace?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE", any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
+        { text = "I'd guess the Church is wary of the Mage Quarter, Your Grace.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -168,7 +168,7 @@ P:NPC {
     court = {
       lines = { { id = "c_default", text = "Bread for the poor, a voice for the stonemasons nobody paid, and a seat when the Regent decides things that touch the faithful. We get perhaps half of that in a good year, and this hasn't been a good year." } },
       choices = {
-        { text = "Who truly decides at court?", next = "court_regent" },
+        { text = "I'd like to know who truly decides at court.", next = "court_regent" },
         { text = "The stonemasons?", next = "court_masons" },
         { text = "Something else.", next = "BACK" },
       },
@@ -229,7 +229,7 @@ P:NPC {
       choices = {
         { text = "Listening is the same work, whoever pays.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
         { text = "The Church's way is the honest one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Who else listens for the Church?", next = "rogue2" },
+        { text = "I'd wager the Church has other ears in the city.", next = "rogue2" },
       },
     },
     rogue2 = {
@@ -239,6 +239,12 @@ P:NPC {
   },
 
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "The Light is the foundation of this kingdom, and the court forgets it at its peril. I remind them as gently as I can, and as often as they'll let me." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is very gracious to the Church in council, and very sparing with its requests. I've learned to listen to what she doesn't say, which is a habit the court teaches everyone eventually." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord is a man of faith, and I pray with him every morning before council. He carries more than any man should, and the Light gives him what strength it can." } },
+    varian = { { id = "tp_varian", text = "I said the prayers over the King's ship before it sailed for Theramore, and I've said them every day since. I'll keep saying them until someone tells me to say different ones." } },
+    scourge = { { id = "tp_scourge", text = "The Church lost half its clergy in Lordaeron, and the court talks of it as if it were a matter of accounts. I've told them it's a matter of souls, and they nod and move on to the grain prices." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's chaplain hasn't been able to reach the prisoners since the riot, and I've asked the court to let him in. They say it's too dangerous, and I say that's when a chaplain's most needed." } },
     knows = {
       { id = "tp_knows", text = "Everything that's petitioned at court passes within earshot of this chair, and some of it I'm even allowed to repeat. Ask, and I'll tell you what I can." },
     },
@@ -396,10 +402,10 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about your museum.", next = "museum" },
-        { text = "Why would you want a traitor's tiara?", next = "tiara" },
-        { text = "Who is Mayara Brightwing?", next = "mayara" },
-        { text = "Dwarves made it, you said?", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "Which house do you think I'm from?", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "That's a traitor's tiara you're after.", next = "tiara", when = { any = { { questActive = TODO_QUEST("The Perenolde Tiara") }, { questDone = TODO_QUEST("The Perenolde Tiara") }, { heardLine = "ridgewell.h_tiara" } } } },
+        { text = "I don't know this Mayara Brightwing.", next = "mayara", when = { any = { { questActive = TODO_QUEST("Mayara Brightwing") }, { questDone = TODO_QUEST("Mayara Brightwing") } } } },
+        { text = "Is any of your collection dwarven work, Count?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "You seem to have guessed my house already.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Has anyone ever tried to rob your museum, Count?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you like me to look over your collection?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you collect arms and armour too, Count?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -452,7 +458,7 @@ P:NPC {
       lines = { { id = "ma_default", text = "My agent, and a marvel: she goes where I'd never dream of going and writes me the most thrilling letters. She's in the Burning Steppes now, among the ruins of the Dark Iron capital, looking for things that ought to be in a museum.",
         fx = { learn = { "thaurissan" } } } },
       choices = {
-        { text = "Isn't that dangerous?", next = "mayara_danger" },
+        { text = "That sounds dangerous.", next = "mayara_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +467,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {
-      lines = { { id = "dw_default", text = "Master jewellers of Ironforge, long before the Perenoldes went bad. I've always wondered whether your people kept the designs. If you ever hear of a workshop that did, you must tell me at once." } },
+      lines = { { id = "dw_default", text = "Not yet, though the piece I want most, a Perenolde tiara from Alterac, was set by master jewellers of Ironforge long before that family went bad. I've always wondered whether your people kept the designs. If you ever hear of a workshop that did, you must tell me at once." } },
       choices = {
         { text = "Dwarves don't sell their family secrets.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "I'll ask around for you.", next = "BACK", fx = { affinity = 2 } },
@@ -477,6 +483,12 @@ P:NPC {
   },
 
   topics = {
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths holds treasures the Dark Irons have hoarded for centuries, and I'd give my finest coat to see them. I've sent a few brave souls to look, and some of them even came back." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman is a vault of the titans, so the Explorers' League says, and full of relics that belong in a proper collection. Mine, ideally, though I'd settle for a sketch." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Dire Maul was a city of the ancient elves, deep in Feralas, and its libraries are said to hold books older than Stormwind itself. I've an empty shelf waiting for them, and a great deal of patience." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a city of fine houses and finer collections, and the dead have them now. I've a list of what was there, and I'd pay handsomely for anything on it, though I'd rather not know how it was got." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's artefacts are the envy of every collector in the world, and the Kirin Tor won't sell a single one. I've offered, and they've declined, very politely, with a spell on the letter that made my ink run." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The sandfury trolls of Zul'Farrak keep idols of gold in their temples, so I'm told, and I've a niche in the east gallery that would suit one perfectly. Do bring back anything small and shiny, won't you?" } },
     knows = {
       { id = "tp_knows", text = "Oh, I hear everything worth hearing at dinner, and I collect gossip nearly as eagerly as brooches. Ask me anything!" },
     },
@@ -491,6 +503,7 @@ P:NPC {
 -- Lord Baurles K. Wishock: a thirsty lord with a crusade against the Slaughtered Lamb.
 P:NPC {
   key = "wishock", id = TODO_NPC("Lord Baurles K. Wishock"), name = "Lord Baurles K. Wishock",
+  prejudice = { origin = "human_stonemason_child", amount = 12, why = "Sees every mason's child as a Defias cousin since the guild's walkout." },
   title = "House of Nobles",
   bible = "bibles/keep_court.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud", "lawful" },
@@ -501,6 +514,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "I'm told you're a mason's whelp, and that your father's guild still thinks the crown owes it a fortune. You may speak, briefly, and keep your hands where my steward can see them." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and I find I don't mind it. I said hard things about your father's trade, and you've carried yourself better than half the lords on this floor." },
     { id = "g_house", text = "Mark my words, the House will hear of it! Oh, it's you; what is it?" },
     { id = "g_thirst", text = "Lobbying is thirsty work, dreadfully thirsty work." },
   },
@@ -514,6 +529,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I think the Stonemasons' Guild rebuilt this city, demanded a sum the treasury didn't have, and when it was refused, went west and took up masks and knives. Forgive me if I look at every mason's child and wonder which uncle is in the Deadmines." } },
+      choices = {
+        { text = "The House of Nobles cheated honest men. You made the Defias.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "The law is the law. The guild should have gone to court.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "My family never wore a red mask, my lord.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Careful. That is the sort of talk that gets a name written in a ledger by Lord Shaw's people, and I'd rather not see yours in it, whatever your father did." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Precisely, and a court would have heard them, in time. Perhaps you're not your father's child after all, or perhaps your father wasn't as bad as his guild." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "No? Then you'll understand why I said I wonder, and not that I know. I'll try to remember the difference, which is more than I promise most people." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust anything that isn't summoning demons in a cellar. Your spirits I can live with, so long as they don't drink on credit." } },
@@ -602,9 +639,10 @@ P:NPC {
         { id = "h_again2", text = "Well? Out with it." },
       },
       choices = {
+        { text = "You don't think much of masons' children, my lord.", next = "prej", when = { prejudiced = true } },
         { text = "What dark practitioners?", next = "coven" },
-        { text = "How did you find them?", next = "found" },
-        { text = "Will the House listen?", next = "house" },
+        { text = "You must have stumbled on them somehow.", next = "found" },
+        { text = "The House may not listen.", next = "house" },
         { text = "Don't drink anything sent from the Mage Quarter.", next = "warn", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "The Church stands with you, my lord.", next = "priest", when = { class = "PRIEST" } },
         { text = "The Mage Quarter isn't all demon-callers, my lord.", next = "mage", when = { class = "MAGE" } },
@@ -634,7 +672,7 @@ P:NPC {
     found = {
       lines = { { id = "f_default", text = "I was enjoying a quiet evening at the Lamb, as a gentleman does, and I went looking for the privy and found a staircase instead. I've an excellent memory for what I see, even after a few cups." } },
       choices = {
-        { text = "And the bill you never paid?", next = "found_bill" },
+        { text = "And the bill you never paid?", next = "found_bill", when = { any = { { questActive = TODO_QUEST("A Noble Brew") }, { questDone = TODO_QUEST("A Noble Brew") }, { heardLine = "gakin.ln_default" } } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -648,7 +686,7 @@ P:NPC {
     house = {
       lines = { { id = "h2_default", text = "They will, if I shout long enough, and I've a very good voice for shouting. Half of them are afraid of the magi and the other half are afraid of me, so I expect a full investigation by the end of the season." } },
       choices = {
-        { text = "Aren't you worried they'll come for you?", next = "house_fear" },
+        { text = "They might come for you.", next = "house_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -690,6 +728,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's been taken by its prisoners, and the House of Nobles does nothing, as usual. I'd have the lot of them hanged, and I'd start with the warlocks under the Lamb." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is a sensible woman, and she agrees with me about the warlocks, or very nearly. She says the time isn't right, and I say the time is always right for justice." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is what the warlocks under the Slaughtered Lamb are trafficking with, and I've told the House as much. They laughed, and I'll be laughing when the demons come for them first." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The warlocks opened the Dark Portal and let the orcs into our world, and we let their kind keep a cellar in Stormwind. I'll not rest until it's sealed, and I'll not drink at the Lamb again until it is, mostly." } },
     knows = {
       { id = "tp_knows", text = "I've sat in the House long enough to know everyone's secrets, and in most of the city's taverns for longer. Ask, and I'll tell you what I know, and what I suspect." },
     },

@@ -10,6 +10,7 @@ P:NPC {
   title = "The Highborne",
   bible = "bibles/shendralas.md", role = "questgiver", tier = "major",
   communities = { "shendralas", "shendralar" }, temper = { "proud", "sharp" }, values = { "learned", "honest", "kind" },
+  prejudice = { race = "NightElf", amount = 8, why = "An old Highborne wound: the kaldorei who distrusted and drove out his people." },
   notices = { "race", "class", "carry" },
 
   impression = {
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A kaldorei, at the overlook. Your ancestors called my people dangerous and drove most of them across the sea, and I find, to my embarrassment, that I have not entirely forgiven you for it." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Ah, one of Elune's druids' children, come to look at the ruins. Look, by all means; my people built them while yours were learning to talk to bears." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, child of the kaldorei. I owe you an apology, I think, for blaming you for a quarrel ten thousand years older than you are." },
     { id = "g_default", text = "You stand in Shen'dralas, or in what little the ages have left of it." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the overlook. Few do, and fewer come back twice." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The temple stones still catch the moonlight, even now. Come and see, if you like." },
@@ -51,6 +55,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because your people never trusted mine, and after the Sundering they had reason, and still I resent it. The Highborne who stayed here were scholars, not demon-worshippers, and the kaldorei never troubled to learn the difference." } },
+      choices = {
+        { text = "The Highborne nearly ended the world. Caution was wise.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should have learned the difference. You were wronged.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'm not my ancestors. Judge me by my own deeds.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What was Shen'dralas like, before?", next = "prej_why" },
+        { text = "Something else, archmage.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Full of lamps and libraries and arguments that ran through the night, and the arguments were the best of it. We thought we were preserving the old learning for a wiser age, and perhaps we were, though the wiser age has been slow to arrive." } },
+      choices = {
+        { text = "Then I'll help it arrive. Show me what's left.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Learning without wisdom caused the Sundering. Remember that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, archmage.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "A fair rebuke, and gently given. Very well; I will try to see you and not your grandmothers." } },
+      choices = {
+        { text = "Something else, archmage.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -92,14 +120,14 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Go on. The moon is high, and I am in no hurry to go back to the halls." },
       },
       choices = {
-        { text = "What was this place?", next = "place" },
+        { text = "This place was grand once, by the look of it.", next = "place" },
         { text = "Why do you stand watch out here alone?", next = "alone" },
-        { text = "Who are the Shen'dralar?", next = "order" },
-        { text = "What do you look at, down there?", next = "grave" },
+        { text = "I know nothing of the Shen'dralar.", next = "order" },
+        { text = "You keep staring at something down there.", next = "grave" },
         { text = "I have something you should see.", next = "tome", when = { carrying = 282404 } },
         { text = "What do we need for the ritual again?", next = "ritual", when = { npcFlagBefore = "ritual" } },
         { text = "I found the Star of Elune.", next = "star", when = { carrying = 282548 } },
-        { text = "What is this globe I'm carrying?", next = "globe", when = { carrying = 282337, ["not"] = { carrying = 282404 } } },
+        { text = "This globe I'm carrying hums with something strange.", next = "globe", when = { carrying = 282337, ["not"] = { carrying = 282404 } } },
         { text = "I've faced Prince Tortheldrin.", next = "after_prince", when = { killed = { name = "Prince Tortheldrin" } } },
         { text = "My people were exiled for what yours did.", next = "xnelf", when = { race = "NightElf" } },
         { text = "My ancestors fled Eldre'Thalas. We are the Skyborne.", next = "xsky", when = { race = "Skyborne" } },
@@ -112,6 +140,7 @@ P:NPC {
         { text = "Could these ruins be held against the Magram?", next = "xwarrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "What hides in these ruins that I should know of?", next = "xrogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "The spirits of this land are uneasy, archmage.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "You speak to me coldly, archmage. Why?", next = "prej", when = { prejudiced = true } },
         { text = "Farewell, archmage.", next = "END" },
       },
     },
@@ -123,7 +152,7 @@ P:NPC {
           fx = { learn = { "highborne" } } },
       },
       choices = {
-        { text = "Why not call it by its true name, then?", next = "name" },
+        { text = "You could call it by its true name, then.", next = "name" },
         { text = "Tell me about the temple below.", next = "temple" },
         { text = "How did any of it survive the Sundering?", next = "sundering" },
         { text = "Something else.", next = "BACK" },
@@ -160,7 +189,7 @@ P:NPC {
         { id = "su_default", text = "That is the cruel part. Eldre'Thalas survived the Great Sundering when it should have killed us all, and then it fell anyway, slowly, not by the catastrophe but by what came after it. The moment the world broke changed my people's fate forever." },
       },
       choices = {
-        { text = "What came after it?", next = "prince" },
+        { text = "Something worse must have come after it.", next = "prince" },
         { text = "Surviving is a victory. You should honor that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some cities deserve to fall.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
       },
@@ -181,8 +210,8 @@ P:NPC {
           fx = { learn = { "burning_legion" } } },
       },
       choices = {
-        { text = "He kept your people alive. That counts for something.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A prince who chains demons is no prince.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He kept your people alive. That counts for something.", next = "BACK", fx = { opinion = { shd_prince = "survivor" }, align = { honor = -1 } } },
+        { text = "A prince who chains demons is no prince.", next = "BACK", fx = { opinion = { shd_prince = "tyrant", demons = "hate" }, affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -193,7 +222,7 @@ P:NPC {
         { id = "al_default", text = "Because it pains me to walk the halls below now, though I still count myself one of the order that keeps them. I spend most of my days away from the library I once called home, and this hill is as far as I can bring myself to go." },
       },
       choices = {
-        { text = "What pains you about the halls?", next = "halls" },
+        { text = "Something about the halls pains you.", next = "halls" },
         { text = "Have you met anyone else out here?", next = "others" },
         { text = "Something else.", next = "BACK" },
       },
@@ -233,9 +262,43 @@ P:NPC {
         { id = "mg_default", text = "The centaur keep to their valley and their front, and they leave a lone old elf on a hill alone, which suits us both. Their shamans raise the dead in the Valley of Bones, though, and I like that a great deal less than I like their manners." },
       },
       choices = {
-        { text = "And the quilboar to the south?", next = "quilboar" },
+        { text = "There are quilboar to the south as well.", next = "quilboar" },
+        { text = "Does their bone-work trouble you?", next = "mg_ask" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    -- Opinion pass: Mordent asks the player whether any power is worth taking.
+    mg_ask = {
+      big = true,
+      lines = { { id = "ma_default", text = "It troubles me, but I am an old man who watched his people drown for loving magic too dearly, so perhaps I am not the one to judge. You walk among the living, and you have seen what power does to them. Is any power worth taking, if it lies there to be taken?" } },
+      choices = {
+        { text = "Raising the dead is an abomination, whatever the cause.", next = "mg_ask_wrong", fx = { opinion = { necromancy = "wrong" }, align = { light = 1 }, affinity = 1 } },
+        { text = "If it keeps a people alive, then yes.", next = "mg_ask_useful", fx = { opinion = { necromancy = "useful" }, align = { light = -1 } } },
+        { text = "Magic is a tool. Only the hand that holds it is wicked.", next = "mg_ask_tool", fx = { opinion = { arcane_magic = "useful" }, trait = { practical = 1 } } },
+        { text = "Dalaran teaches restraint. Your Prince never learned it.", next = "mg_ask_dal", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "respect", arcane_magic = "careful" } } },
+        { text = "I was raised against my will. You know my answer.", next = "mg_ask_dead", when = { race = "Scourge" }, fx = { opinion = { necromancy = "hate", undeath = "curse" } } },
+        { text = "I'd rather not judge it.", next = "BACK" },
+      },
+    },
+    mg_ask_wrong = {
+      lines = { { id = "maw_default", text = "You say it plainly, and I envy you that. My order said much the same about the Prince's prisoner, once, very quietly, in rooms where he could not hear us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_useful = {
+      lines = { { id = "mau_default", text = "That is the Prince's own argument, almost word for word, and he has kept the Shen'dralar alive with it for ten thousand years. I would ask you to look at what it has kept alive before you settle on it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_tool = {
+      lines = { { id = "mat_default", text = "A tidy answer, and a scholar's one, and I gave it myself for many centuries. The trouble is that the tool changes the hand that holds it, slowly, and the hand never notices." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_dal = {
+      lines = { { id = "mad_default", text = "Dalaran. Yes, I have heard of your city of magi, and I hope its restraint outlasts its first great temptation. Ours did not." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mg_ask_dead = {
+      lines = { { id = "mae_default", text = "Forgive me. I asked a question of the one person in this valley who has already answered it with every breath they no longer take." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     quilboar = {
       lines = {
@@ -250,7 +313,7 @@ P:NPC {
         { id = "or_default", text = "The Shen'dralar are the scholars and magi of Eldre'Thalas, the keepers of its library and the last of its Highborne who still keep their wits. We were the brightest minds of a bright city, once, and now we are mostly a habit of reading by candlelight." },
       },
       choices = {
-        { text = "What do you keep in that library?", next = "library" },
+        { text = "That library is said to hold a great many books.", next = "library" },
         { text = "Why do the night elves hate you?", next = "kaldorei" },
         { text = "Something else.", next = "BACK" },
       },
@@ -287,8 +350,8 @@ P:NPC {
           fx = { learn = { "queen_azshara" } } },
       },
       choices = {
-        { text = "Then they were right to cast you out.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Ten thousand years is long enough to forgive.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Then they were right to cast you out.", next = "BACK", fx = { opinion = { shd_highborne = "guilty" }, align = { order = 1 }, affinity = -1 } },
+        { text = "Ten thousand years is long enough to forgive.", next = "BACK", fx = { opinion = { shd_highborne = "forgiven" }, align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -372,7 +435,7 @@ P:NPC {
           fx = { npcFlag = { set = { "ritual" } } } },
       },
       choices = {
-        { text = "What will we need?", next = "ritual" },
+        { text = "This will need more than research, I'd guess.", next = "ritual" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,7 +447,7 @@ P:NPC {
       },
       again = { { id = "ri_again", text = "The star, the mote and the tears. Which would you hear of?" } },
       choices = {
-        { text = "Where would I find a Star of Elune?", next = "ritual_star" },
+        { text = "A Star of Elune won't be easy to find.", next = "ritual_star" },
         { text = "An Abyssal Mote? From where?", next = "ritual_mote" },
         { text = "What dilutes corruption like that?", next = "ritual_tears" },
         { text = "I have the reagents. What now?", next = "ritual_ready", when = { carrying = 282548 } },
@@ -627,6 +690,15 @@ P:NPC {
     burning_legion = { { id = "tp_legion", text = "My people opened the door for them once. The Prince below keeps one of their creatures chained for its power, and I pray every night it is not opening the door again." } },
     background = { { id = "tp_bg", text = "I am an archmage of the Shen'dralar, older than I care to count, and I survived the Sundering when I had no right to. Most of my life since has been reading, and the rest has been regret." } },
     advice = { { id = "tp_ad", text = "Do not go into Eldre'Thalas looking for treasure; go looking for understanding, or do not go at all. The city punishes greed, and it has had a long time to practice." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas survived the Sundering, and then it survived ten thousand years of our own Prince, and now it has ogres in the courtyards and a name that sounds like a tavern brawl. I find \"Dire Maul\" more insulting than the ogres." } },
+    elune = { { id = "tp_elune", text = "There is a temple of Elune in these ruins, and I come out at night to watch the moonlight lie on it. I was never devout, but I find I cannot stay away." } },
+    tyrande = { { id = "tp_tyrande", text = "I am told a priestess named Tyrande Whisperwind leads our cousins now, from a great tree in the north. I remember a young novice of that name, though I may be flattering my memory." } },
+    satyrs = { { id = "tp_satyrs", text = "Some of my peers went to the Legion willingly and came back with hooves and horns, and I knew a few of them by name. I do not pray for them, but I remember them." } },
+    centaur = { { id = "tp_centaur", text = "The Magram dig among the bones of my city's dead and raise them for their wars, and the bones were never asked. I watch from my overlook and do nothing, which is a habit I learned in the library." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback squabble over the ground at the valley's edge, and I watch them as one watches ants. I mean no cruelty by it, only that I have watched too many larger things squabble over the same ground." } },
+    dalaran = { { id = "tp_dalaran", text = "The human mages of Dalaran have discovered that our library still stands, and they write very polite letters. I find their politeness more alarming than ogres." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The great tree on Hyjal was planted after the Sundering, by druids who distrusted everything we were. I hear it still grows, and I am glad, though I would never tell them so." } },
+    scourge = { { id = "tp_scourge", text = "The Magram's dead are crude work, and I have heard that in the far north there is a far greater master of the craft. I have no wish to meet him, nor to compare notes." } },
     _none = { { id = "tp_none", text = "I have read most of the library below, and I do not recall that being in it. Perhaps it was in one of the volumes the satyrs burned." } },
   },
 }

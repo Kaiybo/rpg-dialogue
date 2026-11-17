@@ -24,6 +24,7 @@
 - Gossip verbatim (Nazeer's "blood is still shed", Tervosh's "must be brief", Krog's "violated his wishes").
 
 ## Voices
+- Race voice (0.80.0): Krog and Nazeer are orcs who speak of Thrall's peace, honor and the camps; Baldruc keeps a dwarven burr.
 - Jaina: earnest, warm, tired of war; won't discuss her father for long.
 - Tervosh: brisk archmage; garden; independent of committees.
 - Vimes: direct investigator; doesn't believe the easy answer.
@@ -60,3 +61,6 @@ Sources: Classic NPC roster of Theramore Isle as remembered (wiki pages Baldruc,
 ### Deepened (authored, not canon)
 - Janene: the Kul Tiras sailors who stayed after the Admiral fell and drink to his memory; priest reply. Tesoran: what became of Daelin's men (home, the Lady's colors, or neither) and their grudge; paladin reply.
 - Unsure, so left out: Lieutenant Caldwell, Clerk Lendry, Craig Nollward, Piter Verance, Guard Byron, Private Hendel (his end stays secret per Never).
+
+## Prejudices (0.80.0, authored, not canon)
+- Overlord Mok'Morokk resents orc bosses (`prejudice` Orc 10): they call ogres stupid behind their hands, Nazeer Bloodpike most of all, though he tolerates them because the Stonemaul need Brackenwall.

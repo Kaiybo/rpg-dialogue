@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons", when = { opinion = { topic = "dragons", stance = "distrust" } }, text = "You hold that dragons meddle in mortal affairs, mortal. Then observe how I meddle now, by asking for your help instead of commanding it." },
     { id = "g_default", text = "You have come far into my cave, mortal, past whelps who would have eaten you had I allowed it. Speak, and be brief." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The whelps remember your scent, and so do I." },
     { id = "g_away", when = { away = 30 }, text = "A month and more, {away} by your counting. To me it was a blink, but the whelps grew in it." },
@@ -30,6 +31,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dragons = {
+      lines = {
+        { id = "opd_default", text = "I have heard every answer from terror to worship, and I am curious which is yours. Tell me, mortal, when a dragon walks among your kind, what do you think it wants?" },
+      },
+      choices = {
+        { text = "To watch over us. I'm grateful for it.", next = "op_dragons_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { dragons = "trust" } } },
+        { text = "To meddle. Azeroth belongs to those who live in it.", next = "op_dragons_distrust", fx = { affinity = -1, align = { order = -1 }, trait = { proud = 1 }, opinion = { dragons = "distrust" } } },
+        { text = "My people chained the red flight at Grim Batol. I'm ashamed of it.", next = "op_dragons_shame", fx = { affinity = 2, opinion = { dragons = "respect" } }, when = { race = "Orc" } },
+        { text = "The Dream's guardians have my respect, eldest.", next = "op_dragons_trust", fx = { affinity = 1, opinion = { dragons = "respect", druidism = "respect" } }, when = { class = "DRUID" } },
+        { text = "I've learned not to guess at a dragon's mind.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    op_dragons_trust = {
+      lines = {
+        { id = "opdt_default", text = "Gratitude is rarer than fear, and I will remember it. Do not let it make you careless, though, for not every dragon who wears a kind face is of Ysera's flight." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dragons_distrust = {
+      lines = {
+        { id = "opdd_default", text = "A bold answer, and not a foolish one, for some of my kin have meddled cruelly. Yet you are standing in my cave at my asking, mortal, so consider who meddles with whom." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dragons_shame = {
+      lines = {
+        { id = "opds_default", text = "Shame is a heavy thing for one who was not there to do the deed. The red flight remembers Grim Batol, and so do I, but I have also seen what your Warchief made of your people since." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -48,7 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened in the sunken temple?", next = "temple" },
-        { text = "Who is Eranikus?", next = "eranikus" },
+        { text = "Who is Eranikus?", next = "eranikus", when = { any = { { questActive = TODO_QUEST("The Essence of Eranikus") }, { questDone = TODO_QUEST("The Essence of Eranikus") } } } },
         { text = "Why keep so many whelps here?", next = "whelps" },
         { text = "Why take the shape of a high elf?", next = "visage" },
         { text = "Tell me of the Dream.", next = "dream", when = { class = "DRUID" } },
@@ -63,7 +94,7 @@ P:NPC {
       },
       choices = {
         { text = "Can they be saved?", next = "temple_saved" },
-        { text = "What became of the Atal'ai?", next = "temple_atalai" },
+        { text = "I'd guess the Atal'ai are long gone now.", next = "temple_atalai" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +196,7 @@ P:NPC {
         { id = "vi_default", text = "Because a dragon in a cave frightens mortals into foolishness, and an elf in a cave merely puzzles them. The quel'dorei are a graceful people, and their shape suits my temper well enough." },
       },
       choices = {
-        { text = "Do other dragons walk among us like this?", next = "visage_others" },
+        { text = "Other dragons must walk among us like this.", next = "visage_others" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,7 +204,10 @@ P:NPC {
       lines = {
         { id = "vo_default", text = "Some, of every flight, and not all of them with honest purposes. If you meet a stranger who seems too old for his face, mortal, be courteous and be careful, in that order." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think mortals make of your kind?", next = "op_dragons" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     dream = {
@@ -181,7 +215,7 @@ P:NPC {
         { id = "dr_default", text = "The Dream is the world as it was meant to be, untouched by mortal hands, and Ysera dreams it and keeps it. Your druids walk its edges in their sleep, and my flight walks its heart." },
       },
       choices = {
-        { text = "Is something wrong in the Dream?", next = "dream_wrong" },
+        { text = "Something feels wrong in the Dream.", next = "dream_wrong" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -215,6 +249,16 @@ P:NPC {
     background = { { id = "tp_ba", text = "A servant of Ysera, keeper of whelps, and watcher at the edge of a ruined temple. That is all I am at present." } },
     advice = { { id = "tp_ad", text = "Do not sleep near the sunken temple, mortal. Your dreams are not as private as you believe." } },
     atalhakkar = { { id = "tp_temple", text = "The Temple of Atal'Hakkar lies beneath the Pool of Tears, sunk by the trolls' own folly, and my kin who guard it are lost to madness." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it was meant to be, green and unbroken, and my mistress Ysera watches over it from within. Mortals glimpse its edges when they sleep, and most of them forget by morning." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green flight serves the Dreamer, and we guard the places where the Dream touches your world. Some of my kin have fallen silent of late, and I do not like the silence." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai sank their own temple to hide their god, and now they work in its depths to call Hakkar back. My kin went down to stop them, and Eranikus is held there still, and I am not certain what he has become." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi to the south call on the same blood god that the Atal'ai serve. Hakkar has two doors into your world, and my flight watches only one of them." } },
+    nordrassil = {
+      { id = "tp_nordrassil", text = "Nordrassil was blessed by my mistress herself, and its roots run deep into the Dream. The night elves gave up their immortality when they lost its blessing, and I have seen few sacrifices as great." },
+      { id = "tp_nordrassil2", when = { race = "NightElf" }, text = "Your people's new tree grew without my mistress's blessing, and I have wondered what that will mean for you. Do not mistake my concern for disapproval, kaldorei." },
+    },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids of the Cenarion Circle walk the Dream with my mistress's leave, and I count them among my few allies in this swamp. They are patient, which suits a dragon." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "Deathwing's children are cruel and patient and very hard to kill, and they would see my mistress's flight broken. I watch for them, even here." } },
     _none = { { id = "tp_none", text = "That is beneath my notice, or beyond it. Either way, I will not speak of it." } },
   },
 }

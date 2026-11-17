@@ -11,7 +11,7 @@
 ## Identity
 Elatrell Featherlight · Thendal Village, Zephras Isle · neutral · Skyborne, male · ranger, quest giver
 Personality: brisk, dry, practical, quietly kind
-Speech: short dry jokes in whole sentences; "the bigger they are, the meaner".
+Speech: short dry jokes in whole sentences; "the bigger they are, the meaner"; Skyborne: wind and draught imagery, heirlooms
 Relationships: fellow rangers Halaan, Myriaal, Valreaa; Tai'ree the hunter trainer.
 Never says: anything about Elindya Featherlight (relation unconfirmed).
 

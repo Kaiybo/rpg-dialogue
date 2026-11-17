@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Do you smell that? Fresh strider stew, my own recipe, and no, you can't have it for free." },
+    { id = "g_hello", text = "Ishnu-alah! Do you smell that? Fresh strider stew, my own recipe, and no, you can't have it for free, not even by Elune's grace." },
     { id = "g_strider", when = { questActive = TODO_QUEST("Easy Strider Living") }, text = "The pot is empty and I'm hungry, {name}! Strider meat, five good cuts, if you please." },
     { id = "g_cure", when = { questActive = TODO_QUEST("Gathering the Cure") }, text = "Earthroot and lunar fungus, and mind the moonkin in those caves. They've been short-tempered lately." },
     { id = "g_deer", when = { questActive = TODO_QUEST("Curing the Sick") }, text = "Ten doses, ten deer. Every one you reach is one less I lie awake over." },
@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Alanndarian Nightsong. I cook, mostly, and lately I've been doctoring the deer of Darkshore too, because something has made them sick and nobody else was doing it." },
+          text = "I'm Alanndarian Nightsong. I cook, mostly, and lately I've been doctoring the deer of Darkshore too, because something has made them sick and nobody else was doing it, at least until the Cenarion Circle took an interest." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Easy Strider Living") },
           text = "Perhaps you'd like to learn my strider stew? First prove you can handle the beasts: bring me a few cuts of their meat, and I may be persuaded to show you how it's done." },
         { id = "h_strider_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Easy Strider Living"), days = 3 } },
@@ -59,9 +59,9 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the deer?", next = "deer" },
-        { text = "What's in the strider stew?", next = "stew" },
-        { text = "How did the Cenarion Circle get involved?", next = "circle" },
-        { text = "What's fouling Cliffspring Falls?", next = "falls", when = { questDone = TODO_QUEST("The Principal Source") } },
+        { text = "That strider stew smells better than it has any right to.", next = "stew" },
+        { text = "I'm surprised the Cenarion Circle took an interest here.", next = "circle" },
+        { text = "Something seems to be fouling Cliffspring Falls.", next = "falls", when = { questDone = TODO_QUEST("The Principal Source") } },
         { text = "Could I heal the deer myself?", next = "heal_a", when = { class = { "DRUID", "PRIEST", "SHAMAN", "PALADIN" } } },
         { text = "Have you work for me?", next = "BUSINESS" },
         { text = "Goodbye, Alanndarian.", next = "END" },
@@ -162,6 +162,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A cook in Auberdine who got into the doctoring business by accident. The deer don't seem to mind that I'm not qualified." } },
     advice = { { id = "tp_ad", text = "Never drink from a stream in Darkshore until you've seen a deer drink from it and walk away. And eat something, would you?" } },
     cenarion_circle = { { id = "tp_circle", text = "They answer letters, and they send help. I can't say that of most people.", next = "circle" } },
-    _none = { { id = "tp_none", text = "I've no idea, {name}, but I can tell you how to cook it, whatever it is." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids tell me the Dream is where the land goes to remember itself whole. I'd settle for Darkshore remembering how to keep its deer healthy." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune over every sick fawn I treat, because I don't trust my own hands that much. So far she's been more forgiving of my mistakes than the deer have." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The Twilight's Hammer have their temple at Blackfathom, down the coast, and the sickness in my deer seems to come from that direction. I'd rather not think about what that means over supper." } },
+    highborne = { { id = "tp_highborne", text = "There are Highborne ruins all over Darkshore, and they make the animals nervous. I've learned to cook upwind of them." } },
+    _none = { { id = "tp_none", text = "I've no idea, {name}, but I can tell you how to cook it, whatever it is. My grandmother's recipes go back to Zin-Azshari, and they cover nearly everything." } },
   },
 }

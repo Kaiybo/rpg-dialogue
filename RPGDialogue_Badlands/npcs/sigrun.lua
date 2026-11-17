@@ -14,16 +14,17 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to the finest camp in the Badlands, which isn't saying much, so mind the anvil and don't ask what's for supper." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Pull up a crate, if you can find one the ogres didn't carry off." },
+    { id = "g_op_elements", when = { gossip = { topic = "the_elements", stance = "respect" } }, text = "Lotwil tells me you think he should let his rocks go. He sulked into his notebook for an hour, so thank you, because that was the quietest hour I've had all month." },
+    { id = "g_default", text = "Welcome to the finest camp in the Badlands, {g:lad|lass}, which isn't saying much, so mind the anvil and don't ask what's for supper." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and a welcome sight ye are! Pull up a crate, if ye can find one the ogres didn't carry off." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and we've been eating dust and salt pork gone green at the edges. Any word from Ironforge on your travels?" },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've hardened up since I saw you last, like good steel after the quench. I'd know, it's the only thing I do well." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've hardened up since I saw ye last, like good steel after the quench. I'd know, by my beard, for it's the only thing I do well." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Prospector says you've been a help to folk out here, and he doesn't hand out compliments, so I'll pass that one along." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Your gear's in a sorry state, friend, and I'd mend it if I had a scrap of decent metal to my name. Bring me some from the ogres and I'll see what I can do." },
+      text = "Your gear's in a sorry state, {g:lad|lass}, and I'd mend it if I had a wee scrap of decent metal to my name. Bring me some from the ogres and I'll see what I can do." },
     { id = "n_drink", cat = "drink", when = { drunk = true },
       text = "You've been at the ale, and you didn't bring any for the rest of us? That's cruel, friend, in a camp this dry." },
   },
@@ -50,13 +51,13 @@ P:NPC {
           text = "A gnome, and with Gnomeregan gone I'd guess you know what it's like to leave a place in a hurry. We're cousins in that, at least." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for you, short of feeding you?" },
-        { id = "h_again2", text = "Anything else? I've time, there's not much to hammer without metal." },
+        { id = "h_again", text = "What else can I do for ye, short of feeding ye?" },
+        { id = "h_again2", text = "Anything else? I've time, aye, for there's not much to hammer without metal." },
       },
       choices = {
         { text = "Why did you leave the dig in such a hurry?", next = "dig" },
         { text = "Who is Feranor Steeltoe?", next = "feranor" },
-        { text = "What do you need for the camp?", next = "needs" },
+        { text = "This camp looks short of nearly everything.", next = "needs" },
         { text = "What do you make of the Badlands?", next = "land" },
         { text = "Teach me something about the forge.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "I could hunt you something to eat.", next = "xhunt", when = { class = { "HUNTER", "DRUID" } } },
@@ -142,7 +143,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you need salt?", next = "needs_salt" },
-        { text = "What would you build with the scrap?", next = "needs_build" },
+        { text = "That scrap could make something useful.", next = "needs_build" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -202,8 +203,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "Ironforge born, Feranor Steeltoe's apprentice, and now the camp smith at a dig nobody's digging. It's been a strange year." } },
+    background = { { id = "tp_ba", text = "I'm Ironforge born and Feranor Steeltoe's apprentice, and now I'm the camp smith at a dig nobody's digging. It's been a strange year, and not one I'd drink to." } },
     advice = { { id = "tp_ad", text = "Never leave a dig without your supper, friend, because the ogres won't save you any." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you, friend; I know steel and sand, and lately mostly sand." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real digging is, and I'd go there if I had the gold. Here I just sharpen the shovels." } },
+    magni = { { id = "tp_magni", text = "King Magni's a good king, and I'd make him a sword if I ever got the chance. I've got the design all worked out." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, and I'd learn their secrets if they weren't so busy trying to kill us." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, {g:lad|lass}; I know steel and sand, and lately it's been mostly sand." } },
   },
 }

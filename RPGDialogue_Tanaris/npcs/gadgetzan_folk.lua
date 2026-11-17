@@ -28,6 +28,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_venture = {
+      lines = {
+        { id = "opv_q", text = "Now, the one outfit I'd never let past the vault door is the Venture Company, and I'd like to know if you see it the same way. What do you think of them, pal?" },
+      },
+      choices = {
+        { text = "Butchers and strip-miners. They'd sell the world for scrap.", next = "op_venture_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "They get rich, don't they? Can't argue with results.", next = "op_venture_r2", fx = { affinity = -2, align = { light = -1 }, trait = { greedy = 1 }, opinion = { venture_company = "admire" } } },
+        { text = "They're goblins like you. The difference is the contract.", next = "op_venture_r3", fx = { trait = { witty = 1 }, opinion = { goblins = "contract" } } },
+        { text = "I've no dealings with them, Gimblethorn.", next = "BACK" },
+      },
+    },
+    op_venture_r1 = {
+      lines = {
+        { id = "op_venture_r1", text = "That's the spirit, and that's the right answer for anybody who wants an account here. Venture gold smells of burnt forest, and it never counts right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_venture_r2 = {
+      lines = {
+        { id = "op_venture_r2", text = "Results, sure, and so does a rockslide. I'll be countin' your deposits twice, kid, nothing personal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_venture_r3 = {
+      lines = {
+        { id = "op_venture_r3", text = "Ouch! Okay, fair, the difference is about forty percent and a conscience, but I'll give you the rest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I trust a warrior exactly as far as the Bruisers can throw one, and they're very strong. It's nothing personal, but a sword is a key that fits every lock, and I've spent my life, and a good deal of the Cartel's money, keeping keys away from the vault." } },
@@ -121,8 +156,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_gimblethorn = {
+      lines = {
+        { id = "xalt_gimblethorn_default", text = "I'll tell you what I tell everyone, friend, which is that an account is private, and {alt}'s box is as closed to you as yours is to {alt}. What I can say is that the deposits were regular, which in Gadgetzan is a rarer quality than courage." },
+        { id = "xalt_gimblethorn_other", when = { alt = { faction = "other" } }, text = "A {altrace}, from the other side, and the Cartel keeps that box on the same shelf as yours, three slots apart, which I find very restful. Wars end, friend, but compound interest goes on forever." },
+      },
+      choices = {
+        { text = "Good. A banker should keep every secret, whoever's asking.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "In this town, secrets are for sale like anything else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's all I wanted to know.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" } },
+          text = "Hm, I've a {altrace} on my books by the name of {alt}, from the other side of the war, and the signature looks oddly like yours would, if you signed anything. Both sides bank with the Cartel, friend, and I keep their boxes on the same shelf, which is nobody's business but mine." },
+        { id = "h_alt_same", when = { alt = { faction = "same" }, metBefore = false },
+          text = "{alt} opened a box with me not long ago, and you've the same way of leaning on my counter, which I notice, because counters cost money. A relation, perhaps, or simply a careful sort of customer, and I like those either way." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, friend, but in here the earth is a floor, the Bruisers stand on it, and the Cartel owns it." },
         { id = "h_default", key = true,
           text = "Gimblethorn, banker to the Steamwheedle Cartel in Gadgetzan. Horde gold and Alliance gold weigh the same on my scales, to the grain, and both go in the same vault behind the same Bruisers for the same fee." },
@@ -149,13 +199,13 @@ P:NPC {
       },
       choices = {
         { text = "Is there anything in your vaults a druid should worry about?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Gold comes from the earth. Does the Cartel ever give any back?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Gold comes from the earth, and the Cartel never gives any back.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Open my box, please.", next = "BUSINESS" },
         { text = "Is anything in this town actually safe?", next = "safe" },
-        { text = "Who banks with you?", next = "clients" },
+        { text = "You must keep accounts for half of Tanaris.", next = "clients" },
         { text = "Do the Horde keep their gold beside ours?", next = "both_sides", when = { faction = "Alliance" } },
         { text = "Do the Alliance keep their gold beside ours?", next = "both_sides", when = { faction = "Horde" } },
-        { text = "Has anyone ever robbed your vault?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "A vault like this must tempt a thief or two.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a mage really breach your vault?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Cartel ever spend its gold on the poor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Cartel's gold ever buy anything holy, Gimblethorn?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -163,6 +213,7 @@ P:NPC {
         { text = "What happened with the beast that ate the deposit slip?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Doesn't it bother you to hold the Horde's gold, Gimblethorn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has someone tried to bank something cursed, Gimblethorn?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Tell me about this other customer of yours, Gimblethorn.", next = "xalt_gimblethorn", when = { alt = true } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -186,6 +237,7 @@ P:NPC {
         { id = "bs_default", text = "Side by side, in the same vault, and they've never once started a war down there. If the factions behaved half as well as their gold does, I'd be out of a job guarding it." },
       },
       choices = {
+        { text = "Who would you never let into the vault?", next = "op_venture" },
         { text = "Neutral ground is good for everyone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd sooner not share a roof with them.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -197,6 +249,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I counted coins in Booty Bay until the Cartel needed a careful pair of hands out here, at a slightly better rate, and careful hands are rare in a desert." } },
     advice = { { id = "tp_ad", text = "Out in the dunes, a smart traveler buries half his coin and remembers where, and a smarter one leaves it with me and pays the fee." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the peace because peace is good for business, and the vault is where that business ends up." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's vault is the safest place in the desert, friend, because the Bruisers guard it and the sand guards the Bruisers. I've never lost a coin, and I've counted them all twice." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's vault was my first post, friend, and I learned there that pirates make wonderful depositors and terrible neighbors. Here it's sand thieves, and they're no better." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The adventurers who come back from Zul'Farrak deposit the strangest things, friend, troll idols and cursed coins and once a whole mummified hand. I don't ask, I just log it." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's vault has the coldest coins in the Cartel, friend, and I hear the banker wears mittens to count them. I'd rather count warm ones." } },
     _none = { { id = "tp_none", text = "That isn't something I can put a price on, friend, so I don't know anything about it." } },
   },
 }
@@ -213,7 +269,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird? Mind the sand on the perch, it gets into everything, and the gryphons hate it more than I do." },
+    { id = "g_default", text = "Need a bird, {g:lad|lass}? Mind the sand on the perch, because it gets into everything, and the gryphons hate it even more than this old Dun Morogh lass does." },
   },
 
   notice = {
@@ -223,6 +279,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "I'll not lie to you, there are dwarves in Ironforge who'd box my ears for nodding at an orc. You've seen more of the Horde than I have from this yard, so what do you make of them?" },
+        { id = "oph_q_h", when = { faction = "Horde" }, text = "You're of the Horde yourself, so you'll know them better than any dwarf. Tell me straight what I should make of your lot." },
+      },
+      choices = {
+        { text = "Most of them want what we want: a roof, a meal, no war.", next = "op_horde_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { horde = "mixed" } } },
+        { text = "They're the enemy. Gadgetzan's peace is only goblin coin.", next = "op_horde_r2", fx = { affinity = -1, align = { light = -1 }, opinion = { horde = "war" } } },
+        { text = "Your clan would box your ears, Bera. Mine too.", next = "op_horde_r3", fx = { trait = { witty = 1 }, opinion = { horde = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "We keep our word, Bera, and Bulkrek keeps his.", next = "op_horde_r4", fx = { affinity = 1, opinion = { dwarves = "respect" } }, when = { faction = "Horde" } },
+        { text = "I'll leave that to you and Bulkrek.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "Aye, that's what I see in Bulkrek, though he'd never say it in so many words. Maybe I'll tell him you said so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "The enemy, maybe, back home. Out here the enemy's the sand and the bandits, and I'll fight those first, thank you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "Ha! Aye, they would, and then they'd want to know how his wyverns stay so glossy. Ironforge is a very curious place." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "Then the two of us will keep nodding in the mornings, and the Bruisers can have a quiet life. That suits me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_bera = {
       big = true,
       lines = { { id = "xpt_bera_default", text = "Every day, and twice when the sandstorms come, because there's no wind under the mountain and no sand in your ale. But the gryphons need someone who knows them, and a dwarf goes where the work is and complains about it later." } },
@@ -320,9 +421,9 @@ P:NPC {
         { id = "h_pt_bera", tags = { "news" }, when = { party = { race = "Dwarf" }, faction = "Alliance" },
           text = "Is that a dwarf in your company? {companion} is welcome at my roost, because it's nice to hear a proper accent among all these goblins." },
         { id = "h_default", key = true,
-          text = "Bera Stonehammer, gryphon master for the Alliance in Gadgetzan. I'll get you back to Theramore or Feathermoon, or wherever else your road runs, and if you're Horde, the orc with the wind riders is over there." },
+          text = "Bera Stonehammer, gryphon master for the Alliance in Gadgetzan, and aye, a long way from the snows. I'll get ye back to Theramore or Feathermoon, or wherever else your road runs, and if you're Horde, the orc with the wind riders is over there." },
         { id = "h_horde", when = { faction = "Horde" },
-          text = "My birds won't carry you, I'm afraid, and they bite strangers anyway. Bulkrek keeps the wind riders a little further on, and he'll see you right." },
+          text = "My birds won't carry ye, I'm afraid, and they bite strangers anyway, same as any proper Wildhammer bird. Bulkrek keeps the wind riders a wee bit further on, and he'll see you right." },
         { id = "h_druidcl", when = { class = "DRUID", race = "NightElf" },
           text = "A druid of the Circle! You'll be heading for Feathermoon, I expect, since most of your folk do once they've had a taste of this sand." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -334,14 +435,14 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! My father fought beside your order in the Second War, and he swore he never saw a braver lot, though he also said they snored louder than dwarves." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
-          text = "A warrior of the Alliance! Good, I've a crate of dispatches for Theramore that keeps drawing bandits, and they could stand to meet you." },
+          text = "A warrior of the Alliance! Good, I've a crate of dispatches for Theramore that keeps drawin' bandits, and by my beard they could stand to meet you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll fly you anywhere, but if you could ask the wind to keep the sand out of my birds' feathers, I'd be in your debt." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The birds are restless in this heat." },
+        { id = "h_again", text = "Anything else? The birds are restless in this heat, and frankly so am I; it's no' a dwarf's climate." },
         { id = "h_again2", text = "Go on, then, ask; I've a bucket of water to fetch before the gryphons start complaining." },
       },
       choices = {
@@ -351,12 +452,12 @@ P:NPC {
         { text = "You and the orc get along?", next = "bulkrek" },
         { text = "What do you think of Lady Proudmoore, Bera?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do SI:7 agents fly through Gadgetzan often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Who are the wounded you fly out of Zul'Farrak?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "You must fly a good many wounded out of Zul'Farrak.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the orc across the yard give you any trouble?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Wastewanderers raiding your gryphon crates, Bera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons get on with hunters' beasts, Bera?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock at all, Bera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Does the desert wind trouble your gryphons, Bera?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The desert wind can't be kind to your gryphons, Bera.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do you miss Ironforge out here, Bera?", next = "xpt_bera", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -364,7 +465,7 @@ P:NPC {
     heat = {
       lines = { { id = "he_default", text = "Badly, and they let me know it, because a gryphon is a mountain bird with a mountain bird's opinions. I keep them in the shade and pay the Water Company for their troughs, and that's more water than some folk here drink." } },
       choices = {
-        { text = "Water for birds, in a drought?", next = "heat_water" },
+        { text = "Water for birds, in a drought. That seems a waste.", next = "heat_water" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -381,14 +482,24 @@ P:NPC {
         { id = "bk_default", text = "We share a well and a wall, and we nod in the mornings. The Bruisers make sure that's all we do, though truth be told, he keeps his beasts better than half the gryphon masters I trained with." },
         { id = "bk_dwarf", when = { race = "Dwarf" }, text = "Aye, I know what Ironforge would say about it, and Ironforge isn't here sweating with me. He keeps his beasts well, and that's the measure I use." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "What do you make of the Horde, Bera?", next = "op_horde" },
+        { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
     },
   },
 
   topics = {
     background = { { id = "tp_ba", text = "I've kept gryphons since I was a lass in the snows of Dun Morogh, and the Alliance sent me where the birds were needed. Nobody asked whether I liked sand." } },
     advice = { { id = "tp_ad", text = "Carry water on the flight, because there's none to land for between here and Feralas." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you; ask somebody with less sand in their ears." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught every gryphon master worth their salt, and I'd give my right arm to fly with them once at Aerie Peak. They ride without saddles, ye know, and I've tried it once and regretted it." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni's a fine king, and he'd hate this sand as much as I do. I'd love to see him try to fly a gryphon through a Tanaris storm." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye've come a long way from the mountain too, then, and I'll bet ye miss the snow as much as I do. Raise a mug to the king for me next time ye're in Ironforge." },
+    },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the worst place I've ever kept birds, and the goblins charge me double for water. The gryphons hate it, and I hate it more." } },
+    theramore = { { id = "tp_theramore", text = "The Theramore flight's the best one I've got, over the water and into the marsh, and the birds love it. It's the only cool air they get." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye; ask somebody with less sand in their ears and less ale on their mind." } },
   },
 }
 
@@ -404,6 +515,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_horde_mixed", when = { gossip = { topic = "horde", stance = "mixed" } }, text = "The dwarf says you told her the Horde wants a roof and a meal like anyone. She nodded at me twice this morning, so I suppose I owe you for it." },
     { id = "g_default", text = "You need a wind rider, or you need shade? Both are here; only one is free." },
   },
 
@@ -414,9 +526,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dwarves = {
+      lines = {
+        { id = "opd_q", text = "You've seen me nod at the dwarf. Tell me, traveller: what do you think of the dwarves?" },
+      },
+      choices = {
+        { text = "Stubborn but honest. You could do worse for a neighbour.", next = "op_dwarves_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They fought the Horde in every war. Don't forget it.", next = "op_dwarves_r2", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { dwarves = "distrust" } } },
+        { text = "I'm a dwarf, orc. We remember the Horde too.", next = "op_dwarves_r3", fx = { opinion = { horde = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "I've nothing to say about dwarves.", next = "BACK" },
+      },
+    },
+    op_dwarves_r1 = {
+      lines = {
+        { id = "op_dwarves_r1", text = "Stubborn, yes, and her gryphons are as stubborn as she is. I can work with that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r2 = {
+      lines = {
+        { id = "op_dwarves_r2", text = "I don't forget it. I nod anyway, because the Bruisers are watching, and because she keeps her beasts well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_dwarves_r3 = {
+      lines = {
+        { id = "op_dwarves_r3", text = "Good. Then we remember together, and we keep the wall standing. That's enough for Gadgetzan." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "He'll know by tomorrow, because he knows everything that happens in this yard, and so do I. We nod at each other every morning, and I think he'll nod a little longer when he sees you, since his paladins never smelled like that." } },
+      lines = { { id = "xfpala_default", text = "She'll know by tomorrow, because she knows everything that happens in this yard, and so do I. We nod at each other every morning, and I think she'll nod a little longer when she sees you, since her paladins never smelled like that." } },
       choices = {
         { text = "Nod back to him. Gadgetzan's truce deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "He's Alliance. I'd trust him with nothing.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -519,16 +666,16 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarf across the yard keeps gryphons for paladins, and now I keep wind riders for one too." },
       },
       again = {
-        { id = "h_again", text = "Speak, then. The riders are fed." },
+        { id = "h_again", text = "Speak, then. The riders are fed, and an orc does not waste a fed rider's patience." },
         { id = "h_again2", text = "More? The heat makes orcs short-tempered, but I will listen." },
       },
       choices = {
         { text = "How do the wind riders take this desert wind?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
-        { text = "Do the wind riders take to the desert?", next = "druid_q", when = { class = "DRUID", race = "Tauren" } },
+        { text = "Your wind riders seem to have taken to the desert.", next = "druid_q", when = { class = "DRUID", race = "Tauren" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do the wind riders take the heat?", next = "riders" },
         { text = "Do you trust the goblins here?", next = "goblins" },
-        { text = "You don't trust warlocks, Bulkrek?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You don't seem to trust warlocks, Bulkrek.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What's wrong with looking sly, Bulkrek?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the wounded fly out through you, Bulkrek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your wind riders really bite weak riders, Bulkrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -555,6 +702,7 @@ P:NPC {
         { id = "g_orc", when = { race = "Orc" }, text = "Every orc remembers the camps, or the stories of them, so you know what it means to nod at a dwarf each morning and not reach for an axe. I've done it for a year now, and some days I even mean the nod." },
       },
       choices = {
+        { text = "What do you think of dwarves?", next = "op_dwarves" },
         { text = "Peace with the Alliance is worth keeping.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A truce bought by goblins won't last.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -565,6 +713,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I sat in the camps until Thrall broke them open, and I have flown for the Horde since. Now I fly goblins' customers, and I don't complain where the Warchief can hear." } },
     advice = { { id = "tp_ad", text = "Don't feed the riders from your hand unless you've spare fingers." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief broke the camps open, and I was in one of them. I fly for him, and for nobody else, whatever the goblins think they're paying me for." } },
+    internment = {
+      { id = "tp_internment", text = "I spent years in an internment camp, behind walls and under guards, until the Warchief came. I don't talk about it much, and I don't like being asked." },
+      { id = "tp_internment2", when = { race = "Orc" }, text = "You'd know about the camps yourself, or your elders would. Don't let anyone tell you it made us weak, it taught us to wait." },
+    },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's too hot for the beasts, and too loud for me. But the dwarf across the yard keeps her birds alive, and I respect that." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens shoot at wind riders for sport. I've lost good beasts to their arrows, and I don't forget it." } },
     _none = { { id = "tp_none", text = "I know wind riders and I know the sky. That is neither." } },
   },
 }
@@ -720,11 +875,11 @@ P:NPC {
         { text = "Do you waste any of what you butcher, Dirge?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Where does all your meat come from, Dirge, in a drought?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let's see what you're selling.", next = "BUSINESS" },
-        { text = "Where does the meat come from?", next = "meat" },
+        { text = "That meat didn't come from any farm I know of.", next = "meat" },
         { text = "Greatest living chef? Says who?", next = "boast" },
         { text = "Tell me about these chimaerok chops.", next = "chops", when = { minLevel = 55 } },
         { text = "Any tips for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
-        { text = "What's wrong with conjured food, Dirge?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You seem to have no love for conjured food, Dirge.", next = "xmage", when = { class = "MAGE" } },
         { text = "My imp only wants to admire your work.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever cook for the hungry who can't pay?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where does your meat come from in a drought, Dirge?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -764,7 +919,7 @@ P:NPC {
     chops = {
       lines = { { id = "c_default", text = "My masterpiece, Dirge's Kickin' Chimaerok Chops, and it needs chimaerok tenderloins, which means the Isle of Dread. The beasts there have two heads and both of them bite, so bring friends and come back with fewer bite marks than they do." } },
       choices = {
-        { text = "Who eats chimaerok, anyway?", next = "chops_who" },
+        { text = "I can't think who would eat chimaerok.", next = "chops_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -781,6 +936,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I cooked for pirates, for the Cartel and once for a trogg, who ate the plate and didn't pay for it. Now I cook for Gadgetzan, which is all of those at once." } },
     advice = { { id = "tp_ad", text = "In the desert, salt the meat and not your wounds. Learn that one the easy way." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the perfect town for the greatest chef in Azeroth, pal, because nobody here can cook but me. They line up for my meat every morning." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak tried to steal my recipes once, pal, and I chased them off with a cleaver. They haven't been back." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's cooks are all fish and no flair, pal, and I've told them so. They've thrown things at me, which only proves I'm right." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's food is a crime against cooking, pal, and I've tried to tell Silas so. He offered me a job instead, and I'm still thinking about it." } },
     _none = { { id = "tp_none", text = "If I can't fry it or sell it, pal, then I don't know a thing about it." } },
   },
 }
@@ -929,7 +1088,7 @@ P:NPC {
       },
       choices = {
         { text = "Do your guns frighten the desert beasts?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Does that dune you shoot at ever mind it?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "That dune you shoot at must be sick of you by now.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Guns in a town that bans fighting?", next = "peace" },
         { text = "Dwarven guns or goblin guns?", next = "rivals" },
@@ -938,7 +1097,7 @@ P:NPC {
         { text = "Do you ever think about who your guns are pointed at, Blizrik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a warrior need a gun, Blizrik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes a good hunting rifle in this heat, Blizrik?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Who buys most of your guns, Blizrik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess Horde and Alliance both buy your guns, Blizrik.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has anything ever exploded in your shop, Blizrik?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does it trouble you, selling weapons all day, Blizrik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
@@ -971,6 +1130,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I blew up my first workshop in Ratchet and my second in Booty Bay, so Gadgetzan's got lots of open space, which I appreciate, and cheaper rent, which I appreciate more." } },
     advice = { { id = "tp_ad", text = "Clean the barrel after the sandstorm, pal, not before the next one." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's Bruisers won't let me fire a gun in town, pal, so I fire them into a dune outside. That dune's going to be famous one day." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak don't use guns, pal, which is a shame, because I'd sell them a lot of them. They throw axes, and that's a much worse business model." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay lets you fire a gun indoors, pal, which is why I left after the second fire. Gadgetzan's got rules, but at least the buildings are made of stone." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where I blew up my first workshop, pal, and Gazlowe still sends me the bill every year. I've told him I'll pay when I'm rich." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, but if it needs shooting, I know a goblin, and he's got a sale on." } },
   },
 }
@@ -1146,14 +1309,14 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at a kaldorei's anvil. Your people learned the forge from the stone and I learned it from the moon, so watch and tell me which of us the fire prefers." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk while the iron heats." },
+        { id = "h_again", text = "What else? I can talk while the iron heats, and my people have never thought conversation a thing to rush." },
         { id = "h_again2", text = "Ask on. The forge is patient, and so am I." },
       },
       choices = {
         { text = "What do you need from Zul'Farrak, Trenton?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The Sandfury temper their steel with more than fire. What do they use?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
-        { text = "What is troll temper, exactly?", next = "temper" },
-        { text = "What's Zul'Farrak like?", next = "zf" },
+        { text = "What do the trolls have that you need?", next = "temper" },
+        { text = "Zul'Farrak sounds like a place to stay clear of.", next = "zf" },
         { text = "A night elf working steel?", next = "kaldorei" },
         { text = "Tell me what a smith wants with trolls.", next = "smith_talk", when = { profession = "Blacksmithing" } },
         { text = "Not every mage follows the Highborne's road.", next = "xmage", when = { class = "MAGE" } },
@@ -1163,7 +1326,7 @@ P:NPC {
         { text = "What can you tell from my hammer, Trenton?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever think about what your weapons are used for, Trenton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll bring you their temper.", next = "END", when = { questBefore = TODO_QUEST("Troll Temper") }, fx = { affinity = 2 } },
-        { text = "What do the Zul'Farrak trolls have that a smith needs?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The Zul'Farrak trolls must have something a smith wants.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's wrong with my fletching for the desert wind, Trenton?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does the forge's fire answer you, Trenton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Sandscalp is dead, Trenton. Does that help your work or hurt it?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
@@ -1171,9 +1334,9 @@ P:NPC {
       },
     },
     temper = {
-      lines = { { id = "t_default", text = "A troll quenching draught, made in vials and carried by their warriors. Steel quenched in it holds an edge longer than anything I can mix here, and I've tried every recipe a goblin will sell me." } },
+      lines = { { id = "t_default", text = "Troll temper, a quenching draught, made in vials and carried by their warriors. Steel quenched in it holds an edge longer than anything I can mix here, and I've tried every recipe a goblin will sell me." } },
       choices = {
-        { text = "So the trolls are better smiths?", next = "temper_better" },
+        { text = "So the trolls are better smiths than you.", next = "temper_better" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1214,7 +1377,11 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I left Kalimdor's forests for its forges, and the forges led me here, to sand and goblins and patience." } },
-    advice = { { id = "tp_ad", text = "Keep your edge oiled in the desert. The sand eats a dry blade." } },
+    advice = { { id = "tp_ad", text = "Keep your edge oiled in the desert. The sand eats a dry blade faster than the centuries eat anything but a kaldorei's memory." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak work metals the old way, with blood and fire and things I don't care to name. I'd like to learn their methods, and I'm patient enough to wait for the chance." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got good forges and better customers, and the goblins pay well for good work. The sand gets into everything, but steel doesn't mind." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons forge with fire from below, and their work is the finest and cruelest I've seen. I'd study it if I could do it without selling my soul." } },
+    silithid = { { id = "tp_silithid", text = "The silithid carapaces are harder than most iron, and I've tried to work one. It took a week, and I'm still not sure I did it right." } },
     _none = { { id = "tp_none", text = "I can't say, though if it's made of metal I'll look at it." } },
   },
 }
@@ -1369,6 +1536,8 @@ P:NPC {
           text = "The egg, mon, the ancient egg! The tablets told us where to look, so be gentle when you find it, because old things break easily." },
         { id = "h_godhakkar", tags = { "news" }, when = { questActive = TODO_QUEST("The God Hakkar") },
           text = "Take the egg into the sunken temple of Atal'Hakkar, and let it drink what it was made to drink. Then bring it back to Yeh'kinya, mon, and we'll keep that power safe together." },
+        { id = "h_bloodgod_resolved", tags = { "news" }, when = { thread = { id = "blood_god", state = "resolved" } },
+          text = "The Soulflayer is fallen in Zul'Gurub, mon, and the Zandalar are singing about it all down the coast. Yeh'kinya will drink to that, though he notices nobody thought to ask what the Soulflayer knew before they cut him down." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, mon. The spirits around you are green and noisy, and Yeh'kinya can hear them even through the drink." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -1391,17 +1560,17 @@ P:NPC {
       },
       choices = {
         { text = "What do the spirits of Tanaris say, Yeh'kinya?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who is Hakkar?", next = "hakkar" },
-        { text = "Why study him at all?", next = "why" },
+        { text = "Which of the troll gods do you study?", next = "hakkar" },
+        { text = "Why study the old gods at all?", next = "why" },
         { text = "Why live among goblins at a port?", next = "port" },
-        { text = "My elders never spoke of the Soulflayer.", next = "darkspear", when = { race = "Troll" } },
-        { text = "Do you think Hakkar is still a danger?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My elders never spoke of such gods.", next = "darkspear", when = { race = "Troll" } },
+        { text = "Is the Atal'ai god still a danger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you put stock in book magic, Yeh'kinya?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there something you need taken, old one?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Which loa should a priest fear in Tanaris, Yeh'kinya?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you mourn the Sandfury trolls I've fought, Yeh'kinya?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What were the old ways of the troll hunters, Yeh'kinya?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Why study Hakkar if he's so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why study gods so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are all your people's gods terrible, Yeh'kinya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I've been to the bottom of the Sunken Temple, Yeh'kinya.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "What stories should a troll know, Yeh'kinya?", next = "xpt_yehkinya", when = { party = { race = "Troll" } } },
@@ -1410,11 +1579,11 @@ P:NPC {
     },
     hakkar = {
       lines = {
-        { id = "hk_default", text = "The Soulflayer, a blood god the old Gurubashi served long ago, until the tribes turned on his priests and his temple sank into a swamp far across the sea. There's a prophecy among my people that he'll come back one day." },
+        { id = "hk_default", text = "Hakkar the Soulflayer, a blood god the old Gurubashi served long ago, until the tribes turned on his priests and his temple sank into a swamp far across the sea. There's a prophecy among my people that he'll come back one day." },
         { id = "hk_done", when = { questDone = TODO_QUEST("Screecher Spirits") }, text = "You've heard the start of it already, mon. Some trolls say his return means glory for our people, and others say it means the end of everything, and Yeh'kinya listens to both." },
       },
       choices = {
-        { text = "And what do you believe?", next = "hakkar_believe" },
+        { text = "I'd like to know what you believe.", next = "hakkar_believe" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1454,6 +1623,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An old troll from the old jungles, mon, with too much drink in him and too many stories." } },
     advice = { { id = "tp_ad", text = "Never wake something just to see if it's sleeping, mon." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The Sandfury in Zul'Farrak be cruel, mon, and their priests be crueler, and they keep a hydra in their pool like a pet. Yeh'kinya was young once in a place like that, and he got out." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar be the Soulflayer, mon, the blood god, and the Gurubashi be calling him back at Zul'Gurub. Yeh'kinya don't believe in him, but Yeh'kinya don't want to meet him either." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai in the Sunken Temple be trying to call Hakkar too, mon, in the swamp across the sea. Yeh'kinya know a thing or two about stopping them, if you be willing." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be good trolls, mon, better than the Sandfury or the Gurubashi. They remember what loyalty be, and that be rare in our people." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be a good chief, mon, and wise, and he keep his people out of the old madness. Yeh'kinya respect that." } },
     _none = { { id = "tp_none", text = "The spirits don't say, mon, and Yeh'kinya doesn't guess." } },
   },
 }

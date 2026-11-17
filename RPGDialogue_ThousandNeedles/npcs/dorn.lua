@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_nook", text = "You've found the Nook. Most walk right past it, which tells me something about you already." },
+    { id = "g_nook", text = "You've found the Nook. Most walk right past it, as most walk past the Earth Mother's quieter gifts, which tells me something about you already." },
     { id = "g_faith", when = { questActive = TODO_QUEST("Test of Faith") }, text = "The planks overlook the Needles. Step off them, if you have faith." },
     { id = "g_endurance", when = { questActive = TODO_QUEST("Test of Endurance") }, text = "The Roguefeather Den, west of Freewind. Take friends, and bring me Grenka's claw." },
     { id = "g_strength", when = { questActive = TODO_QUEST("Test of Strength") }, text = "Your body has endured. Now show me it can overcome." },
@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "So you've sought me out, or perhaps something brought you to me. Many facets make up a being: the spirit, the body and the mind. I test them, if you'll let me." },
+        { id = "h_default", key = true, text = "So you've sought me out, or perhaps something brought you to me. Many facets make up a being: the spirit, the body and the mind. I test them, if you'll let me, and those who fail learn how vast the Nether is." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Test of Faith") },
           text = "If you agree, I'll test some of the facets within you. Pass, and you'll grow stronger, and fail, and you'll learn how vast the Nether is. The first test is of faith, and it begins at the edge of those planks." },
         { id = "h_faith_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Test of Faith"), days = 3 } },
@@ -46,12 +46,12 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask carefully; the questions are a test too." },
-        { id = "h_again2", text = "Go on. The Nook is quiet, and so am I." },
+        { id = "h_again2", text = "Go on. The Nook is quiet, and so am I, and the wind in the Needles is in no hurry either." },
       },
       choices = {
         { text = "Why test anyone at all?", next = "why" },
         { text = "Tell me about the leap.", next = "leap" },
-        { text = "What comes after the tests?", next = "after" },
+        { text = "Something must come after the tests.", next = "after" },
         { text = "You said failing teaches the vastness of the Nether?", next = "nether" },
         { text = "I took the leap. Why did I live?", next = "lived", when = { questDone = TODO_QUEST("Test of Faith") } },
         { text = "I'm ready to be tested.", next = "BUSINESS" },
@@ -59,7 +59,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Some facets a people's traditions can measure, and some we can only hope are there. My tests are for the second kind, the things a tribe can't see in you and you might not see in yourself." } },
+      lines = { { id = "w_default", text = "Some facets a people's traditions can measure, and some we can only hope are there. My tests are for the second kind, the things the elders can't see in you and you might not see in yourself, as the Earth Mother sees the seed before the grass." } },
       choices = {
         { text = "And what if I don't believe in any of it?", next = "believe" },
         { text = "Something else, Dorn.", next = "BACK" },
@@ -108,6 +108,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a tauren who sits in a cave and tests travelers. Where I came from matters less than where you're going." } },
     advice = { { id = "tp_ad", text = "When you don't know what's below you, step anyway, but step on purpose." } },
-    _none = { { id = "tp_none", text = "That's not one of the facets I test. Ask at Freewind Post." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother tests every one of her children, and I only pass her tests along. Spirit, body and mind, and she watches how you take each one." } },
+    cairne = { { id = "tp_cairne", text = "Cairne passed every test the Earth Mother set him, and he still says he is learning. That is the answer to the third test, though I would not tell you which one that is." } },
+    centaur = { { id = "tp_centaur", text = "The Galak believe the canyons belong to them, and they test anyone who walks here with a spear. Their tests are simpler than mine, and much less kind." } },
+    razorfen = { { id = "tp_razorfen", text = "The quilboar warrens at the canyon's northern edge have grown cold, and the dead walk among the thorns now. Whoever passes my tests may find a harder one waiting there." } },
+    _none = { { id = "tp_none", text = "That's not one of the facets I test. Ask at Freewind Post, and walk with the Earth Mother on the way." } },
   },
 }

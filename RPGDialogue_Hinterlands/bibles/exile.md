@@ -13,7 +13,7 @@
 ## Identity
 TODO_NPC("Atal'ai Exile") · Shadra'Alor, Hinterlands · neutral · jungle troll · exiled priest
 Personality: grave, bitter, perceptive, devout in a broken way.
-Speech: formal, measured, almost no dialect (as in his quest text); "stranger".
+Speech: formal, measured, almost no dialect (as in his quest text), but a troll's world: the loa, the spirits of his fathers, the Atal'ai hymns, a rare "be"; "stranger".
 Relationships: Jammal'an (former leader, enemy), Fel'Zerul (Stonard), the Witherbark (reluctant hosts).
 Never says: anything about Hakkar's later return in Zul'Gurub.
 

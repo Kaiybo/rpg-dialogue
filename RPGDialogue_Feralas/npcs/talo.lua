@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_war_trust", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Rok Orhan tells me you think well of the Warchief. So do I, young one. Thrall's orcs stood with us when the centaur hunted us across the plains." },
     { id = "g_default", text = "Sit, young one. An elder's stories are long, but they are rarely wasted." },
     { id = "g_north", when = { questActive = TODO_QUEST("Vengeance on the Northspring") }, text = "Their wings are black as night, so do not take your eyes from them, or they vanish into the dark." },
     { id = "g_heart", when = { questDone = TODO_QUEST("Dark Heart") }, text = "I keep her heart beside my bedroll, and I sleep better for it. That is your doing." },
@@ -49,12 +50,12 @@ P:NPC {
           text = "The elf mage hides among the satyrs in the old city's broken quarter. Bring me her web, so its stolen magic can be let go into the wild again." },
       },
       again = {
-        { id = "h_again", text = "Another question? Good, an elder likes to be asked." },
+        { id = "h_again", text = "Another question? Good, an elder likes to be asked, as the old grass likes the rain." },
         { id = "h_again2", text = "Go on. The fire is warm and I have nowhere to be." },
       },
       choices = {
         { text = "What happened with the harpies?", next = "ambush" },
-        { text = "Who is Edana Hatetalon?", next = "edana" },
+        { text = "I've heard the name Edana Hatetalon.", next = "edana", when = { any = { { questActive = TODO_QUEST("Dark Heart") }, { questDone = TODO_QUEST("Vengeance on the Northspring") } } } },
         { text = "What makes a good hunter, elder?", next = "hunting" },
         { text = "Tell me one of your stories.", next = "story" },
         { text = "I am a hunter too. Teach me something.", next = "teach", when = { class = "HUNTER" } },
@@ -64,7 +65,7 @@ P:NPC {
       },
     },
     ambush = {
-      lines = { { id = "a_default", text = "I was in the forest, sharpening my blade after a hard fight, when they came down out of the trees. They surrounded me, and I barely dragged myself to safety, and even now I can hear their cries." } },
+      lines = { { id = "a_default", text = "I was in the forest, sharpening my blade after a hard hunt, when they came down out of the trees like a black storm over the plains. They surrounded me, and I barely dragged myself to safety, and even now I can hear their cries." } },
       choices = {
         { text = "Were you badly hurt?", next = "ambush_hurt" },
         { text = "Something else.", next = "BACK" },
@@ -116,7 +117,7 @@ P:NPC {
     story = {
       lines = { { id = "st_default", text = "When I was young, I tracked a great cat through these hills for six days, and on the seventh I found it watching me from a branch above my head. It had been hunting me the whole time, and it let me go." } },
       choices = {
-        { text = "Why did it let you go?", next = "story_why" },
+        { text = "It let you go, for some reason.", next = "story_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,7 +130,7 @@ P:NPC {
       choices = { { text = "I'll remember, elder.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     after = {
-      lines = { { id = "af_default", text = "I have held her heart and felt how cold it is, and now I know. You did here what I could not, and I will keep that heart in memory of it." } },
+      lines = { { id = "af_default", text = "I have held her heart and felt how cold it is, and now I know. You did here what I could not, and I will keep that heart in memory of it, and tell your name to the ancestors when I go to them." } },
       choices = { { text = "Rest easy now, Talo.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -137,6 +138,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter of Thunder Bluff once, and an elder of Mojache now. The space between those two is a story about harpies." } },
     advice = { { id = "tp_ad", text = "Always know your enemy. Learn what makes it strong before you learn what makes it bleed." } },
-    _none = { { id = "tp_none", text = "That is not among my stories, young one. Ask someone younger, who goes out more than I do." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof gave our people a home on the mesas, and when I am old and done hunting, I will go back to Thunder Bluff and sit at his fire. That day is closer than it was." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sent me the harpies to teach me humility, I think, and I learned it. I would have preferred a gentler teacher." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem are tauren who have forgotten that the land is shared. They camp in the hills of Feralas and would rather see us gone than see us thrive." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The great ruin north of here belonged to the night elves' ancestors, and now the ogres keep it. The spirits there are not at peace, and I do not hunt near it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur have harried our people since before Thunder Bluff was ours. They are fierce, and they are cruel, and they do not forget a slight." } },
+    _none = { { id = "tp_none", text = "That is not among my stories, young one. Ask someone younger, who goes out more than I do, and walk with the Earth Mother." } },
   },
 }

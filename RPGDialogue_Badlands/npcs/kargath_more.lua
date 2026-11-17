@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You walked in from the west, and you didn't look behind you once. Remember to do that next time." },
-    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, so the Badlands haven't eaten you yet. Give them time." },
+    { id = "g_default", text = "You walked in from the west, and you didn't look behind you once. An orc who forgets the back trail dies with an arrow in it, so remember that next time." },
+    { id = "g_back", when = { metBefore = true }, text = "Still breathing, I see, so the Badlands haven't eaten you yet. Give them time, {class}; this rock is patient, and it is hungry." },
     { id = "g_coyotes", when = { questActive = TODO_QUEST("Coyote Thieves") }, text = "The coyotes were at the sacks again last night, so I hope you've brought me jaws." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you still walked in without looking behind you. Some things don't change, I suppose." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody caught you in a lie here in Kargath. Out in the Badlands people remember the liars longer than the dead, so watch yourself." },
@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Keep your robes out of the gullies, because the thorns out here shred cloth and the basilisks love an easy target." },
         { id = "h_default", key = true,
-          text = "Neeka Bloodscar, head scout of Kargath. I know every gully between here and the Gorge, and I can tell you which of them you'll die in, if you'd like to know before you go." },
+          text = "Neeka Bloodscar, head scout of Kargath, and I earned the scar before I earned the name. I know every gully between here and the Gorge, and I can tell you which of them you'll die in, if you'd like to know before you go." },
         { id = "h_from_helgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Neeka Bloodscar") },
           text = "Helgrum sent you, did he? He'd have come himself if he could find his way through the Badlands without running in circles, so sit, and I'll write him something worth the trip back." },
         { id = "h_report", when = { questActive = TODO_QUEST("Report to Helgrum") },
@@ -123,16 +123,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Something else? Ask it quickly, because the light's going and I scout at dusk." },
         { id = "h_again2", text = "Go on, then. I'm listening, and I'm watching the ridge while I do it." },
-        { id = "h_again3", text = "More questions? You'd make a poor scout, but a decent clerk." },
+        { id = "h_again3", text = "More questions? You'd make a poor scout, but a decent clerk, and the Horde needs both, I suppose." },
       },
       choices = {
         { text = "What else stalks these gullies, Neeka?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Could my ghost wolf keep pace with your scouts, Neeka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where would a spellcaster be most use to your scouts, Neeka?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "What does a head scout do out here?", next = "scouting" },
-        { text = "Something's stealing your food?", next = "coyotes" },
-        { text = "Helgrum in Stonard speaks well of you.", next = "helgrum" },
-        { text = "What's the most dangerous thing in the Badlands?", next = "danger" },
+        { text = "A head scout must have a lot of ground to watch.", next = "scouting" },
+        { text = "Is anything troubling the camp?", next = "coyotes" },
+        { text = "Helgrum in Stonard speaks well of you.", next = "helgrum", when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questDone = TODO_QUEST("Neeka Bloodscar") } } } },
+        { text = "I'd guess the ogres are the worst danger out here.", next = "danger" },
         { text = "A hunter could help you track, Neeka.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "My people were runners on the plains of Mulgore.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Teach me to read the ground, Neeka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -148,7 +148,7 @@ P:NPC {
         { id = "sc_default", text = "I watch the dwarves at their digs, the Dark Irons in the Gorge, and the ogres who don't care who wins. Then I write it down and send it south to Stonard, because Thrall wants both outposts to know what the other sees." },
       },
       choices = {
-        { text = "Why send it south and not to Orgrimmar?", next = "scouting_south" },
+        { text = "Orgrimmar seems the likelier place to send it.", next = "scouting_south" },
         { text = "The dwarves at their digs?", next = "scouting_dwarves" },
         { text = "Something else.", next = "BACK" },
       },
@@ -242,7 +242,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll find your den before nightfall.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Something's stealing your food?", next = "coyotes" },
+        { text = "Is anything troubling the camp?", next = "coyotes" },
       },
     },
     k_tauren = {
@@ -262,7 +262,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I was tracking before Kargath had a wall, and I'll be tracking after it falls down. Ask Helgrum about me; he'll exaggerate in my favor.", next = "helgrum" } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you need and look behind you every hundred paces. Nothing in the Badlands comes at you from the front." } },
     uldaman = { { id = "tp_uld", text = "Old dwarven ruins in the eastern hills, and the Explorers' League digging at them like they'd lost their keys there. I watch, I write it down, I don't go in." } },
-    _none = { { id = "tp_none", text = "If it isn't on my maps, it isn't worth knowing, or it's already dead." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me here to scout, and I've done it well. He doesn't need to know more than that." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock in the Spire watch the road as closely as we watch them. I've seen their scouts on the ridges." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens taught me to track, because they're the only thing faster than me. I learned the hard way." } },
+    _none = { { id = "tp_none", text = "If it isn't on my maps, then it isn't worth knowing, or some orc has already killed it." } },
   },
 }
 
@@ -336,7 +339,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Frighten? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." } },
+      lines = { { id = "xlock_default", text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." } },
       choices = {
         { text = "My enemies' souls serve me better than the spirits.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I take only what I must, Jarkal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -408,14 +411,14 @@ P:NPC {
         { text = "Why gather in a land this poor, Jarkal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Badlands are hard country, and a good place for a warrior.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you need from the Badlands?", next = "reagents" },
-        { text = "What's this about a necklace?", next = "necklace" },
+        { text = "Is there anything in Uldaman you're after?", next = "necklace" },
         { text = "Why does a Darkspear live above an orc inn?", next = "upstairs" },
         { text = "I know my way around an alchemy table.", next = "k_alchemy", when = { profession = "Alchemy" } },
         { text = "The loa would frown on your bargaining, cousin.", next = "k_troll", when = { race = "Troll" } },
         { text = "Where do the best poison reagents grow, Jarkal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Do my soul shards frighten you, Jarkal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "My soul shards seem to make you uneasy, Jarkal.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Which beasts do you need for your potions, Jarkal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Are your potions really as good as a priest's prayers, Jarkal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "I doubt a potion mends as well as a prayer.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does a mage want with rock elemental shards, Jarkal?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you sell potions to a Forsaken paladin, Jarkal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the bottom of Uldaman, Jarkal.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Horde" } },
@@ -481,7 +484,7 @@ P:NPC {
         { id = "up_default", text = "Because Shul'kar's floor be the only one in Kargath that don't shake when the grunts march by, and the potions don't like shaking. And the stew come up the stairs every night, mon, which be the real reason." },
       },
       choices = {
-        { text = "Does Shul'kar mind the smell?", next = "upstairs_smell" },
+        { text = "Shul'kar can't be fond of that smell.", next = "upstairs_smell" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -528,6 +531,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "Jarkal come with the Expeditionary Force because soldiers need potions and soldiers pay. Simple, mon." } },
     advice = { { id = "tp_ad", text = "Never drink a potion you didn't see poured. Even Jarkal's, mon, though Jarkal's be the safest you'll find." } },
     uldaman = { { id = "tp_uld", text = "The best fungus in the Badlands grows in the dark under those ruins, and so do the troggs. Go for the fungus, mon, and leave the troggs to somebody else.", next = "reagents" } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be the chief of the Darkspear, mon, and Jarkal be proud to call him chief. He keep the trolls out of the old madness." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be the best of the trolls, mon, because we remember loyalty. Jarkal never forget it." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be home, mon, before the sea witch drove us out. Jarkal hope to see them again someday." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi in Zul'Gurub be calling on Hakkar, mon, and that be bad for every troll. Jarkal would like to sell them a potion for stupidity." } },
     _none = { { id = "tp_none", text = "Don't know it, mon, and if Jarkal can't sell it or brew it, Jarkal don't care." } },
   },
 }
@@ -544,8 +551,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're flying, say where, and if you're not, stand out of the shade, because the riders want it." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, and the riders remember your smell. Don't take that as a compliment." },
+    { id = "g_default", text = "If you're flying, say where, and if you're not, stand out of the shade, because the riders want it and they don't care whose blood you carry." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and the riders remember your smell. Don't take that as a compliment, {class}; they remember a dead coyote's smell too." },
   },
 
   notice = {
@@ -646,7 +653,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Leave your demon outside the pen, because the riders would sooner bite it than fly near it, and so would I." },
         { id = "h_default", key = true,
-          text = "Gorrik, wind rider master of Kargath. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
+          text = "Gorrik, wind rider master of Kargath, and I've flown for the Horde since the Warchief first tamed these beasts. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
         { id = "h_noon", when = { timeOfDay = "day" },
           text = "Midday's the worst of it, because the rocks are hot enough to cook on and the riders won't leave the shade. You'll fly when they're ready, not before." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -665,9 +672,9 @@ P:NPC {
         { text = "Shall I ask the air spirits for a cooler wind, Gorrik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your riders mind carrying spellcasters, Gorrik?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders take the heat?", next = "heat" },
-        { text = "Which route is the hardest?", next = "routes" },
+        { text = "Some of these routes must be harder than others.", next = "routes" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
-        { text = "Could a little frost keep your riders from cooking, Gorrik?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A little frost might keep your riders from cooking, Gorrik.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Has anyone really tried to stow away?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your wind riders carry many warriors?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your riders really bite hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -680,7 +687,7 @@ P:NPC {
         { id = "he_default", text = "Badly, and they let me know it by biting. They were raised in the Barrens, where the heat's dry and honest, and out here it comes up off the stone and cooks them from below." },
       },
       choices = {
-        { text = "Can't you shelter them better?", next = "heat_shelter" },
+        { text = "They need better shelter than this.", next = "heat_shelter" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -701,8 +708,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I raised wind riders in the Barrens before the Warchief sent me here. I miss the Barrens, and so do they." } },
+    background = { { id = "tp_ba", text = "I raised wind riders in the Barrens before the Warchief sent me here, and an orc goes where Thrall points. I miss the Barrens, though, and so do they." } },
     advice = { { id = "tp_ad", text = "Never stand behind a wind rider, and never feed one from your hand. You'll want your fingers later." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built the wind rider routes, and I keep them running. My beasts hate the heat, and I hate it more." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens shoot at my beasts for sport, and I don't forgive them for it." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's hotter than the Badlands, they say, and I'd like to see it before I believe it." } },
     _none = { { id = "tp_none", text = "Ask somebody on the ground, because I only know what's under the clouds." } },
   },
 }
@@ -719,7 +729,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Waterskins, bandages, food that won't spoil in the heat. That's what you need, so buy it. The jerky's coyote, but nobody's died of it yet that I know of." },
+    { id = "g_default", text = "Waterskins, bandages and food that won't spoil in the heat are what a warrior needs out here, so buy them. The jerky's coyote, but nobody's died of it yet that I know of." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more water? Good, because the ones who don't come back for water don't come back at all." },
   },
 
@@ -809,7 +819,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Your demon doesn't eat my food, I hope, because I count every ration and I'll know." },
         { id = "h_default", key = true,
-          text = "Grawl, general goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, so I don't waste it, and I'd rather you didn't either." },
+          text = "I'm Grawl, and I keep the goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, and I ate camp gruel too long to waste a crumb of it, so I'd rather you didn't either." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll want arrows, and I've a crate, but the next one won't come over the Gorge road for weeks, so don't waste them on buzzards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and probably here to tell me the land's suffering. I know it's suffering, I live in it, so either buy something or tell me something I don't know." },
@@ -825,10 +835,10 @@ P:NPC {
         { text = "Could a shaman find water in these Badlands, Grawl?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do spellcasters buy from you out here, Grawl?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you keep supplies out here?", next = "supplies" },
-        { text = "What sells best in Kargath?", next = "sells" },
+        { text = "I'd guess water sells best out here.", next = "sells" },
         { text = "Show me what you have.", next = "BUSINESS" },
-        { text = "Should I conjure water for your grunts, Grawl?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Does much go missing from your stores?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "I could conjure water for your grunts, Grawl.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Your stores must go missing now and then.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why shouldn't I waste arrows on buzzards, Grawl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does a Forsaken paladin need your supplies, Grawl?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
@@ -868,8 +878,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I sold goods in Orgrimmar until the Warchief needed someone out here who wouldn't waste anything. So here I am." } },
-    advice = { { id = "tp_ad", text = "Buy water. Then buy more water. Then come back and buy more." } },
-    _none = { { id = "tp_none", text = "I sell goods, I don't sell answers. Ask Neeka; she knows everything out there." } },
+    background = { { id = "tp_ba", text = "I sold goods in Orgrimmar until the Warchief needed someone out here who wouldn't waste anything. An orc who's been fed through a fence learns that lesson for life, so here I am." } },
+    advice = { { id = "tp_ad", text = "Buy water, then buy more water, and then come back and buy more, because the Badlands kill more grunts than the Dark Irons do." } },
+    _none = { { id = "tp_none", text = "I sell goods, not answers. Ask Neeka, because she knows everything out there that bleeds." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs somebody out here who won't waste anything, so he sent me. I don't waste anything." } },
+    second_war = { { id = "tp_second_war", text = "I sold supplies in the Second War, and the grunts wasted everything then. Not anymore." } },
+    internment = { { id = "tp_internment", text = "The camps taught me what it means to have nothing. Now I make sure the grunts have everything." } },
   },
 }

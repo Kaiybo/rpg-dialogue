@@ -24,6 +24,7 @@ Never says: what exactly he saw beyond the quest's words (innocents tortured as 
 
 ## Authored, not canon
 He watches the north road from the window; he keeps Anton's letters and doesn't answer them; he won't say how long he served.
+- Raleigh: still flinches at warlocks (`prejudice`, class WARLOCK); learned it in the Monastery yard, where the recruits' straw man in a black robe was one day a real prisoner. He knows it's wrong and says so.
 
 ## What he notices
 1. Light: paladins and priests (he was one of the faithful the Crusade used).

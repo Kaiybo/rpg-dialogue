@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_red_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "Oh, it's you! You said I could come back from it. I've been saying it to myself every night since, mostly when the howling starts." },
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
     { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told him, didn't you, and it's fine, really, it's fine." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_red = {
+      lines = {
+        { id = "op_red_a", text = "I d-don't know, that's what I keep asking the trees. The Brotherhood says once you've worn it, you're theirs till you're dead, and the Watch says the same thing from the other side. What do you think, honest? Can a man come back from it?" },
+      },
+      choices = {
+        { text = "Yes. You left. That already counts for something.", next = "op_red_1", fx = { opinion = { defias = "mercy" }, align = { light = 1 }, trait = { kind = 1 }, affinity = 3 } },
+        { text = "No. You chose the mask. You'll answer for it someday.", next = "op_red_2", fx = { opinion = { defias = "hardline" }, align = { light = -1 }, trait = { stern = 1 }, affinity = -2 } },
+        { text = "Depends what you do now. Help the Watch and earn it back.", next = "op_red_3", fx = { opinion = { defias = "sympathetic" }, align = { order = 1 }, trait = { practical = 1 } } },
+        { text = "The nobles put you in that mask. The shame's theirs.", next = "op_red_4", fx = { opinion = { defias = "masons_wronged", stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "That's not my question to answer.", next = "BACK" },
+      },
+    },
+    op_red_1 = {
+      lines = { { id = "op_red_r1", text = "It does? It does. Nobody's ever said that to me, not once, not even me. I'm going to sit here and think about that for a while, if that's all right." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
+    op_red_2 = {
+      lines = { { id = "op_red_r2", text = "I know, I know, I know. I just hoped someone would say different, that's all. You're probably right; you look like someone who's usually right." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
+    op_red_3 = {
+      lines = { { id = "op_red_r3", text = "The Watch? They'd hang me before I opened my mouth. Maybe if you were standing beside me, though, maybe then I could say it." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
+    op_red_4 = {
+      lines = { { id = "op_red_r4", text = "That's what the men in the mine used to say, round the fire. It sounded better there, but it doesn't change what I saw at the Yorgen farm." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I saw things, terrible things. They're still there, every time I close my eyes. Your spirits might chase them away." } },
@@ -120,15 +149,15 @@ P:NPC {
       },
       choices = {
         { text = "What did you see?", next = "saw" },
-        { text = "Why are you hiding?", next = "hiding" },
+        { text = "You look like you're hiding from someone.", next = "hiding" },
         { text = "How did you end up in Duskwood?", next = "mine" },
-        { text = "When did you last eat?", next = "food" },
+        { text = "You look half-starved, Jitters.", next = "food" },
         { text = "I could pray with you.", next = "pray", when = { class = "PRIEST" } },
         { text = "The Brotherhood doesn't forget deserters.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm a druid. Not every beast in the woods is a monster.", next = "druid", when = { class = "DRUID" } },
         { text = "Calm down, Jitters. I'll keep a light burning.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did you see in the woods, Jitters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do the wolves follow you, Jitters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "The wolves seem to follow you everywhere, Jitters.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What you saw in the woods doesn't frighten me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you do if someone came to judge you, Jitters?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What did you see in the woods, Jitters?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -145,12 +174,12 @@ P:NPC {
       choices = {
         { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
-        { text = "Tell me about Sven's wife.", next = "saw_wife" },
+        { text = "Who was at the farm that night?", next = "saw_wife" },
       },
     },
     saw_wife = {
       lines = {
-        { id = "sw_default", text = "She was braver than anyone I've ever known. She told them she knew where the thing was, so they'd take her and leave the children, but they didn't believe her.",
+        { id = "sw_default", text = "Sven's wife was there, and she was braver than anyone I've ever known. She told them she knew where the thing was, so they'd take her and leave the children, but they didn't believe her.",
           fx = { learn = { "dark_riders" } } },
       },
       choices = {
@@ -194,7 +223,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened?", next = "mine_worgen" },
-        { text = "Working men. Defias?", next = "mine_defias" },
+        { text = "Working men. Defias, I'd wager.", next = "mine_defias" },
       },
     },
     mine_worgen = {
@@ -214,6 +243,7 @@ P:NPC {
           fx = { learn = { "defias" } } },
       },
       choices = {
+        { text = "Do you think a man can take the red off again?", next = "op_red" },
         { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "The Night Watch should know.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 } } },
       },
@@ -244,7 +274,7 @@ P:NPC {
       choices = {
         { text = "It isn't a trade. Pray anyway.", next = "pray_together" },
         { text = "The Light heard you, Jitters.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Prayers don't stop riders, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Prayers won't keep you safe, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     pray_together = {
@@ -290,5 +320,9 @@ P:NPC {
     dark_riders = { { id = "tp_riders", text = "Don't say it so loud, they're still looking, I know they're still looking." } },
     night_watch = { { id = "tp_watch", text = "They'd only ask questions, and I don't have good answers, just true ones, which is worse." } },
     _none = { { id = "tp_none", text = "I don't know, I don't know anything, and that's how I've stayed alive this long!" } },
+    raven_hill = { { id = "tp_raven_hill", text = "I live out here near Raven Hill, yes, because nobody comes looking, nobody, not even the people I'm hiding from. The dead don't ask questions, and I like that in a neighbor, mostly." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I knew some masons once, honest men, good men, before Westfall, and I'm not saying more, not one more word about masons. Don't write that down." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade, no, no, I'm never going there, because I'd die there, they'd find me there. Please don't mention it again, please." } },
+    scourge = { { id = "tp_scourge", text = "There are worse things than worgen up north, I've heard, dead men in whole armies, and I'm glad, in a way, because at least they're up north. I'm not glad, I'm only saying." } },
   },
 }

@@ -56,11 +56,22 @@ P:NPC {
       },
       choices = {
         { text = "What happened to Ban'aethal?", next = "banaethal" },
-        { text = "Who was Luminarian?", next = "luminarian" },
-        { text = "How are the refugees managing?", next = "refugees" },
+        { text = "What did Ban'aethal make, before it fell?", next = "luminarian" },
+        { text = "The refugees don't seem to be managing well.", next = "refugees" },
         { text = "Is Zephras safe?", next = "zephras" },
         { text = "I'm glad Resaan's heirloom came home.", next = "heirloom", when = { questDone = TODO_QUEST("The Fate of a Loved One") } },
+        { text = "I rode the Ban'aethal ruins on my Galestrider, hunting what crept in.", next = "xorig_rider", when = { origin = "skyborne_banaethal_rider" } },
         { text = "Take care, Ealaane.", next = "END" },
+      },
+    },
+    xorig_rider = {
+      lines = {
+        { id = "xri_default", text = "You went back in there? Then you've seen it as I never will again, the old streets with the grass grown up between the stones. Did you ever pass the magesmiths' forges, and were any of the doors still standing?" },
+      },
+      choices = {
+        { text = "A few. I kept away from them out of respect.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Most were gone, Ealaane. I'm sorry.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     banaethal = {
@@ -68,7 +79,7 @@ P:NPC {
         { id = "ba_default", text = "The islands began to drift apart a few years ago, and great pieces of Zephras have been breaking away ever since. Ban'aethal went in the night, slowly enough to run and too quickly to take much with us, and we left nearly everything behind." },
       },
       choices = {
-        { text = "Did everyone get out?", next = "resaan" },
+        { text = "I hope everyone got out.", next = "resaan" },
         { text = "What's left of it now?", next = "ruins" },
         { text = "Something else.", next = "BACK" },
       },
@@ -121,11 +132,11 @@ P:NPC {
     },
     luminarian = {
       lines = {
-        { id = "lu_default", text = "The greatest magesmith our people ever had. He came with our ancestors when they fled Kalimdor and worked in the Skyborne Isles for centuries after, and most of the arms and armor you see on Zephras today are still made in his style." },
+        { id = "lu_default", text = "Arms and armor, in the style of Luminarian, the greatest magesmith our people ever had. He came with our ancestors when they fled Kalimdor and worked in the Skyborne Isles for centuries after, and most of the arms and armor you see on Zephras today are still made in his style." },
       },
       choices = {
         { text = "How do you know his work?", next = "luminarian_mark" },
-        { text = "Did he make anything famous?", next = "twins" },
+        { text = "A smith like that must have made something famous.", next = "twins" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,7 +164,7 @@ P:NPC {
         { id = "rf_default", text = "Badly, for the most part. Valanaar has taken in everyone it can, but there's never enough, and some who came from the fallen places have turned to banditry, or to the Al'Aketh, just to eat." },
       },
       choices = {
-        { text = "Can you blame them?", next = "bandits" },
+        { text = "It's hard to blame them.", next = "bandits" },
         { text = "How can I help?", next = "help" },
         { text = "Something else.", next = "BACK" },
       },
@@ -164,8 +175,8 @@ P:NPC {
         { id = "bd_default", text = "I try not to, but it's hard when they rob people who have just as little. The Peacekeepers caught one who'd killed one of their own for windstones, a man whose family escaped Shen'dramar on one of the last skycutters before it broke apart, and they mean to execute him." },
       },
       choices = {
-        { text = "He lost everything. Show him mercy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He killed a Peacekeeper. The law must hold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "He lost everything. Show him mercy.", next = "BACK", fx = { opinion = { zep_bandit = "mercy" }, affinity = 1, align = { light = 1 } } },
+        { text = "He killed a Peacekeeper. The law must hold.", next = "BACK", fx = { opinion = { zep_bandit = "hang" }, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -194,6 +205,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know Ban'aethal, what's left of it, and old craftsmanship. Ask about those." } },
     advice = { { id = "tp_ad", text = "Hold on to the people you love, and if they go back for supplies, go with them." } },
     windstones = { { id = "tp_stones", text = "Men have killed for them since the islands began to fall. That tells you what they're worth now." } },
+    highborne = { { id = "tp_highborne", text = "Our Highborne ancestors made things that outlast us, and I've spent my life learning how they did it. The craft is worthy, whatever we think of the crafters." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds held Ban'aethal up until the night they didn't, and then it fell into the sky. I don't know whether they let go or were made to." } },
+    elune = { { id = "tp_elune", text = "I prayed to the winds the night he went back for supplies, and they gave no answer. Lately I've tried the moon, and she gives no answer either, but she's gentler about it." } },
     _none = { { id = "tp_none", text = "I'm sorry; I've no answer for that. Most of what I knew fell with Ban'aethal." } },
   },
 }
@@ -232,7 +246,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "<He leans heavily on the table.> I was a sailor, you know, before the trouble. The skycutters used to run between all the islands, and then one day it was too dangerous, or so they say, and I've been stuck on this rock ever since." },
-        { id = "h_donaal", text = "<He turns and bellows across the room.> WHAT ARE THEY KEEPING FROM US, DONAAL? <He turns back to you, quite calm.> He knows something; innkeepers always know something." },
+        { id = "h_donaal", text = "<He turns and bellows across the room.> WHAT ARE THEY KEEPING FROM US, DONAAL? <He turns back to you, quite calm.> He knows something; innkeepers always know something, and so did we skycutter men, back when anything still sailed." },
       },
       again = {
         { id = "h_again", text = "Where was I? Oh yes, being ignored. Go on, then." },
@@ -240,8 +254,8 @@ P:NPC {
       },
       choices = {
         { text = "You sailed between the islands?", next = "sailing" },
-        { text = "What did you see in the forest?", next = "forest" },
-        { text = "What do you think you're not being told?", next = "secret" },
+        { text = "Seen anything strange on the isle lately?", next = "forest" },
+        { text = "You don't believe what they tell you, do you?", next = "secret" },
         { text = "I came up on a skycutter from below.", next = "xcame", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I walked the Peacekeepers' line at Shadowgale, Swimmers.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
         { text = "Perhaps you've had enough, Swimmers.", next = "enough" },
@@ -254,7 +268,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the skystreams?", next = "skystreams" },
-        { text = "Why do they call you Swimmers?", next = "name" },
+        { text = "Swimmers seems an odd name for a sailor.", next = "name" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -321,8 +335,8 @@ P:NPC {
         { id = "se_default", text = "The High Order and the Windshapers have their skycutters running again, but I'm grounded, and the elders swear nothing's changed. Something has, and if they won't tell us plain folk what it is, then what are they saving us from, eh?" },
       },
       choices = {
-        { text = "People deserve the truth, even frightening truth.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "The elders know best. Panic helps nobody.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "People deserve the truth, even frightening truth.", next = "BACK", fx = { opinion = { zep_council = "secretive" }, affinity = 2, align = { order = -1 } } },
+        { text = "The elders know best. Panic helps nobody.", next = "BACK", fx = { opinion = { zep_council = "trust" }, affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -373,6 +387,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay out of Shadowgale Forest, unless you want your ankles gnawed." } },
     two_orders = { { id = "tp_orders", text = "They've got skycutters and secrets, and I've got neither. That's the orders for you." } },
     al_aketh = { { id = "tp_aketh", text = "Shaved heads! Why would anyone shave a perfectly good head? Madness, I tell you." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne! Fancy folk, all spells and no seamanship, and not one of 'em could sail a skycutter through a squall. Donaal, another, and don't make that face!" } },
+    the_elements = { { id = "tp_the_elements", text = "The winds used to carry my skycutter between the islands as sweet as you please, and now they won't even fill a sail. Something spooked 'em, mark me, the same thing that haunts Shadowgale." } },
+    elune = { { id = "tp_elune", text = "The moon? She's pretty, I'll grant you, but she never once filled my sails. Donaal, the moon wants a drink, and so do I!" } },
     _none = { { id = "tp_none", text = "<He squints.> Never heard of it, and I've heard of everything, twice." } },
   },
 }
@@ -392,7 +409,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn. Will you have something to drink?" },
+    { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn, the only place in Valanaar where it's polite to keep the windows shut. Will you have something to drink?" },
     { id = "g_home", when = { homeInn = true }, text = "Back home to the Calmbreeze. Your bed's made, more or less." },
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before the Swimmers start in on their ghost stories." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business. He even tipped, which nobody on this isle does." },
@@ -412,15 +429,51 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Donaal Downbreeze, and the Calmbreeze is mine. We've fewer customers than we used to, so I'll thank you for coming in, and I'll thank you double if you don't mind the noise from the corner." },
+        -- Opinion pass: what Valanaar has heard the player say.
+        { id = "h_o_mercy", once = true, when = { gossip = { topic = "zep_bandit", stance = "mercy" } },
+          text = "Half of Valanaar has heard you'd spare the bandit the Peacekeepers are holding. The other half heard it from Swimmers, loudly, so I expect the High Elder has too." },
+        { id = "h_o_hang", once = true, when = { gossip = { topic = "zep_bandit", stance = "hang" } },
+          text = "Word is you'd have the High Elder sign the bandit's sentence. The Peacekeepers drink here, and they've been saying your name kindly, which isn't something I hear often." },
+        { id = "h_o_side", once = true, when = { gossip = { topic = "zep_orders", stance = { "take_side", "both_proud" } } },
+          text = "I hear you've told someone what you think of the orders' quarrel. Do me a kindness and don't repeat it in here, because I've one of each in the corner most nights." },
       },
       again = { { id = "h_again", text = "Anything else? I've glasses to wipe and a sailor to hush." } },
       choices = {
-        { text = "What's the trouble with Swimmers?", next = "swimmers" },
+        { text = "Swimmers looks like a man with troubles.", next = "swimmers" },
+        { text = "How do your customers take to mainlanders?", next = "mainland" },
         { text = "What's good to eat here?", next = "food" },
         { text = "Anything worth seeing in the inn?", next = "crystal" },
         { text = "I'd like a room, please.", next = "BUSINESS" },
         { text = "Just passing through.", next = "END" },
       },
+    },
+    -- Opinion pass: Donaal wants to know if opening the skydocks was wise.
+    mainland = {
+      big = true,
+      lines = { { id = "ml_default", text = "Better than I expected, and worse than the High Elder hoped. Half of them stare and the other half ask whether you breathe the same air we do. You've seen both sides of the clouds, so tell me: were we wise to open the skydocks?" } },
+      choices = {
+        { text = "Yes. Your people can't live alone in the sky forever.", next = "mainland_yes", fx = { opinion = { zep_outsiders = "welcome" }, align = { order = -1 } } },
+        { text = "Be careful. The mainland has wars you don't want.", next = "mainland_no", fx = { opinion = { zep_outsiders = "wary" }, align = { order = 1 } } },
+        { text = "The Kirin Tor will treat your people well.", next = "mainland_kt", when = { faction = "Alliance" }, fx = { opinion = { kirin_tor = "trust" } } },
+        { text = "The tauren are the best friends you could ask for.", next = "mainland_tauren", when = { faction = "Horde" }, fx = { opinion = { tauren = "trust" } } },
+        { text = "Ask me again when I've had a drink.", next = "BACK" },
+      },
+    },
+    mainland_yes = {
+      lines = { { id = "mly_default", text = "That's what I tell myself when the beds are empty. A few more customers and a little less sky, and I'd call it a fair trade." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mainland_no = {
+      lines = { { id = "mln_default", text = "That's what Swimmers says, between drinks, and he's not wrong as often as he's loud. I'll keep the good room for our own folk, then, just in case." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mainland_kt = {
+      lines = { { id = "mlk_default", text = "So the High Order keeps telling everyone, usually at great length. I hope you're right, because the ones who've come back from Dalaran won't stop talking about the libraries." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mainland_tauren = {
+      lines = { { id = "mlt_default", text = "The Windshapers say the same, and the ones who've come back from Mulgore smell of grass and won't stop smiling. I'll take your word for it, and theirs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     swimmers = {
       lines = {
@@ -460,8 +513,11 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I hear everything said at the Calmbreeze, and believe about a third of it." } },
-    _none = { { id = "tp_none", text = "Not that I've heard over the bar, and I hear a good deal over the bar." } },
+    knows = { { id = "tp_knows", text = "I hear everything said at the Calmbreeze, and believe about a third of it. The rest I let the wind carry off." } },
+    _none = { { id = "tp_none", text = "Not that I've heard over the bar, and on an isle this small I hear a good deal over the bar." } },
+    the_elements = { { id = "tp_the_elements", text = "When the winds were with us, the skycutters ran and the inn was full every night. Now it's mostly Swimmers, and Swimmers doesn't pay." } },
+    highborne = { { id = "tp_highborne", text = "Our ancestors were Highborne, and they'd have had servants to wipe these tables. I've got a rag and a sore back." } },
+    elune = { { id = "tp_elune", text = "A few of my guests have taken to raising a cup to the moon. I don't mind what they toast, so long as they pay for the cup." } },
   },
 }
 
@@ -511,12 +567,23 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can stir and talk at once; it's most of the job." },
       },
       choices = {
-        { text = "What kind of recipes do you teach?", next = "recipes" },
-        { text = "Why is crab a delicacy elsewhere?", next = "crab" },
+        { text = "Your recipes must be very old.", next = "recipes" },
+        { text = "Do you cook anything from the shore?", next = "crab" },
         { text = "What grows on Zephras?", next = "produce" },
         { text = "I could tell you about moonberries.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I'll be leaving the isle soon.", next = "xleave", when = { race = "Skyborne" } },
+        { text = "I wove cloaks on your street, Nyalah. Do you remember me?", next = "xorig_cloth", when = { origin = "skyborne_valanaar_clothcrafter" } },
         { text = "Winds be with you, Nyalah.", next = "END" },
+      },
+    },
+    xorig_cloth = {
+      lines = {
+        { id = "xcl_default", text = "Remember you? I still wear the apron you made me, the blue one with hippogryph feathers along the hem, though I've scorched a corner of it on the oven twice. You took windstones from everyone else, but from me you took a pot of stew every week for a season. Do you still trade like that?" },
+      },
+      choices = {
+        { text = "Stew's worth more than stones these days.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Only with friends, Nyalah.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     recipes = {
@@ -615,9 +682,12 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think." } },
+    knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think. A good table is an art like clothcraft, and on Zephras we take our arts seriously." } },
     advice = { { id = "tp_ad", text = "Eat something before you go out there. The last fellow who went to Shadowgale hungry fainted at his first vuldren and was carried home over a Peacekeeper's shoulder, complaining all the way." } },
     windstones = { { id = "tp_stones", text = "They keep my stove hot when the wood runs short. I treat them like gold, because they nearly are." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne ate off silver and never cooked a meal in their lives, and I'd wager their food was dreadful. Mine's better, and I made it from crab and stubbornness." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds used to dry the herbs and fish for us, and now I hang them by the fire and hope. Hard times make clever cooks." } },
+    elune = { { id = "tp_elune", text = "My grandmother had a kaldorei recipe for moon cakes, baked for Elune's feast. I still make them, with whatever we have, and they still taste of her." } },
     _none = { { id = "tp_none", text = "If it isn't food, I'm the wrong person to ask, but come back hungry." } },
   },
 }

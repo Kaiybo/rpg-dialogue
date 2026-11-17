@@ -12,8 +12,9 @@ P:NPC {
     third = "{name} met Apothecary Zamah, the Forsaken apothecary beneath Thunder Bluff's Spirit Rise.",
   },
   greetings = {
+    { id = "o_sylv_admire", when = { opinion = { sylvanas = "admire" } }, text = "I'm told you'd die again for the Dark Lady. How refreshing, among all these cattle who only ever stare." },
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing, and how very temporary." },
     { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and now I'm told the elements speak to you. Do tell them the smell from my workshop is entirely deliberate." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which is more than I can say for most of my samples. Do come in." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The tauren are whispering that one of them believed a tale of yours, and I find that terribly amusing. They're such trusting creatures, aren't they?" },
@@ -27,13 +28,57 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_tauren = {
+      lines = {
+        { id = "opt_q", text = "I'll tell you a secret: I find them fascinating, in the way one finds a very large and very polite cow fascinating. What do you make of our hosts?" },
+      },
+      choices = {
+        { text = "They're the kindest people in the Horde. Mind your manners here.", next = "op_tauren_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { tauren = "admire" } } },
+        { text = "They're slow and sentimental. The Forsaken carry the Horde's real work.", next = "op_tauren_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { tauren = "soft" } } },
+        { text = "They gave your people a home. You owe them for it.", next = "op_tauren_r3", fx = { opinion = { tauren = "respect" } } },
+        { text = "I'm tauren, apothecary, and I'd thank you to stop staring back.", next = "op_tauren_r4", fx = { affinity = 1, trait = { proud = 1 }, opinion = { forsaken = "distrust" } }, when = { race = "Tauren" } },
+        { text = "I'll leave the tauren to speak for themselves.", next = "BACK" },
+      },
+    },
+    op_tauren_r1 = {
+      lines = {
+        { id = "op_tauren_r1", text = "Kind, yes, and kindness is a lovely thing in a host, though a poor defence against anything sharper. I'll mind my manners, since you ask so sweetly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_tauren_r2 = {
+      lines = {
+        { id = "op_tauren_r2", text = "You'd fit nicely in the Undercity, I think. Do keep that opinion off the lifts, though, because the tauren are very large." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_tauren_r3 = {
+      lines = {
+        { id = "op_tauren_r3", text = "We owe the Chieftain, yes, and the Society always pays its debts in the end. How it pays them is another matter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_tauren_r4 = {
+      lines = {
+        { id = "op_tauren_r4", text = "Oh, spirit! Perhaps there's hope for the herd after all. I'll stare a little less, and you may stare a little more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_wc = {
       big = true,
       lines = { { id = "xcl_wc_default", text = "And you came back with all your limbs, which the deviate creatures down there do not usually allow. Serpentbloom grows in those caves and carries a toxin the Society finds very instructive, so a quieter cavern makes my collectors' work a good deal safer. The tauren speak of the place as a wound, and I speak of it as a laboratory, and we are both quite sincere." } },
       choices = {
         { text = "The Society should study it, whatever it finds.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "That place should be healed, Zamah, not harvested.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "What makes the creatures there deviate?", next = "xcl_wc2" },
+        { text = "Something has made the creatures there deviate.", next = "xcl_wc2" },
       },
     },
     xcl_wc2 = {
@@ -126,7 +171,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, here among our tauren friends. How curious. The Society keeps notes on Forsaken who cling to the old Light, and I'm afraid you've just become one." },
         { id = "h_default", key = true,
-          text = "I am Apothecary Zamah, and I represent the Royal Apothecary Society here among our tauren friends. Cairne lets us study, and in return we share our cures, mostly." },
+          text = "I am Apothecary Zamah, and I represent the Royal Apothecary Society here among our tauren friends. Cairne lets us study, and in return we share our cures, mostly, like the ones I brew from serpentbloom." },
         { id = "h_serpent", when = { questActive = TODO_QUEST("Serpentbloom") },
           text = "The serpentbloom grows in the Wailing Caverns, among the druids who've gone wrong down there. Bring me what you can, and mind the fumes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ah, a shaman. The elements are such fascinating subjects, and so very poor at holding still to be studied." },
@@ -137,12 +182,12 @@ P:NPC {
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "You've been to the bottom of the Wailing Caverns, I'm told, and come out unpoisoned, which is remarkable considering what grows down there." },
       },
       choices = {
-        { text = "Do the tauren trust a priest's healing, Zamah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The tauren can't trust a priest's healing much.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
         { text = "What do you want serpentbloom for?", next = "serpent" },
-        { text = "How do the tauren treat you?", next = "tauren" },
+        { text = "I'd guess the tauren don't know what to make of you.", next = "tauren" },
         { text = "What does the Society really study?", next = "society", when = { race = "Undead" } },
-        { text = "Do the spirits of the Pools trouble you, Zamah?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The spirits of the Pools must trouble you, Zamah.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Serpentbloom has other uses, I'd imagine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the tauren mind mages walking their sacred pools?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What bites in the Wailing Caverns, Zamah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -155,12 +200,12 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
-        { id = "h_again2", text = "Ask what you will, child; the healing waters of the Spirit Rise are patient." },
+        { id = "h_again2", text = "Ask what you will. The pools are patient, and so, I've found, is the grave." },
       },
     },
     why = {
       lines = { { id = "w_default", text = "Because Cairne Bloodhoof, bless his enormous heart, spoke for us when the rest of the Horde would sooner have burned us. The tauren believe we can be healed of our curse, and we are happy to let them believe it." } },
-      choices = { { text = "You don't believe you can be healed?", next = "why_heal" } },
+      choices = { { text = "You don't sound like you believe you can be healed.", next = "why_heal" } },
     },
     why_heal = {
       lines = { { id = "wh_default", text = "I believe in study, and the tauren have herbs and spirits we have never examined. Whether that ends in a cure or in something more useful, the Dark Lady will decide." } },
@@ -180,7 +225,10 @@ P:NPC {
     },
     tauren = {
       lines = { { id = "t_default", text = "With courtesy and a good deal of staring. Magatha Grimtotem is the only one who looks at me as though she understands me, which I find rather more worrying than the staring." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And what do you make of them?", next = "op_tauren" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     society = {
       lines = { { id = "so_default", text = "Plagues, my dear, and everything that cures them or carries them. One must understand a weapon before one can turn it away, or turn it around." } },
@@ -197,7 +245,14 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I'm afraid that falls outside my research, and my interest." } },
+    _none = { { id = "tp_none", text = "I'm afraid that falls outside the Society's research, and therefore outside my interest." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "The Forsaken are free, and the Society means to keep us so. Our research is for the good of all our people, and I hope the tauren will come to see that." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "A fellow citizen, how nice. Do try not to frighten the tauren, as they frighten so easily, and it makes my work so much harder." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady is our queen and our saviour, and the Society serves her in all things. I would never question her plans, and I would never let anyone else question them either." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are our enemies, and the Society is learning how to destroy them. We study plague, which is the Scourge's weapon, and so we must understand it better than they do." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a gracious host, and I am grateful for his hospitality. His people are less gracious, but I suppose that is to be expected." } },
   },
 }
 
@@ -211,7 +266,7 @@ P:NPC {
     third = "{name} met Holt Thunderhorn, the hunter trainer on Thunder Bluff's Hunter Rise.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today." },
+    { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today; the Earth Mother is in a generous mood." },
   },
   start = "hello",
   nodes = {
@@ -273,7 +328,7 @@ P:NPC {
       choices = {
         { text = "Tradition has its strength. I'll respect it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A truer arrow is a truer arrow, whatever moves it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
+        { text = "Are there other Thunderhorns besides you?", next = "kin" },
       },
     },
     xdruid = {
@@ -311,19 +366,19 @@ P:NPC {
       },
       choices = {
         { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
+        { text = "Are there other Thunderhorns besides you?", next = "kin" },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
-        { text = "Can a shaman's wind really steady an arrow, Holt?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I've heard a shaman's wind can steady an arrow.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A hunter and a rogue both learn patience, Holt.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Can magic make an arrow fly truer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Magic could make an arrow fly truer.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would a Thunderhorn teach a warrior, Holt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes a Thunderhorn hunter, Holt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do the druids tell your hunters how to hunt, Holt?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "I'd guess the druids tell your hunters how to hunt.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why do the beasts bristle at me, Holt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would a Thunderhorn hunt beside a paladin, Holt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
+      again = { { id = "h_again", text = "Something else? A hunter's patience includes listening, as the plains listen for rain." } },
     },
     kin = {
       lines = { { id = "k_default", text = "Mull is family, yes, though he prefers the village to the bluffs. He keeps an eye on the young braves at Bloodhoof, and I keep an eye on him." } },
@@ -351,7 +406,11 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I have not heard of that. The plains keep many secrets." } },
+    _none = { { id = "tp_none", text = "I have not heard of that. The plains keep many secrets, and the Earth Mother shares them slowly." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride well, but they shoot poorly, and an archer can drop them before they close. My family has done it for generations." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar are poor archers too, and they make easy targets. Teach your students to aim for the eyes, and the quilboar will not trouble them." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the bow from the trees, and the arrow from the reeds. A hunter who forgets that has forgotten how to hunt." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carries a spear, not a bow, but he is the finest hunter of us all. My family has never told him so, out of pride." } },
   },
 }
 
@@ -435,7 +494,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "None that I've heard of, because the Grimtotem hold to the old shamans and sneer at what Hamuul learned from the night elves. They'd say a tauren who borrows a stranger's teachings has forgotten the herd, and I'd say a tauren who turns his spear on his own kin has forgotten more." } },
+      lines = { { id = "xdruid_default", text = "The Grimtotem do, and they have none of their own, because they hold to the old shamans and sneer at what Hamuul learned from the night elves. They'd say a tauren who borrows a stranger's teachings has forgotten the herd, and I'd say a tauren who turns his spear on his own kin has forgotten more." } },
       choices = {
         { text = "Our own old ways should come first, before borrowed ones.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Learning from the night elves made us stronger, not weaker.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -471,21 +530,21 @@ P:NPC {
         { text = "Should a priest stand in the line beside your warriors, Ker?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who do the warriors fight?", next = "fight" },
         { text = "Why must strength be careful?", next = "careful" },
-        { text = "Does a shaman need a warrior's training, Ker?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "A shaman can't need a warrior's training, Ker.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Strength isn't everything. Speed and silence count too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Warriors and hunters must train together here, Ker.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do the Grimtotem have druids of their own, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do any tauren still scorn the druid's path, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How can a mage protect the herd, Ker?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Must the Light be used carefully, Ker?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
-      again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },
+      again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings, as the bull knows the ground before he charges." } },
     },
     fight = {
       lines = { { id = "f_default", text = "The centaur have hunted our people for generations, and only with the orcs' help did we finally drive them from Mulgore. Now the quilboar and the Venture Company test our borders instead." } },
-      choices = { { text = "Will the centaur return?", next = "fight_return" } },
+      choices = { { text = "The centaur may return someday.", next = "fight_return" } },
     },
     fight_return = {
       lines = { { id = "fr_default", text = "They are in the Barrens still, and in Desolace, and they remember us as well as we remember them. One day they will try, and on that day I want my students ready." } },
@@ -509,6 +568,10 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I am a warrior, not an elder. Ask on Elder Rise." } },
+    _none = { { id = "tp_none", text = "I am a warrior, not an elder. Ask on Elder Rise, and walk with the Earth Mother." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior of our people, and he taught us that strength is for protecting the herd. I teach my students the same." } },
+    centaur = { { id = "tp_centaur", text = "The centaur have tested the tauren for generations, and we have always stood. My students learn to stand first, and to fight second." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a strong orc, and a wise one. He came to our aid when we needed it, and the tauren will not forget it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are strange allies, and I do not trust them. But the Warchief says they are Horde, and so I will protect them as I would any of the herd." } },
   },
 }

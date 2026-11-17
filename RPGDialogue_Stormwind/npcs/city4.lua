@@ -46,7 +46,7 @@ P:NPC {
       choices = {
         { text = "A soldier doesn't gloat over a dead enemy, General.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "He made war on us. I'm glad he's dead, and I'll say so.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Will the Dark Irons trouble Stormwind now?", next = "xcl_brd2" },
+        { text = "The Dark Irons may trouble Stormwind next.", next = "xcl_brd2" },
       },
     },
     xcl_brd2 = {
@@ -110,7 +110,7 @@ P:NPC {
           text = "Word came up from the Burning Steppes that Thaurissan is dead in his own throne room, and that you were standing in it. I marched under Turalyon to the foot of that mountain once, and none of us ever went down into it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I could use a dozen of you on the walls, and the Keep sends me letters about the budget instead." },
         { id = "h_default", key = true,
-          text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it." },
+          text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it, and Lakeshire's letters remind me daily how little that is." },
         { id = "h_messenger", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Stormwind") },
           text = "Magistrate Solomon writes again, asking reinforcements for Lakeshire. I'll take it to the throne myself, and you can tell him the army hasn't forgotten Redridge." },
         { id = "h_messenger_done", when = { questDone = TODO_QUEST("Messenger to Stormwind") },
@@ -137,10 +137,10 @@ P:NPC {
         { id = "h_again2", text = "Go on. The gate can spare me a moment more." },
       },
       choices = {
-        { text = "Why won't the army help Lakeshire?", next = "army" },
+        { text = "The army doesn't seem to be helping Lakeshire.", next = "army" },
         { text = "Tell me about the statues.", next = "statues" },
-        { text = "How do you defend a city this size?", next = "walls" },
-        { text = "Who's the fisherman down by the water?", next = "jorgen" },
+        { text = "A city this size must be hard to defend.", next = "walls" },
+        { text = "There's a fisherman down by the water.", next = "jorgen" },
         { text = "What becomes of the Lordaeron insignia?", next = "insignia",
           when = { any = { { questActive = TODO_QUEST("Bloodied Insignia") }, { questDone = TODO_QUEST("Bloodied Insignia") }, { origin = "human_lordaeron_refugee" } } } },
         { text = "Shall I bless your guards?", next = "priest", when = { class = "PRIEST" } },
@@ -167,7 +167,7 @@ P:NPC {
       },
       choices = {
         { text = "Whose voices?", next = "voices", fx = { trait = { curious = 1 } } },
-        { text = "What did you write to Solomon?", next = "army_letter" },
+        { text = "What did you write to Solomon?", next = "army_letter", when = { any = { { questActive = TODO_QUEST("Messenger to Stormwind") }, { questDone = TODO_QUEST("Messenger to Stormwind") }, { heardLine = "solomon.s_default" } } } },
         { text = "Keep asking.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Stop asking and march without orders, General.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -216,7 +216,7 @@ P:NPC {
     walls = {
       lines = { { id = "wa_default", text = "With fewer men than I'd like. The City Guard keeps the streets, the army keeps the walls, and the court decides how many of either can be spared. Rarely enough." } },
       choices = {
-        { text = "And Westfall?", next = "walls_westfall" },
+        { text = "Westfall seems to have been forgotten.", next = "walls_westfall" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -291,7 +291,7 @@ P:NPC {
       choices = {
         { text = "That's pride talking, General.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "That's how allies should treat each other.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Who was Kurdran to you?", next = "kurdran" },
+        { text = "Kurdran's statue stands in your valley. Did you know him?", next = "kurdran" },
       },
     },
     sentinels = {
@@ -315,6 +315,19 @@ P:NPC {
   },
 
   topics = {
+    valley_of_heroes = {
+      { id = "tp_valley_of_heroes", text = "The Valley of Heroes is Stormwind's front door, and I've stood guard over it since the day the statues went up. Those heroes gave everything, and I'll not let anyone pass beneath them who means the city harm." },
+      { id = "tp_valley_of_heroes2", when = { disposition = { min = 65 } }, text = "I knew some of the people those statues are carved for, and they weren't marble then, only tired soldiers. I walk the Valley at dawn to say good morning to them, and I'd thank you not to tell anyone." },
+    },
+    second_war = { { id = "tp_second_war", text = "I was a captain in the Second War, and I watched the Horde break against Lordaeron's walls. We won, and we paid for it in lives I can still count, and I still count them." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have the Stockade, and I've told the Keep that I can take it back in an afternoon if they'll let me. They won't let me, and I'm told it's for reasons above my rank." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias have a nest under Moonbrook, and Stoutmantle's been asking for soldiers to clear it out for months. I've none to send, and I've told him so, and he still writes every week." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's orcs keep to Kalimdor, and he's made peace with Theramore, and I'm told I'm to treat that as good news. I'll treat it as good news when the Blackrock in Redridge hear about it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and they're the greatest threat this kingdom has ever faced. If they ever come south, I'll hold this gate until the last man falls, and I'd like a few more men to hold it with." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal stands broken in the Black Morass, and Nethergarde watches it from the cliffs. I've read their reports, and I'm glad I'm not stationed there." } },
+    internment = { { id = "tp_internment", text = "The internment camps cost this kingdom a fortune and kept the orcs fed for years. When Thrall broke them open, the coin went with them, and I've not stopped hearing the nobles complain." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a good soldier and a better man, and he's doing the job of a king without the crown. I'd serve him to the end, and I've told him so." } },
+    varian = { { id = "tp_varian", text = "The King would have given me the men I need, I believe that, and he'd have given them gladly. I miss him every time I read a letter from Lakeshire." } },
     knows = {
       { id = "tp_knows", text = "The Watch reports to me on most things that happen inside these walls and a few that happen outside them. Ask me about any of this, and I'll answer as a soldier should." },
     },
@@ -450,15 +463,15 @@ P:NPC {
       choices = {
         { text = "Why do you talk about yourself like that?", next = "third" },
         { text = "A goblin in SI:7?", next = "goblin" },
-        { text = "Where do SI:7's rogues come from?", next = "recruits" },
+        { text = "I'd wager SI:7's rogues come from all over.", next = "recruits" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Bless the knives, then?", next = "bless", when = { class = "PRIEST" } },
         { text = "Has SI:7 ever worked with a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Would SI:7 ever give work to a warrior, Renzik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I doubt SI:7 has work for a warrior, Renzik.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever use hunters for SI:7 jobs, Renzik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does SI:7 have any use for a paladin, Renzik?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would SI:7 pay a druid who prowls as a cat, Renzik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "SI:7 keeps a file on me, Renzik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "A druid who prowls as a cat could be useful, Renzik.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "So SI:7 keeps a file on me, Renzik.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would SI:7 want with a shaman, Renzik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
@@ -480,7 +493,7 @@ P:NPC {
     goblin = {
       lines = { { id = "g_default", text = "Sure, and think about it, pal: what happens when a goblin walks into Orgrimmar? Nothin', 'cause nobody looks twice at a goblin who looks like he's sellin' somethin', and you just try that with a human." } },
       choices = {
-        { text = "So why work for Stormwind?", next = "goblin_why" },
+        { text = "A goblin working for Stormwind seems odd.", next = "goblin_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -506,6 +519,12 @@ P:NPC {
   },
 
   topics = {
+    si7 = { { id = "tp_si7", text = "SI:7 is the finest outfit in Stormwind, and Renzik is the finest blade in it, after the boss. Renzik doesn't say that to brag, only to inform." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where Renzik learned his trade, and where he learned that everything's for sale, including loyalty. Renzik found something better to sell himself to, and he's never looked back." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel would sell their grandmothers if the price was right, and Renzik knows because he's met their grandmothers. Renzik prefers working for a kingdom, because kingdoms pay on time, mostly." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt is a manor in the Alterac foothills full of people who think they're better than SI:7. Renzik has been invited, and Renzik declined, because Renzik doesn't need to be told he's good." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's riot is a mess, and Renzik could clean it up in an evening if the boss would only let him. The boss says wait, so Renzik waits, and sharpens things." } },
+    deadmines = { { id = "tp_deadmines", text = "VanCleef's down in the Moonbrook mines with a ship and an army of masons, and Renzik's been in there once. Renzik came out, which is the important part of that story." } },
     background = { { id = "tp_bg", text = "Renzik's past is Renzik's business, pal, and Renzik's present is SI:7, so that's all you get, and you didn't even have to pay for it." } },
     advice = { { id = "tp_ad", text = "Never trust a guy who says he's got nothin' to hide, 'cause everybody's carryin' somethin' off the books. The honest ones just know it." } },
     defias = { { id = "tp_defias", text = "That's SI:7's business, which means none of yours, pal, unless you want it to be, and then you talk to Renzik and Renzik names the terms." } },
@@ -639,12 +658,12 @@ P:NPC {
         { id = "h_again2", text = "Yes?" },
       },
       choices = {
-        { text = "Do you ever leave the throne room?", next = "leave" },
-        { text = "Who do you guard?", next = "guard" },
-        { text = "How should I conduct myself here?", next = "conduct" },
+        { text = "You never seem to leave the throne room.", next = "leave" },
+        { text = "You must guard more than the throne.", next = "guard" },
+        { text = "I'd like to conduct myself properly here.", next = "conduct" },
         { text = "Lieutenant Orinelle speaks of you.", next = "farren",
           when = { any = { { heardLine = "farren.h_default" }, { questActive = TODO_QUEST("Reassignment") } } } },
-        { text = "Has the Keep guard room for a warrior, Major?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "The Keep guard could use another warrior, Major.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you worry about assassins in the throne room?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are spells forbidden in the throne room?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Keep guard ever need a hunter's eye, Major?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -692,7 +711,7 @@ P:NPC {
     farren = {
       lines = { { id = "fa_default", text = "Orinelle is a good officer who thinks Southshore is beneath him. His reports are excellent, which is exactly why he's still there." } },
       choices = {
-        { text = "Will you bring him home?", next = "farren_review" },
+        { text = "You could bring him home.", next = "farren_review" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -710,6 +729,10 @@ P:NPC {
   },
 
   topics = {
+    bolvar = { { id = "tp_bolvar", text = "The Highlord holds the throne for the boy king, and I hold the throne room for the Highlord. That's all you need to know about the chain of command." } },
+    varian = { { id = "tp_varian", text = "I stood in this hall the day the King left for Theramore, and I'll stand here the day he returns. Until then, I keep the room as he'd want it kept." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor is the Regent's most trusted adviser, and she's never once broken the protocols of this room. I wish I could say the same for most of the nobles." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "Visitors to the throne room pass beneath the Valley of Heroes, and I expect them to arrive with that in mind. Many don't, and I correct them, politely." } },
     background = { { id = "tp_bg", text = "Captain of the guard, and before that, a guard. That's all the background this room needs." } },
     advice = { { id = "tp_ad", text = "Stand straight in the Keep. People decide who you are from the doorway." } },
     _none = { { id = "tp_none", text = "That's not my concern; my concern is this room." } },
@@ -850,13 +873,13 @@ P:NPC {
       },
       choices = {
         { text = "Show me your bread.", next = "BUSINESS" },
-        { text = "Why not open a shop?", next = "shop" },
-        { text = "Where does your flour come from?", next = "flour" },
+        { text = "You could open a shop instead.", next = "shop" },
+        { text = "Flour is dear these days, I hear.", next = "flour" },
         { text = "My family grew wheat in Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
         { text = "Do many rolls walk off without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does conjured bread hurt your trade, Thomas?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do soldiers buy much bread from you, Thomas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do hunters ever trade with you, Thomas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Soldiers must buy plenty of bread from you, Thomas.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Hunters must trade with you now and then, Thomas.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever bake for the Cathedral, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many soldiers buy bread from you, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you bake for someone who lives on berries, Thomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -881,6 +904,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold bread at the Darkmoon Faire one summer, and I walked so far my left foot went on strike for a week. Never again, I said, and I say that about every faire, and I go to every faire." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, and they're eating Westfall's bread that should be in my basket. I'd walk there and tell them so, but my foot says no." } },
+    holy_light = { { id = "tp_holy_light", text = "I say a little prayer every morning for my left foot, and the Light has yet to answer. Bishop Farthing says the Light works in mysterious ways, and I say it works slowly." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I start my rounds at the Valley of Heroes every morning, because the guards there are always hungry. They buy more rolls than the rest of the city put together." } },
     background = { { id = "tp_bg", text = "A baker with a basket and two bad feet. If there's more to me, it's flour." } },
     advice = { { id = "tp_ad", text = "Never leave Stormwind without bread in your pack. The road's full of things that want to eat you, and you'll want to eat first." } },
     _none = { { id = "tp_none", text = "I only know bread, friend. And which streets have the best customers." } },

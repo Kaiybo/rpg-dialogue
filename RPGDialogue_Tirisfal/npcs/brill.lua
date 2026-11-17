@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "zygand", id = TODO_NPC("Executor Zygand"), name = "Executor Zygand",
+  prejudice = { origin = "forsaken_scarlet_turned", amount = 12, why = "He fights the Crusade daily; a Forsaken who once wore Scarlet is, to him, a spy until proven otherwise." },
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
@@ -13,8 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "You wore the Crusade's red before you died. I can tell by the way you stand, and I have hanged Scarlet scouts who stood exactly like that. Speak carefully." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I had you marked as a Scarlet spy when you first came to Brill. I was wrong, and I don't say that often, so remember it." },
     { id = "g_brill", text = "State your business. The Crusade keeps me busy, and I prefer to stay that way." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope; the Dark Lady has little patience for the other kind." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade did not take that time off. I trust you return with something worth reporting." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were barely fit to hold a blade when I first sent you after the Scarlets, and now you look like someone they should fear. Good; make them fear you." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I'm told you made someone in Brill back down without drawing steel. That is efficient, and I value efficiency." },
@@ -29,6 +32,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_zygand = {
+      big = true,
+      lines = { { id = "prej_zygand_default", text = "I think the Crusade trained you to hate what you now are, and that kind of training doesn't rot away with the flesh. Their scouts come into Tirisfal wearing our faces more often than you'd like to know, and every one of them swore they were done with the red." } },
+      choices = {
+        { text = "The Crusade burned me. I'll burn them back, every last one.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I still think some of them were right about the Scourge.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Give me orders against them and judge me by the results.", next = "prej_zygand_calm", fx = { affinity = 1 } },
+        { text = "How many Scarlet spies have you caught here?", next = "prej_zygand_why" },
+      },
+    },
+    prej_zygand_why = {
+      lines = { { id = "prej_zygand_why_default", text = "Four this season, and two of them were Forsaken who had gone back to the Monastery to beg forgiveness. The Crusade burned them both and sent their ashes to Brill in a box, so they weren't spies for long." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_zygand" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_zygand_calm = {
+      lines = { { id = "prej_zygand_calm_default", text = "That is the only kind of answer I trust. Go to the Scarlet camps at Solliden and come back with their colours; then we'll see what you are." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_horde = {
+      big = true,
+      lines = {
+        { id = "ophd_default", text = "The Deathguard trust whoever holds the line beside them, and so far the orcs have held it. I'd rather hear your answer than give mine, though, so tell me what you make of the Horde." },
+      },
+      choices = {
+        { text = "They took us in when no one else would. That's loyalty.", next = "op_horde_r1", fx = { align = { honor = 1 }, opinion = { horde = "loyal" } } },
+        { text = "They need our blades. The day they don't, we're alone.", next = "op_horde_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { horde = "wary" } } },
+        { text = "I'm Horde, Executor. You'll find we keep our word.", next = "op_horde_r3", fx = { trait = { proud = 1 }, opinion = { horde = "proud" } }, when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'll keep my own counsel on that, Executor.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = { { id = "ophd_r1", text = "That's the answer the Dark Lady likes to hear, and I'll not say she's wrong. Hold the line, and they'll go on holding it with us." } },
+      choices = { { text = "Something else, Executor.", next = "BACK" } },
+    },
+    op_horde_r2 = {
+      lines = { { id = "ophd_r2", text = "Hard words, but I've thought them myself on a long night's watch. Keep them in Brill and out of Orgrimmar, and we'll get along." } },
+      choices = { { text = "Something else, Executor.", next = "BACK" } },
+    },
+    op_horde_r3 = {
+      lines = { { id = "ophd_r3", text = "Then keep it here in Tirisfal, where the Crusade can see it. I judge allies by where they stand when the arrows start to fly." } },
+      choices = { { text = "Something else, Executor.", next = "BACK" } },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "Then you've seen the Crusade at its proudest, with its great halls and banners and libraries and inquisitors. They built that place to be their answer to the plague, and it held more prisoners than prayers, and I knew some of the Forsaken they dragged inside." } },
@@ -67,6 +112,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another of your look reported to me, {alt}, and fought the Scarlet Crusade across Tirisfal without being told twice. If you are of their blood, living or dead, I expect the same discipline." },
+        { id = "h_alt_living", tags = { "news" }, when = { race = "Scourge", alt = { notKin = true } },
+          text = "A living {altclass} called {alt} came through Brill before you and fought beside my Deathguard against the Crusade. I don't trust the living easily, but that one earned a measure of it." },
+        { id = "o_sydistrust", tags = { "news" }, when = { gossip = { topic = "sylvanas", stance = { "distrust", "fear" } } }, text = "Renee says you've your doubts about the Dark Lady. I'll hear them once, here, and then I'll not hear them again." },
         { id = "h_default", key = true,
           text = "Executor Zygand, commander of the Deathguard in Tirisfal. The Crusade means to burn this land clean of us, and it will not go the way they hope." },
         { id = "h_war", tags = { "news" }, when = { questActive = TODO_QUEST("At War With The Scarlet Crusade") },
@@ -84,22 +134,35 @@ P:NPC {
           text = "The Monastery's leaders are dead, and my deathguards report Scarlet patrols on the north road wandering without orders. That is your doing, I'm told, and it is good work." },
       },
       choices = {
+        { text = "You think I still serve the Crusade, Executor.", next = "prej_zygand", when = { prejudiced = true } },
         { text = "What use does the Deathguard have for a priest, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will the Deathguard fight beside the elements, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there work here for a druid, Executor?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who are the Scarlet Crusade?", next = "crusade" },
+        { text = "The Scarlet Crusade seem to hate us above all others.", next = "crusade" },
         { text = "I held a line once, for Lordaeron. Put me on yours.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can reach their camps unseen, Executor.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "I carry the Light, Executor. Does that trouble you?", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "I carry the Light, Executor. That must trouble you.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "My spells are at the Deathguard's service.", next = "mage", when = { class = "MAGE" } },
         { text = "My demons could break the Crusade's lines, Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I track the Crusade's scouts through the woods, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I've been through the Scarlet Monastery, Executor.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
+        { text = "I marched with the Crusade once, Executor, before I died.", next = "xorig_scarlet", when = { origin = "forsaken_scarlet_turned" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
+        { text = "Do the Deathguard trust the Horde, Executor?", next = "op_horde" },
       },
       again = {
         { id = "h_again", text = "Something further? Be brief; the Crusade is not." },
         { id = "h_again2", text = "Go on. I can spare a moment between reports." },
+      },
+    },
+    xorig_scarlet = {
+      lines = {
+        { id = "xsc_default", text = "So did a few of my Deathguard, though they keep quiet about it. You know how the Crusade thinks, which makes you useful to me, and you know their faces, which may make you slow. Will you hesitate when it's someone you knew?" },
+      },
+      choices = {
+        { text = "No. They chose the fire, and I'll give it back to them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll spare the ones who lay down their arms.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't know yet, Executor.", next = "BACK" },
       },
     },
     warrior = {
@@ -208,6 +271,24 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, because the Dark Lady expects it of me. Do not mistake that for a welcome." },
     },
     scarlet_crusade = { { id = "tp_crusade", text = "Every Crusader we kill is one fewer torch at our door. I keep count." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge does not tire and does not despair, and neither does the Deathguard, which is the only reason we can hold this land. Every mindless corpse we put down in Tirisfal was a neighbor of ours once, and we remember that while we do it." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You wore their chains for a time, as we all did. Use that, because you know how they move, and they no longer know how you do." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "We are the Dark Lady's people, freed from the Lich King's will and owing nothing to anyone else. The living call us monsters, and some of us have earned the name, and I don't lose sleep over either part, since I don't sleep." } },
+    sylvanas = {
+      { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on us and gave us a city and a purpose, and she asks only loyalty in return. I give it to her without reservation." },
+      { id = "tp_sylvanas2", when = { disposition = { min = 65 } }, text = "She is harder than any commander I served in life, and I've known a few cruel ones, but she has never once wasted the lives of her soldiers. That counts for a great deal with me." },
+    },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief offered the Forsaken a place in his Horde when no one else would have us at their table. I respect the bargain, and I'll keep my side of it, whatever the orcs think of our smell." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your Warchief's people fight well beside mine, though they make the sign of their spirits when they think we aren't looking. Tell him the Deathguard keeps its word." },
+    },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a man of Dalaran who sold his own kingdom to the Scourge, and now he rules it from a floating necropolis over the east. When the Dark Lady turns her armies there, I mean to be at the front." } },
+    arthas = { { id = "tp_arthas", text = "He is the prince who murdered his own father and gave Lordaeron to the plague. Every Forsaken in Tirisfal has a reason to want him dead, and the Dark Lady has more reasons than any of us." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The kingdom died, and its capital is a ruin above our heads. What lives beneath that ruin now belongs to the Dark Lady, and we will not hand it back to anyone." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the Scourge in the east and asks fewer questions about our flesh than I expected. I don't trust them, but I don't need to, as long as they keep killing the same enemy." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the prince put his own people to the sword, and the Scourge holds the city still. The Crusade squabbles with the dead for its streets, which suits me, since every one of them that dies there is one I won't meet in Tirisfal." } },
     _none = { { id = "tp_none", text = "Ask the magistrate; administration is his burden, not mine." } },
   },
 }
@@ -237,6 +318,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_humans = {
+      big = true,
+      lines = {
+        { id = "ophu_default", text = "Brill was a human town before it was ours, and some of my clerks still set a place at table for neighbours who are never coming home. Tell me honestly, do you think the living ever belonged here more than we do?" },
+      },
+      choices = {
+        { text = "The living built Brill. We should remember them kindly.", next = "op_humans_r1", fx = { align = { light = 1 }, opinion = { humans = "kin" } } },
+        { text = "The living had their turn. Brill is ours now.", next = "op_humans_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "rivals" } } },
+        { text = "I was one of them. I still don't know what I am.", next = "op_humans_r3", fx = { trait = { kind = 1 }, opinion = { humans = "mixed" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not say, Magistrate.", next = "BACK" },
+      },
+    },
+    op_humans_r1 = {
+      lines = { { id = "ophu_r1", text = "Kindly, yes, and in the town ledgers, where I've kept every one of their names. Remembering is cheap, and forgetting costs more than people think." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_humans_r2 = {
+      lines = { { id = "ophu_r2", text = "I'd not put it so bluntly in front of Renee, but the deed to the town hall does carry my seal now, and not theirs." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_humans_r3 = {
+      lines = { { id = "ophu_r3", text = "Few of us do, and I've stopped asking it of my clerks, because the answers slow the paperwork. You're a citizen of Brill, and for now that will have to serve." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Brill has a place for anyone who's useful to it, and you'd be very useful against the Crusade's patrols, since they'll hesitate before striking at the Light. Just remember the town belongs to the Dark Lady, and the Light is a guest in it, however long it stays." } },
@@ -269,6 +374,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_hdwary", tags = { "news" }, when = { gossip = { topic = "horde", stance = "wary" } }, text = "The Executor tells me you think the Horde will drop us once the Scourge is beaten. I've filed that under 'probably', which is where I keep most things." },
         { id = "h_default", key = true,
           text = "You're speaking to Magistrate Sevren. When we took Brill back it was a plague town full of the mindless; now it's a Forsaken town, and that's my doing." },
         { id = "h_grave", tags = { "news" }, when = { questActive = TODO_QUEST("Graverobbers") },
@@ -288,17 +394,18 @@ P:NPC {
         { text = "Brill could use a shaman's totems, Magistrate. Where shall I plant them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Brill's grove, Magistrate?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Brill needs a sword more than a magistrate, Sevren.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "How did you take Brill?", next = "brill" },
+        { text = "Taking Brill can't have been easy.", next = "brill" },
         { text = "I lived near Brill, before.", next = "farmer", when = { race = "Scourge" } },
         { text = "Does Brill need a warlock's help, Magistrate?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Who keeps Brill's secrets, Magistrate?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does Brill have any use for a mage, Magistrate?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the beasts around Brill trouble the town, Magistrate?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Does Brill have a place for a paladin, Magistrate?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I'd guess the beasts around Brill trouble the town, Magistrate.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Brill may have no place for a paladin, Magistrate.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
+        { text = "Do you miss the living who kept Brill, Magistrate?", next = "op_humans" },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly, please; the ledgers won't balance themselves." },
+        { id = "h_again", text = "Something else? Quickly, please; the ledgers won't balance themselves, and the dead are terrible about paying their rates." },
       },
     },
     farmer = {
@@ -355,7 +462,7 @@ P:NPC {
       choices = {
         { text = "I'll keep my hands to myself in Brill, Magistrate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Laws are for those too slow to avoid them.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "How did you take Brill back?", next = "brill" },
+        { text = "Brill must have been hard to take back.", next = "brill" },
       },
     },
     xmage = {
@@ -374,6 +481,11 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "That's Zygand's department. I sign the orders, and he carries them out with alarming enthusiasm." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are citizens of a nation now, with laws and a magistrate and all the dull business that keeps a town from falling down. You would be surprised how much of the Dark Lady's war is paperwork." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Brill was a market town of Lordaeron, with fairs in the autumn and quarrels over boundary stones. We took it back from the mindless dead, and I mean to make it a proper town again, even if it's a colder one." } },
+    scourge = { { id = "tp_scourge", text = "When I came back to Brill, the Scourge's mindless filled every house and the inn, and we cleared them room by room. I keep the ledger of what we lost in my desk, and I don't care to open it often." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady appointed me, and she reads my reports, which is more than any magistrate in Lordaeron could say of King Terenas. I'd rather not disappoint her." } },
+    thrall = { { id = "tp_thrall", text = "The orcish Warchief is an ally, by the Dark Lady's arrangement, and his envoys pass through Brill on their way to the zeppelin tower. They're polite enough, and they don't linger." } },
     _none = { { id = "tp_none", text = "That's not a matter for the town hall." } },
   },
 }
@@ -403,6 +515,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_new_plague = {
+      big = true,
+      lines = {
+        { id = "opnp_default", text = "Some do, and they look at my bottles the way they used to look at the grain carts out of Andorhal. You've gathered half my reagents yourself, though, so I'm curious: should the Society be making this plague at all?" },
+      },
+      choices = {
+        { text = "No. We of all people know what a plague does.", next = "op_new_plague_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { new_plague = "wrong" } } },
+        { text = "Yes, and faster. Every day we wait, the Scourge grows.", next = "op_new_plague_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { new_plague = "necessary" } } },
+        { text = "If it only touches the Scourge, I've no quarrel with it.", next = "op_new_plague_r3", fx = { trait = { cautious = 1 }, opinion = { new_plague = "conditional" } }, when = { race = "Scourge" } },
+        { text = "I'll leave that question to the Society.", next = "BACK" },
+      },
+    },
+    op_new_plague_r1 = {
+      lines = { { id = "opnp_r1", text = "We do, and that's why we're the only ones who could make it properly. I'll note your concern, and then I'll go on working." } },
+      choices = { { text = "Something else, Apothecary.", next = "BACK" } },
+    },
+    op_new_plague_r2 = {
+      lines = { { id = "opnp_r2", text = "Faster, you say, as though the Scourge waited on my kettle! But I'll take the encouragement, since it's rarer than nightshade in Brill." } },
+      choices = { { text = "Something else, Apothecary.", next = "BACK" } },
+    },
+    op_new_plague_r3 = {
+      lines = { { id = "opnp_r3", text = "If, yes. Everything in my trade rests on an if, and I'm very good at the ifs, so you may rest easy, or as easy as anyone rests in Brill." } },
+      choices = { { text = "Something else, Apothecary.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It's meant for the Scourge, of course, and the Light hates the Scourge, so I'd think it would be delighted. I wouldn't ask it too closely about anything else the plague might be used for, mind you, but that's well above my station." } },
@@ -432,6 +568,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_npkeen", tags = { "news" }, when = { opinion = { topic = "new_plague", stance = "necessary" } }, text = "Ah, the one who wants the plague finished yesterday! The Apothecarium has a long memory for its friends, and so do I." },
         { id = "h_default", key = true,
           text = "Apothecary Johaan, of the Royal Apothecary Society. Our work here matters more than you'd guess from the smell." },
         { id = "h_plague", tags = { "news" }, when = { questActive = TODO_QUEST("A New Plague") },
@@ -451,14 +588,14 @@ P:NPC {
       choices = {
         { text = "What do you want to know about the soul, Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The earth here is sick, Apothecary. Do your brews make it worse?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "You're growing something in these fields, Apothecary. What is it?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "You're growing something strange in these fields, Apothecary.", next = "druid_q", when = { class = "DRUID" } },
         { text = "My hunting takes me into the fields. Do you need samples?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "What is the plague for?", next = "purpose" },
-        { text = "I served the Cult once. I know a plague when I see one.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Who is all this brewing meant for?", next = "purpose" },
+        { text = "I know the Cult's work. This smells like a plague.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied in Dalaran. Can I help with the formulae?", next = "mage", when = { class = "MAGE" } },
         { text = "Could your bottles do a rogue's work, Apothecary?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Is there anything here a warrior could do for you, Apothecary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Would the Light approve of your new plague, Johaan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "A warrior must be of some use to you here, Apothecary.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "I doubt the Light would approve of your brewing, Johaan.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -500,6 +637,7 @@ P:NPC {
       choices = {
         { text = "Of course.", next = "BACK", fx = { affinity = 1 } },
         { text = "That's not quite an answer.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "Do the people of Brill fear your work, Johaan?", next = "op_new_plague" },
       },
     },
     xhsham = {
@@ -529,12 +667,17 @@ P:NPC {
       choices = {
         { text = "Poison is a tool, Apothecary. I'll use it where it works.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather settle the Crusade with steel than vials.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "What is the plague for, really?", next = "purpose" },
+        { text = "Who is your brewing really meant for?", next = "purpose" },
       },
     },
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "We are a people with a great deal of work still to do, and very little patience left for the living who stand in our way. The Royal Apothecary Society is doing its part." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a crude and clumsy thing, and the Society means to make something better, purely for use against the Scourge, of course. I'll say no more than that, because Master Faranell prefers discretion." } },
+    new_plague = { { id = "tp_new_plague", text = "Oh, it's coming along very nicely, and it's all in the service of the Dark Lady's war on the Scourge. Bring me the reagents I ask for, and don't stand quite so close to the green ones." } },
+    stratholme = { { id = "tp_stratholme", text = "The plague first spread through the grain at Stratholme, carried in by the Cult of the Damned. From an alchemical point of view it was remarkably efficient, and I hope you'll forgive me for saying so." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's alchemists never shared their notes with anyone outside their towers. Now their city is rebuilding and still won't open its gates, so I expect nothing has changed." } },
     _none = { { id = "tp_none", text = "Unless it can be distilled, I've no interest." } },
   },
 }
@@ -613,10 +756,10 @@ P:NPC {
         { text = "That's a heavy grudge.", next = "grudge" },
         { text = "I could make the Agamands' rest a short one.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You held the mills like soldiers. I respect that.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Could a mage's fire clear the Agamand Mills?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "A mage's fire could clear the Agamand Mills.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could set a demon on the Agamands, Coleman.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Should I hunt the Darkhounds near the mills, Coleman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you blame the Light for what happened at the mills, Coleman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You seem to blame the Light for what happened at the mills.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go to the mills.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -665,7 +808,7 @@ P:NPC {
       choices = {
         { text = "I'll burn only what needs burning, Coleman.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If the mills burn, they burn.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why carry such a heavy grudge?", next = "grudge" },
+        { text = "You carry a heavy grudge.", next = "grudge" },
       },
     },
     xwarlock = {
@@ -677,12 +820,17 @@ P:NPC {
       choices = {
         { text = "The demon goes where I send it, and no further.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Whatever it eats on the way is its own business.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why carry such a heavy grudge, Coleman?", next = "grudge" },
+        { text = "You carry a heavy grudge, Coleman.", next = "grudge" },
       },
     },
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "I'm Forsaken, if you like, though I'd say I was forgotten first and then forsaken afterwards. The Dark Lady at least remembered we existed, which is more than the Agamands did." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I worked the Agamand mills when Lordaeron still bought flour, and the old family sat up on the hill and counted sacks. When the plague came they told us to stand and defend their mill, so we did, and here we are." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge got into the grain long before it got into us. You didn't see it coming because it came in the bread, and that's the wickedest thing I ever heard of." } },
+    arthas = { { id = "tp_arthas", text = "My cousin served in the prince's company when it went north to Stratholme, and he wrote home that the prince had gone strange. We laughed, because we thought princes were always strange." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady keeps her word to her people, and I'll grant her that much freely. I could name a noble family on a hill above Brill that never did." } },
     _none = { { id = "tp_none", text = "I don't know, friend, but ask me about the Agamands; that I could talk about all night." } },
   },
 }
@@ -758,8 +906,8 @@ P:NPC {
         { text = "What would you ask of the fire, Gretchen?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I call the frost for you, Gretchen?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Shall I take bear form, Gretchen, so you can touch the fur?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Your fields need guarding, Gretchen. I can swing an axe.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "What do you miss most?", next = "miss" },
+        { text = "Need anything guarded, Gretchen? I can swing an axe.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "You must miss a great deal from before.", next = "miss" },
         { text = "Let me try something. A mage's fire is hotter.", next = "mage", when = { class = "MAGE" } },
         { text = "I'm good at going unseen, Gretchen. Does that help?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A demon's fire burns hot, Gretchen. Want to feel it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -839,6 +987,11 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "Being Forsaken means you can't feel the fire, dear, but you can still sit by it and remember. I find that's most of what any of us do in here." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I was a farmer's wife outside Brill, and we had a good, plain, cold-handed life. I'd give anything to feel that cold again, and that's the silly truth of it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took our village in a single week, and I don't remember much of the week, which is a mercy I suppose. Leave it there, dear." } },
+    sylvanas = { { id = "tp_sylvanas", text = "She saved us from being nothing at all, and I'm grateful for it. I just wish she'd also found a way to keep us warm." } },
+    everlook = { { id = "tp_everlook", text = "I've heard there's a goblin town up in the snow where folk have to bundle up against the cold. Imagine having the luxury of shivering." } },
     _none = { { id = "tp_none", text = "Couldn't say, dear. Ask Renee; she listens to everyone." } },
   },
 }
@@ -865,13 +1018,37 @@ P:NPC {
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look like you've been through it. Sit down, love, and whatever you need, I'll bring it." },
+      text = "You look like you've been dug up twice. Sit down, love, and whatever you need, I'll bring it." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "A living guest! We keep food for your sort, and it's fresh, even. Mostly fresh, anyway." },
   },
 
   start = "hello",
   nodes = {
+    op_sylvanas = {
+      big = true,
+      lines = {
+        { id = "opsy_default", text = "They talk about her as though she were a saint or a storm, love, and never anything in between. You've seen more of the world than they have, so what do you think of her?" },
+      },
+      choices = {
+        { text = "She saved us. I'd follow her into the Plaguelands.", next = "op_sylvanas_r1", fx = { align = { order = 1 }, opinion = { sylvanas = "admire" } } },
+        { text = "She's cold, and I don't think she cares for any of us.", next = "op_sylvanas_r2", fx = { align = { order = -1 }, opinion = { sylvanas = "distrust" } } },
+        { text = "Your queen frightens my people, Renee. I can see why.", next = "op_sylvanas_r3", fx = { trait = { cautious = 1 }, opinion = { sylvanas = "fear" } }, when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'd rather not talk about her, Renee.", next = "BACK" },
+      },
+    },
+    op_sylvanas_r1 = {
+      lines = { { id = "opsy_r1", text = "So would most of my guests, and some of them already have. I only hope she remembers which of them came back." } },
+      choices = { { text = "Something else, Renee.", next = "BACK" } },
+    },
+    op_sylvanas_r2 = {
+      lines = { { id = "opsy_r2", text = "Hush, love, the Deathguard drink here. I'll not say you're wrong, mind; I'll only say it quietly." } },
+      choices = { { text = "Something else, Renee.", next = "BACK" } },
+    },
+    op_sylvanas_r3 = {
+      lines = { { id = "opsy_r3", text = "She frightens her own too, sometimes, but fear's a poor reason to stop listening. Sit by the fire a while; nothing's quite so frightening by the fire." } },
+      choices = { { text = "Something else, Renee.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Because sure people do terrible things and sleep fine afterwards, and I'd rather pour drinks for someone who still wonders. You're dead and the Light still answers you, so I'd think you'd have more questions than most." } },
@@ -892,6 +1069,11 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
+          text = "You've a look of {alt} about you, who sat by my fire and tried to remember a song from before. If you were neighbours in life, you might finish it for them, because the poor thing only had the first line." },
+        { id = "h_alt_living", tags = { "news" }, when = { alt = { race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
+          text = "We had a {altrace} called {alt} in the tavern not long ago, warm-blooded and very polite about the smell. I hope you've the same good manners, because the regulars notice." },
+        { id = "o_npwrong", tags = { "news" }, when = { gossip = { topic = "new_plague", stance = "wrong" } }, text = "Johaan came in muttering that you don't trust his bottles. Neither do I, love, but I'd never say so where he can hear." },
         { id = "h_default", key = true,
           text = "I'm Renee, and I keep the tavern. Somebody has to look after people, even dead ones, and especially dead ones." },
         { id = "h_rogue", when = { questActive = TODO_QUEST("A Rogue's Deal") },
@@ -904,12 +1086,12 @@ P:NPC {
       choices = {
         { text = "Do the dead of Brill ever ask you for prayers, Renee?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the Forsaken mind a shaman's spirits in here, Renee?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Is there any green left in Tirisfal, Renee?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "There can't be much green left in Tirisfal, Renee.", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'm a warrior, Renee. What should a fighter know about Brill?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "May I bring my beast inside, Renee?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "Why keep an inn, now?", next = "why" },
+        { text = "You don't seem the innkeeping sort.", next = "why" },
         { text = "I'm a rogue. Who in Brill should I know?", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Do mages drink at the Gallows' End, Renee?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I doubt many mages drink at the Gallows' End, Renee.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you serve a warlock under your roof, Renee?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do you ask paladins how sure they are, Renee?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a room, thanks.", next = "END" },
@@ -924,7 +1106,10 @@ P:NPC {
     },
     why = {
       lines = { { id = "w_default", text = "I spent too long on the other side of things, hurting people for a cause. Now I pour drinks and listen, and it suits me better." } },
-      choices = { { text = "It does.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+      choices = {
+        { text = "What do your guests say about the Dark Lady?", next = "op_sylvanas" },
+        { text = "It does.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+      },
     },
     xhwar = {
       big = true,
@@ -991,7 +1176,12 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "I know them better than I'd like. Let's leave it there, love." } },
-    _none = { { id = "tp_none", text = "I hear everything in this tavern, but not that." } },
+    forsaken = { { id = "tp_forsaken", text = "Most of my regulars are Forsaken, love, and they're the best customers I've ever had, since they don't fall over drunk or start fights about the bill. They just sit and remember, and I let them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came through here before my time behind this bar. My guests talk about it some nights, quiet-like, and I don't make them stop." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady's people run Brill, and they run it fairly enough. I keep my head down and my glasses clean, and nobody bothers me." } },
+    thrall = { { id = "tp_thrall", text = "Orcs come through on their way off the zeppelins, all big shoulders and good manners, and they tip better than you'd think. I like them, if you want to know." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I hear the drinking in Booty Bay is rough and the bouncers are rougher. I'd sooner a quiet tavern full of dead men than a loud one full of pirates." } },
+    _none = { { id = "tp_none", text = "I hear everything in this tavern, love, and the dead gossip worse than the living ever did, but not that." } },
   },
 }
 
@@ -1089,13 +1279,13 @@ P:NPC {
         { text = "Why do you keep telling everyone you're not with the Crusade?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you light your fires with flint, Eleanor, or ask them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why stay in a dead land, Eleanor, when the world is wide?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why camp, when there are inns?", next = "why" },
+        { text = "You'd be warmer in an inn than out here.", next = "why" },
         { text = "I don't sleep, Eleanor. What's a camp for, then?", next = "forsaken", when = { race = "Scourge" } },
-        { text = "I'm a long way from the Barrens. Any tips for this damp?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'm a long way from the Barrens, and this damp gets into everything.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "You notice a great deal for a traveller, Eleanor.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could light your fire with a word, Eleanor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How does a warrior keep a camp safe, Eleanor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "What game is worth taking along this road, Eleanor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "There must be some game worth taking along this road, Eleanor.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a warlock learn campfires, Eleanor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why are you so quick to say you're not with the Crusade?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Safe travels.", next = "END" },
@@ -1143,7 +1333,7 @@ P:NPC {
       choices = {
         { text = "Then I'll sit by the fire and learn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Firelight's bad for a rogue, Eleanor. People remember your face.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Why camp, when there are inns?", next = "why" },
+        { text = "You'd be warmer in an inn than out here.", next = "why" },
       },
     },
     xmage = {
@@ -1162,6 +1352,10 @@ P:NPC {
 
   topics = {
     camping = { { id = "tp_camping", text = "A fire first, then whatever your trade can add to it, whether you cook, work leather or fish. A camp is everyone's work." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I knew Lordaeron when it was green and the roads were safe for a woman walking alone. They aren't now, and that's why I teach people to build a fire properly." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge doesn't fear much, but it doesn't care for a good fire either. Keep one lit and keep your back to something solid, and you'll see more mornings than most." } },
+    forsaken = { { id = "tp_forsaken", text = "I don't mind the Forsaken, so long as they don't mind me. We've reached an understanding here in Brill, and I won't spoil it by asking too many questions." } },
+    scarlet_monastery = { { id = "tp_scarlet_monastery", text = "I've seen the Monastery from the road, all banners and bells, and I've no wish to see it any closer. I've told you already, I'm not one of them." } },
     _none = { { id = "tp_none", text = "I'm only passing through. Ask someone who lives here, if that's the word." } },
   },
 }

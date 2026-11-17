@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_bolvar", when = { gossip = { topic = "bolvar", stance = "trusted" } }, text = "Somebody told me you said you'd follow Bolvar anywhere. So would I, only he never lets me go anywhere at all." },
+    { id = "g_op_orcs", when = { opinion = { topic = "orcs", stance = "wary" } }, text = "You're the one who said to judge every orc by what he does! I said it at council, and one of the dukes dropped his spoon." },
     { id = "g_formal", text = "Welcome to Stormwind Keep! Um, I mean, be welcome; I think that's how you're supposed to say it." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I mean, the crown recognizes you, and it's very glad you're here." },
   },
@@ -37,6 +39,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "op_orcs_a", text = "The orcs, mostly. Lady Prestor says they're beasts and always will be, and Bolvar says some of them only ever wanted to go home, and I can't tell which of them is right. What do you think?" },
+      },
+      choices = {
+        { text = "Some orcs want peace, Your Majesty. The Highlord's right to hope.", next = "op_orcs_1", fx = { opinion = { orcs = "trust", peace = "for" }, align = { light = 1 }, affinity = 1 } },
+        { text = "Lady Prestor's right. Orcs only understand the sword.", next = "op_orcs_2", fx = { opinion = { orcs = "hate", prestor = "ally" }, align = { light = -1 } } },
+        { text = "Judge each orc by what he does, not by what he is.", next = "op_orcs_3", fx = { opinion = { orcs = "wary" }, align = { honor = 1 }, trait = { kind = 1 }, affinity = 2 } },
+        { text = "The orcs are still cutting Ashenvale's trees. Ask my people about peace.", next = "op_orcs_4", when = { race = "NightElf" }, fx = { opinion = { orcs = "distrust", ashenvale = "orcs_wrong" } } },
+        { text = "They burned my home in Lordaeron, Your Majesty. I won't forgive that.", next = "op_orcs_5", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { orcs = "hate" } } },
+        { text = "That's a question for the Regent, Your Majesty.", next = "BACK" },
+      },
+    },
+    op_orcs_1 = {
+      lines = { { id = "op_orcs_r1", text = "I hoped you'd say that, because I think so too, only I'm not allowed to say it at council. Please don't tell Lady Prestor I agreed with you." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_2 = {
+      lines = { { id = "op_orcs_r2", text = "Oh. That's what the nobles say too, and they always say it very loudly. I suppose you've met more orcs than I have, so you'd know." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_3 = {
+      lines = { { id = "op_orcs_r3", text = "That's the sort of thing my father would say, I think. I'm going to write it down before I forget it, and then I'll say it at council and see who frowns." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_4 = {
+      lines = { { id = "op_orcs_r4", text = "I didn't know they were still fighting anywhere. Nobody tells me about Ashenvale, because they think it's too far away to matter, and I don't think it is." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_5 = {
+      lines = { { id = "op_orcs_r5", text = "I'm sorry. Bolvar says the people from the north lost more than anyone, and I shouldn't ask anybody to forgive things I never had to." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
     xpt_anduin = {
       big = true,
       lines = { { id = "xpt_anduin_default", text = "Not really, because everyone wants something from me, even the ones who are nice about it. Lady Prestor says a king doesn't need friends, only loyal servants, but my father had Uncle Bolvar, so I don't think she's right." } },
@@ -82,8 +117,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_anduin = {
+      big = true,
+      lines = { { id = "xalt_anduin_default", text = "Their name was {alt}, a {altclass}, and they let me hold their gloves while we talked, which the guards didn't like at all. Bolvar says a king mustn't have favourites among his subjects, but I think I'm allowed to have favourite visitors." } },
+      choices = {
+        { text = "I'll pass on your regards, Your Majesty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your guards are right to be careful, Your Majesty.", next = "BACK" },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You look ever so much like {alt}! That one came to see me too, and told me a story about a gryphon that I'm fairly sure wasn't true, but I liked it anyway, so are you related?" },
+        { id = "h_alt_other", when = { alt = { notKin = true }, metBefore = false },
+          text = "Do you know {alt}? I only ask because a {altrace} {altclass} by that name came to visit, and you have the same way of bowing, as if you're not quite sure whether you ought to." },
+        { id = "h_alt_back", when = { alt = { days = 14 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came back to see me not long ago, which hardly anybody does, and now you've come back too. I'm starting to think the two of you are taking turns, and I don't mind at all." },
         { id = "h_pt_anduin", tags = { "news" }, when = { party = true },
           text = "Are all of these your friends? I'm not allowed to go anywhere with friends, only with guards, and the guards are very kind, but they won't play anything." },
         { id = "h_default", text = "I'm the king, at least until my father comes home. Everyone's been very kind about it, though I don't think I'm very good at it yet." },
@@ -105,11 +155,11 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Do you have another question? I like questions, and hardly anybody asks me any." } },
       choices = {
-        { text = "Do you miss your father?", next = "father" },
-        { text = "What do you do when you're not being king?", next = "fun" },
+        { text = "You must miss your father terribly.", next = "father" },
+        { text = "Being king must leave you little time for yourself.", next = "fun" },
         { text = "Would you like a prayer for your father?", next = "prayer", when = { class = "PRIEST" } },
-        { text = "What's the Highlord like?", next = "bolvar" },
-        { text = "Do you like Lady Prestor?", next = "prestor" },
+        { text = "The Highlord seems a good man to have about.", next = "bolvar" },
+        { text = "Lady Prestor seems a serious sort of woman.", next = "prestor" },
         { text = "Would you like a paladin's blessing?", next = "bless", when = { class = "PALADIN" } },
         { text = "What's it like being king?", next = "king" },
         { text = "I came all the way from Teldrassil, Your Majesty.", next = "teldrassil", when = { race = "NightElf" } },
@@ -124,6 +174,7 @@ P:NPC {
         { text = "Do you know what a warlock is, Your Majesty?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did your books say anything good about shamans, Your Majesty?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do you have friends of your own, Your Majesty?", next = "xpt_anduin", when = { party = true } },
+        { text = "Who was this other visitor, Your Majesty?", next = "xalt_anduin", when = { alt = true } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -142,8 +193,9 @@ P:NPC {
         { id = "k_default", text = "Mostly listening. The Highlord talks, Lady Prestor talks, the nobles talk. I listen. Then I ask a question and they all go quiet." },
       },
       choices = {
+        { text = "What do the nobles argue about most, Your Majesty?", next = "op_orcs" },
         { text = "That sounds like a good king.", next = "BACK", fx = { affinity = 1 } },
-        { text = "What do you ask?", next = "ask" },
+        { text = "I'd like to hear what you ask them.", next = "ask" },
       },
     },
     fun = {
@@ -297,6 +349,20 @@ P:NPC {
   },
 
   topics = {
+    varian = {
+      { id = "tp_varian", text = "My father went to Theramore to make peace and never got there, and nobody will tell me what happened to his ship. Bolvar says he'll come home, and I say it too, every night, so it stays true." },
+      { id = "tp_varian2", when = { disposition = { min = 65 } }, text = "Sometimes I go into his study and sit in his chair, just to see the room the way he saw it. I'm not supposed to, so please don't tell Bolvar, though I think he knows." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar runs the kingdom until I'm old enough, and he's very patient with me, even when I ask too many questions. He used to be a paladin in Lordaeron, and he still prays like one, every morning before council." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor says I'm a good listener, and she sits beside me at council and tells me which lords are being silly. Everyone agrees with her, so she must be very wise, though she never laughs at anything." } },
+    jaina = { { id = "tp_jaina", text = "Lady Jaina Proudmoore is a great sorceress, and she was a friend of my father's. She sent me a book about the stars once, and I've read it four times." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is the warchief of the orcs now, and Bolvar says he's not like the ones who burned Stormwind. I don't know how a whole people can change, but I'd like to ask him, if anyone ever let me." } },
+    magni = { { id = "tp_magni", text = "King Magni came to visit when I was little and let me pull his beard, and he laughed so hard the windows shook. I'd like a beard like that, though Bolvar says I'll have to wait." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of people who saved the world, and I go and look at them when I'm feeling small. I wonder whether I'll have one someday, or whether you have to do something first." } },
+    holy_light = { { id = "tp_holy_light", text = "Archbishop Benedictus teaches me about the Light every week, and he says it's in everyone, even people who are cross. I'm still looking for it in some of the council, but I'm trying." } },
+    scourge = { { id = "tp_scourge", text = "Bolvar won't talk about the Scourge when I'm there, but I've heard the soldiers say the dead walk in Lordaeron. I had a nightmare about it once, and I didn't tell anybody but you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've never been to the Darkmoon Faire, because a king can't just go to a faire, apparently. I've heard there's a man who juggles fire, and I'd give anything to see it." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of the night elves, and she's thousands of years old. I asked if she remembered the beginning of the world, and the ambassador went very quiet." } },
     knows = {
       { id = "tp_knows", text = "I hear a lot at council, because everyone forgets I'm there. Ask me about any of it and I'll tell you, as long as it isn't a secret." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You can ask me about anything here, and I'll tell you the parts Bolvar skips, too." },

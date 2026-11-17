@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "How did a dwarf end up in Farholde?", next = "how" },
-        { text = "How do the walls hold up?", next = "walls" },
+        { text = "These walls look sturdy enough.", next = "walls" },
         { text = "What happened during the siege?", next = "siege" },
         { text = "Ironforge would build it differently, wouldn't it?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll let you work.", next = "END" },
@@ -56,7 +56,7 @@ P:NPC {
     how = {
       lines = { { id = "ho_default", text = "Same as Thaddeus, more or less: came for a job and stayed for the company, and the company keeps needing walls. Ironforge has a thousand masons; Farholde has me, and that's a better count for a craftsman." } },
       choices = {
-        { text = "Do you miss the mountain?", next = "how_miss" },
+        { text = "You must miss the mountain.", next = "how_miss" },
         { text = "Something else, Bertrand.", next = "BACK" },
       },
     },
@@ -95,7 +95,7 @@ P:NPC {
     siege = {
       lines = { { id = "si_default", text = "The Horde hammered the front gate, and while every eye was there, they came round by the water and burned the ships at the docks. Nobody got out and no word went for help, and we sat on half rations till the Brotherhood rode out and broke them." } },
       choices = {
-        { text = "Were you here for it?", next = "siege_here" },
+        { text = "You must have been here for it.", next = "siege_here" },
         { text = "Something else.", next = "BACK", fx = { learn = { "siege_of_farholde" } } },
       },
     },
@@ -121,6 +121,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Check your footing before ye build anything, a wall or a friendship or a plan. Everything falls from the bottom." } },
     siege_of_farholde = { { id = "tp_siege", text = "They came by the water when everyone watched the gate. I build the shore wall twice as thick now, and I'll not apologize for it." } },
     brotherhood_horse = { { id = "tp_brother", text = "Good folk, terrible builders. They ride better than they lay stone, and thank the Titans for that, or I'd be out of work." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, and he'd want a dwarf to keep these walls standin' properly. Aye, I'm doin' it for him as much as for the humans." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a blight on the name of dwarf, and I'll hear no different. They're to the west, in their burnin' mountain, and they can stay there." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are a bit wild for my taste, but they're dwarves, and that counts for somethin'. They'd make better neighbors than the Dark Irons, at any rate." } },
+    second_war = { { id = "tp_second_war", text = "The old war cracked these walls, and I read the whole story in the stones when I came. A crack will teach ye more than any book will, if ye know how to look." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and every gnome in the world wants to improve my scaffoldin' because of it. I'll thank them to keep their hands off." } },
     _none = { { id = "tp_none", text = "No idea, {g:lad|lass}. Ask Ashe Amberhall; she knows everything and says it twice as fast as anyone." } },
   },
 }

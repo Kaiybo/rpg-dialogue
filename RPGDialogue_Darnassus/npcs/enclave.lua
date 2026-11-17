@@ -140,7 +140,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the dirt, would you, because I've only just got that pile exactly where I want it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Don't let your beast dig in my piles, because the last one undid three days of my work." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! At last, someone else the druids look down on. Mind the dirt, though, because it's been arranged very carefully." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do not step in the dirt. I am a visionary, you know, held back by lesser minds. Your spirits would understand." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't step in the dirt. I am a visionary, you know, held back by lesser minds for a good few centuries now, and I think your spirits would understand." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
@@ -148,9 +148,9 @@ P:NPC {
       },
       choices = {
         { text = "What are you actually doing?", next = "dirt" },
-        { text = "What do you dream of?", next = "dream" },
+        { text = "You look like someone with big dreams.", next = "dream" },
         { text = "Who's keeping you down?", next = "conspiracy" },
-        { text = "What does the Circle want with Un'Goro soil?", next = "soil", when = { any = { { questActive = TODO_QUEST("Un'Goro Soil") }, { questDone = TODO_QUEST("Un'Goro Soil") } } } },
+        { text = "The Circle seems very interested in Un'Goro soil.", next = "soil", when = { any = { { questActive = TODO_QUEST("Un'Goro Soil") }, { questDone = TODO_QUEST("Un'Goro Soil") } } } },
         { text = "Gnomes build machines that dig, you know.", next = "gnome_j", when = { race = "Gnome" } },
         { text = "Did you ever think about another line of work?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the druids object to a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -180,7 +180,7 @@ P:NPC {
       choices = {
         { text = "He's not wrong.", next = "BACK", fx = { align = { order = 1 }, trait = { witty = 1 } } },
         { text = "That was cruel of him.", next = "BACK", fx = { align = { order = -1 }, affinity = 1, trait = { kind = 1 } } },
-        { text = "What did you say back?", next = "fandral2" },
+        { text = "I hope you gave him a sharp answer.", next = "fandral2" },
       },
     },
     fandral2 = {
@@ -238,6 +238,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Visionary. Currently digging. The two will meet one day, and on that day you'll be glad you knew me." } },
     advice = { { id = "tp_ad", text = "Never let anyone tell you you're only a ditch digger, even if, at the moment, you are." } },
     cenarion_circle = { { id = "tp_circle", text = "Great druids, the lot of them, and not one of them has ever asked my opinion. Their loss." } },
+    dalaran = { { id = "tp_dalaran", text = "The wizards of Dalaran rebuilt their city with magic, which shows a lamentable lack of shovels. I'd have dug them proper foundations, if anyone had thought to ask me." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes tunnelled a whole city under a mountain, and I think about that every day. I've written to them twice offering my services, and I'm sure the replies are only delayed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a strongman who can lift an anvil, I'm told. I'd like to see him dig a proper ditch, because lifting isn't everything." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree has roots deeper than any ditch anyone has ever dug. Someday I'll make it down to them, and I'll say hello on behalf of all of us." } },
     _none = { { id = "tp_none", text = "No idea, friend. I've been out here with the dirt; it doesn't gossip." } },
   },
 }
@@ -387,16 +391,16 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I don't teach your kind, and you make far too much noise in my alcove." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. That's more than I can say for most who come here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my alcove. You can't learn anything from me, but your Circle ought to be listening harder to what Teldrassil's forests are trying to tell it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak to rogues, not to spirit-callers. Still, the forests suffer. Do your spirits feel it?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak to rogues, not to spirit-callers, but the forests suffer all the same, so tell me whether your spirits feel it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Be brief." },
+        { id = "h_again", text = "Anything else? Be brief, for the shadows under the tree don't wait on anyone." },
         { id = "h_again2", when = { class = "ROGUE" }, text = "Go on. You've earned a few more questions." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
-        { text = "Who is Jannok?", next = "jannok" },
-        { text = "What's wrong with Teldrassil's forests?", next = "forest" },
+        { text = "Who is Jannok?", next = "jannok", when = { any = { { questActive = TODO_QUEST("The Apple Falls") }, { questDone = TODO_QUEST("The Apple Falls") } } } },
+        { text = "I've heard something is wrong in Teldrassil's forests.", next = "forest", when = { any = { { questActive = TODO_QUEST("Destiny Calls") }, { questDone = TODO_QUEST("Destiny Calls") } } } },
         { text = "Why do night elves need rogues?", next = "why" },
         { text = "Teach me how the kaldorei move unseen.", next = "rogue_s", when = { class = "ROGUE" } },
         { text = "Is a mage really so easy to notice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -464,6 +468,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach rogues. What I did before that isn't anyone's business." } },
     advice = { { id = "tp_ad", text = "Watch the hands, not the face. The face lies more often." } },
     satyrs = { { id = "tp_satyrs", text = "Old enemies, twisted from our own people. They hide on the edges of Teldrassil, and they know more than they should." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "I've heard the name, and I've heard it from people who were careful to say it quietly. If they want you, they'll find you, so don't go looking." } },
+    highborne = { { id = "tp_highborne", text = "Azshara's court had its knives too, you know, more of them than anyone admits. Some of what I teach is older than this tree." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A goblin port where the law is whoever paid last. It's a useful place to sell what you'd rather not explain, though I'd never recommend it." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in the southern marsh, the stories go. Rogues who go after a dragon's hoard tend to become part of it." } },
     _none = { { id = "tp_none", text = "I don't know, and I wouldn't tell a stranger if I did." } },
   },
 }
@@ -630,16 +638,16 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, a keeper of the balance as my hunters are. Yours is the gentler half of the work, though I've seen a druid in cat shape who would shame any hunter of mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and you'll forgive me if I mention that before anything else." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance is the law of the wild. Do your spirits respect it, or do they upset it?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance is the oldest law of the wild, older than my people's memory, so tell me whether your spirits respect it or upset it." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak; I'm listening." },
+        { id = "h_again", text = "What else? Speak, and I'll listen as the forest listens, without hurry." },
         { id = "h_again2", text = "Another question? Good. Hunters who stop asking stop learning." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do you mean by balance?", next = "balance" },
-        { text = "How do you choose a companion?", next = "companion" },
+        { text = "Choosing a companion must take care.", next = "companion" },
         { text = "Who else teaches hunters here?", next = "dorion" },
         { text = "How do I teach my companion new tricks?", next = "teach", when = { class = "HUNTER" } },
         { text = "I rode nightsabers before I ever drew a bow.", next = "sabers", when = { origin = "nightelf_nightsaber_rider" } },
@@ -664,7 +672,7 @@ P:NPC {
       choices = {
         { text = "The wild should be left to itself.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Someone has to keep the wild in order.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "And those who break the balance?", next = "balance2" },
+        { text = "Some must break the balance on purpose.", next = "balance2" },
       },
     },
     balance2 = {
@@ -711,7 +719,11 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Hunters bring back more than pelts; they bring news from every corner of the forest. Ask, and I'll share what's worth sharing." } },
     background = { { id = "tp_bg", text = "I teach hunters, and I teach them hard. Ask any of them in ten years whether it was worth it." } },
     advice = { { id = "tp_ad", text = "Feed your companion before you feed yourself. It's watching to see whether you will." } },
-    _none = { { id = "tp_none", text = "That's no concern of the hunt. Ask someone else." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of the Barrens and Desolace ride in war bands and hold nothing sacred but the hunt. Respect that, because it means they're good at it." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are proud and quick to anger, but they keep their word. That's more than I can say for most." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The drowned temple off Ashenvale's coast, where the nagas crawl. Bring a pet that can swim, and don't go alone." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I leave the Dream to the druids. A hunter's job is the waking world, and that keeps me plenty busy." } },
+    _none = { { id = "tp_none", text = "That's no concern of the hunt, and Elune gave me only so many years to learn the hunt in. Ask someone else." } },
   },
 }
 
@@ -744,6 +756,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "That is the question young druids ask in whispers. It stands without the blessing the Aspects gave Nordrassil, and the forests at its feet sicken here and there, and yet our people live in its branches and sleep soundly. What do you think of the tree, {class}?" },
+      },
+      choices = {
+        { text = "It's a marvel, and the Archdruid was right to grow it.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { teldrassil_tree = "admire", fandral = "admire" } } },
+        { text = "A tree grown without blessing will bear bad fruit.", next = "op_r2", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "It's home now. Tend it and stop asking.", next = "op_r3", fx = { affinity = 1, trait = { practical = 1 }, opinion = { teldrassil_tree = "home" } } },
+        { text = "The furbolgs and timberlings are sick. Something here is wrong.", next = "op_r4", fx = { trait = { curious = 1 }, opinion = { teldrassil_tree = "uneasy" } }, when = { class = "DRUID" } },
+        { text = "I've no answer for that.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Say so in the Cenarion Enclave and you'll have friends there for life. I hope you're right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Hush, now, not so loud under the Archdruid's own branches. Some of us think it, and none of us say it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A good answer for a gardener, and maybe the right one. Rellian would agree with you, if he ever stopped fussing over his timberlings long enough to say so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "So you've seen it too. The Gnarlpine and the timberlings are not the tree's fault, I tell myself, though I tell myself rather often." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some see you as crude imitators, others as distant kin. I see a seeker of the world's voices, and a seeker gets my blessing, crude or not." } },
@@ -856,16 +897,17 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Cenarius bless you, rogue, even if you walk too quietly for the young druids' comfort. They're used to hearing people coming before they see them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Cenarius bless you, even though your path is different from ours. The Enclave argues about such things, but I do not." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Cenarius bless you, even though your path is different from ours; the Enclave argues about such things, but I have lived too long to bother." },
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
         { id = "h_again2", text = "Ask on, then, since questions are how roots find water." },
       },
       choices = {
+        { text = "Is Teldrassil a true world tree?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who is Cenarius, to you?", next = "cenarius" },
-        { text = "What does a young druid learn first?", next = "first" },
+        { text = "A young druid must have a great deal to learn.", next = "first" },
         { text = "How is the Circle under Fandral?", next = "circle" },
         { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
         { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -912,7 +954,7 @@ P:NPC {
         { id = "ci_default", text = "Busy, and loud, and growing like the tree. The Arch Druid has a vision for Teldrassil, and he pursues it harder than anyone, which some admire and some find tiring." },
       },
       choices = {
-        { text = "Which are you?", next = "circle2" },
+        { text = "I can't tell which you are.", next = "circle2" },
         { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
       },
     },
@@ -932,6 +974,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach the young druids before Mathrengyl takes them further. It's a gentle post, and I like it." } },
     advice = { { id = "tp_ad", text = "Listen to the forest before you speak for it. Most druids skip that step." } },
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle, and we serve the balance. Our leaders disagree sometimes, but the duty doesn't change." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "The Dream is the world as it might have been, green and unbroken, and every druid feels it at the edges of sleep. Don't chase it yet, because it will find you when you're ready." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You've felt it already, haven't you, at the edges of your sleep. Be patient with it, because it's been waiting a long time and can wait a little longer." },
+    },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the first World Tree, on Hyjal's summit, and it keeps our long lives. Every young druid should see it once before they decide they know everything." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight guards the Dream and the druids who walk it. Be respectful if you ever meet one, and don't ask them to explain themselves." } },
+    elune = { { id = "tp_elune", text = "Elune and Cenarius were close in the old stories, closer than the Temple and the Enclave are now. I'd like to see that again." } },
     _none = { { id = "tp_none", text = "The forest hasn't told me that one. Try the Temple, perhaps." } },
   },
 }

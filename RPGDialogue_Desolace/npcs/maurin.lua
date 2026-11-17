@@ -54,8 +54,8 @@ P:NPC {
       },
       choices = {
         { text = "What makes the Burning Blade weak?", next = "blade" },
-        { text = "What do the gems do to their spirits?", next = "gems" },
-        { text = "Why does Keldran trust a Forsaken?", next = "keldran" },
+        { text = "What do the gems do to their spirits?", next = "gems", when = { questDone = TODO_QUEST("Alliance Relations") } },
+        { text = "Keldran trusting a Forsaken surprises me.", next = "keldran" },
         { text = "Tell me about Azrethoc's contract.", next = "contract", when = { any = { { questActive = TODO_QUEST("The Corrupter") }, { questDone = TODO_QUEST("The Corrupter") } } } },
         { text = "I'm a warlock too. How is my power different from theirs?", next = "warlock_m", when = { class = "WARLOCK" } },
         { text = "What would you have me do?", next = "BUSINESS" },
@@ -87,8 +87,8 @@ P:NPC {
         { id = "bl2_default", text = "In death, and in the Undercity's libraries afterwards, and that is all you will hear of it. Knowledge does not care where it was found, {class}, only how it is used." },
       },
       choices = {
-        { text = "Some knowledge is too dangerous to keep.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Any weapon is worth having against our enemies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some knowledge is too dangerous to keep.", next = "BACK", fx = { align = { light = 1 }, opinion = { necromancy = "dangerous" } } },
+        { text = "Any weapon is worth having against our enemies.", next = "BACK", fx = { align = { light = -1 }, opinion = { necromancy = "useful" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,9 +98,36 @@ P:NPC {
         { id = "ge_default", text = "They draw out what the demons have put into a cultist, the corrupted part, and hold it fast in stone. What remains dies, and dies cleaner than it lived." },
       },
       choices = {
-        { text = "And the gems themselves?", next = "gems_kept" },
+        { text = "The gems themselves must go somewhere.", next = "gems_kept" },
+        { text = "Isn't that necromancy?", next = "necro_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    necro_op = {
+      lines = { { id = "ne_default", text = "It is, and I make no apology for the word. The Scourge use the same arts to chain the dead, and I use them to unmake the Blade, so tell me, {class}: does the tool make the crime, or the hand?" } },
+      choices = {
+        { text = "The hand. Turned on our enemies, it's justice.", next = "ne_hand", fx = { affinity = 2, align = { light = -1 }, opinion = { necromancy = "useful" } } },
+        { text = "The tool. Necromancy is rot, whoever holds it.", next = "ne_tool", fx = { affinity = -2, align = { light = 1 }, opinion = { necromancy = "wrong" } } },
+        { text = "Both. I'll fight beside you, but I'll watch you.", next = "ne_both", fx = { affinity = 1, trait = { skeptical = 1 }, opinion = { necromancy = "dangerous" } } },
+        { text = "It made us. We may as well master it.", next = "ne_undead", when = { race = "Scourge" }, fx = { affinity = 1, opinion = { necromancy = "master" } } },
+        { text = "Something else, Maurin.", next = "BACK" },
+      },
+    },
+    ne_hand = {
+      lines = { { id = "neh_default", text = "Precisely. You would do well in the Undercity, where that answer is taught to apprentices before they are allowed to touch a scalpel." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_tool = {
+      lines = { { id = "net_default", text = "Then you will forgive me if I do not ask you to carry the gems. Rot is what the Blade made of itself; I merely sweep it up." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_both = {
+      lines = { { id = "neb_default", text = "Good. Watch me closely, then, and you may learn something, which is more than the orcs here manage." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_undead = {
+      lines = { { id = "neu_default", text = "A sensible child of the Dark Lady. Mastery is the only answer to what was done to us, and the Lich King will learn it in time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     gems_kept = {
       big = true,
@@ -157,6 +184,15 @@ P:NPC {
     background = { { id = "tp_bg", text = "I died, and I learned, and now I serve. The order of those matters more than the details." } },
     advice = { { id = "tp_ad", text = "Never sign anything a demon offers you, however it is phrased. The Blade's warlocks are a lesson written in their own skin." } },
     burning_blade = { { id = "tp_blade", text = "A cult of traitors who mistake obedience for power. I will see them ended.", next = "blade" } },
+    scourge = { { id = "tp_scourge", text = "I served the Scourge once, and I remember all of it, which is the worst of what I can tell you. The Lich King's grip was cold and clear, and the Burning Blade's demons are crude by comparison." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are what is left when you pull a puppet's strings and it walks off on its own. We owe nothing to anyone, and the Dark Lady is the only one who understands that." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us when the Lich King's power faltered, and she has a plan for Lordaeron. I do not need to know it to serve it." } },
+    burning_legion = {
+      { id = "tp_burning_legion", text = "The Legion is an old power and a patient one, and these orcs who bargain with it are children playing with knives. I study them so that I know where to cut." },
+      { id = "tp_burning_legion2", when = { race = "Scourge" }, text = "You and I know what it is to belong to something greater and colder than ourselves. The warlocks of the Burning Blade want that, and they deserve what they will get." },
+    },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a necromancer of Dalaran, and now he is the Lich King's voice in the plaguelands. His work is meticulous, and I would very much like to see it unmade." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a useful ally to the Dark Lady, and the orcs here are courteous enough. They keep their distance from me, which I appreciate." } },
     _none = { { id = "tp_none", text = "I do not know, and I do not guess. Ask Takata; he guesses for a living." } },
   },
 }

@@ -40,7 +40,7 @@ P:Pool {
       },
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
-        { text = "Who runs Booty Bay?", next = "boss" },
+        { text = "Somebody must run Booty Bay.", next = "boss" },
         { text = "Any trouble lately?", next = "trouble" },
         { text = "Why work for the Cartel?", next = "pay" },
         { text = "Doesn't staying neutral ever bother you?", next = "neutral" },
@@ -122,7 +122,7 @@ P:Pool {
       choices = {
         { text = "Smart. Coin outlasts every war.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "Some fights are worth picking a side in.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
-        { text = "Doesn't anyone try to drag you in?", next = "neutral_drag" },
+        { text = "Somebody must try to drag you in.", next = "neutral_drag" },
       },
     },
     neutral_drag = {
@@ -214,8 +214,8 @@ P:Pool {
       },
       choices = {
         { text = "Who are the Blackwater Raiders?", next = "raiders" },
-        { text = "What do folk here think of the Bloodsail?", next = "bloodsail" },
-        { text = "Is Fleet Master Seahorn as loud as they say?", next = "seahorn" },
+        { text = "Folk here can't think much of the Bloodsail.", next = "bloodsail" },
+        { text = "Who leads the Blackwater Raiders?", next = "seahorn" },
         { text = "Do the Raiders ever take on new hands?", next = "hire" },
         { text = "Seen any Bloodsail spies about town?", next = "spies", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Take care, friend.", next = "END" },
@@ -243,7 +243,7 @@ P:Pool {
     },
     bloodsail = {
       lines = {
-        { id = "bs_default", text = "That they'd burn this town to the waterline if they thought there was a copper in the ashes. Fleet Master Firallon wants the Baron's balcony, and he's been trying to buy it with knives for years." },
+        { id = "bs_default", text = "Not much, because they'd burn this town to the waterline if they thought there was a copper in the ashes. Fleet Master Firallon wants the Baron's balcony, and he's been trying to buy it with knives for years." },
         { id = "bs_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Less than we did, now Firallon's at the bottom! They'll find another fleet master, mind, so don't go hanging up your sword just yet." },
       },
       choices = {
@@ -259,7 +259,7 @@ P:Pool {
     },
     seahorn = {
       lines = {
-        { id = "se_default", text = "Louder, friend! He laughs at the top of the tavern and the glasses rattle at the bottom. He's a tauren who went to sea and never came back, and he'd fight a kraken for any one of his sailors." },
+        { id = "se_default", text = "Fleet Master Seahorn, friend, and he's louder than a broadside! He laughs at the top of the tavern and the glasses rattle at the bottom. He's a tauren who went to sea and never came back, and he'd fight a kraken for any one of his sailors." },
       },
       choices = {
         { text = "A tauren pirate. I've seen everything now.", next = "BACK", fx = { trait = { witty = 1 } } },

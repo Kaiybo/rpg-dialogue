@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_jaina_dist", when = { gossip = { topic = "jaina", stance = "distrust" } }, text = "Krog say you no trust the human lady. Do'gol no trust her either, but Do'gol trust a good shield, so you buy one, yes?" },
     { id = "g_default", text = "Do'gol is busy hitting metal, so you talk loud." },
     { id = "g_active", when = { questActive = TODO_QUEST("The Black Shield") }, text = "You have the spider sacs? Do'gol is waiting, and the shield is waiting, and nobody likes waiting." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Black Shield") }, text = "Ah, the shield one. Did Krog find out who Mosarn is? Nobody tells Do'gol anything." },
@@ -48,10 +49,10 @@ P:NPC {
         { id = "h_again2", text = "Talk, then, but Do'gol keeps working while you talk, so stand back from the sparks, because Do'gol's last customer lost an eyebrow." },
       },
       choices = {
-        { text = "What did the black shield tell you?", next = "shield" },
-        { text = "Why do you make shields and not axes?", next = "craft" },
-        { text = "You don't like the spiders?", next = "spiders" },
-        { text = "What do you make of Krog?", next = "krog" },
+        { text = "What did the black shield tell you?", next = "shield", when = { any = { { questActive = TODO_QUEST("The Black Shield") }, { questDone = TODO_QUEST("The Black Shield") } } } },
+        { text = "Most smiths here would rather make axes than shields.", next = "craft" },
+        { text = "You don't like the spiders?", next = "spiders", when = { any = { { questActive = TODO_QUEST("The Black Shield") }, { questDone = TODO_QUEST("The Black Shield") } } } },
+        { text = "Krog seems to have a lot on his mind.", next = "krog" },
         { text = "I'm a smith too. What's your secret?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "What makes a good shield, for a warrior?", next = "warrior", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -61,7 +62,7 @@ P:NPC {
     shield = {
       lines = { { id = "s_default", text = "It is a good shield, heavy and strong, the kind Do'gol would make if Do'gol had better iron. Somebody important carried it, and somebody important dropped it in the burned inn, and that is all a shield can say by itself." } },
       choices = {
-        { text = "Who do you think it belonged to?", next = "shield_who" },
+        { text = "Somebody important must have carried that shield.", next = "shield_who" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,6 +130,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Do'gol is Stonemaul and Do'gol makes shields. That is all of Do'gol's story, and it is a good story." } },
     advice = { { id = "tp_ad", text = "Carry a shield, even if you think you do not need one. Everybody who did not is dead, so you cannot ask them." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon lives south, past the Stonemaul ruins, and her children burned Do'gol's clan. Do'gol does not make shields for dragon fire, because no shield is that good." } },
+    theramore = { { id = "tp_theramore", text = "The humans have good iron in Theramore, better than Do'gol's, and they waste it on swords for little men. Do'gol would make them proper shields if they asked, but they do not ask ogres." } },
+    thrall = { { id = "tp_thrall", text = "The orc chief let the ogres stay in Brackenwall, and the orcs bring Do'gol iron, so Do'gol thinks the orc chief is a good chief." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Do'gol hears there are many ogres in the black mountain far away, and the orcs there are bad orcs. They make bad shields too, Do'gol is sure of it." } },
     _none = { { id = "tp_none", text = "Do'gol knows metal and spiders, and that is not metal or spiders, so ask Krog." } },
   },
 }

@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "saldean", id = TODO_NPC("Farmer Saldean"), name = "Farmer Saldean",
+  prejudice = { origin = "human_minor_noble", amount = 12, why = "Blames the House of Nobles for Westfall's ruin; neighbours now in the Deadmines." },
   bible = "bibles/saldean.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "proud" }, values = { "stern", "honest" },
   notices = { "work", "kit" },
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Soft hands and a straight back, and I'd wager a name with 'of' in it. Westfall's been bled white by people like your family, so say what you want and mind the chickens." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. I took you for another lord's child come to gawp at the poor, and you rolled your sleeves up and proved me wrong, which my Salma won't let me forget." },
+    { id = "g_op_leave_stay", when = { gossip = { topic = "westfall_leave", stance = "stay" } }, text = "Salma tells me you think we ought to stay and see it through. Took a stranger to say it, but you're right, and you can tell Theodore I said so." },
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
     { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Still standing out there, aren't they. I can see them from the porch." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Killing Fields") }, text = "I walked my own field this morning, for the first time since spring." },
@@ -31,6 +35,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I hold the House of Nobles against you, and you came out of it. They left the masons unpaid and Westfall undefended, and when the farms burned they sent a letter of regret, and my neighbours are in the Deadmines because of it." } },
+      choices = {
+        { text = "Nobles or not, the crown's law still matters out here.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "You're right. The nobles earned every curse Westfall throws.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What would you have me do, Farmer?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "The crown's law is a handful of militiamen at Sentinel Hill with no supplies, and Gryan holding the rest together himself. Tell your father that, if he still writes to you." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Well, I never thought I'd hear that from someone with your manners. Don't go saying it at court, or you'll find out how quick they are to disown their own." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Pick up a hoe or a sword, either will do. Westfall's had enough of people who only come to look at it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_tithe = {
+      lines = {
+        { id = "op_tithe_a", text = "Every season, what little there is, and Salma calls me a fool for it. The city's sent us nothing back, not a soldier nor a sack of seed, but my father paid it and his father before him. Tell me straight, should I keep paying?" },
+      },
+      choices = {
+        { text = "Keep paying. The kingdom is still your kingdom.", next = "op_tithe_1", fx = { opinion = { westfall_tithe = "pay", stormwind = "patience" }, align = { order = 1 } } },
+        { text = "Stop. Not another copper until Stormwind sends soldiers.", next = "op_tithe_2", fx = { opinion = { westfall_tithe = "withhold", stormwind = "abandoned_its_own" }, align = { order = -1 }, affinity = 1 } },
+        { text = "Give it to Sentinel Hill instead. Gryan's actually defending you.", next = "op_tithe_3", fx = { opinion = { westfall_tithe = "militia", westfall = "send_soldiers" }, trait = { practical = 1 }, affinity = 2 } },
+        { text = "I can't tell a man what to do with his harvest.", next = "BACK" },
+      },
+    },
+    op_tithe_1 = {
+      lines = { { id = "op_tithe_r1", text = "That's what my father would have said, and he's long in the ground, so I'll take it as his vote. The tithe goes up the road next week, light as it is." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
+    op_tithe_2 = {
+      lines = { { id = "op_tithe_r2", text = "Ha! Salma will kiss you, and Gryan will scowl at you, and I'll lie awake a night or two. You might be right, which is the worst part." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
+    op_tithe_3 = {
+      lines = { { id = "op_tithe_r3", text = "Now that's a thought I hadn't had, and I've had most of them, sitting here. The Militia eat what they're given and say thank you, which is more than the Keep ever did." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because a farmer belongs on his farm, thieves or not. My furrows are straight, and they're the only straight thing left. The earth here deserves someone who stays." } },
@@ -143,11 +192,12 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The pumpkins won't mind if I stop to answer you." },
       },
       choices = {
+        { text = "You hold my family against me, Farmer Saldean.", next = "prej", when = { prejudiced = true } },
         { text = "Your soil is tired, but it isn't dead yet.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "Why did you stay?", next = "stay" },
+        { text = "Most men would have left with their neighbours.", next = "stay" },
         { text = "Where did the watchers come from?", next = "watchers" },
-        { text = "Where did your neighbours go?", next = "neighbours" },
-        { text = "Your wife sets a fine table.", next = "salma" },
+        { text = "Every farm on this road stands empty.", next = "neighbours" },
+        { text = "Is that your wife at the stove?", next = "salma" },
         { text = "I worked fields like these, growing up.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Shall I bless your fields?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know how thieves think, Saldean. I can help.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -175,7 +225,8 @@ P:NPC {
     },
     pride = {
       lines = { { id = "p_default", text = "No. But it gets me up in the morning, and that's something a knife can't take." } },
-      choices = { { text = "Right. Something else, then.", next = "BACK" } },
+      choices = {
+        { text = "Do you still send the city its tithe?", next = "op_tithe" }, { text = "Right. Something else, then.", next = "BACK" } },
     },
     fool = {
       lines = { { id = "fo_default", text = "Theodore Furlbrow told me to get out while I could and called me a fool for staying. I call him a fool for going, and one of us is right, but it's his wagon that's broken." } },
@@ -189,7 +240,7 @@ P:NPC {
         { id = "w_default", text = "Don't know, and I've stopped guessing. One day the fields were empty, next day they were full of things that wouldn't stay put." },
       },
       choices = {
-        { text = "How many are out there?", next = "count" },
+        { text = "There must be a good many of them out there.", next = "count" },
         { text = "Galiaan thinks someone set them on you.", next = "set_on", when = { heardLine = "galiaan.wa_default" } },
         { text = "I'm a tinker. I could take one apart.", next = "tinker", when = { race = "Gnome" } },
         { text = "I'll deal with them.", next = "BACK", fx = { learn = { "harvest_watchers" }, affinity = 1 } },
@@ -273,6 +324,11 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias have dug themselves in under Moonbrook like grubs in a turnip, and I'd plough the whole hill over if I had the horses. Instead I've got scarecrows that walk, and they're on the wrong side." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light the way I plough, which is straight and early and without complaining. It hasn't sent me rain in two summers, but it hasn't let me leave either." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Salma made me take her to the Darkmoon Faire once, and I spent the whole day worrying about the cows. She says I'm the only man alive who's been bored at a faire, and she may be right." } },
+    second_war = { { id = "tp_second_war", text = "I kept this farm through the Second War, when the orcs came close enough that we could see their fires. I'll keep it through the Defias as well, and I'll keep it after, if the Light permits." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The masons that went bad were once honest men, and I fed a few of them myself when they came through looking for work. I'd not feed them now, and that's a sorrow I didn't ask for." } },
     knows = {
       { id = "tp_knows", text = "I've farmed this land all my life, and there's not much happens on it I don't hear about. Ask me about any of this." },
     },

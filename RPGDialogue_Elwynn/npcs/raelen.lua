@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "raelen", id = TODO_NPC("Supervisor Raelen"), name = "Supervisor Raelen",
+  prejudice = { origin = "human_westfall_farmhand", amount = 10, why = "Lost two wagons of timber to Defias; reads every Westfall accent as a thief in waiting." },
   bible = "bibles/raelen.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "sharp" }, values = { "lawful", "ambitious" },
   notices = { "idle", "build" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Westfall, is it? I can hear it in how you talk, and I'll tell you now that I count the axes every night, and I've counted fewer since the Defias came up the road from your country." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I had you down as one of the Westfall lot who'd run off with my axes, and instead you've done more honest work for this camp than my own crew." },
     { id = "g_busy", text = "Make it quick, will you, because that order won't fill itself." },
     { id = "g_bundles", when = { questActive = TODO_QUEST("A Bundle of Trouble") }, text = "Do you have my bundles? Then why are you standing there talking?" },
     { id = "g_after", when = { questDone = TODO_QUEST("A Bundle of Trouble") }, text = "The order went out on time, barely. I don't thank people, so consider this the closest I get." },
@@ -28,6 +31,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "Not all of them, only the ones who come up the road with empty hands and hungry looks, which is most of them since the Defias burned out half the farms. I lost two wagons of timber in a month, and the tracks went west." } },
+      choices = {
+        { text = "Westfall folk were starved off their land. Blame the crown, not us.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "The Defias are thieves, and Westfall should hang them itself.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "I'm here to work, Supervisor, not to steal.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Careful saying that this side of the border. I've heard it before from lads who later walked off with my saws, and I'll be watching, but I'll not say you're wrong." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Now that's a Westfall voice I'd like to hear more of. Gryan Stoutmantle says the same, they tell me, and he's the only man out there I'd lend a saw to." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Then work, and I'll judge you by that. I've been wrong before about where a man comes from, though I'd rather not say how often." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I never have enough, and they're never fast enough. Your spirits won't carry timber, so I'll count you as one more pair of hands." } },
@@ -133,9 +158,10 @@ P:NPC {
         { id = "h_again2", text = "If you're still here, you'd better make it count." },
       },
       choices = {
-        { text = "Where's the deputy?", next = "rainer" },
-        { text = "Who's all this lumber for?", next = "order" },
-        { text = "What's chasing your workers off?", next = "animals" },
+        { text = "You think Westfall folk are all thieves, Supervisor.", next = "prej", when = { prejudiced = true } },
+        { text = "Where's the deputy?", next = "rainer", when = { heardLine = "raelen.h_rainer" } },
+        { text = "That's a great deal of lumber.", next = "order" },
+        { text = "Something seems to be chasing your workers off.", next = "animals" },
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },
         { text = "Your lads look done in. Let me tend them.", next = "priest", when = { class = "PRIEST" } },
         { text = "Westfall folk would work for you.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
@@ -143,10 +169,10 @@ P:NPC {
         { text = "Would you rather have magic than honest lumberjacks?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you rather I cut wood or fight bears?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many bears are we talking about, Raelen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Has Stormwind sent you any protection, Raelen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Stormwind doesn't seem to have sent you any protection, Raelen.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would it take to make the mill cut fewer trees?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really hire a demon, Raelen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you have enough workers for the deadlines, Raelen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You look short of workers for these deadlines, Raelen.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -178,7 +204,7 @@ P:NPC {
 
     order = {
       lines = {
-        { id = "o_default", text = "Buyers. More of them than I can count. Orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
+        { id = "o_default", text = "It's all for buyers, more of them than I can count. Orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
       },
       choices = {
         { text = "Why not hire more lads?", next = "order_hire" },
@@ -244,5 +270,9 @@ P:NPC {
     eastvale = { { id = "tp_eastvale", text = "Best timber in Elwynn and the worst luck to go with it. You can write that on my stone." } },
     kobolds = { { id = "tp_kobolds", text = "Not my problem until they start eating lumber. Give it time." } },
     _none = { { id = "tp_none", text = "Does it ship? If it doesn't, I don't know about it, and I don't need to." } },
+    lost_footmen = { { id = "tp_lost_footmen", text = "Two soldiers went up the river from Thomas's bridge and didn't come back, and now my loggers won't cut north of the stream. That's two men lost and a quarter of my quota with them." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire week, half my loggers go off to Goldshire and come back with sore heads and empty pockets. I dock their wages and they go anyway." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild used to buy our timber for their scaffolds, and now half of them are Defias stealing my carts. I preferred them as customers." } },
+    varian = { { id = "tp_varian", text = "No king, no orders and no new contracts from the city. I don't care where he went, I care that the lumber orders stopped coming." } },
   },
 }

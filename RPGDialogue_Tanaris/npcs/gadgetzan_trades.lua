@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sw_admire", when = { gossip = { topic = "steamwheedle", stance = "admire" } }, text = "I hear you're a fan of the Cartel! Smart customer, and smart customers get the best seats at the auction, figuratively speakin'." },
     { id = "g_default", text = "Buying or selling, friend? Either way the Cartel takes its little slice, and either way I'm happy to see you, because happy auctioneers get better prices." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Something of yours sold while you were out, or it didn't, and either way I've got a listing with your name on it." },
   },
@@ -147,18 +148,18 @@ P:NPC {
       },
       choices = {
         { text = "What do you sell that a druid would call cruel?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Do the elements ever turn up in your auction lots?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "The elements must turn up in your auction lots now and then.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what's up for auction.", next = "BUSINESS" },
         { text = "How is this house different from the city ones?", next = "neutral" },
         { text = "What sells best out here?", next = "sells" },
-        { text = "Ever had stolen goods come through?", next = "stolen", when = { class = "ROGUE" } },
+        { text = "Stolen goods must come through here now and then.", next = "stolen", when = { class = "ROGUE" } },
         { text = "Has anyone ever sold you stolen goods?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Mages and enchanters aren't the same thing, Beardo.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does stolen gear ever turn up on your auction block?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you really auction off a loa mask, Beardo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors' weapons sell well at your auction, Beardo?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why did the Bruisers make you take down the basilisk egg?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What sort of things have people tried to sell here, Beardo?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "People must try to sell you all manner of strange things, Beardo.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Which lots need a blessing, Beardo?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -207,6 +208,11 @@ P:NPC {
     background = { { id = "tp_ba", text = "I've called bids for the Cartel longer than you've been carrying that pack, pal, and I've never once missed a sale I could have made." } },
     advice = { { id = "tp_ad", text = "Never list something the morning after a big raid comes back, friend, because everyone else is selling the same thing and the price drops like a stone, and so does my cut." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel makes the rules here, and the rules are simple: everybody trades, nobody fights, and the house always takes its cut." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's auction house is the only place in the world where Horde and Alliance goods share a ledger, pal, and nobody's killed anybody over it yet. I count that as a success." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's auction house is busier, pal, but mine's better organized. Ask anybody who's bought from both." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls' trinkets from Zul'Farrak sell like hotcakes, pal, and I take my cut of every one. Keep bringing them in." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's people bid hard and pay fast, pal, and they never haggle after the hammer falls. I like doing business with orcs." } },
+    bolvar = { { id = "tp_bolvar", text = "The Alliance bids high when the Highlord's tax collectors aren't looking, pal, which is most of the time. I don't ask." } },
     _none = { { id = "tp_none", text = "If it isn't up for auction, I couldn't tell you what it's worth, and if I can't price it, I don't know about it." } },
   },
 }
@@ -339,7 +345,7 @@ P:NPC {
       },
       choices = {
         { text = "How do the beasts in your care feel about this desert?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "How do the animals bear this heat?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "These animals can't bear the heat well.", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like to see my stabled animals.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you keep animals alive out here?", next = "heat" },
         { text = "What sort of beasts come through?", next = "beasts" },
@@ -349,7 +355,7 @@ P:NPC {
         { text = "Would you let me tend your sick beasts, Laziphus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors ever leave their mounts with you, Laziphus?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How do you keep the beasts calm in this heat, Laziphus?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Has anyone tried to steal from your stables, Laziphus?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Someone must have tried to steal from your stables, Laziphus.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the beasts here ever fall ill, Laziphus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -357,7 +363,7 @@ P:NPC {
     heat = {
       lines = { { id = "he_default", text = "Water, shade and wet cloth over the cages at noon. The water's the costly part, pal, because the Wastewanders hold the best wells and Bilgewhizzle charges for every drop he's got left, and I'm sure he counts them." } },
       choices = {
-        { text = "Couldn't the animals manage with less?", next = "heat_less" },
+        { text = "Surely the animals could manage with less.", next = "heat_less" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -390,6 +396,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I took the stables because nobody else in Gadgetzan wanted to shovel after raptors, pal, and there's always money in the work nobody wants, not much, but always some." } },
     advice = { { id = "tp_ad", text = "Water your pet before you water yourself out there, buddy. You'll live through a dry afternoon, but it might not, and I don't refund the stabling." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the hottest place in the world to keep animals, pal, and I pay the Water Company a fortune to keep them alive. Every drop goes on the bill." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak ride raptors, pal, and they treat them worse than I'd treat a dog. I'd take them all off their hands if I could." } },
+    silithid = { { id = "tp_silithid", text = "The bugs to the west spook the animals, pal, even from this far. I don't know what they smell, but it's bad." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in Thousand Needles steal horses, pal, and they don't bring them back. I keep a close eye on anybody with four legs and a bow." } },
     _none = { { id = "tp_none", text = "Couldn't say, pal; if it doesn't eat, drink, bite or cost me water, it isn't my business." } },
   },
 }
@@ -537,7 +547,7 @@ P:NPC {
       },
       choices = {
         { text = "Do your explosions trouble the desert's creatures?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Does all your blasting shake the earth spirits loose?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "All your blasting must shake the earth spirits loose.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Goblin or gnomish engineering: which is better?", next = "schools" },
         { text = "Why set up out here, at the edge of town?", next = "hut" },
@@ -545,7 +555,7 @@ P:NPC {
         { text = "Explosives are just another tool, Buzzek.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Engineering and magic aren't so different, Buzzek.", next = "xmage", when = { class = "MAGE" } },
         { text = "How many engineers have you lost to the boom, Buzzek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Is engineering any use to a warrior, Buzzek?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Engineering can't be much use to a warrior, Buzzek.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What happened when your scope exploded, Buzzek?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do your explosives ever hurt the wrong people, Buzzek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could an imp actually be useful to an engineer, Buzzek?", next = "xlock", when = { class = "WARLOCK" } },
@@ -582,6 +592,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I learned in a workshop that doesn't exist anymore, pal, for reasons I'd rather not explain to a paying customer." } },
     advice = { { id = "tp_ad", text = "Always measure the powder twice, buddy, and stand well back the first time you light it, however sure you are, because eyebrows are expensive to grow back." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's a great place to teach engineering, pal, because there's plenty of open space for the explosions. I've only lost one hut so far." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan to their own inventions, pal, and I respect the ambition, if not the safety record. I'd love to see their workshops." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got good engineers, pal, but they're too cautious. Engineering's about pushing things until they break, and then pushing them a little more." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak have no engineering at all, pal, which is why they keep losing to us. A good bomb solves most troll problems." } },
     _none = { { id = "tp_none", text = "If I can't build it, take it apart, sell it or blow it up, pal, I don't know much about it." } },
   },
 }
@@ -738,7 +752,7 @@ P:NPC {
         { text = "Could a warrior learn mining from you, Pikkle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts out in the hills bother your miners, Pikkle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the miners often get attacked, Pikkle?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would a demon really refuse to dig, Pikkle?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I've heard a demon will refuse to dig, Pikkle.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is mining hard work out here, Pikkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -746,7 +760,7 @@ P:NPC {
     ore = {
       lines = { { id = "o_default", text = "Mithril and a little truesilver in the rocky hills around Tanaris, and you'll find it where the sand thins out to stone. For thorium, go west into Un'Goro Crater, where the rock is newer, the ore's richer and so are the things that live there." } },
       choices = {
-        { text = "What lives in Un'Goro?", next = "ore_ungoro" },
+        { text = "Un'Goro sounds like a dangerous place to dig.", next = "ore_ungoro" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -767,6 +781,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I dug for the Cartel before I taught for it, and teaching pays almost as well without the cave-ins or the blasting accidents." } },
     advice = { { id = "tp_ad", text = "Sell your ore raw if you're in a hurry, pal, but smelt it if you want to get paid properly." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's surrounded by good rock, pal, if you know where to dig. I know where, and I'll tell you for a price." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak are sitting on a mountain of good ore, pal, and they don't even mine it. What a waste." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's got the oldest mines in the world, pal, I hear, and the dwarves are digging them up as fast as they can. I'd love to see the veins down there." } },
+    silithid = { { id = "tp_silithid", text = "The bugs to the west dig better than any miner I know, pal, and they don't even get paid. I'd hire them if they didn't eat people." } },
     _none = { { id = "tp_none", text = "Not a rock, not my business, pal, and not my money." } },
   },
 }

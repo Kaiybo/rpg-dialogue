@@ -123,22 +123,22 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. You'll want plenty of water, I expect, since your kind drink it like it's going out of style, and I've got barrels of it." },
         { id = "h_default", key = true,
-          text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, so what we need is sharp eyes and full bellies, and that's what I sell." },
+          text = "Kurll, and I feed this camp. We're a handful of orcs at the edge of a cursed land with naga in the water and elves in the woods, and a warrior fights no better than his belly, so sharp eyes and full bellies are what I sell." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll take milk with your bread, and no grog, because a priest who can't keep his head is no use to a camp with naga in the water." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Good, you'll know what's safe to eat in these woods, and I'd be glad to hear it, because I haven't trusted a single berry since we got here." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You'll not want milk or juice, I'd guess, and you'll not get grog, so you're the easiest customer in Valormok." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The bread's going stale while we talk." },
+        { id = "h_again", text = "Anything else? The bread's going stale while we talk, and a grunt can taste stale bread even in the middle of a battle." },
         { id = "h_again2", text = "Ask, then. I've nothing better to do until supper." },
       },
       choices = {
-        { text = "Is the land around Valormok as cursed as they say?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "They say the land around Valormok is cursed.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Why no grog in an orc camp?", next = "grog" },
-        { text = "Where does your food come from?", next = "supply" },
+        { text = "Your food must come from somewhere far off.", next = "supply" },
         { text = "Why no grog in your camp?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Is it hard to keep the camp supplied?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Keeping the camp supplied must be hard.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why no grog in Valormok, Kurll?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why won't you serve grog to warriors, Kurll?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What meat is safe to eat in Azshara, Kurll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -172,7 +172,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I came with the others when Belgrom Rockmaul sent us here. I feed people, and that's all there is to say about it." } },
     advice = { { id = "tp_ad", text = "Eat before you go out to fight in Azshara, because you won't find anything out there you'd want to eat." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask Ag'tor, he's the one who gives the orders." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief doesn't drink on duty, and neither do his warriors, so I don't sell grog. Take it up with Thrall, if you dare." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships want to sell me rum by the barrel, and I send them away every time. It's bad for business, but good for the camp." } },
+    cairne = { { id = "tp_cairne", text = "The tauren know how to drink milk without complaining, which is more than I can say for orcs. I'd like a few more of them in camp." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask Ag'tor; he's the one who gives the orders, and he's earned the right with his blood." } },
   },
 }
 
@@ -188,7 +191,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you've come for a blade, you've come to the right orc, because Valormok needs fighters with sharp steel more than it needs anything else." },
+    { id = "g_default", text = "Lok'tar. If you've come for a blade, you've come to the right orc, because Valormok needs fighters with sharp steel more than it needs anything else." },
   },
 
   notice = {
@@ -294,18 +297,18 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you came to ask, and I'll keep the whetstone moving while you do." },
-        { id = "h_again2", text = "Speak, but quickly. I have blades to finish." },
+        { id = "h_again2", text = "Speak, but quickly. I have blades to finish, and the dead of this camp are still waiting to be avenged." },
       },
       choices = {
         { text = "What does Azshara's earth give a weaponsmith, Gruul?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What happened to this camp's warriors?", next = "elves" },
-        { text = "What's the best weapon against naga?", next = "naga" },
-        { text = "Do you blame all mages for what Rimtori did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'd guess a heavy weapon works best against naga.", next = "naga" },
+        { text = "Do you blame all mages for what that elf did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warlocks buy many weapons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you have me curse the Thalassian elves, Gruul?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What makes a good edge against elves, Gruul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Do you make weapons for hunters too, Gruul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Hunters could use your weapons too, Gruul.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do you hate the elves so much, Gruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Will you keep a paladin's hammer true, Gruul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
@@ -314,7 +317,7 @@ P:NPC {
     elves = {
       lines = { { id = "e_default", text = "The Thalassian elves came to us as friends, and Belgrom Rockmaul believed them. Then they turned on us, and good warriors died in these woods, and now Ag'tor wants the blood of the mage who led them." } },
       choices = {
-        { text = "Does Ag'tor have a plan?", next = "elves_plan" },
+        { text = "Ag'tor must have a plan.", next = "elves_plan" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -337,6 +340,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I make weapons. I've made them for longer than you've been alive, and I'll make them until I can't." } },
     advice = { { id = "tp_ad", text = "Never fight with a dull blade. Sharpen it every night, even if you don't think you need to, because Spitelash scales chip an edge faster than rock." } },
     rimtori = { { id = "tp_rimtori", text = "The elf mage who led them. Ag'tor wants her head, and every blade on my rack is for that." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you; ask me about blades and I'll talk all night." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the Doomhammer, and that is a weapon. Everything I make is a pale shadow of it, and I make good weapons." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron make fine steel and serve a lord of fire, and I would like their forges without their masters. I will settle for their ore." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elves' priestess sends archers to pick off our woodcutters. One day I will sharpen an axe for her personally." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblin blades from Booty Bay look fine and break in a week, and I spend half my days fixing them. That is good business, but bad for my mood." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you; ask me about blades and I'll talk all night, for a good edge is an orc's best friend." } },
   },
 }

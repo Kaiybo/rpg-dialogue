@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Silverpine Forest |cff8a8a8a1.18.0|r
+## Title: RPG Dialogue: Silverpine Forest |cff8a8a8a1.19.0|r
 ## Notes: The Sepulcher: a high executor holding the line, a plague-maker's apprentice, a dead archmage with a grudge against Dalaran, and a spymaster priest.
 ## Author: RPG Dialogue
-## Version: 1.18.0
+## Version: 1.19.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.silverpine
@@ -13,9 +13,16 @@
 pack.lua
 pools.lua
 npcs\sepulcher.lua
+npcs\sepulcher_folk.lua
 npcs\roads.lua
 npcs\unsung.lua
 npcs\faerleia.lua
 npcs\quinn.lua
 npcs\podrig.lua
 npcs\wallace.lua
+npcs\shadowfang.lua
+npcs\sawyer.lua
+npcs\sepulcher_forever.lua
+npcs\modera_image.lua
+npcs\sepulcher_guests.lua
+npcs\sepulcher_market.lua
