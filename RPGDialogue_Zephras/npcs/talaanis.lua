@@ -172,7 +172,18 @@ P:NPC {
         { text = "Who do the Skyborne pray to, Elder?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "The Windshapers joining the Horde must have been hard to accept.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "My craft seems to trouble you, Elder.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My grandmother's ring came to me, Elder. Her ashes went over Shen'dramar.", next = "xorig_heir", when = { origin = "skyborne_heirloom_bearer" } },
         { text = "Winds be with you, Elder.", next = "END" },
+      },
+    },
+    xorig_heir = {
+      lines = {
+        { id = "xhe_default", text = "Then she is part of the wind that still blows there, and the ring is the part of her that stayed with us. I keep the relics of the fallen until they find their heirs, child, and I know how heavy that first one feels on the hand. Has it grown any lighter?" },
+      },
+      choices = {
+        { text = "A little. I talk to her when I'm afraid.", next = "BACK", fx = { affinity = 1 } },
+        { text = "No. I wear it to remember what's at stake.", next = "BACK" },
+        { text = "Something else, Elder.", next = "BACK" },
       },
     },
     skywall = {

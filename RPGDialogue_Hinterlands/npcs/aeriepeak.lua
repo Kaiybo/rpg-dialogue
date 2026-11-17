@@ -692,7 +692,18 @@ P:NPC {
         { text = "My companion is a shaman. Do the Wildhammer keep the old ways?", next = "xpt_shaman", when = { party = { class = "SHAMAN" }, faction = "Alliance" } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I learned from your elders, Fraggar. Ironforge calls it backsliding.", next = "xorig_windshaman", when = { origin = "dwarf_wildhammer_shaman" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
+      },
+    },
+    xorig_windshaman = {
+      lines = {
+        { id = "xowindshaman_default", text = "Backslidin', is it? Ironforge stopped listenin' tae the land the day it started diggin' through it, an' the spirits remember that even if the Bronzebeards dinnae. What do the winds say tae ye now, child o' the mountain?" },
+      },
+      choices = {
+        { text = "That the land up here is angry.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "That Ironforge will remember too, in time.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {

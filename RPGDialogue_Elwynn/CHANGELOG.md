@@ -14,6 +14,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.30.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Blixie Fitzwink, Josephine Carson, Nordun Steadysight, Kelsey Fargo, Nancy Songflower, Riley Peltskinner, Tordrin Sternblade and Ormin Pelford.
 
+## 1.30.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.29.1 (2026-11-17)
 - Fix: Sergeant De Vries's "you look done in" remark used a condition that doesn't exist and never showed. It now comes up when your gear is badly worn.
 

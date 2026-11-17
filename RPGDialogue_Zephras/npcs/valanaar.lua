@@ -60,7 +60,18 @@ P:NPC {
         { text = "The refugees don't seem to be managing well.", next = "refugees" },
         { text = "Is Zephras safe?", next = "zephras" },
         { text = "I'm glad Resaan's heirloom came home.", next = "heirloom", when = { questDone = TODO_QUEST("The Fate of a Loved One") } },
+        { text = "I rode the Ban'aethal ruins on my Galestrider, hunting what crept in.", next = "xorig_rider", when = { origin = "skyborne_banaethal_rider" } },
         { text = "Take care, Ealaane.", next = "END" },
+      },
+    },
+    xorig_rider = {
+      lines = {
+        { id = "xri_default", text = "You went back in there? Then you've seen it as I never will again, the old streets with the grass grown up between the stones. Did you ever pass the magesmiths' forges, and were any of the doors still standing?" },
+      },
+      choices = {
+        { text = "A few. I kept away from them out of respect.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Most were gone, Ealaane. I'm sorry.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     banaethal = {
@@ -525,7 +536,18 @@ P:NPC {
         { text = "What grows on Zephras?", next = "produce" },
         { text = "I could tell you about moonberries.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I'll be leaving the isle soon.", next = "xleave", when = { race = "Skyborne" } },
+        { text = "I wove cloaks on your street, Nyalah. Do you remember me?", next = "xorig_cloth", when = { origin = "skyborne_valanaar_clothcrafter" } },
         { text = "Winds be with you, Nyalah.", next = "END" },
+      },
+    },
+    xorig_cloth = {
+      lines = {
+        { id = "xcl_default", text = "Remember you? I still wear the apron you made me, the blue one with hippogryph feathers along the hem, though I've scorched a corner of it on the oven twice. You took windstones from everyone else, but from me you took a pot of stew every week for a season. Do you still trade like that?" },
+      },
+      choices = {
+        { text = "Stew's worth more than stones these days.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Only with friends, Nyalah.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     recipes = {

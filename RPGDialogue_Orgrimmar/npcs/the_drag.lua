@@ -33,6 +33,13 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xorig_drag = {
+      lines = { { id = "xdr_default", text = "Sure I know you, kid, you collected from my cousin Rizzle twice and only broke one of his fingers, which in this business is practically a love letter. So are you still in the collections game, or are you finally lookin' for honest work at a dishonest wage?" } },
+      choices = {
+        { text = "Still collecting, Dran. Who owes you?", next = "BACK", fx = { trait = { greedy = 1 } } },
+        { text = "I've left the knives behind, mostly.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Dran Droffers, of Droffers and Son Salvage, and that's me at the front of the name, not the son, whatever he tells you. We buy what other folks dig up and we sell it to folks with more gold than sense, and the margins are beautiful." },
@@ -49,6 +56,7 @@ P:NPC {
         { text = "What's this necklace you're after?", next = "necklace", when = { minLevel = 35 } },
         { text = "Why would anyone want ripple?", next = "ripple" },
         { text = "Show me what you've got.", next = "BUSINESS" },
+        { text = "You know me, Dran. I ran knives through the Drag.", next = "xorig_drag", when = { origin = "orc_drag_runner" } },
         { text = "Not today, Dran.", next = "END" },
       },
     },

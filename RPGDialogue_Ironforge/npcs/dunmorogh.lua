@@ -792,7 +792,18 @@ P:NPC {
         { text = "Should we strike the hold, Senir, or watch it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the Frostmane Hold a natural cave, or did they dig it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What will the Senate think of a dwarf shaman, Senir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I watched over the refugee camps by Kharanos, Senir.", next = "xorig_campwatch", when = { origin = "gnome_kharanos_watch" } },
         { text = "I'll go to the hold.", next = "END", fx = { affinity = 1, standing = { kharanos = 1 } } },
+      },
+    },
+    xorig_campwatch = {
+      lines = {
+        { id = "xocampwatch_default", text = "Aye, I mind ye! Ye'd stand at the end o' the line wi' that shield, an' the troggs couldnae decide whether tae laugh or run, an' they never got the chance tae do either. The Senate never thanked ye properly, so let me do it now: thank ye. Are the camps quiet these days?" },
+      },
+      choices = {
+        { text = "Quieter. Most of the refugees moved into Ironforge.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Never quiet enough, Senir.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hold = {

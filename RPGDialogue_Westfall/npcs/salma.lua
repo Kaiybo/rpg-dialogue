@@ -147,7 +147,18 @@ P:NPC {
         { text = "Do you grow anything yourself, Salma, or is it all gathered?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Doesn't feeding everyone mean feeding Defias too, Salma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's in today's stew, Salma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I tended the Militia's wounded, Salma. You fed them.", next = "xorig_militiahealer", when = { origin = "human_sentinel_hill_healer" } },
         { text = "I'd best be off.", next = "END" },
+      },
+    },
+    xorig_militiahealer = {
+      lines = {
+        { id = "xomilitiahealer_default", text = "Oh, I remember you! You'd come to my door at midnight with blood to your elbows and eat standing up, then go straight back up the hill. Do you still eat standing up, love, or has somebody finally taught you to sit?" },
+      },
+      choices = {
+        { text = "I'm learning to sit, Salma.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Not while the Defias are still out there.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pot = {

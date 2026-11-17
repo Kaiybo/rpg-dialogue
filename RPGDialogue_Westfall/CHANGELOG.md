@@ -18,6 +18,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New people to talk to: Odd Child.
 - New files: restart the game fully (a /reload won't load them).
 
+## 1.22.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.21.0 (2026-11-17)
 - Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 

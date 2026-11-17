@@ -15,6 +15,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New people to talk to: Field Marshal Oslight, Deathmaster Dwire, Doctor Gregory Victor, Narj Deepslice, Tharlidun, Keena.
 - New files: restart the game fully (a /reload won't load them).
 
+## 1.25.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.24.0 (2026-11-17)
 - Shakes O'Breen and Captain Steelgut at Faldir's Cove have much more to say about the Raiders, the wreck and each other.
 

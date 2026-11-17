@@ -121,11 +121,22 @@ P:NPC {
         { text = "My demons could break the Crusade's lines, Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I track the Crusade's scouts through the woods, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I've been through the Scarlet Monastery, Executor.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
+        { text = "I marched with the Crusade once, Executor, before I died.", next = "xorig_scarlet", when = { origin = "forsaken_scarlet_turned" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {
         { id = "h_again", text = "Something further? Be brief; the Crusade is not." },
         { id = "h_again2", text = "Go on. I can spare a moment between reports." },
+      },
+    },
+    xorig_scarlet = {
+      lines = {
+        { id = "xsc_default", text = "So did a few of my Deathguard, though they keep quiet about it. You know how the Crusade thinks, which makes you useful to me, and you know their faces, which may make you slow. Will you hesitate when it's someone you knew?" },
+      },
+      choices = {
+        { text = "No. They chose the fire, and I'll give it back to them.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll spare the ones who lay down their arms.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't know yet, Executor.", next = "BACK" },
       },
     },
     warrior = {

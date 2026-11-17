@@ -50,7 +50,18 @@ P:NPC {
         { text = "I served in a chapel, before.", next = "chapel", when = { origin = "forsaken_chapel_priest" } },
         { text = "Does my faith still matter here?", next = "living", when = { class = "PRIEST", race = "Troll" } },
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "I stopped waiting for the Light, Aelthalyste. The shadow answered instead.", next = "xorig_shadow", when = { origin = "forsaken_shadow_acolyte" } },
         { text = "Peace to you.", next = "END" },
+      },
+    },
+    xorig_shadow = {
+      lines = {
+        { id = "xsh_default", text = "Many of my students say the same, and they say it as though it were a victory. The shadow answers, yes, and it never asks what you deserve, which is exactly why you must ask yourself. Do you still call on the Light at all?" },
+      },
+      choices = {
+        { text = "No. It left us, and I won't beg it to return.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Sometimes, when I'm too tired to be angry with it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Why do you teach both, Aelthalyste?", next = "shadow" },
       },
     },
 
@@ -230,7 +241,18 @@ P:NPC {
         { text = "The plague must have been a hard test.", next = "tested" },
         { text = "What do you think of the Dark Lady?", next = "lady" },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "I was a squire, Father. I died before I took my oath.", next = "xorig_squire", when = { origin = "forsaken_unsworn_squire" } },
         { text = "Good day, Father.", next = "END" },
+      },
+    },
+    xorig_squire = {
+      lines = {
+        { id = "xsq_default", text = "And you've sworn it since, I suppose, and the Light burns you every time. Good. A test that doesn't hurt teaches nothing, and the Light is testing you more honestly than it ever tested the knights who swore in comfort. Will you keep swearing?" },
+      },
+      choices = {
+        { text = "Every morning, Father, for as long as I last.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some mornings I wonder why I bother.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Tested by the plague, you mean?", next = "tested" },
       },
     },
     tested = {

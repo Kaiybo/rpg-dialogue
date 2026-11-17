@@ -394,7 +394,18 @@ P:NPC {
         { text = "Your school must have closed long ago.", next = "school" },
         { text = "Do the dead learn magic differently?", next = "dead" },
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "I kept the archives in Stratholme, Pierce, until the Culling.", next = "xorig_archive", when = { origin = "forsaken_stratholme_archivist" } },
         { text = "Goodbye, Pierce.", next = "END" },
+      },
+    },
+    xorig_archive = {
+      lines = {
+        { id = "xar_default", text = "Stratholme's archives! I wrote to your keepers twice for a copy of an old treatise on ley lines, and nobody ever answered. I suppose that wasn't your fault. Did any of it survive, do you think?" },
+      },
+      choices = {
+        { text = "I never learned. One day I'd like to go and look.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
+        { text = "No. Arthas left nothing in that city worth reading.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I may have lost your letters, Pierce. Sorry.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
     school = {

@@ -206,7 +206,18 @@ P:NPC {
         { text = "I've been through Dire Maul, General. Eldre'Thalas is less crowded now.", next = "xcl_dm", when = { cleared = "Dire Maul", faction = "Alliance" } },
         { text = "Do the Sentinels trust outsiders who travel with your people, General?", next = "xpt_shandris", when = { party = { race = "NightElf" }, faction = "Alliance" } },
         { text = "You judge my craft before you've seen what I do with it.", next = "pj_shandris", when = { prejudiced = true } },
+        { text = "I grew up on this isle, General. You may not remember me.", next = "xorig_fmoon", when = { origin = "nightelf_feathermoon_raised" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
+      },
+    },
+    xorig_fmoon = {
+      lines = {
+        { id = "xfm_default", text = "I remember every child raised on Feathermoon, because there have never been so many that I could forget one. You used to sit on the pier and count the boats in from Auberdine, and you scolded the sailors when they came in late. What brings you home?" },
+      },
+      choices = {
+        { text = "I wanted to see that the isle still holds.", next = "BACK", fx = { affinity = 1, standing = { feathermoon = 1 } } },
+        { text = "The world felt too small without the sea around it.", next = "BACK" },
+        { text = "Something else, General.", next = "BACK" },
       },
     },
     troubles = {

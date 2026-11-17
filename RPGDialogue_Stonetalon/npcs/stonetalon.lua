@@ -189,7 +189,18 @@ P:NPC {
         { text = "Sun Rock must stand against the Venture Company too, Maggran.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Sun Rock must need a healer, Maggran.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you hold the Light against me, Maggran?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been replanting the stumps below Sun Rock, Maggran.", next = "xorig_regrow", when = { origin = "tauren_stonetalon_regrower" } },
         { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
+      },
+    },
+    xorig_regrow = {
+      lines = {
+        { id = "xrg_default", text = "I've seen your saplings on the slopes toward Windshear Crag, and I've watched the goblins cut a few of them down again. It's slow work, and some days it looks hopeless from up here. Why do you keep at it?" },
+      },
+      choices = {
+        { text = "Because the mountain deserves someone who won't give up on it.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } },
+        { text = "Because I'd rather plant trees than kill goblins, most days.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Because every tree I grow costs them a second cut.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     hard = {

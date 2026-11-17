@@ -186,7 +186,18 @@ P:NPC {
         { text = "Will your Brotherhood trust a Forsaken paladin, Overseer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragnaros has fallen in the Molten Core, Overseer.", next = "xcl_mc", when = { cleared = "Molten Core" } },
         { text = "Can Dark Iron and Bronzebeard ever make peace, Overseer?", next = "xpt_dwarf", when = { party = { race = "Dwarf" } } },
+        { text = "I was a thrall in the Gorge once, Overseer. A false one.", next = "xorig_thrallspy", when = { origin = "dwarf_searing_gorge_spy" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
+      },
+    },
+    xorig_thrallspy = {
+      lines = {
+        { id = "xothrallspy_default", text = "A false one, says ye. Ironforge's spy, then, countin' sentries while my brothers an' I still wore the Firelord's chains. I'll no' hold it against ye, for we were all of us lyin' tae somebody in those days, but tell me true: did ye count us, too?" },
+      },
+      choices = {
+        { text = "Every one of you, Overseer. It was the job.", next = "BACK", fx = { trait = { honest = 1 } } },
+        { text = "I left the Brotherhood out of my reports.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     escape = {

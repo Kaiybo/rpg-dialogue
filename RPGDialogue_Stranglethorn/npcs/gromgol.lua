@@ -409,6 +409,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_guru = {
+      lines = { { id = "xgu_default", text = "Gurubashi, you say. Then you know the jungle tribes better than Nimboya ever will, and you know why I don't turn my back on a jungle troll, even one wearing our colors. Tell me what the Bloodscalp do with their captives, and maybe I believe you ran." } },
+      choices = {
+        { text = "Nothing good. That's why I ran.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I owe you no proof, Nimboya.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodscalp", min = 30 } }, text = "The Bloodscalp camps be quieter since you start walking through them, mon, and quiet Bloodscalp be the best kind, while Nimboya keep looking for the boy." },
@@ -458,6 +465,7 @@ P:NPC {
         { text = "Would you use a demon to rescue Yenniku, Nimboya?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The jungle's beasts might lead us to Yenniku, Nimboya.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Would the Light help you find Yenniku, Nimboya?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I was born Gurubashi, Nimboya. I ran from Hakkar's priests.", next = "xorig_guru", when = { origin = "troll_gurubashi_runaway" } },
         { text = "Good hunting, but the chief's son is no business of mine.", next = "END", fx = { align = { honor = -1 } } },
       },
     },

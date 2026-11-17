@@ -251,7 +251,18 @@ P:NPC {
         { text = "What happened to Eranikus, Keeper?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "Why does a druid in our company matter to you, Keeper?", next = "xpt_remulos", when = { party = { class = "DRUID" } } },
         { text = "You spoke of someone who came here before me, Keeper.", next = "xalt_remulos", when = { alt = true } },
+        { text = "The Circle sent me to Felwood, Keeper. The sickness has spread.", next = "xorig_grove", when = { origin = "nightelf_moonglade_keeper" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xorig_grove = {
+      lines = {
+        { id = "xgr_default", text = "I know, little one, for I feel every league of it the way you would feel a bruise spreading under the skin. You raked these paths for years and never once complained, so tell me plainly, as you always did: how far south has it reached?" },
+      },
+      choices = {
+        { text = "The streams run green as far as the Emerald Sanctuary.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Too far, Keeper. I don't know if it can be stopped.", next = "BACK" },
+        { text = "Something else, Keeper.", next = "BACK" },
       },
     },
     xinitiate = {

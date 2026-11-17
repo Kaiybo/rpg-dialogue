@@ -175,7 +175,18 @@ P:NPC {
         { text = "What does the Night Watch need from a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have a shaman do for the Night Watch, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Gandling is dead, Commander. The Scholomance has lost its headmaster.", next = "xcl_scholo", when = { cleared = "Scholomance" } },
+        { text = "I stood your wall before the Cathedral took me, Commander.", next = "xorig_nightwatch", when = { origin = "human_darkshire_watch" } },
         { text = "I'll keep to the lamplight.", next = "END" },
+      },
+    },
+    xorig_nightwatch = {
+      lines = {
+        { id = "xonightwatch_default", text = "I remember. You were the one who'd swing a hammer with the torch still lit in your other hand, and Ladimore swore you'd burn the gatehouse down before you ever hit a ghoul. Now you come back wearing the Light, so tell me, will you stand a night with us again?" },
+      },
+      choices = {
+        { text = "Any night you need me, Commander.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } },
+        { text = "I've other oaths now, but I'll do what I can.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

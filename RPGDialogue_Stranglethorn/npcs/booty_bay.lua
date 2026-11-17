@@ -211,7 +211,18 @@ P:NPC {
         { text = "Hakkar is dead, Baron. Zul'Gurub has fallen.", next = "xcl_zg", when = { cleared = "Zul'Gurub" } },
         { text = "We're no pirates, Baron. We're honest adventurers.", next = "xpt_revilgaz", when = { party = { size = 4 } } },
         { text = "You mentioned someone who looks like me, Baron. Who?", next = "xalt_revilgaz", when = { alt = true } },
+        { text = "I built bombs for the Cartel here, Baron. It ended badly.", next = "xorig_bombs", when = { origin = "gnome_goblin_bombmaker" } },
         { text = "Good day, Baron.", next = "END" },
+      },
+    },
+    xorig_bombs = {
+      lines = {
+        { id = "xobombs_default", text = "I remember, and so does my ledger, because that contract's still marked 'disputed' in red ink. I'm not one to hold a grudge when a grudge doesn't pay, though, and a gnome who can make powder behave is worth more to me than an old invoice. Are you looking for work, or just passing through?" },
+      },
+      choices = {
+        { text = "Looking for work, Baron, if the pay's honest.", next = "BACK", fx = { trait = { greedy = 1 } } },
+        { text = "Passing through. I'm done with powder.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

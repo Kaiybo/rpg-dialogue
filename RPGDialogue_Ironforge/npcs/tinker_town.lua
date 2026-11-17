@@ -177,7 +177,18 @@ P:NPC {
         { text = "Do you think a rogue would steal gnomish secrets?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What would you ask the earth about Gnomeregan, Tinkmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I came back from the bottom of Gnomeregan, Tinkmaster.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
+        { text = "I tried to wire the arcane into our machines, Tinkmaster.", next = "xorig_arcaneeng", when = { origin = "gnome_arcane_engineer" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
+      },
+    },
+    xorig_arcaneeng = {
+      lines = {
+        { id = "xoarcaneeng_default", text = "Ah, yes, I remember, and so do my eyebrows, which have never quite grown back the same. I called it reckless at the time and I still do, but I've had three requests this month from the Mystic Ward for your schematics, so I'm prepared to call it reckless and interesting. Have you made it work yet?" },
+      },
+      choices = {
+        { text = "Almost. It only explodes some of the time now.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "It works, Tinkmaster, and the mages know it.", next = "BACK", fx = { trait = { proud = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

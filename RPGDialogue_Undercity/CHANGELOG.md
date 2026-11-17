@@ -22,6 +22,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New people to talk to: Chemist Cuely, Chemist Fuely, Parqual Fintallas, Sharlindra, Jorah Annison, Patrick Garrett, Raleigh Andrean, Velora Nitely.
 - New files: restart the game fully (a /reload won't load them).
 
+## 1.21.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.20.0 (2026-11-17)
 - 24 new people: Carendin Halgar, Jeremiah Payson, Aelthalyste, and the trainers, merchants and banker of every quarter. New files: restart the game fully (a /reload won't load them).
 

@@ -22,6 +22,8 @@ P:Pool {
       text = "Wind's greetings, if I have that right. The Sky Enclave is up by the skycutter landing, at the north end." },
   },
   notice = {
+    { id = "n_xenclave", cat = "origin", when = { all = { { origin = "skyborne_sky_enclave_student" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
+      text = "Sky Enclave student, aren't you? You've the look of someone with a report due. Mind the Citadel stacks, because the last of your lot who fell asleep in there took two days to find." },
     { id = "n_mage", cat = "class", when = { all = { { class = "MAGE" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
       text = "A mage. If you feel the street shiver under your boots, that's the ley lines settling, and the archmagi would rather you didn't try to help." },
     { id = "n_warlock", cat = "class", when = { all = { { class = "WARLOCK" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
@@ -64,6 +66,7 @@ P:Pool {
       text = "Shoo, cat! That's a new step, and it's not for sleeping on." },
   },
   greetings = {
+    { id = "g_xenclave", when = { all = { { origin = "skyborne_sky_enclave_student" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } }, text = "You're one of Evengale's students from the Sky Enclave, aren't you? I can always tell, because you look at our libraries as if you mean to carry them home in your pockets." },
     { id = "g_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "Mind the paving; half of it's new, and the other half is older than my grandmother." },
     { id = "g_night", when = { all = { { timeOfDay = "night" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } },
@@ -121,6 +124,7 @@ P:Pool {
 P:Pool {
   id = "scholar_dalaran", role = "scholar",
   greetings = {
+    { id = "g_xlumin", when = { all = { { origin = "skyborne_luminarian_scholar" }, { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } } } }, text = "Oh, you're the Skyborne who keeps asking everyone about magesmiths! Have you found anyone in this city who can tell you why your spells come harder? I'd like to know too, honestly." },
     { id = "g_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "Excuse me! Sorry, I'm carrying four hundred pages, and none of them are in order." },
   },

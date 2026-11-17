@@ -201,7 +201,18 @@ P:NPC {
         { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a priest at Tarren Mill, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You treat every living soldier as if they're about to run.", next = "prej", when = { prejudiced = true } },
+        { text = "I served in the Hillsbrad militia, High Executor, against the dead.", next = "xorig_militia", when = { origin = "forsaken_hillsbrad_militia" } },
         { text = "I'll take my leave.", next = "END" },
+      },
+    },
+    xorig_militia = {
+      lines = {
+        { id = "xml_default", text = "Then you've seen this war from both ends of the same hill, which is more than most of my Deathguard can say. Southshore's militia will be full of your old neighbors. Can I trust you to fight them?" },
+      },
+      choices = {
+        { text = "Every one of them. They'd not hesitate over me.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "I'll fight their soldiers, not farmers with pitchforks.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "Who do you think taught them to drill?", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     why = {

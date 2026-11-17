@@ -1135,7 +1135,18 @@ P:NPC {
         { text = "Are the druid's way and the shaman's really so close, Mathrengyl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Princess Theradras is dead, Mathrengyl. Maraudon is broken.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
         { text = "What does a druid give to a company like ours?", next = "xpt_mathrengyl", when = { party = { class = "DRUID" } } },
+        { text = "My father sleeps in the Barrow Dens. Does he hear me at all?", next = "xorig_dream", when = { origin = "nightelf_dreamer_kin" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    xorig_dream = {
+      lines = {
+        { id = "xdr_default", text = "I won't lie to you, child, because the families of the sleepers deserve the truth more than comfort. Some who woke said the waking world reached them like rain heard from far away, and some heard nothing at all. Do you go to him often?" },
+      },
+      choices = {
+        { text = "Every season, and I tell him everything.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Less often now. It's hard to talk to silence.", next = "BACK" },
+        { text = "Something else, Mathrengyl.", next = "BACK" },
       },
     },
     xwoke = {

@@ -12,6 +12,8 @@ P:Pool {
     { id = "g_night", when = { timeOfDay = "night" }, text = "Stay inside the walls after dark, because the forest has teeth." },
   },
   notice = {
+    { id = "n_xwoods", cat = "origin", when = { origin = "forsaken_silverpine_woodsman" },
+      text = "You know these woods; you walk them like a woodsman, not a soldier. If you drank in Pyrewood once, don't go back after dark, because the faces you'd know aren't quite faces then." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Worgen, by the look of those marks, and you were lucky. Get patched up before you're less lucky." },
   },

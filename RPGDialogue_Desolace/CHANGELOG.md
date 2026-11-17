@@ -21,6 +21,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New people to talk to: Corporal Melkins, Talendria, Baritanas Skyriver, Gurda Wildmane, Taiga Wisemane, Vark Battlescar, Drulzegar Skraghook, Jinar'Zillen, Innkeeper Sikewa.
 - New files: restart the game fully (a /reload won't load them).
 
+## 1.27.0 (2026-11-17)
+- Origin nods (core 0.81.0): people here now notice the newer backgrounds from 0.70.0.
+
 ## 1.26.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

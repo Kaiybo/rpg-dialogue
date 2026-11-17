@@ -497,7 +497,17 @@ P:NPC {
         { text = "Why do the Grimtotem cage these creatures, Kindal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The Grimtotem have done something terrible to these creatures, Kindal.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Can a druid heal a forest, Kindal?", next = "xpt_kindal", when = { party = { class = "DRUID" }, faction = "Alliance" } },
+        { text = "I tracked yetis and hippogryphs for Feathermoon, Kindal.", next = "xorig_track", when = { origin = "nightelf_feralas_tracker" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    xorig_track = {
+      lines = {
+        { id = "xtr_default", text = "Then you have walked more of these woods than I have, and you will know the hills where the yetis keep their caves. I have seen Grimtotem hunters up there with empty cages, and I would like a tracker's eyes to tell me where they take them. Will you keep watch for me?" },
+      },
+      choices = {
+        { text = "I'll tell you anything I find.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Kindal.", next = "BACK" },
       },
     },
     b1_1 = {

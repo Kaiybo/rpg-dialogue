@@ -164,6 +164,11 @@ About 260 people who had nothing to say now do: quest givers, innkeepers, flight
 - **Horde capitals and the Barrens:** the Cleft of Shadow's errands, Orokk Omosh, the Apothecarium's chemists, Sharlindra, Orm and Karn Stonehoof, the Bluff Runner, the Barrens' shaman seers, Ratchet's brewmaster and crane operator, and the Dogran chain at Camp Taurajo.
 - Quest givers react before, during and after their quests; most people have a reply or two only certain races, classes or factions get.
 
+## 0.81.0 (2026-11-17)
+Every origin is noticed now. No new files: /reload is enough.
+
+- **The 72 newer origins from 0.70.0 come up in conversation.** Until now only the older backgrounds got recognised. About 490 new lines across 31 packs: each newer origin gets a greeting from the townsfolk or guards of its home town, a stranger who notices it, and a new reply with a named person tied to it. A few examples: Eitrigg remembers a Doomhammer veteran, Commander Ebonlocke a Darkshire watchman, Keeper Remulos one of his own keepers, Baine a Bloodhoof brave and Tinkmaster Overspark an arcane engineer. Skyborne backgrounds are noticed on Zephras, in Dalaran and in Mulgore.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

@@ -165,7 +165,18 @@ P:NPC {
         { text = "Will Southshore fight beside a warlock, Marshal?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You seem uneasy around a dwarf shaman, Marshal.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We're a full company, Marshal. Put us to use.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
+        { text = "I used to run letters for the Syndicate, Marshal.", next = "xorig_syndicate", when = { origin = "human_syndicate_runner" } },
         { text = "Good day, Marshal.", next = "END" },
+      },
+    },
+    xorig_syndicate = {
+      lines = {
+        { id = "xosyndicate_default", text = "Did you, now? Then you're either very brave to tell me so or very foolish, and I've not yet decided which. If you know where they keep their camps in the foothills, Southshore would be glad to hear it, and I'd not ask how you came to know." },
+      },
+      choices = {
+        { text = "I'll tell you what I know, Marshal.", next = "BACK", fx = { affinity = 2, standing = { southshore = 1 } } },
+        { text = "I got out, and I won't go back, even to talk.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

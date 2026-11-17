@@ -143,6 +143,13 @@ P:NPC {
         { text = "Let Rend and the dragons bleed each other dry, Warlord.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    xorig_brock = {
+      lines = { { id = "xbr_default", text = "Then you know the Spire better than most of my grunts, and you'll know some of the faces up there. If it came to it, could you put your axe through a brother who still wears Rend's colors?" } },
+      choices = {
+        { text = "If he stands with Rend, yes.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I don't know, Warlord. I hope I never find out.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Kargath's walls have seen plenty of wounded since the Dark Irons started pushing, and too few hands to mend them, so you're welcome on my tower." },
@@ -193,6 +200,7 @@ P:NPC {
         { text = "Does a Forsaken paladin trouble you, Warlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Wyrmthalak is dead, Warlord. I've seen the lower Spire.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire", faction = "Horde" } },
         { text = "You don't think much of warlocks, Warlord.", next = "prej", when = { prejudiced = true } },
+        { text = "I was Blackrock, Warlord. I left Rend's banner.", next = "xorig_brock", when = { origin = "orc_blackrock_defector" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },

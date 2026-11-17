@@ -169,6 +169,7 @@ P:NPC {
         { text = "I've heard Tinker Town arguing over who lost Gnomeregan.", next = "gnomeregan_word",
           when = { thread = { id = "gnomeregan_lost", beat = "b5_mekkatorque", state = { "stirring", "unfolding" } } } },
         { text = "Who's this other helper of yours, High Tinker?", next = "xalt_mekkatorque", when = { alt = true } },
+        { text = "I kept Thermaplugg's ledgers, High Tinker. I saw where the money went.", next = "xorig_ledger", when = { origin = "gnome_thermaplugg_clerk" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -199,6 +200,16 @@ P:NPC {
     gnomeregan_his = {
       lines = { { id = "gh_default", text = "Perhaps you're right, and they'll sleep better for it. I'll say his name and leave mine off the page, and I expect I'll be the one gnome in Tinker Town who doesn't sleep better at all." } },
       choices = { { text = "...", next = "END" } },
+    },
+    xorig_ledger = {
+      lines = {
+        { id = "xoledger_default", text = "You did? Then you saw what I didn't, which is a sentence I've had to say far too often since the fall. I'd very much like to see those payments, every one, and I'd like to ask what you did with the books they bought, though I suspect I know. Will you tell me, or must I guess?" },
+      },
+      choices = {
+        { text = "I'll write down every payment I remember.", next = "BACK", fx = { affinity = 2, trait = { honest = 1 } } },
+        { text = "The books were forbidden. I read them anyway.", next = "BACK", fx = { affinity = -1, trait = { proud = 1 } } },
+        { text = "Some things are better left unsaid, High Tinker.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
     },
     xorig_rear = {
       lines = {
@@ -1588,7 +1599,18 @@ P:NPC {
         { text = "Should the Senate send soldiers to Gol'Bolar, Senator?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which wins, Senator: the Senate's caution or the League's curiosity?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Why doesn't the Senate send help to the quarry?", next = "xpt_stonehallow", when = { party = true } },
+        { text = "I was foreman at Gol'Bolar, Senator, when the troggs broke through.", next = "xorig_foreman", when = { origin = "dwarf_quarry_foreman" } },
         { text = "Good luck, Senator.", next = "END" },
+      },
+    },
+    xorig_foreman = {
+      lines = {
+        { id = "xoforeman_default", text = "Then ye'll know better than me what's under this quarry, an' better than the whole Senate put together. I read yer report about yer three lads, foreman, an' it was the only report the Senate ever sent me that I read twice. Will ye help me take back the deep cuts?" },
+      },
+      choices = {
+        { text = "For my lads, aye, I will.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "I've buried enough men here, Senator.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

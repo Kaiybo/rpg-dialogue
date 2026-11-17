@@ -157,7 +157,18 @@ P:NPC {
         { text = "The wolves could be a danger to the Abbey itself, Eagan.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would fire drive the wolves back over the ridge, Eagan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The spirits might mind you trapping the beasts, Eagan.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I used to flush game for the lords' hunts, Eagan.", next = "xorig_beater", when = { origin = "human_elwynn_beater" } },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    xorig_beater = {
+      lines = {
+        { id = "xobeater_default", text = "A beater, eh? Then you know these woods better than the lords who shoot in them, and you'll know the wolves don't run the way the deer do. Here, was it you that took the great boar, the year the hunt came home empty?" },
+      },
+      choices = {
+        { text = "I might have. It fed my family all winter.", next = "BACK", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "A good hunter never tells, Eagan.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     meat = {

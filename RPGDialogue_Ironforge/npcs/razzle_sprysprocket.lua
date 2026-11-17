@@ -58,7 +58,18 @@ P:NPC {
         { text = "Can I look at the schematics?", next = "schematics", when = { profession = "Engineering" } },
         { text = "Do you think the lepers can really be saved?", next = "saved", when = { race = "Gnome" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "My brother is one of the lepers outside Gnomeregan, Razzle.", next = "xorig_leperkin", when = { origin = "gnome_leper_kin" } },
         { text = "Good luck, Razzle.", next = "END" },
+      },
+    },
+    xorig_leperkin = {
+      lines = {
+        { id = "xoleperkin_default", text = "Oh! Oh, I'm so sorry, and I'm sorry I talked about putting the race back together as though it were a clock. Your brother is exactly who the machine is for, and if it works he'll be first through it, or second, after Ozzie tests it on himself. What was his trade, before?" },
+      },
+      choices = {
+        { text = "He mended clocks. Thank you, Razzle.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Test it properly first. I won't lose him twice.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     gnomeregan = {
