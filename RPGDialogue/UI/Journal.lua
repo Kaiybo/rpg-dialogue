@@ -657,7 +657,8 @@ function J.StylePicker()
   Theme.StyleButton(pk.back)
 end
 
-function J.OpenOrigins()
+-- welcome: opened by itself for a new character (a greeting above the list, "Later" to go).
+function J.OpenOrigins(welcome)
   if not frame then create() end
   local pk = frame.picker
   local _, race = C.Race("player")
@@ -669,9 +670,11 @@ function J.OpenOrigins()
   frame.scroll:Hide()
   frame.originLabel:Hide()
   frame.originBtn:Hide()
-  frame.pageTitle:SetText(L.J_ORIGIN_PICK_TITLE)
+  frame.pageTitle:SetText(welcome and L.J_ORIGIN_WELCOME or L.J_ORIGIN_PICK_TITLE)
+  pk.back:SetText(welcome and L.J_ORIGIN_LATER or L.J_ORIGIN_BACK)
   frame.pageCount:SetText("")
   pk.listTitle:SetText(L.J_ORIGIN_FOR:format(raceName or race or "", className or class or ""))
+  if welcome then ns.Print(L.ORIGIN_PROMPTED) end
   J.StylePicker()
   local cur = ns.char.origin
   local start = 1
