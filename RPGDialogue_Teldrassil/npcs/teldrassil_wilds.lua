@@ -21,6 +21,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They should be gentle growing things, but something in Teldrassil's soil has made them savage, and they attack anyone who comes near the lake. I need them thinned so that I can study their seeds, so please swing carefully, because I want what's left of them and not splinters." } },
+      choices = {
+        { text = "I'll cut carefully and bring you what's left.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Splinters are what happens. Study those.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They do, and that troubles me more than their tempers, because a plant has no business hunting. Something in the young tree's growth has gone strange, and I can't yet tell whether it's sickness or simply youth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't trust them either, I see, for it has been watching the trees since you came. Animals feel these things before scholars do." },
+      },
+      choices = {
+        { text = "Let me track them for you. Their patterns may help.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Things that hunt get hunted. I'll clear them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Arcane? I hope not, for that would mean someone brought it here, and I would rather it were only a young tree's growing pains. If you sense something, tell me, but do not go casting at my timberlings to find out." },
@@ -51,6 +72,8 @@ P:NPC {
           text = "The timberlings around the lake carry seeds within them. Bring me some, and we may learn what the tree is trying to say." },
         { id = "h_sprouts", when = { questActive = TODO_QUEST("Timberling Sprouts") },
           text = "The sprouts by the water have grown in ways I did not expect. Gather what you can, and be gentle if they let you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The timberlings around the lake have become violent, and I would rather you trimmed them than I did." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the timberlings moving through the trees, and you'll have noticed that they move like hunting things now." },
       },
       again = {
         { id = "h_again", text = "Is there something more you would ask?" },
@@ -63,6 +86,8 @@ P:NPC {
         { text = "As a druid, I feel something amiss in the land.", next = "druid", when = { class = "DRUID" } },
         { text = "Something arcane may be twisting your timberlings.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your timberlings never hear me. I could watch them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What's wrong with the timberlings, Denalan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the timberlings stalk prey like true beasts now?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Elune guide your work.", next = "END" },
       },
     },
@@ -122,6 +147,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Keep them off the path, if you can, because they've grown bolder every day since I was bitten. Dirania worries that they'll take the next fool who wanders by, and I'd hate to be proven only the first of many." } },
+      choices = {
+        { text = "I'll keep the path clear for whoever comes next.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fools who wander near spider caves learn quickly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mushrooms and moonpetal lilies, Dirania says, and ichor from the great spider deep in the cave. A hunter would find the herbs quicker than anyone, and as for the spider, well, someone has to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from the cave mouth, because the webs will hold it and the venom works on beasts just as it works on fools like me." },
+      },
+      choices = {
+        { text = "I'll gather what Dirania needs and bring it back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take some venom for my own arrows first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "You know poisons? Then you know how slow this one is, and I would rather not hear how it ends. Dirania has gone for a cure, but if you can tell me how long I have, perhaps I could stop counting." },
@@ -150,6 +196,8 @@ P:NPC {
           text = "Dirania is making an antidote, and she needs things from the glade to finish it. Please hurry, for my strength fades by the hour." },
         { id = "h_done", when = { questDone = TODO_QUEST("Iverron's Antidote") },
           text = "The antidote worked, and I owe you my life. I'll stay well away from that cave from now on, I promise." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You can't fight what's in my blood, I'm afraid, though I'd enjoy watching you try." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you see the spider that bit me, it was a big one, and it looked very pleased with itself." },
       },
       again = {
         { id = "h_again", text = "Is there more? Talking keeps my mind off the pain." },
@@ -162,6 +210,8 @@ P:NPC {
         { text = "Let me see the wound. I'm a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know poisons. I could tell you what this is.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a spell draw the venom out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can I do anything about the spiders, Iverron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does the antidote need from the Webwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Rest easy, Iverron.", next = "END" },
       },
     },
@@ -220,6 +270,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They did, my mother said, because some of these recipes fed the soldiers who marched against the Legion long ago, and they were meant to last long roads. Season it slowly and pack it tight, and it'll keep you standing in Ashenvale as it kept them standing then." } },
+      choices = {
+        { text = "Then I'll eat as they did, and remember them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Food's food. I don't need old stories with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Thistle boar, if you ask me, and the stags from the high slopes when I can get them. The recipes of the kaldorei need a few things you can only find in the wilds, so a hunter is the best friend a cook can have." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it has been eating well already, so I suspect you're a good hunter. Don't let it near my pots, mind you." },
+      },
+      choices = {
+        { text = "I'll hunt with respect and bring you the best cuts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll hunt what's easiest. Respect won't fill a pot.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Conjured bread! A human traveler offered me some once, and it tasted of nothing but its own cleverness. Sit and eat a proper meal, and tell me afterwards which you prefer." },
@@ -246,6 +317,8 @@ P:NPC {
           text = "I am Zarrin, and I cook for Dolanaar as my mother did before me. The recipes of the kaldorei are older than Teldrassil, and I mean to keep them that way." },
         { id = "h_recipe", when = { questActive = TODO_QUEST("Recipe of the Kaldorei") },
           text = "The old recipe needs what the forest around Dolanaar provides, and I've no time to hunt it myself. Bring it, and I'll teach you a taste of home." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need a good meal before the road, and the old recipes were made for travellers who fought." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me a good haunch and I'll show you what the kaldorei were doing with one long before Teldrassil grew." },
       },
       again = {
         { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
@@ -258,6 +331,8 @@ P:NPC {
         { text = "I cook too. Any secrets to share?", next = "cook", when = { profession = "Cooking" } },
         { text = "I can conjure bread. You needn't cook for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your spice cupboard is very poorly guarded.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did the old kaldorei warriors eat like this?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which of Teldrassil's beasts make the best meals, Zarrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Zarrin.", next = "END" },
       },
     },

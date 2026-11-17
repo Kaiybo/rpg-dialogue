@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In Ashenvale, where the Warsong push their logging camps deeper every season and our archers cannot hold the clearings alone. A warrior who stands firm in front of our bows is worth ten who chase orcs into the trees." } },
+      choices = {
+        { text = "I'll stand before your archers and hold.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll chase the orcs back to their camps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -86,6 +95,7 @@ P:NPC {
           text = "We'll deal with what she left in our woods, and I bear her no ill will for it. Strange things are afoot these days, and the darkness never rests long." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The Sentinels have use for anyone who can walk into a Warsong camp and walk back out with something worth hearing." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. I command Sentinels, and they are watching you right now from three places you haven't found yet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Sentinels have need of those who can hold a line, though I will judge for myself whether you can." },
       },
       again = {
         { id = "h_again", text = "What else? Make it worth the time." },
@@ -100,6 +110,7 @@ P:NPC {
         { text = "Do the Sentinels need another bow?", next = "hunter_tb", when = { class = "HUNTER" } },
         { text = "I stood the watch at Auberdine.", next = "watch_tb", when = { origin = "nightelf_auberdine_watch" } },
         { text = "Would the Sentinels trust a rogue's scouting?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Where do the Sentinels need warriors most, Thyn'tel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you treat every warlock as an enemy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you return to your duties.", next = "END" },
       },
@@ -209,6 +220,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The same as it means to a warrior: holding when every part of you wants to run. A hunter whose companion falls must still loose the next arrow, and I have seen Sentinels do it in Ashenvale with tears on their faces." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has resolve of its own; I can see it in how it stands its ground. Be worthy of it, {class}, because it will stand for you to the end." },
+      },
+      choices = {
+        { text = "I'll hold my ground, whatever falls beside me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the fight's lost, I'll run and fight another day.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -282,6 +305,7 @@ P:NPC {
           text = "You gave the Shade of Elura her rest, and Mathiel has the elunite. A warrior's weapon, made from a blessed metal, by your own hand's effort; wield it well." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd last in a fight, rogue, but only if you struck first. I train warriors to last when they don't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mages always stand too far back, and then they're surprised when something circles round to reach them. Which way are you going to stand, mage?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You'll find no stances to learn here, but resolve is the same in any profession." },
       },
       again = {
         { id = "h_again", text = "What else, warrior? Speak quickly; the Terrace doesn't sit still." },
@@ -298,6 +322,7 @@ P:NPC {
         { text = "Gnomes fight too, you know.", next = "gnome_e", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "Is there anything a rogue could learn from a warrior?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Where should a mage stand in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does resolve mean to a hunter, Elanaria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to the Terrace.", next = "END" },
       },
     },
@@ -400,6 +425,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It could, though it's too precious to leave in a Gnarlpine, and the priestesses would have words with me if I tried. A dwarven friend in Ironforge swears by rifle shot instead, and I'll admit his methods interest me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing at my anvil since you came in, and I think it smells the coal. Tell it there's nothing here to eat but iron." },
+      },
+      choices = {
+        { text = "Elunite is sacred. Keep it for blades of honor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sacred or not, a better arrow saves lives.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -457,6 +494,7 @@ P:NPC {
           text = "Klockmort Spannerspan needs help in Gnomeregan, and I can't leave the forge. My heart aches for my friend, so if you go in my place, I'll be in your debt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "I've mended a mage's staff once, and it hummed the whole time I worked on it. I'd rather you didn't bring that one back." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll repair your gear, warlock, because coin is coin and I need an anvil of my own. But tell your servant to stay outside the forge." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Elunite holds an edge like nothing else, and I've always wondered how it would sit on an arrowhead." },
       },
       again = {
         { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
@@ -471,6 +509,7 @@ P:NPC {
         { text = "Do you know Klockmort Spannerspan?", next = "gnome_m", when = { race = "Gnome" } },
         { text = "What would elunite do for a warrior's blade?", next = "warrior_m", when = { class = "WARRIOR" } },
         { text = "Do you mind working on a mage's gear?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could elunite make a better arrowhead, Mathiel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why must my servant stay outside the forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck at the forge.", next = "END" },
       },
@@ -573,6 +612,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some of it, perhaps, for you do not flinch when I look at you, and most do. But your spirit lives in the bow and in your bond with the wild, and that is a different strength, though no lesser one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} carries a warrior's spirit, I think, more than you do. Do not take offense, for that is high praise from me." },
+      },
+      choices = {
+        { text = "A hunter's strength is the bond. That's enough for me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Strength is strength. I'll take it where I find it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -625,6 +676,7 @@ P:NPC {
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a great deal of cunning. It isn't the worst combination I've ever seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach only those with the warrior's spirit, warlock, and whatever spirit is walking behind you isn't the right kind." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether you carry the warrior's spirit, and some hunters do." },
       },
       again = { { id = "h_again", text = "Something more? Ask, and then let me return to my students." } },
       choices = {
@@ -634,6 +686,7 @@ P:NPC {
         { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
         { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
         { text = "Can a rogue really have a warrior's spirit?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do I carry the warrior's spirit, Arias'ta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think warlocks lack courage?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -696,6 +749,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Plenty, for the Sentinels in Ashenvale call for every blade that can be spared, and the Warsong hear the same call from their side. If a warrior wants to be in my proclamations one day, Astranaar is where the stories are being written." } },
+      choices = {
+        { text = "Then I'll go to Astranaar and earn a proclamation.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I fight for coin, not for your proclamations.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Word from Darkshore says the thistle bears have gone mad, foaming and turning on their own cubs, and Tharnariun Treetender in Auberdine would welcome a steady bow. I'd proclaim it louder, but frankly the bears frighten me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And may your {pet} be proclaimed the finest beast on the Terrace, at least until the next one walks past. I say that to all the companions, but I mean it every time." },
+      },
+      choices = {
+        { text = "I'll go and help Tharnariun with his bears.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Mad bears are more trouble than they're worth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -738,6 +812,8 @@ P:NPC {
           text = "Your aid is needed in Feralas! An outlaw mage has fled into the ruins of Eldre'Thalas with something dangerous, and Latronicus Moonspear at Feathermoon wants it back." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Hear ye, hear ye, a rogue has crept onto the Terrace! I'm only teasing, of course, though you did startle me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've no summons for your kind, I'm afraid, since Darnassus has no tower or trainer for you. But do have a look around, it's beautiful." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Hear ye, a warrior has come to the city! I'd announce you properly, but you'd only blush under that helmet." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter walks among us! Hear ye, and mind the beast, because it's sniffing my scrolls." },
       },
       again = {
         { id = "h_again", text = "More news? I've plenty!" },
@@ -751,6 +827,8 @@ P:NPC {
         { text = "The Plaguelands call, and the Light answers.", next = "paladin_m", when = { class = "PALADIN" } },
         { text = "Does the Herald ever hear news nobody announces?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why does Darnassus keep no mage trainer?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Any news for a warrior, Herald?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Any news for a hunter, Herald?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Herald.", next = "END" },
       },
     },
@@ -843,6 +921,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Food, every time, because they pack whetstones and spare buckles and forget that they need to eat. I've sent warriors down to Ashenvale with a bag full of steel and nothing else, and every one of them came back hungry and wiser." } },
+      choices = {
+        { text = "I'll pack properly. A wise warrior plans ahead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll live off the land. Supplies slow me down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I do, and I'm proud of it: dried meat for the cats, fish for the ones who'll eat it, and bread for the strange ones who won't eat either. A hero's companion is a hero too, as far as I'm concerned." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it eats well, and I'd like to keep it that way. Tell me what it favors, and I'll see whether it's on my shelves." },
+      },
+      choices = {
+        { text = "My companion eats before I do. Always.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It can hunt its own supper.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -872,6 +971,8 @@ P:NPC {
           text = "My friend Nessa Shadowsong sells fish down in Rut'theran Village, and she needs a parcel carried to Darkshore. Take the portal west of the Temple Gardens, and you'll find her by the water." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Conjured bread is all very well, mage, but you can't conjure moonberry juice, so I'll still have your custom one day." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll sell you supplies, warlock, though I'd rather you didn't tell anyone where you got them. My other customers are a nervous lot." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want bread, water and twice as much of both, because a hero on the front line burns through supplies." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want arrows, I suppose, and something for your companion, because heroes' beasts get hungry too." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time." } },
       choices = {
@@ -879,6 +980,8 @@ P:NPC {
         { text = "Why call us heroes in the making?", next = "heroes" },
         { text = "Who is Nessa Shadowsong?", next = "nessa" },
         { text = "Doesn't my conjured food take your custom?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do warriors forget to pack, Mydrannul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you stock food for a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would your customers really leave over a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -934,6 +1037,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I tell myself it would have, though the Barrens are wide and the quilboar are many. He went with his books and his curiosity and not a single sword, so if you ever travel that way, I'd be grateful if you asked after him in Ratchet." } },
+      choices = {
+        { text = "If I go south, I'll ask after him in Ratchet.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A scholar alone in the Barrens chose his fate.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "He studied the quilboar and the tales of their fallen boar god, Agamaggan, but he wrote about the zhevras and the great kodos in every letter. He would have liked you, because you'd have known which beasts he was describing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have fascinated him, and he'd have asked you a hundred questions about it before you'd taken your boots off." },
+      },
+      choices = {
+        { text = "If I'm in the Barrens, I'll look for his trail.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I won't go hunting for a lost scholar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -974,6 +1098,8 @@ P:NPC {
           text = "I've his notes on the Kraul spread across every table. I'll not let his work die with him, whatever it costs me, and you can tell anyone who asks that I said so." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to being unseen, rogue. Heralath writes that the Barrens are full of folk like that, and not all of them are friendly." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Heralath always said that a mage could send a letter across the sea in a heartbeat. Is that true, or is he teasing me again?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My Heralath was no warrior, only a scholar, and I wish now that someone like you had gone south with him." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Heralath used to say hunters were the only people who understood how much there is to learn just by watching." },
       },
       again = {
         { id = "h_again", text = "Is there more? Please, I don't mind the company." },
@@ -987,6 +1113,8 @@ P:NPC {
         { text = "The Circle won't forget Heralath.", next = "druid_tr", when = { class = "DRUID" } },
         { text = "Shall I find out who threatens Heralath out there?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you wish Heralath could send letters faster?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would a warrior's escort have helped your husband?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Did Heralath study the beasts of the Barrens too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -1077,6 +1205,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Faldron would sigh at the stitching and Telonis would want to know which orc did it, and then they'd both make it better than new! I'm only allowed to sweep while they work, but I watch everything, and someday I'll be the one sighing at your stitches." } },
+      choices = {
+        { text = "Leather mended by artists is worth the wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "As long as it holds, I'm happy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They're very particular, because Telonis says a badly skinned stag is an insult to the stag, but a clean hide from a hunter who knows the work always gets a smile. Radnaal Maneweaver taught half the skinners on Teldrassil, so if he taught you, say so!" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is beautiful, but please don't let it near the hides in the back, because the last companion took a whole bolt of leather for a bed." },
+      },
+      choices = {
+        { text = "I take only what I can use, and skin it cleanly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I skin fast. Clean doesn't pay any better.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -1104,6 +1253,8 @@ P:NPC {
         { id = "h_default", text = "I'm Darianna, and I'm learning leatherworking from Faldron and Telonis, who are true artists. It's so exciting to be here in Darnassus with talented people all around, even if I'm mostly sweeping." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Faldron says rogues buy the best leather, because a creaking jerkin gets you caught. Is that true?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! I'm sorry, I nearly dropped my broom. Is that thing yours? It's watching the hides like it wants to eat them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, your armor's taken a beating, hasn't it, and Faldron could have that leather mended in an afternoon!" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your hides must be wonderful; do you skin what you hunt, or do you leave it where it falls?" },
       },
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
@@ -1111,6 +1262,8 @@ P:NPC {
         { text = "What are your teachers like?", next = "teachers" },
         { text = "Do you want to be a crafter forever?", next = "future" },
         { text = "Would you like to make leather for rogues someday?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What would your teachers make of a warrior's armor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Would your teachers want the hides I bring in?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my servant frighten you, Darianna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the stitching.", next = "END" },
       },

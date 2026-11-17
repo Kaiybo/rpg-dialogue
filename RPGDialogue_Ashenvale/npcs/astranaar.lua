@@ -266,6 +266,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "There may be, for the cure I've been promised needs things from places where no healer can go safely. Orendil says Fallen Sky Lake holds part of it and the creatures there are cruel, so a warrior would be more use to me than a whole bag of herbs." } },
+      choices = {
+        { text = "I'll go to the lake for her.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go, but I'll expect fair pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The healers say so, though they argue about which, and the corrupted things at Fallen Sky Lake are the ones they argue over most. A hunter who knows the lake could save me a season of guessing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is gentle around her; I can see it in how it moves. If she wakes, would you let her see it? She hasn't smiled in days." },
+      },
+      choices = {
+        { text = "I'll go to the lake and find what she needs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt for coin, not for cures.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Orendil once told me the Shadethicket Oracle hoards her moonstones deep in their camp by Fallen Sky Lake, where no honest fighter could reach them without a battle. I'd never ask anyone to steal, but I've stopped pretending I'd mind." } },
@@ -311,6 +332,8 @@ P:NPC {
           text = "You came in so softly that Relara didn't stir, and for that I could almost thank you. Most visitors clatter in like Sentinels at the changing of the watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There's a coldness about you that I don't like near my daughter's room, and forgive me for saying so. Her dreams are dark enough already without anything darker standing at her door." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please lower your voice; Relara has only just fallen asleep, and every sound wakes her." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Speak softly, I beg you, because my daughter sleeps lightly and the dreams are bad." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? Forgive me, I keep listening for her." },
@@ -323,6 +346,8 @@ P:NPC {
         { text = "Let me look at her.", next = "look", when = { class = { "PRIEST", "DRUID", "PALADIN" } } },
         { text = "I'm a mage. Let me try a spell on her fever.", next = "mage_p", when = { class = "MAGE" } },
         { text = "Is there anything quiet feet could fetch for Relara?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there anything a warrior can do for Relara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the creatures of Ashenvale hold what Relara needs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think my craft could reach into her dreams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
@@ -395,6 +420,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I want to be a Sentinel and ride a nightsaber and fight the orcs, but Papa says I have to get better first. Did it hurt, the first time you got hit? I bet you didn't even cry." } },
+      choices = {
+        { text = "It hurt, and I cried. Brave people still cry.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Never. Warriors don't cry.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Maybe, if I can't be a hippogryph, because hunters get to have a friend who goes everywhere with them. Papa says the bad dreams can't get you if something's watching over you, so maybe I need a beast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is your {pet} nice? It looks nice, and it's looking at me like it knows I'm sick. Can it stay a little while?" },
+      },
+      choices = {
+        { text = "Every hunter needs a brave heart first, and you have one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunting's hard. Better to stay safe at home.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because he always looks so sad when he thinks I'm sleeping, and if I sneak up quietly I can see whether he smiles when nobody's watching. The Sentinels walk quietly too, so it's good practice for being a Sentinel." } },
@@ -432,6 +478,8 @@ P:NPC {
           text = "You walked in without making any noise at all! Can you teach me how, so I can sneak up on Papa when I'm better?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Are you a real mage? Papa says magic is dangerous, but I think a tiny bit of light to keep the bad dreams away wouldn't hurt anybody." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You've got a sword! Papa says I can have one when I'm a Sentinel, but I think he's fibbing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Do you have a beast? Does it bite, or can I pet it, or will Papa get cross?" },
       },
       again = {
         { id = "h_again", text = "Are you still here? Good, then tell me something." },
@@ -445,6 +493,8 @@ P:NPC {
         { text = "Want to know a secret about gnomes?", next = "gnome_r", when = { race = "Gnome" } },
         { text = "Why do you want to sneak up on your papa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you like to see a little magic, Relara?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you want to be a warrior when you're well, Relara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Would you like to be a hunter when you're well, Relara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -499,6 +549,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More of them than scholars, but fewer than I'd like, because warriors go looking for the Warsong instead of hiding from them. I cross off every name that comes back, and I'd very much like to cross off yours." } },
+      choices = {
+        { text = "Put my name in the book. I'll come back to cross it off.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No names. I come and go as I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because when someone doesn't come back, the first thing the Sentinels ask me is where they were going, and I hate having no answer. The forest spirits can't always tell me, and a name with no road beside it is a name nobody goes out to find." } },
@@ -538,6 +597,7 @@ P:NPC {
           text = "You'll be the kind who leaves Astranaar without telling me, I can see it already. Do me a kindness and stop at my gate first, so I know which list to put you on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, so I suppose you'll be stepping in and out of the world without ever passing my gate. The forest spirits find that very confusing, and so do I." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Write your name in my book before you go out on the roads, please, so I'll know where to look if you're late." },
       },
       again = {
         { id = "h_again", text = "What else? I've a list to keep." },
@@ -551,6 +611,7 @@ P:NPC {
         { text = "Put my companion on your list too.", next = "pet_f", when = { class = "HUNTER", pet = { named = true } } },
         { text = "Why does it matter if I slip out unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the forest spirits mind the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors make it back from the roads, Faldreas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -617,6 +678,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "When they can, and they eat as if they haven't seen food in a month, which is usually true. The ones back from the Warsong lines don't talk much, so I don't ask, and I just keep the broth hot." } },
+      choices = {
+        { text = "I'll eat and rest, then back to the line.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No rest for me. I'm going straight back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When they can, and the stags of Ashenvale make the best broth I've ever cooked. Half of what goes up to Relara Whitemoon came in on a hunter's back, so every hunter who walks in here has fed a sick child, whether they knew it or not." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome by the kitchen door, where the smells are. It's the most honest kind of guest, because it never pretends it isn't hungry." },
+      },
+      choices = {
+        { text = "I'll bring meat for Relara's broth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt to sell, not to give away.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "More than you'd think, because Raene sends a few out to watch the Warsong camps, and they come back hungry and won't tell me a thing. I've learned to feed them first and ask nothing, and they always leave a little extra on the table that way." } },
@@ -646,6 +728,8 @@ P:NPC {
           text = "You slipped in past the scouts at the door, and they'll be sulking about it all evening. Sit down before they notice, and I'll bring you something hot." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll give you a room like anyone else, but I'd ask you to leave your companion outside the door. The scouts sleeping upstairs have seen enough of demons out at Satyrnaar." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and hungry, I'd guess. Sit, and I'll bring broth before you go back out to the Warsong." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I'd guess your companion is hungrier than you are. Sit, the pair of you." },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
@@ -657,6 +741,8 @@ P:NPC {
         { text = "I can tend wounds. Do your scouts need a healer?", next = "healer_k", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "It's a long way from Stormwind to here.", next = "far_k", when = { race = "Human" } },
         { text = "Do you get many rogues at your inn, Kimlya?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the warriors from the front come here to rest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters bring meat for your kitchen, Kimlya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the scouts fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
@@ -737,6 +823,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone to hold the tower stairs while my paladins clear the cultists room by room. The Dark Strand fight like cornered rats, and a warrior who holds the stairs is worth more to me than any blessing I could give." } },
+      choices = {
+        { text = "I'll hold the stairs. Not one gets past.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather clear the rooms myself. The glory's inside.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A great deal, because they post lookouts in the ruins around the Tower of Althalaxx, and my paladins clank far too loudly to reach them. Pick them off from the trees, and we'll do the rest with the Light and our hammers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steady, and it will need to be, because the Dark Strand call things up from the Void. Keep it close, and the Light keep you both." },
+      },
+      choices = {
+        { text = "I'll give them a chance to surrender first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Cultists get no chances. I'll shoot them all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "They could, because the cult posts lookouts round the Tower of Althalaxx and they always see my lads coming. Get close enough to learn their numbers and I'll bring the Light down on them openly, as it ought to be done." } },
@@ -780,6 +887,8 @@ P:NPC {
           text = "Light keep you, friend, though you came up so quietly I nearly greeted you with my hammer. Forgive me, because the Dark Strand have taught us all to jump at shadows." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, out here in elf country, and that's a cheering sight! The Dark Strand work their spells in that old tower, and I'd welcome someone who understands how such magic thinks." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Light bless you, friend, for we've been short of strong arms since the Dark Strand dug in at the tower." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light welcomes you, and so do I, because there's a great deal of forest between us and that tower, and you'll know it better than my paladins." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The cult won't wait on us." },
@@ -794,6 +903,8 @@ P:NPC {
         { text = "I know the Dark Strand's craft. I could read their tomes.", next = "warlock_d", when = { class = "WARLOCK" } },
         { text = "Could someone quiet help you against the Dark Strand?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is my magic so different from the Dark Strand's?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does Maestra's Post need from a warrior, Delgren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a hunter be of use against the Dark Strand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Light keep you.", next = "END", fx = { affinity = 1 } },
       },
     },

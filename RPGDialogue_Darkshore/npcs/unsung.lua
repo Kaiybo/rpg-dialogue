@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Worse, because the Greymist come up the beach at night and take whatever's left in the nets. Teldrassil's soft by comparison, whatever Nessa says, so if you want a real fight, walk the shore at dusk." } },
+      choices = {
+        { text = "I'll walk the shore and clear them off your nets.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fight murlocs over fish? Not likely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Closer every season, and they'll snap at a line hard enough to pull a man in. I'd not swim off the Darkshore docks for any wager, and I've lost a few wagers to Nessa in my time." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks hungry, and I'd swear it knows exactly which basket is the fresh one. Clever beast, cleverer than half my customers." },
+      },
+      choices = {
+        { text = "I'll leave the threshers be. The sea is theirs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll hunt the threshers down and sell the meat.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Quietly or loudly, I'd thank you either way, for they steal from my nets every night. They gather thickest down the coast where the threshers come in close." },
@@ -54,6 +75,8 @@ P:NPC {
           text = "That parcel smells like Rut'theran, so Nessa's sent you. Let me see what she thinks passes for a good catch over there." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Nessa") },
           text = "Take my answer back to Nessa, and tell her the Darkshore catch was bigger this season. She'll argue, but she'll know I'm right." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the fish, because they bite worse than you'd think, and so do the murlocs on this coast." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want fish for that companion, I expect, and I'll tell you what Nessa won't, which is that mine are fresher." },
       },
       again = {
         { id = "h_again", text = "What else? The fish won't get any fresher while we talk." },
@@ -66,6 +89,8 @@ P:NPC {
         { text = "Why sell fish inside the inn?", next = "inn" },
         { text = "Murlocs at your nets? I could thin them quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I suppose the elves don't like my sort much.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are the murlocs on this coast as bad as they say?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the threshers hunt close to shore here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Laird.", next = "END" },
       },
     },
@@ -136,6 +161,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Thread, for one, because you'll tear your gear on the brambles before any furbolg touches you, and bags to carry the spoils you take. I can't sell you courage, though, so I'll trust you to bring your own." } },
+      choices = {
+        { text = "Thread and bags. You're right, I'll stock up.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I travel light. Spoils can stay where they fall.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Water for themselves and the beast, because the coast is salt and the streams near the Blackwood camps aren't fit to drink. I'd hate for you to reach the cliffs and find you've nothing clean between you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will need feeding too, won't it? Please tell me you've something for it in your pack." },
+      },
+      choices = {
+        { text = "I'll stock up. Better safe than parched.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land provides. I'll find what we need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Most do, and for the ones who don't, I keep their things a season and then sell them honestly. I'd ask you to do the same if you ever find a purse on the dock." },
@@ -159,6 +205,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I'm Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveler forgets, I keep, because sooner or later they come back for it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Please tell me you've packed water, because warriors never pack water, and then they faint on the road to Ashenvale." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you have enough arrows? Hunters always run out of arrows at the worst moment, I've heard." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd rather you asked now than wished you had later." },
@@ -169,6 +217,8 @@ P:NPC {
         { text = "What do travelers forget most often?", next = "forget" },
         { text = "Why do you worry so much?", next = "worry" },
         { text = "Everything travelers forget, you keep. Do they ever come back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you sell anything a warrior actually needs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does a hunter forget to pack, Dalmond?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you sell candles? Black ones, ideally.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Dalmond.", next = "END" },
       },
@@ -235,6 +285,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than they'd admit, because a clear head is worth more than a brave one when the furbolgs come out of the trees. The Sentinels drink my juice before they patrol, and not one of them has complained." } },
+      choices = {
+        { text = "Clear head, steady hand. I'll take a cup.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather have something stronger.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Moonberries from the hills behind Auberdine, picked fresh, though the pickers won't go far now that the thistle bears have gone mad. If you're hunting out that way, a few safe pickers would do us all a world of good." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks thirsty, and there's a trough behind the inn where the Sentinels water their sabers. It's cleaner than anything you'll find in the streams." },
+      },
+      choices = {
+        { text = "I'll keep the bears away from your pickers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your pickers can look after themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "That's kind, but the groves give it to me cool enough, and the Sentinels would rather not see magic over the counter. My elders remember the Highborne at their worst, and none of them likes a spell anywhere near a drink." },
@@ -258,6 +329,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I'm Taldan, and I sell drinks in Auberdine: water, milk and the juices from the groves. Nothing strong, I'm afraid, because the Sentinels prefer the docks quiet, and so do I." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! A cold cup of moonberry juice, perhaps, before you go and hit something?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want water for your skin, and something for the companion, I suppose." },
       },
       again = {
         { id = "h_again", text = "Something more? Sit, have a sip of moonberry juice, and ask." },
@@ -269,6 +342,8 @@ P:NPC {
         { text = "Why nothing stronger?", next = "strong" },
         { text = "I could chill your juice with a word.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Nothing strong? Where do the sailors go for a real drink?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors ever drink juice before a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your juices come from Darkshore's groves, Taldan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Taldan.", next = "END" },
       },
     },
@@ -331,6 +406,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That you've been hit and kept fighting, which is all I ask of a customer. Darkshore will add a few more, so carry a blade you trust, because the furbolgs don't give second chances." } },
+      choices = {
+        { text = "Each scar was a lesson. I learned from them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Each scar was a fight I won. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "An axe or a spear, something with reach and weight, because when a thistle bear gets inside your bow it won't care about your aim. I've sold plenty of hunters a spear, and none of them came back to complain." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better teeth than anything I sell, I'll give it that. Still, carry something for the times it can't reach you." },
+      },
+      choices = {
+        { text = "I'll carry a spear for when the bear gets close.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Close quarters is my companion's job.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "Daggers, then, and short ones, for Darkshore's fights are close ones among the trees. I'll show you how the kaldorei balance a blade, which is not how the humans do it." },
@@ -355,6 +451,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I'm Naram Longclaw, and I sell weapons here in Auberdine. Darkshore will test whatever you carry, so you'd best carry something worth testing." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Let me see your hands, because scars tell me more than any boast." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your hands are cleaner than a warrior's, but there's a bowstring callus on them, so you'll do." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick." },
@@ -366,6 +464,8 @@ P:NPC {
         { text = "Where do your weapons come from?", next = "where" },
         { text = "I prefer daggers. Have you anything with good balance?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Mages carry staves. Do you sell any?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do my scars tell you, Naram?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What weapon should a hunter keep for close quarters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Naram.", next = "END" },
       },
     },
@@ -430,6 +530,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "You can if you buy your stones from me, because the elves don't do much smithing and the damp in Darkshore rusts a blade overnight. Oil it every evening and hone it every morning, and it'll still be a blade when you reach Ashenvale." } },
+      choices = {
+        { text = "Every evening, then. A blade's worth the care.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll sharpen it when it's dull, and not before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, and the elves glare at the noise as if it had personally insulted them. Me, I say a good rifle's an honest tool, but I'll admit the bears hereabouts don't seem to care what shot them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care much for my forge smoke, I see, because it's sneezing. Stand upwind, the pair of you, and we'll get on fine." },
+      },
+      choices = {
+        { text = "Out of respect, I'll keep things quiet here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A rifle's a rifle. Let the elves glare.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = {
         { id = "xro_default", text = "It's a kind of something, and it isn't smithing. I'll sell you a file and a hammer like I'd sell anyone, and what you do with them is your business until the Sentinels make it theirs." },
@@ -457,6 +578,8 @@ P:NPC {
           text = "Somebody told you a smith has a place at a camp, did they? Right enough, there's always a blade to sharpen by the fire, and I'll show you how to rig it." },
         { id = "h_elf", when = { race = "NightElf" },
           text = "You lot have been very welcoming, I'll say that, even if you look at my forge like it's going to set the forest alight. It won't, I promise." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who knows what a good whetstone's worth, unlike these elves with their glaives." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting arrowheads, I'd guess, and the elves don't make 'em heavy enough for my liking." },
       },
       again = {
         { id = "h_again", text = "Anything else, then? Speak up, the forge is loud!" },
@@ -469,6 +592,8 @@ P:NPC {
         { text = "Do you know the dwarves digging south of here?", next = "dig" },
         { text = "Lockpicking's a kind of metalwork, isn't it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the elves mind your forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can I keep my blade sharp out here among the elves?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do dwarven hunters bring rifles out here among the elves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Elisa.", next = "END" },
       },
     },

@@ -17,6 +17,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They carry anyone who's walked the road and knows the roost, and plenty of them are warriors bound for Astranaar. I always know the ones heading for the Warsong lines, because they sit very still and look south the whole way." } },
+      choices = {
+        { text = "I'll go where I'm needed, however far.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I go where the pay is, not the front.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Badly, if I'm honest, because a hippogryph is half eagle and the eagle half thinks your companion is supper, or the other way round. Keep your beast at heel near the roost, and nobody loses a feather." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my birds the way it would stare at a rabbit, and they've noticed. Keep it by your side, friend, and we'll all stay friends." },
+      },
+      choices = {
+        { text = "I'll keep it at heel. Your birds come first here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My companion goes where I go, birds or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -45,6 +66,8 @@ P:NPC {
         { id = "h_cond", when = { race = "Human" }, text = "A human, here at the roots of our tree! Our hippogryphs are gentler than your gryphons, I think, though I would not say so in Ironforge." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "My hippogryphs are fond of you, rogue, which is odd, since they're usually wary of anyone who walks that quietly." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage taking the long way! I'd heard your kind can step from one place to another with a word, so it's a compliment that you'd choose my birds." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, flying on to Auberdine? Hold on tight and don't lean, because armor makes the birds nervous." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My birds can smell your companion from here, so let me settle them before you come any closer." },
       },
       again = {
         { id = "h_again", text = "What else would you ask?" },
@@ -56,6 +79,8 @@ P:NPC {
         { text = "Are the hippogryphs hard to train?", next = "b" },
         { text = "Why would a hippogryph trust someone who walks quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the kaldorei ever travel by magic instead?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do your hippogryphs carry warriors toward the Ashenvale front?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your hippogryphs get on with hunters' companions?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Vesprystus.", next = "END" },
       },
     },
@@ -100,6 +125,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Whichever one you'll still respect after a hundred hours of drills, because that's what mastery costs. Most warriors want a great sword the moment they arrive, but I'd sooner see you learn the staff first, since it teaches your feet before it flatters your arms." } },
+      choices = {
+        { text = "I'll start with the staff and earn the sword.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I came for a sword, not a lesson in patience.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I can teach you to draw it the same way a thousand times, which is what the Sentinels need when the Warsong come through the trees. A hunter's instinct is a fine thing, but instinct tires and a trained arm doesn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can't teach your {pet} anything, so it may sit and watch. It'll learn more from your footwork than you will, I suspect." },
+      },
+      choices = {
+        { text = "Discipline, then. I'll draw it your way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My instincts have kept me alive this long.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -128,6 +174,8 @@ P:NPC {
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. You will have the strength, but the Sentinels would tell you strength without balance is only a slower way to fall." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Daggers, I'd wager, and I can see you favour the right hand. Come, let me show you why the left matters just as much." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A staff, of course, and you'll want to know how to swing it when the spells run dry. Every mage thinks they'll never need to, and every mage is wrong." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, I'll have someone to teach who won't flinch when the staff comes round." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I teach bows here, though the hunters always tell me they know better." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -139,6 +187,8 @@ P:NPC {
         { text = "Who else trains here?", next = "b" },
         { text = "Do the Sentinels train with daggers as rogues do?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Will I really need a staff in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Which weapon should a warrior master first, Ilyenia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can you teach a hunter anything new about the bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -183,6 +233,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Patience, mostly, and how to read a beast before it moves, because a nightsaber shows you its charge a breath before it comes. Warriors fight the claw they see, and hunters watch the shoulder that throws it." } },
+      choices = {
+        { text = "I'll learn to watch the shoulder, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take the claw and answer it with steel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "To listen before you draw, because Teldrassil is full of beasts that are not your enemies, and the nightsabers of the old groves deserve that much from us. The Sentinels ride with hunters for that reason, since we know which shadow is a cat and which is a Gnarlpine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has chosen you well. Speak to it often, even when you think it doesn't understand, because it understands more of you than you know." },
+      },
+      choices = {
+        { text = "I'll listen first, and draw only when I must.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Anything that stalks me gets an arrow first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -211,6 +282,8 @@ P:NPC {
         { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. That trust is worth more than any skill I could teach." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd make a fine tracker, rogue, if only you'd learn to follow something other than a purse." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has her ears flat and her tail low, warlock, and I've learned to trust her over my own eyes." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior among the hunters. The beasts in the pens are watching you, so try not to rattle that armor." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Come and sit, and tell me what walks beside you; the people can wait." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -221,6 +294,8 @@ P:NPC {
         { text = "How do you bond with a beast?", next = "a" },
         { text = "Where should a young hunter go?", next = "b" },
         { text = "What would a hunter teach a rogue about tracking?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there anything a warrior can learn from hunters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a hunter of Darnassus learn first, Jeen'ra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is your cat afraid of me or of my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Jeen'ra.", next = "END" },
       },

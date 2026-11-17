@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By holding when the Warsong come, and by not boasting of it afterward. I have sent many names to Darnassus, and every one belonged to someone who did their duty quietly." } },
+      choices = {
+        { text = "I'll do my duty and keep quiet about it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I earn glory, I'll let people know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Always, for our nightsabers run beside the hunters' beasts and our bows answer theirs. A hunter who serves Ashenvale well will hear from Darnassus, and I would be the one who tells them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the discipline of a Sentinel's companion. I have noted it, and I do not note things lightly." },
+      },
+      choices = {
+        { text = "I'll ride with the Sentinels and serve Ashenvale.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt alone. The Sentinels can manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "We make use of them when they serve the kaldorei, because the Warsong scouts can't be caught by arrows alone. But a blade in the dark can serve anyone who pays for it, so I judge a rogue by whose coin they carry, and I watch them longer than most." } },
@@ -60,6 +81,8 @@ P:NPC {
           text = "You walk like one of our Watchers, though I don't think the Sisterhood trained you. The Sentinels note who moves unseen in Astranaar, and now I've noted you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "There's arcane on you, and I'm sure you know what the kaldorei think of that. You're an ally of my people, so I'll welcome you, though I'll keep an eye on what you do with it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Astranaar has need of steady blades, and I keep a list of those who prove steady." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Sentinels value hunters above most, because the forest speaks to you as it speaks to us." },
       },
       again = {
         { id = "h_again", text = "What else? The watch changes soon." },
@@ -73,6 +96,8 @@ P:NPC {
         { text = "Would Tyrande truly receive a human?", next = "human_t", when = { race = "Human" } },
         { text = "What do the Sentinels make of rogues, Thenysil?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the kaldorei distrust arcane magic so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How does a warrior prove themselves to the Sentinels?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the Sentinels ride with hunters in Ashenvale?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Elune keep the watch.", next = "END", fx = { standing = { astranaar = 1 } } },
       },
     },
@@ -178,6 +203,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the Warsong keep archers at their lumber camps to the east, and a bird up high is a target while a bird down low is a blur. I've lost one already this season, and I don't mean to lose another." } },
+      choices = {
+        { text = "Fly as you must. I'll trust your judgment.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they shoot your birds, I'll go and stop them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not on purpose, because the Warsong archers would love nothing more than to shoot a bird out of the sky over their camp. If you want behind their lines you'll walk, and I'll pretend I never heard you ask." } },
@@ -206,6 +240,7 @@ P:NPC {
           text = "You've a light step, and the birds can always tell a light rider from a heavy one. They'll like you better than they liked that dwarf last week." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, so you'll be wondering why you should ride when you could teleport. The answer is that Astranaar has no portal, and my birds don't ask you for reagents." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Hold on with your knees and don't lean, because I fly low over the trees and the branches won't wait." },
       },
       again = {
         { id = "h_again", text = "Anything else, or are we flying?" },
@@ -219,6 +254,7 @@ P:NPC {
         { text = "My home's a long way off. How far can they go?", next = "far_d", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Do you ever fly rogues behind the Warsong lines?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your birds mind a mage on their backs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do you fly so low over the forest, Daelyshia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
