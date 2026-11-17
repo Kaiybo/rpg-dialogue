@@ -53,7 +53,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "The Silver Hand counts its allies by their deeds, and the kaldorei have done well enough by us so far. I don't pretend to understand your goddess, but I understand a healer who stands in the line, and that's enough for me." } },
+      lines = { { id = "xdruid_default", text = "The Silver Hand counts its allies by their deeds, and the kaldorei have done well enough by us so far. I don't pretend to understand your goddess, but I understand a healer who stands in the line, and I don't need to understand more than that." } },
       choices = {
         { text = "I'll stand in your line, my lord, whenever you need me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I fight for the forests, my lord, not for anyone's line.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -62,7 +62,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "The Silver Hand looks at what a person does, not the shadows they do it in, though I've seen more of the second than I'd like. Uther worked with men of your trade during the war, and he never once pretended to enjoy it." } },
+      lines = { { id = "xrogue_default", text = "The Silver Hand looks at what a person does, not the alleys they do it in, though I've seen more of the second than I'd like. Uther worked with men of your trade during the war, and he never once pretended to enjoy it." } },
       choices = {
         { text = "Then I'll give you no reason to doubt me, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The war was won with knives as much as hammers, my lord.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." } },
       choices = {
-        { text = "Perhaps one day, my lord, though I won't pretend it's easy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps one day, my lord, though it won't come easy.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I've no intention of turning back, my lord.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in the Cathedral's training hall. I'll assume you came in by the door, and I'll ask you to leave by it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You carry the stink of the fel into this hall, and I will not pretend I didn't notice. Say what you came to say." },
+          text = "You've brought the stink of the fel into this hall, and I'd be a fool not to notice. Say what you came to say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll find nothing to learn here but discipline, and I'd wager the Quarter teaches little of that." },
@@ -488,7 +488,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Kneel, then, and no words are needed. The Light hears silence as well as it hears speeches, and better, some days." } },
       choices = {
         { text = "Amen. Something else.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "I'll kneel, but I won't pretend anyone is listening.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll kneel, but I doubt anyone's listening.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     practise = {
@@ -594,7 +594,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Aye, an' better ones than ye'll find anywhere in the Trade District, though I'd rather make a paladin's hammer than a knife for a back. A hammer's honest about what it's for." } },
       choices = {
-        { text = "Fair enough. I'd rather face a foe than stab him.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather look a man in the eye than stab him.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A knife in the back ends a fight quicker, Elmore.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -735,7 +735,7 @@ P:NPC {
     },
     home = {
       lines = { { id = "ho_default", text = "Ironforge has a hundred good smiths. Stormwind has me an' Furen. A city that rebuilt itself from rubble needs good steel more than one that never fell." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Ha. Can't argue with a dwarf about steel.", next = "BACK", fx = { affinity = 1 } } },
     },
     lightforge = {
       lines = { { id = "lf_default", text = "Blessed iron from the old forges. It takes the Light the way good steel takes an edge. Whatever ye're hunting, it willnae like this." } },
@@ -1100,7 +1100,7 @@ P:NPC {
         { text = "What do you recommend?", next = "cheese" },
         { text = "You're not just a cheesemaker, are you?", next = "cover" },
         { text = "Jorgen sent a note.", next = "jorgen", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
-        { text = "I keep to the shadows myself.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I work in the dark myself.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Does the Mage Quarter buy much cheese?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers really buy cheese for the march, Elling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever trade cheese for game, Elling?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },

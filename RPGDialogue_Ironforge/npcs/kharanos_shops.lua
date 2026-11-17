@@ -89,7 +89,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Most o' them, sooner or later, for the wolves an' the troggs don't care how new ye are. I sell them linen an' send them tae Belm's for a hot meal, an' I tell them tae go easy, though they never listen." } },
       choices = {
         { text = "I'll keep an eye on them. The young ones need guarding.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let them learn the hard way. Dun Morogh teaches well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let them freeze a bit. Dun Morogh teaches quick.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let me see what you have, Kreg.", next = "BACK" },
       },
     },

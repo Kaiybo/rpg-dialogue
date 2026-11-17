@@ -59,7 +59,7 @@ P:NPC {
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "Treasure, if I'm honest, and a map that turned out to be more hope than ink. The swamp has a way of making a man regret his choices, and the lizardfolk have a way of making him regret them faster." } },
+      lines = { { id = "dt_default", text = "Treasure, gods help me, and a map that turned out to be more hope than ink. The swamp has a way of making a man regret his choices, and the lizardfolk have a way of making him regret them faster." } },
       choices = {
         { text = "Greed brought you here. I'll free you anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Perhaps the swamp should keep you awhile.", next = "BACK", fx = { align = { light = -1 } } },
@@ -379,7 +379,7 @@ P:NPC {
     },
     grasp_blame = {
       lines = {
-        { id = "gb_default", text = "Every night that does not end, I blame myself. I gave the order to march, and my soldiers followed me as orcs follow their chief, and that weight is mine whatever Stonard says." },
+        { id = "gb_default", text = "Every night that does not end, I blame myself. I gave the order to march, and my soldiers followed me as orcs follow their chief, and that blame is mine whatever Stonard says." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

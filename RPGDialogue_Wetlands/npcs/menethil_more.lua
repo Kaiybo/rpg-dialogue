@@ -17,7 +17,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Report, or move along. The keep's no place for loiterin'." },
+    { id = "g_default", text = "Report, or move along. The keep's no place for loiterin', an' the roof leaks on loiterers first." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' in one piece. That's more than most o' my reports manage." },
     { id = "g_algaz", when = { questActive = TODO_QUEST("The Algaz Gauntlet") }, text = "Come through Algaz, did ye? Then sit, an' tell me what ye saw, all of it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' back in one piece. Sit, an' tell me what ye saw on the roads, all of it." },
@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' the clans, good. Ironforge sends us fewer than we need, so every beard through that door is welcome." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Ye look like ye came through Algaz the hard way. Brahnmar's down by the docks; see him before ye see the Captain." },
+      text = "Ye look like ye came through Algaz on yer face, an' the raptors had a go at what was left. Brahnmar's down by the docks; see him before ye see the Captain." },
   },
 
   start = "hello",
@@ -381,7 +381,7 @@ P:NPC {
 
     merrin = {
       lines = {
-        { id = "m_default", text = "Clever as a gnome an' stubborn as a mule, an' she writes the best letters in Khaz Modan. Every week, regular as tide; that's why the quiet frightens me so." },
+        { id = "m_default", text = "Clever as a gnome an' stubborn as a mule, an' she writes the best letters in Khaz Modan. Every week, regular as tide; that's why three weeks wi' no letter frightens me so." },
         { id = "m_done", when = { questDone = TODO_QUEST("In Search of The Excavation Team") },
           text = "Trapped on the ridge with the Prospector an' Ormer, but alive. Her letter shook, an' Merrin's hand never shakes." },
       },
@@ -454,7 +454,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Pull up a chair, friend. The beer's better than the weather, at least." },
+    { id = "g_default", text = "Pull up a chair, friend, and not that one, the leg's gone. The beer's better than the weather, at least." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Any word from across the sea?" },
   },
 
@@ -476,7 +476,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, if I'm honest, for Lordaeron fell with a lot of whispering in cellars first, and I watched it happen from this side of the mountains. Still, you're paying for your stew, which is more than some of the soldiers manage." } },
+      lines = { { id = "xlock_default", text = "A little, aye, for Lordaeron fell with a lot of whispering in cellars first, and I watched it happen from this side of the mountains. Still, you're paying for your stew, which is more than some of the soldiers manage." } },
       choices = {
         { text = "I'll never be one of those cultists, Vincent.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. The cult just used it badly.", next = "BACK", fx = { align = { light = -1 } } },
@@ -581,7 +581,7 @@ P:NPC {
 
     james = {
       lines = {
-        { id = "j_default", text = "A damn fine cook, and an innkeeper born. He could feed a table of Kul Tiras marines and send them home happy, which is a kind of magic. He trained half the cooks in Stormwind, it feels like." },
+        { id = "j_default", text = "A damn fine cook, and an innkeeper born. He could feed a table of Kul Tiras marines and send them home happy, and I've seen mages do less with more. He trained half the cooks in Stormwind, it feels like." },
       },
       choices = {
         { text = "Where's his inn?", next = "james_inn" },
@@ -708,10 +708,10 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "A cut! I'm wounded, friend, truly. The fare's the captain's and the passage is your own affair, and I only point the way to Auberdine and let the land sell itself." },
+        { id = "xro_default", text = "A cut! I'm wounded, friend, stabbed right through the purse. The fare's the captain's and the passage is your own affair, and I only point the way to Auberdine and let the land sell itself." },
       },
       choices = {
-        { text = "Fair enough. It's an honest trade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Point the way, then, and I'll pay the captain.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Every pitch has an angle. I'd like in on yours.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "What's dangerous over there?", next = "kalimdor_danger" },
       },
@@ -782,7 +782,7 @@ P:NPC {
         { text = "Is there real fighting in Kalimdor, Red Jack?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts would a hunter find in Kalimdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the folk you send across ever find comfort there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is Theramore truly safe for the folk you send, Jack?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is Theramore safe for the folk you send, Jack?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you tell folk about Kalimdor, Red Jack?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would Kalimdor welcome a warlock, Jack?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a dwarf shaman be welcome in Kalimdor, Red Jack?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1288,7 +1288,7 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "Oh, the best stories always come with that condition! A minstrel's discretion is worth more than his voice, so tell me, and I'll change the names and make you three inches taller." },
+        { id = "xro_default", text = "Oh, the best stories always come with that condition! My voice has cracked twice this week, but my discretion never has, so tell me, and I'll change the names and make you three inches taller." },
       },
       choices = {
         { text = "Tell it true, names aside.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1422,7 +1422,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Have a look, friend. These are the finest steeds you'll find anywhere, and I'll say so to anyone." },
+    { id = "g_default", text = "Have a look, friend. These are the finest steeds you'll find anywhere, and the grey only bites people he likes." },
     { id = "g_back", when = { metBefore = true }, text = "Back to see the horses? They remember you, I think, and they're good judges." },
   },
 

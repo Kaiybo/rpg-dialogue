@@ -109,7 +109,7 @@ P:NPC {
         { id = "h_eye", when = { questActive = TODO_QUEST("A Watchful Eye") },
           text = "The Eye of Azora sees far, but not far enough. That is where you come in, regrettably." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morganth"), days = 3 } },
-          text = "Gone, truly? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be, which is not a complaint." },
+          text = "Gone, really? Then Stormwind is a little safer, and I am a great deal less bored than I expected to be, which is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
           text = "The Mage Quarter sends me its brighter students now and then. You might do, possibly." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -254,7 +254,7 @@ P:NPC {
       },
       choices = {
         { text = "You'll miss him.", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "Enjoy the quiet.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Enjoy the peace while it lasts.", next = "BACK", fx = { affinity = 1 } },
       },
     },
 

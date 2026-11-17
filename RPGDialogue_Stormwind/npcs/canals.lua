@@ -70,7 +70,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every week, honestly, because the casks don't roll themselves up from Roberto's cellar. But I'll not pay a sword's wage for porter's work, so if you're here for coin, try the Barracks instead." } },
+      lines = { { id = "xwarcl_default", text = "Every blasted week, because the casks don't roll themselves up from Roberto's cellar. But I'll not pay a sword's wage for porter's work, so if you're here for coin, try the Barracks instead." } },
       choices = {
         { text = "An honest day's lifting never shamed anyone.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I swing a sword. I don't roll barrels.", next = "BACK", fx = { align = { order = -1 } } },
@@ -297,7 +297,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I grew up on a farm past Goldshire, dearie, and I miss the quiet and nothing else. The wolves took two of my father's sheep every spring, and he never once forgave them for it." },
+        { id = "xhuntcl_default", text = "I grew up on a farm past Goldshire, dearie, and I miss the crickets and nothing else. The wolves took two of my father's sheep every spring, and he never once forgave them for it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And who's this, then? {pet}, is it? Keep it off my water buckets and we'll get along fine, the two of us." },
       },
       choices = {
@@ -776,7 +776,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Fishing's a kind of prayer, you know, all waiting and hoping and not much said, so I expect you'll take to it quicker than most." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Fishing's halfway to praying, you know, all waiting and hoping and not much said, so I expect you'll take to it quicker than most." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that plate! You'll want to stand well back from the edge, friend, because the canals are deeper than they look and armour floats about as well as an anvil." },
         { id = "h_default", text = "Arnold Leland. I teach fishing, and Catherine there sells the poles and bait, and between us we've fished every bit of water within a day's walk of this city." },
         { id = "h_back", when = { metBefore = true }, text = "Back again! Caught anything worth bragging about, or only the ones that got away?" },
@@ -798,7 +798,7 @@ P:NPC {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's the secret to it?", next = "secret" },
         { text = "Are there really fish in the canals?", next = "canals" },
-        { text = "Is fishing much like waiting in the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is fishing much like waiting in an alley for a mark?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why not just conjure your fish, Arnold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does fishing teach a warrior anything worth knowing?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters make good fishermen, Arnold?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -820,7 +820,7 @@ P:NPC {
     secret_start = {
       lines = { { id = "ss_default", text = "Somewhere quiet, Elwynn's lakes, say, with Catherine's cheapest pole. Learn to wait there, and every water after that will be easier." } },
       choices = {
-        { text = "Waiting's the hard part.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "I can wait. I've sat through worse than fish.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -920,7 +920,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Course I do, guv, I polished for a captain in the Barracks for three whole weeks before we had our misunderstandin' about the silver buckles. Rust's the enemy, sweat's the cause, an' oil's the cure, an' that's all a soldier needs to know." } },
       choices = {
         { text = "I keep my own kit. A warrior should.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Polish it, then. My time's worth more than a copper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Polish it yourself. I've got kobolds to kill.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

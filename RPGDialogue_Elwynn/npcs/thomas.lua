@@ -263,7 +263,7 @@ P:NPC {
 
     farmhand = {
       lines = {
-        { id = "fh_default", text = "I know it. I'd have held one if I'd been sent. That's no comfort to you, and I won't pretend it is." },
+        { id = "fh_default", text = "I know it. I'd have held one if I'd been sent. That's no comfort to you, and I'm not offering it as one." },
       },
       choices = {
         { text = "It's something, coming from a soldier.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },

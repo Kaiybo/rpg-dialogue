@@ -88,7 +88,7 @@ P:NPC {
       choices = {
         { text = "Then I'll prove you wrong by keeping my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burning is the only thing demons understand.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Fair enough. I'll be on my way.", next = "BACK" },
+        { text = "Then I'll be on my way.", next = "BACK" },
       },
     },
     xmage = {
@@ -102,7 +102,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Holy is a priest's word, and I'm no priest, but the water remembers what the forest was before the demons came. That memory is worth more than any blessing I could give, and it's growing thin." } },
+      lines = { { id = "xapriest_default", text = "Holy is a priest's word, and I'm no priest, but the water remembers what the forest was before the demons came. I trust that memory more than any blessing I could give, and every year it's fainter." } },
       choices = {
         { text = "Then it should be guarded above everything else here.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then pour it on the forest now, before it fades.", next = "BACK", fx = { align = { order = -1 } } },
@@ -123,7 +123,7 @@ P:NPC {
           text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
-        { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do. A druid who only knows healthy places hasn't learned much." },
+        { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river." },
         { id = "h_hood", when = { metBefore = true },
           text = "You're wondering about the hood, as everyone does. It keeps the ash off, and that's all, though people prefer a better story." },
         { id = "h_night", when = { timeOfDay = "night" },

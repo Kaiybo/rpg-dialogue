@@ -394,7 +394,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Lady Proudmoore has stood beside Thrall and knows what a shaman is, so she doesn't fear you, but her soldiers do. I'd keep it that way, because fear is cheaper than walls." } },
       choices = {
-        { text = "Fear breeds war. Better they learn what we truly are.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear breeds war. Better they learn what we really are.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them fear us. It keeps the peace in our favor.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -452,7 +452,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Lower your voice when you ask it." },
-        { id = "h_again2", text = "Go on. Nobody's listening, and I've checked twice." },
+        { id = "h_again2", text = "Go on. Nobody's listening, and I've checked twice, though the ogres guard the door and they can't whisper to save their lives." },
       },
       choices = {
         { text = "Will the peace with Theramore hold?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -534,7 +534,7 @@ P:NPC {
 
     witchdoctor = {
       lines = {
-        { id = "wd_default", text = "The strongest witch doctor the Darkspear have, sitting in Grom'gol with a cauldron and a grudge. If Marg's spirit still lingers, Kin'weelay will find it and make it talk." },
+        { id = "wd_default", text = "The strongest witch doctor the Darkspear have, sitting in Grom'gol with a cauldron and a grudge. If Marg's spirit is still hanging about, Kin'weelay will find it and make it talk." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

@@ -101,7 +101,7 @@ P:NPC {
     why_vengeance = {
       big = true,
       lines = {
-        { id = "wv_default", text = "Vengeance, I think, though I tell myself it is duty on the days I want to sleep. The demons will come seeking dominance when they see my fires, and they will find vengeance waiting instead, and I will not pretend to be sorry." },
+        { id = "wv_default", text = "Vengeance, I think, though I tell myself it is duty on the days I want to sleep. The demons will come seeking dominance when they see my fires, and they will find vengeance waiting instead, and I will not be sorry." },
       },
       choices = {
         { text = "Vengeance keeps the blade sharp. Use it.", next = "BACK", fx = { align = { light = -1 } } },

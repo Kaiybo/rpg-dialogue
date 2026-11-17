@@ -486,12 +486,12 @@ P:NPC {
     rearguard = {
       lines = { { id = "rg_default", text = "Did you, now? Then you've done what I teach better than I ever have, because I've never had to hold a door while my whole city ran through it. Sit down; I'll stop calling you recruit." } },
       choices = {
-        { text = "I ran in the end, too.", next = "rearguard_ran" },
+        { text = "I ran too, when the line broke.", next = "rearguard_ran" },
         { text = "Something else.", next = "BACK", fx = { affinity = 2 } },
       },
     },
     rearguard_ran = {
-      lines = { { id = "rr_default", text = "Everyone runs in the end, unless they're dead. You held it long enough, and that's the only part anyone should remember." } },
+      lines = { { id = "rr_default", text = "Everyone runs eventually, unless they're dead, and the dead don't get a vote. You held it long enough, and I'll knock the teeth out of anyone who says otherwise." } },
       choices = { { text = "Thank you, Ilsa.", next = "BACK", fx = { affinity = 2 } } },
     },
     rogues = {

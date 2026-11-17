@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and I'd rather he didn't count them twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, all the way up the tower stairs. Do mind the shelves, because Theocritus counts the vials and blames me for every one that goes missing." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up all these stairs? Mind the shelves, please, and keep your spirits from rearranging anything. Theocritus notices everything except what matters." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up all these stairs? Mind the shelves, please, and keep your spirits from rearranging anything. Theocritus notices everything except the dust on his own desk." },
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
@@ -231,7 +231,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Truly, with the right dust and a steady hand! Though I'll tell you what I tell every warrior: an enchantment can't swing the blade for you, and the gnolls won't wait while you admire the glow." } },
+      lines = { { id = "xwarcl_default", text = "It can, with the right dust and a steady hand! Though I'll tell you what I tell every warrior: an enchantment can't swing the blade for you, and the gnolls won't wait while you admire the glow." } },
       choices = {
         { text = "Then I'll train the arm first and enchant the blade after.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take every glow I can buy, and let the arm catch up.", next = "BACK", fx = { align = { order = -1 } } },
@@ -291,7 +291,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have you ever wondered whether a blessing and an enchantment are really so different? I have, constantly, and nobody up here will discuss it with me." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'd give a week's dust to enchant a hammer like yours, though I suspect it's already got something in it that I couldn't improve." },
         { id = "h_default", text = "Kitta Firewind, and I teach enchanting, which is the finest craft there is, whatever the blacksmiths say. If you've come to learn, you've climbed to exactly the right floor." },
-        { id = "h_nelf", when = { race = "NightElf" }, text = "A night elf! Your people never did care for our sort of magic, did they? I'd love to know what you think of it, honestly, even if you think it's dreadful." },
+        { id = "h_nelf", when = { race = "NightElf" }, text = "A night elf! Your people never did care for our sort of magic, did they? I'd love to know what you think of it, even if you think it's dreadful." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior! You'll want your sword to cut a little deeper, I expect, and that's where an enchanter comes in, so you'll be glad you climbed the stairs." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and a young one! Enchanting comes easiest to your sort, because you already know what a rune wants before you've drawn it." },
@@ -313,8 +313,8 @@ P:NPC {
         { text = "Where do I get the materials?", next = "dust" },
         { text = "Isn't the arcane dangerous to toy with?", next = "danger" },
         { text = "Should every mage learn enchanting, then?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is fel magic truly so dangerous to enchanting?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Could an enchantment truly make my sword cut deeper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is fel magic really that bad for enchanting?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could an enchantment really make my sword cut deeper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would an enchanter do to a hunter's bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could an enchanter's rune ever hold a blessing, Kitta?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you enchant a paladin's hammer, Kitta?", next = "xapala", when = { class = "PALADIN" } },

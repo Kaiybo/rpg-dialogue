@@ -128,6 +128,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Deathstalker, Rane's brother, and lately a piece of furniture. That's about the shape of it." } },
     advice = { { id = "tp_ad", text = "Never cross a farmyard in daylight because you're in a hurry. It's the only advice I'm qualified to give." } },
-    _none = { { id = "tp_none", text = "Ask Rane. She knows everything, and I just lie here and agree with her." } },
+    _none = { { id = "tp_none", text = "Ask Rane. She knows everything, and I just lie here and agree with her, which saves my stitches the strain." } },
   },
 }

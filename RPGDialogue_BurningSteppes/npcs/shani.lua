@@ -125,7 +125,7 @@ P:NPC {
         { id = "xs_default", text = "There are many of us here, my platoon and others before us, and none of us can leave while the Firegut chant over the stones. Maybe when Krom'Grul is dead they'll stop, and we can go." },
       },
       choices = {
-        { text = "I'll see you all freed, not just avenged.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'll see you all freed. Vengeance can come after.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Vengeance first. The dead can wait a little longer.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

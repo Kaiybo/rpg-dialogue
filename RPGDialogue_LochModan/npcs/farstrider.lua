@@ -79,7 +79,7 @@ P:NPC {
     },
     crocs_story = {
       lines = {
-        { id = "cs_default", text = "Why, this one time I had a bull croc by the snout an' my axe was at the bottom o' the loch, so the two of us rolled in the shallows till dusk. In the end he got bored an' let go, an' I took that as a win." },
+        { id = "cs_default", text = "Why, this one time I had a bull croc by the snout an' my axe was at the bottom o' the loch, so the two of us rolled in the shallows till dusk. Come sundown he got bored an' let go, an' I took that as a win." },
       },
       choices = {
         { text = "That's the best hunting story I've heard.", next = "crocs_end", fx = { affinity = 1, trait = { witty = 1 } } },

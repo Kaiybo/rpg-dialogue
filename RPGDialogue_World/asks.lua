@@ -265,7 +265,7 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've a kind heart, and I'd trust you with more than most, so sit, and ask whatever you need." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you as I'd answer anyone, though I'll pray for you afterwards whether you want it or not." },
     },
-    trade = { { id = "tr1", text = "I tend the sick, bury the dead and listen to everyone in between. The Light does the hard parts." } },
+    trade = { { id = "tr1", text = "I tend the sick, bury the dead and listen to everyone in between. The Light does the heavy lifting, and I do the laundry." } },
     advice = {
       { id = "ad1", text = "Be kind when it costs you nothing, and then practise when it does." },
       { id = "ad2", when = { alignment = { axis = "light", max = -20 } }, text = "Whatever you're carrying, put some of it down. It gets heavier the longer you hold it." },
@@ -299,7 +299,7 @@ P:Pool {
       { id = "ad_rogue", when = { class = "ROGUE" }, text = "Find their officer before the fight starts. It's not honourable, but it makes the fight short." },
       { id = "ad_warlock", when = { class = "WARLOCK" }, text = "Point your curses at the enemy and your demon at their flank, and keep both away from my lads." },
       { id = "ad_shaman", when = { class = "SHAMAN" }, text = "Plant your totems where we can all stand near them. I've seen too many shamans heal an empty patch of grass." },
-      { id = "ad_druid", when = { class = "DRUID" }, text = "Be the bear when the line breaks, and the healer when it holds. The trick is knowing which it is." },
+      { id = "ad_druid", when = { class = "DRUID" }, text = "Be the bear when the line breaks, and the healer when it holds. Most druids get it backwards once, and the bear gets the blame." },
     },
     background = {
       { id = "bg1", text = "I joined young and stayed because the others did. Now I'm the one the young ones stay for." },

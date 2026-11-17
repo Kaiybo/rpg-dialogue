@@ -120,11 +120,11 @@ P:NPC {
       lines = {
         { id = "la_default", text = "Because she broke the Lich King's hold on us, and nobody else bothered to try. You'll have your own reasons soon enough, and if not, the Scourge will give you some." },
       },
-      choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Grim, but true. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "Always, and yours looks sharper than mine. The Scourge come in from the east in ones and twos, and the trick is never letting them become threes and fours." } },
+      lines = { { id = "xhwar_default", text = "Always, and yours looks sharper than mine. The Scourge come in from the east in ones and twos, and you put them down before they turn into threes and fours." } },
       choices = {
         { text = "Then I'll stand watch here and keep them in ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt them down on my own terms, not stand about.", next = "BACK", fx = { align = { order = -1 } } },
@@ -194,7 +194,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_novice", text = "Oh, a new one! Welcome back to the world, friend, such as it is." },
+    { id = "g_novice", text = "Oh, a new one! Welcome back to the world, friend, such as it is, and mind your jaw on the stairs, because the fresh ones keep losing theirs." },
     { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "Oh, you were a priest before, weren't you? You still fold your hands like one. I'd love to hear someday whether the Light feels different to you now, because nobody here will tell me." },
   },
 
@@ -313,7 +313,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Would you? I put them down as gently as I can and I say a word for each, but I never know whether anyone hears it. If the spirits told you the Damned were at peace afterwards, I think I could bear the work much better." } },
       choices = {
-        { text = "I'll ask, and tell you truly, whatever they say.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll ask, and tell you straight, whatever they say.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll tell you they rest. That's the kindness you need.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -343,7 +343,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Sarvis says much the same, and I nod when he says it, but shadow at least comes from inside you, and a demon comes from somewhere else entirely. I'd keep a close eye on anything that wants to be invited in." },
-        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We were all slaves to one master already, and now you've chosen to bargain with another sort of thing. I don't judge you for it, truly, but I'll say a quiet word for you all the same." },
+        { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We were all slaves to one master already, and now you've chosen to bargain with another sort of thing. I don't judge you for it, but I'll say a quiet word for you all the same." },
       },
       choices = {
         { text = "Say your word, Elreth. I won't mind it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -591,7 +591,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "The good ones do, because the Society needs every clever mind it can find, and I'd like to be one of them. Johaan says I'm too eager, but a mage who can keep a steady flame under a still is worth more than three junior apothecaries." },
+        { id = "xmage_default", text = "The good ones do, because the Society needs every clever mind it can find, and I'd like to be one of them. Johaan says I'm too eager, but a mage who can keep a steady flame under a still beats three junior apothecaries, two of whom have melted their own fingers." },
       },
       choices = {
         { text = "The Dark Lady's work is worth the effort.", next = "BACK", fx = { align = { order = 1 } } },
@@ -664,7 +664,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I wish I knew, honestly, but Johaan only says it's for the Scourge and sends me back out to dig. If your spirits ever whisper what the Society is brewing, do tell me first, because I'd like to know before I'm promoted, not after." } },
+      lines = { { id = "xhsham_default", text = "I wish I knew, but Johaan only says it's for the Scourge and sends me back out to dig. If your spirits ever whisper what the Society is brewing, do tell me first, because I'd like to know before I'm promoted, not after." } },
       choices = {
         { text = "Trust your masters, Holland. Ask less and you'll rise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Keep asking, Holland. A secret that big is worth knowing.", next = "BACK", fx = { align = { order = -1 } } },

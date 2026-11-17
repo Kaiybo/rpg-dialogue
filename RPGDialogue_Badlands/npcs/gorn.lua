@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Stand straight when you speak to me, and speak plainly. I'm too old for riddles." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I had a use for you." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I had a use for you, and the last grunt I had a use for is still picking drake scales out of his teeth." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the drakes are still breathing in their ravine. Tell me you've come to change that." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown since I saw you last, and you carry yourself like you've earned it. Good, because Lethlor Ravine doesn't care how brave you feel." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it." },
@@ -110,7 +110,7 @@ P:NPC {
 
     ogres = {
       lines = {
-        { id = "og_default", text = "We hired Tho'grun and his band of ogre mercenaries to fetch the Sign of the Earth for us, and they fetched it well enough. Then they overwhelmed my soldiers and kept it for themselves." },
+        { id = "og_default", text = "We hired Tho'grun and his band of ogre mercenaries to fetch the Sign of the Earth for us, and they fetched it well enough. Then they overwhelmed my soldiers and kept it for themselves, and I'm still paying the widows out of my own purse." },
       },
       choices = {
         { text = "You trusted ogre mercenaries?", next = "ogres_trust" },

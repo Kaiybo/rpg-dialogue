@@ -156,7 +156,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Nothing within these hills, for the glade is warded and no blade is drawn here. The world outside is another matter, and I know your craft keeps many alive out there, but I would ask you to remember how it felt to walk here unafraid." } },
       choices = {
         { text = "I'll remember, and walk openly while I'm here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Old habits keep me alive. I'll stay in the shadows.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Old habits keep me alive. I'll keep to the dark.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -222,10 +222,10 @@ P:NPC {
         { text = "A human, this far north. Do you see many of us?", next = "human", when = { race = "Human" } },
         { text = "You welcomed my people when others wouldn't.", next = "tauren", when = { race = "Tauren" } },
         { text = "An orc killed your father. Yet I'm welcome here?", next = "orc_re", when = { race = "Orc" } },
-        { text = "I carry the fel, Keeper. Will you turn me away?", next = "warlock_re", when = { class = "WARLOCK" } },
+        { text = "I bind demons, Keeper. Will you turn me away?", next = "warlock_re", when = { class = "WARLOCK" } },
         { text = "I hunt, Keeper. Does the glade allow it?", next = "hunter_re", when = { class = "HUNTER" } },
         { text = "Is shadow welcome in Moonglade, Keeper?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Is there truly nothing to hide from here, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is there really nothing to hide from here, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do your druids still blame the arcane for the Sundering, Keeper?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there a place for warriors in Moonglade, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Light have a place in Moonglade, Keeper?", next = "xapala", when = { class = "PALADIN" } },
@@ -422,7 +422,7 @@ P:NPC {
           text = "You carried his seed to me, so you have earned this. I warned Zaetar that Theradras would ruin him, and I was right, but I spoke as the son our father favored, and I think he heard only that before he went to her anyway." },
       },
       choices = {
-        { text = "He found his place in the end, Keeper.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He chose her himself, Keeper. That was never your doing.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -467,7 +467,7 @@ P:NPC {
     { id = "g_house", text = "Be at ease here. I keep the Keeper's house in order, and the Keeper's visitors. Speak, please." },
     { id = "g_back", when = { metBefore = true }, text = "Again you come to Nighthaven, and I don't think that's chance. I don't believe in chance." },
     { id = "g_away", when = { away = 14 }, text = "You return to Nighthaven after {away}, and again I don't think it is chance. Speak, please, and tell me what has drawn you back." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told that one of Nighthaven's people saw through a falsehood of yours, and the Keeper's house hears such things. Speak truly here, please, for the peace of this glade rests on it." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told that one of Nighthaven's people saw through a falsehood of yours, and the Keeper's house hears such things. Speak plainly here, please, for the peace of this glade rests on it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The village speaks of the help you gave it, and I don't believe that was chance either, and the Keeper will hear of it if he hasn't already." },
     { id = "g_hyjal", when = { origin = "nightelf_hyjal_survivor" }, text = "You were at Hyjal; the Keeper told me so before you'd reached the door. Sit, please, and don't apologise for the gray at your temples, because half of Nighthaven has it now and the other half is merely lying about it." },
   },
@@ -644,7 +644,7 @@ P:NPC {
         { text = "Why do you think I was sent here, Rabine?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the spirits and the Circle work together, Rabine?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Do the spirits and the Circle work together, Rabine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Is Moonglade truly safe for both Horde and Alliance, Rabine?", next = "xpt_rabine", when = { party = { size = 4 } } },
+        { text = "Is Moonglade really safe for both Horde and Alliance, Rabine?", next = "xpt_rabine", when = { party = { size = 4 } } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -856,7 +856,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Fear is a strong word, though fire in a grove does make us twitchy. The arcane takes from the world without asking, and our trials teach young druids the opposite, which is why I'd rather you practised down by the lake, well away from the trees." } },
       choices = {
-        { text = "Fair enough. I'll keep my spells away from the grove.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Down by the lake, then. Your trees are safe from me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The arcane is a craft like any other. I won't apologise.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -938,7 +938,7 @@ P:NPC {
       lines = { { id = "f_default", text = "They are, and I'd never say otherwise. But a bear that doesn't know why it's a bear makes a very poor bear." } },
       choices = {
         { text = "Then what is the bear for?", next = "bear" },
-        { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'll take your word on bears.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     bear = {
@@ -1021,7 +1021,7 @@ P:NPC {
       { id = "tp_knows", text = "I've guided many young druids through their trials, and they ask me a great many things. Ask what you need." },
     },
     background = { { id = "tp_bg", text = "I'm the Circle's guide for young druids in Nighthaven, and I've watched more bears take their first clumsy steps than I can count." } },
-    advice = { { id = "tp_ad", text = "Learn the lesson before you learn the spell. The spell is the easy part." } },
+    advice = { { id = "tp_ad", text = "Learn the lesson before you learn the spell. I once had a student turn into a bear before he knew why, and he spent a week in the Keeper's honey." } },
     cenarion_circle = { { id = "tp_circle", text = "Our order and our duty, and Nighthaven is its hearth." } },
     _none = { { id = "tp_none", text = "That's not my trial to teach, but Loganaar might know, or Rabine." } },
   },
@@ -1047,7 +1047,7 @@ P:NPC {
 
   notice = {
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
-      text = "You're no druid, but sit if you like. The quiet here costs nothing." },
+      text = "You're no druid, but sit if you like. The bench is free, and so is the birdsong." },
   },
 
   start = "hello",
@@ -1111,7 +1111,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "You can try, which is more than most rogues ever do. Your craft is always leaning one way or another, toward the shadows or away from them, and balance is learning when to stop leaning." } },
+      lines = { { id = "xrogue_default", text = "You can try, which is more than most rogues ever do. Your craft is always leaning one way or another, toward the knife in the dark or away from it, and balance is learning when to stop leaning." } },
       choices = {
         { text = "Then I'll learn to sit still, at least here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leaning keeps me alive. Balance can wait.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1167,7 +1167,7 @@ P:NPC {
         { text = "Can a priest of shadow keep the balance, Loganaar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can someone like me find balance by sitting still, Loganaar?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How does a mage keep their power in balance, Loganaar?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Can a warlock ever truly be in balance, Loganaar?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Can a warlock ever be in balance, Loganaar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a warrior keep balance, Loganaar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters and druids share any of the same wisdom?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would I want to set down my certainty, Loganaar?", next = "xapala", when = { class = "PALADIN" } },
@@ -1181,7 +1181,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_quiet", text = "The quiet. Everywhere else the world was asking something of me, but here it only asks that I listen, and I've found that's plenty." },
+        { id = "w_quiet", text = "The stillness. Everywhere else the world kept asking something of me, but here it only asks that I listen, and my old knees are grateful for the rest." },
       },
       choices = { { text = "I'll try to listen.", next = "END", fx = { affinity = 2, trait = { patient = 1 } } } },
     },
@@ -1192,7 +1192,7 @@ P:NPC {
       { id = "tp_knows", text = "Balance comes from knowing a little of everything. Ask, and I'll share what I've learned." },
     },
     cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other, and for some who have." } },
-    _none = { { id = "tp_none", text = "Ask the quiet first, and then ask Rabine." } },
+    _none = { { id = "tp_none", text = "Ask Rabine. He keeps a ledger of everything, including, I suspect, how often I nap." } },
   },
 }
 
@@ -1269,7 +1269,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "When there is something behind you that cannot run, and nowhere left for it to go. The quiet way serves you well in the forest, but a day will come when hiding is not enough, and you must decide what you are willing to stand for." } },
+      lines = { { id = "xrogue_default", text = "When there is something behind you that cannot run, and nowhere left for it to go. Stealth serves you well in the forest, but a day will come when hiding is not enough, and you must decide what you are willing to stand for." } },
       choices = {
         { text = "Then I'll stand when it matters, spirit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Standing is for bears. I'll find another way.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1306,9 +1306,9 @@ P:NPC {
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Great Bear Spirit") },
           text = "You come to learn the bear, so learn this first: strength that cannot wait is not strength. It is only noise." },
         { id = "h_not", when = { ["not"] = { class = "DRUID" } },
-          text = "Not of the Circle, this one. Still, you came all this way to sit with an old bear. That is a kind of wisdom too." },
+          text = "Not of the Circle, this one. Still, you came all this way to sit with an old bear. There is some wisdom in that." },
         { id = "h_return", when = { metBefore = true }, text = "You came back, and most do not. They think one visit is a lesson learned, when it is only a lesson begun." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A healer of the Horde sits before me. You have tended wounds, little one, and that is a kind of strength the bear understands." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A healer of the Horde sits before me. You have tended wounds, little one, and the bear understands that sort of strength." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "One who walks softly comes before me. The bear walks softly too, little one, but only until it needs to stand." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A wielder of the old fire comes before me. Your power is quick, little one, and the bear is slow, yet the bear has outlived every mage who thought that mattered." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "One who carries a demon comes before me. The bear smells it on you, little one, sour and hungry, and the bear is not afraid of it." },
@@ -1328,7 +1328,7 @@ P:NPC {
         { text = "When should a quiet walker choose to stand, spirit?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What can a slow bear teach a mage, spirit?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why is the bear not afraid of demons, spirit?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Does my beast truly know you, Great Bear?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does my beast know you, Great Bear?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the Great Bear mean by strength inside?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the spirits say of me, Great Bear?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "(Rise and leave the spirit in peace.)", next = "END" },
@@ -1375,7 +1375,7 @@ P:NPC {
     },
     ready = {
       lines = {
-        { id = "re_default", text = "That remains to be seen, and the wisest and oldest druids are never truly ready when their time of testing comes. Go on all the same, for there will be a time when your strength is needed, and you will find it there." },
+        { id = "re_default", text = "That remains to be seen, and the wisest and oldest druids are never ready when their time of testing comes. Go on all the same, for there will be a time when your strength is needed, and you will find it there." },
       },
       choices = {
         { text = "(Thank the spirit.)", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -1447,7 +1447,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Because the Circle bred them to carry its own, and they've grown proud about it, as birds do. I'm sorry for it, truly, since you've come so far, but I couldn't make them carry you if I tried, and the old one would sulk at me for a week." } },
+      lines = { { id = "xapala_default", text = "Because the Circle bred them to carry its own, and they've grown proud about it, as birds do. I'm sorry for it, since you've come so far, but I couldn't make them carry you if I tried, and the old one would sulk at me for a week." } },
       choices = {
         { text = "I understand. I'll respect their pride, and yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pride in a bird? Then they're spoiled, Silva.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1583,7 +1583,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The hippogryphs carry riders, and riders carry news. Ask me what you like." },
     },
-    background = { { id = "tp_bg", text = "I keep the Circle's hippogryphs and fly druids home to Teldrassil. That's the whole of it, and it's enough." } },
+    background = { { id = "tp_bg", text = "I keep the Circle's hippogryphs and fly druids home to Teldrassil. That's the whole of it, apart from a great deal of feather-sweeping." } },
     advice = { { id = "tp_ad", text = "Never walk behind a hippogryph you haven't been introduced to. I mean that more than I'd like to." } },
     _none = { { id = "tp_none", text = "I fly birds; Rabine knows everything else." } },
   },
@@ -1636,7 +1636,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "They like anyone who stands still and doesn't fuss, and warriors are good at standing still when they want to be. On the Bluff, the braves would sit with the riders before a hunt, and I think the beasts miss that, out here among the quiet druids." } },
+      lines = { { id = "xwarcl_default", text = "They like anyone who stands still and doesn't fuss, and warriors are good at standing still when they want to be. On the Bluff, the braves would sit with the riders before a hunt, and I think the beasts miss that, out here among druids who whisper at them." } },
       choices = {
         { text = "Then I'll sit with them a while, as the braves did.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I've no time to sit with beasts. There's fighting elsewhere.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1704,7 +1704,7 @@ P:NPC {
         { id = "h_default", text = "Bunthen Plainswind is my name, and I keep the Circle's wind riders, who fly for druids to Thunder Bluff. It's a short road through the sky, from one home to another." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "From the sky to the Bluff, your folk came, I hear, and the Earthen Ring vouched for you. The winds are kind to you. Let my riders be kind too." },
-        { id = "h_rider", when = { metBefore = true }, text = "My riders grumble at Nighthaven's quiet, because they like the wind on the Bluff. So do I, if I'm honest, but don't tell the Keeper." },
+        { id = "h_rider", when = { metBefore = true }, text = "My riders grumble at Nighthaven's quiet, because they like the wind on the Bluff. So do I, but don't tell the Keeper." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha's eye is open over the lake, and it's a good night for flying. The riders know it too; listen to them fidget." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, so far from the Bluff! My riders fly for druids alone, friend, but you're welcome to share the perch and a little conversation." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, at the perch. My riders don't trust anyone who moves that quietly, friend, so walk loud near them, for your own sake." },

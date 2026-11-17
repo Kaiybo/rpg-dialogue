@@ -99,7 +99,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_sheldras", tags = { "news" }, when = { party = { race = "NightElf" } },
-          text = "You travel with one of my people, I see. {companion} carries the forest with them, even here among the stones, and I'd guess they make the city feel a little less like a cage to you as well." },
+          text = "You travel with one of my people, I see. {companion} still smells of moss and rain, even here among the stones, and I'd guess they make the city feel a little less like a cage to you as well." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the human Light. You carry it like a lantern held high, young one, and I wonder whether you ever let it rest." },
         { id = "h_default", text = "I am Sheldras Moontree. Even within cold stone walls like these, one may find tranquillity, and in truth you may find it anywhere at all, if you look inside yourself for balance. The Park only makes it easier." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_dusk", when = { timeOfDay = "dusk" },
           text = "Listen: the Cathedral's sunset bell. Your priests ring it for my people, so we remember the day is ending. In Darnassus we'd only look at the sky." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "You carry the arcane with you like a lamp, young one, and the trees lean away from it a little. They mean no offence by it, and neither do I." },
+          text = "The arcane hums off you like a beehive, young one, and the trees lean away from it a little. They mean no offence by it, and neither do I." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There is something burning in your shadow, young one, and the birds have gone quiet in the branches above you. Sit, if you wish, but sit gently." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the Park. Let the stillness of this place ease your shoulders a little; you carry your anger high, as your kind often do." },
@@ -227,7 +227,7 @@ P:NPC {
     },
     skyborne = {
       lines = {
-        { id = "skyborne_l", text = "So I've heard, and the Circle has heard it too. You come to the Dream by a different road than we do, and I won't pretend to understand the road, but you're welcome on it." },
+        { id = "skyborne_l", text = "So I've heard, and the Circle has heard it too. You come to the Dream by a different road than we do, and I don't understand that road, but you're welcome on it." },
         { id = "skyborne_nightclaw", when = { origin = "skyborne_nightclaw" },
           text = "And you learned from druids who kept their own counsel even among your own people, I think. I won't ask what you were told never to speak of; you're welcome on the path all the same." },
       },

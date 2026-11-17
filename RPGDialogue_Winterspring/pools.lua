@@ -16,7 +16,7 @@ P:Pool {
   },
   react = { { id = "r_form", on = "form", when = { form = "bear" }, text = "Another bear, is it? Fine, just don't track snow into the inn." } },
   lines = {
-    { id = "l_default", text = "We keep the peace and the yetis out, or mostly the peace, since the yetis do what they like." },
+    { id = "l_default", text = "We keep the peace and the yetis out, or mostly the peace, since the yetis do what they like. One got into the inn's larder last winter and ate a wheel of cheese, rind and all." },
   },
   -- 0.71.0: the bruisers' own conversation (community pool, so it beats the faction guard tree).
   tier = "service",
@@ -31,7 +31,7 @@ P:Pool {
       },
       again = {
         { id = "a_cold", text = "What else? Talk fast, my teeth are chattering." },
-        { id = "a_feet", text = "Anything else? I'd stamp my feet while I listen, if I could still feel them." },
+        { id = "a_feet", text = "Anything else? I'd stamp my feet while I listen, if I could still feel them; I think the left one's frozen to the sock." },
       },
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
@@ -125,7 +125,7 @@ P:Pool {
       },
       choices = {
         { text = "Smart. Everyone's coin is good coin.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
-        { text = "A side worth fighting for is worth more than coin.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "I'd pick a side, and I'd freeze for it.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Do the two sides ever cooperate up here?", next = "neutral_coop" },
       },
     },

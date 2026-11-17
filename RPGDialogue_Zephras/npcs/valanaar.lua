@@ -22,7 +22,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Winds be with you. Forgive me; I wasn't expecting anyone to stop." },
-    { id = "g_again", when = { metBefore = true }, text = "You came back. That's kind of you, truly." },
+    { id = "g_again", when = { metBefore = true }, text = "You came back. That's kind of you. The stool by the fire's still warm, if you want it." },
   },
 
   notice = {
@@ -311,7 +311,7 @@ P:NPC {
         { id = "fd_default", text = "<He belches magnificently.> I am drunk, yes, AND I saw what I saw; one doesn't cancel out the other. AND IT ISN'T NONSENSE, DONAAL, YOU HEAR ME?" },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Can't argue with a man that loud.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -395,7 +395,7 @@ P:NPC {
     { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn. Will you have something to drink?" },
     { id = "g_home", when = { homeInn = true }, text = "Back home to the Calmbreeze. Your bed's made, more or less." },
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before the Swimmers start in on their ghost stories." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business, so I'm grateful, truly." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business. He even tipped, which nobody on this isle does." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone was in here tonight grumbling about you over their cup, and I'd much rather they grumbled about Swimmers' ghosts, so whatever it was, I'd smooth it over." },
     { id = "g_peace", when = { origin = "skyborne_peacekeeper" }, text = "A Peacekeeper at the Calmbreeze, and off duty, I hope. Sit where Swimmers can see you, would you? He behaves a little better when there's a badge in the room." },
   },
@@ -616,7 +616,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think." } },
-    advice = { { id = "tp_ad", text = "Eat something before you go out there. Nobody was ever brave on an empty stomach." } },
+    advice = { { id = "tp_ad", text = "Eat something before you go out there. The last fellow who went to Shadowgale hungry fainted at his first vuldren and was carried home over a Peacekeeper's shoulder, complaining all the way." } },
     windstones = { { id = "tp_stones", text = "They keep my stove hot when the wood runs short. I treat them like gold, because they nearly are." } },
     _none = { { id = "tp_none", text = "If it isn't food, I'm the wrong person to ask, but come back hungry." } },
   },

@@ -363,7 +363,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "I'd sell to anyone who pays, because thread doesn't know who's sewing with it. If the Watch wants to chase thieves, that's their trade, and mine is thread, dye and a fair price." } },
       choices = {
         { text = "The Watch can't do it alone. Merchants should help.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair enough. A merchant's no constable.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Right enough. A merchant's no constable.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

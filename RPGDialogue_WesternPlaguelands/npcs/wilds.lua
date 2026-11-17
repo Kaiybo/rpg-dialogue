@@ -291,7 +291,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Your Light can ease pain, and I won't refuse it, but it can't undo what the plague has woven into my blood. The Earth Mother calls me home, and I'd rather go to her with a clear mind than linger half-alive and become one of the things I came to heal." } },
+      lines = { { id = "xapriest_default", text = "Your Light can ease pain, and I won't refuse it, but it can't undo what the plague has woven into my blood. The Earth Mother calls me home, and I'd rather go to her with a clear mind than hang on half-alive and become one of the things I came to heal." } },
       choices = {
         { text = "Then let me ease your pain until she calls.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fight it a little longer. Give up nothing yet.", next = "BACK", fx = { align = { light = -1 } } },
@@ -377,7 +377,7 @@ P:NPC {
         { text = "Tell me about the wolves.", next = "wolves", when = { ["not"] = { any = { { questActive = TODO_QUEST("Glyphed Oaken Branch") }, { questDone = TODO_QUEST("Glyphed Oaken Branch") } } } } },
         { text = "We're not enemies here, druid.", next = "alliance", when = { faction = "Alliance", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
         { text = "I feel the land's pain too.", next = "druid", when = { class = "DRUID", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
-        { text = "Is there truly nothing the Light can do for you, Mulgris?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there really nothing the Light can do for you, Mulgris?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it mercy or murder to kill the plagued wolves, Mulgris?", next = "xapala", when = { class = "PALADIN" } },
         { text = "(Leave him in peace.)", next = "END", when = { questDone = TODO_QUEST("Glyphed Oaken Branch") } },
         { text = "Mulgore misses you, Mulgris.", next = "x_tauren", when = { race = "Tauren", ["not"] = { questDone = TODO_QUEST("Glyphed Oaken Branch") } } },
@@ -413,7 +413,7 @@ P:NPC {
     },
     tried = {
       lines = {
-        { id = "tr_default", text = "I tried every way the Circle taught me to call growth back into a wounded field, but the plague drank it all and wanted more. In the end the sickness got into me as well, and the land stayed sick." },
+        { id = "tr_default", text = "I tried every way the Circle taught me to call growth back into a wounded field, but the plague drank it all and wanted more. Then the sickness got into me as well, and the land stayed sick." },
       },
       choices = {
         { text = "That was brave.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -517,7 +517,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Only that it's cold, and quiet, and the birds won't fly over it. I've not found the courage to walk east since, but some nights I hear Pamela singing, very far away, and I'd give anything to know whether she's really out there." } },
+      lines = { { id = "xhsham_default", text = "Only that it's cold and still, and the birds won't fly over it. I've not found the courage to walk east since, but some nights I hear Pamela singing, very far away, and I'd give anything to know whether she's really out there." } },
       choices = {
         { text = "I'll ask the spirits, and I'll find her.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some answers are worse than silence, Marlene.", next = "BACK", fx = { align = { light = -1 } } },
@@ -535,7 +535,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The quiet, mostly, and the things that move through it at night along the old road. But most of all I'm frightened that Pamela is out there alone and frightened too, and nobody's coming for her, because I couldn't." } },
+      lines = { { id = "xlock_default", text = "The silence, mostly, and the things that move through it at night along the old road. But most of all I'm frightened that Pamela is out there alone and frightened too, and nobody's coming for her, because I couldn't." } },
       choices = {
         { text = "Somebody is coming for her now, Marlene. I am.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't help Pamela. Let her go.", next = "BACK", fx = { align = { light = -1 } } },
@@ -560,7 +560,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh, you startled me, {class}. I thought for a moment you were Joseph, because he used to come up the path so quietly when he wanted to surprise Pamela." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're not from these parts, {class}, but you've a kind look about you, and you carry the smell of open country. It's been so long since anything here smelled of open country." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll know more about what's happened to this country than I do, {class}, so tell me, kindly, is there anyone left in Darrowshire?" },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "There's a little creature behind you, {class}, and it's looking at me as though I'm supper. Keep it close, please, because I'm frightened enough of the shadows here." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "There's a little creature behind you, {class}, and it's looking at me as though I'm supper. Keep it close, please, because I'm frightened enough of what moves in the dark here." },
       },
       again = {
         { id = "h_again", text = "Is there something more you'd like to know? I don't have many visitors to talk to." },
@@ -610,13 +610,13 @@ P:NPC {
     },
     gnome = {
       lines = {
-        { id = "gn_default", text = "She's a little gnome who wanders the ruins of Andorhal as if the dead weren't there at all, and she seems to know a great deal about the old days. I don't know who she is, only that she's kind, and that's enough for me." },
+        { id = "gn_default", text = "She's a little gnome who wanders the ruins of Andorhal as if the dead weren't there at all, and she seems to know a great deal about the old days. I don't know who she is, only that she's kind, and she once left me a jar of honey on the step." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     pray = {
       lines = {
-        { id = "pr_default", text = "Would you, truly? Then pray for Pamela, wherever she is, and if you've any prayer left over, I wouldn't mind one for me." },
+        { id = "pr_default", text = "Would you really? Then pray for Pamela, wherever she is, and if you've any prayer left over, I wouldn't mind one for me." },
       },
       choices = {
         { text = "(Pray with her.)", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
@@ -790,7 +790,7 @@ P:NPC {
         { id = "jb_default", text = "Somebody has to finish what I started and get a proper look at Hearthglen, and it can't be me, not on this leg. Clear the camp below us first, and when you've done that, I'll tell you the rest." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Rest the leg. I'll clear the camp.", next = "BACK", fx = { affinity = 1 } },
         { text = "You don't trust me yet.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Tell me the rest now. You know I'll keep it quiet.", tag = "Persuade", next = "job_rest",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "ROGUE" }, { trait = "discreet" } } } },
@@ -839,7 +839,7 @@ P:NPC {
         { id = "xf_default", text = "Bother me? They'd burn me too if they caught me up here, and I've still got a pulse. I believe in the Light, more or less, but whatever they're doing in Hearthglen isn't it, so you and I have the same enemy today, and today's all I plan for." },
       },
       choices = {
-        { text = "Same enemy today. That's enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Same enemy today. I'll take it.", next = "BACK", fx = { affinity = 2 } },
         { text = "Don't mistake me for a friend, scout.", next = "BACK", fx = { affinity = -1 } },
       },
     },
@@ -929,7 +929,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Lovely, truly, with the lake all round and the gardens running down to the water, and Lucien keeping the silver so bright you could see your face in it. Then the master's guests began arriving after dark, and the gardens went grey, and the lake stopped freezing in winter, which I thought was the strangest thing of all." } },
+      lines = { { id = "xhsham_default", text = "Lovely, with the lake all round and the gardens running down to the water, and Lucien keeping the silver so bright you could see your face in it. Then the master's guests began arriving after dark, and the gardens went grey, and the lake stopped freezing in winter, which I thought was the strangest thing of all." } },
       choices = {
         { text = "Then we'll free the house and lay you both to rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Barovs earned their ruin. Their servants too.", next = "BACK", fx = { align = { light = -1 } } },
@@ -950,7 +950,7 @@ P:NPC {
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" },
           text = "The halls have gone still, {g:sir|madam}, and Lucien says the Darkmaster's voice no longer carries across the lake. I kept that house a long time, and I never knew it could be so quiet." },
         { id = "h_done", when = { questDone = TODO_QUEST("Kirtonos the Herald") },
-          text = "It's lighter now, and I can feel the edges of things going soft. Thank you, truly, and Lucien thanks you too, and means it more than he can show." },
+          text = "It's lighter now, and I can feel the edges of things going soft. Thank you, and Lucien thanks you too, and means it more than he can show." },
         { id = "h_months", when = { metBefore = true },
           text = "We hid in the walls for six months and stole bread from the kitchen we'd once run, and we watched them come every day to learn. I thought that if we were quiet enough it would pass, but it didn't pass." },
         { id = "h_magecl", when = { class = "MAGE" },

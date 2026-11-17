@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, hunter, so tell me what the grass showed you in all that time." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk more quietly than you did when you first sat by my fire, and you've grown strong besides. The Barrens has been a good teacher to you." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I'm told you said something in Taurajo that warmed someone's heart. A good hunter is patient with people as well as prey." },
-    { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "You crossed this grass once already, on the long walk, with the centaur riding at our flanks. Sit, and I'll show you that the Barrens is not only the place we ran through, but a place with its own life, if you sit still long enough to see it." },
+    { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "You crossed this grass once already, on the long walk, with the centaur riding at our flanks. Sit, and I'll show you that the Barrens has a life of its own beyond the road we fled along, if you sit still long enough to see it." },
   },
 
   notice = {
@@ -168,7 +168,7 @@ P:NPC {
     hunter = {
       big = true,
       lines = {
-        { id = "hu_default", text = "Ishamuhale, Lakota'mani, Owatanka and Washte Pawne: the lizard, the kodo, the hawk and the serpent. Each one teaches something a bow can't, and only a hunter who has faced all four truly knows the Barrens." },
+        { id = "hu_default", text = "Ishamuhale, Lakota'mani, Owatanka and Washte Pawne: the lizard, the kodo, the hawk and the serpent. Each one teaches something a bow can't, and a hunter who has faced all four can call the Barrens home." },
         { id = "hu_runner", when = { origin = "tauren_plains_runner" },
           text = "You've run these plains since you could stand, so you've seen Lakota'mani's tracks already, I'd wager. Now you'll learn why the runners never follow them alone." },
         { id = "hu_orc", when = { race = "Orc" },
@@ -412,7 +412,7 @@ P:NPC {
       lines = {
         { id = "a_default", text = "*snort* The great boar fell long ago, fighting for this world, and where his blood touched the earth, the thorns grew. His bones lie in the south, and the quilboar remember." },
       },
-      choices = { { text = "Interesting.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+      choices = { { text = "I hadn't heard that. Thank you.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
     why = {
       lines = {
@@ -664,7 +664,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Their laughing troubles me, and that's enough. The camp's shamans say the hyenas out there are hungry rather than cursed, which makes me feel better, though not enough to sleep through it." } },
+      lines = { { id = "xhsham_default", text = "Their laughing keeps me up half the night, and the other half I spend listening for it. The camp's shamans say the hyenas out there are hungry rather than cursed, which makes me feel better, though not enough to sleep through it." } },
       choices = {
         { text = "Hungry beasts deserve pity more than hatred.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then hunt them until the laughing stops.", next = "BACK", fx = { align = { light = -1 } } },
@@ -677,7 +677,7 @@ P:NPC {
         { id = "xrogue_default", text = "Once, a young orc tried it, and the kodo herders caught him halfway to Bael Modan and walked him back to settle his bill. We keep no guard at the door because the whole camp is the guard, and you'd do well to remember it while you're under my roof." },
       },
       choices = {
-        { text = "Fair enough. I always settle my debts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I always settle my debts, kodo herders or no.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A good thief wouldn't get caught halfway.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "What's life like here in Taurajo?", next = "camp" },
       },

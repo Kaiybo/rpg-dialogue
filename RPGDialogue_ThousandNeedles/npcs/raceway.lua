@@ -37,7 +37,7 @@ P:NPC {
       lines = { { id = "xpt_pozzik_default", text = "The goblin car, obviously, because it's built by people who know what speed is for, which is getting paid. The gnomes build to show off, and they'll keep losing to us until they learn the difference." } },
       choices = {
         { text = "Hard work and hunger win races. Go goblins.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Clever design wins in the end. My coin's on the gnomes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Gnomes build better, and my coin's on them.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -364,7 +364,7 @@ P:NPC {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "The goblins tell everyone you're on their side now. I don't believe them, of course, but I've locked the blueprints away until you prove otherwise." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
-          text = "The goblins spent a whole morning complaining about you, which is a morning they didn't spend on their car. Thank you, truly; that's worth a lap at least." },
+          text = "The goblins spent a whole morning complaining about you, which is a morning they didn't spend on their car. Thank you kindly; that's worth a lap at least." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Please don't lean on anything, because half of what's in this tent is more fragile than it looks and the other half is about to explode." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -429,7 +429,7 @@ P:NPC {
     },
     why = {
       lines = { { id = "y_default", text = "Because they're there, and because they're wrong. Mostly the second." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } } },
+      choices = { { text = "Good to know. I'll keep clear of the salt.", next = "BACK", fx = { affinity = 1, learn = { "mirage_raceway" } } } },
     },
     engine = {
       big = true,
@@ -665,7 +665,7 @@ P:NPC {
       lines = { { id = "li_default", text = "Does it? Well, the Light's no' placin' bets, so it's no' my concern. Pray for the losers if ye like; they'll need it more than me." } },
       choices = {
         { text = "I'll pray for you too.", next = "BACK", fx = { affinity = -1, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Fair enough. The losers can pray for themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The losers can pray for themselves, then.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

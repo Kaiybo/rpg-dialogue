@@ -15,13 +15,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_forest", text = "Ashenvale needs you, truly. The forest needs every blade it can get, and every pair of eyes." },
+    { id = "g_forest", text = "Ashenvale needs you, and that's no flattery. The forest needs every blade it can get, and every pair of eyes." },
     { id = "g_back", when = { metBefore = true }, text = "Home from the trees! Tell me what you saw out there, every bit of it." },
-    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "I know you! You ran the border paths out past Silverwind before you went off to see the world, and you always came back with your report before the moon was up. Ashenvale misses scouts like you, truly, so tell me you've come home." },
+    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "I know you! You ran the border paths out past Silverwind before you went off to see the world, and you always came back with your report before the moon was up. Ashenvale has missed scouts like you, so tell me you've come home." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the days, because in Ashenvale too many people simply stop coming back. Sit, and tell me what the rest of the world has been doing while our forest burns." },
     { id = "g_away_long", when = { away = 60 }, text = "{name}! After {away} away I had half decided the forest had taken you, and I'd already grieved a little, so forgive me for staring. Ashenvale has lost more trees since you left, and I'm glad it hasn't lost you as well." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've changed since I last saw you, and I can see it in how you stand, like someone the Warsong would think twice about. Teronis carried himself like that, and I'd be glad of more of it at my side." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Half of Astranaar is talking about what you did for us, and I won't pretend I'm not pleased to hear it. The forest needs friends who finish what they start." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Half of Astranaar is talking about what you did for us, and I'm glad of it. Most who promise us help get as far as the first furbolg camp and turn back." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone here left a talk with you looking like a storm cloud, and in a town this small I hear about it before supper. I'll judge you for myself, but I'd rather the forest's friends weren't at odds with each other." },
   },
 
@@ -156,7 +156,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "There's a mage in Astranaar, and the Sentinels are already watching you, I'd wager. My people learned what the arcane costs when the Well of Eternity swallowed half the world, so don't take the stares personally." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "So you're the warlock Korra has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and I won't pretend your craft doesn't remind me of them." },
+          text = "So you're the warlock Korra has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and your craft smells the way their camps did." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! I hope you came to fight, because Ashenvale has no use for anyone who came to watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Foulweald", "Thistlefur" }, min = 40 } },
           text = "My scouts tell me the Foulweald and the Thistlefur have both lost a great many warriors this season, and that you're a good part of the reason. Astranaar sleeps a little easier for it, and so do I." },
@@ -186,7 +186,7 @@ P:NPC {
       },
     },
     pets = {
-      lines = { { id = "p_default", text = "Korra is my saber cat and Dagri is my wolf. They don't like each other much, but they like me, and they both hate furbolgs, and that's enough for a family." } },
+      lines = { { id = "p_default", text = "Korra is my saber cat and Dagri is my wolf. They don't like each other much, but they like me, and they both hate furbolgs, so that's as near to a family as I've got, fleas and all." } },
       choices = {
         { text = "Good family.", next = "BACK", fx = { affinity = 1 } },
         { text = "How do they get along?", next = "pets2" },
@@ -276,7 +276,7 @@ P:NPC {
           text = "You know better than to pick at a Sentinel's wounds, {g:brother|sister}. Ask me something I can use." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Right. Something useful, then.", next = "BACK" },
       },
     },
   },
@@ -371,7 +371,7 @@ P:NPC {
         { id = "mp_default", text = "A spell? My mother would have thrown you out of the house for saying it, and the Sentinels would agree with her. But I've tried every herb in Ashenvale, so tell me plainly: can your magic touch a fever that comes from a dream?" },
       },
       choices = {
-        { text = "No. Honestly, it can't. I'm sorry.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "No. It can't, and I won't lie to you. I'm sorry.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "It might. I'd try anything, as you have.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
@@ -477,8 +477,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've asked everyone in Astranaar about everything, looking for something that might help Relara. Ask me; perhaps some of it will help you." },
     },
-    background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and it's enough." } },
-    advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that the hard way." } },
+    background = { { id = "tp_bg", text = "I'm Relara's father. That's all I am at the moment, and I can't remember the last time I slept." } },
+    advice = { { id = "tp_ad", text = "Hold on to the people you love while you can. I'm learning that at a bedside." } },
     _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything else right now." } },
   },
 }
@@ -704,7 +704,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I do, though they are the hardest to keep, because they leave in one shape and come back in another. Two of the Circle went toward the Foulweald a month ago, and I have not crossed their names off yet." } },
       choices = {
-        { text = "Fair enough. I'll tell you each time before I leave.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Understood. I'll tell you each time before I leave.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Druids go where the forest calls. Don't count on my word.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -722,7 +722,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because when someone doesn't come back, the first thing the Sentinels ask me is where they were going, and I hate having no answer. The forest spirits can't always tell me, and a name with no road beside it is a name nobody goes out to find." } },
       choices = {
-        { text = "Fair enough. I'll tell you where I'm going.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Write it down, then. I'll tell you where I'm going.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My roads are my own business, Faldreas.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -870,7 +870,7 @@ P:NPC {
     { id = "g_home", when = { homeInn = { "Astranaar" } }, text = "Your bed's ready, and the island's quiet tonight; the lake keeps the worst of the forest out." },
     { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and thinner than when you left, I'd wager. Sit down and let me bring you something warm before you tell me anything at all." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry yourself differently now, as if the road taught you a great deal while you were gone. I hope it let you rest now and then, because strength without sleep doesn't last." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came by tonight still smiling about a talk they'd had with you, and smiles have been scarce in Astranaar lately. Thank you for that, truly." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came by tonight still smiling about a talk they'd had with you, and smiles have been scarce in Astranaar lately. Thank you for that." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear things over the broth pot, and what I heard today was that someone caught you in an untruth. I won't scold you, but Astranaar is small, and trust here is hard to win twice." },
   },
 
@@ -940,7 +940,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Safe enough on the island, but the scouts come back fewer than they went out, and everyone here knows it. A paladin on the roads gives folk something to hope for, and that's worth more than you'd think." } },
+      lines = { { id = "xapala_default", text = "Safe enough on the island, but the scouts come back fewer than they went out, and everyone here knows it. A paladin on the roads gives folk something to hope for, and hope's been thin here since the last patrol came back two short." } },
       choices = {
         { text = "Then I'll be on the roads, keeping them safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Hope won't stop the Warsong. Steel will.", next = "BACK", fx = { align = { order = -1 } } },
@@ -990,7 +990,7 @@ P:NPC {
         { text = "Do hunters bring meat for your kitchen, Kimlya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the scouts fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who in Astranaar needs a priest most, Kimlya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does Astranaar truly feel safe to its people, Kimlya?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does Astranaar really feel safe to its people, Kimlya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you have any use for a mage at your inn, Kimlya?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you care for everyone in Astranaar, Kimlya?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
@@ -1065,7 +1065,7 @@ P:NPC {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "Another servant of the Light, and a paladin at that! We'll trade stories later, but for now there's a cult to stop." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I'll be honest: my hand wants my hammer, but I'll keep it still if you keep yours still too." },
+      text = "A warlock. My hand wants my hammer, I'll not lie, but I'll keep it still if you keep yours still too." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest of the Light, out here! Bless you; I've been teaching young Balthule what I know of it, and I could use someone who knows it better." },
   },
@@ -1083,7 +1083,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I admire them, truly, because they heal the land as surely as we heal the wounded. But they speak of balance where I would speak of evil, and with the Dark Strand nesting in that tower, I'm not sure balance is what's called for." } },
+      lines = { { id = "xdruid_default", text = "I admire them, for they heal the land as surely as we heal the wounded. But they speak of balance where I would speak of evil, and with the Dark Strand nesting in that tower, I'm not sure balance is what's called for." } },
       choices = {
         { text = "The balance is the law of the forest. Respect it here.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Balance or not, I'll do whatever the moment needs.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1149,7 +1149,7 @@ P:NPC {
         { id = "h_supplies", when = { questActive = TODO_QUEST("Supplies to Auberdine") },
           text = "Feero is carrying supplies and messages to Sentinel Starbreeze in Auberdine. The elves there have been generous to us, and it's time we returned the favour." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Sky-elves, truly! I'd heard of you, and the Light shines in strange places these days, which is all the more reason to look for it." },
+          text = "Sky-elves, of all people! I'd heard of you, and the Light shines in strange places these days, which is all the more reason to look for it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Light keep you, friend, though you came up so quietly I nearly greeted you with my hammer. Forgive me, because the Dark Strand have taught us all to jump at shadows." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },

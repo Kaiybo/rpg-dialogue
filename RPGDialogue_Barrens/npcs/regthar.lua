@@ -51,7 +51,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've a war to run." },
-        { id = "h_again2", text = "Speak. The centaur don't wait, and neither do I." },
+        { id = "h_again2", text = "Speak. The centaur don't wait, and neither do I, and my boots are full of sand besides." },
       },
       choices = {
         { text = "Who leads the Kolkar?", next = "leaders" },

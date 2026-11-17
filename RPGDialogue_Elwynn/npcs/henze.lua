@@ -56,7 +56,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Aye, easily, for I left boot prints like a ram on a snowfield. Gazin found me in the end, but a beast with a good nose would've found me before I was quite so dead, I'd wager." },
+        { id = "xhuntcl_default", text = "Aye, easily, for I left boot prints like a ram on a snowfield. Gazin found me eventually, but a beast with a good nose would've found me before I was quite so dead, I'd wager." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that your {pet}? Grand beast. Ye keep it close, now, the Defias don't play fair with animals either." },
       },
       choices = {
@@ -235,7 +235,7 @@ P:NPC {
       lines = { { id = "shaman_l", text = "Did it now? Then it's a better friend than the Defias were. My granny used to say the stone hears everythin' an' tells nobody; I'm glad it made an exception." } },
       choices = {
         { text = "It only speaks to those who listen.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
-        { text = "It mostly complains, if I'm honest.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Mostly it complains about the damp.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
   },

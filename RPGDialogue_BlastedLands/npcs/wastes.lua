@@ -44,7 +44,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and every one of them was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
       choices = {
         { text = "I fight for those behind me, not for plunder.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Every war has its spoils. I won't pretend otherwise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Every war has spoils, and I'd rather they ended up in my pack.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,7 +99,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and you smell of iron and greed together, as all your kind do. You would cut down anything that stood between you and a prize." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter. You carry the stink of greed like the rest, though a hunter's greed is at least the honest kind, and ends when the belly is full." },
+          text = "A hunter. You've the stink of greed on you like the rest, though a hunter's greed is at least the honest kind, and ends when the belly is full." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A thief, yes. You smell of greed more strongly than any of them, though at least you do not pretend otherwise." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You smell of borrowed power, and of greed for more of it, like all the rest." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -271,7 +271,7 @@ P:NPC {
         { id = "xta_default", text = "Hm. You smell less of it than most, tauren, I will grant you that, and more of grass and smoke. But you came to this dust for something, and Kum'isha wonders what." },
       },
       choices = {
-        { text = "For the fragments. I won't pretend otherwise.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "For the fragments. I'll not lie to you about that.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Nothing. I was only passing through.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
@@ -318,7 +318,7 @@ P:NPC {
   nodes = {
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Everything is, in the end, if you understand it well enough, though I'll grant your sort have been very poor at explaining it. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
+      lines = { { id = "xapriest_default", text = "Everything is, if you understand it well enough, though I'll grant your sort have been very poor at explaining it. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
       choices = {
         { text = "The Light isn't a reagent. It can't be bottled.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Perhaps it can. Study it, and share what you learn.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -374,7 +374,7 @@ P:NPC {
         { id = "h_jowls", when = { questActive = TODO_QUEST("Snickerfang Jowls") },
           text = "The snickerfang hyenas have jaws that could crack an ogre's skull, and I want to know why. Bring me their jowls, please, and as fresh as you can." },
         { id = "h_drank", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Boar's Vitality"), days = 3 } },
-          text = "Tell me honestly, do you feel invulnerable yet? The boars do, and nothing out here has managed to prove them wrong." },
+          text = "Tell me true, do you feel invulnerable yet? The boars do, and nothing out here has managed to prove them wrong." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Now there's a subject I'd love to study, if you'd allow it, because I'm told the Light lets your kind mend flesh that should have stayed broken." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How delightful, you turn into beasts, and I study beasts, so we are practically colleagues, though I suspect you won't see it that way." },
@@ -517,7 +517,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Perhaps not, but you can't tell me how it works either, only that it does, and I find that a very poor argument from people who call my work blasphemy. I'll keep my brains in jars and you keep your prayers, and we'll see which of us learns more." } },
       choices = {
         { text = "The Light asks for faith, not proof. That's its strength.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Let your results speak for you.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Keep your jars, then. Results will settle it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -722,7 +722,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Because a demon always knows what it gave you, child, and it comes back for payment at a time of its choosing, usually the worst one. I have lived beside this altar long enough to watch many clever thieves try, and you can see by my face how the cleverest bargain went." } },
       choices = {
         { text = "A bargain should be honored, even with a demon.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Then the trick is never to be found, old man.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then I'd best not get caught, old man.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -748,7 +748,7 @@ P:NPC {
         { id = "h_bindings", when = { questActive = TODO_QUEST("The Prison's Bindings") },
           text = "The blood of the Wildspawn satyr, from Dire Maul's Warpwood Quarter, fifteen measures of it. Once it clots, it will bind the shards and power the prison." },
         { id = "h_suppression", when = { questActive = TODO_QUEST("Suppression") },
-          text = "The prison is ready, and now the hard part: find a Doomguard Commander in the Scar and take it. Bring friends who can keep you alive, because it will want nobody dead but you." },
+          text = "The prison is ready, and now comes the ugly bit: find a Doomguard Commander in the Scar and take it. Bring friends who can keep you alive, because it will want nobody dead but you." },
         { id = "h_bound", tags = { "news" }, when = { questRecent = { TODO_QUEST("Suppression"), days = 7 } },
           text = "You've a Doomguard in your keeping now, and the knowledge to call it. Remember what it costs every time you do, and never assume it has forgiven you." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at my altar. Your kind and mine both bind something wild to our will, friend, though you'd never admit the likeness, and I'd never ask you to." },

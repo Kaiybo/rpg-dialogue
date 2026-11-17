@@ -54,7 +54,7 @@ P:NPC {
       lines = { { id = "xcl_sm_default", text = "When the plague came, the Crusade marched through Hillsbrad promising to burn the dead out of Lordaeron, and some of our own lads went north with them. A few came home and couldn't say what they'd seen, and the rest never came home at all, so I'll thank you for whatever justice you carried in there." } },
       choices = {
         { text = "They'll answer to the Alliance's law, as every army should.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Law didn't stop them, and a sword did. That's enough for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Law never stopped a Syndicate knife, but a sword did.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Did any of those lads ever say why they left?", next = "xcl_sm2" },
       },
     },
@@ -134,13 +134,13 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and I'd rather have that on my side than on theirs, so welcome to Southshore." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Southshore. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like your little friend, so keep it on a short leash." },
-        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the quiet has your boot prints all over it. Southshore owes you for that, and I won't forget it." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the trampled ashes are full of boot prints about your size. Southshore owes you for that, and I won't forget it." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Alliance" },
           text = "Word's come down the north road that someone went into the Scarlet Monastery and walked back out again, and Raleigh up at the inn hasn't stopped pacing since. If that was you, I'd like a word before the rumours get here first." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
-        { id = "h_again2", text = "Go on, I've a minute, though never two." },
+        { id = "h_again2", text = "Go on, I've a minute. There's a crack in the east wall the size of my fist, and it'll still be there after." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The night watch can spare me a moment, and I them." },
       },
       choices = {
@@ -343,7 +343,7 @@ P:NPC {
           text = "A soldier asking a soldier what he's afraid of? You know better than that, so ask me about the ogres instead." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Right, then. The ogres it is.", next = "BACK" },
       },
     },
     xwarrior = {
@@ -452,7 +452,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Honestly, I'd have to file you under 'other', which never feels like the right answer for anyone. Southshore's law doesn't care what you pray to, only whether you pay your dues and stay clear of the Syndicate's business, and I'd be grateful if you did both." } },
+      lines = { { id = "xdsham_default", text = "I'd have to file you under 'other', I'm afraid, which never feels like the right answer for anyone. Southshore's law doesn't care what you pray to, only whether you pay your dues and stay clear of the Syndicate's business, and I'd be grateful if you did both." } },
       choices = {
         { text = "The law's the law. I'll keep to it, Magistrate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Forms are for clerks. The earth keeps no ledgers.", next = "BACK", fx = { align = { order = -1 } } },
@@ -461,7 +461,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I have reports on everything else, so I suppose I should have one on that. The farmers clear more of the hills every spring, and the ogres take it badly, and so do the wolves. I'd never thought of the land itself having an opinion." } },
+      lines = { { id = "xdruid_default", text = "I have reports on everything else, so I suppose I should have one on that. The farmers clear more of the hills every spring, and the ogres take it badly, and so do the wolves. I'd never thought of the hills having an opinion." } },
       choices = {
         { text = "Let them clear the hills. People need the fields.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then slow them down. The hills were here first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -500,7 +500,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Nobody, if I'm honest, because the families fled south years ago and the Syndicate leaves its dead wherever they fall. I've written to the Cathedral twice asking for a priest, and both times they wrote back very kindly to say they hadn't one to spare." } },
+      lines = { { id = "xapriest_default", text = "Nobody, because the families fled south years ago and the Syndicate leaves its dead wherever they fall. I've written to the Cathedral twice asking for a priest, and both times they wrote back very kindly to say they hadn't one to spare." } },
       choices = {
         { text = "I'll say the words over them myself, if I find them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The living need justice more than the dead need words.", next = "BACK", fx = { align = { light = -1 } } },
@@ -561,7 +561,7 @@ P:NPC {
         { text = "I could get inside the Syndicate for you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My family knew some of the Alterac houses.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Baron Vardus is dead.", next = "vardus", when = { questDone = TODO_QUEST("Baron's Demise") } },
-        { text = "I could make the Syndicate fear the shadows.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I could give the Syndicate nightmares they'd not wake from.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "What do the Syndicate letters say, Magistrate?", next = "xmage", when = { class = "MAGE" } },
         { text = "Who buries the Syndicate's victims, Magistrate?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What can a paladin do for Southshore's law, Magistrate?", next = "xapala", when = { class = "PALADIN" } },
@@ -886,7 +886,7 @@ P:NPC {
         { id = "fi_default", text = "I could clear a Stormwind tavern of drunks one-handed, but murlocs don't drink, don't argue, and don't respect a uniform. It's a different trade entirely." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Can't argue that. Murlocs respect nothing.", next = "BACK", fx = { affinity = 1 } },
         { text = "That's an excuse, Lieutenant.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
         { text = "Get down to the strand, or Samuelson hears where you sit.", tag = "Intimidate", next = "strand_truth",
           check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "PALADIN" } }, { trait = "stern" } } } },
@@ -1104,7 +1104,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },
-        { id = "h_again2", text = "Go on, I'm listenin', to you an' the casks both." },
+        { id = "h_again2", text = "Go on, I'm listenin', to you an' the casks both, an' by this hour the casks make more sense." },
       },
       choices = {
         { text = "What happened to the Silver Hand?", next = "hand" },
@@ -1332,7 +1332,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, truly? I've three books on Ironforge's lore and not one of them mentions you, {class}, which means either the books are wrong or you're about to be very interesting." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, of all things? I've three books on Ironforge's lore and not one of them mentions you, {class}, which means either the books are wrong or you're about to be very interesting." },
         { id = "h_default", text = "I'm Dibbs. I collect what's left of the old kingdom's knowledge before the ogres finish using it to start their fires, and it's slow work, for they're quick readers, in their way." },
         { id = "h_milton", when = { heardLine = "milton.h_default" },
           text = "Milton Sheaf sent you? Of course he did, bless him. Tell him I've three crates of Alterac's records waiting, and one of them is mostly soot." },
@@ -1342,7 +1342,7 @@ P:NPC {
           text = "This parchment has magic woven through it, so don't fold it and don't read it aloud... actually, don't read it at all." },
         { id = "h_page", when = { metBefore = true }, text = "I saved three whole pages from an ogre's cookfire yesterday, and they turned out to be a treatise on beekeeping. Not what I'd hoped, but it's knowledge all the same." },
         { id = "h_stormpike", when = { questActive = TODO_QUEST("Letter to Stormpike") },
-          text = "Stormpike will crow about this cipher for a month, and I'll let him, since he'll read it and that's what matters." },
+          text = "Stormpike will crow about this cipher for a month, and I'll let him, since he'll actually read it, which is more than the last cipher got." },
         { id = "h_milton_done", when = { questDone = TODO_QUEST("Return to Milton") },
           text = "Milton wrote to thank me, three pages of it, and two of them were about the bindings." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have very careful hands, which is a fine quality in someone who handles old books, though I'll ask you to keep them off the ones I haven't catalogued yet." },
@@ -1357,7 +1357,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Another question? Good, for questions are the only thing I collect faster than books." },
-        { id = "h_again2", text = "Go on, I'll mark my place." },
+        { id = "h_again2", text = "Go on, I'll mark my place. With a herring, apparently, since someone's been using my bookmarks for kindling." },
       },
       choices = {
         { text = "What did the ogres do?", next = "ogres" },
@@ -1378,7 +1378,7 @@ P:NPC {
       },
     },
     ogres = {
-      lines = { { id = "o_default", text = "Burned some, sat on others, and used a history of the Alterac succession to prop up a table. Honestly, the history deserved it." } },
+      lines = { { id = "o_default", text = "Burned some, sat on others, and used a history of the Alterac succession to prop up a table. The table's never stood steadier, and the history deserved it." } },
       choices = {
         { text = "Why do these books matter so much?", next = "why_books" },
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
@@ -1475,7 +1475,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Shut the door, the rain gets in. Is it a bed, food or both? Both, by the look of you." },
-    { id = "g_home", when = { homeInn = { "Southshore" } }, text = "Your room's dry, mostly, though the corner leaks. All the corners leak, if I'm honest." },
+    { id = "g_home", when = { homeInn = { "Southshore" } }, text = "Your room's dry, mostly, though the corner leaks. All the corners leak, and the ceiling's starting to think about it." },
     { id = "g_away", when = { away = 14 }, text = "Come in and shut the door, because it's been {away} and the rain hasn't stopped once in all that time. Your room's still there, and so is the leak." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last stayed, and I don't mean your feet. Sit down, and I'll find you the room that leaks the least." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk in the common room have been saying you did right by Southshore. The first mug's on the house, then, though only the first." },
@@ -1527,7 +1527,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I'd buy anything that isn't fish, honestly, since the guests have started complaining that they can taste the bay in the bread. Bear from the foothills, perhaps, if you can bring it down without bringing a Syndicate patrol back with you." },
+        { id = "xhuntcl_default", text = "I'd buy anything that isn't fish, since the guests have started complaining that they can taste the bay in the bread. Bear from the foothills, perhaps, if you can bring it down without bringing a Syndicate patrol back with you." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can sleep by the hearth if it likes, since it's the one dry spot in the house. Just don't let it near the lieutenant's chair, or he'll file a complaint, and he files them very slowly." },
       },
       choices = {

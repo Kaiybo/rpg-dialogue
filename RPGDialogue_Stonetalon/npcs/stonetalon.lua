@@ -204,7 +204,7 @@ P:NPC {
     },
     wind = {
       lines = {
-        { id = "w_default", text = "Some days. The sun warms the old wounds and the wind carries the worst of my thoughts off the rock, and on the days it doesn't, I find a harpy to take it out on." },
+        { id = "w_default", text = "Some days. The sun warms the old wounds and the wind blows the worst of my thoughts off the rock, and on the days it doesn't, I find a harpy to take it out on." },
       },
       choices = {
         { text = "That's honest, at least.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -280,9 +280,9 @@ P:NPC {
         { id = "a_default", text = "Strange. Knowing evil roosted near my land kept my thoughts busy for years, and now they're silent, so perhaps that's a good thing. Maybe now I can turn to the good, as the elders always told me to." },
       },
       choices = {
-        { text = "You've earned the quiet.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
+        { text = "You've earned a few peaceful nights.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "There'll always be another fight.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
-        { text = "What frightens you about the quiet?", tag = "Persuade", next = "after_fear",
+        { text = "What frightens you about the silence?", tag = "Persuade", next = "after_fear",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { trait = "kind" } } } },
           fail = { next = "after_wall", fx = { affinity = -1 } } },
       },
@@ -391,7 +391,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. Death feeds life when it comes honestly, and I'm not sure your kind of death does." } },
+      lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." } },
       choices = {
         { text = "Then I'll keep my craft well away from your garden.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -410,7 +410,7 @@ P:NPC {
     xhpriest = {
       big = true,
       lines = {
-        { id = "xhpriest_default", text = "Not the land itself, but the people who work it, because my helpers come back burned and cut from the Charred Vale and I can't plant and bandage at the same time. Stay a night and look after them, and I'll count it with the shoots, five living against two dead." },
+        { id = "xhpriest_default", text = "Not the soil, but the people who work it, because my helpers come back burned and cut from the Charred Vale and I can't plant and bandage at the same time. Stay a night and look after them, and I'll count it with the shoots, five living against two dead." },
       },
       choices = {
         { text = "I'll tend your helpers, Tammra.", next = "BACK", fx = { align = { light = 1 } } },
@@ -465,7 +465,7 @@ P:NPC {
         { text = "Could quiet feet be any use to your garden?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can anything grow back in the Charred Vale, Tammra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are the beasts returning to the burned land, Tammra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Does my magic truly harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does my magic really harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can a priest help you mend the land, Tammra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you fear a mage's fire, Tammra?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can the Light heal burned ground, Tammra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -507,7 +507,7 @@ P:NPC {
         { id = "b_default", text = "I chant over the seeds and ask the Earth Mother to quicken them, and she listens, most days. The seeds do the real work; I only remind them they're allowed to." },
       },
       choices = {
-        { text = "That's a kind of faith I understand.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
+        { text = "Then you and the seeds have an understanding.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -534,7 +534,7 @@ P:NPC {
         { id = "k_default", text = "Safe with her father, my brother-in-law Makaba, and that's all I'll ask of the world this year. The Grimtotem took her from Camp Aparaje and kept her at their post, and I still can't think of it without shaking." },
       },
       choices = {
-        { text = "She's safe now. That's what matters.", next = "BACK", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
+        { text = "She's home with Makaba. Revenge can wait.", next = "BACK", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
         { text = "The Grimtotem will answer for it.", next = "BACK", fx = { affinity = 1, learn = { "grimtotem" }, align = { honor = 1 } } },
       },
     },
@@ -551,7 +551,7 @@ P:NPC {
     future = {
       big = true,
       lines = {
-        { id = "f_default", text = "They took, and they're strong, holding back the corruption and making a foothold for everything else. In time the goblins will give up and go, the fire spirits will settle, and the land itself will drive the harpies off, and that's the day Stonetalon will know peace." },
+        { id = "f_default", text = "They took, and they're strong, holding back the corruption and making a foothold for everything else. In time the goblins will give up and go, the fire spirits will settle, and the new trees will crowd the harpies off their roosts, and on that day I'll sleep through till noon." },
       },
       choices = {
         { text = "I hope I see it.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -1052,7 +1052,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Jin'Zil be a witch doctor of da Darkspear, mon. Dat be all da story you need, and most of it true." } },
-    advice = { { id = "tp_ad", text = "Never eat nothin' in a witch doctor's cave, mon, not even if he say it be stew." } },
+    advice = { { id = "tp_ad", text = "Never eat nothin' in a witch doctor's cave, mon, not even if he say it be stew, and especially if it blink at you." } },
     _none = { { id = "tp_none", text = "Da spirits don't say, mon. Ask again tomorrow; maybe dey change dey minds." } },
   },
 }
@@ -1165,7 +1165,7 @@ P:NPC {
     },
     lands = {
       lines = {
-        { id = "l_default", text = "If the Horde means to hold these new lands, it needs somewhere to rest its bones between battles, and someone has to keep that place. I'd rather it was me than some goblin charging by the hour." },
+        { id = "l_default", text = "If the Horde means to hold these new lands, it needs somewhere to rest its bones between battles, and someone has to keep that place. I'd rather it was me than some goblin who charges extra for the blanket and more again for the blanket without fleas." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -1180,7 +1180,7 @@ P:NPC {
     },
     braelyn = {
       lines = {
-        { id = "b_default", text = "Says the food's too plain, and I say she's too thin. She pays her board, though, and she keeps the fire lit without wood, so I've no real complaint." },
+        { id = "b_default", text = "Says the food's too plain, and I say she's too thin. She pays her board, though, and she keeps the fire lit without wood, so I only complain about the scorch marks on the ceiling." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
@@ -1232,8 +1232,8 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I keep the inn on Sun Rock, and I've heard more battle stories than any war chronicler alive." } },
-    advice = { { id = "tp_ad", text = "Sleep while you can up here. The harpies don't keep regular hours." } },
-    _none = { { id = "tp_none", text = "Ask Maggran. He knows the mountain; he just doesn't like saying much about it." } },
+    advice = { { id = "tp_ad", text = "Sleep while you can up here. The harpies don't keep regular hours, and they shriek like a kodo with its tail in a door." } },
+    _none = { { id = "tp_none", text = "Ask Maggran. He knows the mountain; he just doesn't like saying much about it until his third mug." } },
   },
 }
 
@@ -1274,7 +1274,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "The same as I ask of everyone: to judge each deed by itself. You walk under the Horde's banner, whose raiders come up the ridges with fire, and you carry the Light that once hunted your kind. Banners tell me nothing, so I would see what your hands do." } },
+      lines = { { id = "xfpala_default", text = "The same as I ask of everyone: to judge each deed by itself. You walk under the Horde's banner, whose raiders come up the ridges with fire, and you call on the Light that once hunted your kind. Banners tell me nothing, so I would see what your hands do." } },
       choices = {
         { text = "Judge me by my deeds, Keeper. They'll be just.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I owe the trees no answers, Keeper.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1393,7 +1393,7 @@ P:NPC {
           text = "There's arcane in you, little one, and the old trees here remember what such power did to the world before the Sundering. They'll forgive you if you're gentle, because they're very old and very patient." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Something dark walks a step behind you, little one, and the grove has gone very still to watch it. I won't turn you away, because what you do matters more to me than what you carry, but please keep it out of the trees." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, little one, with steel in your hands and a long road behind you. The grove will let you pass, so long as the steel stays sheathed among the trees." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, little one, with steel in your hands and Talondeep's dust still on your boots. The grove will let you pass, so long as the steel stays sheathed among the trees." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, little one, and you'll know that the beasts of this forest belong to it as much as the trees do." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, little one, so far from your mountains and fields. The Silver Hand's vows are known even here, though the trees remember older ones." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfury", min = 30 } }, text = "The Bloodfury are fewer over the Charred Vale, little one, and the druids can plant again where they could not before. You've done the grove a kindness, and it will remember." },
@@ -1416,7 +1416,7 @@ P:NPC {
         { text = "Hamuul Runetotem sends his respects, Keeper.", next = "tauren_al", when = { race = "Tauren", class = "DRUID" } },
         { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Do you think I'd steal from the grove, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do the trees truly hold the arcane against me?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the trees really hold the arcane against me?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the grove welcome a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can I hunt in your forest, Keeper?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the grove fear from my demon?", next = "xlock", when = { class = "WARLOCK" } },
@@ -1492,7 +1492,7 @@ P:NPC {
     },
     faldreas = {
       lines = {
-        { id = "fa_default", text = "So Faldreas listened to the forest spirits after all, and they told him true; they said you were brave and not afraid of a long road. The Talondeep Path is no gentle road, and you are here." },
+        { id = "fa_default", text = "So Faldreas listened to the forest spirits after all, and they told him true; they said you were brave and didn't mind sore feet. The Talondeep Path is no gentle road, and you are here." },
       },
       choices = {
         { text = "What do you need of me?", next = "vale" },

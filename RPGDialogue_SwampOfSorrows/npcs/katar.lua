@@ -151,7 +151,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I've lived by this beach long enough to hate it. That's all that matters." } },
+    background = { { id = "tp_ba", text = "I've lived by this beach long enough to hate it, and the sand's in every seam of my armour. Ask me something else." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the tide, for it's always coming back." } },
     _none = { { id = "tp_none", text = "I don't know. Ask me about the fish men instead." } },
   },

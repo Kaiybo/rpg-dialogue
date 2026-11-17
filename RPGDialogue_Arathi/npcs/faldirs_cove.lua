@@ -75,7 +75,7 @@ P:NPC {
     },
     wreck_reef = {
       lines = {
-        { id = "wf_default", text = "It's not just a reef, matey; something's down there. Nilzlix swears he saw carved stone under the hulls, like the roof of a temple, and the naga came boiling out of it before the masts had stopped falling." },
+        { id = "wf_default", text = "That's no ordinary reef, matey; something's down there. Nilzlix swears he saw carved stone under the hulls, like the roof of a temple, and the naga came boiling out of it before the masts had stopped falling." },
       },
       choices = {
         { text = "What would naga want with this cove?", next = "wreck_naga" },

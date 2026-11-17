@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_gorge", text = "Keep yer voice down, friend! The Dark Irons have patrols on every ridge, an' I'd like tae keep my head." },
+    { id = "g_gorge", text = "Keep yer voice down, friend! The Dark Irons have patrols on every ridge, an' I'd like tae keep my head, seein' as my hat only fits the one." },
   },
 
   start = "hello",
@@ -86,7 +86,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Behind them, under them an' all through them, by the League's reckonin'. Thaurissan called Ragnaros up out o' the deep two hundred years gone, an' the Dark Irons have served him in Blackrock ever since, so every slaver in this Gorge answers tae fire in the end." } },
+      lines = { { id = "xapala_default", text = "Behind them, under them an' all through them, by the League's reckonin'. Thaurissan called Ragnaros up out o' the deep two hundred years gone, an' the Dark Irons have served him in Blackrock ever since, so every slaver in this Gorge answers tae fire sooner or later." } },
       choices = {
         { text = "Some can still be saved. Thorium Point proves it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then they're lost. Strike them down wherever they stand.", next = "BACK", fx = { align = { light = -1 } } },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because nobody rightly knows what the Stones are, an' the Dark Irons want them badly enough tae kill my diggers over them. If there's power in them, I'd sooner it went tae Ironforge than intae anythin' wi' horns, an' I'll no' apologize for sayin' so." } },
       choices = {
-        { text = "Fair enough. The Stones belong with Ironforge's scholars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then the Stones go to Ironforge's scholars, and nowhere else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If they hold power, I'd study them myself, Dorius.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Dorius.", next = "BACK" },
       },
@@ -134,7 +134,7 @@ P:NPC {
         { text = "Could I scout the Dark Iron camps ahead of you, Dorius?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the Dark Irons want the Suntara Stones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should I pray for your missing team, Dorius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is the Firelord truly behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is the Firelord really behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dark Iron fight like any other dwarves, Dorius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What tracks should I look for, Dorius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why keep my demon away from the Suntara Stones, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -186,7 +186,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } } },
     },
     thorius = {
-      lines = { { id = "th_default", text = "Thorius knows I'm diggin', but no' how deep. He keeps the museum in Ironforge, an' he worries more than a curator ought." } },
+      lines = { { id = "th_default", text = "Thorius knows I'm diggin', but no' how deep. He keeps the museum in Ironforge, an' he worries more than a curator ought, mostly about whether I've dusted the finds." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {

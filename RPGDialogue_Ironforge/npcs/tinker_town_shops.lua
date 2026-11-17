@@ -91,7 +91,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "More than I'd like, and almost always because they bought cheap flux somewhere else, which I tell them every time. The Mystic Ward's priests have patched up half of Tinker Town, and I've stopped counting the eyebrows." } },
       choices = {
         { text = "Then I'll help where I can. Carelessness shouldn't cost a life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let them learn the hard way. Buy cheap flux, pay the price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Buy cheap flux, get cheap welds. Let them find out.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let me see your parts.", next = "BACK" },
       },
     },
@@ -99,7 +99,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "In Tinker Town? No, but in the Commons there's a trader who sells flux he hasn't tested, and he knows it, and I've told the guards, and they've done nothing. A paladin who'd have a word with him would do more good than I can." } },
       choices = {
-        { text = "I'll have a word. Cheating buyers is a kind of theft.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll have a word. Cheating buyers is theft with a smile.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let the market punish him. Buyers should test their own parts.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Gearcutter.", next = "BACK" },
       },
@@ -270,7 +270,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." } },
       choices = {
-        { text = "Fair enough. I'll keep the imp well away from your work.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll keep my imp well clear of your demonstrations.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The imp probably improved it, Springspindle.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -279,7 +279,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Every day, which is why I test them on myself first, and why I've lost a great deal of hair. A good engineer worries about the people at the other end of the invention, and a great one does something about it." } },
       choices = {
-        { text = "Then you're a good engineer. Caring about others is what matters.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then you're a good engineer. You think about who's standing nearby.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Inventors who worry too much never invent anything great.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Tell me about the wheel instead.", next = "BACK" },
       },
@@ -367,7 +367,7 @@ P:NPC {
         { id = "sp_default", text = "Gnomish engineering is precise and clever and only occasionally turns you into a chicken, while goblin engineering is mostly explosives with a price tag. If you choose the gnomish way, come to me, and if you choose the goblin way, you'll have to go to Gadgetzan and talk to Nixx Sprocketspring." },
       },
       choices = {
-        { text = "A chicken? Truly?", next = "spec_chicken" },
+        { text = "A chicken? Really?", next = "spec_chicken" },
         { text = "I'd choose the gnomish way.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'd choose the goblin way. More explosions.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
       },

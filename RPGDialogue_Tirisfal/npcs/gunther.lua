@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_book", tags = { "news" }, when = { questActive = TODO_QUEST("Return the Book") },
           text = "My book! So you're the thief who took it. But there's a new enchantment on the pages, and I know the hand that wove it... Bethor? Bethor is free?" },
         { id = "h_proven", tags = { "news" }, when = { questRecent = { TODO_QUEST("Proving Allegiance"), days = 3 } },
-          text = "Lillith Nefara is gone, and you're the one who sent her. I truly believed I was the only one of us who had broken free, and you've made a fool of me in the best possible way." },
+          text = "Lillith Nefara is gone, and you're the one who sent her. I really believed I was the only one of us who had broken free, and you've made a fool of me in the best possible way." },
         { id = "h_gem", when = { questActive = TODO_QUEST("The Prodigal Lich Returns") },
           text = "Take the gem to Bethor, and tell him to speak into it when he can. I've had no one to talk to but zombies for years, and their conversation is very poor." },
         { id = "h_forsaken", when = { race = "Scourge", questBefore = TODO_QUEST("Return the Book") },

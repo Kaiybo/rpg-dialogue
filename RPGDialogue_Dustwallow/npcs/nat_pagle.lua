@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_active", when = { questActive = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "Anything bitin' today? No rush, there never is." },
     { id = "g_done", when = { questDone = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "Well, if it ain't my best student. Don't tell the others I said so; there ain't any others." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Pull up a crate, there's one with fewer splinters on the left." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've been busy, I can tell by the scars. Me, I've been sittin' right here, and I reckon I'm the happier of us two." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've been busy, I can tell by the stitches and the swamp mud to your knees. Me, I've been sittin' right here, and I reckon I'm the happier of us two." },
   },
 
   notice = {
@@ -46,7 +46,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Somethin' else on your mind? Take your time, nothin' here is in a hurry." },
-        { id = "h_again2", text = "Go on. I'm listenin', mostly." },
+        { id = "h_again2", text = "Go on. I'm listenin', mostly, and the other half of me's listenin' to the bobber." },
       },
       choices = {
         { text = "Why fish, if you don't enjoy it?", next = "why" },
@@ -130,7 +130,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I fish, I drink, and I sit. Been doin' all three a good long while, and I'm still not tired of the last one." } },
-    advice = { { id = "tp_ad", text = "Don't yank the line the second it twitches. Most things in life are a nibble before they're a bite." } },
+    advice = { { id = "tp_ad", text = "Don't yank the line the second it twitches, or you'll spend the afternoon fishin' your hook out of the reeds. Let the fish think it's winnin'." } },
     _none = { { id = "tp_none", text = "Can't say I know a thing about that. Ask me about fish, or don't ask me at all." } },
   },
 }

@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.73.0 (2026-11-17)
+About a hundred new people to talk to, and a writing pass across every pack. **New files: restart the game fully (a /reload won't load them).**
+
+### New conversations
+- **Around 100 new characters across 29 zones**, each with their own conversation: Eitrigg, Belgrom Rockmaul and Zor Lonetree in Orgrimmar; Nat Pagle and Tharg in Dustwallow; Regthar Deathgate and Thalo'thas Brightsun in the Barrens; Wallace the Blind and Deathstalker Faerleia in Silverpine; Magistrate Bluntnose in Loch Modan; Foggy MacKreel and Shakes O'Breen at Faldir's Cove; Sergeant De Vries and Clara Charles in Elwynn; Zenn Foulhoof in Teldrassil; Security Chief Bilgewhizzle in Gadgetzan, and many more.
+- **Fixed:** about thirty of these characters were missing from their pack's file list and would never have loaded (Barrens, Darkshore, Durotar, Duskwood, Hillsbrad, Moonglade, Mulgore, Orgrimmar, Swamp of Sorrows, Tanaris, Thunder Bluff).
+
+### Writing pass
+- **Fewer stock phrases.** About 1,700 lines rewritten. "Fair enough" went from over 240 uses to a handful, and "I won't pretend", "if I'm honest", "truly", "worth more than" and "the hard way" are mostly gone, along with tidy morals like "Quiet work wins wars. Glory is for songs." Replies you pick now say something specific to whoever you're talking to.
+- **More grit and humour.** Everyday lines have more texture: a Booty Bay trader whose panther ate the parrots, a Frostmane troll wearing a camper's good boots, an Undercity apprentice whose fingers keep coming loose, guards with wet boots and dice debts, and a Light's Hope garrison short of shovels for both the latrines and the graves. Grief and solemn scenes are left as they were.
+
 ## 0.71.0 (2026-11-17)
 Where you come from, more to say to the people on duty, and seven people with a lot more to say. No new files: /reload is enough.
 

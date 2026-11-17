@@ -217,7 +217,7 @@ P:NPC {
       },
     },
     lot = {
-      lines = { { id = "l_default", text = "It is. The trick is that they hate each other too, and most days that's what keeps us alive." } },
+      lines = { { id = "l_default", text = "It is, though they hate each other too, and most days that's what keeps us alive." } },
       choices = { { text = "...", next = "END" } },
     },
     hardest = {
@@ -758,7 +758,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Leashed is a word I've heard before, usually just before something got loose. The tauren know what the Burning Blade's fire does to living things, and I won't pretend your company sits easily with me, but if you know corruption, perhaps you'll know it when you smell it at the oases." },
+        { id = "xwarlock_default", text = "Leashed is a word I've heard before, usually just before something got loose. The tauren know what the Burning Blade's fire does to living things, and your company does not sit easily with me, but if you know corruption, perhaps you'll know it when you smell it at the oases." },
       },
       choices = {
         { text = "Then I'll use what I know to help cleanse them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -988,7 +988,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Remedies, mostly, and a better understanding of what grows in dry country, which the Society finds very useful. I won't pretend every tincture I brew is meant to heal, but the Warchief has seen our reports, and he hasn't complained." } },
+      lines = { { id = "xdruid_default", text = "Remedies, mostly, and a better understanding of what grows in dry country, which the Society finds very useful. Not every tincture I brew is meant to heal, I'll grant you, but the Warchief has seen our reports, and he hasn't complained." } },
       choices = {
         { text = "Plants taken for healing are well taken. Poisons are not.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Remedy or poison, knowledge is knowledge. I'd study it too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1147,7 +1147,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Once, against Serena's sisters in the hills, and he called up a wind that knocked the harpies out of the sky like rocks. I'll admit it was a good trick, but I still got more kills, and that's what matters." } },
+      lines = { { id = "xhsham_default", text = "Once, against Serena's sisters in the hills, and he called up a wind that knocked the harpies out of the sky like rocks. I'll admit it was a good trick, but I still got more kills, and I've the ears in a sack to prove it." } },
       choices = {
         { text = "The kills matter less than winning together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Counting kills keeps everyone sharp, so I'll count mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1163,7 +1163,7 @@ P:NPC {
       choices = {
         { text = "I'll burn them from cover while they're busy with you.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'll stand in front with you, not behind.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Are you truly the best, Darsok?", next = "best" },
+        { text = "Are you really the best, Darsok?", next = "best" },
       },
     },
     xwarlock = {
@@ -1315,7 +1315,7 @@ P:NPC {
       },
       choices = {
         { text = "A little sneaking never hurt a romance.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough. Some things a man should ask himself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then ask her yourself, Zargh, and wash your hands first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "What happened to your finger, Zargh?", next = "finger" },
       },
     },
@@ -1380,7 +1380,7 @@ P:NPC {
         { text = "Not hungry.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a zhevra on the block that won't cut itself." },
+        { id = "h_again", text = "Anything else? I've a zhevra on the block that won't cut itself, and the flies are getting there first." },
       },
     },
     hunter = {
@@ -1438,7 +1438,7 @@ P:NPC {
       lines = { { id = "xpt_boorand_default", text = "Every day, and I can tell which ones will last by how they order their supper. The ones who share a pot come back in a month, and the ones where each grunt eats alone with his back to the others usually don't come back at all." } },
       choices = {
         { text = "A company that shares a pot shares the danger too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Everyone eats alone in the end. That's the road.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A grunt who can't eat alone won't last out here.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Thanks, Boorand.", next = "BACK" },
       },
     },

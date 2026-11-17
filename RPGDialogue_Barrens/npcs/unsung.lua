@@ -366,7 +366,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "Every morning, mon, a little word to the loa so the spirits be watching my stall and not my debts. The Darkspear priests speak to the loa properly, with shadow and offerings and all, but a merchant only need the loa to look kindly on her prices." } },
       choices = {
         { text = "The loa deserve proper rites, not a merchant's bargain.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A bargain with the spirits is still a prayer. Fair enough.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A bargain with the spirits is still a prayer, I suppose.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else, Hula'mahi.", next = "BACK" },
       },
     },
@@ -515,7 +515,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "A good gun, every time, because a gun stops the centaur before anyone needs healing. I'll admit a priest dragged me out of the Stagnant Oasis when a crocolisk got my leg, though, so I keep a little room in my heart for your kind." } },
       choices = {
         { text = "Healing is the better gift. Anyone can pull a trigger.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Dead centaur need no priest at all.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Can't argue. Dead centaur need no priest at all.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Uthrok.", next = "BACK" },
       },
     },
@@ -899,11 +899,11 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Because a teleport takes you home and nowhere else, and my wind riders go wherever the Horde keeps a perch. You'll see the Barrens from above, too, which is worth more than the goblins charge for anything in this town." },
+        { id = "xmage_default", text = "Because a teleport takes you home and nowhere else, and my wind riders go wherever the Horde keeps a perch. You'll see the Barrens from above, too, and that view's cheaper than anything the goblins sell in this town." },
       },
       choices = {
-        { text = "Fair enough. I'll fly the Horde's way.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My way is faster, and faster is what matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll fly the Horde's way, and mind the droppings.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My way is faster, and I've no time for scenery.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1033,7 +1033,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Ochre from the red cliffs near Ratchet and rust from the iron in the water, and the tauren trade me a blue from a root they won't name. They told me it was a gift from the Earth Mother and that I was to treat it kindly, so I do." } },
       choices = {
         { text = "A gift from the Earth Mother should be treated kindly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A dye is a dye, and the price is what matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A dye is a dye. Just tell me the price.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1149,7 +1149,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "Belonged to a knight of the Silver Hand, back before the plague, or so the seller told me. Now it can belong to a dead knight with the Light, which is poetic, and poetry costs extra. Interested?" } },
       choices = {
         { text = "No. A dead knight's hammer belongs in his grave.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Poetic indeed. I'll take it, at a fair price.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll take it, but I'm not paying for the poetry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -60,7 +60,7 @@ P:NPC {
           text = "You're a warrior! That's good, that's really good, because the Galak are big and there are lots of them, and I've only got a gathering knife." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! You must know the canyons, then, and which way is home, because I've walked past this same rock three times now." },
-        { id = "h_default", key = true, text = "I'm Pao'ka Swiftmountain, and I came out here to gather things for my family, but I got turned around in the canyons. The Galak centaurs are everywhere, and I don't think I can make it back to Freewind alone." },
+        { id = "h_default", key = true, text = "I'm Pao'ka Swiftmountain, and I came out here to gather things for my family, but I got turned around in the canyons. The Galak centaurs are everywhere, and I don't think I can make it back to Freewind alone. I ate the last of my jerky yesterday, and my feet are all blisters." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Homeward Bound") }, text = "You'll walk me home? I'll stay close, I promise, and I'll run if I see centaurs, because I'm better at running than fighting." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman! Could you ask the spirits for the way back to Freewind? I've gotten so turned around in these canyons." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Are you a priest? My grandmother says priests can hear things the rest of us can't, so maybe you can hear the way back to Freewind." },
@@ -155,7 +155,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Peace, friend. You've come a long way up the mesas." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. The winds bring you here often." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. The wind keeps blowing you up here, same as the dust." },
   },
   start = "hello",
   nodes = {
@@ -250,7 +250,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, on the road beneath Freewind. I'd be glad of your company, because the Galak strike at travellers in the canyons, and they do not spare the wounded." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. The Galak fear fire more than spears, so I'd be glad to have you close if they come down from the cliffs." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 25 } }, text = "The Galak below the mesa are fewer than they were, and I have seen you on the canyon road often enough to know why. Be careful, because they will come looking for you." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. Freewind watches everything that climbs these mesas, and you are a new thing to watch." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, with the Light still in him. Freewind watches everything that climbs these mesas, and you are a new thing to watch." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -503,7 +503,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Afraid? Sure I'm afraid, friend, every single lap, and that's what makes it worth doing. If I go out in a blaze on the Shimmering Flats, at least they'll talk about it in Booty Bay for a month, and that's more than most goblins get." } },
       choices = {
-        { text = "Your life is worth more than a month of gossip.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "No gossip's worth your neck. Stay off the cliff path.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A blaze of glory beats a long and dull life.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -536,7 +536,7 @@ P:NPC {
           text = "Whoa, armor! Hey, you wanna sit in the car? No? Smart, because the last guy in plate who sat in it cracked the axle clean through." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Hey, can you track a thief? Because somebody keeps moving my spare parts, and I'm pretty sure it's a gnome." },
-        { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating." },
+        { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating, and so does my mechanic, 'cause I still owe him for the last engine." },
         { id = "h_c0", when = { race = "Gnome" }, text = "Uh-oh, a gnome. You here to sabotage my car, or just to watch me beat your friends?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you make the wind blow at the gnomes' car and not mine? I'm kidding, mostly, unless you can." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless the car, would ya? I don't care which god does it, as long as the gnomes' car doesn't get blessed too." },
@@ -655,7 +655,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Far enough to cross the finish line before anyone else, and that's what matters. I've got enough trouble keeping the goblins and gnomes honest without mages making it worse." } },
+      lines = { { id = "xmage_default", text = "Far enough to cross the finish line before anyone else, and past that it's somebody else's problem. I've got enough trouble keeping the goblins and gnomes honest without mages making it worse." } },
       choices = {
         { text = "I'd never cheat a race with magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If you can't catch it, it's not cheating.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -704,7 +704,7 @@ P:NPC {
           text = "A warrior. If you're here to brawl with the gnome crew, do it off the track, because I'm not stopping the clock for anybody's broken nose." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? Good eyes, then, and you'll know how hard it is to watch something moving fast, which is my whole job." },
-        { id = "h_default", key = true, text = "I'm Daisy, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won." },
+        { id = "h_default", key = true, text = "I'm Daisy, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won. The goblins argue anyway, mostly with the stopwatch." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then don't go calling lightning down on my track, because the last storm cost me a whole afternoon of times." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're praying for one team or the other, kindly do it off the track, because I don't time prayers." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your demon off the track, because if it runs across during a heat it's getting a time, and you won't like what I write next to it." },
@@ -844,7 +844,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Fairly is the goal, and Daisy keeps the times very strictly, but the goblins do love a shortcut, and I won't pretend we've never answered one with a shortcut of our own. It's all in good fun, mostly, until someone's car catches fire." } },
+      lines = { { id = "xapala_default", text = "Fairly is the goal, and Daisy keeps the times very strictly, but the goblins do love a shortcut, and between you and me, we've answered one or two with shortcuts of our own. It's all in good fun, mostly, until someone's car catches fire." } },
       choices = {
         { text = "Win it fairly, or the victory means nothing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If the goblins cheat, beat them at their own game.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -888,7 +888,7 @@ P:NPC {
           text = "A warrior! Marvelous, because I've been testing crash plating and I need someone to tell me what it feels like to be hit very hard." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I've been meaning to build a mechanical tracking hound, and I'd love to see a real one at work first, purely for research." },
-        { id = "h_default", key = true, text = "Wizzle Brassbolts, gnome engineer, at your service! I help design the cars for our team, and I'm quite sure this season's model is the best yet, assuming it holds together." },
+        { id = "h_default", key = true, text = "Wizzle Brassbolts, gnome engineer, at your service! I help design the cars for our team, and I'm quite sure this season's model is the best yet, assuming it holds together, which it will, because I've built a backup for the backup steering." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Did you know Gahz'rilla, the hydra in Zul'Farrak, can be summoned with a special mallet? It's the most fascinating thing, and I'd love a mage's view on how it works." },
         { id = "h_lockcl", when = { class = "WARLOCK" },

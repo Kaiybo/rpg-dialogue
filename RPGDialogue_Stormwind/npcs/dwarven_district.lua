@@ -293,7 +293,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "We pray tae the forge an' tae the Light both, an' in Ironforge nobody sees much difference between the two. Fire an' patience an' a steady hand, an' if that's no' holy, I don't know what is." } },
       choices = {
-        { text = "Honest work is a kind of prayer. I believe that, Kaita.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A steady hand at the anvil is a prayer too, Kaita.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Work is work and prayer is prayer. Don't confuse the two.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -302,7 +302,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They charge twice what a thing's worth an' smile while they do it, an' then they tell ye dwarven goods are rough. I'd sooner deal honest an' plain, an' let the work speak for itself." } },
       choices = {
-        { text = "Honest dealing is worth more than any smile. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd take a straight price over a smile any day, Kaita.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Trade is trade, Kaita. They're only doing what merchants do.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -657,7 +657,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than ye'd think, for both are about knowin' where tae strike an' how hard. A good miner reads the seam like a good warrior reads a foe, an' both learn the hard way what happens when ye swing wild." } },
+      lines = { { id = "xwarcl_default", text = "More than ye'd think, for both are about knowin' where tae strike an' how hard. A good miner reads the seam like a good warrior reads a foe, an' I've two crooked fingers from the day I swung wild at a copper seam in Dun Morogh." } },
       choices = {
         { text = "Patience and a well-placed blow. That's the secret of both.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Swinging hard solves most problems, stone or foe.", next = "BACK", fx = { align = { order = -1 } } },

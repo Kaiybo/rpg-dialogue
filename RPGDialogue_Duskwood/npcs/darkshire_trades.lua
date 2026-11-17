@@ -226,7 +226,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "An axe, if I'm honest, because a ghoul doesn't stop for a cut but it stops for a missing limb. Swords are prettier, and most of the Watch carry them, but I'd rather be ugly and alive." } },
+      lines = { { id = "xwarcl_default", text = "An axe, every time, because a ghoul doesn't stop for a cut but it stops for a missing limb. Swords are prettier, and most of the Watch carry them, but I'd rather be ugly and alive." } },
       choices = {
         { text = "An axe, then. Practical over pretty, every time.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll keep my sword. Skill wins more than weight.", next = "BACK", fx = { align = { order = -1 } } },
@@ -282,7 +282,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want a good knife for skinning and a better one for the worg that's skinning you, and I've both." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll fight with claws and teeth, I suppose, and the worgen have both, yet they still lose to a good axe." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A knife-fighter, by the way you walk. I've daggers, and they're good ones, but nobody stabs a worgen from behind twice." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've a staff or two for your sort, though I'll be honest, they're mostly for walking." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've a staff or two for your sort, though most of the ones I sell end up holding old men upright on the walk to market." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I don't forge for demons, so if your friend wants a blade, it'll have to find its own." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Swords and axes, and none of them enough against what's in the wood. Your lightning might help." },
       },

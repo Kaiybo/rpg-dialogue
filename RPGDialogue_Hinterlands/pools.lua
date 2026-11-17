@@ -5,7 +5,7 @@ P:Pool {
   id = "guard_aeriepeak", role = "guard", community = "aerie_peak",
   barks = {
     { id = "b_gryphon", text = "Hear that screech? That's a happy gryphon, for the angry ones ye don't hear till it's too late." },
-    { id = "b_trolls", text = "Witherbark smoke over the hills again, an' they never learn." },
+    { id = "b_trolls", text = "Witherbark smoke over the hills again. By my beard, ye'd think they'd run out o' things tae burn." },
   },
   greetings = {
     { id = "g_peak", text = "Welcome tae Aerie Peak, friend. Mind the gryphons; they bite strangers, an' they decide who's a stranger." },
@@ -18,10 +18,10 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Sneakin' about the aviary? The gryphons can smell ye, even if I can't see ye." } },
   lines = {
-    { id = "l_default", text = "The Wildhammer keep the Hinterlands free, from the sky, an' the trolls hate us for it, but we don't mind." },
+    { id = "l_default", text = "The Wildhammer keep the Hinterlands free, from the sky, an' the trolls hate us for it, which suits us, for the gryphons hate them worse." },
   },
   choices = { { text = "For the Wildhammer.", next = "END", fx = { standing = { aerie_peak = 1 } } } },
   topics = {
-    _none = { { id = "t_none", text = "Ask the Thane, though he'll answer loud, mind." } },
+    _none = { { id = "t_none", text = "Ask the Thane, an' stand back, for he answers loud an' he's had his breakfast ale." } },
   },
 }

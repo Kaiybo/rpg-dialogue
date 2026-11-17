@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_deed", when = { questActive = TODO_QUEST("Furlbrow's Deed") }, text = "The deed? You've found our deed? Oh, let me see it, please, let me see." },
     { id = "g_watch", when = { questDone = TODO_QUEST("The Forgotten Heirloom") }, text = "It still ticks, you know, and I wind it every morning like a silly old man." },
     { id = "g_away", when = { away = 14 }, text = "Oh, it's you, and after {away}! I'd half feared something dreadful had happened, though I fear that about most things these days." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown so strong since we first met by this wagon, and I'm a little in awe of it. I wish I'd half your nerve, I truly do." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown so strong since we first met by this wagon, and I'm a little in awe of it. I wish I'd half your nerve, and I'd settle for a quarter of it." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "I heard you gave someone round the farms a proper fright. Please don't do it to me, because I frighten easily enough on my own." },
   },
 
@@ -119,7 +119,7 @@ P:NPC {
           text = "It's my pocket watch. Verna's father gave it to me the day we wed, and it's in the wardrobe at the old house, with thieves sleeping in our beds." },
         { id = "h_heirloom_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Forgotten Heirloom"), days = 3 } },
           text = "Her father's watch, and you brought it back to me. I've nothing to give you but this handshake, and it's a good one." },
-        { id = "h_wagon", text = "We tried to leave for Elwynn, but the wagon broke on the road. So here we are in someone else's empty house, waiting on a wheel." },
+        { id = "h_wagon", text = "We tried to leave for Elwynn, but the wagon broke on the road. So here we are in someone else's empty house, sharing it with the mice and waiting on a wheel." },
         { id = "h_dream", when = { metBefore = true }, text = "I dreamt about the pumpkins again, every one of them as big as a wagon wheel. Then I woke up and remembered, but it was a good dream while it lasted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you'd come a year ago, maybe I'd still be on my farm, and maybe not, but I'd have liked to see you try." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a dog once, a good dog, before the thieves came, and I miss him more than the pumpkins." },
@@ -222,12 +222,12 @@ P:NPC {
       big = true,
       lines = { { id = "co_default", text = "Isn't it? It feels like one. A man's supposed to stand in front of his wife, not behind her holding the lamp." } },
       choices = {
-        { text = "You got her out alive. That's what matters.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "You got her out alive, Theodore. Wagons can be mended.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Then stand in front of her next time.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     pumpkins = {
-      lines = { { id = "pu_default", text = "You remember them? Rows and rows of them, orange right up to the hills, and somebody still remembers. Thank you for that, truly." } },
+      lines = { { id = "pu_default", text = "You remember them? Rows and rows of them, orange right up to the hills, and somebody still remembers. Thank you for that." } },
       choices = {
         { text = "They'll grow again.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
         { text = "Those fields are gone, friend. Best let them go.", next = "BACK", fx = { align = { light = -1 } } },

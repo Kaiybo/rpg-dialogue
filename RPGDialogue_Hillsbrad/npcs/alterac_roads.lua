@@ -49,7 +49,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has been watching my steward since you arrived, and my steward has been watching {pet}. I think they've both concluded the other is dangerous, which makes them the two wisest creatures in the hall." },
       },
       choices = {
-        { text = "I hunt the Syndicate in the open, not from the shadows.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt the Syndicate in daylight, where they can see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A clean shot from cover is still a clean shot.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
@@ -65,7 +65,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every house needs prayers, and mine has buried enough of its own to know it. My people do the work the Light's servants would rather not see done, and I sleep well enough, though I won't pretend I've asked the Light's opinion." } },
+      lines = { { id = "xapriest_default", text = "Every house needs prayers, and mine has buried enough of its own to know it. My people do the work the Light's servants would rather not see done, and I sleep well enough, though I've never once asked the Light's opinion." } },
       choices = {
         { text = "The Light sees all work, my lord, even yours.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some work is best kept out of the Light's sight.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -224,7 +224,7 @@ P:NPC {
   greetings = {
     { id = "g_dome", text = "Mind the barrier, please. It hums when it is pleased and crackles when it is not, and it has not been pleased in some time." },
     { id = "g_xquarter", when = { origin = "human_mage_quarter" }, text = "A student of Stormwind's Mage Quarter, unless I miss my guess, and your masters will have studied here once. Look well at what's left of the city, apprentice, because they surely told you how it looked before." },
-    { id = "g_xdalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "You studied here once; I can see it in the way you look at the barrier. I'm sorry for what became of you, truly, and I'll still ask you not to come any closer than you are." },
+    { id = "g_xdalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "You studied here once; I can see it in the way you look at the barrier. I'm sorry for what became of you, and I mean that, but I'll still ask you not to come any closer than you are." },
   },
 
   notice = {
@@ -236,7 +236,7 @@ P:NPC {
   nodes = {
     xcl_sfk = {
       big = true,
-      lines = { { id = "xcl_sfk_default", text = "Then the Kirin Tor's worst mistake in Silverpine is finally closed, and I'll write it into the council's record myself before someone tidies it away. Arugal called those creatures out of somewhere to fight the Scourge when the rest of us were losing, and they took Pyrewood and Baron Silverlaine's house and, in the end, his reason." } },
+      lines = { { id = "xcl_sfk_default", text = "Then the Kirin Tor's worst mistake in Silverpine is finally closed, and I'll write it into the council's record myself before someone tidies it away. Arugal called those creatures out of somewhere to fight the Scourge when the rest of us were losing, and they took Pyrewood and Baron Silverlaine's house and, last of all, his reason." } },
       choices = {
         { text = "Write all of it down. Dalaran owes Silverpine the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Bury the record. Nobody gains from knowing Dalaran's shame.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -376,7 +376,7 @@ P:NPC {
     },
     teach = {
       lines = {
-        { id = "te_default", text = "It teaches those it can reach, and for now that means the masters in Stormwind and Ironforge carry the burden. When the towers stand again, you may find the door open to you." },
+        { id = "te_default", text = "It teaches those it can reach, and for now that means the masters in Stormwind and Ironforge do the teaching, and grumble about the extra pupils. When the towers stand again, you may find the door open to you." },
       },
       choices = { { text = "I'll hold you to that.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -497,7 +497,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! I'd know the stance anywhere, feet set and shoulders square, and I've not seen it in a free orc since the Syndicate took me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde, here in these camps. The humans keep their dogs on short chains, as they keep me, so perhaps your beast and I would understand each other." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren? I've heard your people can walk as beasts, and I confess I've dreamed of slipping these chains as something with claws." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one who carries the Light. The Syndicate's guards pray to it too, when they think I am asleep, and I wonder if it hears them as well as it hears you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one who still calls on the Light. The Syndicate's guards pray to it too, when they think I am asleep, and I wonder if it hears them as well as it hears you." },
       },
       choices = {
         { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -513,7 +513,7 @@ P:NPC {
         { text = "Do you think the Light hears your captors, Gol'dir?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I can't free you today. I'm sorry.", next = "END" },
       },
-      again = { { id = "h_again", text = "What else? The guards come back at dusk, so be quick." } },
+      again = { { id = "h_again", text = "What else? The guards come back at dusk, and the one with the limp likes to kick the bars, so be quick." } },
     },
     taken = {
       lines = {
@@ -593,7 +593,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Waste them? I use every leaf, and I grind the stems for the next batch. The Society does the grand work in the Undercity with their great vats, but out here a man learns to make a single kingsblood go a very long way." } },
       choices = {
-        { text = "Good. Thrift with the land is a kind of respect.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Good. Waste nothing, and the hills will keep feeding you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your brews poison more than they heal, alchemist.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else, alchemist.", next = "BACK" },
       },
@@ -687,7 +687,7 @@ P:NPC {
         { text = "Would you brew poisons for a paladin's blade, Serge?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day.", next = "END" },
       },
-      again = { { id = "h_again", text = "Something else? The flask on the left is about to do something interesting." } },
+      again = { { id = "h_again", text = "Something else? The flask on the left is about to do something, and I'd rather be standing behind you when it does." } },
     },
     brews = {
       lines = {

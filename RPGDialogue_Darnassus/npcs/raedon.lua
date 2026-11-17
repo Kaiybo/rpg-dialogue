@@ -121,7 +121,7 @@ P:NPC {
         { id = "tr_default", text = "I wish I could take you up on it, but the Alliance wants the cloth itself, counted and stored. Our own weavers cut it to the Sentinels' patterns, and they're very particular about seams." },
       },
       choices = {
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "I'll leave it there. Something else.", next = "BACK" },
         { text = "Goodbye, quartermaster.", next = "END" },
       },
     },

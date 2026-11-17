@@ -5,8 +5,8 @@ local TODO_QUEST = P.TODO_QUEST
 P:Pool {
   id = "guard_menethil", role = "guard", community = "menethil",
   barks = {
-    { id = "b_rain", text = "Rain again. It's always rain again." },
-    { id = "b_hills", text = "There were fires in the hills last night, orc fires." },
+    { id = "b_rain", text = "Rain again. My boots have been wet since the spring muster, and the left one's started to grow something." },
+    { id = "b_hills", text = "There were orc fires in the hills last night, and I've a wager with the cook on whether they come down before supper, so I'm hoping they're punctual." },
     { id = "b_hero", when = { townStanding = { town = "menethil", min = 30 } }, text = "That's the one the Captain sent after Nek'rosh." },
   },
   greetings = {
@@ -23,12 +23,12 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Someone's on the docks! Show yourself or take a swim!" } },
   lines = {
-    { id = "l_default", text = "Orcs in the hills, murlocs in the reeds, raptors on the ridge. And the only road home goes past all three." },
+    { id = "l_default", text = "There are orcs in the hills, murlocs in the reeds and raptors on the ridge, and the only road home goes past all three of them." },
     { id = "l_nekrosh", when = { questDone = TODO_QUEST("Defeat Nek'rosh") }, text = "Nek'rosh is dead, and I slept a whole night through, the first time since I was posted here." },
   },
   choices = { { text = "Stay dry.", next = "END", fx = { standing = { menethil = 1 } } } },
   topics = {
     dragonmaw = { { id = "t_dragonmaw", text = "They're in the hills and on the old dwarf roads, and they've got catapults now, catapults, like it's the Second War all over again." } },
-    _none = { { id = "t_none", text = "Ask the Captain; he's up on the keep wall, glaring at the hills." } },
+    _none = { { id = "t_none", text = "Ask the Captain; he's up on the keep wall, glaring at the hills like they owe him money." } },
   },
 }

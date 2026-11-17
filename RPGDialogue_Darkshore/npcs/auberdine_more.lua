@@ -163,7 +163,7 @@ P:NPC {
     cause3 = {
       big = true,
       lines = {
-        { id = "c3_default", text = "I will, though the bears cannot wait for me to be sure. That is the hard part of this work, friend: sometimes I must act on half an answer, and put down creatures I would rather have saved." },
+        { id = "c3_default", text = "I will, though the bears cannot wait for me to be sure. That is what keeps me awake, friend: sometimes I must act on half an answer, and put down creatures I would rather have saved." },
       },
       choices = {
         { text = "Save every one you can, whatever it costs.", next = "BACK", fx = { align = { order = -1 }, affinity = 2, trait = { kind = 1 } } },
@@ -238,7 +238,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know bears better than I know people, but I listen to both. Ask, and I'll answer what I can." },
     },
-    background = { { id = "tp_bg", text = "I am a druid of the Circle, and I tend the beasts of this shore. Lately that means tending sick ones." } },
+    background = { { id = "tp_bg", text = "I am a druid of the Circle, and I tend the beasts of this shore. Lately that means tending sick ones, and washing bear froth off my sleeves twice a day." } },
     advice = { { id = "tp_ad", text = "If a bear foams at the mouth, do not let it close on you, and wash any bite in the moonwell before you sleep." } },
     furbolgs = { { id = "tp_furbolgs", text = "Terenthis has the furbolgs and I have the bears, and I would not trade with him for anything." } },
     fel_moss = { { id = "tp_moss", text = "The bears do not eat it, so far as I can see, and that is why I doubt it is the whole story." } },
@@ -451,7 +451,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll earn the rest of it.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Then I'll leave it. Something else.", next = "BACK" },
       },
     },
     thin_e = {
@@ -486,7 +486,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ishnu-alah! The birds are fed and rested, so if you're flying, now's a good time." },
+    { id = "g_default", text = "Ishnu-alah! The birds are fed and rested, so if you're flying, go now, before the big grey one starts sulking again." },
     { id = "g_wind", when = { timeOfDay = "night" }, text = "The night wind off the sea is cold up there, so wrap up before you go, and trust the bird." },
   },
 
@@ -582,7 +582,7 @@ P:NPC {
           text = "I am Caylais Moonfeather, and these are my hippogryphs. They'll carry you over the water to Rut'theran Village or south to Astranaar, and farther once you've walked the roads and they know where you mean to go." },
         { id = "h_back", when = { metBefore = true },
           text = "Back for another flight? Feather-in-the-Mist has been looking for you; she remembers riders who don't kick." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds don't like the weight of plate, so hold still on the crossing and let them carry it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds grumble about plate, and one of them bites, so hold still on the crossing and let them carry it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My birds have watched your companion since you climbed the rise, and I think they're deciding whether it's prey." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds are calmer around healers, I find, and they've had little enough calm this season." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be heavy in the saddle, but my birds have carried worse, and they'll carry you." },

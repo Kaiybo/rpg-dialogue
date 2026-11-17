@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "What do you want? There is nothing here worth the walk." },
+    { id = "g_default", text = "What do you want? There is nothing here worth the walk, unless you came for the flies." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still hoping to find something in me worth saving?" },
     { id = "g_better", when = { questDone = TODO_QUEST("Guile of the Raptor") }, text = "Ah, you. Sit, if you like. I find I can stand company again, some days." },
   },
@@ -179,7 +179,7 @@ P:NPC {
       },
     },
     torgan_spirits = {
-      lines = { { id = "ts_default", text = "Our shaman were warlocks when I was taken, and the old ways were a story the elders told. If the spirits truly answer again, then the world changed while I wasn't looking." } },
+      lines = { { id = "ts_default", text = "Our shaman were warlocks when I was taken, and the old ways were a story the elders told. If the spirits really answer again, then the world changed while I wasn't looking." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     thrall = {
@@ -195,7 +195,7 @@ P:NPC {
       },
     },
     camp = {
-      lines = { { id = "c_default", text = "Then you know the smell of it, the mud and the iron and the quiet. Do not let anyone tell you that you should forget it, but do not let it hold you the way it held me." } },
+      lines = { { id = "c_default", text = "Then you know the smell of it, the mud and the rusted iron and the slop bucket nobody emptied. Do not let anyone tell you that you should forget it, but do not let it hold you the way it held me." } },
       choices = { { text = "I won't.", next = "BACK", fx = { affinity = 2 } } },
     },
     forsaken = {
@@ -269,10 +269,10 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "That you carry a heavy blade and a light step, and that you been in places the living don't usually come back from. The spirits don't judge that, mon, they only ask that the shadows you walk in don't follow you home, because a quiet one with a heavy heart be a sad thing to watch." } },
+      lines = { { id = "xrogue_default", text = "That you carry a heavy blade and a light step, and that you been in places the living don't usually come back from. The spirits don't judge that, mon, they only ask that the dark places you walk in don't follow you home, because a sneak with a heavy heart be a sad thing to watch." } },
       choices = {
         { text = "My shadows stay where I leave them, Tor'gan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The shadows are where I live. They can follow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The dark's where I work. Let it follow.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Tor'gan.", next = "BACK" },
       },
     },
@@ -405,7 +405,7 @@ P:NPC {
       choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
     forsaken = {
-      lines = { { id = "fs_default", text = "I don't know, friend, and I won't pretend I do. The spirits don't speak of your kind to me, but they don't turn away from you either, and that be somethin'." } },
+      lines = { { id = "fs_default", text = "I don't know, friend, and I'd be a fool to guess. The spirits don't speak of your kind to me, but they don't turn away from you either, and that be somethin'." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
@@ -511,7 +511,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "That danger is gathering around my husband, and that he will not see it coming, for Drum Fel looks only at the road ahead. If I tell him, he will ride out to meet it with every grunt he has, so I watch the shadows for him, and now perhaps you will too." } },
+      lines = { { id = "xrogue_default", text = "That danger is gathering around my husband, and that he will not see it coming, for Drum Fel looks only at the road ahead. If I tell him, he will ride out to meet it with every grunt he has, so I watch the hills for him, and now perhaps you will too." } },
       choices = {
         { text = "Keeping it from him is right. He'd only charge in.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "He deserves to know. Secrets like that are wrong.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -605,7 +605,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a wind rider? They're saddled and they're restless, so don't keep them waiting." },
+    { id = "g_default", text = "Need a wind rider? They're saddled and restless, so don't keep them waiting, or one of them will start chewing your pack." },
     { id = "g_back", when = { metBefore = true }, text = "You return to Hammerfall. My wind riders know your scent now, and they don't snap at it." },
   },
 
@@ -705,7 +705,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "You can fly out with every grunt in Hammerfall waving, or not at all, for my beasts don't leave without me knowing. Ask Gorkas at Revantusk if you like, and he'll tell you the same, between fish." } },
       choices = {
-        { text = "Fair enough. Rules keep the beasts safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll wave on the way out. Rules keep the beasts safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules are for those who get caught.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Urda.", next = "BACK" },
       },

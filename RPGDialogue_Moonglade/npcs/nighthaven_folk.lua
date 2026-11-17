@@ -139,7 +139,7 @@ P:NPC {
         { id = "xm_default", text = "A mage, reading Darnassian older than Darnassus? The druids would be horrified, and I'd love to see their faces. But no, thank you; I'd like to puzzle it out myself, slowly, with a great deal of tea." },
       },
       choices = {
-        { text = "Fair enough. Good luck with it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then enjoy the tea, and the puzzle.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -237,7 +237,7 @@ P:NPC {
     },
     omen_now = {
       lines = {
-        { id = "on_default", text = "He sleeps in the silt at the bottom of Lake Elune'ara, and every new year, during the festival, he stirs. Elune has blessed him, so he cannot truly die, and his rage has to be quieted again and again." },
+        { id = "on_default", text = "He sleeps in the silt at the bottom of Lake Elune'ara, and every new year, during the festival, he stirs. Elune has blessed him, so he cannot die for good, and his rage has to be quieted again and again." },
       },
       choices = {
         { text = "Is that mercy, or a curse?", next = "omen_mercy" },
@@ -266,7 +266,7 @@ P:NPC {
     },
     elders = {
       lines = {
-        { id = "e_default", text = "Everywhere, in cities and in the wilds, at the places they loved best in life. Some are easy to find and some will take you a long road, which is rather the point." },
+        { id = "e_default", text = "Everywhere, in cities and in the wilds, at the places they loved best in life. Some are easy to find and some will take you halfway across the world, which is rather the point." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -292,7 +292,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Fariel and I have kept the festival for longer than I'd like to admit. It is our joy, and our duty." } },
+    background = { { id = "tp_bg", text = "Fariel and I have kept the festival for longer than I'd like to admit. Every year I swear we'll bake fewer cakes, and every year Fariel bakes more." } },
     advice = { { id = "tp_ad", text = "Visit your elders while they're there to be visited. A coin is a poor substitute for a conversation." } },
     _none = { { id = "tp_none", text = "I'm afraid I think of little but the festival at this time of year. Ask Rabine; he keeps the rest of Nighthaven." } },
   },
@@ -370,7 +370,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the birds, and the birds keep me. There isn't much more to it." } },
+    background = { { id = "tp_bg", text = "I keep the birds fed, and they keep me up half the night squabbling. There isn't much more to it." } },
     advice = { { id = "tp_ad", text = "Hold on tight over Felwood, and don't look down. The birds don't like what they see there either." } },
     _none = { { id = "tp_none", text = "I only know the birds and the sky, I'm afraid. Ask in the village." } },
   },
@@ -448,7 +448,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A wind rider master, posted where the Warchief needs one. That's all there is." } },
+    background = { { id = "tp_bg", text = "A wind rider master, posted in a glade full of elves because the Warchief needs one here. I mind my manners and scrape a lot of droppings." } },
     advice = { { id = "tp_ad", text = "Don't spit on the grass here. They notice." } },
     _none = { { id = "tp_none", text = "Don't know. Ask one of the druids, if they'll talk to you." } },
   },

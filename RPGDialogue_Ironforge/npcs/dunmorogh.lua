@@ -65,7 +65,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because one day you won't be here, and I'll be up a mountain with damp flint and no idea how to manage. I'll take the spark tonight, gladly, but I'd sooner learn the hard way than lean on magic I can't carry." } },
+      lines = { { id = "xmage_default", text = "Because one day you won't be here, and I'll be up a mountain with damp flint and no idea how to manage. I'll take the spark tonight, gladly, but I'd sooner burn my fingers on flint than lean on magic I can't take with me." } },
       choices = {
         { text = "That's wise. A traveller should rely on their own hands.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic is a tool like any other. Use what works.", next = "BACK", fx = { align = { order = -1 } } },
@@ -415,7 +415,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I carry the mail, an' that's the story. It's a short one, an' it's mostly cold." } },
+    background = { { id = "tp_bg", text = "I carry the mail, an' that's the story. It's a short one an' mostly cold, an' twice this winter a ram's tried tae eat the satchel." } },
     advice = { { id = "tp_ad", text = "Gloves. I'll say it again, an' I'll keep sayin' it: gloves." } },
     troggs = { { id = "tp_troggs", text = "Once ye've seen one trogg, ye've seen 'em all, an' I've seen 'em all.", next = "troggs" } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask Grelin; he's from the Senate, so he's meant to know things." } },
@@ -555,13 +555,13 @@ P:NPC {
         { text = "Who's the gnome by your fire?", next = "felix" },
         { text = "I can read the trolls' tracks for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "What would you want a quiet scout to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Are the Frostmane shamans truly dangerous?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are the Frostmane shamans really dangerous?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What are the Frostmane trolls up to, Envoy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the trolls worship, out there in the caves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How shall I deal with the Frostmane, Envoy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Frostmane have shamans who speak to the beasts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does a warlock make your beard itch, Grelin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Are the Frostmane witch doctors truly speaking to spirits, Envoy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do the Frostmane witch doctors really speak to spirits, Envoy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
     },
@@ -634,7 +634,7 @@ P:NPC {
       { id = "tp_knows", text = "I've been watchin' the Frostmane from this camp long enough tae know most o' what goes on in these valleys. Ask me about any o' this." },
     },
     background = { { id = "tp_bg", text = "I'm the Senate's special envoy, an' brother to Senir, who'll tell ye he's the clever one." } },
-    advice = { { id = "tp_ad", text = "Never leave yer camp unattended. Learn from me, for I learned the hard way." } },
+    advice = { { id = "tp_ad", text = "Never leave yer camp unattended. I did once, an' came back tae find a Frostmane troll wearin' my good boots." } },
     frostmane = { { id = "tp_frostmane", text = "They're up to somethin'. I can feel it in my beard, an' my beard's rarely wrong.", next = "trolls" } },
     _none = { { id = "tp_none", text = "That's no' in my report. Ask Senir, in Kharanos." } },
   },
@@ -919,7 +919,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." } },
       choices = {
-        { text = "Fair enough. I'll leave the creature outside, Ragnar.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The creature waits outside, then, Ragnar. It won't like the snow.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A hint of brimstone might improve it, Ragnar.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1005,7 +1005,7 @@ P:NPC {
       },
       choices = {
         { text = "They'll forgive me. The brew will still be there.", next = "xorig_brew2", fx = { trait = { witty = 1 } } },
-        { text = "I feel guilty about it, if I'm honest.", next = "xorig_brew2", fx = { trait = { kind = 1 } } },
+        { text = "I still feel guilty about it.", next = "xorig_brew2", fx = { trait = { kind = 1 } } },
         { text = "Did you ever want to leave the distillery?", next = "xorig_brew2", fx = { trait = { curious = 1 } } },
       },
     },

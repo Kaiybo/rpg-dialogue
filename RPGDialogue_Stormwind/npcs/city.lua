@@ -92,7 +92,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I trust their honesty, which is not the same thing as trusting their judgement. A paladin will tell me exactly what he saw, and then he'll want to arrest everyone in it, which is usually the moment my work ends." } },
       choices = {
         { text = "Justice should be done in the open, Master Shaw.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Some work must stay in the shadows. I understand that.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Some work can't be done in daylight. I understand that.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -601,7 +601,7 @@ P:NPC {
       lines = {
         { id = "practise_l", text = "Counterspells, and I mean every day. A mage who can only cast is a fire with legs; a mage who can stop someone else's spell is a defence, and the Sanctum needs defences." },
         { id = "practise_old", when = { minLevel = 40 },
-          text = "Your timing. You've power enough now, and power is the easy part; the mage who freezes at the right moment beats the one who burns at the wrong one, every time." },
+          text = "Your timing. You've power enough now, and power never saved anyone who used it a heartbeat late; the mage who freezes at the right moment beats the one who burns at the wrong one, every time." },
       },
       choices = {
         { text = "Fire's more useful than defence.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -655,7 +655,7 @@ P:NPC {
       lines = {
         { id = "warlocks_l", text = "That they're a door this city keeps propped open because it's afraid of the draught. I'd close it, and nobody asks me, and the Lamb keeps pouring." },
         { id = "warlocks_lock", when = { class = "WARLOCK" },
-          text = "You're one of Gakin's, and you came up the stairs to ask me that? Then I'll be honest: you're a door this city keeps propped open because it's afraid of the draught." },
+          text = "You're one of Gakin's, and you came up the stairs to ask me that? Then here's the truth of it: you're a door this city keeps propped open because it's afraid of the draught." },
       },
       choices = {
         { text = "The kingdom needs every weapon it can get.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1005,7 +1005,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I'll keep the window open, love, but the shutters stay latched after dark, because this is the Trade District and not your forest. Last time I left one wide, a cat walked in and it turned out to be a guest." } },
       choices = {
-        { text = "Fair enough, Allison. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your house, your rules, Allison. I'll wipe my boots.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then I'll sleep in the Park, where nobody latches the sky.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -30,7 +30,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They smell death and they see the Light, and they can't decide which to trust. They'll fly you all the same, because the mesas have taught them that strange things often turn out to be friends." } },
       choices = {
-        { text = "They'll fly because they're bid to. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They'll fly because they're bid to, same as the rest of us.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let them decide in their own time. I'll wait.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -70,7 +70,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Not at all, because teleporting is a fine trick, but you miss the view. Flying over the Needles at sunset is something no spell can give you, and I'd say that's worth the fare by itself." } },
       choices = {
         { text = "The journey matters as much as arriving.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Arriving quickly is what matters most.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I just need to get there fast.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -136,7 +136,7 @@ P:NPC {
       },
     },
     flying = {
-      lines = { { id = "f_default", text = "Only if you fight the wind. The riders know how the air moves around the needles, and they ride the gusts like a river, so the trick is to sit still and let them work." } },
+      lines = { { id = "f_default", text = "Only if you fight the wind. The riders know how the air moves around the needles, and they ride the gusts like a river, so sit still, let them work, and try not to lose your breakfast over Freewind." } },
       choices = {
         { text = "Do the harpies ever bother them?", next = "flying_harpy" },
         { text = "Something else.", next = "BACK" },

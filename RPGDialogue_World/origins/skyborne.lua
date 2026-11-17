@@ -39,7 +39,7 @@ P:Origin {
       blurb = "I hunted along the cliffs below Siroccas, where the wind would carry an arrow half again as far as it should. The wind down here does me no favors, so I have had to learn to shoot all over again.",
       nudge = { trait = { witty = 1 }, align = { order = -1 } } },
     { id = "skyborne_banaethal_rider", name = "Galestrider rider of the Ban'aethal ruins", class = "HUNTER",
-      blurb = "I rode a Galestrider through the Ban'aethal ruins, hunting whatever had crept in among the old stones. Nobody else wanted the work, and I liked the quiet.",
+      blurb = "I rode a Galestrider through the Ban'aethal ruins, hunting whatever had crept in among the old stones. Nobody else wanted the work, and I liked having nobody to talk to but the bird.",
       nudge = { trait = { curious = 1 }, align = { light = 1 } } },
     { id = "skyborne_windstone_runner", name = "Windstone runner", class = "ROGUE",
       blurb = "I carried windstones between Valanaar and Shen'dramar for buyers who did not want the Council of Elders counting them. With the pylons failing, those stones grew dearer every week, and so did my silence.",

@@ -54,7 +54,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, if I'm honest, because I send tired farmhands and young soldiers through that same door. Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
+      lines = { { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
       choices = {
         { text = "Nobody upstairs will come to harm from me, Falkhaan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What happens in the cellar isn't their business.", next = "BACK", fx = { align = { light = -1 } } },
@@ -158,7 +158,7 @@ P:NPC {
         { text = "Why stand out here all day?", next = "road" },
         { text = "Any advice for the road?", next = "advice" },
         { text = "Who's Melika?", next = "melika", when = { questDone = TODO_QUEST("Rest and Relaxation") } },
-        { text = "The brothers say rest is a kind of prayer.", next = "priest", when = { class = "PRIEST" } },
+        { text = "The brothers say rest is its own prayer.", next = "priest", when = { class = "PRIEST" } },
         { text = "I walked this road as a novice once.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I've been a long way since you sent me south.", next = "far", when = { minLevel = 20 } },
         { text = "My people sleep beneath the stars, not under roofs.", next = "kaldorei", when = { race = "NightElf" } },
@@ -186,9 +186,9 @@ P:NPC {
       },
     },
     cut = {
-      lines = { { id = "c_default", text = "A cut of what, the stew? I get a chair by the fire and a friend who listens, and that's the best pay there is." } },
+      lines = { { id = "c_default", text = "A cut of what, the stew? I get a chair by the fire, a friend who listens and whatever's left in the pot, which beats coin most weeks." } },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Can't argue with free stew.", next = "BACK" },
         { text = "Everyone gets paid somehow.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = -1 } },
       },
     },
@@ -279,7 +279,7 @@ P:NPC {
       lines = {
         { id = "mf_default", text = "Close enough to argue, far enough to forgive it by supper. That's all the family tree you're getting out of me." },
       },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Spoken like a true Elwynn family.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
 
     priest = {

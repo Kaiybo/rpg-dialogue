@@ -468,7 +468,7 @@ P:NPC {
         { id = "t_default", text = "Because Renzik is a reputation, pal. Me, I'm just a goblin in a back room, but Renzik is the guy nobody wants to meet in an alley, and the reputation's gotta be fed." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Then I'll stay out of Renzik's alleys.", next = "BACK", fx = { affinity = 2 } },
         { text = "Does anyone know the real you?", next = "third_real" },
       },
     },
@@ -744,7 +744,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Better than any almanac, though it complains about everything. Maybe your spirits and my foot are kin, eh?" } },
       choices = {
-        { text = "Your kindness is worth more than any almanac, Thomas.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd take your kindness over any almanac, Thomas.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your foot's a fine prophet. Charge for it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

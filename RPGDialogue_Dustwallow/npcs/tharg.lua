@@ -50,7 +50,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Tharg is still listening, so talk." },
-        { id = "h_again2", text = "What else? Tharg has nowhere to be, which is the whole trouble." },
+        { id = "h_again2", text = "What else? Tharg has nowhere to be, which is the whole trouble, and the roof still leaks on Tharg's good side." },
       },
       choices = {
         { text = "What happened to the Stonemaul village?", next = "village" },

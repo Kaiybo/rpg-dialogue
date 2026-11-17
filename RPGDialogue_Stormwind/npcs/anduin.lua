@@ -210,7 +210,7 @@ P:NPC {
         { id = "pp_default2", text = "I'm not supposed to talk about my advisors with people. Bolvar says it's the first rule of being king, and I've already broken lots of the others today." },
       },
       choices = {
-        { text = "Fair enough, Your Majesty.", next = "BACK" },
+        { text = "As you say, Your Majesty.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -17,7 +17,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I hope so, friend, because a world where the dead cannae taste ale is a sad world indeed. The Light's still in ye, which surprises me, an' if the Light's still in ye then maybe the taste is too, an' I'd be glad tae find out." } },
+      lines = { { id = "xfpala_default", text = "I hope so, friend, because a world where the dead cannae taste ale is a sorry place tae be dead in. The Light's still in ye, which surprises me, an' if the Light's still in ye then maybe the taste is too, an' I'd be glad tae find out." } },
       choices = {
         { text = "Duty first, Gregan. Ale can wait.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Pour me one. Duty can wait an hour.", next = "BACK", fx = { align = { order = -1 } } },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? I don't know whose gods you answer to, friend, but most gods I've heard of approve of a decent ale, so we'll get on." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, out here in the wilds. Well, I'll not pretend I like it, but a thirsty soul is a thirsty soul, and I'll not turn you away from my fire." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "Quiet boots in the jungle! Ye'd do well out here, friend, because the beasts of Feralas hear a dwarf coming a mile off, and I've the scars to prove it." },
+          text = "Quiet boots in the jungle! Ye'd do well out here, friend, because the beasts of Feralas hear a dwarf coming a mile off, and I've the teeth marks in my backside to prove it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could ye chill a barrel for me? The heat in these woods spoils a good brew before it's half done, and I'd give my right arm for a cold cellar." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -158,13 +158,13 @@ P:NPC {
     },
     s_1 = {
       lines = { { id = "s_1_l", text = "Some say a dwarf who risks his neck for ale is a fool, and maybe they're right, but they drink it all the same." } },
-      choices = { { text = "A man should chase what he loves, danger or not.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Your life's worth more than a barrel of ale.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "A man should chase what he loves, danger or not.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "No barrel of ale is worth getting eaten over.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The rain, the fruit, and the old magic in the soil, which I swear you can taste in the barley if you drink slowly enough. Some folk say it's the elves' old enchantments, and I say it makes a grand stout, so we're both happy." } },
       choices = {
-        { text = "Then brew honestly, and share it with whoever passes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then brew it fair, and share it with whoever passes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Bottle it and sell it dear. That's the real magic.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -220,7 +220,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "Must I? Friend, my crates belonged on this beach until one of those giants sat on them, so yes, I must. You druids can talk to nature all you like, but nature has never once paid its bills." } },
       choices = {
         { text = "Shrink only the ones that threaten you, then.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Business is business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Nature doesn't pay bills. Shrink away.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -533,7 +533,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They speak to no one, and that is the trouble. They were proud in life and prouder now, but if the land itself remembers what they did, it may answer you." } },
+      lines = { { id = "xdsham_default", text = "They speak to no one, and that is the trouble. They were proud in life and prouder now, but if the earth here remembers what they did, it may answer you." } },
       choices = {
         { text = "Let the dead rest. I won't disturb them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "If they know something, I'll make them talk.", next = "BACK", fx = { align = { light = -1 } } },
@@ -571,7 +571,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "So the stories say, though none of the Sentinels have gone in and come back with a clear answer. Whatever lingers there has fed on the arcane for ten thousand years, and I would not want to meet it, even with you beside me." } },
+      lines = { { id = "xmage_default", text = "So the stories say, though none of the Sentinels have gone in and come back with a clear answer. Whatever haunts that place has fed on the arcane for ten thousand years, and I would not want to meet it, even with you beside me." } },
       choices = {
         { text = "Their knowledge should be recovered, whatever the risk.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Some knowledge should stay buried in ruins.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -662,7 +662,7 @@ P:NPC {
         { text = "Should the ruins be studied or sealed?", next = "s_1" },
         { text = "Are there still Highborne within those ruins?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'm no satyr, Angelas.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What lingers in the Highborne ruins, Angelas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What haunts the Highborne ruins, Angelas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Highborne deserve what became of them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lies in the highborne ruins besides ogres, Angelas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do the beasts avoid the highborne ruins, Angelas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -907,7 +907,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "No, because every hide I work was taken honestly, by Hadoken or by hunters I trust. A druid wears the shape of a beast for a while, and I wear its skin for a while, and I think the Earth Mother sees little difference so long as we both honor it." } },
+      lines = { { id = "xdruid_default", text = "No, because every hide I work was taken fairly, by Hadoken or by hunters I trust. A druid wears the shape of a beast for a while, and I wear its skin for a while, and I think the Earth Mother sees little difference so long as we both honor it." } },
       choices = {
         { text = "You honor the beasts well. I respect that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Wearing a shape and wearing a skin are not the same.", next = "BACK", fx = { align = { light = -1 } } },

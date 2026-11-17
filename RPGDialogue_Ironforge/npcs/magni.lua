@@ -145,7 +145,7 @@ P:NPC {
         { id = "h_again3", when = { race = "Dwarf" }, text = "Speak freely. A king hears enough 'Yes, my king' tae last him." },
       },
       choices = {
-        { text = "Do dwarves and druids truly have anything in common, Your Majesty?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Do dwarves and druids really have anything in common, Your Majesty?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What troubles Ironforge?", next = "troubles" },
         { text = "Tell me about your family.", next = "family" },
         { text = "Why did a king take up digging for the past?", next = "league" },
@@ -351,7 +351,7 @@ P:NPC {
       },
       choices = {
         { text = "What did it do in steel?", next = "blade" },
-        { text = "That's a kind of faith.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That sounds like faith to me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Steel and sense have served you better than prayer.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
@@ -508,7 +508,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the eldest o' three brothers, born tae the throne, an' I wasnae sure I'd make a decent king. Some mornings I'm still no' sure.", next = "family" } },
     advice = { { id = "tp_ad", text = "Keep yer word, keep yer axe sharp, an' keep the Senate waitin' just long enough tae be polite." } },
     dark_iron = { { id = "tp_dark_iron", text = "Thaurissan's get. I'll no' waste my breath cursin' them when I've a mountain tae hold against them.", next = "dark" } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "A good city, poisoned from inside. Mekkatorque carries the weight of it, an' I'd carry it for him if he'd let me." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "A good city, poisoned from inside. Mekkatorque blames himself for it, an' I'd take that off his shoulders if he'd let me." } },
     explorers_league = { { id = "tp_league", text = "The League was my idea, an' my best one. Ask Magellas; he'll agree wi' me, at length." } },
     frostmane = { { id = "tp_frostmane", text = "Grelin's business, an' the Senate's. I keep my own counsel on the Frostmane. They've cost my house more than a few sheep." } },
     troggs = { { id = "tp_troggs", text = "Up from the deep places, into Gnomeregan first an' now our quarries. Somethin' woke them. I'd like tae know what before it wakes worse." } },

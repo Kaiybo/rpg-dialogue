@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I've never looked, and I never will, because a bank that looks inside its boxes is just a cupboard. The boxes are warm to the touch, mind, and one of them hums on rainy days." } },
       choices = {
-        { text = "Good. A trust kept is worth more than curiosity.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Good. Some boxes are better left shut.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'd have peeked by now. Curiosity's half of magic.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -85,7 +85,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "More than you'd think, because a fine pelt is worth more than a pouch of silver if you wait for the right buyer. We had a whole winter's worth of wolf pelts from Duskwood last year, and the smell lingered for a month." },
+        { id = "xhuntcl_default", text = "More than you'd think, because a fine pelt fetches more than a pouch of silver if you wait for the right buyer. We had a whole winter's worth of wolf pelts from Duskwood last year, and the whole vault smelled of wet dog until spring." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can't come into the vault, I'm sorry to say. The rules are very clear on beasts, though I'll admit it's very sweet." },
       },
       choices = {
@@ -156,7 +156,7 @@ P:NPC {
       },
     },
     thief2 = {
-      lines = { { id = "t2_default", text = "The guards took him to the Stockade, and I'm told he's still there with the Defias who were thrown in after him. I don't like to think about it, if I'm honest; I'd rather think about the locks." } },
+      lines = { { id = "t2_default", text = "The guards took him to the Stockade, and I'm told he's still there with the Defias who were thrown in after him. I don't like to think about it, so I think about the locks instead." } },
       choices = {
         { text = "Good. A thief belongs behind bars.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Desperate people try desperate things. Hard to blame him.", next = "BACK", fx = { align = { order = -1 } } },
@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Letters from home, mostly, and keepsakes from people they couldn't save. I've seen priests open a box just to look at a ribbon, and then close it again without taking anything out." } },
       choices = {
-        { text = "We carry the ones we lost. That's part of the calling.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I still say their names at night. That's part of the calling.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keepsakes only weigh you down. Better to let them go.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -451,7 +451,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Some of them, about the sick they've healed and the dead they've buried, and some just stand there quietly, which tells its own story. I listen either way, because I think everyone should have somebody at the door." } },
       choices = {
-        { text = "Listening is a kind of healing, John.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sometimes an ear does more than a bandage, John.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some stories are better left untold, John.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -460,7 +460,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Near enough, from the mud on their boots and the look in their eye. Paladins come in tired and leave lighter, and I like to think the bank has something to do with that." } },
       choices = {
-        { text = "A welcome at the door is worth more than gold, John.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Folk remember who held the door for them, John.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "It's the gold that lightens us, John, not the welcome.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -943,7 +943,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than last month, because the leatherworkers can't keep up with the new adventurers. A clean wolf hide fetches a fair price, but a torn one's worth half, so skin carefully." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a handsome creature, and well kept. I'll tell you honestly, a beast like that would fetch a fortune, if anyone were fool enough to sell one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a handsome creature, and well kept. I'll say this for nothing: a beast like that would fetch a fortune, if anyone were fool enough to sell one." },
       },
       choices = {
         { text = "I'll skin carefully and sell honestly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -979,7 +979,7 @@ P:NPC {
           text = "Hello, dear. You've a sharp eye for a bargain, I can tell, and I'd rather you used it on the listings than on the bidders' purses." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Hello, dear. A mage at the auction always makes me a little nervous, because I'm never quite sure the gold you bid is really there." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gear's worth more than you think, I'd wager, and I'll tell you honestly what it'll fetch." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Your gear would fetch more than you think, I'd wager, and I'll tell you to the copper what it's worth." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have a pack full of hides, I expect, and I'll tell you honestly what each is worth, which is more than Chilton will, bless him." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my podium! I don't see many of your people bid, dear, so I'll give you the same sensible advice I give everyone, and you'll ignore it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want to sell your bags, I suppose, because your sort always end up with more bags than sense." },
@@ -1855,7 +1855,7 @@ P:NPC {
     rogues = {
       lines = { { id = "r_default", text = "Flash powder isn't a crime, and half the guard's own scouts buy it from me. If I asked every customer what they meant to do with their reagents, I'd sell nothing at all." } },
       choices = {
-        { text = "Fair enough. What they do isn't your concern.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Leave it, then. What they do isn't your concern.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A careful seller should still keep an eye out.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

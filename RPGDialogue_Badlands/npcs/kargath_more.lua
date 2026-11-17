@@ -99,7 +99,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp's fire would scare the coyotes off the grain sacks, I suppose, if it didn't burn the sacks first." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll move quieter than my scouts, but can you read the ground, or do you only know how to hide on it?" },
         { id = "h_shamancl", when = { class = "SHAMAN" },
-          text = "A shaman. You can tell me which way the wind's turning before I see the dust, and that alone makes you worth more than half my scouts." },
+          text = "A shaman. You can tell me which way the wind's turning before I see the dust, and that alone beats half my scouts, who couldn't smell rain in a flood." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. You'll be useful, then, if you can run as a cat, because the coyotes out here are faster than any orc I've ever trained." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
@@ -437,7 +437,7 @@ P:NPC {
       lines = {
         { id = "rg_default", text = "Ah, you don't want to know, and the grunts who drink it don't want to know either. It keeps them on their feet in the heat, and that be all anybody asks." },
       },
-      choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = { { text = "Huh. Something else, then.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     reagents_deeper = {
       lines = {
@@ -719,7 +719,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Waterskins, bandages, food that won't spoil in the heat. That's what you need, so buy it." },
+    { id = "g_default", text = "Waterskins, bandages, food that won't spoil in the heat. That's what you need, so buy it. The jerky's coyote, but nobody's died of it yet that I know of." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more water? Good, because the ones who don't come back for water don't come back at all." },
   },
 

@@ -49,7 +49,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If you can follow their scouts back to the keep, I'll know which gate they watch and which they don't. They saw us coming because we marched straight up the road like fools, and I won't make that mistake twice." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have smelled them in the shadows long before we walked into that courtyard. Keep it close at Durnholde, and listen when it growls." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have smelled them behind those broken walls long before we walked into that courtyard. Keep it close at Durnholde, and listen when it growls." },
       },
       choices = {
         { text = "I'll find them, and you can face them openly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -71,7 +71,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "We did, and he was the first to fall, because the Syndicate knew to aim at the one calling the lightning. If the spirits could not save him, I have to wonder whether these hills are too full of the dead for them to hear us." } },
       choices = {
         { text = "Then I'll honor him by freeing Drull and Tog'thar.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Next time I'll strike the Syndicate from the shadows, before they aim.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Next time I'll knife the Syndicate before they nock an arrow.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -85,7 +85,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "They knew the ruins better than we did, and they waited in the shadows until we were in the courtyard. I fought my way out alone, and I've wondered every day since who told them we were coming." } },
+      lines = { { id = "xrogue_default", text = "They knew the ruins better than we did, and they waited behind the fallen wall until we were in the courtyard. I fought my way out alone, and I've wondered every day since who told them we were coming." } },
       choices = {
         { text = "Let me find who betrayed you. They should answer for it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The past is done. Fight for the living now.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -125,11 +125,11 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde's warlocks sold us to the demons once, and no orc who remembers the camps has forgotten it, so I'll be watching you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, someone in this town who fights with a blade and still breathes air. Sit, and tell me you've come to help me pay back the Syndicate." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde. The Syndicate hid in the Durnholde ruins like rats, and I'd have given much for someone who could track rats." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are one of the dead, and you carry the Light like the human knights who guarded the camps. I do not know what to make of that, but I have seen stranger things since I came to these hills." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are one of the dead, and you call on the Light like the human knights who guarded the camps. I do not know what to make of that, but I have seen stranger things since I came to these hills." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I sharpen." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening. This blade's got more nicks than a quilboar's hide, so I'll be at it a while." },
       },
       choices = {
         { text = "Would a druid have saved them, Krusk?", next = "druid_q", when = { class = "DRUID" } },
@@ -659,7 +659,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I have nowhere to be." },
-        { id = "h_again2", text = "Go on, tell me about the fighting." },
+        { id = "h_again2", text = "Go on, tell me about the fighting. The most action I've seen this week was a rat in the grain store, and the rat won." },
       },
       choices = {
         { text = "Southshore's guards are soft. Let me test them.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -702,7 +702,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhwar_default", text = "I'm sure they are, and I'm sure you'd enjoy it, but the High Executor wants raids planned, not wandered into. Ask Darthalia first, and then go and test them as hard as you like." } },
       choices = {
-        { text = "Fair enough. I'll ask before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Understood. I'll ask before I strike.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't wait for permission to fight humans.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
@@ -771,7 +771,7 @@ P:NPC {
       },
       choices = {
         { text = "Send help that can survive, Tallow. Lives aren't cheap.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair enough. The weak ones only slow the rest down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good. The weak ones only slow the rest down.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Tallow.", next = "BACK" },
       },
     },
@@ -789,13 +789,13 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "You can call fire and close wounds, so you're more use than half the recruits I send to Hammerfall. What I don't trust is the talking, because the spirits never asked the dead what we wanted, and I don't see why I should care what they want now." } },
       choices = {
         { text = "The spirits mourn the dead too. They'd welcome you, given the chance.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. The spirits can wait, but Hammerfall can't.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The spirits will keep. Hammerfall won't.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "That's what I'd like to know, since they've been moving men around the Arathi Highlands like they mean to finish the orcs off for good. A rogue who came back with their plans would be worth more than a dozen warriors." } },
+      lines = { { id = "xrogue_default", text = "That's what I'd like to know, since they've been moving men around the Arathi Highlands like they mean to finish the orcs off for good. A rogue who came back with their plans would be worth a dozen warriors to me." } },
       choices = {
         { text = "I'll find their plans and bring them back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the orcs handle Hammerfall themselves.", next = "BACK", fx = { align = { order = -1 } } },
@@ -920,7 +920,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "The bats mind everything, and they complain constantly in a pitch only they can hear. They're well fed and they fly far, and I think they'd rather do this than hunt moths in a cave, but I'm only guessing." } },
       choices = {
-        { text = "They're cared for and useful. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They're fed and useful, which is more than most soldiers get.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let them rest more often. They're not machines.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -993,7 +993,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Zarise, bat handler. They fly to the Undercity and to Hammerfall, and over the mountains to Revantusk, and they'll bring you back if you're polite to them." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Night is when they like to fly, and so do I, if I'm honest. Southshore's archers can't see a bat in the dark." },
+          text = "Night is when they like to fly, and so do I, though my knees hate the landings. Southshore's archers can't see a bat in the dark." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The bats like your kind, I've noticed, since you move quietly and don't flap your arms about the way the warriors do." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You could teleport, I suppose, but the bats are cheaper and they don't drop you in the wrong city, unless you've been rude to them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the shield on the ground before you climb on, because the bats don't like being thumped with it every time you turn around." },
@@ -1002,7 +1002,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't mind you, though the living will, when you come down out of the sky glowing over their fields." },
       },
       again = {
-        { id = "h_again", text = "Anything else? They're restless." },
+        { id = "h_again", text = "Anything else? They're restless, and when they're restless they drop things on the roof I'd rather not name." },
       },
       choices = {
         { text = "Do the wind spirits trouble your bats in flight?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1077,7 +1077,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Not as often as I'd like, for the living spend more coin than the dead. Your folk are the friendliest of them, and you pay fair and don't stare, which I appreciate more than you know." } },
+      lines = { { id = "xdruid_default", text = "Not as often as I'd like, for the living spend more coin than the dead. Your folk are the friendliest of them, and you pay fair and don't stare, which is more than I can say for the Deathguards." } },
       choices = {
         { text = "The Horde should stand together, living or dead.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Trust the Forsaken? Not yet, Kayren. Not fully.", next = "BACK", fx = { align = { honor = -1 } } },

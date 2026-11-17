@@ -225,7 +225,7 @@ P:NPC {
       lines = { { id = "tb_default", text = "Because we kept faith. When the old Horde broke, the Witherbark and Vilebranch ran home and spat on the orcs, but we could not forget who we fought beside. So now they call us weaklings, and we call them traitors, and only one of us be right." } },
       choices = {
         { text = "Couldn't you have freed the orcs?", next = "tribes_camps" },
-        { text = "Loyalty is worth more than numbers.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "I'd take ten loyal Revantusk over a hundred Vilebranch.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
         { text = "Loyalty left you small and hunted. That's a poor bargain.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
       },
     },
@@ -513,7 +513,7 @@ P:NPC {
     mage = {
       lines = { { id = "mg_default", text = "Served you, maybe. It never served a troll in this forest, not once. Keep it in your sleeve while you stand by my stables, and we be friends enough." } },
       choices = {
-        { text = "Fair enough. I'll keep it sheathed.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll keep it up my sleeve, then.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -878,7 +878,7 @@ P:NPC {
       choices = {
         { text = "Patience is its own reward. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Results are what matter. The waiting is wasted time.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough. Let's talk of something else.", next = "BACK" },
+        { text = "I'll leave you and the fish to it.", next = "BACK" },
       },
     },
     pagle = {
@@ -1121,7 +1121,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Lard know fish, and beds, and who is fightin'. Ask Lard." } },
     background = { { id = "tp_bg", text = "Lard was ogre in the mountains. Now Lard is ogre by the sea, which is better.", next = "ogre" } },
-    advice = { { id = "tp_ad", text = "Always eat lunch before Vilebranch find you. Lard learn that the hard way." } },
+    advice = { { id = "tp_ad", text = "Always eat lunch before Vilebranch find you. Lard lose a whole roast boar that way, and Lard still sulk about it." } },
     _none = { { id = "tp_none", text = "Lard not know that, but Lard know fish!" } },
   },
 }
@@ -1292,7 +1292,7 @@ P:NPC {
     orc_gnome = {
       lines = { { id = "og_default", text = "Neither did I, till one of them saved my hide. I'm not asking you to like them, friend; I'm asking you to bring my tools back." } },
       choices = {
-        { text = "Fair enough. I'll find them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Tools, not friendship. Got it. I'll find them.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1301,7 +1301,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Iron, steel, and what the Vilebranch broke this week. Ask." } },
     background = { { id = "tp_bg", text = "A smith since I was young enough to burn myself every day. A gnome's hammer taught me most of it.", next = "gnome" } },
-    advice = { { id = "tp_ad", text = "Mend before you need to, not after. Broken armor never warns you." } },
+    advice = { { id = "tp_ad", text = "Mend before you need to. A belt that snaps mid-swing leaves you fighting with your trousers round your knees." } },
     _none = { { id = "tp_none", text = "Can't hammer that into shape for you, friend. Ask somebody else." } },
   },
 }

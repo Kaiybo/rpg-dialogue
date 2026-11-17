@@ -255,7 +255,7 @@ P:NPC {
         { id = "xlk_default", text = "Imp rate's three silver a week, voidwalker's five on account of the size, and anything with wings pays double because it blocks the view. Pay up front, and keep it off the furniture." },
       },
       choices = {
-        { text = "Fair enough. I'll pay what's owed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Three silver for the imp, then. Up front.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Try collecting it from the demon yourself.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -399,7 +399,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll keep that to myself, Zizplink.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Interesting. That might be worth something to someone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Letters he doesn't send? Somebody would pay for those.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -653,7 +653,7 @@ P:NPC {
         { id = "xpa_default", text = "Sir Howard the Stout opened the gate and rode at the Horde camp with the Light coming off him like noon, and I watched it from the wall. He didn't come back, and I've been sitting down ever since." },
       },
       choices = {
-        { text = "He died well. That's what matters.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He died well, and you saw it. Someone should.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Dying well is still dying, Gray.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -843,7 +843,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll heal them, but I won't help you profit.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Repeat business keeps fighters paid.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Repeat business keeps fighters paid. I'll take your coin.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -872,7 +872,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlk_default", text = "Really, truly! Under supervision, with a fence, a waiver, and a goblin standing well back with a bucket. The crowd's gonna scream, pal, and screaming is the best sound a ticket booth ever hears." },
+        { id = "xlk_default", text = "Really, really! Under supervision, with a fence, a waiver, and a goblin standing well back with a bucket. The crowd's gonna scream, pal, and screaming is the best sound a ticket booth ever hears." },
       },
       choices = {
         { text = "Demons aren't entertainment. Forget it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -912,7 +912,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Table for one? Every table's for one, since nobody eats here in pairs." },
+    { id = "g_default", text = "Table for one? Every table's for one, since nobody eats here in pairs, and the chowder's only got the one bone in it this week." },
     { id = "g_menu", text = "It's boar or fish, same as yesterday, and same as forever." },
   },
 

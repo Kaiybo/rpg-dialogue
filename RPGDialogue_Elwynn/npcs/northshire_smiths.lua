@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll be in robes, I suppose, but come back when you've learned that robes don't stop a kobold's pick." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now that's a sight, because I made half the plate Sammuel's students wear, and I like to see it come back with honest dents." },
         { id = "h_default", text = "Godric Rothgar, armorer to the Abbey. Every recruit who walks out of Northshire walks out in something I've hammered, so mind you bring it back unbroken." },
-        { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane will teach you to swing, but I'll teach you that a shield is worth more than any sword." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, and a fresh one by the look of you. Llane will teach you to swing, but I'll teach you to love a shield, because a kobold's pick goes through a sword arm far easier than oak." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll not be wanting my plate, I expect, though you'll be glad of whoever's wearing it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -127,7 +127,7 @@ P:NPC {
         { text = "Do the recruits listen to you?", next = "recruits" },
         { text = "Do you think mages owe your plate-wearers something?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have you ever made a cage for a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Why is a shield worth more than any sword, Godric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why would I want a shield over a better sword, Godric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you make mail that lets me draw a bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever pray over your work, Godric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin know about plate, Godric?", next = "xapala", when = { class = "PALADIN" } },
@@ -153,7 +153,7 @@ P:NPC {
       },
     },
     recruits = {
-      lines = { { id = "rc_default", text = "Half of them do. The other half learn the first time a kobold catches them without a helm, and then they listen very well indeed." } },
+      lines = { { id = "rc_default", text = "Half of them do. The other half learn the first time a kobold catches them without a helm, and then they listen very well, usually with a lump the size of an egg." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -238,7 +238,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Faster than I can sew them, because Anetta sends them into the vineyards after wounded recruits, and the brambles take the hems. I don't mind the work, truly, because a torn robe means somebody went where they were needed." } },
+      lines = { { id = "xapriest_default", text = "Faster than I can sew them, because Anetta sends them into the vineyards after wounded recruits, and the brambles take the hems. I don't mind the work, though I've pricked my thumb so often the Brothers think I'm doing penance." } },
       choices = {
         { text = "A torn hem is a mark of service, Dermot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They should be more careful. Robes cost coin.", next = "BACK", fx = { align = { light = -1 } } },
@@ -372,7 +372,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a proper look about it. Is it from the mountains? It's got the shoulders for it." },
       },
       choices = {
-        { text = "Whatever the weapon, a clean shot's what matters.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever the weapon, I'll aim for a clean kill.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A gun, for the noise alone.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -596,8 +596,8 @@ P:NPC {
       choices = {
         { text = "Why walk, instead of staying in the Abbey?", next = "walk" },
         { text = "I heard you buy ore from Redridge.", next = "ink" },
-        { text = "Do Khelden's students truly burn themselves so often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Does the Light truly reject a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do Khelden's students really burn themselves that often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Light really turn a warlock away, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you mend many warriors, Brother Paxton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will the Light mend a hunter's beast, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's the hardest wound you've mended on these grounds, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

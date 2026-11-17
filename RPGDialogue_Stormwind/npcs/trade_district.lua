@@ -543,13 +543,13 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "For walls, windows and getting out of the places you shouldn't have got into, which is most of them. I sell it to adventurers and burglars alike, and I've stopped asking which is which, because they all say adventurer." } },
       choices = {
         { text = "I'm an adventurer, Thurman, and that's the honest truth.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair enough. Most of us are a bit of both.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Most of us are a bit of both, I reckon.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the spell runs dry when you do, and I've sold a skin to every mage who ever fainted in the Badlands thinking they'd conjure another drink in a minute. Pride never kept anyone alive on a long road." } },
+      lines = { { id = "xmage_default", text = "Because the spell runs dry when you do, and I've sold a skin to every mage who ever fainted in the Badlands thinking they'd conjure another drink in a minute. They come back sunburnt and sheepish, and they always buy two." } },
       choices = {
         { text = "Then I'll carry water and plan properly.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll trust my magic. Waterskins are for the unprepared.", next = "BACK", fx = { align = { order = -1 } } },
@@ -878,7 +878,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Only when the Cathedral tells me to, and then it's always a warning, which I'll be honest is my least favourite kind of news to cry. I'd much rather shout about heroes coming back from Blackrock, though between you and me, half of those heroes are your sort and nobody ever mentions it." },
+        { id = "xlock_default", text = "Only when the Cathedral tells me to, and then it's always a warning, which is my least favourite kind of news to cry, since nobody ever tips a man for a plague warning. I'd much rather shout about heroes coming back from Blackrock, though between you and me, half of those heroes are your sort and nobody ever mentions it." },
       },
       choices = {
         { text = "Then cry the warnings, Goodman. The city needs them.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1182,7 +1182,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I keep its perch empty for a season and write its name in the back of my ledger, and then I train another, because the roost can't stand idle. People think I'm soft for it, but every one of those birds died carrying somebody's message or somebody's son." } },
       choices = {
-        { text = "Remembering them is right. They served as truly as any soldier.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Remembering them is right. They bled the same as any soldier.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A bird's a bird, Dungar. Train another and move on.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1242,7 +1242,7 @@ P:NPC {
       lines = { { id = "rw_default", text = "Once, no. You walk a road once so you never have to walk it twice. Anyone who walks it twice is just being stubborn, and I don't hold with stubborn." } },
       choices = {
         { text = "Some roads are worth walking twice.", next = "BACK", fx = { align = { order = -1 }, trait = { stubborn = 1 } } },
-        { text = "Fair enough. I'll fly.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then I'll fly, and try to keep my breakfast down.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
 
@@ -1398,7 +1398,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I think it's a great deal more reliable than my brother, and less reliable than a well-brewed potion. I've never once had a potion refuse to work because I'd been sinning, and I'm not certain the Light can say as much." } },
       choices = {
         { text = "The Light doesn't fail, Morgan. People do.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. I'll carry potions and trust them more.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Then I'll stuff my pack with potions and pray a bit less.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1470,7 +1470,7 @@ P:NPC {
       },
     },
     william_goldshire = {
-      lines = { { id = "wg_default", text = "I miss the quiet. I don't miss the inn's ale or the stories William tells over it, and I'd thank you not to repeat that to him." } },
+      lines = { { id = "wg_default", text = "I miss the crickets at night and the smell of the bread ovens. I don't miss the inn's ale or the stories William tells over it, and I'd thank you not to repeat that to him." } },
       choices = { { text = "Not a word.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -1573,7 +1573,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Reinforced leather and a good pair of boots, and more of it every month, with so many going out to fight in Westfall and Redridge. I've never seen trade like it, and I'll be honest, I'm a little ashamed of how well we're doing." },
+        { id = "xhuntcl_default", text = "Reinforced leather and a good pair of boots, and more of it every month, with so many going out to fight in Westfall and Redridge. I've never seen trade like it, and some nights I count the till and feel a bit sick about where the coin comes from." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't need armour, I suppose, which is a pity, because I'd sell it some. Just a jest, friend, just a jest." },
       },
       choices = {

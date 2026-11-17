@@ -341,7 +341,7 @@ P:NPC {
       },
     },
     bear_end = {
-      lines = { { id = "be_default", text = "Only that I want my stash more than I want revenge, so bring the food back first. A full belly's worth more than a bear's hide out here." } },
+      lines = { { id = "be_default", text = "Only that I want my stash more than I want revenge, so bring the food back first. Ye cannae eat a bear's hide, more's the pity." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     life = {

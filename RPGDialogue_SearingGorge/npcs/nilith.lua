@@ -148,7 +148,7 @@ P:NPC {
         { id = "xt_default", text = "Slowly, with a cold needle and a colder temper, and you must spin it while it's still a little warm from the rock, or it frays. I'll not tell you more than that for free, since a tailor's secrets are her living." },
       },
       choices = {
-        { text = "Fair enough. Secrets are earned.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Then I'll earn them, a stitch at a time.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Craft should be shared, not hoarded.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

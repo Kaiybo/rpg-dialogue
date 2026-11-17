@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I know, I know, I'm out here in the middle of nowhere! Come in out of the sun, if you can find any shade." },
+    { id = "g_default", text = "I know, I know, I'm out here in the middle of nowhere! Come in out of the sun, if you can find any shade, and shake your boots out first; the scorpids like boots." },
     { id = "g_orn", when = { questActive = TODO_QUEST("Gahz'ridian") }, text = "Keep the helmet on and keep walking! The ornaments are everywhere, once you know how to look." },
     { id = "g_orn_done", when = { questDone = TODO_QUEST("Gahz'ridian") }, text = "My favourite helper! You did give the helmet back, didn't you? I keep counting and coming up one short." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, because I've had nobody to talk to but the pillar, and the pillar's a terrible listener." },

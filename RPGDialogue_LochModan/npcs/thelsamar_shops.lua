@@ -127,7 +127,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The birds are restless, so I'll keep one eye on the roost." },
-        { id = "h_again2", text = "Ask away, friend." },
+        { id = "h_again2", text = "Ask away, friend, but stand clear o' the roost, for the big grey's been eatin' trout all week." },
       },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -265,7 +265,7 @@ P:NPC {
         { id = "xro_default", text = "Quieter? Mail's meant tae be heard, so the trogg knows he's in for a fight. If ye want somethin' that won't clink, ye want leather, an' that means a leatherworker an' no' a smith." },
       },
       choices = {
-        { text = "Fair enough. A fight should be heard coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Good. A fight should be heard coming.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A fight they don't hear coming is half won.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "What's the trouble with the troggs?", next = "troggs" },
       },
@@ -500,7 +500,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anythin' else, love?" },
-        { id = "h_again2", text = "Ask away, while the oven warms." },
+        { id = "h_again2", text = "Ask away, while the oven warms. If ye see a cat wi' a sausage, the cat's no' mine, but the sausage is." },
       },
       choices = {
         { text = "Let me buy some bread.", next = "BUSINESS" },
@@ -686,7 +686,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Go on, then." },
+        { id = "h_again2", text = "Go on, then, but keep yer pipe away from the powder, for I've lost one set o' eyebrows already." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },

@@ -242,7 +242,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Thank 'em? I'd thank 'em if they flew down here already seasoned. The buzzards out here eat whatever falls over in the heat, so if anybody ought to be thanking somebody, it's them, for me cleaning the place up." } },
       choices = {
         { text = "Thank them anyway. Every life taken deserves respect.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. A buzzard's just a meal waiting for sauce.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Suits me. A buzzard's just a meal waiting for sauce.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

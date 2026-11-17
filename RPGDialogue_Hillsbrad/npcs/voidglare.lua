@@ -118,7 +118,7 @@ P:NPC {
 
     research = {
       lines = {
-        { id = "re_default", text = "The binding of elementals, chiefly, which the wizards of Dalaran do better than anyone. Keeper Bel'varil collects their stone tokens and bracers for me, and I take them apart to see how the trick is done." },
+        { id = "re_default", text = "The binding of elementals, chiefly, which the wizards of Dalaran do better than anyone. Keeper Bel'varil collects their stone tokens and bracers for me, and I take them apart to see how the binding's stitched together." },
       },
       choices = {
         { text = "Is your work as good as theirs?", next = "research_good" },
@@ -147,7 +147,7 @@ P:NPC {
 
     apprentice = {
       lines = {
-        { id = "ap_default", text = "Did you indeed? Then you know the halls I'm trying to get into, and you know how they look at the likes of us now. Tell me everything you remember, slowly, and leave nothing out." },
+        { id = "ap_default", text = "Did you, now? Then you know the halls I'm trying to get into, and you know how they look at the likes of us now. Tell me everything you remember, slowly, and leave nothing out." },
       },
       choices = {
         { text = "I remember the libraries. And the locks.", next = "BACK", fx = { affinity = 2 } },
@@ -209,7 +209,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've bracers to sort." },
-        { id = "h_again2", text = "Ask away. I've time, if not much else." },
+        { id = "h_again2", text = "Ask away. I've time, if not much else, since the Magus pays in promises and the odd stale biscuit." },
       },
       choices = {
         { text = "How do the wizards bind elementals?", next = "binding" },

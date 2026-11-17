@@ -11,7 +11,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
   notices = { "race", "class" },
   impression = {
-    first = "Cairne Bloodhoof has the weight of a mountain and the warmth of a hearth, and he speaks of Mulgore as a home long waited for. He means to keep it, and I would not care to test him.",
+    first = "Cairne Bloodhoof is huge, grey in the muzzle and kinder than I expected, and he speaks of Mulgore as a home long waited for. He means to keep it, and I would not care to test him.",
     third = "{name} met Cairne Bloodhoof, who leads the tauren tribes of Mulgore from the High Rise of Thunder Bluff.",
   },
 
@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_tauren", when = { race = "Tauren" }, text = "Tauren-born! The plains go with you wherever you walk; I see them in your step." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you've come again. An old bull likes faces he knows." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, young one, and the wind on the High Rise has missed you. Come closer, and let an old bull see how the road has treated you." },
-    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you stood on this rise, and you return with the weight of many battles on your shoulders. The Earth Mother has kept you, and I'm grateful to her for it." },
+    { id = "g_away_long", when = { away = { min = 60, levels = 5 } }, text = "It has been {away} since you stood on this rise, and you come back with more nicks in your armour than you left with. The Earth Mother has kept you, and I'm grateful to her for it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When we first met you were a calf with a weapon, and now you stand like a warrior of the plains. I've lived long enough to know how rare that is." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The people of Thunder Bluff speak well of the help you've given them. That is the truest honour our tribes can give, and you've earned it." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I'm told someone in this city went away from you angry. Our people have known enough strife, young one, so mend it if you can." },
@@ -82,7 +82,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks beside you as an equal, I see. That is how the Earth Mother meant it to be, {class}." },
       },
       choices = {
-        { text = "Humility and gratitude. I'll carry them on every hunt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Humility and thanks. I'll remember both on every hunt.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The hunt teaches strength, chieftain, nothing more.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, chieftain.", next = "BACK" },
       },
@@ -261,7 +261,7 @@ P:NPC {
       },
     },
     ld_alliance = {
-      lines = { { id = "lda_default", text = "I've no love for the humans who herded the orcs into camps, and no hatred either, because Jaina Proudmoore keeps faith with Thrall from Theramore, and that is worth more than old grudges. What troubles me lies closer to home, for the dwarves dig at Bael'dun in Mulgore's own earth and never asked whose land it was." } },
+      lines = { { id = "lda_default", text = "I've no love for the humans who herded the orcs into camps, and no hatred either, because Jaina Proudmoore keeps faith with Thrall from Theramore, and I will not throw that away over an old grudge. What troubles me lies closer to home, for the dwarves dig at Bael'dun in Mulgore's own earth and never asked whose land it was." } },
       choices = {
         { text = "My people mean the tauren no harm, Chieftain.", next = "ld_alliance2", when = { faction = "Alliance" } },
         { text = "Should the Horde drive the dwarves out?", next = "ld_alliance2", when = { faction = "Horde" } },
@@ -389,7 +389,7 @@ P:NPC {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have been up on Elder Rise, listening to Magatha. She is clever and she is patient, and I would ask you to be careful how much of her patience you mistake for kindness." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
-          text = "Magatha speaks poorly of you, which in this city is a kind of recommendation. Sit by the fire, and tell me what passed between you." },
+          text = "Magatha speaks poorly of you, which in this city counts as a recommendation. Sit by the fire, and tell me what passed between you." },
         { id = "h_default", key = true,
           text = "I am Cairne Bloodhoof, and I lead the Bloodhoof and all the tribes who call Mulgore home. We wandered for generations, but now we have a home, and I mean to keep it." },
         { id = "h_baine", when = { heardLine = "baine.h_default" },
@@ -417,7 +417,7 @@ P:NPC {
           check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "magatha.h_default" }, { race = "Tauren", trait = "kind" } } } },
           fail = { next = "magatha_closed", fx = { affinity = -1 } } },
         { text = "You spoke for my people before the Warchief. Why?", next = "forsaken", when = { race = "Scourge" } },
-        { text = "I'm Forsaken, chieftain, and I carry the Light.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "I'm Forsaken, chieftain, and the Light still answers me.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "Hamuul has taught me the druid's way, chieftain.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I'm a warrior. Teach me how you fought, chieftain.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "The Earth Mother's spirits answer me now.", next = "shaman", when = { race = "Tauren", class = "SHAMAN" } },
@@ -454,7 +454,7 @@ P:NPC {
     paladin = {
       lines = { { id = "pa_default", text = "The Light burns you, they say, and you carry it anyway. I don't understand the Light; the tauren never needed it. But I understand a warrior who takes up a burden that hurts him because he thinks it right, and I won't mock you for it." } },
       choices = {
-        { text = "It's right. That's enough for me.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "It's right, and I need no better reason.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "It's useful. The pain is a fair price.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
@@ -655,11 +655,11 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "That a quiet step is a gift, and like every gift it can be used for good or ill. The Cenarion Circle keeps to the shadows to watch over the wild, and I'd ask you to think about what yours watch over." },
+        { id = "xrogue_default", text = "That a soft step serves a thief and a guardian equally well. The Cenarion Circle keeps out of sight to watch over the wild, and I'd ask you to think about what yours watch over." },
       },
       choices = {
         { text = "My shadows will watch over those who need them.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My shadows watch over me. That's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What I watch over is me. Nobody else will.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -729,7 +729,7 @@ P:NPC {
     },
     skyborne_trouble = {
       lines = { { id = "st_default", text = "Trouble me? I'm a tauren who learned from a night elf. If I worried about druids coming to the wild by the wrong road, I'd have to start with myself." } },
-      choices = { { text = "Ha. Fair enough.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Ha. You've got me there.", next = "BACK", fx = { affinity = 2 } } },
     },
     shaman = {
       lines = { { id = "sh_default", text = "Less than either of our orders likes to admit. The shaman asks the spirits for help, and the druid tries to become a part of the thing the spirits live in. Both are listening; we simply sit in different places." } },
@@ -759,7 +759,7 @@ P:NPC {
         { id = "fp_default", text = "Ha! You'd like me to say something unkind about the Arch Druid of Darnassus, wouldn't you? Not today, young one." },
         { id = "fp_polite", text = "Fandral and I disagree politely, and I intend to keep it polite, whatever you've heard." },
       },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Polite it is, then.", next = "BACK" } },
     },
     taught = {
       big = true,
@@ -894,7 +894,7 @@ P:NPC {
           text = "The Crossroads has troubles with poison. A druid who can draw it out of the living is worth a dozen healers' herbs." },
         { id = "h_aquatic", when = { questDone = TODO_QUEST("Aquatic Form") },
           text = "Now the water's yours too, though few tauren take to it. You'll be a strange sight in the rivers, so enjoy it." },
-        { id = "h_bear", when = { metBefore = true, class = "DRUID" }, text = "How does the bear sit with you now? It's heavy at first, for most, and then it gets lighter, or you get stronger, which is the same thing in the end." },
+        { id = "h_bear", when = { metBefore = true, class = "DRUID" }, text = "How does the bear sit with you now? It's heavy at first, for most, and then it gets lighter, or you get stronger, and I've never been sure which." },
         { id = "h_listen", when = { metBefore = true }, text = "The Arch Druid speaks to the Circle. I speak to the young ones. Between the two of us, someone is always being listened to." },
         { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" }, text = "A druid from the sky isles! Your people lean on the elements before Elune, I'm told, and I'm glad of it. The Earth Mother made the winds too, and she won't mind sharing you." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha has her eye open, and the White Lady brings sleep to the plains, though not to me, tonight." },
@@ -1123,7 +1123,7 @@ P:NPC {
       lines = {
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "You bring one of the walking dead up onto my bluff and expect me to smile. Cairne may open his arms to every stray Thrall drags in, but the Grimtotem remember what the Earth Mother intended for the dead, and it was not this." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. How very interesting. Cairne sees a strange ally, I suspect. I see something else entirely." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. How very curious. Cairne sees a strange ally, I suspect. I see something else entirely." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have been sitting at Cairne's fire, or at Runetotem's, and they have filled your head with talk of peace and patience. I will not hold it against you, but I will not pretend to be pleased." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -1260,7 +1260,7 @@ P:NPC {
       lines = { { id = "xpt_pala_default", text = "That's for each traveller to decide, but I'll tell you what I've noticed from behind this counter. The companies made of one people argue less on the first night and more on the tenth, and the mixed ones are the other way around, so it all evens out by the time they reach Feralas." } },
       choices = {
         { text = "Mixed companies are stronger, since each brings something different.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Kin understand each other, and that's worth more than variety.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Kin understand each other. Variety just means more arguing.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Thanks, Pala.", next = "BACK" },
       },
     },
@@ -1395,7 +1395,7 @@ P:NPC {
         { text = "Just resting.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else, love? Ask while the stew warms." },
+        { id = "h_again", text = "Anything else, love? Ask while the stew warms, and don't mind the braves snoring in the corner; they came in from Bael'dun at dawn smelling of dwarf powder." },
       },
     },
     forsaken = {

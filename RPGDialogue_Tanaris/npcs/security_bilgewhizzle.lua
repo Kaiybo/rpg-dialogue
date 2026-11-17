@@ -108,7 +108,7 @@ P:NPC {
     },
     cousin_which = {
       lines = { { id = "cw_default", text = "Depends which of us you ask, doesn't it? Next question." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Then I'll ask the other one.", next = "BACK", fx = { affinity = 1 } } },
     },
     rogue = {
       lines = { { id = "r_default", text = "I'll bet you do, and I'd rather not ask how. If you know where they stash the stolen crates, tell me, and I'll forget I ever saw you near my warehouse." } },

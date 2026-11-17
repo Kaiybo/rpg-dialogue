@@ -105,7 +105,7 @@ P:NPC {
       choices = {
         { text = "They chose the dragon, Warlord. They deserve no mercy.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "They were orcs once. Some could still be brought home.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Who truly rules the Spire now, Warlord?", next = "xcl_lbrs2" },
+        { text = "Who really rules the Spire now, Warlord?", next = "xcl_lbrs2" },
       },
     },
     xcl_lbrs2 = {
@@ -381,7 +381,7 @@ P:NPC {
       },
       choices = {
         { text = "My hunts need no embellishing, Hierophant. They speak for themselves.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good story's worth more than the kill. I'll tell it bigger.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Keep the kill. I'll tell the story bigger at the fire.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Hierophant.", next = "BACK" },
       },
     },
@@ -856,7 +856,7 @@ P:NPC {
     },
     dark_iron = { { id = "tp_dark_iron", text = "Their fire magic is crude but powerful, like a hammer made of lava, and I'd love to study it from a safe distance." } },
     background = { { id = "tp_ba", text = "The Apothecarium trained me, the Expeditionary Force sent me, and the Badlands bore me to tears until the Dark Irons gave me something to study." } },
-    advice = { { id = "tp_ad", text = "Never touch a golem's heart with bare hands, my dear, even a broken one. I learned that one the hard way, and I don't have many fingers to spare." } },
+    advice = { { id = "tp_ad", text = "Never touch a golem's heart with bare hands, my dear, even a broken one. Ask me how I know, and then count my fingers." } },
     _none = { { id = "tp_none", text = "Hm! That's not my field, not yet." } },
   },
 }
@@ -1108,7 +1108,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Come in out of the dust and sit. There's water, there's grog, and there's a bunk nobody's bled on, recently." },
-    { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper." },
+    { id = "g_home", when = { homeInn = { "Kargath" } }, text = "Back from the badlands! Tell me what you killed, because the grunts like a good story with their supper, and my cooking needs the help." },
     { id = "g_away", when = { away = 14 }, text = "Back from the badlands after {away} away! Sit down and tell me what you killed while you were gone, because the grunts are bored of my stories." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in Kargath's been grumbling your name into their grog all week. I don't care who started it, but don't finish it in my inn." },
   },
@@ -1255,7 +1255,7 @@ P:NPC {
     },
     travelers = {
       lines = {
-        { id = "t_default", text = "Everyone, sooner or later, since the wind riders from here reach Hammerfall and the Undercity to the north and Grom'gol and Stonard to the south. Kargath is the knot that ties the Horde's roads together on this side of the sea." },
+        { id = "t_default", text = "Everyone, sooner or later, since the wind riders from here reach Hammerfall and the Undercity to the north and Grom'gol and Stonard to the south. Kargath is the knot that ties the Horde's roads together on this side of the sea, and every rider who comes through wants a bath we haven't got the water for." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

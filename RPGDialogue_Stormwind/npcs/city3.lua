@@ -82,14 +82,14 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "It values them as one values a good wall, which is to say it notices them only when they fail. I find that a little unjust, though I've never said so in the chamber, and I don't expect I shall." } },
       choices = {
         { text = "Then someone in the House should say it, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Soldiers are paid to be walls. That's fair enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Soldiers are paid to be walls. Walls don't complain.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Very little, honestly, unless it touches their estates or their rents. The Westfall farms might all burn tomorrow and the chamber would still argue first about who owns the ash." },
+        { id = "xhuntcl_default", text = "Very little, unless it touches their estates or their rents. The Westfall farms might all burn tomorrow and the chamber would still argue first about who owns the ash." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} trained? Good. My late father kept hounds, and I never cared for them, but I admired how well they obeyed." },
       },
       choices = {
@@ -402,7 +402,7 @@ P:NPC {
     },
     fight = {
       lines = { { id = "f_default", text = "Because nobody pays me to think. They pay me to stand in a door an' look unfriendly, an' it's honest work, mostly." } },
-      choices = { { text = "Who pays you?", next = "who" }, { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Who pays you?", next = "who" }, { text = "Suits me.", next = "BACK" } },
     },
     who = {
       lines = { { id = "w_default", text = "Folk who'd rather I didnae say. That's what the extra coin's for." } },
@@ -1113,7 +1113,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "A warden hears everything the cells whisper, though he'd rather not. Ask me about any of this, quietly, and I'll tell you what won't get me reassigned." },
     },
-    background = { { id = "tp_bg", text = "Warden of the Stockade. Before that, a man who thought being warden would be quiet. Never take a job for its quiet." } },
+    background = { { id = "tp_bg", text = "Warden of the Stockade. Before that, a man who thought being warden would be quiet. I've not had a dry pair of boots since." } },
     advice = { { id = "tp_ad", text = "Check the papers, then check the person, and then check the papers again. I didn't, once." } },
     defias = { { id = "tp_defias", text = "Half my cells are full of them, and the other half of their friends. They organise better in prison than the guards do outside it." } },
     _none = { { id = "tp_none", text = "That's not a Stockade matter, thank the Light." } },

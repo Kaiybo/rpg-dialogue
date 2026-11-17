@@ -77,7 +77,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Often, and quietly, when the Hatecrest naga move along the shore. A bird that lands without being seen is worth more than any message I could send, and a rider who keeps silent is worth just as much." } },
+      lines = { { id = "xrogue_default", text = "Often, and quietly, when the Hatecrest naga move along the shore. A bird that lands without being seen is the best message I could send, and a rider who keeps her mouth shut is the next best." } },
       choices = {
         { text = "Spying on the naga keeps the island safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Better to strike first than to spy.", next = "BACK", fx = { align = { order = -1 } } },
@@ -146,7 +146,7 @@ P:NPC {
         { text = "Will your hippogryphs carry a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hippogryphs carry scouts across the coast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are your hippogryphs uneasy around the Light?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Are hippogryphs truly that skittish around warriors, Fyldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Are hippogryphs really that skittish around warriors, Fyldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your hippogryphs judge another beast, Fyldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your hippogryphs ever come back hurt, Fyldren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do hippogryphs dislike the arcane, Fyldren?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -385,7 +385,7 @@ P:NPC {
     },
     need = {
       lines = {
-        { id = "n_default", text = "Always, friend. Bring cloth you've taken from the ogres and hides you've skinned yourself, and sell them to the merchants, and some of it finds its way to the Sentinels in the end. Every little bit makes the next month easier." },
+        { id = "n_default", text = "Always, friend. Bring cloth you've taken from the ogres and hides you've skinned yourself, and sell them to the merchants, and some of it finds its way to the Sentinels sooner or later. Every little bit makes the next month easier." },
       },
       choices = {
         { text = "I'm glad to help the Sentinels.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -821,7 +821,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Badly, and every lame kodo means a caravan delayed and a trader overcharging. I'd value a hunter who knows beasts well enough to tell me which of my kodos will make the road and which won't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well kept, which tells me you know what a beast needs on a long road, and I'd trust your eye over my drovers'." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well kept, which tells me you know what a beast needs on a long trail, and I'd trust your eye over my drovers'." },
       },
       choices = {
         { text = "Work the beasts fairly. A broken kodo serves no one.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -852,7 +852,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "They think they do, and then I have three of them sick in their tents with purple tongues. The plants here aren't like the ones in Mulgore, and the caravans only bring so much food, so we have to learn the forest or go hungry." } },
       choices = {
         { text = "I'll teach them which plants to trust. The forest provides.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Let them learn the hard way. It's how I learned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let them get bitten. It's how I learned.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

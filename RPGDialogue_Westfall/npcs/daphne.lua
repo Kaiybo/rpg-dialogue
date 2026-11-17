@@ -103,7 +103,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Tome of Valor"), days = 3 } },
           text = "That's the last time they try my gate, I'd wager. I got two of them myself, you know, but don't tell Jordan, because he worries." },
         { id = "h_jordan", text = "My husband Jordan's a smith, away up by the gates of Ironforge for now, and the most faithful man the Church has. It's a long way off, but we write." },
-        { id = "h_apples", when = { metBefore = true }, text = "First apples are coming on, love. Small and sour, but they're mine, and nobody's burned them. That's a good year, out here." },
+        { id = "h_apples", when = { metBefore = true }, text = "First apples are coming on, love. They're small and sour and half of them have worms, but they're mine and nobody's burned them, so I'm calling it a good year." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time; the tide's turning, and the Brotherhood like to come up with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then you've seen what's left on the beach after the murlocs have been at it, and you know why I keep the gate shut." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my hill! The soil up here is tired, but the apple trees still try, bless them, and I suspect you'll notice." },

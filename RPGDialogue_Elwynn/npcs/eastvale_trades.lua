@@ -11,7 +11,7 @@ P:NPC {
   notices = { "class", "craft" },
   impression = {
     first = "Rallic Finn makes bows at the east end of Eastvale and talks about wood the way some men talk about horses. He kept a stave in his hands the whole time we spoke.",
-    third = "{name} met Rallic Finn, the quiet bowyer of Eastvale Logging Camp.",
+    third = "{name} met Rallic Finn, the soft-spoken bowyer of Eastvale Logging Camp.",
   },
   greetings = {
     { id = "g_default", text = "Bows, arrows and quivers, and all of it made from Elwynn wood. Have a look." },
@@ -31,7 +31,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I'd swear they do, the good ones at least. A bow made from a willing tree shoots straighter, and I won't be told otherwise." } },
       choices = {
         { text = "Then honour the tree, Rallic, and the bow will honour you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Wood's just wood. The bowyer's skill is what matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Wood's just wood. Any bow is only as good as its maker.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,7 +105,7 @@ P:NPC {
         { id = "h_default", text = "Rallic Finn, bowyer. The loggers bring me the straight-grained pieces they can't sell to Stormwind, and I turn them into bows and arrows for the camp and anyone passing through." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei, at my bench! Your people made bows before mine had learned to sharpen a stick, so I'll take any criticism you care to give and try not to sulk about it." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Most of your kin walk past my bows and ask where the guns are. Drake Lindgren next door sells shot, if that's what you're after." },
-        { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") }, text = "You're the one who thinned out the wolves and bears around the camp. The loggers have stopped bringing me torn quivers to mend, and I'm glad of the quiet." },
+        { id = "h_frontier", when = { questDone = TODO_QUEST("Protect the Frontier") }, text = "You're the one who thinned out the wolves and bears around the camp. The loggers have stopped bringing me torn quivers to mend, and I'm glad of the rest for my fingers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've a rogue's way of looking at a room, checking the windows first and the shelves second. Most rogues buy throwing knives from Drake, not bows from me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -175,7 +175,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "murlocs_east" } } } },
     },
     hunter = {
-      lines = { { id = "hu_default", text = "Keep your string dry, carry twice the arrows you think you'll need, and never let your beast stand between you and what you're shooting. I've mended many a bow after a hunter learned that last one the hard way." } },
+      lines = { { id = "hu_default", text = "Keep your string dry, carry twice the arrows you think you'll need, and never let your beast stand between you and what you're shooting. I've mended many a bow after a boar ran straight through a hunter's wolf and into the hunter." } },
       choices = {
         { text = "My beast knows its place.", next = "BACK", fx = { trait = { proud = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -228,7 +228,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Honey, mostly, out of the hollow oaks they fell, and they squabble over who gets to break the comb. I pay them fair for it and sell it fair, though the bees, I'll grant you, never see a copper." } },
       choices = {
         { text = "Then leave the bees a tree or two. They've earned it.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The bees will rebuild. Honey sells, and that's what matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The bees will rebuild. Honey sells either way.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -448,7 +448,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back he takes it out of. I've nothing against you personally, but I've a great deal against my back." } },
       choices = {
-        { text = "Fair enough. I'll keep my distance for your sake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

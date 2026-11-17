@@ -107,7 +107,7 @@ P:NPC {
         { id = "xlock_default", text = "Likely none, but the Sentinels buy their bread from me, and if one of them smells sulphur on a loaf I'll lose half my trade by morning. With the Warsong turning back my carts already, I can't afford to lose the other half." },
       },
       choices = {
-        { text = "Fair enough. It'll wait outside.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Right, then. It can wait outside.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The Sentinels can learn to tolerate us.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -129,7 +129,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Ask away." },
-        { id = "h_again2", text = "Go on, I've time between carts." },
+        { id = "h_again2", text = "Go on, I've time between carts. The last one came in with a wheel off and furbolg teeth marks in the flour sacks." },
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
@@ -312,7 +312,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
-        { id = "h_again2", text = "Speak, then." },
+        { id = "h_again2", text = "Speak, then. This edge is chipped from some Warsong grunt's skull, and it wants work." },
       },
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
@@ -471,7 +471,7 @@ P:NPC {
       },
       choices = {
         { text = "Green, then. I'll learn from the Sentinels' scouts.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll wear what I like. The shadows do the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll wear what I like. A dark night does the rest.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -492,7 +492,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else?" },
-        { id = "h_again2", text = "Ask what you like; it's quiet today." },
+        { id = "h_again2", text = "Ask what you like; it's quiet today, and every cloak I own is still damp from last week's rain." },
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -672,7 +672,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, dear? There's more in the oven." },
-        { id = "h_again2", text = "Go on, I'm listening, and eat while you talk." },
+        { id = "h_again2", text = "Go on, I'm listening, and eat while you talk. Mind the bones in the stew, for the fish put up a fight." },
       },
       choices = {
         { text = "Let me see your food.", next = "BUSINESS" },

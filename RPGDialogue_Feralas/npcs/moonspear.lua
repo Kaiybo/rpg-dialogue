@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "State your business. The naga don't stop for pleasantries, so neither do I." },
+    { id = "g_default", text = "State your business. The naga don't stop for pleasantries, so neither do I, and my boots have been full of seawater since dawn." },
     { id = "g_scales", when = { questActive = TODO_QUEST("Against the Hatecrest") }, text = "Ten Hatecrest scales, in good condition. You know how to get them." },
     { id = "g_shalzaru", when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "Ah, the one who put Shalzaru down. You're welcome on this island any time, and I mean that." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the naga have been busy in that time. I hope you have too." },
@@ -88,7 +88,7 @@ P:NPC {
     },
     vestia_latro = {
       lines = { { id = "vl_default", text = "She does, and so do my friends, and you are neither yet. Earn it on the shore, and we'll see." } },
-      choices = { { text = "Fair enough, Latronicus.", next = "BACK" } },
+      choices = { { text = "Then I'll go and earn it, Latronicus.", next = "BACK" } },
     },
     courier = {
       lines = { { id = "c_default", text = "Nothing, and it's been more than a week, so I've had to declare him missing in action. Ginro Hearthkindle hasn't given up, though; speak with him, if you've time to spare." } },
@@ -168,7 +168,7 @@ P:NPC {
       },
     },
     relic = {
-      lines = { { id = "r_default", text = "It's strange, truly strange. It doesn't match the ruins it came from, and it isn't naga work, and I'm afraid it's something altogether more alien than either." } },
+      lines = { { id = "r_default", text = "It's strange, very strange, and it's giving me a headache. It doesn't match the ruins it came from, and it isn't naga work, and I'm afraid it's something altogether more alien than either." } },
       choices = {
         { text = "Alien? How so?", next = "relic_alien" },
         { text = "Something else.", next = "BACK" },
@@ -210,7 +210,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     priest = {
-      lines = { { id = "p_default", text = "I don't think they fight at all, truly. Elune gave us minds, and I can't believe she wants them left on the shelf." } },
+      lines = { { id = "p_default", text = "I don't think they fight at all. Elune gave us minds, and I can't believe she wants them left on the shelf." } },
       choices = { { text = "I agree, Vestia.", next = "BACK", fx = { affinity = 1 } } },
     },
   },

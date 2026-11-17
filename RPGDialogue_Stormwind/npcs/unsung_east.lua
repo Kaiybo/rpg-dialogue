@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "devout" }, values = { "faith", "craft" },
   notices = { "paladin", "kit" },
   impression = {
-    first = "Agustus Moulaine sells plate and mail at Righteous Plates, just south of the Cathedral, and he speaks of armour as a kind of prayer. He was devout, proud of his stock and a little pompous.",
+    first = "Agustus Moulaine sells plate and mail at Righteous Plates, just south of the Cathedral, and he speaks of armour as if it were scripture. He was devout, proud of his stock and a little pompous.",
     third = "{name} met Agustus Moulaine of Righteous Plates in Cathedral Square.",
   },
   greetings = {
@@ -29,7 +29,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every plate I sell has a blessing behind it. A shaman's mail might have a spirit instead. Both protect." } },
       choices = {
-        { text = "Blessings and spirits both shield the faithful. Fair enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blessings and spirits both shield the faithful, I suppose.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Armour's metal, Agustus. It doesn't pray.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -76,7 +76,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Good mail, first and foremost, fitted at the shoulders, and a sturdy helm before you spend a copper on gauntlets. I've seen young warriors spend their wages on a fancy breastplate and walk around Westfall with their heads bare." } },
       choices = {
-        { text = "I'll buy sensibly and protect what matters first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll buy sensibly and cover my chest first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll buy whatever looks the most impressive.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -125,7 +125,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at the plate counter! You'll be wanting mail when you're seasoned, I suppose, and I'll have something waiting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Righteous Plates. You'll not be needing my plate, I imagine, because a bear in a breastplate would look very silly indeed." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at Righteous Plates? Theresa's robes are at the other counter, though I'll grant some of you prefer a little mail under the silk." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Armour is a kind of prayer, you know. Does a shaman pray, or simply ask?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Armour is a prayer in steel, you know. Does a shaman pray, or simply ask?" },
       },
       again = {
         { id = "h_again", text = "Ask, friend, while the Cathedral bells are quiet and I can hear you." },
@@ -308,7 +308,7 @@ P:NPC {
       },
     },
     priests = {
-      lines = { { id = "p_default", text = "The novices buy one plain robe and wear it until it falls apart, and the bishops buy three fine ones a year. I'd rather dress the novices, if I'm honest; they need it more." } },
+      lines = { { id = "p_default", text = "The novices buy one plain robe and wear it until it falls apart, and the bishops buy three fine ones a year. I'd rather dress the novices; they need it more." } },
       choices = {
         { text = "Do you ever give them robes?", next = "priests2" },
         { text = "Something else.", next = "BACK" },
@@ -578,7 +578,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Mostly, and the ones that don't work make a very loud noise, which frightens the beast away, which is also a kind of working. The dwarves use rifles, and the elves use bows, but a gnome uses everything at once!" },
+        { id = "xhuntcl_default", text = "Mostly, and the ones that don't work make a very loud noise, which frightens the beast away, which counts as working, if you squint. The dwarves use rifles, and the elves use bows, but a gnome uses everything at once!" },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, please keep {pet} away from my stock, because some of it is armed and none of it is labelled very well." },
       },
       choices = {

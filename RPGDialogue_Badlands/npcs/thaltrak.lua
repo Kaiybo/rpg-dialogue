@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hey, mon, you be coming from the east? You see any troll soldiers on the road, any word at all?" },
     { id = "g_back", when = { metBefore = true }, text = "You be back, mon. Sit with me a while, I still be watching that road." },
-    { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and I been standing right here every day of it, because the Warlord say I can't leave my post." },
+    { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and I been standing right here every day of it, because the Warlord say I can't leave my post, and my feet be blistered to the bone from it." },
     { id = "g_grief", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "You again, mon. I don't watch the road no more, so I don't know what I be doing out here." },
     { id = "g_word_kind", when = { word = "helped" }, text = "Kargath be saying you help people, mon. That be a good thing to be known for in a fort like this." },
   },

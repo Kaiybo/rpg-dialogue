@@ -72,7 +72,7 @@ P:NPC {
     },
     rite3 = {
       big = true,
-      lines = { { id = "r3_default", text = "They win battles, sometimes, and they lose themselves always. The Earth Mother does not punish them, but she stops speaking to them, and that is worse." } },
+      lines = { { id = "r3_default", text = "They win battles, sometimes, and they lose themselves always. The Earth Mother does not punish them, but she stops speaking to them, and a tauren who hears nothing from her goes hollow." } },
       choices = {
         { text = "I'll fight to protect, not for glory.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Glory gives the young a reason to fight at all.", next = "BACK", fx = { align = { honor = -1 } } },

@@ -169,7 +169,7 @@ P:NPC {
     xhorde = {
       big = true,
       lines = {
-        { id = "xho_default", text = "A little, if I'm honest, though Archmage Modera says you're here at her leave. I'm trying very hard to be welcoming, and I'd appreciate it if you didn't make that difficult." },
+        { id = "xho_default", text = "A little, I admit, though Archmage Modera says you're here at her leave. I'm trying very hard to be welcoming, and I'd appreciate it if you didn't make that difficult." },
       },
       choices = {
         { text = "I'm here to help. You've nothing to fear from me.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
@@ -193,7 +193,7 @@ P:NPC {
   notices = { "skyborne" },
 
   impression = {
-    first = "Denaaris Stargale minds the Skyborne portal to Stormwind as if he were the last lamp on a long road. He is homesick and too courteous to say so unless asked.",
+    first = "Denaaris Stargale minds the Skyborne portal to Stormwind with the patience of a man who has counted every flagstone in the floor twice. He is homesick and too courteous to say so unless asked.",
     third = "{name} met Denaaris Stargale of the High Order, who keeps the Skyborne portal to Stormwind in Dalaran's Sky Enclave.",
   },
 
@@ -389,7 +389,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the world still carries the scar." },
+          text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the sea still sits where our capital used to be." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, here among the towers! Sit with me a moment, {class}, and let's both remember what living ground feels like." },
         { id = "h_nightelf", when = { race = "NightElf" },

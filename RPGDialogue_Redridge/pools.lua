@@ -12,7 +12,7 @@ P:Pool {
   greetings = {
     { id = "g_watch", text = "Welcome to Lakeshire, friend. Keep your weapon handy; we do." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's the late watch, so mind yourself. If you hear drums, run toward the town hall, not away from it." },
-    { id = "g_liked", when = { townStanding = { town = "lakeshire", min = 30 } }, text = "Good to have you in town, truly. It's been a hard season, and you've made it a little easier." },
+    { id = "g_liked", when = { townStanding = { town = "lakeshire", min = 30 } }, text = "Good to have you in town, and I mean that. It's been a hard season, and you've made it a little easier." },
     { id = "g_distrust", when = { townStanding = { town = "lakeshire", max = -20 } }, text = "The magistrate's heard about you, and so have I." },
   },
   notice = {

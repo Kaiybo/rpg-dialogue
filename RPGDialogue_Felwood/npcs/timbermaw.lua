@@ -174,7 +174,7 @@ P:NPC {
         { id = "outsiders_default", text = "Because the elves call furbolgs beasts and the orcs call us targets, and few come to Felwood to make friends. Grazle judges by deeds, so show Grazle yours." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "All right. I'll not argue with a furbolg.", next = "BACK" },
       },
     },
     druidg = {
@@ -203,7 +203,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You smell of the Deadwood camps. Good, then you have been doing useful work." },
+    { id = "g_default", text = "You smell of the Deadwood camps, all wet fur and rot. Good, then you have been doing useful work." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Nafien has more work, if your arms are not tired." },
   },
 
@@ -268,7 +268,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "The shamans of the Timbermaw have tried every rite they know, and none has brought a Deadwood back. Perhaps a mage's learning knows something ours does not, but until someone finds it, Nafien must hunt his own kin." } },
       choices = {
         { text = "I'll look for a cure, if there is one.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "You're doing what must be done. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're doing what must be done, and nobody else will.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'm sorry it's come to this.", next = "BACK" },
       },
     },
@@ -358,7 +358,7 @@ P:NPC {
       },
       choices = {
         { text = "I do it because it's right.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "I'll be honest. I do it for the reputation.", next = "BACK", fx = { align = { order = -1 }, trait = { honest = 1 } } },
+        { text = "Truth is, I do it for the reputation.", next = "BACK", fx = { align = { order = -1 }, trait = { honest = 1 } } },
       },
     },
     tribe = {

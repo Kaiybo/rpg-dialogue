@@ -183,12 +183,12 @@ P:NPC {
   },
   greetings = {
     { id = "g_priest", when = { class = "PRIEST" }, text = "Another of the faithful, come back from the fields. Tell me, does your will grow stronger, or only your spells?" },
-    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "You are not a priest, but the Forgotten Shadow has room for anyone who still believes in themselves." },
+    { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "You are not a priest, but the Forgotten Shadow will take anyone stubborn enough to keep walking after they've died." },
     { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You preached in Lordaeron's chapels once; you still stand at the front of a room as if there's a pulpit behind you. The Forgotten Shadow asks less of you than the Light did, and it does not hurt to listen to." },
   },
   notice = {
     { id = "n_paladin", cat = "light", when = { class = "PALADIN" },
-      text = "You still carry the Light, and I can smell it on you like smoke. Aramis may tell you it makes you strong, but I would say it is a chain you have not yet seen." },
+      text = "The Light still clings to you, and I can smell it on you like smoke. Aramis may tell you it makes you strong, but I would say it is a chain you have not yet seen." },
   },
   start = "hello",
   nodes = {
@@ -197,7 +197,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Every soldier believes in something, even if it's only the strength of the arm beside them. The Forgotten Shadow asks only that you believe in yourself, which is the one thing the Light never let its soldiers do." } },
       choices = {
         { text = "I fight for something bigger than myself, Cleric.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I believe in my own arm, Cleric. That's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I believe in my own arm, Cleric. It hasn't failed me.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -243,7 +243,7 @@ P:NPC {
         { text = "My power comes from study, not faith, Cleric.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you see a difference between shadow and fel, Cleric?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do warriors need faith, Cleric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Is the hunt a kind of faith, Cleric?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do hunters pray to anything, Cleric?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do rogues need faith, Duesten?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -330,8 +330,8 @@ P:NPC {
     third = "{name} met Joshua Kien, who sells supplies to the newly risen of Deathknell.",
   },
   greetings = {
-    { id = "g_shop", text = "Good day to you, or good night, since it hardly matters to us. What can I sell you?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back so soon? The fields are hungry for supplies, it seems." },
+    { id = "g_shop", text = "Good day to you, or good night, since it hardly matters to us. What can I sell you? The thread's gone a bit mouldy, but then, so have we." },
+    { id = "g_back", when = { metBefore = true }, text = "Back so soon? Somebody out in the fields must have lost another finger, I suppose." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed out past the town, didn't you? I may have sold your family twine or seed once, back when seed meant something, and now you're buying from me again with dead hands." },
   },
   notice = {
@@ -541,14 +541,14 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than you'd think, though {pet} looks far happier with its arrangement than my imp ever has. Both would eat their masters if the bond slipped, but yours wants to stay, and mine are counting the days." },
       },
       choices = {
-        { text = "My beast stays from loyalty. That's worth more than chains.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My beast stays because it wants to. No chain needed.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A bond is a bond, Boch, whatever holds it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Rupert Boch, warlock and teacher, at your service. I train those in Brill who would rather command the darkness than fear it." },
+        { id = "h_default", key = true, text = "Rupert Boch, warlock and teacher, at your service. I train those in Brill who'd sooner give orders to something with horns than take them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my parlour. Your people turned their backs on my craft, I'm told, and went back to the spirits; I do hope there are no hard feelings." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You commune with the wilds and I commune with things that would eat the wilds, so I suspect we'll get on politely and no further." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in my parlour. You'd be surprised how many of my demons respect a good blade, {class}, and how few of them respect a good argument." },
@@ -609,7 +609,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "We do, since both of us make our living from things other people would rather not see. Marion Call and I share the Gallows' End very politely, and I have never once caught her in my rooms, which tells me she is very good indeed." },
+        { id = "xrogue_default", text = "We do, since both of us make our living from things other people would rather not see. Marion Call and I share the Gallows' End very politely, and I have never once caught her in my rooms, which tells me she is very good, or very polite." },
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "In life I imagine you picked locks, and in death you pick them still, while I spent my life studying old books and now summon what was in them. We each kept to our trade, which I find rather touching." },
       },
       choices = {
@@ -661,7 +661,7 @@ P:NPC {
       lines = { { id = "xfpala_default", text = "I trust what I can bottle and hand to someone who's bleeding, which is a potion. The Light may well be more powerful, but I've seen it fail to come, and I've never once seen a properly brewed healing draught refuse to work." } },
       choices = {
         { text = "The Light comes when it's needed. I trust it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. I'll carry your draughts and pray less.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Right. More draughts, fewer prayers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -711,7 +711,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Carolai Anise, and I teach alchemy here in Brill. Healing draughts, mostly, and other useful brews, since the dead need medicine as much as the living do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll heal with spirit waters, I expect, and I'd like to know whether they work as well on the dead as my draughts do." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know peacebloom from silverleaf, at least, which puts you ahead of most of my students." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll come back cut up more than the rest, so do yourself a favour and carry healing draughts, not just bandages." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll come back cut up more than the rest, so do yourself a favour and carry healing draughts as well as bandages." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll pass more herbs in a day than my students find in a week, so keep your eyes on the ground now and then." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you'll know that a healing potion and a healing prayer both work better on a patient who's been told to sit still." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Do you need potions, or just a quiet corner to read in? I've both, and I'd rather sell potions." },
@@ -754,7 +754,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The healing draughts do, and so do most of the rest, since a wound is a wound whether it bleeds or not. Your spirits mend the living by asking, and I mend the dead with peacebloom and patience, and I think mine is the more reliable." } },
       choices = {
-        { text = "Reliable is what matters. I'll carry your draughts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Reliable suits me. I'll carry your draughts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The spirits haven't failed me yet. I'll trust them.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -870,7 +870,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Nurse Neela, and I teach first aid to anyone who wants to learn it. A bandage in your pack is worth more than a priest who's busy somewhere else." },
+        { id = "h_default", key = true, text = "I'm Nurse Neela, and I teach first aid to anyone who wants to learn it. The priest is always busy somewhere else when you're bleeding, so carry a bandage." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I'm told you can mend a wound with a word, which would put me out of work, so do be quiet about it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, dear? Sit down and let me see those paws, or hands, whichever you're using today." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, dear? Then you'll need bandages more than anyone, so come and learn before you bleed out somewhere I can't reach you." },
@@ -949,7 +949,7 @@ P:NPC {
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I spent my life closing wounds, and you've made a habit of opening doors that ought to stay shut. I'll patch you, of course, but I'd like it known that I disapprove." },
       },
       choices = {
-        { text = "Fair enough. Patch me and I'll be careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Patch me up, and I'll try to stay in one piece.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Disapprove all you like. I'll keep summoning.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Were you a nurse in life too?", next = "past" },
       },
@@ -1034,8 +1034,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zachariah Post, and I sell undead horses to the Forsaken of Brill. They don't eat, they don't sleep, and they don't spook at a bit of plague, which is more than you can say for a living horse." },
-        { id = "h_other", when = { ["not"] = { race = "Scourge" } }, text = "Zachariah Post, and I sell undead horses, mostly to the Forsaken. You're not one of us, so I'll be honest and say you'd need to earn the Undercity's respect before I'll sell you one." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll have your own mounts back in Durotar or Mulgore, I expect, and I won't pretend my horses are as warm to sit on." },
+        { id = "h_other", when = { ["not"] = { race = "Scourge" } }, text = "Zachariah Post, and I sell undead horses, mostly to the Forsaken. You're not one of us, so I'll tell you plainly that you'd need to earn the Undercity's respect before I'll sell you one." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll have your own mounts back in Durotar or Mulgore, I expect, and I'll admit my horses are cold to sit on, and they drop bits." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, looking at my horses with that face. Yes, they're dead, and no, they don't mind it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want a mount that doesn't flinch when the swords come out, and mine never flinch at anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be comparing my horses to your beasts, I expect, so I'll tell you now that mine don't need feeding and never wander off." },

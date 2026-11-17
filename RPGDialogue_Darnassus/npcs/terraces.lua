@@ -361,7 +361,7 @@ P:NPC {
           text = "You were in the rearguard out of Gnomeregan, weren't you? Then I've nothing to teach you about resolve, only about trees, and trees are easier." },
       },
       choices = {
-        { text = "Nerve and a good shield. That's enough.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Nerve and a good shield have kept me breathing so far.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -387,7 +387,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'd sooner see warriors on this Terrace, I'll be honest, but a good healer has saved more battles than a good blade, and I've seen it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'd sooner see warriors on this Terrace, but a good healer has saved more battles than a good blade, and I've seen it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now there's a fighter I can respect, {class}, though I'd want to see how you swing before I said so twice." },
         { id = "h_default", text = "I am Elanaria, and I help shape the warriors of Darnassus. There is more to the profession than swinging a blade, and I find out quickly who knows it." },
         { id = "h_elanaria", tags = { "news" }, when = { questActive = TODO_QUEST("Elanaria") },
@@ -573,7 +573,7 @@ P:NPC {
         { id = "xmage_default", text = "I don't mind the work, and the coin is good, but I'll admit the humming kept me up. Steel is honest, and I like my anvil honest, so bring me your armor and keep your enchanted things for someone braver." },
       },
       choices = {
-        { text = "Fair enough. Steel it is, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steel it is, then, and I'll keep it oiled.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your anvil could stand a little magic, smith.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -626,7 +626,7 @@ P:NPC {
         { id = "h_weapons", when = { questActive = TODO_QUEST("Weapons of Elunite") },
           text = "Here they are, the weapons I made from your elunite. Take whichever suits you; working that metal is both an honor and a pleasure, and I thank you for it." },
         { id = "h_furen", tags = { "news" }, when = { questActive = TODO_QUEST("Mathiel") },
-          text = "Notes from Furen Longbeard, all the way from Stormwind? These are very interesting indeed; my dwarven colleague has made quite a discovery. It'll be an honor to try his methods." },
+          text = "Notes from Furen Longbeard, all the way from Stormwind? And stained with ale, so I know they're genuine. My dwarven colleague has made quite a discovery, spelling aside. It'll be an honor to try his methods." },
         { id = "h_shells", tags = { "news" }, when = { questActive = TODO_QUEST("Sunscorched Shells") },
           text = "The Highperch wyverns in Thousand Needles lay eggs with shells baked hard by the sun. Gather me enough from beneath their nests and I'll make an extra piece of armor for you." },
         { id = "h_armor", when = { questDone = TODO_QUEST("Mathiel's Armor") },
@@ -746,7 +746,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Greetings. Do you seek instruction in the art of war?" },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "You're favoring your left leg. Do you seek instruction in the art of war, or only somewhere to sit down?" },
     { id = "g_other", text = "I do not see the warrior's spirit in you, child. Still, you may ask what you came to ask." },
   },
 
@@ -802,7 +802,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} carries a warrior's spirit, I think, more than you do. Do not take offense, for that is high praise from me." },
       },
       choices = {
-        { text = "A hunter's strength is the bond. That's enough for me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My beast and I trust each other. I need nothing else.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Strength is strength. I'll take it where I find it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
@@ -824,7 +824,7 @@ P:NPC {
         { id = "xlock_default", text = "I think you've borrowed courage from something that will want it back with interest. My students earn their strength with every blow, and you've signed a contract for yours, which is a very different thing." },
       },
       choices = {
-        { text = "Then I'll earn mine as well, the hard way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll earn mine too, one bruise at a time.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Borrowed strength still wins, Bladesinger.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -883,7 +883,7 @@ P:NPC {
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a great deal of cunning. It isn't the worst combination I've ever seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach only those with the warrior's spirit, warlock, and whatever spirit is walking behind you isn't the right kind." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether you carry the warrior's spirit, and some hunters do." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether there's a warrior's spirit in you, and in some hunters there is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I see something of the warrior's spirit in you, which is not common in the Circle, though I teach only those who carry it whole." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I see little of the warrior's spirit in you, though I'll grant that facing a charge with nothing but a spell takes nerve." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I see your spirit at a glance. It is strong, though rough." },
@@ -896,13 +896,13 @@ P:NPC {
         { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
         { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
         { text = "Can a rogue really have a warrior's spirit?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do I carry the warrior's spirit, Arias'ta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do I have a warrior's spirit, Arias'ta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think warlocks lack courage?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a priest have a warrior's spirit, Arias'ta?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you see the warrior's spirit in me, Arias'ta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you see in a druid's spirit, Arias'ta?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there a warrior's spirit in a mage, Arias'ta?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Can you truly see a warrior's spirit, Arias'ta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Can you really see a warrior's spirit, Arias'ta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "What should a warrior expect from a company?", next = "xpt_ariasta", when = { party = { class = "WARRIOR" } } },
         { text = "Farewell.", next = "END" },
       },
@@ -927,7 +927,7 @@ P:NPC {
       lines = {
         { id = "na_default", text = "A good blade makes a sound when it's used well, and our family has always listened for it. That is all the story I'll tell a stranger." },
       },
-      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+      choices = { { text = "All right. Something else, then.", next = "BACK" } },
     },
   },
 
@@ -969,7 +969,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The news says they are orcish, mostly. But a dwarven shaman is new, and I shall proclaim it." } },
       choices = {
-        { text = "Proclaim it honestly, Herald. Truth serves all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Shout only what's true, Herald. People believe you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Keep me out of your proclamations.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -998,7 +998,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "All the time, and most of it I keep under my hat, since a herald's job is the news fit to shout. Still, if you hear something in the shadows that the city ought to know, you could do worse than bring it to me." },
+        { id = "xrogue_default", text = "All the time, and most of it I keep under my hat, since a herald's job is the news fit to shout. Still, if you hear something in an alley that the city ought to know, you could do worse than bring it to me." },
       },
       choices = {
         { text = "If it's worth telling the city, I'll tell you.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1181,7 +1181,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "They look up to anyone in shining armor, if I'm honest, but a paladin who carries themselves well gives them something worth copying. Be kind to them when they stare, because some of them will remember it longer than you will." } },
+      lines = { { id = "xapala_default", text = "They look up to anyone in shining armor, but a paladin who carries themselves well gives them something worth copying. Be kind to them when they stare, because some of them will remember it longer than you will." } },
       choices = {
         { text = "I'll try to give them something worth copying.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Their heroes are their own business, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1263,7 +1263,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want bread, water and twice as much of both, because a hero on the front line burns through supplies." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want arrows, I suppose, and something for your companion, because heroes' beasts get hungry too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a hero in the making! I keep the Terrace in food and drink, and I've learned that druids eat like bears after a long day in one, so do stock up." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! It's an honor, truly, because heroes come in all shapes, and the quiet ones are often the ones the songs forget." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Oh, it's an honor, because heroes come in all shapes, and nobody ever writes a song about the one who picked the lock." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! An honour to supply a hero in the making. Your spirits must need supplies too." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time." } },
@@ -1278,7 +1278,7 @@ P:NPC {
         { text = "Do many healers buy supplies from you, Mydrannul?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the young heroes really look up to paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do druids usually buy from you, Mydrannul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do the songs really forget the quiet ones, Mydrannul?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does nobody write songs about the lockpickers, Mydrannul?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think every adventurer is a hero, Mydrannul?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },

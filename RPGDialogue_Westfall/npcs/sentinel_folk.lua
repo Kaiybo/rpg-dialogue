@@ -65,7 +65,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Don't you dare, {class}. Half of them are militia who've nothing but those boots, and the other half are travellers who'll never come back if they lose their purse under my roof." } },
       choices = {
-        { text = "Fair enough. Your roof, your rules.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your roof, your rules. I'll wipe my boots.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Only the ones who can spare it, Heather.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Who stays here these days?", next = "guests" },
       },
@@ -783,7 +783,7 @@ P:NPC {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, eh? Let me see that bow of yours. Hm, it'll do, though it'd do better with a new string, and those are extra." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior buying arrows, for pulling things to you, I suppose. Fair enough, though the things out here usually come anyway." },
+      text = "A warrior buying arrows, for pulling things to you, I suppose. Suit yourself, though the things out here usually come anyway, teeth first." },
   },
 
   start = "hello",
@@ -812,7 +812,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior shoots once and then throws the bow down to draw a sword, and I've found my best work in a ditch more than once. Take a plain one, and save the good yew for the ones who'll keep it." } },
       choices = {
-        { text = "Fair enough. I'll take the plain one and treat it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll take the plain one and treat it well.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll pay for the best, and do as I like with it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -908,7 +908,7 @@ P:NPC {
     },
     best = {
       big = true,
-      lines = { { id = "be_default", text = "The militia, every time, before I'll sell one to a stranger. A farmer with a good bow on the wall is a farm the Defias think twice about, and that's worth more than your coin." } },
+      lines = { { id = "be_default", text = "The militia, every time, before I'll sell one to a stranger. A farmer with a good bow on the wall is a farm the Defias think twice about, and that does me more good than your coin ever could." } },
       choices = {
         { text = "Right. The hill's defenders come first.", next = "BACK", fx = { align = { honor = 1 }, standing = { sentinel_hill = 1 } } },
         { text = "Coin's coin. Sell to whoever pays the most.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },

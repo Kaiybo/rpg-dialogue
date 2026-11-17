@@ -60,7 +60,7 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "Ha! Aye, I suppose it does. He's a Dark Iron who keeps to the shadows round the dam an' the dig, so if ye know where a body hides in a town this size, ye'll find him faster than my lads in their clankin' mail." },
+        { id = "xro_default", text = "Ha! Aye, I suppose it does. He's a Dark Iron who skulks round the dam an' the dig, so if ye know where a body hides in a town this size, ye'll find him faster than my lads in their clankin' mail." },
       },
       choices = {
         { text = "I'll find him and drag him to you in irons.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -190,7 +190,7 @@ P:NPC {
         { id = "xos2_default", text = "The Wetlands road got darker, that's what, an' I'd rather chase a smuggler than bury one the raptors found first. Keep yer cart honest on my road an' we'll call it settled, though I'll be watchin' how low it sits." },
       },
       choices = {
-        { text = "Fair enough, Kadrell.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Aye, Kadrell. Point taken.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -399,7 +399,7 @@ P:NPC {
       },
     },
     xcl_ulda2 = {
-      lines = { { id = "xcl_ulda2_default", text = "I doubt it, if I'm honest, for there's thousands o' them in the deep places an' they breed like rabbits. But a dwarf can hope, an' ye've given me a wee reason tae." } },
+      lines = { { id = "xcl_ulda2_default", text = "I doubt it, for there's thousands o' them in the deep places an' they breed like rabbits. But a dwarf can hope, an' ye've given me a wee reason tae." } },
       choices = {
         { text = "Then I'll keep an eye on the hills for you.", next = "BACK" },
       },
@@ -432,7 +432,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
-        { id = "h_again2", text = "Ask away; diggin's slow, but talkin's quick." },
+        { id = "h_again2", text = "Ask away; diggin's slow, an' half the lads are nursin' blisters, so talkin's the only quick thing round here." },
       },
       choices = {
         { text = "What did the last druid say about your digging?", next = "druid_q", when = { class = "DRUID" } },
@@ -1055,7 +1055,7 @@ P:NPC {
       },
       choices = {
         { text = "Understood. I'll keep it leashed and away from the kings.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Your statues are stone. The troggs are what matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your statues will keep. The troggs won't.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Who leads the troggs?", next = "leader" },
       },
     },
@@ -1213,7 +1213,7 @@ P:NPC {
         { id = "rn_default2", text = "My opinions belong to the regiment's book, and the book belongs to the King. Ask me about the troggs instead; I've plenty to say on them." },
       },
       choices = {
-        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Understood, Captain.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1252,7 +1252,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Chief Engineer Hinderweir VII begged me to hold the rail on a walkway he swore was perfectly safe. The weight of six forebears and one great dam sits squarely on his shoulders.",
+    first = "Chief Engineer Hinderweir VII begged me to hold the rail on a walkway he swore was perfectly safe. He has six forebears glaring down from their portraits and one great dam dripping on his head.",
     third = "{name} met Chief Engineer Hinderweir VII, seventh of his name to tend the Stonewrought Dam in Loch Modan.",
   },
 

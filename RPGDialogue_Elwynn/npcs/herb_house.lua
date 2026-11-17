@@ -48,7 +48,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Three, and drink the first when you're half done, not when you're nearly gone. Warriors save them like heirlooms and then fall over clutching a full flask, which is a waste of my afternoon." } },
       choices = {
         { text = "Three, then, and I'll drink when it's sensible.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll save them until I truly need them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep them back for when I'm bleeding properly.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your sort come through for healing potions before a long road, and I'm always glad to see you come back for more." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your sort come through for healing potions before a hard march, and I'm always glad to see you come back for more." },
         { id = "h_default", text = "Mallory, alchemist, and I'd offer you my hand if it weren't busy keeping this from boiling over. If you've come to learn the craft, you've found the right house; Pomeroy over there teaches you to gather, and I teach you what to do after." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Alchemy") },
           text = "Sam Sarsaparilla sent you up from the road, did he? He does like his campfires. Well, a camp is no use if nobody in it can mix a remedy, so let's see what you can do." },
@@ -213,7 +213,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'd say they do, and kindly ones. Every herb grows where it's happy, and that's a kind of spirit, isn't it?" } },
+      lines = { { id = "xdsham_default", text = "I'd say they do, and kindly ones. Every herb grows where it's happy and sulks where it isn't, and my mint sulks worse than my husband." } },
       choices = {
         { text = "The hills deserve gentle hands, Pomeroy. You have them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Herbs are herbs. Gather them and move on.", next = "BACK", fx = { align = { light = -1 } } },
@@ -254,14 +254,14 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Peacebloom and silverleaf and earthroot, which mend more than they harm, and that's all I'll put in the ground. The Defias pay well for nastier things, I'm told, but they'll have to dig them up somewhere else." } },
       choices = {
-        { text = "Mending herbs are worth more than poison. I respect that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better you brew for mending than for poison. I respect that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Poison pays better, Pomeroy. You're leaving coin in the ground.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the best ones go to Mallory for the gate guards' draughts, and a guard on his feet is worth more than a spell on a page. You can have the second best, and they'll still write better than anything you'd buy in Stormwind." } },
+      lines = { { id = "xmage_default", text = "Because the best ones go to Mallory for the gate guards' draughts, and a guard on his feet does more good than a spell on a page. You can have the second best, and they'll still write better than anything you'd buy in Stormwind." } },
       choices = {
         { text = "The guards come first. The second best will do me fine.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My research matters more than a guard's sore feet.", next = "BACK", fx = { align = { order = -1 } } },
@@ -356,7 +356,7 @@ P:NPC {
       },
     },
     camp = {
-      lines = { { id = "c_default", text = "Then pick what you can by the roadside, and learn which leaves keep and which spoil by morning. A camp herbalist is worth more than a camp cook, though don't tell Tomas I said so." } },
+      lines = { { id = "c_default", text = "Then pick what you can by the roadside, and learn which leaves keep and which spoil by morning. A camp herbalist earns her keep before a camp cook does, though don't tell Tomas I said so, because he already salts the stew out of spite." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "camping" } } } },
     },
   },

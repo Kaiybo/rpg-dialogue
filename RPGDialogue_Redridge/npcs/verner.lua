@@ -175,7 +175,7 @@ P:NPC {
     },
     scales = {
       lines = {
-        { id = "sc_default", text = "Underbelly scales off the black whelps south of the lake. They're worth more than coin to a smith, and I've no coin. Where black whelps come from, I'd rather not think." },
+        { id = "sc_default", text = "Underbelly scales off the black whelps south of the lake. A smith can work them where steel won't take, and I've no coin besides. Where black whelps come from, I'd rather not think." },
       },
       choices = {
         { text = "I'll hunt some whelps.", next = "BUSINESS", fx = { affinity = 1 } },
@@ -232,7 +232,7 @@ P:NPC {
     warhorse = {
       lines = { { id = "wr_default", text = "That animal came out of thin air, and it'll go back into it. It can find its own shoes. Mine are for horses that eat hay." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Hay-eaters only. I'll tell the horse.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "It's a gift of the Light, smith.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
         { text = "Then it can go unshod, for all I care.", next = "BACK", fx = { align = { light = -1 } } },
       },

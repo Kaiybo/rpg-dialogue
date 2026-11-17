@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_isle", text = "Welcome to Sardor Isle. Keep your bow strung and your eyes on the water; that's all I ask of anyone here." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back across the water, good. Now report." },
-    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "A scout off Ashenvale's borders, this far south. You left the Sentinels' paths to watch the rest of the world, I'm told, and I won't pretend I approve, but a scout's eyes are a scout's eyes, so report as if you'd never left." },
+    { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "A scout off Ashenvale's borders, this far south. You left the Sentinels' paths to watch the rest of the world, I'm told, and I don't approve, but a scout's eyes are a scout's eyes, so report as if you'd never left." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone from the isle {away}, and the naga have tested our shores more than once in that time. Report, and then rest, because I'll need you sharp." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been away {away}, and I had begun to count you among those the forest kept, as Feralas keeps so many. I'm glad to be wrong, and the High Priestess will be glad to hear it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since you last stood on this isle, and I can see it in how you carry your weapon. I have harder errands than the ones I gave you before, if you want them." },
@@ -56,7 +56,7 @@ P:NPC {
       lines = {
         { id = "ssh_default", text = "Then you're a long way from home and very close to it at once. Eldre'Thalas stands in the hills east of here, and the ogres call it Dire Maul now; what lives in its deepest halls I wouldn't wish on any child of the city." },
         { id = "ssh_order", when = { all = { { race = "Skyborne" }, { faction = "Alliance" } } },
-          text = "The High Order went to the Kirin Tor, I hear, looking for the magic your forebears carried out. I'll be honest with you, sky-child: my Sentinels will watch you closely until they understand what you came for." },
+          text = "The High Order went to the Kirin Tor, I hear, looking for the magic your forebears carried out. I'll say it plainly, sky-child: my Sentinels will watch you closely until they understand what you came for." },
       },
       choices = {
         { text = "Watch, then. I've nothing to hide.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
@@ -81,7 +81,7 @@ P:NPC {
     },
     rogue_sh = {
       lines = {
-        { id = "rsh_default", text = "Everyone works where my archers can't see them, eventually; the trick is being useful when you do. The ogres in the Feral Scar keep their chiefs well hidden, and a rogue who learns where would save a great deal of arrows." },
+        { id = "rsh_default", text = "Everyone works where my archers can't see them, eventually, so make yourself useful while you're out of sight. The ogres in the Feral Scar keep their chiefs well hidden, and a rogue who learns where would save a great deal of arrows." },
         { id = "rsh_watch", when = { origin = "nightelf_watcher_trained" },
           text = "Watcher-trained, by the look of you. Maiev's people and mine don't always agree, but I've never once known one of you to waste an arrow's worth of effort, so go find me those chiefs." },
       },
@@ -129,7 +129,7 @@ P:NPC {
     xcl_dm = {
       big = true,
       lines = {
-        { id = "xcl_dm_default", text = "Less crowded, perhaps, but a city that old is never truly empty. The Highborne raised it in Azshara's day, and it outlived the Sundering when so much else drowned, and since then the satyrs have nested in its gardens and the ogres in its courts." },
+        { id = "xcl_dm_default", text = "Less crowded, perhaps, but a city that old is never empty. The Highborne raised it in Azshara's day, and it outlived the Sundering when so much else drowned, and since then the satyrs have nested in its gardens and the ogres in its courts." },
       },
       choices = {
         { text = "It should be sealed, General, and its magic left to rot.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -257,7 +257,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sentinels = {
-      lines = { { id = "s_default", text = "Then come back when you're ready to stand a watch and not just a fight. They're different things, and most learn that late." } },
+      lines = { { id = "s_default", text = "Then come back when you're ready to stand a night watch in the rain with a cold bowstring. A fight's over in minutes, and a watch lasts till dawn." } },
       choices = {
         { text = "I'll be ready.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Standing watch isn't for me, so I'll stick to the fighting.", next = "BACK", fx = { align = { order = -1 } } },
@@ -323,7 +323,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shop", text = "Well met! Leather, repairs, or a kind word: which can I do for you?" },
+    { id = "g_shop", text = "Well met! Leather, repairs, or a kind word? The kind word's free, but mind the mould on the straps; it grows overnight in this damp." },
   },
 
   notice = {
@@ -346,7 +346,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Every day out here, friend, or you'll find a buckle gone green and a strap snapped the moment an ogre swings at you. I learned that the hard way in my paladin days, and now I pass it on with the needle, which hurts a good deal less." } },
+      lines = { { id = "xwarcl_default", text = "Every day out here, friend, or you'll find a buckle gone green and a strap snapped the moment an ogre swings at you. I lost a good shield that way in my paladin days, and now I pass it on with the needle, which hurts a good deal less." } },
       choices = {
         { text = "Caring for your kit is a warrior's first duty.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'd sooner buy new than fuss over old straps.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -492,7 +492,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet." },
+    { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet, and the roof only leaks over the table nobody sits at." },
     { id = "g_home", when = { homeInn = { "Feathermoon Stronghold" } }, text = "You've returned to the island. Your bed is ready, and the tea is fresh." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, and here you are dripping on my floor as though you never left. Sit by the fire, and I'll put the kettle on." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the Sentinels came in tonight smiling, and she said it was something you'd told her. That's rare enough on this island that I made her a second cup." },
@@ -625,7 +625,7 @@ P:NPC {
         { text = "Do the Sentinels welcome help from outsiders?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do many warriors come back from the mainland hurt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Sentinels really bring their cats inside, Shyria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Will the Sentinels truly not sleep with a demon near, Shyria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will the Sentinels really not sleep with a demon near, Shyria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would the Sentinels stare at a dwarf shaman, Shyria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
@@ -663,7 +663,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_camp", text = "You want to help the Horde in Feralas? Good, then kill ogres; that's how." },
+    { id = "g_camp", text = "You want to help the Horde in Feralas? Good, then kill ogres; that's how. Bring back their ears and not their smell, if you can manage it." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the ogres didn't stop breeding while you were away, so get your blade ready." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You hit harder than you did when I last saw you, and I can tell that just by looking. Good, then the Gordunni will learn to fear you, and I can send you deeper north." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the camp folk back down, and I'll allow it, once. Save that for the ogres, because they deserve it and our own people don't." },
@@ -712,7 +712,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Not much, I'll be honest, but a forest full of angry beasts is harder to march through. Break enough Gordunni and the woods will quiet down, and then you can tend them however you like." } },
+      lines = { { id = "dq_default", text = "Not much, I admit, but a forest full of angry beasts is harder to march through. Break enough Gordunni and the woods will quiet down, and then you can tend them however you like." } },
       choices = {
         { text = "Then break them. The forest needs them gone.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The woods need healing, not only more killing.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -928,7 +928,7 @@ P:NPC {
       lines = {
         { id = "m_default", text = "Maybe you could, but it's dangerous, and I'd rather a master looked at it far from my camp. Bring the orbs to me and let Uthel'nay take the risk; that's what Orgrimmar feeds him for." },
       },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+      choices = { { text = "Better Uthel'nay's eyebrows than mine.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     skyborne = {
       lines = {
@@ -961,7 +961,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_ore", text = "You look like someone who can carry rocks: valuable rocks, mysterious rocks!" },
+    { id = "g_ore", text = "You look like someone who can carry rocks: valuable rocks, mysterious rocks, rocks I can sell to a dwarf for twice what they're worth!" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! Did you bring rocks, because a friend who comes back after that long usually brings rocks, or at least I like to think so." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you talked somebody in camp into believing something they shouldn't have, and I have to say I'm impressed! Never on me, of course, because I'm a goblin, and we invented that trick." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round to your view, and I'd love to know how, because I've been trying to sell this camp on my ore for months and nobody's bought a single stone." },
@@ -976,9 +976,9 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Everybody is, friend, but you're worth more than most, because nobody understands you yet. The ogres guard an ore nobody understands either, and I'd like to study both of you, though I'll settle for selling the ore." } },
+      lines = { { id = "xfpala_default", text = "Everybody is, friend, but you're more interesting than most, because nobody understands you yet. The ogres guard an ore nobody understands either, and I'd like to study both of you, though I'll settle for selling the ore." } },
       choices = {
-        { text = "Study the ore honestly, Orwin, and share what you learn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Study the ore properly, Orwin, and share what you learn.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sell it first, Orwin, and study it after.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1053,7 +1053,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and here I thought this camp was all braves and drums. Do your gods care about ore, I wonder? I've a sample that could use a blessing, or at least an explanation." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Well, I won't ask where your power comes from if you don't ask where my samples come from, and I think that's a fair trade." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage! Tell me what you feel off this lump of cobalt, would you? The Gordunni guard it like it's worth more than gold, and I'd like to know why before I price it." },
+          text = "A mage! Tell me what you feel off this lump of cobalt, would you? The Gordunni guard it like their mothers' bones, and I'd like to know why before I price it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! You know, the Gordunni keep their best cobalt in the deepest parts of their camps, and I'd pay very well for a sample that didn't come with an ogre attached." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -1178,7 +1178,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here, it's just warm." },
+    { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here it's just warm, and the only thing that bites is the pepper in the stew." },
     { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry and the kettle's on." },
     { id = "g_away", when = { away = 14 }, text = "Look who's come back after {away}! Shake off the rain and sit down, because the stew's been waiting nearly as long as I have." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the braves came in grinning tonight and said it was because of you, and I've never seen that one grin before. Whatever you told him, you have my thanks." },

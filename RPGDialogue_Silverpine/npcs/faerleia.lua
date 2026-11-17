@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("Pyrewood Ambush") }, text = "The Council's chairs are still empty. I like them that way." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Pyrewood didn't miss you, though I'll admit I did, a little. Lurking alone gets dull." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've sharpened since the ambush. I can tell by how quietly you came up the stairs this time." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word reached the Sepulcher that you lied your way past someone. Fair enough, but don't try it on a deathstalker, because we invented it." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word reached the Sepulcher that you lied your way past someone. Good for you, but don't try it on a deathstalker, because we invented it." },
   },
 
   notice = {

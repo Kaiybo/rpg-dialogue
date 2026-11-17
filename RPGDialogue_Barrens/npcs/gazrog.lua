@@ -45,7 +45,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a strongbox to stare at." },
-        { id = "h_again2", text = "Go on. Nobody else here wants to talk to me until payday." },
+        { id = "h_again2", text = "Go on. Nobody else here wants to talk to me until payday, and some of the grunts have stopped talking to me at all." },
       },
       choices = {
         { text = "Raptors stole silver? Really?", next = "raptors" },

@@ -77,7 +77,7 @@ P:NPC {
         { id = "fk_default", text = "They were, and some still are, in whatever remains of them beneath the bark. The druids at the Emerald Sanctuary have been putting them to rest, one by one, which is a kindness, though it is a hard one to watch." },
       },
       choices = {
-        { text = "Is it truly a kindness?", next = "fall_mercy" },
+        { text = "Is it really a kindness?", next = "fall_mercy" },
         { text = "Something else.", next = "BACK" },
       },
     },

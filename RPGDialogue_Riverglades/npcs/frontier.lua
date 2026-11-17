@@ -109,7 +109,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll stand with Curly. Nothing gets past me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let Curly learn the hard way, then.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let Curly get bitten, then. He'll learn.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -200,7 +200,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're buying, talk. If you're standing around, there's an axe." },
+    { id = "g_default", text = "If you're buying, talk. If you're standing around, there's an axe, and my blisters have blisters." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Pick up a saw or pick a direction." },
   },
 

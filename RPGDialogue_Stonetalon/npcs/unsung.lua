@@ -72,7 +72,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "No, because a portal can't see the Charred Vale burning from above, and a hippogryph's rider sees everything on the way. You'd be surprised how much of what the Keeper knows came to him from someone looking down out of the sky." } },
       choices = {
         { text = "The old ways have a wisdom no spell replaces.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Quicker roads will win out in the end, Teloren.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Quicker roads will win out sooner or later, Teloren.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

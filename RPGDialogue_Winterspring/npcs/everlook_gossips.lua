@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hey there! You look like somebody who wants to hear something interesting." },
+    { id = "g_default", text = "Hey there! You look like somebody who wants to hear who's been stealing the inn's pickled herring." },
     { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet her yet? No, don't tell me, I want to imagine your face." },
     { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Found that survivor yet? Starfall Village, west of here, you can't miss it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you didn't send me so much as a postcard! What's new out there?" },
@@ -103,7 +103,7 @@ P:NPC {
         { id = "cw_default", text = "Because it's cold out there, friend, and there are wildkin, and I'm a goblin of delicate constitution. You, on the other hand, look like the cold's afraid of you." },
       },
       choices = {
-        { text = "Fair enough. I'll go.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Fine, I'll go. Keep your delicate toes warm.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -264,7 +264,7 @@ P:NPC {
     },
     xhunter = {
       lines = {
-        { id = "xh_default", text = "Then you know it's not about the hunting, it's about the being out there, with the wind and the quiet. Most folk in Everlook think I'm daft for it, so it's nice to meet someone who isn't." },
+        { id = "xh_default", text = "Then you know the hunting's half of it, and the rest is being out there with nothing but the wind and your own breath. Most folk in Everlook think I'm daft for it, so it's nice to meet someone who isn't." },
       },
       choices = {
         { text = "You're not daft, Meggi.", next = "BACK", fx = { affinity = 2 } },

@@ -122,7 +122,7 @@ P:NPC {
           text = "A warrior. I keep a crate of whetstones under the counter for your sort, {class}, since nothing goes out of the Dawn's stores faster except bandages." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Dawn's stores are short on arrows again, {class}, so bring your own, and gather them up afterwards if you can." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Dawn's stores are open to any friend of the Dawn, and a druid who heals the land is a very good friend indeed." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Dawn's stores are open to any friend of the Dawn, and a druid who heals the land is about the best friend we could ask for." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at Chillwind! The Dawn's stores are open to you as to anyone who's earned them, {class}, though I'll ask you to keep your totems off my counter, as I've only just dusted it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Dawn will trade with you, {class}, if you've earned it, though I'll tell you plainly that a few of the knights at Light's Hope would rather it didn't." },
       },
@@ -142,7 +142,7 @@ P:NPC {
         { text = "What does the Dawn give the soldiers who fight for it?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why are the Dawn's stores short on arrows?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should the Dawn share its stores with all who ask?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Does the Dawn truly serve the Horde as well, Quartermaster?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Does the Dawn really serve the Horde as well, Quartermaster?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Does the Dawn really trust warlocks, Quartermaster?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the Dawn care what a dwarf shaman believes, Quartermaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
@@ -243,7 +243,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something." },
+        { id = "xhuntcl_default", text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something, mange or worse, and they stink to the treeline." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine coat on {pet}, {class}, and I'm a leatherworker, so I'll say that once and never again. Keep it away from the Felstone wolves, for their sickness gets into the fur first." },
       },
       choices = {
@@ -352,7 +352,7 @@ P:NPC {
       },
     },
     hides = {
-      lines = { { id = "hi_default", text = "Not much, honestly, since the land's sick and so's everything on it. Bring me a clean wolf or a bear from the edges of the forest, but leave the plaguebats and the rotting hounds alone." },
+      lines = { { id = "hi_default", text = "Not much, since the land's sick and so's everything on it. Bring me a clean wolf or a bear from the edges of the forest, but leave the plaguebats and the rotting hounds alone." },
         { id = "hi_hunter", when = { class = "HUNTER" }, text = "You'll know a clean animal from a sick one better than most, being a hunter. Bring me wolves and bears from the forest's edge, and leave anything that walks wrong where it fell." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },

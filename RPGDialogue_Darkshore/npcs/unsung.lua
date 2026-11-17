@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Fresh off the Darkshore coast this morning, and worth every bit of the trouble it took to catch." },
+    { id = "g_default", text = "Fresh off the Darkshore coast this morning, and worth every murloc bite it took to catch, which was three." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? You've got the look of someone who's had enough of inn stew and wants a proper fish." },
   },
 
@@ -308,7 +308,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveler forgets, I keep, because sooner or later they come back for it." },
+        { id = "h_default", text = "I'm Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveler forgets, I keep, because sooner or later they come back for it. Last week it was a dwarf's left boot, and he'd walked halfway to Bashal'Aran before he noticed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Please tell me you've packed water, because warriors never pack water, and then they faint on the road to Ashenvale." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you have enough arrows? Hunters always run out of arrows at the worst moment, I've heard." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I do hope you've packed enough bandages, because priests always give theirs away and then have none left for themselves." },
@@ -360,7 +360,7 @@ P:NPC {
         { id = "wo2_default", text = "Perhaps, but courage doesn't fill a stomach. Let the brave ones be brave, and let me make sure they have bread when they're done being brave." },
       },
       choices = {
-        { text = "Fair enough. Someone has to think ahead.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Smart. Someone has to think ahead.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Some things you can't prepare for.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_strand" } } },
       },
@@ -368,7 +368,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the general goods in Auberdine. I've seen a lot of young people come through here, and I try to send them out ready." } },
+    background = { { id = "tp_bg", text = "I keep the general goods in Auberdine. I've seen a lot of young people come through here, and I try to send them out with a spare bag and dry socks, which is more than most of their mothers managed." } },
     advice = { { id = "tp_ad", text = "Buy a bigger bag. You'll thank me in a week." } },
     _none = { { id = "tp_none", text = "Oh, I wish I knew. Ask Thundris Windweaver; he knows far more than I do." } },
   },
@@ -401,7 +401,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I do, truly. Troubles look smaller after a cup. Your spirits might agree." } },
+      lines = { { id = "xdsham_default", text = "I do. Troubles look smaller after a cup, and the furbolgs look further away. Your spirits might agree." } },
       choices = {
         { text = "Kindness in a cup, Taldan. I accept.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Drinks do not fix troubles.", next = "BACK", fx = { align = { light = -1 } } },
@@ -419,7 +419,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "More than they'd admit, because a clear head is worth more than a brave one when the furbolgs come out of the trees. The Sentinels drink my juice before they patrol, and not one of them has complained." } },
+      lines = { { id = "xwarcl_default", text = "More than they'd admit, because a clear head keeps you alive longer than a brave one when the furbolgs come out of the trees. The Sentinels drink my juice before they patrol, and not one of them has complained." } },
       choices = {
         { text = "Clear head, steady hand. I'll take a cup.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'd rather have something stronger.", next = "BACK", fx = { align = { order = -1 } } },
@@ -549,7 +549,7 @@ P:NPC {
 
   topics = {
     highborne = { { id = "tp_high", text = "They drank from the Well until it swallowed them. My grandmother told me that story whenever I asked for a second cup." } },
-    background = { { id = "tp_bg", text = "I sell drinks in Auberdine. Simple work, but nobody's ever unhappy to see me." } },
+    background = { { id = "tp_bg", text = "I sell drinks in Auberdine. Simple work, and nobody's ever unhappy to see me, unless I've run out of moonberry juice." } },
     _none = { { id = "tp_none", text = "I couldn't say. Have a drink and ask around; someone will know." } },
   },
 }
@@ -600,7 +600,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "That you've been hit and kept fighting, which is all I ask of a customer. Darkshore will add a few more, so carry a blade you trust, because the furbolgs don't give second chances." } },
       choices = {
         { text = "Each scar was a lesson. I learned from them.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Each scar was a fight I won. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Each scar was a fight I walked away from.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -658,7 +658,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Nothing, until it turns on you, and from what I've heard of the Dark Strand up at Ameth'Aran, they always do in the end. Buy a dagger at least, so that when it happens you've something better than a curse in your hand." },
+        { id = "xlock_default", text = "Nothing, until it turns on you, and from what I've heard of the Dark Strand up at Ameth'Aran, they always do sooner or later. Buy a dagger at least, so that when it happens you've something better than a curse in your hand." },
       },
       choices = {
         { text = "Fair advice. I'll take a dagger.", next = "BACK", fx = { align = { order = 1 } } },
@@ -728,7 +728,7 @@ P:NPC {
 
   topics = {
     dark_strand = { { id = "tp_dark", text = "Robed cultists out in the hills. I don't know their business, and I don't care to, as long as they stay up there." } },
-    background = { { id = "tp_bg", text = "I sell weapons in Auberdine. I've sold blades to Sentinels and to fools, and the fools come back less often." } },
+    background = { { id = "tp_bg", text = "I sell weapons in Auberdine. I've sold blades to Sentinels and to fools, and the fools come back less often, usually carried." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care, so do you want a weapon or not?" } },
   },
 }
@@ -799,7 +799,7 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "It's a kind of something, and it isn't smithing. I'll sell you a file and a hammer like I'd sell anyone, and what you do with them is your business until the Sentinels make it theirs." },
+        { id = "xro_default", text = "It's something, all right, and it isn't smithing. I'll sell you a file and a hammer like I'd sell anyone, and what you do with them is your business until the Sentinels make it theirs." },
       },
       choices = {
         { text = "Honest work only, I promise.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -831,7 +831,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Gladly, though I sell supplies and not repairs, mind. A paladin's plate is the only thing standing between some poor soul and an axe, so I'd keep it in good order if I were you." } },
       choices = {
         { text = "I'll keep it in order, for the sake of others.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My armour keeps me alive. That's enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My armour keeps me alive. I'll keep it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -841,7 +841,7 @@ P:NPC {
         { id = "xlock_default", text = "Because the last imp I saw set a whole sack o' coal alight back in Ironforge just tae watch it burn, an' I'm no' payin' tae ship more across the sea. Besides, the elves already think my forge is a sin against the trees, so I dinnae need yer friend helpin' them prove it." },
       },
       choices = {
-        { text = "Fair enough. It'll stay well back.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Right. It'll stay well back.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let the elves think what they like.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -870,7 +870,7 @@ P:NPC {
         { text = "What brings a dwarf to Auberdine?", next = "why" },
         { text = "How do the night elves treat you?", next = "elves" },
         { text = "Do you know the dwarves digging south of here?", next = "dig" },
-        { text = "Lockpicking's a kind of metalwork, isn't it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Lockpicking counts as metalwork, doesn't it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the elves mind your forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can I keep my blade sharp out here among the elves?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do dwarven hunters bring rifles out here among the elves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },

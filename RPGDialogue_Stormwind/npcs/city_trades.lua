@@ -229,7 +229,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Tight above the cut and clean below it, and never with the cloth you've been wearing for a week. I've seen soldiers survive the sword and die of the bandage, so learn it properly from me before you learn it the hard way." } },
+      lines = { { id = "xwarcl_default", text = "Tight above the cut and clean below it, and never with the cloth you've been wearing for a week. I've seen soldiers survive the sword and die of the bandage, so learn it properly from me before you learn it over a friend's corpse." } },
       choices = {
         { text = "I'll learn it properly. My comrades depend on me too.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll take my chances. Priests handle that.", next = "BACK", fx = { align = { order = -1 } } },
@@ -239,7 +239,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Mostly, though a beast doesn't hold still and thank you for it the way a soldier does. The principles are the same: stop the bleeding, keep it clean, and keep it calm, which is the hard part." },
+        { id = "xhuntcl_default", text = "Mostly, though a beast doesn't hold still and thank you for it the way a soldier does. The principles are the same: stop the bleeding, keep it clean, and keep it calm, which is the bit that gets you bitten." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hurt? No? Good, but if it ever is, bring it here; I've bandaged a wolf, two hounds and one very cross cat." },
       },
       choices = {
@@ -364,7 +364,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Every time I cut one, if I'm honest, though I'd never say it in front of the other bowyers. I thank the old ones before I take a stave and plant two saplings for each, because my father did and I'd feel wrong not to." } },
+      lines = { { id = "xdruid_default", text = "Every time I cut one, though I'd never say it in front of the other bowyers. I thank the old ones before I take a stave and plant two saplings for each, because my father did and I'd feel wrong not to." } },
       choices = {
         { text = "That's the right way. Take only what you'll replant.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A tree's a tree, Frederick. Thanking it won't make the bow better.", next = "BACK", fx = { align = { honor = -1 } } },

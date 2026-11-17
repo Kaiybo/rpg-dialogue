@@ -127,7 +127,7 @@ P:NPC {
       },
     },
     leave_bridge = {
-      lines = { { id = "lb_default", text = "To someone, but not to Stromgarde. If the Alliance wants the Thandol Span guarded, the Alliance can send the guards; I've none to spare and I won't pretend otherwise." } },
+      lines = { { id = "lb_default", text = "To someone, but not to Stromgarde. If the Alliance wants the Thandol Span guarded, the Alliance can send the guards; I've none to spare, and half of mine are sleeping in tents with the rain coming through." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     keep = {
@@ -161,7 +161,7 @@ P:NPC {
     hammerfall = {
       lines = { { id = "h2_default", text = "Hammerfall was a camp for orc prisoners, once, and they broke it open and kept the ruins. We leave each other alone, most days, and most days is enough, for now." } },
       choices = {
-        { text = "Leaving each other be sounds fair enough to me.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "for" } } },
+        { text = "Leaving each other be suits me well enough.", next = "BACK", fx = { align = { order = -1 }, opinion = { peace = "for" } } },
         { text = "They should be driven out.", next = "BACK", fx = { align = { order = 1 }, opinion = { peace = "against" } } },
       },
     },
@@ -335,7 +335,7 @@ P:NPC {
           text = "A mage, {class}. Hammerfall's walls are stone, but the Boulderfist hit them with stone too, and fire is something they are not used to." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A quiet one, {class}. Hammerfall could use eyes among the Witherbark, for the trolls watch our walls and I would like to watch them back." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! Hammerfall carries the Doomhammer's name, and it'll be built by warriors like you, one cracked ogre skull at a time." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! Hammerfall bears the Doomhammer's name, and it'll be built by warriors like you, one cracked ogre skull at a time." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! These hills are thick with raptors and worse, and every beast you bring down is one less to trouble our caravans when they come." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Hammerfall bleeds every time the Boulderfist hit the walls, {class}, and I'd sooner have one healer on the parapet than ten more mouths in the barracks." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Boulderfist", "Witherbark" }, min = 40 } }, text = "The scouts say the Boulderfist and Witherbark have stopped testing our walls, and I know whose axe taught them that. Hammerfall remembers who bled for it." },
@@ -368,9 +368,9 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Their numbers, their shamans, and the paths between their villages, for the Witherbark move through these hills faster than any grunt can follow. When Hammerfall thrives, it will be on the back of quiet work like that, and I will remember who did it." } },
+      lines = { { id = "xrogue_default", text = "Their numbers, their shamans, and the paths between their villages, for the Witherbark move through these hills faster than any grunt can follow. When Hammerfall thrives, it will be because somebody crawled through Witherbark dung to count their spears, and I will remember who did it." } },
       choices = {
-        { text = "Quiet work wins wars. Glory is for songs.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Somebody has to count spears. I don't mind the mud.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather face them openly, Drum Fel.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else, Drum Fel.", next = "BACK" },
       },
@@ -630,7 +630,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because a sword made to kill trolls know where a troll keep his heart, and the Gurubashi got plenty of hearts. Takin' it from Stromgarde be the easy part, mon, and the hard part be keepin' Trol'kalar from turnin' on the hand that hold it." } },
+      lines = { { id = "xrogue_default", text = "Because a sword made to kill trolls know where a troll keep his heart, and the Gurubashi got plenty of hearts. Takin' it from Stromgarde be easy enough, mon, but keepin' Trol'kalar from turnin' on the hand that hold it." } },
       choices = {
         { text = "Using the enemy's own weapon is clever. I like it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Stolen blades bring bad luck. Forge your own.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -744,7 +744,7 @@ P:NPC {
     xwarlock_voljin = {
       lines = { { id = "xwv_default", text = "Vol'jin say a troll be judged by what he do with the gift, not where it come from. Zengu still be watching you, but Zengu watch everybody." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Let Zengu watch, then. I've nothing to hide.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -928,7 +928,7 @@ P:NPC {
     },
     songs_hum = {
       lines = {
-        { id = "sh_default", text = "I hum, and they pretend not to notice, and that's become a kind of song of its own. A tauren humming under an orc war chant would make all of Thunder Bluff laugh." },
+        { id = "sh_default", text = "I hum, and they pretend not to notice, and between us we've made a song nobody would admit to. A tauren humming under an orc war chant would make all of Thunder Bluff laugh." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

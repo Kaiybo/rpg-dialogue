@@ -310,7 +310,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} at the far end, by Elly. She likes animals, and I like my ale where I left it." },
       },
       choices = {
-        { text = "Fair enough, Bartleby. Your end of the bar is yours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Right, Bartleby. I'll keep my elbows off your end of the bar.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My pet sits where it likes. It's a free tavern.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -525,7 +525,7 @@ P:NPC {
       },
       choices = {
         { text = "My stories are always true, Elly. Mostly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A good story's worth more than the truth, Elly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell it the fun way, Elly. Nobody drinks to the truth.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -859,7 +859,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and they all learn that the hard way. I sell them leather and I don't ask what they keep at home, and that suits all of us." } },
+      lines = { { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." } },
       choices = {
         { text = "I'd rather my demons never touched anyone. I'll take care.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Let the felhunter tear what it likes. Leather's cheap.", next = "BACK", fx = { align = { light = -1 } } },
@@ -949,7 +949,7 @@ P:NPC {
       lines = { { id = "s_default", text = "Not many. They learn enough to make a jerkin and then they're off to see the world in it, and I can't blame them, really, but it means I'm always teaching the first lessons." } },
       choices = {
         { text = "The world needs crafters more than heroes.", next = "students_more", fx = { align = { order = 1 } } },
-        { text = "Let them go. Adventure's worth more than a trade.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let them go. Nobody ever wrote a song about a tanner.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
     students_more = {
@@ -962,7 +962,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Hunters and skinners bring me their hides and their stories together. Ask, and I'll tell you what came in with them." } },
     background = { { id = "tp_bg", text = "A leatherworker and a teacher, in Old Town most of my life. The hides tell better stories than I do." } },
     advice = { { id = "tp_ad", text = "Skin carefully, because a torn hide's only fit for scraps. Patience at the carcass saves you coin at the bench." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you. I know leather, and that's enough for one life." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. I know leather, and leather doesn't gossip." } },
   },
 }
 
@@ -1062,8 +1062,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "SI:7 is the law, in the places the law can't reach, and the Highlord knows it even if he doesn't like it. You'd be surprised how many of your heroes owe their lives to someone you'd arrest on sight." } },
       choices = {
-        { text = "Even in the shadows there must be honour, Osborne.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If it keeps Stormwind safe, the shadows can have their way.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Spy or not, a man still keeps his word, Osborne.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it keeps Stormwind safe, I don't care whose throat gets cut.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1291,7 +1291,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "A distraction that leaves no trace of the arcane behind, which is worth more than you'd think in this city. Every guard in the Mage Quarter can smell a spell, but none of them can smell powder once the smoke has cleared." } },
+      lines = { { id = "xmage_default", text = "A distraction that leaves no trace of the arcane behind, which pays better than you'd think in this city. Every guard in the Mage Quarter can smell a spell, but none of them can smell powder once the smoke has cleared." } },
       choices = {
         { text = "I'd rather face my enemies with my own magic.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A clean escape is worth any trick, Jasper.", next = "BACK", fx = { align = { honor = -1 } } },

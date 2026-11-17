@@ -166,7 +166,7 @@ P:NPC {
       lines = {
         { id = "sn_default", text = "That is between me and the council, {class}. Ask me something I'm permitted to answer." },
       },
-      choices = { { text = "Fair enough. Something else, then.", next = "BACK" } },
+      choices = { { text = "Never mind. Something else, then.", next = "BACK" } },
     },
 
     dome = {
@@ -223,7 +223,7 @@ P:NPC {
       lines = {
         { id = "uo_default", text = "One of ours once, yes. Dalaran taught Kel'Thuzad too, and you'd think we would have learned to look in our own cellars after that." },
         { id = "uo_cleared", when = { killed = { name = "Atrexis", min = 1 } },
-          text = "One of ours once, and dead now, by your hand, I'm told. I won't pretend I'm sorry, though I'll be reading his notes for a month to learn how we missed him." },
+          text = "One of ours once, and dead now, by your hand, I'm told. I'm not sorry, though I'll be reading his notes for a month to learn how we missed him." },
       },
       choices = {
         { text = "Necromancy is an abomination. Destroy every trace of it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -288,7 +288,7 @@ P:NPC {
     xskyborne = {
       big = true,
       lines = {
-        { id = "xs_default", text = "We already have, and we will again, but I'll be honest with you: we're holding our own city together with string this season. Elaadrin knew that and came anyway, which tells me how bad things were on Zephras." },
+        { id = "xs_default", text = "We already have, and we will again, but between the two of us: we're holding our own city together with string this season. Elaadrin knew that and came anyway, which tells me how bad things were on Zephras." },
       },
       choices = {
         { text = "Then we'll stand with Dalaran, as you stood with us.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
@@ -502,7 +502,7 @@ P:NPC {
       },
       choices = {
         { text = "Then let's begin better. I'll deal honestly with you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "It worked, and that's all that matters.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "It worked. He got his seat, didn't he?", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

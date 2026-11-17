@@ -118,7 +118,7 @@ P:NPC {
       choices = {
         { text = "Make peace while they're shaken, Captain, not more war.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Stoke it, then. Let them bleed each other dry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Do the centaur truly see Theradras as their mother?", next = "xcl_mara2" },
+        { text = "Do the centaur really see Theradras as their mother?", next = "xcl_mara2" },
       },
     },
     xcl_mara2 = {
@@ -251,7 +251,7 @@ P:NPC {
           text = "Looking for a soft spot, are you? I did say I'd be watching you, so ask me something useful." },
       },
       choices = {
-        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Useful questions only, then, Captain.", next = "BACK" },
       },
     },
   },
@@ -304,7 +304,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Circle would tell you that nature defends itself, and in a greener place I would agree. Here the satyrs foul the land faster than we can cleanse it, and I will not pretend that the Circle's patience has kept a single one of my sisters safe." } },
+      lines = { { id = "xwarcl_default", text = "The Circle would tell you that nature defends itself, and in a greener place I would agree. Here the satyrs foul the land faster than we can cleanse it, and I will not tell you that the Circle's patience has kept a single one of my sisters safe." } },
       choices = {
         { text = "Then I'll guard your sisters while the Circle does its work.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Patience cleanses nothing. I'll cut the satyrs out myself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -331,7 +331,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where the earth itself still remembers what fell there, and nothing grows true. Whatever pact you have made, the land pays for it in the end, even if you never see the bill." } },
+      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
       choices = {
         { text = "I'll turn the fel against the demons. It's a weapon.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You're right to be wary. I'll keep my pacts away from the green.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -395,7 +395,7 @@ P:NPC {
           text = "The earth here is sick at its root. Bring me proof of what's poisoning it, for the Circle must know." },
         { id = "h_strong", when = { minLevel = 45 },
           text = "You've grown strong, so hear it: a princess of the earth, Theradras, holds the body of one dear to the Circle, and we mean to take it back." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "You carry the scent of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "You smell of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The fel clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came into the clearing without a sound, and the birds did not stir. That is a gift the Circle respects, though I would know what you meant to do with it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle has spoken with tauren who hear the elements for a long time, but I did not expect to hear the earth answer one of Ironforge." },
@@ -528,7 +528,7 @@ P:NPC {
       },
       choices = {
         { text = "History belongs in a hall, not a market.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair enough. Salvage feeds people.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "A hungry dwarf makes a fair point. Salvage feeds people.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
       },
     },
     xrogue = {
@@ -536,7 +536,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "We find what others lost, friend, an' there's a fine line between lost an' taken that I'd rather not walk. Bring me salvage from the Karnitol wreck or the old ruins an' I'll not ask twice, but bring me a man's purse an' ye'll be talkin' to the Captain." } },
       choices = {
         { text = "Lost or taken, it's all salvage once it's in Desolace.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough. I'll stick to wrecks and ruins, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Right, then. I'll stick to wrecks and ruins.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -754,7 +754,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "The Crusade welcomes anyone who will put the dead back in their graves, friend. I'll be honest, though: there are brothers in Lordaeron who would call your moon goddess a heresy, and I pray you never have to meet them." } },
+      lines = { { id = "xdruid_default", text = "The Crusade welcomes anyone who will put the dead back in their graves, friend. Mind you, there are brothers in Lordaeron who would call your moon goddess a heresy, and I pray you never have to meet them." } },
       choices = {
         { text = "Then I'll fight the Scourge, but never under your banner.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The dead are a common enemy. I'll stand with you.", next = "BACK", fx = { align = { order = 1 } } },
@@ -794,7 +794,7 @@ P:NPC {
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Raleigh read your letter, Brother.", next = "raleigh",
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
-        { text = "Does the Crusade truly welcome those who don't follow the Light?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does the Crusade really welcome those who don't follow the Light?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why should a paladin join the Scarlet Crusade, Brother?", next = "xpt_anton", when = { party = { class = "PALADIN" }, faction = "Alliance" } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
@@ -802,7 +802,7 @@ P:NPC {
         { text = "Does the Crusade trust mages after Dalaran, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does the Crusade ask of its warriors, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How would a hunter track the Scourge, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does the Crusade truly see the spirits as heresy, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does the Crusade see the spirits as heresy, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I won't fight for the Crusade, Brother.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -1009,7 +1009,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome at my hearth like anyone else, but leave your companion outside, please, because the soldiers here have seen what the Burning Blade do with theirs." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Sit by the fire, if you like; the spirits of this land have little warmth left, and you look as though you've been listening to them a long while." },
       },
-      again = { { id = "h_again", text = "Something else? I'll keep sweeping." } },
+      again = { { id = "h_again", text = "Something else? I'll keep sweeping; the sand comes back faster than I can push it out." } },
       choices = {
         { text = "Can this land ever heal, Lyshaerya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
@@ -1274,7 +1274,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll do it.", next = "BACK", fx = { affinity = 3, align = { honor = 1 } } },
-        { text = "Glory's worth more than a post, and I'd have gone myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'd have taken the glory over a post, and gone myself.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -1284,7 +1284,7 @@ P:NPC {
       },
       choices = {
         { text = "Then watch me.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } },
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Count away, then.", next = "BACK", fx = { affinity = 2 } },
       },
     },
     forsaken = {
@@ -1451,7 +1451,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly the fish didn't even notice, which is more than I can manage. Sit, if you like, and tell me what you're really doing in Desolace." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here with the fishermen. If you could conjure a fish that bites, I'd call it the greatest magic I've ever seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll forgive me if I keep my line between us, because I've seen what the Burning Blade leave behind at Thunder Axe, and it doesn't sit well with me." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The Earth Mother sends us all kinds of surprises, and I think you might be the strangest one I've seen in Desolace." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in hand. The Earth Mother sends us all kinds of surprises, and I think you might be the strangest one I've seen in Desolace." },
       },
       again = {
         { id = "h_again", text = "Something else? Sit; nothing out here is in a hurry except the centaur." },
@@ -1555,7 +1555,7 @@ P:NPC {
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_default", text = "That the land remembers whatever is done to it, and a great deal has been done. The Burning Blade foul the ground near Thunder Axe, and the Kodo Graveyard has a weight to it that no spell could lift, so walk softly and you'll do better than most." },
+        { id = "xhcast_default", text = "That the land remembers whatever is done to it, and a great deal has been done. The Burning Blade foul the ground near Thunder Axe, and the Kodo Graveyard has a heaviness to it that no spell could lift, so walk softly and you'll do better than most." },
       },
       choices = {
         { text = "I'll walk softly and leave the land as I found it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

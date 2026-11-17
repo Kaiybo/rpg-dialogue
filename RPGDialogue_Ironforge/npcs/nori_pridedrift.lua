@@ -27,7 +27,7 @@ P:NPC {
 
   notice = {
     { id = "n_fast", cat = "speed", when = { class = { "ROGUE", "HUNTER" } },
-      text = "Ye've got quick feet, I can see it. Quick feet are worth more than gold in my trade." },
+      text = "Ye've got quick feet, I can see it. Quick feet beat strong arms in my trade, for mornbrew's no good cold." },
     { id = "n_cold", cat = "cold", when = { race = { "Gnome", "Human", "NightElf" } },
       text = "Ye're shiverin'. A cup o' mornbrew would sort that, if I had one tae spare, which I don't, but I will tomorrow." },
   },

@@ -153,7 +153,7 @@ P:NPC {
     },
     missing = {
       lines = {
-        { id = "mi_default", text = "Once, a long while ago, a box came up short by one silver ring, and Lairn and I spent three nights going through every page. In the end the owner found it on his own finger, and I have never let him forget it." },
+        { id = "mi_default", text = "Once, a long while ago, a box came up short by one silver ring, and Lairn and I spent three nights going through every page. On the fourth morning the owner found it on his own finger, and I have never let him forget it." },
       },
       choices = {
         { text = "Three nights for one ring?", next = "missing2" },
@@ -183,7 +183,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the ledgers in the Temple Gardens with Idriana and Lairn. It's quiet work, which suits me." } },
+    background = { { id = "tp_bg", text = "I keep the ledgers in the Temple Gardens with Idriana and Lairn. Nobody ever shouts at a ledger, which suits me." } },
     trade = { { id = "tp_trade", text = "More coin comes up from the boats every season. Most of it leaves again for Auberdine, but some of it stays with me for a while." } },
     _none = { { id = "tp_none", text = "That isn't written in any ledger I keep, so I'm afraid I can't help you with it." } },
   },
@@ -265,7 +265,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Not into a fight, perhaps, but carry the idea of one, which is knowing what will protect you when everything goes wrong. Every rogue I've buried thought they would never be caught, and that's a lesson worth more than any dagger." },
+        { id = "xrogue_default", text = "Not into a fight, perhaps, but carry the idea of one, which is knowing what will protect you when everything goes wrong. Every rogue I've buried thought they would never be caught, and most of them were buried in cheaper leathers than they could afford." },
       },
       choices = {
         { text = "Fair point. I'll plan for being caught.", next = "BACK", fx = { align = { order = 1 } } },
@@ -481,7 +481,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'd sell you a staff or a mace, though I'll be honest and say you'd do better spending your coin on a good robe." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'd sell you a staff or a mace, though between us, you'd do better spending your coin on a good robe." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a two-handed mace in the back that would suit you nicely, {class}, and it's not even the dear one." },
         { id = "h_default", text = "I'm Ariyell Skyshadow, and I sell weapons to the warriors who train on this terrace and to anyone else with the coin. I'd rather sell you the right blade than the dear one, and you'd be surprised how few merchants say that." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -637,7 +637,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd treat her as a friend, nothing less.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "If she's quick, that's what matters to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If she's quick, I don't care how she looks.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -739,7 +739,7 @@ P:NPC {
           text = "Your Stormwind sells its horses on the same terms, I'm told, so I don't think you can fault us too much." },
       },
       choices = {
-        { text = "Fair enough. I'll earn it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then I'll earn it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1273,7 +1273,7 @@ P:NPC {
         { id = "wo2_default", text = "They adored it, which is the worst part. I see them on the Terrace now and then, waving at me, and I wave back like a gracious elf, because what else can I do?" },
       },
       choices = {
-        { text = "It made them happy. That's what matters.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "It made them happy, and they'll talk about it for weeks.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1297,7 +1297,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Fresh venison this morning, and the boar's from Dolanaar. What'll it be?" },
+    { id = "g_default", text = "Fresh venison this morning, and the boar's from Dolanaar. The quail's off, because a nightsaber kit got into the larder, so what'll it be?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew the venison would win you over." },
   },
 
@@ -1477,7 +1477,7 @@ P:NPC {
 
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priestess of the Moon, or a priest of the Light, it hardly matters. You'll still want linen when your prayers run thin, and they always do in the end." },
+      text = "A priestess of the Moon, or a priest of the Light, it hardly matters. You'll still want linen when your prayers run thin, usually somewhere muddy in Ashenvale." },
     { id = "n_hurt", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Your armor looks as though it's had a hard road, and I'd guess you've had the same. Sit for a moment before you go back out." },
   },
@@ -1558,7 +1558,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because one day you'll be in a bear's skin with your mana gone and a Sentinel bleeding beside you, and changing back won't save her. Linen will, if you've learned to tie it, so sit down and let me show you." } },
       choices = {
-        { text = "Fair enough, and I'll learn bandaging as well as healing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bandages and prayers both, then. I'll learn the knots.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Nature's healing serves me better than strips of cloth.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1692,14 +1692,14 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Some do, and they make good students, because they understand that healing takes patience. The impatient ones blow up my cauldrons, but priests usually wait for the brew to settle." } },
       choices = {
-        { text = "Patience is a kind of faith, and I'll learn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll learn to wait, and pray while I do.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Potions are surer than prayer, so I'd like to learn.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "If you can wait, which I'm told your order finds difficult when there's a fight to be had. The right herb, the right measure and the patience to let it settle, and you'll find potions are a kind of discipline too." } },
+      lines = { { id = "xapala_default", text = "If you can wait, which I'm told your order finds difficult when there's a fight to be had. The right herb, the right measure and the patience to let it settle, and you'll find potions ask as much discipline as any vow." } },
       choices = {
         { text = "Discipline I understand, and I'll learn to wait.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd sooner fight than watch a cauldron simmer.", next = "BACK", fx = { align = { order = -1 } } },

@@ -11,7 +11,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Hold up there. Let me see if you're injured before you come any closer." },
-    { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. That's more than I can say for my brother's tent." },
+    { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. That's more than I can say for my brother's tent, which a stegodon sat on last night." },
   },
   start = "hello",
   nodes = {
@@ -73,11 +73,11 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I've watched a mage freeze a whole raptor pack in the mud, so I won't pretend it doesn't work. But mana runs dry and I've never yet run out of shot, so I'd want both, and I'd want the mage standing behind my rifle." } },
+      lines = { { id = "xmage_default", text = "I've watched a mage freeze a whole raptor pack in the mud, so I know it works. But mana runs dry and I've never yet run out of shot, so I'd want both, and I'd want the mage standing behind my rifle." } },
       choices = {
         { text = "Then hire mages. The expedition needs proper guards.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Every scholar ought to learn to defend themselves.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "That's enough on spells.", next = "BACK" },
+        { text = "Let's leave spells be.", next = "BACK" },
       },
     },
     xapriest = {
@@ -123,7 +123,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've got a patrol soon." }, { id = "h_again2", text = "Ask away, quickly." } },
       choices = {
         { text = "Is the Fire Plume as wild as it looks from up here?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Are the raptors truly so dangerous?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Are the raptors really that dangerous?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's it like hunting in the crater?", next = "b1_1" },
         { text = "Tell me about Williden.", next = "b2_1" },
         { text = "Why did the camps fall?", next = "b3_1" },
@@ -251,7 +251,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "The great raptor hides in the ferns and strikes from them, and no one calls him dishonorable. I would only ask that you take what you kill with respect, whether you killed it in the open or from the shadows." } },
+      lines = { { id = "xrogue_default", text = "The great raptor hides in the ferns and strikes from them, and no one calls him dishonorable. I would only ask that you take what you kill with respect, whether you killed it in the open or from behind a fern." } },
       choices = {
         { text = "A kill is a kill. The prey doesn't care how it died.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'd rather meet my quarry face to face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -480,7 +480,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
-      lines = { { id = "b3_1_l", text = "Oh, yes, and some of them quite hard. I've lost two pairs of gloves and nearly a finger." } },
+      lines = { { id = "b3_1_l", text = "Oh, yes, and some of them quite hard. I've lost two pairs of gloves and nearly a finger, and one of them burped afterwards, which I found very rude." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
@@ -613,7 +613,7 @@ P:NPC {
       choices = { { text = "Drinking from puddles?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "I've been hiding from the raptors and drinking from puddles, which I don't recommend. Spraggle must be frantic." } },
+      lines = { { id = "b1_2_l", text = "I've been hiding from the raptors and drinking from puddles, and one puddle had a frog in it that I'm fairly sure I swallowed. Spraggle must be frantic." } },
       choices = { { text = "Owe me everything?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
@@ -801,5 +801,5 @@ P:NPC {
       choices = { { text = "Nature shouldn't be for sale.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Profit is how anything gets done.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend, but I bet it's worth something." } } },
+  topics = { _none = { { id = "tp_none", text = "No idea, friend, but if it's wet and warm, I bet I can bottle it." } } },
 }

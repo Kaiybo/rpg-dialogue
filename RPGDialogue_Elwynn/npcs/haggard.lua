@@ -166,7 +166,7 @@ P:NPC {
         { text = "What makes a good guardsman, Captain Haggard?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did the Guard ever have to fight the beasts of this forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Where did you smell it before, Marshal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Were the orc shamans you fought truly fearsome, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Were the orc shamans you fought really that fearsome, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest easy, Marshal.", next = "END" },
       },
     },

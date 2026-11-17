@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_sweat", text = "Don't mind the sweat, mon. The poison makes it, not the weather, though the weather helps." },
     { id = "g_active", when = { questActive = TODO_QUEST("Need for a Cure") }, text = "Kor'ghan, Cleft of Shadow, antidote. I be counting the minutes, so you count them too." },
-    { id = "g_saved", when = { questDone = TODO_QUEST("Need for a Cure") }, text = "Still alive, mon, thanks to you. Kor'ghan say I owe him forty boars for being careless." },
+    { id = "g_saved", when = { questDone = TODO_QUEST("Need for a Cure") }, text = "Still alive, mon, thanks to you. Kor'ghan say I owe him forty boars for being careless, and he be counting, mon, out loud, every morning." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, mon, and I still be breathing, which you can take some credit for. Sit, if the boars let you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You got tougher since you ran to Orgrimmar for me, mon. I hope the venomtails noticed, because I sure did." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Folk say good things about you around here, mon. I tell them I knew you before you was famous, when you was just running errands for a dying troll." },

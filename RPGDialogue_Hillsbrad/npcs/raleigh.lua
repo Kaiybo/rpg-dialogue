@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too well, and for the wrong war. They teach you to hold a line against the Scourge, then they teach you the line runs through every village that won't wear the tabard, and by then you're too disciplined to ask why." } },
       choices = {
-        { text = "Discipline is no sin. What matters is who gives the orders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Discipline is no sin. It depends who's giving the orders.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A soldier who can't refuse an order is only a weapon.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Raleigh.", next = "BACK" },
       },
@@ -148,7 +148,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Ask away; I've stopped keeping secrets for them." },
-        { id = "h_again2", text = "Go on, the road's quiet tonight." },
+        { id = "h_again2", text = "Go on, the road's quiet tonight, apart from the wolves and my stomach." },
       },
       choices = {
         { text = "Why did you leave the Crusade?", next = "left" },
@@ -288,7 +288,7 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I don't know much, but what I know I learned the hard way. Ask, and I'll tell you true." },
+      { id = "tp_knows", text = "I don't know much, but what I know cost me two teeth and a good horse. Ask, and I'll tell you true." },
     },
     background = { { id = "tp_bg", text = "I was a paladin who believed the wrong men. I know exactly when I stopped, but I don't know when I started.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a man in red asks whether you're plagued, the right answer is to be somewhere else." } },

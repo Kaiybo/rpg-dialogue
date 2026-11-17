@@ -118,7 +118,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The braves who survived the ravaged caravan could have used you, and so could the ones who didn't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid on the road. That is good, because the dwarves at Bael'dun have cut the earth open with their picks, and someone who hears the land should see what they have done." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the open road. The diggers to the north tear at the earth with machines, and I hope you don't tear at it with spells." },
-        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bael'dun", min = 20 } }, text = "The dwarves at the Bael'dun digsite are fewer than they were, and the earth there is a little quieter. I won't celebrate it, but I won't pretend I'm sorry, either." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bael'dun", min = 20 } }, text = "The dwarves at the Bael'dun digsite are fewer than they were, and fewer picks ring in the hills at night. I won't celebrate it, but I'm not sorry, either." },
       },
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
@@ -150,7 +150,7 @@ P:NPC {
       choices = { { text = "What would you do?", next = "dwarves_morin" } },
     },
     dwarves_morin = {
-      lines = { { id = "dm_default", text = "I would ask them once, plainly, to leave. If they would not, then the land itself would forgive us for making them." } },
+      lines = { { id = "dm_default", text = "I would ask them once, plainly, to leave. If they would not, then the Earth Mother would forgive us for making them." } },
       choices = {
         { text = "Then ask them, and make them go if they refuse.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Asking only warns them. Strike before they're ready.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
@@ -200,7 +200,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I do not know. The night elves taught us that healing comes from the land itself, and the Light comes from somewhere else. But if it heals, it heals, and I am curious to see what yours mends." } },
+      lines = { { id = "xfpala_default", text = "I do not know. The night elves taught us that healing comes from the green and growing earth, and the Light comes from somewhere else. But if it heals, it heals, and I am curious to see what yours mends." } },
       choices = {
         { text = "Then I'll heal the land and its people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light heals people. Land is your business.", next = "BACK", fx = { align = { light = -1 } } },
@@ -209,7 +209,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Not quite, I think, because a druid asks the land to mend itself and a priest asks something greater to mend it for them. Both are a kind of asking, though, and I have never thought the land minded who did the asking, so long as it was asked kindly." } },
+      lines = { { id = "xhpriest_default", text = "Not quite, I think, because a druid asks the land to mend itself and a priest asks something greater to mend it for them. Both are still asking, though, and I have never thought the land minded who did the asking, so long as it was asked kindly." } },
       choices = {
         { text = "Then we're kin in the asking, Gennia.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My prayers don't ask. They command.", next = "BACK", fx = { align = { light = -1 } } },
@@ -431,7 +431,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, one of mine. Show me how your bow arm has grown, and let me see whether your companion still trusts you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You walk without a beast, but I can see you care for the living, and that is the first thing I teach my students." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. My hawk went still the moment you came near, the way she does for the Runetotems, so I think the wild already knows you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon isn't an animal companion, and I won't pretend it is, but I'll judge how you treat it all the same." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon isn't an animal companion, whatever you call it, but I'll judge how you treat it all the same." },
       },
       choices = {
         { text = "What makes a good hunter?", next = "good" },

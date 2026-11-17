@@ -57,7 +57,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Whatever stands still long enough to let you, honestly, though most start with a boar because a boar forgives mistakes. The scorpids are tougher but meaner, and Thotar in Razor Hill will tell you when you're ready to try either." },
+        { id = "xhuntcl_default", text = "Whatever stands still long enough to let you, though most start with a boar because a boar forgives mistakes. The scorpids are tougher but meaner, and Thotar in Razor Hill will tell you when you're ready to try either." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it's still learning too. You'll learn together, which is how all the good pairs start." },
       },
       choices = {
@@ -69,11 +69,11 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "It does, and Thrall himself owes his freedom partly to quiet work done in the dark. Learn your trade with Kaplak in Razor Hill when you're ready, but first do the work Gornek gives you, because every recruit starts there." },
+        { id = "xrogue_default", text = "It does, and Thrall himself owes his freedom partly to a few locks picked in the dark. Learn your trade with Kaplak in Razor Hill when you're ready, but first do the work Gornek gives you, because every recruit starts there." },
       },
       choices = {
         { text = "I'll start with Gornek's work, like everyone else.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Quiet work is my work. Gornek's chores can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll do my own work. Gornek's chores can wait.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,7 +142,7 @@ P:NPC {
         { text = "What happens in the valley?", next = "valley" },
         { text = "Do the Darkspear get the same welcome as orcs?", next = "troll", when = { race = "Troll" } },
         { text = "I was born in the camps too.", next = "campborn", when = { origin = "orc_camp_born" } },
-        { text = "Does the Horde truly have a place for rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does the Horde really have a place for rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the orcs here trust the arcane at all?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do warriors start with boars, Kaltunk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a new hunter tame first, Kaltunk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -382,7 +382,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and I'd rather they didn't. Help me with that." },
+    { id = "g_blade", text = "The Burning Blade crawl out of their caves after dark, and last week they cut a peon's throat over a sack of cactus apples. Help me put a stop to it." },
     { id = "g_back", when = { metBefore = true }, text = "You've been north? Tell me what you saw, all of it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade has been busy in that time. Tell me you've seen something useful." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the valley went away furious after talking with you. I don't much care who you anger, so long as it isn't the people fighting the Blade." },
@@ -448,7 +448,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "It could, because the Blade's imps burn just as well as anything else. I keep my own demons watching them too, though, so don't be surprised if I trust my own hand over yours in the end." },
+        { id = "xmage_default", text = "It could, because the Blade's imps burn just as well as anything else. I keep my own demons watching them too, though, so don't be surprised if I trust my own hand over yours when it counts." },
       },
       choices = {
         { text = "Fair. Together, we'll keep the Valley safe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -597,7 +597,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "No, not truly, because peons who are frightened work slower, and then they nap more to recover. Still, if you could conjure a little fresh water for them, it might help them stay awake." },
+        { id = "xmage_default", text = "No, not much, because peons who are frightened work slower, and then they nap more to recover. Still, if you could conjure a little fresh water for them, it might help them stay awake." },
       },
       choices = {
         { text = "Water, then. No fires for the peons.", next = "BACK", fx = { align = { light = 1 } } },
@@ -669,7 +669,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "ro_default", text = "Do you now? Then you'll know the trick is a tap and not a crack, because a peon who can't stand up can't haul lumber either. Show them some of that light touch your sort is famous for." } },
+      lines = { { id = "ro_default", text = "Do you now? Then you'll know it's a tap you want, not a crack, because a peon who can't stand up can't haul lumber either. Show them some of that light touch your sort is famous for." } },
       choices = {
         { text = "A light tap. Understood.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Where's the fun in a light tap?", next = "BACK", fx = { affinity = -1, trait = { cruel = 1 } } },
@@ -701,7 +701,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_cook", text = "Hungry? Of course you are; everyone in this valley is hungry." },
+    { id = "g_cook", text = "Hungry? Of course you are; everyone in this valley is hungry. The boar's a bit stringy, and I picked most of the scorpid out of it." },
     { id = "g_back", when = { metBefore = true }, text = "Here for seconds? Help me with thirds and we'll talk." },
   },
 
@@ -864,7 +864,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along." },
+    { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along. And don't bleed on the grindstone; it rusts." },
   },
 
   notice = {

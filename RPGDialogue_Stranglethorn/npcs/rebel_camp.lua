@@ -97,7 +97,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Go on. I've a few minutes before the next patrol comes in." },
-        { id = "h_again2", text = "What else? Keep it to what matters." },
+        { id = "h_again2", text = "What else? Keep it short; I've a camp to run." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Quietly. Half the camp's asleep and the other half pretends to be." },
       },
       choices = {
@@ -334,7 +334,7 @@ P:NPC {
           text = "You'll forgive me if I don't hand names to someone who walks as quietly as you do, because that's how Thorsen nearly died." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "I'd do the same in your boots.", next = "BACK" },
       },
     },
     k_rogue = {
@@ -479,7 +479,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Traces of the elixir Kurzen's medicine men hand out to their soldiers, which makes a frightened man brave and a brave man reckless. A rogue might think it a fine thing to carry into a fight, and I'd rather nobody learned the hard way what it does to the mind." } },
+      lines = { { id = "xrogue_default", text = "Traces of the elixir Kurzen's medicine men hand out to their soldiers, which makes a frightened man brave and a brave man reckless. A rogue might think it a fine thing to carry into a fight, but I watched one of Kurzen's men on it wade out to fight a river crocolisk bare-handed, and we buried what the crocolisk left." } },
       choices = {
         { text = "I'll leave it alone, Brother. It's your study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little courage in a bottle might be useful, Brother.", next = "BACK", fx = { align = { order = -1 } } },
@@ -504,7 +504,7 @@ P:NPC {
         { id = "h_maizoth_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mai'Zoth"), days = 3 } },
           text = "I kept my vow, through your hands, and I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Perhaps you can help me understand what drove Kurzen's men mad, since I've studied every herb and fever in the jungle and found nothing that explains it." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be honest with you, the Light makes me wary of your craft, but I've seen worse in this jungle than anything you could summon." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Light makes me wary of your craft, I'll admit, but I've seen worse in this jungle than anything you could summon." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forgive my staring, but you hold yourself the way Kurzen's men did before the madness took them, and I find myself checking your eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll go deeper into this jungle than any of us, so keep an eye out for strange leaves and roots, if you'd be so kind." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You heal by earth and water, I'm told, and I'd welcome any healer who can tell me what this jungle did to these men's minds." },

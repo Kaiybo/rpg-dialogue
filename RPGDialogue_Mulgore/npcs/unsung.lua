@@ -14,7 +14,7 @@ P:NPC {
   communities = { "narache" }, temper = { "steady" }, values = { "brave", "patient" },
   notices = { "class", "weary" },
   impression = {
-    first = "Harutt Thunderhorn trains the young braves of Camp Narache, a broad, slow-spoken tauren who teaches strength as a kind of patience. He seems to count every brave who leaves the camp as one of his own.",
+    first = "Harutt Thunderhorn trains the young braves of Camp Narache, a broad, slow-spoken tauren who makes his braves carry river stones up the hill until they stop complaining. He seems to count every brave who leaves the camp as one of his own.",
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
   },
   greetings = {
@@ -109,7 +109,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems on your belt, young one, and that is a heavy load for a brave. Carry it as patiently as you would carry a spear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter comes to the warrior's fire. Sit, and let me tell you why a hunter should stand as firm as any brave." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Strength without patience breaks things, and I am told that healing without patience breaks things too." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear's shape before long, so come and watch my braves, because the bear is only truly strong when it knows when not to fight." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear's shape before long, so come and watch my braves, because a bear that fights every battle ends up a rug in somebody's tent." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Narache. I teach strength, young one, and you'll need it even if you strike from the shadows." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at Camp Narache! We don't see many here, though the trolls who pass through say your sort are clever." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll speak plainly, young one, because the braves are frightened of your sort and I won't lie to them." },
@@ -672,7 +672,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "Because the gnolls never stop to ask whether you're a healer, and a priest with a heavy staff lives long enough to finish the prayer. My braves laugh when I say so, but they don't laugh when the gnolls come." } },
       choices = {
         { text = "My faith is my weapon, Mahnott, not your staff.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. A heavy staff it is, then.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A heavy staff, then. I'll aim for gnoll knees.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Mahnott.", next = "BACK" },
       },
     },
@@ -785,7 +785,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "A mace, and a heavy one, because you'll want the weight of the earth behind every swing. The orc shamans like axes, and I sell those too, though I'll never understand anyone who wants a small one." } },
+      lines = { { id = "xhsham_default", text = "A mace, and a heavy one, because you'll want something solid behind every swing. The orc shamans like axes, and I sell those too, though I'll never understand anyone who wants a small one." } },
       choices = {
         { text = "A sound mace and a steady hand. That's the honest way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whatever hits hardest when nobody's looking is the right weapon.", next = "BACK", fx = { align = { honor = -1 } } },

@@ -124,7 +124,7 @@ P:NPC {
       lines = {
         { id = "bm_default", text = "That is not a question the living should ask, nor one the dead should answer. I serve, and service needs no body, only will." },
         { id = "bm_warm", when = { disposition = { min = 70 } },
-          text = "Some nights I remember the weight of a bow in my hands, and the remembering is worse than the lack. Tell no one I said so." },
+          text = "Some nights I remember a bowstring biting into my fingers, and the remembering is worse than the lack. Tell no one I said so." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

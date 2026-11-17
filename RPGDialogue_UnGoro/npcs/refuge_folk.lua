@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Food, drink and shot, and all of it hauled up from Gadgetzan, so don't ask why it costs what it costs." },
+    { id = "g_default", text = "Food, drink and shot, all hauled up from Gadgetzan by a goblin who charges by the step, so don't ask why it costs what it costs." },
     { id = "g_back", when = { metBefore = true }, text = "Back up the hill in one piece, are ye? Good, I hate losing a customer to a lizard." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye're still walkin', which is more than I'd have wagered. I'd started tae wonder whether a devilsaur had made a meal o' ye." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear somebody up here caught ye tellin' a tall one, an' word travels fast on a ridge this small. Mind ye pay honest coin, at least, because I count it twice." },
@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Then ye'll not mind me counting, will ye? Out here a missing sack of meal could starve a scholar, so I count everything twice and trust nobody once, and it's kept the Refuge fed so far." } },
       choices = {
-        { text = "Fair enough. Count away, I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Count away, Nergal. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A man who counts that hard expects to be robbed.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Never mind that.", next = "BACK" },
       },

@@ -129,7 +129,7 @@ P:NPC {
         { text = "Mining picks and skinning knives? From a brother?", next = "tools" },
         { text = "Arrows. As many as I can carry.", next = "arrows", when = { class = "HUNTER" } },
         { text = "I can't afford much, Brother.", next = "poor", when = { money = { max = 500 } } },
-        { text = "Do you truly think a rogue would rob the Abbey?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you really think a rogue would rob the Abbey?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Brothers mind you selling to warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a recruit need most from your wagon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Abbey feed the poor from your wagon, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -171,7 +171,7 @@ P:NPC {
     },
     tools_approve = {
       lines = {
-        { id = "ta_default", text = "Brother Neals says honest trade is a kind of prayer. He says that about wine as well, so I don't lean on it." },
+        { id = "ta_default", text = "Brother Neals says honest trade counts as prayer. He says that about wine as well, so I don't lean on it." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },

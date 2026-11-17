@@ -94,7 +94,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Patience, seasons of it, culling the Winterfall and the Frostmaul giants and hunting meat for the cubs until the sabers know your scent. Some riders tire of it and leave, and I let them go, because a saber that is rushed will never truly carry you." } },
+      lines = { { id = "xapala_default", text = "Patience, seasons of it, culling the Winterfall and the Frostmaul giants and hunting meat for the cubs until the sabers know your scent. Some riders tire of it and leave, and I let them go, because a saber that is rushed will throw you into the first snowdrift it finds." } },
       choices = {
         { text = "Earned slowly is earned honestly. I'll do the work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "There must be a quicker way to win a saber over.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -138,7 +138,7 @@ P:NPC {
         { text = "Could a warrior learn to fight from a frostsaber, Rivern?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your frostsabers accept a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How does a priest earn a place at Frostsaber Rock?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is a demon's scent truly so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is a demon's scent really so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a frostsaber accept a dwarf shaman, Rivern?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
@@ -309,7 +309,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Salfa sees the light on you, and he has heard that your kind fight the dead in the east, so he wonders what you think of the Winterfall, who are not dead, only lost." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior. Salfa sees the scars on your hands, outsider, and he would rather you used them on the Winterfall than on the Timbermaw." },
+          text = "A warrior. Salfa sees the calluses on your hands, outsider, and he would rather you used them on the Winterfall than on the Timbermaw." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Salfa watches you read the snow, outsider, and he thinks you see the Winterfall tracks as clearly as he does." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -431,7 +431,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I don't know, truly, and the elder priestesses would scold me for saying it. But both kindle a flame in the dark, and that's all I'm trying to do at the altars, so if you come with me and stand guard while I light the torches, I won't ask whose name you whisper." } },
+      lines = { { id = "xapala_default", text = "I don't know, and the elder priestesses would scold me for saying it. But both kindle a flame in the dark, and that's all I'm trying to do at the altars, so if you come with me and stand guard while I light the torches, I won't ask whose name you whisper." } },
       choices = {
         { text = "I'll stand guard, whatever names we pray to.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll guard you, but my faith is my own, priestess.", next = "BACK", fx = { align = { light = -1 } } },
@@ -487,7 +487,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because the altars of Elune were dark too long, and someone must relight them, and I am the one standing here. I'd rather go with a friend who watches the shadows, but I'll go alone if I must, and I think you know that." } },
+      lines = { { id = "xrogue_default", text = "Because the altars of Elune were dark too long, and someone must relight them, and I am the one standing here. I'd rather go with a friend who watches the trees, but I'll go alone if I must, and I think you know that." } },
       choices = {
         { text = "I'll watch your back. You shouldn't go alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your courage will get you killed.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
@@ -497,11 +497,11 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. I won't pretend that sits easily with a priestess of Elune, but the hills are dangerous, and I'd rather walk to the altars beside you than alone." },
+          text = "A warlock. That doesn't sit easily with a priestess of Elune, but the hills are dangerous, and I'd rather walk to the altars beside you than alone." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, here in the hills! I've heard that your Light and Elune's grace are not so far apart, and I'd be glad of a shield and a steady heart when I go to the altars." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Oh, good, because I'll be honest with you, I'm no fighter, and the things around the altars don't care much how kind I am." },
+          text = "A warrior! Oh, good, because I'm no fighter, as you'll see, and the things around the altars don't care much how kind I am." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You'll see the trail to the altars before I do, and the eyes watching it, which I'll confess I usually notice far too late." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde? I didn't think one of you would come to an altar of Elune, but the spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
@@ -530,7 +530,7 @@ P:NPC {
         { text = "What kind of guard do you need at the altars?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What watches the trail to the altars, Ranshalla?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think the Light and Elune are so alike, Ranshalla?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would Elune's priestess truly walk with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would Elune's priestess really walk with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the old altars still draw the land's spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune keep you, Ranshalla.", next = "END" },
       },
@@ -950,7 +950,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed! Well, mostly guaranteed." },
+    { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed! Well, mostly guaranteed, and the bits floating in it are mostly turnip." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more, eh? Nobody leaves Himmik's hungry, or at least not for long." },
   },
 
@@ -1085,7 +1085,7 @@ P:NPC {
         { text = "Does your soup feed demons, too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could I really warm your soup with magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many come down off the mountain needing help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is your soup truly a miracle, Himmik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is your soup really a miracle, Himmik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you feed a warrior in Winterspring, Himmik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do chimaera steaks really taste of frost, Himmik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you feed the travelers who come in from the wilds?", next = "xdruid", when = { class = "DRUID" } },
@@ -1114,7 +1114,7 @@ P:NPC {
         { id = "dwarf_default", text = "Now there's a dwarf with sense, and if it doesn't warm you through I'll eat my hat, and it's a very nice hat, so you see how sure I am." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "I'll hold you to the hat.", next = "BACK" },
       },
     },
   },
