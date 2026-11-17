@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-17)
+- Eleven new Stories (journal: Stories page) across Kalimdor and the Eastern Kingdoms, for both factions. New files: restart the game fully (a /reload won't load them).
+
 ## 1.34.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

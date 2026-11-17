@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.0 (2026-11-17)
+- New story "The eye on the docks": tell Seahorn who the Bloodsail spy is, or keep the Baron's secret; Ian Strom reacts.
+
 ## 1.32.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

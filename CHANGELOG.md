@@ -2,6 +2,26 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.78.0 (2026-11-17)
+Eleven new Stories for the journal's Stories page: larger tales you piece together from several people, across both factions. **New files: restart the game fully (a /reload won't load them).**
+
+### Horde
+- **The Burning Blade's long reach** (Durotar to Orgrimmar): Zureetha, Galgar, Orgnil, Neeru Fireblade and Thrall, from cult daggers in the Valley of Trials to orders written in a careful hand.
+- **The Kolkar and the water** (the Barrens): Thork, Tonga, Regthar and Jorn on the centaur raids. After "Counterattack!", Regthar asks whether to ride down Krom'zar's stragglers. You decide.
+- **The new plague** (Brill to the Undercity): Johaan, Renferrel, Faranell, Varimathras and Sylvanas on the Apothecarium's work; then Thrall asks what you make of it, and remembers your answer.
+- **Arugal's children** (Silverpine): Hadrec, the Yoricks, Faerleia, Dalar and Wallace the Blind on the worgen, ending once Shadowfang Keep falls.
+- **The Grimtotem in the hills** (Thunder Bluff, Stonetalon, Thousand Needles): Magatha, Cairne, Tammra, Longhorn and Thalia.
+- **The Venture Company's reach** (Mulgore, Stonetalon, Ratchet): Mull, Seereth, Gazlowe and Sputtervalve, then Baine asks your counsel.
+
+### Alliance
+- **The missing diplomat** (Stormwind, Menethil, Theramore): DeLavey, Dashel, Mikhail, Tervosh and Jaina along "The Missing Diplomat".
+- **The broken Span** (Ironforge, Loch Modan, the Wetlands): Stoutfist, Longbraid, Rhag Garmason, King Magni and Nials. You carry Magni's word back to Dun Modr and choose how to tell it.
+
+### Both
+- **The axes of Ashenvale:** the Warsong lumber camps, from Mastok, Kuray'bin and Thrall on one side and Raene, Shindrell and Tyrande on the other.
+- **The eye on the docks** (Booty Bay): Crazz, Lozgil, Ian Strom and the Baron on a Bloodsail spy. Tell Seahorn who it is, or keep the Baron's game going.
+- **Something under Silithus** (levels 48-60): Pestlezugg, Williden, Larksbane, Mar'alith and Baristolth on the hum under the sands.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 

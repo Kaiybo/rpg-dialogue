@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- New story "The Kolkar and the water": Regthar lets you decide what happens to Krom'zar's stragglers; Thork and Jorn react.
+
 ## 1.20.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

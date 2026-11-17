@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Senani at Splintertree reacts to the new story "The axes of Ashenvale".
+
 ## 1.21.1 (2026-11-17)
 - Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
 
