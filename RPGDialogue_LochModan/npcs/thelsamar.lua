@@ -986,8 +986,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_ease", text = "At ease. Ceremony can wait until the troggs do." },
-    { id = "g_away", when = { away = 14 }, text = "At ease, and welcome back after {away} away. The troggs kept the same hours while you were gone, so nothing's changed on this hill." },
+    { id = "g_ease", text = "At ease, {g:lad|lass}. Ceremony can wait until the troggs do, and they never do." },
+    { id = "g_away", when = { away = 14 }, text = "At ease, and welcome back after {away} away. The troggs kept the same hours while ye were gone, so nothing's changed on this hill but the depth of my trenches." },
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away}, and you've come back with the bearing of a seasoned fighter. I'll forgo the ceremony, but consider yourself saluted." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "A report reached me that someone in Thelsamar caught you in a falsehood. I run this post on honest reports, so see that yours stay that way." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I'm told you've been of service to the town these past days. Well done, and I mean that formally." },
@@ -995,7 +995,7 @@ P:NPC {
 
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "A fighting sort, good. The King's lands need defenders more than they need visitors." },
+      text = "A fighting sort, good. The King's lands need defenders more than they need visitors, and the stone here has had its fill of visitors." },
   },
 
   start = "hello",
@@ -1087,19 +1087,19 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge. The troggs rise from under the hills faster than we can put them down." },
+        { id = "h_default", text = "Captain Rugelfuss, holding the Valley of Kings for Ironforge and King Magni. The troggs rise from under the hills faster than we can put them down, like water through a cracked seam." },
         { id = "h_trogg", tags = { "news" }, when = { questActive = TODO_QUEST("The Trogg Threat") },
           text = "The troggs have dug in close. Thin them out and bring me proof, for I want the King to read numbers, not complaints." },
         { id = "h_lands", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
           text = "These are the King's lands, and the King's statues watch over them. I'll not have troggs nesting at their feet." },
-        { id = "h_count", when = { metBefore = true }, text = "We put down eleven troggs yesterday, and twelve more came up where they fell. I've stopped counting and started digging trenches." },
+        { id = "h_count", when = { metBefore = true }, text = "We put down eleven troggs yesterday, and twelve more came up where they fell. I've stopped counting and started digging trenches, which at least is honest dwarven work." },
         { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
           text = "A Mountaineer of Dun Morogh, good. You'll know what a short-handed post looks like, and this is one." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Ah, good, it's you. The regiment's glad of you on these hills, and the captain is too, though he'll only say so the once." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, is it? I've a district full o' bears, boars an' angry wolves, an' I'll take any help that can speak tae them." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I've been holding this valley with tired soldiers, and a fresh arm is the best news I've had all week." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I've been holding this valley with tired soldiers and blunt axes, and a fresh arm is the best news I've had all week." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I could use one; the troggs come out of holes I didn't know were there, and somebody has to find them first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I have soldiers who have fought the troggs too long, and it's not only their bodies that need mending." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The King's statues have seen your order before, and they'd be glad to see it again." },
@@ -1108,8 +1108,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've held this valley against troggs for months, and if you can feel them coming through the stone, you're worth ten of my tired soldiers." },
       },
       again = {
-        { id = "h_again", text = "Is there anything further?" },
-        { id = "h_again2", text = "Speak plainly, if you would; I prefer it." },
+        { id = "h_again", text = "Is there anything further? Speak it, an' I'll hear it." },
+        { id = "h_again2", text = "Speak plainly, if ye would; I prefer it, as any dwarf o' the regiment does." },
       },
       choices = {
         { text = "What would you have me tell the beasts?", next = "druid_q", when = { class = "DRUID" } },
@@ -1143,7 +1143,7 @@ P:NPC {
     },
     reserve_worth = {
       lines = {
-        { id = "rw_default", text = "The King says it is, and I'm a captain. I say 'Yes, my king,' and I count troggs." },
+        { id = "rw_default", text = "The King says it is, and I'm a captain. I say 'Aye, my king,' and I count troggs." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1163,7 +1163,7 @@ P:NPC {
     },
     leader2 = {
       lines = {
-        { id = "l2_default", text = "Then we kill the next one, for troggs have more chieftains than sense." },
+        { id = "l2_default", text = "Then we kill the next one, for troggs have more chieftains than sense, and less sense than a stone." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
@@ -1237,11 +1237,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "The regiment's book records most of what happens in these hills, and I've read every page. Ask me about any of this." },
     },
-    background = { { id = "tp_bg", text = "I'm the King's captain in the Valley of Kings. My history is the regiment's history, and the regiment keeps a book." } },
+    background = { { id = "tp_bg", text = "I'm the King's captain in the Valley of Kings. My history is the regiment's history, an' the regiment keeps a book, bound in ram's hide and older than my beard." } },
     advice = { { id = "tp_ad", text = "Bring proof, always. Nobody argues with a sack of teeth." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The same troggs, or their cousins. They came up under the gnomes, and now they're coming up under us." } },
     troggs = { { id = "tp_troggs", text = "They're Stonesplinter, tunneling up from every crevice in the loch's hills.", next = "leader" } },
-    _none = { { id = "tp_none", text = "That's not my post, I'm afraid. Ask in Thelsamar." } },
+    _none = { { id = "tp_none", text = "That's not my post, I'm afraid. Ask in Thelsamar, at the Stoutlager, where every dwarf in the loch has an opinion." } },
   },
 }
 
@@ -1257,7 +1257,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_dam", text = "Careful on the walkway! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
+    { id = "g_dam", text = "Careful on the walkway, {g:lad|lass}! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you're back after {away}! The dam held the whole time, of course it held, it was engineered to hold." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown rather sturdy since your last visit. Do be gentle on the walkway, though, because it's rated for sturdy, but only just." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Thelsamar has been speaking well of you! It's nice to hear good news, because I usually only hear about cracks." },
@@ -1349,22 +1349,22 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh of the name, and I'll not be the one remembered for the day it fell." },
+          text = "Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh o' the name, an' I'll not be the one remembered for the day she fell, not while there's a beard on my chin." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("A Dark Threat Looms") },
           text = "Someone's been at the dam. Things have moved that shouldn't move and things have been left that shouldn't be here, so find out who, before it's too late to find out anything." },
-        { id = "h_crack", when = { metBefore = true }, text = "I found a hairline crack on the east face this morning, which is nothing, probably nothing. I'll check it again tonight, and tomorrow, and forever." },
+        { id = "h_crack", when = { metBefore = true }, text = "I found a hairline crack on the east face this morning, which is nothing, probably nothing, stone settles, ye know. I'll check it again tonight, and tomorrow, and forever." },
         { id = "h_saved", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Dark Threat Looms"), days = 7 } },
           text = "You saved her, the dam, my dam! She's safe, for the time being, though I've started checking at noon as well." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at the dam! I'll have ye know the Stonewrought Dam is the finest piece o' engineering in Khaz Modan, an' the fish don't seem tae mind it." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank goodness, for if the Dark Irons come for the dam, I'd much prefer you between them and the sluice gates." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank the stone, for if the Dark Irons come for the dam, I'd much prefer you between them and the sluice gates." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? You'll have keen eyes, then, and I'd be ever so grateful if you'd turn them on the hills above the dam." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, could you bless the dam? I've tried everything else, and my grandfather swore by a good blessing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Thank goodness, because if the Dark Irons come for the dam, you'll shine so brightly they'll know they're not welcome." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, could you ask the water whether it's content behind the dam? My grandfather would turn in his grave if it wasn't, and so would his." },
       },
       again = {
-        { id = "h_again", text = "Yes? Quickly, please; I've readings due." },
+        { id = "h_again", text = "Yes? Quickly, please, for I've readings due an' the stone won't wait." },
         { id = "h_again2", text = "Go on, and hold the rail while you do." },
       },
       choices = {
@@ -1389,7 +1389,7 @@ P:NPC {
     old = {
       big = true,
       lines = {
-        { id = "o_default", text = "Older than my grandfather's grandfather, and holding back the whole loch. If it goes, the valley below goes with it. I check it every morning, every night, and sometimes in between." },
+        { id = "o_default", text = "Older than my grandfather's grandfather, and holding back the whole loch with dwarven stone and dwarven stubbornness. If it goes, the valley below goes with it, so I check it every morning, every night, and sometimes in between." },
       },
       choices = {
         { text = "What happens if it goes?", next = "old_goes" },
@@ -1431,7 +1431,7 @@ P:NPC {
     },
     built = {
       lines = {
-        { id = "bu_default", text = "Before my time, and before my father's. It's stonewrought work, the finest in the world, and who laid the first stone matters less than who keeps the last one." },
+        { id = "bu_default", text = "Before my time, and before my father's. It's stonewrought work, the finest in the world, an' who laid the first stone matters less than who keeps the last one." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -1466,10 +1466,10 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know, well, I know a great deal, mostly about the dam, but also other things, which I'll gladly tell you about if you ask about any of these, quickly, before I have to go and check the dam again." },
     },
-    background = { { id = "tp_bg", text = "I'm the seventh of the name and Chief Engineer of the dam, and that's all of me; the rest is readings." } },
+    background = { { id = "tp_bg", text = "I'm the seventh o' the name and Chief Engineer of the dam, and that's all of me; the rest is readings an' a very worried beard." } },
     advice = { { id = "tp_ad", text = "Check it twice, then check it again, and then hold the rail." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't say that name near my dam, please, just don't. I've enough to worry about as it is.", next = "threat" } },
     stonewrought_dam = { { id = "tp_dam", text = "She's mine. Well, she's the King's, but she's mine.", next = "old" } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about anything but the dam right now. I rarely can." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I cannae think about anything but the dam right now. I rarely can." } },
   },
 }

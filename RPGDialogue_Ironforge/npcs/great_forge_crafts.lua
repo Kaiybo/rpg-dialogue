@@ -1018,8 +1018,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Who's there? Oh, a customer. You might have knocked, you know." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since you didn't steal anything last time." },
+    { id = "g_default", text = "Who's there? Oh, a customer, and you set off my door ward, which I calibrated myself to catch exactly that. You might have knocked, you know." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since my inventory still balances to the last strange dust from your last visit." },
   },
 
   notice = {
@@ -1100,17 +1100,17 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, good, you're not here to steal my formulas, are you? No, priests never steal formulas; they only bless them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, you'll want your hammer enchanted, I suppose, and I can do that, as long as you promise not to tell anyone how I did it." },
         { id = "h_default", key = true,
-          text = "Gimble Thistlefuzz, enchanter, and you've found the Arcanery, which most people don't. I can teach you to bind magic into cloth and steel, if you promise not to tell anyone how I do it." },
+          text = "Gimble Thistlefuzz, enchanter, and you've found the Arcanery, which most people don't, by design. I can teach you to bind magic into cloth and steel with proper runic precision, if you promise not to tell anyone how I do it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "You're not here to learn enchanting, are you? Nobody sneaks into the Arcanery to learn enchanting." },
+          text = "You're not here to learn enchanting, are you? Nobody sneaks into the Arcanery to learn enchanting, and I've a ward on the stairs that's never been wrong yet, well, hardly ever." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, you're not here to steal my formulas, are you? No, you'd be much quieter about it, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must have very good eyes, so please don't use them on my notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're not here to steal my formulas, are you? No, of course not, your people are much too dignified for that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Enchanting binds magic into things, and you seem to persuade things to do magic on their own. I'd love to compare notes." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs." },
-        { id = "h_again2", text = "Go on, then, but close the door first, if you please." },
+        { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs and trips the ward again; the recalibration takes me an hour." },
+        { id = "h_again2", text = "Go on, then, but close the door first, if you please, and all the way, because a door left a hair open bleeds arcane residue like a cracked steam pipe." },
       },
       choices = {
         { text = "Teach me enchanting.", next = "BUSINESS" },
@@ -1130,7 +1130,7 @@ P:NPC {
 
     nervous = {
       lines = {
-        { id = "ne_default", text = "I'm not nervous, I'm careful, which is different, and you'd be careful too if you'd lost everything once already. When Gnomeregan fell I left behind ten years of notes, and I've no intention of losing the next ten." },
+        { id = "ne_default", text = "I'm not nervous, I'm careful, which is different, and you'd be careful too if you'd lost everything once already. When Gnomeregan fell I left behind ten years of notes, four thousand pages in my own cipher, and I've no intention of losing the next ten." },
       },
       choices = {
         { text = "I'm sorry you lost so much.", next = "nervous_lost" },
@@ -1149,7 +1149,7 @@ P:NPC {
 
     how = {
       lines = {
-        { id = "hw_default", text = "You take something that already holds magic, a wand or a ring or even a cloak, and you break it down into dust and essence. Then you use a rod to put that magic back into something else, in a shape you choose, and that's the trick of it." },
+        { id = "hw_default", text = "You take something that already holds magic, a wand or a ring or even a cloak, and you break it down into dust and essence; think of it as dismantling an engine for parts. Then you use a rod to put that magic back into something else, in a shape you choose, and that's the trick of it." },
       },
       choices = {
         { text = "So you destroy one thing to improve another?", next = "how_destroy" },
@@ -1172,8 +1172,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I enchanted in Gnomeregan before the fall, and I enchant here now, upstairs, where I can hear people coming." } },
+    background = { { id = "tp_bg", text = "I enchanted in Gnomeregan before the fall, three levels down from the Clean Room, and I enchant here now, upstairs, where I can hear people coming." } },
     advice = { { id = "tp_ad", text = "Never disenchant anything you might want back later. I turned my grandmother's brooch into dust once, and she still writes to remind me." } },
-    _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly." } },
+    _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly, because every new fact is one more thing somebody can steal." } },
   },
 }

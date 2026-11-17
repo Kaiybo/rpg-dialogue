@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_post", text = "State yer business, and be quick about it. The kobolds don't wait for pleasantries." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, and you've the look of someone who finishes it." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I've work, an' ye've the look o' someone who finishes it." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the kobolds didnae miss ye one bit. I did, a wee bit, fer the work's piled up." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit o' muscle since ye last took work from me. Nearly enough tae match my own exploits, if ye keep at it." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been leanin' on folk about Thelsamar. Lean on the troggs instead, fer they've earned it an' the townsfolk havenae." },
@@ -103,7 +103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Stormpike, and I've held this valley against worse than kobolds in my day. Still, the vermin in the Silver Stream Mine have got to go, and I've only two hands." },
+          text = "Mountaineer Stormpike, an' I've held this valley against worse than kobolds in my day, by my beard. Still, the vermin in the Silver Stream Mine have got to go, and I've only two hands." },
         { id = "h_paws", when = { questActive = TODO_QUEST("Filthy Paws") },
           text = "The kobolds took our mining gear into the Silver Stream Mine, up north. Get it back before they dull every pick we own." },
         { id = "h_order", when = { questActive = TODO_QUEST("Stormpike's Order") },
@@ -160,7 +160,7 @@ P:NPC {
       },
     },
     mine = {
-      lines = { { id = "m_default", text = "Kobolds drove the miners out and took the tools with them, the filthy little thieves. Every day that mine sits idle, Ironforge's forges go a bit hungrier." } },
+      lines = { { id = "m_default", text = "Kobolds drove the miners out an' took the picks with them, the filthy little thieves. Every day that mine sits idle, Ironforge's forges go a bit hungrier." } },
       choices = {
         { text = "Why not send the Mountaineers in?", next = "mine_why" },
         { text = "Something else.", next = "BACK" },
@@ -200,7 +200,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Not my concern. Ask someone with less to do." } },
+    _none = { { id = "tp_none", text = "Not my concern, {g:lad|lass}. Ask someone with less to do and a shorter beard." } },
   },
 }
 
@@ -312,9 +312,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Mountaineer Cobbleflint, and this tower watches the pass south to the Badlands. The troggs swarm the hills round here like ants on a dropped pie." },
+          text = "Mountaineer Cobbleflint, an' this tower watches the pass south to the Badlands. The troggs swarm the hills round here like ants on a dropped pie, an' they've about as much sense." },
         { id = "h_def", when = { questActive = TODO_QUEST("In Defense of the King's Lands") },
-          text = "Stonesplinter troggs, out in the hills round the gate. Thin them out for me, and the King's Lands will be a bit safer tonight." },
+          text = "Stonesplinter troggs, out in the hills round the gate. Thin them out for me, an' the King's Lands will be a wee bit safer tonight." },
         { id = "h_done", when = { questDone = TODO_QUEST("In Defense of the King's Lands") },
           text = "The hills are quieter since ye went through them, and my lads are sleepin' sound for once." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, for I need a shield on the south wall more than I need another letter from Ironforge." },
@@ -347,7 +347,7 @@ P:NPC {
       },
     },
     troggs = {
-      lines = { { id = "t_default", text = "From under the earth, and the Explorers' League says from somewhere older still. All I know is they keep comin', and they don't stop to talk." } },
+      lines = { { id = "t_default", text = "From under the earth, an' the Explorers' League says from somewhere older still, some deep stone nobody's dug to yet. All I know is they keep comin', and they don't stop to talk." } },
       choices = {
         { text = "What does the League know about them?", next = "troggs_league" },
         { text = "Something else.", next = "BACK" },
@@ -659,7 +659,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Bingles Blastenheimer, inventor, and I'm on a very important expedition for Gnoarn. Unfortunately, my supplies have wandered off around the loch, and I can't do a thing without them." },
+          text = "Bingles Blastenheimer, inventor, and I'm on a very important geological survey for Gnoarn. Unfortunately, my supplies have wandered off around the loch, and I can't take a single measurement without them." },
         { id = "h_find", when = { questActive = TODO_QUEST("Find Bingles") },
           text = "Gnoarn sent you? Oh, wonderful, he does worry so, and I'm perfectly fine apart from the tools." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("Bingles' Missing Supplies") },
@@ -673,7 +673,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Could you ask the earth where my spanner went? And my screwdriver, and my blastencapper, and, well, everything?" },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm listening, mostly." },
+        { id = "h_again", text = "Anything else? I'm listening, mostly, with about seventy percent of my attention, which is very good for me." },
         { id = "h_again2", text = "Yes, yes, what is it? I've a theory brewing, and possibly a small fire, so be quick." },
       },
       choices = {

@@ -479,7 +479,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Would you mind saying something over Jetsteam? Nothing fancy, just enough to keep her in the air, because I'm not convinced the engineering will." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'd offer you a ride, but Jetsteam only seats one, and I'm not sure she'd lift all that plate anyway." },
         { id = "h_default", key = true,
-          text = "Pilot Bellowfiz, aviator, at your service! I'm stocking my flier for a long trip, and the depot's larder is emptier than a kobold's head." },
+          text = "Pilot Bellowfiz, aviator, at your service! I'm stocking my flier for a long trip, eleven hundred miles by my reckoning, and the depot's larder is emptier than a kobold's head." },
         { id = "h_jet", when = { questActive = TODO_QUEST("Stocking Jetsteam") },
           text = "Bear meat, boar meat and a bit of thick hide, that's what Jetsteam needs! Well, that's what I need, but Jetsteam needs me fed." },
         { id = "h_done", when = { questDone = TODO_QUEST("Stocking Jetsteam") },
@@ -495,7 +495,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Can you tell the wind to blow eastward on Thursday? My flight plan depends entirely on it." },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm!" },
+        { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm, and every minute idle costs me two percent of my steam!" },
         { id = "h_again2", text = "Ask away, I've got a moment while the pressure builds." },
       },
       choices = {
@@ -549,7 +549,7 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, and that's not in it." } },
+    _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, roughly four thousand feet of it, and that's not in it." } },
   },
 }
 

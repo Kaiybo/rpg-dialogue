@@ -132,8 +132,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wondered whether a lightning totem would charge a battery. Purely theoretically, of course. I wouldn't sell it without testing it twice." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a box of springs to count." },
-        { id = "h_again2", text = "Next question, please." },
+        { id = "h_again", text = "Anything else? I've a box of springs to count, four hundred and twelve at last tally, and I'd like to know if it's still four hundred and twelve." },
+        { id = "h_again2", text = "Next question, please, and in order of size, if you can manage it." },
       },
       choices = {
         { text = "Let me see your parts.", next = "BUSINESS" },
@@ -190,7 +190,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sorted parts in the great workshops of Gnomeregan, and I sort them here, though the workshops were rather larger." } },
     advice = { { id = "tp_ad", text = "Label your powders. Black powder and pepper look much the same in a dark tunnel." } },
-    _none = { { id = "tp_none", text = "That's not a part I stock, I'm afraid, or one I've ever heard of." } },
+    _none = { { id = "tp_none", text = "That's not a part I stock, I'm afraid, or one I've ever heard of, and I've catalogued every part that came out of Gnomeregan." } },
   },
 }
 
@@ -416,8 +416,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, and please don't mix them up." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because it was meant to." },
+    { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, a precise three feet between them, and please don't mix them up." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because I measured it to the drop, and it was meant to." },
   },
 
   notice = {
@@ -509,7 +509,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want healing potions, I expect, for when your prayers run low, and they will; I've seen it happen to the very best of them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want healing potions, I expect, though your sort heal yourselves, so maybe something for the troggs instead." },
         { id = "h_default", key = true,
-          text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, and I've never yet lost a student, or not for very long." },
+          text = "Tally Berryfizz, alchemist! I teach anyone who wants to learn how to turn a handful of weeds into something that'll save their life, with the proportions written down exactly, and I've never yet lost a student, or not for very long." },
         { id = "h_tinkertown", when = { origin = "gnome_ironforge_raised" },
           text = "Oh, you're a Tinker Town child, I'd know that quiet anywhere! We all learned to keep our voices down when the dwarves were drinking, didn't we? Well, you can be as loud as you like in my shop." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -524,7 +524,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The herbs you pick must be happier than mine. Mine always look a little offended by the time they reach the bench." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know? I've a kettle on." },
+        { id = "h_again", text = "What else would you like to know? I've a kettle on, and it boils over at exactly nine minutes, so we've about six." },
         { id = "h_again2", text = "Ask away, while the potion bubbles." },
       },
       choices = {
@@ -546,7 +546,7 @@ P:NPC {
 
     drinks = {
       lines = {
-        { id = "dr_default", text = "Because the dwarves wanted a drink and the adventurers wanted a potion, and I thought, why not both? The mixed drinks pay the rent, and the potions pay for the next experiment, so everybody wins." },
+        { id = "dr_default", text = "Because the dwarves wanted a drink and the adventurers wanted a potion, and I thought, why not both, with a shared still and half the overhead? The mixed drinks pay the rent, and the potions pay for the next experiment, so everybody wins." },
       },
       choices = {
         { text = "Has anyone mixed them up?", next = "drinks_mixed" },
@@ -581,6 +581,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I mixed potions in Gnomeregan, before, and I mixed drinks in Gnomeregan too, just never in the same shop." } },
     advice = { { id = "tp_ad", text = "Stir clockwise, unless the recipe says otherwise. And if it smokes, step back." } },
-    _none = { { id = "tp_none", text = "I don't know about that, sorry! Ask me about potions instead." } },
+    _none = { { id = "tp_none", text = "I don't know about that, sorry, and I can't distil an answer out of nothing, though I've tried! Ask me about potions instead." } },
   },
 }

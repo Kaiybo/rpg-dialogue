@@ -30,8 +30,8 @@
 - Ironband: steady, honest digger; slow work, worth it; owns the possibility that his dig woke the troggs.
 - Hearthstove: jolly innkeeper; best ale between Ironforge and the Wetlands.
 - Vidra: brisk cook; don't ask about the sausages.
-- Rugelfuss: formal officer, little brogue; numbers for the King.
-- Hinderweir: anxious engineer who stumbles in long run-on sentences; checks the dam all day.
+- Rugelfuss: formal officer, light brogue (an occasional ye, aye, {g:lad|lass}); numbers for the King; trenches, stone and the regiment's book.
+- Hinderweir: anxious engineer who stumbles in long run-on sentences; checks the dam all day; light burr, stone and beard oaths ("thank the stone").
 
 ## Depth (Loch Modan 1.2.0)
 - Kadrell: the spy (why the dam), the loch (what's in it), who needs a hand (Stormpike). Gated: the stout (after Stout to Kadrell), gnomes.

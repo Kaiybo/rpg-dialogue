@@ -1558,7 +1558,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_advice", text = "Well met! Here's free advice: make friends with a mage, because our sleeves are absolutely full of tricks." },
+    { id = "g_advice", text = "Well met! Here's free advice, and I've run the numbers on it: make friends with a mage, because our sleeves are absolutely full of tricks, and roughly a third of them work as intended." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Come in, come in, mind the frost on the floor; that was a demonstration." },
   },
 
@@ -1643,7 +1643,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I like priests, because when my students set themselves on fire, which happens, your sort are the ones who put them out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a list of paladins who've been very rude about my lightning, and I hope you won't be on it." },
-        { id = "h_default", text = "Bink, mage trainer, and the Hall's best argument for keeping a bucket of sand by every door. What can I do for you?" },
+        { id = "h_default", text = "Bink, mage trainer, and the Hall's best argument for keeping a bucket of sand by every door; I've measured, and three buckets is the safe ratio. What can I do for you?" },
         { id = "h_tabetha", tags = { "news" }, when = { questActive = TODO_QUEST("Tabetha's Task") },
           text = "Off to see Tabetha, are we? Her cottage is west of Theramore, past the Stonemaul ruins, and take friends, because Tabetha's errands tend to end in Zul'Farrak." },
         { id = "h_mage_high", when = { class = "MAGE", minLevel = 40 },
@@ -1658,7 +1658,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please tell me you're better with fire than my students. I've used two buckets of sand already this morning." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, before the frost melts." },
+        { id = "h_again", text = "What else? Quickly, before the frost melts, because I timed it at four minutes and I've already lost two to chatting." },
         { id = "h_again2", text = "Ask away! I love questions; they're like spells that haven't gone off yet." },
       },
       choices = {
@@ -1700,7 +1700,7 @@ P:NPC {
     },
     hall = {
       lines = {
-        { id = "ha_default", text = "Lovely, mostly! The dwarves pray on that side and we study on this side, and every so often a fireball goes the wrong way and High Priest Rohan comes over very calmly to ask about it." },
+        { id = "ha_default", text = "Lovely, mostly! The dwarves pray on that side and we study on this side, and about once a week by my count a fireball goes the wrong way and High Priest Rohan comes over very calmly to ask about it." },
       },
       choices = {
         { text = "Do the priests mind?", next = "hall_mind" },
@@ -1709,7 +1709,7 @@ P:NPC {
     },
     hall_mind = {
       lines = {
-        { id = "hm_default", text = "Less than you'd think! They heal our burns and we keep their lamps lit with a cantrip, and my brother Dink says it's the most sensible arrangement in Ironforge." },
+        { id = "hm_default", text = "Less than you'd think! They heal our burns and we keep their lamps lit with a cantrip, which is the sort of tidy exchange we'd have built a machine for back in Gnomeregan, and my brother Dink says it's the most sensible arrangement in Ironforge." },
       },
       choices = {
         { text = "Faith and study belong under one roof.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -1762,9 +1762,9 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I hear everything twice in this Hall, once from the mages and once from the priests, and they never agree. Here's my half." } },
-    background = { { id = "tp_bg", text = "I'm a mage trainer, and a gnome, and I've got a brother called Dink who trains mages too, so yes, we've heard all the jokes." } },
+    background = { { id = "tp_bg", text = "I'm a mage trainer, and a gnome, and I taught arcane theory in Gnomeregan before the troggs gave us all an early recess. I've got a brother called Dink who trains mages too, so yes, we've heard all the jokes." } },
     advice = { { id = "tp_ad", text = "Befriend a mage! And if you are one, befriend a priest, because somebody has to put out the fires." } },
-    _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, because I hate not knowing things." } },
+    _none = { { id = "tp_none", text = "No idea! But if you find out, come and tell me, because not knowing things gives me a sort of itch, like an unsolved equation." } },
   },
 }
 
@@ -1835,7 +1835,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Only if a mage opens it for ye, an' I'd want tae know where ye're goin' an' why. A portal's no' a back door, though I've had more than one o' yer kind ask me tae make it one." } },
+      lines = { { id = "xrogue_default", text = "Only if a mage opens it for you, and I'd want to know where you're going and why, to the yard. A portal isn't a back door, though I've had more than one of your kind ask me to make it one." } },
       choices = {
         { text = "I'll never ask you to make a portal a back door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Every door is a back door if you use it right.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1844,7 +1844,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Close enough tae worry me, for both tear a hole in the world, an' only one o' them asks permission o' what's on the other side. I've studied this longer than ye've been alive, so dinnae argue it." } },
+      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." } },
       choices = {
         { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Permission is for the weak. I take what I need.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1873,20 +1873,20 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I doubt you've come to study portal magic, but I'll admit your kind understand discipline, which is more than I can say for most mages." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I very much doubt you've the mental acuity for portals, but I'll admit you've the discipline, which is half the battle." },
-        { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another, which is the most difficult thing in this Hall, and I include praying in that." },
+        { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another to within a hand's width, which is the most difficult thing in this Hall, and I include praying in that." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 40 },
           text = "You've reached the point where walking becomes optional. Portals, then, and do pay attention, because a portal opened carelessly arrives somewhere carelessly." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "A rogue wantin' tae know about portals? I doubt ye've the mental acuity, but go on." },
+          text = "A rogue wanting to know about portals? I doubt you possess the mental acuity, but go on, and keep your hands where I can measure them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock askin' about portals, are ye? I'll tell ye now, I'll no' teach ye tae open anythin', for yer kind's openin's have a habit o' lettin' things in." },
+          text = "A warlock asking about portals, are you? I'll tell you now, I won't teach you to open anything, because your kind's openings have a habit of letting things in, and I've the figures to prove it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I doubt very much that you're here to study portal magic, but do go on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please do keep any beast you have well away from the portal stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm told your people can step to Moonglade without a single equation, and I find that personally offensive." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I fold space, and you, I'm told, speak to the ground beneath it. One day we'll have to compare which of us gets lost more often." },
       },
       again = {
-        { id = "h_again", text = "Something else? Make it a sensible something." },
+        { id = "h_again", text = "Something else? Make it a sensible something, with defined terms." },
         { id = "h_again2", text = "Well? I've calculations cooling." },
       },
       choices = {
@@ -1956,7 +1956,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know a great deal, most of it beyond you. Here is the part that isn't." } },
-    background = { { id = "tp_bg", text = "I teach portal magic in the Hall of Mysteries. Before that I studied portal magic, and before that I wanted to study it, so you see the pattern." } },
+    background = { { id = "tp_bg", text = "I teach portal magic in the Hall of Mysteries. Before that I studied portal magic in Gnomeregan, and before that I wanted to study it, so you see the pattern." } },
     advice = { { id = "tp_ad", text = "Check where you're going before you go there. You'd be astonished how many people don't." } },
     _none = { { id = "tp_none", text = "That isn't a portal, so it isn't my concern." } },
   },
