@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Both ask for discipline, an' both will burn ye if ye don't have it. I've fought beside mages in the Second War, an' I'll trust one who keeps their head over a paladin who doesnae." } },
+      choices = {
+        { text = "Discipline is everything. I'll keep my head, Brandur.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Discipline is a cage. Real power comes from letting go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Light judges what ye do, no' what ye wield, an' I've seen warlocks hold a line when braver souls ran. Still, I've buried too many friends tae fel tae welcome it at my table." } },
+      choices = {
+        { text = "Then judge me by what I do, Brandur. I'll prove it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light has its uses. So does the fel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. Dwarves I send on tae Tiza Battleforge an' humans tae Duthorian Rall, for the Light's no' fussy about beards." },
@@ -39,6 +57,10 @@ P:NPC {
           text = "Look at ye, all plate an' purpose! I'll own it, I get a wee bit jealous, an' Tiza says that's my weakness. I'm workin' on it." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Ye're in the right hall, then. Rohan's along the way, pacin' as he does; tell him Brandur sent ye, an' he'll pretend tae know who that is." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage come tae see a paladin? The Light an' the arcane get along better than folk think, if ye don't mind a lecture on the subject." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll speak wi' ye, warlock, because the Light turns nobody away, but I'll no' pretend I'm comfortable doin' it." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The Light's patient, but my students aren't." },
@@ -50,6 +72,8 @@ P:NPC {
         { text = "How did dwarves come to the Light?", next = "light" },
         { text = "What does a paladin owe the Light, trainer?", next = "owe", when = { class = "PALADIN" } },
         { text = "The Light isn't the only power in the mountain.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "How do the Light and the arcane get along?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can a warlock find any place in the Light's eyes?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -154,6 +178,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It would, and I've seen it. The children lost so much in the wars that anything bright and harmless feels like a gift, and a mage who takes the time to show them is a better mage for it." } },
+      choices = {
+        { text = "I'll go and show them something bright and harmless.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I've no time for children's games. Coin will have to do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think coin is coin, and the children need it badly. What worries me is the children, who've seen enough of shadows already, so give if you like, but give quietly." } },
+      choices = {
+        { text = "I'll give quietly, John, and keep my shadows away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Shadows will find them anyway. Better they learn to face them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "John Turner, at your service. My wife Stephanie and I run the orphanage in Stormwind, and I come up to Ironforge every month to gather supplies. I'm usually here, mind; it's a long month." },
@@ -165,6 +207,10 @@ P:NPC {
           text = "Is that linen you've brought? Bless you, friend; Stephanie can make ten shirts out of that, eleven if the boys stand still." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Would you say a word for the children the next time you're in the Cathedral? Children always notice who prays for them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Oh, a mage! The orphans back in Stormwind love a bit of magic, and if you ever pass that way, a small light show would mean more to them than coin." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I won't ask what you carry with you, but I'll ask you to keep it away from the collection box, if you would." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've time, plenty of it, and a cart that won't fill." },
@@ -178,6 +224,8 @@ P:NPC {
         { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "I could pray with them, back in Stormwind.", next = "pray", when = { class = "PRIEST" } },
         { text = "I grew up on the canal docks myself.", next = "canals", when = { race = "Human", class = "ROGUE" } },
+        { text = "Would a little magic really cheer the orphans?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think a warlock's coin would taint the orphans?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck, John.", next = "END" },
       },
     },
@@ -297,6 +345,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not often, for the Church tends to look at your sort sideways. Still, I've seen rogues fight the Scourge as bravely as any knight, and if you want an honest edge on your blades, I'll give you one." } },
+      choices = {
+        { text = "An honest edge for honest work. I'll use it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your edge will open the right throats, whoever's they are.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, and that's why I'm asking you to step back. Every piece I forge for the paladins carries a prayer, and I'll not risk a prayer on a guess." } },
+      choices = {
+        { text = "I'll step back, Jordan. Your prayers deserve respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If a prayer can't withstand me, it's a weak prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil." },
@@ -306,6 +372,10 @@ P:NPC {
           text = "You stood with Daphne at the farm? She wrote to me that you were brave and she was braver, and that sounds just like her." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest of the Church, which has been good to Daphne and me. If you're ever on the Westfall coast, look in on her; she'll put you to work." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "The Church sends me paladins, an' you're no paladin. What are you after, then, near my anvil?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock at the Church's anvil! I'll ask you to keep your distance from the blessed metal, for it's been blessed once and I'd not like to bless it again." },
       },
       again = {
         { id = "h_again", text = "What else? The fire's in no hurry." },
@@ -319,6 +389,8 @@ P:NPC {
         { text = "You trained as a paladin?", next = "paladin_path", when = { class = "PALADIN" } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Do you forge for warriors, or only the faithful?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Does the Church's smith not deal with rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can a warlock's presence harm blessed metal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Stay warm, Jordan.", next = "END" },
       },
     },

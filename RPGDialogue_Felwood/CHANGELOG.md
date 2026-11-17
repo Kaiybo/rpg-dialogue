@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-16)
+- Troll and Forsaken priests are greeted as priests by 11 Horde, Timbermaw and Cenarion people in Felwood, who talk about the corruption.
+
 ## 1.11.0 (2026-11-16)
 - Priests and paladins are noticed: 6 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
 

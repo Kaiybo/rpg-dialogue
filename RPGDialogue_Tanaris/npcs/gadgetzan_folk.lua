@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It buys water, which in Tanaris is about as holy as anything gets, and it buys the Bruisers who keep both factions from killing each other in the square. I'd call that a better return than most temples manage." } },
+      choices = {
+        { text = "Peace in the square is worth every coin. I'll not argue.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Gold behind a Bruiser's club isn't peace. It's just a price.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every one of them is staying right here, where the earth can't reach it. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
@@ -75,6 +84,7 @@ P:NPC {
           text = "I'll ask you to keep both hands on the counter, friend. I'm sure you're an honest customer, but I'm surer still that my vault has seen your sort before." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Do you know how much it costs to keep a vault safe from someone who can walk through a wall, or turn a guard into a sheep? I do, and it's a great deal." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the vault. The Cartel doesn't tithe, I'm afraid, but you're welcome to pray over your deposit, and the Bruisers will watch you do it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You'll forgive me if I don't ask you to bless the vault, because the last holy man through here asked how much the Cartel set aside for the poor, and I had no good answer for him." },
       },
@@ -92,6 +102,7 @@ P:NPC {
         { text = "Has anyone ever robbed your vault?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a mage really breach your vault?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Cartel ever spend its gold on the poor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the Cartel's gold ever buy anything holy, Gimblethorn?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -282,6 +293,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Most of them, and some I strap to the saddle because they cannot sit up. A troll priest once flew with them and kept them breathing all the way to the Crossroads, and I have not forgotten it." } },
+      choices = {
+        { text = "Then I'll fly with them when I can. That's my duty.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The weak should have stayed home. I won't nurse them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They hunt well here, scorpids and buzzards and whatever strays too far from the road. But the heat shortens their tempers, and a short-tempered wind rider has a long reach." } },
       choices = {
@@ -320,6 +340,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The wind riders are calmer when one of you is near, and so am I, so speak freely." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The riders who come in from Zul'Farrak are cut and sun-blind, and I would rather they met you than the long flight home." },
         { id = "h_default", key = true,
           text = "I am Bulkrek Ragefist, and I keep the wind riders for the Horde here. They will take you to Orgrimmar, the Crossroads, Camp Mojache and wherever else the Horde flies." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -343,6 +364,7 @@ P:NPC {
         { text = "Do you trust the goblins here?", next = "goblins" },
         { text = "You don't trust warlocks, Bulkrek?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What's wrong with looking sly, Bulkrek?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the wounded fly out through you, Bulkrek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -400,6 +422,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "That, friend, is a chef's secret, and I'll take it to my grave, which, if you're Forsaken, I suppose isn't the end of anything. Let's just say the desert provides, and Dirge Quikcleave seasons." } },
+      choices = {
+        { text = "A chef who feeds the hungry earns more than boasting, Dirge.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the hungry pay or starve. That's the desert's way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The desert, my friend, which holds more meat than anyone thinks. Basilisk, scorpid, the odd roc that strays too close, and if you've a problem with any of it, the fire certainly doesn't." } },
@@ -451,6 +482,7 @@ P:NPC {
           text = "A mage! Don't you dare conjure your little bread rolls in front of the greatest living chef in Azeroth, because I'll take it as a personal insult." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Your imp keeps looking at my meat, friend, and I'll thank you to tell it that the greatest chef in Azeroth doesn't cook for demons." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You can bless my meat if you like, but I'll tell you now, it's already the finest in Azeroth, and no loa or Light could improve on it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Wonderful, you can tell everybody my meat is perfectly clean, because I swear on my cleaver it comes from honest beasts and not from anywhere a priest wouldn't like." },
       },
@@ -469,6 +501,7 @@ P:NPC {
         { text = "What's wrong with conjured food, Dirge?", next = "xmage", when = { class = "MAGE" } },
         { text = "My imp only wants to admire your work.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever cook for the hungry who can't pay?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where does your meat come from in a drought, Dirge?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -546,6 +579,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Only when they're pointed at me, friend, and that dune's never once fired back. Sandfury, Wastewanderers, pirates down at the port, they all get what's coming, and if a priest wants to patch up whoever's left, that's good for repeat business." } },
+      choices = {
+        { text = "Every life you end, someone has to mourn. Think on that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sell me your loudest. Shadow and powder go well together.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "That dune's taken more lead than a dwarven graveyard, and lately it's been creeping a few yards every night, like it's trying to get away. I tell myself that's the wind, and I keep telling myself." } },
@@ -576,6 +618,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, and lightning's the only thing in Tanaris louder than my rifles." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You heal 'em and I shoot 'em, and between us we've got the whole business of Zul'Farrak sewn up, if you'd like to talk partnership." },
         { id = "h_default", key = true,
           text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, and every one of them tested on that dune out back." },
         { id = "h_bruisers", when = { metBefore = true },
@@ -596,6 +639,7 @@ P:NPC {
         { text = "Dwarven guns or goblin guns?", next = "rivals" },
         { text = "Rogues do favor a good gun, Blizrik.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "A wand never needs powder or shot.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you ever think about who your guns are pointed at, Blizrik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -655,6 +699,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "One who mends more than they break, I suppose, and who does not ask the dead of Zul'Farrak for favors. My craft is a patient one, and I have learned to judge a forge by its fire and a priest by the hands they lay on others." } },
+      choices = {
+        { text = "I mend, Trenton. Watch my hands and judge me by them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I take what power the dead offer. Judge me as you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Their temper is brewed, not forged, and I can't tell you what's in it, only that steel quenched in it rings truer than any I've made. The Sandfury have worked metal in that desert far longer than Gadgetzan has had a well, and I suspect their loa have a hand in the recipe." } },
@@ -685,6 +738,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have known Forsaken whose prayers set my teeth on edge, and trolls whose loa want blood, so forgive me if I wait to hear which kind you are." },
         { id = "h_default", key = true,
           text = "Trenton Lighthammer, smith. I work here by the south gate because it's nearest the road to Zul'Farrak, and the trolls of that city have something I need for my craft." },
         { id = "h_before", when = { minLevel = 42, questBefore = TODO_QUEST("Troll Temper") },
@@ -710,6 +764,7 @@ P:NPC {
         { text = "Tell me what a smith wants with trolls.", next = "smith_talk", when = { profession = "Blacksmithing" } },
         { text = "Not every mage follows the Highborne's road.", next = "xmage", when = { class = "MAGE" } },
         { text = "You'll still work for a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Which kind of priest would you trust, Trenton?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll bring you their temper.", next = "END", when = { questBefore = TODO_QUEST("Troll Temper") }, fx = { affinity = 2 } },
         { text = "Goodbye.", next = "END" },
       },
@@ -789,6 +844,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "The Soulflayer, mon, Hakkar, who the Gurubashi fed with blood and who some of the Sandfury still whisper to in Zul'Farrak. A priest who listens to the wrong voice out here can find himself serving a god who was meant to stay dead." } },
+      choices = {
+        { text = "Then I'll pray to the loa who guard us, not those who feed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A dead god's voice might still teach me something worth hearing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They say the sand remembers the Sandfury, mon, and all the blood they spilled in Zul'Farrak. The old gods leave a stain on the land, and even the desert wind can't scour it clean." } },
       choices = {
@@ -846,6 +910,7 @@ P:NPC {
           text = "A mage! The spirits say you smell of books, mon, and they don't care much for books, but Yeh'kinya doesn't mind them." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Quiet feet and quick hands, eh, mon? Yeh'kinya's eyes are tired, but he can still see a rogue coming, and a rogue going too." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, with the Horde's mark on you. Old Yeh'kinya sees a little of the loa in you, or maybe a little of the shadow, and he don't mind either one." },
       },
       again = {
         { id = "h_again", text = "More questions? The spirits don't mind, and neither does Yeh'kinya." },
@@ -860,6 +925,7 @@ P:NPC {
         { text = "Do you think Hakkar is still a danger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you put stock in book magic, Yeh'kinya?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there something you need taken, old one?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Which loa should a priest fear in Tanaris, Yeh'kinya?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

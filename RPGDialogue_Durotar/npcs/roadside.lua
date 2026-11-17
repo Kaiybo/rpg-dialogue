@@ -22,6 +22,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "No one took him, only the beasts of this hill, and I've made my peace with that, or most of it. If you find his amulet, bring it home to me, and walk softly for him while you look." },
+      },
+      choices = {
+        { text = "I'll find it, and bring it straight to you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If I find it, we'll talk about what it's worth.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "That they promised us strength and gave us the blood curse, and that it took Thrall and Hellscream to free us from it. I won't turn you from my door, because my clan is gone and I can't be choosy, but I'll ask you not to call that thing near my hut." },
+      },
+      choices = {
+        { text = "Of course. I won't bring it near your home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The old warlocks were weak. I'm not them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Gornek says the ancestors keep the ones who die well, and Kron died with his axe in his hand, so perhaps they have him. I don't want a ghost, shaman. I only want to know that he isn't lost out in those hills alone." } },
@@ -49,6 +71,8 @@ P:NPC {
           text = "His amulet hangs by my door now, and I touch it every morning. You did a kindness for an old woman, and I have not forgotten it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "You're a druid, then. Kron used to say the tauren could speak with beasts, and I laughed at him, but I'd give a great deal now to know whether it's true." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You speak with the spirits, shaman. Then tell me true, do the dead walk among them, and would my Kron still know his mother's voice?" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like Kron did, all quiet steps and quick eyes. He'd have liked you, I think." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I can smell the fel on you, warlock. I remember that smell from before the camps, when our warlocks still walked among us." },
       },
       choices = {
         { text = "Shall I listen for Kron among the spirits, Misha?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -57,6 +81,8 @@ P:NPC {
         { text = "Why live so far from Razor Hill?", next = "alone" },
         { text = "Who else lives out here?", next = "neighbours" },
         { text = "I lost my kin to the camps as well.", next = "camps", when = { race = "Orc" } },
+        { text = "Would you want me to find whoever took Kron?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What do you remember of the old warlocks, Misha?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
       again = {
@@ -120,6 +146,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I'd be grateful, and so would Orgnil, though he'll want to know where you learned to move like that. Count heads, mark the imps and get out, and don't go making a name for yourself in there." },
+      },
+      choices = {
+        { text = "Count heads and get out. I'll do it right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I see a chance to strike, I'll take it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Maybe, if you can see through stone, which I doubt. Mostly I need someone to burn the Blade's imps when they come sniffing at my camp after dark, so if you're staying, stand where I can see you." },
+      },
+      choices = {
+        { text = "I'll stand watch with you, then. Gladly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll burn the imps, then leave you to your watching.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Nothing grows by that cave mouth, not even the thorns, and the stones at the entrance are warm at midnight. I'm no shaman, but I know a wound when I see one, and Skull Rock is bleeding something that isn't blood." } },
@@ -138,6 +186,8 @@ P:NPC {
         { id = "h_neeru", when = { questActive = TODO_QUEST("Margoz") },
           text = "So Orgrimmar sent you to old Margoz. Good, because I've been waiting for someone with more sword than sense." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The Burning Blade down in Skull Rock spit on everything your kind keeps, so I expect you'll enjoy this work more than most." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could get closer to Skull Rock than I ever could, and count the cultists without being counted yourself." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A spellcaster, out here? I thought Un'Thuwa kept all of his students in Sen'jin, reading." },
       },
       choices = {
         { text = "What have the cultists done to the earth around Skull Rock?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -145,6 +195,8 @@ P:NPC {
         { text = "Why watch from out here?", next = "watch" },
         { text = "Who sends you your orders?", next = "orders" },
         { text = "I study the fel too, but I'm no cultist.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Shall I scout the Burning Blade for you?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could arcane magic help you watch Skull Rock?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
       },
       again = {
@@ -204,6 +256,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They resent being forced, and the arcane forces where a shaman asks. Your power isn't evil, but it takes without thanks, and I'd ask you to learn a little gratitude for the land you're standing on." },
+      },
+      choices = {
+        { text = "I'll give thanks, then. The land deserves it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Asking is slow. My way gets the job done.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Our shamans became warlocks once, on Draenor, when Ner'zhul and Gul'dan led them away from the spirits, and our whole people paid for it. I can trust you as far as I can see you, and I will be watching you closely." },
+      },
+      choices = {
+        { text = "Watch, then. I'll prove I'm not Gul'dan.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits failed us first. I chose stronger allies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "That this land was hard long before the orcs came, and that it respects those who don't try to soften it. Your people would plant a grove here, I think, and the land would let it die just to make its point." } },
       choices = {
@@ -217,11 +291,15 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Swart, and I teach those the elements will answer. If you have the gift, I can help you hear it; if not, I can still tell you what the spirits say of this land." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, and let us see what the earth has taught you since we last spoke." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar are dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "The elements don't answer you, mage, though they notice when you pull at them. The fire spirits around Razor Hill grumble whenever you pass." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The spirits go quiet when you're near, warlock, the way birds go quiet when a hawk is overhead. I don't need them to tell me what you carry." },
       },
       choices = {
         { text = "What do the spirits of Durotar say, Swart?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the spirits say of Durotar?", next = "land" },
         { text = "How did the orcs regain the old ways?", next = "ways" },
+        { text = "Do the spirits resent a mage's magic?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Can a shaman ever trust a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Swart.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? The elements are patient, and so am I." } },
@@ -261,6 +339,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Better than you'd think, if the rogue remembers who's taking the hits. I'll hold their eyes while you go round the back, but I'll expect you there when I need you, not halfway to Orgrimmar with the loot." },
+      },
+      choices = {
+        { text = "I'll be there when you need me. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll be there if the fight's worth winning.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Stay close enough to hear a warning, and don't throw fire at whatever's tangled with my grunts. I teach them to stay alive long enough to be useful, and you'd do well to learn the same lesson." },
+      },
+      choices = {
+        { text = "Close and careful. I'll mind your grunts.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your grunts should mind my fire, not the reverse.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If you can take a hit and give one back, yes, and a shaman with a shield can do both. The ones who hang back calling lightning are useful too, but they're the ones I end up dragging out of the scrub when the quilboar get behind them." } },
@@ -275,11 +375,15 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. The scars are from the ones who taught me." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back for more lessons, warrior? Good, because the scorpids out there won't wait for you to get better." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman wearing mail, good. Thrall fights in plate with a hammer in his hand, and I've never once seen him wait for the spirits to swing it for him." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my training yard, standing where the shadow's longest. You'll find no tricks to learn here, only scars." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Mages always stand behind my warriors and act surprised when the quilboar get round them. Which kind are you?" },
       },
       choices = {
         { text = "Should a shaman stand in the front line, Tarshaw?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you get those scars?", next = "scars" },
         { text = "What makes a good warrior?", next = "good" },
+        { text = "Can a warrior and a rogue ever fight together well?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "How should a mage fight beside your warriors?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = { { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." } },

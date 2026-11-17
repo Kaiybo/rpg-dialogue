@@ -181,6 +181,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Salfa's people need the Winterfall stopped before their madness reaches the tunnels, and they need outsiders who keep their word. A priest who heals Timbermaw and Horde alike would be remembered by the elders, but one who breaks faith would be remembered longer." } },
+      choices = {
+        { text = "I keep my word. The elders can count on that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep my word while it suits me, Salfa.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -192,6 +201,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Salfa sees a druid, and Salfa is glad. The Cenarion Circle and the Timbermaw once spoke often, and Salfa thinks they should speak again now that the Winterfall have fallen." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "You carry a healer's calm, outsider, the kind Salfa knows from our own shamans. The Winterfall have no healers left, only madness, and Salfa would see that end." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, come through the tunnels. Salfa has seen your kind tend the wounded, and he hopes you are the sort who does not ask whose wounds they are." },
       },
       again = {
         { id = "h_again1", text = "Speak. Salfa is listening." },
@@ -206,6 +216,7 @@ P:NPC {
         { text = "Do you think the Winterfall are tainted by demons?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there anything a quiet walker could do for the Timbermaw?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What drove the Winterfall to madness, Salfa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the Timbermaw need from a priest, Salfa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Stay warm, Salfa.", next = "END" },
       },
     },
@@ -428,6 +439,15 @@ P:NPC {
         { text = "I'll keep my hands to myself.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Little, as a rule, though your healing is less reckless than the arcane, and that counts for something. Shadow is another matter, priest, for the blue flight has watched too many mortals swear they could master a darkness they barely understood." } },
+      choices = {
+        { text = "Then I'll keep my craft to healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I understand my shadow well enough, dragon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You at least bargain with the powers you use instead of stealing them, which puts you a step above the mages, though not a large one." },
@@ -437,6 +457,7 @@ P:NPC {
           text = "A rogue in my caves. You think yourself unseen, but my flight sees through every veil you could draw, and some you have not yet thought of." },
         { id = "h_default", text = "I am Haleh of the blue dragonflight, and these caves are ours to guard. Magic has been stolen and misused across this world, and the blue flight does not forgive those who play with what they don't understand." },
         { id = "h_cond", when = { class = "MAGE" }, text = "A mage. You wield a power that belongs to my flight, you know, and you wield it like a child with a lantern." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here in Mazthoril. Your power at least does not belong to my flight, mortal, which makes you a little less tiresome than a mage." },
       },
       again = {
         { id = "h_again1", text = "What else would you ask the blue flight?" },
@@ -450,6 +471,7 @@ P:NPC {
         { text = "Then teach me to wield it properly.", next = "mage", when = { class = "MAGE" } },
         { text = "The blue dragonflight fought the Legion?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do dragons have any use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What does the blue flight think of priests, Haleh?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -545,6 +567,15 @@ P:NPC {
         { text = "I'll consider it.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I bargained my soul to the Legion for power, and the Legion keeps its bargains far better than any god keeps a promise. If there's redemption for me, it lies in striking back at the demon who holds my debt, and I can't do that alone." } },
+      choices = {
+        { text = "Then I'll help you strike back, and pray it's enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some bargains can't be broken, Lorax. You made yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The spirits must loathe me, I suppose, and I would in their place, for I gave away everything they would have given me freely." },
@@ -554,6 +585,7 @@ P:NPC {
           text = "A rogue. You might be useful to me, I think, for the demon I bargained with keeps a contract, and contracts can be stolen." },
         { id = "h_default", text = "I am Lorax, and once I was something better than this, before I bargained my soul away to the Legion. Now I want only to strike back at the demon who holds my debt, and I can't do it alone." },
         { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock, of all things. Then you know already how a demon's bargain works, and how it always ends." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here, with me? Then perhaps you can tell me whether any god would still hear a satyr, because I stopped expecting it long ago." },
       },
       again = {
         { id = "h_again1", text = "There is more of the tale, if you have the stomach for it." },
@@ -567,6 +599,7 @@ P:NPC {
         { text = "Every bargain has a loophole.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "How did a Highborne mage become a satyr?", next = "xmage", when = { class = "MAGE" } },
         { text = "You want me to steal your contract from a demon?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Is there no redemption left for a satyr, Lorax?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll think on your tale.", next = "END" },
       },
     },
@@ -680,6 +713,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It's warmed more frozen adventurers back to life than any priest in Kalimdor, and I say that with all respect to your trade. The secret's a good stock and a little goblin ingenuity, and the price is on the board, honest as the day." } },
+      choices = {
+        { text = "Honest soup is its own kind of blessing, Himmik.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll call it a miracle to everyone, for a free bowl.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting something hot, I'll bet, because no spirit I ever heard of can make a stew in this cold." },
@@ -693,6 +735,7 @@ P:NPC {
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! You'll want something that sticks to the ribs, and I've got a stew that'll hold up a mine shaft." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say a little grace over the soup, would you? Business has been slow, and I'll take any blessing I can get on the pot." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, sit down, because anyone who's been praying out in the snow needs soup more than most, and mine's practically a miracle itself." },
       },
       again = {
         { id = "h_again1", text = "What else? The soup's getting cold." },
@@ -708,6 +751,7 @@ P:NPC {
         { text = "Does your soup feed demons, too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could I really warm your soup with magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many come down off the mountain needing help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is your soup truly a miracle, Himmik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Keep the soup warm.", next = "END" },
       },
     },

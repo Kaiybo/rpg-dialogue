@@ -386,6 +386,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than the heroes would like tae admit, for half o' what we know about the Dark Iron came from dwarves who crept intae Thaurissan's halls an' crept back out. Their names are seldom written down, which is the price o' that sort o' work." } },
+      choices = {
+        { text = "Then I'll serve the same way, and never ask for a name.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll make sure my name gets written down, Historian.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "That a sorcerer-thane who thinks he's master o' a fire is usually its servant before the night's out. Thaurissan called Ragnaros intae the world tae win a war, an' the Searing Gorge is what's left o' his victory." } },
+      choices = {
+        { text = "Power must be held in check, or it burns the holder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thaurissan simply wasn't strong enough. A greater mage might have managed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Very little, I'm ashamed tae say, mostly that a demigod named Cenarius taught the night elves an' that they slept away the centuries in their dreams. It makes poor history but a fine story." } },
       choices = {
@@ -407,6 +425,10 @@ P:NPC {
           text = "A priest; I can hear the vestments. I wrote a book on plagues and curses, and priests either thank me for it or argue with it, and I enjoy both." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "The Cenarion Circle, here in the court! I've read o' yer order in the old accounts o' the War o' the Ancients, though I confess the details are hazy." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye walked in so softly I nearly missed ye, an' a historian should miss nothin'. Have ye come tae read, or tae listen at doors?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at my door! I hope ye've come tae ask about Thaurissan, for there's no better lesson in what happens when power is summoned carelessly." },
       },
       again = {
         { id = "h_again", text = "Where were we? Ah, I remember; I always remember." },
@@ -422,6 +444,8 @@ P:NPC {
         { text = "Your plague book. Did the Light help anyone?", next = "plague_light", when = { class = "PRIEST" } },
         { text = "Your book on curses. I've studied a few myself.", next = "curses", when = { class = "WARLOCK" } },
         { text = "What do your histories say of the Wildhammer?", next = "wildhammer", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Have spies ever served the history of Ironforge?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What does Thaurissan teach a mage, Historian?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -600,6 +624,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "We've hired worse, an' some o' my Prospectors are no' above pocketin' a relic for themselves. If ye scout for the League, ye bring what ye find back tae the Hall o' Explorers, an' ye'll be paid fair for it." } },
+      choices = {
+        { text = "Everything I find goes to the Hall, High Explorer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A finder's fee is fair, but a finder's keep is fairer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More every season, from Uldaman especially, where the titans left more than stone behind. I'd rather a mage tell me a thing is safe than find out when the shelf catches fire." } },
+      choices = {
+        { text = "I'll study them carefully, and report everything I find.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they're powerful, they're wasted on a shelf.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "One o' the Uldaman tablets went cold as ice the last time a warlock walked past it, an' I'd like tae know why before it happens again. Until I do, I'll ask ye tae stand on the far side o' the rope." } },
+      choices = {
+        { text = "I'll stand back, High Explorer. Your relics come first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps the tablet recognised a stronger power than yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "We try, though I'll admit some o' our lads get more excited about the find than the ground it's buried in. Uldaman's been turned over like a garden bed." } },
       choices = {
@@ -624,6 +675,12 @@ P:NPC {
           text = "One of ours! Don't tell me which Prospector you trained under; let me guess from the state of your boots." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! The Explorers' League could use someone who can talk tae the beasts in the places we dig, because they're rarely pleased tae see us." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "One o' those light-footed sorts! The League could use a scout who can creep past a trogg camp wi'out bein' eaten, so come here an' let me look at ye." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! My Prospectors keep bringin' home relics that hum, an' I'd dearly love someone who can tell me whether they're dangerous before I put them on a shelf." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in the Hall o' Explorers? I'll ask ye no' tae touch anythin', for some o' these relics have opinions about yer sort o' magic." },
       },
       again = {
         { id = "h_again", text = "What else? The catalogue can wait, as it always does." },
@@ -639,6 +696,9 @@ P:NPC {
         { text = "About that relic from the Wetlands...", next = "prism", when = { questDone = TODO_QUEST("Prehistoric Prism") } },
         { text = "The League could use a hunter's eye in the field.", next = "hunter", when = { class = "HUNTER" } },
         { text = "The stone in Uldaman spoke to me, High Explorer.", next = "stone", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Would the Explorers' League hire someone like me?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have your Prospectors found many enchanted relics?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do relics really react to warlocks, High Explorer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -824,6 +884,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Circles burned intae the floor, an' bones arranged in ways nobody honest would arrange them. I'll grant there's warlocks in the Alliance who fight on our side, but I've learned tae watch what's under my boots." } },
+      choices = {
+        { text = "Those circles belong to the Horde's warlocks, not mine.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old circles still have power. Someone ought to use it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Stormpike, Prospector, of the Explorers' League. That's my name, my job an' my lodge, an' that's all the chat ye're gettin' today." },
@@ -837,6 +906,8 @@ P:NPC {
           text = "A cipher from Dibbs, is it? Hand it here, then. Hm, somebody clever wrote this, though no' clever enough." },
         { id = "h_chamber", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Hidden Chamber"), days = 7 } },
           text = "So ye saw Khaz'mul's chamber. Baelog was right an' I had my doubts, but don't repeat that tae him." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Ye've a warlock's look about ye, an' I've seen what yer kind left behind in some o' the old ruins. Mind yerself in the Hall." },
       },
       again = {
         { id = "h_again", text = "What is it now, then?" },
@@ -849,6 +920,7 @@ P:NPC {
         { text = "What happened at Uldaman?", next = "uldaman" },
         { text = "I met a Mountaineer Stormpike at Algaz.", next = "clan", when = { questDone = TODO_QUEST("Mountaineer Stormpike's Task") } },
         { text = "Mages read ciphers too, Prospector.", next = "mage", when = { class = "MAGE" } },
+        { text = "What have you seen warlocks leave in the ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },
@@ -971,6 +1043,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every government does, an' anyone who tells ye otherwise is either a fool or one o' them. Stormwind has its SI:7, an' we've our own ways, but I'll no' discuss them in a hall wi' this many echoes." } },
+      choices = {
+        { text = "Quiet work in the King's service is honourable work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Quiet work pays best when it serves nobody's flag.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some o' it, an' every year the gnomes ask for more, for they lost everythin' in Gnomeregan an' the Ward is all they have left. I argue for them, mostly, though the Senate likes tae know what it's payin' for." } },
+      choices = {
+        { text = "The Ward should be accountable to the Senate. That's fair.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic shouldn't need a senator's blessing to be studied.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the Alliance needs every weapon it can get, an' because a warlock trained under our eye is safer than one trained in a cave. I vote tae keep ye, but I'll no' vote twice if ye give me cause." } },
+      choices = {
+        { text = "I'll give the Senate no cause, Senator. My word on it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Banning us would only send us underground. They know it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "It's the other way round: Ironforge wants Ashenvale wood for its forges an' the kaldorei will no' hear of it. The Senate thinks yer people are stubborn, an' they think the same o' us." } },
       choices = {
@@ -990,6 +1089,12 @@ P:NPC {
           text = "A campfire on the ridge above my quarry? I saw it, an' I took it for troggs learnin' fire. Go an' look, then, for I'm busy." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in the Senate halls is a rare sight, so I'll be brief, friend: Darnassus asks Ironforge for timber rights it doesn't care tae grant." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "The Senate has its own sort o' quiet folk, an' I'd guess ye know a few o' them. Speak softly in this hall; the walls have long ears." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, an' I'll wager ye've an opinion about the Mystic Ward's funding. Everyone does, an' every one o' them comes tae me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll be plain, warlock, for I've no' the time tae be anythin' else: there's members o' this Senate who'd like yer kind banned from the city." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quick, now, for the troggs don't take recess." },
@@ -1005,6 +1110,9 @@ P:NPC {
         { text = "A Wildhammer's camped above your quarry.", next = "farsen", when = { questDone = TODO_QUEST("Farsen's Watch") } },
         { text = "Send me after the troggs, Senator. I'm a warrior.", next = "warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I'm a gnome, Senator. These troggs took my city.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Does the Senate truly use spies, Senator?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Senate fund the Mystic Ward, Senator?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why does Ironforge still train warlocks at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },
@@ -1131,6 +1239,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Ever since the Hidden Circle started usin' my back room tae talk business, aye. I've told them tae take it elsewhere, but they tip well, an' I've a tavern tae keep." } },
+      choices = {
+        { text = "Then I'll keep my hands to myself in your tavern.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A full tavern's a full purse, Innkeeper. Some of it falls loose.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every few weeks a young gnome from the Mystic Ward wants tae show off, an' I end up wi' a blue fire that smells o' copper. The patrons like it, but the stew doesnae." } },
+      choices = {
+        { text = "I'll leave your hearth as it is. It's your tavern.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A blue fire's good for business. You should keep it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "A few, aye, an' one o' them slept the night in the shape of a great bear by the hearth. The regulars still talk about it, an' they've decided it was good luck." } },
       choices = {
@@ -1148,6 +1274,10 @@ P:NPC {
           text = "Word's come from Darnassus: Arch Druid Staghelm wants seasoned hands for some research o' his. If ye go, wipe yer boots before ye come back in." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at the Stonefire! I've no oats an' no fresh berries, I'm afraid, but there's honest bread an' a fire tae warm yer paws, if ye've got paws today." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "If ye're here tae lighten anyone's purse, ye'll find the patrons o' the Stonefire Tavern drink wi' one hand on their coin." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I'll have ye know the hearth in the Stonefire burns on good coal, so ye'll no' need tae add anythin' fancy tae it." },
       },
       again = {
         { id = "h_again", text = "Another? Story or ale, ye're welcome either way." },
@@ -1159,6 +1289,8 @@ P:NPC {
         { text = "Tell me a story.", next = "story" },
         { text = "Who drinks here?", next = "regulars" },
         { text = "A shaman's toast: to the fire under the mountain.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
+        { text = "Do the Stonefire's patrons watch their purses that closely?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do mages often try to improve your hearth?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just a drink.", next = "END" },
       },
     },

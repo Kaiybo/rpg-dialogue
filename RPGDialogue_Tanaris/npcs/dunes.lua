@@ -15,6 +15,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They're Sandfury dead, or their grandfathers, and they were buried with charms meant to keep them down. I'd sooner a priest said proper words over them than have some Zul'Farrak witch doctor come looking for what I've moved." } },
+      choices = {
+        { text = "I'll lay them to rest properly. The dead deserve that much.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dead trolls make useful servants. I'd not waste them on rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Bones, mostly, and old troll stonework that crumbles the moment the air touches it. Once or twice the ground's shifted under me like it was turning over in its sleep, and I'll admit I didn't stay to see it wake." } },
@@ -69,6 +78,7 @@ P:NPC {
           text = "Light fingers and soft boots, eh? I've worked digs with your sort before, and ye'd be surprised how often a locked tomb turns into an open one when there's a rogue on the payroll." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, out here in the sand! Tell me, can ye feel anything under these dunes? Old magic, buried cities, anything a poor prospector might dig up?" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, at my dig? I'll not pretend I'm easy about it, but if ye can quiet the troll bones I keep turning up, ye're welcome to try." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, out here in the dunes! Say a word over the dig for me, friend, because some of the troll bones I've turned up didn't seem to want turning." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -85,6 +95,7 @@ P:NPC {
         { text = "Would the Explorers' League hire a rogue, Ironboot?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there old magic buried in Tanaris?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have your digs disturbed any restless dead, Ironboot?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What troubles you about the bones you dig up, Ironboot?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the Explorers' League need from a paladin out here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
@@ -134,6 +145,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Tooga would like a prayer for shade, and one for water, and one more that Torta is not too cross that Tooga wandered off. The sand is very big and Tooga is very slow, so the prayers had better be strong ones." } },
+      choices = {
+        { text = "Keep to the road this time, Tooga, and don't stray from it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wander as you please, Tooga. The best paths are never on a map.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The sand is hot on top and cold underneath, and it whispers when the wind runs over it. Tooga does not understand the whispering, but Tooga thinks the desert is lonely, like Tooga." } },
@@ -146,6 +166,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You smell like rain and stone, and Tooga likes that smell. Can you ask the sky to make a little water for a lost turtle?" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You smell quiet and smoky, like a candle in a tent. Will you say a prayer that Tooga finds his way home to Torta?" },
         { id = "h_default", key = true, text = "Tooga is Tooga, and Tooga is very far from home. Torta is waiting for Tooga in Feralas, but the desert is big and Tooga's legs are small." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Tooga's Quest") }, text = "You will take Tooga to Torta? Tooga is slow, so please be patient, and please do not let the scorpids eat Tooga." },
       },
@@ -157,6 +178,7 @@ P:NPC {
         { text = "Are you all right?", next = "b3_1" },
         { text = "I understand beasts. Let me guide you.", next = "x_1", when = { class = { "DRUID", "HUNTER" } } },
         { text = "Should you have stayed home?", next = "s_1" },
+        { text = "What would you have me pray for, Tooga?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -205,6 +227,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I study everything, which is rather my problem, but faith out here interests me most, because the Sandfury pray to loa that answer them and the goblins pray to profit, which also seems to answer them. I'd dearly like to know whether the Light works the same in a desert as it does in a cathedral." } },
+      choices = {
+        { text = "The Light works the same everywhere. That's rather the point of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Out here, the shadow answers faster than the Light ever has.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The scorpids, without question! They go weeks without water and never complain, which is more than I can say for anyone in Gadgetzan, and if I could build a machine half as clever, I'd retire tomorrow." } },
       choices = {
@@ -260,6 +291,7 @@ P:NPC {
           text = "A mage! Oh, wonderful, you'll know whether the basilisks' stone gaze is an arcane effect or a natural one, because I've been arguing with myself about it for a fortnight." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Is that an imp? Oh, my, it is! May I look at it, from a distance, a safe and sensible distance, preferably with you between us?" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest from the Horde! I've read that troll priests and Forsaken priests pray to entirely different things, and I'd give a week's notes to hear you explain the difference yourself." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Oh, wonderful, because I've been wondering whether the Light works the same on a basilisk as on a person, and nobody in Gadgetzan will let me find out." },
       },
@@ -275,6 +307,7 @@ P:NPC {
         { text = "I'd guess the basilisk gaze is natural magic.", next = "xmage", when = { class = "MAGE" } },
         { text = "You want to study my demon, Curgle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the desert make sickness worse, Curgle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you study the way faith works, Curgle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -323,6 +356,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Jabbey buys it from a fellow who swears a priest blessed it, and Jabbey has never had a complaint, so who is to say it isn't holy? Out here, friend, folk believe in whatever keeps the sand out of their wounds, and they pay for it gladly." } },
+      choices = {
+        { text = "Faith deserves better than a counterfeit, Jabbey. Stop selling it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it comforts them, sell all you can. I'll take a bottle.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Depends who's talking. The caravan folk swear the dust devils out past the Noonshade Ruins follow wagons on purpose, and one fellow told me the wind stole his hat and gave it back a mile on, though I sold him a new one anyway, just in case." } },
@@ -378,6 +420,7 @@ P:NPC {
           text = "A mage! Jabbey keeps runes and feathers for your kind, and arcane powder when the boats bring it, because mages always run out right before they need it most." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Jabbey doesn't sell soul shards, friend, so don't ask. Jabbey sells a lot of strange things, but even Jabbey has a line, and that line is anything that used to be somebody." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Jabbey has candles, holy water of mostly reliable origin, and a very nice skull that a Forsaken gentleman almost bought last month." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? I've got holy water, or something that was holy water before it crossed the sea, and candles, and one very old prayer book I can't read a word of." },
       },
@@ -391,6 +434,7 @@ P:NPC {
         { text = "Where do you get your reagents out here?", next = "xmage", when = { class = "MAGE" } },
         { text = "You think less of me for my craft?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do folks in Gadgetzan ever ask for prayers, Jabbey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Holy water of mostly reliable origin, Jabbey?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -427,6 +471,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "It matters to the people you're praying over, dearie, because nobody wants to be blessed by someone who looks like a sandstorm's leftovers. A clean robe tells folk you've come to help, and in Gadgetzan that's half the battle won." } },
+      choices = {
+        { text = "A priest should look the part. People take comfort in it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The faithful won't care about my hem. Only the work matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "It doesn't, which is how I stay in business. The sand gets into the weave and grinds it thin from the inside, so I double-stitch everything and charge full price for the second stitch." } },
@@ -471,6 +524,7 @@ P:NPC {
           text = "A mage, dearie, and in robes that have seen far too much sand! Mageweave holds up better in this heat, if you'd let me show you some proper cloth." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Felcloth, is that? No, don't tell me where it came from, dearie, because I've heard the stories about the satyrs, and I'd sooner not know." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and in robes that have seen more sand than soap, dearie. Whether you pray to the Light or to something gloomier, I can at least make you look the part." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, in robes cut for cool stone halls! Your order makes a fine garment, I'll grant you, but its tailors never met a sandstorm, and it shows on every hem you're wearing." },
       },
@@ -483,6 +537,7 @@ P:NPC {
         { text = "My robes are fine, Vizzklick.", next = "xmage", when = { class = "MAGE" } },
         { text = "Felcloth wears just as well as any other cloth.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Should a priest care how the robes look?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does it matter what a priest wears, Vizzklick?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Farewell.", next = "END" },
       },
     },

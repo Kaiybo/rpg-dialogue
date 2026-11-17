@@ -27,10 +27,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Better than most dwarves remember their debts. A hunter's wolf came back from a fight wi' a singed tail an' wouldnae let a mage near it for a month, so be gentle an' they'll forgive ye." } },
+      choices = {
+        { text = "I'll be gentle, Ulbrek. The beasts deserve it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Beasts are beasts. They'll get over it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because it's no' from this world, an' every beast knows that the moment it catches the scent. I've seen a bear tear its stall apart tryin' tae get away from an imp, an' I'll no' see it again." } },
+      choices = {
+        { text = "I'll keep the creature far from your stables.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They'll learn to live with it, Ulbrek.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Ulbrek Firehand, stable master. The hunters leave their companions wi' me when they've a new beast tae tame, an' I keep them fed an' brushed an' happy till they come back." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at the stables! I'll ask ye no' tae frighten the beasts, for some o' them have seen a mage's fire an' they remember it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock at the stables! Keep yer creature well back, for the beasts can smell it, an' they dinnae like it one bit." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Keep yer voice low, mind." },
@@ -41,6 +63,8 @@ P:NPC {
         { text = "What beasts do you keep here?", next = "beasts" },
         { text = "Do the animals miss their hunters?", next = "miss" },
         { text = "Where can I find a ram to ride?", next = "rams" },
+        { text = "Do the beasts really remember a mage's fire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do the beasts hate a warlock's creature so?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Ulbrek.", next = "END" },
       },
     },
@@ -110,10 +134,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "For when the mana runs out, of course, which is always at the worst moment. I teach them to hold a dagger properly, and I tell them to stand behind someone large, which is the best advice I give anyone." } },
+      choices = {
+        { text = "A good mage keeps a blade for emergencies. I'll learn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If my mana runs out, I'll run. Daggers are for others.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, which is more than I can say for an imp." } },
+      choices = {
+        { text = "I'll learn it and fight beside my demon, not behind it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My demon does the fighting. That's what it's for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Bixi Wobblebonk, weapon master! I teach daggers, crossbows and throwing weapons, which are all the best weapons for someone my size, and quite good for someone yours." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You'd be surprised how many mages want to learn daggers, and how few of them can throw straight." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! I'll teach you daggers if you like, though I suspect your demons do most of your fighting for you." },
       },
       again = {
         { id = "h_again", text = "What else? Ask me anything about pointy things." },
@@ -124,6 +170,8 @@ P:NPC {
         { text = "Why those weapons in particular?", next = "why" },
         { text = "Who teaches the other weapons?", next = "others" },
         { text = "Isn't a dagger a coward's weapon?", next = "coward" },
+        { text = "Why would a mage want to learn daggers?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should a warlock learn to fight with a dagger?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Bixi.", next = "END" },
       },
     },
@@ -185,12 +233,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a mage can open a portal where a rogue cannae, an' a portal leaves no footprints. I'll no' tell ye who's askin', but if ye ever fancy the work, ye know where I stand." } },
+      choices = {
+        { text = "I'll not use my portals for thieves, Ormyr.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A portal with no footprints? I'd like to hear more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Peacefully enough, for both of us know the guards would happily throw us out together. We keep tae our corners, an' we nod in passin', an' that's how it'll stay." } },
+      choices = {
+        { text = "Then I'll keep to my corner, and nod as I pass.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Corners are for the cautious. I go where I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default",
           text = "Ormyr Flinteye. I train rogues, an' only rogues, so unless ye are one, I've no' much to offer ye but advice, an' my advice is to keep yer purse close in this part o' the city." },
         { id = "h_rogue", key = true, when = { class = "ROGUE" },
           text = "Ormyr Flinteye, an' ye've come to the right corner. I'll teach ye what ye're ready to learn an' not a lesson more, for a rogue who knows too much too soon gets careless." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. I've nothin' tae teach ye, but I'll tell ye that half the rogues in this cavern would pay well for a mage who could keep a secret." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. Yer trainers aren't far from mine, an' I'd say we get along, so long as yer lot keeps their creatures out o' our corner." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quickly." },
@@ -202,6 +272,8 @@ P:NPC {
         { text = "What makes a good rogue?", next = "good" },
         { text = "Do the guards know what you teach down here?", next = "guards" },
         { text = "I learned my trade picking pockets on the canals.", next = "k_canal", when = { origin = "human_canal_pickpocket" } },
+        { text = "Why would rogues pay for a mage who keeps secrets?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the rogues and warlocks share the Forlorn Cavern peacefully?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -278,10 +350,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than ye'd think, for fishin' is all about waitin' for the right moment an' strikin' quick. The best rogues I've known were good fishermen, an' the worst ones never sat still long enough tae learn." } },
+      choices = {
+        { text = "Patience and timing. I'll learn both, Grimnur.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather take the fish from someone else's line.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They think it makes the fish easier tae catch, but it only makes them angry an' cold. Use a rod like an honest dwarf, an' ye'll find it's more pleasant than any spell." } },
+      choices = {
+        { text = "A rod it is, then. I'll fish the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A frozen fish is still a fish, Grimnur.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. I'd ask ye only tae keep yer demon from scarin' off the fish, for they're shy enough already." } },
+      choices = {
+        { text = "I'll keep my demon quiet and fish patiently.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If my demon scares them up, that's quicker fishing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Grimnur Stonebrand, fisherman, an' I teach fishin' in a cave in the middle o' a mountain, which is a joke I've stopped noticin'. Ye don't need water tae learn the knots, only patience an' a good pair o' hands." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue wantin' tae fish? I'll teach ye, but I'll warn ye that patience matters more than quick hands here." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage wantin' tae fish? I've had a few, an' every one tried tae freeze the water first." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock wantin' tae fish? I'd never have guessed it, but I've learned no' tae judge a body by their trade." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've all day." },
@@ -292,6 +397,9 @@ P:NPC {
         { text = "Where's the best fishing near Ironforge?", next = "where" },
         { text = "Where do I learn beyond what you teach?", next = "beyond" },
         { text = "Why is fishing worth learning at all?", next = "why" },
+        { text = "Can a rogue learn anything from fishing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why would a mage freeze the water to fish?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warlocks really fish, Grimnur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good fishing, Grimnur.", next = "END" },
       },
     },
@@ -361,10 +469,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the ones I make for the cavern's rogues get used for all sorts of things besides fishing, and I'd rather not know what. A quiet line's a useful tool, and I'm a gnome who appreciates a useful tool." } },
+      choices = {
+        { text = "I'll only use it for fishing, Tansy. Honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better you don't ask what it's really for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In theory, yes, though the fish might also be attracted to the light in a way that's less helpful. Gnomeregan's fishermen had something similar before the fall, and I'm trying to rebuild it from memory." } },
+      choices = {
+        { text = "Let's test it carefully before you sell it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell it now. The fish won't complain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a green glow tends to attract things that aren't fish, and I've had enough surprises in this cavern. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool." } },
+      choices = {
+        { text = "Fair enough. I'll stick to your ordinary lures.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The things that aren't fish sound more interesting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Tansy Puddlefizz, fishing supplies, and assistant to Grimnur, who teaches the fishing. I sell the rods and the lures, and I tinker with them when nobody's looking, which is most of the time down here." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! You'll be wanting a fishing line that doesn't squeak, I expect, and I've just the thing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've been tinkering with a lure that glows with arcane light, and I'd love to know if you think it'd work." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! I've had warlocks ask for lures that glow green, and I've always said no, because the fish don't like it." },
       },
       again = {
         { id = "h_again", text = "Anything else? Ask away!" },
@@ -375,6 +516,9 @@ P:NPC {
         { text = "What do you tinker with?", next = "tinker" },
         { text = "How did a gnome end up selling fishing rods?", next = "how" },
         { text = "What's Grimnur like to work for?", next = "grimnur" },
+        { text = "Why would a rogue need a fishing line that doesn't squeak?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would an arcane lure really attract more fish?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why won't you make green-glowing lures for warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Tansy.", next = "END" },
       },
     },

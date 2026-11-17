@@ -31,6 +31,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I'd trust what you saw, and I'd check it twice, since my sisters train for years to move through Ashenvale unseen. If you bring me true reports about the orcs at Splintertree, I'll use them, and I'll remember the name of whoever brought them." },
+      },
+      choices = {
+        { text = "You'll get true reports, and nothing else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll report what helps me. You'll get the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I treat everything that serves the Legion as an enemy, and I haven't yet decided whether you do. The Shadow Council lurks in Felwood and the satyrs breed in Ashenvale, so give me one reason to believe you're different and I'll carry it to my sisters." },
+      },
+      choices = {
+        { text = "I'm no friend of the Legion. Judge me by my deeds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I serve my own ends, Commander, not yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hunter_tb = {
       lines = {
         { id = "htb_default", text = "We always need bows, and we never have enough who can hold one steady while a Warsong axe is coming at them. My scouts ride the roads of Ashenvale at night; Raene Wolfrunner at Astranaar can tell you where the gaps are." },
@@ -62,6 +84,8 @@ P:NPC {
           text = "So that is what became of Velinde. The High Priestess will be grieved; they were good friends, before. I owe you a great deal of thanks for this." },
         { id = "h_done", when = { questDone = TODO_QUEST("Answered Questions") },
           text = "We'll deal with what she left in our woods, and I bear her no ill will for it. Strange things are afoot these days, and the darkness never rests long." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The Sentinels have use for anyone who can walk into a Warsong camp and walk back out with something worth hearing." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. I command Sentinels, and they are watching you right now from three places you haven't found yet." },
       },
       again = {
         { id = "h_again", text = "What else? Make it worth the time." },
@@ -75,6 +99,8 @@ P:NPC {
         { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST" } },
         { text = "Do the Sentinels need another bow?", next = "hunter_tb", when = { class = "HUNTER" } },
         { text = "I stood the watch at Auberdine.", next = "watch_tb", when = { origin = "nightelf_auberdine_watch" } },
+        { text = "Would the Sentinels trust a rogue's scouting?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you treat every warlock as an enemy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you return to your duties.", next = "END" },
       },
     },
@@ -183,6 +209,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "To stand your ground once the shadows are gone, because they always go eventually. I've seen rogues die in Ashenvale because they knew everything about the first strike and nothing at all about the tenth." },
+      },
+      choices = {
+        { text = "Then teach me the tenth. I'll stand my ground.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If I strike well enough, there's no tenth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Close enough that the warrior in front of you can hear you shout, and no closer. Trust your shield, which is the warrior, and don't leave her to hold the line alone while you cast from the treeline." },
+      },
+      choices = {
+        { text = "Close enough to shout. I'll trust the line.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Far back is where I'm useful. I'll stay there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     weapons = {
       lines = {
         { id = "wp_default", text = "The Sentinels favour the glaive and the bow, but on the Terrace we teach sword, axe and shield, because a warrior must fight in a doorway as well as a glade. Master one, and then learn enough of the others to know what is coming at you." },
@@ -232,6 +280,8 @@ P:NPC {
           text = "Elunite lies scattered on the sea floor near the Auberdine lighthouse, where a ship broke on the rocks long ago. Its captain cursed herself to guard the cargo forever, so give her peace, and bring the ore to me." },
         { id = "h_elura_done", when = { questDone = TODO_QUEST("The Shade of Elura") },
           text = "You gave the Shade of Elura her rest, and Mathiel has the elunite. A warrior's weapon, made from a blessed metal, by your own hand's effort; wield it well." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd last in a fight, rogue, but only if you struck first. I train warriors to last when they don't." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mages always stand too far back, and then they're surprised when something circles round to reach them. Which way are you going to stand, mage?" },
       },
       again = {
         { id = "h_again", text = "What else, warrior? Speak quickly; the Terrace doesn't sit still." },
@@ -246,6 +296,8 @@ P:NPC {
         { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
         { text = "Ironforge trained me. Will you test me anyway?", next = "dwarf_e", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Gnomes fight too, you know.", next = "gnome_e", when = { race = "Gnome", class = "WARRIOR" } },
+        { text = "Is there anything a rogue could learn from a warrior?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Where should a mage stand in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to the Terrace.", next = "END" },
       },
     },
@@ -348,6 +400,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I don't mind the work, and the coin is good, but I'll admit the humming kept me up. Steel is honest, and I like my anvil honest, so bring me your armor and keep your enchanted things for someone braver." },
+      },
+      choices = {
+        { text = "Fair enough. Steel it is, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your anvil could stand a little magic, smith.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because the last time anything with that stink came near a forge in this city, the coals went out and wouldn't light again for a week. That was just a rumour, perhaps, but I can't afford to lose a week of work on a rumour." },
+      },
+      choices = {
+        { text = "It can wait outside. I won't cost you a week.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It goes where I go, smith.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_m = {
       lines = {
         { id = "gm_default", text = "Know him? I write to him every month, and he writes back in a hand so small I need a lens to read it! He's in Ironforge, and every letter describes his workshop in such detail that my heart aches that I can't go and see it myself." },
@@ -381,6 +455,8 @@ P:NPC {
           text = "How's the armor wearing? Furen's techniques meshed beautifully with mine, and I've written to tell him so, at some length." },
         { id = "h_klock", tags = { "news" }, when = { questActive = TODO_QUEST("Klockmort's Essentials") },
           text = "Klockmort Spannerspan needs help in Gnomeregan, and I can't leave the forge. My heart aches for my friend, so if you go in my place, I'll be in your debt." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "I've mended a mage's staff once, and it hummed the whole time I worked on it. I'd rather you didn't bring that one back." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll repair your gear, warlock, because coin is coin and I need an anvil of my own. But tell your servant to stay outside the forge." },
       },
       again = {
         { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
@@ -394,6 +470,8 @@ P:NPC {
         { text = "What did Furen's notes teach you?", next = "furen", when = { profession = "Blacksmithing" } },
         { text = "Do you know Klockmort Spannerspan?", next = "gnome_m", when = { race = "Gnome" } },
         { text = "What would elunite do for a warrior's blade?", next = "warrior_m", when = { class = "WARRIOR" } },
+        { text = "Do you mind working on a mage's gear?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why must my servant stay outside the forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck at the forge.", next = "END" },
       },
     },
@@ -495,6 +573,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Spirit is the will to stand when you'd rather run, and I've seen it in a rogue or two. You've chosen to fight from the dark, and that's your path, but I'd have you remember that hiding isn't the same as running." },
+      },
+      choices = {
+        { text = "I'll remember it. I won't run.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Running keeps me alive. Spirit doesn't.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I think you've borrowed courage from something that will want it back with interest. My students earn their strength with every blow, and you've signed a contract for yours, which is a very different thing." },
+      },
+      choices = {
+        { text = "Then I'll earn mine as well, the hard way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Borrowed strength still wins, Bladesinger.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     stances = {
       lines = {
         { id = "st_default", text = "Battle, to learn the blade; defense, to learn the ground; and later, for those who live long enough to need it, the berserker's way, which I teach last and least willingly. Each one is a different question about what you're willing to lose." },
@@ -523,6 +623,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a great deal of cunning. It isn't the worst combination I've ever seen." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach only those with the warrior's spirit, warlock, and whatever spirit is walking behind you isn't the right kind." },
       },
       again = { { id = "h_again", text = "Something more? Ask, and then let me return to my students." } },
       choices = {
@@ -531,6 +633,8 @@ P:NPC {
         { text = "Why 'Bladesinger'?", next = "name" },
         { text = "What do your stances teach?", next = "stances", when = { class = "WARRIOR" } },
         { text = "Stormwind's guard taught me already.", next = "guard_a", when = { origin = "human_city_guard" } },
+        { text = "Can a rogue really have a warrior's spirit?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think warlocks lack courage?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -592,6 +696,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "All the time, and most of it I keep under my hat, since a herald's job is the news fit to shout. Still, if you hear something in the shadows that the city ought to know, you could do worse than bring it to me." },
+      },
+      choices = {
+        { text = "If it's worth telling the city, I'll tell you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Shadow news sells better than shouted news, Herald.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because Tyrande and the Archdruid wouldn't have one, and no kaldorei mage has dared ask in ten thousand years. If you want lessons, Stormwind or Ironforge will have them, and meanwhile you're welcome to admire the city as a visitor." },
+      },
+      choices = {
+        { text = "That's fair. It's your city, and your choice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ten thousand years is a long time to be afraid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     paladin_m = {
       lines = {
         { id = "pm_default", text = "Hear, hear! I've cried that proclamation in every corner of this city, and mostly I get polite nods from kaldorei who've never seen a ghoul. A paladin, though, now there's someone the Argent Dawn will be glad of!" },
@@ -610,6 +736,8 @@ P:NPC {
           text = "The Cenarion Circle seeks brave proxies for the wastes west of Tanaris! The Arch Druid will tell you more, though I'd go in prepared for his manner." },
         { id = "h_feather", tags = { "news" }, when = { questActive = TODO_QUEST("Feathermoon Stronghold") },
           text = "Your aid is needed in Feralas! An outlaw mage has fled into the ruins of Eldre'Thalas with something dangerous, and Latronicus Moonspear at Feathermoon wants it back." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Hear ye, hear ye, a rogue has crept onto the Terrace! I'm only teasing, of course, though you did startle me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've no summons for your kind, I'm afraid, since Darnassus has no tower or trainer for you. But do have a look around, it's beautiful." },
       },
       again = {
         { id = "h_again", text = "More news? I've plenty!" },
@@ -621,6 +749,8 @@ P:NPC {
         { text = "What's the strangest news you've cried?", next = "strange" },
         { text = "Is there a call for healers anywhere?", next = "healers", when = { class = { "PRIEST", "DRUID", "PALADIN", "SHAMAN" } } },
         { text = "The Plaguelands call, and the Light answers.", next = "paladin_m", when = { class = "PALADIN" } },
+        { text = "Does the Herald ever hear news nobody announces?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why does Darnassus keep no mage trainer?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Herald.", next = "END" },
       },
     },
@@ -713,17 +843,43 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A little, but conjured bread has no taste to it at all, and you'll want something real after a week in Ashenvale. I sell the hundred small things you can't conjure, so you'll be back, and I'll be glad of it." },
+      },
+      choices = {
+        { text = "You're right. Real food's worth paying for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Taste is a luxury. My bread does the job.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Some would, and the ones who didn't would watch me for a month afterward. It's an honor to supply this Terrace, and I'd hate to lose that honor because someone saw a demon by my stall." },
+      },
+      choices = {
+        { text = "I'll keep my servant away from your stall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My coin's as good as theirs. They'll get over it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Mydrannul, and I keep the Terrace in food, drink and the hundred small things a hero forgets until they're halfway to Ashenvale. It's an honor, and I mean that." },
         { id = "h_nessa", tags = { "news" }, when = { questActive = TODO_QUEST("Nessa Shadowsong") },
           text = "My friend Nessa Shadowsong sells fish down in Rut'theran Village, and she needs a parcel carried to Darkshore. Take the portal west of the Temple Gardens, and you'll find her by the water." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Conjured bread is all very well, mage, but you can't conjure moonberry juice, so I'll still have your custom one day." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll sell you supplies, warlock, though I'd rather you didn't tell anyone where you got them. My other customers are a nervous lot." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time." } },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why call us heroes in the making?", next = "heroes" },
         { text = "Who is Nessa Shadowsong?", next = "nessa" },
+        { text = "Doesn't my conjured food take your custom?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would your customers really leave over a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -778,6 +934,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I'd be grateful just to know he's safe, though I'd never ask you to put yourself between him and a quilboar war band. If you pass through the Barrens, look for his camp, and send me word if you hear anything at all." },
+      },
+      choices = {
+        { text = "I'll look for him and send whatever word I find.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Word costs. I'll want something for the trouble.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Every day, though I know the druids would frown at any spell for it. I wait for the boats from Auberdine and the hippogryphs, and I've learned to love the waiting a little, even if I'd trade it in an instant." },
+      },
+      choices = {
+        { text = "Waiting makes his letters precious. I'd keep it that way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If magic brings him nearer, the druids can frown.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_tr = {
       lines = {
         { id = "dtr_default", text = "Won't it? The Enclave sent him south alone, and they've sent me nothing but a polite letter since. If you mean it, then read his notes when you're done in the Kraul and tell me whether he was right." },
@@ -794,6 +972,8 @@ P:NPC {
           text = "That's my pendant, the one Heralath and I exchanged when we were bonded. Why do you have it, and why are you looking at me like that?" },
         { id = "h_after", when = { questDone = TODO_QUEST("Mortality Wanes") },
           text = "I've his notes on the Kraul spread across every table. I'll not let his work die with him, whatever it costs me, and you can tell anyone who asks that I said so." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to being unseen, rogue. Heralath writes that the Barrens are full of folk like that, and not all of them are friendly." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Heralath always said that a mage could send a letter across the sea in a heartbeat. Is that true, or is he teasing me again?" },
       },
       again = {
         { id = "h_again", text = "Is there more? Please, I don't mind the company." },
@@ -805,6 +985,8 @@ P:NPC {
         { text = "I'm sorry for your loss.", next = "grief", when = { any = { { questActive = TODO_QUEST("Mortality Wanes") }, { questDone = TODO_QUEST("Mortality Wanes") } } } },
         { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Mortality Wanes") } },
         { text = "The Circle won't forget Heralath.", next = "druid_tr", when = { class = "DRUID" } },
+        { text = "Shall I find out who threatens Heralath out there?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you wish Heralath could send letters faster?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -895,15 +1077,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Oh, I'd love to, because that's the most exacting work there is, and Telonis says I'm not ready for it yet. When I am, I'll make you something that won't make a sound, and I promise it won't be for anyone wicked." },
+      },
+      choices = {
+        { text = "Make it for honest folk, Darianna, and you'll be proud.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Make it quiet. Who wears it is no concern of yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A little, though Faldron says I'm frightened of everything at first and I get over most of it. I don't think I'll get over this one, so would you mind keeping it on the other side of the workshop?" },
+      },
+      choices = {
+        { text = "Of course. I'll keep it well away.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You'll get over it. Everyone does, eventually.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Darianna, and I'm learning leatherworking from Faldron and Telonis, who are true artists. It's so exciting to be here in Darnassus with talented people all around, even if I'm mostly sweeping." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Faldron says rogues buy the best leather, because a creaking jerkin gets you caught. Is that true?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! I'm sorry, I nearly dropped my broom. Is that thing yours? It's watching the hides like it wants to eat them." },
       },
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
         { text = "Can you help me train?", next = "BUSINESS", when = { profession = "Leatherworking" } },
         { text = "What are your teachers like?", next = "teachers" },
         { text = "Do you want to be a crafter forever?", next = "future" },
+        { text = "Would you like to make leather for rogues someday?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does my servant frighten you, Darianna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the stitching.", next = "END" },
       },
     },

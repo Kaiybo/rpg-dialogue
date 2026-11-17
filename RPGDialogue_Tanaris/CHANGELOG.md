@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (2026-11-16)
+- Troll and Forsaken priests are greeted as priests by 24 Horde and neutral people in Gadgetzan, Steamwheedle Port and the dunes, with a question about what the desert needs from the loa, the Light or the shadow.
+
 ## 1.14.0 (2026-11-16)
 - Priests and paladins are noticed: 15 people greet an Alliance priest or paladin as one, and have something to ask and argue about.
 

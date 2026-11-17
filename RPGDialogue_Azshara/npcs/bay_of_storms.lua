@@ -79,6 +79,15 @@ P:NPC {
         { text = "The tide and I will see.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "By ending the servants of fire who befoul the deep places of this world, as any other mortal might. Your prayers are nothing to the sea, but your will is a tool like any other, and the Waterlords reward tools that do not break." } },
+      choices = {
+        { text = "Then I'll serve, and see the fire's servants ended.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm no one's tool, Duke. I choose my own fights.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -99,6 +108,7 @@ P:NPC {
           text = "You again, and welcome. Of all the mortals who have come to this rock, you have been the least disappointing, and from me that is praise." },
         { id = "h_cool", when = { disposition = { max = 34 } },
           text = "Speak quickly. The tide is turning, and it is more interesting than you." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Your gods do not command the tides, mortal, but your hands may still serve the Waterlords, if you are willing to be useful." },
       },
       again = {
         { id = "h_again", text = "What more? The tide waits for no one, but it will wait a little for an ally." },
@@ -118,6 +128,7 @@ P:NPC {
         { text = "The tides are part of the balance I serve.", next = "druid_hy", when = { class = "DRUID" } },
         { text = "Your war is with fire. Why scorn shadow too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What use would a Waterlord have for a rogue?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How could a priest serve the Waterlords, Duke?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll take my leave, Duke.", next = "END" },
       },
     },
@@ -345,6 +356,15 @@ P:NPC {
         { text = "I'll watch my back, then.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Touch them, yes, and feed them too, if you're careless. The Highborne who sank under these waves thought they could hold the dark at arm's length, priest, and I have spent a very long time cleaning up after that mistake." } },
+      choices = {
+        { text = "Then I'll hold to healing and leave demons to you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shadow is my weapon, and I'll use it as I see fit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, listening to rocks and rivers. You'd hear more if you listened to what lies under them, because Azshara is thick with the Legion's leavings and your spirits are too polite to mention it." },
@@ -366,6 +386,7 @@ P:NPC {
           text = "Galvan the Ancient will forge the rest, in his camp near Zul'Gurub. He can work fel energy into steel, which very few smiths in this world can do, and fewer would admit to." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You again, and I find I am glad of it. Of all the mortals who have stumbled onto this island, you are the one I would least like to see die, so try not to." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Do you see them, the shapes at the tide? No, your prayers don't open your eyes, they only steady your hands, which is something, I suppose." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; the tide is turning, and what it brings in does not wait." },
@@ -384,6 +405,7 @@ P:NPC {
         { text = "My forebears in Eldre'Thalas fought a prince who drank the Nether.", next = "sky_lo", when = { race = "Skyborne" } },
         { text = "Do you blame all mages for the Legion's coming?", next = "xmage", when = { class = "MAGE" } },
         { text = "What walks unseen along the shore?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can a priest's shadow touch the demons you hunt, Loramus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -592,6 +614,15 @@ P:NPC {
         { text = "I'll keep it away.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "They bow, and they bring the one pearls, and they sing the one's name to the tides, so the one is a god by any measure that matters. Yet the one's sons are dead to a hydra all the same, and no worship brings them back, which the one suspects your gods know something about." } },
+      choices = {
+        { text = "Grief humbles every god. I'm sorry for your sons.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Worship is power. Keep them singing, Arkkoroc.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, who speaks to water as though the water would answer. The sea answers Arkkoroc, little one, but you may listen if you are quiet." },
@@ -603,6 +634,7 @@ P:NPC {
           text = "Arkkoroc is the one who rules these waters, the god of the deep folk and the lord of this temple. The makrura bow to the one, the murlocs sing to the one, and the sea itself remembers the one's name." },
         { id = "h_name", when = { questActive = TODO_QUEST("The Name of the Beast") },
           text = "A demon lord, the demon hunter says? The one knows the name you seek, and will give it, but first you must do something for the one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest comes before Arkkoroc. The one is a god to the deep folk, and the one wonders whether your gods ever answer you as the makrura answer the one." },
       },
       again = {
         { id = "h_again", text = "What else does the small thing want of the one?" },
@@ -617,6 +649,7 @@ P:NPC {
         { text = "My people know gods too. The loa.", next = "troll_ar", when = { race = "Troll" } },
         { text = "What do the deep folk sing of the Highborne?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the burning ones trouble the sea?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the deep folk truly worship you, Arkkoroc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll go, great one.", next = "END", fx = { affinity = 1 } },
       },
     },

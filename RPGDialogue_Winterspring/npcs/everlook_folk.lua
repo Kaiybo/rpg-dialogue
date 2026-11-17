@@ -71,6 +71,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Faith's welcome, so long as it pays its way like everything else under the Cartel's roof. Horde priests and Alliance priests all pray for the same thing up here, which is a warm bed and an honest deal, and only one of those is easy to find." } },
+      choices = {
+        { text = "Some of us pray for more than a warm bed.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll pray for a better deal than yours.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, a shaman, all bones and feathers and totems! It's a look, I'll give you that, though I'd lose a few of the teeth." },
@@ -85,6 +94,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now there's a fashion I appreciate, all leaves and antlers and nobody telling you it's too much. What brings you to the frozen end of the world?" },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, how grand! You'll protect a poor goblin girl from a mechanical yeti, won't you? I'm joking, mostly, though I'd feel better with you standing between me and Umi's workbench." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in Everlook! You'll be wanting a quiet corner for prayers, and I'll tell you now there isn't one, because Umi's built something that clanks." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got gossip to spare and nobody worth sharing it with." },
@@ -99,6 +109,7 @@ P:NPC {
         { text = "Are you hiding from a mechanical yeti?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you want to melt a yeti?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you really think Umi's yeti is dangerous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does Everlook have any room for faith, Legacki?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -196,6 +207,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Precise, I'll grant you, though I've never seen the schematics. You put your hands on a broken thing and it mends, which is the job I do with a spanner, only slower and with a lot more swearing." } },
+      choices = {
+        { text = "Discipline is the heart of both crafts, I think.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Prayer's no craft, Felnok. It's a gamble, like anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Kindly keep your totems off my bench, because I've a horn here that cracks if you so much as breathe on it." },
@@ -215,6 +235,7 @@ P:NPC {
           text = "It's all packed and padded, so carry it level and don't let anyone sit on it. Tinkee will know what to do with it from there." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Good, you'll have steady hands, because everyone who prays a lot seems to, and steady hands are just what I need near this bench." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Keep your hands to yourself if they glow, because I'm working with chillwind horns and they don't take kindly to blessings." },
       },
       again = {
         { id = "h_again", text = "What else? I've a coil to wind and it won't wind itself." },
@@ -230,6 +251,7 @@ P:NPC {
         { text = "What are the chillwind horns for, anyway?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone actually stolen from you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a tinker make of a priest's work, Felnok?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -346,6 +368,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "For my family, if any of them still live, and for their rest if they don't. I've stopped asking the Light for answers, so if your prayers go somewhere else, send them anyway; I'll take whatever is listening." } },
+      choices = {
+        { text = "I'll pray for their rest, and for yours.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't need prayers. Some of us walk regardless.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? I've never met one, though I've heard the orcs who speak to spirits are gentler than the ones I was taught to fear as a girl." },
@@ -365,6 +396,7 @@ P:NPC {
           text = "A priest. Would you say a prayer for my family, if you have one to spare? I've said every one I know for them, and I'm afraid the Light has stopped listening to mine." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. My father used to say the Silver Hand would never let Lordaeron fall, and I wanted so much to believe him, and now look at us." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. If you're one of the Forsaken, I'll ask you plainly whether you ever walked near Darrowshire, and I'll try to bear whatever answer you give." },
       },
       again = {
         { id = "h_again", text = "Is there something else? I don't mind talking; it passes the time." },
@@ -381,6 +413,7 @@ P:NPC {
         { text = "What would I find in Darrowshire?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Tell me what you pray for, Jessica.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you blame the Silver Hand for what happened?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have a priest pray for, Jessica?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -505,6 +538,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "In fire, and in thorium, and in the hammer that joins them, because those three have never lied to me. My people put their faith in Ragnaros once, and it left them slaves in their own mountain, so I'll not kneel to anything again." } },
+      choices = {
+        { text = "Faith in your own work is no small thing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Everything kneels to something, smith. You just chose the hammer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My people bound fire once and were burned for it, ant, so don't expect me to be impressed by your little totems." },
@@ -522,6 +564,7 @@ P:NPC {
           text = "You brought me the hide, and it's pristine, so the catalogue is open to you. Choose carefully, because I don't make anything twice." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, clanking like a cart of scrap. The Light means little to a Dark Iron, ant, but your armour is decent work, so I will grant you a minute." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here in the cold. Pray all you like, ant, but no god ever tempered a blade, and I've no time for anything that can't." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you want." },
@@ -537,6 +580,7 @@ P:NPC {
         { text = "Ragnaros enslaved your people?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the Thorium Brotherhood make a better blade?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have the Dark Irons ever known the Light, Malyfous?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a Dark Iron smith put faith in anything, Malyfous?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -650,6 +694,15 @@ P:NPC {
         { text = "We hunt differently, then.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Always, and I thank the beast after, because a hunt without thanks is only killing. The frostsabers and the ice bears give their lives to the snow every winter, and a hunter who forgets that soon joins them." } },
+      choices = {
+        { text = "Then I'll give thanks for every beast I take.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Thanks don't fill a belly. A clean kill is enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, the Earth Mother's blessing on you. The great beasts here are wise, and I think the cold spirits keep them strong, so walk softly when you pass their dens." },
@@ -668,6 +721,7 @@ P:NPC {
         { id = "h_shyrotam", tags = { "news" }, when = { questActive = TODO_QUEST("Shy-Rotam") },
           text = "Shy-Rotam is the matriarch of the frostsabers, old and clever, and she will not show herself to just anyone. Prepare well before you face her." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, out here in the snow! Then you know as well as I do that the great beasts of Winterspring have a great deal to teach a patient hunter." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The great beasts of Winterspring do not fear prayers, but they respect anyone who stands their ground, and so do I." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, for the tracks will keep a while." },
@@ -682,6 +736,7 @@ P:NPC {
         { text = "How do tauren hunt in the snow?", next = "tauren", when = { race = "Tauren" } },
         { text = "Would you hunt a great beast from hiding?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you think magic has a place in the hunt?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you ask the Earth Mother's blessing before a hunt, Storm?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -782,6 +837,15 @@ P:NPC {
         { text = "I'll leave you to your blankets.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Because the Horde needs a road to Everlook, and somebody has to stand at the end of it. The goblins keep the peace here, but a wind rider is how word gets back to Orgrimmar before the Alliance's birds reach Darnassus." } },
+      choices = {
+        { text = "Then I'll honour that duty, and carry word if asked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Duty's for orcs, Yugrek. I fly where I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell the wind up here to stop biting my beasts, because they won't listen to me." },
@@ -794,6 +858,7 @@ P:NPC {
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "My riders don't carry the Alliance. The night elf with the hippogryphs will see to you; she's just over there." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, this far north! The wind riders will carry you south over Felwood, though I'd keep my eyes shut over the worst of it, because the trees down there aren't right." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've a prayer against the cold, say it over my riders, because they shiver all night under three blankets and still glare at me in the morning." },
       },
       again = {
         { id = "h_again", text = "Something else? The riders grow cold while we talk." },
@@ -807,6 +872,7 @@ P:NPC {
         { text = "You and the night elf work side by side?", next = "maethrya" },
         { text = "Do your wind riders refuse warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the wind riders take the cold?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why keep your riders in the snow at all, Yugrek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

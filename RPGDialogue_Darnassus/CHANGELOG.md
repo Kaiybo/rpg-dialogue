@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.9.0 (2026-11-16)
+- All 37 people in Darnassus now notice rogues, mages and warlocks (72 new branches); Tyrande, Fandral and Alathea have all three.
+- Fix: Tyrande's warm greeting and Fandral's cold one were tangled into the lines above them and never showed.
+
 ## 1.8.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Garryeth, Sildanair, Ariyell Skyshadow, Lelanai, Jartsam, Lysheana, Shalumon, Jaeana, Dannelor, Ainethil.
 - New files: exit the game fully and restart.

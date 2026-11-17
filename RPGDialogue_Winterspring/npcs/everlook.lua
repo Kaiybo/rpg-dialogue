@@ -89,6 +89,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Warmth first, a bowl of something hot second, and somebody to listen to them third, because the ones who come down off the mountain have usually seen something nasty in the passes. A priest who sat by the fire and listened would do more good here than any spell." } },
+      choices = {
+        { text = "Then I'll sit a while and listen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Listening's your trade, not mine. I'll be on my way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
@@ -108,6 +117,7 @@ P:NPC {
           text = "A priest! Oh, sugar, you don't know a prayer against beetles, do you? I'd light a candle every night for one, because that bug by the hearth has outlived three traps and a boot." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, all shiny! Mind you don't drip snowmelt off that plate onto my floor, sugar, because I've only just mopped it." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up in the snow with the rest of us! Warm yourself at the fire, and if your loa or your Light have anything to say about beetles, I'd dearly love to hear it." },
       },
       again = {
         { id = "h_again", text = "More? Sit by the fire, then, only not too close, because the beetle lives there." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "My imp's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the folk at your fire need most, Vizzie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -236,6 +247,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Harmless? It's a work of art, and it's only going to frighten Legacki and Sprinkle and Quixxil a little bit, which they deserve. Everlook is cold and dull and full of goblins counting money, so somebody has to keep it lively." } },
+      choices = {
+        { text = "Frightening people isn't much of a gift, Umi.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A bit of chaos does a cold town good.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the spirits would mind a mechanical yeti? I'd hate to offend the snow, because it's been so good to me." },
@@ -251,6 +271,7 @@ P:NPC {
           text = "An engineer who wants a yeti of their own? Oh, you have good taste. Let me show you how it's done." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Don't bless the yeti, please, because I've no idea what holy water does to clockwork, and I'd rather not find out before Legacki screams." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Don't bless anything in here, please; the last time someone said a prayer over my yeti its eyes lit up, and I don't think that was me." },
       },
       again = {
         { id = "h_again", text = "More? Ooh, I love questions, because questions are how pranks start." },
@@ -265,6 +286,7 @@ P:NPC {
         { text = "Why build a mechanical yeti at all?", next = "xmage", when = { class = "MAGE" } },
         { text = "Slip a part into someone's shop? Whose?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is all this mischief really worth the trouble, Umi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is your mechanical yeti truly just a harmless prank, Umi?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -367,6 +389,15 @@ P:NPC {
         { text = "I'll think about it.", next = "BACK" },
       },
     },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "Gladly, and without asking which faith you pray to, since the Scourge doesn't ask either. I'll only say that some at Light's Hope are wary of shadow, so if that's your craft, let your deeds against the dead speak first." } },
+      choices = {
+        { text = "Then I'll heal for the Dawn and let that speak.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My shadow kills the dead as well as any Light.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome. The Dawn has learned to value every kind of strength against the Scourge, and the spirits you speak to hate the plague as much as we do." },
@@ -381,6 +412,7 @@ P:NPC {
         { id = "h_duke", when = { questActive = TODO_QUEST("Duke Nicholas Zverenhoff") },
           text = "Duke Zverenhoff will want to meet you, because not many walk into the Plaguelands of their own will, and fewer walk out." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, welcome! The Dawn fights the Scourge and the Circle fights the rot in Felwood, and I've often thought we fight the same kind of sickness from two ends." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and of the Horde! The Dawn has need of healers who know the Scourge for what it is, and I suspect you know it better than most." },
       },
       again = { { id = "h_again", text = "What else? The Light keeps late hours, and so do I." } },
       choices = {
@@ -393,6 +425,7 @@ P:NPC {
         { text = "The Dawn would take one of the Forsaken?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Does the Dawn really accept warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How bad is it in the Plaguelands now?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would the Argent Dawn take a Horde priest's help, Gregor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },
