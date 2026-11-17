@@ -60,3 +60,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 - none: service NPCs.
 ### Voices (authored, not canon)
 - Mishellena: soft, grieving, moonwell water only for her birds. Brakkar: gruff, carries clean water to his riders by hand; flies Trull's messages. Bale: slow, gentle tauren; nothing in Felwood fit to eat; the Emerald Sanctuary's druids are his hope.
+
+## New in the content push (keys gorn_one_eye, meilosh, taronn, malygen, banehollow)
+See bibles/timbermaw_hold.md, bibles/talonbranch_folk.md, bibles/banehollow.md. Golhine's new branches are listed in talonbranch_folk.md.

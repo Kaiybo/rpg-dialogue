@@ -35,3 +35,6 @@ Never says: what happens to freed souls (he doesn't know)
 
 ## Topics
 - scarlet_crusade, background, advice
+
+## 1.23 additions (authored, not canon)
+- Ironforge-born, apprenticed young in Gnomeregan; followed his mother east when she married a Stratholme man. Pointed the blaster at Augustus, bought wire instead. Prefers small parties in Stratholme to an army (stance node). Baron Rivendare named as the city's Scourge lord.

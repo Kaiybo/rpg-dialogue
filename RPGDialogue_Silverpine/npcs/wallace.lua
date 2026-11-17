@@ -48,6 +48,7 @@ P:NPC {
         { text = "How do you know what you're selling?", next = "blades" },
         { text = "You seem to live out here alone.", next = "alone" },
         { text = "Do you know who your customers are?", next = "customers" },
+        { text = "Tell me about this stretch of coast.", next = "coast" },
         { text = "Let me see your weapons.", next = "BUSINESS" },
         { text = "Good day, Wallace.", next = "END" },
       },
@@ -90,6 +91,61 @@ P:NPC {
         { text = "That's a fair way to deal with folk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Not knowing could get you killed one day.", next = "BACK", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    coast = {
+      hub = true,
+      lines = { { id = "co_default", text = "North Tide's Run, they call it, and it's a lonely stretch of shingle with the sea on one side and the pines on the other. I know it by the wind and the gulls, and by the smell of fish when the murlocs have been busy." } },
+      again = { { id = "co_again", text = "What else about the coast? I've walked every yard of it with a stick." } },
+      choices = {
+        { text = "The murlocs don't trouble you?", next = "coast_murlocs" },
+        { text = "Where do your blades come from, out here?", next = "coast_supply" },
+        { text = "Do the Sepulcher's people come this far?", next = "coast_sepulcher" },
+        { text = "That's enough about the coast.", next = "BACK" },
+      },
+    },
+    coast_murlocs = {
+      big = true,
+      lines = { { id = "cm_default", text = "They gurgle up the beach at night and rattle my door, and then they go away again, because I don't open it. I've come to think of them as weather, friend, and I've never yet seen a man win an argument with the weather." },
+        { id = "cm_hunter", when = { class = "HUNTER" }, text = "They gurgle up the beach at night and rattle my door, and then they go away again. A hunter could thin them out, I suppose, but I've grown used to them, the way you grow used to rain." } },
+      choices = {
+        { text = "Leave them be, then. They're doing no real harm.", next = "coast", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll clear the beach for you, whether you like it or not.", next = "coast", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Back to the coast.", next = "coast" },
+      },
+    },
+    coast_supply = {
+      lines = { { id = "cs_default", text = "Ships put in now and then, when the captains are brave or lost, and peddlers come up the road with a cart. I buy by feel and I pay fair, and word gets around that the blind man at North Tide's Run won't cheat you, which is better than a sign over the door." } },
+      choices = {
+        { text = "Has anyone ever tried to cheat you?", next = "coast_cheat" },
+        { text = "Back to the coast.", next = "coast" },
+      },
+    },
+    coast_cheat = {
+      lines = { { id = "cc_default", text = "Once, with a sword that was painted to look like steel and weighed like a fence post. I told him what it was and what it was made of and which smith in Lordaeron had botched it, and he left without his cart, so I've had a wheelbarrow ever since." } },
+      choices = {
+        { text = "Ha! That's a fair trade, Wallace.", next = "coast", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Back to the coast.", next = "coast" },
+      },
+    },
+    coast_sepulcher = {
+      lines = {
+        { id = "cse_default", text = "Their deathstalkers come by on their way north, quiet as cats, and they buy whetstones more than blades. They tell me about the worgen and the gnolls and the wizards at Ambermill, and I listen, because a man who lives alone collects news the way other men collect coins." },
+        { id = "cse_scourge", when = { race = "Scourge" }, text = "Your sort come by on their way north, quiet as cats and smelling of the grave, and they buy whetstones more than blades. They're good customers and better gossips, and I'd not trade them for any living ones I've known." },
+      },
+      choices = {
+        { text = "What news have they brought lately?", next = "coast_news" },
+        { text = "Back to the coast.", next = "coast" },
+      },
+    },
+    coast_news = {
+      lines = {
+        { id = "cn_default", text = "That the worgen are thick around Pyrewood and thin everywhere else, and that High Executor Hadrec hasn't smiled since he died. I'd say that last part was a joke, friend, except they all said it the same way." },
+        { id = "cn_cleared", when = { cleared = "Shadowfang Keep" }, text = "That somebody went up to the keep on the hill and came back down again, which they say nobody does. They all said it in the same voice, the one folk use when they're glad and don't want to jinx it." },
+      },
+      choices = {
+        { text = "Back to the coast.", next = "coast", fx = { learn = "worgen" } },
       },
     },
   },

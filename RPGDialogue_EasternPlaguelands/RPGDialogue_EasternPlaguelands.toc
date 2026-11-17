@@ -19,3 +19,6 @@ npcs\roads.lua
 npcs\zverenhoff.lua
 npcs\alen.lua
 npcs\egan.lua
+npcs\darrowshire_joseph.lua
+npcs\terrordale_augustus.lua
+npcs\lightshope_dawn.lua

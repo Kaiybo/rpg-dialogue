@@ -51,6 +51,9 @@ P:NPC {
         { text = "A pack kodo seems out of place down here.", next = "work" },
         { text = "Spark says Dadanga needs a bath.", next = "spark", when = { heardLine = "spark_nilminer.d_default" } },
         { text = "May I greet her?", next = "greet", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
+        { text = "How did you raise her from a calf?", next = "calf" },
+        { text = "How do the humans here treat an orc?", next = "humans" },
+        { text = "Any advice for keeping a beast content?", next = "tips", when = { class = "HUNTER" } },
         { text = "What does Dadanga eat?", next = "BUSINESS" },
         { text = "Take care, Petra.", next = "END" },
       },
@@ -89,6 +92,46 @@ P:NPC {
     spark = {
       lines = { { id = "sp_default", text = "Does he now? Spark hasn't washed since the expedition landed, so he's hardly one to talk. Dadanga, ignore the goblin." } },
       choices = { { text = "I'll tell him you said so.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    calf = {
+      lines = { { id = "c_default", text = "Her mother was taken by centaur raiders out on the Barrens, and she was left bawling in the grass, no bigger than a wolf. I fed her from a waterskin for a month, and she's followed me ever since." } },
+      choices = {
+        { text = "Why did you take her in?", next = "calf_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    calf_why = {
+      lines = {
+        { id = "cw_default", text = "Because I'd seen enough left behind, I suppose, after the camps. Somebody had come for me once, and it seemed only right to do the same for something that couldn't ask." },
+        { id = "cw_orc", when = { race = "Orc" }, text = "You'll know what the camps were, so I'll not explain them. Somebody came for me once, and it seemed only right to do the same for her." },
+      },
+      choices = { { text = "She was lucky you found her.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    humans = {
+      lines = {
+        { id = "hu_default", text = "Williden pays me the same as any of them and has never once asked where I stood at Grim Batol or anywhere else. Some of the scholars stared at first, but a kodo who carries your books earns her keeper a lot of goodwill." },
+        { id = "hu_human", when = { race = "Human" }, text = "Better than your kingdom treated my people, if you'll forgive me saying it. Williden pays me fair and never asks about the war, and Hol'anyee shares her fire, which is more than I hoped for." },
+      },
+      choices = {
+        { text = "Does it trouble you, working for humans?", next = "humans_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans_stance = {
+      big = true,
+      lines = { { id = "hs_default", text = "Not out here, where the devilsaurs don't care who fought whom. Out there, in the wider world, I know it's more tangled, and I'd like to hear what you think about it." } },
+      choices = {
+        { text = "Old wars should stay buried. Work beside whoever's honest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Loyalty to your own people comes first, Petra.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather not say.", next = "BACK" },
+      },
+    },
+    tips = {
+      lines = {
+        { id = "t_default", text = "Feed them before yourself, speak before you touch, and never let them see you frightened, because they'll take it as a reason to be frightened too. And brush them, friend, more often than you think." },
+        { id = "t_pet", when = { pet = { type = "Beast" } }, text = "Brush {pet} more often than you think you need to, and talk to it on the road, even about nothing. A beast that knows your voice will come back to it when everything else is chaos." },
+      },
+      choices = { { text = "Sound advice. Thank you, Petra.", next = "BACK", fx = { affinity = 1 } } },
     },
     greet = {
       lines = { { id = "g2_default", text = "Slowly, and from the front, so she can see your hands. There, she's leaning into you, that means she approves." } },

@@ -21,3 +21,6 @@ npcs\jessir.lua
 npcs\arkonarin.lua
 npcs\dreka.lua
 npcs\arei.lua
+npcs\timbermaw_hold.lua
+npcs\talonbranch_folk.lua
+npcs\jaedenar.lua

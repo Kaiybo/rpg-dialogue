@@ -55,6 +55,8 @@ P:NPC {
         { text = "The Marshals can't know where these bones come from.", next = "marshals" },
         { text = "I dig for a living too. Any tips?", next = "miner", when = { profession = "Mining" } },
         { text = "Hunting those beasts for bones is wrong.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "What would you do if you got out?", next = "out" },
+        { text = "Are you really buying a seat on Shizzle's flyer?", next = "flyer" },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Hang in there, Spark.", next = "END" },
       },
@@ -100,6 +102,26 @@ P:NPC {
     marshals = {
       lines = { { id = "m_default", text = "Officially, they think the bones are dug up, the old-fashioned way, by me. Unofficially, pal, I'm a very good digger when you're the one doing the digging, and I'm a very good manager when it comes to taking the credit." } },
       choices = { { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    out = {
+      lines = { { id = "o_default", text = "Gadgetzan first, pal, for a bath, a bed and a drink with ice in it. Then I'd go somewhere cold and boring, like Everlook, and sell shovels to people who don't know any better." } },
+      choices = {
+        { text = "And the expedition? You'd just leave them?", next = "out_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    out_stance = {
+      big = true,
+      lines = { { id = "os_default", text = "Look, pal, I like the Marshals fine, but liking somebody isn't a reason to get eaten next to 'em. My contract says chief digger, not chief martyr, and I've read the small print twice." } },
+      choices = {
+        { text = "You signed on. See the job through.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair. Nobody's owed your life for a wage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flyer = {
+      lines = { { id = "fl_default", text = "I called it a flaming coffin once, pal, and I stand by that, but a flaming coffin that leaves the crater beats a comfy tent that doesn't. Shizzle's asking forty gold a seat, which is robbery, and I'm still thinkin' about it." } },
+      choices = { { text = "Wait until it lands somewhere safe twice.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     miner = {
       lines = { { id = "mi_default", text = "Dig where somebody else already dug, pal, and bring a big friend. That's the whole art, and it's served me well and cheap." } },

@@ -362,6 +362,8 @@ P:NPC {
           text = "The Overseer says the lava spiders are frightenin' the bairns, so now twenty of 'em are my job. Ye do it, an' I'll supervise from this chair." },
         { id = "h_incendosaurs", when = { questActive = TODO_QUEST("Incendosaurs? Whateverosaur is More Like It") },
           text = "Incendosaurs, they call 'em, which is a fancy name for big burnin' lizards. Go an' put some out, permanently." },
+        { id = "h_spiders_done", tags = { "news" }, when = { questDone = TODO_QUEST("Fiery Menace!") },
+          text = "The bairns are playin' by the cliff again an' nobody's come home wi' a web in their beard all week, so that's your doin'. The Overseer's stopped glarin' at my chair, which is the best reward I could ask for." },
         { id = "h_tired", when = { metBefore = true },
           text = "Ye know what the best part o' freedom is? Sittin' down whenever ye like, with nobody tellin' ye tae stand, except the Overseer, an' Lolo, an' now you." },
         { id = "h_miner", when = { origin = "dwarf_ironforge_miner" },
@@ -373,6 +375,8 @@ P:NPC {
         { text = "Why are you always resting?", next = "resting" },
         { text = "Lolo seems an easy enough master to work for.", next = "lolo" },
         { text = "How big are these lizards?", next = "lizards" },
+        { text = "What did you do inside the mountain?", next = "mountain" },
+        { text = "Are the bairns safe from the spiders now?", next = "bairns", when = { questDone = TODO_QUEST("Fiery Menace!") } },
         { text = "Arm-wrestle me.", next = "wrestle", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My beast could take one of those lizards.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Doesn't Lolo mind that you sleep on watch?", next = "xrogue", when = { class = "ROGUE" } },
@@ -404,6 +408,32 @@ P:NPC {
     lizards_why = {
       lines = { { id = "zw_default", text = "I could, but I'd have tae stand up, walk down the cliff, fight a lizard an' walk back up the cliff, or ye could, an' that, ye see, is teamwork." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    mountain = {
+      lines = { { id = "mt_default", text = "Carried things, mostly, because I was the biggest, so they gave me the heaviest. Ore carts up from the deep seams, coal down tae the forges, an' now an' then a lad who couldnae walk any further." },
+      },
+      choices = {
+        { text = "You carried the other slaves?", next = "mountain_cart" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mountain_cart = {
+      lines = { { id = "mc_default", text = "Only the ones who fell, an' only when the taskmasters werenae lookin', for a slave who cannae walk was no use tae them. I'd put a lad on top o' the ore an' push, an' that's why my back's the way it is, an' I'd do it again." },
+      },
+      choices = {
+        { text = "That chair is the least you've earned, Hansel.", next = "BACK", fx = { align = { order = -1 }, affinity = 3, trait = { kind = 1 } } },
+        { text = "And now the Point needs that back working again.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bairns = {
+      lines = { { id = "bn_default", text = "Safe as bairns ever are on a cliff over a lava pit, which is no' very, but the spiders were the worst of it. Ye'd think a Dark Iron child would have more sense than tae poke a burnin' spider, but they're braver than us, for they've never known the whip." },
+      },
+      choices = {
+        { text = "Let them stay brave. That's what you escaped for.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Brave children get burned. Teach them fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     wrestle = {
       lines = { { id = "w_default", text = "Ha! Sit, then... no, ye sit, since I'm already sittin', an' that's my advantage. Ready? ...Ye nearly had me there, nearly." } },
@@ -550,6 +580,8 @@ P:NPC {
           text = "That fellow southeast o' here, with the sad story about his father? I've never once smelled grief on him; I smelled somethin', but no' grief." },
         { id = "h_maltorius", tags = { "news" }, when = { questActive = TODO_QUEST("WANTED: Overseer Maltorius") },
           text = "Maltorius is overseer o' the Dark Iron slaves in the Gorge, an' a cruel one. The poster's up, so bring me his head, an' I'll... know it when I feel it." },
+        { id = "h_malt_done", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") },
+          text = "It's quieter down in the Cauldron since ye dealt wi' Maltorius, an' I can hear it from up here. The whips are fewer o' a night, though no' gone, an' I'll thank ye for every one that's stopped." },
         { id = "h_drink", when = { metBefore = true },
           text = "Folk say I drink too much for a lookout, an' I say I'd see nothin' at all without it. They've no answer tae that, an' neither have I, come tae think of it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ah, I can smell the oil on yer armor an' hear it clankin' from here, so ye're either a warrior or a very loud thief, an' I'm hopin' for warrior." },
@@ -561,6 +593,9 @@ P:NPC {
         { text = "I've heard the name Maltorius more than once.", next = "maltorius" },
         { text = "What did you smell on Kalaran?", next = "kalaran", when = { heardClaim = "kalaran_father" } },
         { text = "Does the drink really help?", next = "drink" },
+        { text = "How did you lose your sight, Captain?", next = "eyes" },
+        { text = "What do you make of Hansel?", next = "l_hansel" },
+        { text = "Maltorius is dead, Captain.", next = "malt_done", when = { questDone = TODO_QUEST("WANTED: Overseer Maltorius") } },
         { text = "I could sneak up on the Point, Captain.", next = "k_rogue", when = { class = { "ROGUE", "DRUID" } } },
         { text = "I didn't know a mage had a smell.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my imp bother you, Captain?", next = "xlock", when = { class = "WARLOCK" } },
@@ -603,6 +638,38 @@ P:NPC {
       choices = {
         { text = "Maybe your nose is wrong.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "I'll keep my eyes open.", next = "BACK", fx = { trait = { skeptical = 1 }, affinity = 1 } },
+      },
+    },
+    eyes = {
+      lines = { { id = "ey_default", text = "Ask me sober an' I'll tell ye it's none o' yer business, an' ask me drunk an' I'll tell ye a different tale every time. Last week it was a fire elemental, an' the week before it was a wager wi' a Bronzebeard, an' I liked that one best." },
+      },
+      choices = {
+        { text = "And the true story?", next = "eyes_true" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eyes_true = {
+      lines = { { id = "et_default", text = "The true story is that I'm captain o' the lookouts, an' nobody's got past me yet. What I lost doesnae matter half as much as what I kept, so that's the only story I tell sober." },
+      },
+      choices = {
+        { text = "Nobody's taken your wall. That's the only test that counts.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "The Point still deserves a lookout who can see.", next = "BACK", fx = { align = { order = 1 }, affinity = -2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    l_hansel = {
+      lines = { { id = "lh_default", text = "Best man on the Point, an' the laziest, an' I'd no' trade him for ten who work harder. When there's real trouble on the road, Hansel's the first one standin', an' I always know where he is, for I can hear him snorin' from the gate." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    malt_done = {
+      big = true,
+      lines = { { id = "md_default", text = "So I heard, an' I knew it before the runner came, for the whips went quiet. They'll send another, they always do, but the one after Maltorius will remember what happened tae Maltorius, an' that's worth somethin'." },
+      },
+      choices = {
+        { text = "Then I'll deal with the next one too.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I was paid for a head. The rest isn't my concern.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     drink = {

@@ -54,6 +54,9 @@ P:NPC {
         { text = "You must hope to find something here.", next = "hope" },
         { text = "How did you build A-Me's eyes?", next = "gems", when = { profession = "Engineering" } },
         { text = "Animals know a fake when they see one.", next = "beasts", when = { class = { "HUNTER", "DRUID" } } },
+        { text = "A-Me's home safe. What comes next?", next = "next", when = { questDone = TODO_QUEST("Chasing A-Me 01") } },
+        { text = "What do you make of Shizzle's flyer?", next = "shizzle" },
+        { text = "Gnomes have built mechanical squirrels for years.", next = "squirrel", when = { race = "Gnome" } },
         { text = "How can I help?", next = "BUSINESS" },
         { text = "Good luck with your work.", next = "END" },
       },
@@ -103,6 +106,41 @@ P:NPC {
     gems = {
       lines = { { id = "g2_default", text = "Two scrying gems, cut as a matched pair, so whatever one sees the other shows. The hard part was the eyelids; you'd be amazed how odd an ape looks if it never blinks." } },
       choices = { { text = "That's brilliant work.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    next = {
+      lines = { { id = "n2_default", text = "A-Me 02, of course! Thicker plating on the head, a softer voice-box she can't use yet, and maybe a scent pouch, if I can bear to collect the scent. The apes have met her once now, so the next one might get a proper welcome." } },
+      choices = {
+        { text = "Do the apes really need a second visitor?", next = "next_stance" },
+        { text = "A voice-box? For an ape?", next = "next_voice" },
+      },
+    },
+    next_voice = {
+      lines = { { id = "nv_default", text = "Not for talking to the apes, silly, for talking to me! If she could say what she saw instead of only showing it, I'd stop chewing my nails every time the gems go dark." } },
+      choices = { { text = "You care about her a great deal.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    next_stance = {
+      big = true,
+      lines = { { id = "ns_default", text = "That's what Hol'anyee asked me, though less politely, and I didn't have a good answer. What would you do, if you could learn something nobody has ever known, and the only price was bothering some apes?" } },
+      choices = {
+        { text = "Send A-Me 02. Knowledge builds a better world.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the apes be. Not every door needs opening.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd need to think on that.", next = "BACK" },
+      },
+    },
+    shizzle = {
+      lines = { { id = "sz_default", text = "Oh, it's a wonderful idea, built with tremendous enthusiasm and a frightening lack of arithmetic! He keeps asking to see A-Me's casing, and I keep saying yes, the moment his flyer stops landing on people." } },
+      choices = {
+        { text = "Has it landed on you?", next = "shizzle_land" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shizzle_land = {
+      lines = { { id = "szl_default", text = "Only on my tent, and only once, but A-Me's spare arm was inside it! We're friends again now, mostly, though I've moved my tent uphill of his testing ground." } },
+      choices = { { text = "Very sensible.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    squirrel = {
+      lines = { { id = "sq_default", text = "Squirrels, yes, and very good ones, I took one apart as a girl and couldn't put it back together for a month! An ape's a different problem, though; a squirrel only has to look like a squirrel, but an ape has to behave like one, or the others notice." } },
+      choices = { { text = "Gnomish squirrels behave beautifully.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } } },
     },
     beasts = {
       lines = { { id = "b_default", text = "You might be right, and that alpha male certainly thought so. Maybe A-Me needs to smell like an ape too, though I'm not looking forward to that part of the design." } },

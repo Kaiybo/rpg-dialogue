@@ -98,3 +98,15 @@ Levels 45-55. The Classic (pre-Cataclysm) zone only: everything below was read o
 - none: service NPC.
 ### Voice (authored, not canon)
 - Brisk, practical, complains about the stairs; wears gloves for anything grown in the Portal's soil (firebloom, gromsblood). The Portal is dark and watched; nothing about it opening.
+
+## Deepening pass (wastes questgivers)
+No unwritten Classic named NPCs with gossip remain in the zone (the rest are hostile: Kruul, Razelikh's triad, the rares), so this pass deepens the three wastes questgivers.
+- **Drazial** new branches: the scorpoks and The Decisive Striker (before/active/recent), his test subjects (stance: risk and consent), what Nethergarde makes of the elves and his view of Ardalan, the neighbours (Kum'isha refused him a blood sample; Daio), Quel'Thalas after the Scourge (stance: strength vs comfort). Topics: nethergarde, draenethyst.
+- **Lynnore** new branches: Vulture's Vigor (her people's lost source, unnamed; stance on a tainted cure), "for a price" (organs, and her unease at killing thinking beasts), Nethergarde and Thadius (she suspects he fears age), Quel'Thalas and grief, Kum'isha (the most interesting mind in the wastes). Topics: nethergarde, draenethyst.
+- **Daio** new branches: his students (one buried by the rock), what a Doomguard is and wants, Nethergarde looking away (stance: an honest teacher or none), Kum'isha ("a warlock in everything but the books"; Daio stopped wanting home). Topics: nethergarde, draenethyst, dreadmaul.
+
+### Authored, not canon (this pass)
+- Drazial tests his own elixirs and a Nethergarde soldier ran to the keep and back on the boar elixir; Kum'isha refused him blood ("pending"); two years of study.
+- Lynnore's vigour study is quietly for her people's lack (never named: no Sunwell talk beyond "something wonderful for thousands of years"); her guilt over the basilisks; Thadius once asked her how they heal.
+- Daio's buried student; his envy and pity for Kum'isha.
+- Never: Kael'thas, the Sunwell by name, Razelikh from the bloodmages.

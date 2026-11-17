@@ -395,6 +395,8 @@ P:NPC {
 
   greetings = {
     { id = "g_bats", text = "Don't wave your arms about; the bats think it's a challenge." },
+    { id = "g_kback", when = { metBefore = true }, text = "You again. The bats remember you, which is more than I can say for most of my visitors." },
+    { id = "g_knight", when = { timeOfDay = "night" }, text = "Night flights are the best flights, if you ask the bats, and nobody ever does but me." },
   },
 
   notice = {
@@ -475,7 +477,30 @@ P:NPC {
       lines = {
         { id = "ba_default", text = "Bred under the Undercity, in the dark where they're happiest. They're loyal, quiet and never ask questions, which makes them better company than most." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Do you name them?", next = "bats_names" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bats_names = {
+      lines = {
+        { id = "bn_default", text = "Every one, though I don't tell the riders, because nobody wants to hear that they're flying on Moppet. The big grey one is Hadrec, and I'd thank you not to mention that to the High Executor." },
+      },
+      choices = {
+        { text = "Your secret's safe. Which one would I ride?", next = "bats_mine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bats_mine = {
+      big = true,
+      lines = {
+        { id = "bm_default", text = "That depends on you. The steady ones go to riders who sit still and say thank you, and the young ones go to riders who kick, so they'll learn better or fall off. Which sort are you, would you say?" },
+      },
+      choices = {
+        { text = "The sort who sits still and says thank you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Give me the young one. I like a lively ride.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     xhhunt = {
       big = true,
@@ -492,7 +517,31 @@ P:NPC {
       lines = {
         { id = "ro_default", text = "Worgen at night and gnolls by day, so yes. The bats fly over all of it, which is why I'm the most popular person in the Sepulcher, and the least thanked." },
       },
-      choices = { { text = "Thank you, then, Karos.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What do you see from up there?", next = "roads_view" },
+        { text = "Thank you, then, Karos.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    roads_view = {
+      lines = {
+        { id = "rv_default", text = "The whole forest laid out like a sick man on a table: the Sepulcher, the smoke from Pyrewood, and the keep on its hill with lights in it all night. Out over the lake you'll see Dalaran's dome, glowing violet, as if the wizards wanted everyone to know they're still there." },
+      },
+      choices = {
+        { text = "What do you make of Dalaran?", next = "roads_dalaran" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads_dalaran = {
+      big = true,
+      lines = {
+        { id = "rd_default", text = "I make nothing of it, except that the bats won't fly near the dome, and I trust their noses. The wizards sit behind their shield and send their people into Ambermill, and Hadrec grinds his teeth about it, and I feed bats." },
+        { id = "rd_mage", when = { class = "MAGE", race = "Scourge" }, text = "You'd know better than I, mage, since you might have studied there once. The bats won't fly near the dome, and I trust their noses, so if you ever go back, you'll be walking." },
+      },
+      choices = {
+        { text = "Dalaran should be left alone behind its wall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Dalaran's walls should come down, the sooner the better.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = "dalaran" } },
+      },
     },
     xhsham = {
       big = true,

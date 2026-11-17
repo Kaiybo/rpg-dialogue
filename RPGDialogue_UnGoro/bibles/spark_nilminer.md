@@ -26,3 +26,6 @@ Unreliable to his employers, honest with the player.
 
 ## Topics
 background, advice, _none. Authored, not canon: the "brochure".
+
+## Content push (authored, not canon)
+His escape plan (Gadgetzan bath, then Everlook to sell shovels); weighing a forty-gold seat on Shizzle's flyer.

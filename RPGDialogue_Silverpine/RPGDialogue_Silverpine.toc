@@ -19,3 +19,5 @@ npcs\faerleia.lua
 npcs\quinn.lua
 npcs\podrig.lua
 npcs\wallace.lua
+npcs\shadowfang.lua
+npcs\sawyer.lua

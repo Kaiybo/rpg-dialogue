@@ -34,3 +34,4 @@ background, advice.
 
 ## Authored, not canon
 - Festival held in Moonglade because it is neutral and because Omen was laid to rest there.
+- (deepening pass) Valadar and Fariel argue every year over Omen (she: mercy; he: doubt). Their grandmother kept the festival before them and "remembered the world before the Sundering, or claimed she did".

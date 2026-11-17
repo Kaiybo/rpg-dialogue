@@ -77,6 +77,20 @@ More rumors. **New files: restart the game fully (a /reload won't load them).** 
 - **About 90 new rumors** for innkeepers in places that had none: Stormwind, Ironforge and Dun Morogh, Loch Modan, Undercity and Tirisfal, Silverpine, Stranglethorn, Arathi, the Badlands and Searing Gorge, the Swamp of Sorrows and Blasted Lands, the Burning Steppes, the Hinterlands, the Plaguelands and Alterac; and in Kalimdor, Orgrimmar and Durotar, Darkshore, Stonetalon, Desolace, Thousand Needles and Feralas, Dustwallow Marsh, Tanaris and Un'Goro, Felwood, Winterspring, Azshara, and word of Silithus.
 - As before, some only come up at the right level, for your faction, or before or after certain quests. Anyone in those zones can pass them on when you ask them for the latest rumors.
 
+## 0.80.0 (2026-11-17)
+A content push across ten zones: about 40 new people to talk to, and longer conversations for some 20 more. **New files: restart the game fully (a /reload won't load them).**
+
+- **Loch Modan:** Ironband's Excavation (Magmar Fellhew, who warned Ironband about that wall; Huldar; Miran and his mules), Thelsamar (Ghak Healtouch, Torren Squarejaw, Bailor Stonehand, Brock Stoneseeker) and three Mountaineers on patrol.
+- **Swamp of Sorrows:** Stonard's trainers and traders: Kartosh, Ogromm, Grokor, Rogvar (Thrall himself asked him here), Hekkru, Thultash, Thultazor, Hartash, Grimnal and Thralosh, with their small feuds and friendships.
+- **Felwood:** Gorn One Eye and Meilosh at Timbermaw Hold (they warm up as your standing does), Taronn Redfeather and Malygen at Talonbranch Glade, and Lord Banehollow in Jaedenar, who isn't fooled by your disguise. Golhine has more to say.
+- **Eastern Plaguelands:** Joseph Redpath's ghost at Darrowshire, Augustus the Touched and his shop at Terrordale, Eris Havenfire at Light's Hope. Egan and Zverenhoff go deeper.
+- **Silverpine:** Deathstalker Adamant and Sorcerer Ashcrombe, the prisoners of Shadowfang Keep, and Abigail Sawyer at the Sepulcher. Wallace and Karos (who names his bats) have more to say.
+- **Un'Goro:** Simone the Inconspicuous (a hunter may see through her), Shizzle and his flying machine, Quixxil the camp cook. Karna, Larion, Petra and Spark go deeper.
+- **Stonetalon:** Tharm, Gereck and Kulwia at Sun Rock, Jeeda in Jin'Zil's cave. Teloren and Mor'rogal go deeper.
+- **Searing Gorge:** Master Smith Burninate and Taskmaster Scrange at Thorium Point; Hansel and Lolo have more to say.
+- **Moonglade:** Fariel Starsong, the Lunar Festival vendor (Valadar's sister). Sindrayl and Faustron now have real conversations, and each offers flights only to their own faction.
+- **Blasted Lands:** Bloodmage Drazial, Bloodmage Lynnore, Daio the Decrepit and the Spirit of Kirith have about half as much again to say.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

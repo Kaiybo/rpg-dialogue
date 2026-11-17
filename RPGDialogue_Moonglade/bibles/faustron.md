@@ -24,3 +24,4 @@ background, advice.
 
 ## Authored, not canon
 - Keeps his axe on the wall in Moonglade; his wind riders on the western side.
+- (deepening pass) Routes: Bloodvenom Post, Everlook, then home. Understands both sides of the Warsong logging in Ashenvale and won't judge it on elf ground. Wind riders sulk in Moonglade's rain; take-off arrangement with Sindrayl, whom he calls fair. Stands near Bunthen to borrow his welcome. Talks civilly with Alliance travellers here, and says plainly he wouldn't in Ashenvale.

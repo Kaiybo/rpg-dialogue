@@ -26,3 +26,6 @@ Honest; overconfident in her work.
 
 ## Topics
 background, advice, explorers_league, _none.
+
+## Content push (authored, not canon)
+A-Me 02 plans (thicker head plate, a voice-box for talking to Karna, a scent pouch); Hol'anyee questioned sending another; Shizzle's flyer once landed on her tent; she took apart a gnomish squirrel as a girl.

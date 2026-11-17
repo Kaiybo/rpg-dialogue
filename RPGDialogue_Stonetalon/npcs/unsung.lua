@@ -130,6 +130,8 @@ P:NPC {
         { text = "What do you see from up here?", next = "see" },
         { text = "Flying in these mountains must be hard.", next = "fly" },
         { text = "Why keep a post this high?", next = "post" },
+        { text = "Where did you keep birds before the Peak?", next = "darkshore" },
+        { text = "Who else keeps watch up here?", next = "peakfolk" },
         { text = "A quiet walker could be of use to you up here.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you really think magic could replace your hippogryphs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your hippogryphs ever carry Sentinels into battle, Teloren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -165,6 +167,7 @@ P:NPC {
         { id = "fl_default", text = "The winds here come up off the cliffs without warning, and a young bird can be thrown off course in a moment. I only send the older ones out from the Peak, and I'd ask you to hold on tightly when you cross the ridges." },
       },
       choices = {
+        { text = "What becomes of the young birds, then?", next = "fly2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,6 +176,67 @@ P:NPC {
         { id = "po_default", text = "Because the Keeper is here, and the druids who serve him, and they need a way to reach the rest of our people quickly. Besides, nothing on foot can surprise us up here, and that's worth a great deal in these mountains." },
       },
       choices = {
+        { text = "Has anyone ever tried to surprise you?", next = "post2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    post2 = {
+      big = true,
+      lines = {
+        { id = "po2_default", text = "The Horde holds Sun Rock to the east, and their wind riders cross our sky now and then, though they've never come to the Peak. I watch them as they watch me, and so far neither of us has done more than watch." },
+      },
+      choices = {
+        { text = "Keep watching, and let the peace hold as long as it can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Watching isn't enough. One day they'll come, so prepare.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fly2 = {
+      lines = {
+        { id = "fl2_default", text = "They stay on the Peak and learn the winds from the ledges, a little farther each day, until they can ride a gust without panicking. It takes a season or more, and I lose a few feathers of my own teaching them." },
+        { id = "fl2_druid", when = { class = "DRUID" },
+          text = "They learn the winds slowly from the ledges, much as you must have learned your first shape, {class}. Some take a season, and some take a year, and I can't hurry either kind." },
+      },
+      choices = {
+        { text = "Patient work. I respect that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkshore = {
+      lines = {
+        { id = "dk_default", text = "On the Darkshore coast, flying the sea winds out of Auberdine, which are gentle beside these. I asked to come here when the Keeper sent word that the Peak needed a steady hand, and I haven't regretted it, though I miss the sound of the surf." },
+      },
+      choices = {
+        { text = "Why leave somewhere gentler for this?", next = "darkshore2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkshore2 = {
+      big = true,
+      lines = {
+        { id = "dk2_default", text = "Because the gentle places can look after themselves, and Stonetalon can't. The Keeper is old and his druids are few, and someone has to carry word from here to Darnassus before the goblins have cut the whole mountain bare." },
+      },
+      choices = {
+        { text = "Duty belongs where it's needed most, not where it's easy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather choose my own road than follow a summons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peakfolk = {
+      lines = {
+        { id = "pf_default", text = "Keeper Albagorm watches over the Talon Den and the grove, and Faralia keeps the inn warm for anyone who climbs this far. The Sentinels walk the paths, and I watch the sky, and between us very little reaches the Peak unseen." },
+      },
+      choices = {
+        { text = "What's the Keeper like?", next = "peakfolk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peakfolk2 = {
+      lines = {
+        { id = "pf2_default", text = "Old and patient, and slow to anger, though the burning of the vale has angered him. When he speaks of the trees, he speaks of them as if each one had a name, and perhaps to him they do." },
+      },
+      choices = {
+        { text = "I'll go and hear him for myself.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
