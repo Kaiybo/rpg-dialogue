@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.10.1 (2026-11-17)
+- Krom'rosh's first menu had one reply too many, so one was hidden; the Bolder'ok ogres are now asked about from "Why is the Horde in the Riverglades?".
+
 ## 1.10.0 (2026-11-17)
 - The Horde side of the Riverglades: at Rog'mar, Krom'rosh (Eye of Mugg), Neza Bloodsnout (Poison Tips), Tan'jani (Fetch 'n' Fletch) and Kreza Darkthorn (the Krol'dok key); at Bolder'ok, Clugfist and Jom-jom, ogres who walked out on the Twilight's Hammer. Rog'mar's grunts and Bolder'ok's ogres talk too, and both towns keep track of how they regard you.
 - Out in the glades: Marshal Ryan, dying in the Twilight's Shroud; Sleebo Fizzlespout and his marsh-gas engine; Jezap Jinglesprocket, Gadgetzan's fight promoter.

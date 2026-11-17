@@ -374,7 +374,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "That faith can hold where wards fail, and that the knights of Lordaeron might have seen the plague for what it was if anyone had asked them. Nobody asked, and now you and I are dead, and the Kirin Tor have a dome over a ruin, and I find it hard to be gracious about it." } },
+      lines = { { id = "xfpala_default", text = "That faith can hold where wards fail, and that the knights of Lordaeron might have seen the plague for what it was if anyone had asked them. Nobody asked, and now you and I are dead, and the Kirin Tor are rebuilding a ruin and slow to open its gates, and I find it hard to be gracious about it." } },
       choices = {
         { text = "Then let the Light and the arcane stand together now.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Grievances are useful. Keep yours sharp, Archmage.", next = "BACK", fx = { align = { light = -1 } } },

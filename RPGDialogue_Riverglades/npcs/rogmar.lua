@@ -74,7 +74,6 @@ P:NPC {
         { text = "What waits in Krol'dok?", next = "kroldok" },
         { text = "Why is the Horde in the Riverglades?", next = "why" },
         { text = "What about the humans at Farholde?", next = "farholde" },
-        { text = "The ogres of Bolder'ok fight for us?", next = "bolderok" },
         { text = "Who else should I see in Rog'mar?", next = "rogmar" },
         { text = "Mugg is dead. What now?", next = "after_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") } },
         { text = "Some of those orcs in the caves were Horde once.", next = "xorc", when = { race = "Orc" } },
@@ -135,6 +134,7 @@ P:NPC {
       },
       choices = {
         { text = "The Hammer came here after the Second War?", next = "why_old" },
+        { text = "The ogres of Bolder'ok fight for us?", next = "bolderok" },
         { text = "Something else.", next = "BACK" },
       },
     },

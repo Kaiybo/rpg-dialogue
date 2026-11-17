@@ -87,7 +87,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I'd like to think so, but the Kirin Tor keep to their dome while the Syndicate takes the hills around it. Jacques is down here asking for aid, and I keep wondering why a city full of archmages needs a fishing town's help." } },
+      lines = { { id = "xmage_default", text = "I'd like to think so, but the Kirin Tor keep to their half-built city while the Syndicate takes the hills around it. Jacques is down here asking for aid, and I keep wondering why a city full of archmages needs a fishing town's help." } },
       choices = {
         { text = "Dalaran stood against the Scourge. It deserves the Alliance's aid.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the Kirin Tor look after themselves for once.", next = "BACK", fx = { align = { order = -1 } } },

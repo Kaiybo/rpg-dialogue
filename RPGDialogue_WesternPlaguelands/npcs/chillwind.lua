@@ -151,7 +151,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Dalaran's behind its dome, and the Kirin Tor are busy deciding whose fault the plague was. Meanwhile Andorhal sits a day's march from my gate, so I'll take any mage who'll stand on the line." } },
+      lines = { { id = "xmage_default", text = "Dalaran's still rebuilding and slow to open its gates, and the Kirin Tor are busy deciding whose fault the plague was. Meanwhile Andorhal sits a day's march from my gate, so I'll take any mage who'll stand on the line." } },
       choices = {
         { text = "They should have come. That was their duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Duty's cheap. Every city looks after itself first.", next = "BACK", fx = { align = { honor = -1 } } },

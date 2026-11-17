@@ -382,7 +382,7 @@ P:NPC {
     },
     buyers_dalaran = {
       lines = {
-        { id = "bd_default", text = "Now and again, friend, from the camps around their dome up north. They're sealed in, mostly, but some still come down for supplies, and they always want the finest crystal vials, which of course I keep for them." },
+        { id = "bd_default", text = "Now and again, friend, from the camps around their city up north. They've only lately opened the gates, but some still come down for supplies, and they always want the finest crystal vials, which of course I keep for them." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

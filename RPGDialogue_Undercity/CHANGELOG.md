@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.1 (2026-11-17)
+- Norman the innkeeper no longer repeats his full greeting when you come back to his questions. Dalaran is now spoken of as rebuilding, not sealed under its dome.
+
 ## 1.15.0 (2026-11-17)
 - Some people here notice who you travel with: a greeting about your companions, a reply to bring them up, and a conversation with stances to take. Needs RPG Dialogue 0.59.0.
 

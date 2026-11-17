@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.16.1 (2026-11-17)
+- Kauth at Bloodhoof no longer repeats his full greeting when you come back to his questions.
+
 ## 1.16.0 (2026-11-17)
 - People with a stake in a nearby dungeon or raid react once you've cleared it: a greeting, a reply to bring it up, and a conversation about what it means to them, with stances to take. Needs RPG Dialogue 0.58.0.
 

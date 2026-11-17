@@ -695,7 +695,7 @@ P:Pool {
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Your accent's southern, from Stormwind way. Most of us here came down from the north when the plague came, and we don't hear that voice often." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "You'll be from Dalaran, or near it. Have you seen what's become of the city behind its shield? My cousin was a servant in the Violet Citadel, and we've had no word of her since." },
+      text = "You'll be from Dalaran, or near it. Have you seen what's become of the city now its shield is down? My cousin was a servant in the Violet Citadel, and we've had no word of her since." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "One of the Silver Hand, here! Uther's tomb lies north in the plaguelands, and nobody in Southshore has been brave enough to visit it in years." },
   },

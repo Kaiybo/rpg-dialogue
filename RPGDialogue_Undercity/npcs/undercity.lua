@@ -242,7 +242,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Spells I have, from the many Dalaran mages who woke in the dark beside me and chose freedom over the Scourge. What I lack are mages who see past the Kirin Tor's pretty dome to the city that let Kel'Thuzad walk its halls." },
+        { id = "xmage_default", text = "Spells I have, from the many Dalaran mages who woke in the dark beside me and chose freedom over the Scourge. What I lack are mages who see past the Kirin Tor's pretty new towers to the city that let Kel'Thuzad walk its halls." },
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "You studied among the Kirin Tor and died for it, as so many did, and now you serve the one who freed you. Remember that, mage, when your old masters whisper that you still belong to them." },
         { id = "xmage_troll", when = { race = "Troll" }, text = "The Darkspear send me mages now, and I find I respect a people who know what it is to lose a homeland. Burn the Scourge for me, troll, and we will understand each other well enough." },
       },
@@ -594,7 +594,7 @@ P:NPC {
       lines = {
         { id = "ma_default", text = "Magic? Oh, don't let the Magic Quarter hear you say that, they're terribly territorial. Alchemy is the honest sister of your art: no incantations, no glowing hands, only what happens when you put two things together that shouldn't be." },
         { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
-          text = "Dalaran! Then you'll know the Kirin Tor never let the alchemists past the second floor of the Violet Citadel. Well, now we have a whole city, and they have a dome, and I know which I prefer." },
+          text = "Dalaran! Then you'll know the Kirin Tor never let the alchemists past the second floor of the Violet Citadel. Well, now we have a whole city, and they have half of one, and I know which I prefer." },
       },
       choices = { { text = "Two things that shouldn't be. I like that.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } } },
     },
@@ -915,6 +915,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under the city? You'll not find much growing down here, friend, except what's in the canals, and I wouldn't touch that." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Take a chair, any chair that's empty, and nobody will take it from you while you sit, which is the closest thing to a sanctuary I can offer." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, with a chair waiting like anyone else. You glow a little when you sit, which some of the regulars find upsetting, so I'll put you by the wall where the light won't bother them." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? The chairs aren't going to fill themselves." },
+        { id = "h_again2", text = "Ask away. Nobody down here is in a rush to be anywhere." },
       },
       choices = {
         { text = "Is the inn a sanctuary, Norman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

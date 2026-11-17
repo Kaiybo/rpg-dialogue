@@ -102,7 +102,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "We have neighbors' manners, nothing more, since their dome sits not far from my hills and their secrets are not my trade. Still, a mage who can open a lock with a word is worth knowing, and I make it my business to know who can." } },
+      lines = { { id = "xmage_default", text = "We have neighbors' manners, nothing more, since their city sits not far from my hills and their secrets are not my trade. Still, a mage who can open a lock with a word is worth knowing, and I make it my business to know who can." } },
       choices = {
         { text = "My talents are my own. I'm no one's tool, my lord.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "The Kirin Tor and Ravenholdt both serve order. I'd bridge them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -227,7 +227,7 @@ P:NPC {
 
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage. You can feel the dome, then, pressing at the back of your teeth. Good; it means you were taught properly." },
+      text = "A mage. You can feel the wards, then, pressing at the back of your teeth. Good; it means you were taught properly." },
   },
 
   start = "hello",
@@ -258,7 +258,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "The great ward over the city drinks deep, I'll admit, and the trees nearest the dome have grown pale. We rebuild as gently as we can, though gentleness is not a thing the Syndicate respects." } },
+      lines = { { id = "xdruid_default", text = "The great ward over the city drinks deep, I'll admit, and the trees nearest the walls have grown pale. We rebuild as gently as we can, though gentleness is not a thing the Syndicate respects." } },
       choices = {
         { text = "Dalaran's safety matters more than a few pale trees.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Then ease the ward. The forest shouldn't pay for your walls.", next = "BACK", fx = { align = { order = -1 } } },
@@ -278,11 +278,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bears, wolves and Syndicate scouts, in about that order of good manners. The Crushridge ogres have pushed the game down from the high meadows, and I'm told the deer now graze within sight of the dome, which they never dared before the war." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your companion, {pet}, has been staring at the dome since you arrived, which is more sense than many of my apprentices show. Animals can feel the wards, I think, and they don't care for them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your companion, {pet}, has been staring at the towers since you arrived, which is more sense than many of my apprentices show. Animals can feel the wards, I think, and they don't care for them." },
       },
       choices = {
         { text = "These hills should be cleared and brought back under Dalaran's law.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the hills run wild. The dome has meddled enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let the hills run wild. Dalaran has meddled enough.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -306,7 +306,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Several, from Syndicate scavengers to plain treasure hunters who heard the vaults were left unguarded. The dome keeps them out, and the ones who try too hard are found in the morning, a little singed and very confused about where they are." } },
+      lines = { { id = "xrogue_default", text = "Several, from Syndicate scavengers to plain treasure hunters who heard the vaults were left unguarded. The wards still keep them out of the vaults, and the ones who try too hard are found in the morning, a little singed and very confused about where they are." } },
       choices = {
         { text = "Dalaran's secrets should stay safe. I'd help you guard them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A locked vault is a challenge, Archmage, not a warning.", next = "BACK", fx = { align = { order = -1 } } },
@@ -336,14 +336,14 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, here among the mages. Your order and mine never understood each other, but when Lordaeron burned we found ourselves standing on the same ground." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at the gates of Dalaran. The Kirin Tor learned too late how much we needed people like you on our walls, and I've not forgotten the lesson." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, out here among the Syndicate's hills. Do keep your arrows pointed away from the dome, because the wards are touchy about anything sharp and fast." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, out here among the Syndicate's hills. Do keep your arrows pointed away from the towers, because the wards are touchy about anything sharp and fast." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Cenarion Circle, at the edge of Lordaeron. Your people have little love for arcane magic, I know, but you'll find the Kirin Tor more careful with it than the stories say." },
       },
       choices = {
-        { text = "Why is the city sealed?", next = "dome" },
+        { text = "Why was the city sealed so long?", next = "dome" },
         { text = "Who wants Dalaran to stay broken?", next = "enemies" },
         { text = "I studied magic once. Does the Kirin Tor still teach?", next = "teach", when = { class = "MAGE" } },
-        { text = "Has anyone tried to sneak inside the dome, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Has anyone tried to sneak into the vaults, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Was Kel'Thuzad really one of the Kirin Tor, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Were the Kirin Tor's dead given proper rites, Archmage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Kirin Tor have stood with the Silver Hand sooner?", next = "xapala", when = { class = "PALADIN" } },
@@ -354,11 +354,11 @@ P:NPC {
         { text = "Arugal is dead, Archmage. I climbed his tower myself.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Alliance" } },
         { text = "Good day, Archmage.", next = "END" },
       },
-      again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },
+      again = { { id = "h_again", text = "Yes? I have a little patience left, and the wards have none." } },
     },
     dome = {
       lines = {
-        { id = "do_default", text = "Archimonde broke the city when the Legion came, and the Scourge stripped what was left. The barrier keeps thieves and worse out while we mend the towers, and it keeps our mistakes in." },
+        { id = "do_default", text = "Archimonde broke the city when the Legion came, and the Scourge stripped what was left. The barrier kept thieves and worse out while we mended the towers, and now that it's open, the wards that remain keep our mistakes in." },
       },
       choices = {
         { text = "Sealing yourselves away while the world burns seems wrong.", next = "BACK", fx = { align = { order = -1 } } },

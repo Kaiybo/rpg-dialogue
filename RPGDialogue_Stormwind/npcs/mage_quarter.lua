@@ -242,7 +242,7 @@ P:NPC {
       },
     },
     skyborne2 = {
-      lines = { { id = "skyborne2_l", text = "Whether your people lost as much as ours did, or whether you kept something we burned. Dalaran's libraries are ash and rubble under a dome, and every scholar alive is hoping someone, somewhere, made copies." } },
+      lines = { { id = "skyborne2_l", text = "Whether your people lost as much as ours did, or whether you kept something we burned. Dalaran's libraries are ash and rubble the Kirin Tor are still sifting, and every scholar alive is hoping someone, somewhere, made copies." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnome = {

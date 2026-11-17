@@ -370,7 +370,7 @@ P:NPC {
       },
     },
     dalaran = {
-      lines = { { id = "da_default", text = "Dalaran is a ruin behind its own shield, and the Kirin Tor are rebuilding it with the doors shut. The Mage Quarter here does what it can, but I've stopped asking Dalaran for more than its prayers." } },
+      lines = { { id = "da_default", text = "Dalaran is still half a ruin, and the Kirin Tor are rebuilding it and slow to open their gates. The Mage Quarter here does what it can, but I've stopped asking Dalaran for more than its prayers." } },
       choices = {
         { text = "They should open those doors.", next = "dalaran_doors" },
         { text = "Something else.", next = "BACK" },

@@ -494,6 +494,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want a bed that isn't on fire, I suppose, so keep your spells outside." },
       },
+      again = {
+        { id = "h_again", text = "Something else? Ask, then, before the next caravan comes in thirsty." },
+        { id = "h_again2", text = "Go on. The ale isn't going anywhere." },
+      },
       choices = {
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits ever trouble your inn, Grosk?", next = "xhsham", when = { class = "SHAMAN" } },

@@ -82,7 +82,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "The living still cower before fire and frost, and the Kirin Tor's survivors hide behind their dome while we take their old lands. Burn the fields around Southshore and you'll do more for the front than a hundred Deathguards." } },
+      lines = { { id = "xmage_default", text = "The living still cower before fire and frost, and the Kirin Tor's survivors hide in their half-rebuilt city while we take their old lands. Burn the fields around Southshore and you'll do more for the front than a hundred Deathguards." } },
       choices = {
         { text = "I'll serve the front, but not by burning farms.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Point me at the fields. They'll burn.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },

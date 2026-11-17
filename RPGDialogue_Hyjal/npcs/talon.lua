@@ -79,7 +79,6 @@ P:NPC {
         { text = "How fares the World Tree?", next = "tree" },
         { text = "Where is help needed on the mountain?", next = "work" },
         { text = "Who gives you your orders?", next = "omnuron" },
-        { text = "Where do your supplies come from?", next = "supply" },
         { text = "About the owl feathers...", next = "feathers", when = { questActive = TODO_QUEST("Feathers in Flight") } },
         { text = "I'm a priest. Who here needs the Light?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I'm of the Circle. How can I help?", next = "xdruid", when = { class = "DRUID" } },

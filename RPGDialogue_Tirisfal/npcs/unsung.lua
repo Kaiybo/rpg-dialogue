@@ -781,7 +781,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xmage_default", text = "Slow magic that anybody can do with patience and a steady hand, which is rather the point. A mage's spell is gone when the mage is gone, but a good potion sits on the shelf and waits for whoever needs it." },
-        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's alchemists looked down on village folk who made tinctures without a word of the arcane, and now Dalaran hides under a dome in the hills while my tinctures still work. Make of that what you will." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's alchemists looked down on village folk who made tinctures without a word of the arcane, and now Dalaran is a half-mended ruin in the hills while my tinctures still work. Make of that what you will." },
       },
       choices = {
         { text = "Patience is a mage's virtue too, Carolai.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

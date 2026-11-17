@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.1 (2026-11-17)
+- Dalaran's dome has opened in Forever: Archmage Ansirem and the Southshore, Tarren Mill and roadside folk now talk about a city rebuilding and slow to open its gates, not one sealed away.
+
 ## 1.22.0 (2026-11-17)
 - Archmage Ansirem now stands at Dalaran's opened gate, not outside a sealed dome.
 
