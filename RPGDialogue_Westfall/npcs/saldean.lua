@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "saldean", id = TODO_NPC("Farmer Saldean"), name = "Farmer Saldean",
+  prejudice = { origin = "human_minor_noble", amount = 12, why = "Blames the House of Nobles for Westfall's ruin; neighbours now in the Deadmines." },
   bible = "bibles/saldean.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "proud" }, values = { "stern", "honest" },
   notices = { "work", "kit" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Soft hands and a straight back, and I'd wager a name with 'of' in it. Westfall's been bled white by people like your family, so say what you want and mind the chickens." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. I took you for another lord's child come to gawp at the poor, and you rolled your sleeves up and proved me wrong, which my Salma won't let me forget." },
     { id = "g_fields", text = "Step careful. The furrows are all I've got left that's straight." },
     { id = "g_watchers", when = { questActive = TODO_QUEST("The Killing Fields") }, text = "Still standing out there, aren't they. I can see them from the porch." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Killing Fields") }, text = "I walked my own field this morning, for the first time since spring." },
@@ -31,6 +34,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I hold the House of Nobles against you, and you came out of it. They left the masons unpaid and Westfall undefended, and when the farms burned they sent a letter of regret, and my neighbours are in the Deadmines because of it." } },
+      choices = {
+        { text = "Nobles or not, the crown's law still matters out here.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "You're right. The nobles earned every curse Westfall throws.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "What would you have me do, Farmer?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "The crown's law is a handful of militiamen at Sentinel Hill with no supplies, and Gryan holding the rest together himself. Tell your father that, if he still writes to you." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Well, I never thought I'd hear that from someone with your manners. Don't go saying it at court, or you'll find out how quick they are to disown their own." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Pick up a hoe or a sword, either will do. Westfall's had enough of people who only come to look at it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because a farmer belongs on his farm, thieves or not. My furrows are straight, and they're the only straight thing left. The earth here deserves someone who stays." } },
@@ -143,6 +168,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The pumpkins won't mind if I stop to answer you." },
       },
       choices = {
+        { text = "You hold my family against me, Farmer Saldean.", next = "prej", when = { prejudiced = true } },
         { text = "Your soil is tired, but it isn't dead yet.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why did you stay?", next = "stay" },
         { text = "Where did the watchers come from?", next = "watchers" },

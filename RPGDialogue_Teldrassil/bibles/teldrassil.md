@@ -66,3 +66,6 @@ Ilthalaine asking a returning character whether the world is in balance; Melitha
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Tenaron (Persuade, view_names): since Hyjal a fall in the forest can be the last one; he wonders, blessing each young elf on the way down, whether he said enough.
+
+## Prejudice (0.80.0, authored, not canon)
+- Corithras Moonrage (prejudice, Human/Dwarf/Gnome, mild): thinks Teldrassil was planted for the Kaldorei and half-blames outsiders for its sickness, though he suspects the truth lies closer to home.

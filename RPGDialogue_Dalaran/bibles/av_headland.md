@@ -34,3 +34,6 @@ Each is honest and partisan.
 
 ## Topics
 alterac.
+
+## Prejudice (0.80.0, authored, not canon)
+- Warmaster Laggrond (prejudice, Scourge): an old orc's distrust of the walking dead, their apothecaries and a queen who answers to no one.

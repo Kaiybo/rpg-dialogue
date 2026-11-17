@@ -41,3 +41,6 @@ eastvale, kobolds
 - Authored: buyers queue faster than the lads can swing; the army took the strong backs abroad; Westfall workers who never complain worry her; she'd buy the army a map.
 - Gated: heardLine rainer.h_raelen (both deputies now echo each other), warrior swinging an axe, priest tending the lads, human_westfall_farmhand.
 - Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
+
+## Prejudice (0.80.0, authored, not canon)
+- Supervisor Raelen (prejudice, origin human_westfall_farmhand): lost two wagons of timber in a month to tracks leading west, and reads every Westfall accent as a thief in waiting.

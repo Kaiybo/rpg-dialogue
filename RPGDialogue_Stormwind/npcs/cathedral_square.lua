@@ -887,6 +887,7 @@ P:NPC {
 -- Orphan Matron Nightingale: the costs of war, counted one child at a time.
 P:NPC {
   key = "nightingale", id = TODO_NPC("Orphan Matron Nightingale"), name = "Orphan Matron Nightingale",
+  prejudice = { class = "WARLOCK", amount = 12, why = "An imp from a Slaughtered Lamb lodger set the orphanage linen alight two winters back." },
   bible = "bibles/cathedral_square.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "dutiful" },
   notices = { "refugee", "young", "priest" },
@@ -896,6 +897,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "You again, and I'll thank you to stay on the step. I've forty children in this house, and not one of them needs to see what follows a warlock home." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, then, and mind the boots by the door. I was wrong about you, I think, though I'll still count the children after you've gone." },
     { id = "g_door", text = "Mind the step; small feet have worn it crooked." },
     { id = "g_week", when = { questActive = TODO_QUEST("Children's Week") }, text = "Take good care of your little one, {class}. They'll remember this week for years." },
     { id = "g_letter", when = { questActive = TODO_QUEST("Remember That I Love You") }, text = "You're carrying something for me, I think. Bring it here, gently." },
@@ -912,6 +915,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "No, I don't, and I'll not dress it up for you. Two winters back a warlock lodging at the Slaughtered Lamb let his imp loose, and it came through our kitchen window and set the linen alight with the little ones asleep upstairs." } },
+      choices = {
+        { text = "I bind demons so they can't hurt anyone. That's the whole point.", next = "prej_a", fx = { align = { light = -1 } } },
+        { text = "You're right to be careful. I'll keep my distance from the children.", next = "prej_b", fx = { align = { light = 1 } } },
+        { text = "What would put your mind at ease, Matron?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Then bind them somewhere else, {class}. I've heard every clever word about mastery and control, and none of it puts out a fire in a nursery." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Thank you. It isn't you I hate, and I'm not sure I could tell you what it is, only that I smelled that smoke for a month." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Time, I suppose, and you being decent with it. Leave whatever you keep in that satchel at the inn, and bring the little ones something sweet now and then." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Bread, shoes, and someone who stays. The war cost this city a generation of parents, and the crown counts it in coin when it should count it in children." } },
@@ -1016,6 +1041,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The children can manage without me for a minute or two." },
       },
       choices = {
+        { text = "You don't want me near the children, do you, Matron?", next = "prej", when = { prejudiced = true } },
         { text = "Where do the children come from?", next = "where" },
         { text = "What is Children's Week?", next = "week" },
         { text = "Who helps you here?", next = "help" },

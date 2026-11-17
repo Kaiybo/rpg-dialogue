@@ -101,3 +101,6 @@ Honest about the warlocks, dishonest about his bar tab.
 ## What they notice
 1. Warlocks (he smells the cellar on them).
 2. Priests (an ally, he assumes).
+
+## Prejudice (0.80.0, authored, not canon)
+- Lord Baurles K. Wishock (prejudice, origin human_stonemason_child): blames the Stonemasons' Guild for the Defias and eyes masons' children for Deadmines uncles.

@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "raelen", id = TODO_NPC("Supervisor Raelen"), name = "Supervisor Raelen",
+  prejudice = { origin = "human_westfall_farmhand", amount = 10, why = "Lost two wagons of timber to Defias; reads every Westfall accent as a thief in waiting." },
   bible = "bibles/raelen.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "sharp" }, values = { "lawful", "ambitious" },
   notices = { "idle", "build" },
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Westfall, is it? I can hear it in how you talk, and I'll tell you now that I count the axes every night, and I've counted fewer since the Defias came up the road from your country." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I had you down as one of the Westfall lot who'd run off with my axes, and instead you've done more honest work for this camp than my own crew." },
     { id = "g_busy", text = "Make it quick, will you, because that order won't fill itself." },
     { id = "g_bundles", when = { questActive = TODO_QUEST("A Bundle of Trouble") }, text = "Do you have my bundles? Then why are you standing there talking?" },
     { id = "g_after", when = { questDone = TODO_QUEST("A Bundle of Trouble") }, text = "The order went out on time, barely. I don't thank people, so consider this the closest I get." },
@@ -28,6 +31,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "Not all of them, only the ones who come up the road with empty hands and hungry looks, which is most of them since the Defias burned out half the farms. I lost two wagons of timber in a month, and the tracks went west." } },
+      choices = {
+        { text = "Westfall folk were starved off their land. Blame the crown, not us.", next = "prej_a", fx = { align = { order = -1 } } },
+        { text = "The Defias are thieves, and Westfall should hang them itself.", next = "prej_b", fx = { align = { order = 1 } } },
+        { text = "I'm here to work, Supervisor, not to steal.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Careful saying that this side of the border. I've heard it before from lads who later walked off with my saws, and I'll be watching, but I'll not say you're wrong." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Now that's a Westfall voice I'd like to hear more of. Gryan Stoutmantle says the same, they tell me, and he's the only man out there I'd lend a saw to." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Then work, and I'll judge you by that. I've been wrong before about where a man comes from, though I'd rather not say how often." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I never have enough, and they're never fast enough. Your spirits won't carry timber, so I'll count you as one more pair of hands." } },
@@ -133,6 +158,7 @@ P:NPC {
         { id = "h_again2", text = "If you're still here, you'd better make it count." },
       },
       choices = {
+        { text = "You think Westfall folk are all thieves, Supervisor.", next = "prej", when = { prejudiced = true } },
         { text = "Where's the deputy?", next = "rainer" },
         { text = "Who's all this lumber for?", next = "order" },
         { text = "What's chasing your workers off?", next = "animals" },

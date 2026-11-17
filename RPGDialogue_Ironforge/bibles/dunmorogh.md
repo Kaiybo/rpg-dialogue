@@ -45,3 +45,6 @@
 - Eric's nameless bean-eating hunter; "a good camp is a little town for the night".
 - Sten's "the wolves don't get a vote"; Grelin's beard that is rarely wrong; Senir's "the warm posting".
 - Ragnar's keg that once tapped itself; Belm's rogue in the kitchen "I pretend not to see" (the trainer is canon, the attitude isn't).
+
+## Prejudice (0.80.0, authored, not canon)
+- Ragnar Thunderbrew (prejudice, Gnome, mild and comic): refugees he sheltered rewired his mash tun, which now stirs itself at three in the morning; nobody can find the off lever.

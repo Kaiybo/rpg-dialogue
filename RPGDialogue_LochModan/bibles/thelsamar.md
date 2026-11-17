@@ -46,3 +46,6 @@
 
 ## 0.34.0
 - Rugelfuss (Persuade, `reserve_off`): off duty, he thinks Ironforge has sent its best to guard other kingdoms; he asked to march with the Reserve, was refused, and has never forgiven himself for being relieved.
+
+## Prejudice (0.80.0, authored, not canon)
+- Prospector Ironband (prejudice, NightElf): his cousin Durn's Darkshore dig, permitted by Magni, was abandoned after a druid sat humming in the trench for a week.

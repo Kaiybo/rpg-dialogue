@@ -854,6 +854,7 @@ P:NPC {
 
 P:NPC {
   key = "ragnar", id = TODO_NPC("Ragnar Thunderbrew"), name = "Ragnar Thunderbrew",
+  prejudice = { race = "Gnome", amount = 6, why = "Fond grumble: refugees rewired his mash tun to stir itself at three in the morning." },
   bible = "bibles/dunmorogh.md", role = "citizen", tier = "quest",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "proud", "generous" },
   notices = { "drink", "craft" },
@@ -864,6 +865,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Another gnome in my brewhouse, and I'll ask you the same as the last forty: please don't touch the copper, don't tune the kettles, and don't ask if it could be made to go faster." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite gnome! You've not improved a single one of my kettles in all this time, and I've decided that makes you the finest of your people." },
     { id = "g_distillery", text = "Welcome to the Thunderbrew! It's the best ale in Dun Morogh, an' I'll fight anyone who says otherwise, politely." },
   },
 
@@ -876,6 +879,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "Like them? I took in half of Gnomeregan the winter it fell, and I'd do it again, but three of them rewired my mash tun to stir itself, and now it stirs itself at three in the morning and nobody can find the off lever." } },
+      choices = {
+        { text = "Gnomes lost their whole city. Show them a little patience.", next = "prej_a", fx = { align = { light = 1 } } },
+        { text = "A tinker in a brewery is trouble. Keep their wrenches out.", next = "prej_b", fx = { align = { light = -1 } } },
+        { text = "I could have a look for that off lever, if you like.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Patience! I've been patient as a stone, and a stone doesn't wake at three to a mash tun singing. Still, you're right that they lost more than a night's sleep, and I'll mind my tongue." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Thank you! At last, someone with sense. Mind you don't say it too loudly in Tinker Town, or they'll fit you with a self-stirring hat." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Would you? Ah, you're a good sort. If you find it, pull it gently, because the last gnome who pulled it hard is still picking malt out of his ears." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Help? Brewin's already half fire an' half water, an' the rest is patience. If ye could ask the fire tae keep an even temper, I'd stop losin' a batch a month tae a sulkin' flame. My cousins say it's no' proper, mixin' spirits wi' spirits, but they're no' the ones scrapin' out the still." } },
@@ -981,6 +1006,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then; I've a minute an' a mug." },
       },
       choices = {
+        { text = "You don't much like gnomes, do you, Ragnar?", next = "prej", when = { prejudiced = true } },
         { text = "What's in the famous ribs?", next = "ribs" },
         { text = "What happened to your supplier?", next = "supplier" },
         { text = "Who founded the distillery?", next = "family" },

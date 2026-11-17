@@ -55,3 +55,6 @@ Tyrande: the Sentinels report at moonrise; her lines on Fandral ("he leads the d
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Tyrande (Persuade, barrow_vigil): she sits at Malfurion's barrow at night after the Sentinels' reports and tells him what his people did that day; she never tells him she is tired, so he will not wake to hear she wavered.
 - Fandral (Persuade, burden; dramatic irony only): he reads every moonwell report and furbolg sighting at night; admits the tree has not grown as cleanly as he promised; means to finish it 'whatever it costs me' and won't let dragons or priestesses name the price. Nothing more is hinted.
+
+## Prejudice (0.80.0, authored, not canon)
+- Fandral Staghelm (prejudice, MAGE): treats every mage as a Highborne in waiting; tells the ones he grudgingly respects to sit by a moonwell when the hunger comes.

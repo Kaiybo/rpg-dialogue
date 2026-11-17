@@ -166,3 +166,6 @@ Never says: invented history.
 
 ## What they notice
 1. Priests (she asks for a blessing for the children).
+
+## Prejudice (0.80.0, authored, not canon)
+- Orphan Matron Nightingale (prejudice, WARLOCK): a Slaughtered Lamb warlock's imp set the orphanage linen alight two winters back; she keeps warlocks on the step.

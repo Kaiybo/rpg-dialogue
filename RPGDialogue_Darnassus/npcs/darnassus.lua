@@ -507,6 +507,7 @@ P:NPC {
 
 P:NPC {
   key = "fandral", id = TODO_NPC("Arch Druid Fandral Staghelm"), name = "Arch Druid Fandral Staghelm",
+  prejudice = { class = "MAGE", amount = 12, why = "Holds every arcanist answerable for the Highborne and the Sundering." },
   rivals = { "tyrande" },
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "abrasive" }, values = { "proud", "ambitious" },
@@ -517,6 +518,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A mage, in the Cenarion Enclave. Keep your hands at your sides, {class}; the last time your art was welcome among my people, it drowned an empire." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You. I still think your craft is a disease, but I've watched you long enough to grant that you, at least, seem to know its symptoms." },
     { id = "g_enclave", text = "Yes? The Enclave is busy, and I am busier still, so be brief." },
     { id = "g_druid", when = { class = "DRUID", race = "NightElf" }, text = "A kaldorei druid, good. The Circle needs more of our own and fewer of the rest." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Very well, speak, but make it worth the climb." },
@@ -539,6 +542,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I don't think it, I remember it. The Highborne believed they could hold the Well of Eternity in their hands, and the sea came in over Zin-Azshari, and every young fool in Dalaran's towers reads from the same book with the warning pages torn out." } },
+      choices = {
+        { text = "Fear of magic won't save Kalimdor. Mastery of it might.", next = "prej_a", fx = { align = { order = 1 } } },
+        { text = "Nature's way may be wiser. I'll walk more carefully.", next = "prej_b", fx = { align = { order = -1 } } },
+        { text = "Then teach me what to watch for, Arch Druid.", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Mastery. Every one of them said that word, in that tone, on the night the world broke. Go, and be the first to prove it means something." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "Carefully is a start, though carefully is how the Highborne began too. Spend a season in Ashenvale with the Sentinels, and see whether you still want your tower afterwards." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Hunger, first, and then the belief that you alone can hold it. If you ever feel both at once, stop what you're doing, go to a moonwell, and sit until it passes." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xpt_fandral = {
       big = true,
       lines = { { id = "xpt_fandral_default", text = "Because every race that has ever come to Kalimdor has wanted something from its forests, and few of them have asked. The humans fell trees to build walls, the dwarves dig until the mountains bleed, and I am expected to call them friends because a war made us share a hill." } },
@@ -699,6 +724,7 @@ P:NPC {
         { id = "h_again2", text = "Quickly. The tree does not tend itself, whatever the Temple imagines." },
       },
       choices = {
+        { text = "You think my magic is dangerous, Arch Druid.", next = "prej", when = { prejudiced = true } },
         { text = "Why did you grow Teldrassil?", next = "tree" },
         { text = "What of Moonglade?", next = "moonglade" },
         { text = "The High Priestess has her doubts about you.", next = "priestess" },

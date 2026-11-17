@@ -47,3 +47,6 @@ A repeat-visit line (and a night line for some), in the voice above: small daily
 Hub branches: why he stayed (pride, Theodore calling him a fool), the watchers (twenty of them; Galiaan's guess), the neighbours (the Furlbrows and Molsens gone; send them to Gryan), Salma (she feeds Defias; he keeps quiet).
 Replies only some characters get: Westfall farmhand (whose fields?), priest or paladin (bless the fields after they're cleared), gnome (take a watcher apart), heard Galiaan's guess.
 Authored, not canon: he knows Salma feeds Defias and says nothing; seed put by for a neighbour's farm; "cruelty with a plan"; "farmers live on ifs".
+
+## Prejudice (0.80.0, authored, not canon)
+- Farmer Saldean (prejudice, origin human_minor_noble): blames the House of Nobles for the masons' walkout and Westfall's ruin; his neighbours went to the Deadmines.

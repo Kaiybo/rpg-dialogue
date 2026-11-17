@@ -147,6 +147,7 @@ P:NPC {
 -- Warmaster Laggrond: Frostwolf Clan recruitment officer at the Horde entrance.
 P:NPC {
   key = "dal_laggrond", id = TODO_NPC("Warmaster Laggrond"), name = "Warmaster Laggrond",
+  prejudice = { race = "Scourge", amount = 10, why = "An old orc's distrust of the walking dead and of a queen who answers to no one." },
   bible = "bibles/av_headland.md", role = "soldier", tier = "quest",
   communities = { "frostwolf" }, temper = { "fierce", "proud" }, values = { "honorable", "loyal", "brave" },
   notices = { "soldier", "reputation" },
@@ -157,6 +158,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "One of the Banshee Queen's dead, walking into a Frostwolf camp. Thrall calls you allies, so I'll call you one too, but my wolves can smell what you are, and so can I." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ha, the dead one! You've fought beside my warriors without once looking at them like supper, and I've stopped asking the shaman to bless the ground after you leave." },
     { id = "g_default", text = "You come to fight for Frostwolf? Then stand straight, for you will be tested." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; the valley still needs blood that isn't ours." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. The Stormpike dig deeper every day you are away, so go and stop them." },
@@ -174,6 +177,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      big = true,
+      lines = { { id = "prej_default", text = "I trust what bleeds and breathes. The Forsaken have a queen who answers to nobody and apothecaries who brew plagues in cellars, and they march under our banner while they serve hers first." } },
+      choices = {
+        { text = "We bleed for the Horde too, whatever it is we bleed.", next = "prej_a", fx = { align = { honor = 1 } } },
+        { text = "We serve our queen first, and the Horde when it suits us.", next = "prej_b", fx = { align = { honor = -1 } } },
+        { text = "What would a Forsaken have to do to earn your respect?", next = "prej_calm", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    prej_a = {
+      lines = { { id = "prej_a_default", text = "Words are cheap, but you said them looking me in the eye, which is more than your apothecaries do. Show me on the field, and I'll remember it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_b = {
+      lines = { { id = "prej_b_default", text = "At least you say it plainly. I'd rather an honest enemy at my back than a lying friend, and I'll keep one eye on you either way." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    prej_calm = {
+      lines = { { id = "prej_calm_default", text = "Stand in the line when the Stormpike charge, and don't run when the frost bites. That is all I ask of any orc, and I'll ask no more of you." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -194,6 +219,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. Then go and fight." },
       },
       choices = {
+        { text = "You don't trust the Forsaken, Warmaster.", next = "prej", when = { prejudiced = true } },
         { text = "Why does this valley matter so much?", next = "valley" },
         { text = "Who leads the Frostwolves?", next = "drekthar" },
         { text = "What do you make of the Stormpike?", next = "stormpike" },
