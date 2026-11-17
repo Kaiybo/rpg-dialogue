@@ -13,7 +13,7 @@ A tidier settings page. No new files: a /reload is enough.
 - "Font for names" now offers "Match the window" instead of the long Friz Quadrata/Morpheus name.
 
 ## 0.78.0 (2026-11-17)
-The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries, Nikova Raskol, Sentinel guards and a journal fix. **New files: restart the game fully (a /reload won't load them).**
+The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries, Nikova Raskol, Sentinel guards, about 100 new people in the Horde capitals and the Barrens, and a journal fix. **New files: restart the game fully (a /reload won't load them).**
 
 ### Topper McNabb (Stormwind, Trade District)
 - The Trade District's beggar now has one of the biggest conversations in the addon: about 140 conversation steps, 230 lines of his own and some 350 replies for you.
@@ -45,6 +45,12 @@ The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries
 - **Sentinels** in Darnassus, Dolanaar, Auberdine, Astranaar, Maestra's Post, Feathermoon, Stonetalon Peak and Talrendis Point no longer use the human town-watch talk (no more bread thieves or soggy boots). Ask who the Sentinels are, how long they have kept watch, why they are nearly all women, who commands them, what troubles their woods (different in each zone), what they make of the Horde and of their new allies (they answer humans, dwarves, gnomes and kin differently).
 - Opinion questions: whether a vow is worth ten thousand thankless years, how to deal with the Warsong, whether the young races will keep faith, and (night elves only) whether Teldrassil feels right.
 - Hunters can ask to learn tracking; Sentinel scouts and survivors of Hyjal (origins) get their own replies.
+
+### Horde capitals and the Barrens (about 100 new people)
+- **Orgrimmar** (24): Brakgul Deathbringer at the Warsong Gulch banner, Kildar and his wolves, Shenthul in the Cleft of Shadow, Dran and Malton at Droffers and Son, and the trainers and merchants of the Drag and the Valley of Honor.
+- **Undercity** (24): Carendin Halgar and his warlock's summons, Jeremiah Payson and his cockroaches, Aelthalyste, and trainers, merchants and a banker across every quarter, most with long memories of Lordaeron.
+- **Thunder Bluff** (24): Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Magatha's attendant Rahauro, Bashana Runetotem, Mosarn, and the trainers of Hunter, Elder and Spirit Rise (the Forsaken embassy included).
+- **The Barrens** (26): Far Watch, the Crossroads and the Disciples of Naralex at the Wailing Caverns; Ratchet's folk, Klannoc Macleod's fighting ring on Fray Island, Gilthares Firebough in his Northwatch cell, and Doan Karhan.
 
 ### Fixed
 - **Notes**: the page looked blank and clicking it did nothing. Now a hint tells you to click, a click anywhere on the page puts the cursor in, the page grows as you write and scrolls to follow the cursor, and your notes save as you type and when you click away.

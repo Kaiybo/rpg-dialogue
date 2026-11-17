@@ -1,0 +1,39 @@
+# Kargal Battlescar  (key: kargal)
+
+## Sources
+- LORE_NOTES.md (Sergra row: Kargal resents her); warcraft.wiki.gg/wiki/Sergra_Darkthorn (not re-read)
+
+## Their quests
+- None named (his own quests unverified; none gated).
+
+## Identity
+Kargal Battlescar · Far Watch Post, above the Southfury · Horde · Orc · post commander
+Personality: gruff, proud, resentful, quietly diligent
+Speech: Soldier's grumble; complains in whole sentences; grudging praise slips out
+Relationships: Sergra (resents, secretly respects), Ak'Zeloth (distrusts), Thrall (loyal)
+Never says: anything after Year 1; no foreshadowing.
+
+## Threads they could carry
+- None.
+
+## Agenda
+See identity.
+
+## Secrets
+None.
+
+## Reliability
+Speaks from their own post and biases.
+
+## Authored, not canon
+- Internment camp past and the Durnholde scar story
+- Far Watch has six grunts
+- Sent Razormane home from the river with tusks tied
+- Kargal commands Far Watch Post (location to verify)
+
+## What they notice   (2–3 things)
+1. Gender (Horde women: defensive about the Sergra quarrel)
+2. Kit (worn armor)
+
+## Topics
+background, sergra, burning_blade
