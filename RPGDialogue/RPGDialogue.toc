@@ -8,6 +8,7 @@
 ## SavedVariablesPerCharacter: RPGDialogueCharDB
 ## X-License: MIT
 ## X-Website: https://github.com/Kaiybo/rpg-dialogue
+## X-Curse-Project-ID: 1812796
 
 Locales\enUS.lua
 
