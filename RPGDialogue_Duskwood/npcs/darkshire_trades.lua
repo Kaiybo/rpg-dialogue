@@ -17,10 +17,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only as far as the next roost, and that's as close to the fight as I'll send them. A gryphon's a mount, not a war beast, and these birds have seen enough of Duskwood's dark already." } },
+      choices = {
+        { text = "Then I'll walk to the fight and spare your birds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mount's a mount. It should carry me where I need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because they howl from every side at once, and a gryphon can't see where the danger's coming from in this dark. I've lost two birds to bolting this year, and both of them were good, steady flyers before." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has my birds watching it, {class}, and I can't say they look pleased. Keep it on the far side of the roost." },
+      },
+      choices = {
+        { text = "I'll hunt the wolves near the roost so the birds can rest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your birds will toughen up. Mine did.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Felicia Maline. I keep the gryphons of Darkshire, which mostly means keeping them calm when the wolves howl at night." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, and with a beast at your side! Keep it close at night, friend; the worgen like nothing better than a stray pet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The gryphons will carry you, but don't go waving that blade near them, because they're nervous enough with the wolves howling." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know how a frightened animal behaves, so you'll understand why my gryphons are so jumpy tonight." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds want their supper." },
@@ -30,6 +53,8 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Why do the gryphons hate the wood?", next = "a" },
         { text = "Who flies out of Darkshire?", next = "b" },
+        { text = "Do your gryphons ever carry warriors to the fight, Felicia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do the wolves frighten the gryphons, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Felicia.", next = "END" },
       },
     },
@@ -74,10 +99,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "An axe, if I'm honest, because a ghoul doesn't stop for a cut but it stops for a missing limb. Swords are prettier, and most of the Watch carry them, but I'd rather be ugly and alive." } },
+      choices = {
+        { text = "An axe, then. Practical over pretty, every time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my sword. Skill wins more than weight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Skinning knives, belt knives and a few good long knives for the close work, because a bow's no use at arm's length. In this wood, you'll be at arm's length more often than you'd think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} is a good blade in its own right, {class}, and better than half of what I've got in stock." },
+      },
+      choices = {
+        { text = "One good knife, well kept. That's all a hunter needs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take three. You never know which one you'll lose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gavin Gnarltree. I make weapons for Darkshire, and in Darkshire nobody buys a blade for show." },
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. Good. Commander Ebonlocke could use a dozen more of you, and I could use the custom." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I sell blades to people who'll use them, and you look like you've used plenty." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want a good knife for skinning and a better one for the worg that's skinning you, and I've both." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -87,6 +135,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What works against the worgen?", next = "a" },
         { text = "Are you kin to Clarise?", next = "b" },
+        { text = "What blade would you carry into Duskwood, Gavin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you sell hunting knives, Gavin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

@@ -18,6 +18,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Tough enough when they're sitting in a shredder, and soft as a cream puff when they're not, so hit 'em on their lunch break. The blueprints are on their belts, and I'll want those in one piece, so try not to cut them in half along with the operator." } },
+      choices = {
+        { text = "I'll fight them fair, shredder and all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll catch them on their lunch break, like you said.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ziz.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Driven 'em right up the slopes, pal, and now the Deepmoss spiders are nesting closer to my hut than I'd like. If you're thinning them out anyway, take a swing past the Venture camp, because their operators hate spiders more than I do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hey, keep that {pet} away from my blueprints, pal. It's got the look of something that chews paper, and I've only got the one copy." },
+      },
+      choices = {
+        { text = "I'll hunt the spiders and leave the forest be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll drive the spiders into the Venture camp.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ziz.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Name's Ziz Fizziks, freelance engineer and a man of vision, and that vision is the Venture Company's Super Reaper 6000. Their operators carry the blueprints, so if you happen to take some off them, I'll make it worth your while." },
@@ -27,6 +48,8 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, huh? You know what's a lot like magic? Engineering, except it works every time, mostly, and no offense meant, pal." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Great, terrific, just keep the imp away from the blueprints, will ya, because imps and paper don't mix and I've only got the one copy." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Now you're my kind of customer, pal. Those Venture operators carry their blueprints right on their belts, and nobody's quicker than a pair of hands that don't want to be noticed." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, huh? Big, loud, likes hitting things, and that's exactly the kind of help I need with the Venture Company, pal." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You see that wildlife out there? The Venture Company's been chopping its home down for months, so it's real cranky, and that's useful to a guy like me." },
       },
       again = {
         { id = "h_again1", text = "What else? Make it quick, the shift changes soon." },
@@ -40,6 +63,8 @@ P:NPC {
         { text = "The earth here hates the Venture Company. Does that bother you, Ziz?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's the Venture Company really doing at Windshear?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How many guards on the Venture Company's camp?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "How tough are the Venture Company's operators, Ziz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Have the Venture Company's saws driven the beasts out, Ziz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good luck with your machine.", next = "END" },
       },
     },
@@ -135,6 +160,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Driven off, if the Earth Mother had her way, because she does not delight in blood. But the goblins will not leave while the trees still stand, and a warrior who breaks their machines may do more for the forest than any planting of mine." } },
+      choices = {
+        { text = "I'll break the machines and spare the goblins where I can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The goblins brought this on themselves. I'll show them no mercy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Tsunaman.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Up the slopes, and into each other's hunting grounds, which means they fight where they once lived side by side. The Pridewing wyverns have grown bolder too, because the forest no longer hides their prey." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks lightly among my seedlings, {class}, and the earth is glad of it. Feed it well; the land will remember." },
+      },
+      choices = {
+        { text = "I'll hunt only what I need, and the rest can recover.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The balance is broken. I'll hunt what I can, while I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Tsunaman.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Tsunaman, and I plant what others cut down. The Venture Company has stripped the Charred Vale and the woods below, and the Earth Mother will heal them, but she's glad of a little help." },
@@ -144,6 +190,8 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. I've seen what fire does to a forest, and I've spent years undoing a little of it, so I hope you'll forgive me for watching your hands." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "There is something in you that the earth draws away from, I can feel it. I will not send you off, because the Warchief does not, but please don't call your demons among my seedlings." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk softly, and I like that, because the ground here has had enough heavy boots. If you're going down to the Venture camps, step lighter there than they ever did." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Your strength is welcome here, though I ask you to remember the seedlings when you walk among them, because they can't move out of your way." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen the creatures fleeing the vale, then, and you'll know the forest is not only trees." },
       },
       again = {
         { id = "h_again1", text = "What else, friend?" },
@@ -157,6 +205,8 @@ P:NPC {
         { text = "How can the land here heal, Tsunaman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could magic help the land here heal faster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where do the Venture Company keep their fuel and machines?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Should the Venture Company be fought, or driven off, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Where have the beasts gone since the vale burned, Tsunaman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "May the seeds take root.", next = "END" },
       },
     },
@@ -252,6 +302,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I don't know, ten, maybe more, and they came at night with axes and torches. I hid in the rocks and listened to them, and I can still hear it, so if you walk me home, please walk in front." } },
+      choices = {
+        { text = "I'll walk in front, Kaya. Nothing will touch you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll walk you home, but you'll need to keep up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kaya.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They do, and they set snares the way my father taught me, because they're tauren and they learned the same as we did. If you see a snare, there's a Grimtotem watching it, and we should go around." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} makes me feel safer, {class}, because it would hear the Grimtotem before I would. May I walk on its side?" },
+      },
+      choices = {
+        { text = "We'll go around the snares, and keep you safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "We'll cut through the snares. Speed matters more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kaya.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kaya Flathoof, and the Grimtotem fell on our camp, and I've been hiding ever since. My uncle is at Sun Rock, and I think he must believe I'm dead, so will you walk me home?" },
@@ -261,6 +332,8 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Are you a mage? I've never seen one up close, and I'm sorry for staring, but I think I'd feel much safer walking home beside someone who can throw fire." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "You're a warlock? I'm sorry, I've only ever heard frightening stories about warlocks, so please be patient with me if I jump." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! I didn't hear you come up at all, and I'm so glad you're not Grimtotem. Can you walk that quietly with me all the way to Sun Rock?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Oh, thank the Earth Mother, because the Grimtotem were big and there were so many of them, and I didn't have anything but a walking stick." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to stay hidden, then, and you'll know the Grimtotem are hunters too, which frightens me more than anything." },
       },
       again = {
         { id = "h_again1", text = "I'll answer anything you like, if it means we're closer to leaving." },
@@ -274,6 +347,8 @@ P:NPC {
         { text = "Were there Grimtotem shamans at Camp Aparaje, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Did the Grimtotem use magic when they attacked you?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Did you see where the Grimtotem went after the attack?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "How many Grimtotem attacked your camp, Kaya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the Grimtotem hunt along this road, Kaya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll take you home soon, Kaya.", next = "END" },
       },
     },

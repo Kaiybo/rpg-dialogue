@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The ones who didn't come back, mostly, and the ones who might not tomorrow. I keep a record of every name, because somebody should, and a warrior who drinks with them might keep a few names off my list." } },
+      choices = {
+        { text = "Then I'll patrol with them, and keep your list short.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I drink to forget, Smitts. Not to remember.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Smitts.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every night, and I've heard of worgs as big as a cart and spiders that could swallow a horse whole. Some of those tales are true, mind, which is the worst part of keeping a tavern in Duskwood." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steadier than most of my customers, {class}, and it doesn't ask for credit, which makes it my favourite already." },
+      },
+      choices = {
+        { text = "I'll tell only what's true. The town's frightened enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good tale's worth a drink, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Smitts.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Not much, since the last one through here asked about Karazhan and went up the pass, and nobody's seen him since. Drink your juice and don't follow him, and you'll be my favourite sort of mage." } },
       choices = {
@@ -66,6 +87,8 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Sit near the fire, {g:Brother|Sister}. My regulars talk easier when someone's listening who isn't me." },
         { id = "h_case", when = { metBefore = true }, text = "I spent the night with my old notes again. There's never anything new in them, but I read them anyway, same as every night." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll pour you something, but you'll drink it with your back to the wall like everyone else in here, because that's how Darkshire drinks." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and your beast is welcome by the fire, so long as it doesn't drink from the bucket under the bar, because that's for washing." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? I've a long memory and a short queue." },
@@ -85,6 +108,8 @@ P:NPC {
         { text = "You serve dwarven stout here, I hope.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "A gnome in Darkshire. Does anyone notice?", next = "gnome", when = { race = "Gnome" } },
         { text = "What does Darkshire make of mages, Smitts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do the Watch talk about over a drink, Smitts?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters tell tall tales in your tavern, Smitts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },
       },

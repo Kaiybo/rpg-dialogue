@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It does, and I keep it, and every week I strike a few names off for reasons I'd rather not write. The Night Watch is mostly farmers with borrowed swords, so a trained arm on the roll would be a fine change." } },
+      choices = {
+        { text = "Put my name on it. I'll stand with the Watch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep my name off it. I fight for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Daltry.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than I care to count, and I'm paid to count. The Nightbane worgs come down from the east of the wood, and they're cleverer than wolves have any right to be, so watch your back trail." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a beast I'd rather not record, {class}. Keep it close, because the worgs out there don't take kindly to rivals." },
+      },
+      choices = {
+        { text = "I'll hunt the worgs down and balance your ledger.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The worgs are the wood's business. I hunt what pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Daltry.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Moved, stolen or borrowed by Councilman Millstipe for one of his letters, it's all the same to my ledger. I'll thank you not to move any more of them, because I've only one good quill left." } },
       choices = {
@@ -70,6 +91,8 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Does your Church keep a register of deaths? Ours has fallen behind, and some of the entries have, ah, stopped being accurate." },
         { id = "h_files", when = { metBefore = true }, text = "I've re-filed the Night Watch reports by date, then by street, then by date again. I find it calming, so please don't judge me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; the Watch keeps a list of those too, and it's the only list in my office that ever gets shorter for good reasons." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Then you'll be adding to my wolf entries, though for once on the right side of the ledger." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a drawer open, so I may as well help." },
@@ -85,6 +108,8 @@ P:NPC {
         { text = "Your ledgers need a proper cross-index.", next = "gnome", when = { race = "Gnome" } },
         { text = "Some of your missing records were probably just moved.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Your records would last longer with a preserving charm.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does Darkshire have a roll of fighters, Clerk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How many of your missing were taken by the worgs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some of your missing folk may not be dead, Daltry.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Daltry.", next = "END" },
       },

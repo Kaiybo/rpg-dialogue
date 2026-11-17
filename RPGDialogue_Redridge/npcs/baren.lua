@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Right up onto the planks, bold as you like, and they take nets, fish, and once a whole rowboat. If you'd stand the end of the dock at dusk with a blade, I'd count fewer of them and more of my boats." } },
+      choices = {
+        { text = "I'll stand the dock at dusk. Your boats will come home.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Murlocs are a fisherman's problem. I've orcs to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Baren.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Ha! If you can creep into a murloc camp and come out with my nets and all your fingers, I'll tell the whole dock it was you. They've taken six nets since the thaw and a rowboat besides, and I'd like the boat back most." } },
       choices = {
@@ -69,6 +78,7 @@ P:NPC {
         { id = "h_daniels", when = { heardLine = "daniels.h_default" },
           text = "Daniels told you his troubles? He's dry and I'm empty; Lakeshire's a lovely place for a holiday." },
         { id = "h_boats", when = { metBefore = true }, text = "Counted the boats this morning, and they're all there; counted the nets, and they're all there too. Something's about to go wrong, I can feel it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd say the tide's out, but it's a lake, so nothing's ever out. Ask away." },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "My pet could chase the murlocs off your docks.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Murlocs stole your nets. I could steal them back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could freeze the lake around the murlocs.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the murlocs come right onto the docks, Dockmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },

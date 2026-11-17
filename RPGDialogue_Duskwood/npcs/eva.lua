@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A blade raised against a thing with many faces, and a choice about whether to strike or to wait. The cards don't say which is right, only that you'll have to make it, and soon." } },
+      choices = {
+        { text = "I'll strike when the time comes. Hesitation kills.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll wait and watch. The cards don't decide for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Madame.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Something with a hunger older than the forest, and with a man's face it no longer remembers. I'd tell you more, but the cards turned dark when I tried to look, and I don't press them when they do that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fate of its own, {class}, tangled with yours, and the cards say it will stand beside you longer than you might think." },
+      },
+      choices = {
+        { text = "I'll face whatever the cards foretold. Fate won't scare me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Cards are cards. I make my own fate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Madame.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "They saw a shadow with a purse that wasn't its own, dearie, and then they saw a choice. I don't tell people which choice they make, because that spoils the cards." } },
       choices = {
@@ -76,6 +97,8 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest of the Light, at my table. Your Church calls my work superstition, but sit anyway; the cards don't mind being doubted." },
         { id = "h_cards", when = { metBefore = true }, text = "The cards turned up the Tower again this morning, as they always do in Duskwood, and I've stopped charging extra for it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The cards showed me a sword drawn against the dark, and I wondered whose hand would be on the hilt, but now I suppose I know." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The cards spoke of a beast at your side and a beast in your path, and I'm glad to see it's the first that walked in with you." },
       },
       again = {
         { id = "h_again", text = "There is more, child; there is always more, so ask." },
@@ -93,6 +116,8 @@ P:NPC {
         { text = "The spirits speak to me too, madame.", next = "dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "You knew I'd come. Did your cards see my knives too?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fortune telling isn't magic, Madame. It's guesswork.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What did the cards show about my sword, Madame?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
