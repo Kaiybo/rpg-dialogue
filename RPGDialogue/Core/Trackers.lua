@@ -141,6 +141,16 @@ function T.BossDown(name)
   end
 end
 
+-- 0.72.0: dungeon entries used to count every room change inside; start the count over.
+ns.OnLogin(function()
+  local c = ns.char
+  if not c or c.deedsFix72 then return end
+  for id, d in pairs(c.deeds or {}) do
+    if id:find("^dungeon:") and type(d) == "table" then d.n = 1 end
+  end
+  c.deedsFix72 = true
+end)
+
 -- Kills from before 0.58.0 (tallied by name since 0.54.0) get their journal deed too.
 ns.OnLogin(function()
   local c = ns.char
@@ -182,17 +192,38 @@ ns.On("PLAYER_LEVEL_UP", function(_, level)
   if level and level % 10 == 0 then T.Deed("level:" .. level) end
 end)
 
+-- Is this name a zone or city, not a room or a subzone? True when the map agrees, when it's a
+-- known zone or capital, or when it was never seen as a subzone.
+function T.IsLand(name)
+  if not name or name == "" then return false end
+  if W.ZONE_LEVELS and W.ZONE_LEVELS[name] then return true end
+  if W.CAPITALS and W.CAPITALS[name] then return true end
+  local mapZone = C.MapZone and C.MapZone()
+  if mapZone and mapZone == name then return true end
+  local c = char()
+  if mapZone and mapZone ~= name then return false end
+  return not (c and c.places and c.places[name])
+end
+
 local function zoneChanged()
   local c = char()
   if not c then return end
   local zone, sub = C.Zone()
+  local inInstance, kind = C.InInstance()
+  local dungeon = inInstance and (kind == "party" or kind == "raid") and zone ~= ""
   if zone ~= "" and not c.zones[zone] then
     c.zones[zone] = C.Now()
-    T.Deed("zone:" .. zone)
+    -- A first-visit deed only for a real zone: indoor rooms can report themselves as the zone.
+    if T.IsLand(zone) or dungeon then T.Deed("zone:" .. zone) end
   end
-  local inInstance, kind = C.InInstance()
-  if inInstance and (kind == "party" or kind == "raid") and zone ~= "" then
-    T.Deed("dungeon:" .. zone)
+  -- One entry per trip in, not one per room change inside (0.72.0).
+  if dungeon then
+    if c.inDungeon ~= zone then
+      c.inDungeon = zone
+      T.Deed("dungeon:" .. zone)
+    end
+  elseif not inInstance then
+    c.inDungeon = nil
   end
   if sub ~= "" then
     c.places = c.places or {}

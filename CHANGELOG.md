@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.72.0 (2026-11-17)
+A better "What I've done" in the journal (Myself page). Core only, no new files: /reload is enough.
+
+- **Organised, not one long list.** A short summary line on top (lands walked, dungeons, foes felled, deaths), then Milestones, Lands I've walked, Dungeons and Foes I've faced most.
+- **Lands grouped by day.** "Today: Badlands, Loch Modan and Ironforge" instead of a "today" after every line.
+- **One line per dungeon.** Trips in and the clear sit together ("Scarlet Monastery: cleared (3 trips in)"); the dungeon no longer also shows up as a first visit.
+- **Foes you've fought most**, with counts; the rest are summed in one line.
+- **Fix: rooms counted as lands.** Walking into an indoor room (Southshore Town Hall, The Great Arena) no longer logs a "first visit"; old entries like these are hidden.
+- **Fix: dungeon trips over-counted.** Each room change inside a dungeon counted as entering again (the ×14). Now it counts once per trip; old counts start over at one.
+
 ## 0.71.0 (2026-11-17)
 Where you come from, more to say to the people on duty, and seven people with a lot more to say. No new files: /reload is enough.
 
