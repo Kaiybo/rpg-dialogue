@@ -1398,11 +1398,14 @@ local function buildPage(s, kind)
   if kind == "gossip" or questStage == "greeting" then
     text = kind == "gossip" and (C.GossipText() or "") or (C.QuestFrameText().greeting or "")
     for _, e in ipairs(Conv.GameOptions(s, true)) do entries[#entries + 1] = e end
-    return text, entries, subtitle
+    return text, entries, subtitle, text
   end
   local q, info = C.QuestFrameText(), C.QuestPageInfo()
   subtitle = q.title or subtitle
+  -- Read aloud: only what they say, not the objective, reward or item lists.
+  local spoken
   if questStage == "detail" then
+    spoken = q.text
     local objectives = (q.objectives and q.objectives ~= "") and (ns.UI.Theme.Hex("name") .. L.QUEST_OBJECTIVES .. "|r\n" .. q.objectives) or nil
     text = joinText({ q.text, objectives, table.concat(rewardLines(info, true), "\n") })
     if info.pvp then add(L.QUEST_IN_WINDOW:format(L.QUEST_ACCEPT), { action = "handover" })
@@ -1415,6 +1418,7 @@ local function buildPage(s, kind)
     section(lines, L.QUEST_REQUIRED, needed)
     if info.cost > 0 then lines[#lines + 1] = L.QUEST_COSTS:format(C.MoneyText(info.cost)) end
     text = joinText({ q.progress, table.concat(lines, "\n") })
+    spoken = q.progress
     add(info.completable and L.QUEST_CONTINUE or L.QUEST_NOT_READY, { action = "continue", locked = not info.completable })
     add(L.QUEST_DECLINE, { action = "decline" })
   else -- complete
@@ -1425,9 +1429,10 @@ local function buildPage(s, kind)
       lines[#lines + 1] = ns.UI.Theme.Hex("name") .. L.QUEST_PICK_REWARD .. "|r"
     end
     text = joinText({ q.reward, table.concat(lines, "\n") })
+    spoken = q.reward
     for _, e in ipairs(rewardEntries(s, info)) do entries[#entries + 1] = e end
   end
-  return text, entries, subtitle
+  return text, entries, subtitle, spoken
 end
 
 function Conv.ShowGamePage(kind)
@@ -1436,7 +1441,7 @@ function Conv.ShowGamePage(kind)
   adoptWindow(s)
   s.rewardChoice = nil
   s.page = kind == "gossip" and "gossip" or questStage
-  local text, entries, subtitle = buildPage(s, kind)
+  local text, entries, subtitle, spoken = buildPage(s, kind)
   s.choiceEntries = entries
   -- Item names the game hasn't sent yet show as "..." and are filled in when they come.
   s.itemsPending = s.page ~= "gossip" and itemsLoading()
@@ -1445,7 +1450,7 @@ function Conv.ShowGamePage(kind)
     choices = toChoices(entries), canAsk = false,
     lastLabel = L.GOODBYE,
   })
-  if ns.db.settings.ttsQuests ~= false then Conv.Speak(s, stripLinks(text)) end
+  if ns.db.settings.ttsQuests ~= false then Conv.Speak(s, stripLinks(spoken or text)) end
 end
 
 -- The game sent an item's details: draw the quest page again in place (the text keeps
