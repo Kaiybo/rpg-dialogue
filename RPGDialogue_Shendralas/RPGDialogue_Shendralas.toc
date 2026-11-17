@@ -1,0 +1,16 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Shen'dralas |cff8a8a8a1.0.0|r
+## Notes: Shen'dralas, between Desolace, Feralas and Mulgore: Highborne ruins, Magram centaur and Bristleback quilboar.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.shendralas
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Shen'dralas
+
+pack.lua
+pools.lua
+npcs\evenshade.lua
+npcs\magram.lua

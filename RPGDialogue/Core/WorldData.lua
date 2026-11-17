@@ -50,6 +50,7 @@ W.ZONE_LEVELS = {
   ["Burning Steppes"] = { 50, 58 }, ["Western Plaguelands"] = { 51, 58 },
   ["Eastern Plaguelands"] = { 53, 60 }, ["Winterspring"] = { 55, 60 }, ["Silithus"] = { 55, 60 },
   ["Deadwind Pass"] = { 55, 60 },
+  ["Riverglades"] = { 35, 45 }, ["Mount Hyjal"] = { 60, 60 },
 }
 
 -- GetShapeshiftFormID() -> form name used in conditions.

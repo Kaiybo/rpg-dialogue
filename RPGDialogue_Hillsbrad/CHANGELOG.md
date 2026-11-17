@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Archmage Ansirem now stands at Dalaran's opened gate, not outside a sealed dome.
+
 ## 1.21.0 (2026-11-17)
 - Some people here notice who you travel with: a greeting about your companions, a reply to bring them up, and a conversation with stances to take. Needs RPG Dialogue 0.59.0.
 

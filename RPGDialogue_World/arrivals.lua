@@ -319,3 +319,18 @@ P:Arrival { zone = "Zephras Isle",
   first = "Zephras Isle is all wind and open sky, and nobody here seems to notice how hard it blows. This is the Skyborne's home, and their elders speak of failing pylons and islands that drift.",
   third = "{name} reached Zephras Isle, home of the Skyborne, where the wind never stops and the islands drift.",
 }
+
+P:Arrival { zone = "Mount Hyjal",
+  first = "The way through Darkwhisper Gorge opens onto Mount Hyjal, where the World Tree still bears the scars of Archimonde's fall. The forest is healing, but slowly, and the fel has not finished with the foothills.",
+  third = "{name} climbed through Darkwhisper Gorge to Mount Hyjal, where the wounded World Tree is slowly healing.",
+}
+
+P:Arrival { zone = "Shen'dralas",
+  first = "Past the Valley of Bones lie the ruins of Shen'dralas, where Highborne spirits linger by an old temple. Magram centaur and Bristleback quilboar fight over whatever ground is left.",
+  third = "{name} came through the Valley of Bones into Shen'dralas, a land of Highborne ruins and centaur feuds.",
+}
+
+P:Arrival { zone = "Dalaran",
+  first = "Dalaran's dome has opened at last, and the city of the Kirin Tor stands half rebuilt behind it. Scaffolding climbs the violet towers, and the mages are not yet sure who they mean to let in.",
+  third = "{name} saw Dalaran with its dome opened, the city of the Kirin Tor still under repair.",
+}

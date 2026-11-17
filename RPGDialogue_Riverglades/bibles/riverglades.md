@@ -140,3 +140,43 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Demar (Persuade, isolde_true): Isolde rode at Howard's left and argued with him in every council, and was right more often than he told her; he wrote her tribute because nobody else would have got her right, and hasn't read it since the stone was set.
 - Ashe (Persuade, father_why_me): the black dragon took everyone in the camp but her; she has read every page of her father's notes looking for why it passed her by, and found nothing.
 - Melbin (Deceive, audit): the Cartel's cut is figured on the boat fares he reports, not the ones he collects, and nobody, Melbin included, holds a deed to the port's sand.
+
+## Horde side (1.10.0)
+New keys: rg_kromrosh, rg_neza, rg_tanjani, rg_kreza (npcs/rogmar.lua); rg_clugfist, rg_jomjom (npcs/bolderok.lua); rg_ryan, rg_sleebo, rg_jezap (npcs/glades.lua). Pools guard_rogmar, guard_bolderok, citizen_bolderok, and towns `rogmar` and `bolderok` (pools.lua; RPGDialogue_World has no town for them). Everything below was read on warcraft.wiki.gg on 2026-11-17. Rog'mar, Krom'rosh, Neza, Tan'jani, Clugfist, Jom-jom and Kreza have no pages of their own yet: they are known only from quest pages.
+
+| Fact used | Source |
+|---|---|
+| Rog'mar is the Horde town, with a flight path; it has a great hall | [Riverglades](https://warcraft.wiki.gg/wiki/Riverglades); [Great hall](https://warcraft.wiki.gg/wiki/Great_hall); [Krol'dok Stronghold](https://warcraft.wiki.gg/wiki/Krol%27dok_Stronghold) |
+| Krom'rosh (Rog'mar, 59.4 45.6) gives Eye of Mugg (Horde): of the few who got into the caves most died; the Twilight's foothold is larger than thought; they ravage the land and sacrifice "our allies"; kill their leader; completion "Lok'tar!" | [Eye of Mugg (Horde)](https://warcraft.wiki.gg/wiki/Eye_of_Mugg_(Horde)) |
+| Neza Bloodsnout (Rog'mar): Feathers for Fletching, Poison Tips, A Hunter's Quiver; poison ruins the meat; brewed or gathered; vipers by the pools to the south; "If I have estimated you correctly"; venom kills a kodo in minutes, a human in seconds | [Poison Tips](https://warcraft.wiki.gg/wiki/Poison_Tips) |
+| Tan'jani, troll headhunter: "boss-mon/lady"; orcs hit humans with axes, headhunters stick them first; wood from the human camp to the west (Turner's Logging Camp) for Makeshift Stickin' Spears; next Stick 'Em | [Fetch 'n' Fletch](https://warcraft.wiki.gg/wiki/Fetch_%27n%27_Fletch) |
+| Kreza Darkthorn (Rog'mar, 59.8 46.0): Krol'dok Moulding (Horde) ends with Kreza ("a curious find... from the stronghold"); Key Ingredients (Horde): thick leather, iron bars, keeps the embers hot | [Krol'dok Moulding (Horde)](https://warcraft.wiki.gg/wiki/Krol%27dok_Moulding_(Horde)); [Key Ingredients (Horde)](https://warcraft.wiki.gg/wiki/Key_Ingredients_(Horde)) |
+| Bolder'ok: ogre settlement northwest of Windstead; the Bolder'ok ogres are former Twilight's Hammer, exiled for betraying their false prophets, now allied with the Horde; reputation faction Bolder'ok Clan (Horde) | [Bolder'ok](https://warcraft.wiki.gg/wiki/Bolder%27ok); [Twilight's Hammer](https://warcraft.wiki.gg/wiki/Twilight%27s_Hammer); [Ogre](https://warcraft.wiki.gg/wiki/Ogre) |
+| Jom-jom's Escape (Horde): "Jom-jom came looking for friend. Now Jom-jom want to go home"; escort to Clugfist at Bolder'ok; "Little one is friend"; +500 Bolder'ok Clan | [Jom-Jom's Escape](https://warcraft.wiki.gg/wiki/Jom-Jom%27s_Escape) |
+| Krol'dok bosses (Overlord Mugg last); Executioner Morg (ogre, Twilight's Hammer, "How you get out?"); Twilight Enforcers (ogres); the Twilight Forgemaster, a Dark Iron smith of the Hammer, rare elite in the zone | [Krol'dok Stronghold](https://warcraft.wiki.gg/wiki/Krol%27dok_Stronghold); [Executioner Morg](https://warcraft.wiki.gg/wiki/Executioner_Morg); [Twilight Enforcer (Riverglades)](https://warcraft.wiki.gg/wiki/Twilight_Enforcer_(Riverglades)); [Twilight Forgemaster](https://warcraft.wiki.gg/wiki/Twilight_Forgemaster) |
+| Marshal Ryan: the Field Marshal's Log tracks Twilight forces; Demar sends the player to find him in the Twilight's Shroud ("one of our best"); dying, he gives his crest for Demar ("I should have come home. Abigail..."); Delivering Closure: his betrothed Abigail Lawson in Cathedral Square, Stormwind; his family killed in the First War, vendetta turned to hatred; she asked him to live with her family in Stormwind; she calls Demar a coward and a hero who gets others killed | [Field Marshal's Log (quest)](https://warcraft.wiki.gg/wiki/Field_Marshal%27s_Log_(quest)); [Saving Marshal Ryan](https://warcraft.wiki.gg/wiki/Saving_Marshal_Ryan); [Dying Wish (Forever)](https://warcraft.wiki.gg/wiki/Dying_Wish_(Forever)); [Delivering Closure](https://warcraft.wiki.gg/wiki/Delivering_Closure) |
+| No Soldier Left Behind: Riftan's scouts caged in the Twilight's Shroud, keys on the champions; runners caught by Twilight scouts; "let Horde captives rot" | [No Soldier Left Behind (Forever)](https://warcraft.wiki.gg/wiki/No_Soldier_Left_Behind_(Forever)) |
+| Sleebo Fizzlespout (no faction): Gaseous Gold; gas is the fuel of the future; marshy ponds to the southwest, vents by the water; need-to-know, trade secrets; "one more favor" | [Gaseous Gold](https://warcraft.wiki.gg/wiki/Gaseous_Gold) |
+| Jezap Jinglesprocket, Fight Promoter, goblin, Gadgetzan, neutral, at 65.6 21.6 (north) | [Jezap Jinglesprocket](https://warcraft.wiki.gg/wiki/Jezap_Jinglesprocket) |
+| Windstead held by Eastsea pirates; Terral's Watch, a damaged tower under a horse banner; Ashwood's Fall, the ruined northern watchtower and wrecked wagons; Meadowsbrook founded by the knights and Sunnyglade's freed captives | [Windstead](https://warcraft.wiki.gg/wiki/Windstead); [Terral's Watch](https://warcraft.wiki.gg/wiki/Terral%27s_Watch); [Ashwood's Fall](https://warcraft.wiki.gg/wiki/Ashwood%27s_Fall); [Meadowsbrook](https://warcraft.wiki.gg/wiki/Meadowsbrook) |
+
+Not written (no NPCs documented yet): Southern Watch, Terral's Watch, Meadowsbrook, Windstead's pirates, the gnolls. Abigail Lawson stands in Stormwind, so she belongs to the Stormwind pack, not this one.
+
+**Assumed (confirm in game):**
+- The subzones are named "Rog'mar" and "Bolder'ok" in game (wiki spelling; one wiki line has "Rogm'ar"). The towns match on those names.
+- Krom'rosh is an orc ("Lok'tar!", his name) and speaks for Rog'mar's fighters; the zone's Horde leader is unknown, so he is never called its leader.
+- Tan'jani is Darkspear (a troll headhunter in Thrall's Horde). Clugfist and Jom-jom are ogres of Bolder'ok. Neza's and Kreza's races aren't stated, so nothing in their lines names them; nobody uses a pronoun for either.
+- Krom'rosh, Tan'jani, Clugfist and Jom-jom are written as male (names and quest text; no infobox yet). Confirm in game.
+- Kreza works a forge (the embers and the key). The "allies" the Hammer sacrifices are taken to be Bolder'ok ogres.
+- Clugfist speaks for Bolder'ok; Jom-jom's quest starts somewhere outside it and he is talked to before and after.
+- Marshal Ryan is met only inside the Twilight's Shroud, dying.
+
+**Authored, not canon:**
+- Krom'rosh: a veteran of the Warchief's wars; his view that the old Horde's burning of Sunnyglade was done "in the demons' chains"; his contempt for any old-Horde orcs who stayed with the Hammer; Mugg's eye hung where the cult's scouts can see it; his "rumor" stance on Cho'gall (kept a whisper: "if the two-headed one were alive and here").
+- Neza judges newcomers for Krom'rosh; Neza and Tan'jani's spears-versus-arrows quarrel; gnolls as camp thieves.
+- Tan'jani's uncle who taught him; the loggers' singing and sleepy lookout (Halligan's camp sings so it knows where everyone is, frontier.lua).
+- Kreza's rack of Hammer gear; the key opening only its own lock.
+- Clugfist's reasons for leaving (prophets never climb onto their own altars); the orcs trading axes and meat for ogre fighters; Bolder'ok keeping to its side of the river.
+- Jom-jom's friend stayed with the Hammer when Bolder'ok left; nobody names him.
+- Ryan: the Twilight better armed than Demar thinks; Demar hangs his crest and writes his memorial.
+- Sleebo hides his work from Melbin. Jezap and Jazzle Cheapshot as rival promoters.

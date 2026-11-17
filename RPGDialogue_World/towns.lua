@@ -73,7 +73,7 @@ P:Town {
 
 P:Town {
   id = "zephras_isle", name = "Zephras Isle",
-  subzones = { "Valanaar", "Anvilas", "Siroccas", "Shen'dramar", "New Eldre'naar" },
+  subzones = { "Valanaar", "Valanaar Skydocks", "Thendal Village", "Shen'dar Village", "Falaath Village", "Shrine of Akir" },
   zones = { "Zephras Isle" },
   tiers = { Hero = "Hero of Zephras Isle" },
 }
