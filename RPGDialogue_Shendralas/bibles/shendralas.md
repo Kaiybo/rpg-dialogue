@@ -58,6 +58,7 @@ New Forever zone (patch 1.60.1): contested, south-east of Desolace, between Fera
 - Hagiak's quiet doubt about Orgrul ("talks to bones more than to warriors").
 - Orgrul's contempt for the Crusade's hammers; his questions for a Forsaken.
 - The Bristleback were "pushed out of somewhere better" (Hagiak reading their camp's name; nobody states where from).
+- Evenshade: cool toward night elves (`prejudice`, race NightElf), the old Highborne grievance at being distrusted and sent away after the Sundering; he knows it's ten thousand years older than the player.
 
 ## Year 1 discipline
 - Mordent is still of the cloistered order; no petition to Tyrande, no Darnassus, no reintegration, no Wolfheart, no Bel'ameth. He can only wish the kaldorei would hear him.

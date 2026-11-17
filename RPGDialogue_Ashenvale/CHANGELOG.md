@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Prejudices (0.80.0): Torek (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.22.0 (2026-11-17)
 - Senani at Splintertree reacts to the new story "The axes of Ashenvale".
 

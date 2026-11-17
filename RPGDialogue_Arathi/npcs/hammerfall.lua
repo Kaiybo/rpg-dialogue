@@ -6,6 +6,7 @@ P:NPC {
   key = "gormul", id = TODO_NPC("Gor'mul"), name = "Gor'mul",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "bitter" }, values = { "loyal" },
+  prejudice = { race = "Scourge", amount = 12, why = "The Forsaken were Lordaeron's humans, and some of them kept the camps." },
   notices = { "race" },
 
   impression = {
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A Forsaken. I spent years behind a human fence in this valley, and some of the faces walking around the Undercity now used to stand on the other side of it." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "You smell of cellars, dead one. Say what you came to say, and don't come any closer than that post." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, dead one. I've stopped looking for a guard's face under yours, which is something, and you can thank your own patience for it." },
     { id = "g_default", text = "What do you want? There is nothing here worth the walk, unless you came for the flies." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still hoping to find something in me worth saving?" },
     { id = "g_better", when = { questDone = TODO_QUEST("Guile of the Raptor") }, text = "Ah, you. Sit, if you like. I find I can stand company again, some days." },
@@ -26,6 +30,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Maybe you did and maybe you didn't, and that's the trouble. The humans who ran the camps died in the plague like everyone else in Lordaeron, and I've never known which of them got up again and joined the Horde." } },
+      choices = {
+        { text = "The Horde forgave you. You can forgive us.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I owe you nothing for a dead man's sins.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I understand. Look as long as you need to.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Tell me about the camp.", next = "prej_why" },
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Mud, a fence and a ladle of grey porridge, and the worst of it wasn't the guards' sticks, it was the way they talked over us like cattle. Thrall broke the fences, and I'm free, but I still hear those voices when a Forsaken speaks." } },
+      choices = {
+        { text = "Then let the fences stay broken, in your head as well.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hold on to it. That anger kept you alive in there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Hm. You'd make a poor guard; you don't shout. Sit, then, if you want to sit." } },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Hate takes strength, and I left mine in these chains. The humans who killed the Warchief prayed to that Light, and now you stand here holding it for the Horde, and I do not know what to feel." } },
@@ -121,6 +149,7 @@ P:NPC {
         { text = "Do you think the beasts remember that night, Gor'mul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is there hope for the orcs still in the camps?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you hate the Light for what its knights did, Gor'mul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You glare at me as if I'd wronged you, Gor'mul.", next = "prej", when = { prejudiced = true } },
         { text = "Leave him be.", next = "END" },
       },
     },

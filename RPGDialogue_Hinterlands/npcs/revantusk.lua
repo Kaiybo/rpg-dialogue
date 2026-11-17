@@ -535,6 +535,7 @@ P:NPC {
   key = "yayojin", id = TODO_NPC("Mystic Yayo'jin"), name = "Mystic Yayo'jin",
   bible = "bibles/revantusk.md", role = "vendor", tier = "quest",
   communities = { "revantusk" }, temper = { "mysterious" }, values = { "devout", "proud" },
+  prejudice = { race = "Scourge", amount = 10, why = "The walking dead cheated Bwonsamdi, and a mystic finds that bad juju." },
   notices = { "class", "race" },
 
   impression = {
@@ -543,6 +544,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Stay on that side of the table, dead one. The spirits don't like it when somethin' that should be with Bwonsamdi comes shoppin' for reagents." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "The loa gave you a door and you walked back out of it, mon. I'll sell to you, but I'll be burnin' sage after." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, dead one. The spirits have stopped hissin' when you come up the platform, so maybe Bwonsamdi has made his peace with you. I'll make mine." },
     { id = "g_default", text = "Mind your feet, mon. You be standin' next to my goods, and they cost more than your boots." },
     { id = "g_back", when = { metBefore = true }, text = "The spirits said you would come back, though they say that about everybody." },
   },
@@ -556,6 +560,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Because the dead belong to Bwonsamdi, and you walked away from him without payin' the toll. It isn't you I mind so much, mon; it's the bad luck that follows a debt like that." } },
+      choices = {
+        { text = "Death took everything from me. I owe it nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then I'll pay my debt in the living I protect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll keep to my side of the table, then.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What would Bwonsamdi want from someone like me?", next = "prej_why" },
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Respect, maybe, or company, or nothin' at all. My grandmother said the loa of the dead is patient, and he don't chase anybody, because sooner or later everybody comes home." } },
+      choices = {
+        { text = "Then he can wait. I'm not finished here.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd rather honour him than run from him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "That's polite, and polite is good juju too. Keep it up and maybe I stop burnin' the sage." } },
+      choices = {
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Good, because his priests were buyin' up every scrap of mojo from here to Booty Bay, and I sold them nothin', though they asked twice. Zul'jin would have spat on a jungle god that made slaves of its own people, and the Amani always had more sense than to bleed for somethin' that hungry." } },
@@ -641,6 +669,7 @@ P:NPC {
         { text = "Do the Revantusk still tell stories of Zul'jin, Yayo'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Which bones tell you where a beast is sleeping, Yayo'jin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would Zul'jin really hate a paladin of the Horde, Yayo'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You keep your distance from me, Yayo'jin. Why?", next = "prej", when = { prejudiced = true } },
         { text = "I'll be going.", next = "END" },
       },
     },

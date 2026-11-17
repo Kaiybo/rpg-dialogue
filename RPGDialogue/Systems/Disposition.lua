@@ -74,7 +74,7 @@ end
 
 -- Prejudice (0.80.0): an NPC's `prejudice` is one entry or a list of them:
 --   { race = "Gnome" | {..}, faction = "Horde", class = "WARLOCK", origin = "..",
---     amount = 10 (default), why = "writer's note" }
+--     exceptOrigin = ".." | {..}, amount = 10 (default), why = "writer's note" }
 -- Every key given must match the player. The weight a prejudice carries falls by
 -- PREJUDICE_EASE for each point of affinity above zero: people can be won round.
 Disp.PREJUDICE_EASE = 3
@@ -109,7 +109,8 @@ function Disp.Prejudice(def, mem, ctx)
   local full, first = 0, nil
   for _, e in ipairs(p) do
     if type(e) == "table" and anyOf(race, e.race) and anyOf(faction, e.faction)
-      and anyOf(class, e.class) and anyOf(origin, e.origin) then
+      and anyOf(class, e.class) and anyOf(origin, e.origin)
+      and not (e.exceptOrigin and origin and anyOf(origin, e.exceptOrigin)) then
       full = full + (tonumber(e.amount) or 10)
       first = first or e
     end

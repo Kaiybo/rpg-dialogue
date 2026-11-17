@@ -201,7 +201,7 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 | `communities` | community tags shared with the gossip network and town standing |
 | `notices` | ack categories this NPC may use. Comes from the bible's "what they notice" |
 | `temper` | words used by special-option checks: `cowardly`, `sharp`, `proud`, `steady`, … |
-| `prejudice` (0.80.0) | one entry or a list: `{ race, faction, class, origin, amount = 10, why }`; every key given must match. Lowers disposition by `amount` (25 in all), eased by 3 per point of affinity; gate lines on `prejudiced` |
+| `prejudice` (0.80.0) | one entry or a list: `{ race, faction, class, origin, exceptOrigin, amount = 10, why }`; every key given must match. Lowers disposition by `amount` (25 in all), eased by 3 per point of affinity; gate lines on `prejudiced` |
 | `open` | `full` or `compact`; overrides the role default |
 | `greetings` | short lines for compact mode and repeat visits |
 | `notice` | noticing moments (acknowledgments), each with `cat` and `place` (`before`/`after`/`replace`) |

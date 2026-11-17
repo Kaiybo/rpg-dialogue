@@ -76,6 +76,7 @@ Levels 45-55. The Classic (pre-Cataclysm) zone only: everything below was read o
 - Kum'isha's greed was his own before it was anyone else's (Persuade).
 - The bloodmages' sibling rivalry over whose half of the study matters more.
 - Daio's "price" talk with non-warlocks.
+- Drazial: treats trolls (and, less, orcs) as specimens first (`prejudice`, race Troll 12, race Orc 6), because of the Amani raids and Eversong's burned borders; his father's Amani spear wound is authored.
 
 ## What they notice
 - Lungertz: class (priest, mage), kit, race (dwarf). Mahar Ba: class (mage, warlock), race (night elf). Thadius: race (dwarf), class (priest). Ardalan: race (orc, human), class (paladin). Enohar: race (dwarf), drunk. Alexandra: mount, race (dwarf). Bernie: kit. Strumner: kit. Kum'isha: money, race. Drazial: class (warrior), pet. Lynnore: class (priest, mage). Daio: class (warlock), race.

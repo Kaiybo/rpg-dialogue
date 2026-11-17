@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Prejudices. Some people now hold something against your race, your faction, your class or where you come from. No new files: a /reload is enough.
+
+- **How it works:** a prejudice lowers how someone regards you (the disposition shown on hover lists it as "What they hold against your kind"), so they're harder to persuade and slower to confide. Every point of goodwill you earn with them wears it down, and once it's gone they say so, grudgingly.
+- **What you can do:** while they hold it, they let it show when you walk up, and a new reply lets you have it out with them. Push back hard, take it on the chin, or answer calmly and start winning them round.
+- **55 people across 40 packs**, chosen where it's true to who they are. A few of them:
+  - **Alliance:** Fandral Staghelm on mages, Senator Stonehallow on night elves who sat out the Second War, Farmer Saldean on minor nobles, Commander Althea Ebonlocke on rogues, Matron Nightingale on warlocks (an imp set the orphanage linen alight), and Ragnar Thunderbrew on the gnomes who rewired his mash tun.
+  - **Horde:** Magatha Grimtotem on anyone who isn't tauren, Overlord Runthak and Harken Windtotem on the Forsaken, Orgnil Soulscar on warlocks, Royal Overseer Bauhaus on the living, Gazlowe on night elves (bad customers), and Kargal Battlescar on the Skyborne.
+  - **Out in the world:** Shandris Feathermoon and Vahlarriel Demonslayer on warlocks, Falstad Wildhammer on Ironforge dwarves (Wildhammer origins are spared), Nathanos Blightcaller on trolls, Mystic Yayo'jin on the Forsaken who cheated Bwonsamdi, Pozzik and Krazek on gnomes, Archmage Xylem on druids, and Nat Pagle on the gnome whose fish-caller brought a crocolisk.
+- For pack authors: NPCs take `prejudice = { race, faction, class, origin, exceptOrigin, amount, why }`; lines can check `prejudiced = true` or `"overcome"`.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

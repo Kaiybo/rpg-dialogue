@@ -266,6 +266,7 @@ P:NPC {
   key = "hansel", id = TODO_NPC("Hansel Heavyhands"), name = "Hansel Heavyhands",
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "thorium_point" }, temper = { "grumbling" }, values = { "loyal", "lazy" },
+  prejudice = { race = "Dwarf", faction = "Alliance", amount = 8, why = "Ironforge folk spit at the Brotherhood's Dark Iron dwarves, so he spits back, mildly." },
   notices = { "race", "kit" },
 
   impression = {
@@ -274,6 +275,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Och, Ironforge. Ye'll be wantin' tae look down yer nose at the Dark Iron, I expect, so go on an' do it quick, an' then I can sit back down." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "A Bronzebeard at Thorium Point. Yer kin threw a rock at me on the road last month, so forgive me if I keep one eye on yer hands." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ye're the Bronzebeard who doesnae stare. I've told the lads about ye, an' they didnae believe me, but it's true." },
     { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good! Ye can do the thing they want me tae do, an' everyone's happy." },
     { id = "g_away", when = { away = 14 }, text = "Och, ye've been gone {away}, an' they've had me doin' the work the whole time. Ye can take it off my hands now, I'd say." },
@@ -287,6 +291,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Why would I? Yer folk see dark skin an' think Thaurissan, an' they don't stop tae ask whether I left him or not. So I've stopped askin' whether ye're any different, an' it saves time, an' I get tae sit down sooner." } },
+      choices = {
+        { text = "The Brotherhood earned their freedom. Ironforge should see that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The Dark Irons burned Ironforge's lands. Distrust is earned.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm not here to throw rocks. Sit down, Hansel.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Why did you leave the Dark Irons?", next = "prej_why" },
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Because the Firelord doesnae let ye sit down, an' I mean that true. We worked the forges till our hands blistered for a fire spirit who'd have burnt us without a thought, an' when the Brotherhood walked out, I walked wi' them." } },
+      choices = {
+        { text = "That took courage. More than Ironforge credits.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You served Ragnaros once. Some will never forget it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Och, ye're a kind one. Mind if I take ye at yer word an' sit? Grand." } },
+      choices = {
+        { text = "Something else, Hansel.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The fire elementals, mostly, wanderin' about an' hissin' at the walls. Then there's the Dark Iron down the hill, an' the dragons over in the Steppes, an' Lolo's singin', though I'd never tell him that last one." } },
       choices = {
@@ -374,6 +402,7 @@ P:NPC {
         { text = "Do you really need a prayer for sore feet, Hansel?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Why does the Gorge rumble all night, Hansel?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you really let my demon stand your watch, Hansel?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You don't trust Ironforge dwarves much, Hansel.", next = "prej", when = { prejudiced = true } },
         { text = "I'll handle it.", next = "END", fx = { affinity = 2 } },
       },
     },

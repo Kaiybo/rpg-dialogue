@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-17)
+- Prejudices (0.80.0): Supervisor Raelen (Westfall farmhands). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.29.1 (2026-11-17)
 - Fix: Sergeant De Vries's "you look done in" remark used a condition that doesn't exist and never showed. It now comes up when your gear is badly worn.
 

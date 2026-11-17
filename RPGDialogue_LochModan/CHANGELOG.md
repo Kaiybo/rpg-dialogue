@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.19.0 (2026-11-17)
+- Prejudices (0.80.0): Prospector Ironband (night elves). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.18.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

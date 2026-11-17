@@ -11,6 +11,7 @@ P:NPC {
   key = "raleigh", id = TODO_NPC("Raleigh the Devout"), name = "Raleigh the Devout",
   bible = "bibles/raleigh.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
+  prejudice = { class = "WARLOCK", amount = 8, why = "Six years of Crusade sermons he is trying to unlearn." },
   notices = { "light", "scarlet" },
 
   impression = {
@@ -19,6 +20,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A warlock. I'll ask you to keep your hands where I can see them, and I'm sorry for asking, because six years of Crusade sermons don't wash out in one winter." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "Close the door, and forgive me if I sit nearer the candle than you. Part of me still counts the steps to the pyre whenever a warlock walks in, and I hate that part of me." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, and sit wherever you like. I caught myself defending a warlock to the innkeeper last night, and I think the warlock was you." },
     { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Sit down, then; I've had worse company than people who listen." },
     { id = "g_xsquire", when = { origin = "human_paladin_squire" }, text = "That's a squire's stance if ever I saw one. The Order broke, but by the look of you the oaths didn't, so close the door and sit, because you're among friends up here." },
@@ -34,6 +38,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I do, and I know it. The Crusade taught me that every warlock is a door the Scourge can walk through, and I've unlearned most of what they taught me, but that lesson sits deeper than the rest." } },
+      choices = {
+        { text = "I'm no more the Scourge's than you are. Unlearn it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep flinching. What I wield deserves a little fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll sit by the door. Take whatever time you need.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Where did they teach you that?", next = "prej_why" },
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "In the Monastery's yard, with a straw man in a black robe and a torch in every recruit's hand. We practised on the straw man for a month, and then one day it wasn't straw, and nobody ever told us whether he'd been a warlock at all." } },
+      choices = {
+        { text = "You followed orders. The blame belongs to the men who gave them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You held the torch. Some of that blame is yours to carry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "That's kind, and it's more patience than I ever showed anyone while I wore the red. Give me a few more visits, and maybe I'll stop counting the steps between us." } },
+      choices = {
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Tell them to sleep when they can and eat before they pray, because a healer who falls in the road heals nobody, and I've watched good priests burn out in a single season at Hillsbrad. And tell them that the ones they couldn't save were never theirs to save; I wish someone had told me that sooner." } },
@@ -166,6 +194,7 @@ P:NPC {
         { text = "Would the Crusade really call me a heretic, Raleigh?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through the cathedral, Raleigh. Whitemane has fallen.", next = "xcl_cath", when = { cleared = "Scarlet Cathedral", faction = "Alliance" } },
         { text = "My companion tends our wounds. Have you advice for them?", next = "xpt_priest", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
+        { text = "You flinch every time I move, Raleigh.", next = "prej", when = { prejudiced = true } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

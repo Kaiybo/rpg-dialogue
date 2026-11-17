@@ -38,3 +38,6 @@ Never says: anything about Naxxramas, the Scourge invasion or later Argent histo
 
 ## Topics
 - argent_dawn, scarlet_crusade, background, advice
+
+## Authored, not canon (prejudices, 0.80.0)
+- Zverenhoff: looks twice at the Forsaken (`prejudice`, race Scourge) though he welcomes them; lost a brother and two cousins in Stratholme, and once searched the Undercity for them and found no one.

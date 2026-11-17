@@ -7,6 +7,7 @@ P:NPC {
   key = "zverenhoff", id = TODO_NPC("Duke Nicholas Zverenhoff"), name = "Duke Nicholas Zverenhoff",
   bible = "bibles/zverenhoff.md", role = "noble", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "warm", "dry" }, values = { "curious", "dutiful" },
+  prejudice = { race = "Scourge", amount = 8, why = "Lost family to the plague; knows the Forsaken aren't Scourge, but his skin hasn't caught up." },
   notices = { "lore", "reputation" },
   impression = {
     first = "Duke Nicholas Zverenhoff talks about the Scourge, the Scarlet Crusade and a nonsensical book on spirit-speaking with the same patient interest. He is a scholar first and a duke second, and he distrusts anyone who is too sure of anything.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "Ah, good day to you. Forgive me if I look twice; the Dawn welcomes the Forsaken and so do I, but my eyes were taught in Stratholme, and they're slower to learn than I am." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "One of the Banshee Queen's people, at Light's Hope. Do sit down. I'll only flinch a little, and I'll be ashamed of it afterward." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back, my friend. I realised this morning that I no longer look twice when you come in, and I took the trouble to be glad about it." },
     { id = "g_greet", text = "Ah, good day to you. I am Duke Nicholas Zverenhoff, and you've caught me between translations." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Light's Hope. I trust your pockets are full of scourgestones and your head is full of questions." },
     { id = "g_archive", when = { questActive = TODO_QUEST("The Archivist") }, text = "Galford and his archive, in Stratholme. Burn it all, and try not to read anything first; zealotry is catching." },
@@ -31,6 +35,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "I do, and I'm sorry for it. I lost a brother and two cousins in Stratholme, and the last time I saw them they were walking, so when one of your people walks into the chapel, my heart sees them before my head can argue." } },
+      choices = {
+        { text = "I'm not your brother, and I'm not the Lich King's.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some Forsaken would deserve that look. Keep it handy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Your head will win the argument. Give it time.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "Have you looked for them among the Forsaken?", next = "prej_why" },
+        { text = "Something else, Duke.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "Once, in the Undercity, with a translator and a borrowed tabard. I found no one I knew, and I was glad and sorry at once, which is a thing I hadn't known a man could be." } },
+      choices = {
+        { text = "Maybe they found rest. That's a mercy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Maybe they're still out there, in the Plaguelands.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Duke.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "You're kinder to me than I deserve. Come, sit, and tell me something that has nothing to do with the dead." } },
+      choices = {
+        { text = "Something else, Duke.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Duke Nicholas Zverenhoff of the Argent Dawn. I help Lord Tyrosus keep this chapel standing, and I'm the one who pays out valor tokens when people bring us proof of what they've slain." },
@@ -56,6 +84,7 @@ P:NPC {
         { text = "What did the Balnazzar business mean for the Crusade?", next = "balnazzar", when = { questDone = TODO_QUEST("The Truth Comes Crashing Down") } },
         { text = "I study the Light, Duke. Does the Dawn need priests?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm here to trade.", next = "BUSINESS" },
+        { text = "You look at me as if I were Scourge, Duke.", next = "prej", when = { prejudiced = true } },
         { text = "Good day, Duke.", next = "END" },
       },
     },

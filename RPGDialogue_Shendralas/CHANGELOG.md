@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.3.0 (2026-11-17)
+- Prejudices (0.80.0): Archmage Mordent Evenshade (night elves). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
+
 ## 1.2.2 (2026-11-17)
 - The Magram and Gelkis now react to your standing with their clan, not only to how many of the other clan you've killed. Orgrul, Hagiak and Nerlokh have new greetings for anyone their clan hates.
 

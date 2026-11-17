@@ -295,6 +295,7 @@ P:NPC {
   key = "drazial", id = TODO_NPC("Bloodmage Drazial"), name = "Bloodmage Drazial",
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "blasted_lands" }, temper = { "eager" }, values = { "curious", "ambitious" },
+  prejudice = { { race = "Troll", amount = 12, why = "Quel'Thalas fought the Amani for millennia; he sees all trolls as specimens." }, { race = "Orc", amount = 6, why = "The Horde burned Eversong's borders in the Second War." } },
   notices = { "class", "pet" },
 
   impression = {
@@ -303,6 +304,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej1", when = { prejudiced = true }, text = "A troll! Fascinating regeneration, of course, though I'll keep the table between us. My people have been fighting yours since before your grandmother's grandmother, and I'm not sure the Darkspear have been told it's over." },
+    { id = "g_prej2", when = { prejudiced = true }, text = "An orc, in the Blasted Lands, near the Portal your people came through. I'll mind my notes, if you don't mind, because the last orcs who visited Quel'Thalas burned the forest down." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you again! I've been revising my notes on your kind, and you'll be pleased to know the revision is substantial." },
     { id = "g_default", text = "Ah, a fresh specimen! Forgive me; I mean a fresh visitor, of course." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite test subject returns. How is the constitution?" },
   },
@@ -316,6 +320,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej = {
+      lines = { { id = "prej_default", text = "Do I? Well, I speak of everyone as specimens, it's a professional habit. But with your people, I confess, it's also easier than remembering the Amani raids on Quel'Thalas, and the scars my father took fighting them." } },
+      choices = {
+        { text = "I'm not Amani, and I'm not your specimen.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Our peoples were enemies. Pretending otherwise helps no one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Revise your notes. I'll give you plenty of evidence.", next = "prej_ok", fx = { affinity = 1 } },
+        { text = "What happened to your father?", next = "prej_why" },
+        { text = "Something else, Bloodmage.", next = "BACK" },
+      },
+    },
+    prej_why = {
+      lines = { { id = "prejwhy_default", text = "A spear in the shoulder from an Amani raiding party on the edge of Eversong, which healed badly and ached every winter. He told me trolls feel no pain, and I believed him until I read the anatomy texts, which say otherwise rather firmly." } },
+      choices = {
+        { text = "Then trust the texts over the old stories.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old wounds teach lessons books can't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bloodmage.", next = "BACK" },
+      },
+    },
+    prej_ok = {
+      lines = { { id = "prejok_default", text = "Excellent, a cooperative subject! Er, a cooperative friend, I mean. Come back often; the data will be wonderful." } },
+      choices = {
+        { text = "Something else, Bloodmage.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Everything is, if you understand it well enough, though I'll grant your sort have been very poor at explaining it. The boars here heal from wounds that would kill an ogre, and I can't help wondering whether some trace of the Light touched them too." } },
@@ -394,6 +422,7 @@ P:NPC {
         { text = "Is the Light just another strength to bottle, Drazial?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What have you learned from the beasts out here, Drazial?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why do you care what the spirits say, Drazial?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You speak of my people as specimens, Drazial.", next = "prej", when = { prejudiced = true } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },

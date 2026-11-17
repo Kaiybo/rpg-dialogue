@@ -23,6 +23,7 @@
 
 ## Authored, not canon
 - Oilfist keeps the forges lit because cold forges once meant punishment; Hansel loves sitting down as the best part of freedom; Lolo tells time by the forge and finds Hansel by his snoring; Kalaran dreams of his father (a lie, inside a lie).
+- Hansel: keeps an eye on Ironforge dwarves (`prejudice`, Alliance Dwarf) because they see a Dark Iron and think Thaurissan; one threw a rock at him on the road last month.
 
 ## Voices
 - Oilfist: stern overseer, Scots-tinged, weary pride, no patience for old feuds.
