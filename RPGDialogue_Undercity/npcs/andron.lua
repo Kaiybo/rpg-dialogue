@@ -31,6 +31,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alterac = {
+      big = true,
+      lines = {
+        { id = "opal_default", text = "I deal with everyone, friend, though I don't paint the Syndicate's name on my sign. Some say Alterac's old lords had a fair grievance when Terenas took their lands, and some say Perenolde sold his allies to the orcs and his heirs ought to hang. Where do you stand?" },
+      },
+      choices = {
+        { text = "Perenolde betrayed his allies. His heirs deserve nothing.", next = "op_alterac_r1", fx = { align = { honor = 1 }, opinion = { alterac = "traitors" } } },
+        { text = "Lords lose their lands. Taking them back is only sensible.", next = "op_alterac_r2", fx = { affinity = 1, align = { honor = -1 }, opinion = { alterac = "sympathy", syndicate = "sympathy" } } },
+        { text = "Alterac stood with the Horde once. I won't spit on them.", next = "op_alterac_r3", fx = { opinion = { alterac = "useful" } }, when = { race = "Orc" } },
+        { text = "Dead kingdoms don't interest me, Andron.", next = "BACK" },
+      },
+    },
+    op_alterac_r1 = {
+      lines = { { id = "opal_r1", text = "Spoken like a soldier, and soldiers are terrible customers. I'll keep my friends' names to myself, then." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alterac_r2 = {
+      lines = { { id = "opal_r2", text = "Now there's a reasonable sort of person, and I know people who like reasonable sorts. Keep that thought, friend, and keep it quiet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alterac_r3 = {
+      lines = { { id = "opal_r3", text = "Ha! You know your history, and so do my acquaintances, though they'd much rather you didn't mention it in company." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andron Gant, dealer in old and interesting things, at your service. The apothecaries upstairs pay very well for curiosities, and I know some people who know where curiosities are." },
@@ -69,6 +93,7 @@ P:NPC {
       lines = { { id = "tf_default", text = "I don't find anything, friend, I hardly leave the city! People bring them to me, goblins and travelers and sorts like you, and I pay them, and the apothecaries pay me a little more." } },
       choices = {
         { text = "A good business, if it's honest.", next = "trade_honest" },
+        { text = "Do you ever deal with the Syndicate?", next = "op_alterac" },
         { text = "Something else.", next = "BACK" },
       },
     },

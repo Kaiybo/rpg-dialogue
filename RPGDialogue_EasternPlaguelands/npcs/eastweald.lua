@@ -33,6 +33,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      big = true,
+      lines = {
+        { id = "opor_default", text = "I gave up my lands and my name for one orc's life, and I'd do it again tomorrow. But you've walked more of this world than I have lately, so tell me what you make of the orcs, now that they've a land of their own." },
+      },
+      choices = {
+        { text = "They're people, as you said. Honour isn't only ours.", next = "op_orcs_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { orcs = "respect" } } },
+        { text = "They burned Lordaeron once. I won't forget that.", next = "op_orcs_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { orcs = "distrust" } } },
+        { text = "Thrall freed us. We are not the Horde that burned your lands.", next = "op_orcs_r3", fx = { affinity = 2, opinion = { orcs = "kin", warchief = "admire" } }, when = { race = "Orc" } },
+        { text = "My family fought them in the Second War. I'm still learning.", next = "op_orcs_r4", fx = { trait = { kind = 1 }, opinion = { orcs = "mixed" } }, when = { race = "Human" } },
+        { text = "I don't know what I think of them, Tirion.", next = "BACK" },
+      },
+    },
+    op_orcs_r1 = {
+      lines = { { id = "opor_r1", text = "Then I lost my lands for something true, and that's a comfort to an old man by a cold river. Eitrigg would have liked you, I think." } },
+      choices = { { text = "Something else, Tirion.", next = "BACK" } },
+    },
+    op_orcs_r2 = {
+      lines = { { id = "opor_r2", text = "Nor should you, and I don't ask you to. I only ask that you judge the one in front of you, and not his father's crimes." } },
+      choices = { { text = "Something else, Tirion.", next = "BACK" } },
+    },
+    op_orcs_r3 = {
+      lines = { { id = "opor_r3", text = "I believe you, and I'm glad to hear it from an orc's own mouth. Tell your Warchief there's an old paladin in the Plaguelands who wishes him well." } },
+      choices = { { text = "Something else, Tirion.", next = "BACK" } },
+    },
+    op_orcs_r4 = {
+      lines = { { id = "opor_r4", text = "So was I, once, and it took a single orc's honour to teach me. Go slowly with it, and don't let anyone tell you the lesson's a betrayal." } },
+      choices = { { text = "Something else, Tirion.", next = "BACK" } },
+    },
     xpt_pala = {
       big = true,
       lines = { { id = "xpt_pala_default", text = "I'd tell them the oath is to people and not to orders, because I broke an order to save an orc's life and the Light never left me for it. Lordaeron called me a traitor, but the Light judged differently, and it's the Light your friend should listen to." } },
@@ -89,6 +118,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_scmercy", tags = { "news" }, when = { opinion = { topic = "scarlet_crusade", stance = "mercy" } }, text = "I'm told you'd rather reason with the Crusade than break it. My son wears their colours in Hearthglen, so you'll forgive me if I hope with all my heart that you're right." },
         { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" } },
           text = "You travel with {companion}, and they carry themselves like one of the Silver Hand, though I'd guess they never knew Uther. I was one of the first to take that oath, and I've been out here long enough to wonder whether the order still remembers my name." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits, here by my river. I fought beside many dwarves in the Second War, {class}, stout friends every one, though none of them ever spoke to the wind the way you seem to." },
@@ -176,6 +206,7 @@ P:NPC {
         { text = "Do you regret it?", next = "regret" },
         { text = "That's a cruel reward for mercy.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hearthglen's people were only protecting their own.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Do you still think the orcs were worth it?", next = "op_orcs" },
       },
     },
     regret = {
@@ -316,6 +347,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_sylvanas = {
+      big = true,
+      lines = {
+        { id = "opsy_default", text = "Because she was my Ranger-General in life, and death didn't change who gives the orders. You've walked into her city or heard of it, so tell me what you make of my queen." },
+      },
+      choices = {
+        { text = "She's earned her crown. I'd serve her too.", next = "op_sylvanas_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { sylvanas = "admire" } } },
+        { text = "She's using the Horde, and everyone knows it.", next = "op_sylvanas_r2", fx = { affinity = -2, align = { order = -1 }, opinion = { sylvanas = "distrust" } } },
+        { text = "She freed me. That's the only truth I need.", next = "op_sylvanas_r3", fx = { affinity = 2, opinion = { sylvanas = "loyal" } }, when = { race = "Scourge" } },
+        { text = "Your loyalty is your own affair, Blightcaller.", next = "BACK" },
+      },
+    },
+    op_sylvanas_r1 = {
+      lines = { { id = "opsy_r1", text = "Then you've better sense than most of the living. Serve her well, and you'll find she remembers it longer than any king." } },
+      choices = { { text = "Something else, Blightcaller.", next = "BACK" } },
+    },
+    op_sylvanas_r2 = {
+      lines = { { id = "opsy_r2", text = "Everyone knows it, do they? Then everyone can bring their complaints to Marris Stead, and I'll be waiting for them with my bow strung." } },
+      choices = { { text = "Something else, Blightcaller.", next = "BACK" } },
+    },
+    op_sylvanas_r3 = {
+      lines = { { id = "opsy_r3", text = "Good. Hold on to that when the living look at you sideways, because she freed every one of us, and they never will." } },
+      choices = { { text = "Something else, Blightcaller.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Kill what I point you at, and leave the prayers for after. The Scarlets at Tyr's Hand call on the same Light you do, and the Banshee Queen wants them dead, so I'll be watching to see whether your hand shakes when you meet them." } },
@@ -362,6 +417,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_sydistrust", tags = { "news" }, when = { opinion = { topic = "sylvanas", stance = { "distrust", "doubt" } } }, text = "Word reaches even Marris Stead, and word is you doubt the Dark Lady. Say it to my face, if you'd like to learn how the rangers of Quel'Thalas settled such things." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for half of them are rotten through and the other half are worse." },
         { id = "h_default", key = true,
@@ -435,7 +491,10 @@ P:NPC {
       lines = {
         { id = "hm_default", text = "I was born in that house, and I was a ranger lord when there were still lords in Lordaeron. The Scourge took it, and me. The Queen returned me; the house, I'll take back myself." },
       },
-      choices = { { text = "Then let's take it back.", next = "END", fx = { affinity = 2 } } },
+      choices = {
+        { text = "Why do you serve the Dark Lady?", next = "op_sylvanas" },
+        { text = "Then let's take it back.", next = "END", fx = { affinity = 2 } },
+      },
     },
     x_hunter = {
       lines = {

@@ -26,6 +26,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_varimathras = {
+      big = true,
+      lines = {
+        { id = "opvm_default", text = "To Lord Varimathras, and most of us would rather not think too hard about what that means. Does it bother you, a dreadlord standing at the Dark Lady's side?" },
+      },
+      choices = {
+        { text = "Yes. A demon serves no one but himself.", next = "op_varimathras_r1", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { varimathras = "distrust" } } },
+        { text = "She chose him. That's enough for me.", next = "op_varimathras_r2", fx = { align = { order = 1 }, opinion = { varimathras = "trust" } } },
+        { text = "Demons can be bound. She's clearly bound him well.", next = "op_varimathras_r3", fx = { trait = { practical = 1 }, opinion = { varimathras = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "Not my business, Erland.", next = "BACK" },
+      },
+    },
+    op_varimathras_r1 = {
+      lines = { { id = "opvm_r1", text = "Keep your voice down, even out here. I think the same, and I think it very quietly, and I'm still alive, more or less." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_varimathras_r2 = {
+      lines = { { id = "opvm_r2", text = "That's what the Sepulcher's officers say, and I'd like to believe them. I'll go on watching the woods and leave the dreadlord to the Dark Lady." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_varimathras_r3 = {
+      lines = { { id = "opvm_r3", text = "If anyone would know, it's you, so I'll take that as a comfort. Just don't tell me how the binding works, because I'll sleep worse for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_sfk = {
       big = true,
       lines = { { id = "xcl_sfk_default", text = "Then I owe you, and so does every deathstalker who's had to walk this road at night. Adamant and Vincent went into that keep before I ever joined the Sepulcher, and the older stalkers still talk about it in low voices, so now they'll have something better to talk about." } },
@@ -99,6 +123,7 @@ P:NPC {
         { text = "Do you want a shield beside you on the road, Erland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the worgen really fear the Light, Erland?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "It's true, Erland. Arugal is dead, and his keep is quiet.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
+        { text = "Who do the deathstalkers answer to?", next = "op_varimathras" },
         { text = "Good luck on the road.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Speak low; the trees are listening." } },

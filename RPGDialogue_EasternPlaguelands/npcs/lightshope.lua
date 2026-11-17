@@ -34,6 +34,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      big = true,
+      lines = {
+        { id = "opfk_default", text = "Most of them do, and some grumble, and a few have asked me outright whether I've lost my wits. You've seen Leonid at our altar, so I'll ask you: should the dead fight beside the living?" },
+      },
+      choices = {
+        { text = "Anyone who fights the Scourge belongs here.", next = "op_forsaken_r1", fx = { align = { light = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "The dead are too close to the Scourge to trust.", next = "op_forsaken_r2", fx = { align = { light = -1 }, trait = { cautious = 1 }, opinion = { forsaken = "distrust" } } },
+        { text = "I'm Forsaken, my lord. Judge me by my blade.", next = "op_forsaken_r3", fx = { affinity = 1, opinion = { forsaken = "trust" } }, when = { race = "Scourge" } },
+        { text = "That's for the Dawn to decide, my lord.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = { { id = "opfk_r1", text = "That's the Dawn's whole creed in a sentence, and I'm glad to hear someone say it plainly. I'll tell the grumblers you said so." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_forsaken_r2 = {
+      lines = { { id = "opfk_r2", text = "I understand the fear, and I won't call it foolish. But Leonid has bled for this chapel, after his fashion, and I'll judge him by that." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
+    op_forsaken_r3 = {
+      lines = { { id = "opfk_r3", text = "Then that is exactly how I'll judge you, and gladly. Light's Hope keeps its door open to anyone who keeps faith with the fight." } },
+      choices = { { text = "Something else, my lord.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight it as the Dawn does, with patience, because Stratholme won't fall to a single charge and the Scourge have more dead to spend than we have living. A company that comes back again and again does more good than a hero who dies gloriously on the first day." } },
@@ -92,6 +116,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_schard", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "hardline" } }, text = "The Duke says you'd break the Crusade outright. I may need that resolve before long, but I'd ask you to save it for those who won't yield." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
           text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -176,6 +201,7 @@ P:NPC {
       lines = { { id = "ld_default", text = "Lord Raymond George fell, and someone had to stand where he stood. I'd have chosen anyone else, but nobody else was offered." } },
       choices = {
         { text = "What was he like?", next = "lead_raymond" },
+        { text = "Do your knights accept the Forsaken among them?", next = "op_forsaken" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -310,6 +336,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_the_light = {
+      big = true,
+      lines = {
+        { id = "optl_default", text = "I've wondered whether I'm the exception or the beginning of something. What do you think, {class}: can the Light truly belong to the dead as well as the living?" },
+      },
+      choices = {
+        { text = "Yes. If it answers you, it can answer anyone.", next = "op_the_light_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "No. The Light abandoned the dead. You're an accident.", next = "op_the_light_r2", fx = { affinity = -1, align = { light = -1 }, opinion = { the_light = "abandoned" } } },
+        { text = "It answers me too, Revered. You're not alone.", next = "op_the_light_r3", fx = { affinity = 2, trait = { pious = 1 }, opinion = { the_light = "faith" } }, when = { race = "Scourge", class = { "PRIEST", "PALADIN" } } },
+        { text = "I don't know, Revered.", next = "BACK" },
+      },
+    },
+    op_the_light_r1 = {
+      lines = { { id = "optl_r1", text = "That's what I pray for, and it means a great deal to hear it from someone else. Perhaps I'm not the last, then, only the first." } },
+      choices = { { text = "Something else, Revered.", next = "BACK" } },
+    },
+    op_the_light_r2 = {
+      lines = { { id = "optl_r2", text = "Perhaps I am, and if so I'll be the most grateful accident in Lordaeron. It still answers, whatever the reason, and I'll not waste it." } },
+      choices = { { text = "Something else, Revered.", next = "BACK" } },
+    },
+    op_the_light_r3 = {
+      lines = { { id = "optl_r3", text = "Then the Light is kinder than I dared hope, and I've one more reason to stand at this altar. Thank you for telling me." } },
+      choices = { { text = "Something else, Revered.", next = "BACK" } },
+    },
     xpt_priest = {
       big = true,
       lines = { { id = "xpt_priest_default", text = "Because so many died here holding it, and died in faith, that the ground itself remembers, and the dead cannot rise where the Light has been paid for so dearly. I tell the young priests that the chapel is a prayer that never ended." } },
@@ -368,6 +418,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_tlaband", tags = { "news" }, when = { opinion = { topic = "the_light", stance = "abandoned" } }, text = "They tell me you've decided the Light abandoned the dead. I won't argue with you; I'll only ask you to watch what happens at this altar." },
+        { id = "o_fkdistrust", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "distrust" } }, text = "I'm told you'd rather the dead kept away from the Dawn. I understand, and I'll try to be useful all the same." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
           text = "{companion} has the look of a priest, and you've brought them to the one chapel in all of Lordaeron where the Scourge has never set foot. Kneel a while, both of you, if you've the time; this ground has a way of mending more than wounds." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -430,7 +482,10 @@ P:NPC {
       lines = {
         { id = "l_default", text = "It burns, a little, like warmth on frostbitten hands. I've decided the burning is the Light reminding me what I'm for." },
       },
-      choices = { { text = "That's beautiful, and terrible.", next = "BACK", fx = { affinity = 3 } } },
+      choices = {
+        { text = "Can the Light belong to the dead as well?", next = "op_the_light" },
+        { text = "That's beautiful, and terrible.", next = "BACK", fx = { affinity = 3 } },
+      },
     },
     why = {
       big = true,
