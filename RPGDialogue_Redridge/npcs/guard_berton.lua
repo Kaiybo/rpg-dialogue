@@ -105,7 +105,6 @@ P:NPC {
   topics = {
     the_stockade = {
       { id = "tp_the_stockade", text = "Targorr the Dread was sentenced to die and sent to the Stockade to wait, and now I hear the prisoners have taken the place over. I'd go in myself if the Marshal could spare me, and I'd see the sentence carried out." },
-      { id = "tp_the_stockade2", when = { questDone = TODO_QUEST("Shadow of the Past") }, text = "|" },
     },
     prestor = { { id = "tp_prestor", text = "Some noble with a soft voice is said to be the reason condemned orcs keep breathing in the Stockade. I don't know which one, and that's how they like it, I suppose." } },
     bolvar = { { id = "tp_bolvar", text = "The Regent's an honest man, I'm told, but the court around him is a nest of favours. A sentence of death oughtn't to need a friend at court to be carried out." } },

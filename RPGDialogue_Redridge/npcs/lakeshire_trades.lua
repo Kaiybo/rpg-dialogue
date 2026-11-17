@@ -318,7 +318,6 @@ P:NPC {
   topics = {
     second_war = { { id = "tp_second_war", text = "My father made arrows for the Alliance in the Second War, and he said every orc was worth three shafts. I've done better with the gnolls, but they're a lot smaller." } },
     sentinels = { { id = "tp_sentinels", text = "The night elf Sentinels shoot better than any archer in Stormwind, and they make their bows from their own trees. I'd like to see one of their arrows up close, though I'd prefer not to be on the end of it." } },
-    silithid = { { id = "tp_silithid", text = "|" } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs of that mountain to the north carry shields as wide as a door, and my arrows bounce off them. I'm working on a heavier head, but the watch needs them faster than I can think." } },
     background = { { id = "tp_bg", text = "I've fletched in Lakeshire since I was old enough to hold a knife, and my mother did before me." } },
     _none = { { id = "tp_none", text = "Never heard of it. If it doesn't fly, I don't bother with it." } },

@@ -200,6 +200,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Renato sold wine at the Darkmoon Faire one year and gave half of it away to the fire-eaters. I've still got the tally, and I'll show it to anyone who asks, and several who don't." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean wine was the finest in the north, and the vineyards are all behind that wall now. Renato says we'll make it someday ourselves, and I've told him to start with paying the cooper." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys our wine by the barrel and sells it to pirates by the cup, and I'd rather not think about the markup. Renato says it's good for the name, and the name's not paying the rent." } },
+    dalaran = { { id = "tp_dalaran", text = "Before the plague, Dalaran's mages were our best customers, and they paid on time, which I miss more than I can say. I'd send them a case if they'd open their gates again." } },
     knows = { { id = "tp_knows", text = "A woman who keeps the books hears where the money goes, and money goes everywhere. Ask what you like." } },
     background = { { id = "tp_bg", text = "I'm a Gallina, and I'm the one who counts. Every family business needs one of us, or it's only a family." } },
     advice = { { id = "tp_ad", text = "Never let the loudest one in the family keep the money. Ours shouts in the square, and I keep the purse." } },
@@ -458,6 +462,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "My boy went north to Lordaeron as a soldier, and he never came home, and they won't tell me whether he's dead or worse. I carry water so I don't have to think about it, and it mostly works." } },
+    forsaken = { { id = "tp_forsaken", text = "They say the dead in Lordaeron have woken up and made a kingdom of their own, the Forsaken they call themselves. I'd ask after my boy if I thought they'd answer an old woman, and that's a terrible thing to want." } },
+    holy_light = { { id = "tp_holy_light", text = "I go to the Cathedral every morning, and I sit at the back, and I tell the Light it owes me one. Bishop Farthing says that's a prayer too, and I'll take his word on it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was a lovely town once, I had a cousin there who sold ribbons in the market. Now it's the dead and the madmen in red, and I've stopped asking after the ribbons." } },
     knows = { { id = "tp_knows", text = "I walk this street a hundred times a day, and folk talk in front of an old woman like she's a lamppost. Go on, ask." } },
     background = { { id = "tp_bg", text = "A farm wife from the north who carries water now, and that's all the story anybody needs.", next = "home" } },
     advice = { { id = "tp_ad", text = "Respect your elders, dearie, and carry their buckets now and again. You'll be old yourself, if you're lucky." } },
@@ -655,6 +663,10 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "They say the prisoners have the Stockade now, and everyone in the Trade District wants clothes that'll take a knife. I don't ask why, and I charge extra for the leather." } },
+    deadmines = { { id = "tp_deadmines", text = "Somebody in the Trade District's buying sailcloth by the bolt and sending it west, and I hear it ends up in the old Moonbrook mines. I've stopped selling to anyone who won't tell me what it's for." } },
+    scourge = { { id = "tp_scourge", text = "The refugees from Lordaeron come in wearing rags, and some of them have been walking for weeks. I sew for them for nothing when I can, though don't tell the nobles, or they'll want theirs free too." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's costumes are the finest work I've ever seen, all silk and sequins. I asked their tailor how he did it, and he said magic, and I think he was joking, but I'm not sure." } },
     knows = { { id = "tp_knows", text = "Folk stand very still while I pin them, dear, and they talk to fill the quiet. Ask me what I've heard." } },
     background = { { id = "tp_bg", text = "A tailor with a shop by the bridge and a son who forgets his shears. There's no more to me than thread and worry." } },
     advice = { { id = "tp_ad", text = "Mend a small tear today, or you'll be buying a whole new shirt next week. That goes for more than shirts." } },
@@ -831,6 +843,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The fishermen in Booty Bay pull in sharks and swordfish, and they talk about it like it's nothing. I'll take a canal trout and a quiet afternoon, but I'll admit I'm jealous." } },
+    gilneas = { { id = "tp_gilneas", text = "I fished with a Gilnean once who could read the sea like a book. He said the Greymane Wall cut him off from his own harbour, and he never fished again, and that seemed the saddest thing in the world." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire runs a fishing game where you hook wooden fish out of a tub. I won seven times in a row and they asked me to leave, which I took as a compliment." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's in the water too, I think, when the sun comes up over the canals. I've never said that to a priest, but I've a feeling they'd agree." } },
     knows = { { id = "tp_knows", text = "Folk say a lot to a man sitting still by the water. Ask, and I'll tell you what drifted past." } },
     background = { { id = "tp_bg", text = "A fisherman who teaches now, with Catherine, on these canals. Not much of a tale, but a peaceful one." } },
     advice = { { id = "tp_ad", text = "When the road's too much, find water and sit by it. You'll go back to it a better person." } },
@@ -1020,6 +1036,10 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "I lost my farm in Lordaeron when the dead came, or I lost it in Westfall to the Defias, depending on what day it is. The truth's somewhere between the two, and I've stopped looking for it." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests give me soup on the Cathedral steps, and they don't ask which story I'm telling that day. That's the Light at work, I suppose, or a very patient cook." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, and they're the ones that took my farm, I'll swear to it. Or it was the orcs, I can't recall, but either way somebody owes me a field." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire once and won a stuffed bear, and I sold it the next day for bread. Best trade I ever made, and the bear didn't mind." } },
     knows = { { id = "tp_knows", text = "A beggar on a bridge hears everything, guv, because nobody thinks he's listening. What'll ye have?" } },
     background = { { id = "tp_bg", text = "A farmer once, or so I tell it, and a beggar now, and that part's true enough.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Always have two stories, friend. One's never enough in a city this size." } },
@@ -1198,6 +1218,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a tonk you can drive, and Adam drove it into a fence and we had to run! It was the best day ever, and I'm going back as soon as I've got coppers again." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in a swamp who sleeps on a hill of gold, and I'm going to catch her with a fishing line someday. Adam says I'd need a bigger hook, and I said I'd make one." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My da says the statues in the Valley of Heroes are of real people who fought the orcs. I climbed one once, and a guard shouted, and I've not been back since." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I heard the pirates in Booty Bay catch fish bigger than a man, and I caught a fish bigger than a man once too. Adam wasn't there, so you'll just have to believe me." } },
     knows = { { id = "tp_knows", text = "I know loads of stuff, mostly about fish! Ask me!" } },
     background = { { id = "tp_bg", text = "I'm Billy, and I'm gonna be the best fisherman in Stormwind when I'm big." } },
     advice = { { id = "tp_ad", text = "If it's a boot, throw it back, 'cause it's not a fish. Took me ages to learn that." } },
@@ -1407,6 +1431,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships come in every week with spice and rum and goblins who argue over every crate. I log them all, and I've learned more goblin swearing than any clerk should know." } },
+    theramore = { { id = "tp_theramore", text = "The ships to Theramore run from Menethil now, not from here, and I'm told the crossing is rough. I'd go if I didn't have a harbour to keep and too few hands to keep it." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have been seen off the coast south of Westfall, and the merchant captains won't sail past the lighthouse at night. That's cost this harbour a fortune, and I've the ledgers to prove it." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean ships used to call here every month, and we'd swap cloth for timber and gossip. Since the Wall went up, I've not logged a single one." } },
     knows = { { id = "tp_knows", text = "Every ship brings news with its cargo, and I write down the cargo. Ask, and I'll tell you what's come over the water." } },
     background = { { id = "tp_bg", text = "A clerk on the docks with a ledger and too few dockhands. If there's a story, it's written in the margins." } },
     advice = { { id = "tp_ad", text = "Lift with your legs, count twice and never sign for a crate you haven't seen. That's all the wisdom the harbor teaches." } },

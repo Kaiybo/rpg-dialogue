@@ -870,8 +870,6 @@ P:NPC {
     },
   },
   topics = {
-    centaur = { { id = "tp_centaur", text = "|" } },
-    quilboar = { { id = "tp_quilboar", text = "|" } },
     worgen = { { id = "tp_worgen", text = "Hunters from Duskwood bring me hides now and then, and lately they've brought the odd wolf pelt too big for any wolf I know. I don't sell those, and I don't ask about them either." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs eat worgs and boar and anything else that walks in the Steppes, and they eat it raw, from what I hear. I'd at least like to give them a recipe before the soldiers finish them off." } },
     booty_bay = { { id = "tp_booty_bay", text = "The cooks in Booty Bay will put anything with a heartbeat in a pot, and I've a lot of respect for that. I'd like to cut a crocolisk steak one day, if anyone ever brings one this far from Stranglethorn." } },

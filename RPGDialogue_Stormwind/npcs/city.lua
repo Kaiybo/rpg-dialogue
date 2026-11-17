@@ -409,6 +409,19 @@ P:NPC {
   },
 
   topics = {
+    si7 = { { id = "tp_si7", text = "SI:7 is the King's eyes and ears, and in his absence, they're the Regent's. We hear more than we say and say less than we know, which is how it should be." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's riot was not an accident, and it was not entirely the prisoners' idea. I'll say no more than that, except that I'd like the names of the people who've been paying the guards." } },
+    deadmines = {
+      { id = "tp_deadmines", text = "VanCleef is dug in under Moonbrook with a ship he's built in the mines, and I've known about it for months. Knowing isn't the same as proving, and proving isn't the same as having the men to act." },
+      { id = "tp_deadmines2", when = { class = "ROGUE" }, text = "You've the hands for the Deadmines, and the eyes, which matters more down there. If you go, come back and tell me what you saw before you tell Stoutmantle, and we'll call it a professional courtesy." },
+    },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are the fallen nobles of Alterac, playing thieves in the hills and conspiring with anyone who'll pay. They're on my list, a fair way down, because Stormwind has problems closer to home." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt Manor is a fine old house in the Alterac foothills, I'm told, and I'm told a great deal. If you find it, give them my regards, and don't tell them I sent you." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor has the Regent's ear and the House of Nobles' devotion, and she's done nothing I can point to. I keep files on everyone in the Keep, and hers is very thin, which I find interesting." } },
+    varian = { { id = "tp_varian", text = "SI:7 has been searching for the King since the day his ship went missing, and we've not found so much as a boot. That's either very good news or very bad, and I'm paid to assume the second." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's orcs keep to Durotar and the Barrens, and his envoys talk peace with Theramore. I don't take talk at face value, and I'd advise you don't either." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells to everyone, and that includes people who'd like this city burned. I've a few friends in the port who keep me informed, and they're expensive, and they're worth it." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's half in ogre hands and half in the Syndicate's, and its lords are too proud to ask us for help. I watch the Arathi Highlands closely, because whoever holds them holds the road north." } },
     knows = {
       { id = "tp_knows", text = "Knowing things is the whole trade here, though telling them is another matter. I'll give you what I can on any of these, and not a word more." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get very little from me, but I'll hear the question, on these and nothing else." },
@@ -665,6 +678,14 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran is being rebuilt, I'm told, slowly and behind closed gates, and the Kirin Tor have yet to invite anyone back. I trained there once, and I'd go back tomorrow if they'd only answer my letters." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and they've decided the world can wait while they repair their towers. I understand it, and I'd still like an answer to my letters." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a member of the Kirin Tor, once, before he turned to necromancy and the dead. I've studied his early writings, and they were brilliant, which is the most frightening thing I can say about them." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Archmage Arugal took refuge in Shadowfang Keep, and the creatures he summoned to fight the Scourge became worse than the Scourge. Every young mage should study that lesson before they open their first grimoire." } },
+    jaina = {
+      { id = "tp_jaina", text = "Jaina Proudmoore was the best student Dalaran had in a generation, and she proved it when she led her people across the sea. I envy her, and I admire her, and I'd not want her burdens for anything." },
+      { id = "tp_jaina2", when = { class = "MAGE" }, text = "Lady Proudmoore studied under Antonidas himself, and she was the finest of his students. Hold yourself to her measure, and you'll fall short every day, which is exactly how a mage should feel." },
+    },
     knows = {
       { id = "tp_knows", text = "The Sanctum keeps careful records, and I keep careful notes on the records. Ask me about any of these, and listen closely." },
     },
@@ -933,6 +954,13 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = {
+      { id = "tp_burning_legion", text = "The Burning Legion is the source of all fel magic, and those of us who study it know exactly what we're touching. Respect it, and it may serve you, but forget for an instant and it will devour you whole." },
+      { id = "tp_burning_legion2", when = { class = "WARLOCK" }, text = "Never forget that the power you draw comes from the Legion's own fire. Bind it, master it, and never trust the voice that tells you you've mastered it." },
+    },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs came through the Dark Portal because a warlock opened it, and that's the reason Stormwind hates my kind. I don't blame them, but I'd note that the city still needed us when the demons came." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad made a bargain with the dead, and he paid for it with his life and his soul. I've made bargains too, but I always read the terms before I sign them." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal summoned beasts he couldn't control and called it a defence against the Scourge. That's the sort of mistake that gives my kind a bad name, and he deserves every word of it." } },
     knows = {
       { id = "tp_knows", text = "I know more than I say, which is the only sensible way to know anything in this cellar. Ask about these, and keep your voice down." },
     },
@@ -1140,6 +1168,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum is the best in the world, love, and I keep a bottle behind the bar for the ones who've earned it. I'll not say who those are, because they'd all want one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sends its performers here when they're in the city, and they eat like wolves and tip like kings. I've never had a better week than the one when the fire-eaters stayed." } },
+    deadmines = { { id = "tp_deadmines", text = "Half the adventurers who stay here are headed for the Deadmines, love, and half of them come back with tales they won't tell. The other half don't come back, and I keep their rooms a week before I let them." } },
+    theramore = { { id = "tp_theramore", text = "They say Theramore's a lovely place, love, all sea air and soldiers, and the Lady Proudmoore runs it with a firm hand. I'd go if I didn't have a whole inn to keep, and I've a feeling I never will." } },
     knows = {
       { id = "tp_knows", text = "Half the kingdom eats breakfast at my tables, and the other half talks about it. Ask me about any of this, love, while the kettle's on." },
     },

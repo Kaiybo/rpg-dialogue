@@ -297,6 +297,20 @@ P:NPC {
   },
 
   topics = {
+    varian = {
+      { id = "tp_varian", text = "My father went to Theramore to make peace and never got there, and nobody will tell me what happened to his ship. Bolvar says he'll come home, and I say it too, every night, so it stays true." },
+      { id = "tp_varian2", when = { disposition = { min = 65 } }, text = "Sometimes I go into his study and sit in his chair, just to see the room the way he saw it. I'm not supposed to, so please don't tell Bolvar, though I think he knows." },
+    },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar runs the kingdom until I'm old enough, and he's very patient with me, even when I ask too many questions. He used to be a paladin in Lordaeron, and he still prays like one, every morning before council." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor says I'm a good listener, and she sits beside me at council and tells me which lords are being silly. Everyone agrees with her, so she must be very wise, though she never laughs at anything." } },
+    jaina = { { id = "tp_jaina", text = "Lady Jaina Proudmoore is a great sorceress, and she was a friend of my father's. She sent me a book about the stars once, and I've read it four times." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is the warchief of the orcs now, and Bolvar says he's not like the ones who burned Stormwind. I don't know how a whole people can change, but I'd like to ask him, if anyone ever let me." } },
+    magni = { { id = "tp_magni", text = "King Magni came to visit when I was little and let me pull his beard, and he laughed so hard the windows shook. I'd like a beard like that, though Bolvar says I'll have to wait." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of people who saved the world, and I go and look at them when I'm feeling small. I wonder whether I'll have one someday, or whether you have to do something first." } },
+    holy_light = { { id = "tp_holy_light", text = "Archbishop Benedictus teaches me about the Light every week, and he says it's in everyone, even people who are cross. I'm still looking for it in some of the council, but I'm trying." } },
+    scourge = { { id = "tp_scourge", text = "Bolvar won't talk about the Scourge when I'm there, but I've heard the soldiers say the dead walk in Lordaeron. I had a nightmare about it once, and I didn't tell anybody but you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've never been to the Darkmoon Faire, because a king can't just go to a faire, apparently. I've heard there's a man who juggles fire, and I'd give anything to see it." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of the night elves, and she's thousands of years old. I asked if she remembered the beginning of the world, and the ambassador went very quiet." } },
     knows = {
       { id = "tp_knows", text = "I hear a lot at council, because everyone forgets I'm there. Ask me about any of it and I'll tell you, as long as it isn't a secret." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You can ask me about anything here, and I'll tell you the parts Bolvar skips, too." },

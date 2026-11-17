@@ -401,6 +401,23 @@ P:NPC {
   },
 
   topics = {
+    varian = {
+      { id = "tp_varian", text = "Varian set out for Theramore to speak of peace, and his ship never made port. I hold this throne for his son, and I'll hold it until the day he walks back through that door, however long it takes." },
+      { id = "tp_varian2", when = { disposition = { min = 65 } }, text = "Some nights I think he's dead and some nights I'm sure he isn't, and I can't decide which hurts more. The boy asks me every morning, and I've run out of new ways to say I don't know." },
+    },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor has been a great help to me since the King vanished, and the House of Nobles listens to her as it never listens to me. I'm grateful for her counsel, though she's very sure of herself, and I suppose a regent needs someone who is." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore is a friend of this throne, and she's done more for peace between the races than any of us. If anyone can keep the orcs and Theramore from each other's throats, it's her." } },
+    thrall = { { id = "tp_thrall", text = "Thrall leads the orcs in Kalimdor now and speaks of peace with Theramore, and Jaina vouches for him. I've buried too many men to trust an orc on his word, but I'll trust Jaina on hers." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge holds Lordaeron, the kingdom I served before this one, and I've seen what they do to a city. If they ever turn their eyes south, Stormwind will need every sword and every prayer it has." } },
+    silver_hand = {
+      { id = "tp_silver_hand", text = "I was a knight of the Silver Hand before I was Regent of Stormwind, and I still wear its oath under this armour. The order's scattered now, but I'll not let its name be forgotten while I hold this seat." },
+      { id = "tp_silver_hand2", when = { class = "PALADIN" }, text = "You carry the Light as we did in the Silver Hand, and the order lives as long as people like you do. Remember that Uther's oath was to serve the people, not the crown, and I'll ask nothing more of you." },
+    },
+    holy_light = { { id = "tp_holy_light", text = "The Light has carried me through two wars and a regency I never wanted, and I trust it more than I trust any council. Pray for this kingdom, if you would, because I have run short of other options." } },
+    magni = { { id = "tp_magni", text = "Magni Bronzebeard is the staunchest ally this kingdom has, and he's never once asked what we can pay. Ironforge stood with us in the Second War, and it stands with us now, which is more than I can say for some." } },
+    onyxia = { { id = "tp_onyxia", text = "Theramore's soldiers write of a black dragon in Dustwallow Marsh, and Jaina has asked for help. I've sent letters, and I'll send soldiers when I can spare them, which is a phrase I'm sick of writing." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade has fallen to its own prisoners, and the city guard holds the doors and nothing else. I've had requests to storm it, and I've had requests to leave it be, and I'm told by people I trust that the second is wiser." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of the heroes of the Second War, and I pass them every morning on my way to council. I remind myself what they gave, and I try to be worthy of standing in their shadow." } },
     knows = {
       { id = "tp_knows", text = "Every report in the kingdom crosses this desk sooner or later, so I know a little of most things. Ask, and I'll tell you what a regent may." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll spare the council a few more minutes. Ask me about any of this, and I'll answer as plainly as I'm able." },

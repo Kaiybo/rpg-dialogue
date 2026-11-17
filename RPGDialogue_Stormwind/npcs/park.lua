@@ -258,6 +258,13 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "Elune watches over all living things, even those who live inside stone walls, and I've found her light in this Park every night. The humans think it's only the moon, and that's well enough." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is the world as it was meant to be, untouched by the hands of mortals, and the druids walk it in their sleep. Something troubles it lately, and I've felt it in my own dreams." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the World Tree, and it gave our people immortality until it gave its strength to stop the Legion. Now we're as mortal as you, and I've found it makes the days sweeter." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion Stormrage is the greatest of our druids, and he sleeps in the Emerald Dream while the world goes on without him. I hope he wakes soon, because the Circle needs his voice." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of Elune and the leader of our people, and she waits for Malfurion to wake. Her patience is longer than your kingdom's history, and still it's being tested." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Emerald Dream, and Ysera is their mother and queen. They watch over the great trees where the Dream touches our world, and they've no patience for anyone who disturbs them." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last furbolgs untouched by corruption, and they guard their tunnels in Felwood and Winterspring. I'd count them friends, though they'd not count me one until I proved it." } },
     knows = {
       { id = "tp_knows", text = "The trees of this park hear a great deal, and so do I, sitting among them. Ask what you will." },
     },
@@ -431,6 +438,11 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "There's a plant that grows only in the gardens of Dalaran, and I mean to have a cutting before I die. The Kirin Tor won't open their gates, and I'm sure it's to keep me out personally." } },
+    elune = { { id = "tp_elune", text = "Elune blesses every herb that grows by moonlight, and I pick mine only after dark for that reason. The humans think I'm mad, and they buy my herbs anyway." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream holds plants that would make your herbalists weep, and I've seen a few of them in my sleep. I've tried to find them when I wake, and I never can, which is very annoying." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the World Tree, and the herbs that grew at its roots had no equal anywhere. I'd go to Hyjal to see what's left, if the guardians there would let me." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our home now, and its herbs are fine, though not as fine as Nordrassil's. I don't say that in front of the druids, because they're sensitive about it." } },
     knows = {
       { id = "tp_knows", text = "I know plants, and the people who walk through the Park on their way to somewhere else. Ask, but make it worth my time." },
     },

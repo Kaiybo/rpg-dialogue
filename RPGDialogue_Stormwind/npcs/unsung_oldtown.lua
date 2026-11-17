@@ -144,6 +144,9 @@ P:NPC {
     },
   },
   topics = {
+    second_war = { { id = "tp_second_war", text = "The orcs swung greataxes in the Second War, and only a man with a two-hander could meet them blow for blow. I sell nothing that can be swung with one hand, and I'm proud of it." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters of the Gurubashi Arena buy greatswords from me now and then, and I've heard a few of them have won. I've also heard a few of them haven't, and I don't sell refunds." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make greataxes that would split a shield in one blow, and I'd like to own one. I'd not sell it, mind, because I'd want it on my own wall." } },
     background = { { id = "tp_bg", text = "I've sold heavy steel in Old Town for years, in the one part of the city the Horde never managed to burn." } },
     _none = { { id = "tp_none", text = "No idea, friend, but ask me about greatswords and I'll talk all day." } },
   },
@@ -313,6 +316,9 @@ P:NPC {
     },
   },
   topics = {
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw furbolgs skin their beasts with a care I've never seen anywhere else, so the hunters say. I'd like to learn their way, though I'm told they don't take to tourists." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The raptor hides that come up from Booty Bay are the toughest I've ever worked. I've no time for tourists, but I've time for anyone who brings me a raptor hide." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's beast-keeper asked me to skin a dead bear once, and I did it for nothing, because it was the finest pelt I'd ever seen. I've not told anyone that till now." } },
     background = { { id = "tp_bg", text = "I've skinned since I was a girl on a farm in Elwynn. Now I teach it in the city, which pays better and smells worse." } },
     _none = { { id = "tp_none", text = "I don't know and I don't much care, so is there anything else?" } },
   },
@@ -470,6 +476,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay haggle over every copper, and that's why I don't. My prices are set, and if you want to haggle, go and find a goblin." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "A goblin from Gadgetzan tried to haggle me down once, and I wouldn't budge. He left very confused, and I've never been prouder of myself." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's dyes are the brightest I've ever seen, and they won't tell anyone how they make them. I've tried, and all I've made is a very purple hand." } },
     background = { { id = "tp_bg", text = "I've sold supplies at the Protective Hide for years. It's an honest trade in an honest corner of Old Town." } },
     _none = { { id = "tp_none", text = "That's not my business, but ask me about thread and I'll help." } },
   },
@@ -637,6 +646,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Every adventurer who goes south to Booty Bay comes back wishing they'd carried more, and I tell them so before they leave. Most don't listen, and most come back to buy a bigger bag." } },
+    deadmines = { { id = "tp_deadmines", text = "The adventurers headed for the Deadmines always buy the biggest bag I have, and they always say they won't need it. They come back with it full, every time." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire gives away bags as prizes, and they're terrible, and they fall apart in a week. I sell more bags the week after the Faire than any other time." } },
     background = { { id = "tp_bg", text = "I've stitched bags at the Protective Hide for years, alongside Seoman, who sells the leather armour." } },
     _none = { { id = "tp_none", text = "No idea, love, but ask me about bags and I'll tell you anything." } },
   },
@@ -805,6 +817,10 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The cooks of Booty Bay put crocolisk in everything, and I've collected seven of their recipes. I've tried them all, and I've liked four, which is a good ratio for crocolisk." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins of Gadgetzan cook with cactus, and they swear it's delicious. I've a recipe, and I've tried it, and I'd swear it's not." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells food from every corner of the world, and I've bought a recipe from every stall. My collection's grown by a third since the first time I went, and my waist by a little more." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean cooking was the finest in the Seven Kingdoms, and they've taken all their recipes behind that wall. I've a single one, a mutton pie, and I guard it like gold." } },
     background = { { id = "tp_bg", text = "I've collected recipes all my life and sold them from this room for many years. It's a happy life, and a well-fed one." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, unless it goes in a pot." } },
   },

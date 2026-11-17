@@ -258,6 +258,17 @@ P:NPC {
   },
 
   topics = {
+    heroes_vigil = {
+      { id = "tp_heroes_vigil", text = "Henze Faulk fell on Heroes' Vigil holding off the Defias so Gazin could escape. The Light can bring him back, if the paladin who carries it is steady, and I've sent the steadiest I could find." },
+      { id = "tp_heroes_vigil2", when = { class = "PALADIN" }, text = "If you go to Heroes' Vigil, go with the Symbol of Life and a clear heart, and the Light will do the rest. Henze gave his life for his friend, and that's the sort of soul the Light is eager to return." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand trained me, and I train the young paladins who come after, so its oath doesn't die with us. Uther would say the order is in the hearts of those who serve, not in the halls we've lost." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a debt we owe to the people who can never repay us, and a paladin is the one who pays it. That's all I teach, and it takes most of a lifetime to learn." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire sends me their best young paladins, and they come well grounded in the Light. Brother Sammuel does fine work there, though I'd not tell him so, because he'd become insufferable." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron and most of the Silver Hand with it, and I lost brothers I'd fought beside for twenty years. I pray for them every night, and I pray they're at rest." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil was trained by Uther himself, and he fell further than any paladin in history. I teach his story to every squire, because the Light doesn't protect anyone who stops listening to it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was purged by the prince, and the Silver Hand broke over it. I wasn't there, and I've thanked the Light every day since that I wasn't, and asked its forgiveness for thanking it." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias have a nest under Moonbrook, and Stoutmantle will need paladins when he goes in after VanCleef. If you go, carry the Light into the dark, and bring it back out with you." } },
     knows = {
       { id = "tp_knows", text = "I've trained paladins for this Cathedral long enough to know a good deal, and to keep most of it to myself. These, I'll speak to." },
     },

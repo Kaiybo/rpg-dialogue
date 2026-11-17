@@ -392,7 +392,6 @@ P:NPC {
     },
   },
   topics = {
-    murlocs_east = { { id = "tp_murlocs_east", text = "|" } },
     booty_bay = { { id = "tp_booty_bay", text = "I fished out of Booty Bay one season, and the sharks there are as big as a rowboat and twice as clever. I came home with all ten fingers, which put me ahead of most." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sail past the lighthouse now and then, and I keep my head low in the boat when they do. They've no need of a fisherman, but they'd take one anyway, for the fun of it." } },
     deadmines = { { id = "tp_deadmines", text = "Sometimes at night I hear hammering from the hills behind Moonbrook, slow and steady, like a shipwright. I tell myself it's my ears, and then I row a little faster." } },

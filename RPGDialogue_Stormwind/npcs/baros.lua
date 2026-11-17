@@ -285,6 +285,11 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, and I'm told Bazil Thredd is among the ringleaders. He was a stonemason once, and I knew him, and that is the sort of thing a man keeps to himself in this city." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I drew the plans for the Valley of Heroes, or some of them, and I still walk under the arches to see if they've settled. They haven't, and I'm prouder of that than I should be." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild rebuilt Stormwind after the orcs tore it down, and the House of Nobles refused to pay the bill. I was one of them, in a way, and I stayed, and that is the difference between me and the men in red." } },
+    deadmines = { { id = "tp_deadmines", text = "They tell me VanCleef has dug a whole harbour under Moonbrook, and if that's true, then it's a mason's work and a fine one. I'd rather admire it from a long way off." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy on a Westfall farm when the orcs came through, and I watched Stormwind burn from the hills. I've spent my whole life drawing it back up again, one street at a time." } },
     knows = {
       { id = "tp_knows", text = "An architect learns a city from its drains up, and its people along with it. Ask me about any of this, and I'll tell you what the stone has told me." },
     },

@@ -214,6 +214,12 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I'll tell you about it whether you ask or not, so you might as well ask. The orcs were bigger than they are now, and so was I, and I'd like to think we both shrank about the same." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's the warchief of the orcs now, and they say he's a different sort than the ones I fought. I'll believe it when I see him at this table, and I'll buy him a drink if he behaves." } },
+    internment = { { id = "tp_internment", text = "I guarded an internment camp for a year after the war, and it was the worst job I ever had. The orcs were broken and the guards were bored, and nobody was happy, and then they all walked out anyway." } },
+    dark_portal = { { id = "tp_dark_portal", text = "I stood in the Black Morass the day the expedition marched through the Dark Portal, and I watched good men walk into that red light and never come back. That's a story for another night, and another round." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are of men and women I fought beside, and they were all a good deal less handsome in person. I'll tell you which ones snored, if you buy the next round." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've heard of an arena in Stranglethorn where they fight for gold, and I've sent a few of my students there to learn. Most of them came back, and the ones that did were better for it." } },
     knows = { { id = "tp_knows", text = "Old soldiers drink here, and they talk when they drink. Ask me, and I'll tell you what I've heard over the rim of a mug." } },
     background = { { id = "tp_bg", text = "A soldier long enough to know better, and a teacher now. That's the whole of it, and I'll not dress it up.", next = "soldiering" } },
     advice = { { id = "tp_ad", text = "Keep your guard up even when you're winning, especially then. That's when they get you." } },
@@ -429,6 +435,10 @@ P:NPC {
   },
 
   topics = {
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "There's an arena down in Stranglethorn where they'll fight you for a chest of gold, and I'd go if I could find my boots. Last time I looked they were under a dwarf." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I spent a night in the Stockade once for a disagreement with a chair, and it was the best sleep I've had in years. Now the prisoners run it, I hear, so I'll not be back, unless they're serving ale." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons brew a stout so black you can't see the bottom of the mug, and I've only had it once. I've been chasing that mug ever since, and I'll catch it someday." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a contest where you drink until you fall, and I've won it twice. They've asked me not to come back, which I count as a third win." } },
     knows = { { id = "tp_knows", text = "I hear everything said at this bar, though I remember about half of it. Ask, and we'll see which half." } },
     background = { { id = "tp_bg", text = "I drink, I fight, I keep my mug. You want more than that, buy me another." } },
     advice = { { id = "tp_ad", text = "Never fight a man for his drink unless you're willing to buy him the next one. That's manners." } },
@@ -606,6 +616,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's folk come in here when they're in the city, and they tip better than any soldier. I've had a juggler leave me a silver and a fire-eater leave me burns, so it evens out." } },
+    dark_iron = { { id = "tp_dark_iron", text = "A dwarf asked me for Dark Iron ale once, and I told him we don't serve it here, and he cried. I gave him a Thunderbrew on the house, and he forgave me by the third." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum is the only drink that's ever made Burlguard stop talking about the Second War. I keep a bottle for emergencies, and I've used it twice." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The guards from the Stockade drink here after their shifts, and they've been drinking more since the riot. They don't talk about it, and I don't ask, but I keep their mugs full." } },
     knows = { { id = "tp_knows", text = "A barmaid hears every secret in Old Town, love, though she keeps most of them. Ask." } },
     background = { { id = "tp_bg", text = "I carry drinks at the Pig and Whistle, and I'm good at it. That's my story, and it's a busy one." } },
     advice = { { id = "tp_ad", text = "Never sit with your back to the door in Old Town, love. Everybody who matters already knows that." } },
@@ -787,6 +801,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The cooks in Booty Bay do things with spice I'd not have believed, and I've stolen a few of their tricks. I'll not tell you which ones, because a cook's secrets are his own." } },
+    si7 = { { id = "tp_si7", text = "I'm just a cook, and SI:7 is just the building next door. If you've any other questions about it, I'd ask them somewhere else." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena is a pit full of fools fighting for gold, and I've no interest in it. I've done enough fighting for one life, if you take my meaning, and now I do ribs." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells ribs that would make a dwarf weep, and I've been trying to make them for years. I'm close, I think, though the secret's probably in the smoke." } },
     knows = { { id = "tp_knows", text = "Folk talk while they eat. Ask, and I'll tell you what came back with the plates." } },
     background = { { id = "tp_bg", text = "I'm a cook. You can ask again, but you'll get the same answer.", next = "past" } },
     advice = { { id = "tp_ad", text = "Learn to cook what you kill. You'll eat better on the road, and you'll waste less." } },
@@ -959,6 +977,9 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's tents are leather, and the finest I've ever seen, stitched by someone who knew what he was about. I'd give a year's earnings to meet the man who made them." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The furbolgs of the Timbermaw make leather armour that's lasted a hundred years, so the hunters say. I'd like to learn from them, though I'm told they don't care for visitors." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The finest leather in the world comes from the raptors of Stranglethorn, and Booty Bay's the only port that sells it. I buy when I can, and I curse the price every time." } },
     knows = { { id = "tp_knows", text = "Hunters and skinners bring me their hides and their stories together. Ask, and I'll tell you what came in with them." } },
     background = { { id = "tp_bg", text = "A leatherworker and a teacher, in Old Town most of my life. The hides tell better stories than I do." } },
     advice = { { id = "tp_ad", text = "Skin carefully, because a torn hide's only fit for scraps. Patience at the carcass saves you coin at the bench." } },
@@ -1229,6 +1250,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt Manor is somewhere in the Alterac foothills, and they find you, not the other way round. I've heard they're very selective, and I'm told I was nearly selected once." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are noble thieves, which is two kinds of thief at once. I'd not work for them, and I'd advise you don't either, because they never pay what they promise." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of rogues who got caught, and a few of them were mine. I'd like to say it was their fault, but I taught them, so I suppose it's partly mine." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the best port in the world for a rogue to lose himself, and the goblins never ask questions. I spent a year there once, and I've still got the scars and most of the coin." } },
     knows = { { id = "tp_knows", text = "Plenty passes this door that never gets written down. Ask, and I'll decide what you can hear." } },
     background = { { id = "tp_bg", text = "I'm the Night Man. Anything before that was somebody else's life, and I've forgotten it on purpose." } },
     advice = { { id = "tp_ad", text = "Learn to listen before you learn to pick a lock. Most doors open once you know who has the key." } },
@@ -1443,6 +1468,10 @@ P:NPC {
   },
 
   topics = {
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt's the finest school of my trade, and its master makes poisons that could kill a dragon. I've had a few of his vials, and I've never been so jealous of anything in my life." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate buy from me now and then, through people who think I don't know who they work for. I know, and I sell to them anyway, because their gold's as good as anyone's." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The jungle trolls of Zul'Gurub brew poisons that make my stock look like water. I'd like a sample, though I'd not like to collect it myself." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Half the poisons in the Stockade came from my shelves, though I'll not say how they got there. The prisoners know how to find what they need, which is a skill I respect." } },
     knows = { { id = "tp_knows", text = "Everything that comes through SI:7's door passes my counter sooner or later. Ask carefully, and I'll answer carefully." } },
     background = { { id = "tp_bg", text = "I sell supplies to SI:7. Before that, I sold them to somebody else, and that's all I'll say." } },
     advice = { { id = "tp_ad", text = "Never tell a man more than he needs to know, and never trust a man who tells you more than you need. Both will get you killed." } },

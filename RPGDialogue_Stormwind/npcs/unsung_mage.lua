@@ -173,6 +173,10 @@ P:NPC {
     },
   },
   topics = {
+    elune = { { id = "tp_elune", text = "Elune guides my hands when I brew, though the humans don't understand why I work by moonlight. I don't explain, because they'd only want to watch." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is my home, and I'd rather be there, or anywhere outside these walls. Still, duty keeps me here, and I share what I know with those who'd learn it." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels fight for our people in Ashenvale, and I'd rather be with them than in this little shop. I brew potions for them when I can, and I send them by the next ship." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The herbs that grow where the Emerald Dream touches our world are the finest in any alchemy, and I've never been able to find them. The druids say they're there, and I believe them." } },
     background = { { id = "tp_bg", text = "I crossed the sea when our peoples made their alliance, and I have taught here ever since, though I count the days." } },
     _none = { { id = "tp_none", text = "That I cannot tell you. Ask me about herbs and flasks instead." } },
   },
@@ -341,6 +345,10 @@ P:NPC {
     },
   },
   topics = {
+    teldrassil = { { id = "tp_teldrassil", text = "Every herb on my table was grown on Teldrassil and carried here by hand, as a sign of friendship between our peoples. I hope you'll treat them as a gift, even if you've paid for them." } },
+    elune = { { id = "tp_elune", text = "Elune watches over every plant that grows under the moon, and I bless each one before I sell it. The humans think I'm being polite, and I let them think so." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind sent us here to show the humans our goodwill, and I carry her blessing with every herb I sell. She is our high priestess and our leader, and she has been both for longer than your kingdom has stood." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Elwynn soon after I arrived, and I had never heard so many humans laugh at once. I have seen a great deal in a very long life, and that still surprised me." } },
     background = { { id = "tp_bg", text = "I crossed from Kalimdor with the first of our people to come to Stormwind, and I have kept this corner of the shop since." } },
     _none = { { id = "tp_none", text = "I do not know, and I would not wish to guess." } },
   },
@@ -504,6 +512,9 @@ P:NPC {
     },
   },
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's costumes are the only tailoring in the world that rivals mine, and I say that with all the modesty I possess. I've studied every stitch, and I've found three mistakes, which I shall not name." } },
+    gilneas = { { id = "tp_gilneas", text = "The tailors of Gilneas cut the finest coats in the Seven Kingdoms, and they've hidden every one of them behind that wall. I've tried to copy their collars, and I've failed, which I don't say often." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran wore robes of the finest silk, and I tailored a few of them before the plague. I'd like to again, when they open their gates, and I'd like them to notice the hems." } },
     background = { { id = "tp_bg", text = "I've cut cloth in Stormwind since the city was rebuilt, and I'll cut it until my eyes give out." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, darling, and I don't intend to find out." } },
   },
@@ -671,6 +682,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Since Dalaran fell and Quel'Thalas burned, good silk thread is very hard to find. Lucan Cordell and a few others keep us supplied, and Georgio complains about the colour of every spool." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The best dyes in the world come up from Booty Bay, and the goblins charge for every drop. Georgio says they're worth it, and I say he's not the one doing the accounts." } },
+    scourge = { { id = "tp_scourge", text = "Quel'Thalas made the finest thread before the Scourge came, and I've a single spool of it left. I keep it in a drawer and look at it on bad days, and I'll never sell it." } },
     background = { { id = "tp_bg", text = "I've kept this counter at Duncan's for years, beside Georgio. Our family has always worked in cloth." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Thread I know; that, I don't." } },
   },
@@ -838,6 +852,9 @@ P:NPC {
     },
   },
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's tents are woven like a story, every thread leading to the next, and I could look at them all day. Georgio says I should be looking at my own work instead, and he's probably right." } },
+    holy_light = { { id = "tp_holy_light", text = "Life is like a carefully woven cloth, and the Light is the thread that holds it together. I've told that to Georgio, and he said I should save it for a sampler." } },
+    scourge = { { id = "tp_scourge", text = "The refugees from Lordaeron bring cloth with them, and some of it is the finest I've ever seen. I've learned more from the scraps they sell than from any book, and I wish it weren't so." } },
     background = { { id = "tp_bg", text = "Born to a family of tailors and apprenticed to Master Bolero. I mean to be an artisan myself, one day." } },
     _none = { { id = "tp_none", text = "I don't know about that, I'm afraid, but ask me about stitches!" } },
   },
@@ -995,6 +1012,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's wand-makers were the finest in the world, and their workshops were a wonder to see. I mourn them more than the towers, if I'm honest, because towers can be rebuilt and craftsmen can't." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor bought wands from me once, before the plague, and they were very particular about the wood. I'd like them to come back and be particular again, because I miss the challenge." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Archmage Arugal bought a wand from my old master, years ago, and it was never meant for summoning. I've wondered since whether it ended up in Shadowfang Keep, and I hope it's broken if it did." } },
     background = { { id = "tp_bg", text = "I've sold wands at Stormwind Staves beside Allan Hafgan for years. I can't cast a spell to save my life, but I can tell you which wand will." } },
     _none = { { id = "tp_none", text = "No idea! But if it can be pointed and fired, ask me." } },
   },
@@ -1162,6 +1182,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Half the curios on my shelves came out of Dalaran before the plague, and I'll not see their like again until the city opens its gates. Each one has a story, and I'll tell it to you if you're quiet." } },
+    scourge = { { id = "tp_scourge", text = "A refugee brought me a little silver bell from Lordaeron, and it rings by itself on cold nights. I've never sold it, and I never will, because I think it's waiting for someone." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "I have a little troll idol from Zul'Farrak, brought back by an explorer who wouldn't say how he got it. It's very ugly, and very old, and I keep it facing the wall." } },
     background = { { id = "tp_bg", text = "I've kept this little shop for years, among things older and stranger than me. I find it restful, most days." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Perhaps one of my trinkets does, but they won't say." } },
   },
@@ -1322,6 +1345,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran wore robes like no one else, and I've been trying to make their like since the city fell. I'm close, I think, though Thurman keeps sewing the sleeves on backwards." } },
+    holy_light = { { id = "tp_holy_light", text = "Thurman Schneider is my apprentice, and the Light tests my faith every day through him. I pray for patience, and the Light sends me Thurman, which I suppose is an answer." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's fortune-teller told me I'd have a fine apprentice someday. I've been waiting, and I'm still waiting, and Thurman's still sewing sleeves on backwards." } },
     background = { { id = "tp_bg", text = "The Larsons have sold robes in the Mage Quarter since it was rebuilt, and I've kept the shop since my mother passed it to me." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask me about cloth and cut, and I can." } },
   },

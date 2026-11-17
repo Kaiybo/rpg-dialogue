@@ -311,6 +311,16 @@ P:NPC {
   },
 
   topics = {
+    varian = { { id = "tp_varian", text = "Poor Varian, lost at sea on a mission of peace, and the kingdom left to manage without him. We all miss him terribly, of course, and we do our best in his absence." } },
+    bolvar = { { id = "tp_bolvar", text = "Dear Bolvar is a fine soldier, and he carries the burden of the regency as best he can. He relies on my counsel, and I'm happy to give it, because someone must." } },
+    thrall = { { id = "tp_thrall", text = "The orc warchief talks of peace and builds his city on stolen land, and the Alliance is expected to applaud. I find it all rather quaint, little one, though I'd not say so before Lady Proudmoore." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore is a very talented young woman, I'm told, and very idealistic. She'll learn, as we all do, that peace with orcs is a luxury Stormwind can't afford." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's little troubles are best left to the guards, and I've advised the Regent accordingly. There's no need to spend good soldiers on bad prisoners." } },
+    magni = { { id = "tp_magni", text = "King Magni is a loyal ally, and very fond of his beer and his digging. One does wonder what he's looking for down there, though it's surely none of our concern." } },
+    internment = { { id = "tp_internment", text = "The internment camps cost this kingdom a fortune, and the orcs escaped in the end regardless. A lesson in the futility of half measures, I'd say, if anyone asked me, and they so often do." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is a long way from Stormwind, and Lady Proudmoore must manage her own affairs. We can't send soldiers to every swamp that asks for them, can we, little one?" } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a great comfort to the common folk, and the Archbishop does admirable work with the poor. I attend the Cathedral when duty requires it, which is quite often enough." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are very handsome, and very large, and the heroes themselves are mostly dead. That's the way of heroes, I find, sooner or later." } },
     knows = {
       { id = "tp_knows", text = "I make it my business to know a little about everything that touches the crown. I suppose I could spare you a word or two on some of it." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ask away, then. It's so rare to be asked anything by someone who might actually understand the answer." },

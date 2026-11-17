@@ -160,6 +160,10 @@ P:NPC {
     },
   },
   topics = {
+    elune = { { id = "tp_elune", text = "Elune's light falls on Stormwind too, though your city's lamps hide it. I walk the Park at night to see her properly, and the guards think I'm lost." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is the great tree my people grew to be our home, and I miss its roots and its quiet. Your gardens are tidy and lovely, but they don't sing the way it does." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids of my people walk the Emerald Dream, where the world grows as it was meant to. I'm only an herbalist, but I dream of it sometimes, and I wake up wanting to weed your Park." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the great World Tree on Mount Hyjal, and it gave its strength to stop the Burning Legion. My people grew Teldrassil to take its place, and I'm not sure it ever will." } },
     background = { { id = "tp_bg", text = "I crossed the sea when our peoples first made their pact, and I have not regretted it." } },
     _none = { { id = "tp_none", text = "That I do not know, and the trees have not told me." } },
   },
@@ -322,6 +326,10 @@ P:NPC {
     },
   },
   topics = {
+    scourge = { { id = "tp_scourge", text = "I wrap more refugees' wounds than soldiers' these days, and the refugees from Lordaeron have the worst. Their wounds don't heal right, and I've learned to boil my bandages twice." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests heal with the Light, and I heal with linen and clean water. Between us, we get most people back on their feet, though I'm faster." } },
+    second_war = { { id = "tp_second_war", text = "I learned to bandage in the Second War, when there were more wounded than healers. I've never stopped since, and I don't think I ever will." } },
+    the_stockade = { { id = "tp_the_stockade", text = "They brought me a guard from the Stockade last week with a shiv wound in his side. He wouldn't say who did it, and I didn't ask, because I've learned not to." } },
     background = { { id = "tp_bg", text = "I learned from the Cathedral's sisters during the Second War, and I've had plenty of practice since." } },
     _none = { { id = "tp_none", text = "I couldn't tell you that, but I can tell you how to stop bleeding." } },
   },
@@ -484,6 +492,10 @@ P:NPC {
     },
   },
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The night elf Sentinels make bows that sing when they're drawn, and I'd give my whole stock for one. I've tried to make one myself, and it just creaked." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make crossbows that could put a bolt through a door, and I've seen a few. They're ugly, but they work, and I respect that more than I'd like to." } },
+    teldrassil = { { id = "tp_teldrassil", text = "A night elf merchant brought me a stave of wood from Teldrassil once, and I made it into the finest bow I've ever strung. I sold it to a ranger, and I've regretted it every day since." } },
+    second_war = { { id = "tp_second_war", text = "My father made bows for the Alliance in the Second War, and he said a good bow saved more lives than any wall. I believe him, and I build every bow as if a life depended on it." } },
     background = { { id = "tp_bg", text = "My father was a bowyer and his father before him, all of us right here in the Trade District." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend, unless it's made of yew." } },
   },
@@ -647,6 +659,10 @@ P:NPC {
     },
   },
   topics = {
+    holy_light = { { id = "tp_holy_light", text = "I sell more lilies to the Cathedral than to anyone else in the city, for weddings and funerals both. The Light's been good for business, though I'd rather it weren't for the funerals." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells flowers that glow in the dark, and I've tried to grow them myself. They don't glow for me, and I'm convinced it's a trick, though I can't work out how." } },
+    scourge = { { id = "tp_scourge", text = "The Lordaeron refugees buy flowers for the graves they couldn't visit, and I sell them for half price. I'd give them away, but I've got rent to pay, and the Light understands." } },
+    elune = { { id = "tp_elune", text = "A night elf lady buys white roses from me every week, she says for her goddess, Elune. I've started saving the best ones for her, and she's never once haggled." } },
     background = { { id = "tp_bg", text = "My shop's been in the family since before the city was burned, and we rebuilt it with the rest." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know, dear, unless it blooms." } },
   },

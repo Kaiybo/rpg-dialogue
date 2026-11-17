@@ -187,6 +187,11 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni is the finest king Ironforge has ever had, and I'd armour him myself if he'd let me. He prefers his own smiths, and I can't blame him, but I'd still like the chance." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a disgrace to every dwarf alive, and their forges in Blackrock Depths burn with a fire they stole from the earth. I'd like to see one of their forges, just once, and then I'd like to see it put out." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "Blackrock Depths is the Dark Irons' city under the mountain, and Thaurissan's line has ruled it since the War of the Three Hammers. I've heard it's full of fire and slaves, and I'd not set foot in it for all the ore in Khaz Modan." } },
+    thandol_span = { { id = "tp_thandol_span", text = "I learned my trade beside the masters who maintained the Thandol Span, and I know every one of its rivets by heart. If the Dark Irons have damaged it, I'll be the first to volunteer to mend it." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers are my cousins, after a fashion, and they make the finest gryphon harnesses in the world. They're a little wild for my taste, but they're good dwarves, and they fight like bears." } },
     knows = {
       { id = "tp_knows", text = "Every guard in the city comes past this anvil sooner or later, an' they talk while I hammer. Ask me what ye like." },
     },
@@ -372,6 +377,10 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, and he's the one who had the gnomes build the tram that brings me my goods from Ironforge. I'd thank him myself if I ever got the chance." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city to the troggs and their own poison, and they built the tram to Stormwind before that, thank the stone. Without it I'd be hauling flux on a mule through Dun Morogh." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons sell their ore to nobody, and I'd not buy it from them if they did. I'll stick with Ironforge iron, which is honest metal from honest dwarves." } },
+    thandol_span = { { id = "tp_thandol_span", text = "My supplies come down through the tram now, so the Thandol Span's troubles don't trouble me much. But my cousin in the Wetlands says the Dark Irons have been at it, and I'll not forgive them for that." } },
     knows = {
       { id = "tp_knows", text = "Everythin' that comes down the tram passes by my counter, an' so does the gossip that rides wi' it. Ask." },
     },
@@ -572,6 +581,10 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni gave our people a home in Ironforge when Gnomeregan fell, and every gnome I know owes him a debt. I'd build him something marvellous if he'd only stand still long enough." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons build engines that run on lava, and I've studied the plans that came back from the Steppes. They're brilliant and dangerous, which is exactly what I'd expect from a dwarf with a grudge." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblin engineers build things that explode on purpose, and they're very proud of it. I prefer things that explode by accident, because at least then you learn something." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet build their boats from whatever they can find, and somehow they float. I've studied the hulls, and I've no idea how, and I've decided not to ask." } },
     knows = {
       { id = "tp_knows", text = "I hear a lot, because people think I'm busy counting and not listening. I'm always doing both, so ask!" },
     },
@@ -783,6 +796,11 @@ P:NPC {
   },
 
   topics = {
+    magni = { { id = "tp_magni", text = "King Magni sent me down to Stormwind to help rebuild it, and I'll go home when the job's done. That's been fifteen years, and I'm still waiting for the job to be done." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons mine the richest seams in Khaz Modan, and they've never shared a nugget with anyone. I'd like to dig in their mountain once, just to see the stone, and then get out quick." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman is the oldest dig in the world, and the stone there is like nothing I've ever seen. I'd go back if I could, though I'd take a bigger pick and fewer troggs." } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up from the earth and drove the gnomes out of their city, and they've been digging up our mines ever since. I'd like to teach them a lesson in proper mining, which is that you don't take what isn't yours." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Thandol Span was built by the finest miners and masons in Khaz Modan, and I helped quarry its stone. If the Dark Irons have harmed it, I'll go back and quarry more myself." } },
     knows = {
       { id = "tp_knows", text = "Miners talk while they work, an' I've listened tae more o' them than I can count. Ask, an' quick about it." },
     },

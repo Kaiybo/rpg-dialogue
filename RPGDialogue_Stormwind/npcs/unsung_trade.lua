@@ -176,6 +176,9 @@ P:NPC {
     },
   },
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners may have the Stockade, but nobody's ever stolen anything from the Bank of Stormwind, not in the whole history of it! I check the vaults twice a day now, just to be sure." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias have stolen from every farm in Westfall, and not one copper from this bank, and I'd like to keep it that way. I've had the locks changed three times this year, just in case." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves of the worst kind, nobles who think they're owed. They've never stolen from us, and they never will, and I'll say that as many times as I must." } },
     background = { { id = "tp_bg", text = "I've worked these counters since the city was rebuilt, and my family has kept the ledgers longer than that." } },
     _none = { { id = "tp_none", text = "I'm afraid that isn't something we keep on record here." } },
   },
@@ -354,6 +357,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Merchants from Booty Bay keep accounts here, and they deposit more than any noble. That tells you where the money is in this world, if you've the eyes to see it." } },
+    scourge = { { id = "tp_scourge", text = "The Lordaeron refugees come in with whatever they managed to carry, and some of them deposit everything they have left. I keep their accounts very carefully, because some of those accounts are all that's left of whole families." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Some of the Stockade's prisoners have accounts here, and they've not been touched since the riot. I'm curious what they'll do with them when they get out, and I keep a careful note." } },
     background = { { id = "tp_bg", text = "A Burnside, like the others behind these windows. We've counted Stormwind's coin for generations, and I expect we'll go on counting it." } },
     _none = { { id = "tp_none", text = "No ledger of mine records that, and a banker who guesses soon loses his post." } },
   },
@@ -529,6 +535,9 @@ P:NPC {
     },
   },
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's folk keep an account here, and they deposit the strangest things. Last week it was a stuffed murloc and a jar of something that winked at me." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A merchant from Booty Bay asked me last week whether we'd take goblin gold. I said gold is gold, and he looked at me as though I'd said something very naive." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "My grandfather carved stone for the Valley of Heroes, and he said every statue there is a debt the city owes. I think of that every morning, when I open the door." } },
     background = { { id = "tp_bg", text = "Born a Burnside, raised behind a counter, and happy enough there. My grandfather saved the ledgers when the city burned, and we've kept them since." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend, I wouldn't know about that. Ask me about the bank and I'm your man." } },
   },
@@ -707,6 +716,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay run an auction house of their own, and they think ours is very quaint. I think theirs is very loud, and very crooked, and I'll not say more than that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's folk put strange things up for auction now and then, and I always sell them. Last month it was a cursed bell, and the buyer's never complained, because he's never been seen again." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The goblins of Gadgetzan sell everything they can lift and some things they can't. I've learned a few tricks of theatre from them, and I use them every day." } },
     background = { { id = "tp_bg", text = "I started as a clerk in this hall, carrying parcels to the post, and talked my way onto the podium. It's the best job in the city for a man who likes the sound of his own voice." } },
     _none = { { id = "tp_none", text = "Never heard of it, friend, and if it were worth anything, I would have." } },
   },
@@ -858,6 +870,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay keep their books in a code I've never been able to break. I keep mine in plain Common, because fraud is the greatest sin in this trade, and I'll not commit it." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel runs auction houses in every goblin port, and they're very good at it, I'll grant them. But they'll sell to anyone, and I'd rather know where my goods are going." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Some of the goods that come up for auction have very suspicious origins, and I note every one. I've sent a few names to the Stockade, back when the Stockade held anyone." } },
     background = { { id = "tp_bg", text = "I was a scribe in the House of Nobles once, copying deeds, and I left because I preferred honest bidding to what I saw written there." } },
     _none = { { id = "tp_none", text = "I have nothing written on that, I'm afraid, and I don't repeat what isn't written." } },
   },
@@ -1033,6 +1048,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay will sell you anything, love, but they'll charge you twice what it's worth. Our prices are fair, and our deposit's reasonable, and I'll stand by both." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's folk come in to sell their prizes, love, and I've bought a few myself. My favourite's a little stuffed murloc with a crooked smile, and he's on my mantel at home." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Since the Stockade riot, love, everyone's selling their silver and buying swords. I've told them it'll pass, and I hope I'm right, because swords don't fetch much once the trouble's over." } },
     background = { { id = "tp_bg", text = "I've a family at home and a podium here, and between the two I never sit down. I wouldn't change it, though." } },
     _none = { { id = "tp_none", text = "No idea, love, but if it's for sale, I'll have heard the price." } },
   },
@@ -1204,6 +1222,9 @@ P:NPC {
     },
   },
   topics = {
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The heroes in the Valley were a fellowship as much as an army, and every guild charter I write is meant to honour that. A guild is a promise made in front of the crown, and I treat it as such." } },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was the finest fellowship in the world, and its crest is still the one I most admire. I've designed a hundred crests, and not one of them is as fine as that hand." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn has a crest that's simple and fine, and I'd have designed it myself if they'd asked. They're a good fellowship, by every account, and I'd charter them in a heartbeat." } },
     background = { { id = "tp_bg", text = "I was a herald's clerk before the city's guilds needed a registry, so I've spent my whole life drawing other people's banners." } },
     _none = { { id = "tp_none", text = "That's not in the registry, friend, and I'd rather not guess." } },
   },
@@ -1366,6 +1387,9 @@ P:NPC {
     },
   },
   topics = {
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters of the Gurubashi Arena stand badly and swing worse, and they die young. I'd teach them, but they'd not listen, because they think gold teaches better." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in the Second War, and I watched soldiers who stood badly die for it. I teach stance before steel now, because I've learned which matters more." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons fight with a stance I've never seen anywhere else, low and heavy, like the mountain itself. I'd like to study it, though I'd not like to be on the end of it." } },
     background = { { id = "tp_bg", text = "I have taught here for many years, and before that I trained the city's recruits. It is better work to teach a hand than to command a thousand of them." } },
     _none = { { id = "tp_none", text = "I don't know that. Ask me how to hold a blade, and I'll answer properly." } },
   },
@@ -1543,6 +1567,9 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay would sell their mothers for a good margin, and I respect that more than I'd say aloud. Gunther thinks we should be more honest, and I think we should be more profitable." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Since the Stockade riot, every noble in the city wants a sword, and Gunther's working night and day. I keep the books, and the books have never looked better, and I've never slept worse." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The fighters of the Gurubashi Arena buy weapons in bulk, and they pay in advance, which I appreciate. I don't ask what happens to them after, because the books don't need to know." } },
     background = { { id = "tp_bg", text = "I've kept this counter with Gunther for many years, and I know every blade on these walls by its price." } },
     _none = { { id = "tp_none", text = "No idea. Ask me what a sword costs, though, and I'll tell you to the copper." } },
   },
@@ -1719,6 +1746,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The arcane goods on my shelves were once supplied by Dalaran, and the Kirin Tor's quality was beyond compare. I make do with what I can find now, and I explain the difference to anyone who asks." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor were the finest arcanists in the world, and I'd have joined them if I'd had the talent. Instead I sell their leftovers, and I know more about them than most of their students did." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad bought reagents from my master in Dalaran, years ago, and he was very particular. I've often wondered whether any of them went into the plague, and I've decided not to wonder too hard." } },
     background = { { id = "tp_bg", text = "I studied alchemy for a few years before I learned I preferred selling the tools to using them. Kyra and I have worked in Pestle's shop ever since." } },
     _none = { { id = "tp_none", text = "That's outside my shelves, I'm afraid." } },
   },
@@ -1862,6 +1892,9 @@ P:NPC {
     },
   },
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The mages who come in here all mourn Dalaran, and they all buy the same reagents they'd have bought there. I've learned to stock what they need before they know they need it." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The warlocks from under the Lamb buy their reagents by the bag, and they never say what for. I don't ask, because I'd rather not know, and because they pay very well." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests buy holy candles by the box, and I've never seen one of them haggle. I think the Light teaches them patience, or maybe it just teaches them to count." } },
     background = { { id = "tp_bg", text = "Keldric and I have kept these shelves in Morgan Pestle's shop for years, and I like the door better than the back room." } },
     _none = { { id = "tp_none", text = "I wouldn't know about that, but if it fits in a pouch, ask me." } },
   },

@@ -514,8 +514,6 @@ P:NPC {
     },
   },
   topics = {
-    quilboar = { { id = "tp_quilboar", text = "|" } },
-    centaur = { { id = "tp_centaur", text = "|" } },
     deadmines = { { id = "tp_deadmines", text = "The Defias steal horses for their carts into the Moonbrook mines, and I've lost two good mares to them already. I'd like them back, but I'd settle for knowing they're being fed." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a stable full of beasts I've never seen the like of, striped and spotted and stranger. I'd give a year's wages to tend them for a single night." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers ride gryphons the way we ride horses, without saddles, and they talk to them the same way I talk to my beasts. I've great respect for them, and none at all for anyone who kicks a mount." } },

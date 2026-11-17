@@ -103,6 +103,10 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are rebuilding Dalaran, I'm told, and I'd give anything to see their libraries again. I studied there once, and I learned more in a week than in a year anywhere else." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and they're very slow to share what they know. I've learned to make my own spells from scraps, because I couldn't wait for them." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a fine mage, before he turned to the dead, and I read his early work as a student. It's a terrible thing to admire a man's mind and despise everything he did with it." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal was a fine mage too, before he summoned the worgen and lost himself in Shadowfang Keep. I'm always careful with the spells I make, because I've seen what happens when a mage isn't." } },
     background = { { id = "tp_bg", text = "A spellcrafter of the Mage Quarter, neither famous nor dangerous, which I've found is the best combination." } },
     advice = { { id = "tp_ad", text = "Always ask where your power comes from. It's polite, and it keeps you alive." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Try the Wizard's Sanctum; they collect everything there, including gossip." } },

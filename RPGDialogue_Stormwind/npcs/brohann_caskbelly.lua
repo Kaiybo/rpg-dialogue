@@ -115,6 +115,12 @@ P:NPC {
   },
 
   topics = {
+    explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League sent me into every hole in Khaz Modan, and I came out of most of them. Now I'm a wee bit too stiff for holes, and I've to send younger knees in my place." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the oldest dig there is, {g:lad|lass}, and there's things in its halls that make the titans look like they were in a hurry. I'd go back tomorrow if my knees would only agree with me." } },
+    magni = { { id = "tp_magni", text = "King Magni's the best patron the League ever had, and he funds digs that would make a goblin weep. He wants to know where we came from, and so do I, though I'd settle for knowing where I left my pipe." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Zul'Farrak's a troll city in the Tanaris sands, full of sandfury trolls and secrets older than the dunes. I got as far as the gate once, and the trolls made it plain I'd go no further." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the only place in Tanaris with water, and the goblins charge for it by the cup. I paid, mind, and I'd pay again, because the sand's no fit place for a thirsty dwarf." } },
+    thandol_span = { { id = "tp_thandol_span", text = "I crossed the Thandol Span a hundred times on my way to the Wetlands, and every time I stopped to admire the stonework. If the Dark Irons have harmed it, I'll want a word with them, and so will every mason in Ironforge." } },
     background = { { id = "tp_bg", text = "Fifty years wi' the Explorers' League, give or take, an' a hundred places I couldnae pronounce tae save my life." } },
     advice = { { id = "tp_ad", text = "Write everythin' down, {g:lad|lass}. Ye'll forget names when ye're old; I'm proof o' that." } },
     _none = { { id = "tp_none", text = "Ah, I may have known once, but it's gone now with the pilot's name. Ask at the Hall o' Explorers in Ironforge." } },

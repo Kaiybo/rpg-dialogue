@@ -263,6 +263,12 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran is rebuilding behind its walls, and the Kirin Tor have yet to open its gates to the rest of us. I've written three books on the city's history, and I'd like to finish the fourth inside it." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and they're very slow to forgive those who left. I stayed in Stormwind to teach, and they've not forgiven me, though they've not said so in writing." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was one of the Kirin Tor's brightest, and he turned to necromancy when they wouldn't let him study it. Every mage I teach hears his name in the first lesson, because he's the warning that matters most." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal summoned the worgen to fight the Scourge, and they turned on everyone, including him. I've told my students that story many times, and I'll tell it to you: magic burns the untrained, and sometimes the trained too." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was the most gifted student of her generation, and she proved it when she led her people across the sea. I envy her talent, and I don't envy her burdens at all." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is the source of all fel magic, and the warlocks under the Lamb know it as well as I do. I'd have them closed down, but the Regent says it's better to know where they are." } },
     knows = {
       { id = "tp_knows", text = "The Sanctum hears from magi across the Alliance, and I read every letter, slowly. Ask, and I'll tell you what is known, and be honest about what is merely believed." },
     },
@@ -509,6 +515,11 @@ P:NPC {
   },
 
   topics = {
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was the Ranger-General of Silvermoon, and she died defending our gates against the prince. Now she leads the dead, they tell me, and I can't decide whether to pray for her or for us." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil marched on Quel'Thalas and broke our gates and our Sunwell, and I watched my homeland burn from a hill above the city. I stayed here to teach, because there was nothing left to go back to." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took my homeland, and I've seen what's left of it, which is very little. I teach the young mages here so they'll be ready if the dead ever come south." } },
+    dalaran = { { id = "tp_dalaran", text = "I studied in Dalaran for a century before the plague, and I loved its libraries more than my own home. They're rebuilding it now, and I'd go back if they'd let me, though I don't know what I'd find." } },
+    forsaken = { { id = "tp_forsaken", text = "Some of my people are among the Forsaken now, raised by the Scourge and freed by Sylvanas. I don't know if I'd want to meet them, and I don't know if they'd want to meet me." } },
     knows = {
       { id = "tp_knows", text = "I've watched this city for longer than most of its citizens have been alive, and I listen more than I speak. Ask." },
     },
@@ -674,6 +685,10 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are rebuilding Dalaran, and portal magic was one of its great arts. I learned mine from a master there, and I doubt anyone in Stormwind could follow half of what he taught me." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor understood portal magic as no one else does, and they've kept their best secrets very close. I don't blame them, because most people would open a portal into a wall." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore is said to be the finest teleporter of her age, and I'd like to see her work before I believe it. I'm told she moved a whole people across the sea, which is either brilliant or reckless, and possibly both." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is very far away, and a portal to it would take more power than most mages could manage. Lady Proudmoore manages it, they say, and I'd like to know how." } },
     knows = {
       { id = "tp_knows", text = "I know where every portal in the Alliance opens and who opened it last. Ask, if you think you'll follow the answer." },
     },
@@ -902,6 +917,10 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is an endless sea of power, and we merely dip our cups in it, very carefully. Those who drink too deeply are soon drunk, and soon dead, and soon very useful to someone else." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs' warlocks opened the Dark Portal, and every warlock since has been blamed for it. I find that terribly unfair, though I'll admit I'd have liked to see it open." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad traded his life for power, which is a poor bargain, as I'd have told him had he asked. I prefer to trade other people's lives, which keeps the books much more balanced." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal's mistake was to summon what he couldn't control, and then to love it. I'd never make the second mistake, and I'm very careful with the first." } },
     knows = {
       { id = "tp_knows", text = "A great many people pass through this tavern on their way somewhere they shouldn't go. I listen to all of them. Ask." },
     },
@@ -1101,6 +1120,13 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = {
+      { id = "tp_burning_legion", text = "The Burning Legion corrupts the weak, and the strong learn to bend it to their will. I've seen both kinds pass through this cellar, and I can tell which is which in a single look." },
+      { id = "tp_burning_legion2", when = { class = "WARLOCK" }, text = "You've touched the Legion's fire, warlock, so you know how it whispers. Learn to hear the lie in every word it speaks, and you might survive long enough to be worth teaching." },
+    },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened the Dark Portal with fel magic, and they were consumed by it. That's the lesson every warlock must learn, and most never do." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was weak, for all his power, and he let the dead own him. I'd never be owned by anything, and I'd like to see the power that tried." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is necromancy on a scale I've never seen, and I'll admit I'm curious about it. Curiosity is a dangerous thing in our trade, though, and I keep mine on a very short leash." } },
     knows = {
       { id = "tp_knows", text = "Ask. I'll answer if it pleases me." },
     },
@@ -1312,6 +1338,10 @@ P:NPC {
   },
 
   topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion is full of the most fascinating creatures, and I've catalogued over two hundred of them! Most of them would eat me, of course, but that's what the binding circles are for." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs opened the Dark Portal, and I'd love to study the mechanism, from a safe distance, with notes. It's a magnificent piece of work, even if it nearly ended the world." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons have demons of their own, I'm told, summoned from the fires under their mountain. I'd love to compare notes, but I'm told they'd rather compare me to a furnace." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet sold me a book on summoning that turned out to be a cookbook. I tried a few recipes anyway, and one of them summoned something, so I'd call it a fair trade." } },
     knows = {
       { id = "tp_knows", text = "Customers chatter, and demons chatter more, if you know how to listen. Ask me anything!" },
     },

@@ -315,6 +315,16 @@ P:NPC {
   },
 
   topics = {
+    silver_hand = {
+      { id = "tp_silver_hand", text = "The Silver Hand was the finest order of knights the world has seen, and Uther made it so. It's scattered now, but I keep its oath in Stormwind, and I'll not let its standards slip while I live." },
+      { id = "tp_silver_hand2", when = { class = "PALADIN" }, text = "You wear the Light as the Silver Hand wore it, so mind how you keep your armour and your word. Uther judged a knight by both, and so do I." },
+    },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a discipline before it's a comfort, and a paladin who forgets that is only a man with a hammer. Keep your gear clean and your prayers honest, and the rest will follow." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil was a paladin of the Silver Hand, and he turned his hammer on his own people. I've never understood how a man trained by Uther could fall so far, and I've stopped trying." } },
+    stratholme = { { id = "tp_stratholme", text = "Arthas purged Stratholme and called it mercy, and Uther left him for it. The order broke that day, though it took a while for the pieces to stop falling." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and with it most of the Silver Hand, and they raised some of our brothers to fight against us. I'd not wish that fate on anyone, and I'd not hesitate to end it for them." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn have taken up the fight against the Scourge in the north, and they do it without the Crusade's fanaticism. I'd count them as allies, and I'd count some of them as brothers." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire trains our young paladins before they come to me, and they come well prepared. They're a sturdy lot, and they don't spoil their students, which I approve of." } },
     knows = {
       { id = "tp_knows", text = "I have served the Silver Hand long enough to have opinions on most things, and patience for very few. Ask about these, and be brief." },
     },
@@ -539,6 +549,13 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light asks nothing more than an honest heart and an open hand, and I've tried to give it both. I'm not sure I've earned my name, but I try to deserve it every day." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Kneel with me a moment before we begin, if you would, because the Light listens better when we're quiet. Then rise, and we'll see what it's asked of you today." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "I never knew Uther, but I've read every word he wrote, and I keep his prayer book by my bed. The Silver Hand's gone, and still it teaches me something every night." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire took me in when I was a boy with no home, and I owe them everything I am. I go back every year to help with the harvest, and they still make me work." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and I pray every night for the souls they hold. I'd go north and fight them myself, if Grayson would let me, though I think he's right that I'm needed here." } },
     background = { { id = "tp_bg", text = "A paladin who prays more than he fights. Someone has to stay by the altar. It turned out to be me.", next = "served" } },
     advice = { { id = "tp_ad", text = "Kneel before you fight, not after. After, you'll be too tired to mean it." } },
     _none = { { id = "tp_none", text = "I don't know. I'll pray on it, if that helps." } },
@@ -758,6 +775,10 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons forge weapons that would make a lesser smith weep, and I've studied the blades that come back from the Steppes. They're good, but mine are better, and I'll say that to any dwarf who asks." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Thandol Span is the finest work of ironmongery in the world, and I've studied every rivet. If the Dark Irons have damaged it, they should be ashamed of themselves, and I'll tell them so." } },
+    magni = { { id = "tp_magni", text = "King Magni came to my forge once and admired my work, and I admired his beard. We parted as equals, and I'll not say who admired whom more." } },
+    silver_hand = { { id = "tp_silver_hand", text = "I made a hammer for a knight of the Silver Hand once, and he said it rang with the Light. I said it rang with good steel, and we agreed it was both." } },
     background = { { id = "tp_bg", text = "A dwarf smith in a human city. Folk ask why. The answer's in the steel, no' in me." } },
     advice = { { id = "tp_ad", text = "Buy the best blade ye can afford, then save for a better one. Cheap steel's a debt ye pay in blood." } },
     trade = { { id = "tp_tr", text = "Weapons an' barding. Furen does the shields an' mail. I do the parts that need a master.", next = "furen" } },
@@ -960,6 +981,11 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "The libraries of Dalaran held books that existed nowhere else in the world, and I pray they survived the Scourge. I've written to the Kirin Tor to ask, and they haven't answered, which is either a very good sign or a very bad one." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor were once the most generous lenders of books in the world, and they'd send them anywhere for the asking. Since the plague, they've closed their doors, and I've lost my favourite correspondents." } },
+    second_war = { { id = "tp_second_war", text = "The Royal Library lost a third of its books when the orcs burned Stormwind, and I've spent my life gathering them back. I'm missing a book on the history of Azeroth, and I'll find it someday." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's royal library was the finest in the Seven Kingdoms, and the Scourge burned it to the ground. I weep for it, softly, so as not to wake the books here." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The statues in the Valley of Heroes are history made stone, and I'd like to put a little card beneath each one, explaining who they were. The guards say no, but I've not given up." } },
     background = { { id = "tp_bg", text = "My story is shelved under unremarkable, which is exactly where I like it. Ask me about the books instead." } },
     advice = { { id = "tp_ad", text = "Read the old books first. The new ones mostly argue with them." } },
     seven_kingdoms = { { id = "tp_kingdoms", text = "A classic. A bit generous to Alterac, I always felt.", next = "best" } },
@@ -1160,6 +1186,10 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's goblins tried to sell me a cheese made from goat's milk and sea salt, and I sent them packing. I sell only cheese, and only good cheese, and only from Stormwind's own dairies." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells cheese on sticks, toasted over a fire, and it's an abomination. I've told them so, and they laughed, and I've never been back." } },
+    gilneas = { { id = "tp_gilneas", text = "Gilnean cheese was the finest in the north, and it's all behind that wall now. I've a little left in my cellar, and I'll not sell it for any price, only look at it on festival days." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, I'm told, and the guards just stand at the doors. I sell cheese to the guards, and they've never been so hungry, which tells you something." } },
     knows = {
       { id = "tp_knows", text = "A cheese merchant hears a remarkable amount, you know, people will say anything over a good wheel of cheddar. Ask me about any of this." },
     },

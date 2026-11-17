@@ -1191,7 +1191,6 @@ P:NPC {
 
   topics = {
     emerald_dream = { { id = "tp_emerald_dream", text = "A night elf druid passed through looking for herbs once and spoke of a green dream where the world grows as it should. I'd like to sleep there one night, if it's anything like the hills before the gnolls." } },
-    earth_mother = { { id = "tp_earth_mother", text = "|" } },
     elune = { { id = "tp_elune", text = "The night elves leave a little water out for their moon-goddess before they cut any herb, and I've started doing it too. I don't know if it helps the plants, but it slows me down, and that does." } },
     cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids of the Cenarion Circle know more about growing things than anyone in Stormwind, and they're kind enough to share it if you don't trample their roots. I'd study with them if I could get to Moonglade." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs stripped the hills bare all the way north to the Steppes, and from what I hear, nothing grows near that black mountain of theirs. I can't imagine living somewhere with no green at all." } },

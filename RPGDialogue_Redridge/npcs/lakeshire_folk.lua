@@ -423,7 +423,6 @@ P:NPC {
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The gnolls answer to the orcs, the orcs answer to that mountain, and the mountain answers to nobody, as far as I can tell. I'd like to count what's inside it, but I'd need a bigger ledger." } },
     second_war = { { id = "tp_second_war", text = "Every old man in Lakeshire fought in the Second War, and every one of them will tell you about it whether you ask or not. I've learned to count gnolls while they talk, which is the only skill the war gave me." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire on my one leave last year and lost to a gnome at a shooting gallery. I've told everyone it was a rigged gun, and I've half convinced myself." } },
-    quilboar = { { id = "tp_quilboar", text = "|" } },
     background = { { id = "tp_bg", text = "I'm a deputy at the south end of the bridge, and I count." } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. If the road's not safe, stay in town. If the town's not safe, tell me first." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Redridge clans, mostly, bigger than the Riverpaw in Westfall and meaner than the Elwynn ones. They've started building." } },
@@ -1107,7 +1106,6 @@ P:NPC {
 
   topics = {
     elune = { { id = "tp_elune", text = "A night elf lady passed through once and told me my daffodils looked like little moons. She said her goddess would like them, and I've been leaving one by the window since, in case she does." } },
-    earth_mother = { { id = "tp_earth_mother", text = "|" } },
     emerald_dream = { { id = "tp_emerald_dream", text = "That night elf I mentioned spoke of a dream-place where the whole world grows the way it was meant to. I'd like to see my garden there, before the gnolls trampled it." } },
     holy_light = { { id = "tp_holy_light", text = "I put a sprig of rosemary on the Light's altar every week, because I think anything as warm as the Light must like something that smells nice. The priests haven't said I'm wrong." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells seeds from places I can't pronounce, and I bought a packet once that grew something purple and shy. It only blooms at night, and I sit out with a candle to see it." } },
@@ -1312,7 +1310,6 @@ P:NPC {
     second_war = { { id = "tp_second_war", text = "I was a cook in the army in the Second War, and I fed men who went out and didn't come back to eat. I swore then I'd never let a soldier go out hungry, and I haven't." } },
     bolvar = { { id = "tp_bolvar", text = "Tell the Highlord I'm feeding a garrison on what a garrison half this size would eat. That's not a complaint, it's a sum, and he can check it himself." } },
     booty_bay = { { id = "tp_booty_bay", text = "I'd trade my best knife for a crate of Booty Bay spice, because half my soldiers have forgotten what pepper tastes like. The orcs on the road aren't interested in my menu." } },
-    quilboar = { { id = "tp_quilboar", text = "|" } },
     holy_light = { { id = "tp_holy_light", text = "I say grace over every pot that leaves this kitchen, loud enough for the soldiers to hear. The Light doesn't fill bellies, but it does make thin soup go down easier." } },
     background = { { id = "tp_bg", text = "I cook for Lakeshire's garrison, with the same pots as before the attacks and a good many more mouths." } },
     advice = { { id = "tp_ad", text = "Eat when there's food, because in Redridge that isn't every day." } },
