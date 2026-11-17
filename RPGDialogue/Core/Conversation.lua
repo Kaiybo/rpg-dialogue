@@ -713,9 +713,13 @@ function Conv.ShowNode(nodeId)
   end
 
   s.page = nil
+  Conv.Log("npc", body)
+  local said = s.said
+  s.said = nil
   present(s, {
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
     text = body, linkedText = linked, choices = Conv.BuildChoices(node, isStart),
+    said = (ns.db.settings.echoReply ~= false) and said or nil,
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
     askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
   })
@@ -772,14 +776,25 @@ function Conv.BuildChoices(node, isStart)
   return choices
 end
 
+-- This visit's exchange, oldest first (the box's history button, 0.61.0).
+function Conv.Log(who, text)
+  local s = Conv.session
+  if not s or not text or text == "" then return end
+  s.log = s.log or {}
+  s.log[#s.log + 1] = { who = who, text = text }
+  if #s.log > 40 then table.remove(s.log, 1) end
+end
+
 function Conv.Choose(index)
   local s = Conv.session
   if not s or s.mode ~= "full" then return end
   local entry = s.choiceEntries and s.choiceEntries[index]
   if not entry or entry.locked then return end
   if entry.errand then
-    local text = ns.Errands.Act(entry.errand, entry.action, s.env)
-    View(s).ShowAnswer(Tokens.Render(text or "", s.ctx, s.env))
+    local text = Tokens.Render(ns.Errands.Act(entry.errand, entry.action, s.env) or "", s.ctx, s.env)
+    Conv.Log("you", entry.choice.text)
+    Conv.Log("npc", text)
+    View(s).ShowAnswer(text)
     View(s).SetChoices(Conv.BuildChoices(s.nodeDef, false))
     return
   end
@@ -851,6 +866,9 @@ function Conv.Choose(index)
   Effects.Apply(fx, env)
   Effects.Journal(journal, ctx, env)
   s.pendingNote = Conv.ChoiceNote(choice, checkResult, fx, dispBefore)
+  -- What you said, shown quietly above their answer (authored [tags] left off).
+  s.said = (choice.text or ""):gsub("^%[[^%]]*%]%s*", "")
+  Conv.Log("you", s.said)
 
   if nextId == "BUSINESS" then
     s.pendingNote = nil
@@ -990,6 +1008,8 @@ function Conv.Ask(topic)
   if w and not brushoff then ns.Topics.RecordAnswer(topic, s.memKey, s.info and s.info.name, w.gid) end
   local linked = Conv.Hear(text, topic)
   local tdef = ns.Data.topics[topic]
+  Conv.Log("ask", tdef and tdef.name or topic)
+  Conv.Log("npc", text)
   View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
   local nextId = w and w.line.next
   local node = nextId and s.info.def and s.info.def.nodes and s.info.def.nodes[nextId]
