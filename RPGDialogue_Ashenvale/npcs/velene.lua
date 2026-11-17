@@ -7,7 +7,7 @@ P:NPC {
   key = "velene", id = TODO_NPC("Sentinel Velene Starstrike"), name = "Sentinel Velene Starstrike",
   bible = "bibles/velene.md", role = "soldier", tier = "quest",
   communities = { "silverwind_refuge" }, temper = { "sharp", "impatient" }, values = { "duty", "pride" },
-  notices = { "arcane", "class" },
+  notices = { "arcane", "race" },
   impression = {
     first = "Sentinel Velene Starstrike has a lake full of fouled elementals and a grudge against the one undead mage foolish enough to make them. She takes his smugness more personally than his magic.",
     third = "{name} met Sentinel Velene Starstrike at Silverwind Refuge, who wanted the summoner of Mystral Lake's befouled water elementals found and destroyed.",
@@ -26,7 +26,7 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "A mage. You'll forgive me if I watch your hands, because the last mage I heard of fouled my whole lake." },
-    { id = "n_undead", cat = "class", when = { race = "Scourge" },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken, here? You walk like Sarilus must walk, and you'll understand why that does you no favours at Silverwind." },
   },
 

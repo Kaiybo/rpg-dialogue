@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- New conversations for 4 people who had none: Tok'Kar, Katar, Itharius (major), Corporal Thund Splithoof. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.20.0 (2026-11-17)
 - The town's leading people greet you differently when you come back after a fortnight or more, notice how far you've come since they last saw you, and have heard what you did with their neighbours. Needs RPG Dialogue 0.67.0.
 

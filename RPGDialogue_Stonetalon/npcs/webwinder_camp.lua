@@ -27,7 +27,7 @@ P:NPC {
 
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A fellow gnome, out here among all these trees! Are you EAAAES? No? You should be; we have excellent biscuits at the meetings." },
+      text = "A fellow gnome, out here among all these trees! Are you EAAAES? If not, you should be; we have excellent biscuits at the meetings." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "An alchemist! Lomac will like you, or at least he'll dislike you less, which for him is the same thing." },
   },

@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.72.0 (2026-11-17)
+173 people who had nothing to say now have whole conversations. **New files: restart the game fully, /reload is not enough.** No core code changes.
+
+- **Quest givers everywhere.** In 45 packs, the named people who sent you out without a word of their own now talk: what the trouble is before you take the job, how it's going while you're on it, and what came of it after. Each has a hub of subjects, replies only some races and classes get, and stances to take.
+- **Dun Morogh finally has people.** Talin Keeneye, Balir Frosthammer, Nori Pridedrift, Mountaineer Thalos, Pilot Stonegear and Razzle Sprysprocket.
+- **A few big names.** Eitrigg in Grommash Hold, Azuregos in Azshara, Itharius in the Swamp of Sorrows and High Priest Thel'danis at Uther's Tomb, each with something they'll only tell you if you win them over.
+- **Some highlights:** Zenn Foulhoof, Nat Pagle, Gunther Arcanus, Gordo, Duke Zverenhoff, Brohann Caskbelly, Shakes O'Breen, Regthar Deathgate, Witch Doctor Uzer'i, Lakota Windsong, Jessir and Arko'narin in Felwood, the Alterac Valley recruiters, and Valadar Starsong during the Lunar Festival.
+- **Fix:** Uthek the Wise is "she" in Nerlokh's lines (Shen'dralas), as in the lore.
+
+Packs: 46 packs get a minor version. Westfall and Mount Hyjal had nobody left without a conversation; World is unchanged.
+
 ## 0.71.0 (2026-11-17)
 Where you come from, more to say to the people on duty, and seven people with a lot more to say. No new files: /reload is enough.
 

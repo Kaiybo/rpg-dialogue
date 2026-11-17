@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.19.0 (2026-11-17)
+- New conversations for 5 people who had none: Regthar Deathgate, Gazrog, Korran, Kadrak, Captain Thalo'thas Brightsun. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.18.0 (2026-11-17)
 - Gazlowe has a great deal more to say: the Steamwheedle Cartel, the big bosses, a Deceive, and whether gold comes before loyalty.
 - People here now and then recognise where you come from (your origin) and react to it.

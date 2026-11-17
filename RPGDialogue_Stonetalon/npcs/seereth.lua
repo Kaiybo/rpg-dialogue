@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Listen. Do you hear them? No, I suppose you don't, and I envy you." },
+    { id = "g_hello", text = "Listen, do you hear them? No, I suppose you don't, and I envy you." },
     { id = "g_loggers", when = { questActive = TODO_QUEST("Goblin Invaders") }, text = "The Windshear Crag, beyond the Greatwood Vale. Show the loggers the language they understand." },
     { id = "g_shred", when = { questActive = TODO_QUEST("Shredding Machines") }, text = "XT:4 and XT:9, the marks I saw in my vision. Find those machines, and stop them." },
     { id = "g_crone", when = { questActive = TODO_QUEST("The Elder Crone") }, text = "Magatha, on Elder Rise in Thunder Bluff. Tell her what the spirits suffer here, and ask for her wisdom." },

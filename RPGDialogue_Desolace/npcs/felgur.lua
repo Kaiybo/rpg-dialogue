@@ -48,8 +48,8 @@ P:NPC {
           text = "Dez'hepah's dead, and the Kolkar camps are howling about it. That's the sound of a good week's work." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it." },
-        { id = "h_again2", text = "Something more, {race}? Spit it out." },
+        { id = "h_again", text = "What else? Be quick about it, because I've centaur to count." },
+        { id = "h_again2", text = "Something more, {race}? Then spit it out before the next raid." },
       },
       choices = {
         { text = "Why do the centaur hate us?", next = "hate" },

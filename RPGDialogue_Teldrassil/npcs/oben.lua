@@ -162,7 +162,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A druid of the claw who took a long nap in the wrong barrow. That is the short version, and the long one is mostly snoring." } },
-    advice = { { id = "tp_ad", text = "Never leave your body unattended. I mean it more literally than most people who say it." } },
+    advice = { { id = "tp_ad", text = "Never leave your body unattended. I mean it more plainly than most people who say it." } },
     furbolgs = { { id = "tp_furbolgs", text = "The shaman are the ones to watch, because the warriors only do what the shaman tell them. Take the charm off a shaman and you take away half his tribe's mischief." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the balance, and some of us keep it by sleeping, which sounds easier than it is." } },
     _none = { { id = "tp_none", text = "I cannot say, friend. I have been asleep for a very long time, and then in no state to listen." } },

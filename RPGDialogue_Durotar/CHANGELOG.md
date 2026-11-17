@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.18.0 (2026-11-17)
+- New conversations for 4 people who had none: Hana'zua, Rezlak, Lar Prowltusk, Rhinag. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.17.0 (2026-11-17)
 - People here now and then recognise where you come from (your origin) and react to it.
 

@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Hey! {class}! Come here, I've got a fight that needs one more blade." },
+    { id = "g_hello", text = "Hey, {class}, come here! I've got a fight that needs one more blade." },
     { id = "g_active", when = { questActive = TODO_QUEST("Torek's Assault") }, text = "Ready? My raiders are itching, and the elves won't wait forever to notice us." },
     { id = "g_done", when = { questDone = TODO_QUEST("Torek's Assault") }, text = "Silverwing burned, and Duriel Moonfire fell! I'm still picking splinters out of my arm, and I couldn't be happier." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with all your limbs? You're not trying hard enough, {class}." },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- New conversations for 4 people who had none: Marvon Rivetseeker, Security Chief Bilgewhizzle, Haughty Modiste, Spigot Operator Luglunket. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.22.0 (2026-11-17)
 - Gadgetzan's bruisers can be talked to properly: the town's rules, Noggenfogger, the Wastewander, and the Cartel's neutrality.
 

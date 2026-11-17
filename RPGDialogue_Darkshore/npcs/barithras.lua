@@ -45,7 +45,7 @@ P:NPC {
           text = "A druid. Then you may hear what the Ancients hear better than I can, and perhaps you will tell me whether I was a coward to stay away from that cave." },
       },
       again = {
-        { id = "h_again", text = "Something more? Ask, by all means." },
+        { id = "h_again", text = "Something more? Ask it, by all means, and I will answer if I can." },
         { id = "h_again2", text = "I am listening, friend, though the potion is not." },
       },
       choices = {

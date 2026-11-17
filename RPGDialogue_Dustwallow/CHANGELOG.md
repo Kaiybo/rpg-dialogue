@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-17)
+- New conversations for 4 people who had none: Tharg, Do'gol, Mudcrush Durtfeet, Nat Pagle. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.24.0 (2026-11-17)
 - Lady Jaina has a great deal more to say: harder questions about Thrall, Bolvar, Magni, Tyrande and Stratholme (a Persuade), and what she wants from you.
 

@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_kayneth", when = { questActive = TODO_QUEST("Kayneth Stillwind") }, text = "My report is for Kayneth's eyes, at Forest Song in the east. He'll want it quickly." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}. The coast has been quiet, which means only that I haven't heard the bad news yet." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came to Astranaar green, and now you look like someone the Sentinels would be glad to have. I mean that." },
-    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you've been throwing your weight about in town. Save it for the Horde, {class}; Astranaar has enemies enough." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word in town is you've been throwing your weight about. Save it for the Horde, {class}; Astranaar has enemies enough." },
   },
 
   notice = {
@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Shindrell Swiftfire of the Sentinels. I watch our coast and the forests around Astranaar, and I send what I learn to those who can act on it." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to Astranaar") },
-          text = "You're here to offer your services to the Alliance? We welcome the aid. Who sent you? No matter; Ashenvale needs hands more than introductions." },
+          text = "You're here to offer your services to the Alliance? We welcome the aid, whoever sent you, because Ashenvale needs hands more than introductions." },
         { id = "h_zoram_before", when = { questBefore = TODO_QUEST("The Zoram Strand") },
           text = "Naga have come up onto the Zoram Strand in the northwest, among the old drowned ruins, and they show no sign of leaving. I want them pushed back into the sea before they find a way inland." },
         { id = "h_venom_before", when = { questBefore = TODO_QUEST("Pridewings of Stonetalon") },

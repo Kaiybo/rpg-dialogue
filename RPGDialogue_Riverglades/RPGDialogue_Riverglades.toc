@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Riverglades |cff8a8a8a1.11.0|r
+## Title: RPG Dialogue: Riverglades |cff8a8a8a1.12.0|r
 ## Notes: Farholde Keep, where the Brotherhood of the Horse has held on for twenty years; Powderfuse Port; and the Horde at Rog'mar and the ogres of Bolder'ok.
 ## Author: RPG Dialogue
-## Version: 1.11.0
+## Version: 1.12.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.riverglades

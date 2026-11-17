@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (2026-11-17)
+- New conversations for 4 people who had none: Mor'zul Bloodbringer, Gorzeeki Wildeyes, Sha'ni Proudtusk, Grark Lorkrub. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.14.0 (2026-11-17)
 - People here now and then recognise where you come from (your origin) and react to it.
 

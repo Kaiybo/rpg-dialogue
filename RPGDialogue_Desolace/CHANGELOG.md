@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-17)
+- New conversations for 4 people who had none: Maurin Bonesplitter, Felgur Twocuts, Uthek the Wise, Warug. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+
 ## 1.23.0 (2026-11-17)
 - Rexxar has a great deal more to say: the centaur, why he left the old Horde (a Persuade), Misha, and the Warsong in Ashenvale.
 

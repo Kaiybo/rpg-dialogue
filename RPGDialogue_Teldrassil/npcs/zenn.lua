@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_frog", when = { questDone = TODO_QUEST("Seek Redemption!") }, text = "You! You fed me those cones and smiled while you did it. I will have my vengeance, mark me." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you come back to old Zenn? How touching, though I can't think why you would." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "My, you've grown teeth since you first fetched for me. That's a pity, because the gullible ones are so much more pleasant." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you've been telling folk pretty stories, my friend. You'll go far, and I say that with real admiration." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word in the forest says you've been telling folk pretty stories, my friend. You'll go far, and I say that with real admiration." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Running about helping the Dolanaar lot, are we? There's no profit in kindness, little one, but you'll learn." },
   },
 
