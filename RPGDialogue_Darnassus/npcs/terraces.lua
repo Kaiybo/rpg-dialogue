@@ -31,6 +31,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Over a bowstring, mostly. You have walked among outsiders longer than my Sentinels have, so I would hear it from you: are the orcs beasts, or a people?" },
+      },
+      choices = {
+        { text = "A people. Thrall's orcs broke their chains; give them a chance.", next = "op_r1", fx = { affinity = -1, align = { honor = 1 }, opinion = { orcs = "respect" } } },
+        { text = "Beasts. The Legion's blood is still in them.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { orcs = "hate" } } },
+        { text = "Dangerous neighbours. Watch them, but don't hate them.", next = "op_r3", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { orcs = "dangerous" } } },
+        { text = "I fought orcs in the Second War. They've earned no trust.", next = "op_r4", fx = { affinity = 1, opinion = { orcs = "distrust" } }, when = { race = "Dwarf" } },
+        { text = "My people kept them in camps. Look how that turned out.", next = "op_r5", fx = { trait = { skeptical = 1 }, opinion = { orcs = "mixed" } }, when = { race = "Human" } },
+        { text = "I'd rather hear your report.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "A people who fell our forest and call it building a nation. I'll give them the same chance they give the trees." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Some of my Sentinels would cheer you for that. I fought beside orcs at Hyjal, though, so I will call them enemies and leave the word beasts to the satyrs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Spoken like a Sentinel. Watch them, count their axes, and loose only when they cross the line." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then you and I keep the same ledger, dwarf, though yours has more pages in it than mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "I have heard of your internment camps, and I have heard that Thrall walked out of one. Cages make poor teachers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I guard it fiercely. She is missing, and I will not let her be forgotten. Your spirits might find her where we cannot." } },
@@ -120,6 +154,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_ashenvale_compromise", tags = { "news" }, when = { gossip = { topic = "ashenvale", stance = "compromise" } },
+          text = "The druids say you'd let the orcs take deadwood. Deadwood is how it starts, {class}, and I have walked the stumps that come after." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Sentinels have fought beside your kind before, and I will say that you hold a line as well as anyone I've seen." },
         { id = "h_default", text = "I am Thyn'tel Bladeweaver, and I command some of the Sentinels who guard our people. If it concerns the borders, the patrols or the war in Ashenvale, it concerns me." },
         { id = "h_velinde", tags = { "news" }, when = { questActive = TODO_QUEST("Velinde Starsong") },
@@ -144,6 +180,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'll answer what I can." },
       },
       choices = {
+        { text = "How do you see the orcs, Commander?", next = "op_ask" },
         { text = "Who was Velinde Starsong?", next = "velinde" },
         { text = "How goes the war in Ashenvale?", next = "ashenvale" },
         { text = "What does a Sentinel commander do here?", next = "duty" },

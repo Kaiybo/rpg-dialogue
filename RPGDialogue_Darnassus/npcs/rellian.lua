@@ -33,6 +33,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "o_teldrassil_tree_wrong", tags = { "news" }, when = { gossip = { topic = "teldrassil_tree", stance = "wrong" } },
+          text = "Denatharion says you doubt the tree. Come and see my timberlings, then, and tell me whether it's the tree that's wrong or something in the water." },
         { id = "h_default", key = true,
           text = "I'm Rellian Greenspyre. I've been helping Denalan at Lake Al'Ameth with his work on the timberlings, though lately my help has mostly meant bad news." },
         { id = "h_seed", tags = { "news" }, when = { questActive = TODO_QUEST("Rellian Greenspyre") },

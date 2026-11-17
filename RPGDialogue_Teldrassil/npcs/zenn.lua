@@ -36,6 +36,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "o_zenn_foulhoof_harmless", tags = { "news" }, when = { opinion = { topic = "zenn_foulhoof", stance = "harmless" } },
+          text = "Oh, you're the one who called me harmless in front of the Council. I could weep with gratitude, if satyrs did that sort of thing." },
+        { id = "o_zenn_foulhoof_hard", tags = { "news" }, when = { opinion = { topic = "zenn_foulhoof", stance = "hard" } },
+          text = "Ah, here comes the one who wants me run off the island! Do sit down; I'm told I'm much less frightening up close." },
         { id = "h_default", key = true,
           text = "Zenn Foulhoof, at your service, and you at mine, I hope. I have a little business in this forest, and a little business needs a little help." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Zenn's Bidding") },

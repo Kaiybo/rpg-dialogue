@@ -33,6 +33,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_tyrande = {
+      lines = {
+        { id = "opt_q", text = "Strangers who come to Feathermoon have usually heard of her, and most of them have opinions they keep behind their teeth. I would rather hear yours aloud. What do you think of Tyrande Whisperwind?" },
+        { id = "opt_q_h", when = { faction = "Horde" }, text = "You serve the Horde, and the High Priestess has sent Sentinels against your kind in Ashenvale. So tell me what the Horde says of her, since I doubt I'll hear it from anyone else." },
+      },
+      choices = {
+        { text = "She's a true leader, and Elune's own voice in this world.", next = "op_tyrande_r1", fx = { affinity = 2, align = { light = 1 }, opinion = { tyrande = "admire" } } },
+        { text = "She's cold, and her Sentinels kill first and ask later.", next = "op_tyrande_r2", fx = { affinity = -2, align = { light = -1 }, opinion = { tyrande = "distrust" } } },
+        { text = "She's a priestess leading a war. That's a hard thing to do well.", next = "op_tyrande_r3", fx = { trait = { curious = 1 }, opinion = { tyrande = "mixed" } } },
+        { text = "The High Priestess is the reason we still stand. I'd follow her anywhere.", next = "op_tyrande_r4", fx = { affinity = 3, opinion = { tyrande = "loyal" } }, when = { race = "NightElf" } },
+        { text = "She defends her forests. I can respect an enemy who does that.", next = "op_tyrande_r5", fx = { affinity = 1, opinion = { tyrande = "respect" } }, when = { faction = "Horde" } },
+        { text = "I'd sooner not speak of her, General.", next = "BACK" },
+      },
+    },
+    op_tyrande_r1 = {
+      lines = {
+        { id = "op_tyrande_r1", text = "She is, and it is good to hear an outsider say it plainly. Remember it when you see her in the Temple of the Moon." },
+      },
+      choices = {
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    op_tyrande_r2 = {
+      lines = {
+        { id = "op_tyrande_r2", text = "Cold? She held our people together through the War of the Ancients and the Third War both. Be glad you have never needed to know how." },
+      },
+      choices = {
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    op_tyrande_r3 = {
+      lines = {
+        { id = "op_tyrande_r3", text = "It is, and she does it anyway, because Malfurion sleeps and someone must. I will not pretend that costs her nothing." },
+      },
+      choices = {
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    op_tyrande_r4 = {
+      lines = {
+        { id = "op_tyrande_r4", text = "Then we share a vow, kaldorei, and you are welcome at my side whenever the naga come up out of the water." },
+      },
+      choices = {
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    op_tyrande_r5 = {
+      lines = {
+        { id = "op_tyrande_r5", text = "That is more grace than I expected from the Horde. I will not return it in Ashenvale, but I will remember it here." },
+      },
+      choices = {
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
     xpt_shandris = {
       big = true,
       lines = { { id = "xpt_shandris_default", text = "We trust them a little more, which is all anyone should ask of a Sentinel. The humans fought beside us at Hyjal, and I honor that, but this forest was ours for ten thousand years before any of them crossed the sea." } },
@@ -222,6 +276,7 @@ P:NPC {
       big = true,
       lines = { { id = "ty_default", text = "She found me alone, a child with no one left, and she took me in. Everything I am, she began. Everything I do, I do so she never has to regret it." } },
       choices = {
+        { text = "What do others make of the High Priestess?", next = "op_tyrande" },
         { text = "She must be proud of you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "That's a heavy debt to carry.", next = "tyrande_debt" },
       },
@@ -335,6 +390,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_silver_hand = {
+      lines = {
+        { id = "opsh_q", text = "The Silver Hand was a fine order, once, before Lordaeron went the way it did and the Scarlets took half our banners. People still ask me what I think of it now, so let me ask you the same: what do you make of the Silver Hand?" },
+      },
+      choices = {
+        { text = "The finest order Lordaeron ever raised. It'll rise again.", next = "op_silver_hand_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { silver_hand = "admire" } } },
+        { text = "It failed Lordaeron when it mattered. The Crusade is its child.", next = "op_silver_hand_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { silver_hand = "failed" } } },
+        { text = "The order doesn't matter. The paladins who still keep faith do.", next = "op_silver_hand_r3", fx = { trait = { kind = 1 }, opinion = { the_light = "faith" } } },
+        { text = "I carry the Hand's oath still, Pratt.", next = "op_silver_hand_r4", fx = { affinity = 3, opinion = { silver_hand = "loyal" } }, when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "I don't know enough of it to say, Pratt.", next = "BACK" },
+      },
+    },
+    op_silver_hand_r1 = {
+      lines = {
+        { id = "op_silver_hand_r1", text = "I'd like to think so, and I'd like to be there when it does, if my knees agree. Thank you for saying it." },
+      },
+      choices = {
+        { text = "Something else, Pratt.", next = "BACK" },
+      },
+    },
+    op_silver_hand_r2 = {
+      lines = {
+        { id = "op_silver_hand_r2", text = "That stings, friend, and it stings because there's truth in it. The Crusade grew out of our grief, and we never pulled the weeds in time." },
+      },
+      choices = {
+        { text = "Something else, Pratt.", next = "BACK" },
+      },
+    },
+    op_silver_hand_r3 = {
+      lines = {
+        { id = "op_silver_hand_r3", text = "Now that's the sort of thing Uther used to say, more or less. You'd have liked him, I think, and he'd have liked you." },
+      },
+      choices = {
+        { text = "Something else, Pratt.", next = "BACK" },
+      },
+    },
+    op_silver_hand_r4 = {
+      lines = {
+        { id = "op_silver_hand_r4", text = "Then the Hand isn't gone, is it? Mind your knees and keep your boots mended, and I'll call that a fine career." },
+      },
+      choices = {
+        { text = "Something else, Pratt.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not wrong, only new. The Light and the spirits both ask you to look after more than yourself, and if you do that, I won't argue with how." } },
@@ -450,7 +549,10 @@ P:NPC {
     },
     retire_why = {
       lines = { { id = "rw_default", text = "Knees, mostly, and a feeling that there were enough young paladins and not enough people who could fix their boots." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of the Silver Hand now?", next = "op_silver_hand" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     human = {
       lines = { { id = "h2_default", text = "They tolerated me, then they trusted me, and now they argue with me about stitching. That's as close to family as the kaldorei get with a human." } },
@@ -492,6 +594,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sh_failed", when = { gossip = { topic = "silver_hand", stance = "failed" } }, text = "Pratt's been quiet at his bench since you two talked, and he's usually such a chatterbox. Whatever you said about the old order, it stayed with him." },
+    { id = "o_tyr_distrust", when = { gossip = { topic = "tyrande", stance = "distrust" } }, text = "The General has been sharp with everyone since you spoke, and I'm told it was about the High Priestess. Sit down and have some tea, and let's not mention it again." },
     { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet, and the roof only leaks over the table nobody sits at." },
     { id = "g_home", when = { homeInn = { "Feathermoon Stronghold" } }, text = "You've returned to the island. Your bed is ready, and the tea is fresh." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you've been away {away}, and here you are dripping on my floor as though you never left. Sit by the fire, and I'll put the kettle on." },
@@ -681,6 +785,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_warchief = {
+      lines = {
+        { id = "opw_q", text = "Thrall sent me here to keep the Horde's road open, and I'll keep it open till I drop. But I hear a lot of grumbling on the road about him lately, so tell me true: what do you think of the Warchief?" },
+      },
+      choices = {
+        { text = "He's the best thing that ever happened to the Horde.", next = "op_warchief_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's too soft on the humans. The Horde needs a harder hand.", next = "op_warchief_r2", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { warchief = "soft" } } },
+        { text = "He freed the orcs from the camps. That's a debt I'll never forget.", next = "op_warchief_r3", fx = { affinity = 3, opinion = { warchief = "admire" } }, when = { race = "Orc" } },
+        { text = "He's a fair foe, for what that's worth from the Alliance.", next = "op_warchief_r4", fx = { opinion = { warchief = "respect" } }, when = { faction = "Alliance" } },
+        { text = "I'd rather not judge the Warchief, Rok.", next = "BACK" },
+      },
+    },
+    op_warchief_r1 = {
+      lines = {
+        { id = "op_warchief_r1", text = "Ha! Now that's a proper answer. Go tell it to the ogres, they need to hear it most." },
+      },
+      choices = {
+        { text = "Something else, Rok.", next = "BACK" },
+      },
+    },
+    op_warchief_r2 = {
+      lines = {
+        { id = "op_warchief_r2", text = "Soft? I've seen him put a hammer through things you couldn't lift. He keeps the peace because he's strong enough to choose it, and you'd do well to learn the difference." },
+      },
+      choices = {
+        { text = "Something else, Rok.", next = "BACK" },
+      },
+    },
+    op_warchief_r3 = {
+      lines = {
+        { id = "op_warchief_r3", text = "Nor I, friend. I was in the camps too, and I still dream of the walls some nights. Lok'tar!" },
+      },
+      choices = {
+        { text = "Something else, Rok.", next = "BACK" },
+      },
+    },
+    op_warchief_r4 = {
+      lines = {
+        { id = "op_warchief_r4", text = "It's worth something, I'll grant you. Don't tell the braves I said so, but I'll take fair over friendly any day." },
+      },
+      choices = {
+        { text = "Something else, Rok.", next = "BACK" },
+      },
+    },
     xpt_rokorhan = {
       big = true,
       lines = { { id = "xpt_rokorhan_default", text = "Then take it to them properly, as a band and not as five heroes chasing their own glory. I've seen good fighters die in Dire Maul because each of them wanted to be the one who killed the chief." } },
@@ -909,7 +1057,10 @@ P:NPC {
       lines = {
         { id = "cor_default", text = "I don't give them orders; I give ogres orders, mostly to fall down. The tauren decide their own business, and they've been kind to a loud orc who forgets to wipe her boots." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do the braves think of the Warchief?", next = "op_warchief" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     warrior = {
@@ -1178,6 +1329,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_war_soft", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "Rok's been stomping around the camp since you told her the Warchief's gone soft. Sit by my fire a while, and give her time to cool off." },
     { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here it's just warm, and the only thing that bites is the pepper in the stew." },
     { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry and the kettle's on." },
     { id = "g_away", when = { away = 14 }, text = "Look who's come back after {away}! Shake off the rain and sit down, because the stew's been waiting nearly as long as I have." },

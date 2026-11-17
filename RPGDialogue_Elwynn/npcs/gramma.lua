@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_alliance_betrayed", when = { opinion = { topic = "alliance", stance = "betrayed" } }, text = "There's the one who agrees with my kettle. Sit, dear, and don't tell the Marshal what we said about kings." },
     { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },
     { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "The boy sent you. I know that face; it's the face of someone sent." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my accomplice! Come in, come in and sit down." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alliance = {
+      lines = {
+        { id = "op_alliance_a", text = "That's what I ask the fire every night, dear, and it never answers. The Alliance came asking for our men, and half the kingdoms that asked went home before the fighting was done. You tell me, then: was the Alliance worth our boys?" },
+      },
+      choices = {
+        { text = "It was. Without the Alliance, the Horde would have taken everything.", next = "op_alliance_1", fx = { opinion = { alliance = "worth_it" }, align = { order = 1 } } },
+        { text = "No. The kings used our men and walked away when it suited them.", next = "op_alliance_2", fx = { opinion = { alliance = "betrayed", stromgarde = "deserters" }, align = { order = -1 }, affinity = 1 } },
+        { text = "I can't weigh a whole war against one good man.", next = "op_alliance_3", fx = { opinion = { alliance = "mixed" }, trait = { kind = 1 }, affinity = 2 } },
+        { text = "Ironforge stood by you, Gramma. We never walked away.", next = "op_alliance_4", when = { race = "Dwarf" }, fx = { opinion = { alliance = "worth_it", dwarves = "loyal" }, affinity = 1 } },
+        { text = "That's not for me to say, Gramma.", next = "BACK" },
+      },
+    },
+    op_alliance_1 = {
+      lines = { { id = "op_alliance_r1", text = "I suppose that's so, and Bernice's husband would have said the same, because he went proud. I only wish the Alliance had sent him home again." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
+    op_alliance_2 = {
+      lines = { { id = "op_alliance_r2", text = "That's what I say to the kettle when nobody's listening, dear. Mind you, say it in Goldshire and the Marshal will give you that look of his." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
+    op_alliance_3 = {
+      lines = { { id = "op_alliance_r3", text = "No, and nobody should have to, least of all Bernice. Go and buy one of her loaves, dear; it's the only answer I've ever found." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
+    op_alliance_4 = {
+      lines = { { id = "op_alliance_r4", text = "No, you didn't, and I'll say that for your folk at any table. Stubborn as a Stonefield, the lot of you, and I mean it kindly." } },
+      choices = { { text = "Something else, Gramma.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Ending this foolish feud, dear. The Maclures and the Stonefields have wasted good years on it. Your spirits might knock some sense into them." } },
@@ -245,6 +274,7 @@ P:NPC {
         { id = "fb_default", text = "Her husband went off on campaign and didn't come home. She bakes the way some folk pray. Don't bring him up unless she does." },
       },
       choices = {
+        { text = "Was it worth it, sending Elwynn's men to that war?", next = "op_alliance" },
         { text = "I won't.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

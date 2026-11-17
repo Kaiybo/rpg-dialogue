@@ -30,6 +30,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "opo_default", text = "Hate is a coin Kum'isha spent long ago and never got back. Your world lets the orcs walk free and build cities and call themselves a Horde again, so tell Kum'isha, {race}, what you think of them." },
+      },
+      choices = {
+        { text = "They've changed under Thrall. They deserve a second chance.", next = "op_orcs_trust", fx = { align = { light = 1 }, opinion = { orcs = "redeemed" } } },
+        { text = "Killers then, killers now. Nothing's changed.", next = "op_orcs_hate", fx = { align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "I'm sorry for what my people did to yours.", next = "op_orcs_sorry", fx = { affinity = 2, opinion = { orcs = "ashamed" } }, when = { race = "Orc" } },
+        { text = "I didn't come to talk about orcs.", next = "BACK" },
+      },
+    },
+    op_orcs_trust = {
+      lines = {
+        { id = "opot_default", text = "A second chance! Kum'isha's people gave them a first one, and a second, and the third came with axes. Perhaps your world will be luckier, {race}, but Kum'isha would not wager crystals on it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_orcs_hate = {
+      lines = {
+        { id = "opoh_default", text = "So says the one who came through no door and lost no world. Kum'isha has more cause to say it than you, and still Kum'isha does not, because hate buys nothing." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_orcs_sorry = {
+      lines = {
+        { id = "opos_default", text = "Sorry. Kum'isha has waited a long time to hear an orc say it, and finds it is smaller than expected, and heavier. Bring crystals, orc, and we will speak no more of it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because I knew the orcs when they were only shamans and hunters, before the fel. The elements of Draenor answered them too, and they could not stop what came after, so do not expect me to be impressed." } },
@@ -242,6 +271,7 @@ P:NPC {
     orc = {
       lines = { { id = "or_default", text = "They did, and before that they came to my people with axes, and before that they were something else entirely. You have changed, I am told; so have I, and neither of us for the better." } },
       choices = {
+        { text = "Do you hate the orcs, Collector?", next = "op_orcs" },
         { text = "My people are free now. We've changed.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "What's done is done. I won't apologise.", next = "BACK", fx = { align = { honor = -1 }, affinity = -2 } },
       },
@@ -478,6 +508,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "redeemed" } }, text = "The Collector tells me you believe the orcs have changed. He spat after he said it, which for him is a kind of respect for your nerve." },
     { id = "g_default", text = "Quietly, please. I'm observing." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your mind's still in one piece, I trust?" },
   },

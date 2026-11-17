@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_elements", when = { gossip = { topic = "the_elements", stance = "respect" } }, text = "Lotwil tells me you think he should let his rocks go. He sulked into his notebook for an hour, so thank you, because that was the quietest hour I've had all month." },
     { id = "g_default", text = "Welcome to the finest camp in the Badlands, which isn't saying much, so mind the anvil and don't ask what's for supper." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Pull up a crate, if you can find one the ogres didn't carry off." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and we've been eating dust and salt pork gone green at the edges. Any word from Ironforge on your travels?" },

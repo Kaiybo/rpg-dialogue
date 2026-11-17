@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Circle's druids walk into Splintertree and out again, treating the orcs like one more flock of strays to tend. You've seen them at work, so tell me: is the Cenarion Circle right to stay neutral?" },
+      },
+      choices = {
+        { text = "Yes. Someone has to speak for the forest itself.", next = "op_r1", fx = { affinity = -1, align = { order = 1 }, opinion = { cenarion_circle = "respect" } } },
+        { text = "No. Staying neutral while trees fall is taking a side.", next = "op_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { cenarion_circle = "distrust" } } },
+        { text = "Their neutrality keeps Moonglade open to everyone. That matters.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { cenarion_circle = "useful" } } },
+        { text = "I'm of the Circle, Sentinel. We choose balance, not sides.", next = "op_r4", fx = { trait = { stern = 1 }, opinion = { cenarion_circle = "loyal" } }, when = { class = "DRUID" } },
+        { text = "I'll leave that to the druids.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "The forest is bleeding, and the Circle is taking notes. I'll grant that they mean well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Thank you. Say that in Nighthaven some day and watch the druids stroke their beards." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Maybe so, though I'd trade Moonglade's courtesy for a dozen more archers on the Zoram Strand." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then balance this for me, {class}: the orcs took three groves last month, and we took none back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -56,6 +85,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. The scouts won't be back for an hour." },
       },
       choices = {
+        { text = "Is the Cenarion Circle right to stay neutral?", next = "op_ask" },
         { text = "Why are the naga on the Zoram Strand?", next = "naga" },
         { text = "Are we at war with the Horde or not?", next = "horde" },
         { text = "Who is Kayneth Stillwind?", next = "kayneth" },

@@ -32,6 +32,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_centaur = {
+      lines = {
+        { id = "opc_q", text = "The young braves ask me whether the Galak can ever be lived beside, and I tell them to ask a traveller, because I've watched the centaur too long to answer fairly. So I'm asking you: what do you make of them?" },
+      },
+      choices = {
+        { text = "They raid and kill and never stop. They can't be lived beside.", next = "op_centaur_r1", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "war" } } },
+        { text = "They're a people like any other. Someone should try talking.", next = "op_centaur_r2", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { centaur = "peace" } } },
+        { text = "Keep them divided. Galak, Kolkar, Maraudine, all fighting each other.", next = "op_centaur_r3", fx = { trait = { practical = 1 }, opinion = { centaur = "divide" } } },
+        { text = "The tauren have fought them for generations. I'll not forgive them.", next = "op_centaur_r4", fx = { affinity = 2, opinion = { centaur = "hate" } }, when = { race = "Tauren" } },
+        { text = "I've seen too little of them to say.", next = "BACK" },
+      },
+    },
+    op_centaur_r1 = {
+      lines = {
+        { id = "op_centaur_r1", text = "That's my answer too, on most nights, and I'm too old to be ashamed of it. Keep your eyes on the ridges as you go." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    op_centaur_r2 = {
+      lines = {
+        { id = "op_centaur_r2", text = "Someone has tried, and come back on a stretcher, but I'll not tell you you're wrong to hope. Go to Splithoof with a strong escort if you mean to try." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    op_centaur_r3 = {
+      lines = {
+        { id = "op_centaur_r3", text = "The clans manage that well enough without our help, though I'll admit it has saved Freewind more than once. You think like a cliffwatcher." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
+    op_centaur_r4 = {
+      lines = {
+        { id = "op_centaur_r4", text = "Nor I, calf, and the Earth Mother will have to forgive us both for that one day." },
+      },
+      choices = {
+        { text = "Something else, Cliffwatcher.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Anyone who stands firm is useful against the Galak, and the Light makes a fine thing to stand behind. The centaur fear what they don't understand, and they will not understand you any more than I do." } },
@@ -199,6 +243,7 @@ P:NPC {
         { id = "ga_default", text = "They raided one of my supply caravans on the road and slaughtered every soul in it. This is an outrage, and it will not go unpunished while I watch these cliffs." },
       },
       choices = {
+        { text = "What do you think of the centaur yourself?", next = "op_centaur" },
         { text = "Where do they camp?", next = "splithoof" },
         { text = "Something else.", next = "BACK" },
       },
@@ -790,6 +835,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_grimtotem = {
+      lines = {
+        { id = "opg_q", text = "You've been up the pinnacle, or you will be, so you'll see them for yourself. Before you do, tell me straight: what do you think of the Grimtotem?" },
+      },
+      choices = {
+        { text = "They're murderers, all of them. Arnak only did what his tribe allows.", next = "op_grimtotem_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { grimtotem = "lost" } } },
+        { text = "Arnak's an outcast, Thalia. Hate him, not every Grimtotem child.", next = "op_grimtotem_r2", fx = { affinity = -1, align = { light = 1 }, opinion = { grimtotem = "redeemable" } } },
+        { text = "They want the Horde out of Kalimdor. That makes them enemies.", next = "op_grimtotem_r3", fx = { trait = { stern = 1 }, opinion = { grimtotem = "enemy" } } },
+        { text = "I'll judge them when I've seen them.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r1 = {
+      lines = {
+        { id = "op_grimtotem_r1", text = "That's what I've been saying to anyone who'll listen, and most won't. Thank you." },
+      },
+      choices = {
+        { text = "Something else, Thalia.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r2 = {
+      lines = {
+        { id = "op_grimtotem_r2", text = "Maybe you're right, and maybe one day I'll be able to hear it. Not today, though, not with this cord still in my hand." },
+      },
+      choices = {
+        { text = "Something else, Thalia.", next = "BACK" },
+      },
+    },
+    op_grimtotem_r3 = {
+      lines = {
+        { id = "op_grimtotem_r3", text = "Enemies of the Horde and enemies of their own kin, which is worse. I'm glad you see it." },
+      },
+      choices = {
+        { text = "Something else, Thalia.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I don't know. Arnak Grimtotem took her and killed her brother, and I've prayed to the Earth Mother until my voice gave out. If the Light can walk into that pinnacle in one of the dead, then perhaps it can bring her out." } },
@@ -887,6 +967,7 @@ P:NPC {
         { id = "b_default", text = "Because the Grimtotem are tauren, and they do this to tauren. A centaur I could hate cleanly." },
       },
       choices = {
+        { text = "What do you think should happen to them?", next = "op_grimtotem" },
         { text = "Then let's make it right.", next = "BACK", fx = { affinity = 2, align = { honor = 1 }, learn = { "grimtotem" } } },
         { text = "It isn't my fight, Thalia.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Not every Grimtotem is Arnak.", next = "grimtotem" },
@@ -997,6 +1078,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_cent_peace", when = { gossip = { topic = "centaur", stance = "peace" } }, text = "Longhorn says you think someone should try talking to the centaur. Sleep with your boots on, then, dear, because they come at night when they come." },
     { id = "g_inn", text = "Rest here, traveler. The wind sings over the mesa at night; most guests find it soothing." },
     { id = "g_home", when = { homeInn = { "Freewind Post" } }, text = "Back to your own bed above the canyons. I kept the blankets dry." },
     { id = "g_away", when = { away = 14 }, text = "Back above the canyons after {away}, traveler! I kept your blankets dry, and the wind's been singing every night." },

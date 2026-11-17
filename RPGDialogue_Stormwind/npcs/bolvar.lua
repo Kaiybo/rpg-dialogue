@@ -15,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_argent", when = { gossip = { topic = "argent_dawn", stance = "admire" } }, text = "Lord Rall tells me you favour the Argent Dawn. So do I, quietly, and I'd thank you to keep it quiet, since the Crusade still has friends at court." },
+    { id = "g_op_peace_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "I'm told you've no use for peace with the Horde. Keep that sword sharp, then, but point it where I tell you, and not at Theramore's envoys." },
+    { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "The king tells me you think orcs understand nothing but the sword. I fought them in the Second War, so I won't argue, but I'd thank you not to teach it to a ten-year-old." },
     { id = "g_court", text = "Speak plainly. The court has enough of the other kind." },
     { id = "g_hero", when = { townStanding = { town = "stormwind", min = 55 } }, text = "Ah. I've read your name in more reports than I can count. Good reports, mostly." },
     { id = "g_distrust", when = { townStanding = { town = "stormwind", max = -20 } }, text = "The Watch has spoken of you. Be brief, and be careful." },
@@ -33,6 +36,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_jaina = {
+      lines = {
+        { id = "op_jaina_a", text = "She keeps faith with peace, which isn't always the same thing. Jaina Proudmoore writes that Thrall's orcs want only to be left alone in Durotar, and half the House of Nobles calls her a fool for believing it. You've seen more of the world than they have, so what do you make of it?" },
+      },
+      choices = {
+        { text = "Lady Proudmoore is right. Peace with Thrall is worth the risk.", next = "op_jaina_1", fx = { opinion = { jaina = "trust", peace = "for" }, align = { light = 1 } } },
+        { text = "The orcs burned this city once. I'd never trust them again.", next = "op_jaina_2", fx = { opinion = { jaina = "naive", peace = "against" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Trust Thrall's word, but keep the scouts out and the walls manned.", next = "op_jaina_3", fx = { opinion = { jaina = "respect", peace = "for" }, trait = { cautious = 1 }, affinity = 2 } },
+        { text = "Ironforge remembers Grim Batol, my lord. The orcs owe us blood.", next = "op_jaina_4", when = { race = "Dwarf" }, fx = { opinion = { orcs = "hate", peace = "against" } } },
+        { text = "The Light asks mercy even for orcs, my lord.", next = "op_jaina_5", when = { class = "PALADIN" }, fx = { opinion = { orcs = "pity", peace = "for" }, trait = { pious = 1 } } },
+        { text = "I'd rather not speak for the kingdom, Highlord.", next = "BACK" },
+      },
+    },
+    op_jaina_1 = {
+      lines = { { id = "op_jaina_r1", text = "Then you and she would get on, and I hope you're both right. I'll keep the garrison ready all the same, because hope has never yet held a wall." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_2 = {
+      lines = { { id = "op_jaina_r2", text = "Plenty in this hall would cheer you for that, and I saw the old city burn, so I don't blame them. But I'd rather not start a war while Westfall is still on fire." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_3 = {
+      lines = { { id = "op_jaina_r3", text = "That's very nearly what I wrote back to her, word for word. You'd make a fair regent, and I wouldn't wish the chair on you." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_4 = {
+      lines = { { id = "op_jaina_r4", text = "They do, and Magni has never let me forget it. If it comes to war again, I'll want every dwarf who feels as you do on the wall beside me." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
+    op_jaina_5 = {
+      lines = { { id = "op_jaina_r5", text = "It does, and Uther said the same when they filled the camps after the war. He was a better man than most of us, and I try to remember him when the nobles shout." } },
+      choices = { { text = "Let me ask you something else.", next = "BACK" } },
+    },
     xpt_bolvar = {
       big = true,
       lines = { { id = "xpt_bolvar_default", text = "More than the army would like to admit. The regulars hold the roads and the walls, but it's companies like yours that go into the Deadmines and the Stockade and come back with what we needed to know, and half my reports these days are written by people who never swore an oath to anyone." } },
@@ -323,6 +359,7 @@ P:NPC {
       big = true,
       lines = { { id = "if_default", text = "It always has. When Stromgarde walked away from the Alliance and Gilneas shut its gate, King Magni kept his word, and every dwarf who walks this hall reminds me what that word cost Ironforge." } },
       choices = {
+        { text = "And Theramore? Does Lady Proudmoore keep faith with Stormwind?", next = "op_jaina" },
         { text = "What did it cost us?", next = "ironforge_cost" },
         { text = "An alliance is only worth the oaths kept in it.", next = "BACK", fx = { affinity = 1, align = { honor = 2 } } },
         { text = "Ironforge keeps faith, but it minds its own halls first.", next = "BACK", fx = { align = { honor = -1 } } },

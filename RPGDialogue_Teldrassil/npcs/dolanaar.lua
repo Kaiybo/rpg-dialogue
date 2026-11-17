@@ -295,6 +295,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_furbolgs_pity", tags = { "news" }, when = { gossip = { topic = "furbolgs", stance = "pity" } },
+          text = "Tallonkai says you think the Gnarlpine were poisoned, not born wicked. I've thought the same for a long while, and it's good to hear it from someone else." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and welcome. The Gnarlpine were a gentle people once, and I would have you remember that before you raise a hand against them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order hunts the corrupted, I am told, but the Gnarlpine are sick rather than wicked, and I ask you to remember the difference." },
         { id = "h_default", key = true,
@@ -415,6 +417,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Some blame the Gnarlpine, and some blame whatever turned them, and some blame us for not seeing it sooner. You have been among the furbolgs now. What do you think of them?" },
+      },
+      choices = {
+        { text = "They're beasts now. Put them down before they kill again.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { furbolgs = "hate" } } },
+        { text = "They were our friends once. Something poisoned them.", next = "op_r2", fx = { affinity = 1, align = { light = 1 }, trait = { kind = 1 }, opinion = { furbolgs = "pity" } } },
+        { text = "I don't care why. I care that the village is safe.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { furbolgs = "guard" } } },
+        { text = "I don't know enough to judge.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Many in Dolanaar say the same, and I said it myself the night Starbreeze burned. I find it harder to say now that the ash has cooled." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "They were, and the old ones in Dolanaar still remember trading with them. Find what poisoned them, {class}, and you'll do more good than any arrow." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "That is a guard's answer, and the village needs guards. I only hope someone else is asking why." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It keeps the nightmares from the young ones who guard the groves. Without it, their sleep is troubled. Perhaps your spirits know of such things." } },
@@ -527,6 +553,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
+        { text = "Who do you blame for Starbreeze?", next = "op_ask" },
         { text = "What was the dreamcatcher to you?", next = "dreamcatcher" },
         { text = "What happened to Starbreeze Village?", next = "starbreeze" },
         { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
@@ -603,6 +630,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "The Council argues it every season. Some say a satyr who stays in sight is better than one who hides, and some say we should have shot him the day he arrived. You've met him, I expect, so what would you do with Zenn?" },
+      },
+      choices = {
+        { text = "Drive him off Teldrassil before he corrupts someone.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { zenn_foulhoof = "hard" } } },
+        { text = "Watch him closely. He's done nothing we can prove.", next = "op_r2", fx = { affinity = 1, trait = { cautious = 1 }, opinion = { zenn_foulhoof = "watch" } } },
+        { text = "He's lonely and harmless. Let him be.", next = "op_r3", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { zenn_foulhoof = "harmless" } } },
+        { text = "The forest will judge him in its own time.", next = "op_r4", fx = { trait = { patient = 1 }, opinion = { zenn_foulhoof = "forest_judges" } }, when = { class = "DRUID" } },
+        { text = "That's for the Council to decide.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "That is what the Sentinels said, nearly word for word. The druids answered that a satyr driven off is a satyr nobody is watching." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "That is the Council's answer as well, more or less, and it is the reason I keep a scout within sight of his glade." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Harmless is what satyrs want you to think, {class}. Every one of them was Highborne once, and every one of them chose the Legion." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "The forest is slow and Zenn is quick, though I take your point, and so would the Council." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The ones about the furbolgs and the spiders, always. Your spirits might tell you where the danger lies before my Sentinels find it." } },
@@ -693,6 +749,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_fandral_doubt", tags = { "news" }, when = { opinion = { topic = "fandral", stance = "doubt" } },
+          text = "Tenaron tells the Council you'd follow neither the High Priestess nor the Archdruid. Keep thinking for yourself; the Council could use more of it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Council's orders are mostly for blades and bows, but there is always someone on the list who needs mending more than fighting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order is sworn to obey, they tell me, which makes you easier to give orders to than most of the adventurers I see." },
         { id = "h_default", key = true,
@@ -712,6 +770,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, and I'll find you something useful." },
       },
       choices = {
+        { text = "Should Zenn Foulhoof be allowed to stay?", next = "op_ask" },
         { text = "What is the Council of the Forest?", next = "council" },
         { text = "Who is Denalan?", next = "denalan" },
         { text = "Who is Zenn Foulhoof?", next = "zenn" },
@@ -889,6 +948,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_kaldorei_immortality_loss", tags = { "news" }, when = { gossip = { topic = "kaldorei_immortality", stance = "loss" } },
+          text = "Zarrin says you'd trade anything to have our immortality back. Sit down and have a cup first, because you can't trade what's already gone." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest under my roof! The road from Shadowglen is kind, mostly, but now and then someone comes in limping, and it helps to have a healer near." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and a long way from home! Leave your hammer by the door if you like, for nobody in Dolanaar will touch it, though they will certainly stare." },
         { id = "h_default", key = true,

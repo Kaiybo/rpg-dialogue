@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kaldorei_home", when = { opinion = { topic = "night_elves", stance = "keep_home" } }, text = "You again, the one who would send me back to Ashenvale. I've thought on it, and I'm still here, but I listen to the east wind more than I did." },
     { id = "g_map", text = "Don't stand on the map." },
     { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Leather Bandanas") }, text = "Bandanas? Count them out on the table; every one's a pin on my map." },
     { id = "g_after", when = { questDone = TODO_QUEST("Red Leather Bandanas") }, text = "My map's half red now, and that's your doing. It's a good red, too." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kaldorei = {
+      lines = {
+        { id = "op_kaldorei_a", text = "Some of them do not, and they say so with arrows on the practice range. Humans cut and burn and build, and then they ask us to help guard what they've built. You live among them, or you are one of them, so tell me: is this Alliance worth the kaldorei's arrows?" },
+      },
+      choices = {
+        { text = "It is. Alone, every one of us falls to the Scourge or the Horde.", next = "op_kaldorei_1", fx = { opinion = { night_elves = "ally", alliance = "worth_it" }, align = { order = 1 }, affinity = 1 } },
+        { text = "No. Your people should guard Ashenvale and leave Westfall to us.", next = "op_kaldorei_2", fx = { opinion = { night_elves = "keep_home", ashenvale = "kaldorei_right" }, align = { order = -1 } } },
+        { text = "Humans owe you a debt. Hyjal saved all of us.", next = "op_kaldorei_3", fx = { opinion = { night_elves = "admire", humans = "indebted" }, trait = { curious = 1 }, affinity = 2 } },
+        { text = "Humans are short-lived and careless. We should keep our distance.", next = "op_kaldorei_4", when = { race = "NightElf" }, fx = { opinion = { humans = "careless", night_elves = "keep_home" }, trait = { proud = 1 } } },
+        { text = "That's for Darnassus to decide, not me.", next = "BACK" },
+      },
+    },
+    op_kaldorei_1 = {
+      lines = { { id = "op_kaldorei_r1", text = "That is what Shandris says, and she has been right more often than I have. I'll keep my arrows on this map, then, and not on the practice range." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
+    op_kaldorei_2 = {
+      lines = { { id = "op_kaldorei_r2", text = "Half my sisters would embrace you for that. Ashenvale bleeds while I count bandanas here, and I think of it every night when the wind turns east." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
+    op_kaldorei_3 = {
+      lines = { { id = "op_kaldorei_r3", text = "Few humans say it, and fewer know it. Remember it when someone calls us cold, and remind them who stood at the mountain when the Legion came." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
+    op_kaldorei_4 = {
+      lines = { { id = "op_kaldorei_r4", text = "Careful, {g:brother|sister}. They are careless, yes, and they also die for farms that are not theirs, and I have watched them do it on this hill. Keep your distance if you like, but watch them first." } },
+      choices = { { text = "Something else, scout.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Defias camps, gnoll dens, and roads that cross too often. My notes are precise. I'd be curious whether your spirits would agree with them." } },
@@ -172,6 +201,7 @@ P:NPC {
     silk = {
       lines = { { id = "si_default", text = "The cloth's the rank: leather on the road, silk on the ones who give orders. Silk never comes up to the farms. It stays under Moonbrook and sends the leather out." } },
       choices = {
+        { text = "Do your sisters think the humans worth the trouble?", next = "op_kaldorei" },
         { text = "Then I'll stick to asking about the silk.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

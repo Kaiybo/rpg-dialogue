@@ -31,8 +31,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Some do and some don't, and the honest ones admit they're curious. I'd like an outside opinion, so tell me: what do you make of the Explorers' League poking about in Kalimdor?" },
+      },
+      choices = {
+        { text = "History belongs to everyone, Archaeologist. Dig it up.", next = "op_r1", fx = { affinity = 2, align = { honor = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Those are their dead. Leave the ruins alone.", next = "op_r2", fx = { affinity = -1, align = { honor = 1 }, opinion = { explorers_league = "wrong" } } },
+        { text = "Magni wants his titans. The rest is courtesy.", next = "op_r3", fx = { trait = { skeptical = 1 }, opinion = { explorers_league = "self_serving", magni = "distrust" } } },
+        { text = "Bronzebeards go where the stone calls, and that's all there is.", next = "op_r4", fx = { affinity = 1, opinion = { explorers_league = "proud", magni = "trust" } }, when = { race = "Dwarf" } },
+        { text = "Your League digs with care. My people notice that.", next = "op_r5", fx = { affinity = 1, trait = { kind = 1 }, opinion = { explorers_league = "tolerate" } }, when = { race = "NightElf" } },
+        { text = "I've no stake in it either way.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "That's the spirit Ironforge sends us out with! Mind you, I'd not say it quite so loud near the Temple." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Aye, I hear that a great deal, and I've stopped arguing it in the street. We record and we don't loot, and anyone who tells you otherwise has met the wrong dwarves." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The King does want his answers, and I'll not lie to you about it. There are worse things to want than the truth of where we came from, though." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Ha! Spoken like one raised in the Hall of Explorers. I only wish they brewed a decent stout up here so I could toast it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r5 = {
+      lines = { { id = "op_r5_default", text = "That's kindly said, and I'll put it in my letters home, because Ironforge is half convinced your people want us all shot." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
+          text = "You think the League should leave the ruins alone, I'm told. You're welcome to the opinion, so long as you don't preach it to my crew." },
+        { id = "o_magni_distrust", tags = { "news" }, when = { opinion = { topic = "magni", stance = "distrust" } },
+          text = "You've been heard saying the King cares more for old stones than for his people. I'll not argue, but I'll thank you not to say it in front of the League." },
         { id = "h_default", key = true,
           text = "Chief Archaeologist Greywhisker, of the Explorers' League, at your service. Most folk think our work is a hobby for old dwarves with too much time, but the ruins of this world have a great deal to tell us, if we listen." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Darkshore?") },
@@ -115,6 +153,7 @@ P:NPC {
         { id = "ci_default", text = "Diplomacy, of a sort. If the League's to dig on Kalimdor, it does well to ask the kaldorei nicely, and I'm the one they sent to stand about looking harmless." },
       },
       choices = {
+        { text = "Do the kaldorei resent the League's digging?", next = "op_ask" },
         { text = "Is it working?", next = "city_working" },
         { text = "Something else.", next = "BACK" },
       },

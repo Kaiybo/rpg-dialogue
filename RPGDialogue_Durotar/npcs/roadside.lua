@@ -152,7 +152,10 @@ P:NPC {
     },
     kron = {
       lines = { { id = "k_default", text = "He was born in the internment camps, and he never once complained about it. When the Warchief freed us, Kron wanted only open land and something to hunt, and Durotar gave him both." } },
-      choices = { { text = "How did he die?", next = "kron_death" } },
+      choices = {
+        { text = "How did he die?", next = "kron_death" },
+        { text = "Do you hate the humans who kept you in the camps?", next = "camps_op" },
+      },
     },
     kron_death = {
       lines = { { id = "kd_default", text = "He tracked something bigger than he should have, alone, because he was proud like his father. The hunters who found him brought back his spear but not his amulet, and that is the part I cannot let rest." } },
@@ -165,6 +168,35 @@ P:NPC {
         { text = "The dead don't need trinkets. You should let him go.", next = "BACK", fx = { affinity = -2, align = { light = -1 } } },
         { text = "Something else, if you'll allow it.", next = "BACK" },
       },
+    },
+    camps_op = {
+      lines = {
+        { id = "co_default", text = "I did, for years, and the hate fed me better than their gruel ever did. But Kron never hated anything, not even the guards, and I wonder now which of us was right, so tell me, child, what do you think we owe the humans?" },
+        { id = "co_undead", when = { race = "Scourge" }, text = "You were one of them, so perhaps you'll know. I hated them for years, and Kron never hated anything, and I wonder now which of us was right. What do we owe them, you think?" },
+      },
+      choices = {
+        { text = "Nothing but the axe. They earned it.", next = "co_hate", fx = { align = { light = -1 }, opinion = { humans = "hate", peace = "against" } } },
+        { text = "The Warchief made peace. Hate only poisons us.", next = "co_forgive", fx = { affinity = 1, align = { light = 1 }, opinion = { humans = "forgive", peace = "for" } } },
+        { text = "I don't trust them, but war would cost more sons.", next = "co_wary", fx = { affinity = 2, opinion = { humans = "distrust", peace = "for" } } },
+        { text = "I was human once. Not all of them were camp guards.", next = "co_mixed", when = { race = "Scourge" }, fx = { opinion = { humans = "mixed" } } },
+        { text = "I can't answer that for you, Misha.", next = "BACK" },
+      },
+    },
+    co_hate = {
+      lines = { { id = "coh_default", text = "That is what I said, once, with my whole heart. It kept me alive, child, but it never once kept me warm." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_forgive = {
+      lines = { { id = "cof_default", text = "Kron would have said that, and he would have said it with his mouth full and his feet on my table. Thank you for saying it for him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_wary = {
+      lines = { { id = "cow_default", text = "More sons. Yes. I have none left to give, so I'll take your answer and keep it by the door with his amulet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    co_mixed = {
+      lines = { { id = "com_default", text = "Then you are kinder to them than I could ever be, and you have more reason not to be. Strange, the things the dead teach the living." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     alone = {
       lines = { { id = "a_default", text = "Razor Hill is full of young warriors shouting about glory, and I have heard enough of that for one life. Out here the hills are quiet, and quiet is what a grieving woman wants." } },
@@ -291,6 +323,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You won't change Skull Rock with prayers, but you can keep my scouts alive while they count the cultists, which is more use than most." },
         { id = "h_default", key = true,
           text = "I'm Margoz, and I watch Skull Rock for the Horde. The Burning Blade have dug themselves into that cave like ticks, and someone has to count them." },
+        { id = "h_op_demons", when = { opinion = { topic = "demons", stance = "useful" } },
+          text = "You're the one going about saying demons are only tools. Every cultist in Skull Rock said the same thing once, so I'll keep one eye on you and one on the rock." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Skull Rock") },
           text = "Down into Skull Rock with you, then, and bring me back what the cultists carry. Proof is what Orgrimmar wants, and proof is what I'll send them." },
         { id = "h_neeru", when = { questActive = TODO_QUEST("Margoz") },
@@ -344,7 +378,36 @@ P:NPC {
     },
     orders = {
       lines = { { id = "o_default", text = "Orgrimmar, by way of whoever they send. Gar'Thok at Razor Hill knows I'm here, and Orgnil hunts the same cultists from his end." } },
-      choices = { { text = "I'll tell them you're still watching.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "I'll tell them you're still watching.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Does Orgrimmar take the Blade seriously enough?", next = "purge_op" },
+      },
+    },
+    purge_op = {
+      lines = { { id = "po_default", text = "Thrall swore we'd never bow to demons again, and I believe he means it. But he's a patient one, and patience gives cultists time to dig, so what do you make of the Warchief's way with them?" } },
+      choices = {
+        { text = "He's right to wait. Patience catches the ones inside.", next = "po_trust", fx = { align = { order = 1 }, opinion = { warchief = "trust" } } },
+        { text = "Too patient. Someone should tear the Cleft of Shadow open.", next = "po_purge", fx = { affinity = 2, align = { order = -1 }, opinion = { warchief = "soft" } } },
+        { text = "Demons broke us once. Anyone who touches them should hang.", next = "po_hang", fx = { affinity = 1, opinion = { demons = "hate" } } },
+        { text = "Not every warlock is a cultist, Margoz.", next = "po_lock", when = { class = "WARLOCK" }, fx = { affinity = -1, opinion = { demons = "control" } } },
+        { text = "I'll leave that to the Warchief.", next = "BACK" },
+      },
+    },
+    po_trust = {
+      lines = { { id = "pot_default", text = "Maybe. I'm an old hermit, and old hermits have no patience left, so I'll keep counting and let wiser heads do the waiting." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_purge = {
+      lines = { { id = "pop_default", text = "Say that too loudly in Orgrimmar and you'll have the Blade's friends asking who you are. Say it quietly, though, and keep saying it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_hang = {
+      lines = { { id = "poh_default", text = "That's the sort of thing I like to hear on a long night. Mind you, Zureetha down in the Valley might argue it with you, and she's earned the right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_lock = {
+      lines = { { id = "pol_default", text = "No, only most of them, eventually. Show me the one who isn't, and I'll buy him a drink at Grosk's." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     warlock = {
       lines = { { id = "wl_default", text = "So they all say, right up until the day they don't. Prove it in that cave, and maybe I'll stop watching your hands." } },

@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sw_admire", when = { gossip = { topic = "steamwheedle", stance = "admire" } }, text = "I hear you're a fan of the Cartel! Smart customer, and smart customers get the best seats at the auction, figuratively speakin'." },
     { id = "g_default", text = "Buying or selling, friend? Either way the Cartel takes its little slice, and either way I'm happy to see you, because happy auctioneers get better prices." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Something of yours sold while you were out, or it didn't, and either way I've got a listing with your name on it." },
   },

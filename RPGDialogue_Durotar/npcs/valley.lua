@@ -289,6 +289,7 @@ P:NPC {
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Den expect of a druid, Gornek?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What do I need to prove?", next = "prove" },
+        { text = "What do the grunts say about the Forsaken?", next = "forsaken_op" },
         { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm no cultist, Gornek. My power answers to me.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "An orc with a spellbook. Say what you're thinking.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
@@ -349,6 +350,27 @@ P:NPC {
     headhunter = {
       lines = { { id = "hh_default", text = "I've seen your people throw a spear, and I wouldn't want to be the boar. Kill clean out there and show these orc recruits how it's done, and they might stop complaining about trolls in the Den." } },
       choices = { { text = "They'll see.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    forsaken_op = {
+      lines = { { id = "fo_default", text = "Plenty, and most of it not fit for the Den. The Warchief says the Dark Lady's dead are Horde now, and some of my grunts won't spar with anything that smells of the grave, so tell me, recruit: would you stand shoulder to shoulder with one?" } },
+      choices = {
+        { text = "If they bleed for the Horde, they're Horde.", next = "fo_trust", fx = { affinity = 2, align = { order = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "The dead fight for the dead. I'd watch my back.", next = "fo_distrust", fx = { align = { order = -1 }, opinion = { forsaken = "distrust" } } },
+        { text = "I'd stand with anyone who gets back up.", next = "fo_up", fx = { affinity = 2, opinion = { horde = "loyal" } } },
+        { text = "I'll ask the Forsaken that, once I've met one.", next = "BACK" },
+      },
+    },
+    fo_trust = {
+      lines = { { id = "fot_default", text = "Good, then you can spar with the first one that comes through the Den, and show the others it doesn't rub off." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_distrust = {
+      lines = { { id = "fod_default", text = "Watch your back by all means, recruit, but watch it from the same side of the line as them. The Scourge won't care which of you it eats first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fo_up = {
+      lines = { { id = "fou_default", text = "Ha! The dead got back up once already, so by that rule they're the best recruits I'll ever have. I'll tell the grunts you said it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     prove = {
       big = true,

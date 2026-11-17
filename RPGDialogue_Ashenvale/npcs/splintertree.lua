@@ -34,6 +34,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "My people walked with the kaldorei at Hyjal, and now orcs I call brothers cut their trees. I have not made my peace with it. What do you think of the logging in Ashenvale?" },
+      },
+      choices = {
+        { text = "The Horde needs timber. That's survival, not cruelty.", next = "op_r1", fx = { align = { light = -1 }, opinion = { ashenvale = "necessary" } } },
+        { text = "It's wrong. The forest deserves better from us.", next = "op_r2", fx = { affinity = 1, align = { light = 1 }, opinion = { ashenvale = "wrong" } } },
+        { text = "The elves started this war long before the axes did.", next = "op_r3", fx = { trait = { stern = 1 }, opinion = { ashenvale = "provoked" } } },
+        { text = "The Earth Mother weeps for every stump, Senani.", next = "op_r4", fx = { affinity = 1, trait = { kind = 1 }, opinion = { ashenvale = "wrong" } }, when = { race = "Tauren" } },
+        { text = "I haven't decided.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Survival is the word the Warsong use, and they use it often. The forest has its own word for it, and it is quieter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Then you and I think alike, or near enough. The Earth Mother does not ask us to cut her for walls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Perhaps, though I have counted the stumps, and I have not yet counted the arrows that came first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "She does, and I hunt the beasts of this forest anyway, because the Horde needs meat as well as wood. We are not so clean, you and I." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only if we take as the tauren do, a little and with thanks, but the Warsong's saws don't know how. I've told Splintertree as much, and they listen politely and send more axes." } },
@@ -121,6 +150,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and then go and listen to the trees a while." },
       },
       choices = {
+        { text = "What do you think of the logging, Senani?", next = "op_ask" },
         { text = "Do the forest spirits blame the Horde for the Warsong camp?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does this forest need that a spellcaster could give?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Have you seen elves watching the hunting grounds?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
@@ -285,6 +315,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_ashenvale_wrong", tags = { "news" }, when = { gossip = { topic = "ashenvale", stance = "wrong" } },
+          text = "Senani says you think the logging's wrong. I count the logs. I'd count fewer if you had your way, and I'd still count them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You lot talk to everything, I hear, so maybe you can talk my wagon wheels out of the mud on the Splintertree road." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you can pray over the next wagon the elves set fire to, because I've run out of things to say to them." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and I suppose you'll want to know where the caravans are headed. Don't light anything near the timber, that's all I ask, because a burning wagon is a great deal of counting." },
@@ -435,6 +467,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_warchief_soft", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "soft" } },
+          text = "Torek be tellin' everyone you think Thrall gone soft, mon. Careful, de Darkspear owe him our lives, an' we don't forget it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? The night elves got their own spirits in these trees, and they be whispering about us, so keep your ears open on the paths." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest walkin' into Splintertree, mon. The loa or the Light or whatever you be listenin' to, I hope it tell you where the elves be hidin', because the trees sure won't." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? The elf runners be too quick for arrows half the time, so if you can freeze one where he stand, Kuray'bin gonna like you a lot." },

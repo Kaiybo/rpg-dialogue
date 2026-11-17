@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons_myth", when = { opinion = { topic = "dragons", stance = "myth" } }, text = "Ah. The traveller who considers dragons tavern talk. The court welcomes you all the same, and it will be delighted to be proven wrong." },
     { id = "g_brief", text = "Be brief, if you please; the orcs never are." },
     { id = "g_letters", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "Why are you still standing in my hall? Take the letter to Westfall, and go quickly." },
     { id = "g_hero", when = { townStanding = { town = "lakeshire", min = 55 } }, text = "Ah, Lakeshire's champion. Sit, if you like; you're the only visitor I don't mind." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dragons = {
+      lines = {
+        { id = "op_dragons_a", text = "The court has a suspicion it can't yet prove. The Blackrock fight like an army with a general behind them, and the old soldiers in the inn swear they've seen black wings over the Steppes at dusk. You've travelled further than my bailiff, so tell me: do dragons meddle in the affairs of men?" },
+      },
+      choices = {
+        { text = "They do. The black dragonflight is behind more than orcs.", next = "op_dragons_1", fx = { opinion = { black_dragonflight = "fight", dragons = "dangerous" }, align = { order = 1 }, affinity = 2 } },
+        { text = "Dragons? That's tavern talk. The orcs need no masters to raid.", next = "op_dragons_2", fx = { opinion = { black_dragonflight = "myth", dragons = "myth" }, align = { order = -1 }, trait = { skeptical = 1 }, affinity = -1 } },
+        { text = "Whoever leads them, Lakeshire needs soldiers more than answers.", next = "op_dragons_3", fx = { opinion = { dragons = "unknown", stormwind = "abandoned_its_own" }, trait = { practical = 1 } } },
+        { text = "The red dragonflight were slaves of the orcs. Dragons can be used.", next = "op_dragons_4", when = { origin = "dwarf_military_ward" }, fx = { opinion = { dragons = "dangerous", orcs = "distrust" }, trait = { curious = 1 } } },
+        { text = "The court should ask someone wiser than me.", next = "BACK" },
+      },
+    },
+    op_dragons_1 = {
+      lines = { { id = "op_dragons_r1", text = "The court is gratified to hear it from someone who doesn't sign his letters 'Magistrate'. Write it down, sign it, and I'll send it to the Keep with the rest." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_dragons_2 = {
+      lines = { { id = "op_dragons_r2", text = "The Keep says the same, word for word, in rather finer handwriting. The court notes your view, and the court also notes how many orcs it has buried this year." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_dragons_3 = {
+      lines = { { id = "op_dragons_r3", text = "Spoken like a bailiff, and I mean that kindly. Soldiers first, then, and the truth when someone has time to climb the Spire and ask for it." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
+    op_dragons_4 = {
+      lines = { { id = "op_dragons_r4", text = "Grim Batol, yes, I'd forgotten your people saw that firsthand. Then perhaps the question isn't whether dragons serve orcs, but who's holding whose leash this time." } },
+      choices = { { text = "Something else, Magistrate.", next = "BACK" } },
+    },
     xcl_ubrs = {
       big = true,
       lines = { { id = "xcl_ubrs_default", text = "I said so in forty letters, and the forty-first is on my desk now, informing the Keep that the matter was resolved by a private citizen at no cost to the crown. I'd hoped to feel vindicated, but mostly I feel tired, because the Blackrock are still in my hills and no dragon's death will move them." } },
@@ -237,6 +266,7 @@ P:NPC {
           fx = { learn = { "westfall", "night_watch" } } },
       },
       choices = {
+        { text = "Three is a pattern. Whose pattern, Magistrate?", next = "op_dragons" },
         { text = "You think someone at court wants Lakeshire to fall?", next = "amiss_court" },
         { text = "Lady Prestor counsels patience at court.", next = "prestor", when = { heardClaim = "prestor_patience" } },
         { text = "Something else.", next = "BACK" },

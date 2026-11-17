@@ -20,6 +20,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_magni = {
+      lines = {
+        { id = "opn_magni_q", text = "I said I'll no' curse him, an' I won't. But I've buried dwarves who asked me every day when the reserves were comin', an' I gave 'em the same answer every day. Ye've been tae Ironforge; ye tell me if he failed us." },
+      },
+      choices = {
+        { text = "He did. Dun Modr should have come first.", next = "opn_magni_r", fx = { affinity = 1, align = { honor = -1 }, opinion = { magni = "failed" } } },
+        { text = "He gave his word to the Alliance. A king keeps his word.", next = "opn_magni_r", fx = { affinity = -1, align = { honor = 1 }, opinion = { magni = "loyal" } } },
+        { text = "He's stretched thin. No king could hold every fire.", next = "opn_magni_r", fx = { trait = { practical = 1 }, opinion = { magni = "stretched" } } },
+        { text = "The King asked after Dun Modr. He hasn't forgotten you.", next = "opn_magni_r", when = { heardLine = "magni.h_default" }, fx = { affinity = 1, opinion = { magni = "loyal" } } },
+        { text = "That's between you and the King.", next = "BACK" },
+      },
+    },
+    opn_magni_r = {
+      lines = {
+        { id = "opn_magni_r_failed", when = { opinion = { topic = "magni", stance = "failed" } }, text = "Aye. There, ye've said it, so I don't have tae, an' I'll feel the worse for agreein' wi' ye. Don't say it near Stoutfist; he'll throw ye in the harbour." },
+        { id = "opn_magni_r_loyal", when = { opinion = { topic = "magni", stance = "loyal" } }, text = "Keeps his word tae the Alliance, an' it's his own sons out here payin' for it. I'll hear ye, but ye've no' buried anyone on these walls." },
+        { id = "opn_magni_r_stretched", when = { opinion = { topic = "magni", stance = "stretched" } }, text = "Aye, well. That's what I tell the lads, an' it sounds better when someone else says it. It doesnae bring Dun Modr back, mind." },
+        { id = "opn_magni_r_default", text = "Between us an' a lot o' graves, aye. Never mind me; I've been on this wall too long." },
+      },
+      choices = {
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
     xpt_warrior = {
       big = true,
       lines = { { id = "xpt_warrior_default", text = "Aye, it was, and it still is when the Dark Irons come down out of Dun Modr, though my knees have their own opinions now. A warrior's whole trade is standing between the ones behind him and whatever's in front, and if your friend understands that, you're in good hands." } },
@@ -172,7 +195,10 @@ P:NPC {
     },
     fall_end = {
       lines = { { id = "fe_default", text = "Now we take it back, a stone at a time if need be. Every Dark Iron ye put down out there is one less on my walls." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } } },
+      choices = {
+        { text = "Did the King fail you here, Longbraid?", next = "opn_magni" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } },
+      },
     },
     span = {
       lines = { { id = "s_default", text = "The great bridge into Arathi, or it was until the Dark Irons blew half of it into the gorge. Motley Garmason can tell ye more, for he's taken it to heart." } },

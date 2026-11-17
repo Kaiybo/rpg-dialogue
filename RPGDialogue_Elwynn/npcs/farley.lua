@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_forsaken_pity", when = { gossip = { topic = "forsaken", stance = "pity" } }, text = "Wilhelm says you'd show mercy to the walking dead! He said it proudly, mind, and I'll take his word on it, since I'll never be brave enough to try." },
+    { id = "g_op_warchief", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "Here's the one who trusts the orcs! Sit down, sit down; Dobbins has a bet that you've met one, and I'd like to know who wins." },
     { id = "g_welcome", text = "Welcome to the Lion's Pride! Sit anywhere the dog isn't." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! Your usual corner's free." },
     { id = "g_home", when = { homeInn = { "Goldshire", "Lion's Pride Inn" } }, text = "Home again! Boots off by the fire, if you please." },
@@ -39,6 +41,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "op_orcs_a", text = "The old folk swear it every winter, when the wind's from the south. But the travellers say Thrall's orcs have a land of their own across the sea now, and they claim they only want to be left alone. Would you trust them, friend?" },
+      },
+      choices = {
+        { text = "I would. Thrall freed his people. He's not the old Horde.", next = "op_orcs_1", fx = { opinion = { warchief = "trust", peace = "for" }, align = { light = 1 } } },
+        { text = "Never. They burned this town once and they'll do it again.", next = "op_orcs_2", fx = { opinion = { warchief = "distrust", peace = "against" }, align = { light = -1 } } },
+        { text = "I'd trust them across the sea. Here, I'd want walls.", next = "op_orcs_3", fx = { opinion = { warchief = "wary", peace = "for" }, trait = { cautious = 1 }, affinity = 1 } },
+        { text = "I lost my home up north to them. Ask me after a drink.", next = "op_orcs_4", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { peace = "against" }, affinity = 2 } },
+        { text = "I'd rather not talk about the war, Farley.", next = "BACK" },
+      },
+    },
+    op_orcs_1 = {
+      lines = { { id = "op_orcs_r1", text = "Well, I hope you're right, and I'll pour you a drink on it. Verina says I'd trust a gnoll if it paid in coin, so maybe I'm not the man to judge." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
+    op_orcs_2 = {
+      lines = { { id = "op_orcs_r2", text = "That's what my father said, and he rebuilt the Lion's Pride with his own two hands, so I'll not argue with you. Keep that sword close; I keep a cudgel under the bar myself." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
+    op_orcs_3 = {
+      lines = { { id = "op_orcs_r3", text = "Ha! That's the best answer I've heard at this bar, and I've heard a few hundred. Across the sea is exactly where I like my orcs." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
+    op_orcs_4 = {
+      lines = { { id = "op_orcs_r4", text = "Then you'll have that drink, and we'll not talk about orcs at all tonight. Frandis went north too, and I know what that question costs." } },
+      choices = { { text = "Pour me something, and let's talk of other things.", next = "BACK" } },
+    },
     xpt_farley = {
       big = true,
       lines = { { id = "xpt_farley_default", text = "More than any inn in the kingdom, friend, and I've sent them off to the Fargodeep and Jasperlode and the Deadmines with a good meal in them. Some came back rich and some came back limping, and a few I still keep a candle for." } },
@@ -201,6 +231,7 @@ P:NPC {
         { id = "i_default", text = "Rest for the tired, a fire for the cold! Goldshire fell in the First War and was built again after the Second. There's been a Farley pouring here on both sides of it." },
       },
       choices = {
+        { text = "Do you think the orcs will ever come back this way?", next = "op_orcs" },
         { text = "And the Farleys now?", next = "family" },
         { text = "Something else.", next = "BACK" },
       },

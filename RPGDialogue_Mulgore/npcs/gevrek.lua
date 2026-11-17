@@ -31,6 +31,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_horde = {
+      lines = {
+        { id = "oph_q", text = "I'm grateful to the Horde every day, and I'll not pretend otherwise. But I still don't know it the way you do, so tell me: what do you think the Horde truly is?" },
+        { id = "oph_q_ally", when = { faction = "Alliance" }, text = "You're of the Alliance, so your eyes see the Horde from the other side of the fence, and those are the eyes I most want to borrow. What do you think of the Horde that took us in?" },
+      },
+      choices = {
+        { text = "A family of exiles who chose each other. That's its strength.", next = "op_horde_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { horde = "kin" } } },
+        { text = "An army first. Don't mistake its kindness for anything softer.", next = "op_horde_r2", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { horde = "army" } } },
+        { text = "Dangerous company. I'd keep the Windshapers a little apart.", next = "op_horde_r3", fx = { affinity = -1, opinion = { horde = "dangerous" } }, when = { faction = "Alliance" } },
+        { text = "The Horde gave my people a home too. You'll find it worthy.", next = "op_horde_r4", fx = { affinity = 1, opinion = { horde = "kin" } }, when = { race = { "Tauren", "Orc", "Troll", "Scourge" } } },
+        { text = "I'd sooner you judged it for yourself, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r1 = {
+      lines = {
+        { id = "op_horde_r1", text = "Then the Windshapers chose well, and I'll tell my people so when they doubt it. Thank you for that." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r2 = {
+      lines = {
+        { id = "op_horde_r2", text = "I've seen the axes, so I don't mistake them, but I've also seen Baine carry water for my elders. It's both, I think, and that's what makes it strange." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r3 = {
+      lines = {
+        { id = "op_horde_r3", text = "We were apart once, on Skywall, and the winds left us anyway. I'll not choose to be alone again, though I thank you for the warning." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    op_horde_r4 = {
+      lines = {
+        { id = "op_horde_r4", text = "That's twice now someone born to it has told me so. I'm beginning to believe it, which is more than I could say on the day we landed." },
+      },
+      choices = {
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The elements came first for my people, and the Light is a stranger to us. But we came to the Horde with our own odd gifts and were given a place to stand, and I would offer you the same welcome the tauren offered us." } },
@@ -191,6 +236,7 @@ P:NPC {
         { id = "b_default", text = "The four elements, and a debt to the wind that carried us. Our initiates pass the trials and take the sapta. The rest you learn by walking it." },
       },
       choices = {
+        { text = "How do the Windshapers see the Horde, Elder?", next = "op_horde" },
         { text = "I'd like to learn.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The elements don't need my worship, and I don't need theirs.", next = "BACK", fx = { align = { light = -1 } } },
       },

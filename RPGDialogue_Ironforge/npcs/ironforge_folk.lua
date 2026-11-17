@@ -28,6 +28,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_crusade = {
+      lines = {
+        { id = "opn_crusade_q", text = "Some o' the Silver Hand's own went over tae them after Uther fell, an' I trained alongside one or two. They burn the dead an' a fair few o' the livin' with 'em, by the stories comin' south. Ye've heard the same stories, I'd wager, so tell me what ye think." },
+      },
+      choices = {
+        { text = "Someone has to hold Lordaeron. At least they're fighting.", next = "opn_crusade_r", fx = { align = { order = 1 }, opinion = { scarlet_crusade = "admire" } } },
+        { text = "They're zealots, and they shame the Light.", next = "opn_crusade_r", fx = { affinity = 1, align = { order = -1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "I pity them. Grief made them that way.", next = "opn_crusade_r", fx = { trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They'd burn me on sight, Brandur. I know where I stand.", next = "opn_crusade_r", when = { race = "Scourge" }, fx = { opinion = { scarlet_crusade = "hate" } } },
+        { text = "I haven't seen enough to judge.", next = "BACK" },
+      },
+    },
+    opn_crusade_r = {
+      lines = {
+        { id = "opn_crusade_r_admire", when = { opinion = { topic = "scarlet_crusade", stance = "admire" } }, text = "Fightin', aye, an' I'll grant 'em that much. But a paladin's no' measured by how hard he swings; he's measured by who he spares, an' they've stopped sparin' anyone." },
+        { id = "opn_crusade_r_hate", when = { opinion = { topic = "scarlet_crusade", stance = "hate" } }, text = "Hard words, an' I've thought 'em myself on a bad night. Just mind ye don't hate 'em the way they hate everyone else, or ye're halfway tae wearin' the tabard." },
+        { id = "opn_crusade_r_pity", when = { opinion = { topic = "scarlet_crusade", stance = "pity" } }, text = "Aye, that's the right of it, an' it's the hardest thing tae hold ontae when one o' them's comin' at ye wi' a torch. Hold ontae it anyway." },
+        { id = "opn_crusade_r_default", text = "Then keep yer eyes open when ye go north, an' judge 'em by what they do tae the farmers, no' by what they shout." },
+      },
+      choices = {
+        { text = "Something else, Brandur.", next = "BACK" },
+      },
+    },
     xpt_brandur = {
       big = true,
       lines = { { id = "xpt_brandur_default", text = "Heal them before they ask, an' never tell them they'd have died without ye, because they'll know, an' that does more than any lecture. If they still strut after that, put a wee bit o' salt in their ale." } },
@@ -176,7 +199,10 @@ P:NPC {
       lines = {
         { id = "ln_default", text = "Now Ironforge trains its own, here in the Hall, wi' the same oaths an' better beer." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What do you make of the Scarlet Crusade?", next = "opn_crusade" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     owe = {
       lines = {

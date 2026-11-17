@@ -37,6 +37,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_trolls = {
+      lines = {
+        { id = "opt_default", text = "Fools, and our own blood, which is de worse thing to say of anyone. But I have a question for you, stranger, since your peoples have opinions about mine: when you look at a troll, what do you see?" },
+      },
+      choices = {
+        { text = "An old people with a proud history.", next = "op_trolls_respect", fx = { affinity = 1, align = { honor = 1 }, opinion = { trolls = "respect" } } },
+        { text = "Savages who fed their own to a blood god.", next = "op_trolls_hate", fx = { affinity = -2, align = { honor = -1 }, opinion = { trolls = "hate" } } },
+        { text = "I see my grandfathers, and I'm proud of them.", next = "op_trolls_proud", fx = { affinity = 2, opinion = { trolls = "respect", darkspear = "proud" } }, when = { race = "Troll" } },
+        { text = "Trolls have fought my kingdoms since Arathor. Forgive my doubts.", next = "op_trolls_distrust", fx = { opinion = { trolls = "distrust" } }, when = { faction = "Alliance" } },
+        { text = "I'll judge each troll as I find them.", next = "BACK" },
+      },
+    },
+    op_trolls_respect = {
+      lines = {
+        { id = "optr_default", text = "Proud, yes, and old beyond your kingdoms' counting. Remember dat when you walk into Zul'Gurub, because what you will see there is what pride becomes when it forgets de gods it serves." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_trolls_hate = {
+      lines = {
+        { id = "opth_default", text = "Some did, and dat is why I am here asking for your blades. But speak carefully, little one; de Zandalar remember every word, and we have very long lives to remember dem in." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_trolls_proud = {
+      lines = {
+        { id = "optp_default", text = "Good. De Darkspear are a small tribe, but dey have kept dere pride without keeping a blood god, and dat is more than de Gurubashi managed." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_trolls_distrust = {
+      lines = {
+        { id = "optd_default", text = "Forgiven, for now. Doubt is cheaper than war, and Molthor would rather have your doubts and your sword than neither." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -117,6 +153,7 @@ P:NPC {
       big = true,
       lines = { { id = "hr_default", text = "De high priests of Zul'Gurub, de last proud Gurubashi, who thought they could make de Soulflayer serve dem. Now he walks in their city and they are his hands, and if he is not stopped there, he will cross into de rest of de world and drink it dry." } },
       choices = {
+        { text = "And what do you think of the Gurubashi now?", next = "op_trolls" },
         { text = "The Gurubashi called him. Let them burn with him.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Their common folk didn't choose this. Spare who can be spared.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then he must be stopped. Where do I begin?", next = "molthor" },

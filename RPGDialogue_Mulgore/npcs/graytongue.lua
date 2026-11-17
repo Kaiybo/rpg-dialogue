@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_quil_peace", when = { gossip = { topic = "quilboar", stance = "peace" } }, text = "Windfeather tells me you'd make peace with the quilboar. I've buried too many braves for that, young one, but I'll not stop you trying." },
+    { id = "o_grim_lost", when = { gossip = { topic = "grimtotem", stance = "lost" } }, text = "The Chief says you'd break the Grimtotem. Remember the quilboar first, young one, because they're closer and they don't argue at the fire." },
     { id = "g_mesa", text = "Stand still a moment, young one. The mesa speaks, if you let it." },
     { id = "g_strength", when = { questActive = TODO_QUEST("Rite of Strength") }, text = "The thornsnarl, and the Bristleback in it. Return when your Rite is done." },
     { id = "g_done", when = { questDone = TODO_QUEST("Rite of Strength") }, text = "You carry the Rite of Strength in your stride now. I see it from here." },

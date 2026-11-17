@@ -32,6 +32,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_steamwheedle = {
+      lines = {
+        { id = "ops_q", text = "Speakin' of the Cartel, I'm doin' a little market research, friend, purely for the elixir business. What do you think of the Steamwheedle Cartel, honestly, between us and the sand?" },
+      },
+      choices = {
+        { text = "The Cartel keeps its towns neutral and its trade fair. I admire that.", next = "op_steamwheedle_r1", fx = { affinity = 2, align = { order = 1 }, opinion = { steamwheedle = "admire" } } },
+        { text = "Thieves with a ledger. They tax every cup of water.", next = "op_steamwheedle_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { steamwheedle = "greedy" } } },
+        { text = "They're useful. I'd not trust them past the contract.", next = "op_steamwheedle_r3", fx = { trait = { practical = 1 }, opinion = { steamwheedle = "useful" } } },
+        { text = "The Venture Company's worse. At least the Cartel keeps its word.", next = "op_steamwheedle_r4", fx = { opinion = { venture_company = "hate" } } },
+        { text = "I don't talk politics with salesmen, Marin.", next = "BACK" },
+      },
+    },
+    op_steamwheedle_r1 = {
+      lines = {
+        { id = "op_steamwheedle_r1", text = "Second-best, pal, because the first is my elixir, but I'll take it! Put that in writing and I'll frame it over the counter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_steamwheedle_r2 = {
+      lines = {
+        { id = "op_steamwheedle_r2", text = "Shh, shh, the Bruisers have ears like bats! Between you and me, though, I've got a cure for the water bill comin', so hang on to that grudge." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_steamwheedle_r3 = {
+      lines = {
+        { id = "op_steamwheedle_r3", text = "Now that's a businessman's answer, and I respect it like a good margin. Nobody trusts anybody past the contract, kid; that's what contracts are for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_steamwheedle_r4 = {
+      lines = {
+        { id = "op_steamwheedle_r4", text = "Oh, don't get me started on the Venture boys, because they'd sell the sand out from under their own mothers. The Cartel at least pays her a fair price for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_marin = {
       big = true,
       lines = { { id = "xpt_marin_default", text = "My bruisers keep the peace, friend, and peace is the best business there is in this desert. You'd be amazed how polite a company becomes once it learns that drawing steel on my streets costs more than anything it could steal, plus a cleaning fee." } },
@@ -217,7 +261,10 @@ P:NPC {
     },
     business = {
       lines = { { id = "b_default", text = "The Cartel takes a cut, the Water Company charges for every cup, and I'm about to sell the cure for both. Business is wonderful, friend, or it will be any day now, by my mother's ledger." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+      choices = {
+        { text = "What do people think of the Cartel, Marin?", next = "op_steamwheedle" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+      },
     },
     recipe = {
       lines = { { id = "r_default", text = "Dew from a desert plant that refuses to die, and a little something to stop it tasting of feet. The rest is a trade secret, worth a fortune, and also I lost the notes." } },
@@ -1224,6 +1271,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_booty_bay = {
+      lines = {
+        { id = "opb_q", text = "Speakin' of Krazek, you've been to Booty Bay, haven't ya, or you will be. What do you think of the place, just between two people in the trade?" },
+      },
+      choices = {
+        { text = "Best port in the world. Everything's for sale there.", next = "op_booty_bay_r1", fx = { affinity = 1, align = { order = -1 }, opinion = { booty_bay = "admire" } } },
+        { text = "A nest of crooks wearing Cartel badges.", next = "op_booty_bay_r2", fx = { align = { order = 1 }, trait = { skeptical = 1 }, opinion = { booty_bay = "distrust" } } },
+        { text = "Revilgaz keeps it fair enough. I'd trade there.", next = "op_booty_bay_r3", fx = { trait = { practical = 1 }, opinion = { booty_bay = "useful" } } },
+        { text = "I don't talk shop with you, Tran'rek.", next = "BACK" },
+      },
+    },
+    op_booty_bay_r1 = {
+      lines = {
+        { id = "op_booty_bay_r1", text = "Everything, yeah, includin' your boots if you fall asleep at the dock. I like how you think, though." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_booty_bay_r2 = {
+      lines = {
+        { id = "op_booty_bay_r2", text = "Crooks with badges, kid, are what we call a regulated industry. Don't say it near Krazek, though; he's sensitive about the badge." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_booty_bay_r3 = {
+      lines = {
+        { id = "op_booty_bay_r3", text = "Fair enough for a baron, which is to say he takes his cut with a smile. You'll do fine there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_zf = {
       big = true,
       lines = { { id = "xcl_zf_default", text = "Bad? A city with no chief is a city with nobody watching the storerooms, and there are scarabs carved in that place older than Gadgetzan's oldest debt. The trouble is that every goblin in Tanaris heard the same news this morning, and margins don't survive a crowd." } },
@@ -1397,6 +1479,7 @@ P:NPC {
     buyers = {
       lines = { { id = "b_default", text = "Rich people, far away from here, and that's all you're getting, pal, which is more than Krazek would get out of me." } },
       choices = {
+        { text = "What do people make of Booty Bay?", next = "op_booty_bay" },
         { text = "Something else.", next = "BACK" },
         { text = "Who's buying, Tran'rek? Or should Krazek hear what you charge?", tag = "Intimidate", next = "buyers_true",
           check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "ROGUE" } }, { trait = "stern" } } } },
@@ -1462,6 +1545,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sw_greedy", when = { gossip = { topic = "steamwheedle", stance = "greedy" } }, text = "Word around the inn is you called the Cartel thieves with a ledger! Keep your voice down in here, pal, because the Bruisers drink here too and the stew's bad enough already." },
     { id = "g_inn", text = "Welcome to the Road Warrior, pal! Grab a stool, grab a drink, shake the sand out of your boots, and the sand's free, the drinks aren't." },
     { id = "g_home", when = { homeInn = { "Gadgetzan", "The Road Warrior" } }, text = "You again! Your room's ready and the sand's been swept out of it, mostly, and I only charged you for the sweeping once." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}! I kept your stool warm, or the sun did, which in this town amounts to the same thing and costs me nothin'." },
@@ -1711,6 +1795,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_bb_distrust", when = { opinion = { booty_bay = "distrust" } }, text = "Shh! Somebody said you called Booty Bay a nest of crooks, and some of those crooks are lookin' for me, so don't go mentionin' my name down there, okay?" },
     { id = "g_dock", text = "Who sent you? No, don't tell me, I know who sent you, because it's always the same fellow." },
   },
 

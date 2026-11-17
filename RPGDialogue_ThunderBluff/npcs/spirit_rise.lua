@@ -147,6 +147,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_fk_trust", when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Bena says you count the Forsaken as Horde like any of us. The spirits below the rise would be glad of more like you, I think." },
     { id = "g_hi", text = "Oh, hello! Sorry, I was listening to the wind. It's chatty today." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Come and tell me where you've been." },
   },
@@ -215,6 +216,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_kt_admire", when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Ghull says you admire the Kirin Tor. They'd admire you right into a cell in the Violet Hold, if you were dead, so think on that." },
     { id = "g_hi", text = "Mind the wards on the floor. They're not decorative." },
     { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving." },
   },
@@ -292,6 +294,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirin_tor = {
+      lines = {
+        { id = "opk_q", text = "Some of the Kirin Tor live yet, they say, picking at the ruins behind their barrier. Perhaps you've heard more of them than I have, so what do you make of the old council?" },
+      },
+      choices = {
+        { text = "They're the finest mages in the world. You should be proud of them.", next = "op_kirin_tor_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { kirin_tor = "admire" } } },
+        { text = "They let Lordaeron fall while they argued in their towers.", next = "op_kirin_tor_r2", fx = { align = { order = -1 }, trait = { stern = 1 }, opinion = { kirin_tor = "wrong" } } },
+        { text = "They'd burn every Forsaken mage on sight, Ursyn.", next = "op_kirin_tor_r3", fx = { opinion = { kirin_tor = "distrust" } }, when = { faction = "Horde" } },
+        { text = "They trained Lady Jaina, and she's holding the peace together.", next = "op_kirin_tor_r4", fx = { affinity = 1, opinion = { kirin_tor = "respect" } }, when = { faction = "Alliance" } },
+        { text = "I don't know enough about them to say.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r1 = {
+      lines = {
+        { id = "op_kirin_tor_r1", text = "I was, once, and I find I still am in my less sensible moments. They never wrote back after I died, but I suppose that's understandable." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r2 = {
+      lines = {
+        { id = "op_kirin_tor_r2", text = "They argued, yes, and Kel'Thuzad was one of them before he wasn't, so you'll hear no defence from me. I only wish I'd argued louder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r3 = {
+      lines = {
+        { id = "op_kirin_tor_r3", text = "Most of them would, and they'd file a very tidy report afterward. I've made my peace with being on the wrong side of their shelves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_kirin_tor_r4 = {
+      lines = {
+        { id = "op_kirin_tor_r4", text = "Proudmoore was a bright student, they said, even then. I'm glad one of us came through with her conscience in one piece." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Ursyn Ghull, and I teach the arcane here with Archmage Shymm and Thurston Xane. It's a quiet place to study, and the tauren bring us bread sometimes, which none of us can eat but all of us appreciate." },
@@ -308,6 +354,7 @@ P:NPC {
     dalaran = {
       lines = { { id = "d_default", text = "Long ago, before the plague, and before Archimonde's armies left the city in ruins. I still dream in its libraries, if the dead can be said to dream." } },
       choices = {
+        { text = "What do you make of the Kirin Tor now?", next = "op_kirin_tor" },
         { text = "Would you go back, if you could?", next = "dalaran_end" },
         { text = "Something else.", next = "BACK" },
       },
@@ -477,6 +524,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_sc_pity", when = { gossip = { topic = "scarlet_crusade", stance = "pity" } }, text = "Cobb tells me you pity the Scarlet Crusade. Pity them when they're tying you to the stake, and see how long it lasts." },
     { id = "g_hi", text = "Another visitor. State your business, and don't waste my time." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your devotion is noted." },
   },
@@ -488,6 +536,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_light = {
+      lines = {
+        { id = "opl_q", text = "Then tell me what it is, if you're so sure of it. What has the Light ever done for you, or for anyone in this cave?" },
+      },
+      choices = {
+        { text = "It's a power like any other. The Crusade only abuses it.", next = "op_light_r1", fx = { align = { light = 1 }, opinion = { the_light = "useful" } } },
+        { text = "It abandoned the dead. The Dark Lady never did.", next = "op_light_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { the_light = "hate" } } },
+        { text = "I still believe in it, priest, whatever the Crusade does.", next = "op_light_r3", fx = { affinity = -2, trait = { pious = 1 }, opinion = { the_light = "faith" } } },
+        { text = "I carry the Light, Cross, and it hasn't burned me yet.", next = "op_light_r4", fx = { opinion = { the_light = "faith" } }, when = { class = "PALADIN" } },
+        { text = "I'm not here to argue faith with you.", next = "BACK" },
+      },
+    },
+    op_light_r1 = {
+      lines = {
+        { id = "op_light_r1", text = "A tool, then, and the Crusade is only holding it wrong. That's more sense than I usually hear, though you'll still never hear me pray to it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_light_r2 = {
+      lines = {
+        { id = "op_light_r2", text = "Now you're speaking like one of the Forgotten. Come back when you want to learn what shadow can do for someone who has stopped begging." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_light_r3 = {
+      lines = {
+        { id = "op_light_r3", text = "Cobb says the same thing, and he says it every morning, and the Light has yet to answer him. Believe what you like." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_light_r4 = {
+      lines = {
+        { id = "op_light_r4", text = "Yet, paladin, is the word I'd underline. When it does, come and find me, and we'll speak about something that doesn't flinch from you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Malakai Cross, and I teach priests here because the Dark Lady wished the Forsaken to have a presence among our allies. The tauren tolerate us, and that is enough." },
@@ -508,6 +600,7 @@ P:NPC {
     light = {
       lines = { { id = "l_default", text = "A comfortable faith for the living, and a cruel one for the dead. The Scarlet Crusade burns my people in its name, so you'll forgive me if I don't light candles to it." } },
       choices = {
+        { text = "What would you have me say about it?", next = "op_light" },
         { text = "The Crusade isn't the Light.", next = "light_end", fx = { learn = { "scarlet_crusade" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
       },
@@ -541,6 +634,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_light_hate", when = { gossip = { topic = "the_light", stance = "hate" } }, text = "Malakai says you've turned your back on the Light. I'll not lecture you, child, but the chapel door is always open, even down here." },
     { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping?" },
   },
@@ -552,6 +646,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_scarlet = {
+      lines = {
+        { id = "opsc_q", text = "There were Scarlets in Tirisfal when I woke, and they burned what they found of my old flock. You may have crossed paths with them yourself, so tell me, what do you make of the Scarlet Crusade?" },
+      },
+      choices = {
+        { text = "They're butchers in the Light's colours, Father, and they must be stopped.", next = "op_scarlet_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "They fear the plague. I can't blame them for that.", next = "op_scarlet_r2", fx = { align = { light = -1 }, opinion = { scarlet_crusade = "pity" } } },
+        { text = "They burned my people, Father. I'll return the favour.", next = "op_scarlet_r3", fx = { trait = { fierce = 1 }, opinion = { scarlet_crusade = "war" } }, when = { race = "Scourge" } },
+        { text = "Their cause was just, Father, before it rotted.", next = "op_scarlet_r4", fx = { trait = { curious = 1 }, opinion = { scarlet_crusade = "mixed" } } },
+        { text = "I'd rather not speak of them, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r1 = {
+      lines = {
+        { id = "op_scarlet_r1", text = "Stopped, yes, though I pray for them all the same, because once they were village boys like mine. Go carefully if you go north." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r2 = {
+      lines = {
+        { id = "op_scarlet_r2", text = "No, I suppose you can't, and I could not either, once. Fear is a terrible shepherd, child, and it led them a long way from their chapels." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r3 = {
+      lines = {
+        { id = "op_scarlet_r3", text = "I understand it, child, though I'll not bless it. Come back with your soul still your own, and we'll call that a victory." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    op_scarlet_r4 = {
+      lines = {
+        { id = "op_scarlet_r4", text = "It was, I think, at the very start, and that's the saddest part of it. Every good cause has a first bad day, and theirs came early." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Father Cobb, and I keep the priests' lessons here with Miles and Malakai. I had a little parish in Lordaeron once, before the plague came through, and I suppose I still think of my students as a congregation." },
@@ -567,7 +705,10 @@ P:NPC {
     },
     parish = {
       lines = { { id = "p_default", text = "A small village in the north, with a chapel and a well and the same faces every Sunday. Most of them came back with me, after a fashion, and most of them don't remember the hymns." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Did the Scarlet Crusade reach your village?", next = "op_scarlet" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pray = {
       lines = { { id = "pr_default", text = "Every morning, though I'm not always sure to whom. Miles says the shadow listens, and Malakai says the Dark Lady does, and I keep praying in case someone kinder is listening too." } },

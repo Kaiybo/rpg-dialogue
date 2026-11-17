@@ -12,6 +12,7 @@ P:NPC {
     third = "{name} met Apothecary Zamah, the Forsaken apothecary beneath Thunder Bluff's Spirit Rise.",
   },
   greetings = {
+    { id = "o_sylv_admire", when = { opinion = { sylvanas = "admire" } }, text = "I'm told you'd die again for the Dark Lady. How refreshing, among all these cattle who only ever stare." },
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing." },
     { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and now I'm told the elements speak to you. Do tell them the smell from my workshop is entirely deliberate." },
@@ -27,6 +28,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_tauren = {
+      lines = {
+        { id = "opt_q", text = "I'll tell you a secret: I find them fascinating, in the way one finds a very large and very polite cow fascinating. What do you make of our hosts?" },
+      },
+      choices = {
+        { text = "They're the kindest people in the Horde. Mind your manners here.", next = "op_tauren_r1", fx = { affinity = -1, align = { light = 1 }, opinion = { tauren = "admire" } } },
+        { text = "They're slow and sentimental. The Forsaken carry the Horde's real work.", next = "op_tauren_r2", fx = { affinity = 2, align = { light = -1 }, opinion = { tauren = "soft" } } },
+        { text = "They gave your people a home. You owe them for it.", next = "op_tauren_r3", fx = { opinion = { tauren = "respect" } } },
+        { text = "I'm tauren, apothecary, and I'd thank you to stop staring back.", next = "op_tauren_r4", fx = { affinity = 1, trait = { proud = 1 }, opinion = { forsaken = "distrust" } }, when = { race = "Tauren" } },
+        { text = "I'll leave the tauren to speak for themselves.", next = "BACK" },
+      },
+    },
+    op_tauren_r1 = {
+      lines = {
+        { id = "op_tauren_r1", text = "Kind, yes, and kindness is a lovely thing in a host, though a poor defence against anything sharper. I'll mind my manners, since you ask so sweetly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_tauren_r2 = {
+      lines = {
+        { id = "op_tauren_r2", text = "You'd fit nicely in the Undercity, I think. Do keep that opinion off the lifts, though, because the tauren are very large." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_tauren_r3 = {
+      lines = {
+        { id = "op_tauren_r3", text = "We owe the Chieftain, yes, and the Society always pays its debts in the end. How it pays them is another matter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_tauren_r4 = {
+      lines = {
+        { id = "op_tauren_r4", text = "Oh, spirit! Perhaps there's hope for the herd after all. I'll stare a little less, and you may stare a little more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_wc = {
       big = true,
       lines = { { id = "xcl_wc_default", text = "And you came back with all your limbs, which the deviate creatures down there do not usually allow. Serpentbloom grows in those caves and carries a toxin the Society finds very instructive, so a quieter cavern makes my collectors' work a good deal safer. The tauren speak of the place as a wound, and I speak of it as a laboratory, and we are both quite sincere." } },
@@ -180,7 +225,10 @@ P:NPC {
     },
     tauren = {
       lines = { { id = "t_default", text = "With courtesy and a good deal of staring. Magatha Grimtotem is the only one who looks at me as though she understands me, which I find rather more worrying than the staring." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And what do you make of them?", next = "op_tauren" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     society = {
       lines = { { id = "so_default", text = "Plagues, my dear, and everything that cures them or carries them. One must understand a weapon before one can turn it away, or turn it around." } },

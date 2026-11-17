@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons", when = { opinion = { topic = "dragons", stance = "distrust" } }, text = "You hold that dragons meddle in mortal affairs, mortal. Then observe how I meddle now, by asking for your help instead of commanding it." },
     { id = "g_default", text = "You have come far into my cave, mortal, past whelps who would have eaten you had I allowed it. Speak, and be brief." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The whelps remember your scent, and so do I." },
     { id = "g_away", when = { away = 30 }, text = "A month and more, {away} by your counting. To me it was a blink, but the whelps grew in it." },
@@ -30,6 +31,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dragons = {
+      lines = {
+        { id = "opd_default", text = "I have heard every answer from terror to worship, and I am curious which is yours. Tell me, mortal, when a dragon walks among your kind, what do you think it wants?" },
+      },
+      choices = {
+        { text = "To watch over us. I'm grateful for it.", next = "op_dragons_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { dragons = "trust" } } },
+        { text = "To meddle. Azeroth belongs to those who live in it.", next = "op_dragons_distrust", fx = { affinity = -1, align = { order = -1 }, trait = { proud = 1 }, opinion = { dragons = "distrust" } } },
+        { text = "My people chained the red flight at Grim Batol. I'm ashamed of it.", next = "op_dragons_shame", fx = { affinity = 2, opinion = { dragons = "respect" } }, when = { race = "Orc" } },
+        { text = "The Dream's guardians have my respect, eldest.", next = "op_dragons_trust", fx = { affinity = 1, opinion = { dragons = "respect", druidism = "respect" } }, when = { class = "DRUID" } },
+        { text = "I've learned not to guess at a dragon's mind.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    op_dragons_trust = {
+      lines = {
+        { id = "opdt_default", text = "Gratitude is rarer than fear, and I will remember it. Do not let it make you careless, though, for not every dragon who wears a kind face is of Ysera's flight." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dragons_distrust = {
+      lines = {
+        { id = "opdd_default", text = "A bold answer, and not a foolish one, for some of my kin have meddled cruelly. Yet you are standing in my cave at my asking, mortal, so consider who meddles with whom." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dragons_shame = {
+      lines = {
+        { id = "opds_default", text = "Shame is a heavy thing for one who was not there to do the deed. The red flight remembers Grim Batol, and so do I, but I have also seen what your Warchief made of your people since." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -173,7 +204,10 @@ P:NPC {
       lines = {
         { id = "vo_default", text = "Some, of every flight, and not all of them with honest purposes. If you meet a stranger who seems too old for his face, mortal, be courteous and be careful, in that order." },
       },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think mortals make of your kind?", next = "op_dragons" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     dream = {

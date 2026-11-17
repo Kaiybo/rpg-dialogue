@@ -33,6 +33,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_elves = {
+      lines = {
+        { id = "opn_elves_q", text = "The ones who hunted here were the finest trackers I ever drank wi', an' then Quel'Thalas walked out o' the Alliance after the war like a guest leavin' before the bill. Now there's precious little left o' Quel'Thalas tae walk anywhere. Ye've an opinion, by yer face, so let's have it." },
+      },
+      choices = {
+        { text = "They left the Alliance when it needed them. I don't forget that.", next = "opn_elves_r", fx = { affinity = 1, align = { honor = 1 }, opinion = { high_elves = "distrust" } } },
+        { text = "They've paid for it a hundred times over. Leave them be.", next = "opn_elves_r", fx = { align = { honor = -1 }, trait = { kind = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Proud, but the best archers I've ever seen.", next = "opn_elves_r", fx = { opinion = { high_elves = "admire" } } },
+        { text = "My cousins in Quel'Thalas are dead. Speak gently.", next = "opn_elves_r", when = { race = "NightElf" }, fx = { affinity = -1, opinion = { high_elves = "kin" } } },
+        { text = "I'd rather talk hunting.", next = "BACK" },
+      },
+    },
+    opn_elves_r = {
+      lines = {
+        { id = "opn_elves_r_distrust", when = { opinion = { topic = "high_elves", stance = "distrust" } }, text = "Ha! Hold a grudge like a dwarf, do ye? I'll drink tae that, though I'll drink tae the rangers too, for they never left the lodge till they were called home." },
+        { id = "opn_elves_r_pity", when = { opinion = { topic = "high_elves", stance = "pity" } }, text = "Aye, they have, an' I'll no' kick a beast that's already down. Their rangers still come through now an' then, an' they look like folk who've buried everyone they knew." },
+        { id = "opn_elves_r_admire", when = { opinion = { topic = "high_elves", stance = "admire" } }, text = "Best I've seen too, though I'll deny I said it if Daryl asks. Proud's no crime in a hunter, so long as ye can back it up." },
+        { id = "opn_elves_r_kin", when = { opinion = { topic = "high_elves", stance = "kin" } }, text = "Cousins, is it? I didnae know yer folk still claimed 'em. Gently, then, an' I'm sorry for yer loss." },
+        { id = "opn_elves_r_default", text = "Huntin' it is. Ye'll learn more from a bear than from me about elves anyway." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -111,7 +135,10 @@ P:NPC {
       lines = {
         { id = "ln_default", text = "For the elven rangers who hunted wi' us in the old wars, an' some o' their kin still lodge here. Vyrin keeps the beds, an' she shoots better than any dwarf in the place, though I'll deny I said so." },
       },
-      choices = { { text = "Something else, Marek.", next = "BACK" } },
+      choices = {
+        { text = "What do you make of the elves, Marek?", next = "opn_elves" },
+        { text = "Something else, Marek.", next = "BACK" },
+      },
     },
 
     daryl = {

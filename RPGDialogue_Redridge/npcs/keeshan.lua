@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_warchief", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "You're the one who thinks Thrall's worth talking to. I've been chewing on that since, and I've not decided you're wrong." },
     { id = "g_cell", text = "You took your time, but it doesn't matter now. You're here." },
     { id = "g_after", when = { questDone = TODO_QUEST("Missing In Action") }, text = "There's my escort, still standing, I see. Good, so am I." },
   },
@@ -28,6 +29,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "op_orcs_a", text = "I heard the guards on the rock talk about him, if you can believe it. They called him a slave-born whelp who'd made the Horde soft and given it to trolls and cow-men, and they spat after his name. I've had weeks to think about it, so what's your view?" },
+      },
+      choices = {
+        { text = "If the Blackrock hate him, Thrall might be worth talking to.", next = "op_orcs_1", fx = { opinion = { warchief = "trust", peace = "for" }, align = { light = 1 } } },
+        { text = "An orc's an orc. Thrall's lot would have done the same to you.", next = "op_orcs_2", fx = { opinion = { warchief = "distrust", orcs = "hate" }, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Different orcs, same axes. I'll judge them when they're in front of me.", next = "op_orcs_3", fx = { opinion = { orcs = "wary" }, trait = { cautious = 1 }, affinity = 1 } },
+        { text = "Redridge has buried too many of ours to think kindly of any orc.", next = "op_orcs_4", when = { origin = "human_redridge_born" }, fx = { opinion = { orcs = "hate", peace = "against" }, affinity = 1 } },
+        { text = "Let's get you home first, Corporal.", next = "BACK" },
+      },
+    },
+    op_orcs_1 = {
+      lines = { { id = "op_orcs_r1", text = "That's more or less where I landed, round about the third week. Don't tell the Marshal; he'd have me back on latrine duty for treason." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+    op_orcs_2 = {
+      lines = { { id = "op_orcs_r2", text = "Maybe, maybe not, but you'll not hear me argue with anybody who wants orcs dead tonight. Ask me again when the ringing stops." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+    op_orcs_3 = {
+      lines = { { id = "op_orcs_r3", text = "A soldier's answer, and a good one. That's how I'd have said it before Stonewatch, and it's how I'll say it again once I've slept." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
+    op_orcs_4 = {
+      lines = { { id = "op_orcs_r4", text = "Born here, are you? Then you know the 12th Sabre weren't the first, and they'll not be the last. Walk me home, and we'll both say a few names on the way." } },
+      choices = { { text = "Something else, Corporal.", next = "BACK" } },
+    },
     xcl_ubrs = {
       big = true,
       lines = { { id = "xcl_ubrs_default", text = "They'll boast anyway, because an orc boasts with his last breath, but I'd give a month's pay to hear the camp at Stonewatch go quiet when the news reaches it. The men I served with died to hold Redridge, and this is the first news in a year that makes it feel like it counted." } },
@@ -166,6 +195,7 @@ P:NPC {
     regiment = {
       lines = { { id = "rg_default", text = "Good riders, the best I served with. When I'm home I'll write down every name I remember for the Marshal. Somebody should say them out loud." } },
       choices = {
+        { text = "Some say Thrall's orcs aren't like the Blackrock. Do you believe that?", next = "op_orcs" },
         { text = "Say them to me, on the way down.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

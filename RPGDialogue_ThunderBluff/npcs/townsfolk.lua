@@ -1042,6 +1042,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_tau_soft", when = { gossip = { topic = "tauren", stance = "soft" } }, text = "I'm told you think the tauren are slow and sentimental. Perhaps we are, traveller, but we're still standing, and we're still kind to people who say so." },
     { id = "g_hi", text = "Mind the vials. Some of them are still warm." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Have you been practising, or only buying potions from merchants?" },
   },
@@ -1055,6 +1056,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_forsaken = {
+      lines = {
+        { id = "opf_q", text = "I watch them, and I worry, and I'm told I worry too loudly. You've met more of them on the road than I have, so what do you honestly think of the Forsaken?" },
+      },
+      choices = {
+        { text = "They're Horde, the same as you and I. That's enough for me.", next = "op_forsaken_r1", fx = { align = { order = 1 }, opinion = { forsaken = "trust" } } },
+        { text = "They're walking corpses brewing poisons. Mulgore should be rid of them.", next = "op_forsaken_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { forsaken = "hate" } } },
+        { text = "Their apothecaries know things worth learning, whatever their reasons.", next = "op_forsaken_r3", fx = { trait = { curious = 1 }, opinion = { forsaken = "useful" } } },
+        { text = "Some of us only want to heal, Bena.", next = "op_forsaken_r4", fx = { affinity = 2, trait = { kind = 1 }, opinion = { forsaken = "redeemable" } }, when = { race = "Scourge" } },
+        { text = "I'd rather not judge a whole people, Bena.", next = "BACK" },
+      },
+    },
+    op_forsaken_r1 = {
+      lines = {
+        { id = "op_forsaken_r1", text = "The Chieftain would say the same, and he's wiser than I am. I only wish the Forsaken talked about healing half as often as they talk about killing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_forsaken_r2 = {
+      lines = {
+        { id = "op_forsaken_r2", text = "I'd not go that far, and I'd not say it on Spirit Rise either. Still, I'm glad I'm not the only one who lies awake over those cauldrons." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_forsaken_r3 = {
+      lines = {
+        { id = "op_forsaken_r3", text = "That's what Zamah says, too, and it's what frightens me. Knowledge goes where it's carried, and I'd like to see who's carrying it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_forsaken_r4 = {
+      lines = {
+        { id = "op_forsaken_r4", text = "Then you're welcome at my bench any day, and I'm sorry if I've spoken too hard of your people. Come and show me what you know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I hope so. They make poisons from the Earth Mother's herbs; you carry a Light that heals, the orcs say, even if it burns you. If you use it to mend, you're closer to an alchemist than they'll ever be." } },
@@ -1177,7 +1222,10 @@ P:NPC {
     },
     forsaken_why = {
       lines = { { id = "fw_default", text = "The High Chieftain and the Arch Druid spoke for them when they joined the Horde, and the Grimtotem welcome them for reasons of their own. It isn't my place to argue with Cairne, but I watch them." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } } },
+      choices = {
+        { text = "What do you think of the Forsaken yourself?", next = "op_forsaken" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
+      },
     },
     first = {
       lines = { { id = "fi_default", text = "A minor healing potion, from Peacebloom and Silverleaf. It's simple, and it'll save your life one day when there's no healer near, so learn it well." } },
@@ -1220,6 +1268,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_fk_hate", when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "My sister tells me you'd see the Forsaken gone from Mulgore. Be careful who you say that to, because the Chieftain gave them his word." },
     { id = "g_hi", text = "Welcome, friend. Come and smell the Peacebloom; it's fresh today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you thanked the Earth Mother for what you've gathered?" },
   },

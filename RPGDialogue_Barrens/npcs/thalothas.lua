@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "we_default", text = "I don't know, friend, and I've stopped caring which. A sunk ship is a sunk ship, and someone will answer for it, whether by order of Lady Proudmoore or in spite of her." } },
       choices = {
-        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then they'll answer for it. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, opinion = { theramore = "distrust" } } },
+        { text = "Take it to Theramore's lady. Let her judge them.", next = "BACK", fx = { align = { order = 1 }, opinion = { jaina = "trust" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -90,8 +90,35 @@ P:NPC {
       lines = { { id = "e_default", text = "Where else would I be, friend? Quel'Thalas burned in the war, and the elves who are left either cling to the Alliance or go their own way. I chose a deck and a crew, and a goblin's coin spends as well as a king's." } },
       choices = {
         { text = "Do you miss your homeland?", next = "home" },
+        { text = "Should the elves have stayed with the Alliance?", next = "elves_op" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    elves_op = {
+      lines = { { id = "eo_default", text = "That depends on whom you ask, friend. King Anasterian took us out of the Alliance after the Second War, and the elves who still serve Stormwind and Theramore have their own reasons, so tell me: should my people have kept faith, or gone our own way?" } },
+      choices = {
+        { text = "The Alliance left Quel'Thalas to burn. You owe them nothing.", next = "eo_free", fx = { affinity = 1, align = { order = -1 }, opinion = { high_elves = "free", alliance = "distrust" } } },
+        { text = "An oath is an oath. The elves should stand with the Alliance.", next = "eo_oath", fx = { affinity = -1, align = { order = 1 }, opinion = { high_elves = "loyal", alliance = "trust" } } },
+        { text = "Elves look after elves. They always have.", next = "eo_proud", fx = { affinity = -1, opinion = { high_elves = "distrust" } } },
+        { text = "My people still honor the elves who fought beside us.", next = "eo_honor", when = { faction = "Alliance" }, fx = { affinity = 2, opinion = { high_elves = "respect" } } },
+        { text = "A deck seems a better answer than either.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    eo_free = {
+      lines = { { id = "eof_default", text = "That's what I told myself the day I took this ship, and most days I believe it. On the others I sail a little farther out and don't look back toward the north." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_oath = {
+      lines = { { id = "eoo_default", text = "Then you'll find plenty of my kin in Theramore who agree with you, and you're welcome to them. I'll keep my oaths to my crew, which is all the kingdom I have left." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_proud = {
+      lines = { { id = "eop_default", text = "Ha! Said like a dwarf, or an orc, or anyone who's ever dealt with my people at court. Fair, friend, though my crew would argue the point." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eo_honor = {
+      lines = { { id = "eoh_default", text = "Some do, and I'm glad of them. Northwatch's guns make it easy to forget there were ever humans who bled for Quel'Thalas, so thank you for the reminder." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     home = {
       lines = { { id = "h2_default", text = "Every dawn, when the light comes over the water and turns it gold. Then the crew starts shouting and I remember I have work to do, which is the best cure I've found." } },

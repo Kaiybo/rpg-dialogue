@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kirintor", when = { opinion = { topic = "kirin_tor", stance = "too_cautious" } }, text = "Ah, the one who thinks Dalaran's vaults should be opened. Come in; I've a book I'm not supposed to have, and I'd value your opinion of it." },
     { id = "g_stairs", text = "You climbed all those stairs, which is admirable, if probably pointless." },
     { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead yet? If not, why are you standing in my tower?" },
     { id = "g_after", when = { questDone = TODO_QUEST("Morganth") }, text = "Ah, the one who dealt with Morganth. You may sit, though not on that." },
@@ -30,6 +31,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_kirintor = {
+      lines = {
+        { id = "op_kirintor_a", text = "Ah, a question worth climbing the stairs for. The Kirin Tor lock away what frightens them, and then a Morganth steals the key and we all act surprised. Tell me, then: should dangerous knowledge be sealed, or learned?" },
+      },
+      choices = {
+        { text = "Sealed. Some knowledge costs more than it could ever be worth.", next = "op_kirintor_1", fx = { opinion = { kirin_tor = "trust", necromancy = "forbid" }, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Learned. You can't defend against what you refuse to understand.", next = "op_kirintor_2", fx = { opinion = { kirin_tor = "too_cautious", arcane_magic = "useful" }, align = { order = -1 }, affinity = 2 } },
+        { text = "Knowledge is fine. It's ambitious students who should be locked up.", next = "op_kirintor_3", fx = { opinion = { kirin_tor = "mixed", arcane_magic = "dangerous" }, trait = { witty = 1 } } },
+        { text = "Dalaran fell because it trusted its own vaults. I was there.", next = "op_kirintor_4", when = { origin = "forsaken_dalaran_apprentice" }, fx = { opinion = { kirin_tor = "distrust" }, affinity = 1 } },
+        { text = "I'm no mage, Theocritus. I leave that to you.", next = "BACK" },
+      },
+    },
+    op_kirintor_1 = {
+      lines = { { id = "op_kirintor_r1", text = "Spoken like a Dalaran clerk, and the clerks have kept the world in one piece more often than the geniuses. I'm not obliged to like it, but I'll concede it." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_kirintor_2 = {
+      lines = { { id = "op_kirintor_r2", text = "Precisely what I'd tell the Council, and very likely why I live in a tower in Elwynn and not in Dalaran. Do come back; it's rare to agree with someone." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_kirintor_3 = {
+      lines = { { id = "op_kirintor_r3", text = "Ha! If the Kirin Tor followed that rule, there'd be no one left outside the vaults to lock the doors. Still, Morganth would agree with you, from the inside." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
+    op_kirintor_4 = {
+      lines = { { id = "op_kirintor_r4", text = "You were, weren't you, and in a manner I'd rather not examine. Then you know better than I do what a sealed door is worth when the dead come knocking." } },
+      choices = { { text = "Let's speak of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It's worth a footnote. The arcane is the true discipline; your spirits are a curiosity. Do mind the stairs on your way out." } },
@@ -253,6 +282,7 @@ P:NPC {
         { id = "af_default", text = "Now the treatise goes back to the mages who sealed it, and I go back to being bored. I find I'm looking forward to it." },
       },
       choices = {
+        { text = "Should the Kirin Tor seal books like Ur's at all?", next = "op_kirintor" },
         { text = "You'll miss him.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Enjoy the peace while it lasts.", next = "BACK", fx = { affinity = 1 } },
       },

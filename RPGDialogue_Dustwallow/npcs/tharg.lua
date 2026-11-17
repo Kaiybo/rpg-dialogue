@@ -32,6 +32,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dragons = {
+      lines = {
+        { id = "opd_q", text = "Tharg asks every traveller the same thing, because Tharg is old and wants to know if Tharg is mad. The black dragons in the Wyrmbog, what do you think of them?" },
+      },
+      choices = {
+        { text = "They're monsters. Every one of them should die.", next = "op_dragons_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { black_dragonflight = "hate" } } },
+        { text = "Not every dragon is wicked, Tharg, but those ones are.", next = "op_dragons_r2", fx = { affinity = 1, align = { light = 1 }, opinion = { dragons = "mixed" } } },
+        { text = "They're too strong to fight. Best leave them be.", next = "op_dragons_r3", fx = { affinity = -1, trait = { cautious = 1 }, opinion = { black_dragonflight = "fear" } } },
+        { text = "I don't know enough of dragons to say.", next = "BACK" },
+      },
+    },
+    op_dragons_r1 = {
+      lines = {
+        { id = "op_dragons_r1", text = "Good. Tharg is not mad, then, only angry. Tharg will wait for the day you kill one." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_dragons_r2 = {
+      lines = {
+        { id = "op_dragons_r2", text = "Tharg has never met a good dragon, but Tharg has never been far from the swamp either. Maybe you are right about the others." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    op_dragons_r3 = {
+      lines = {
+        { id = "op_dragons_r3", text = "That is what the Overlord says too, and the Overlord is fat and safe. Tharg's wife was not safe." },
+      },
+      choices = {
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Tharg is Stonemaul, from the village in the south, before the black dragons came. Now Tharg sits in Brackenwall and waits, and Tharg hates waiting." },
@@ -74,6 +109,7 @@ P:NPC {
     village_who = {
       lines = { { id = "vw_default", text = "The Firemane, they call themselves, and they serve the black dragonflight's lady in the Wyrmbog. Tharg does not say her name, because saying it makes Tharg's hands shake, and old ogres should not shake." } },
       choices = {
+        { text = "What does Tharg think of the black dragons?", next = "op_dragons" },
         { text = "Will the Stonemaul ever go back?", next = "village_back" },
         { text = "Let me ask something else.", next = "BACK" },
       },

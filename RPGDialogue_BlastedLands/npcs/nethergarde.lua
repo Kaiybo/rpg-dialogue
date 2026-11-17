@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_arcane", when = { gossip = { topic = "arcane_magic", stance = "dangerous" } }, text = "Mahar Ba's been muttering that you think the mages should lock their books away. He's taken it as a challenge, and I've had three requisitions for new shelves since." },
     { id = "g_default", text = "Mind the crates, friend, and don't mind the shouting; the sergeant lost at dice again, and the recruits are paying for it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing? Come in, come in, and tell me you've brought something I can write down." },
     { id = "g_supplies", when = { questDone = TODO_QUEST("Supplies for Nethergarde") }, text = "My powerstone runner! The mages still talk about the day that crate came in glowing." },
@@ -42,6 +43,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_defias = {
+      lines = {
+        { id = "opd_default", text = "The very same, before Stormwind's nobles stiffed his guild and he took it badly, by which I mean with knives. I've a cousin in Westfall, so I hear both sides of it in every letter. Where do you come down on it, friend?" },
+      },
+      choices = {
+        { text = "The masons were cheated. I can't blame them for being angry.", next = "op_defias_nobles", fx = { align = { order = -1 }, opinion = { defias = "nobles_to_blame" } } },
+        { text = "Unpaid or not, murder is murder. Hang the Defias.", next = "op_defias_hang", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 }, opinion = { defias = "hate" } } },
+        { text = "Westfall's farmers paid for that quarrel, not the nobles.", next = "op_defias_westfall", fx = { affinity = 1, opinion = { defias = "hate", westfall = "pity" } }, when = { race = "Human" } },
+        { text = "I'd rather count crates than argue politics.", next = "BACK" },
+      },
+    },
+    op_defias_nobles = {
+      lines = {
+        { id = "opdn_default", text = "Keep your voice down; half the soldiers here are paid by those same nobles, when they're paid at all. Mind you, I've been waiting on a wagon of their silver for three weeks, so I'm not saying you're wrong." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_defias_hang = {
+      lines = {
+        { id = "opdh_default", text = "That's how the Keep sees it, and that's how my ledger sees it, too. A thief's a thief, whether he's got a grievance or not, and my cousin's lost two cows to people with grievances." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_defias_westfall = {
+      lines = {
+        { id = "opdw_default", text = "They did, and they're still paying, if my cousin's letters are anything to go by. The nobles never miss a meal, but the farmers miss plenty, so there's your justice." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Because the road from Stormwind runs through the Swamp of Sorrows and past the orcs at Stonard, and every driver who's made the trip twice asks for double pay the third time. The Blasted Lands are the edge of the world, friend, and nobody hurries to the edge." } },
@@ -216,6 +246,7 @@ P:NPC {
           text = "VanCleef's masons, the same ones who went off to Westfall and turned to banditry when Stormwind wouldn't settle the bill. I sleep behind their walls every night and try not to think about it." },
       },
       choices = {
+        { text = "VanCleef? The Defias leader built these walls?", next = "op_defias" },
         { text = "Stormwind should have paid them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A bill is no excuse for banditry.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -357,6 +388,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_alliance", when = { gossip = { topic = "alliance", stance = "failed" } }, text = "The Ambassador says you told him the Alliance failed Quel'Thalas. He's been almost cheerful since, and it's frightening the clerks." },
     { id = "g_default", text = "Ah, a visitor! Do come in, only don't touch the instruments, the papers or, ideally, anything at all." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. I've filled half a book since we last spoke, and none of it good news." },
     { id = "g_essays", when = { questDone = TODO_QUEST("Mazen's Behest") }, text = "My courier of Khadgar! I've read the essays twice already and I understand perhaps half of them, which is twice what I expected." },
@@ -378,6 +410,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_arcane = {
+      lines = {
+        { id = "opr_default", text = "Oh, both, and that's what makes it so fascinating! The Portal was opened by magic and sealed by magic, and the Kirin Tor have been arguing about what that means for twenty years. I'd love to know what someone outside the argument thinks." },
+      },
+      choices = {
+        { text = "Knowledge is never wrong, only how it's used.", next = "op_arc_useful", fx = { affinity = 1, align = { order = -1 }, opinion = { arcane_magic = "useful" } } },
+        { text = "Magic that strong should be locked away by the Kirin Tor.", next = "op_arc_danger", fx = { align = { order = 1 }, opinion = { arcane_magic = "dangerous", kirin_tor = "trust" } } },
+        { text = "It's my craft, Watcher. I'd sooner lose a hand.", next = "op_arc_useful", fx = { affinity = 2, opinion = { arcane_magic = "admire" } }, when = { class = "MAGE" } },
+        { text = "The Well of Eternity drowned an empire. Be careful.", next = "op_arc_danger", fx = { opinion = { arcane_magic = "dangerous" } }, when = { race = "NightElf" } },
+        { text = "I'll leave that to the Kirin Tor.", next = "BACK" },
+      },
+    },
+    op_arc_useful = {
+      lines = {
+        { id = "opau_default", text = "Exactly! The Portal isn't the fault of magic any more than a flood is the fault of water. Mind you, I wouldn't say that too loudly to the soldiers, who've seen the floods up close." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_arc_danger = {
+      lines = {
+        { id = "opad_default", text = "Locked away? Well, I suppose that's what Nethergarde is, really, a very large lock on a very large door. I don't agree with you, but I'll admit I sleep better knowing someone holds the key." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_mage = {
       big = true,
       lines = { { id = "xpt_mage_default", text = "Like a door left open in winter, with the cold of somewhere else still clinging to it, though the gate has been dead since the far side was destroyed. We watch it anyway, because nobody who saw the Horde come through it ever trusts a closed door again." } },
@@ -593,6 +649,7 @@ P:NPC {
     mage = {
       lines = { { id = "ma_default", text = "To Dalaran, once, and now to whatever's left of the Kirin Tor and whatever Stormwind will pay for. We're Dalaran's orphans out here, and we try to work as if the masters were still reading our reports." } },
       choices = {
+        { text = "Is magic the cure for this land, or the disease?", next = "op_arcane" },
         { text = "Dalaran will rise again.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -691,6 +748,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_wildhammer = {
+      lines = {
+        { id = "opw_default", text = "Neither, an' both, which is why I live in a mage's keep at the end o' the world. But ye've an opinion, I can see it on yer face, so out wi' it: should the Wildhammer come home tae Ironforge, or stay free in the Hinterlands?" },
+      },
+      choices = {
+        { text = "Ironforge is the heart of the dwarves. They should come home.", next = "op_wh_home", fx = { align = { order = 1 }, opinion = { wildhammer = "distrust", magni = "trust" } } },
+        { text = "The Wildhammer kept their freedom. Good for them.", next = "op_wh_free", fx = { affinity = 1, align = { order = -1 }, opinion = { wildhammer = "admire" } } },
+        { text = "We're one people, whatever beard we follow.", next = "op_wh_kin", fx = { affinity = 2, opinion = { wildhammer = "respect", dwarves = "kin" } }, when = { race = "Dwarf" } },
+        { text = "I'll not get between dwarves and their grudges.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    op_wh_home = {
+      lines = {
+        { id = "opwh_default", text = "Spoken like a Bronzebeard, whatever yer blood. Magni's a fair king, I'll grant ye, but he'll never understand why a dwarf would rather have the sky than a roof." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wh_free = {
+      lines = {
+        { id = "opwf_default", text = "Ha! Now there's a gryphon rider's answer. Free an' poor an' proud of it, that's the Wildhammer way, an' it's why I left, an' it's why I miss it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_wh_kin = {
+      lines = {
+        { id = "opwk_default", text = "Aye, one people, an' three thrones, an' a war at Grim Batol tae prove it. Ye're a kinder dwarf than most, cousin, so don't let the old men in either city talk ye out o' it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_brd = {
       big = true,
       lines = { { id = "xcl_brd_default", text = "Then an old debt's been paid, though not by any dwarf of my clan. When the Dark Irons' sorceress died at Grim Batol her curse fell on the whole mountain, and my people had to leave it to rot and make a new home in the Hinterlands, and no Wildhammer has forgotten whose sorcery did it." } },
@@ -896,6 +982,7 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw2_default", text = "Further than ye know, cousin. The Bronzebeards would call me a Wildhammer an' the Wildhammers would call me a bookworm, so here I sit, where nobody's bothered what I am as long as the scryin' works." } },
       choices = {
+        { text = "Which side are you on, then, Bronzebeard or Wildhammer?", next = "op_wildhammer" },
         { text = "Khaz Modan's big enough for both clans.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -982,6 +1069,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alliance = {
+      lines = {
+        { id = "opa_default", text = "My king left the Alliance after the orcs burned our forests, and the Alliance did not come when the Scourge did. Whose fault that was is argued in every court that still stands, so I would hear your verdict." },
+      },
+      choices = {
+        { text = "The Alliance failed you, and it should be ashamed of it.", next = "op_alli_failed", fx = { affinity = 2, align = { honor = 1 }, opinion = { alliance = "failed" } } },
+        { text = "Your king left the Alliance first. Quel'Thalas reaped what it sowed.", next = "op_alli_sowed", fx = { affinity = -2, align = { honor = -1 }, opinion = { high_elves = "contempt" } } },
+        { text = "My people warned yours about magic ten thousand years ago.", next = "op_alli_magic", fx = { affinity = -1, opinion = { arcane_magic = "dangerous", high_elves = "pity" } }, when = { race = "NightElf" } },
+        { text = "Your people's grief is real, whoever's to blame. I'm sorry.", next = "op_alli_sorry", fx = { affinity = 1, trait = { kind = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "That's for courts to argue, not me.", next = "BACK" },
+      },
+    },
+    op_alli_failed = {
+      lines = {
+        { id = "opaf_default", text = "You're the first in this keep to say it without blushing. Shame is cheap, of course, and it rebuilds nothing, but I'll take it as a beginning." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alli_sowed = {
+      lines = {
+        { id = "opas_default", text = "Spoken like someone whose capital still stands. I hope you never learn what it is to be right about a quarrel while your capital burns." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alli_magic = {
+      lines = {
+        { id = "opam_default", text = "You did, and you've reminded us ever since, with the patience of people who never forgave us for being right about other things. Shall we leave old quarrels in the past, where they belong?" },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_alli_sorry = {
+      lines = {
+        { id = "opay_default", text = "Thank you. Sorrow is about all my people have left to trade in, and it's good to find a buyer who doesn't haggle." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That the line between Horde and Alliance is thinner than either side pretends. The elements answer an orc and a dwarf alike, and if they see no difference between you, I wonder why we insist on killing each other." } },
@@ -1095,6 +1218,7 @@ P:NPC {
     who_elves = {
       lines = { { id = "we_default", text = "I was, when there was a Quel'Thalas to be of. The Scourge took our kingdom, and what's left of us took a new name in memory of the dead; we call ourselves blood elves now, and we have learned exactly what a common enemy is worth." } },
       choices = {
+        { text = "Did the Alliance fail Quel'Thalas, Ambassador?", next = "op_alliance" },
         { text = "I'm sorry for your people.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "And yet you lecture us about squabbling.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
       },
@@ -1243,6 +1367,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_wildhammer", when = { gossip = { topic = "wildhammer", stance = "admire" } }, text = "Thadius says ye've a soft spot for the Wildhammer. Well, they brew a fair ale, I'll grant ye, for folk who live up trees an' talk tae birds." },
     { id = "g_default", text = "Ho there! Pull up a crate, an' don't tell the Quartermaster what's in my mug." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, I was runnin' out o' people tae drink with." },
     { id = "g_ragnar", when = { questDone = TODO_QUEST("Ragnar Thunderbrew") }, text = "Ye went tae see Ragnar! Was he still red in the face, or had he simmered down a bit?" },
@@ -1662,6 +1787,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_defias", when = { gossip = { topic = "defias", stance = "nobles_to_blame" } }, text = "The Quartermaster says you've a soft spot for the Defias' side of things. Don't say it too loud at my counter, friend, because half the stew in this pot came up the Westfall road." },
     { id = "g_default", text = "Hungry? Course you are; everyone who comes up that road is. Have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, the stew's hot, and it's the only warm thing this side of the Keep." },
   },

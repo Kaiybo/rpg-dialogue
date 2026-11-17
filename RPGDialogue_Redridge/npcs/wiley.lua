@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_militia", when = { opinion = { topic = "peoples_militia", stance = "doomed" } }, text = "You're the one who thinks Gryan's farmers are finished. Keep saying that, loudly, in every inn you pass; it'll do the Brotherhood's overconfidence a world of good." },
     { id = "g_corner", text = "You're in my light." },
     { id = "g_gryan", when = { questActive = TODO_QUEST("The Defias Brotherhood") }, text = "Stoutmantle sent you; I can smell Westfall on you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit, if you're staying, and stand somewhere else if you're not." },
@@ -35,6 +36,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_militia = {
+      lines = {
+        { id = "op_militia_a", text = "Honestly? You don't get that from me for free, but I'll trade. Farmers with pitchforks holding a hill against men who build things under mountains. I've my view, so let's hear yours first." },
+      },
+      choices = {
+        { text = "They're the bravest men in the kingdom. I'd stand with them.", next = "op_militia_1", fx = { opinion = { peoples_militia = "admire", westfall = "abandoned" }, align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Farmers playing soldier. The Defias will roll right over them.", next = "op_militia_2", fx = { opinion = { peoples_militia = "doomed" }, align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Brave enough. What they need is better information.", next = "op_militia_3", fx = { opinion = { peoples_militia = "needs_help" }, trait = { witty = 1 }, affinity = 2 } },
+        { text = "I'd rather hear your view first.", next = "BACK" },
+      },
+    },
+    op_militia_1 = {
+      lines = { { id = "op_militia_r1", text = "Brave, yes, and I'd add 'outnumbered'. That's my view too, though if you tell Gryan I said it, I'll call you a liar in front of the whole inn." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_militia_2 = {
+      lines = { { id = "op_militia_r2", text = "That's what the Defias think too, and they've been wrong about Gryan before. I'd not bet against a man who's too stubborn to die, and I owe him my neck to prove it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_militia_3 = {
+      lines = { { id = "op_militia_r3", text = "Now you're flattering me, and I'm letting you. That's why I'm sitting in this corner instead of a ditch, and why Gryan pays for the drinks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Honesty, mostly, and patience. A shaman might have both, but I'll judge you." } },
@@ -198,6 +222,7 @@ P:NPC {
         { id = "f_default", text = "The kind that kept me breathing, and he's never let me forget it, or let me thank him properly. He thinks I'm rude, and I am." },
       },
       choices = {
+        { text = "What do you make of Gryan's militia, honestly?", next = "op_militia" },
         { text = "Sounds like you respect him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Sounds like you owe him.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Were you in some kind of trouble?", next = "favor_rot" },

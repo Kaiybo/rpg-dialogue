@@ -688,6 +688,7 @@ P:NPC {
       lines = { { id = "c_default", text = "Proud, and quarrelsome, and each one sure it was the greatest. The Warsong and the Blackrock and the Frostwolves, the Dragonmaw with their beasts, and a dozen more. Then the demons' blood bound most of them into one Horde, and some never came back from it." } },
       choices = {
         { text = "Were the clans better before the Horde?", next = "clans_better" },
+        { text = "Do the tauren and the trolls fit in this new Horde?", next = "peoples_op" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -698,6 +699,37 @@ P:NPC {
         { text = "Old clan names won't hold this city together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A people without their clans has lost something.", next = "BACK", fx = { align = { order = -1 } } },
       },
+    },
+    peoples_op = {
+      lines = { { id = "po_default", text = "That's the question my book answers every day. Cairne's tauren came to us with a debt and a war against the centaur, the Darkspear came with nothing but Vol'jin's oath, and now both send names to be written beside ours, so tell me honestly what you make of them." } },
+      choices = {
+        { text = "Every people that chose the Horde makes it stronger.", next = "po_loyal", fx = { affinity = 1, align = { order = 1 }, opinion = { horde = "loyal" } } },
+        { text = "This is an orc's city. The others are guests.", next = "po_orcs", fx = { affinity = -1, align = { order = -1 }, opinion = { horde = "orcs_first" } } },
+        { text = "Cairne is the wisest chieftain the Horde has.", next = "po_cairne", fx = { affinity = 1, opinion = { cairne = "admire", tauren = "respect" } } },
+        { text = "I'd not turn my back on a troll.", next = "po_trolls", fx = { trait = { skeptical = 1 }, opinion = { trolls = "distrust" } } },
+        { text = "My people came for help, and stayed for the Warchief's honor.", next = "po_tauren", when = { race = "Tauren" }, fx = { affinity = 2, opinion = { warchief = "respect" } } },
+        { text = "Something else, Urtrun.", next = "BACK" },
+      },
+    },
+    po_loyal = {
+      lines = { { id = "pol_default", text = "Spoken like a clan elder, and better than some I knew. Write that on your charter and you'll never lack for members." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_orcs = {
+      lines = { { id = "poo_default", text = "I heard that said in the old clans too, about the clan over the next ridge, and it ended in blood every time. Keep it out of your charter, {class}." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_cairne = {
+      lines = { { id = "poc_default", text = "He's old enough to have seen the centaur at their worst, and he still chose patience over vengeance. I'd write his name first in any book I kept." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_trolls = {
+      lines = { { id = "pot_default", text = "Then your guild will be smaller than it could be. The Darkspear fought beside the Warchief when nobody else would, and a debt like that runs both ways." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    po_tauren = {
+      lines = { { id = "pota_default", text = "Then your people and mine both owe him, and that's the best foundation any Horde has ever had." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     good = {
       lines = { { id = "g_default", text = "Names on the charter are easy to find, but loyalty when the fight goes badly is not. Pick the ones who'll come back for you in the Wailing Caverns, not the ones who'll split the loot fastest." } },
@@ -858,6 +890,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin in the Valley of Strength. I fought the humans' knights in the Second War, recruit, and I know that glow. Mind yourself here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Keep your prayers quiet in the Valley of Strength, because the recruits will think you're casting at them and start a fight over it." },
         { id = "h_default", key = true, text = "Overlord Runthak. I keep the peace in the Valley of Strength, which mostly means stopping new recruits from fighting each other outside the inn. What do you want?" },
+        { id = "h_op_demons", when = { gossip = { topic = "demons", stance = "useful" } }, text = "Word in the valley is you think demons are only tools. Say that near the inn again, recruit, and you'll spend the night in the stockade." },
+        { id = "h_op_humans", when = { opinion = { topic = "humans", stance = "hate" } }, text = "You've the look of someone who still hates the humans. Keep it for the battlefield, because in my valley the Warchief's peace is an order." },
         { id = "h_young", when = { maxLevel = 10 }, text = "Fresh from the Valley of Trials, by the look of you. Don't get lost in the Drag, and don't buy anything a goblin calls a bargain." },
         { id = "h_vet", when = { minLevel = 50 }, text = "You've seen real fighting; it's in how you stand. The young ones here could learn something from watching you walk, so walk slowly." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, eh? Mind the recruits, because they've heard your kind can turn into bears, and half of them want to find out whether they could win." },
@@ -890,10 +924,40 @@ P:NPC {
         { text = "I'll honour them both.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Dead heroes don't win new wars.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Did you know Doomhammer?", next = "name_dead" },
+        { text = "Do you still hate the humans who held you?", next = "humans_op" },
       },
     },
     name_dead = {
       lines = { { id = "nd_default", text = "I saw him once, from the back of a crowd of slaves he'd just freed, and he looked tired and enormous. I've never forgotten either thing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    humans_op = {
+      lines = {
+        { id = "hu_default", text = "Hate is for recruits, and I'm too old to waste the breath on it. But you young ones never saw a camp, so I'll ask you instead: what do you make of the humans?" },
+        { id = "hu_undead", when = { race = "Scourge" }, text = "You were one of them once, so I'll hear this with some interest. What do you make of the living humans now, recruit?" },
+      },
+      choices = {
+        { text = "They built the camps. I'll never forgive them.", next = "hu_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Some are honorable. A human freed the Warchief.", next = "hu_respect", fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "They're dangerous, and there are more of them. Keep watch.", next = "hu_danger", fx = { trait = { cautious = 1 }, opinion = { humans = "dangerous" } } },
+        { text = "Their own prince burned my city. I trust none of them.", next = "hu_undead_r", when = { race = "Scourge" }, fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else, Overlord.", next = "BACK" },
+      },
+    },
+    hu_hate = {
+      lines = { { id = "huh_default", text = "Then you'll do well in the Valley of Strength, but keep it for the battlefield. The Warchief's peace is an order, and I enforce orders." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hu_respect = {
+      lines = { { id = "hur_default", text = "Taretha Foxton, aye, and the Warchief still says her name. I've no love for humans, but I'll grant you that one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hu_danger = {
+      lines = { { id = "hud_default", text = "That's a soldier's answer, and the right one. Hate makes a grunt stupid, and watching keeps him alive." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hu_undead_r = {
+      lines = { { id = "huu_default", text = "Arthas. Even we heard that name in the camps, and your people have more cause than mine, recruit." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     trouble = {

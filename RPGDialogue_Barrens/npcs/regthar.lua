@@ -101,7 +101,36 @@ P:NPC {
     },
     desolace = {
       lines = { { id = "d_default", text = "Their homeland is Desolace, west past the Stonetalon peaks, and they've kin there in the thousands. The ones here are an arm of something bigger, and if the arm keeps getting cut off, the body will come looking for us." } },
-      choices = { { text = "Then we'll be ready. Something else.", next = "BACK" } },
+      choices = {
+        { text = "Then we'll be ready. Something else.", next = "BACK" },
+        { text = "Should the Horde carry the fight to Desolace?", next = "kolkar_op" },
+      },
+    },
+    kolkar_op = {
+      lines = { { id = "ko_default", text = "Half the grunts at the Crossroads say so after a few drinks, and the other half say we've enough enemies already. I've fought centaur longer than most of them have been alive, so I'd like to hear it from you: what would you do?" } },
+      choices = {
+        { text = "Carry the war to Desolace and finish them.", next = "ko_war", fx = { affinity = 1, align = { light = -1 }, opinion = { centaur = "war" } } },
+        { text = "Hold the oases. Desolace isn't worth the blood.", next = "ko_hold", fx = { align = { light = 1 }, opinion = { centaur = "contain" } } },
+        { text = "Let the clans fight each other. They hate each other more.", next = "ko_divide", fx = { trait = { practical = 1 }, opinion = { centaur = "divide" } } },
+        { text = "They hunted my people for generations. No mercy.", next = "ko_tauren", when = { race = "Tauren" }, fx = { affinity = 1, opinion = { centaur = "hate" } } },
+        { text = "That's for wiser heads than mine, Regthar.", next = "BACK" },
+      },
+    },
+    ko_war = {
+      lines = { { id = "kow_default", text = "Spoken like a young grunt, and I was one once. Desolace is a graveyard with five clans living in it, and you'd be fighting all of them at once, but I like your nerve." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_hold = {
+      lines = { { id = "koh_default", text = "That's my thinking, and it's why I'm sitting in a burrow and not leading a war band west. Keep the water, keep the road, and let them come to us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_divide = {
+      lines = { { id = "kod_default", text = "Now there's a thought with teeth in it. The Gelkis and the Magram would cut each other's throats for less, and some of our people in Desolace already play them off each other." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ko_tauren = {
+      lines = { { id = "kot_default", text = "I've heard the stories from your elders, and I'll not argue with them. Bring that anger to Krom'zar's banner and I'll make sure it lands where it should." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     camp = {
       lines = { { id = "c_default", text = "A burrow's a fine headquarters, {class}. Centaur can't charge into a hole in the ground, the pigs feed my scouts, and Lanti'gah keeps the place standing when I'm out. I've slept in worse, and so has every orc who fought in the old wars." } },

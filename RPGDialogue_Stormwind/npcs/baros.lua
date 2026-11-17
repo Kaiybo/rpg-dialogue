@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_nobles_just", when = { opinion = { topic = "defias", stance = "nobles_justified" } }, text = "You're the one who thinks the lords did what they could. Come and look at my ledgers some day, friend, and tell me again." },
     { id = "g_plans", text = "Careful of the plans. Those are the Mage Quarter's new drains." },
     { id = "g_letter", when = { questActive = TODO_QUEST("The Unsent Letter") }, text = "A letter, for me, and from whom? Let me sit down before I open it." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Unsent Letter") }, text = "You. Yes. I've thought about that letter every day since." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_nobles = {
+      lines = {
+        { id = "op_nobles_a", text = "Every morning, when I walk past the House and see the new gilt on its doors. I've kept my office by never saying so aloud, so I'll turn it round on you: what do you make of the lords who rule this city?" },
+      },
+      choices = {
+        { text = "They cheated honest men. The House should answer for it.", next = "op_nobles_1", fx = { opinion = { stormwind = "abandoned_its_own", defias = "masons_wronged" }, align = { order = -1 }, affinity = 1 } },
+        { text = "The crown was broke after the war. The lords did what they could.", next = "op_nobles_2", fx = { opinion = { stormwind = "patience", defias = "nobles_justified" }, align = { order = 1 } } },
+        { text = "Lords and masons both did wrong. Westfall's paying for all of it.", next = "op_nobles_3", fx = { opinion = { defias = "sympathetic", westfall = "abandoned" }, trait = { skeptical = 1 } } },
+        { text = "My House voted against you. I'm ashamed of it.", next = "op_nobles_4", when = { origin = "human_minor_noble" }, fx = { opinion = { stormwind = "abandoned_its_own" }, affinity = 2 } },
+        { text = "I'd rather not judge the lords, Master Alexston.", next = "BACK" },
+      },
+    },
+    op_nobles_1 = {
+      lines = { { id = "op_nobles_r1", text = "Say it more quietly, friend, at least within these walls. You're right, and being right never yet paid a mason or saved one from the Stockade." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
+    op_nobles_2 = {
+      lines = { { id = "op_nobles_r2", text = "So the clerks told us, and then the same lords built summer houses on the lake. I'll not quarrel with you, because I signed the ledgers myself, but I'd like you to see one of those houses some day." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
+    op_nobles_3 = {
+      lines = { { id = "op_nobles_r3", text = "That's the sum of it, and it's the one sum nobody in this city wants to check. My family's farm is ash out there, so I know who's paying." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
+    op_nobles_4 = {
+      lines = { { id = "op_nobles_r4", text = "That's more than any lord has ever said to me, and I'll remember it. Shame won't buy back the farms, but it's a better start than gilt." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'm not sure I would. Half these walls were raised by men we never paid, and if the stone remembers that, it has better manners than they do." } },
@@ -195,6 +224,7 @@ P:NPC {
     point = {
       lines = { { id = "p_default", text = "He did. That's the trouble with Edwin. He always had a point, and he always took it too far." } },
       choices = {
+        { text = "Do you still blame the House of Nobles?", next = "op_nobles" },
         { text = "Too far how?", next = "riot" },
         { text = "Something else.", next = "BACK" },
       },

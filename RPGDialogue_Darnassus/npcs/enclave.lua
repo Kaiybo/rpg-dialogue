@@ -744,6 +744,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "That is the question young druids ask in whispers. It stands without the blessing the Aspects gave Nordrassil, and the forests at its feet sicken here and there, and yet our people live in its branches and sleep soundly. What do you think of the tree, {class}?" },
+      },
+      choices = {
+        { text = "It's a marvel, and the Archdruid was right to grow it.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { teldrassil_tree = "admire", fandral = "admire" } } },
+        { text = "A tree grown without blessing will bear bad fruit.", next = "op_r2", fx = { align = { order = -1 }, trait = { cautious = 1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "It's home now. Tend it and stop asking.", next = "op_r3", fx = { affinity = 1, trait = { practical = 1 }, opinion = { teldrassil_tree = "home" } } },
+        { text = "The furbolgs and timberlings are sick. Something here is wrong.", next = "op_r4", fx = { trait = { curious = 1 }, opinion = { teldrassil_tree = "uneasy" } }, when = { class = "DRUID" } },
+        { text = "I've no answer for that.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Say so in the Cenarion Enclave and you'll have friends there for life. I hope you're right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Hush, now, not so loud under the Archdruid's own branches. Some of us think it, and none of us say it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A good answer for a gardener, and maybe the right one. Rellian would agree with you, if he ever stopped fussing over his timberlings long enough to say so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "So you've seen it too. The Gnarlpine and the timberlings are not the tree's fault, I tell myself, though I tell myself rather often." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some see you as crude imitators, others as distant kin. I see a seeker of the world's voices, and a seeker gets my blessing, crude or not." } },
@@ -863,6 +892,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on, then, since questions are how roots find water." },
       },
       choices = {
+        { text = "Is Teldrassil a true world tree?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Who is Cenarius, to you?", next = "cenarius" },
         { text = "What does a young druid learn first?", next = "first" },

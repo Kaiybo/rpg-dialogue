@@ -38,6 +38,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Burn the lumber camp to the ground, salt the stumps and send every one of them back to Durotar with splinters in their pride. You've seen them up close, though, so tell me what you make of the Warsong." },
+      },
+      choices = {
+        { text = "Butchers. Every axe they swing is an insult.", next = "op_r1", fx = { affinity = 2, align = { honor = -1 }, trait = { stern = 1 }, opinion = { warsong = "hate" } } },
+        { text = "Workers following orders. Their chiefs are the problem.", next = "op_r2", fx = { align = { honor = 1 }, trait = { kind = 1 }, opinion = { warsong = "pity" } } },
+        { text = "They're soldiers. Beat them as soldiers, not as monsters.", next = "op_r3", fx = { align = { honor = 1 }, opinion = { warsong = "respect" } } },
+        { text = "Orgrimmar needs lumber, and Ashenvale has plenty to spare.", next = "op_r4", fx = { affinity = -2, align = { honor = -1 }, opinion = { warsong = "necessary" } }, when = { faction = "Horde" } },
+        { text = "I'd rather not say.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Then we understand each other perfectly. Go and see Sentinel Thenysil; she keeps a list, and it has room on it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Workers with axes are still axes, {class}. I'll pity them when they're back across the river." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "You sound like the Sentinels who stood beside orcs at Hyjal. I stood there too, and I watched how quickly that friendship rotted." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Then Orgrimmar can build with stone like the dwarves do, and leave our ancestors' trees standing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I have heard them chanting at the lumber camps, and I will never forget it. If your spirits are kin to theirs, I would know whether the forest's anguish reaches them at all." } },
@@ -136,6 +165,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_orcs_pity", tags = { "news" }, when = { opinion = { topic = "orcs", stance = "pity" } },
+          text = "I hear you've a soft word for the orcs, {class}. Keep it soft, because my Sentinels have hard ears today." },
+        { id = "o_ashenvale_war", tags = { "news" }, when = { opinion = { topic = "ashenvale", stance = "war" } },
+          text = "Word came down from Darnassus that you want every Warsong camp driven out. Good, because I've a list, and it starts at the lumber camp." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "My scouts on the Zoram Strand say you went into Blackfathom Deeps and came out past whatever waited at the bottom. Good, because I have no one to spare for that water, and it has been gnawing at Ashenvale's coast for years." },
         { id = "h_default", key = true,
           text = "I am Raene Wolfrunner, and I command the scouts of Astranaar. The furbolgs are going mad to the north and the Horde is cutting the forest to the east, and I would rather face them all alone than watch another tree fall." },
@@ -167,6 +200,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away; I have a moment before the scouts report." },
       },
       choices = {
+        { text = "What would you do with the Warsong, if you could?", next = "op_ask" },
         { text = "Who are Korra and Dagri?", next = "pets" },
         { text = "Why are the furbolgs attacking?", next = "furbolgs" },
         { text = "Tell me about Teronis.", next = "teronis" },
@@ -960,6 +994,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_forsaken_pity", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "pity" } },
+          text = "Kayneth sent word that you pity the Forsaken. He means it as a warning, I think, though with Kayneth it's hard to tell." },
         { id = "h_default", text = "I'm Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
         { id = "h_relara", when = { heardLine = "pelturas.h_default" },
           text = "So Pelturas told you about Relara. I send broth up for her every night, and she doesn't eat it, but he does, and someone has to look after him." },
@@ -1072,6 +1108,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "I learned it to understand the prisoners in the internment camps back home, and the more I understood, the less I liked what we'd done to them. What do you think, friend? Should the Alliance ever have kept the orcs in those camps?" },
+      },
+      choices = {
+        { text = "They were savages. The camps kept us safe.", next = "op_r1", fx = { align = { light = -1 }, trait = { stern = 1 }, opinion = { orcs = "hard" } } },
+        { text = "The camps were cruel, and they made Thrall what he is.", next = "op_r2", fx = { affinity = 1, align = { light = 1 }, opinion = { orcs = "pity" } } },
+        { text = "The camps were needed then, but not now.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { orcs = "necessary" } } },
+        { text = "The Light forgives orcs, Delgren. So should we.", next = "op_r4", fx = { affinity = 1, opinion = { orcs = "pity", the_light = "mercy" } }, when = { class = "PALADIN" } },
+        { text = "I've never given it much thought.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Safe for a while, and very costly, and they gave us Thrall in the end. I'm not sure safe is the word I'd choose." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Aye, that's what keeps me up at night. We built the man who leads the Horde, and we built him out of chains." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "A soldier's answer, and probably the one my old commander would have given. The orcs don't remember it so evenly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "The Light forgives faster than the Sentinels do, I've found. Say it too loudly here and they'll think the Silver Hand has gone soft." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I hope so! I purify what's been corrupted, and your spirits might help. We both want the forest healed." } },
@@ -1164,6 +1229,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening. The Light's in no hurry, even when I am." },
       },
       choices = {
+        { text = "Why did learning Orcish change your mind?", next = "op_ask" },
         { text = "Who are the Dark Strand?", next = "strand" },
         { text = "Why learn Orcish?", next = "orcish" },
         { text = "How do you find the night elves?", next = "elves_d" },

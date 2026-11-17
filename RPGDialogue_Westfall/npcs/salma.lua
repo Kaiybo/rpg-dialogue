@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_leave_go", when = { opinion = { topic = "westfall_leave", stance = "go" } }, text = "There you are! I told Theodore you said go while there's a road, and he looked so relieved I gave him a second bowl." },
     { id = "g_welcome", text = "Come in, come in! There's always a pot on." },
     { id = "g_stew", when = { questActive = TODO_QUEST("Westfall Stew") }, text = "Here on stew business? Good, because the pot's getting impatient." },
     { id = "g_after", when = { questDone = TODO_QUEST("Westfall Stew") }, text = "There's my stew-gatherer! Sit down and eat something, you're far too thin." },
@@ -34,6 +35,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_leave = {
+      lines = {
+        { id = "op_leave_a", text = "Oh, you've asked the question that's ruined more suppers out here than any burnt stew. Theodore says go while there's a road, Saldean says stay till they bury him, and I stand in the middle with a ladle. What do you say, dear?" },
+      },
+      choices = {
+        { text = "Stay. If the farmers leave, the Defias win for good.", next = "op_leave_1", fx = { opinion = { westfall_leave = "stay", westfall = "patience" }, align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Go. No field is worth a knife in the dark.", next = "op_leave_2", fx = { opinion = { westfall_leave = "go", westfall = "abandoned" }, align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "Stay or go, everyone should eat first.", next = "op_leave_3", fx = { opinion = { westfall_leave = "undecided" }, trait = { kind = 1 }, affinity = 2 } },
+        { text = "I left once. I'm back now, and I'm staying.", next = "op_leave_4", when = { origin = "human_westfall_farmhand" }, fx = { opinion = { westfall_leave = "stay" }, affinity = 3 } },
+        { text = "That's not my place to say, Salma.", next = "BACK" },
+      },
+    },
+    op_leave_1 = {
+      lines = { { id = "op_leave_r1", text = "That's Saldean's answer, and I'll tell him a stranger agrees with him, which will make him unbearable for a week. Mind you, staying's easier for those with a pitchfork and a full larder." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
+    op_leave_2 = {
+      lines = { { id = "op_leave_r2", text = "Theodore will be glad to hear it, and Verna will cry, and I'll pretend I'm not. There's no shame in going, dear; there's only shame in what drove them out." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
+    op_leave_3 = {
+      lines = { { id = "op_leave_r3", text = "Now that's an answer I can cook to. Sit down, then, because the pot's on and nobody leaves my kitchen hungry, staying or going." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
+    op_leave_4 = {
+      lines = { { id = "op_leave_r4", text = "Are you, now? Then you'll eat here every night you're near, and I'll hear no argument. A Westfall child coming home is the best news this kitchen's had all year." } },
+      choices = { { text = "Something else, Salma.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Whatever's to hand, dear: goretusk, onions, and maybe a murloc eye if I'm short. Your spirits needn't fret. It's filling." } },
@@ -228,6 +257,7 @@ P:NPC {
     furlbrows = {
       lines = { { id = "fu_default", text = "Verna's my dearest friend out here. Theodore's a good man who lost his nerve with his farm. They'll be off to Elwynn the minute that wagon rolls." } },
       choices = {
+        { text = "Should folk leave Westfall, or stay and see it through?", next = "op_leave" },
         { text = "Will you miss them?", next = "furlbrows_miss" },
         { text = "Something else.", next = "BACK", fx = { learn = { "old_blanchy" } } },
       },

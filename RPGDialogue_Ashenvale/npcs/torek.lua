@@ -31,6 +31,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Don't say that loud in Splintertree, because there are grunts here who'd agree with you, and that's the problem. You tell me, then: what do you make of the Warchief?" },
+      },
+      choices = {
+        { text = "He freed us from the camps. I'd follow him anywhere.", next = "op_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's too soft on the humans, and on the elves.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { warchief = "soft" } } },
+        { text = "Thrall wants peace. The Warsong camp makes that harder.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { warchief = "respect", peace = "peace" } } },
+        { text = "Thrall is the son of Durotan. That's enough for me.", next = "op_r4", fx = { affinity = 1, opinion = { warchief = "loyal" } }, when = { race = "Orc" } },
+        { text = "I'll keep my thoughts to myself.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "So would I, and so did I, but freedom doesn't build walls. We build them, out here, with Warsong lumber." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Ha! You and half my raiders. Keep it in the barracks, though, because there's a runner from Orgrimmar in town." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "The Warsong make lumber, and lumber makes Orgrimmar, and I don't see Thrall sending it back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "It's enough for me most days. On the other days I remember that Durotan never had to feed a city." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -127,6 +156,7 @@ P:NPC {
         { id = "th_default", text = "The Warchief wants peace, sure, and he also wants Orgrimmar built and warm. Hellscream's people at Warsong cut the wood, and we keep the elves off them, and that's all this is." },
       },
       choices = {
+        { text = "Some say Thrall's gone soft. What do you think?", next = "op_ask" },
         { text = "It's a thin line, Torek.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

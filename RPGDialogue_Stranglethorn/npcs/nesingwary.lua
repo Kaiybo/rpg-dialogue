@@ -37,6 +37,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_alliance = {
+      lines = {
+        { id = "opa_default", text = "Och, I'm too old an' too fond o' my rifle tae lend it out. An' folk say the Alliance is comin' apart, wi' Gilneas behind its wall an' Stromgarde sulkin' in the hills. What d'ye make o' it?" },
+      },
+      choices = {
+        { text = "The Alliance held once, and it'll hold again.", next = "op_all_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Every kingdom for itself now. The Alliance is just a name.", next = "op_all_broken", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { alliance = "broken" } } },
+        { text = "Ironforge kept faith. The rest can answer for themselves.", next = "op_all_mixed", fx = { affinity = 1, opinion = { alliance = "mixed", dwarves = "admire" } }, when = { race = "Dwarf" } },
+        { text = "Your Alliance put my people in camps, hunter.", next = "op_all_hate", fx = { opinion = { alliance = "hate" } }, when = { race = "Orc" } },
+        { text = "I'd rather hear about the panthers.", next = "BACK" },
+      },
+    },
+    op_all_trust = {
+      lines = {
+        { id = "opat_default", text = "Aye, I'll drink tae that, an' I'll drink tae it twice if it's true. It took the orcs tae make us friends the first time; I hope it doesnae take somethin' worse the second." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_all_broken = {
+      lines = {
+        { id = "opab_default", text = "Ye're a harder sort than I took ye for, an' maybe ye're right. Still, a name's worth somethin', the way a trophy is, because it reminds ye of what ye once did." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_all_mixed = {
+      lines = {
+        { id = "opam_default", text = "Ironforge did, an' I've an Ironforge barrel on my rifle tae prove it. I'll no' argue wi' a dwarf about dwarves; Barnil's taught me better." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_all_hate = {
+      lines = {
+        { id = "opah_default", text = "Aye, it did, an' I'll no' pretend I lost sleep over it then. I'm older now, an' I've seen what a cage does tae a beast, so I'll say only that ye've a right tae yer anger." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_nesingwary = {
       big = true,
       lines = { { id = "xpt_nesingwary_default", text = "It depends on the quarry, my friend. A panther is best hunted alone, one hunter against one beast, but a raptor pack would eat a lone hunter for breakfast, and there's no shame in bringing friends to that sort of party." } },
@@ -270,7 +306,10 @@ P:NPC {
       lines = {
         { id = "hw_default", text = "The one with the orcs in it, the first or the second, for they blur. Ask Barnil an' he'll tell ye I was magnificent, but I was mostly wet." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Would you fight for the Alliance again?", next = "op_alliance" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
 
     students = {
@@ -380,6 +419,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_alliance", when = { gossip = { topic = "alliance", stance = "broken" } }, text = "Hemet says ye reckon the Alliance is a name an' nothin' more. He sulked over his supper about it, an' I had tae wash the plates, so I hope ye're happy." },
     { id = "g_pages", text = "Mind where ye step, friend. If ye see a loose page anywhere, it's ours, so don't step on it; pick it up." },
   },
 

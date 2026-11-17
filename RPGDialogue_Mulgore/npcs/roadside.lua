@@ -22,6 +22,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    op_dwarves = {
+      lines = {
+        { id = "opd_q", text = "You've seen them, I think, or you've seen their kin in other lands. Before I decide anything about Bael'dun, I'd hear what you think of the dwarves." },
+        { id = "opd_q_dw", when = { race = "Dwarf" }, text = "You're one of them, and you came to me openly, so I'll ask you openly. What do you think of your own people's digging in Mulgore?" },
+      },
+      choices = {
+        { text = "Most dwarves are honest folk. Bael'dun is the exception, not the rule.", next = "op_dwarves_r1", fx = { affinity = 1, align = { light = 1 }, opinion = { dwarves = "respect" } } },
+        { text = "They'll dig up the whole world if no one stops them.", next = "op_dwarves_r2", fx = { affinity = 1, align = { light = -1 }, opinion = { dwarves = "distrust" } } },
+        { text = "Their Explorers' League digs for history, not for greed.", next = "op_dwarves_r3", fx = { trait = { curious = 1 }, opinion = { explorers_league = "useful" } } },
+        { text = "The Bael'dun diggers shame us all. I'm sorry, Morin.", next = "op_dwarves_r4", fx = { affinity = 3, trait = { honest = 1 }, opinion = { dwarves = "shame" } }, when = { race = "Dwarf" } },
+        { text = "I'd rather not speak for a whole people, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r1 = {
+      lines = {
+        { id = "op_dwarves_r1", text = "I'll hope you're right, because the honest ones have never found their way to Mulgore. Perhaps you'll send me some." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r2 = {
+      lines = {
+        { id = "op_dwarves_r2", text = "That's what the earth tells me through my hooves every morning. Thank you for saying it plainly." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r3 = {
+      lines = {
+        { id = "op_dwarves_r3", text = "History, they call it, and our ancestors' bones lie under that history. I'd like to see them dig up their own grandfathers first." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
+    op_dwarves_r4 = {
+      lines = {
+        { id = "op_dwarves_r4", text = "I didn't expect to hear that from a dwarf, and I'll not forget it. Walk freely on this road, friend." },
+      },
+      choices = {
+        { text = "Something else, Morin.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Not as much as the dwarves digging to the north. They carry the Light too, I'm told, and they tear the earth open without asking. You I'll watch, but if you help us guard the road, I'll count you as a friend of the braves." } },
@@ -147,7 +192,10 @@ P:NPC {
     },
     dwarves_out = {
       lines = { { id = "do_default", text = "Cairne hopes to avoid a war, because our people have had enough of those. But the braves grow angry each time the dwarves' machines shake the ground." } },
-      choices = { { text = "What would you do?", next = "dwarves_morin" } },
+      choices = {
+        { text = "What do you think of the dwarves yourself?", next = "op_dwarves" },
+        { text = "What would you do?", next = "dwarves_morin" },
+      },
     },
     dwarves_morin = {
       lines = { { id = "dm_default", text = "I would ask them once, plainly, to leave. If they would not, then the Earth Mother would forgive us for making them." } },

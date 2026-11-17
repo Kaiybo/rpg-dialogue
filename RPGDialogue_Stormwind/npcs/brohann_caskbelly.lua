@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_robbers", when = { opinion = { topic = "explorers_league", stance = "grave_robbers" } }, text = "Here's the one who'd keep every tomb shut! Sit down, sit down; I'll convert ye yet, or I'll die tryin', which at my age is likely." },
     { id = "g_district", text = "Pull up a crate, {g:lad|lass}, if ye've a minute fer an old explorer." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Sit, sit. My knees have been tellin' me ye'd come." },
     { id = "g_temple", when = { questActive = TODO_QUEST("In Search of The Temple") }, text = "The Swamp o' Sorrows, {g:lad|lass}. Find me that temple, an' mind the bogs." },
@@ -35,6 +36,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_league = {
+      lines = {
+        { id = "op_league_a", text = "Ach, I've heard it, mostly from priests an' from folk whose great-grandfathers we dug up. We find out where the dwarves came from, {g:lad|lass}, an' sometimes that means openin' a tomb. So tell me straight, what d'ye make o' the work?" },
+      },
+      choices = {
+        { text = "It's noble work. The past belongs to anyone who'll learn from it.", next = "op_league_1", fx = { opinion = { explorers_league = "admire" }, align = { order = -1 }, affinity = 2, trait = { curious = 1 } } },
+        { text = "Some tombs should stay shut. The dead have earned their rest.", next = "op_league_2", fx = { opinion = { explorers_league = "grave_robbers" }, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Useful work, so long as Ironforge pays for it and not Stormwind.", next = "op_league_3", fx = { opinion = { explorers_league = "useful" }, trait = { witty = 1 } } },
+        { text = "It's our own history, and King Magni's right to want it back.", next = "op_league_4", when = { race = "Dwarf" }, fx = { opinion = { explorers_league = "admire", magni = "respect" }, affinity = 3 } },
+        { text = "I've no opinion on old bones, Brohann.", next = "BACK" },
+      },
+    },
+    op_league_1 = {
+      lines = { { id = "op_league_r1", text = "Spoken like a League {g:lad|lass} already! Go tae the Hall o' Explorers an' say that tae Magellas; he'll have ye diggin' by supper." } },
+      choices = { { text = "Something else, Brohann.", next = "BACK" } },
+    },
+    op_league_2 = {
+      lines = { { id = "op_league_r2", text = "Aye, my mother said the same, an' she said it tae me at the door o' every barrow I ever opened. I'll not say ye're wrong, only that I never once listened." } },
+      choices = { { text = "Something else, Brohann.", next = "BACK" } },
+    },
+    op_league_3 = {
+      lines = { { id = "op_league_r3", text = "Ha! Magni pays, an' Magni grumbles, an' Magni reads every report afore we've dried the ink. Ye've a head fer accounts, I'll give ye that." } },
+      choices = { { text = "Something else, Brohann.", next = "BACK" } },
+    },
+    op_league_4 = {
+      lines = { { id = "op_league_r4", text = "Now there's a true son o' Khaz Modan talkin'. The stone remembers us, an' one day we'll read every word o' what it remembers." } },
+      choices = { { text = "Something else, Brohann.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brohann Caskbelly, Explorers' League, or what's left o' him. I was young an' full o' vigour like ye once, an' now I'm old an' I mostly remember things." },
@@ -110,7 +139,8 @@ P:NPC {
     league = {
       lines = { { id = "l_default", text = "The finest company o' scholars an' diggers in Khaz Modan, or so we tell everyone. Magellas runs it from the Hall o' Explorers now, an' he's a sharper mind than I ever was, though don't tell him." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Some call the League grave-robbers. Are they wrong?", next = "op_league" }, { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

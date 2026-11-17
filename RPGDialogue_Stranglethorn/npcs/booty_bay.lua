@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_trolls", when = { gossip = { topic = "trolls", stance = "hate" } }, text = "My Bruisers tell me you called the Zandalari a pack of savages, and to his face. Brave of you, friend, and bad for business, so next time do it outside my harbor." },
+    { id = "g_op_venture", when = { opinion = { topic = "venture_company", stance = "useful" } }, text = "Ah, my friend with an eye for cheap lumber! Come in, come in; a person who knows a bargain is always welcome on my balcony." },
     { id = "g_balcony", text = "From this balcony I can count every ship in the cove and most of the coins coming off them, and my time up here runs about a gold piece a minute. So state your business, friend, and keep it profitable." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good, good; repeat business is the only kind I trust, and it's the only kind that pays the overhead." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde colors on my balcony? That doesn't trouble me in the least, pal, because gold doesn't wear a tabard and neither does my ledger." },
@@ -40,6 +42,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_venture = {
+      lines = {
+        { id = "opv_default", text = "They answer to whoever's paying this quarter, and right now that's the saw business. They're stripping the north of this jungle bare, and half my customers love the cheap lumber while the other half curse them. Which half are you, friend?" },
+      },
+      choices = {
+        { text = "They're thieves with saws, and the jungle pays for it.", next = "op_venture_hate", fx = { affinity = -1, align = { light = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "They're doing what the Cartel did here, only bigger.", next = "op_venture_admire", fx = { affinity = 1, align = { light = -1 }, opinion = { venture_company = "admire" } } },
+        { text = "Cheap lumber is cheap lumber. I'd buy it.", next = "op_venture_useful", fx = { trait = { greedy = 1 }, opinion = { venture_company = "useful" } } },
+        { text = "The Horde will run them out of the Barrens soon enough.", next = "op_venture_war", fx = { opinion = { venture_company = "war" } }, when = { faction = "Horde" } },
+        { text = "I'll keep my half to myself, Baron.", next = "BACK" },
+      },
+    },
+    op_venture_hate = {
+      lines = {
+        { id = "opvh_default", text = "Thieves! Friend, everyone on this coast is a thief, and the Venture lot just keep worse books. Say it a little quieter in the Salty Sailor, though, because they drink there too and they tip." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_venture_admire = {
+      lines = {
+        { id = "opva_default", text = "Bigger, yes, and sloppier, and that's the part that worries me. A goblin who forgets the trolls are watching ends up a footnote in somebody else's ledger." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_venture_useful = {
+      lines = {
+        { id = "opvu_default", text = "Now that's a customer talking! Cheap is the most beautiful word in Orcish, Common and Goblin, and I'll be glad to sell you the rope to tie it up with." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_venture_war = {
+      lines = {
+        { id = "opvw_default", text = "Then I'll sell your grunts the axes and the Venture lot the bandages, and we'll all part friends. Don't look at me like that; it's called diversifying." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_revilgaz = {
       big = true,
       lines = { { id = "xpt_revilgaz_default", text = "Honest is a word I hear a great deal from people standing on my docks, and I've learned to value it at about a copper an ounce. Still, a crew that keeps its word is worth more to me than any cargo, because the Bloodsail would have this whole bay if the honest ones ever went home, and that's a loss I can't insure." } },
@@ -246,7 +284,10 @@ P:NPC {
       lines = {
         { id = "cb_default", text = "The Cartel's trade princes, in principle, but in practice I answer to the number at the bottom of the quarterly report. If it's a good number, nobody visits from Undermine, and I very much prefer it when nobody visits." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } } },
+      choices = {
+        { text = "And the Venture Company? They answer to princes too.", next = "op_venture" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+      },
     },
 
     peace = {
@@ -390,6 +431,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_kirintor", when = { gossip = { topic = "kirin_tor", stance = "contempt" } }, text = "Ha! Catelyn told me you called the Dalaran wizards frightened old men under a glass bowl. She laughed so hard she spilled her grog, and she never spills her grog!" },
     { id = "g_deck", text = "Up the stairs and still breathing! That's a good start, for I've watched orcs come down those stairs headfirst." },
     { id = "g_back", when = { metBefore = true }, text = "The tide's brought you back! I like a sailor who can find the way home." },
     { id = "g_away", when = { away = 14 }, text = "The tide's brought you back after {away} away! I knew a good sailor would find the way home sooner or later." },
@@ -412,6 +454,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_pirates = {
+      lines = {
+        { id = "opp_default", text = "Ha! Depends who's asking and which way the wind's blowing! Kul Tiras says pirate, the Baron says contractor, and I say I'm a tauren with a boat. But you've seen us work, friend, so you tell me." },
+      },
+      choices = {
+        { text = "You keep a code. That makes you honest in my book.", next = "op_pirates_respect", fx = { affinity = 2, align = { honor = 1 }, opinion = { pirates = "respect" } } },
+        { text = "A code doesn't change what you take. Pirates are pirates.", next = "op_pirates_hate", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 }, opinion = { pirates = "hate" } } },
+        { text = "A free sea and a fat prize? Pirate's a fine word.", next = "op_pirates_admire", fx = { affinity = 1, trait = { brave = 1 }, opinion = { pirates = "admire" } } },
+        { text = "A tauren at sea. The Earth Mother must laugh to see it.", next = "op_pirates_admire", fx = { affinity = 1, opinion = { pirates = "admire" } }, when = { race = "Tauren" } },
+        { text = "I'll let Kul Tiras and the Baron argue that one.", next = "BACK" },
+      },
+    },
+    op_pirates_respect = {
+      lines = {
+        { id = "oppr_default", text = "Honest! Did you hear that, Crazz? Honest! I'll have it painted on the Revenge's stern, right under the cannon." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_pirates_hate = {
+      lines = {
+        { id = "opph_default", text = "Ha! Well, you're not wrong, and you're braver than most for saying it on my own pier. Mind you, the Bloodsail would take your boots and your teeth as well, and we only take the boots." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_pirates_admire = {
+      lines = {
+        { id = "oppa_default", text = "Now you sound like a sailor! Come and see me when you've grown your sea legs, and we'll find you a hammock that only smells a little." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Never, and I'd pay to see it, because dwarves sink like anvils and every sailor knows it. Still, if the sea spirits listen to you, I'd give you the wheel for a day." } },
@@ -843,6 +915,7 @@ P:NPC {
         { id = "rs_alliance", when = { faction = "Alliance" }, text = "We sail for the Baron, not Stormwind's House of Nobles, but Stormwind's merchants pay us well to see them past the Cape. Your navy thinks we're pirates, and we are, but we're the pirates who keep the other pirates off your cargo." },
       },
       choices = {
+        { text = "Pirate or privateer, Fleet Master? Which are you?", next = "op_pirates" },
         { text = "Good. Gold should be the only flag at sea.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "A sailor should choose a side and stand by it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -982,6 +1055,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_bay = {
+      lines = {
+        { id = "opb_default", text = "Depends what you give me to work with, pal, so let's start the bidding. Here's one I'm buying instead of selling: what do you really think of Booty Bay?" },
+      },
+      choices = {
+        { text = "A den of thieves with a pretty harbor.", next = "op_bay_thieves", fx = { align = { honor = 1 }, opinion = { booty_bay = "distrust" } } },
+        { text = "A town where everything's for sale suits me fine.", next = "op_bay_useful", fx = { affinity = 1, align = { honor = -1 }, trait = { greedy = 1 }, opinion = { booty_bay = "useful" } } },
+        { text = "Best port in the South Seas, and fair to everyone.", next = "op_bay_admire", fx = { affinity = 1, opinion = { booty_bay = "admire" } } },
+        { text = "Better than Ratchet. Ratchet's only a pier with ambitions.", next = "op_bay_admire", fx = { affinity = 1, trait = { witty = 1 }, opinion = { booty_bay = "admire", ratchet = "contempt" } } },
+        { text = "I'm not giving you anything you can sell, Krazek.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    op_bay_thieves = {
+      lines = {
+        { id = "opbt_default", text = "A den of thieves! Oh, that's going straight in the book, and the Baron's going to love it, because he's been calling it that for years and he means it as a compliment." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_bay_useful = {
+      lines = {
+        { id = "opbu_default", text = "Now there's somebody who gets it! Everything's for sale, including that opinion, which I just bought for nothing, so thanks for the margin." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_bay_admire = {
+      lines = {
+        { id = "opba_default", text = "Fair to everyone, ha! Fair to everyone who pays, chum, and I'll put it down as a glowing review from a satisfied customer." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That Ironforge has started talking to the weather, that it'll make the Horde nervous, and that both are worth knowing to somebody with deep pockets. Don't worry, chum, I only sell the interesting parts, and I sell them by the ounce." } },
@@ -1150,7 +1253,10 @@ P:NPC {
     },
     brag_prove = {
       lines = { { id = "bp_default", text = "Rum, storms, and a hat he lost years ago and still talks about. That one's free, since everyone knows it, but the real one costs more than you've got on you, pal." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What would a rumor about me cost?", next = "op_bay" },
+        { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
 
     baron = {
@@ -1709,6 +1815,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_bay", when = { gossip = { topic = "booty_bay", stance = "distrust" } }, text = "Krazek's been selling a story that you called us a den of thieves. Thieves keep the best rum, pal, so sit down anyway and I'll put the stool on your tab." },
     { id = "g_inn", text = "In you come, pal, out of the sun. Stools by the windows get the breeze and cost a copper more, and the sea air covers the smell of the fish for free." },
     { id = "g_home", when = { homeInn = { "Booty Bay", "The Salty Sailor Tavern" } }, text = "Your room's just as you left it, mostly, though the parrots got in again and I've added the feathers to your bill." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away} away! Your room's still yours, since you paid ahead, bless you, though the parrots got in again, so mind the sheets." },

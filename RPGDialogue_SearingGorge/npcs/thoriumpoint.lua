@@ -32,6 +32,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_darkiron = {
+      lines = {
+        { id = "opd_default", text = "Ironforge says every Dark Iron is the Firelord's dog, an' the Horde says much the same wi' fewer words. We buy an' sell wi' both, an' we listen. So what d'ye make o' my folk, then?" },
+      },
+      choices = {
+        { text = "The Brotherhood proves the Dark Iron can be free.", next = "op_di_free", fx = { affinity = 2, align = { light = 1 }, opinion = { dark_iron = "redeemable" } } },
+        { text = "I'll trust your steel, Overseer, but not your blood.", next = "op_di_distrust", fx = { affinity = -1, align = { light = -1 }, opinion = { dark_iron = "distrust" } } },
+        { text = "Ironforge and the Brotherhood can trade. That's a start.", next = "op_di_trade", fx = { affinity = 1, opinion = { dark_iron = "mixed" } }, when = { race = "Dwarf" } },
+        { text = "I'm here for the steel, not the history.", next = "BACK" },
+      },
+    },
+    op_di_free = {
+      lines = {
+        { id = "opdf_default", text = "Free's a big word for a wee camp on a cliff, but aye, we're free, an' every one o' us paid for it. Tell that tae Ironforge if they ever ask, which they won't." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_distrust = {
+      lines = {
+        { id = "opdd_default", text = "Ye're no' the first tae say it, an' ye'll no' be the last. Our steel's honest, an' that'll have tae do until our names are." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_di_trade = {
+      lines = {
+        { id = "opdt_default", text = "Aye, a start, an' the first one in a few hundred years. Ye'd be surprised how many Bronzebeards buy our plans an' swear they found them in a ditch." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_dwarf = {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "Peace is a long word for dwarves and we've a few centuries of grudges to work through first, but trade is a short one, and the Brotherhood has always been good at trade. Ironforge buys our thorium and we buy their bread, and nobody asks too many questions about who fought whom in the War of the Three Hammers." } },
@@ -221,7 +250,10 @@ P:NPC {
     },
     kin_free = {
       lines = { { id = "kf_default", text = "Some might, if they wanted it, but a slave learns no' tae want, for wantin' gets ye whipped. We wanted it so badly we built our own way out, an' most down there have forgotten how tae want." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "What do the other dwarves make of the Brotherhood?", next = "op_darkiron" },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
     dwarf = {
       big = true,
@@ -274,6 +306,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_darkiron", when = { gossip = { topic = "dark_iron", stance = "distrust" } }, text = "Oilfist says ye'd trust our steel but no' us. That's sensible enough, for I'd no' trust me either, but sit doon anyway; the rock's warm." },
     { id = "g_rest", text = "Och, what is it now, when I'd just sat down? Fine, fine, out with it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good! Ye can do the thing they want me tae do, an' everyone's happy." },
     { id = "g_away", when = { away = 14 }, text = "Och, ye've been gone {away}, an' they've had me doin' the work the whole time. Ye can take it off my hands now, I'd say." },
@@ -642,6 +675,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_vengeance = {
+      lines = {
+        { id = "opv_default", text = "Reason enough? It's the only reason that has never once lied to me. But you've the look of someone who's been told otherwise by a priest or a parent, so tell me what you believe." },
+      },
+      choices = {
+        { text = "Vengeance is justice with the gloves off. I approve.", next = "op_venge_yes", fx = { affinity = 1, align = { light = -1 }, opinion = { vengeance = "admire" } } },
+        { text = "Vengeance eats the one who carries it.", next = "op_venge_no", fx = { affinity = -1, align = { light = 1 }, opinion = { vengeance = "wrong" } } },
+        { text = "Burn their towers first. We can talk philosophy later.", next = "op_venge_yes", fx = { trait = { brave = 1 }, opinion = { vengeance = "useful" } } },
+        { text = "I'd rather not judge your grief.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_venge_yes = {
+      lines = {
+        { id = "opvy_default", text = "Good. Then take the torch and use it, and don't look back at the smoke, because the smoke is the only thanks the Dark Iron will ever give you." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_venge_no = {
+      lines = {
+        { id = "opvn_default", text = "Eats me? Perhaps, and perhaps I've been eaten already and only kept walking out of habit. Burn the towers anyway; the Dark Iron deserve it whatever it costs me." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "In blood, as my father paid, and in fear, so that they remember who came for them. You're a warrior, so you understand that some debts are only settled with steel, and I'd rather not say more of it than that." } },
@@ -785,6 +841,7 @@ P:NPC {
     which = {
       lines = { { id = "w_default", text = "Does it matter? Dark Iron is Dark Iron, and those at the Point trade with anyone, so they'd have traded with his killers, too." } },
       choices = {
+        { text = "Is vengeance reason enough to fight, Kalaran?", next = "op_vengeance" },
         { text = "The Brotherhood escaped the same masters.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
         { text = "You're right. Dark Iron is Dark Iron.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

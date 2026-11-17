@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_dragons", when = { gossip = { topic = "black_dragonflight", stance = "fight" } }, text = "The Magistrate's been in a fine temper since you told him the black dragons were real. He's writing his forty-somethingth letter, and he's humming." },
     { id = "g_court", text = "The Court of Lakeshire is in session whenever the Magistrate is at his desk, which is always, so state your matter." },
     { id = "g_back", when = { metBefore = true }, text = "Citizen, the court recognises you. You may approach." },
     { id = "g_away", when = { away = 14 }, text = "Citizen, the court notes your return after {away} away. You may state your matter." },
@@ -877,6 +878,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_gnolls_driven", when = { gossip = { topic = "redridge_gnolls", stance = "driven" } }, text = "Verner tells me you think the gnolls were driven down off the mountains, same as I do. Well, Bellygrub's still eating my garden, but I'm glad somebody listens to an old woman." },
     { id = "g_garden", text = "Step round the beds, dear, they're only just coming up. Lovely weather for it, if it holds." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! The tulips have opened, well, two of them have, and two's a start." },
   },

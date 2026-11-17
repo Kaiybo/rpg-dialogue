@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_raceway = {
+      lines = {
+        { id = "opr_q", text = "I'm paid to keep the track clear, not to like it, and on most days I don't. What do you think of all this, the racing and the rockets and the wagers?" },
+      },
+      choices = {
+        { text = "It's harmless fun. Let them race.", next = "op_raceway_r1", fx = { align = { order = -1 }, opinion = { mirage_raceway = "fun" } } },
+        { text = "It's a waste of good salt flats and better lives.", next = "op_raceway_r2", fx = { affinity = 2, align = { order = 1 }, opinion = { mirage_raceway = "waste" } } },
+        { text = "Anything that keeps goblins and gnomes busy is good for everyone.", next = "op_raceway_r3", fx = { trait = { witty = 1 }, opinion = { mirage_raceway = "useful" } } },
+        { text = "I've no opinion on it yet.", next = "BACK" },
+      },
+    },
+    op_raceway_r1 = {
+      lines = {
+        { id = "op_raceway_r1", text = "Harmless until a basilisk wanders onto the track, which happens more than they'd like you to know. Still, the crowd seems happy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_raceway_r2 = {
+      lines = {
+        { id = "op_raceway_r2", text = "The salt flats would agree with you, if they could talk. I'm only here for the pay, and for the basilisks, which are honest about what they want." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_raceway_r3 = {
+      lines = {
+        { id = "op_raceway_r3", text = "Ha! I hadn't thought of it that way, and I like it. Better they blow up a rocket out here than a town somewhere else." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Trackmaster Zherin. After a goblin racer met a basilisk at full speed and nobody walked away happy, the raceway hired me to keep the course clear of the flats' beasts." },
@@ -72,6 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "r_default", text = "Never, as far as I can tell. They build faster cars to beat each other, and they crash them faster too, and in between they sabotage each other's tents. I just keep the track clear and try not to take sides." } },
       choices = {
+        { text = "What do you make of the raceway yourself?", next = "op_raceway" },
         { text = "Competition drives them to build better things.", next = "BACK", fx = { align = { order = -1 }, learn = { "mirage_raceway" } } },
         { text = "Someone should set rules before someone dies.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "mirage_raceway" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "mirage_raceway" } } },

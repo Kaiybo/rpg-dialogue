@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_bolvar", when = { gossip = { topic = "bolvar", stance = "trusted" } }, text = "Somebody told me you said you'd follow Bolvar anywhere. So would I, only he never lets me go anywhere at all." },
+    { id = "g_op_orcs", when = { opinion = { topic = "orcs", stance = "wary" } }, text = "You're the one who said to judge every orc by what he does! I said it at council, and one of the dukes dropped his spoon." },
     { id = "g_formal", text = "Welcome to Stormwind Keep! Um, I mean, be welcome; I think that's how you're supposed to say it." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I mean, the crown recognizes you, and it's very glad you're here." },
   },
@@ -37,6 +39,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_orcs = {
+      lines = {
+        { id = "op_orcs_a", text = "The orcs, mostly. Lady Prestor says they're beasts and always will be, and Bolvar says some of them only ever wanted to go home, and I can't tell which of them is right. What do you think?" },
+      },
+      choices = {
+        { text = "Some orcs want peace, Your Majesty. The Highlord's right to hope.", next = "op_orcs_1", fx = { opinion = { orcs = "trust", peace = "for" }, align = { light = 1 }, affinity = 1 } },
+        { text = "Lady Prestor's right. Orcs only understand the sword.", next = "op_orcs_2", fx = { opinion = { orcs = "hate", prestor = "ally" }, align = { light = -1 } } },
+        { text = "Judge each orc by what he does, not by what he is.", next = "op_orcs_3", fx = { opinion = { orcs = "wary" }, align = { honor = 1 }, trait = { kind = 1 }, affinity = 2 } },
+        { text = "The orcs are still cutting Ashenvale's trees. Ask my people about peace.", next = "op_orcs_4", when = { race = "NightElf" }, fx = { opinion = { orcs = "distrust", ashenvale = "orcs_wrong" } } },
+        { text = "They burned my home in Lordaeron, Your Majesty. I won't forgive that.", next = "op_orcs_5", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { orcs = "hate" } } },
+        { text = "That's a question for the Regent, Your Majesty.", next = "BACK" },
+      },
+    },
+    op_orcs_1 = {
+      lines = { { id = "op_orcs_r1", text = "I hoped you'd say that, because I think so too, only I'm not allowed to say it at council. Please don't tell Lady Prestor I agreed with you." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_2 = {
+      lines = { { id = "op_orcs_r2", text = "Oh. That's what the nobles say too, and they always say it very loudly. I suppose you've met more orcs than I have, so you'd know." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_3 = {
+      lines = { { id = "op_orcs_r3", text = "That's the sort of thing my father would say, I think. I'm going to write it down before I forget it, and then I'll say it at council and see who frowns." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_4 = {
+      lines = { { id = "op_orcs_r4", text = "I didn't know they were still fighting anywhere. Nobody tells me about Ashenvale, because they think it's too far away to matter, and I don't think it is." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
+    op_orcs_5 = {
+      lines = { { id = "op_orcs_r5", text = "I'm sorry. Bolvar says the people from the north lost more than anyone, and I shouldn't ask anybody to forgive things I never had to." } },
+      choices = { { text = "Something else, Your Majesty.", next = "BACK" } },
+    },
     xpt_anduin = {
       big = true,
       lines = { { id = "xpt_anduin_default", text = "Not really, because everyone wants something from me, even the ones who are nice about it. Lady Prestor says a king doesn't need friends, only loyal servants, but my father had Uncle Bolvar, so I don't think she's right." } },
@@ -142,6 +177,7 @@ P:NPC {
         { id = "k_default", text = "Mostly listening. The Highlord talks, Lady Prestor talks, the nobles talk. I listen. Then I ask a question and they all go quiet." },
       },
       choices = {
+        { text = "What do the nobles argue about most, Your Majesty?", next = "op_orcs" },
         { text = "That sounds like a good king.", next = "BACK", fx = { affinity = 1 } },
         { text = "What do you ask?", next = "ask" },
       },

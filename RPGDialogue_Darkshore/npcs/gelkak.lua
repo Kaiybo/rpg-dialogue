@@ -31,6 +31,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_ask = {
+      big = true,
+      lines = {
+        { id = "op_ask_default", text = "Gnomeregan's full of radiation and troggs, and Mekkatorque's still in Ironforge drawing plans to take it back, so a gnome has to make a living somewhere. What do you think of His Royal Tinkerness, matey?" },
+      },
+      choices = {
+        { text = "He'll take Gnomeregan back. Gnomes never quit.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { mekkatorque = "trust", gnomeregan = "hope" } } },
+        { text = "He flooded his own city with radiation. Some king.", next = "op_r2", fx = { affinity = 1, align = { honor = -1 }, opinion = { mekkatorque = "blame" } } },
+        { text = "Sounds like you'd rather be a pirate than a refugee.", next = "op_r3", fx = { trait = { witty = 1 }, opinion = { pirates = "understand" } } },
+        { text = "Don't you dare mock the High Tinker, Captain.", next = "op_r4", fx = { affinity = -1, opinion = { mekkatorque = "loyal" } }, when = { race = "Gnome" } },
+        { text = "I'll stay out of gnome politics.", next = "BACK" },
+      },
+    },
+    op_r1 = {
+      lines = { { id = "op_r1_default", text = "Aye, never quit, and also never stop to check where the troggs came from. I hope you're right, matey, because I've cousins still in those halls." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r2 = {
+      lines = { { id = "op_r2_default", text = "Ha! I'd never say that in Ironforge, but out here on the beach I'll drink to it, or I would if anybody had left me a drink." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r3 = {
+      lines = { { id = "op_r3_default", text = "Rather a pirate than a beggar in somebody else's mountain, matey. The sea doesn't ask to see your clan papers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_r4 = {
+      lines = { { id = "op_r4_default", text = "Mock him? I'm not mocking him, I'm just not waiting for him, which is a very different thing and a great deal wetter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -51,6 +80,7 @@ P:NPC {
         { id = "h_again2", text = "Speak up! The surf's loud and me ears are full o' seawater." },
       },
       choices = {
+        { text = "Why would a gnome turn pirate?", next = "op_ask" },
         { text = "You're a gnome pirate?", next = "pirate" },
         { text = "Tell me about your first mate.", next = "mate" },
         { text = "What happened to your ship?", next = "ship" },

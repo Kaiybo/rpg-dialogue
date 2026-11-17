@@ -120,6 +120,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_orcs_hate", tags = { "news" }, when = { opinion = { topic = "orcs", stance = "hate" } },
+          text = "The Commander in Darnassus writes that you call the orcs beasts. I call them targets, which is shorter, and easier to aim at." },
+        { id = "o_warsong_hate", tags = { "news" }, when = { gossip = { topic = "warsong", stance = "hate" } },
+          text = "Raene tells me you'd see every Warsong axe broken. Come back when you've broken a few, and we'll talk." },
         { id = "h_default", key = true,
           text = "I am Sentinel Thenysil. I keep watch over Astranaar for the Sisterhood, and when someone proves themselves to the kaldorei, it is my task to see that Darnassus hears of it." },
         { id = "h_reception", tags = { "news" }, when = { questActive = TODO_QUEST("Reception from Tyrande") },

@@ -35,6 +35,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Rezlak, Tinkers' Union, one of Gazlowe's boys. The boss sent me up from Ratchet to keep the orcs supplied, pal, and that'd be easy money if the harpies would stop eating my caravans and my profits along with 'em." },
+        { id = "h_op_venture", when = { opinion = { topic = "venture_company", stance = "hate" } },
+          text = "Hey, it's the Venture-hater! Pal, you've got no idea how good that is for my reputation, so stand right there where the orcs can see us talking." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Winds in the Desert") },
           text = "You look like you can swing something sharp, pal. The last shipment, the one they PROMISED would get through, got snatched by the Dustwind harpies down in Razorwind Canyon, and I need those supplies back before somebody up the chain notices the hole in my books." },
         { id = "h_sacks_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Winds in the Desert"), days = 3 } },
@@ -102,7 +104,34 @@ P:NPC {
       choices = {
         { text = "I'll tell him you're working hard.", next = "BACK", fx = { affinity = 1, learn = { "steamwheedle" } } },
         { text = "I'll tell him what I see.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+        { text = "Are all goblins like Gazlowe?", next = "venture_op" },
       },
+    },
+    venture_op = {
+      lines = { { id = "vo_default", text = "Like the boss? Pal, I wish. There's the Venture Company up in Stonetalon chewing through the forest and anybody standing in it, and every time they do, somebody spits at my caravans, so tell me: when you think goblin, do you think Gazlowe or them?" } },
+      choices = {
+        { text = "Gazlowe built Orgrimmar. That's what goblins mean to me.", next = "vo_gazlowe", fx = { affinity = 2, opinion = { goblins = "respect", steamwheedle = "trust" } } },
+        { text = "The Venture Company should be hunted out of Stonetalon.", next = "vo_hunt", fx = { affinity = 1, align = { light = 1 }, opinion = { venture_company = "hate" } } },
+        { text = "The Venture Company gets results. I can't fault that.", next = "vo_results", fx = { affinity = -1, align = { light = -1 }, opinion = { venture_company = "useful" } } },
+        { text = "Goblins are goblins. You all sell to the highest bidder.", next = "vo_same", fx = { affinity = -1, opinion = { goblins = "distrust" } } },
+        { text = "Never met the Venture Company, Rezlak.", next = "BACK" },
+      },
+    },
+    vo_gazlowe = {
+      lines = { { id = "vog_default", text = "Now that's what I like to hear, buddy! I'm gonna tell the boss you said it, and then I'm gonna tell him I said it first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    vo_hunt = {
+      lines = { { id = "voh_default", text = "Hunt 'em with my blessing, pal, and if you find any shredder parts lying around afterward, I know a buyer. Strictly salvage, you understand." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    vo_results = {
+      lines = { { id = "vor_default", text = "Results, sure, if you like your results on fire with a tauren war party chasing 'em. Do me a favor and don't say that near my caravans, buddy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    vo_same = {
+      lines = { { id = "vos_default", text = "Highest bidder? Pal, I sell to the first bidder, because the highest one's always late. But fine, fine, I'll put you down as a skeptic and charge you accordingly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     alliance = {
       lines = { { id = "al_default", text = "Because the Tinkers' Union doesn't take sides, pal, it takes orders and it fills 'em. You get your hands dirty with my harpies, I pay you the same as anybody, and nobody in Orgrimmar has to know who cleared the road." } },

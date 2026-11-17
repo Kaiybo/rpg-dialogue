@@ -30,6 +30,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_post = {
+      lines = {
+        { id = "opo_default", text = "That be the question I ask the sky every night, mon, and the sky never answer. The Warlord got Blackrock on every side, and my Sha'ni be out there alone. You tell me, is he right?" },
+      },
+      choices = {
+        { text = "Orders are orders. The Warlord is right to hold you.", next = "op_post_right", fx = { align = { order = 1 }, opinion = { goretooth = "respect" } } },
+        { text = "Your wife comes first. The orders can wait.", next = "op_post_wrong", fx = { affinity = 2, align = { order = -1 }, opinion = { goretooth = "wrong" } } },
+        { text = "I'll judge the Warlord when Sha'ni's home.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    op_post_right = {
+      lines = {
+        { id = "opor_default", text = "Yeah, mon, I know it, and I hate that I know it. If every soldier left, the Blackrock would walk in, so I stand here and I hate it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_post_wrong = {
+      lines = {
+        { id = "opow_default", text = "You say it like it be easy, and I love you for saying it, mon. But Sha'ni would box my ears if she found out I deserted, so I'll keep standing, and you keep looking." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -127,6 +149,7 @@ P:NPC {
         { id = "po_default", text = "Because the Warlord say I can't leave my post, mon, and if every soldier in Kargath went running after someone they love, there be no Kargath. I know that, I just don't like it." },
       },
       choices = {
+        { text = "Is the Warlord right to keep you here?", next = "op_post" },
         { text = "You could go anyway.", next = "post_desert" },
         { text = "Something else.", next = "BACK" },
       },

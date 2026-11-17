@@ -32,6 +32,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_alterac = {
+      lines = {
+        { id = "opn_alterac_q", text = "Lord Perenolde sold the Alliance to the Horde in the Second War, and Stromgarde paid for it in blood before anyone else did. Some say his common folk were never asked, and should be forgiven. You've seen what his nobles have become; what do you say?" },
+      },
+      choices = {
+        { text = "Alterac betrayed everyone. Its nobles deserve the rope.", next = "opn_alterac_r", fx = { affinity = 1, align = { light = -1 }, opinion = { alterac = "hate" } } },
+        { text = "The farmers never chose treason. Punish the lords, not them.", next = "opn_alterac_r", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { alterac = "pity" } } },
+        { text = "Alterac is dead. The Syndicate is just thieves now.", next = "opn_alterac_r", fx = { trait = { practical = 1 }, opinion = { alterac = "dead", stromgarde = "retake" } } },
+        { text = "Perenolde tried to save his people. He chose wrong.", next = "opn_alterac_r", when = { origin = "human_minor_noble" }, fx = { affinity = -2, opinion = { alterac = "mistaken" } } },
+        { text = "That's for Stromgarde to judge, Captain.", next = "BACK" },
+      },
+    },
+    opn_alterac_r = {
+      lines = {
+        { id = "opn_alterac_r_hate", when = { opinion = { topic = "alterac", stance = "hate" } }, text = "The rope, and the gibbet after it, and I'd tie the knots myself. Bring me their badges and I'll count them as a down payment." },
+        { id = "opn_alterac_r_pity", when = { opinion = { topic = "alterac", stance = "pity" } }, text = "Merciful of you. I'd like to be that merciful, and perhaps I will be, once the Syndicate stops robbing our dead." },
+        { id = "opn_alterac_r_dead", when = { opinion = { topic = "alterac", stance = "dead" } }, text = "Thieves with long memories and old titles, but thieves, yes. That makes them easier to hang and harder to forgive." },
+        { id = "opn_alterac_r_mistaken", when = { opinion = { topic = "alterac", stance = "mistaken" } }, text = "Tried to save his people? He fed mine to the orcs to do it. I'll thank you not to say that again inside Refuge Pointe, {class}." },
+        { id = "opn_alterac_r_default", text = "Stromgarde has judged, and the Syndicate is what came of it. Ask me something else." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Then fight for Stromgarde's people and not for its stones, because the stones have changed hands more times than I can count and the people only once, when they ran here. Hammerfall's orcs and the Syndicate both want this land, and I'd sooner see you guard a farmer than take back a tower." } },
@@ -156,7 +180,10 @@ P:NPC {
     },
     syndicate_badges = {
       lines = { { id = "sb_default", text = "To sell, or to wear, or to walk into a village as one of ours; I don't know which. I know the families get nothing to bury." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Should Alterac's people pay for Perenolde's treason?", next = "opn_alterac" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     hammerfall = {
       lines = { { id = "h2_default", text = "Hammerfall was a camp for orc prisoners, once, and they broke it open and kept the ruins. We leave each other alone, most days, and most days is enough, for now." } },
@@ -270,6 +297,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_peace = {
+      lines = {
+        { id = "opn_peace_q", text = "The Warchief freed us, and I'd die for him without asking why. But he signs his name beside Lady Proudmoore's while there's a Stromgarde soldier on the next hill who'd see us all back in chains. Some at this fire say Doomhammer would never have made that bargain. Where do you stand?" },
+      },
+      choices = {
+        { text = "Peace lets our children grow up free. Thrall is right.", next = "opn_peace_r", fx = { align = { honor = 1 }, opinion = { peace = "peace", warchief = "trust" } } },
+        { text = "The humans built the camps. There's no peace with that.", next = "opn_peace_r", fx = { affinity = 1, align = { honor = -1 }, opinion = { peace = "war" } } },
+        { text = "Peace in Kalimdor. Out here, we fight for what we hold.", next = "opn_peace_r", fx = { affinity = 1, trait = { practical = 1 }, opinion = { peace = "local_war" } } },
+        { text = "Thrall's soft on humans. Doomhammer knew better.", next = "opn_peace_r", when = { race = "Orc" }, fx = { opinion = { warchief = "soft" } } },
+        { text = "That's for the Warchief to decide.", next = "BACK" },
+      },
+    },
+    opn_peace_r = {
+      lines = {
+        { id = "opn_peace_r_peace", when = { opinion = { topic = "peace", stance = "peace" } }, text = "Free. Aye, that's the word that matters. I'll build the walls high anyway, so our children get to be free behind them." },
+        { id = "opn_peace_r_war", when = { opinion = { topic = "peace", stance = "war" } }, text = "Say that louder at the fire and you'll have friends for life, and Korin will glare at you across it. I won't argue, though I'll follow the Warchief." },
+        { id = "opn_peace_r_local", when = { opinion = { topic = "peace", stance = "local_war" } }, text = "Ha! That's Hammerfall's answer exactly, and you didn't even need to be in a camp to learn it." },
+        { id = "opn_peace_r_soft", when = { opinion = { topic = "warchief", stance = "soft" } }, text = "Careful. Doomhammer named Thrall himself, with his last breath, on this ground. Say what you like about the humans, but not about him in Hammerfall." },
+        { id = "opn_peace_r_default", text = "Good answer. It's the one I give when the hotheads ask me." },
+      },
+      choices = {
+        { text = "Something else, Drum Fel.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Hammerfall trusts anyone who bleeds for it, or whatever it is your people do instead. The orcs who were chained here saw the Light in the hands of their jailers, so some will glare, but I will tell them to judge you by your deeds." } },
@@ -407,7 +458,10 @@ P:NPC {
       lines = {
         { id = "hc_default", text = "Every orc behind these walls was in a camp, or was born to someone who was. We don't talk about it at the fire; we build on top of it, and that's our answer." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+      choices = {
+        { text = "Thrall keeps peace with the humans now. What do you think?", next = "opn_peace" },
+        { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
     },
 
     enemies = {
@@ -774,6 +828,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_warchief_lesser", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "lesser" } },
+      text = "Gor'mul told the fire you said Thrall is no Doomhammer, and then he sat with the others for a whole evening. I've never seen him do that, so whatever you said, thank you." },
+    { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },
+      text = "The young ones at the fire are repeating what you told Drum Fel about the humans and their camps. They sing it louder each night, and I hum a little quieter." },
     { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there's a soft hide by my fire." },
     { id = "g_home", when = { homeInn = { "Hammerfall" } }, text = "Welcome back to Hammerfall. Your place by the fire is waiting." },
     { id = "g_away", when = { away = 14 }, text = "Ah, you be back after {away} away! Come sit by the fire, mon, because the stone don't get any softer while you be gone." },

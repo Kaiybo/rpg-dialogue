@@ -41,6 +41,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    opn_light = {
+      lines = {
+        { id = "opn_light_q", text = "Now there's a question that's emptied a few tankards in this Hall. Some o' my priests say it shines on everyone whether they like it or no', an' some say ye have tae reach for it first. Which way d'ye lean, yerself?" },
+      },
+      choices = {
+        { text = "It shines on everyone. That's what makes it the Light.", next = "opn_light_r", fx = { affinity = 1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "It's a power like any other, Father. Use it well.", next = "opn_light_r", fx = { align = { light = -1 }, trait = { practical = 1 }, opinion = { the_light = "tool" } } },
+        { text = "I've seen too many prayers go unanswered to say.", next = "opn_light_r", fx = { trait = { skeptical = 1 }, opinion = { the_light = "doubt" } } },
+        { text = "It answers those who keep their oaths. I've felt it.", next = "opn_light_r", when = { class = { "PALADIN", "PRIEST" } }, fx = { affinity = 1, trait = { pious = 1 }, opinion = { the_light = "devotion" } } },
+        { text = "The stone was here before the Light, Father.", next = "opn_light_r", when = { class = "SHAMAN" }, fx = { opinion = { the_light = "stranger", the_elements = "first" } } },
+        { text = "I'll leave theology to the priests.", next = "BACK" },
+      },
+    },
+    opn_light_r = {
+      lines = {
+        { id = "opn_light_r_faith", when = { opinion = { topic = "the_light", stance = "faith" } }, text = "That's my lean too, though I'll warn ye it makes for a crowded Hall. Come an' help wi' the soup some evenin', an' ye'll see who it shines on." },
+        { id = "opn_light_r_tool", when = { opinion = { topic = "the_light", stance = "tool" } }, text = "A hammer's a power like any other, too, an' ye'll notice nobody prays tae their hammer. Use it well, aye, but don't forget it's lookin' back at ye." },
+        { id = "opn_light_r_doubt", when = { opinion = { topic = "the_light", stance = "doubt" } }, text = "So have I, {g:lad|lass}, so have I. Doubt's no' the opposite o' faith; it's only faith wi' its eyes open, an' I'd rather that than the other kind." },
+        { id = "opn_light_r_devotion", when = { opinion = { topic = "the_light", stance = "devotion" } }, text = "Aye, an' keep feelin' it on the days ye've broken one, for those are the days it matters. Brandur would like ye; he says the same thing louder." },
+        { id = "opn_light_r_stranger", when = { opinion = { topic = "the_light", stance = "stranger" } }, text = "So it was, an' I'll no' quarrel wi' the stone. The Light never claimed tae be the oldest thing under the mountain, only the kindest." },
+        { id = "opn_light_r_default", text = "Wise of ye. The priests have been arguin' it for a thousand years an' havenae finished yet." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
     xpt_rohan = {
       big = true,
       lines = { { id = "xpt_rohan_default", text = "The Light does, if ye let it, an' a pint an' a good night's sleep do the rest. I've seen healers pour themselves out for their friends till there was nothin' left, an' the Light never asked that o' them; they asked it o' themselves." } },
@@ -99,6 +125,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "o_crusade_gossip", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "admire" } },
+          text = "Brandur tells me ye spoke well o' the Scarlet Crusade in his hall. I'll say only this: zeal's a fine fire, but ye want tae know what it's burnin'." },
         { id = "h_pt_rohan", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
           text = "Ye're the only one in yer company who mends, aren't ye? I can tell by how ye stand, a wee bit behind an' watchin' everyone, an' I'll tell ye what I tell my acolytes: watch yerself too, because nobody else will." },
         { id = "h_default", key = true,
@@ -234,6 +262,7 @@ P:NPC {
           text = "Ye'd think it was always here, the way the young ones talk, but yer grandfather would ha' looked at this Hall an' asked where the forge was. The Light came up from the humans, after the Second War, an' it took root." },
       },
       choices = {
+        { text = "Does the Light answer everyone, or only the faithful?", next = "opn_light" },
         { text = "Do dwarves pray differently from humans?", next = "came_diff" },
         { text = "Who sends the young priests on, after you?", next = "came_send" },
         { text = "The mountain was fine before the Light came.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },

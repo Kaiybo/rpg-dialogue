@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_defias_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "You're the soft-hearted one who'd send thieves home with a warning. Well, we let one go last week, on your account, and we'll see what comes of it." },
     { id = "g_line", text = "Fall in or move along." },
     { id = "g_paws", when = { questActive = TODO_QUEST("Patrolling Westfall") }, text = "Paws, is it? Count them out on the table, and if it isn't eight, back out you go." },
     { id = "g_after", when = { questDone = TODO_QUEST("Patrolling Westfall") }, text = "You patrol like you mean it, and that's rarer than you'd think." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_prisoners = {
+      lines = {
+        { id = "op_prisoners_a", text = "Then it's the worst day of the week. Half my men want him hanged off the tower as a lesson, and the other half grew up with his father, and Gryan says the Stockade and nothing more. You've caught a few yourself by now, so what would you do with him?" },
+      },
+      choices = {
+        { text = "Hang him. A thief's a thief, whoever his father was.", next = "op_prisoners_1", fx = { opinion = { defias = "hardline" }, align = { light = -1 }, affinity = 1, trait = { stern = 1 } } },
+        { text = "Send him home with a warning. Most of them only wanted bread.", next = "op_prisoners_2", fx = { opinion = { defias = "mercy" }, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Make him talk first. Then let the Stockade have him.", next = "op_prisoners_3", fx = { opinion = { defias = "hardline" }, align = { order = 1 }, trait = { practical = 1 } } },
+        { text = "The nobles made him a thief. Blame them, not the boy.", next = "op_prisoners_4", fx = { opinion = { defias = "masons_wronged", stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "That's your call to make, Captain.", next = "BACK" },
+      },
+    },
+    op_prisoners_1 = {
+      lines = { { id = "op_prisoners_r1", text = "That's what my farmers say, and some days it's what I say too. Gryan would have your hide for it, so keep it between us and the spear rack." } },
+      choices = { { text = "Something else, Captain.", next = "BACK" } },
+    },
+    op_prisoners_2 = {
+      lines = { { id = "op_prisoners_r2", text = "And find him back in a mask in a fortnight, or find him ploughing a field next spring. I've seen both, and I couldn't tell you which is likelier." } },
+      choices = { { text = "Something else, Captain.", next = "BACK" } },
+    },
+    op_prisoners_3 = {
+      lines = { { id = "op_prisoners_r3", text = "That's Gryan's answer, near enough, and I suppose it's the sensible one. Prisoners talk, and dead men don't; I only wish the talking was quicker." } },
+      choices = { { text = "Something else, Captain.", next = "BACK" } },
+    },
+    op_prisoners_4 = {
+      lines = { { id = "op_prisoners_r4", text = "I'll blame the nobles all day, friend, and twice on market day. But it's my barn the boy burned, not theirs, so forgive me if I want him somewhere I can see him." } },
+      choices = { { text = "Something else, Captain.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They'll fight beside anyone who stays when it gets ugly. Most of them only know shamans from tales of the Horde, so expect some muttering until the first fight's done." } },
@@ -219,6 +248,7 @@ P:NPC {
     drill_stop = {
       lines = { { id = "ds_default", text = "My farmers want to keep swinging till the thief stops moving, so I teach them to stop when he's down and tie him up. Gryan wants prisoners, because prisoners talk." } },
       choices = {
+        { text = "And when you catch one who was a farmer's son?", next = "op_prisoners" },
         { text = "Mercy and sense, both.", next = "BACK", fx = { affinity = 1, align = { light = 1, order = 1 } } },
         { text = "Dead thieves don't come back.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },

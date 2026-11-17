@@ -31,6 +31,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_jaina = {
+      lines = {
+        { id = "opj_q", text = "The Warchief trusts the human woman in Theramore. Krog trusts the Warchief. But you've seen her, so tell Krog: what is she?" },
+      },
+      choices = {
+        { text = "She's honest. She wants peace as much as Thrall does.", next = "op_jaina_r1", fx = { affinity = 1, align = { honor = 1 }, opinion = { jaina = "trust" } } },
+        { text = "She's a human. She'll turn on the Horde the moment it suits her.", next = "op_jaina_r2", fx = { align = { honor = -1 }, trait = { skeptical = 1 }, opinion = { jaina = "distrust" } } },
+        { text = "She fought beside Thrall at Mount Hyjal. That earns respect.", next = "op_jaina_r3", fx = { affinity = 2, opinion = { jaina = "respect" } } },
+        { text = "I've barely spoken to her, Krog.", next = "BACK" },
+      },
+    },
+    op_jaina_r1 = {
+      lines = {
+        { id = "op_jaina_r1", text = "Then Krog will keep the line, and the one who burned that inn will answer to us both." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_jaina_r2 = {
+      lines = {
+        { id = "op_jaina_r2", text = "Maybe. Krog watches the island every day. But the Warchief gave his word, and Krog does not break it on a maybe." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_jaina_r3 = {
+      lines = {
+        { id = "op_jaina_r3", text = "Hyjal, yes. She threw fire at the demons and not at the Horde, and the Warchief remembers it, so Krog remembers it too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_krog = {
       big = true,
       lines = { { id = "xpt_krog_default", text = "The truth is that the Shady Rest burned and both sides are blaming the other, and the Warchief's peace is only as strong as the next rumor. A war band like yours could ask hard questions on either side of the marsh, so long as you don't start the war I'm trying to stop." } },
@@ -211,7 +246,10 @@ P:NPC {
       lines = {
         { id = "ww_default", text = "His word is the only wall between this marsh and another war. The humans keep to their island and we keep to ours, as long as nobody crosses the line, and someone just set fire to the line." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
+      choices = {
+        { text = "What do you make of Lady Proudmoore?", next = "op_jaina" },
+        { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } },
+      },
     },
 
     inn = {
@@ -350,6 +388,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_orcs_redeem", when = { opinion = { orcs = "redeemable" } }, text = "Word from the island is that you speak up for the orcs to their Lady. Hmph. I'll believe the Alliance means it when their soldiers stop sharpening blades at Sentry Point." },
     { id = "g_watch", text = "The Alliance smiles from its island. I keep count of the smiles, and of the knives behind them." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted the Alliance patrols while you were away, as I always do. There were more of them than before, which I'm sure is a coincidence." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone here caught you in a lie, and I keep count of liars just as I keep count of smiles. You're on my list now, so give me a reason to take you off it." },

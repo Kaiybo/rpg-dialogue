@@ -1506,6 +1506,19 @@ P:Pool {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet night so far, and I'd like it to stay that way. What do you need, friend?" },
         { id = "h_young", when = { maxLevel = 12 }, text = "You've the look of someone fresh to the road, so stay where the patrols can hear you shout. What can I do for you?" },
         { id = "h_vet", when = { minLevel = 50 }, text = "I know a veteran when one walks up, and I'd sooner have you on my side of the wall than the other. What's on your mind?" },
+        -- Opinion pass: word of what the player said to someone else in this town.
+        { id = "h_o_peace_for", once = true, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
+          text = "Word at the barracks is you're all for Lady Jaina's peace with the orcs. Some of the lads call that soft, but I've buried enough friends to hope you're right." },
+        { id = "h_o_peace_against", once = true, when = { gossip = { topic = "peace", stance = { "against", "war" } } },
+          text = "The lads tell me you'd march on Orgrimmar tomorrow if the regent gave the word. Half of them would buy you a drink for it, and the other half think you're mad." },
+        { id = "h_o_prestor", once = true, when = { gossip = { topic = "prestor", stance = "distrust" } },
+          text = "Somebody heard you speak against Lady Prestor, and now the whole watch has heard it too. I'd keep that sort of talk outside the city walls, friend, for your own sake." },
+        { id = "h_o_defias_soft", once = true, when = { gossip = { topic = "defias", stance = { "masons_wronged", "sympathetic", "mercy" } } },
+          text = "I hear you've a kind word for the Defias and their masons. Be careful with it, because the watch has pulled too many farmers out of ditches to feel the same." },
+        { id = "h_o_defias_hard", once = true, when = { gossip = { topic = "defias", stance = "hardline" } },
+          text = "Folk say you'd see every Defias hanged on the Westfall road. The watch would settle for seeing them in the Stockade, but I take your meaning." },
+        { id = "h_o_bolvar", once = true, when = { gossip = { topic = "bolvar", stance = { "trust", "respect" } } },
+          text = "Someone told me you spoke up for Lord Bolvar. Good; he's earned it, and it's nice to hear a stranger say so for once." },
       },
       again = {
         { id = "a_road", text = "Anything else, or can I get back to watching the road?" },
@@ -1552,6 +1565,8 @@ P:Pool {
       choices = {
         { text = "What's the worst of it?", next = "watch_hard" },
         { text = "Why do you do it?", next = "watch_why" },
+        { text = "What do the men on watch say about the king?", next = "w_king" },
+        { text = "Does the barracks expect war with the Horde?", next = "w_war" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1671,6 +1686,93 @@ P:Pool {
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Opinion pass: the guard asks what the player thinks of the throne and of the war.
+    w_king = {
+      big = true,
+      lines = {
+        { id = "wk_default", text = "Near a year now since King Varian went off to his parley and never came home, and the barracks argues about it every night. Lord Bolvar holds the throne, Lady Prestor holds Lord Bolvar's ear, and nobody asks a guard, so I'm asking you: what do you make of it?" },
+        { id = "wk_capital", when = { capital = true }, text = "The Keep's just up the hill, and every soldier on these walls has a view on who ought to be sitting in it. The king's been gone near a year, Lord Bolvar rules for the boy prince and Lady Prestor is never far from his side, so what do you make of it all?" },
+      },
+      choices = {
+        { text = "Bolvar's holding the kingdom together. I trust him.", next = "w_king_bolvar", fx = { opinion = { bolvar = "trust" }, align = { order = 1 }, affinity = 1 } },
+        { text = "The nobles let Westfall starve. The throne answers to them, not us.", next = "w_king_nobles", fx = { opinion = { stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "The king's alive somewhere. Someone should be out looking.", next = "w_king_varian", fx = { opinion = { varian = "hope" }, trait = { brave = 1 } } },
+        { text = "I don't like how close Lady Prestor sits to the throne.", next = "w_king_prestor", fx = { opinion = { prestor = "distrust" }, trait = { skeptical = 1 } } },
+        { text = "Ironforge would never leave its throne empty this long.", next = "w_king_magni", when = { race = "Dwarf" }, fx = { opinion = { magni = "admire" } } },
+        { text = "The Sentinels answer to Tyrande, and she doesn't vanish.", next = "w_king_elf", when = { race = "NightElf" }, fx = { opinion = { tyrande = "trust" }, affinity = -1 } },
+        { text = "I'd sooner not talk about the throne in the street.", next = "BACK" },
+      },
+    },
+    w_king_bolvar = {
+      lines = { { id = "wkb_default", text = "Aye, he's an old Silver Hand man and he's never once sat that throne as if it were his own, which is more than you can say for most who've stood near it. Some of the lads call him too gentle with the nobles, mind, and I can't swear they're wrong." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Good day to you.", next = "END" },
+      },
+    },
+    w_king_nobles = {
+      lines = { { id = "wkn_default", text = "You'll find no argument from the men on these walls, since half of us have family on a Westfall farm. Mind who hears you say it inside the city, though, because the Stockade has a few men in it who said it louder." } },
+      choices = {
+        { text = "I'll mind my tongue.", next = "BACK" },
+        { text = "Let them hear it.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
+    w_king_varian = {
+      lines = { { id = "wkv_default", text = "That's what my sergeant says, and he lights a candle for the king every night in the barracks chapel. I hope you're both right, because the prince is a good lad, but he's years too young to carry a crown." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_king_prestor = {
+      lines = { { id = "wkp_default", text = "Keep your voice down when you say that, friend. She's charmed half the court and every noble in it, and the ones who don't care for her have a way of being posted somewhere cold, though you never heard that from me." } },
+      choices = {
+        { text = "Has that happened to anyone you know?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_king_magni = {
+      lines = { { id = "wkm_default", text = "Maybe not, and they say King Magni's never left his for so much as an hour. But Stormwind isn't Ironforge, and we make do with the regent we've got, the same as you'd make do if your king went missing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_king_elf = {
+      lines = { { id = "wke_default", text = "Maybe she doesn't, and maybe your high priestess would sit our throne better than any noble, but it's ours to fill all the same. I'd not say that in front of the sergeant, if I were you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_war = {
+      big = true,
+      lines = {
+        { id = "ww_default", text = "Half the barracks wants to march on Orgrimmar tomorrow, and the other half says Lady Jaina's right to keep her peace at Theramore. Every one of them lost someone to the orcs, so you'll understand it gets loud. Where do you stand?" },
+        { id = "ww_vet", when = { minLevel = 40 }, text = "You've fought more of the Horde than most of us have seen, so the lads would want your answer sooner than mine. Lady Jaina keeps her peace at Theramore, and half the barracks says she's wrong. Where do you stand?" },
+      },
+      choices = {
+        { text = "Lady Jaina's right. That peace is worth keeping.", next = "w_war_peace", fx = { opinion = { peace = "for", jaina = "trust" }, align = { light = 1 } } },
+        { text = "The orcs burned this kingdom once. I'd not give them another chance.", next = "w_war_war", fx = { opinion = { peace = "against", orcs = "hate" }, align = { light = -1 } } },
+        { text = "Peace for now, but I'd keep my sword sharp.", next = "w_war_mixed", fx = { opinion = { peace = "mixed" }, trait = { cautious = 1 } } },
+        { text = "The real war is in the north, against the Scourge.", next = "w_war_scourge", when = { class = { "PALADIN", "PRIEST" } }, fx = { opinion = { scourge = "war" }, affinity = 1 } },
+        { text = "They're cutting Ashenvale down. That's war already.", next = "w_war_ashen", when = { race = "NightElf" }, fx = { opinion = { ashenvale = "war" } } },
+        { text = "I'll keep my own counsel on that one.", next = "BACK" },
+      },
+    },
+    w_war_peace = {
+      lines = { { id = "wwp_default", text = "My captain would shake your hand for that and my sergeant would spit, so I'll do neither and say only that I hope you're right. The orcs at Theramore's gates haven't broken faith yet, and that's more than anyone expected of them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_war_war = {
+      lines = { { id = "www_default", text = "You'll have friends in the barracks for that, and plenty of them. I'd only say the last war took my father and most of his village, so be very sure of it before you go wishing for another." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_war_mixed = {
+      lines = { { id = "wwm_default", text = "That's about where the captain lands, and he's the steadiest man I know. A peace with one hand on the hilt has kept this kingdom standing longer than any treaty." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_war_scourge = {
+      lines = { { id = "wws_default", text = "There's sense in that, and the Light knows the dead don't sign truces. My cousin went north with the Argent Dawn last spring, and his letters never mention orcs at all, only the plague and the dead walking." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_war_ashen = {
+      lines = { { id = "wwa_default", text = "I'd heard the Sentinels were hard pressed out there, though the orders that reach us never say much. If it's war in Ashenvale already, I'm sorry for it, and I'd not blame your people for answering it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     purse = {
       lines = {
         { id = "pu_default", text = "Is it? That's funny, because it's knotted shut and tucked under my belt, and you'd only know that if you'd been looking. I'll remember your face, friend, and you'll remember that I did." },
@@ -1741,6 +1843,17 @@ P:Pool {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The night watch is the long one, so talk if you've something to say; it passes the time." },
         { id = "h_young", when = { maxLevel = 12 }, text = "You're young to be this far from the fires, so keep close to the posts until your arm is stronger. What do you want?" },
         { id = "h_vet", when = { minLevel = 50 }, text = "I've heard your name spoken around the fires, and none of it was dull. What does a blooded one want with a guard?" },
+        -- Opinion pass: word of what the player said to someone else in this town.
+        { id = "h_o_soft", once = true, when = { gossip = { topic = "warchief", stance = { "soft", "weak", "distrust" } } },
+          text = "I hear you've been saying the Warchief has gone soft. Say it to my face next time, and we'll see how soft the Horde is." },
+        { id = "h_o_trust", once = true, when = { gossip = { topic = "warchief", stance = { "trust", "respect", "admire" } } },
+          text = "The grunts say you spoke well of the Warchief. Good; there are too many grumblers around the fires these days, and they need to hear it." },
+        { id = "h_o_peace_for", once = true, when = { gossip = { topic = "peace", stance = { "for", "mixed" } } },
+          text = "Word is you'd keep the peace with the humans. I don't love it, but the Warchief says the same, and he's not been wrong yet." },
+        { id = "h_o_peace_against", once = true, when = { gossip = { topic = "peace", stance = { "against", "war" } } },
+          text = "They tell me you're hungry for war with the Alliance. Keep that hunger for the battlefield, and don't go starting one on my road." },
+        { id = "h_o_forsaken", once = true, when = { gossip = { topic = "forsaken", stance = { "distrust", "hate", "dangerous" } } },
+          text = "Somebody heard you say the Forsaken can't be trusted. Plenty here agree, but the Warchief took them in, so we keep our muttering quiet." },
       },
       again = {
         { id = "a_road", text = "What else? The road won't watch itself." },
@@ -1787,6 +1900,8 @@ P:Pool {
       choices = {
         { text = "What's the hardest part?", next = "watch_hard" },
         { text = "Why do you stand it?", next = "watch_why" },
+        { text = "What do the grunts say about the Warchief?", next = "h_chief" },
+        { text = "Will the peace with the humans hold?", next = "h_war" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1912,6 +2027,75 @@ P:Pool {
         { text = "It cost us everything.", next = "BACK", fx = { affinity = 1 } },
         { text = "It has its advantages.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
+    },
+    -- Opinion pass: the guard asks what the player thinks of Thrall and of the peace.
+    h_chief = {
+      big = true,
+      lines = {
+        { id = "hc_default", text = "Some of the grunts say the Warchief's gone soft, making treaties with humans and opening the gates to the Forsaken, and others would follow him into the sea. You've been out on the roads, so tell me: what do you make of Thrall?" },
+        { id = "hc_capital", when = { capital = true }, text = "The Warchief sits in Grommash Hold, and every grunt in this city has an opinion on how he ought to rule from it. Some call him soft and some would die for him. What do you make of Thrall?" },
+      },
+      choices = {
+        { text = "Thrall freed us from the camps. He has my trust.", next = "h_chief_trust", fx = { opinion = { warchief = "trust" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "He's too soft on the humans. The Horde should be feared.", next = "h_chief_soft", fx = { opinion = { warchief = "soft" }, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "He's wise, but he trusts the Forsaken too far.", next = "h_chief_dead", fx = { opinion = { warchief = "respect", forsaken = "distrust" }, trait = { skeptical = 1 } } },
+        { text = "Cairne trusts him. That's enough for me.", next = "h_chief_cairne", when = { race = "Tauren" }, fx = { opinion = { warchief = "trust", cairne = "admire" } } },
+        { text = "He gave my people a place when no one else would.", next = "h_chief_scourge", when = { race = "Scourge" }, fx = { opinion = { warchief = "respect" }, affinity = 1 } },
+        { text = "That's for the Warchief to answer, not me.", next = "BACK" },
+      },
+    },
+    h_chief_trust = {
+      lines = { { id = "hct_default", text = "Good. My father came out of the camps on Thrall's word, and he says no orc alive has earned more loyalty than that. Say it loud around the fires, because the grumblers need to hear it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_chief_soft = {
+      lines = { { id = "hcs_default", text = "Careful who you say that to, because there are old grunts in this city who'd take your arm for it. Still, you're not the first, and the Warchief has never yet punished an orc for speaking plainly." } },
+      choices = {
+        { text = "Then I'll keep speaking plainly.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    h_chief_dead = {
+      lines = { { id = "hcd_default", text = "You're not alone in that. The dead keep their own counsel down in the Undercity, and plenty of us wonder what they're brewing there, but the Warchief gave his word, and his word holds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_chief_cairne = {
+      lines = { { id = "hcc_default", text = "The old bull of Thunder Bluff doesn't trust lightly, so if Cairne vouches for the Warchief, the rest of us ought to listen. Your people have been good to ours, and we don't forget it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_chief_scourge = {
+      lines = { { id = "hcf_default", text = "Then you know better than any of us what the Warchief's word is worth. Plenty of grunts muttered when he took your people in, but they've watched you fight since, and the muttering's gone quieter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_war = {
+      big = true,
+      lines = {
+        { id = "hw_default", text = "The humans keep their fort at Northwatch and their ships at Theramore, and the Warchief keeps his peace with Lady Proudmoore for as long as she keeps hers. Some grunts are spoiling for a fight, and some are glad of the quiet. Where do you stand?" },
+      },
+      choices = {
+        { text = "The peace gives the Horde time to grow strong.", next = "h_war_peace", fx = { opinion = { peace = "for" }, align = { order = 1 } } },
+        { text = "The humans kept us in camps. No peace with them.", next = "h_war_war", fx = { opinion = { peace = "against", humans = "hate" }, align = { order = -1 } } },
+        { text = "Proudmoore keeps her word. The rest of the Alliance doesn't.", next = "h_war_jaina", fx = { opinion = { jaina = "respect", alliance = "distrust" }, trait = { skeptical = 1 } } },
+        { text = "The Earth Mother has seen enough blood. I want peace.", next = "h_war_peace", when = { race = "Tauren" }, fx = { opinion = { peace = "for" }, trait = { kind = 1 } } },
+        { text = "The living made no peace with us. The Dark Lady owes them none.", next = "h_war_dead", when = { race = "Scourge" }, fx = { opinion = { peace = "against", sylvanas = "loyal" } } },
+        { text = "I'll leave that to the Warchief.", next = "BACK" },
+      },
+    },
+    h_war_peace = {
+      lines = { { id = "hwp_default", text = "That's the Warchief's own thinking, near enough, and I've learned to trust it even when my blood says otherwise. A Horde that's had ten quiet years will be a hard thing to break." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_war_war = {
+      lines = { { id = "hww_default", text = "I was born in one of those camps, so I'll not argue with you. But the Warchief says the camps are behind us, and I've decided to believe him, at least until a human gives me cause not to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_war_jaina = {
+      lines = { { id = "hwj_default", text = "That's a fair reading. Proudmoore turned on her own father to keep faith with us, and no one forgets that, but Stormwind and the dwarves have made no such choice, and they've long memories." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    h_war_dead = {
+      lines = { { id = "hwd_default", text = "The Dark Lady keeps her own counsel, and the Warchief keeps his. I'll stand my post and let the two of them sort out who owes the living what." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     rogue = {
       lines = {
