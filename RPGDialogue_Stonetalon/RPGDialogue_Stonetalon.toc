@@ -17,3 +17,6 @@ npcs\unsung.lua
 npcs\seereth.lua
 npcs\webwinder_camp.lua
 npcs\morrogal.lua
+npcs\sun_rock_traders.lua
+npcs\sun_rock_post.lua
+npcs\peak_and_crag.lua
