@@ -105,8 +105,26 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xcl_mara = {
+      big = true,
+      lines = {
+        { id = "xcl_mara_default", text = "And motherless children fight each other harder than ever, which suits the Point fine. The Kolkar and Gelkis and Magram all claim her blood one way or another, so every khan in Desolace will be arguing over what her death means, and while they argue, they aren't riding on us." },
+      },
+      choices = {
+        { text = "Make peace while they're shaken, Captain, not more war.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stoke it, then. Let them bleed each other dry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Do the centaur truly see Theradras as their mother?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "The Gelkis pray to the earth, which is to say to her, and the Magram call the Gelkis fools and claim their father's side of the family instead. I don't much care which of them is right, so long as the question keeps them busy." } },
+      choices = {
+        { text = "Then I'll let the khans keep arguing, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "My scouts tell me someone went into Maraudon and came out with the princess of the place dead behind them. I'll take any good news out here, but I'll take it twice when it means the centaur lose their holy ground." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Good, because I need eyes on the centaur camps more than I need another sword, and the Kolkar can smell a soldier a mile off." },
         { id = "h_default", key = true,
@@ -139,6 +157,7 @@ P:NPC {
         { text = "Will you trust a warlock on your ridge, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do you need scouted among the centaur, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could a shaman help you play the centaur against each other?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Maraudon's princess is dead, Captain. The centaur lost their mother.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
         { text = "I'll help hold the Point.", next = "END", fx = { affinity = 1, standing = { nijels_point = 1 } } },
       },
     },
@@ -341,8 +360,26 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xcl_mara = {
+      big = true,
+      lines = {
+        { id = "xcl_mara_default", text = "Zaetar's spirit is free, then, after all those ages bound in the stone beside the one who loved him. My sisters and I have watched over that place since we came down from Stonetalon, and I will tell you plainly that I did not expect to see the day the Circle could set down that grief." },
+      },
+      choices = {
+        { text = "The Circle should guard Maraudon now, so nothing takes her place.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the place be. The Circle can't wall off every cave.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What becomes of the centaur, now that she's gone?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "They remain what they are, the children of a murder, and her death will not soften them overnight. The Circle teaches that every wound may close, though, and I am bound to believe even this one will, whether or not I live to see it." } },
+      choices = {
+        { text = "Then I'll hope alongside you, Keeper.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon" }, text = "The earth beneath Desolace has stopped trembling the way it trembled when she was angry. You went down to the heart of Maraudon, and the Circle will remember it, whatever the centaur say of you." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. The Circle has little need of blades, though in Desolace I have learned that need and preference are seldom the same thing." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, so far from the cathedrals. The Circle does not pray as you do, but we tend the same wounded world, and Desolace has more wounds than either of us can count." },
@@ -373,6 +410,7 @@ P:NPC {
         { text = "Does the Cenarion Circle ever need a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Has the Circle any use for someone who walks unseen, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does the Circle welcome a dwarf shaman, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Theradras is dead, Keeper. What she held is free.", next = "xcl_mara", when = { cleared = "Maraudon" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -1343,8 +1381,26 @@ P:NPC {
         { text = "Something else, Nataka.", next = "BACK" },
       },
     },
+    xcl_mara = {
+      big = true,
+      lines = {
+        { id = "xcl_mara_default", text = "Then you killed a princess of the earth itself, in a place where the walls bloom purple and the water bites. My grandmother used to say the ground here was angry, and now I wonder whether she meant the ground or the one sleeping under it." },
+      },
+      choices = {
+        { text = "The earth may rest now, and that's worth any fight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Princess or not, she bled like anything else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Will Desolace ever grow green again, do you think?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "Not in my lifetime, I'd guess, and the kodo graveyard will still be a graveyard. But I put a seed in the ground behind the post last spring, just to see, and if it comes up this year I'm going to say it was your doing." } },
+      choices = {
+        { text = "Tell me if it sprouts, Nataka.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Horde" }, text = "Somebody went into Maraudon and came out again, and the Gelkis have been wailing about it all week. I hear it was you, and I'll admit I've slept better for the noise." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Sit, if you like, and set that weapon down for a while, because the fish don't bite for anyone who looks ready to fight." },
         { id = "h_huntcl", when = { class = "HUNTER", race = { "Orc", "Troll" }, faction = "Horde" },
@@ -1389,6 +1445,7 @@ P:NPC {
         { text = "Do warriors ever find peace out here, Nataka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's worth hunting near Shadowprey, Nataka?", next = "xhuntcl", when = { class = "HUNTER", race = { "Orc", "Troll" }, faction = "Horde" } },
         { text = "What does a tauren make of a Forsaken paladin, Nataka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "It was me, Nataka. Theradras is dead.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },

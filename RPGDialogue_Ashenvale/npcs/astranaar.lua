@@ -108,8 +108,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_bfd = {
+      big = true,
+      lines = {
+        { id = "xcl_bfd_default", text = "Quiet for now, which is the most anyone gets in Ashenvale. The orcs at Zoram'gar will crow that they did it, so let them crow; I know whose boots came back wet, and I'll make sure the Sentinels know it too." },
+      },
+      choices = {
+        { text = "Let them crow. The deed matters more than the credit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Tell everyone, Raene. I want my name known in Astranaar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Did the Horde at Zoram'gar fight down there too?", next = "xcl_bfd2" },
+      },
+    },
+    xcl_bfd2 = {
+      big = true,
+      lines = { { id = "xcl_bfd2_default", text = "Some of them, I'm told, and I'll not pretend they didn't bleed for it. They want the naga gone as much as we do, but they want the coast's timber too, and every shared enemy only puts off the day we're shooting at each other again." } },
+      choices = {
+        { text = "A shared enemy is a start. Peace has grown from less.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then strike the Horde while they're still licking their wounds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep my eyes open on the strand, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "My scouts on the Zoram Strand say you went into Blackfathom Deeps and came out past whatever waited at the bottom. Good, because I have no one to spare for that water, and it has been gnawing at Ashenvale's coast for years." },
         { id = "h_default", key = true,
           text = "I am Raene Wolfrunner, and I command the scouts of Astranaar. The furbolgs are going mad to the north and the Horde is cutting the forest to the east, and I would rather face them all alone than watch another tree fall." },
         { id = "h_trek", tags = { "news" }, when = { questActive = TODO_QUEST("Trek to Ashenvale") },
@@ -154,6 +175,7 @@ P:NPC {
         { text = "Do you judge me by what the satyrs did?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have a paladin do in Ashenvale, Raene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Warsong shamans really bless the logging, Raene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Blackfathom Deeps is quiet now, Raene.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },

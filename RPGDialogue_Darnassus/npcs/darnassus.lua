@@ -154,8 +154,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_bfd = {
+      big = true,
+      lines = {
+        { id = "xcl_bfd_default", text = "Then you have walked where my sisters prayed ten thousand years ago, before the fall of the Well drowned that coast. The Twilight's Hammer have been chanting to something older than Elune down there, with the naga standing guard for them, and I could not spare the Sentinels to root them out myself." },
+      },
+      choices = {
+        { text = "I'd see that temple given back to Elune someday.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A drowned temple is only a ruin. Let the sea keep it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What did the Twilight's Hammer want down there?", next = "xcl_bfd2" },
+      },
+    },
+    xcl_bfd2 = {
+      big = true,
+      lines = { { id = "xcl_bfd2_default", text = "I do not know the name of what they served, and I am not certain I want to. The cultists speak of old powers sleeping beneath the world, and whatever they fed in that deep water answered them, which is reason enough to keep watch on Blackfathom long after you have gone." } },
+      choices = {
+        { text = "Then I'll keep watch too, whenever my road passes Ashenvale.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old powers can sleep. I have enough living enemies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll leave the deep water to your Sentinels, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "The Sentinels on the Zoram Strand tell me someone went down into Blackfathom and came back up again. That was a temple of Elune once, before the sea took it, and I am grateful to whoever reminded its new tenants of that." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have spent your time at the Enclave, and Fandral speaks well of you, which tells me what you said to him. I will still hear you out, but I will listen more carefully." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -209,6 +230,7 @@ P:NPC {
         { text = "What does Darnassus need from its priests, High Priestess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would you send a paladin, High Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Elune look kindly on a shaman, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been to the bottom of Blackfathom Deeps, High Priestess.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -566,8 +588,29 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
+    xcl_wc = {
+      big = true,
+      lines = {
+        { id = "xcl_wc_default", text = "Quieter, perhaps, though the Druids of the Fang will not grow back their sense as quickly as the Barrens grow back their grass. Naralex wished to heal that land through the Dream, and he let the Dream turn on him, and his own students went in after him and came back as serpents. That is what comes of reaching too far without a firm hand to guide you." },
+      },
+      choices = {
+        { text = "Then the Circle needs a firm hand, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Naralex dared something. I'd rather that than sit still and lecture.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to the Druids of the Fang?", next = "xcl_wc2" },
+      },
+    },
+    xcl_wc2 = {
+      big = true,
+      lines = { { id = "xcl_wc2_default", text = "Cobrahn, Anacondra, Pythas and Serpentis were druids of the Circle, and capable ones, before they went down to wake their master. The nightmare got into them instead, and now they believe themselves masters of the serpent and of the land above it, and I will hear no more pleading on their behalf." } },
+      choices = {
+        { text = "They were your kin once. I'm sorry it came to blades.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They reached for that power. They got what they reached for.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll leave the Fang to the Circle's judgment, Archdruid.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Alliance" }, text = "So you went into the Wailing Caverns and dragged Naralex out of his nightmare, I am told. He was always a dreamer with more ambition than sense, and I am glad someone with a blade cleaned up after him." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "The High Priestess has taken a liking to you, I'm told. Her priestesses keep the temple well, but the forest is not tended by prayer, and you would do well to remember that here." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -617,6 +660,7 @@ P:NPC {
         { text = "Do you have any use for priests, Archdruid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin defend here, Archdruid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a shaman's path truly so crude, Arch Druid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Naralex is awake, Archdruid. The Caverns are quieter now.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -870,8 +914,26 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xcl_mara = {
+      big = true,
+      lines = {
+        { id = "xcl_mara_default", text = "Then Zaetar may lie a little easier, though he has been dead a very long time. He loved Theradras, and the centaur were their children, and those children killed their own father in their first rage, and she has kept his body in the stone below Desolace ever since. Her grief has been souring that earth for longer than Teldrassil has been a seed." },
+      },
+      choices = {
+        { text = "Even the centaur might heal, now that her grip is gone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The centaur are her poison given legs. They deserve no mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Does Remulos know what happened to his brother?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "Remulos has never asked a mortal for anything that I know of, but he grieves for his brother the way only an immortal can, which is quietly and for ten thousand years. If you ever go to Moonglade, you need not tell him what you did, because I think he will already know." } },
+      choices = {
+        { text = "I'll remember that, if Moonglade ever calls me.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "Word came up from Desolace that someone reached the heart of Maraudon and put an end to Princess Theradras. Zaetar was Cenarius's own son, and every druid in this Enclave has grieved for him at some point, so I find I am grateful to you in a very old way." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Cenarion Enclave. Sit, if you like, for I've long wanted to ask one of your order how you decide when to heal and when to strike." },
         { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
@@ -911,6 +973,7 @@ P:NPC {
         { text = "You wanted to ask me something, Mathrengyl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Circle have any use for a rogue, Mathrengyl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are the druid's way and the shaman's truly so close, Mathrengyl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Princess Theradras is dead, Mathrengyl. Maraudon is broken.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

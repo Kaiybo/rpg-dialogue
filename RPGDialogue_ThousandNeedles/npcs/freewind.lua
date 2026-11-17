@@ -74,8 +74,26 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xcl_rfd = {
+      big = true,
+      lines = {
+        { id = "xcl_rfd_default", text = "Then the quilboar have lost the master they sold themselves to, and the Scourge have lost a foothold in Kalimdor I never thought they could take. A lich among the quilboar at the edge of my canyons is the worst thing I have seen from this mesa, and I have watched the Galak burn a caravan." },
+      },
+      choices = {
+        { text = "Freewind should keep a watch on the Downs from now on.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the quilboar deal with what's left. It's their mess.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How did the Scourge reach the quilboar at all?", next = "xcl_rfd2" },
+      },
+    },
+    xcl_rfd2 = {
+      lines = { { id = "xcl_rfd2_default", text = "I don't know, and that frightens me more than the lich did. The Scourge came from the north, across the sea, and if they could reach a quilboar warren at the edge of the Barrens they could reach Thunder Bluff, so I've sent word to Cairne, and I'll keep sending it until someone listens." } },
+      choices = {
+        { text = "I'll carry word too, if I pass Thunder Bluff.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "The scouts say you went into Razorfen Downs and put the dead thing at its heart back in the ground. I've watched cold air roll off those thorns toward the Needles all season, and this morning it didn't come." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. From up here I can see every Galak raiding party long before they see us, but I can't follow them into the canyons, and you can." },
         { id = "h_default", key = true,
@@ -128,6 +146,7 @@ P:NPC {
         { text = "You think my power no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Where do the Galak raiders go after a raid, Cliffwatcher?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would a paladin be useful against the Galak, Cliffwatcher?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Amnennar the Coldbringer is destroyed, Cliffwatcher. The Downs are broken.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },

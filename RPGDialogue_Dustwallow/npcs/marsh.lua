@@ -769,8 +769,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ony = {
+      big = true,
+      lines = {
+        { id = "xcl_ony_default", text = "Then the old Stonemaul chief can rest, and Stonemaul land is ogre land again, if Mok'Morokk can take it back from her little dragons. Mok'Morokk not cry, because ogres not cry, but Mok'Morokk feel something big in his chest, and he think it is happy." },
+      },
+      choices = {
+        { text = "Go home, Overlord, and honour your chief's memory there.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forget the old chief. Brackenwall feeds you now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Who was the Stonemaul chief she killed?", next = "xcl_ony2" },
+      },
+    },
+    xcl_ony2 = {
+      lines = { { id = "xcl_ony2_default", text = "He was big and strong and not very smart, like a good chief should be, and the dragon burn him in front of the whole clan. Mok'Morokk become boss that day, because nobody else want to." } },
+      choices = {
+        { text = "Then I'm glad she's paid for it, Overlord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair" }, text = "You the one who kill the black dragon in her cave? The orcs say so, and now Mok'Morokk believe it, because the Stonemaul not hear her roar for many days." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "Hunter! Mok'Morokk like hunter, because hunter bring meat, and Mok'Morokk always hungry." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "You shaman! Orc shaman talk to rocks, and rocks listen. Mok'Morokk talk to rocks, and rocks do nothing." },
@@ -798,6 +816,7 @@ P:NPC {
         { text = "Why would you want a demon, Overlord?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does the overlord like to hunt, then?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does a shining dead thing scare Mok'Morokk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Onyxia is dead, Overlord. Your chief is avenged.", next = "xcl_ony", when = { cleared = "Onyxia's Lair" } },
         { text = "Farewell.", next = "END" },
       },
     },

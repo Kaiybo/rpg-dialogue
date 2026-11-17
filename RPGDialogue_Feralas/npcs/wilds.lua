@@ -602,8 +602,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_dm = {
+      big = true,
+      lines = {
+        { id = "xcl_dm_default", text = "Then you've seen what our ancestors made of their own city, and what it made of them. The satyr Alzzin sank his roots into the eastern gardens and twisted every living thing there to his liking, and I have stood at the edge of those gardens many nights wondering whether the trees still remember being trees." },
+      },
+      choices = {
+        { text = "They remember. The Circle could heal them, given time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn the gardens. Some corruption can't be undone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why did the Highborne stay in Eldre'Thalas at all?", next = "xcl_dm2" },
+      },
+    },
+    xcl_dm2 = {
+      lines = { { id = "xcl_dm2_default", text = "Pride, mostly, and fear of the world that came after the Well. They had lost their queen and the source of their magic in a single night, and I think they could not bear to walk out among the people who had warned them." } },
+      choices = {
+        { text = "Then I'm glad your people chose differently, Angelas.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul", faction = "Alliance" }, text = "You've been inside Eldre'Thalas, haven't you, all the way to its deepest halls? I can see it in the way you hold yourself, as if the walls are still listening." },
         { id = "h_default", key = true, text = "I am Angelas Moonbreeze of Feathermoon Stronghold. While Shandris guards the island, I watch the mainland, especially the ruins where our ancestors' mistakes still linger." },
         { id = "h_c0", when = { race = "NightElf" }, text = "A sister of Teldrassil, so far from home! The ruins of this land are your history too, though I wish they were a kinder one." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll feel what I feel in the ruins on the mainland, where the old Highborne magic still sours the ground after ten thousand years." },
@@ -638,6 +656,7 @@ P:NPC {
         { text = "Why do the beasts avoid the highborne ruins, Angelas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What sleeps in the ruins, Angelas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the highborne ghosts speak to a dwarf, Angelas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've seen the heart of Dire Maul, Angelas.", next = "xcl_dm", when = { cleared = "Dire Maul", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

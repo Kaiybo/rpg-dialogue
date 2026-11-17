@@ -101,8 +101,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ony = {
+      big = true,
+      lines = {
+        { id = "xcl_ony_default", text = "Then the Warchief will hear of it, and he'll be glad, because that dragon cost the Horde more grunts in this marsh than the humans ever did. Rexxar always said she was more than she looked, and I never doubted him, but I never got close enough to find out." },
+      },
+      choices = {
+        { text = "The grunts who fell to her earned this victory too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I didn't do it for the Horde. I did it for her hoard.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Will Thrall hang her head in Orgrimmar?", next = "xcl_ony2" },
+      },
+    },
+    xcl_ony2 = {
+      lines = { { id = "xcl_ony2_default", text = "He might, and I'd walk all the way to Durotar to see it. The old Horde chained dragons once, and Thrall doesn't like to be reminded of it, but a black one who hunted his people is a different story." } },
+      choices = {
+        { text = "Then I'll look for it on the gate, Krog.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Horde" }, text = "The grunts say you went into the dragon's cave in the Wyrmbog and came out with her dead. Good, because Onyxia's whelps have been raiding our patrols since before Brackenwall had a wall." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Good, because if this turns to blood with Theramore I want axes I can count on, though I'd rather it never came to that." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -152,6 +170,7 @@ P:NPC {
         { text = "The Forsaken would gladly see Theramore burn.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "Do you expect the fighting to start again, Krog?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you fear from Theramore's mages, Krog?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Onyxia is dead, Krog. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Horde" } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },

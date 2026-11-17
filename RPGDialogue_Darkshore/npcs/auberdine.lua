@@ -118,8 +118,26 @@ P:NPC {
         { text = "A sick beast is kindest put down quickly.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
+    xcl_bfd = {
+      big = true,
+      lines = {
+        { id = "xcl_bfd_default", text = "Then you have seen more than any of my scouts, because the ones I sent down never came back to tell me. The naga in that water carry the same taint I have been chasing through Darkshore since the moonkin went mad, and I have long suspected that the sickness on our shore and the chanting in Blackfathom grow from one root." },
+      },
+      choices = {
+        { text = "Seal the Deeps for good, before anything else crawls out.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave it open. Whatever's left down there is worth studying.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Do you know what they worshipped down there?", next = "xcl_bfd2" },
+      },
+    },
+    xcl_bfd2 = {
+      lines = { { id = "xcl_bfd2_default", text = "Only what the old texts say, which is that the temple was raised to Elune and sank when the Well of Eternity tore the world apart. Something else has moved into her house since then, and the cultists who serve it call it by names I would rather not repeat in my own village." } },
+      choices = {
+        { text = "Then I won't ask you to say them, Elder.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "Sentinels came up the shore road with word that someone had been to the bottom of Blackfathom Deeps and come back. Auberdine sleeps a little easier for it, and so, I confess, do I." },
         { id = "h_default", key = true,
           text = "I am Thundris Windweaver, elder of Auberdine. I see to the village's daily needs, which lately means seeing to its fears, for the land is sickening and I mean to learn why." },
         { id = "h_bashal", tags = { "news" }, when = { questActive = TODO_QUEST("Bashal'Aran") },
@@ -162,6 +180,7 @@ P:NPC {
         { text = "Bashal'Aran's demons could be bound instead of fought.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You feel the sickness too, Elder? What do you make of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the people of Auberdine fear most, Thundris?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Blackfathom Deeps is cleared, Elder. I've seen the bottom of it.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -787,8 +806,26 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xcl_bfd = {
+      big = true,
+      lines = {
+        { id = "xcl_bfd_default", text = "Then you've done what the Sentinels couldn't, because Ashenvale takes every bow we have and the Deeps would have swallowed a whole company. I lost two sisters to that water, and I'd have gone in after them myself if anyone had let me, so you'll understand why I'm grateful." },
+      },
+      choices = {
+        { text = "Your sisters are avenged, Glynda. I'd do it again.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I went down for what lay below, not for anyone's vengeance.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What sort of foe are the naga, to a Sentinel?", next = "xcl_bfd2" },
+      },
+    },
+    xcl_bfd2 = {
+      lines = { { id = "xcl_bfd2_default", text = "Cold and patient ones, and they fight like the Highborne they used to be, with spells first and blades second. Their grandmothers drowned with Queen Azshara, and they've come back up the coast as if ten thousand years were nothing, which to them it may well be." } },
+      choices = {
+        { text = "Then the Sentinels have the longest memory on this shore.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "They say in Auberdine that you went down into Blackfathom Deeps and cut your way to the very bottom. The murlocs on my beach haven't noticed yet, but the naga have, and they've been keeping to deeper water since." },
         { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
           text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it truly exists, and whatever you do, don't touch it." },
@@ -825,6 +862,7 @@ P:NPC {
         { text = "Do the Sentinels and the druids work well together here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you count warlocks among the corruption, Sentinel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you count on the beach each morning, Glynda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been to the bottom of Blackfathom, Sentinel.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },

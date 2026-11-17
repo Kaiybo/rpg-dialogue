@@ -76,8 +76,26 @@ P:NPC {
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
+    xcl_ony = {
+      big = true,
+      lines = {
+        { id = "xcl_ony_default", text = "Then the south marsh may be livable at last, though her brood won't vanish overnight. She was Deathwing's daughter and she had every bit of his cunning, and the black dragons have been sending their agents into human lands for years, though I've never been able to prove where half of them answered." },
+      },
+      choices = {
+        { text = "The Horde suffered from her too. Tell Thrall, my lady.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let Theramore keep the glory. The Horde can hear it secondhand.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Did Onyxia ever threaten Theramore directly?", next = "xcl_ony2" },
+      },
+    },
+    xcl_ony2 = {
+      lines = { { id = "xcl_ony2_default", text = "Never openly, and that was what worried me. Her drakes watched our walls and her whelps hunted our patrols, and every time I asked Stormwind for help, the answer came back slow and polite, as though someone there didn't want the Wyrmbog looked at too closely." } },
+      choices = {
+        { text = "Stormwind's court is slow at the best of times, my lady.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "Archmage Tervosh tells me the black dragon of the Wyrmbog is dead, and that you were there when she fell. Theramore has lived under Onyxia's shadow since the day we landed, so I'll thank you myself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance. The marsh is full of creatures that would rather we'd never come, and I'm grateful to anyone who keeps them from our gates without hating them for it." },
         { id = "h_default", key = true,
@@ -118,6 +136,7 @@ P:NPC {
         { text = "Do the marsh's beasts threaten Theramore, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Silver Hand still mean something to you, my lady?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you make of a dwarf shaman, my lady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Onyxia is dead, my lady. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -421,8 +440,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ony = {
+      big = true,
+      lines = {
+        { id = "xcl_ony_default", text = "Then you've seen something the Kirin Tor would trade a library to see, and I'd ask you to describe every scale if I thought you'd stand for it. A dragon of her rank doesn't die often, and when one does, the lesser ones scatter or squabble over the lair, so the marsh will be noisy for a season." },
+      },
+      choices = {
+        { text = "Her lair should be burned out, not studied.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study it. Knowing dragons is how we beat the next one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "What will her brood do without her?", next = "xcl_ony2" },
+      },
+    },
+    xcl_ony2 = {
+      lines = { { id = "xcl_ony2_default", text = "Squabble, mostly, and dragonkin squabbling is loud and fiery and very bad for gardens. The cleverer ones will slip north toward their kin in Blackrock, I expect, which makes them someone else's trouble, though I'd not say so in the Lady's hearing." } },
+      choices = {
+        { text = "Your secret is safe with me, Archmage.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "You've come back from the Wyrmbog with Onyxia dead behind you and the smell of dragonfire still on your cloak. I've studied black dragons from a respectful distance for years, and I find I'm a little jealous." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll forgive me if I keep this brief, because the last time a soldier stood in my study he knocked over a shelf of reagents with his scabbard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -460,6 +497,7 @@ P:NPC {
         { text = "Do mages look down on warriors, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What creatures trouble your garden, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do your books say of dwarves and the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I was there when Onyxia fell, Archmage.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -604,8 +642,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xcl_ony = {
+      big = true,
+      lines = {
+        { id = "xcl_ony_default", text = "Easier in the south, maybe, but dragons were never the worst thing in this marsh, because a dragon at least tells you she's your enemy. Half my work is chasing rumours that someone wants Theramore and the Horde at each other's throats, and I've wondered more than once who profits from that." },
+      },
+      choices = {
+        { text = "Find who profits, Captain, and bring them before the Lady.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rumours are cheap. A sword settles things faster.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Did Onyxia have a hand in the Shady Rest?", next = "xcl_ony2" },
+      },
+    },
+    xcl_ony2 = {
+      lines = { { id = "xcl_ony2_default", text = "I'd be lying if I said I had proof, and I don't lie in my reports. What I have is burned timbers, hoofprints that don't add up, and a feeling that somebody wants us blaming the Horde, so I'll keep pulling threads until one of them leads somewhere." } },
+      choices = {
+        { text = "Then I'll watch for loose threads myself, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "My guards are telling each other that you went into Onyxia's lair and came back without her. I'd call it a tavern story if Tervosh hadn't confirmed it, so well done, and don't let it go to your head." },
         { id = "h_default", key = true,
           text = "Someone burned the Shady Rest Inn on the road north, and James Hyal lost his wife and child in it. Everyone says the Horde did it, but I'm not everyone." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Inspecting the Ruins") },
@@ -633,6 +689,7 @@ P:NPC {
         { text = "Want another sword in the Guard, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "What did the ashes tell you, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What happened to the Hyal family, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Onyxia is dead, Captain. Your patrols should have an easier time.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
         { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you suspect magic started the inn fire, Captain?", next = "xmage", when = { class = "MAGE" } },
