@@ -75,8 +75,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Time, and the young ones, and nothing a hammer can do. The old men will keep their grudges into the grave, but Tommy Joe and that Maclure girl don't care two pins for them, and that's the start of the end of it." } },
+      choices = {
+        { text = "The old ways deserve respect, Gramma. Elders should decide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the young ones break the old rules, then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gramma.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want to sort out the Maclures, I expect, and I'll tell you now that swinging a hammer won't help, though it would be fun to watch." },
         { id = "h_default", text = "Oldest Stonefield still breathing. That gives me the right to say this feud is a waste of good years, and I say it often." },
         { id = "h_speak", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Gramma") },
           text = "The boy's in love with a Maclure. Of course he is. I've known since spring; he started washing behind his ears." },
@@ -120,6 +130,7 @@ P:NPC {
         { text = "Does it trouble you to sit with a warlock, Gramma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have a warrior fight for, Gramma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Did your family hunt, in the old days?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would mend the feud between the families, Gramma?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

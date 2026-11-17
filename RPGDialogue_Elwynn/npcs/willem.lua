@@ -72,8 +72,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not badly yet, a few cuts and a farmhand's broken arm, but they're getting bolder, and bold thieves end up using their knives. Milly's family hasn't slept properly in a month, and that's a wound too, whatever the Marshal says." } },
+      choices = {
+        { text = "Fear is a wound like any other. I'll see to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No blood, no wound. Let the Marshal handle the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Willem.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Men, and he won't get them, because the army's gone abroad and the Abbey's sworn to heal, not fight. So he takes recruits off the road and makes soldiers of them, and some days I think he's making them out of nothing at all." } },
+      choices = {
+        { text = "Then I'll serve him as long as he needs me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I came to protect people, not to follow a Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Willem.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Brother Paxton's always short of hands on his rounds, so if you've the time, he'll be glad of yours." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Marshal will want to see you, because he's been asking Stormwind for paladins since the snow melted." },
         { id = "h_default", text = "Willem, deputy to the Marshal. If it's trouble in this valley, I've likely heard of it already." },
         { id = "h_new", when = { questBefore = TODO_QUEST("A Threat Within"), band = "Greenhorn" },
           text = "Fresh off the road? Head on inside the Abbey; Marshal McBride sees every new recruit himself." },
@@ -125,6 +145,8 @@ P:NPC {
         { text = "Do you trust La Salle's students, deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What can a warrior do about the Defias in the vineyard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How bold have the wolves been, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have the thieves hurt anyone in the valley, Willem?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does the Marshal need most, Willem?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },

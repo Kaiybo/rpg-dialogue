@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.51.0 (2026-11-17)
+Packs: 13 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.51.0: /reload is enough if you have 0.39.0 or later.
+
+### Priests and paladins from level 1, and in the Alliance capitals
+- **The Alliance's starting lands notice priests and paladins**: about 460 named people (some 800 new conversations) greet an Alliance priest or a paladin as one, with a question to ask and something to argue about. Stormwind, Elwynn, Westfall, Redridge, Duskwood, Ironforge and Dun Morogh, Loch Modan, the Wetlands, Darnassus, Teldrassil, Darkshore, Ashenvale and Stonetalon.
+- Priests hear about the wounded, the dead and what faith is for; a priest's lines fit the Light or Elune, so night elf priests are spoken to as well as human and dwarf ones. Paladins hear about duty, the Silver Hand, and justice against mercy. Bolvar, Tyrande, Fandral and Magni's court are among them.
+- Horde people in Ashenvale and Stonetalon were left alone; shady figures (Lady Prestor, Lescovar, the Slaughtered Lamb, the Defias) answer coldly. People who already had priest or paladin lines kept them.
+
 ## 0.50.0 (2026-11-17)
 Packs: 21 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.50.0: /reload is enough if you have 0.39.0 or later.
 

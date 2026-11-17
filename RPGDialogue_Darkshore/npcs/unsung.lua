@@ -68,6 +68,24 @@ P:NPC {
         { text = "Who's Nessa, then?", next = "nessa" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd take a blessing on the nets and another on the boat, if you're offering, because the coast is unkind this season. Nessa would call it superstition, but Nessa doesn't fish past the reefs." } },
+      choices = {
+        { text = "I'll bless them gladly. A fisher needs all the help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers are for people, Laird, not for nets.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I wouldn't say no, because the Greymist come up the beach at night and the Sentinels can't watch every net. A paladin on the shore would let us fish without one eye on the waterline." } },
+      choices = {
+        { text = "I'll stand guard while you fish, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The fishers chose the coast. Let them guard it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it." },
@@ -77,6 +95,8 @@ P:NPC {
           text = "Take my answer back to Nessa, and tell her the Darkshore catch was bigger this season. She'll argue, but she'll know I'm right." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the fish, because they bite worse than you'd think, and so do the murlocs on this coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want fish for that companion, I expect, and I'll tell you what Nessa won't, which is that mine are fresher." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll bless a fisherman's nets, I hope, because the murlocs have been at mine every night this week." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, buying fish! Now I've seen everything, though I suppose even the Silver Hand has to eat." },
       },
       again = {
         { id = "h_again", text = "What else? The fish won't get any fresher while we talk." },
@@ -91,6 +111,8 @@ P:NPC {
         { text = "I suppose the elves don't like my sort much.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are the murlocs on this coast as bad as they say?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the threshers hunt close to shore here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you want your nets blessed, Laird?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should a paladin be guarding the fishers on this coast?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Laird.", next = "END" },
       },
     },
@@ -202,11 +224,31 @@ P:NPC {
         { text = "Why do you worry about travelers?", next = "worry" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because you spend your supplies on everyone else and forget yourselves, and then you're bleeding on the road with nothing left. I'd feel much better if you bought a few extra, for your own sake." } },
+      choices = {
+        { text = "I'll carry extra and share it where it's needed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep my supplies for myself this time.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not unprepared, exactly, but everyone forgets something, and paladins forget food most of all. The Darkshore road is long and the inns are few, so please take more water than you think you'll need." } },
+      choices = {
+        { text = "I'll take your advice, Dalmond. Thank you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pack as I see fit, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Dalmond, and I sell general goods here in Auberdine: bread, water, thread and bags. Everything a traveler forgets, I keep, because sooner or later they come back for it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Please tell me you've packed water, because warriors never pack water, and then they faint on the road to Ashenvale." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you have enough arrows? Hunters always run out of arrows at the worst moment, I've heard." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I do hope you've packed enough bandages, because priests always give theirs away and then have none left for themselves." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your armour must want oiling after that sea crossing, and I'd hate for it to rust before you reach the furbolgs." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd rather you asked now than wished you had later." },
@@ -220,6 +262,8 @@ P:NPC {
         { text = "Do you sell anything a warrior actually needs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does a hunter forget to pack, Dalmond?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you sell candles? Black ones, ideally.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why worry about priests running short?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do I look unprepared to you, Dalmond?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Dalmond.", next = "END" },
       },
     },
@@ -326,11 +370,31 @@ P:NPC {
         { text = "Why nothing strong?", next = "strong" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now and then, on their way to the Temple or off to tend the sick up the coast, and every one of them is thirsty. It is hard work, praying over the hurt, and I would rather they did it with a full cup." } },
+      choices = {
+        { text = "I'll take that cup. Thank you, Taldan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've no time for juice, Taldan.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The Sentinels say it does, and I believe them, for the furbolgs come closer every season. I sell drinks rather than swords, but I'd be glad to see you on the road north." } },
+      choices = {
+        { text = "I'll guard the road north for Auberdine's sake.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the Sentinels guard it. I'm passing through.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Taldan, and I sell drinks in Auberdine: water, milk and the juices from the groves. Nothing strong, I'm afraid, because the Sentinels prefer the docks quiet, and so do I." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! A cold cup of moonberry juice, perhaps, before you go and hit something?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want water for your skin, and something for the companion, I suppose." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have a cup of moonberry juice before you go, because I've yet to meet a priest who remembers to drink." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Something cool to drink, then, because that armour must be hot work on the Darkshore road." },
       },
       again = {
         { id = "h_again", text = "Something more? Sit, have a sip of moonberry juice, and ask." },
@@ -344,6 +408,8 @@ P:NPC {
         { text = "Nothing strong? Where do the sailors go for a real drink?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors ever drink juice before a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your juices come from Darkshore's groves, Taldan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do priests often come through Auberdine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Auberdine need guarding as much as people say?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Taldan.", next = "END" },
       },
     },
@@ -448,11 +514,31 @@ P:NPC {
         { text = "What should I carry, then?", next = "need" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "If you mean to walk in Darkshore, yes, and I'd not trust anyone who says otherwise. A good staff costs nothing to carry, and it might keep you alive long enough to heal yourself." } },
+      choices = {
+        { text = "Healing comes first, but I'll carry something to defend myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better a weapon than a prayer in the woods.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Something heavy, for the bears and the furbolgs both, and the strength to swing it twice. Your order fights for others, they say, so you'd best be sure your weapon is worthy of them." } },
+      choices = {
+        { text = "My weapon serves those who can't protect themselves.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My weapon serves me, and nobody else.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Naram Longclaw, and I sell weapons here in Auberdine. Darkshore will test whatever you carry, so you'd best carry something worth testing." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Let me see your hands, because scars tell me more than any boast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your hands are cleaner than a warrior's, but there's a bowstring callus on them, so you'll do." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a staff, or a mace, because prayers don't stop a furbolg mid-swing, whatever the Temple says." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Show me your hands, then, because I'd like to see if you've used that hammer as much as you've carried it." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick." },
@@ -466,6 +552,8 @@ P:NPC {
         { text = "Mages carry staves. Do you sell any?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do my scars tell you, Naram?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What weapon should a hunter keep for close quarters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a priest carry a weapon at all, Naram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a paladin need to fight in Darkshore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Naram.", next = "END" },
       },
     },
@@ -571,6 +659,24 @@ P:NPC {
         { text = "What do the elves think of you?", next = "elves" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I'd admit at home, because these woods are strange, and the elves pray to their Moon and I pray to the Light and somehow we both get by. You'll find good folk on either side if you look." } },
+      choices = {
+        { text = "The Light and Elune can share a shore.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep to my own faith, thank you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Gladly, though I sell supplies and not repairs, mind. A paladin's plate is the only thing standing between some poor soul and an axe, so I'd keep it in good order if I were you." } },
+      choices = {
+        { text = "I'll keep it in order, for the sake of others.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My armour keeps me alive. That's enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Elisa Steelhand, and I sell blacksmithing supplies here in Auberdine. The elves don't do much smithing themselves, so somebody has to keep the forges fed, and I'm happy for it to be me." },
@@ -580,6 +686,8 @@ P:NPC {
           text = "You lot have been very welcoming, I'll say that, even if you look at my forge like it's going to set the forest alight. It won't, I promise." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who knows what a good whetstone's worth, unlike these elves with their glaives." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting arrowheads, I'd guess, and the elves don't make 'em heavy enough for my liking." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Well, I don't sell holy water, but I'll say a word for you myself if you're headed into those woods." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's armour I'd like a closer look at, because the elves don't wear plate, and I miss the sight of it." },
       },
       again = {
         { id = "h_again", text = "Anything else, then? Speak up, the forge is loud!" },
@@ -594,6 +702,8 @@ P:NPC {
         { text = "Do the elves mind your forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can I keep my blade sharp out here among the elves?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do dwarven hunters bring rifles out here among the elves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you pray much, Elisa, out here among the elves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you look over my armour before I head out?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Elisa.", next = "END" },
       },
     },

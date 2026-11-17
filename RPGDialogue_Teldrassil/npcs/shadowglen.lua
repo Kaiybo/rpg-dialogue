@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every season, if I'm honest, because I ask the young ones to cull grells and nightsabers that only want to live as we do. I pray over the glade each evening and ask Elune to forgive what the balance requires of us." } },
+      choices = {
+        { text = "Then I'll pray for the glade's creatures as well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts don't need prayers, Conservator, and the balance is enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Conservator.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Evil is a big word for a small glade, and I'd rather not use it. The grells are a nuisance and the Webwood spiders are worse, but they're only creatures out of balance, so cull them cleanly and don't make a crusade of it." } },
+      choices = {
+        { text = "I'll do what the balance needs and nothing more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If it threatens your young ones, I'll judge it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Conservator.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too many young nightsabers and too many grell, mostly, for the balance here tips quickly when it tips at all. A warrior's blade can set it right, so long as you remember that the cats are part of the glade too, and take only what you must." } },
@@ -68,6 +86,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Shadowglen! The young ones here learn Elune's ways from the cradle, but they'll be glad of a healer, for the beasts this year bite harder than they should." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in our little glade! You've come a long road from the Eastern Kingdoms, and I hope Shadowglen gives you a gentler welcome than the roads did." },
         { id = "h_default", key = true,
           text = "I am Conservator Ilthalaine, and I keep the balance in Shadowglen. It's a lovely place, and lovely places need keeping more than most." },
         { id = "h_balance", tags = { "news" }, when = { questActive = TODO_QUEST("The Balance of Nature") },
@@ -97,6 +117,8 @@ P:NPC {
         { text = "I hear the kaldorei once ruled through magic.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Shadowglen's creatures never hear me coming.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What threatens Shadowglen, Conservator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does keeping the balance ever trouble you, Conservator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there any evil in Shadowglen a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Conservator.", next = "END" },
       },
     },
@@ -177,6 +199,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The druids say a tree wants water and patience rather than prayers, but I've sat with Aldrassil long enough to think it listens to more than they believe. Pray if you like, and I'll not tell the Arch Druid." } },
+      choices = {
+        { text = "Every living thing can feel a prayer, so I'll say one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A tree is a tree, and it needs water, not words.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That they were knights who healed as well as fought, and that a great many of them fell defending Lordaeron when the plague came. If even half of it is true, I'd count you good company for the young ones here." } },
+      choices = {
+        { text = "It's true, and I mean to be worthy of them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Books flatter us, and most paladins I know are only soldiers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It minds noise, I think, and it remembers the war against the Legion even if the young ones don't. Train where you must, warrior, but sheathe your blade when you pass the roots, as a courtesy to an old friend." } },
@@ -209,6 +249,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at Aldrassil's roots! I've often wondered whether a prayer does a tree any good, and now I can ask someone who would know." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've only read of your order, and I confess I imagined you taller, though perhaps that's the armor making me expect it." },
         { id = "h_default", key = true,
           text = "I am Melithar Staghelm. I tend Aldrassil's roots and the young ones who come to it, and both of them need patience." },
         { id = "h_woodland", tags = { "news" }, when = { questActive = TODO_QUEST("The Woodland Protector") },
@@ -229,6 +271,8 @@ P:NPC {
         { text = "Who is Tarindrella?", next = "dryad" },
         { text = "Teach me what you know.", next = "druid_m", when = { class = "DRUID" } },
         { text = "Even a rogue can feel Aldrassil hum.", next = "rogue_m", when = { class = "ROGUE" } },
+        { text = "Could a prayer do Aldrassil any good, Melithar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What did you read about the Silver Hand, Melithar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
         { text = "Does Aldrassil mind warriors training beneath it?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a young hunter of Shadowglen learn first?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -311,6 +355,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Brighter, and kinder, as though Elune leaned a little closer to the young ones beneath her. Whatever you pray to, {class}, I think you'll find it easier up here, where the wind carries the words away gently." } },
+      choices = {
+        { text = "Then I'll say a prayer here before I go down.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The moon's the same from anywhere, and height won't help a prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nothing they would ask for, because they are proud, as all young kaldorei are. Show them what it is to fight beside someone for no reward but the fighting, though, and they'll carry it longer than any lesson of mine." } },
+      choices = {
+        { text = "Then I'll set them an example worth following.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They aren't my people, so I'll mind my own road.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = {
         { id = "xma_default", text = "Then study it from the ground, stranger, and with your eyes and not your spells. The last of my people who studied great power too closely brought the Legion to Hyjal, and the scars of it are older than your kingdom." },
@@ -375,6 +437,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way up at Aldrassil's crown! From here the moon seems close enough to touch, and I've always thought priests ought to see it so." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in Shadowglen of all places! Mind your step on the ramp, {class}, because Aldrassil's bark has seen fewer iron boots than you have." },
         { id = "h_default", key = true,
           text = "Tenaron Stormgrip. I watch over Shadowglen from Aldrassil's crown. Every young elf who leaves the glade passes me on the way." },
         { id = "h_summons", tags = { "news" }, when = { questActive = TODO_QUEST("Tenaron's Summons") },
@@ -404,6 +468,8 @@ P:NPC {
         { text = "I learned to move quietly before I could fight.", next = "rogue_tn", when = { class = "ROGUE" } },
         { text = "I came a long way to study your great tree.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'd heard the kaldorei fought demons once.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the moon look different from Aldrassil's crown?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a paladin owe the young elves of Shadowglen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go when I'm ready.", next = "END" },
       },
     },
@@ -539,6 +605,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I don't know, and that's what frightens me, because the venom from the Webwood works slowly and stubbornly. A prayer might ease him while the antidote is made, though, and I think he'd simply like the company." } },
+      choices = {
+        { text = "I'll go to him and pray beside him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't help him, and only the antidote will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Iverron, first, though he'd never say it, and then any young elf foolish enough to wander toward Shadowthread Cave. The spiders have grown bold this season, and I'd feel a great deal better knowing someone in armor walked those paths." } },
+      choices = {
+        { text = "Then I'll walk those paths until they're safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fools who wander into spider caves must learn the hard way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Please don't charge in, because the spiders are thick in that cave and Iverron is already sick from their venom. Find him on the path near the cave and help him get his antidote, and if anything with eight legs comes for you on the way, then you can swing." } },
@@ -571,6 +655,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I'm glad, for my friend Iverron lies poisoned near the Webwood and I can't stop thinking of him, so perhaps you'll go and see him for me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in Shadowglen? Then perhaps you'll understand why I worry so, because your order swears to stand by those who can't stand alone." },
         { id = "h_default", key = true,
           text = "Dirania Silvershine. Shadowglen always feels like home, even now. Though a friend of mine is worrying me today." },
         { id = "h_friend", tags = { "news" }, when = { questActive = TODO_QUEST("A Good Friend") },
@@ -592,6 +678,8 @@ P:NPC {
         { text = "What's wrong in Shadowglen?", next = "glen" },
         { text = "Where do I find what the antidote needs?", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
         { text = "I know a thing or two about poisons.", next = "rogue_d", when = { class = "ROGUE" } },
+        { text = "Is Iverron's poison beyond a priest's help, Dirania?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who needs protecting here, Dirania?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Should I go into the Webwood after him, Dirania?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are the Webwood spiders coming out of their cave?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -655,6 +743,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not yet, though Iverron came near enough, and the webs creep a little farther from Shadowthread Cave every week. If any of the young ones are caught, I'd want someone like you on the way back, because the venom works slowly enough to leave time for a healer." } },
+      choices = {
+        { text = "Then I'll stay near the cave in case they need me.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Young ones who stray near the cave should know better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every step, I should think, through the stone and the webs both. If you mean to go in, go in openly and let them come to you, because trying to creep about in that armor would only end with you hanging in a web." } },
+      choices = {
+        { text = "I'll walk in openly and let them come.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather draw them out one by one, from the dark.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Quickly, and with your mouth closed, because the venom is in the bite and the webs are in everything else. I can tell you a great deal about how they hunt from a safe distance, and none of it will help you once you're inside." } },
@@ -695,6 +801,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You've a gentle look about you, which is more than I can say for most of the people who come asking about the cave." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You're very loud, {class}, and I mean that kindly, but the spiders feel every step on the stone, so go into the cave knowing they'll be waiting." },
         { id = "h_default", key = true,
           text = "I'm Gilshalan Windwalker, and I study the Webwood spiders in the cave to the north, from a distance, mostly." },
         { id = "h_venom", tags = { "news" }, when = { questActive = TODO_QUEST("Webwood Venom") },
@@ -720,6 +828,8 @@ P:NPC {
         { text = "I could slip into the spider cave and count the eggs.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A little fire would clear that cave.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the best way to fight the Webwood spiders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have the spiders taken anyone from the glade, Gilshalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would the spiders hear a paladin coming, Gilshalan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },

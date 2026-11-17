@@ -71,8 +71,18 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Morbent Fel in the ground and his riders after him, and my farm back, which is the part nobody can give me. Justice is a word for people who still have something to lose, and I've only got the fire." } },
+      choices = {
+        { text = "Fel will answer for it, by the law and the Light.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then let me be your vengeance, Sven. No law needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Sven.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Farthing would like you, I expect, but don't preach to me, because I've heard all of it already." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, all the way out here. Then you'll have noticed the woods are wrong. The animals won't come near the farm anymore." },
         { id = "h_default", text = "I'm Sven Yorgen, and I remember when this forest was green. Nobody believes me anymore, and that's all right, because some days I barely believe it myself." },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "A fire would clear the rot off your land, Sven.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who's squatting on your farm, Sven?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Morbent Fel's wards are crude work. I could break them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would justice look like for your family, Sven?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

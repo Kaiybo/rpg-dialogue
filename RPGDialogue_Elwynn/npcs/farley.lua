@@ -61,8 +61,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More every season, and most of them pretend they're not hurt until they fall off the stool. Josetta does what she can upstairs, Melika keeps the water hot, and I keep the floor mopped, which is the least glamorous part of healing there is." } },
+      choices = {
+        { text = "Every part of healing matters, Farley. Even the mop.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "An inn's no infirmary. Send them up to the Abbey.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Farley.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He doesn't need to, most nights, because one look at him and the rowdy ones remember their manners. Mind, there was a night a lad in a red bandana pulled a knife over a card game, and Wilhelm took it off him and sat him down to finish his ale, which was more mercy than I'd have shown." } },
+      choices = {
+        { text = "Wilhelm was right. Mercy can turn a man around.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy to a Defias? That lad belonged in the stocks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The rowdy ones sit up straighter when there's plate at the bar, so stay as long as you like." },
         { id = "h_default", key = true, text = "My family's kept the Lion's Pride since the first King Llane's day, and we've never watered a drink. Ask anyone!" },
         { id = "h_falkhaan", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rest and Relaxation"), days = 1 } },
           text = "Falkhaan sent you? Then take the good chair by the fire. Any friend of his is a friend of mine." },
@@ -105,6 +124,8 @@ P:NPC {
         { text = "Does the mage upstairs ever complain?", next = "mage", when = { class = "MAGE" } },
         { text = "Do rogues give you much trouble at the Lion's Pride?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you get much trouble from warriors at the Lion's Pride?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you see many wounded come through the Lion's Pride, Farley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Brother Wilhelm keep the peace in your inn, Farley?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just stopping in.", next = "END" },
       },
     },

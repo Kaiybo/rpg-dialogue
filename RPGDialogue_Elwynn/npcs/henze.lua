@@ -65,8 +65,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, if Gazin needed me, though my knees say otherwise. The Defias have men in every hollow from here tae Westfall, an' they don't take prisoners; they take what's in yer pockets an' leave ye for the crows." } },
+      choices = {
+        { text = "Then I'll go in with you next time, Henze.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Leave the Defias to the army. You've done enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Henze.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ah, now, I said I'd bring one next time, an' here ye are, a mite late but welcome all the same." },
         { id = "h_default", text = "Henze Faulk. Gazin an' me were watchin' the Defias for the king's advisors, an' when they near enough caught Gazin, I went in after him. They caught me properly." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Symbol of Life"), days = 3 } },
           text = "I was dead, I know I was: cold an' quiet an' nothin'. Then there was you, an' a light, an' a terrible taste in my mouth, so thank ye, an' I mean it." },
@@ -102,6 +112,7 @@ P:NPC {
         { text = "Do you remember anything from when you were dead, Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What went wrong when you went in after Gazin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter have tracked you to the Defias camp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would you go back into Defias country, Henze?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Rest easy, Henze.", next = "END" },
       },
     },

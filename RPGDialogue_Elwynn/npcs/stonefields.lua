@@ -67,8 +67,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "If they asked, which they won't, and if they meant it, which they wouldn't. I've forgiven plenty in my life, but a family that lets a boy hang about my fence all week is a family that's up to something." } },
+      choices = {
+        { text = "Forgive first, Auntie. Let them answer to their own hearts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some families earn suspicion. Keep your guard up.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Auntie.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nothing cruel, mind; I just want the truth, and I want him to say it to my face. If he took it, he can work it off on my farm, and if he didn't, I'll bake him a pie and say I'm sorry, though it'll choke me." } },
+      choices = {
+        { text = "The truth first, then fair judgement. That's justice, Auntie.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "He's only a boy. Let it go, whatever he did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Come in and close the door, the bread's rising, and say a word for my necklace while you're at it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Well, you're just what this farm needs, because nobody believes me about that Maclure boy, and maybe they'll believe you." },
         { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Lost Necklace") },
           text = "My necklace is gone, and that Maclure boy's been hanging round the fence all week. You do the arithmetic." },
@@ -101,6 +121,8 @@ P:NPC {
         { text = "Wouldn't a spell spoil the bread somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you need a warrior's help on the farm, Auntie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you want boar meat, Auntie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would you forgive the Maclures, Auntie, if they asked?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do you want done about the Maclure boy, Auntie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
     },
@@ -278,8 +300,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every way it could, and the young ones worst of all, because they've grown up hating folk they've never spoken to. Gramma says it's a waste of good years, and she's right, though I'd never tell her so." } },
+      choices = {
+        { text = "Then make peace, Ma. The young ones deserve better.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Old wounds run deep. Some things can't be mended.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ma.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They should be, but old Brackwell says Princess is a prize sow and a free creature, and the Marshal won't fine a man over a pig. If there's a law that protects my carrots, I've never heard of it, and believe me, I've asked." } },
+      choices = {
+        { text = "There should be. A neighbor must answer for his beast.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The law can't fix this. Deal with the pig yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ma.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you've a prayer that keeps pigs out of carrots, I've no work for you, but sit, the kettle's on." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Can you do anything about a pig? I know it's not your usual work, but she's the size of a cart." },
         { id = "h_default", text = "Ma Stonefield. This is my field, or it was, until the Brackwells' prize pig found it." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Princess Must Die!") },
           text = "Princess, they call her, Princess! She's the size of a cart and eats like a regiment, and she'll have the whole crop by harvest." },
@@ -309,6 +351,8 @@ P:NPC {
         { text = "Would you really want the pig killed in secret?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could my demon deal with the Brackwells' pig?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is Princess really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How has the feud with the Maclures touched your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Couldn't the Brackwells be made to keep their pig penned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the crop.", next = "END" },
       },
     },
@@ -465,8 +509,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Ma makes me, every night, and I always pray for pie, and Ma says that's not a proper prayer. I pray Auntie Bernice stops thinking I'm a thief too, but that one never works either." } },
+      choices = {
+        { text = "Keep praying, Billy, and tell the truth. Both help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers don't fix anything, Billy. Clear your own name.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Billy.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because I was where I wasn't meant to be, by the mine, and Ma would've skinned me. And nobody believes a Maclure anyway, so what's the point of telling?" } },
+      choices = {
+        { text = "The truth matters, Billy, even when it gets you in trouble.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sometimes keeping quiet is the smart thing, Billy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Can you tell when someone's lying? Because I'm not, but Auntie Bernice thinks I am." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Are you a paladin? Are you here to arrest me? I didn't do it, honest, I just know who did!" },
         { id = "h_default", text = "I'm Billy Maclure, and everybody at the Stonefields thinks I'm a thief, but I'm not. I just know things." },
         { id = "h_necklace", tags = { "news" }, when = { questActive = TODO_QUEST("Lost Necklace") },
           text = "Auntie Bernice thinks I took her necklace? I didn't! I might know who did, only I can't remember properly, because I'm too hungry to remember." },
@@ -493,6 +557,8 @@ P:NPC {
         { text = "Would you really want a Stonefield turned into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who's Goldtooth, and why should a warrior fight him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are you really that hungry, Billy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you say your prayers at night, Billy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why didn't you tell anyone what you saw, Billy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "See you, Billy.", next = "END" },
       },
     },

@@ -75,8 +75,18 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That he walks into the dark carrying his own light, and that the light flickers whenever he is tempted to show mercy. The cards don't say whether he should, child, only that he will have to choose." } },
+      choices = {
+        { text = "Then I'll choose mercy, whenever I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Justice comes first. Mercy is for those who earn it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, madame.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The cards turned up the Knight this morning, and I wondered which way he would be facing when he came in." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "The wood speaks to you too, then. It has been screaming for years, druid, and few enough have ears to hear it." },
         { id = "h_default", text = "I am Madame Eva, and I follow the old arts. I read what the cards say and what the stars refuse to, and while horrors wait in the night here, I simply know their names." },
@@ -118,6 +128,7 @@ P:NPC {
         { text = "Fortune telling isn't magic, Madame. It's guesswork.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did the cards show about my sword, Madame?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What did your cards say about the Knight, madame?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },

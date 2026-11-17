@@ -490,8 +490,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Pride, every time, for a paladin who wins enough fights starts thinkin' the Light's his own, an' that's the first step away from it. I've seen it happen in Lordaeron, an' I'll no' name names, but ye'll know them if ye read the histories." } },
+      choices = {
+        { text = "Then I'll stay humble. The Light is never mine to own.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A paladin's victories are earned. Some pride is deserved.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Theodrus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Hall. Good; ye'll have heard my warnin' before, but I'll give it again: don't turn yer back on the Light, for it'll no' turn its back on ye." },
         { id = "h_default", text = "Theodrus Frostbeard. I train priests, an' I tell everyone else the same thing: don't turn yer back on the Light, for it may be the one thing that saves ye." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Ye've the look o' someone who's been usin' what I taught ye, which is the only kind o' thanks I want. What'll it be today?" },
@@ -517,6 +527,7 @@ P:NPC {
         { text = "Is there any road back for a warlock, Theodrus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How does the Light stand beside a warrior, Theodrus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is the Light any comfort out in the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What's a paladin's greatest danger, Theodrus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -634,8 +645,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than ye'd think, though they come at night when nobody's watchin', for a paladin's no' supposed tae need anythin'. I listen, an' I tell them the Light doesnae ask them tae carry everythin' alone, an' some o' them believe me." } },
+      choices = {
+        { text = "Then I'll remember it. Even a paladin needs help sometimes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A paladin carries his own burdens. That's part of the oath.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Toldren.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Is there anythin' I can do for ye? Ye've the look o' somebody who's carried other folk's troubles further than ye meant tae." },
         { id = "h_default", text = "Toldren Deepiron, at yer service. I teach the priests, but I'll help anyone who comes through that door, so tell me what ye need." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "I hope the Light is wi' ye, {name}. Is there anythin' I can do for ye today, besides the trainin'? Ye look like there might be." },
@@ -661,6 +682,7 @@ P:NPC {
         { text = "What could a priest offer a warlock, Toldren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many warriors come to you for healing, Toldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters come to you often, Toldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do paladins come to you for help, Toldren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Nothing, thank you.", next = "END" },
       },
     },
@@ -779,8 +801,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Old ones, mostly, from families askin' after paladins who went north an' never wrote back, an' I've nowhere tae send them. I keep them in a box under the desk, for I cannae bring myself tae burn them." } },
+      choices = {
+        { text = "Keep them, Braenna. Someone might come asking one day.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burn them. Hope that can't be answered only hurts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Braenna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! There's a letter or two for the Silver Hand in my pile, I'll wager, though I'd no' know who tae send them tae now Lordaeron's gone." },
         { id = "h_default", text = "Braenna Flintcrag. I train priests here an' keep the Hall's messages, for half the temples in the Alliance seem tae send their letters through me." },
         { id = "h_returning", tags = { "news" }, when = { questActive = TODO_QUEST("Returning Home") },
           text = "Ye're still here? A priestess o' yer temple came lookin' for ye, an' she said tae go home tae the Temple o' the Moon as soon as ye could. Priestess Alathea's waitin'." },
@@ -806,6 +838,7 @@ P:NPC {
         { text = "Why do the night elves remember demons so keenly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What letters need carrying, Braenna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the roads give your letters much trouble, Braenna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What letters come for the Silver Hand now, Braenna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Braenna.", next = "END" },
       },
     },
@@ -911,6 +944,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only when he's awake, an' that's most o' the time, for he'll no' lie still an' he'll no' stop talkin'. The priest who's stitchin' him has the patience o' a saint, an' I've told her so, an' she's told me Muiredon's the reason she has tae." } },
+      choices = {
+        { text = "Then I'll help her. Every patient deserves care, even the noisy ones.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If he won't lie still, let him heal slowly. He'll learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tiza.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Tiza Battleforge, o' the Silver Hand. Here in Ironforge I put the young paladins on the path tae virtue, an' it's a longer path than they expect." },
@@ -943,6 +985,7 @@ P:NPC {
         { text = "Why are paladins uneasy with rogues, Tiza?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would your paladins really attack a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do hunters help folk who can't repay them, Tiza?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does your husband give the priests much trouble, Tiza?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -1131,8 +1174,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That they fight dirty an' they fight hard, an' they'll no' give ya the courtesy o' a fair fight. I went at them the honest way, all hammer an' oath, an' look where it got me, flat on my back wi' a priest sewin' my side." } },
+      choices = {
+        { text = "I'll still fight them honestly. That's what makes us different.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll fight them their way. Honour can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Muiredon.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Tiza's lot, are ya? Then ye'll know she'll have ya walkin' further than ya want, an' ye'll thank her for it after, same as I did." },
         { id = "h_default", text = "Muiredon Battleforge, Tiza's husband, an' presently the Hall's favorite pincushion. I had a wee disagreement wi' some Dark Irons, an' they won the first round." },
         { id = "h_symbol", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity"), class = "PALADIN" },
           text = "Tiza's sent ya tae hear it from me, has she? Then sit, an' I'll tell ya the whole of it, about me an' Narm an' the Dark Irons." },
@@ -1163,6 +1216,7 @@ P:NPC {
         { text = "Do you hate the Dark Irons, Muiredon?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How did the Dark Irons get the better of you, Muiredon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What did you see south of Helm's Bed Lake, Muiredon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What did the Dark Irons teach you, Muiredon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Mend well, Muiredon.", next = "END" },
       },
     },
@@ -1319,8 +1373,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly, though Theodrus keeps warning my students that the arcane leads souls astray, and my students keep setting his robes on fire by accident. I think it's even, but Theodrus doesn't agree." } },
+      choices = {
+        { text = "Theodrus has a point. Magic without restraint can be dangerous.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Magic is a tool. Theodrus should leave your students alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bink.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because it sometimes goes where I didn't aim it, and once it went into a paladin's hammer, and he wasn't amused, though I thought it was very pretty. Arcane and the Light aren't so different, you know, if you squint." } },
+      choices = {
+        { text = "They're very different, Bink. The Light isn't a tool to be squinted at.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Maybe they're not so different. Power is power, in the end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bink.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I like priests, because when my students set themselves on fire, which happens, your sort are the ones who put them out." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a list of paladins who've been very rude about my lightning, and I hope you won't be on it." },
         { id = "h_default", text = "Bink, mage trainer, and the Hall's best argument for keeping a bucket of sand by every door. What can I do for you?" },
         { id = "h_tabetha", tags = { "news" }, when = { questActive = TODO_QUEST("Tabetha's Task") },
           text = "Off to see Tabetha, are we? Her cottage is west of Theramore, past the Stonemaul ruins, and take friends, because Tabetha's errands tend to end in Zul'Farrak." },
@@ -1348,6 +1422,8 @@ P:NPC {
         { text = "Have rogues really tried to steal spells from you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a mage trainer want a warrior nearby, Bink?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do mages and hunters have in common, Bink?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do mages and priests get along in the Hall, Bink?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why are paladins rude about your lightning, Bink?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Bink.", next = "END" },
       },
     },
@@ -1505,8 +1581,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Both require focus and both punish carelessness, though a careless prayer only fails, while a careless portal can put you halfway into a wall. I'll grant the priests that their work is harder to measure, but mine is harder to survive." } },
+      choices = {
+        { text = "Prayer needs humility more than focus. That's the difference.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then prayer and portals are both just disciplines. Neither is holier.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Milstaff.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, and I've never understood why, because a paladin who could open a portal to the front lines would be worth a company of foot soldiers. They say it's not their way, and I say they've never tried, and we've left it there." } },
+      choices = {
+        { text = "A paladin walks to the battle. That's part of the oath.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Any tool that saves lives is worth learning, Milstaff.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good day, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I doubt you've come to study portal magic, but I'll admit your kind understand discipline, which is more than I can say for most mages." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I very much doubt you've the mental acuity for portals, but I'll admit you've the discipline, which is half the battle." },
         { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another, which is the most difficult thing in this Hall, and I include praying in that." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 40 },
           text = "You've reached the point where walking becomes optional. Portals, then, and do pay attention, because a portal opened carelessly arrives somewhere carelessly." },
@@ -1531,6 +1627,8 @@ P:NPC {
         { text = "Are warlock summonings truly like portals?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a portal carry a warrior to the front, Milstaff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter's beast pass through one of your portals?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do portals and prayer have anything in common, Milstaff?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do paladins ever study portal magic, Milstaff?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, then.", next = "END" },
       },
     },

@@ -58,8 +58,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "One day, I swear it, when I've saved enough to buy a plot of my own and nobody can tell me where to stand. Until then I'm careful, because a Stonefield who loves a Maclure is a Stonefield who sleeps in the barn." } },
+      choices = {
+        { text = "Waiting is wise. Do it properly, not rashly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Love shouldn't wait on coin. Tell them now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Are you going to tell my family? Please don't, because they'd lock me in the barn till winter." },
         { id = "h_default", text = "Tommy Joe. Stonefield, if you're asking, and folk around here usually are. Family thinks I'm mending the east fence." },
         { id = "h_young", tags = { "news" }, when = { questActive = TODO_QUEST("Young Lovers") },
           text = "Maybell sent you? Is she well, did she say anything... about me, I mean, did she say anything about me?" },
@@ -94,6 +104,7 @@ P:NPC {
         { text = "What sort of stories does Gramma tell, Tommy Joe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would anyone want to beat you up, Tommy Joe?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why do you need to wait without being seen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Will you stand up to your family for Maybell, Tommy Joe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck, Tommy Joe.", next = "END", fx = { affinity = 1 } },
       },
     },

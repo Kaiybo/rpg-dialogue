@@ -59,8 +59,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Everyone should know where their feet are, priest or warrior, because the ground does not care what you believe. Stand well, and your prayers will have time to work." } },
+      choices = {
+        { text = "Then I'll learn to stand well, and pray steady.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My faith keeps me upright, Wu Shen, not my feet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Both, but the training first, because the Light will help you, but it won't stand for you. I've seen paladins fall because they believed they couldn't." } },
+      choices = {
+        { text = "Then I'll train as hard as I pray.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light is all I need, Wu Shen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Your feet are close together, like someone who prays more than they fight, and that's fine, but it won't save you." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Show me your feet, and then tell me why you trust the Light more than your own legs." },
         { id = "h_default", key = true,
           text = "Wu Shen. I train Stormwind's warriors, and I teach them the same thing every day until they stop needing to be told: where your feet are decides whether you live." },
         { id = "h_young", when = { class = "WARRIOR", maxLevel = 15 },
@@ -93,6 +113,8 @@ P:NPC {
         { text = "What's wrong with being ready to run?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why should a mage care how they stand?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What can a hunter learn from a warrior's training, Wu Shen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a priest learn to stand like a warrior, Wu Shen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should a paladin trust the Light or their training?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your drills.", next = "END" },
       },
     },
@@ -284,8 +306,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Everyone does, and priests most of all, because they spend all day watching people die and smiling through it. You need somewhere to put it, and a sword's as good a place as any." } },
+      choices = {
+        { text = "Anger can be healed, Ilsa, not just swung.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Maybe you're right. Anger needs somewhere to go.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only in what you call it, recruit. Anger is anger, and the Light just gives it a better excuse." } },
+      choices = {
+        { text = "Righteous anger is the Light's fire. It's different.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Anger is anger, whatever we call it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You've got anger too, recruit, I can see it, you just keep it buried under all that calm." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You've got fire in your belly, recruit, but you keep it locked up behind all that righteousness." },
         { id = "h_default", key = true,
           text = "Ilsa Corbin. Wu teaches you to stand and Ander teaches you to hide behind a shield, and I teach you what to do with all that anger you've been carrying about." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
@@ -315,6 +357,8 @@ P:NPC {
         { text = "What do you mean, fire in my belly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do hunters carry anger, Ilsa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you see anger in everyone, Ilsa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think priests carry anger, Ilsa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is righteous anger different from ordinary anger, Ilsa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -449,8 +493,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "By staying behind it and keeping it standing, and by never stepping forward when you're needed back. The line holds because everyone knows their place in it." } },
+      choices = {
+        { text = "Then I'll keep my place and keep them standing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If someone's falling, I'll step forward. Lines can bend.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not always, because a line that never bends will break. But a paladin stepping back is a signal to everyone else, and they'll follow you, so you'd better be right." } },
+      choices = {
+        { text = "I'll hold the line until the end, Ander.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll step back when it saves lives, whatever it signals.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll be behind the line, {class}, and the line's only as strong as the healer behind it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be in the line, {class}, and you'll hold it, because your order's never learned to step back." },
         { id = "h_default", key = true,
           text = "Ander Germaine. I teach the shield, and the line, and the plain fact that you're never fighting for yourself alone, whatever you tell yourself on the road." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
@@ -478,6 +542,8 @@ P:NPC {
         { text = "I walked the Trade District with a halberd once.", next = "guard", when = { origin = "human_city_guard" } },
         { text = "Do you think rogues should fight in a line?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you trust the mages you protect, Ander?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How should a priest serve the line, Ander?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it wrong to step back from the line, Ander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },

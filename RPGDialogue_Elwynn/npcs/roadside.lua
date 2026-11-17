@@ -55,8 +55,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Fair, fair, what's fair on a road this long, friend? I'll admit I've sold a loaf to a Westfall widow for a copper and charged the next gentleman three, and I sleep well enough, so heaven must be happy with the average." } },
+      choices = {
+        { text = "A fair price is the same price for everyone, Antonio.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Charge what each can pay. That's sense, not sin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough if you smile at everyone and carry nothing worth stealing, which is a hard trick for a salesman. The Defias let me pass since I sold one of them a fine pair of boots, and I'll not apologize for it, because a man must eat." } },
+      choices = {
+        { text = "Selling to the Defias aids them, Antonio. It must stop.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A man must eat. I won't judge you for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Antonio.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on my road! I've a holy candle from the Cathedral, or one that looks very much like it, if you're interested." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a holy symbol here, blessed by a priest, or so the priest told me, and he seemed very honest." },
         { id = "h_default", text = "Antonio Perelli, traveling salesman, at your service. Goldshire to Eastvale and back again, and I sell whatever I carry to whoever stops to look." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "Hm, you've quick hands, friend, so let's keep them where I can see them while you browse, eh? No offense meant." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -78,6 +98,8 @@ P:NPC {
         { text = "Are you afraid of my demon, Antonio?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is your whetstone really from Ironforge, Perelli?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does your deer call really bring the wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you sell to the needy at a fair price, Antonio?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the road between Goldshire and Eastvale safe, Antonio?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Safe travels.", next = "END" },
       },
     },

@@ -54,8 +54,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When the river runs uphill, and not a day before, because they called my father a thief and he went to his grave with it. You can pray all you like, but I'll not be the one who bends, and I've told my children the same." } },
+      choices = {
+        { text = "Grudges poison the living, Pa. Peace honors your father too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your father's name deserves defending. Don't bend, Pa.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Twice this month, and they take a crate each time and leave the gate swinging. Dughan's men come up after and write it down, and then they go home, and I sit up with a pitchfork." } },
+      choices = {
+        { text = "Then you'll not sit up alone tonight, Pa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A pitchfork's a fine guard. You'll manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in my vines. If you've come about the Stonefields, you can turn around, because there's no prayer that'll mend that." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Well, there's a thing; maybe you can tell the Defias to stop walking through my rows at night, because they don't listen to me." },
         { id = "h_default", text = "This is the Maclure vineyard, and I'm Pa Maclure. My family's worked these vines longer than anyone in Goldshire can remember, and we'll work them long after." },
         { id = "h_young", tags = { "news" }, when = { questActive = TODO_QUEST("Young Lovers") },
           text = "Maybell's been mooning about the house all week, sighing at nothing. Girls her age do that, I'm told. You've not seen anything, have you?" },
@@ -82,6 +102,8 @@ P:NPC {
         { text = "Do you fear a warlock will harm your vines?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you have a warrior settle your feud, Pa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the boars give you much trouble in the vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would you ever make peace with the Stonefields, Pa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have the Defias been through your vineyard, Pa Maclure?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Mr. Maclure.", next = "END" },
       },
     },
@@ -229,8 +251,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Ma does, every night, and Pa says the words loud enough for both of them. I've started praying too, that Pa never finds out where Maybell goes of an evening, and I'm not sure that's a prayer anyone up there would care to answer." } },
+      choices = {
+        { text = "Secrets fester in a family. Tell him, Joshua.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep her secret. Love's worth protecting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Joshua.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough from the Stonefields, who only shout, but less so from the Defias, who've started cutting through the vineyard on their way to the Brackwell patch. Pa won't ask the Marshal for help, because he says Maclures look after their own, and I've stopped arguing." } },
+      choices = {
+        { text = "Pride shouldn't stop him asking for help. Tell the Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your Pa's right. Look after your own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want something gentle, then, and I've a white that won't keep you up praying all night." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want something strong and honest, and I've a red that's both, which is more than I can say for most of Goldshire." },
         { id = "h_default", text = "Joshua Maclure. I sell what the vineyard makes, and a few things it doesn't, to whoever comes up the path. Don't mind Pa; he's sharper than he means to be." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! You'll want ale, and I've a little, though Pa says ale's for folk who can't wait on a grape. Don't tell him I stock it." },
@@ -256,6 +298,8 @@ P:NPC {
         { text = "Is there a vintage you'd recommend for a scholar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors buy much wine from the Maclures?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does Pa really hate the boars as much as the Stonefields?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does your family ever pray together, Joshua?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is your family safe out here, Joshua?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Cheers.", next = "END" },
       },
     },

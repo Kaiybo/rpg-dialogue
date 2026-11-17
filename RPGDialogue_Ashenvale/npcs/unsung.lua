@@ -65,6 +65,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Often enough that I keep a cot in the back, and the orcs make sure of the rest. If you're in Astranaar a while, I'd be glad to send for you when the next cart limps in." } },
+      choices = {
+        { text = "Send for me whenever a cart comes in hurt.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm not staying long enough to be your healer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd not say no, though I can't pay a paladin's worth for it. Plain work, keeping bread on the shelves, but a village under siege lives or dies by it." } },
+      choices = {
+        { text = "I'll ride escort. Plain work is still good work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I didn't come here to guard bread carts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Haljan Oakheart, and I keep the general goods here in Astranaar: bread, water, bags and thread. With the orcs on the roads, half my work is getting the goods here in the first place." },
@@ -74,6 +92,8 @@ P:NPC {
           text = "You're a mage, and you'll travel light, I expect, though even mages need thread and a good bag. If you know a spell that keeps the Warsong off my eastern road, you'd be the most popular person in Astranaar." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're heading out on the roads, you could do worse than keep an eye on my supply carts while you're at it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want food for the road, and something for your companion, and I've both." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because half the carts that make it here come in with someone hurt aboard, and I'm no healer." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The carts could use one riding alongside them, because the Warsong have turned back more than I'd like." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away." },
@@ -87,6 +107,8 @@ P:NPC {
         { text = "Is there a spell that could help your carts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have the Warsong been raiding your supply carts, Haljan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is game scarce now the Warsong are cutting the forest?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the supply carts come in with wounded often?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should I ride escort for your supply carts?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Haljan.", next = "END" },
       },
     },
@@ -191,6 +213,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It comforts the wounded, and I'll not mock that, but it never stopped an axe. Pray for the forest by all means, and then carry something heavy into it." } },
+      choices = {
+        { text = "Prayer and steel together, then. Both have their place.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Steel does more than prayer out there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not while they cut our trees, and they'll not stop cutting while there's an orc in Splintertree. I'd see them driven out, and I don't much care how." } },
+      choices = {
+        { text = "They should be driven out, but by honourable means.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Any means will do, so long as they go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Xai'ander, and I sell weapons in Astranaar. Every blade I sell might be the one that keeps an orc axe off a tree, so I don't sell bad ones." },
@@ -200,6 +240,8 @@ P:NPC {
           text = "A mage won't buy my blades, but I'll speak with one all the same, because frost stops an orc's charge as well as steel does." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good, because every blade I sell a warrior is one more between the Warsong and the trees." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting a blade for when the orcs get close, because they always get close." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, because the orcs won't wait for you to finish your prayers." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you've seen orcs at war, and you'll understand why I don't sell anything blunt or badly made." },
       },
       again = {
         { id = "h_again", text = "What else? I've blades to sharpen." },
@@ -213,6 +255,8 @@ P:NPC {
         { text = "Would you trust a mage beside your Sentinels?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What blade would you give a warrior facing the Warsong?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Warsong hunt the forest's beasts as well?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you think prayer does any good against the Warsong?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there any end to the war with the Warsong?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -314,6 +358,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The priestesses come for robes, and the wounded come for linen, and I'd say the second visit is the sadder one. I sew both as well as I can, because both matter." } },
+      choices = {
+        { text = "Your work matters as much as any healer's.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Cloth won't save anyone from the Warsong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I try to, because a town that forgets beauty forgets what it's fighting for. You protect the trees with your hammer, and I'll keep a little colour in the market." } },
+      choices = {
+        { text = "Then I'll protect what's beautiful here, too.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Beauty can wait until the war is won.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Aeolynn, and I sell cloth armor here in Astranaar. It isn't much protection against an orc's axe, I know, but it keeps the rain off, and the priestesses tell me it suits them better than mail." },
@@ -323,6 +385,8 @@ P:NPC {
           text = "I've a deep violet cloth that hides scorch marks well, if you're looking for something dark to wear. Forgive me, but your imp keeps looking at my silks, and I'd rather it didn't." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My robes won't stop an axe, but I've a few sturdy cloaks, if you'd like something to keep the rain off your mail." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen how the forest looked before the Warsong cut into it, I hope." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I sell robes the priestesses like, and I'm sure I have something that would suit you, whatever you pray to." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'm afraid my cloth won't stop an axe, but I could line your gambeson if it's rubbing under the plate." },
       },
       again = {
         { id = "h_again", text = "Something else?" },
@@ -336,6 +400,8 @@ P:NPC {
         { text = "Did Ashenvale need warriors before the orcs came?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Was the hunting better in Ashenvale before the orcs came?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my craft frighten you, Aeolynn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do priests come to you often, Aeolynn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can Astranaar keep anything beautiful while it's at war?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Aeolynn.", next = "END" },
       },
     },
@@ -437,6 +503,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only with bread and broth, but you'd be surprised how many of them need that more than a bandage. Eat first, and then go and pray over them, and they'll be glad of both." } },
+      choices = {
+        { text = "I'll take your bread to them myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll eat, but the wounded aren't my concern.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than they should, because they leave in a hurry and come back worse. If you're walking their way, take some bread for whoever you meet." } },
+      choices = {
+        { text = "I'll carry bread for every patrol I meet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll carry enough for myself, and no more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Maliynn, and I keep Astranaar fed: bread, fruit, cheese and water for the road. The Sentinels come in from the forest hungry, and so does everyone else, so I'm never short of customers." },
@@ -446,6 +530,8 @@ P:NPC {
           text = "You've been living on that conjured bread, I can tell by your cheeks, dear. Sit down and have something that came out of a proper oven." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and too thin for the work, I'd say. Eat something before you go and fight the orcs, dear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, dear, and your companion's thinner than you are. That simply won't do." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit and eat, you're thin as a willow, and I'll not have you fainting over some poor scout's bandages." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! That armour must take some feeding, so let me find you something hearty before you go out to the roads." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? There's more in the oven." },
@@ -459,6 +545,8 @@ P:NPC {
         { text = "What's wrong with conjured bread, Maliynn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Sentinels eat well before they go to the front?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I feed my companion on the road, Maliynn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you look after the wounded as well, Maliynn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Sentinels ever go hungry on patrol?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Maliynn.", next = "END" },
       },
     },

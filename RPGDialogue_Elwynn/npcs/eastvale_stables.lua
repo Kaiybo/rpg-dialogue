@@ -66,8 +66,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "One or two a year, and I sit up with every one of them, because a horse that dies in your hands is something you don't forget. The Brothers at the Abbey say it's foolish to grieve for a beast, but the Brothers have never pulled a foal at midnight." } },
+      choices = {
+        { text = "Grief for a living thing is never foolish, Katie.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Brothers are right. Save your grief for people.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Katie.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fewer than they used to, since the Silver Hand broke and the knights stopped coming south for mounts. I keep the old warhorse line going anyway, because one day someone will want a horse that doesn't flinch at a charge, and I'd like to be ready." } },
+      choices = {
+        { text = "Keep the old line, Katie. Some things are worth keeping faith with.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The old knights are gone. Breed for the market instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Would you say a blessing over the mare in foal? I'm not superstitious, but I'm not taking chances either." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The old knights rode horses bred in Elwynn, and some of their great-grandchildren are in my stalls this minute." },
         { id = "h_default", key = true, text = "Katie Hunter. I breed the horses Stormwind rides: bred for years, cared for daily, and worth every coin. Randal teaches you to stay on them." },
         { id = "h_young", when = { race = "Human", maxLevel = 39 }, text = "Soon, love. You'll need Randal's lessons first, and he won't teach anyone who's still green, so come back seasoned." },
         { id = "h_trusted", when = { ["not"] = { race = "Human" }, reputation = { faction = "Stormwind", min = "exalted" } },
@@ -90,6 +110,8 @@ P:NPC {
         { text = "Do your horses fear a warlock's summons?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What makes a warhorse different from a farm horse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your horses fear a hunter's pet?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you lose many foals, Katie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your horses still go to the paladins, Katie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -185,8 +207,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "You sit deeper, because you've more weight and less fear, and the horse feels both. The old Silver Hand knights rode as though they were part of the beast, and I'll admit I've not seen many since who could." } },
+      choices = {
+        { text = "The old knights set the standard. I'll ride to it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The old order is gone. I'll ride my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Randal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll ride the heavy horses, I expect, and you'll find them stubborn, because they were bred to stand still in a charge." },
         { id = "h_default", key = true, text = "Randal Hunter. Katie breeds them, I teach people to stay on them. It's taken years to get the order of those two jobs right." },
         { id = "h_outsider", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } }, minLevel = 40 },
           text = "I teach horses, and Stormwind's people. Your own folk will have their own mounts and their own teachers; I'd go to them." },
@@ -208,6 +240,7 @@ P:NPC {
         { text = "Would you teach a warlock to ride your horses?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a warrior fight from the saddle, Randal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will a horse ride beside a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do paladins ride differently from other folk, Randal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },

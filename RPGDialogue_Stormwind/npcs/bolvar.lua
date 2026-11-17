@@ -59,8 +59,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Less than I should, and mostly at night, when the petitions stop. I pray for King Varian's return and for the strength to carry the boy's crown until then, and some nights I'm not sure which prayer I need more." } },
+      choices = {
+        { text = "A tired man's prayer is heard as well as any, Highlord.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't bring the king home. Soldiers and searching will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every day I sit in this hall, though I'd never say so before the court. A paladin is meant to stand between the weak and the dark, and instead I stand between the nobles and the treasury, which is a darker place than it sounds." } },
+      choices = {
+        { text = "The kingdom needs a steady hand here more than another sword.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the court squabble. A paladin belongs where the fighting is.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Alliance. The Archbishop's people have been good to this city in a hard year, and I'm glad of every one I see in these halls." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! It's been too long since I stood with the Silver Hand in the field rather than beside this throne, so forgive me if I look at your armour a little enviously." },
         { id = "h_default", text = "Bolvar Fordragon. I keep the kingdom for King Anduin until his father comes home, or until he's grown. Whichever the Light allows first." },
         { id = "h_new", when = { maxLevel = 15 },
           text = "You're young for this hall, and that's good, because the young still believe the kingdom's worth defending. Don't lose that in Westfall." },
@@ -109,6 +129,8 @@ P:NPC {
         { text = "Do you trust SI:7's methods, Highlord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Where would a hunter serve the kingdom best, Highlord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why does the crown tolerate the Lamb's warlocks, Highlord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you ever find time to pray, Highlord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you miss the field, Highlord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },

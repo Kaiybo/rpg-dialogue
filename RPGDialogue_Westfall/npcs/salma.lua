@@ -55,6 +55,15 @@ P:NPC {
         { text = "Why do you feed everyone?", next = "fed" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Never, not even the Defias boys, who come down thin and ashamed and eat with their masks in their laps. A full belly keeps a lad off the road better than any sword, in my experience." } },
+      choices = {
+        { text = "Defias at your table should still answer to the law.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your house, your rules. The law can wait outside.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Salma.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Salma. My husband farms and I cook, and anyone who comes to that door hungry leaves full. That's the rule of this house." },
@@ -75,6 +84,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, it's you! I've been keeping a bowl warm in case you came by, and don't you dare say you've already eaten." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my door! You'll eat, then, because that's the rule, and you'll eat twice because you look like you need it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! Sit down, and take off those gauntlets, because nobody eats my stew in steel." },
       },
       again = {
         { id = "h_again", text = "What else, then? Sit yourself down and ask while I stir." },
@@ -91,6 +101,7 @@ P:NPC {
         { text = "I could conjure bread for your pot, Salma.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does your kindness feed strays like me too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the militia warriors eat at your table, Salma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever turn anyone away from your table, Salma?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'd best be off.", next = "END" },
       },
     },

@@ -17,6 +17,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Too often, from Auberdine and beyond, and the hippogryphs know it, because they fly gently when they carry someone hurt. If you're ever going that way, ride with the wounded, and you'll ease two hearts at once." } },
+      choices = {
+        { text = "I'll ride with them whenever I can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll fly where my own work takes me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To Auberdine across the water, and from there the roads and flights go south toward Ashenvale. Sit still and trust the beast, which I suspect is harder for your kind than for mine." } },
+      choices = {
+        { text = "I'll sit still and trust it, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I trust my own feet more than any beast.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They carry anyone who's walked the road and knows the roost, and plenty of them are warriors bound for Astranaar. I always know the ones heading for the Warsong lines, because they sit very still and look south the whole way." } },
@@ -62,6 +80,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hippogryphs carry the wounded home more often than I'd like, and they're always calmer when a healer rides with them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My hippogryphs have never carried so much armor, {class}, but they're stronger than they look, and they won't let you fall." },
         { id = "h_default", text = "I am Vesprystus. My hippogryphs carry our people from the foot of Teldrassil to Auberdine across the water, and from there to the rest of the world." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, here at the roots of our tree! Our hippogryphs are gentler than your gryphons, I think, though I would not say so in Ironforge." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "My hippogryphs are fond of you, rogue, which is odd, since they're usually wary of anyone who walks that quietly." },
@@ -81,6 +101,8 @@ P:NPC {
         { text = "Do the kaldorei ever travel by magic instead?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your hippogryphs carry warriors toward the Ashenvale front?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your hippogryphs get on with hunters' companions?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the wounded often fly home on your hippogryphs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Can your hippogryphs carry a paladin toward the front?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Vesprystus.", next = "END" },
       },
     },
@@ -125,6 +147,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A priest who can't defend themselves is a priest who needs a Sentinel beside them, and I'd rather the Sentinel were fighting. Learn the staff well enough to keep an enemy at arm's length, and your prayers will have time to work." } },
+      choices = {
+        { text = "My faith is my first defense, but I'll learn the staff.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A good staff is worth more than a long prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Exactly as I teach the Sentinels, with patience first and the weapon after, because I've seen too many strong arms wasted by an impatient mind. Your oaths will mean little if your swing leaves you open." } },
+      choices = {
+        { text = "Then I'll begin again, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My training served me well enough before this.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whichever one you'll still respect after a hundred hours of drills, because that's what mastery costs. Most warriors want a great sword the moment they arrive, but I'd sooner see you learn the staff first, since it teaches your feet before it flatters your arms." } },
@@ -170,6 +210,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a staff or a mace, I suppose, and I can teach you both, but I'll teach you patience first, as I teach everyone." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll favor the mace and the two-handed sword, I expect, and I don't care what your order taught you before you came." },
         { id = "h_default", text = "I am Ilyenia Moonfire, weapon master of Darnassus. I teach daggers, staves, bows and blades, but first I teach patience." },
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. You will have the strength, but the Sentinels would tell you strength without balance is only a slower way to fall." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Daggers, I'd wager, and I can see you favour the right hand. Come, let me show you why the left matters just as much." },
@@ -189,6 +231,8 @@ P:NPC {
         { text = "Will I really need a staff in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which weapon should a warrior master first, Ilyenia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you teach a hunter anything new about the bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Must a priest learn weapons as well, Ilyenia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Will you teach a paladin as you teach the Sentinels?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -233,6 +277,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Rarely, because they're proud and think a wound from the wild is a lesson. I tell them a lesson is no good to the dead, and perhaps they'll believe it from you." } },
+      choices = {
+        { text = "I'll heal any hunter who comes to me, proud or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they're too proud to ask, I won't chase them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They'll trust what you do, not what you wear, as all beasts do. Kill only what you must and leave the rest in peace, and they'll let you pass soon enough." } },
+      choices = {
+        { text = "I'll kill only what I must, and leave the rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go as I please, and the beasts can mind themselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, mostly, and how to read a beast before it moves, because a nightsaber shows you its charge a breath before it comes. Warriors fight the claw they see, and hunters watch the shoulder that throws it." } },
@@ -278,6 +340,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hunters come back bitten and clawed, and they rarely think to ask a healer, so I'm glad to see one of you here." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk loudly for these woods, {class}, but the beasts of Teldrassil will forgive you that if you come in peace." },
         { id = "h_default", text = "I am Jeen'ra Nightrunner. I teach the hunters of Darnassus to track, to shoot and to bond with the wild beasts of Teldrassil." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. That trust is worth more than any skill I could teach." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd make a fine tracker, rogue, if only you'd learn to follow something other than a purse." },
@@ -297,6 +361,8 @@ P:NPC {
         { text = "Is there anything a warrior can learn from hunters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter of Darnassus learn first, Jeen'ra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is your cat afraid of me or of my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your hunters ever ask a priest for help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Will the beasts of Teldrassil trust a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Jeen'ra.", next = "END" },
       },
     },

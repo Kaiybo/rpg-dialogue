@@ -39,6 +39,24 @@ P:NPC {
         { text = "Something else, Ziz.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Pray for Venture Company goons? Well, I'll be honest, the poor slobs on the shredders get worked half to death, so I suppose a prayer wouldn't cost me anything." } },
+      choices = {
+        { text = "I'll pray for them. They're workers, not villains.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They chose their masters. They get no prayer from me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Steal? I'd call it liberating, because they're cutting down a whole mountain's worth of trees and I'm only after a few pieces of paper. Besides, you'll be stopping a menace, and I'll be getting rich, which is good for everyone." } },
+      choices = {
+        { text = "I'll stop the Venture Company, but not for your profit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fine. A cut of the profits sounds fair to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Name's Ziz Fizziks, freelance engineer and a man of vision, and that vision is the Venture Company's Super Reaper 6000. Their operators carry the blueprints, so if you happen to take some off them, I'll make it worth your while." },
@@ -50,6 +68,8 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Now you're my kind of customer, pal. Those Venture operators carry their blueprints right on their belts, and nobody's quicker than a pair of hands that don't want to be noticed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, huh? Big, loud, likes hitting things, and that's exactly the kind of help I need with the Venture Company, pal." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You see that wildlife out there? The Venture Company's been chopping its home down for months, so it's real cranky, and that's useful to a guy like me." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Don't suppose you've got a blessing for a goblin's bank account, because the Venture Company's been bleeding mine dry." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now you look like someone who doesn't mind roughing up a few Venture Co. thugs for a good cause, and I've got a good cause right here." },
       },
       again = {
         { id = "h_again1", text = "What else? Make it quick, the shift changes soon." },
@@ -65,6 +85,8 @@ P:NPC {
         { text = "How many guards on the Venture Company's camp?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How tough are the Venture Company's operators, Ziz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have the Venture Company's saws driven the beasts out, Ziz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does anyone pray for the workers the Venture Company drives here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why should a paladin help you steal from them, Ziz?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with your machine.", next = "END" },
       },
     },

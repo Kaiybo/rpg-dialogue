@@ -68,6 +68,15 @@ P:NPC {
         { text = "Why do you stay here?", next = "stay" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It warms rather than burns, and nobody was more surprised than me. I was no saint in life, paladin, but I think whatever judges the dead is weighing the ships this lamp has saved against the ones I sank." } },
+      choices = {
+        { text = "Your watch is atonement enough. Rest when you're ready, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A pirate's ghost has no claim on the Light's mercy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Grayson, of a ship that isn't, from a crew that aren't. I mean no harm to the living; I mean only to keep this flame lit." },
@@ -86,6 +95,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The flame burns brightest when nobody's looking at it, and I'm always looking at it. That comes with being dead, I find." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a living one. I mean you no harm; I only mean to keep the flame lit, and you could help." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast sees me, I think, though you might not; animals are better at seeing the dead than the living are." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'd half expected your Light to burn me where I stand, but it only feels warm, which is a strange thing for a dead man to feel." },
       },
       again = {
         { id = "h_again", text = "Ask on. The dead have nothing but time, and I've more than most." },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can my beast truly see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Light trouble you, Captain, being what you are?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Rest easy, captain.", next = "END" },
       },
     },

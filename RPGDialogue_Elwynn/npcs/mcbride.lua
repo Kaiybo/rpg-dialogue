@@ -65,8 +65,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Fewer than I'd lose without the Abbey, and more than I'd like to write home about. The kobolds in the mine aren't much, but a recruit who panics is worse than any kobold, and I can't train the panic out of them fast enough." } },
+      choices = {
+        { text = "Then I'll help steady them when the panic comes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Panic culls the weak, Marshal. Better here than at the front.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "On the line, between the recruits and whatever's coming at them, because that's where the Light does the most good. I've read the old histories, and the Silver Hand never won a fight from a pew." } },
+      choices = {
+        { text = "Then I'll stand on the line, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll serve where my conscience sends me, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A healer. Anetta will claim you, but the barracks will claim you first, so sleep where you can." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sammuel will have you, but the garrison needs you more, so don't spend all day in the chapel." },
         { id = "h_default", text = "The garrison's spread thin, so I'll be brief. What do you need?" },
         { id = "h_from_willem", key = true, when = { questRecent = { TODO_QUEST("A Threat Within"), days = 1 }, metBefore = false },
           text = "Willem sent you up, then. Stand where the light's on you. Let's see what I'm working with." },
@@ -144,6 +164,8 @@ P:NPC {
         { text = "The spirits of the stone brought me here, Marshal.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "What do you need from a mage, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Where is the line thinnest in Northshire, Marshal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How many recruits do you lose, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where does a paladin serve best, Marshal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "That's all, Marshal.", next = "END" },
       },
     },

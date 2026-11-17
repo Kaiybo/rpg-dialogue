@@ -59,12 +59,32 @@ P:NPC {
         { text = "What do the satyrs want?", next = "satyrs" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Old sorrow, and old magic that the Deth'ryll want badly, which tells you it is not the kind of magic anyone should have. Pray over these stones, if you would, in whatever name you pray." } },
+      choices = {
+        { text = "I'll pray over the stones. Your people deserve peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stones don't need prayer. The satyrs need killing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Destroyed, if you ask me, for the Deth'ryll will not leave while there is anything left to dig up. But you serve your own vows, and I would not ask you to break them for me." } },
+      choices = {
+        { text = "They'll be driven out, and the ruins left in peace.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll be destroyed, every one of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Asterion, and I watch over what is left of Bashal'Aran. The Deth'ryll satyrs crawl through these stones looking for old magic, and I mean to see that they find none of it." },
         { id = "h_cond", when = { race = "NightElf" }, text = "You're one of the Kaldorei, so you'll feel it too, I think, the old sorrow in these stones. Our people built this place before the sea took so much of the shore." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Deth'ryll satyrs would scatter if enough of your kind came to Bashal'Aran, and I would be glad to see it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The satyrs of Bashal'Aran leave tracks like goats and a stink like the Legion, and you will know them when you find them." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then perhaps you can feel what lingers in Bashal'Aran, for I have felt it every night since the satyrs came." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here at Bashal'Aran. I did not think to see one of your order among our ruins, but I will not refuse the help." },
       },
       again = {
         { id = "h_again1", text = "What else would you know about the ruins?" },
@@ -79,6 +99,8 @@ P:NPC {
         { text = "Can I help you drive the satyrs from Bashal'Aran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the satyrs hide in the ruins, Asterion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Satyrs are demon-touched. I can deal with their kind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What lingers in these ruins, Asterion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the satyrs be driven out, or destroyed?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -190,12 +212,32 @@ P:NPC {
         { text = "Is the dig dangerous?", next = "danger" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, it's nothing, probably, though it's gone a colour I don't much like. Mind you, the murlocs on the beach bite harder than anything in the ruins, so I'll keep digging and hope for the best." } },
+      choices = {
+        { text = "Hold still. I'll tend it now, before it worsens.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If you say it's nothing, I'll take your word.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Leave them? Never, friend, for the League's job is to learn what's buried before somebody worse finds it first. I'll be respectful, mind, and the elves have had ten thousand years to complain." } },
+      choices = {
+        { text = "The past should be studied with care and respect.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dig what you like. The dead won't miss it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Remtravel's the name, prospector for the Explorers' League, and these old elven ruins are the finest dig I've had in years. If only I could remember where I left the bloody fossil." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf, out here! Tell me you're from Ironforge and you've brought a proper pickaxe, because the elves don't make a tool worth swinging." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand, because the murlocs keep chasin' me off my own dig, an' I've had enough o' runnin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have a good eye, then, an' I've lost a fossil the size o' my head somewhere about here." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Grand, grand, because I've a nasty feeling I've been bitten by something, and I can't remember what." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now that's a proper sight for an old prospector, and you'll forgive me if I ask you to watch my back while I dig." },
       },
       again = {
         { id = "h_again1", text = "Now, where was I? Ah, yes, you were asking something." },
@@ -210,6 +252,8 @@ P:NPC {
         { text = "Elven ruins like these are full of old wards.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you want the murlocs kept off your dig, Prospector?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts once walked this shore, Prospector?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you want me to look at that bite, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Shouldn't you leave these elven ruins alone, Prospector?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the digging.", next = "END" },
       },
     },
@@ -319,12 +363,32 @@ P:NPC {
         { text = "Who keeps the grove with you?", next = "grove" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A sickness that walks up from the south, from the Master's Glaive, where something waits that I cannot name. The trees feel it in their roots, and so do I, and I would have you pray against it before it reaches us." } },
+      choices = {
+        { text = "I'll pray for the grove and its roots.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trees can't be healed by prayer, Onu.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Patience, which is hard for the young, and strength, which comes easier. Strike at what threatens the grove, but do not strike in haste, for a hasty blow in this forest often falls on the wrong thing." } },
+      choices = {
+        { text = "I'll be patient, and strike only when I'm sure.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting lets evil grow. I'll strike first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Onu, and I have kept this grove since the trees here were saplings. Something stirs at the Master's Glaive to the south, where the old blade fell, and I do not like the shape of it." },
         { id = "h_cond", when = { class = "DRUID" }, text = "Ah, a druid walks in my grove, and I hear the Cenarion Circle in the way you step. Malfurion's children are always welcome among the Ancients." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The trees of this grove have watched many like you pass, and fewer return." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts of Darkshore have grown sick, and the grove feels it in its roots." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest stands in the grove. The Light, or Elune, it matters little to the trees, so long as what you carry is gentle." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind are young, as the forest counts years, but your vows are old enough to be worth something." },
       },
       again = {
         { id = "h_again1", text = "Speak, young one, I am listening." },
@@ -339,6 +403,8 @@ P:NPC {
         { text = "Is there a fight waiting at the Master's Glaive, Onu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the beasts of the grove still trust the Ancients?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Whatever stirs at the Glaive, I could find out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What troubles the grove, Ancient One?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you ask of a paladin, Ancient One?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I will leave you in peace.", next = "END" },
       },
     },
@@ -428,12 +494,32 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Quickly, then, because the Blackwood patrol this ground and they won't wait for a priest to finish. Mend what you can and I'll manage the rest, as I have been." } },
+      choices = {
+        { text = "I won't leave you hurt. Hold still.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "We've no time. Walk on it until we're clear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Someone in front of me and nothing behind, and that is all I ask. The furbolgs were friends once, so I take no pleasure in it, but I will not die in this cave for their sake." } },
+      choices = {
+        { text = "I'll guard you all the way, whatever comes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep up, and I'll do what I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "My name is Volcor, and I was taken by the Blackwood furbolgs when they turned on us. I need to reach the road and get word to Auberdine, but I can't fight my way past them alone." },
         { id = "h_cond", when = { class = "ROGUE" }, text = "You move like someone who knows how to go unseen, which may be just what I need. There's more than one way out of this den." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Thank Elune, because I can't fight my way past the Blackwood alone, and you look as though you could." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know the paths through the Blackwood better than I do now, since mine ended in a cage." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Then you can look at this leg once we're out of here, because I've been walking on it longer than I should." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'll be glad of that hammer between me and the furbolgs, though I hope you can keep pace with a limping elf." },
       },
       again = {
         { id = "h_again1", text = "Speak quickly, they patrol often." },
@@ -444,6 +530,8 @@ P:NPC {
         { text = "Why did the Blackwood turn on you?", next = "furbolg" },
         { text = "Who's waiting for you in Auberdine?", next = "others" },
         { text = "I can get us both out unseen.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Let me see to your wounds before we move, Volcor.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'll see you safe to the road, Volcor. What do you need?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll come back for you.", next = "END" },
         { text = "How many furbolgs stand between us and the road?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the Blackwood furbolgs keep their watch?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -555,12 +643,32 @@ P:NPC {
         { text = "Why can't you stay awake?", next = "sleep" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I couldn't say, which is the worry, really, because it always slips away before I wake. Liladris would tell me to stop fretting, but I'd sleep easier with your blessing, if you'll forgive the jest." } },
+      choices = {
+        { text = "Then you'll have my blessing, and I'll watch over you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dreams are dreams. Wake up and walk, Kerlonian.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I'd trust anyone who'd walk me there, truly, and I'd trust a paladin more than most. Only mind the cubs in the woods, for I'd rather you didn't fight them while I'm snoring." } },
+      choices = {
+        { text = "I'll get you home to Liladris, I swear it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take you part way. Then you're on your own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kerlonian, and I'm meant to be on my way home to Auberdine and my love, Liladris. The trouble is that I keep falling asleep on the road, and the Dream doesn't want to let me go." },
         { id = "h_cond", when = { class = "DRUID" }, text = "Another druid! You'll understand, then, how sweet the Dream is, and how easy it is to stay there longer than you should." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, good, because I'm going to fall asleep again any moment, and I'd rather somebody with a sword was nearby when I do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your companion would make a fine watchman while I nap, and I nap a great deal, I'm afraid." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? Oh, good, perhaps you can tell me if something in the Dream is following me, because I feel it watching sometimes." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll keep me safe on the road, I'm sure, but you may have to carry me, and I do apologise in advance." },
       },
       again = {
         { id = "h_again1", text = "Ask, quickly, before I nod off." },
@@ -575,6 +683,8 @@ P:NPC {
         { text = "Couldn't a spell keep you awake?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "So I just stand guard while you sleep, Kerlonian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the beasts on the road bother you while you sleep?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is something in the Dream troubling you, Kerlonian?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Will you trust me to get you home, Kerlonian?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Stay awake, Kerlonian.", next = "END" },
       },
     },

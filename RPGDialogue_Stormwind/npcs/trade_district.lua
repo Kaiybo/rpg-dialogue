@@ -74,8 +74,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Ruin it? It's building it! Every hero who drinks a free Gallina tells ten friends, and those ten pay full price, or so I keep telling Suzetta, who doesn't believe me." } },
+      choices = {
+        { text = "I'll pay for my bottle, Renato. Your sister deserves fair dealing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A free bottle's a free bottle. I'll take it gladly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Here, a ticket for a free bottle, because a hero should never have to pay for a good red, and don't tell my sister." },
         { id = "h_default", key = true,
           text = "Renato Gallina, at your service! My family keeps the Gallina Winery along the canals, and if you've drunk better wine in Stormwind, I'd like to know who poured it." },
         { id = "h_ticket", tags = { "news" }, when = { questActive = TODO_QUEST("Wine Shop Advert") },
@@ -108,6 +118,7 @@ P:NPC {
         { text = "Do mages really drink that much wine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers really drink your wine, Renato?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are the boars really ruining the Gallina vineyards?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Won't giving bottles away ruin the winery, Renato?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today, Renato.", next = "END" },
       },
     },
@@ -274,8 +285,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every week, a wheel for the orphans and one for the brothers, and the Cathedral pays in prayers more often than coin. Elling grumbles, but he carries it there himself, and I've seen him linger at the door." } },
+      choices = {
+        { text = "Kindness like that is its own blessing, Elaine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't pay your suppliers. Charge them, Elaine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My family's business, which is cheese, and a few other things that are none of yours. Let's say we help the kingdom in our own way, and leave it there, shall we?" } },
+      choices = {
+        { text = "I'll ask no more. A family's secrets are its own.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it's lawful, you'd have no reason to hide it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want the soft cheese for the orphans, I expect, which is what the Cathedral always sends for." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my shop. I'm sure you're here for cheese, {class}, and I'm sure you'll keep your eyes off my stairs." },
         { id = "h_default", key = true,
           text = "Elaine Trias. I make the cheese, my son Ben sells it, and my husband Elling stands at the counter looking trustworthy, which takes more effort than you'd think." },
         { id = "h_philmor", tags = { "news" }, when = { questActive = TODO_QUEST("Philmor's Favor") },
@@ -311,6 +342,8 @@ P:NPC {
         { text = "What makes your cheese good for soldiers, Elaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you smoke game alongside your cheese, Elaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mind the Lamb's people shopping here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you send cheese to the Cathedral, Elaine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's upstairs that needs watching, Elaine?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -455,8 +488,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Food, mostly, because they spend all day tending others and forget they've a stomach of their own. I've a list of it, and the top of the priest page says bread, then water, then more bread." } },
+      choices = {
+        { text = "Caring for others is worth an empty stomach now and then.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. A healer must look after themselves first.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oil, rope and patience, in that order, and the last one I can't sell you. The young knights come in a hurry, buy half of what they need and ride off to save someone, and I see them a week later with rusted greaves." } },
+      choices = {
+        { text = "Then sell me everything on the list. Preparation is a duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "When someone needs saving, there's no time for lists.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll have forgotten candles, I expect, every priest does, and bandages, and a spare pair of socks." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll have remembered your hammer and forgotten the oil for your plate, I'd wager, because they always do." },
         { id = "h_default", text = "Thurman Mullby. Water, bread, bags and the little things, and if you're going out through the gate, I can tell you what you've forgotten before you've forgotten it." },
         { id = "h_back", when = { metBefore = true }, text = "Back for more? Then you've learned the road eats bread faster than you'd think." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late shoppers are the ones who forgot something, so let's find out what it was." },
@@ -479,6 +532,8 @@ P:NPC {
         { text = "Why would a mage need a waterskin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do warriors forget most often, Thurman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does a hunter need most on the road, Thurman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do priests forget most on the road, Thurman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a paladin usually forget, Thurman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Nothing, thanks.", next = "END" },
       },
     },
@@ -574,8 +629,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Everyone should, because the road doesn't care what you believe. A healer who can't defend themselves is just another body to protect, and I'd sooner sell you a mace than read your name on a list." } },
+      choices = {
+        { text = "I'll carry one, but I'd always rather heal than harm.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they come at me, I'll put them down without a second thought.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They're taught to swing for the crowd, not for the fight, and a pretty swing leaves your side wide open. A weapon is a tool, and it should feel like one, not like something out of a tapestry." } },
+      choices = {
+        { text = "The order's drills have served us for generations, Gunther.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Show me your way, then. I'll fight however wins.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace, then, or a staff, though you hold yourself like someone who'd rather not hit anything at all." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Let me see your grip, {class}, because half the knights I sell to hold a hammer like it's a candle." },
         { id = "h_default", text = "Gunther Weller. Marda and I keep this arsenal, and we sell steel that does what it's meant to, which is more than I can say for half the shine on the auction house floor." },
         { id = "h_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've got a fighter's grip, so you'll want something with weight. Try the axes on the far wall and see what your arm says." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -597,6 +672,8 @@ P:NPC {
         { text = "Should a mage carry a blade at all?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How do you tell a good sword from a bad one, Gunther?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does a hunter need a melee weapon, Gunther?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a priest carry a weapon at all, Gunther?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's wrong with how knights hold their weapons, Gunther?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll look elsewhere.", next = "END" },
       },
     },
@@ -698,8 +775,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The refugees from Lordaeron keep coming, and the Cathedral's asking for help at the kitchens and the hospice, and nobody's crying it but me. Good news sells better, but someone has to shout the other kind too." } },
+      choices = {
+        { text = "Then I'll go to the kitchens. The refugees need us.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stormwind has enough hungry mouths of its own, Crier.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Calls for aid from Redridge and Westfall, mostly, and one from Darkshire I've been crying for a month now. They're not glamorous postings, but there's honour in them, and somebody ought to answer." } },
+      choices = {
+        { text = "Then I'll answer, Crier. Someone must.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A paladin's skill is wasted on village errands.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Hear ye, hear ye, the Cathedral seeks volunteers for the refugee kitchens, and here's one already!" },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Hear ye, hear ye, a champion of the Silver Hand walks among us, and the city is the safer for it!" },
         { id = "h_default", key = true,
           text = "Crier Goodman, voice of the city! Every notice that's nailed up in Stormwind passes through my throat first, and I'll tell it to anyone who's willing to be a hero." },
         { id = "h_young", when = { maxLevel = 49 },
@@ -736,6 +833,8 @@ P:NPC {
         { text = "Would you ever want a spell to carry your voice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What notices are posted for warriors, Crier?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are there notices posted for hunters, Crier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What news do you have for the Church, Crier?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you cry any notices for the Silver Hand, Crier?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not now, Goodman.", next = "END" },
       },
     },
@@ -876,8 +975,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When there's a gryphon free and a rider who can hold a man in the saddle, yes. Some of them don't make it, and I've had to settle a bird whose passenger stopped breathing on the way, which is harder than you'd think." } },
+      choices = {
+        { text = "That's merciful work, Dungar. Every one of them deserves the flight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The roads would do. Gryphons are for messages, not the dying.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I keep its perch empty for a season and write its name in the back of my ledger, and then I train another, because the roost can't stand idle. People think I'm soft for it, but every one of those birds died carrying somebody's message or somebody's son." } },
+      choices = {
+        { text = "Remembering them is right. They served as truly as any soldier.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A bird's a bird, Dungar. Train another and move on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My gryphons fly the wounded home from Lakeshire more often than I'd like, so I'm always glad to see a healer on the roost." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a gryphon to take you somewhere dangerous, I expect, and they'll go, so long as you've been there before." },
         { id = "h_default", key = true,
           text = "Dungar Longdrink, gryphon master of Stormwind. Every bird on this roost flies home to me, and they'll take you anywhere you've already been, as long as you've been there." },
         { id = "h_crate", tags = { "news" }, when = { questActive = TODO_QUEST("Dungar Longdrink") },
@@ -907,6 +1026,8 @@ P:NPC {
         { text = "Who reads your ledger, Dungar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do gryphons ever fly warriors into battle, Dungar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would a gryphon ever take to a hunter?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do you really fly the wounded home, Dungar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What happens when a gryphon doesn't come home, Dungar?", next = "xapala", when = { class = "PALADIN" } },
       },
     },
 
@@ -1045,8 +1166,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The careful ones do, and they're the ones who come back from Duskwood. My brother in Goldshire says priests are too proud to carry potions, but I say they're too busy healing everyone else to think about it." } },
+      choices = {
+        { text = "A healer's first trust should be in faith, Morgan, not a flask.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A potion is more reliable than a prayer, Morgan.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think it's a great deal more reliable than my brother, and less reliable than a well-brewed potion. I've never once had a potion refuse to work because I'd been sinning, and I'm not certain the Light can say as much." } },
+      choices = {
+        { text = "The Light doesn't fail, Morgan. People do.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. I'll carry potions and trust them more.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want mana potions, I expect, or you'll want them and then say a prayer instead, like most of your lot." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll heal yourself, I suppose, and never buy a thing, but at least take a potion for the road in case the Light's busy." },
         { id = "h_default", key = true,
           text = "Morgan Pestle. My brother William keeps our shop in Goldshire and I keep this one, and the Bouchers by the door sell the reagents so I can get on with the brewing." },
         { id = "h_shipment", tags = { "news" }, when = { questActive = TODO_QUEST("Shipment to Stormwind") },
@@ -1076,6 +1217,8 @@ P:NPC {
         { text = "How many healing potions should a warrior carry, Morgan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you really brew salves for pets, Morgan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you do if a warlock asked anyway?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do priests buy much from your apothecary, Morgan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you really think the Light can be busy, Morgan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -1188,8 +1331,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "That somebody expects a war, and nobody's told the rest of us. I count more coin every week, and every coin feels like a soldier going out, and I've started to wonder whether I'd rather be poor." } },
+      choices = {
+        { text = "Then pray it's for nothing, Harlan, and keep your good heart.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Coin's coin. If there's a war, you'll be glad of it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Merchants' guards, noble houses, men heading to Westfall and men heading north, and none of them say why. I sell honestly and ask nothing, but I'd like to know what's coming as much as anyone." } },
+      choices = {
+        { text = "Whatever comes, the Silver Hand will stand against it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell to the highest bidder, Harlan. That's how trade works.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want cloth from Carla, I expect, though lately I'm selling more mail than cloth and I can't say I like what that means." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Aldric has plate in the back, and he'll want to show it to you before anyone else gets their hands on it." },
         { id = "h_default", key = true,
           text = "Harlan Bagley, and this is my armory. Carla sells the cloth, Lara the leather and Aldric the mail, and I count the coin, which is more of it lately than I know what to do with." },
         { id = "h_resupply", tags = { "news" }, when = { questActive = TODO_QUEST("Harlan Needs a Resupply") },
@@ -1217,6 +1380,8 @@ P:NPC {
         { text = "Does anyone ever try the back window?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has trade been good with the Mage Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What leather armour do hunters buy most, Harlan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do you think the rush for armour means, Harlan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who's buying all this armour, Harlan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },

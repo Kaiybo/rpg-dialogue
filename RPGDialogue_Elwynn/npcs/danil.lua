@@ -52,8 +52,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When the Brothers remember to pay me for it, and they do, mostly, in blessings and the occasional copper. There are Westfall folk coming up the road with nothing in their hands, and I give them the stale loaves and pray nobody notices the fresh ones going too." } },
+      choices = {
+        { text = "Give them the fresh ones, Brother. Charity is never wasted.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Charity empties wagons. Sell the fresh ones and stay open.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Water, mostly, because Sammuel works you lot in the sun until you see visions, and the visions are usually just thirst. And a little thread, for the tabard you'll tear on the first kobold you meet." } },
+      choices = {
+        { text = "A paladin should pay his way, Brother, at full price.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Surely the Abbey can feed its own paladins for nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my wagon. You'll want bread and water, I expect, because prayer feeds the soul but it's never once fed the stomach." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Brother Sammuel will have you on your knees by dawn, so buy your bread tonight, while you can still stand." },
         { id = "h_default", text = "Bread, water, a little thread. The Abbey's stores are humble, but honest." },
         { id = "h_rich", when = { money = { min = 100000 } }, text = "Ten gold on you, at least; I can hear it from here. The Abbey roof leaks, you know." },
         { id = "h_roof", when = { metBefore = true }, text = "The roof leaked on the bread again. I told the Brothers, and they told me to pray, so I prayed, and it rained." },
@@ -82,6 +102,8 @@ P:NPC {
         { text = "Do you truly think a rogue would rob the Abbey?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Brothers mind you selling to warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a recruit need most from your wagon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the Abbey feed the poor from your wagon, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a paladin need from your wagon, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just looking.", next = "END" },
       },
     },

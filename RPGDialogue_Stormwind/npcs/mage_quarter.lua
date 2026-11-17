@@ -61,8 +61,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It must be, for I've seen priests who lost their discipline burn as badly as any careless mage. Power that is granted can be withdrawn, and power that is studied can be misused, and I am not certain which is the greater danger." } },
+      choices = {
+        { text = "Power given in faith is safer than power taken by study.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Studied power answers to the mind. That makes it safer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Respect it, certainly, for every power in this world asks a price of those who wield it. The paladins who frightened me were never the doubtful ones, only those who were sure the Light could never be wrong." } },
+      choices = {
+        { text = "A paladin follows the order's teaching, not his own certainty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A paladin must trust conscience above any teacher.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Sanctum. You draw your power from without, and we from within, and I've always found the comparison instructive, if you'll indulge me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Be careful with the fire you carry, {class}, for the Light burns the untrained as surely as any spell." },
         { id = "h_default", text = "Maginor Dumas, Master Mage of the Sanctum. My advice to you is this: as you travel the world, be wary of magic, for it will burn the untrained, and most of the world is untrained." },
         { id = "h_magecraft", key = true, tags = { "news" }, when = { questBefore = TODO_QUEST("Magecraft"), class = "MAGE" },
           text = "Archmage Xylem has been asking after mages of your experience, which is a compliment, though he'd never phrase it as one. He keeps a tower in Azshara, and he teaches what we here cannot." },
@@ -95,6 +115,8 @@ P:NPC {
         { text = "Why chain the books, Master Dumas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should a warrior fear magic, Master Dumas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there magic in the wild, Master Dumas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is faith a discipline like your magic, Master Dumas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should a paladin fear the Light he carries, Master Dumas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },
@@ -263,8 +285,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "We did, to the Light as the humans taught us long ago, though many of my people put more faith in the Sunwell. Now the Sunwell is defiled and the prayers remain, which I suppose says something about where faith truly lives." } },
+      choices = {
+        { text = "Faith outlasts every fountain of power. That's its strength.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith survived because it asked nothing of you. Power did.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some of us do, the ones who stayed, though Quel'Thalas left the Alliance after that war and those still there have other griefs now. I stay because Stormwind's apprentices need a patient teacher, and because I owe the old promises more than my kin seem to." } },
+      choices = {
+        { text = "Old promises bind us still. I'm glad you keep them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your people chose to leave. You owe Stormwind nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. In Quel'Thalas the priests of the Light served alongside our magisters, and I find I miss the sound of their prayers more than I expected." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order's founders fought beside my people's rangers in the Second War, and I have not forgotten it, though many of my kin have." },
         { id = "h_default", text = "I am Elsharin. I teach the apprentices of the Sanctum their first spells, and I try to teach them patience, which is harder. Humans are always in such a hurry." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "The fundamentals never stop mattering, whatever the more senior magi tell their students. Come back to me whenever a spell feels wrong in your hands, and we'll find out why." },
@@ -293,6 +335,8 @@ P:NPC {
         { text = "Do the kaldorei have warriors as well, Elsharin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you miss the forests of Teldrassil, Elsharin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my kind of magic frighten you, Elsharin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Did your people pray in Quel'Thalas, Elsharin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the high elves still honour the Alliance, Elsharin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -440,8 +484,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Lost is a strong word, though there was an apprentice who arrived in Ironforge some hours after he left, and he never quite explained where he'd been. I'd prefer the Cathedral didn't hear about it, if you don't mind." } },
+      choices = {
+        { text = "That should be reported, Larimaine. People must know the risks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your secret's safe. The Cathedral needn't hear everything.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not with my own life, but with yours, possibly, and they do need someone to practise on. Most arrive in one piece, and the ones who don't are usually missing something they won't miss." } },
+      choices = {
+        { text = "Then I'll wait for a master. Rules exist for good reasons.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll risk it. Someone has to help them learn.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, here for portals? No, I suppose you're here about someone who stepped through one badly, which happens more often than the Sanctum likes to admit." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'm afraid I can't teach you to fold the world, {class}, but if you're ever in a hurry to reach Ironforge, I could find you a student who's practising." },
         { id = "h_default", text = "Larimaine Purdue. I teach the conjuring of portals, which is to say I teach a select few mages how to fold the world in half and step across the crease. I don't believe you're one of them." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "As a mage, you belong to a select group that can conjure a portal back to this very place. I'll teach you when you're ready, and I'll tell you honestly if you aren't." },
@@ -463,6 +527,8 @@ P:NPC {
         { text = "Have you ever sent warriors through a portal, Larimaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does a portal do to an animal, Larimaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Surely your portals and my summonings aren't so different?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has anyone ever been lost in a portal, Larimaine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you trust a student's portal yourself, Larimaine?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -561,8 +627,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The crown's tolerance, Master Dumas's discretion, and the simple fact that you don't know which of us to arrest first. You'd make a great deal of noise and find a great many locked doors, and the people you came to save would read about it in Wishock's speech." } },
+      choices = {
+        { text = "Then I'll wait for the law and come back with its warrant.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Locked doors have never stopped the Light before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, down here. How very bold, and how very unwise, though I'll be civil if you will." },
         { id = "h_default", text = "Zardeth, of the Black Claw. I attend to the cellar's more delicate affairs, so that my colleagues may attend to their studies undisturbed. You'd be surprised how often studies are disturbed." },
         { id = "h_brew_before", key = true, tags = { "news" }, when = { questBefore = TODO_QUEST("A Noble Brew"), minLevel = 30 },
           text = "Lord Wishock is causing quite a stir in the House of Nobles. He's learned of our little establishment and wants a full inquiry, and I have a plan to keep him preoccupied, if you'd care to help." },
@@ -593,6 +669,7 @@ P:NPC {
         { text = "Why does Master Dumas tolerate you down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would the Black Claw want with a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does my pet smell down here, Zardeth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What keeps me from turning this cellar out, Zardeth?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -735,8 +812,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Fear is for those who don't study their footing, and I study mine every night. Your faith asks you to trust what you can't see, while I insist on seeing everything, and I'd ask which of us is the braver." } },
+      choices = {
+        { text = "Trusting what you can't see is the hardest courage there is.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps you are. Blind faith is no virtue.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because I teach discipline to people who would otherwise learn without it, and that's the worse danger by far. Close this cellar and those who want this power will find it in the woods, alone and badly taught." } },
+      choices = {
+        { text = "Dark power taught well is still dark power, Ursula.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Perhaps you're right. Better taught here than wild in the woods.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to save me, I'll spare you the trouble, because I'm not lost and I know exactly where I'm going." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the cellar. I'm sure you're very righteous, so do keep your hands off the circles, because they're older than your order." },
         { id = "h_default", text = "Ursula Deline. I teach discipline to those who would command what lies beyond the world. The darkness doesn't embrace everyone, so if it doesn't embrace you, I'd ask you to leave before it notices." },
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "You've come to learn, then, not to gawk. Keep up your training, because the arcane only corrupts those who are weak, and I don't intend to lose another student to weakness." },
@@ -764,6 +861,8 @@ P:NPC {
         { text = "Stricter than the Sanctum's? How so?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would my sword sing down here, Ursula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do warlocks envy a hunter's bond, Ursula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever fear where your path leads, Ursula?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why should a paladin leave you in peace, Ursula?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -892,8 +991,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It did at first, but then I worked out that the books will be sold anyway, and at least I keep a ledger. I've never sold one to anybody who couldn't already summon something, so I like to think I'm only improving their manners." } },
+      choices = {
+        { text = "Improving a demon's manners still feeds the demon, Spackle.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fair enough. Better a careful dealer than a reckless one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Officially the crown, unofficially Master Dumas, and practically whoever's standing at the bottom of the stairs. I keep my books in order and my mouth shut, and nobody's arrested me yet, which I take as a sort of permit." } },
+      choices = {
+        { text = "Silence isn't a permit, Spackle. The law should rule here too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If no one's stopped you, the law can't mind much.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Don't mind the grimoires, they're perfectly safe so long as nobody reads them aloud, and I'd guess you're not the reading-aloud sort." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh dear, I'd better put the dreadsteed grimoire under the counter, hadn't I? Not that it's illegal, it's only a bit embarrassing." },
         { id = "h_default", text = "Spackle Thornberry, purveyor of fine grimoires! Each one teaches a demon a new trick, which I'm sorry to say is only of any use to warlocks, but I'll happily talk about them to anyone." },
         { id = "h_morzul", key = true, tags = { "news" }, when = { class = "WARLOCK", minLevel = 60 },
           text = "Your mastery over the denizens of other worlds has grown very strong, and I think you're ready to bind a dreadsteed. Speak to Mor'zul Bloodbringer, at the Altar of Storms in the Burning Steppes, and bring plenty of gold." },
@@ -921,6 +1040,8 @@ P:NPC {
         { text = "Does the Sanctum know what you sell down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a voidwalker block a sword, Spackle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a beast learn tricks from a grimoire, Spackle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Doesn't selling books like these worry you, Spackle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who decides what's legal to sell down here, Spackle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Spackle.", next = "END" },
       },
     },

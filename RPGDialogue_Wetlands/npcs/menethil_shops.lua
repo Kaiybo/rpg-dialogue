@@ -68,8 +68,28 @@ P:NPC {
         { text = "How do the gryphons take the damp?", next = "damp" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When the garrison asks, which is more often since the Dragonmaw came into Algaz. The birds know a hurt rider from a healthy one, and they fly gentler for it." } },
+      choices = {
+        { text = "Then I'll see to the wounded before they fly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The strong should fly first. The wounded slow them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Shellei.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough, since the orcs can't reach us that high, though they'll throw things on the way up. It's the dragons over Grim Batol I watch for, and so far they've kept to their own skies." } },
+      choices = {
+        { text = "If the birds are threatened, I'll set down and fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll fly high and leave the orcs alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Shellei.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The gryphons fly a good many wounded east to Ironforge, and I'm always glad of someone to calm them before they go." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll need one of the big birds, then, and you'll need to hold on, because the mountain winds have no respect for rank." },
         { id = "h_default", key = true,
           text = "Shellei Brondir, gryphon master of Menethil Harbor. My birds fly east over the mountains to Thelsamar and Ironforge, which is the only way out of the Wetlands that won't leave mud in your boots." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? You'll be heavy, then, so I'll give you one of the stronger birds." },
@@ -88,6 +108,8 @@ P:NPC {
         { text = "I'll be teleporting soon. Will you miss my coin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can your gryphons carry a warrior in full armor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons mind a hunter's beast, Shellei?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your birds carry the wounded east to Ironforge, Shellei?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the flight east safe, with the Dragonmaw in the hills?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Shellei.", next = "END" },
       },
     },
@@ -192,8 +214,28 @@ P:NPC {
         { text = "How do you keep anything dry here?", next = "dry" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than it has need o' guns, if I'm honest, for the lads come back from Algaz wi' holes in them, an' a rifle cannae mend a hole. Glorin does what he can, but he's one dwarf, an' a grumpy one." } },
+      choices = {
+        { text = "Then I'll go up and help Glorin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better guns would mean fewer holes, Murndan.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Murndan.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Well enough, if they'd clean their rifles, which they willnae, because it's wet an' they're tired. I've told the Captain twice that rust kills more o' his lads than orcs, an' he looked at me like I'd insulted his mother." } },
+      choices = {
+        { text = "The Captain should order daily drill, then.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Soldiers fight with what they have. Let them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Murndan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If ye've a blessin' for rust, I'll take it, for nothin' else I've tried has worked." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye'll have no use for a rifle, I expect, but I'll tell ye which o' the garrison's are worth standin' behind." },
         { id = "h_default", key = true,
           text = "Murndan Derth, gunsmith. I came out tae Menethil tae sell guns tae the garrison, an' I've spent every day since fightin' the rust, for this swamp's the wettest place a dwarf ever kept a rifle." },
         { id = "h_dwarf", when = { race = "Dwarf" },
@@ -214,6 +256,8 @@ P:NPC {
         { text = "I could dry out your stock with a little fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior carry a gun, Murndan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What rifle would you sell a hunter in this swamp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the garrison have much need of a priest, Murndan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the garrison well armed against the Dragonmaw, Murndan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Murndan.", next = "END" },
       },
     },
@@ -316,8 +360,28 @@ P:NPC {
         { text = "Why sell here, of all places?", next = "why" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "By the crate, since the Dragonmaw came down into Algaz, and I can't keep enough linen in stock. Brother Glorin buys the rest and gives them out at the chapel, which is about the only charity this harbor sees." } },
+      choices = {
+        { text = "Then I'll help Glorin hand them out.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Linen's scarce. Sell it to the highest bidder, Neal.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Neal.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "When there's a road, which there isn't most weeks, with the Span gone and the Dark Irons on the bridges. I sent a cart of rope and rations north a month ago, and I've not heard whether it got there." } },
+      choices = {
+        { text = "I'll carry the next cart north myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Send nothing north until the road is safe.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Neal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I stock candles and bandages too, you know, though the gnomes never buy those." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? You'll be wanting rope and torches, I'd think, and maybe a little blasting powder for the stubborn doors." },
         { id = "h_default", key = true,
           text = "Neal Allen, engineering supplies and general goods. A harbor town needs a bit of everything, from rope and bread for the sailors to tubes and powder for the gnomes passing through." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -338,6 +402,8 @@ P:NPC {
         { text = "Do you sell anything for spellcasters?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do warriors usually buy from you, Neal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you keep enough shot for the hunters here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the garrison come to you for bandages, Neal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your goods ever reach Dun Modr's defenders, Neal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Neal.", next = "END" },
       },
     },
@@ -419,8 +485,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Poisons don't choose their victims, friend, and neither do I; I only sell them. Whatever happens after that is between the buyer and whoever they answer to, and I gather that's your department." } },
+      choices = {
+        { text = "Then I'll keep an eye on who buys from you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A trader isn't to blame for his buyers.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Samor.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the garrison's own scouts buy from me, and they're the ones who keep the Dragonmaw guessing. Report me if you like, but Menethil would be a good deal blinder without me." } },
+      choices = {
+        { text = "The law is the law. I'll tell the Captain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Menethil needs its shadows. I'll keep quiet.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Samor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, up here? I'd have thought my wares were the opposite of your business, though I'll not turn your coin away." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Please do lower your voice, and perhaps your hammer, since this is a discreet establishment." },
         { id = "h_default", key = true,
           text = "Samor Festivus, dealer in certain specialized goods. I'd tell you what they are, but if you need them, you already know, and if you don't, you're better off not asking." },
         { id = "h_rogue", when = { class = "ROGUE" },
@@ -439,6 +525,8 @@ P:NPC {
         { text = "Does the garrison know you're up here?", next = "garrison" },
         { text = "Do warriors ever buy from you, Samor?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters ever come up here looking for something?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does your trade ever harm the innocent, Samor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Give me one reason not to report your trade, Samor.", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

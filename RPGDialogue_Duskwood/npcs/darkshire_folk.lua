@@ -517,8 +517,18 @@ P:NPC {
         { text = "Tell me Darkshire's history.", next = "history" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Years ago, one stopped here on the road north and left a note in the town register asking that Raven Hill's dead be watched. We've watched them faithfully ever since, which, I'm sorry to say, isn't at all the same as stopping them." } },
+      choices = {
+        { text = "Then I'll finish what that paladin started.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "An old note doesn't bind me. Raven Hill isn't my charge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's go back to something else, Sirra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Do you know, the founding of the Silver Hand is written up in three of my books, and they disagree on nearly everything?" },
         { id = "h_default", text = "I'm Sirra Von'Indi, historian to the town: languages, old scripts and older families. If it happened in Darkshire and someone wrote it down, I've read it twice." },
         { id = "h_note", tags = { "news" }, when = { questActive = TODO_QUEST("Translate Abercrombie's Note") },
           text = "Let me see the hermit's note... oh dear, that's an old script, older than the hermit himself, so whatever is he doing with it?" },
@@ -555,6 +565,7 @@ P:NPC {
         { text = "Has Darkshire ever had warriors of note, Sirra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What did Duskwood's wildlife look like before the darkness came?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your histories must mention necromancers. Morbent Fel, for one.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have any paladins come to Darkshire before, Sirra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -770,8 +781,18 @@ P:NPC {
         { text = "Why study stars here, of all places?", next = "why" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Perhaps the Light made the stars, I couldn't say, but it didn't make the fog, and I'd rather measure what's in front of me than guess. Hold the lamp for me some night and we'll see which of us learns more." } },
+      choices = {
+        { text = "The Light shows more than any lens ever will, Viktori.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Measure away, then. Faith can wait for your results.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Viktori.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and you'll tell me the Light is the only lamp I need. I'd still like a better lens, if it's all the same to you." },
         { id = "h_default", text = "I'm Viktori Prism'Antras, and I study the stars, in Duskwood, yes, I know. Everyone laughs, but then everyone in Duskwood hasn't seen the sun in years, so who's laughing?" },
         { id = "h_tube", tags = { "news" }, when = { questActive = TODO_QUEST("Look To The Stars") },
           text = "I need a bronze tube made by an engineer, the first piece of Cog's design. Herble down the hill sells a few, if he hasn't run out." },
@@ -805,6 +826,7 @@ P:NPC {
         { text = "Do you need a guard when you watch the stars, Viktori?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the beasts of Duskwood still follow the moon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some of what's up there isn't stars at all.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Light have any place in your stargazing, Viktori?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the fog.", next = "END" },
       },
     },
@@ -965,8 +987,18 @@ P:NPC {
         { text = "What's cooking tonight?", next = "tonight" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every one of them, and twice on cemetery nights, because a hungry watcher sees things that aren't there and misses things that are. I feed them on credit, mostly, and the credit's never once come due." } },
+      choices = {
+        { text = "Then I'll pay for my supper, and a watcher's besides.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Cooking on credit? You're a soft touch, Grual.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grual.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll eat first and pray second in my kitchen, and the Light won't mind, because I've asked it." },
         { id = "h_default", text = "Grual's the name, and I cook for the Scarlet Raven! It's the best food in Darkshire, and I'll fight anyone who says it's only the best because it's the only food in Darkshire." },
         { id = "h_crab", tags = { "news" }, when = { questActive = TODO_QUEST("Dusky Crab Cakes") },
           text = "Crab cakes, the house favourite! I need a few bits for the recipe, but don't ask which bits, because it's a family secret and the family's very private." },
@@ -995,6 +1027,7 @@ P:NPC {
         { text = "What's really in the stew, Grual?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could conjure you a perfect loaf, Grual.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does a warrior eat before facing Duskwood's dead, Grual?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does your kitchen feed the Night Watch too, Grual?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just smelling, thanks.", next = "END" },
       },
     },
@@ -1165,8 +1198,28 @@ P:NPC {
         { text = "What does the council actually do?", next = "council" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bishop Farthing writes, I'll give him that, and he's the only one in Stormwind who does. But a letter of comfort to a widow isn't a company of soldiers, and Darkshire has a great many widows." } },
+      choices = {
+        { text = "Comfort matters too. I'll pray for every one of those widows.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Prayers won't save Darkshire; soldiers will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Next item, Councilman.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stand in the square where people can see you, for a start, so they believe Stormwind still remembers them. Then go and do something about Raven Hill, so they've a reason to go on believing it." } },
+      choices = {
+        { text = "I'll stand for Stormwind, even if Stormwind's been slow.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'm not here for Stormwind. I'm here for Darkshire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Councilman.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Cathedral answers our letters with prayers, which is kind of it, though a prayer has never yet held a pike." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If you've come from the Cathedral, tell them the council of Darkshire has a long memory and a longer list." },
         { id = "h_default", text = "I'm Councilman Millstipe, of the Council of Darkshire. We govern this town, and we'd govern it better if Stormwind ever read our letters past the first line." },
         { id = "h_ello", when = { heardLine = "ello.h_default" },
           text = "The mayor told you about his petitions? I drafted half of them, with stronger language every time, and now they've stopped replying to the strong ones too." },
@@ -1198,6 +1251,8 @@ P:NPC {
         { text = "Has Stormwind truly sent no soldiers to Darkshire, Councilman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the council pay for worg pelts, Councilman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your council could use someone who frightens Stormwind.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have Stormwind's priests done anything for Darkshire, Councilman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would the council have a paladin do, Councilman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Councilman.", next = "END" },
       },
     },
@@ -1383,8 +1438,18 @@ P:NPC {
         { text = "Who stays here?", next = "guests" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safe enough to sleep, mostly, which is all I promise anyone. Smitts's old murders still keep a few of the older guests awake, and the new ones wake when the wolves start, so a paladin by the door would do us all good." } },
+      choices = {
+        { text = "The room by the door, then. Let them sleep.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take a quiet room upstairs, thank you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Trelayne.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your room's the one by the door, if you'll take it, because my guests sleep better knowing who's nearest the night." },
         { id = "h_default", text = "I'm Trelayne. Smitts keeps the bar and I keep the beds, and between us we keep people indoors after dark, which is the whole job here." },
         { id = "h_smitts", when = { heardLine = "smitts.m_default" },
           text = "So Smitts told you about the murders; he tells everyone eventually, so let him. It's the only thing he's never been able to put down." },
@@ -1404,6 +1469,7 @@ P:NPC {
         { text = "Has anything ever broken into the inn, Trelayne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the wolves come into Darkshire at night, Trelayne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your guests would sleep safer with something of mine at the door.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your guests feel safe under this roof, Trelayne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -1508,8 +1574,28 @@ P:NPC {
         { text = "Can anyone sleep, with the worgen so close?", next = "sleep" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The Watch bring me their blades to sharpen, and half of them ask me to say something over the edge while I'm at it. I'm no priest, so I say 'cut true', but I'd not stop you saying something better." } },
+      choices = {
+        { text = "Then I'll bless them. Every edge here guards someone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A sharp edge needs no blessing, Clarise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Clarise.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I could, and I'd rather you learned than walked in here every week with a cracked haft. The dead are hard on a mace, harder than living bone, and a hammer that breaks out past the lamps is no use to anyone." } },
+      choices = {
+        { text = "Teach me properly, then, the slow way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll just buy a new one when it breaks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Clarise.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at the forge? Mind your robes near the sparks, because I've singed better cloth than yours without meaning to." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Bring that hammer here and let me see the head, because a paladin's hammer takes more punishment than any blade in Darkshire." },
         { id = "h_default", text = "I'm Clarise Gnarltree, and I teach the craft. Gavin does the blades and Morg does the armour, so between the three of us there's a Gnarltree for every bit of you." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elf-built, with a light frame and a long reach. If you ever take up the hammer, choke up on the handle, and you'll thank me for it." },
@@ -1527,6 +1613,8 @@ P:NPC {
         { text = "I don't need armour, Clarise. I need a staff.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How do you keep a warrior's gear alive in this wood, Clarise?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you forge arrowheads that'll pierce worg hide, Clarise?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does a smith's work ever need a blessing, Clarise?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could you teach me to keep my own hammer sound?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },

@@ -61,6 +61,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Their friends, when we can bring them home, and the hills, when we can't. I write to every family myself, and I've stopped counting the letters, because the number started keeping me awake." } },
+      choices = {
+        { text = "Then let me go with the next burial detail, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead can wait, Marshal. The orcs won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Hold the walls, because I can't take a keep with the men I've got, and every guard I lose on an assault is a gate left open. But the longer we wait, the deeper the Blackrock dig in, so I need people like you to bleed them in the valley first." } },
+      choices = {
+        { text = "Then I'll hold the walls, as you command, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting is how keeps fall. I'll strike Stonewatch myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -81,6 +99,8 @@ P:NPC {
         { id = "h_tharilzun_done", tags = { "news" }, when = { questDone = TODO_QUEST("Tharil'zun") },
           text = "Without Tharil'zun the valley's just a camp full of angry orcs. Angry orcs I can handle. Organized ones were killing us." },
         { id = "h_count", when = { metBefore = true }, text = "Twelve guards on the morning roll, and twelve on the evening. On days like that I thank the Light out loud." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've wounded in the barracks and dead in the hills, and not enough of anyone for either." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because I'd take one paladin over ten levies, and so far I've only been sent the levies." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick; the road's quiet, and I don't trust it." },
@@ -99,6 +119,8 @@ P:NPC {
         { text = "I can get into Stonewatch unseen, Marshal.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Your guard's spread thin. I can hold a line with fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The Blackrock shadowcasters won't be the only ones with demons.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Who buries your guards who fall in the hills, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should Lakeshire strike Stonewatch, Marshal, or hold the walls?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep my eyes east.", next = "END" },
       },
     },

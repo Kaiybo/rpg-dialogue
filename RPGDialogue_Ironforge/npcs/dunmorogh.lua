@@ -54,8 +54,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Nothing fancy, just a word for the folk who walked through the snow and didn't make it to a fire, because there are more of them than Kharanos likes to say. I'm not a praying man myself, but I'll sit quiet while you do it, and I'll mean it." } },
+      choices = {
+        { text = "Then I'll say them here, for every traveller this snow took.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The cold isn't evil. Better to teach people how to survive it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something warmer.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I wouldn't say no, because the Frostmane trolls come down from the hills now and then, and the wendigos are worse in a hard winter. But I'd rather you taught travellers to look after themselves than walked the road for them, because you can't be everywhere." } },
+      choices = {
+        { text = "The weak deserve a protector. I'll walk this road when I can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Teach them, and they'll protect themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Eric.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my fire! Sit down, and don't worry about the snow on your armour, because it'll melt, and you'll smell like a wet anvil, and that's all right." },
         { id = "h_default", key = true,
           text = "Eric Brighthammer. I've slept under more stars than roofs, and I'll teach anyone who asks how to do it without freezing." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
@@ -84,6 +103,8 @@ P:NPC {
         { text = "Have you ever had your camp robbed out here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why not let a mage light every fire for you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have you fought the Frostmane trolls yourself, Eric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What sort of prayers do you want said at your fire, Eric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you want help keeping this road safe, Eric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -226,8 +247,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The troggs, as ever, comin' up through the cracks in the valley like they own the place, an' the Frostmane makin' noise to the south. I'd have every one o' them gone if I could, but I'd settle fer the mail gettin' through." } },
+      choices = {
+        { text = "Then I'll stand between the troggs and your recruits.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Recruits who can't face a trogg had better learn quickly, then.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll get to work, Sten.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Ye're green, but ye've the look o' somebody who'll stand when the troggs come, an' that's more than I can say fer half the recruits." },
         { id = "h_default", key = true,
           text = "Sten Stoutarm. I run the post fer Anvilmar, such as it is, an' letters come through the pass along wi' the troggs. I prefer the letters." },
         { id = "h_outfit", tags = { "news" }, when = { questActive = TODO_QUEST("Dwarven Outfitters") },
@@ -258,6 +289,7 @@ P:NPC {
         { text = "Why would a letter cough smoke near me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where are the troggs troubling the post, Sten?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting near Anvilmar, Sten?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What's the post's worst trouble, Sten?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll get to it.", next = "END" },
       },
     },
@@ -376,8 +408,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Spirits an' bones an' whatever else their witch doctors dream up, an' none of it kindly to dwarves. I've seen them dancin' round fires in the caves, an' I'll not pretend I understood it, but I didn't like it, an' my beard liked it less." } },
+      choices = {
+        { text = "Whatever they serve, it's dark. It should be stamped out.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their faith is theirs. It's their axes we should worry about.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's get back to the trolls.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "By the book, I'd hope, for I'm here to report, not to start a war the Senate didn't vote for. Thin their numbers in the caves if ye must, but I'd sooner know what they're plannin' before we kill everyone who could tell us." } },
+      choices = {
+        { text = "By the book, then. The Senate should decide the war.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The trolls attack dwarves. That's vote enough for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Envoy.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out here in the cold! My beard tells me trouble's comin', an' it'd be a comfort to have someone who can mend what the trolls break." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The King'll be glad to hear one's in the valley, an' I'll put it in my report, if my apprentice hasn't used all the ink." },
         { id = "h_default", key = true,
           text = "Grelin Whitebeard, special envoy of the Senate. They sent me to learn what the Frostmane trolls are up to, an' I'll not let the King down." },
         { id = "h_cave", tags = { "news" }, when = { questActive = TODO_QUEST("The Troll Cave") },
@@ -407,6 +459,8 @@ P:NPC {
         { text = "What would you want a quiet scout to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are the Frostmane shamans truly dangerous?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What are the Frostmane trolls up to, Envoy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the trolls worship, out there in the caves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How shall I deal with the Frostmane, Envoy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
     },
@@ -547,8 +601,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Two scouts this winter, an' we sent their names back to Ironforge, for there was nothin' else to send. I'd not ask ye to go lookin' for them, but if ye find anythin' of theirs in the hold, bring it to me, an' I'll see it gets to their kin." } },
+      choices = {
+        { text = "I'll pray for them and bring back whatever I find.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are gone. The living scouts need the help more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about the hold instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Watch it, for now, for the Senate wants reports an' not a war in the snow. But if the Frostmane come down off the ridge again, I'll not wait for a vote, an' I'd like ye at my side when I don't." } },
+      choices = {
+        { text = "We watch until they strike. The Senate's word stands until then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting for them to strike first is how villages burn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Senir.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! My brother would ask ye to bless his notes, but I'd settle for a prayer the Frostmane stay up on their ridge where they belong." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in Kharanos. Good, for Frostmane Hold is no place for a scout alone, an' I'd rather send someone who can hold a door." },
         { id = "h_default", key = true,
           text = "Senir Whitebeard, envoy of the Senate, same as my brother. He watches the trolls in the valley, an' I watch the ones in their hold." },
         { id = "h_obs", when = { questActive = TODO_QUEST("Senir's Observations") },
@@ -582,6 +656,8 @@ P:NPC {
         { text = "Is a warlock really like a troll witch doctor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How strong is Frostmane Hold, Senir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Frostmane trolls hunt the same beasts we do?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Has anyone gone into Frostmane Hold and not come back?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should we strike the hold, Senir, or watch it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go to the hold.", next = "END", fx = { affinity = 1, standing = { kharanos = 1 } } },
       },
     },
@@ -707,8 +783,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "My grandda thought so, an' he swore the year he skipped it the whole batch went sour, though between ye an' me, he'd left the lid off. I'll no' turn down a blessin', mind, for the patrons like the story, an' so do I." } },
+      choices = {
+        { text = "Then I'll say the words. Every honest craft deserves a blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Holy words for ale? Save them for the sick, Ragnar.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Back to the ale, then.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Hang them by their beards, if ye ask me, but nobody does, so I'd settle for gettin' the recipe back an' teachin' them it's no' theirs. They've no right tae our ale, an' they've no taste either, so they'd ruin it anyway." } },
+      choices = {
+        { text = "Get it back fairly, and let the guards do the hanging.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thieves who steal from honest dwarves deserve a hard lesson.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Back to the ribs, Ragnar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll bless the vats, will ye? No? Well, a dwarf can ask, an' the Barleybrews have a priest come round every spring, or so they claim." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll have a pint before ye go, or at least smell one, for it's bad luck tae leave the Thunderbrew Distillery dry." },
         { id = "h_default", key = true,
           text = "Ragnar Thunderbrew, part owner o' this fine distillery. My meat supplier ran off to join the King's army, so now I buy from hunters, because the patrons want their ribs." },
         { id = "h_ribs", tags = { "news" }, when = { questActive = TODO_QUEST("Beer Basted Boar Ribs") },
@@ -737,6 +833,8 @@ P:NPC {
         { text = "Have casks gone missing from the distillery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why worry about my demon and your vats?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you buy boar ribs from a hunter, Ragnar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Thunderbrews really want their ale blessed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should be done about the Dark Irons who stole your recipe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -891,8 +989,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I'd like, an' they come in wi' trogg bites an' frostbite an' worse, an' Maxan does what he can between lessons. I keep the corner table free fer the worst of them, an' I keep the ale flowin', for that helps more than ye'd think." } },
+      choices = {
+        { text = "Then I'll take the corner table tonight and see to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ale won't mend a trogg bite. They need a healer, not a mug.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Belm.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every winter, when the troggs get bold an' the Frostmane come down from the ridge, an' the Mountaineers can't be everywhere at once. If ye're stayin' a while, I'd sleep better knowin' there's a paladin under my roof, an' I'll tell the brewers to stop complainin' about the noise." } },
+      choices = {
+        { text = "Then I'll stand watch tonight, Belm. Sleep easy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Mountaineers are paid for it. Let them do their duty.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Just a room, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want a room near the stair, I think, fer that plate makes a racket, an' the brewers sleep light." },
         { id = "h_default", key = true,
           text = "Innkeeper Belm, at yer service. There's beds upstairs, ale downstairs, an' Rhapsody Malt fer anyone brewin' the Thunderbrew way." },
         { id = "h_bound", when = { questActive = TODO_QUEST("Senir's Observations") },
@@ -919,6 +1036,8 @@ P:NPC {
         { text = "Why put a warlock at the end of the hall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many warriors stop at your inn, Belm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters ever stay at the inn, Belm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your guests come back from the valley hurt, Belm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Kharanos ever need defending, Belm?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just a room, thanks.", next = "END" },
       },
     },

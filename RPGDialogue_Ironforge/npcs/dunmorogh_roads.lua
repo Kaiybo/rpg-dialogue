@@ -47,8 +47,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Tired an' scared, the both o' them, for they've been sittin' up nights wi' lanterns since the beast came down, an' one o' the lads saw it take a ram right in front o' him. He's no' said much since, an' I don't know what tae say tae him." } },
+      choices = {
+        { text = "Let me sit with him a while. Fear like that needs company.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He'll mend once the beast is dead. Words won't help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about the rams instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A yeti, by the size o' the tracks, an' it comes at dusk when the herd's comin' in, so it knows what it's doin'. Vagash, the hunters call it, an' it's been killin' rams in these hills since before my da ran the ranch." } },
+      choices = {
+        { text = "Then I'll meet it at dusk, face to face, and end it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bait it with a ram and take it from behind. Whatever works.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Rudra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll no' ask ye tae bless the rams, for they'd only try tae eat yer robes, but I'd take a kind word for the herdsmen." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a sight, an' if ye've come tae put down whatever's eatin' my herd, I'll stand ye a ram ride tae Kharanos an' back." },
         { id = "h_default", key = true,
           text = "Rudra Amberstill, and these are the Amberstill rams, the finest mounts in Khaz Modan. Somethin' big's been comin' down from the hills to pick off my herd, and I've no' slept right in a week." },
         { id = "h_herd", when = { questActive = TODO_QUEST("Protecting the Herd") },
@@ -73,6 +93,8 @@ P:NPC {
         { text = "Has anyone tried to steal your rams?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What happened when a mage blinked near your rams?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's been coming down to take your rams, Rudra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How are your herdsmen holding up, Rudra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's taking your rams, and when does it hunt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -178,8 +200,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Lonely? I've the hills an' the wind an' Ol' Sooty for company, though he's no' much o' a conversationalist an' he steals my food. A prayer now an' again wouldnae hurt, I suppose, but I'd sooner ye prayed for my stash." } },
+      choices = {
+        { text = "Then I'll pray for you and the stash both, Tundra.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A man who chooses solitude doesn't need my prayers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about the bear instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It's a bear, lad, an' bears steal, same as dwarves drink, an' I'll no' blame it for it. I only want my stash back, an' if Ol' Sooty has tae go tae get it, well, I'll no' be weepin' at his funeral." } },
+      choices = {
+        { text = "Get the stash and spare the bear if I can. That's fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast that raids camps will raid them again. It dies.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tundra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out in the snows! Ye'll forgive me if I don't kneel, for my knees froze solid back in the Second War, an' they've no' thawed since." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! Ye'll have come tae deal wi' Ol' Sooty, then, an' I'll warn ye he's bigger than he looks, an' he looks big." },
         { id = "h_default", key = true,
           text = "Tundra MacGrann, at yer service, and I've lived in these snows longer than some o' the hills. I'd offer ye a bite, but a great black bear has made off with my whole stash." },
         { id = "h_stash", when = { questActive = TODO_QUEST("Tundra MacGrann's Stolen Stash") },
@@ -206,6 +248,8 @@ P:NPC {
         { text = "Would you trust a warlock out here in the snows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What sort of bear took your food stash, Tundra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which way did the bear go with your stash?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever get lonely out here in the snows, Tundra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does a thieving bear deserve to die for stealing food?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Tundra.", next = "END" },
       },
     },
@@ -311,8 +355,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'm a gnome, so I trust gears and grease first, but I've crashed four times and walked away from every one, and I've started to wonder if somebody up there likes me. It can't hurt, and if it does, I'll write a very strongly worded report." } },
+      choices = {
+        { text = "Then I'll say a blessing. Faith and gears can fly together.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Trust your gears, pilot. Prayers don't hold a wing on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me more about the depot instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Mostly, though the troggs come out of the ground near Gnomeregan and the Frostmane trolls sometimes wander too close. The depot guards do their best, but they're gnomes with very small swords, and I'd feel much better with a paladin about." } },
+      choices = {
+        { text = "Then I'll watch the depot while you load. That's my duty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Hire more guards. I can't stand watch over every depot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, pilot.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Would you mind saying something over Jetsteam? Nothing fancy, just enough to keep her in the air, because I'm not convinced the engineering will." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'd offer you a ride, but Jetsteam only seats one, and I'm not sure she'd lift all that plate anyway." },
         { id = "h_default", key = true,
           text = "Pilot Bellowfiz, aviator, at your service! I'm stocking my flier for a long trip, and the depot's larder is emptier than a kobold's head." },
         { id = "h_jet", when = { questActive = TODO_QUEST("Stocking Jetsteam") },
@@ -339,6 +403,8 @@ P:NPC {
         { text = "Could arcane magic really power a flying machine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's keeping the depot's larder so empty, Pilot?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What meat do you need for your trip, Pilot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you really want a prayer said over your flier?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the depot safe out here, pilot?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Safe flying.", next = "END" },
       },
     },
@@ -424,8 +490,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every dwarf should carry a gun, an' priests most o' all, for ye're the ones the trolls aim at first. Ye can heal the lads after, but first ye've tae live long enough, an' that's where I come in." } },
+      choices = {
+        { text = "My faith is protection enough. I'll leave the guns to you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Faith and a good barrel are both worth having.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me look at the rack instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Honourable's for duels, lad, an' trolls don't duel; they come screamin' down the hill wi' spears. I'll no' tell ye how tae fight, but I've buried dwarves who waited for a fair fight, an' I'd rather sell ye a gun." } },
+      choices = {
+        { text = "I'll face my foes in the open. That's how it should be.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A dead troll is a dead troll. Sell me the gun.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Hegnar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest buyin' a gun? Well, why no', for I've sold tae stranger, an' a gun's a fine friend when yer prayers are runnin' low." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll swear by yer hammer, I've no doubt, but a hammer cannae reach a troll on a ridge, an' a gun can." },
         { id = "h_default", key = true,
           text = "Hegnar Rumbleshot, gunsmith, and every barrel on that rack's been tested by my own hand. If it didnae knock me on my backside, it doesnae get sold." },
         { id = "h_ammo", when = { questActive = TODO_QUEST("Ammo for Rumbleshot") },
@@ -446,6 +532,8 @@ P:NPC {
         { text = "Do rogues ever buy guns from you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would a warlock not buy a gun?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior carry a gun as well, Hegnar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Should a priest carry a gun, Hegnar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it honourable to shoot a foe from a ridge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just looking, thanks.", next = "END" },
       },
     },

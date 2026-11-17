@@ -567,8 +567,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, if you could spare it, though I'd settle for once a week. Half of them lost their families to the Defias or the plague, and the prayers I know are only the ones my mother taught me, which aren't nearly enough." } },
+      choices = {
+        { text = "Then I'll come when I can. No child should sleep without comfort.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers don't fill bellies, Stephanie. Food would help them more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every one of them, and half the girls too, though I'd sooner they wanted to be bakers. It's a fine thing to protect people, but I've seen too many go off to war and never come home." } },
+      choices = {
+        { text = "Someone must stand between them and the dark. Let them dream.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right. Let them choose a safer trade while they can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The little ones sleep better on the nights someone from the Cathedral comes to say prayers with them, so you'll forgive me if I ask." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, don't let the boys see you, or they'll follow you to the gate and I'll spend the afternoon fetching them back." },
         { id = "h_default", text = "Stephanie Turner. My husband and I run the orphanage. I make their clothes and keep them fed; John's off begging for the rest. Neither of us sleeps much." },
         { id = "h_tome", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity") },
           text = "You'd help? Then it's linen I need, plain linen cloth, because I've more children than shirts this winter. Bring me ten pieces and I'll have something to sew." },
@@ -597,6 +617,8 @@ P:NPC {
         { text = "Do your orphans ever turn to thieving?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Shall I show the children a little magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the orphans want to grow up to be soldiers?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could the children use someone to pray with them?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the boys really want to be paladins, Stephanie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep you in mind.", next = "END" },
       },
     },
@@ -727,8 +749,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Yes! Pray she finds a good home, and pray my dad changes his mind, because that would be the same home and then everybody's happy." } },
+      choices = {
+        { text = "I'll pray she finds a loving home, Timmy, wherever it is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't change your father's mind. You'll have to ask nicely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Would you really? She'd be Sir Whiskers, then, and my dad couldn't say no to a knight, could he, because that would be against the law." } },
+      choices = {
+        { text = "Knighthood is a solemn oath, Timmy, even for kittens.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Kneel, Sir Whiskers, and never mind the rules.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you from the Cathedral? Do priests like cats? I think my kitten likes priests, because they have soft robes." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "You're a paladin! Are you a knight? Can you knight my kitten? She's very brave, because she fought a moth yesterday." },
         { id = "h_default", text = "I'm Timmy, and this is my kitten. She needs a good home, and my dad says ours isn't one, for cats; he likes it fine for me." },
         { id = "h_rich", when = { money = { min = 10000 } },
           text = "You look like you've got a nice house, with a fire, and cats love fires. I'm just saying." },
@@ -752,6 +794,8 @@ P:NPC {
         { text = "Do you think I'm sneaky, Timmy?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you want me to magic your dad, Timmy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would your kitten like a warrior to guard her, Timmy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Would you like me to say a prayer for your kitten, Timmy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Shall I knight your kitten, Timmy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Sorry, Timmy.", next = "END" },
       },
     },
@@ -853,8 +897,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My students learn to listen to the Light, and yours learn to carry it into places it isn't welcome. Both are needed, but I've seen paladins forget to listen, and priests forget that someone has to go out and fight." } },
+      choices = {
+        { text = "The oath and the Church should guide me together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll follow the Light as I feel it, not the Church's rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Light speaks to you differently than to my students, but it speaks, and I'd like to hear what you've done with it." },
         { id = "h_default", key = true,
           text = "Laurena. I teach the priests the Abbey and Goldshire send me, once they've shown they can be trusted with more. Some of them can." },
         { id = "h_prayer", tags = { "news" }, when = { questActive = TODO_QUEST("Desperate Prayer") },
@@ -882,6 +936,7 @@ P:NPC {
         { text = "Does the Light ever answer a mage, High Priestess?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a priest best help a warrior, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do priests often travel with hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How do a priest's prayers and a paladin's oath differ?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },
@@ -1043,8 +1098,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some do, and they're the quiet ones, who kneel a long while and say nothing aloud. The loud ones I worry about, because a paladin who never kneels starts to believe the Light belongs to him." } },
+      choices = {
+        { text = "The Light belongs to no one. I'm only its servant.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light chose me, Brother. I've earned the right to wield it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at first light. Your order has sworn its oaths at altars like this one, so you'll know how the morning lies across the stone." },
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
         { id = "h_dawn", when = { timeOfDay = "dawn" }, text = "First light through the east window. I've watched it every morning for years. It's never once been the same." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1063,6 +1128,7 @@ P:NPC {
         { text = "What should a warrior listen for at an altar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is stillness something the Light can teach?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would the Light still hear me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do paladins come here to pray before they ride out?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -1150,8 +1216,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because if I knew, I might teach it better, and because nobody's ever explained it to my satisfaction. Brother Joshua says the Light can't be measured, and I say that's only because nobody's tried hard enough." } },
+      choices = {
+        { text = "Some mysteries are best left to the Church's teaching.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep asking, Brother. Questions are how we learn.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Tell me, do you feel the Light in your arms when you swing, or in your chest, or nowhere at all? I've asked six paladins and had seven answers." },
         { id = "h_default", key = true, text = "Brother Benjamin. I teach on my feet, up and down this hall. Brother Joshua says I'll wear a groove in the floor. He's probably right." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You walk more quietly than I do, and I've been pacing this hall for years. Walk with me, then, and see if you can keep in step without a sound." },
@@ -1169,6 +1245,7 @@ P:NPC {
         { text = "Do you think magic and prayer are much alike?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think warriors and priests are much alike, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever get out of the city, Brother Benjamin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why do you care how a paladin feels the Light?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -1259,8 +1336,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "To stand in the plaguelands and speak the Light's name where the dead can hear it, and to judge the living who have let the plague into their hearts. Brother Anton will tell you the rest, if you've the courage to go to him." } },
+      choices = {
+        { text = "Judgement belongs to the divine, Brother, not to you or me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If judgement is needed, I'll carry it out myself.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light! Good, for the Crusade needs priests more than soldiers, since the dead fear the Light and the living keep forgetting it." },
         { id = "h_default", key = true,
           text = "Brother Crowley, emissary of the Scarlet Crusade. The dead walk in Lordaeron, and the Crusade stands against them while Stormwind counts its coins. I send the brave to Brother Anton, in Desolace." },
         { id = "h_anton", tags = { "news" }, when = { questActive = TODO_QUEST("Brother Anton") },
@@ -1289,6 +1376,7 @@ P:NPC {
         { text = "Are the beasts of Lordaeron truly sick, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
+        { text = "What would the Crusade ask of a priest, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },
       },
     },

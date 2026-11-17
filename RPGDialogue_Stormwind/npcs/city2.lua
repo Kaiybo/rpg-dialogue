@@ -349,8 +349,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "We pray for strength, I think, and you pray for understanding, and the Light gives each of us what the other asked for. I've never been sure I've earned my name, but I've learned that the Light rarely waits for anyone to earn anything." } },
+      choices = {
+        { text = "Grace is given, Arthur, not earned. That's the whole of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "We earn what we're given, Arthur. Nothing comes for free.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Kneel with me a moment, if you would, because a priest's prayer and a paladin's prayer are the same words said by different hands." },
         { id = "h_default", text = "Arthur. They call me the Faithful, though I've never been sure I earned it, and I keep trying to." },
         { id = "h_grayson", when = { class = "PALADIN" }, text = "Lord Shadowbreaker will test you, Katherine will correct you, and I'll pray with you. Between the three of us, you'll survive." },
         { id = "h_steadier", when = { metBefore = true, class = "PALADIN" }, text = "Each time you kneel here, you kneel a little steadier. I notice it, and the Light notices more." },
@@ -381,6 +391,7 @@ P:NPC {
         { text = "Do you pray for your enemies, Arthur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light teach anything about the hunt, Arthur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray for warlocks, Arthur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do paladins pray differently from priests, Arthur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -528,8 +539,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I leave the blessing to the Cathedral and the forging to myself, and I've noticed the Cathedral asks for my work, not the other way round. A good blade doesn't need a prayer, though I'll admit a bad wielder could use one." } },
+      choices = {
+        { text = "A blade in holy service is more than steel, Elmore.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. Steel's honest work and needs no blessing.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Lightforge iron, worked the old way, and the patience to fit it to the horse, not the horse to it. Lord Shadowbreaker's charger wears my plate, and that's all the reputation I need." } },
+      choices = {
+        { text = "My charger carries me into danger. It deserves your best work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A horse is a horse, Elmore. I'll take the cheaper plate.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not need my blades, I expect, but if you ever find yourself in a fight, a mace of mine will do more than a prayer." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Look at your charger's barding next time you're in the stables, and if it isn't mine, come and see me about it." },
         { id = "h_default", key = true, text = "Elmore. I make weapons, and I make barding for paladins' chargers, and nobody in Azeroth makes it better. Ask Lord Shadowbreaker whose work his mount wears." },
         { id = "h_argus", when = { heardLine = "argus.s_default" },
           text = "Argus told ye never tae let the apprentice near the quench? Good lad. My apprentice Furen's still not allowed near mine." },
@@ -565,6 +596,8 @@ P:NPC {
         { text = "Have you ever forged anything enchanted, Elmore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What makes a weapon worth trusting, Elmore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a good smith make a hunter's weapon, Elmore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever bless your weapons before you sell them, Elmore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What makes your barding better than any other, Elmore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -691,8 +724,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A little, and most of it written by people who were never in it. What we have is mostly the sermons Archbishop Faol gave when the order was founded, which are lovely, though rather long." } },
+      choices = {
+        { text = "Those sermons should be read. The past teaches us how to serve.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A paladin learns from the field, not from old sermons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in the library! Quietly, please, the books are sleeping, though I'll gladly wake one about the Silver Hand for you." },
         { id = "h_default", key = true, text = "Milton Sheaf, keeper of the Royal Library. I collect books from all over the kingdom. Mostly I collect people to collect books for me." },
         { id = "h_foe", text = "Know your enemy, they say, but I'd go further and know everything about everyone. It saves so much trouble later." },
         { id = "h_flower", when = { metBefore = true }, text = "Someone returned a book yesterday with a pressed flower in it, seventy years overdue. I've decided to forgive them, because the flower was lovely." },
@@ -723,6 +766,7 @@ P:NPC {
         { text = "Have thieves ever robbed the Royal Library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the library hold any books on warfare, Milton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need books brought from the wilds, Milton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the library hold the Silver Hand's history, Milton?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -848,8 +892,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It's all I'd ever confess to, even in the Cathedral, and I'd thank you to note that I said so with a straight face. Some of us serve the kingdom from behind a counter, and we sleep about as well as you'd expect." } },
+      choices = {
+        { text = "Confession eases the soul, Elling. The Cathedral's door is always open.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep your secrets. Not everything needs confessing.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because nobody believes it once they've seen my wife's stairs, I suppose, and because a man in my trade hears all kinds of things across a counter. I pass a few of them on, to the right people, and I'd rather that's where it ended." } },
+      choices = {
+        { text = "Then I'll ask no more. Some service must stay quiet.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Secrets rot a city. I'd sooner everything were said openly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've a cheese my wife calls holy, though I think she means it's very hard and nobody can understand it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'm a very honest cheesemaker, {class}, and you can tell everyone at the Cathedral I said so." },
         { id = "h_default", key = true, text = "Elling Trias. My wife Elaine makes the cheese, my boy Ben sells it, and I stand here looking honest. It's a family business." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "A diplomat goes missing in the middle of Stormwind, and nobody's surprised. That should worry you more than the diplomat." },
@@ -879,6 +943,8 @@ P:NPC {
         { text = "Does the Mage Quarter buy much cheese?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers really buy cheese for the march, Elling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever trade cheese for game, Elling?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is cheesemaking all you do, Elling?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why would a cheesemaker need to say he's honest?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just passing.", next = "END" },
       },
     },

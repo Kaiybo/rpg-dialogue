@@ -41,6 +41,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Hands in Ashenvale, where the Horde cuts our forests and my Sentinels come home bleeding, and steady hearts for those who will not come home at all. Prayers are well and good, but I need healers who will walk beside the wounded into the trees." } },
+      choices = {
+        { text = "Then I'll go to Ashenvale and heal where I'm needed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll heal those who can still fight, and the rest must wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "To Ashenvale, where the Horde's axes bite deeper into our forest every season and the Sentinels stand too few against them. I will not ask you to love our trees as we do, only to stand where they need defending." } },
+      choices = {
+        { text = "I'll go where you send me, High Priestess.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll choose my own battles, as the Light guides me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -128,6 +146,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whatever you pray to, you've come to the house of Elune, and here we heal the wounded first and ask their names after." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kingdoms have suffered much, and I have not forgotten that humans and dwarves stood beside us at Mount Hyjal." },
         { id = "h_default", key = true,
           text = "I am Tyrande Whisperwind, High Priestess of Elune, and while Malfurion sleeps I lead our people. I did not ask to lead them alone, but I will not do it half-heartedly." },
         { id = "h_tenaron", when = { heardLine = "tenaron.h_default" },
@@ -171,6 +191,8 @@ P:NPC {
         { text = "Does Elune have any use for one who works unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Sentinels have need of hunters, High Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do you tolerate me at all, High Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does Darnassus need from its priests, High Priestess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where would you send a paladin, High Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -434,6 +456,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "For the wounded, certainly, and the Circle has never refused a healer's hands. But Teldrassil is a druid's work, and I will not have anyone, priestess or priest, telling me the tree needs praying over when it needs only time." } },
+      choices = {
+        { text = "Even a tree can be blessed, Archdruid, and I'll pray for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right that growth needs time rather than blessings.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll go.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The tree, before anything else, because every shrine and every house on this island stands in its branches. Your Light is a fine thing for your cathedrals, but here you will defend what the Circle tells you to defend, or go back to them." } },
+      choices = {
+        { text = "Then I'll defend the tree, as the Circle asks.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My Light answers to no Circle, Archdruid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll go.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some, I suppose. The Gnarlpine have turned savage and the Sentinels cannot be everywhere, so a blade near Dolanaar would not go amiss, but do not imagine that steel built this tree, or that steel will keep it." } },
@@ -502,6 +542,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Temple will want you, I suppose, though I'd ask you to remember that the forest was here before any prayers were said over it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The humans sent their soldiers to us once before, at Hyjal, and I'll grant you they fought well, though they understood nothing of what they defended." },
         { id = "h_default", key = true,
           text = "I am Fandral Staghelm, Archdruid of the Cenarion Circle. While Malfurion dreams someone must lead, and I do; there are some who would rather I didn't, and they are wrong." },
         { id = "h_corithras", when = { heardLine = "corithras.h_default" },
@@ -541,6 +583,8 @@ P:NPC {
         { text = "I've seen what the fel does to a forest.", next = "warlock_f", when = { class = "WARLOCK" } },
         { text = "Does the Circle ever need work done quietly, Archdruid?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has the Archdruid any use for a warrior's blade?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you have any use for priests, Archdruid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you have a paladin defend here, Archdruid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -713,6 +757,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only whether your Light ever tells you to stay your hand, because the Claw's way is to strike when the balance demands it and grieve afterward. I suspect your order and mine carry the same weight in different packs." } },
+      choices = {
+        { text = "The Light asks mercy of me whenever mercy is possible.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "When evil stands before me, I strike without grieving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -767,6 +820,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Cenarion Enclave. Sit, if you like, for I've long wanted to ask one of your order how you decide when to heal and when to strike." },
         { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "You heard the call, and not everyone does. Sit, and we will speak of what it means to walk as more than one creature." },
@@ -800,6 +854,7 @@ P:NPC {
         { text = "Why do the old druids step aside from a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a druid's bond with beasts differ from a hunter's?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you ever seen what a demon does to a forest?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You wanted to ask me something, Mathrengyl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -884,6 +939,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Sentinels home from Ashenvale, mostly, and the families of those who didn't come home. I can mend a wound in a moment, but grief takes much longer, and I find that sitting with them helps more than any prayer I know." } },
+      choices = {
+        { text = "Then I'll sit with them too, for as long as it takes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grief passes on its own, and it's wounds that need healing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Elune turns no one away who comes in peace, and your order fights to protect the weak, as our Sentinels do. Rest by the pool before you go back to it, because a protector who never rests will not protect anyone for long." } },
+      choices = {
+        { text = "I'll rest, then, and go back stronger for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "There's no rest for me while the weak need guarding.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The waters ease the body, but what I see most in warriors is a tiredness the waters can't reach. You hold the line so that others needn't, and Elune knows the cost even when your captains forget it." } },
@@ -938,6 +1011,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Welcome, priest. Come and sit by the pool a while, for those who heal others are the last to rest, and Elune knows it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Temple of the Moon! You're welcome here, {class}, and I hope you'll let me tend to you as gladly as you tend to others." },
         { id = "h_default", text = "I am A'moora, a priestess of the Sisterhood, and I tend the Temple's pool and those who come to it. Most come tired, and I try to send them out less so." },
         { id = "h_temple", tags = { "news" }, when = { questActive = TODO_QUEST("The Temple of the Moon") },
           text = "So Sister Aquinne sent you. Good; there is work here for a willing heart, and a little sorrow in it, so listen." },
@@ -970,6 +1045,8 @@ P:NPC {
         { text = "Why are your people so wary of mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can the Temple's pool do anything for a warrior's wounds?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does Elune watch over hunters, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who comes to the Temple's pool most often, Priestess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Elune welcome soldiers of the Light, Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -1073,6 +1150,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I don't yet know whether they are evil or only hungry, and I would rather understand them before your order decides. But if the reports from the south are true, there will be a great many of them, and I would want paladins standing between them and Kalimdor." } },
+      choices = {
+        { text = "Understand them first, then, and I'll wait on your word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Anything that swarms like that must be stopped now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only intact ones, and that is where warriors disappoint me, because you see a beast and think of its throat. If you meet something strange in the south, please strike it once and cleanly, so that I have something left to study." } },
@@ -1121,6 +1207,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I study creatures that don't belong in this world, and I'm told your order has had a great deal of experience with those." },
         { id = "h_default", text = "Gracina Spiritmight, priestess and scholar. I study the creatures that belong to this world alone. Lately, the ones that don't seem to belong to it at all." },
         { id = "h_pestlezugg", when = { heardLine = "pestlezugg.h_default" },
           text = "A goblin alchemist in Gadgetzan has been asking about my insect studies. A goblin, asking a priestess. Whatever is under the sand must be worse than I feared." },
@@ -1150,6 +1237,7 @@ P:NPC {
         { text = "What creatures does the arcane draw into this world?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you want a warrior to bring back specimens, Gracina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Couldn't you learn more about demons from a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are the silithid an evil a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1252,6 +1340,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some, and usually the ones back from Ashenvale or Darkshore, who'd rather sleep than see a priestess about it. I put them in the quiet rooms and keep the tea warm, and if you'd look in on them before you leave, I'd be grateful." } },
+      choices = {
+        { text = "I'll look in on them before I go.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they won't see a priestess, that's their choice.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Strange and a little fascinating, because we have priestesses who fight and Sentinels who pray, but never in quite so much armor. Be patient with the young ones who ask you questions, and they'll be telling stories about you for a hundred years." } },
+      choices = {
+        { text = "I'll answer them gladly, for courtesy costs me nothing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm not here to entertain children, Saelienne.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Safer than anywhere I know, with the Sentinels on every bridge and the whole sea between us and the Warsong. Still, half the warriors who stay here keep a sword under the pillow, and I've stopped trying to talk them out of it." } },
@@ -1297,6 +1403,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The travelers who come up from the boats are often more tired than they'll admit, and a kind word from a healer does them good." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your kind don't come up from the boats often, so forgive the stares on the Terrace, for they're curious rather than rude." },
         { id = "h_default", text = "Saelienne. I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost. I make sure they leave looking rested." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You'll sleep well up here, I think. Your people are used to the ground being a long way down." },
@@ -1318,6 +1426,8 @@ P:NPC {
         { text = "Are mages often trouble at your inn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is it safe to sleep unarmed up here, Saelienne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "May my companion stay at the inn with me?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do many of your guests come in hurt, Saelienne?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do your people find paladins strange, Saelienne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just resting.", next = "END" },
       },
     },

@@ -59,6 +59,24 @@ P:NPC {
         { text = "Why do you need them alive?", next = "alive" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It might soothe the wounds, but the sickness is in the blood and the land beneath them, and I fear it runs deeper than any one prayer. Still, I would rather you tried than that you did not." } },
+      choices = {
+        { text = "Every creature deserves healing if I can give it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to end their suffering cleanly than heal them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Kill the ones that attack you, because I would not ask you to die for a bear, but do not hunt them for sport. Every one you spare is one I might yet heal." } },
+      choices = {
+        { text = "I'll only fight the ones that come for me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A rabid bear is a danger. I'll clear them out.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -72,6 +90,8 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, and welcome. You will feel it when you take the bear's shape near them, a sour note under the skin, and I would like to know if it feels the same to you as to me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The thistle bears will come at you foaming, and I'd ask you to remember that they're sick, not savage." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then you may understand that a sick bear is still a patient, even if it is a patient that wants to tear your arm off." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I have time while the potion steeps." },
@@ -88,6 +108,8 @@ P:NPC {
         { text = "I've poisons that could put a mad bear down quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic be behind the bears' madness?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Must I kill the thistle bears, Tharnariun?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a priest's healing touch the sickness in the bears?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should I kill the maddened bears, or leave them be?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
     },
@@ -261,6 +283,24 @@ P:NPC {
         { text = "Who are Delgren and his paladins?", next = "delgren_e" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Always, for linen and salves go out with every patrol and come back stained or not at all. If you have the gift of healing, spend it here before you spend it in the woods, because the Sentinels are what holds this coast." } },
+      choices = {
+        { text = "Then I'll tend the patrols before I go anywhere.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've my own road. The Sentinels manage without me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Well enough, so long as each keeps to its own orders, and Delgren keeps to his very carefully. Some of my sisters still mistrust humans with hammers, but I count crates, and the crates from Stormwind have always arrived." } },
+      choices = {
+        { text = "Then we'll keep our word, as Delgren has.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I answer to the Light, not to Sentinel orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -273,6 +313,8 @@ P:NPC {
           text = "You're working with Balthule at the Tower of Althalaxx, I hear. Be wary there, because warlocks who hole up in an old tower have usually had time to set traps." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Delgren's paladins could use more of your kind at Maestra's Post, and I could use help getting their supplies there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I keep lists of everything Auberdine needs, and half of it comes in on a hunter's back." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Your bandages and your prayers are both in short supply on this coast, and I would be glad of either." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Delgren's people have been fair partners at Maestra's Post, so I will treat you as fairly as they have treated us." },
       },
       again = {
         { id = "h_again", text = "What else? I've three crates to count before the Moonspray comes in." },
@@ -288,6 +330,8 @@ P:NPC {
         { text = "Do the humans at Maestra's Post fight well, Sentinel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Auberdine need from its hunters, Sentinel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Dark Strand deal with demons. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do Auberdine's stores run short of healing supplies?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How do the Sentinels and the Silver Hand work together?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune keep you.", next = "END", fx = { standing = { auberdine = 1 } } },
       },
     },
@@ -430,6 +474,24 @@ P:NPC {
         { text = "What are your birds like?", next = "birds" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Now and then, when one flies too low over the Blackwood or a storm catches it off the coast. I mend what I can, but I'd welcome a priest's hands on a wing that won't set right." } },
+      choices = {
+        { text = "I'll look at any bird that needs it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I tend people, not hippogryphs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Someone has to watch the roads below them, because a hippogryph can't land where the furbolgs are waiting. If you clear the ground, I'll keep the sky." } },
+      choices = {
+        { text = "Then I'll keep the roads clear for your birds.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The skies can guard themselves. I've other duties.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -438,6 +500,8 @@ P:NPC {
           text = "Back for another flight? Feather-in-the-Mist has been looking for you; she remembers riders who don't kick." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds don't like the weight of plate, so hold still on the crossing and let them carry it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My birds have watched your companion since you climbed the rise, and I think they're deciding whether it's prey." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds are calmer around healers, I find, and they've had little enough calm this season." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be heavy in the saddle, but my birds have carried worse, and they'll carry you." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I saddle a bird?" },
@@ -453,6 +517,8 @@ P:NPC {
         { text = "I could teleport home, but your birds are lovely.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do your hippogryphs carry warriors to Astranaar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your hippogryphs hunt on their own, Caylais?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your hippogryphs ever come back hurt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is it a paladin's place to guard the flight paths?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },

@@ -67,8 +67,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The lads I served with in the Guard, the ones who aren't sitting in the sun like me, and my eyes, if you've a prayer that does that. The Brothers tried once, and it helped a little, though the dark still comes in at the edges." } },
+      choices = {
+        { text = "I'll pray for them, and for you, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Eyes fail with age, Haggard. Prayer won't change that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Knowing when to look away and when not to, and most of the young ones get those backward. I let a lot of small things go in my day, but never a man who preyed on the weak, and I'd tell you the same, whatever oath you've sworn." } },
+      choices = {
+        { text = "The law must be kept in small things too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some small sins aren't worth the chain. Mercy keeps the peace.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest? My eyes aren't what they were, but I know the smell of incense, so sit down; you're the first one up here in a month who isn't swearing." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I served beside a few of your sort in the Second War, and they were the only ones who didn't sing on the march." },
         { id = "h_default", text = "Haggard. I ran the Stormwind Guard once, back when I could read a duty roster. Now I sit here and listen to the loggers swear." },
         { id = "h_jack_before", when = { questBefore = TODO_QUEST("Dead-Tooth Jack") },
           text = "A fellow came up the path in the dark wearing a Stormwind tabard. I took him for Dughan and handed him my old badge. A lifetime in uniform, and I fell for that." },
@@ -108,6 +128,8 @@ P:NPC {
         { text = "Did you ever fight beside mages in the Guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What made a good soldier, back when you led the Guard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Did the Guard really use hunters for tracking?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there anyone you'd like remembered in prayer, Haggard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What makes a good guardsman, Captain Haggard?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Rest easy, Marshal.", next = "END" },
       },
     },

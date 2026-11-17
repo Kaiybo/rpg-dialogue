@@ -73,6 +73,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Salma does the praying for the both of us, and I do the ploughing, and that seems a fair split. I'll say this, though: every morning I'm still standing here feels like an answer to something." } },
+      choices = {
+        { text = "That's faith holding you up, Saldean. Don't let go of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's your own stubbornness. Give yourself the credit.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Saldean.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Gryan's militia, when he can spare a man, and me with a pitchfork when he can't. I'm not proud, so if the Silver Hand wants to send a few of its own down this road, Salma will feed them." } },
+      choices = {
+        { text = "The Silver Hand stands with those who stay. So will I.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A lone farm out here isn't worth defending, Saldean.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Saldean.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -91,6 +109,8 @@ P:NPC {
         { id = "h_soil", when = { metBefore = true }, text = "The soil's tired, and so am I, but we'll both get up tomorrow anyway. That's farming." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just the thing for my field. The harvest watchers don't scare, and they don't stop, so I hope you hit hard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll not find much worth hunting in my field, except scarecrows that walk, and they don't make good eating." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Salma will want you blessing the soup pot, so go easy on my field and save some for her." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, is it? The watchers don't care for oaths, so I hope you hit as hard as you shine." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick, because daylight's for working." },
@@ -108,6 +128,8 @@ P:NPC {
         { text = "Those watchers aren't natural, Saldean. I can feel it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do the harvest watchers fight, Saldean?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hunts around your farm, apart from the scarecrows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you pray much, Saldean, out here on your own?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who protects the farms that still stand, Saldean?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

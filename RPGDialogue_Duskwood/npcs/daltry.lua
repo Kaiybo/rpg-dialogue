@@ -78,8 +78,18 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I suspect they were filed, which I can hardly fault them for, being a clerk myself. But the dead at Raven Hill don't wait for a reply, so I've started writing 'urgent' across the top in red ink, which feels terribly bold of me." } },
+      choices = {
+        { text = "Keep writing. Proper channels matter, even slow ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop writing, Daltry. I'll deal with Raven Hill myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Daltry.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a whole drawer of letters to the Cathedral asking for one of you, every one stamped received and none of them answered." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. I've been filing reports about the forest rotting for eight years. Perhaps you'll be the first to read one." },
         { id = "h_default", text = "I'm Daltry, the town clerk, and I keep the records of Darkshire: births, deaths, and lately a great many entries that say 'missing, presumed wolf'." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "Does Darkshire have a roll of fighters, Clerk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many of your missing were taken by the worgs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some of your missing folk may not be dead, Daltry.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why did the Cathedral never answer your letters, Daltry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Daltry.", next = "END" },
       },
     },

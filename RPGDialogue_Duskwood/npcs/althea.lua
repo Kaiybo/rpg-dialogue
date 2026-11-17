@@ -54,8 +54,18 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Your armour in front of my farmers when the dead come up the cemetery road, and the Light at your back so they've something worth standing behind. I can't give you a title or a wage, only a post at the gate and my thanks." } },
+      choices = {
+        { text = "Give me the post. I don't need a title to do my duty.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Duty's one thing, Commander. I'll want proper pay for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk of something else, Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Stormwind hasn't sent me one of you in years, so I'll not ask who did; I'll just put you to work." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Good. This forest was green once, and I'd like to hear from someone who can tell me if it can be again." },
         { id = "h_default", text = "I'm Commander Ebonlocke of the Night Watch. We're sworn to keep Darkshire's people alive, and some nights that's the whole of the oath, and plenty." },
@@ -100,6 +110,7 @@ P:NPC {
         { text = "You're staring at me, Commander. Say it.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Your watch is loud, Commander. I could scout ahead of them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A few wards around Darkshire would help your watch.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does the Night Watch need from a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },

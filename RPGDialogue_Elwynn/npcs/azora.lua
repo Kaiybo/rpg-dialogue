@@ -55,8 +55,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not where Master Theocritus can hear, though I keep a little shelf of prayer books he pretends not to see. The gnomes say a word over their soup some nights, and I've caught myself listening, which surprised me more than it would you." } },
+      choices = {
+        { text = "Faith and learning belong under the same roof, Dawn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer won't keep a tower standing. Wards will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Dawn.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than Master Theocritus would ever admit, because Morganth's gnolls have been creeping about Redridge, and books don't stop spears. He calls your order 'the hammer school', but he says it the way you'd speak of weather you can't argue with." } },
+      choices = {
+        { text = "I'll stand between his books and those gnolls gladly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "His wards can stand without me. I'm nobody's doorman.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up all those stairs in plate! Sit down a moment, because Theocritus won't offer you a chair, and I won't tell him I did." },
         { id = "h_default", text = "Dawn Brightstar. I keep the tower's stores and sell what we can spare to whoever climbs this far, which is mostly alchemists after empty vials and travellers after a scroll to see them home." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "Oh, a gnome who isn't carrying a tray! Forgive me; the tower's servants are your people, and I forget there are gnomes who aren't sweeping our stairs." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, up here among the scrolls? We don't get many of the Cathedral's people, though Master Theocritus would say the Light and the arcane are cousins who don't speak." },
@@ -78,6 +97,8 @@ P:NPC {
         { text = "Why would Theocritus mind a warlock in his tower?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there anything in a mage's tower for a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do hunters buy from a tower like this?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does anyone in this tower ever pray, Dawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does a mage's tower want with a paladin, Dawn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
@@ -187,8 +208,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I've tried, honestly I have, and the dust goes dull every time, as though it knows it's being asked for something it can't give. Whatever you pray to, the Light or Elune, it seems to want to be asked by a person and not a rune, which I find rather lovely when I'm not finding it maddening." } },
+      choices = {
+        { text = "Some things should only come from the heart, not the dust.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then nobody understands blessings yet. Keep trying, Kitta.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kitta.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "In a heartbeat, though I'd want you to tell me what it's for first, because a rune for smiting and a rune for showing off look very much alike to the dust. A noble's son once asked me for a glowing sword to wear to a wedding, and I said no, which is the proudest thing I've done all year." } },
+      choices = {
+        { text = "It would be for the wicked only. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A glowing hammer cows a crowd. That's worth something too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have you ever wondered whether a blessing and an enchantment are really so different? I have, constantly, and nobody up here will discuss it with me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'd give a week's dust to enchant a hammer like yours, though I suspect it's already got something in it that I couldn't improve." },
         { id = "h_default", text = "Kitta Firewind, and I teach enchanting, which is the finest craft there is, whatever the blacksmiths say. If you've come to learn, you've climbed to exactly the right floor." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "A night elf! Your people never did care for our sort of magic, did they? I'd love to know what you think of it, honestly, even if you think it's dreadful." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior! You'll want your sword to cut a little deeper, I expect, and that's where an enchanter comes in, so you'll be glad you climbed the stairs." },
@@ -212,6 +253,8 @@ P:NPC {
         { text = "Is fel magic truly so dangerous to enchanting?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could an enchantment truly make my sword cut deeper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would an enchanter do to a hunter's bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Could an enchanter's rune ever hold a blessing, Kitta?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you enchant a paladin's hammer, Kitta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll come back another time.", next = "END" },
       },
     },

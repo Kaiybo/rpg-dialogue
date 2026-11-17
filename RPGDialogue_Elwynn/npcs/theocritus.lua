@@ -68,8 +68,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Studied it, yes, and given it up, because it refuses to be measured and I refuse to work with anything I can't measure. The priests at the Cathedral find this terribly sad, and I find their certainty terribly convenient, so we're even." } },
+      choices = {
+        { text = "Some things aren't meant to be measured, Theocritus.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then you're wise. Faith without proof is a crutch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not today, but he was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
+      choices = {
+        { text = "Then he must be stopped before anyone else pays.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Theocritus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to warn me about the dangers of the arcane, I assure you I've written a book on them, and it's better than yours." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order has always been very good at hitting the things my colleagues failed to stop, so I suppose you're welcome." },
         { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want?" },
         { id = "h_low", when = { maxLevel = 17 },
           text = "You are very young and I am very busy. Come back when you've survived something interesting." },
@@ -113,6 +133,8 @@ P:NPC {
         { text = "Do you fear a rogue would steal from your tower?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What use would a mage have for a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need anything hunted, Theocritus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have you ever studied faith, Theocritus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is Morganth a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll show myself out.", next = "END" },
       },
     },

@@ -52,6 +52,24 @@ P:NPC {
         { text = "Something else, Yorus.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bruised, mostly, an' a bit green, an' one lad who ran the wrong way an' ended up in the lake. Nobody's died on my challenge yet, an' I'll thank ye to say a prayer that it stays that way." } },
+      choices = {
+        { text = "I'll pray for every one who takes your challenge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they die, they were fools. That's no matter for prayer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Yorus.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oh, aye, likely faster, but where's the honour in that? The Scalder's the test, because any fool can be brave sober, an' it takes a Barleybrew brew to show ye what's underneath." } },
+      choices = {
+        { text = "Then I'll drink and run it properly. Rules are rules.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tip mine in a pot plant and run it anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Yorus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -64,6 +82,8 @@ P:NPC {
           text = "Did Furen make ye a good shield? He'd better have, because he owes me more favours than I can count, and I've counted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Now there's a warrior if ever I saw one! Ye'll be wantin' to hear about my challenge, I'd wager, and ye'll be wantin' a mug before ye do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye've the look o' someone who'd rather shoot a gnoll than drink a pint, which is a sad thing, and I'll try to fix it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the bar! Ye'll be wantin' to bless the Scalder, I'd wager, an' I'll warn ye now it's beyond savin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! I'd not ask ye to drink, but I'd wager ye'd run the gauntlet faster than any warrior." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I pour, it saves time." },
@@ -78,6 +98,8 @@ P:NPC {
         { text = "A dwarf can hold his drink, Yorus.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Have many warriors run your Gauntlet and finished, Yorus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter run your Gauntlet, Yorus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your challengers ever come back hurt, Yorus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could a paladin pass your challenge without the drink, Yorus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Pour me one, Yorus.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -235,6 +257,24 @@ P:NPC {
         { text = "What do you teach down here?", next = "teach" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No, because worrying's bad for the hands. Some go to work for the crown, some go to work for themselves, and a few end up in the lake, and none of it's on me, priest, so you can keep the sermon." } },
+      choices = {
+        { text = "It's on you a little, Lucius. Think on that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fair enough. They chose their road, not you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Lucius.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Marris knows well enough, and he pretends not to, because a guard who can move quiet comes home from the hills more often. Justice is a fine thing in Stormwind, paladin, but out here it's a luxury." } },
+      choices = {
+        { text = "The law should hold here just as it does in Stormwind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Out here, results matter more than the law. Fair enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Lucius.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lucius. I sit on these docks, I watch the boats, and if a certain sort of person comes along, I teach them something useful. You're not that sort, I'd guess, but I've been wrong." },
@@ -244,6 +284,8 @@ P:NPC {
           text = "So the lockbox gave in to you. Good; whatever kills you from here on, at least it won't be my teaching." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You're not the sort I teach, but you're the sort who protects the sort I teach, so you can stand there if you want." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've got a quiet step, I'll grant you, but that beast of yours breathes like a bellows, and I can hear it from here." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, on my docks. Come to save my soul? You'll need a bigger boat." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Shiny, loud and honest, which are the three things I can't teach anybody." },
       },
       again = {
         { id = "h_again", text = "What else? Quietly, if you please; sound carries over water." },
@@ -260,6 +302,8 @@ P:NPC {
         { text = "Do rogues and warriors ever work together, Lucius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter learn something from a rogue, Lucius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "We both work in the shadows, Lucius.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you ever worry what becomes of the folk you train?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does Marshal Marris know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
@@ -397,6 +441,15 @@ P:NPC {
         { text = "Do you want to be a hero?", next = "hero" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly, except when I fall asleep in the middle, which is a lot. I prayed for Hilary's necklace, and for Effsee not to fall in the lake, and for the orcs to go back where they came from, and only the cat one's come true so far." } },
+      choices = {
+        { text = "Keep praying, Shawn. Prayers get answered in their own time.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers don't find necklaces, Shawn. Looking does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Shawn.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -406,6 +459,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hilary's Necklace"), days = 5 } },
           text = "Hilary hasn't taken it off once since you brought it back, not even for bed, and Effsee keeps trying to bat it, so she sleeps with her hand on it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Wow, a real warrior! Hilary, look, it's a real warrior, with armour! Have you killed an orc? Have you killed lots of orcs?" },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? My mom says priests can talk to the Light, so could you ask it where Hilary's necklace went?" },
       },
       again = {
         { id = "h_again", text = "What else? I can talk all day, we're not catching anything anyway." },
@@ -421,6 +475,7 @@ P:NPC {
         { text = "I could teach you to sneak, Shawn.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Want to see a spell, Shawn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Shawn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you say your prayers at night, Shawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -538,6 +593,24 @@ P:NPC {
         { text = "Something else, Matthew.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "In a way, every morning, when I cast the first line and hope something's still alive down there besides murlocs. My father taught me that a lake has a soul, same as a man, and Everstill's has been troubled since the war came." } },
+      choices = {
+        { text = "Then I'll pray with you for the lake's healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A lake has no soul, Matthew. It's only water.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Driven back, aye, but not all the way, because they were here before Lakeshire was and they'll be here after. It's the new ones that worry me, the poachers, because they fish like someone's paying them." } },
+      choices = {
+        { text = "Leave the old ones in peace. They have their place too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Clear them all. A murloc is a murloc, Matthew.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Matthew.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Matthew Hooper. I teach fishing, which is mostly teaching patience with a stick and string. Lake Everstill used to be the best water in the kingdom, and it still is, if you can get to it past the murlocs." },
@@ -545,6 +618,8 @@ P:NPC {
           text = "Since someone thinned the murlocs on the east shore, my students have actually caught things. One of them cried, and I nearly did too." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my dock. Sit down and hold a rod, and we'll see if you've the patience for something that doesn't fight back straight away." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll understand what I mean when I say Lake Everstill is an old friend that's fallen in with bad company." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Sit and hold a rod a while, because fishing's the nearest thing to prayer I know." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my dock. Patience is a virtue, they say, so sit down and see if you've got it." },
       },
       again = {
         { id = "h_again", text = "What else? The line's out, so I've time." },
@@ -557,6 +632,8 @@ P:NPC {
         { text = "What do you think of the murlocs?", next = "murlocs" },
         { text = "Is fishing anything like fighting, Matthew?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What lives in Lake Everstill besides fish, Matthew?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "You speak of the lake like an old friend. Do you pray for it?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the murlocs be driven out of the lake entirely?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good fishing, Matthew.", next = "END" },
       },
     },
@@ -668,6 +745,24 @@ P:NPC {
         { text = "Who eats here these days?", next = "eaters" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They do, and they pay what they can, and Brianna and I square the rest at the end of the week without telling Daniels. Nobody goes hungry under this roof, and the day someone does, I'll hand in my apron." } },
+      choices = {
+        { text = "That's charity rightly done, Wental.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Brianna's too soft. The inn will go under that way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Wental.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Sleep, mostly, and a letter from home, and something to eat that isn't goulash. I can manage the last one, and I'd gladly manage the others if I knew how." } },
+      choices = {
+        { text = "Then I'll carry letters for them when I travel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Soldiers knew the life when they signed on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wental.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Wental, bartender of the Lakeshire Inn, though I don't pour a drop of anything strong. Daniels has the barrels, I have the bread, and between us nobody goes hungry or thirsty, most weeks." },
@@ -677,6 +772,8 @@ P:NPC {
           text = "Daniels has his bottles back, thank the Light, and I can go back to being asked for bread like a normal bartender." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll be asking for ale, I suppose, so I'll save you the trouble: I've milk, and Daniels has the ale, when he has any." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want some cheese for the road and a bit of meat for your beast, I'd wager, and I've plenty of both." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bread, cheese, milk and no ale, which I'd guess suits you better than most." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be one of the few who orders milk without pulling a face, I'd wager." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? And no, still no ale." },
@@ -691,6 +788,8 @@ P:NPC {
         { text = "Doesn't a warrior need ale before a fight, Wental?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the inn buy game, Wental?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll take milk. Something about me sours it anyway.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the poor in Lakeshire eat at the inn, Wental?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the soldiers need most, Wental, besides ale?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just the bread, thanks.", next = "END" },
       },
     },
@@ -801,6 +900,24 @@ P:NPC {
         { text = "Do you teach Martie?", next = "martie" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No, and before the war you could walk from here to Stonewatch through briarthorn so thick it caught your skirts. The Blackrock burn what they don't trample, and I've seen whole hillsides go black that'll take ten years to green again." } },
+      choices = {
+        { text = "Then I'll pray for the hills, and help you replant.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burnt land is the price of war. Accept it, Alma.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Alma.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I already do, every week, and the gnolls haven't caught me yet because they don't notice a woman bent over a bush. Martie thinks I'm mad and the healer thinks I'm a saint, and I think the herbs don't pick themselves." } },
+      choices = {
+        { text = "Next time, I'll stand guard while you gather.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "That's your risk, Alma. Don't ask others to share it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Alma.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
@@ -808,6 +925,8 @@ P:NPC {
           text = "Martie says you dealt with that boar in her garden. I've been telling her to build a better fence for years, so I'm glad somebody solved it the other way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll ask you nicely, the same as I ask everyone: don't trample my herbs on your way out to fight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll be out in the hills more than most, so you can tell me what's growing and what's been trampled flat." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Healers and herbalists ought to be friends, so mind you don't pull my peacebloom up by the roots." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your sort tread heavy, so mind my beds as you go." },
       },
       again = {
         { id = "h_again", text = "Something else? I'll keep sorting while you ask." },
@@ -822,6 +941,8 @@ P:NPC {
         { text = "Do your herbs help warriors in a fight, Alma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter look for in the hills, Alma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Some plants grow better where there's been death.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have the hills always been this trampled, Alma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you gather herbs for the wounded out in gnoll country?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Alma.", next = "END" },
       },
     },
@@ -940,6 +1061,24 @@ P:NPC {
         { text = "What's Oslow like to work for?", next = "oslow" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not in words, but every morning somebody touches the stone with the names on it before picking up a hammer, and nobody says anything. That's how we talk about it on this crew." } },
+      choices = {
+        { text = "That's a good way to remember. I'll touch it too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to forget, Trent. Grief only slows the work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Trent.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They should, but they won't, and Oslow says a bridge built with our own hands is worth two built under guard. I'd still like a guard, mind, because I'm not as proud as the foreman." } },
+      choices = {
+        { text = "Stormwind should send soldiers. That's what the crown is for.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait on Stormwind. Arm the crew yourselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Trent.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Trent, one of Oslow's crew. The Blackrock knocked the bridge down, and we're putting it back up, one stone at a time, while the foreman tells us we're slow." },
@@ -949,6 +1088,8 @@ P:NPC {
           text = "Those iron pikes you took off the gnolls are holding up the new span now. I'll think of you every time I walk across it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not be much help with the stones, I'd guess, but you might be some help with the orcs, and the orcs are what slow us down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know the hills, then, and you'll know where the gnolls take the things they steal from us." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Bless the bridge if you like, but say one for my back while you're at it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be some help with the orcs, I'd wager, and maybe even with the stones." },
       },
       again = {
         { id = "h_again", text = "Something else? Quick, the foreman's looking." },
@@ -963,6 +1104,8 @@ P:NPC {
         { text = "I could lift that block with a spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the worst the Blackrock have done to the bridge, Trent?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the gnolls take your stolen tools, Trent?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the crew ever talk about the men it's lost?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should Stormwind send soldiers to guard your crew, Trent?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Back to work with you.", next = "END" },
       },
     },

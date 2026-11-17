@@ -56,8 +56,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Always, for faith mends the spirit, but the body is still flesh and needs the earth's help. Your human healers lean on prayer alone, I think, and they tire faster for it." } },
+      choices = {
+        { text = "The earth's gifts are holy too. I'll learn to use them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Herbs are only tools, Tannysa. There's nothing holy in a root.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The Sentinels fight under Elune's eye and the Priestesses of the Moon lead them, so yes, in our way. But our sisters guard a forest, and you guard people, and I have always thought yours the harder charge." } },
+      choices = {
+        { text = "Guarding people is the highest duty I can imagine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A forest asks less of you. Perhaps your sisters chose wisely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The sisters of Elune grow herbs for healing in our temples, and I think you'd find our ways and yours closer than either would admit." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Park! You walk heavily for a guest of the trees, but you mean well, I think, and that counts for something." },
         { id = "h_default", text = "I am Tannysa. I teach herbalism to any who will listen, though in this city most would rather buy their herbs than gather them." },
         { id = "h_cond", when = { race = "NightElf" }, text = "A sister of the forest, so far from home! You will find the herbs here tamer than ours, but they still answer to a gentle hand." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -79,6 +99,8 @@ P:NPC {
         { text = "What did your people learn about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why should a warrior learn herbalism, Tannysa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What herbs should a hunter watch for, Tannysa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your people's priestesses heal with herbs, Tannysa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the kaldorei have warriors of faith like paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Tannysa.", next = "END" },
       },
     },
@@ -162,8 +184,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than ever, because there are never enough healers, and the refugees from Lordaeron don't come with a priest each. A bandage tied well buys you an hour, and an hour is often all you need to reach someone like you." } },
+      choices = {
+        { text = "Every life saved matters, whether by bandage or by prayer.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bandages are for those the healers can't spare time for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fewer soldiers than refugees, these days, and the refugees are harder, because their wounds are old and nobody tended them on the road south. I'd give a great deal to see the Silver Hand ride north and stop the bleeding at its source." } },
+      choices = {
+        { text = "The refugees deserve our protection. I'll help where I can.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Lordaeron is lost. Stormwind must look after its own first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll heal faster than I can bandage, so I'll only ask you to remember that not everyone has a priest about when they're bleeding." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You can heal yourself, I know, but the Light won't always come when you're tired, and a good bandage always will." },
         { id = "h_default", text = "Shaina Fuller. I teach first aid to anyone with two hands and a little patience, because the priests can't be everywhere at once." },
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior! You'll bleed more than most, so you'd best learn to tie a bandage one-handed. I'll show you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -184,6 +226,8 @@ P:NPC {
         { text = "How should a warrior bandage a wound in the field, Shaina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does first aid work on a hunter's pet, Shaina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many warlocks come to you for bandages?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do bandages still matter when there are healers, Shaina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have you tended many soldiers from the front, Shaina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you, Shaina.", next = "END" },
       },
     },
@@ -267,8 +311,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Plenty, because they learn quickly that a hymn won't stop a wolf on the road to Northshire. I tell them to aim low and pray high, and so far nobody's come back to complain." } },
+      choices = {
+        { text = "A pilgrim should trust faith more than a bow.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Aim low and pray high. That's wise advice, Frederick.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every knight in the old wars rode with archers behind him, though you'd never know it from the statues. The bows soften the line, the knights break it, and the bards remember only the knights." } },
+      choices = {
+        { text = "Then the archers deserve their share of the glory.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Knights break the line. The glory goes where it's earned.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest buying a bow? Well, why not, I suppose, since nobody ever said faith was against shooting straight." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You're no archer, I'd wager, but a knight is only as safe as the bow behind him, so you'd do well to know a good one." },
         { id = "h_default", text = "Frederick Stover, at your service. I sell bows to hunters, arrows to everyone, and advice for free, though most of it's about yew." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! Now here's someone who'll appreciate a well-seasoned stave. Come, feel the draw on this one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -289,6 +353,8 @@ P:NPC {
         { text = "Did the mage's flaming arrows work?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should a warrior carry a bow, Frederick?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What makes a good bow for a hunter, Frederick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do pilgrims ever buy bows from you, Frederick?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do paladins have any use for archers, Frederick?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Frederick.", next = "END" },
       },
     },
@@ -372,8 +438,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Westfall, Redridge, Duskwood, take your pick, because every road out of the city sends someone home in a box. I sell lilies to widows who can't afford them, and I've stopped asking what happened." } },
+      choices = {
+        { text = "Every one of them deserves a proper farewell. Your flowers help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Flowers cost too much for grieving families. The dead won't mind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Sweethearts and mothers, and sometimes the grave of a friend on the way out of the city. I don't ask, but you can tell by which flowers they choose, and roses mean somebody's waiting." } },
+      choices = {
+        { text = "A knight fights for those waiting at home. It's a worthy reason.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A knight should fight for the Light, not for a sweetheart.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll know my lilies, then, since half the funerals in the Cathedral are dressed in them, and more every month." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The young knights always buy roses before they ride out, and I always wonder who they're for." },
         { id = "h_default", text = "Felicia Gump, florist. I sell flowers for weddings and herbs for the kitchen, and lately, I'm sorry to say, a great many lilies for funerals." },
         { id = "h_cond", when = { profession = "Cooking" }, text = "A cook! Then you'll want my herbs. Even Chef Grual in Darkshire sends for them, and that man's terribly hard to please." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -395,6 +481,8 @@ P:NPC {
         { text = "Do soldiers ever buy flowers before they march, Felicia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which flowers grow wild near Stormwind, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your flowers often wilt near people, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why are there so many funerals lately, Felicia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who do knights buy flowers for, Felicia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Felicia.", next = "END" },
       },
     },

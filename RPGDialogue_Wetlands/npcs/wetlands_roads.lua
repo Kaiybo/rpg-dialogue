@@ -69,8 +69,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Whoever's least hurt, which some days is me, an' I've no gift for it. We send the worst back tae Menethil, but the road's long an' the Dark Irons watch it." } },
+      choices = {
+        { text = "Then I'll stay a while and tend them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Send them all back. Your fighters need to fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Stand on the bridge wi' us when the Dark Irons come, an' let the lads see someone who isnae afraid. Fear's been our worst enemy since the Span fell, an' fear doesnae die tae an axe." } },
+      choices = {
+        { text = "I'll stand on that bridge with you, Longbraid.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Holding a lost bridge is folly. Fall back to Menethil.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, out here? I've wounded enough tae keep ye busy, an' dead enough tae keep ye prayin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Light's a long way from Dun Modr these days, so ye're welcome tae bring some o' it with ye." },
         { id = "h_default", key = true,
           text = "Longbraid, they call me, and they add 'the Grim' because I've had little to smile about since the Dark Irons came. They broke the Thandol Span and took Dun Modr, and we hold on by our fingernails." },
         { id = "h_warm", when = { disposition = { min = 70 } },
@@ -94,6 +114,8 @@ P:NPC {
         { text = "Dark Iron fire won't burn through a mage's ward.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How can a warrior help hold Dun Modr, Longbraid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What could a hunter do for Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who tends your wounded out here, Longbraid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would you ask of a paladin, Longbraid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Hold fast, Longbraid.", next = "END" },
       },
     },
@@ -173,8 +195,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It's all I've got left that's worth wantin', since the Span took my cousin an' half the road with it. When it's done, maybe I'll want somethin' else, an' maybe then I'll come an' talk tae ye." } },
+      choices = {
+        { text = "Vengeance won't bring him back. Grieve first, Motley.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then make them pay, Motley. They earned it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Motley.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "My axe, if it's up tae me, but I'll grant ye a court would hang them just as dead an' wi' more folk watchin'. Either way they answer, an' that's all I ask." } },
+      choices = {
+        { text = "A court, then. Justice should be seen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your axe. It's quicker and surer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Motley.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If ye're here tae talk me out o' vengeance, save yer breath, for I've heard it all from my mother." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll understand, then, that some things need answerin' for, an' the Span's one of them." },
         { id = "h_default", key = true,
           text = "Motley Garmason, and I mean to see the Dark Irons pay for the Thandol Span. They blew it to cut us off from Arathi, and they're no' finished yet." },
         { id = "h_span", when = { questActive = TODO_QUEST("The Thandol Span") },
@@ -193,6 +235,8 @@ P:NPC {
         { text = "I know demolitions. Who set the charges?", next = "rogue", when = { class = "ROGUE" } },
         { text = "What do the Dark Irons owe you, Motley?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do you think the Dark Irons' tracks lead?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is vengeance all you want from the Dark Irons, Motley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Dark Irons answer to a court, or your axe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck, Motley.", next = "END" },
       },
     },
@@ -280,8 +324,28 @@ P:NPC {
         { text = "What's the dig for?", next = "dig" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Shallow graves under the ridge an' a stone each, for that's all we had time for wi' the raptors circlin'. I'd thank ye for a word over them, if ye've one tae spare." } },
+      choices = {
+        { text = "I'll go to the ridge and say the words.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The living diggers need guarding more than the dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ormer.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "In front o' the diggers wi' yer back tae the trench, for the raptors go for whatever runs. Stand firm an' they'll circle, but run an' they'll have ye down." } },
+      choices = {
+        { text = "Then I'll stand in front and hold, Ormer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hunt them in the grass before they reach the dig.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ormer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! We've lost diggers tae the raptors an' buried them where they fell, an' none o' them had proper words." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I could use a shield when the raptors come at the dig, an' a holy one would do nicely." },
         { id = "h_default", key = true,
           text = "Ormer Ironbraid, and I keep the raptors off Whelgar's dig. They've taken diggers, mules and more lunches than I care to count." },
         { id = "h_revenge", when = { questActive = TODO_QUEST("Ormer's Revenge") },
@@ -300,6 +364,8 @@ P:NPC {
         { text = "Raptors hunt by smell. I'll have to be cleverer than usual.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fire, then. Raptors fear fire, surely?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How do the raptors attack the dig, Ormer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Were the lost diggers given a proper burial, Ormer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Where should I stand when the raptors come, Ormer?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good hunting, Ormer.", next = "END" },
       },
     },
@@ -399,8 +465,28 @@ P:NPC {
         { text = "Have the raptors hurt anyone?", next = "raptors" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Fossils, mostly, and bones far bigger than any beast living now, which aren't the sort you bury. There's a strangeness in a few of them that makes the diggers uneasy, and they're not easily made uneasy." } },
+      choices = {
+        { text = "Some things are better left in the ground, Prospector.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dig it all up. Knowledge shouldn't fear the dark.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I ask myself that every night, and every morning the ground gives me some new reason to keep digging. The League will remember the finds, but I'll remember the names, and that's my burden, not theirs." } },
+      choices = {
+        { text = "Then honour them by finishing the work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "No find is worth more lives. Pack it up.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Some of what we dig up here is old and some is very old, and a few pieces I'd rather a priest looked at before I touched them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! My diggers will stand a little straighter with you around, and I'll take all the straight backs I can get." },
         { id = "h_default", key = true,
           text = "Prospector Whelgar of the Explorers' League, and this is my excavation, raptors and all. The ground here hides more than mud, though it hides it under plenty of mud." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The dig could use one, for my diggers keep looking over their shoulders instead of at the ground." },
@@ -417,6 +503,8 @@ P:NPC {
         { text = "A dig full of treasure, and only raptors for guards.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What has your diggers looking over their shoulders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the raptors keep you from digging, Prospector?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What have you found that needs a priest's eye, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is your dig worth the lives it's cost, Prospector?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

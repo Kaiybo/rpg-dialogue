@@ -59,8 +59,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not openly, but there's red linen drying on the line behind the mill some mornings, and nobody claims it. I'd tell the Marshal, only I'm fond of the loggers, and I'd hate to find out which of them it belongs to." } },
+      choices = {
+        { text = "The truth must come out, whoever it touches.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave it be, Sara. A man's past is his own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Sara.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your tabard's been torn and stitched by somebody who didn't know what they were doing, and I can see it from my step." },
         { id = "h_default", text = "Sara Timberlain. The loggers cut wood; I cut cloth. Somebody in this camp has to make something you'd want to wear." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Linen Goods") },
           text = "The Defias in Elwynn wear the best red linen I've ever seen. Wasted on thieves. Bring me their bandanas and I'll make something honest of them." },
@@ -92,6 +102,7 @@ P:NPC {
         { text = "Do mages bring you much mending work out here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors ever buy anything from a tailor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does a tailor make for hunters, Sara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Defias ever come into Eastvale, Sara?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep an eye out for red.", next = "END" },
       },
     },
@@ -243,8 +254,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nobody, if I'm honest, unless you count the crows. The Defias come through after dark and take what they like, and we stand in the rows next morning pretending not to see the footprints." } },
+      choices = {
+        { text = "Then I'll stand in the rows tonight, Gerard.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hire guards, then. A vineyard should pay for its own safety.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! All that plate in this sun? You'll be thirstier than me by noon, and I didn't think that was possible." },
         { id = "h_default", text = "Gerard, and I work the vines. The sun's hot, the rows are long and the well's a long walk, so a man could die of thirst out here, slowly." },
         { id = "h_trade", tags = { "news" }, when = { questActive = TODO_QUEST("Give Gerard a Drink") },
           text = "Spring water's the good stuff. Bring me a flask and I'll give you an apple for it, and that's the best trade in Elwynn." },
@@ -274,6 +295,7 @@ P:NPC {
         { text = "Can't you simply carry more water from the well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Defias come into these vines often?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the crows really take all your grapes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Who protects the vineyard workers, Gerard?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Keep at it, Gerard.", next = "END" },
       },
     },

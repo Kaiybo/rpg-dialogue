@@ -58,8 +58,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Everything that burns must rest, or it burns out, and I've seen your kind wear themselves thin in the name of duty. Even the moon wanes, and Elune is no weaker for it." } },
+      choices = {
+        { text = "Duty needs discipline, and discipline needs rest. You're right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Evil doesn't rest, Sheldras, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the human Light. You carry it like a lantern held high, young one, and I wonder whether you ever let it rest." },
         { id = "h_default", text = "I am Sheldras Moontree. Even within cold stone walls like these, one may find tranquillity, and in truth you may find it anywhere at all, if you look inside yourself for balance. The Park only makes it easier." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "You are far from the Cenarion Circle, young one, and closer than you think. Every druid carries the Dream with them, even through the gates of a human city." },
@@ -96,6 +106,7 @@ P:NPC {
         { text = "Why do the trees shy from the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a warrior find balance, Sheldras?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you fear what I've summoned, Sheldras?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Should a paladin's Light ever rest, Sheldras?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Peace be with you.", next = "END" },
       },
     },
@@ -286,8 +297,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I need someone who can get behind Dalaran's wards without being burned to a cinder, and you're as likely as anyone, I suppose. The plants inside those walls drank more magic than any in Kalimdor, and I want to see what it did to them." } },
+      choices = {
+        { text = "Those plants belong to Dalaran. We should ask permission.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the plants are there, I'll fetch them. Wards be hanged.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've trampled two of my seedlings already, so stand still and tell me what you want." },
         { id = "h_default", text = "Shylamiir. I train herbalists, when they can be trained, and in between I study what grows here, which is more than you'd think for a park full of humans." },
         { id = "h_sample", key = true, tags = { "news" }, when = { questBefore = TODO_QUEST("A Green Sample"), minLevel = 40 },
           text = "If you're going to bother me, you can make yourself useful. Dalaran has a surprising interest in botany for a city of mages, and I'd very much like a sample of whatever grows in their central garden." },
@@ -316,6 +337,7 @@ P:NPC {
         { text = "What would a herbalist want from a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Which herbs should a warrior carry, Shylamiir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What grows here that surprises you, Shylamiir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you need help gathering herbs, Shylamiir?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

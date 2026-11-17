@@ -64,8 +64,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A few, aye: a cracked censer from the old chapel by the Great Forge, an' a prayer-stone some explorer dug out o' Uldaman wi' runes nobody can read. I'll confess I like the stone better, for it's a mystery, an' I've never met a mystery I didnae want tae put in a case." } },
+      choices = {
+        { text = "Holy things belong where people can kneel before them, Curator.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A relic's a relic. Behind glass is as good a place as any.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's see the rest of the hall.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A dwarf o' the first Ironforge companies tae take Uther's oaths, so the label says, though I'll own the label was written long after an' by somebody who liked a good story. He gave it tae the museum himself when his hands got too stiff for it, an' that's the part I believe." } },
+      choices = {
+        { text = "Then I'll earn a place in that case, the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Glory belongs to the living. Leave the old gauntlets to the dust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Show me something else, Curator.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the museum! Mind the cases, friend, for some o' these relics are older than any temple, an' a few o' them were holy tae somebody once." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want the case by the north wall, then, for we've a Silver Hand gauntlet there from the Second War, an' I polish it myself." },
         { id = "h_default", key = true,
           text = "Thorius, curator o' the Ironforge museum, at yer service! Every piece in this hall has a story, an' I know all o' them, so mind ye don't ask unless ye've an afternoon tae spare." },
         { id = "h_horn", tags = { "news" }, when = { questActive = TODO_QUEST("Proof of Deed") },
@@ -99,6 +119,8 @@ P:NPC {
         { text = "Do you worry about thieves in the museum, Curator?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What did the titan-work do when that mage leaned close?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which pieces in the museum belonged to warriors, Curator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have you ever kept relics of faith in the museum, Curator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Whose gauntlet is that by the north wall, Curator?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Another time, Curator.", next = "END" },
       },
     },
@@ -262,8 +284,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Depends which shelf ye ask, for the human books say the Light, the kaldorei say Elune, an' the oldest dwarven tablets say naught at all about either. I've a theory the titans knew more than they wrote down, but I'll no' say it too loud wi' High Priest Rohan just across the way." } },
+      choices = {
+        { text = "Faith doesn't need a footnote, Librarian. It needs a heart.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every belief should be written down and argued with. That's honest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll leave the theology for another day.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A copy, aye, written in Uther's own words an' sent from Lordaeron before it fell, though half the margins are covered in some dwarf's notes about what Uther meant. Read it if ye like, but leave the notes; I've a fondness for them." } },
+      choices = {
+        { text = "The oaths mean what they say, nothing more and nothing less.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Oaths should change as the world does. Those notes are wisdom.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some other time for the oaths.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Library! Ye'll be wantin' the theology shelves, I expect, an' I'll warn ye they're half Light an' half arguin' about it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, an' ye've the look o' someone who's read the oaths an' no' just sworn them, which is more than I can say for most." },
         { id = "h_default", text = "Mae Paledust, Librarian. If it's written down anywhere, I can likely find it, an' if it's no' in a book yet, I'd like ye tae tell me about it so it can be." },
         { id = "h_myth", tags = { "news" }, when = { questActive = TODO_QUEST("Mythology of the Titans") },
           text = "The book's in the library o' the old Monastery in Tirisfal, if it survived the Scarlet Crusade's housekeepin'. Bring it home tae Ironforge, where it'll be read instead o' burned." },
@@ -291,6 +333,8 @@ P:NPC {
         { text = "Do books really go missing from the Library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Library keep records of Ironforge's battles?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's missing from the Library's bestiary, Librarian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do your books say about where faith comes from?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the Library keep the oaths of the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -452,8 +496,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Hit them, mostly, an' hard, but in the Badlands an' no' here, where the Senate would want a form filled out first. Hammertoe died tryin' tae keep them from the Tablet o' Will, an' I'd take it kindly if somebody made them pay for that before I'm too old tae see it." } },
+      choices = {
+        { text = "Then they'll answer for Hammertoe, by fair fight and open steel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "However it's done, they'll pay. Fair fights are for duels.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell me something else, Historian.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Well, ye'll want tae hear about the Shadowforge, for the Dark Irons in Uldaman are no' the sort a polite word will move." },
         { id = "h_default", text = "Karnik, historian o' the Explorers' League. I'm truly sorry, but I've a great deal o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
         { id = "h_amulet", tags = { "news" }, when = { questActive = TODO_QUEST("Prospect of Faith") },
           text = "That's Hammertoe's amulet. Then this changes everythin'; if he sent ye wi' it, then he knew what was at stake, an' we'll have tae mourn him later." },
@@ -488,6 +542,7 @@ P:NPC {
         { text = "Does a historian have opinions about my sort, Karnik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would the League need warriors more than scholars?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Explorers' League ever need hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What would you have a paladin do about the Shadowforge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -663,8 +718,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every night, though no' where the King can hear, for he'll no' have pity in his hall. Princess Moira's been gone tae the Dark Irons long enough that some folk speak o' her in the past, an' I'll thank ye no' tae be one o' them." } },
+      choices = {
+        { text = "Then I'll pray she comes home, and I won't stop.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't free her. Somebody has to go to Blackrock.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else, Advisor.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Steadiness, mostly, for the Dark Irons are pressin' from the south an' the Senate is pressin' from the north, an' His Majesty's in the middle wi' his temper. A paladin who keeps his oath an' his head is worth ten who only keep the one." } },
+      choices = {
+        { text = "My oath is to the King's law. I'll keep it steady.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My oath is to the Light, Advisor. Not to the Senate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Advisor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The King keeps a few o' yer sort close, an' I'm glad of it, for the court's tempers could use a calm voice now an' again." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, standin' in the King's own hall. Good; the throne's always glad o' a sworn blade, an' doubly glad when it's a sworn blade that thinks first." },
         { id = "h_default", text = "Belgrum, advisor tae King Magni Bronzebeard. I carry the King's word where he cannae carry it himself, which is most places, for he's a busy dwarf." },
         { id = "h_note", tags = { "news" }, when = { questActive = TODO_QUEST("Passing Word of a Threat") },
           text = "A note from Karnik? Good; his notes go tae the top o' the pile. Let me read it." },
@@ -699,6 +774,8 @@ P:NPC {
         { text = "Does the throne tolerate warlocks, Advisor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does the King ask of Ironforge's warriors these days?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the throne have any use for hunters, Advisor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the court pray for the King's daughter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does Ironforge need most from its paladins, Advisor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -864,8 +941,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Some do, an' some want only the name an' the battle, an' I carve whatever they ask, though the prayers take longer an' cost more in chisels. Sully Balloo's stone has his name, the Thandol Span, an' naught else, for his kin said he'd have hated fuss." } },
+      choices = {
+        { text = "Every soldier deserves a blessing in stone, whether they'd want fuss or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The family knows best. A name is enough to remember.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Grand Mason.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than a few, an' all o' them younger than I'd have liked, for the Second War an' the Thandol Span took the best o' the Silver Hand's dwarves. I'd as soon no' carve yer name, so I'll ask ye tae fight carefully, though I know ye'll no' listen." } },
+      choices = {
+        { text = "Their sacrifice was duty, and I'll honour it the same way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight carefully. A dead paladin protects nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something lighter.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want tae see the memorials, then, for I carve the names an' somebody ought tae say the words over them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Ye've the walk o' a dwarf who's stood in a shield wall, an' I've carved too many o' those for my likin'." },
         { id = "h_default", text = "Marblesten, Grand Mason o' Ironforge. If it's stone an' it's standin' in this city, chances are I carved it, or I've complained about whoever did." },
         { id = "h_tribute", tags = { "news" }, when = { questActive = TODO_QUEST("A King's Tribute") },
           text = "The King sent ye himself? Well, well, then it's no' a small job! A memorial tae a soldier called Sully Balloo, ye say, who died at the Thandol Span?" },
@@ -897,6 +994,8 @@ P:NPC {
         { text = "Could magic not help with the memorial?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Whose names have you been carving, Grand Mason?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why would a hunter make a good mason?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the families ask for prayers carved on the memorials?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are there paladins among the names you've carved?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Grand Mason.", next = "END" },
       },
     },
@@ -1048,8 +1147,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Often enough that I keep linen by the roost, for the Wetlands route passes too near Grim Batol an' the Dragonmaw have good eyes an' better bows. The gryphons come back fine, mind, for nobody's fool enough tae shoot a gryphon twice." } },
+      choices = {
+        { text = "Then I'll stop by when I can and see to your riders.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Riders who fly near Grim Batol choose their risk. That's on them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What else, Gryth?", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "In the Second War, aye, though I was only a lad holdin' the reins. The Wildhammers'll tell ye it was their birds did the flyin', but there were Ironforge gryphons over Grim Batol too, wi' Silver Hand dwarves on their backs, an' I'll argue it wi' any Aerie Peak lout who says otherwise." } },
+      choices = {
+        { text = "Then they flew with honour, whoever's birds they were.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Wildhammers earned that one. Give them their due.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Back to business, Gryth.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for the last time a rider came in off the Thandol route he'd a Dragonmaw arrow in him, an' I'm no' handy wi' anythin' but feathers." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Aye, my birds like yer sort, for ye sit square in the saddle an' ye don't scream on the dive like the mages do." },
         { id = "h_default", text = "Gryth Thurden, gryphon master. The Wildhammers might have fast steeds, but can those Aerie Peak gryphons stand the heat o' the Great Forge? I think not!" },
         { id = "h_picks", tags = { "news" }, when = { questActive = TODO_QUEST("Gryth Thurden") },
           text = "Honorary picks for Brock's students in Thelsamar, is it? No trouble at all, as long as ye've been there before an' spoken tae the flight master; my birds won't fly tae a place ye've never seen." },
@@ -1076,6 +1195,8 @@ P:NPC {
         { text = "Would you fly a warlock if I asked?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do Ironforge gryphons carry warriors to the front?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons stand the heat of the Forge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your riders come back wounded often, Gryth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Have your gryphons ever flown paladins into battle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Gryth.", next = "END" },
       },
     },
@@ -1188,8 +1309,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only when they've been daft enough tae get caught, an' then they need a priest an' a fast gryphon both. I'll no' say the Circle's on the Light's good side, but we've kept a few Dark Iron daggers out o' Magni's back, an' I'd like tae think that counts for summat." } },
+      choices = {
+        { text = "Then I'll patch your rogues and pray they keep doing that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your Circle serves itself. I'll keep my prayers for honest folk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Enough of the Circle's soul.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the guards already know about us an' pretend they don't, an' because we hear things in the Dark Iron camps that no knight in shinin' plate would ever get near. Ye can have yer justice in the open, an' I'll have mine in the dark, an' the Dark Irons can choke on both." } },
+      choices = {
+        { text = "Thieves are thieves. The law will catch up with you, Blackbeard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Justice in the dark is still justice. I'll leave you be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let's leave it there, Blackbeard.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in the Hidden Circle! Arr, have ye come tae save our souls, or have ye lost yer way tae the Mystic Ward, matey?" },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here? Keep yer voice down, matey, an' keep yer hammer on yer belt; we're all friends in the Forlorn Cavern, more or less." },
         { id = "h_default", text = "Hulfdan Blackbeard, an' this is the Hidden Circle, though if ye tell anyone it's here, it'll no' be hidden, will it? Speak up, but no' too loud." },
         { id = "h_salvation", tags = { "news" }, when = { questActive = TODO_QUEST("Road to Salvation") },
           text = "Hogral sent ye, an' ye fancy yerself a proper rogue, one o' Blackbeard's own? Only a worthless scallywag would think so much o' himself, an' worthless scallywags are just wut the Circle needs." },
@@ -1218,6 +1359,8 @@ P:NPC {
         { text = "Do rogues and warlocks get along down here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Have you any use for a warrior down here, Blackbeard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters and rogues ever work together, Blackbeard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your rogues ever need a priest, Blackbeard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why shouldn't a paladin turn your Circle over to the guards?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll keep your secret.", next = "END" },
       },
     },

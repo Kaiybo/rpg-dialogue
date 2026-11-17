@@ -60,8 +60,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Bottle by bottle and ticket by ticket, and every one of them goes in my tally. He says it's good for the name, and I say a name doesn't pay the cellar's rent, but somehow I always end up pouring anyway." } },
+      choices = {
+        { text = "A promise made is a promise kept, even a free bottle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then stop honouring his tickets and let him answer for them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Renato will try to give you a free bottle, and I'll ask you, as someone sworn to honour, to pay for it anyway." },
         { id = "h_default", key = true,
           text = "Suzetta Gallina. My brother sells the wine in the square, Julia sells it at the counter and Roberto keeps the cellar, so somebody has to keep the books, and that's me." },
         { id = "h_ticket", tags = { "news" }, when = { questActive = TODO_QUEST("Wine Shop Advert") },
@@ -89,6 +99,7 @@ P:NPC {
         { text = "What happened with the apprentice and the merlot?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the winery ever need a strong back, Suzetta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do boars really trouble the Gallina vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is Renato really giving the winery away, Suzetta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -231,8 +242,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "There's a farm in the north I won't name, and folk on it I won't name either, because the plague took them and I wasn't there. Say a word for them if you like, dearie, but don't make a fuss of it, and don't tell me when you've done it." } },
+      choices = {
+        { text = "I'll pray for them quietly, Emma, and never say a word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The north is lost, Emma. Better to let them go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Well, don't go looking at me like I need saving, dearie, because I've only got sore arms and a long memory." },
         { id = "h_default", key = true,
           text = "They call me Ol' Emma, as if I'd never been young, and I carry the water for this whole street. Of course I talk to myself, dearie; it's the only decent conversation in this city." },
         { id = "h_parcel", tags = { "news" }, when = { questActive = TODO_QUEST("Good Natured Emma") },
@@ -268,6 +289,7 @@ P:NPC {
         { text = "Did your Harold ever see a real fight, Emma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever miss the country, Emma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Lamb's cellar frighten you, Emma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you like me to pray for someone, Emma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -438,8 +460,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bandage linen by the bolt, more every month, and that's what frightens me. When the healers start buying cloth by the bolt, somebody somewhere expects a great many people to bleed." } },
+      choices = {
+        { text = "Whatever's coming, we'll meet it with faith, Rema.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't stop it. Sell them the linen and save your coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Merchants, nobles' stewards and the guard, and not one of them will tell me why. If the House of Nobles knows something's coming, it would be a fine thing if they told the people who'll be wearing the trousers." } },
+      choices = {
+        { text = "The crown has its reasons. Trust it to warn us in time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The nobles hoard what they know. Folk deserve the truth.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and a hem worn thin from kneeling, I'd wager. The Cathedral's novices come to me in droves, though lately it isn't robes the Cathedral wants from me." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and that tabard's been mended by someone who didn't know a needle from a nail. Let me see to it before you go out again." },
         { id = "h_default", key = true,
           text = "Rema Schneider, and this is the Canal Tailor and Fit Shop. We sew for half the Trade District, and lately it's knitted shirts and sturdy trousers, more than we can manage." },
         { id = "h_harlan", tags = { "news" }, when = { questActive = TODO_QUEST("Harlan Needs a Resupply") },
@@ -469,6 +511,8 @@ P:NPC {
         { text = "Do you mend many scorched robes from the Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do warriors usually ask of a tailor, Rema?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What makes good cloth for a hunter, Rema?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does the Cathedral want from you lately, Rema?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who's buying all this sturdy cloth, Rema?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -591,8 +635,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Near enough, I'd say. You cast your line into something you can't see, you wait longer than you'd like, and every so often something answers, and you never quite know why it was today." } },
+      choices = {
+        { text = "Patience is a gift, and the canals teach it well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith's nothing like fishing, Arnold. A fish is just luck.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Patience, mostly, and that the biggest fish doesn't always fight the hardest. Some of the young knights come down here wound tight as a bowstring, and an hour on the bank does them more good than a week of drill." } },
+      choices = {
+        { text = "A calm mind serves duty better than a restless one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A paladin's place is in the fight, not on a canal bank.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Fishing's a kind of prayer, you know, all waiting and hoping and not much said, so I expect you'll take to it quicker than most." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that plate! You'll want to stand well back from the edge, friend, because the canals are deeper than they look and armour floats about as well as an anvil." },
         { id = "h_default", text = "Arnold Leland. I teach fishing, and Catherine there sells the poles and bait, and between us we've fished every bit of water within a day's walk of this city." },
         { id = "h_back", when = { metBefore = true }, text = "Back again! Caught anything worth bragging about, or only the ones that got away?" },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -614,6 +678,8 @@ P:NPC {
         { text = "Why not just conjure your fish, Arnold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does fishing teach a warrior anything worth knowing?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters make good fishermen, Arnold?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is fishing really like prayer, Arnold?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could a paladin learn anything from fishing, Arnold?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -714,8 +780,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Why not both, and the coin first, since the blessing keeps better? I'll tell you true, though, there's nights on these bridges when I'd take a kind word over a copper, and that's not a thing I say to just anybody." } },
+      choices = {
+        { text = "You're not forgotten, Morris, whatever these bridges tell you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You'll get neither. I know a beggar's patter when I hear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A loaf, a blanket and a pair of boots off a dead man by the canal, and he'd no more use for them, I promise you. I don't suppose the Silver Hand has a rule about boots, does it?" } },
+      choices = {
+        { text = "Taking from the dead is wrong, Morris, whatever the need.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A dead man's boots are better on living feet. Keep them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless me, then, {class}, bless me twice, for I've been a terrible sinner and a terrible farmer both, or so the story goes." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a paladin. Now I never took a thing that wasn't given me, whatever the guards might say." },
         { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
         { id = "h_back", when = { metBefore = true }, text = "You again! Ye've a kind face, I said so the first time, didn't I? Or I meant to." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -737,6 +823,8 @@ P:NPC {
         { text = "Do you really know how to keep armor, Morris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who buys pelts without asking questions, Morris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Are you trying to blackmail me, Morris?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you want a blessing, Morris, or a coin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the guards say you took, Morris?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Get a job, Morris.", next = "END", fx = { affinity = -1 } },
       },
     },
@@ -833,8 +921,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Yes please! Adam says blessing a line is cheating, but Adam caught a crab last week and he won't stop talking about it, so I think I'm allowed." } },
+      choices = {
+        { text = "There. May your next catch be the biggest fish in Stormwind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Blessings aren't for fishing, Billy. Patience will serve you better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Fights monsters! And saves people, and doesn't run away even when it's really scary, but is that true, or is it just what they tell kids?" } },
+      choices = {
+        { text = "It's true. We stand our ground, however scared we are.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sometimes running is wiser, Billy. Brave doesn't mean foolish.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Can you bless my line, so I catch a real fish and not another boot?" },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Whoa, a paladin! Is your armour real? Can you hit things with the Light? Adam says paladins can, and he's never right about anything." },
         { id = "h_default", text = "I'm Billy, and me and Adam fish here every day, and once, at camp, I pulled out a fish bigger than me, honest, but I threw it back because it was looking at me funny." },
         { id = "h_boot", when = { metBefore = true }, text = "Look, look, I caught something! Oh, it's just another stinky old boot, that's three this week." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -855,6 +963,8 @@ P:NPC {
         { text = "Why do you want to sneak up on Adam?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What if I conjured you a fish, Billy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Billy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Shall I bless your fishing line, Billy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you want to know what a paladin really does, Billy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck fishing, Billy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -962,8 +1072,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Before every long voyage, and twice before the run to Menethil. I don't hold with it myself, but I've noticed the ships that get blessed come back with fewer complaints in my ledger." } },
+      choices = {
+        { text = "A blessing steadies a crew. It's worth the asking, Clerk.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A sound hull does more than any blessing, Clerk.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Someone who knows my schedule better than my dockhands do, which narrows it down to half the harbor. The guard won't spare a man for it, so I write it off as spoilage and lose a little more sleep every week." } },
+      choices = {
+        { text = "The guard should hear of it. Theft must answer to the law.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some of that spoilage feeds hungry families. Let a little go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to bless a ship, you'll have to wait your turn, because half my captains want a blessing and the other half want their cargo found." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Splendid, if you're here to tell me who's been lifting crates off my docks at night, and less splendid if you're here to inspect my ledgers." },
         { id = "h_default", key = true,
           text = "Manifest Clerk Philmor. Every crate that comes into this harbor passes my ledger, and this week half my dockhands haven't, so the cargo schedule is a work of fiction." },
         { id = "h_favor", tags = { "news" }, when = { questActive = TODO_QUEST("Philmor's Favor") },
@@ -990,6 +1120,8 @@ P:NPC {
         { text = "Do the docks carry much for the Mage Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why are your dockhands leaving the harbor, Clerk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do many furs and hides pass through the harbor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do sailors often ask for blessings, Clerk?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who do you think is stealing from your docks, Clerk?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },

@@ -62,8 +62,27 @@ P:NPC {
         { text = "Where do your supplies come from?", next = "supplies" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They don't ask, bless them, but I've seen a watcher hold a candle a little longer when somebody's said a prayer over it. If you've a word to spare for my shelf, I'd be glad of it." } },
+      choices = {
+        { text = "Then I'll bless your shelf. Every candle helps.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A candle burns the same, blessed or not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mabel.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Through the winter, if the carts from Lakeshire keep coming and nobody hoards, which is two big ifs. I put a jar of oil aside for the Watch every week, whatever it costs me, because a dark town is a dead town." } },
+      choices = {
+        { text = "Ration it fairly, Mabel. Everyone should get their share.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sell to whoever pays most. That's trade.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Mabel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your sort burn through lamp oil like nobody else, out on patrol all night, so I keep the jars filled for you." },
         { id = "h_default", text = "Mabel Solaj, and I keep Darkshire in candles, lamp oil and flour, which is to say I keep it in light and bread. Neither one is easy to come by in this wood, so I don't apologise for my prices." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! Bless you for coming so far into the dark. I sell more candles to the Night Watch than I ever sold to a chapel, and they need the light just as badly." },
         { id = "h_undead", when = { race = "Scourge" }, text = "Oh, my word, you're one of the... well, you're standing here buying candles and not trying to eat me, so I'll be civil if you will." },
@@ -83,6 +102,8 @@ P:NPC {
         { text = "Do the Watch buy your lamp oil, Mabel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need fresh game for your flour and bread trade, Mabel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you sell anything for the darker arts, Mabel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Night Watch ever ask for blessed candles, Mabel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How long can Darkshire last on what reaches your shop?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good night, Mabel.", next = "END" },
       },
     },
@@ -178,8 +199,28 @@ P:NPC {
         { text = "Who buys from you?", next = "buyers" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Half of them, and the other half have gone into the ground, which is why I count my stock aloud, so somebody in this town is still counting something. Them that left took their trades with them." } },
+      choices = {
+        { text = "I'll pray for those who stayed and those who left.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer won't bring them back, Gunder. Work will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gunder.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It'll hold as long as folk keep buying thread and salt and pretending things are normal. The day they stop, I'll know we're done, and I'll pack up the stock myself." } },
+      choices = {
+        { text = "Then I'll see that it holds. That's my oath.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If it falls, I'd be packed before you, Gunder.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gunder.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've parchment for your prayers and thread for your robes, and that's about as holy as my stock gets." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your armour wants oiling, I'd say, and I've the oil, if you've the patience to do it properly." },
         { id = "h_default", text = "Gunder Thornbush, tradesman, and I've stock for every craft in Darkshire, though there are fewer crafts every year. Mabel sells the bread and candles, and I sell everything you'd need to make something of your own." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! Herble on the hill sells the clever bits, so I'll not pretend to compete, but if you need plain flux, mine's cheaper." },
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "You'll be after parchment, I expect, and I'll not ask what you write on it. In this town, the less a tradesman asks, the longer he trades." },
@@ -198,6 +239,8 @@ P:NPC {
         { text = "You count your stock aloud. Afraid someone's lifting it?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should a warrior learn to mend his own gear, Gunder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you buy worg hides, Gunder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Has the dark driven many crafters out of Darkshire, Gunder?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think Darkshire will hold, Gunder?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -283,8 +326,27 @@ P:NPC {
         { text = "Something else, Morg.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More often than they should, because they think a mended breastplate matters more than a mended rib. I send them on to the inn, but half of them go back out on patrol first." } },
+      choices = {
+        { text = "Send them to me first. I'll see to the ribs.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they're too proud for a healer, let them limp.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Morg.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A second plate over the joint and a thicker strap beneath it, which costs you a little swing and buys you an arm that's still attached. I'd do it to every suit that comes through here, if folk would let me." } },
+      choices = {
+        { text = "Do it properly, then. Safety over speed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather keep my swing, Morg.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Morg.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in my forge? I've no armour for cloth folk, but come in out of the dark all the same." },
         { id = "h_default", text = "Morg Gnarltree, armorer. Gavin sells you the blade to fight with and I sell you the steel to survive it, and in this wood the second matters more." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's good, but it was made for Stormwind's streets, not Duskwood's claws, and the joints at the elbow will fail you first." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf. Your people taught mine half of what we know about plate, so if you see something wrong in my work, say it plainly." },
@@ -302,6 +364,8 @@ P:NPC {
         { text = "Who wears your armour?", next = "who" },
         { text = "What armour would you trust against Duskwood's worgs, Morg?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will mail slow me down on the hunt, Morg?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Watch come to you hurt, Morg, before a healer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How would you strengthen my elbow joints, Morg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Morg.", next = "END" },
       },
     },
@@ -401,8 +465,28 @@ P:NPC {
         { text = "Any advice for a beginner?", next = "advice" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They got a hole each and my hat off, which was all I knew to give them. They're out past Roland's Doom, and I'd not ask you to go there, but I'd not stop you either." } },
+      choices = {
+        { text = "Then I'll go and say the words over them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're past caring, Matt. Look after yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Matt.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The worgen, first, and then the dead walked in after them and made themselves at home. We left the carts full and the picks in the wall, and I still dream about the sound." } },
+      choices = {
+        { text = "Then I'll clear Roland's Doom for your crew's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Mines are cheap, Matt. Dig somewhere safer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Matt.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I buried most of my old crew myself, and nobody said proper words over them, so you're welcome here." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be swinging that hammer at the dead, not at rock, I expect, and I can't say I blame you." },
         { id = "h_default", text = "Matt Johnson, and I teach mining, though there's precious little of it done in Duskwood now. Most of the men I worked with put their picks down years ago, and the rest are buried with them." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf wants mining lessons from a human? You're having me on, but I'll teach you what I know about these hills, and that might be worth something." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior who wants to dig? Good, because in Duskwood you'll need both a pick and a sword, often at the same time." },
@@ -422,6 +506,8 @@ P:NPC {
         { text = "Mining seems hard work for a mage.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's in the abandoned mines of Duskwood, Matt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do beasts nest in Duskwood's old mines, Matt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did your old crew get the rites they deserved, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What drove the miners out of Roland's Doom, Matt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -505,8 +591,28 @@ P:NPC {
         { text = "Something else, Danielle.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Only the ones who tell her she's a fraud, and you'd be surprised how many come down from Stormwind just to say it. She lets them shuffle the deck, and they always leave a little paler than they came." } },
+      choices = {
+        { text = "My faith is enough, whatever her cards say.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Perhaps her cards see something prayers miss.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Danielle.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Every sash and tabard they own, and I mend the claw tears for nothing when Sheri isn't looking. Commander Ebonlocke says a watcher who looks smart stands straighter, and I've never argued with her." } },
+      choices = {
+        { text = "She's right. Order starts with how a watch carries itself.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fine cloth won't stop a worgen, Danielle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Danielle.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do tiptoe past Madame Eva's door on your way down, because she does so love an argument with the Church." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a good surcoat over that armour, and I've a lovely deep blue that would suit you." },
         { id = "h_default", text = "Danielle Zipstitch, and Sheri and I keep Darkshire in thread, cloth and dye from up here, above Madame Eva's parlour. You'd be amazed what you hear through the floorboards when you sell thread in a fortune teller's house." },
         { id = "h_mage", when = { class = "MAGE" }, text = "A mage! Your robes are lovely, but the seams are coming apart under the arms, and you'll want that seen to before a worgen sees to it for you." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "Oh, a night elf! I've never seen weaving like yours. Is it true your people use spider silk? We've plenty of spiders here, if you'd care to show me." },
@@ -524,6 +630,8 @@ P:NPC {
         { text = "Who buys your cloth?", next = "cloth" },
         { text = "Do you sew anything a warrior might wear, Danielle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you buy spider silk from the wood, Danielle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does Madame Eva truly quarrel with priests, Danielle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the Night Watch wear your cloth, Danielle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Danielle.", next = "END" },
       },
     },
@@ -607,8 +715,27 @@ P:NPC {
         { text = "Something else, Sheri.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Oh, would you? I'll stand right behind you, if you don't mind, and I'll keep my eyes shut. Danielle says it's only a branch, but there are no branches on that side." } },
+      choices = {
+        { text = "Whatever's out there, your window is guarded now.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Danielle's probably right. It's only the wind.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Sheri.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It would, though I'd feel terribly guilty keeping a paladin on our landing when the whole town needs one. Perhaps just until the scratching starts, and then you could look and tell me it's nothing." } },
+      choices = {
+        { text = "I'll stand watch. Your fear isn't foolish, Sheri.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I've graver work than a scratching window, Sheri.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Sheri.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a paladin, on our stairs! Please mind the rail, because Danielle's still cross about the last suit of armour." },
         { id = "h_default", text = "Sheri Zipstitch. Danielle does the talking and I do the accounts, which means I'm the one who worries whether we'll eat this winter. Was there something you needed?" },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "You move very quietly, don't you? Please don't do that up here; my heart can't stand it." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "Oh, a priest. I don't suppose you could say a prayer over the window? Something scratches at it most nights, and I'd feel better." },
@@ -626,6 +753,8 @@ P:NPC {
         { text = "You and Danielle seem very different.", next = "danielle" },
         { text = "Are you safe up here, above Madame Eva's parlour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need hides for your shop, Sheri?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I'll say that prayer over your window, Sheri.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would it ease your mind if I stood watch tonight, Sheri?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll go quietly.", next = "END" },
       },
     },
@@ -720,8 +849,27 @@ P:NPC {
         { text = "Why hasn't Stormwind sent help?", next = "stormwind" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Bless the graves so nobody climbs out of them, for a start, and send someone who'll stay longer than a sermon. I'm not asking for miracles, only for somebody to come back the next day." } },
+      choices = {
+        { text = "I'll come back the next day, Hogan, and the day after.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead need steel, Hogan, not blessings.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hogan.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That the dead there were our neighbours, and some of them still wear the coats we knew them in. Put them down gently if you can and quickly if you can't, and then come and tell the council it's done." } },
+      choices = {
+        { text = "Gently, then. They were Darkshire's people once.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're dead, Hogan. Quick is the only kindness.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hogan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The council says pray, and I've prayed, and the dead still walk past my fence, so tell me what I'm doing wrong." },
         { id = "h_default", text = "Hogan Ference, and I've been coming to this hall every morning for a month to ask the council one question, which is what they mean to do about the undead. I'll keep coming until somebody gives me an answer." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, at last! Are you here for the dead at Raven Hill? Say you are, because this town has prayed for one of you for years." },
         { id = "h_soldier", when = { origin = "human_city_guard" }, text = "You've the bearing of a Stormwind guardsman. Tell me, then, why your lot haven't come back for us, because nobody else in this hall will." },
@@ -741,6 +889,8 @@ P:NPC {
         { text = "Has the council done nothing about the dead, Hogan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happened to your sheep, Hogan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The dead walk because someone makes them walk, Hogan.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you have the Church do about Darkshire's dead?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "I'll go to Raven Hill. What should I know first?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck, Hogan.", next = "END" },
       },
     },
@@ -854,8 +1004,28 @@ P:NPC {
         { text = "What else is in your stock?", next = "stock" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Here and there, you know how it is: refugees from Lordaeron selling what they carried south, a sailor who owed me money. No questions asked, which is how I get the good stuff, pal." } },
+      choices = {
+        { text = "Holy things shouldn't be sold off a cart, Kzixx.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it's blessed, it's blessed. Let me take a look.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Kzixx.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I sell to anybody with gold, pal, and I don't check for red masks at the door. Course, if you're asking where they shop, that's information, and information's the rarest stock I've got." } },
+      choices = {
+        { text = "Selling to bandits makes you one of them, Kzixx.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gold's gold. Your business is your own, Kzixx.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Kzixx.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I got holy relics, real ones, mostly, and blessed by somebody, I'm almost sure of it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Shiny armour, shiny hammer, and I bet a shiny purse to go with 'em." },
         { id = "h_default", text = "Kzixx, purveyor of rare goods to the discerning traveller, and the less discerning ones too. Everything I sell is one of a kind, or at least one of a few, which is still pretty rare." },
         { id = "h_horde", when = { faction = "Horde" }, text = "Horde, huh? Out here in Alliance country? Never mind, I don't care who you fight, I care who you pay, and your gold's as shiny as theirs." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You folks appreciate quality, and quality's what I've got, at a quality price." },
@@ -875,6 +1045,8 @@ P:NPC {
         { text = "Any arcane curios in that stock?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is that sword really unique, Kzixx?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you buy rare pelts, Kzixx?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Where does a goblin come by holy relics, Kzixx?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you sell to anyone, Kzixx? Even the Defias?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll pass.", next = "END" },
       },
     },

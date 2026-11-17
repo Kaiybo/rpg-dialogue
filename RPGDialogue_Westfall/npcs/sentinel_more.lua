@@ -62,6 +62,24 @@ P:NPC {
         { text = "Do the wagons still get through?", next = "wagons" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Slower than the tabards, I'd say, since you can't stitch a man back together with thread. The ones who've buried someone stop buying anything but the plainest wool, and I see more of that every month." } },
+      choices = {
+        { text = "Then I'll go among them and help them grieve.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grief passes. Better they keep busy than mourn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Christopher.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I blame the men who wouldn't pay them first, and the masons second, but I blame them all the same. A wrong done to you doesn't give you the right to burn your neighbour's barn." } },
+      choices = {
+        { text = "The masons must answer for their crimes, grievance or not.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stormwind cheated them first. I'd have done the same.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Christopher.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Christopher Hewen, trade supplies. I can tell you how Sentinel Hill's doing by what it buys from me, and this month it's all thread and no dye." },
@@ -73,6 +91,8 @@ P:NPC {
           text = "A gnome, out in the dust! I've no gears or springs, I'm sorry to say, only thread and flux. You'll have to make do with plain old human trade." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Thread and flux, I'm afraid, nothing for the sword; but if you've a torn tabard, I've a needle." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Salt for the hides, I'd guess, and maybe a needle for the leather; I've both, and not much else." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want plain thread for mending robes, I'd guess, and there's a lot of mending on this hill." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If your tabard's torn, I've a needle and gold thread both, though the gold costs extra." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a crate to unpack, if it hasn't been robbed." },
@@ -87,6 +107,8 @@ P:NPC {
         { text = "I'll need dark dye, the darkest you have.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does anyone at Sentinel Hill buy anything but thread?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the hunters here buy much salt, Hewen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "You say the hill is mending. Are its people mending too?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you blame the Stonemasons for what Westfall became?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -179,6 +201,24 @@ P:NPC {
         { text = "Why are your prices so high?", next = "price" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No, and don't look at me like that, because if I gave it away there'd be no stall next month for anyone. William gives enough away for the both of us, and somebody in this family has to count." } },
+      choices = {
+        { text = "Charity has its own worth, Gina. Think on it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. An empty stall helps no one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gina.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Two lads from the militia, when Gryan can spare them, and when he can't, we hope the Defias are busy elsewhere. That's in the price too, if you were wondering." } },
+      choices = {
+        { text = "Then I'll ride with the next wagon myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hire your own guards. The militia has bigger work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gina.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gina MacGregor. I sell trade goods, and I sell them for what they cost to bring here, which is more than Christopher charges and exactly what they're worth." },
@@ -190,6 +230,8 @@ P:NPC {
           text = "A dwarf will haggle, I know that much. Go on, then, and we'll see which of us gives way first. It won't be me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my stall. You'll haggle, I suppose, like everyone else, and you'll lose, like everyone else." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want salt, I suppose, and I'll sell it for exactly what it's worth, which is more than Christopher charges." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll ask me for charity, I suppose, and I'll say no, but you're welcome to ask." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Honest folk, your sort, so you'll pay what it's worth and not haggle, I hope." },
       },
       again = {
         { id = "h_again", text = "Anything else? Haggling's thirsty work, and I've had no water since dawn." },
@@ -203,6 +245,8 @@ P:NPC {
         { text = "Would you take conjured water in trade, Gina?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors haggle well, Gina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why is your salt dearer than Christopher's, Gina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you ever give to those who can't pay, Gina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does anyone guard the wagons that bring your goods?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -285,6 +329,24 @@ P:NPC {
         { text = "Can anyone tame the vultures?", next = "beasts_vulture" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The horses take ill of their memories more than anything, and I don't know whether a prayer reaches a horse. Try it on the grey in the end stall if you like, because he startles at shadows and he's earned some peace." } },
+      choices = {
+        { text = "Every creature deserves comfort. I'll sit with him a while.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A horse that's broken should be put down, Kirk.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kirk.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They'd carry you, but they'd not like the clank, and they'd like the charging even less, since they've seen what waits at the end of one. You'll want a proper charger for that, trained to it from a foal." } },
+      choices = {
+        { text = "They've earned their rest. I'll walk rather than ask it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A horse is a tool, Kirk. Saddle one anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kirk.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kirk Maxwell. I keep the stables, which on this hill means hunters' beasts and the odd militia horse that's seen too much." },
@@ -294,6 +356,8 @@ P:NPC {
           text = "Kaldorei keep their animals closer than we do, I've heard, more like kin than stock. I'll keep yours the way you'd want, then." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, now. They've all settled, except the boar in the end stall, and he's never settled in his life." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting a horse, I suppose, but I've only militia horses here, and they've seen too much." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The horses settle around your sort, I've noticed, and maybe they know something I don't." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll want a warhorse one day, I suppose, but these lads have seen too much for charging." },
       },
       again = {
         { id = "h_again", text = "Anything else? Gently, though; they're listening." },
@@ -307,6 +371,8 @@ P:NPC {
         { text = "Horses don't spook when I sneak up on them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Animals don't like me much, Kirk.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What have the militia horses seen, Kirk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your animals ever take ill, Kirk? I could pray over them.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could one of your militia horses carry a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Just looking in.", next = "END" },
       },
     },
@@ -400,6 +466,24 @@ P:NPC {
         { text = "Who buys your bread?", next = "eaters" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They do, and I send them down to Salma's, because she gives it away and I'd go under in a week if I did. I keep the burnt loaves aside for them, though, and nobody's ever complained about the burnt bits." } },
+      choices = {
+        { text = "Then bake a few unburnt ones for them too, Mike.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burnt loaves are kindness enough. Business is business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mike.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Peace on the roads, and farmers who'd dare to plant without wondering who'll harvest. The Defias, the gnolls and the walking scarecrows all need clearing first, and I'm a baker, so I'll leave that to you." } },
+      choices = {
+        { text = "Then I'll clear them, field by field.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The farms are lost. Bake with Elwynn flour and be glad.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Mike.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mike Miller, bread merchant. Westfall used to feed half the kingdom, and now I bake with flour that comes by wagon from Elwynn. Put that in a song, somebody." },
@@ -411,6 +495,8 @@ P:NPC {
           text = "Do your folk eat bread, where you come from? Try a roll and tell me. If it's terrible, tell me kindly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want bread, I suppose, and I'll sell you a loaf, though I wish I'd baked it from Westfall wheat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be bringing in meat, I hope, so the militia have something to put between my bread." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Bless the bread if you like, Light knows it could use the help after coming all that way from Elwynn." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be wanting bread for the road, and a fair bit of it, by the size of that armor." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next batch won't knead itself." },
@@ -425,6 +511,8 @@ P:NPC {
         { text = "Don't worry, my imp won't eat your bread.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why don't you bake with Westfall wheat anymore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the militia eat, apart from your bread?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the hungry come to you when they can't pay, Mike?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would bring the wheat back to Westfall, Mike?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },

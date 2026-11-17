@@ -54,12 +54,32 @@ P:NPC {
         { text = "Are the gryphons ever afraid?", next = "b" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "More than I've written down, because some days there wasn't time to write. The worst ones I fly myself, low and slow, and I've learned to talk to them the whole way so they stay awake." } },
+      choices = {
+        { text = "Then I'll tend them before they fly, so fewer are lost.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Save the flights for those who'll live. Leave the worst.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ariena.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, and not because I doubt your courage, but because the Blackrock have archers on the walls and my birds won't fly low through that smoke. I'll set you down at the edge of it, and from there you'll walk, same as the Marshal's scouts." } },
+      choices = {
+        { text = "Fair. Your birds and your rules come first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll find another way in, rules or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Ariena.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ariena Stormfeather. I fly the mail and the wounded out of Lakeshire, and my birds carry anyone else who can pay the fare." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf! Your kin taught mine to fly these beasts, so you'll find no complaints from me about Wildhammer manners." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds will carry you, and I'll tell you now, from the air I've seen the Blackrock gathering near Stonewatch, and there's a lot of them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know a frightened animal when you see one, and you'll understand why my gryphons won't fly low over Stonewatch." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I fly the wounded out, so I'd be grateful if you'd see to them before they go up." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, plate and all, though they'll complain the whole way." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting restless." },
@@ -73,6 +93,8 @@ P:NPC {
         { text = "I can teleport to Stormwind on my own.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How many Blackrock have you seen from the air, Ariena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why won't your gryphons fly low over Stonewatch, Ariena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How many wounded have your gryphons carried out, Ariena?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you fly a paladin over Stonewatch to scout it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thanks, Ariena.", next = "END" },
       },
     },
@@ -138,12 +160,32 @@ P:NPC {
         { text = "Something else, Kimberly.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They ask whether I've heard from the towers, and whether anyone's come back from Stonewatch, and I've no answers for them. I feather the arrows and they shoot them, and neither of us talks about who's not there to collect them." } },
+      choices = {
+        { text = "Then I'll go up to the watch and listen to them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Arrows are what they need, Kimberly. Talk won't help.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They should spend them however keeps them alive, and I'll keep feathering till my fingers bleed. I only wish someone would take the fight to the gnoll camps, so the watch could shoot at something besides the dark." } },
+      choices = {
+        { text = "Then I'll take the fight to the camps myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The watch can hold the walls. The camps aren't my concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kimberly Hiett, fletcher. The watch shoots arrows into the gnolls faster than I can feather them, so if you've come to buy, you've come at a busy time." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter! You'll know good fletching when you see it, so I'll not bother telling you mine's the best in Redridge. It is, though." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want arrows, I suppose, but if you'd tell the gnolls to stop being shot so often, I'd be grateful for the rest." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, and I'll tell you before you ask: yes, I've got arrows, and no, I don't have enough." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want arrows, but if you'd bless the batch going up to the watch, I'll not say no." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll not want arrows either, but you'll want the watch to have them, so bless my fingers while you're here." },
       },
       again = {
         { id = "h_again", text = "What else? I've feathers to trim." },
@@ -155,6 +197,8 @@ P:NPC {
         { text = "Who buys the most from you?", next = "b" },
         { text = "Do warriors ever buy your arrows, Kimberly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many arrows does the watch go through, Kimberly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the watch ever ask you for anything besides arrows?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the watch spend its arrows too freely on the gnolls?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -220,12 +264,32 @@ P:NPC {
         { text = "Something else, Henry.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Once, and once was enough, when a barrel I'd sold burst in a hunter's hands up near Alther's Mill. He lived, and I bought back every gun in that batch, and I've measured to the grain ever since." } },
+      choices = {
+        { text = "You made it right, Henry. That's what counts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Guns are dangerous. That's the buyer's lookout, not yours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Anyone with an honest face and the coin, but I've turned away three men this season who had neither, and one of them asked too many questions about the watch's patrol hours. A gun's a responsibility, and I'll not hand one to the wrong man." } },
+      choices = {
+        { text = "Good. A merchant's honour matters as much as his goods.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Coin is coin, Henry. Let them answer for its use.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Henry Chapal, gunsmith. I keep the watch in shot and the hunters in rifles, and I've never once blown up the shop, which in my trade counts as a fine record." },
         { id = "h_cond", when = { race = "Dwarf" }, text = "A dwarf, in my shop! Your people make the finest powder in the world, and I'll argue with any human who says otherwise." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? You've no use for a rifle, I'd wager, but you might have use for a pistol, if you've ever had an orc come at you from two sides." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I'll wager you've a good rifle on your back, or you've come to buy one, and either way I'm glad to see you." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in a gunsmith's? Well, there's powder enough here to send anyone to their maker, so maybe that's fitting." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll favour a hammer, I expect, but I've a pistol that would make an orc think twice." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the powder kegs." },
@@ -237,6 +301,8 @@ P:NPC {
         { text = "Do the guns help against the gnolls?", next = "b" },
         { text = "Should a warrior carry a gun, Henry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Rifle or bow for the hills of Redridge, Henry?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Have your guns ever hurt someone you didn't mean them to?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you sell guns to anyone who could pay, Henry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Henry.", next = "END" },
       },
     },

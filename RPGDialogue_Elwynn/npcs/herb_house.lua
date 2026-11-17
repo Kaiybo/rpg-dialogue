@@ -64,8 +64,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They can, and they do, though the Brothers at the Abbey don't like to talk about it. A draught of peacebloom and silverleaf eases a man who can't be saved, and I'll brew it for anyone who asks, because I've seen the alternative." } },
+      choices = {
+        { text = "Easing suffering is holy work, Mallory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Death should come when it comes, not out of a bottle.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mallory.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than they'd admit, because the Light doesn't always answer when you're tired and bleeding. I once sold a paladin a dozen healing potions and asked if he was going to war, and he said no, he was going to Westfall, which I suppose is much the same these days." } },
+      choices = {
+        { text = "Then I'll carry extra, for those who can't afford them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Potions are for me. Others can buy their own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your sort come through for healing potions before a long road, and I'm always glad to see you come back for more." },
         { id = "h_default", text = "Mallory, alchemist, and I'd offer you my hand if it weren't busy keeping this from boiling over. If you've come to learn the craft, you've found the right house; Pomeroy over there teaches you to gather, and I teach you what to do after." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Alchemy") },
           text = "Sam Sarsaparilla sent you up from the road, did he? He does like his campfires. Well, a camp is no use if nobody in it can mix a remedy, so let's see what you can do." },
@@ -92,6 +111,8 @@ P:NPC {
         { text = "What reason would you have to keep nightshade high?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many healing potions should a warrior carry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would an alchemist ask a hunter to bring?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Could your potions ease the dying, Mallory?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do paladins buy many potions from you, Mallory?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -207,8 +228,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not the same way, but they go in the same direction, and I've never seen them quarrel. Whether you pray to the Light or the moon, a bit of peacebloom on a wound won't argue with you about it." } },
+      choices = {
+        { text = "All healing serves the same good. Both are gifts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Herbs are for those without true faith, Pomeroy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pomeroy.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The gate guards, mostly, and the farmers who can't afford the Abbey's healers. Mallory brews and I gather, and between us we keep a lot of people on their feet who'd otherwise be on their backs." } },
+      choices = {
+        { text = "That's service, Pomeroy, as true as any oath.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They should pay the Abbey. Healing isn't free.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've peacebloom and silverleaf, if you'd like to learn which herbs work alongside your prayers." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll not have time to learn herbs, I expect, with all your duties, but if you see silverleaf by the road, I'd be grateful if you picked it." },
         { id = "h_default", text = "Pomeroy, and I teach herbalism, which is a grand name for knowing where to look and when to pick. Mallory brews and I gather, and between us we keep half the gate guards on their feet." },
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Herbalism") },
           text = "Sam's sent you, has he? He wants every camp to have someone who can tell a healing leaf from a bellyache, and he's right about that, bless him." },
@@ -234,6 +275,8 @@ P:NPC {
         { text = "Why won't you spare the best herbs for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do any of your herbs help a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter learn to look for underfoot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do herbs and prayer heal the same way, Pomeroy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who in Elwynn needs your herbs most, Pomeroy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day to you.", next = "END" },
       },
     },

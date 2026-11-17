@@ -298,8 +298,28 @@ P:NPC {
         { text = "Why does the keep matter so much?", next = "why" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Comfort, mostly, since the men on that wall stare at the Dark Portal all day and the mages tell me it gets into their sleep. I send what crates I can, but you can't crate a blessing." } },
+      choices = {
+        { text = "Then one day I'll carry my prayers to Nethergarde myself.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Men who guard the Portal knew the risk they took.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Watchmaster.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nobody worth the name, since every soldier I can find is already on Nethergarde's wall. I send my drivers with a spear each and a prayer, and I write off one wagon in five, which Lungertz says is better than that road deserves." } },
+      choices = {
+        { text = "Then I'll ride with your next wagon east.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "One wagon in five sounds a fair price, Watchmaster.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Watchmaster.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Nethergarde asks for bandages as often as it asks for stone, and I've never once had enough of either." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and you'll want to know why Nethergarde needs so much. I'll tell you, if you'll carry a crate while I do." },
         { id = "h_default", key = true,
           text = "Watchmaster Sorigal. Every crate bound for Nethergarde Keep passes through my hands in Darkshire, and too many of them never reach Lungertz at the other end." },
         { id = "h_vital", tags = { "news" }, when = { questActive = TODO_QUEST("Vital Supplies") },
@@ -328,6 +348,8 @@ P:NPC {
         { text = "Would an escort get your crates to Nethergarde safely, Watchmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts trouble your wagon road, Watchmaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Nethergarde watches the Portal. My kind know its pull.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does Nethergarde need that a priest could give?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who guards your wagons on the road east, Watchmaster?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Safe roads, Watchmaster.", next = "END" },
       },
     },
@@ -496,8 +518,18 @@ P:NPC {
         { text = "Who drinks here?", next = "regulars" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It keeps them warm, and some nights warm is the same as standing. The Commander would rather I didn't sell it to them, but she's never once sent a bottle back." } },
+      choices = {
+        { text = "A watcher on duty should be sober, Hann.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them drink. They've earned it, out there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Hann.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'll pour you spring water and say nothing, though the jug under the counter is there if the Light ever looks away." },
         { id = "h_default", text = "Hann's the name, and drink's the trade. Milk, juice, spring water for the careful folk, and for everyone else, there's the jug under the counter." },
         { id = "h_dry_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dry Times") },
           text = "A bottle of moonshine for Lakeshire, is it? Daniels has good taste and a long road between him and his order, so pay up and I'll wrap it in a rag so it won't clink." },
@@ -520,6 +552,7 @@ P:NPC {
         { text = "Does your moonshine really steady a warrior's hand, Hann?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you buy game for the bar, Hann?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your moonshine is the only thing here that burns hotter than me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your moonshine keep the Night Watch on their feet, Hann?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not tonight.", next = "END" },
       },
     },
@@ -633,8 +666,28 @@ P:NPC {
         { text = "What do your grandmother's cards say?", next = "cards" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "For prayer, for wards, for reading the cards, and for plain old lighting the room, since a candle never asks what it's for. The Night Watch buys the most, though, and they never say a word over them." } },
+      choices = {
+        { text = "Then I'll say a word over a few of them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A candle's a candle. Prayer won't make it burn longer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Alyssa.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Constantly, and I don't blame them, but Gran's never cursed a soul, whatever people say. She reads cards and frightens people into staying indoors, and in Duskwood, frightening people indoors is a mercy." } },
+      choices = {
+        { text = "The Church should look into her trade, all the same.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Her cards are her own business, Alyssa.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Alyssa.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Gran's cards say holy folk always arrive in pairs, so I suppose I'll be watching the door for your friend." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in a reagent shop! You'll want the candles, I suppose, since everything else in here makes your sort frown." },
         { id = "h_default", text = "I'm Alyssa, and yes, Madame Eva is my grandmother. She reads the cards and I sell the candles, and between us we keep half of Darkshire's spellcasters in business." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
           text = "Grandmother's been odd all week, telling me to stay indoors and asking where I've been. If she's put you on one of her errands, please tell me it isn't about me." },
@@ -656,6 +709,8 @@ P:NPC {
         { text = "Your reagents would suit my work too, Alyssa.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there anything here a warrior could use, Alyssa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell anything for a hunter, Alyssa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do Darkshire's folk buy candles for prayer as well, Alyssa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does your grandmother's trade trouble the faithful, Alyssa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -789,8 +844,28 @@ P:NPC {
         { text = "Tell me about Gnomeregan.", next = "gnomeregan" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "We have a few, and good ones, though most of my folk would rather tinker with a problem than pray over it. I've been praying over a bronze tube all week, mind you, and it's still cracked." } },
+      choices = {
+        { text = "Prayer and tinkering can work together, Herble.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep tinkering. Prayer won't fix a cracked tube.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Herble.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I've a lamp that never goes out and a flare that lights half the wood, and neither one has blown up in at least a week. The trouble's parts, since everything I need comes down the road from Stormwind and half of it never arrives." } },
+      choices = {
+        { text = "Test them properly before the Watch carries one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hand the Watch your flares now. We'll learn as we go.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Herble.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'm told prayer works wonders, but I've never managed to fit one into a gadget, and believe me, I've tried." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! All that armour, and not a single gear in it, which is a crime I could fix in an afternoon." },
         { id = "h_default", text = "Herble Baubbletump, purveyor of engineering and mining supplies to the gloomiest town south of the mountains. Finbus teaches the craft down the hall, and I sell the bits he's always running short of." },
         { id = "h_stars", when = { questActive = TODO_QUEST("Look To The Stars") },
           text = "You're after a bronze tube for that stargazer, Viktori? I've a couple left, though they're dear, and I'll give you my opinion of his telescope free of charge." },
@@ -811,6 +886,8 @@ P:NPC {
         { text = "Mages and engineers rarely agree, do they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could an engineer's gadget help a warrior in this wood, Herble?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell parts for a hunter's rifle, Herble?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the gnomes of Gnomeregan keep priests, Herble?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could your gadgets help hold Darkshire against the dead?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Mind the shelf. Goodbye.", next = "END" },
       },
     },
@@ -946,8 +1023,28 @@ P:NPC {
         { text = "Who should be guarding the graves?", next = "guards" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I'd like it more than I can say, and I'd like to be standing there when you do, though I don't know that my legs would carry me. If you go, tell me after whether it's still tidy, because he was always a tidy man." } },
+      choices = {
+        { text = "I'll go, and I'll tell you how it looks.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead don't need prayers, Farrin. You need courage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Farrin.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I've asked myself that every night since you walked in, and the answer keeps changing. With you beside me, perhaps, but I'd want to go in daylight, if Duskwood still has any." } },
+      choices = {
+        { text = "In daylight, then. I'll come back for you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If you won't walk alone, you'll never really walk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Farrin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My father's grave hasn't had a prayer said over it since the dead started walking, and I've been too frightened to go myself." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. They say the dead give way when your kind walk among them, and I've always wanted to see that, from a safe distance." },
         { id = "h_default", text = "Farrin Daris. I've a room here at the Raven, and I walk from it to this table and back, because there's nowhere else in Darkshire a man can safely walk anymore." },
         { id = "h_watch_done", when = { questDone = TODO_QUEST("The Night Watch") },
           text = "They say someone cleared the cemetery for the Watch. I thought about going to see my father, and then I didn't, but I thought about it, which is more than last month." },
@@ -967,6 +1064,8 @@ P:NPC {
         { text = "A light spell would hold the dead back from the graves.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why can't you reach your father's grave, Farrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's out there besides the dead, Farrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Would you like me to pray at your father's grave, Farrin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you walk out with me, if I kept the dead off you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Take care of yourself, Farrin.", next = "END" },
       },
     },
@@ -1080,8 +1179,28 @@ P:NPC {
         { text = "What spooks them most?", next = "wolves" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "They know before I do, every time, and they go quiet in a way I don't like. The horses turn their heads toward the cemetery road at dusk, and I've learned to bar the doors when they do." } },
+      choices = {
+        { text = "Then let me say a blessing over your stable.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts are skittish, Steven. Don't read omens into it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Steven.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It'll carry you, but it won't like it, and a frightened horse throws its rider at the worst moment. Walk the dark stretches and ride the road, and keep a firm hand on the reins when the wolves start." } },
+      choices = {
+        { text = "I'll walk the dark stretches, then. Better safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ride hard and trust my horse to keep up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Steven.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The animals settle a little when your sort walk through, and I've never worked out why." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your horse will be a well-bred sort, I'd guess, and well-bred horses hate this wood more than most." },
         { id = "h_default", text = "Steven Black, stable master. I keep your animals behind a stout fence and well away from the trees, which is more than I can do for the people." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your horse will thank me for the rest, I'd wager, since I doubt you ever let it stop long enough to drink." },
       },
@@ -1097,6 +1216,8 @@ P:NPC {
         { text = "Travellers' saddlebags must pass through your hands, Steven.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do warriors' mounts fare well in this wood, Steven?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your animals don't like me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the animals sense the dead in the woods, Steven?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Will a horse carry me through Duskwood at night, Steven?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day.", next = "END" },
       },
     },

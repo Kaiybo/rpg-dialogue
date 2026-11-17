@@ -295,8 +295,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "After trainin', durin' trainin', an' sometimes before, when they've seen the regimen written on the wall. I'll no' go soft on them, mind, for the Dark Irons won't, but I'll admit a priest in the yard saves me a few recruits a season." } },
+      choices = {
+        { text = "Then I'll stand in your yard. Nobody should break for want of healing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Recruits who need healing in training aren't ready for real war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What else, Kelstrum?", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Military Ward! Ye'd no' last a day o' my regimen either, but my recruits would last a good deal longer wi' ye standin' behind them." },
         { id = "h_default", text = "Kelstrum Stonebreaker, an' I train warriors. Yer no warrior, by the look o' ye, an' ye wouldnae last a day under my trainin' regimen, but go on, ask what ye came tae ask." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "There's a warrior! A bit soft round the edges, but we'll hammer that out. What'll it be: trainin', or are ye just here tae admire the weapons?" },
@@ -323,6 +333,7 @@ P:NPC {
         { text = "Do warriors and mages truly need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a hunter learn anything from your warriors, Kelstrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -477,8 +488,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "I've tried, and the results were inconsistent, which annoys me more than I can say. A priest healed one of my students from very nearly dead in four seconds, and I've no formula for that, so I've filed it under 'anomalies, beneficial'." } },
+      choices = {
+        { text = "Some things can't be measured, Bilban. That's what faith means.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep measuring. Everything has a formula, given time.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "In theory, yes, but the paladins I've calibrated keep stopping mid-drill to help whoever fell over, which wrecks my timings. Efficient combat says leave the fallen until the drill's done, but I've stopped arguing with them about it." } },
+      choices = {
+        { text = "A paladin always helps the fallen. That's the whole point, Bilban.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your drill is right. Win first, help the fallen after.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Good day, Bilban.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your class specification is incompatible with my curriculum, but your healing output has saved several of my students, so I'm statistically grateful." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! An armoured unit with a self-repair function, which is, I'll admit, a very elegant design." },
         { id = "h_default", text = "Bilban Tosslespanner, warrior trainer. I correct deficiencies in combat technique, much as one corrects a misaligned gear, though with more shouting." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
           text = "Due to incompatibility in your class specification, I'm unable to help you rectify any lack of ability. I am, however, able to talk, so do proceed." },
@@ -501,6 +532,8 @@ P:NPC {
         { text = "Why would a rogue climb your training dummies?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has a demon ever damaged your machines, Bilban?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How would you calibrate a hunter, Bilban?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do you measure the Light in your calculations, Bilban?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Could you train a paladin to fight better, Bilban?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good day, Bilban.", next = "END" },
       },
     },
@@ -637,8 +670,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It can, though most priests don't think tae try, for they're used tae patchin' up dwarves who complain. A beast won't thank ye, but it'll remember ye, an' that's worth more than thanks, if ye ask me." } },
+      choices = {
+        { text = "Every living thing deserves healing. Beasts as much as dwarves.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My prayers are for people first. Beasts can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Tell me about the beasts instead.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Like a friend, an' no' like a tool, for a beast that fears ye will throw ye when it matters most. I've seen paladins who treat their chargers like their swords, an' I've seen what happens tae them when the fightin' starts." } },
+      choices = {
+        { text = "A loyal mount deserves loyalty back. I'll treat it well.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A mount is a mount. It carries me where I need to go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Daera.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll no' be wantin' trainin' from me, but if ye've a moment, my rams have been off their feed, an' I'll take any blessin' I can get." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be ridin' a charger one day, I expect, an' I'll be curious tae see how ye treat it." },
         { id = "h_default", text = "Daera Brightspear. I train hunters here, an' if ye're no' one, ye'll want tae look for yer own kind o' trainer, though I'll answer a question if ye've one." },
         { id = "h_path", tags = { "news" }, when = { questActive = TODO_QUEST("The Hunter's Path") },
           text = "Grif Wildheart's waitin' for ye in Kharanos. He'll put ye on the path tae a beast o' yer own, an' mind ye listen tae him; he's never been wrong about an animal." },
@@ -670,6 +723,8 @@ P:NPC {
         { text = "Do hunters and rogues often cross paths?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has a mage really turned a hunter's beast into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a hunter teach a warrior, Daera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a priest's healing help a wounded beast, Daera?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -67,6 +67,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "With respect, so long as they heal well and keep their word, for the Sisterhood judges deeds above names. Serve Astranaar's wounded faithfully and that will reach Darnassus, I promise you." } },
+      choices = {
+        { text = "I'll serve the wounded as faithfully as any sister.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I serve my own faith, not the Sisterhood's approval.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "We guard the same forest against the same axes, which is enough for now. But a Sentinel obeys her captain without question, and I wonder whether a paladin answers first to orders or to conscience." } },
+      choices = {
+        { text = "Orders keep an army whole. I follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My conscience comes first, whatever my orders say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -83,6 +101,8 @@ P:NPC {
           text = "There's arcane on you, and I'm sure you know what the kaldorei think of that. You're an ally of my people, so I'll welcome you, though I'll keep an eye on what you do with it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Astranaar has need of steady blades, and I keep a list of those who prove steady." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Sentinels value hunters above most, because the forest speaks to you as it speaks to us." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whether you call on the Light or the Mother Moon, the High Priestess values those who mend the wounded." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your Silver Hand has its own discipline, and I would know if it matches ours." },
       },
       again = {
         { id = "h_again", text = "What else? The watch changes soon." },
@@ -98,6 +118,8 @@ P:NPC {
         { text = "Why do the kaldorei distrust arcane magic so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a warrior prove themselves to the Sentinels?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Sentinels ride with hunters in Ashenvale?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How does Tyrande regard priests who aren't of the Sisterhood?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do the Sentinels and the Silver Hand serve the same cause?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune keep the watch.", next = "END", fx = { standing = { astranaar = 1 } } },
       },
     },
@@ -230,6 +252,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Whenever we fly over Splintertree, which is why I fly them low over the canopy now, where the orcs can't see us coming. If one comes in hurt while you're here, I'd be grateful for your hands." } },
+      choices = {
+        { text = "I'll tend any bird that comes in wounded.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Birds heal on their own. I've people to tend.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Maybe, though that's for Raene and the Sentinels to say, not a flight master. I'd only ask that if you go, you leave my birds out of it, because they don't know about wars." } },
+      choices = {
+        { text = "We should defend, not strike first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Strike them now, before they cut another grove.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -241,6 +281,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage, so you'll be wondering why you should ride when you could teleport. The answer is that Astranaar has no portal, and my birds don't ask you for reagents." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Hold on with your knees and don't lean, because I fly low over the trees and the branches won't wait." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My birds come back with arrow wounds more often than I'd like, so I keep a healer's name handy." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be a heavy load, but my birds have flown worse over the eastern trees." },
       },
       again = {
         { id = "h_again", text = "Anything else, or are we flying?" },
@@ -255,6 +297,8 @@ P:NPC {
         { text = "Do you ever fly rogues behind the Warsong lines?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your birds mind a mage on their backs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do you fly so low over the forest, Daelyshia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the Warsong shoot at your hippogryphs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Should the Alliance strike Splintertree before they strike us?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },

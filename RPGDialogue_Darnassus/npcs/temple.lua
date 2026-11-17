@@ -344,6 +344,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Because most of those who come to me at night aren't wounded in any way a prayer can mend. They want to be heard, and once they've been heard, Elune or your Light can do the rest far more easily." } },
+      choices = {
+        { text = "Then I'll learn to listen before I pray.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A healer's work is the body, and the rest is for friends.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Mostly the faces of those they couldn't save, and sometimes the faces of those they killed, which troubles them more than they expect. I'd guess you carry a few of each, and you may set them down here if you need to." } },
+      choices = {
+        { text = "Every soldier needs mercy, even toward themselves.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are behind me, and I don't look back at them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than you'd think, though they always start by saying they're only passing. Holding the line means seeing what breaks it, and Elune can hear about that as well as anything else, so if you ever want to tell me, I'll listen." } },
@@ -400,6 +418,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I do more listening than teaching, as you'll learn, and I think it's the most important thing a priest ever does." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Sentinels bring me their worries after a battle, and I suspect paladins carry theirs a good deal longer." },
         { id = "h_default", text = "I'm Astarii, one of the priestesses who teach here. Most of what I do is listen, and I'm told I'm better at it than at lecturing." },
         { id = "h_prayer", tags = { "news" }, when = { questActive = TODO_QUEST("Prayer to Elune") },
           text = "What brings you to the Temple? Is that gold, under all that soot? Let me see it, gently, because I think I know whose hand wrote this." },
@@ -426,6 +446,8 @@ P:NPC {
         { text = "Why do priestesses distrust the arcane so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors come to you to talk, Astarii?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters bring their troubles to you as well?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why is listening the most important thing a priest does?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do the Sentinels bring you after a battle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good night, Priestess.", next = "END" },
       },
     },
@@ -517,6 +539,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A Sentinel with an orc arrow in her side who refused to stop running until the fight was done, so I healed her at a sprint. Prayer is all very well in the Temple, but out there you heal whoever is in front of you, whatever they're doing." } },
+      choices = {
+        { text = "Then I'll heal whoever's in front of me, whatever comes.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd let the stubborn ones bleed until they stop running.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Healing yourself when the person beside you needs it more, and fighting when you should be healing, which paladins do more than anyone. Decide before the fight which one you are, and you'll last longer." } },
+      choices = {
+        { text = "The person beside me comes first, and I'll remember it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I keep myself standing first, so that I can help.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Stay where they can see you, and don't charge three trees ahead and then wonder why the healing never reached you. The Sentinels learned that lesson in Ashenvale, and I'd rather you learned it here." } },
@@ -562,6 +602,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I can always use another pair of hands that knows how to heal someone who won't stop moving." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You heal and fight both, which means you'll make every mistake my students make, only in heavier armor." },
         { id = "h_default", text = "Jandria. I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
@@ -578,6 +620,8 @@ P:NPC {
         { text = "What should a warrior know about fighting beside a healer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will your priestesses heal a hunter's companion too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think I'm beyond healing, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's the hardest healing you've done in the field?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Which mistakes do you mean, Jandria?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -645,6 +689,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "When the night is troubled the light on the water trembles, even with no wind, and I've learned to send word to Ashenvale when I see it. I won't say Elune speaks through it, but I won't say she doesn't, either." } },
+      choices = {
+        { text = "Signs like that should be heeded, so I'll watch with you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Light on water trembles, and I wouldn't read more into it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only a little, and I don't mind, because moonlight on steel tells me something too. It tells me there's someone on the Terrace tonight who would stand against whatever troubles the night, which is more than the water can do." } },
+      choices = {
+        { text = "I'll stand against it, whatever it is.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm only passing through, so don't count on me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It tells me when the clouds come in from Darkshore and when the Sentinels ride out, which is more than most people notice. Whether it tells me about a fight I'll leave you to decide, warrior, because you'd only laugh if I said yes." } },
@@ -690,6 +752,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Come and look at the pool with me a moment, because the moonlight on it tonight is quieter than it was yesterday, and I don't yet know why." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your armor catches the moonlight from across the gardens, {class}, and I'm afraid you've rather spoiled my watching." },
         { id = "h_default", text = "I'm Lariia. I teach here, and when I'm not teaching I watch the pool, because the moonlight on it tells you a great deal about the night if you look long enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You chose the darkest corner by the pool, rogue, which is where I'd sit too. The moonlight shows more from there." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "The moonlight bends a little around you, mage, and I'm not sure you even know it does. It's very pretty, and slightly unsettling." },
@@ -705,6 +769,8 @@ P:NPC {
         { text = "Does the arcane change the moonlight somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can the pool truly tell you anything about a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you watch the beasts as closely as the moonlight?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does the moonlight tell a priest, Lariia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does my armor really spoil your watching, Lariia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
     },
@@ -769,6 +835,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Much harder, because the prayers are simple enough but the faith behind them has to be real, and some days I'm not sure mine is. The priestesses say doubt is part of it, and I hope they're right." } },
+      choices = {
+        { text = "Doubt is part of it, and your faith will grow.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith is overrated, and a steady hand heals just as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Good luck with your studies.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That your order was founded to fight the orcs, and that you swore to protect the weak and heal them too. They also said you were all very solemn, but I think the writer may simply have been solemn himself." } },
+      choices = {
+        { text = "It's true, for we swear to protect the weak.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Oaths are fine words, but most of us just fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Good luck with your studies.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only if you came by your bruises honestly, because the priestesses can always tell. I'll be sent to the Sentinels in Ashenvale one day, and I'd like to have patched up a real warrior before then, so perhaps come back after you've met the Gnarlpine." } },
@@ -832,6 +916,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I hope you'll tell me what it was like when you first began, because I'm still learning and the priestesses make it look so easy." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've read about your order in the Temple's books, though there weren't many, and I'd love to know whether any of them were true." },
         { id = "h_default", text = "I'm Aquinne, a sister of the Temple, though not a priestess yet. The priestesses give me errands and I try to do them well, and in between I study out here among the flowers." },
         { id = "h_temple", tags = { "news" }, when = { questActive = TODO_QUEST("The Temple of the Moon") },
           text = "A once great creature of the forest needs help, and it's a hard thing that must be done. Priestess A'moora will explain; she's inside the Temple, southeast of here." },
@@ -858,6 +944,8 @@ P:NPC {
         { text = "Would you like a warrior to practice your healing on?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the animals in the gardens keep you company out here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Are you frightened of me, Aquinne?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is learning to heal harder than you expected, Aquinne?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What did the Temple's books say about paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -959,6 +1047,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "A few, recorded with as much care as any gold and returned exactly as they were left. I don't ask what they mean to their owners, only that they be kept safe until they're needed." } },
+      choices = {
+        { text = "Some relics are sacred, and I'm glad they're kept with care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Relics are trinkets, and I'd sell mine if the price were right.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Everything here is guarded, recorded and returned, and the Sentinels outside see to the guarding. I won't pretend no one has tried, but I'll tell you that no one has succeeded." } },
+      choices = {
+        { text = "An honest record is the best guard of all.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Locks are fine, but I trust my own hands more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Thank you.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than anyone, and most leave a note with it, saying who should have the box if they don't come home from Ashenvale. I keep every one of those notes sealed, and I'm always glad to hand the box back to its owner instead." } },
@@ -1004,6 +1110,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Some of the Temple's own keep their things with us, so you needn't worry that your relics will be treated without respect." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order's things are usually heavy, {class}, but I'll find a box for them, and nobody will touch them but you." },
         { id = "h_default", text = "I'm Idriana, and I keep accounts and safety deposit boxes for anyone with valuables they'd rather not carry through Ashenvale. Everything here is guarded, recorded and returned on request." },
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
@@ -1021,6 +1129,8 @@ P:NPC {
         { text = "Do warriors leave much with you before they go to war?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters keep anything unusual in your vault?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you do if a box started whispering?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the priestesses keep relics in your vault?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the vault truly safe from thieves, Idriana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Thank you.", next = "END" },
       },
     },

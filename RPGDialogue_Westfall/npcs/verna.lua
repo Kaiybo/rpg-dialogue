@@ -61,6 +61,24 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "By counting what's left, dear, which is Theodore and Blanchy and a good stew. The Light didn't take our farm, the thieves did, and I'll not blame the one for what the other did." } },
+      choices = {
+        { text = "That's wise faith, Verna. Hold on to it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your Light let it happen. I'd blame it a little.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Verna.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oh, you're sweet to say it, but there's a dozen of them in our house and only one of you. If you do go up there, mind you bring out Theodore's pocket watch first, because he'd sooner have that than the walls." } },
+      choices = {
+        { text = "I'll bring back what's yours, Verna. That's a promise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some things are better left lost, Verna.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Verna.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -78,6 +96,8 @@ P:NPC {
           text = "So there was pie after all, and good. Whoever made it, don't tell the other one it was better; that's how friendships last out here." },
         { id = "h_pie", when = { metBefore = true }, text = "I made a pumpkin pie from memory last night, dear, with no pumpkins in it at all, just the memory. Theodore ate two slices anyway, bless him." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a weary one, I'd guess. Sit and eat; the stew's for anyone, and you look like you've earned it." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down, dear, because I've been saying prayers for Blanchy and I'm not sure I'm saying them right." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Theodore will stand up straighter just looking at you, bless him." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -95,6 +115,8 @@ P:NPC {
         { text = "I'll watch your wagon tonight. Nobody will see me.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could warm Blanchy with a little spell.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you miss the farm, Verna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do you keep your faith, Verna, after losing so much?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Shall I take your farm back from the thieves, Verna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
     },

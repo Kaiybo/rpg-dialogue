@@ -62,6 +62,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Two fishermen this spring, and a ferryman the year the bridge came down, and I've the dates in my book. We never found the ferryman, so I still put his name in the count every evening, out of habit or hope." } },
+      choices = {
+        { text = "Then I'll pray for him every time I cross the lake.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Stop counting him, Baren. The lake isn't giving him back.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Dockmaster.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Me and a boathook, mostly, since the Marshal needs every guard on the north road. The murlocs know it, too, because they've started coming up the pilings the very hour the watch changes." } },
+      choices = {
+        { text = "Then I'll stand the dusk watch with you, Baren.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Murlocs are your trouble, Baren. I've orcs to see to.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Baren.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
@@ -79,6 +97,8 @@ P:NPC {
           text = "Daniels told you his troubles? He's dry and I'm empty; Lakeshire's a lovely place for a holiday." },
         { id = "h_boats", when = { metBefore = true }, text = "Counted the boats this morning, and they're all there; counted the nets, and they're all there too. Something's about to go wrong, I can feel it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my docks. Mind the third plank from the end, because it doesn't care how holy you are." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd say the tide's out, but it's a lake, so nothing's ever out. Ask away." },
@@ -95,6 +115,8 @@ P:NPC {
         { text = "Murlocs stole your nets. I could steal them back.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could freeze the lake around the murlocs.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the murlocs come right onto the docks, Dockmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Has the lake taken any of Lakeshire's people, Dockmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who keeps the docks safe after dark, Baren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
