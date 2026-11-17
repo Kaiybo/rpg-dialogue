@@ -31,6 +31,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Humility, mostly, and gratitude. The kodo and the plainstrider give us their lives so that the tribe may live, and the Earth Mother asks only that we take what we need and give thanks for it, so a hunt that ends in thanks is a hunt well done." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks beside you as an equal, I see. That is how the Earth Mother meant it to be, {class}." },
+      },
+      choices = {
+        { text = "Humility and gratitude. I'll carry them on every hunt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The hunt teaches strength, chieftain, nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, chieftain.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -74,6 +86,7 @@ P:NPC {
           text = "You've climbed the lifts and found your way to me, and well done; a tauren who knows the Bluff knows where home is. Now, let me look at you." },
         { id = "h_rites", when = { questDone = TODO_QUEST("Rites of the Earthmother") },
           text = "You walked the rites of the Earth Mother. I see it on you. Carry it lightly; it's heavy enough on its own." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The tauren have hunted these plains for longer than any of us can remember, and we still learn something new with every hunt." },
       },
       choices = {
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
@@ -88,6 +101,7 @@ P:NPC {
         { text = "The Earth Mother's spirits answer me now.", next = "shaman", when = { race = "Tauren", class = "SHAMAN" } },
         { text = "My work is done in shadow, chieftain. Is there honor in it?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the tauren fear the arcane, chieftain?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What does a hunt teach the tauren, Cairne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
@@ -226,6 +240,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That a warrior who waits until the moment is right wastes no strength and spills no needless blood. The night elves guarded their forests for ten thousand years that way, and I'd wish the same patience on every warrior of the Horde." } },
+      choices = {
+        { text = "I'll be patient, and spill no needless blood.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Patience is for those with ten thousand years to spare.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "We try, though the goblins and the gnolls make it harder every season. A hunter who takes only what the tribe needs helps us more than any druid's spell, and a hunter who takes more harms the land in ways that may take years to heal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is healthy and calm. I can see the Earth Mother's blessing in it, and in the care you've given it." },
+      },
+      choices = {
+        { text = "I'll take only what the tribe needs, Arch Druid.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The plains are wide. A few more won't matter.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -259,6 +294,8 @@ P:NPC {
         { id = "h_mulgris", when = { heardLine = "mulgris.h_default" },
           text = "You met Mulgris Deepriver, in the Plaguelands. He went east to mend what the plague had broken, and I'd rather you told me plainly how he was than spared my feelings." },
         { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know, and I'm not ashamed of it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Malfurion once told me that the fiercest warriors he knew were the most patient, and I've found that true of the tauren as well." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Mulgore are the Earth Mother's children, and you walk among them closer than most." },
       },
       choices = {
         { text = "What did Malfurion teach you?", next = "taught" },
@@ -271,6 +308,8 @@ P:NPC {
         { text = "The elements speak to me. Is that so different from the wild?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Does the wild have any place for my kind?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Did Malfurion ever speak of the arcane, Arch Druid?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What did Malfurion mean by patient warriors, Arch Druid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the druids watch over Mulgore's beasts, Arch Druid?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would the Cenarion Circle ever accept a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
@@ -372,6 +411,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That they're strong and brave and far too quick to fight, though I'll admit some of my cubs are the same. A bear and a warrior both stand in front of the danger, so I'd say we have more in common than either of us likes to admit." } },
+      choices = {
+        { text = "Then we stand together, druid, bear and warrior.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A warrior doesn't need a druid's approval, Turak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -410,6 +458,7 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne", class = "DRUID" }, text = "A druid from the sky isles! Your people lean on the elements before Elune, I'm told, and I'm glad of it. The Earth Mother made the winds too, and she won't mind sharing you." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Mu'sha has her eye open, and the White Lady brings sleep to the plains, though not to me, tonight." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The Arch Druid and your elders argue over tea about which of us listens better, and neither of them ever wins." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Elder Rise. The Arch Druid won't mind, but the cubs will stare, because they think warriors are bears that forgot to change back." },
       },
       choices = {
         { text = "How did you become a druid?", next = "path" },
@@ -422,6 +471,7 @@ P:NPC {
         { text = "Who listens better, Turak, a druid or a shaman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A cat druid moves as quietly as I do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is the arcane part of the Great Balance, Turak?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What do druids think of warriors, Turak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -517,6 +567,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Protection? From whom, child? I'm an old woman among friends, and everyone on Elder Rise is so very kind. Though if you're looking for someone worth guarding, I'd watch those who speak loudest of peace, because they are always the first to need defending." } },
+      choices = {
+        { text = "I'll guard whoever Cairne asks me to guard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll guard whoever pays the best, Elder Crone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Whatever threatens the tribe, child, and we've always had a broad idea of what that means. The Grimtotem keep to the Stonetalon peaks and Thousand Needles, and the hunting is good up there, though the company can be rather unforgiving." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a keen eye, child. It watches me as though it expects me to bite, which shows good sense." },
+      },
+      choices = {
+        { text = "I hunt for the whole tribe, not just the Grimtotem.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt whatever threatens me. That's all that matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -562,6 +633,8 @@ P:NPC {
           text = "Sacred fire, for sacred work. Fetch it, and don't let anyone ask you what it's for." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Elves who dropped out of the sky. Kalimdor fills up with strangers, and Cairne opens the gate to every one. I'd have shut it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, child. Cairne surrounds himself with warriors, and I find it so reassuring to see another come up the lifts." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, child, with a beast at your side. The Grimtotem have always admired a good hunter; it's one of the few things we admire." },
       },
       choices = {
         { text = "What do you think of Cairne?", next = "cairne" },
@@ -572,6 +645,8 @@ P:NPC {
         { text = "Hamuul made me a druid. You disapprove.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I'm the sort who keeps secrets, Elder Crone.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your earth magic and my arcane aren't so different.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you need protection on Elder Rise, Magatha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do the Grimtotem hunt, Magatha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the Grimtotem fear demons, Elder Crone?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
@@ -665,6 +740,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Mostly, though I had an orc arm-wrestle a tauren brave last month and they broke two tables between them. They shook hands afterward and both paid for the wood, so I'll call that a good night, all things considered." } },
+      choices = {
+        { text = "A warrior should pay for what he breaks.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Broken tables are the price of a good contest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The good ones do, and I'm grateful, because the lifts don't carry fresh meat up the bluffs fast enough. Plainstrider makes the best stew and kodo the heartiest, and I've learned to cook both, though I'll admit I never quite mastered prairie wolf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed already, but it can have the scraps anyway. Every beast in the Cat and the Shaman eats." },
+      },
+      choices = {
+        { text = "I'll bring you game, Pala. The inn feeds everyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell my game to whoever pays more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -696,6 +792,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late and windy tonight, so listen to the totems creak; it sounds like the whole bluff is breathing." },
         { id = "h_turak", when = { heardLine = "turak.h_default" }, text = "You've been up to Turak on Elder Rise? He eats here twice a moon, and sits by the window and doesn't speak, but he tips well." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, a shaman! You'll fit right in at the Cat and the Shaman, dear, so sit down and I'll find you the warm corner." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you'll want the big bowl, I can tell. Sit down before you knock over a table, because tauren tables are sturdy, but not that sturdy." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast can sleep by the fire, and you can sleep upstairs, and the stew is the same for both of you." },
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
@@ -704,6 +802,8 @@ P:NPC {
         { text = "Why is your inn called the Cat and the Shaman, Pala?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your guests leave their packs unattended, Pala.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your stew's gone cold, Pala. Shall I warm it with a spell?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do warriors behave in your inn, Pala?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do hunters bring you game for the stew, Pala?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That every fight starts long before the first blow, in the grass and the wind and the tracks. The quilboar of the Razormane learned to strike from the brush because they watched the lions, and a warrior who learns the same will not walk into their ambushes." } },
+      choices = {
+        { text = "I'll watch the grass before I charge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A strong arm needs no patience. I'll charge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The strongest I know. Lakota'mani has walked the plains so long that the herders say the earth spirits walk with him, and when you face him you face something older than the tauren, so face him with respect." } },
@@ -70,6 +79,7 @@ P:NPC {
         { id = "h_washte", when = { questActive = TODO_QUEST("Washte Pawne") },
           text = "Washte Pawne is a wind serpent out of the old stories. Few hunters ever see it, and fewer come back to describe it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at Taurajo. The Earth Mother speaks to you through the elements and to me through the beasts, and I think we would both tell you to sit quietly and listen." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in Taurajo. You've come to the right place, because the Barrens teach patience to anyone who listens, even those who carry axes." },
       },
       choices = {
         { text = "Do the great beasts of the Barrens carry strong spirits?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -81,6 +91,7 @@ P:NPC {
         { text = "Do you teach druids, or only hunters?", next = "druid", when = { class = "DRUID" } },
         { text = "Stillness is my first lesson too, teacher.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The beasts seem uneasy when I cast near them.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What can a warrior learn from you, Jorn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
@@ -175,6 +186,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "*snort* All of them, because Bristlebacks are weak, and weak things should not walk on Agamaggan's ground. Kill them and bring Mangletooth proof, and Mangletooth will give you something the tall cow-folk never will, which is a secret." } },
+      choices = {
+        { text = "I'll fight quilboar for the Horde, not for you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A secret's worth killing for. Tell me more, quilboar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "*snort* Every Razormane hunter has a boar, and the boars are Agamaggan's children too, so they fight harder than any of your little pets. Free Mangletooth, and Mangletooth will show you how the quilboar call them, but you won't, because you're like the others." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "*snort* Your {pet} smells better than you do. Mangletooth would trade you for it, if Mangletooth had anything to trade." },
+      },
+      choices = {
+        { text = "You'll stay caged. The Horde keeps its prisoners.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Teach me to call the boars, and maybe I'll help.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "*snort* Agamaggan's blood made the thorns, so the earth and the boar god are one thing, and only cow-folk think otherwise. The Bristleback geomancers forgot that, and that is why they are weak." } },
@@ -218,6 +250,8 @@ P:NPC {
           text = "*snort* Nak, Kuz and Lok were Mangletooth's own, and they left him to the cow-folk's axes. Now they learn what Mangletooth thinks of that." },
         { id = "h_thorns", when = { metBefore = true }, text = "*snort* Mangletooth dreams of the thorns. Great thorns, taller than the cow-folk's poles. One day Mangletooth goes home to them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "*snort* A spirit-talker. The Razormane have geomancers who talk to the thorns and the earth, and they are stronger than you, so do not wave your little totems at Mangletooth." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "*snort* A big one with an axe, good. Mangletooth knows which Bristlebacks need killing, and you look like you enjoy killing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "*snort* A hunter, with a beast. Mangletooth likes beasts better than tall folk, because beasts don't lock cages." },
       },
       choices = {
         { text = "Do the Razormane geomancers serve Agamaggan or the earth?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -226,6 +260,8 @@ P:NPC {
         { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm tauren. Why should I help you?", next = "tauren", when = { race = "Tauren" } },
         { text = "I could freeze that lock and shatter it, quilboar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Which Bristlebacks need killing, Mangletooth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do quilboar keep beasts, Mangletooth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your geomancers would kneel to my demon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
@@ -288,6 +324,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That you shoot more than you clean, which is true of most hunters I've met. The dwarves at Bael Modan carry guns finer than anything we make, and the quilboar use bows of bone and sinew, and I've learned from both, so don't think a weapon's worth depends on who made it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a weapon too, in a way, and a better one than most I've studied. Steel doesn't love its wielder." },
+      },
+      choices = {
+        { text = "I'll learn from every people's weapons, as you have.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Only the Horde's weapons matter to me. The rest is junk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -316,6 +364,7 @@ P:NPC {
           text = "Tatternack Steelforge, at your service. The Warchief sent me to study weapons and armor, and to meet everyone who passes through Taurajo, because there's something to learn from every people, even the quilboar." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Weapons of Choice") },
           text = "I'd like to see what the enemy fights with. Bring me their weapons. I promise to study them before I melt them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Let me see that weapon you carry, because I've met hunters with a dozen different bows and guns, and every one tells a story." },
       },
       choices = {
         { text = "What have you learned so far?", next = "learned" },
@@ -323,6 +372,7 @@ P:NPC {
         { text = "A shaman's totems are made here too. Do you study them?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Daggers. What do they tell you about me?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I carry a staff and a wand. Write that down.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What does my weapon tell you, Tatternack?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
       again = {
@@ -376,6 +426,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The quilboar of Razorfen to the south, and the Bristlebacks especially, who grow bolder every season. The dwarves at Bael Modan are no friends either, though they mostly dig and leave us be, so a warrior here will find more than enough to keep his axe busy." } },
+      choices = {
+        { text = "I'll help keep Taurajo safe, Byula.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go where the fighting's thickest and the loot best.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the lions are bolder here and the thunder lizards are larger, and the quilboar of Razorfen set traps in the brush for anything that walks. Rest well tonight, because the southern Barrens rewards a hunter who's slept." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can rest by the fire. The kodo herders bring their beasts in at night too, and they all seem to get along." },
+      },
+      choices = {
+        { text = "I'll take only what the land can spare.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The southern Barrens has plenty. I'll take what I like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Their laughing troubles me, and that's enough. The camp's shamans say the hyenas out there are hungry rather than cursed, which makes me feel better, though not enough to sleep through it." } },
@@ -414,11 +485,15 @@ P:NPC {
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Hear that, past the palisade? Those are hyenas, and they laugh when the moon's up. I've never once found it funny." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so sit by the fire. The kodo herders say it burns brighter when a shaman sits near it, and I've stopped arguing with the kodo herders." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Jorn Skyseer will want to meet you, if you haven't already met him, because he teaches every hunter who passes through." },
       },
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's Taurajo like?", next = "camp" },
         { text = "Do travelers ever slip out of Taurajo without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Who threatens Camp Taurajo, Byula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What should a hunter know about the southern Barrens, Byula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is my demon welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },

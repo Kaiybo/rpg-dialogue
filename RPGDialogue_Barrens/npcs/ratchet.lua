@@ -22,6 +22,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Southsea pirates keep raiding my ships off the coast, and the Venture Company keeps making eyes at my docks, and neither of 'em understands polite letters. You go knock a few heads together on the beach, and Ratchet stays open for business, which is good for everybody, pal." } },
+      choices = {
+        { text = "I'll protect Ratchet's docks for the honest traders.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll knock heads for whoever pays the best rate.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Good hunting? Pal, there's crocolisks in the water, raptors in the hills and pirates on the beach, and I'd pay to see fewer of all three. The crocolisk hides sell nice down at the docks, too, so if you're out there anyway, you might as well turn a profit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks hungry, and I know that look, pal. Feed it before it comes down to the fish market, alright?" },
+      },
+      choices = {
+        { text = "I'll hunt to keep the roads safe, Gazlowe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt whatever turns the best profit, Gazlowe.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "He talked to 'em plenty, sure, but the walls went up because my crews worked double shifts, and he paid us, which I respect. He said the earth there was willing, whatever that means, and I'll take willing earth over a lazy goblin any day." } },
@@ -71,6 +92,8 @@ P:NPC {
         { id = "h_pirates", when = { questActive = TODO_QUEST("Southsea Freebooters") },
           text = "Those Southsea freebooters are camped right down the coast, bleeding my shipping dry. Thin 'em out for me, and Ratchet breathes easier." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The big guy, Thrall, is one of you, and I'll tell you what I told him, which is that lightning's great but a good crane is better for building a city." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, huh? Great, I've always got work for somebody who hits hard and doesn't ask me why." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Keep that beast of yours off my docks, pal, because the last one ate half a crate of fish and I'm still getting complaints." },
       },
       choices = {
         { text = "Did Thrall use the spirits to build Orgrimmar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -80,6 +103,8 @@ P:NPC {
         { text = "How does a goblin town stay neutral?", next = "neutral", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
         { text = "Your docks leak cargo. I could find out who's helping it along.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Need a mage for anything? I'm told I'm expensive.", next = "xmage", when = { class = "MAGE" } },
+        { text = "What kind of work, Gazlowe?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is there good hunting near Ratchet, Gazlowe?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "A warlock walks into Ratchet. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
@@ -143,6 +168,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, they're fine, mostly, though one of them still can't hear on his left side. The Venture Company boys at the Sludge Fen are worse, though, because they've got shredders and guards, and somebody with a big axe could get my Samophlange back a lot quicker than I could." } },
+      choices = {
+        { text = "I'll get your Samophlange back, Sputtervalve.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep whatever the Venture Company has worth taking.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Troubled them? A raptor ate a whole fuel regulator last month, and it was the only one I had! The beasts of the Barrens are curious about anything that rattles, so if you see something out there that looks like a bit of a machine, it's probably mine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from my workbench, please. I'm sure it's lovely, but the last beast that sniffed it set off a very small explosion." },
+      },
+      choices = {
+        { text = "I'll bring back any of your parts I find.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Finders keepers, Sputtervalve. Salvage pays well.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Anger them? I hope not, but now that you mention it, the Samophlange did spark something terrible right before I lost it. That was probably just the coil, though, wasn't it? Please say it was the coil." } },
@@ -170,6 +216,8 @@ P:NPC {
         { id = "h_samo", when = { questActive = TODO_QUEST("Samophlange") },
           text = "The Samophlange is still out there, and every day it sits in the dust I lose another year off my life. Please hurry, and please don't drop it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, you don't happen to know a spirit who finds lost things, do you, because the Samophlange is still out there and I've asked everyone else already." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Oh, splendid, you look sturdy enough to stand next to my experiments, which is more than my last three assistants could say." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, how marvellous! Tell me, does your beast ever chase things that go bang? Because I've had some trouble with that." },
       },
       choices = {
         { text = "Do your machines ever anger the elements, Sputtervalve?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -178,6 +226,8 @@ P:NPC {
         { text = "Is Ratchet good for a tinker?", next = "ratchet" },
         { text = "Magic does what gears can't, little tinker.", next = "magic", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "I get into places quietly. Shall I fetch your Samophlange?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What happened to your last assistants, Sputtervalve?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have beasts troubled your inventions, Sputtervalve?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "More questions? I love questions, almost as much as I love gears, almost." } },
@@ -230,6 +280,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Rage tonic, courage brew and something I call Mebok's Battle Breakfast, though you'll want to drink that one standing up. They're mostly harmless and occasionally helpful, which is more than you can say for most of what the Southsea pirates sell." } },
+      choices = {
+        { text = "I'll fight on my own strength, Mebok, not your tonics.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it helps me fight harder, I'll drink anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Crocolisk eyes, zhevra hooves and the odd plainstrider gizzard, if you're not too squeamish. The beasts of the Barrens are full of useful things, as long as somebody else does the collecting, and that somebody could be you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could sniff out a good ingredient. I don't suppose it'd like a job? No, I didn't think so." },
+      },
+      choices = {
+        { text = "I'll only take what the beast can spare.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Name your ingredient, Mebok. I'll take it, whatever it costs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Anger them? Friend, I give those raptors a second life in a bottle, which is more than the Barrens ever gave them. The tauren don't see it that way, of course, but the tauren don't pay my rent either." } },
@@ -268,6 +339,8 @@ P:NPC {
         { id = "h_horns", when = { questActive = TODO_QUEST("Raptor Horns") },
           text = "Raptor horns, friend, the bigger the better! The thunderheads and stormsnouts out west have the good ones." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now there's a customer who appreciates a tonic with a little lightning in it, and I happen to have exactly that, if you take my meaning." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'll be wanting a little something to steady the nerves before a fight, and I've got just the thing." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now you're exactly the sort of customer I like, because you go places I wouldn't, and you bring back interesting bits." },
       },
       choices = {
         { text = "Do your tonics anger the spirits of the beasts you use?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -277,6 +350,8 @@ P:NPC {
         { text = "Tauren medicine doesn't need goblin salesmanship.", next = "tauren", when = { race = "Tauren" } },
         { text = "A tonic that puts a guard to sleep would sell well, Mebok.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Your tonics aren't magic, Mebok. I'd know.", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do you sell for warriors, Mebok?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What ingredients do you need from the Barrens, Mebok?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Maybe later.", next = "END" },
       },
       again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok." } },
@@ -329,6 +404,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Southsea pirates, mostly, and somebody right here in Ratchet, I'd wager, because some crates go missing before they're even unloaded. If you see anybody hauling cargo up the beach at night, stand in their way and ask them nicely, and if that doesn't work, ask them less nicely." } },
+      choices = {
+        { text = "I'll guard the docks and turn the thieves over to you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll guard them, if I get a cut of what I recover.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hides and teeth go to Booty Bay, and the crocolisk skins fetch the best prices, though the pirates like them too. Keep your crates labelled and your manifest honest, and I'll make sure your goods reach the boat, or at least that I know who took them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} isn't going on any boat without a proper manifest, before you ask. I've had to write up a monkey once, and it wasn't pretty." },
+      },
+      choices = {
+        { text = "I'll keep my manifest honest, wharfmaster.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little cargo off the books never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The orc crews do, and they tip a cup of grog overboard before they cast off, which comes out of my stores, so I log it. The goblin crews call it a waste, and the goblin crews lose more cargo, and I've started to wonder whether those two things are related." } },
@@ -367,6 +463,8 @@ P:NPC {
         { id = "h_ship", when = { questActive = TODO_QUEST("The Missing Shipment") },
           text = "That shipment should have come in days ago, and the only thing the sea brought back was rumors. Find out what happened to it, would you?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. If you can talk to the sea, ask it where my shipments went, because it's taken nine crates since the spring and it hasn't filed a single report." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You've got the look of somebody who could stand on my docks and make crates stop wandering off." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll be shipping hides out of Ratchet, I expect, and every one of them will go through my ledger." },
       },
       choices = {
         { text = "Do your sailors ask the sea spirits for safe passage?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -376,6 +474,8 @@ P:NPC {
         { text = "Do you check Alliance cargo as hard as Horde?", next = "fair", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
         { text = "Your missing crates don't vanish on their own, wharfmaster.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Couldn't a mage just teleport your cargo for you?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Who's stealing from your docks, Dizzywig?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters' goods sell well off Ratchet's docks, Dizzywig?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll let you work.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Make it quick, because the tide doesn't wait and neither do my crews." } },

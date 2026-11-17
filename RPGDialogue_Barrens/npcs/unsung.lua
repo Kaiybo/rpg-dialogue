@@ -28,6 +28,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They'd like to, and I've caught more than one diving at a zhevra herd on the way to Ratchet. I feed them well enough that they shouldn't need to, but a wind rider is a hunter at heart, same as you, and the Barrens is a long way to fly past a meal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} by your side near the roost. My wind riders know a hunter's beast from a meal, mostly, but I'd not test it." },
+      },
+      choices = {
+        { text = "A hunter at heart deserves respect, beast or rider.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A beast that hunts without leave needs a firmer hand.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Everywhere the wind riders fly, from what I hear. The Kolkar raid the roads, the quilboar raid the caravans and the humans at Northwatch Hold raid whoever they please, so a warrior with wings can be where he's needed by sundown." } },
+      choices = {
+        { text = "Then fly me where the Horde needs me most.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fly me where the bounties are richest, Devrak.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Every afternoon, when the wind turns hot off the plains. The riders open their wings into it and hang there without a single beat, and I don't need a shaman to tell me something out there is holding them up." } },
@@ -63,6 +84,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Devrak, and I keep the wind riders of the Crossroads. They'll take you to Orgrimmar, Thunder Bluff, Ratchet and anywhere else the Horde has a roost, faster than any kodo." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders settle down when one of you is nearby, so come up the tower any time, because you'll make my job easier." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't care how hard you hit, so hold on tight and keep your axe strapped down." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast will want its feet back on the ground the moment you land, but the wind riders don't mind sharing the sky with it." },
       },
       choices = {
         { text = "Do you ever feel the air spirits on the roost?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -71,6 +94,8 @@ P:NPC {
         { text = "Is it safe to fly over the Barrens?", next = "safe" },
         { text = "Does anyone ever slip onto your roost uninvited?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why fly at all, when a mage can teleport?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the wind riders hunt for themselves, Devrak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Where are warriors needed most, Devrak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? The beasts are restless, and so am I." } },
@@ -117,6 +142,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Twice the water you think, and bandages enough for three bad days, because that's how long it takes to walk to the next well. The centaur fight hard and the sun fights harder, so don't leave the Crossroads short of either." } },
+      choices = {
+        { text = "I'll carry enough for the grunts beside me too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll carry for myself. The others can manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "For the beast, aye, because a thirsty companion is a slow one, and a slow one gets you killed. The oases are fouled more often than not these days, so carry clean water from here and share it with whatever walks at your side." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks parched already. Give it water first, before anything else, and it'll carry you through the Barrens." },
+      },
+      choices = {
+        { text = "My beast drinks before I do.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My beast can find its own water.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Some can, if you believe the tauren, and I've seen one kneel by a dry wash and dig until his hands came up wet. But I've also sold water to three shamans this week, so I'll keep stocking it." } },
@@ -130,9 +176,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Barg, and I sell supplies at the Crossroads. Every traveler in the Barrens comes through here sooner or later, and most of them have run out of water by the time they arrive." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I'll bet you came in with an empty waterskin like everyone else, because asking the water spirits nicely won't fill it in the Barrens." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I'll bet your waterskin's empty and your bandages are gone. They always are." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast drinks as much as you do, I'd wager, and you never plan for it." },
       },
       choices = {
         { text = "Can a shaman really find water out here?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What should a warrior carry in the Barrens, Barg?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does a hunter need extra supplies out here, Barg?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What should I carry in the Barrens?", next = "carry" },
         { text = "Who comes through the Crossroads?", next = "who" },
@@ -183,6 +233,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The smart ones do, mon, because they walk past peacebloom and earthroot every day and never think to bend down. Bring me what you find around the oases, and the mages and the shaman of the Crossroads be grateful, even if they never know your name." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keep sniffin' at my jars, mon. Some of them herbs make a beast sleepy, so keep it close." },
+      },
+      choices = {
+        { text = "I'll gather for the healers of the Crossroads.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll gather what sells, troll, and nothing more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not for themselves, mon, but the smart ones buy a few for their healer friends. A priest with no candles or a shaman with no ankh be no help when you lyin' in the dirt, so think of it as an investment in your own skin." } },
+      choices = {
+        { text = "I'll look after the healers who look after me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Healers can buy their own reagents, troll.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -209,12 +280,16 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Hula'mahi, and I sell reagents and herbs at the Crossroads. Mages, priests, shaman, they all come to me sooner or later, because spells need more than words, mon." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon? You don't buy reagents, but you get healed by those who do, so you be welcome all the same." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. You don't buy many reagents, but you pass more herbs out on the plains than any of my customers." },
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where do your herbs come from?", next = "herbs" },
         { text = "What brings a troll to the Crossroads?", next = "troll" },
         { text = "I need runes of teleportation, Hula'mahi.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do hunters bring you herbs, Hula'mahi?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do warriors ever buy reagents, Hula'mahi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you sell anything that feeds a demon, Hula'mahi?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -261,6 +336,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior should carry something that reaches further than his arm, because the Kolkar throw spears and the harpies stay up in the air. A gun or a bow won't win you the fight, but it'll start one on your terms, and that's half the battle in the Barrens." } },
+      choices = {
+        { text = "I'll carry a gun, and use it wisely.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Guns are for cowards. I'll charge them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Range, mostly, because out here you'll see your target long before it sees you. A bow strung with zhevra gut holds well in the heat, and a gun needs keeping clean of the dust, so whatever you carry, clean it every night." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could use some exercise. Take it out to the plains and let it run, and your aim will thank you." },
+      },
+      choices = {
+        { text = "I'll keep my weapon clean every night.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll clean it when it jams. That's soon enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "A bullet, every time, because I can count on it. Lightning hits harder when it lands, I'll give you that, but I've watched a shaman's bolt crackle off a Kolkar stormer like rain off a roof, and the Kolkar didn't wait for a second try." } },
@@ -274,9 +370,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Uthrok, and I sell bows and guns at the Crossroads. Out in the Barrens you can see an enemy coming from a long way off, so you might as well shoot them before they get close." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You throw lightning, so you'll tell me it's better than a bow, but a bow doesn't need the sky's permission to fire." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be wanting a gun for when the centaur keep their distance, because they're not foolish enough to stand still for an axe." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a good bow when you see one, so I won't waste your time with the cheap ones." },
       },
       choices = {
         { text = "Which hits harder, lightning or a bullet, Uthrok?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Should a warrior carry a gun, Uthrok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What makes a good bow in the Barrens, Uthrok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Bow or gun, which is better?", next = "which" },
         { text = "Where do the guns come from?", next = "guns" },
@@ -332,6 +432,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Digging, and blasting, and pulling things from the earth that should have stayed buried. The elders at Thunder Bluff want to know what they've found, and the dwarves want no one to see it, so any warrior who goes there will be met with more than words." } },
+      choices = {
+        { text = "I'll go there and drive them out.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them dig. It's not my business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because the quilboar and the dwarves have driven off the zhevra, and the lions must eat something. A hunter who thins them carefully keeps the camp safe, but a hunter who takes too many leaves the plains to the quilboar, and that is worse." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would be a fine sight from the air. My wind riders always notice the beasts that walk beside a hunter." },
+      },
+      choices = {
+        { text = "I'll thin them carefully and leave the rest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Lions are a threat. I'll clear the plains of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Old earth, older than the tauren, and the herders say the ground there groans at night. The dwarves dig for treasure and the quilboar dig for their god, and between them the land south of Taurajo has no peace." } },
@@ -367,6 +488,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Omusa Thunderhorn, and I keep the wind riders of Camp Taurajo. From here they fly north to the Crossroads and further, and they carry the camp's news to Thunder Bluff." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders have been uneasy since the dwarves came south with their digging, and perhaps you can feel what they feel." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The dwarves at Bael Modan carry guns, and a warrior is the first thing they'll shoot at, so I hope you're as tough as you look." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders see a great deal from the sky, and they tell me the lions of the southern Barrens are hungrier than usual." },
       },
       choices = {
         { text = "What are the dwarves disturbing at Bael Modan?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -374,6 +497,8 @@ P:NPC {
         { text = "What troubles Camp Taurajo?", next = "trouble" },
         { text = "Do your wind riders have names?", next = "names" },
         { text = "I could watch the dwarves at Bael Modan without being seen.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What are the dwarves doing at Bael Modan, Omusa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why are the southern lions hungry, Omusa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do your wind riders shy from my demon?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
@@ -420,6 +545,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Crocolisks in the shallows, raptors up in the hills and the odd shark the fishermen drag in, though you'll have to fight the goblins for that one. The goblins pay well for crocolisk hides, so a hunter who comes through my roost rarely leaves empty-handed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it wants to go after the gulls on the docks. Let it, if you like; the goblins hate those gulls more than anything." },
+      },
+      choices = {
+        { text = "I'll hunt only what keeps Ratchet's roads safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt whatever the goblins pay for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They'd say no, and then hire you anyway. The Southsea pirates come up the beach often enough, and the bruisers can't be everywhere, so a warrior who stops by Ratchet can always find a fight, and usually some coin with it." } },
+      choices = {
+        { text = "I'll fight for the town, Bragok, not just the coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The coin's the only reason I'd fight for goblins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Ask them yourself, but my beasts mind it, and they cough every morning the forges are lit. The sea spirits must be patient, or Ratchet would have washed away long ago." } },
@@ -433,9 +579,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Bragok, and I keep the flight beasts here in Ratchet. The goblins run the town, but they let me keep my roost, because people who fly in spend money." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in a goblin town. You'll hate it here, because the goblins dig and burn whatever they like, and they've never asked a spirit's leave for anything." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Ratchet's goblins'll sell you anything, but they won't fight for you, so I'm glad to see somebody who will." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The crocolisks along the coast near Ratchet grow fat on the goblins' fish scraps, if you're after a fight." },
       },
       choices = {
         { text = "Do the spirits mind the goblins' smoke and steam?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the goblins of Ratchet need protecting, Bragok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Is there good hunting around Ratchet, Bragok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What do you think of Ratchet?", next = "ratchet" },
         { text = "Where does the boat go?", next = "boat" },
@@ -484,6 +634,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than they'll ever admit, friend, because the padding under that mail is cloth, and cloth tears. A warrior with a good quilted shirt can take a centaur's arrow and live to complain about it, so learn a few stitches, or pay somebody like me." } },
+      choices = {
+        { text = "I'll learn to mend my own padding.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mending is somebody else's work. I'll pay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "From the Southsea pirates and the Venture Company lads, if you're not squeamish about where it came from. The silk's what fetches the coin, mind, and the spiders in the hills spin a fine thread, if you can stand to collect it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep that {pet} of yours away from my thread, would you? The last beast in here tangled itself in a whole bolt of linen." },
+      },
+      choices = {
+        { text = "I'll take the cloth fairly, from bandits only.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cloth is cloth. I'll take it from anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Ochre from the red cliffs near Ratchet and rust from the iron in the water, and the tauren trade me a blue from a root they won't name. They told me it was a gift from the Earth Mother and that I was to treat it kindly, so I do." } },
@@ -519,6 +690,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Wenna Silkbeard, and I sell tailoring supplies here in Ratchet. Thread, dye, patterns, everything a tailor needs except the cloth itself, and you'll have to cut that off somebody yourself." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting cloth for your robes, and your sort always choose the earthy colors, ochre and rust and dusk blue, which suits you, I must say." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, are you? Well, you'll be needing your padding mended, I'd say, by the look of those tears." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll have bags full of hides and linen from the beasts and the bandits, I'd wager, and not enough of them sorted." },
       },
       choices = {
         { text = "Where do your earthy dyes come from, Wenna?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -526,6 +699,8 @@ P:NPC {
         { text = "Where do your dyes come from?", next = "dyes" },
         { text = "Why sell in Ratchet?", next = "ratchet" },
         { text = "Do mages buy much thread from you, Wenna?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do warriors need tailors, Wenna?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is there good cloth to be had in the Barrens, Wenna?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do warlocks dress any differently from other casters?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Not today.", next = "END" },
       },
@@ -568,6 +743,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That depends on how much you're spending, pal, but I've got a beauty out of Booty Bay that'll split a centaur's shield in one swing. Of course, I've also got cheaper ones that'll split it in two or three, and they all look about the same from where the centaur's standing." } },
+      choices = {
+        { text = "I'll pay for quality. My life depends on it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take the cheap one and loot a better axe later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Plenty, pal, though they always want the lightest weapons, so they can run. I've got a few short swords and axes that weigh next to nothing, which is perfect for when your pet's busy and something big is chewing on your boot." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks like a good customer, pal. Shame it can't hold a sword, because I'd sell it one in a heartbeat." },
+      },
+      choices = {
+        { text = "I'll buy something sturdy and fight beside my beast.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll buy the lightest blade. Running is a skill too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Does it? Sure, probably, but I'm not an engineer. What I know is that shamans pay extra for anything that sounds like it'll help with the sparks, and I'm not in the business of arguing with paying customers." } },
@@ -603,6 +799,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Ironzar's the name, and weapons are my game. Swords, axes, maces, you name it, and I've got it, and if I don't, I can get it for you for a price." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll want a mace with a good copper core, because copper carries the lightning, or so I tell every shaman, and they all buy it." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Now we're talking, pal, because I've got axes so sharp they'll cut you just for looking at 'em." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! I've got arrows, bullets and a few knives for when the beast gets too close, pal." },
       },
       choices = {
         { text = "Does copper really carry lightning, Ironzar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -611,6 +809,8 @@ P:NPC {
         { text = "Who buys weapons in Ratchet?", next = "who" },
         { text = "I want something short, sharp and quiet, Ironzar.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "A mage doesn't need your weapons, Ironzar.", next = "xmage", when = { class = "MAGE" } },
+        { text = "What's your best axe, Ironzar?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters buy much from you, Ironzar?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, friend? Time is money, you know." } },

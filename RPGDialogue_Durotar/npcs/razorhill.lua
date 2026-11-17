@@ -175,6 +175,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In Skull Rock to the north, and in the coven above the Valley of Trials, and in the shadows of Orgrimmar itself, if half of what I hear is true. They call up imps and worship the old masters, so when you find them, cut them down before they can open their mouths to chant." } },
+      choices = {
+        { text = "They'll get a clean death, and nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them suffer, as our people suffered under the demons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You can track anything that walks, and the imps they summon leave scorched earth wherever they stop. Follow the burn marks north toward Skull Rock and you'll find their summoners, and the summoners are the ones I want." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} back when the summoners start to chant. I've seen a beast go mad from fel magic, and I'd rather not have to put a good one down." },
+      },
+      choices = {
+        { text = "Fel magic is filth. I'll keep my beast well clear.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fel power is still power. I'd learn its secrets if I could.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -214,6 +235,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good! The Burning Blade foul everything they touch, and you'll smell their fel stink around Skull Rock long before you see them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Every warlock in the Burning Blade had shamans for grandfathers, and they traded the elements for fel fire, so forgive me if I watch your hands for a while." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Hmph, a mage. At least your fire comes from the arcane and not the Legion, which already makes you cleaner than the cultists I hunt." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Burning Blade run when they see an axe coming, which is the one thing about them I like." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Burning Blade keep imps and worse at their heels, and someone who can track a beast can track those too." },
       },
       choices = {
         { text = "Could a shaman find the Blade by the ground they've poisoned?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -222,6 +245,8 @@ P:NPC {
         { text = "You watch me like I'm one of them, Orgnil.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I could carry false messages to the Blade for you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Would a mage be any use against the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Where do the Burning Blade hide, Orgnil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can a hunter track a demon, Orgnil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
       again = {
@@ -286,6 +311,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Kul Tirans at Tiragarde Keep, with their muskets and their sour faces, and the quilboar of Razormane Grounds, who smell worse but shoot less. Gar'Thok keeps the grunts busy against both, so the warriors who sleep here come in bruised and leave before dawn." } },
+      choices = {
+        { text = "I'll take the fight to Tiragarde Keep, Grosk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight whoever pays best, Kul Tiran or quilboar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Boar ribs, mostly, and scorpid tails when they've been clever enough to cut the sting out first. The best stew I ever made came from a crocolisk out of the Southfury, and the hunter who brought it lost two fingers getting it, so I named the stew after him." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the bones. Every beast that comes through my door gets the bones, and I've never had one bite the hand that throws them." },
+      },
+      choices = {
+        { text = "I'll bring you game, Grosk. Razor Hill should eat well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My game goes to whoever pays the most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -337,11 +383,15 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? If you can talk the sky into raining on Durotar you'll be the first, and I'll want to hear how you did it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You crept in like a scorpid under a blanket, rogue. Kaplak's burrow is under the floor, if you were looking for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a thirsty one by the look of you. Sit, and I'll pour something before you tell me how many quilboar you killed today." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
       },
       choices = {
         { text = "Do the spirits ever trouble your inn, Grosk?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there nothing green in Durotar, Grosk?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do rogues cause much trouble at your inn?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Who troubles Razor Hill most, Grosk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do hunters bring you to cook, Grosk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do many warlocks stop at the inn?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
@@ -376,6 +426,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That you walked Durotar with an axe on your back and the sun on your neck like the rest of us, and that something made you stop and talk to an old wanderer. That's the start of every good page, and the end depends on what you do once you leave this camp." } },
+      choices = {
+        { text = "Write that I fought for the Horde, Brakk.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Write that I fought for myself, and won.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -417,6 +476,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, out walking Durotar the same as me. I write down everything I see, and I'd be glad to hear whatever you notice that I've missed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Ha, a rogue! I wrote about one in my journal once, though I never saw her face, only my purse leaving my belt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the road! You'll be warm at night, at least, and I'd trade half my journal for a fire that lit itself." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
       },
       choices = {
         { text = "What have you noticed about this land, Brakk?", next = "druid_q", when = { class = "DRUID" } },
@@ -425,6 +485,7 @@ P:NPC {
         { text = "Do you ever hear the spirits by the fire?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Did you ever get your purse back?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you ever wish you could conjure your own fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What would you write about me, Brakk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Lok'tar, Brakk.", next = "END" },
       },
       again = {

@@ -22,6 +22,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The dwarves, I believe, or the beasts they've driven off their land, for they blast the earth at Bael'dun and the plains shake for miles. A warrior who goes there will find guns waiting, so stay low and strike quickly, and come back to me before you go too deep." } },
+      choices = {
+        { text = "I'll scout first, and fight only if I must.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll charge their camp and break them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Boots, heavy ones, and the marks of carts dragged north toward Bael'dun, though the beasts came afterward to pick at what was left. Follow the cart tracks and you'll find the dwarves' digging, and from there you can judge for yourself who struck first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can follow a scent where my eyes can't. Let it lead you up the north road, and stay close behind it." },
+      },
+      choices = {
+        { text = "I'll follow the tracks and judge fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dwarves are guilty enough. I'll hunt them anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -53,6 +74,8 @@ P:NPC {
         { id = "h_dig", when = { questActive = TODO_QUEST("Dwarven Digging") },
           text = "The dwarves at Bael'dun dig without asking the land's leave. Bring me proof of what they seek, so the elders can judge it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You are a shaman, so you must feel what the strangers to the north are doing to the earth, as surely as I see it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The braves of Bloodhoof could use your arm on the road, because the dwarves at Bael'dun do not leave their camp unguarded." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your eyes are what I need on this road, because the tracks around the ravaged caravan don't match any beast I know." },
       },
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
@@ -61,6 +84,8 @@ P:NPC {
         { text = "My people have no part in Bael'dun.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "The earth to the north is wounded. What can a shaman do?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I could get close to the dwarves' digging without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Who ravaged the caravan, Morin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What tracks did you find near the caravan, Morin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your road is safer with a demon on it, Morin.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
@@ -126,6 +151,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That a bear fights only to protect its cubs and its den, and stops the moment the danger has passed. Our family learned that from the night elves long ago, and the warriors who learn it fight hard and stop in time, which is rarer than you'd think." } },
+      choices = {
+        { text = "I'll fight only to protect, and stop when it's done.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight until there's nothing left to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A hunter bonds with a beast and a druid becomes one, but both of us must respect the creature's spirit, or the bond turns sour. I've seen hunters treat their companions better than some druids treat their own forms, so I'll not claim my path is the wiser." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a gentle spirit; I can sense it. You've treated it well, and the Earth Mother sees that." },
+      },
+      choices = {
+        { text = "My beast and I share the hunt as equals.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I command my beast. That's the way of it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = {
@@ -153,12 +199,16 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Welcome back, little druid. Show me what the wild has taught you since last we spoke." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You carry the strength of a bear without its patience, and the druids could teach you the second." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The druids and the hunters both walk with the beasts, though we walk inside them and you walk beside." },
       },
       choices = {
         { text = "Tauren learned from the night elves?", next = "elves" },
         { text = "What does a druid do?", next = "druid" },
         { text = "How does a druid's path differ from a shaman's, Gennia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The night elves taught you druidism. What do they say of mages?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Can a druid teach a warrior anything, Gennia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do druids and hunters differ, Gennia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is there any balance in what I do, Gennia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
@@ -208,6 +258,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To take only what you need, which is the first lesson I give my hunters and the last one most warriors learn. The plains feed us because we never strip them bare, and a warrior who fights the same way, only as much as is needed, will find the Earth Mother kind to him." } },
+      choices = {
+        { text = "Only as much as is needed. I'll remember that, Yaw.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "When I fight, I fight to win completely.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Feed it before you feed yourself, speak to it every day, and never send it into a fight you wouldn't take yourself. The beasts of Mulgore are proud, and they remember every kindness and every slight, so earn their trust each day as though you'd never earned it before." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks at you with trust. Good, {class}; keep it that way, and it'll follow you anywhere." },
+      },
+      choices = {
+        { text = "I'll earn its trust every day, Yaw.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It obeys me. Trust is a luxury.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -235,6 +306,8 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Yaw Sharpmane, and I teach the hunters of Bloodhoof. The plains feed us, so we take only what we need and thank the beast that gives it." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your companion looks well fed, hunter, and that tells me more about you than your aim." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. You'll understand why we thank the beast after a hunt, because you've heard the spirits that walk beside it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You could learn something from the hunters of Bloodhoof, if you're willing to slow down long enough to listen." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, one of mine. Show me how your bow arm has grown, and let me see whether your companion still trusts you." },
       },
       choices = {
         { text = "What makes a good hunter?", next = "good" },
@@ -242,6 +315,8 @@ P:NPC {
         { text = "Do the beasts' spirits speak to hunters too, Yaw?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A rogue takes only what he needs, too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I hunt with fire and frost. Is that so different?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What would you teach a warrior, Yaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do I keep my companion's trust, Yaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good hunting, Yaw.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask on. A hunter learns by asking as much as by tracking." } },
