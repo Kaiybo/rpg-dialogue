@@ -109,6 +109,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a dwarf, and with lightning crackling at your fingers! John always said the dwarves were miners and smiths, but you seem something else entirely, and you've a kind face, so I won't be frightened." },
         { id = "h_default", key = true,
           text = "The package has to go before the plague comes, it must, and it's by the horse in the barn, I'm sure it is. Oh, am I too late?" },
         { id = "h_charm", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Good Luck Charm") }, { questActive = TODO_QUEST("Two Halves Become One") } } },
@@ -128,7 +129,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid? Oh, the farm's gone so quiet, there aren't any animals left, not even the barn cats. Can you hear them? I can't hear them anymore." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a knight of the Silver Hand! Have you come from Uther? John said the Hand would ride through before the sickness spread, and I've been watching the road for days." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! You came in so softly, like the tinker who sold John his pocket knife, and he was a rascal, John said, but a friendly one. Are you a friendly one?" },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, goodness, you're not from Lordaeron, are you? John said there were orcs in camps in the south, and I used to worry, but you seem quite gentle, and you've a kind way about you." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "Oh, goodness, you're not from Lordaeron, are you? John said there were orcs in camps in the south, and I used to worry, but you seem quite gentle, and you've a kind way about you." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Are you from Dalaran? Emma always wanted to go to Dalaran, to see the towers, but Father said a farm girl had no business with spells." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Oh, there's something behind you, the little shadow with the eyes. It isn't one of the things from the fields, is it? John says to bar the door against those." },
       },
@@ -335,6 +336,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who hears the land, here at my bed. I did not know Ironforge had shamans, {class}, but the earth sent you all the same, and I'll not question its choice of messenger this close to the end." },
         { id = "h_default", key = true,
           text = "I am Mulgris Deepriver, of the Cenarion Circle. I came to heal these lands and the plague took me instead, and I'll pass soon, while the beasts out there suffer on without understanding why." },
         { id = "h_wolves", tags = { "news" }, when = { questActive = TODO_QUEST("The Wildlife Suffers Too") },
@@ -354,7 +356,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. You know the beasts as I do, {class}, so you'll see what I see out there, and I'm sorry for it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came without a sound, {class}, the way the wolves used to, before the sickness made them stumble. Sit, if you like; there's nothing here worth stealing but my last breaths." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at my bed. The spirits sent you, I think, or the Earth Mother did, {class}, for I asked her for a familiar voice before the end." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, here at my bed. The spirits sent you, I think, or the Earth Mother did, {class}, for I asked her for a familiar voice before the end." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You've come a long way from your libraries, {class}, and you'll find no answers in these fields, only beasts that need ending." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The beasts outside feel what you carry, {class}, and they're frightened enough already, so please walk softly past them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Diseased", min = 20 } }, text = "I felt them go, one by one, the sick wolves out in the fields, and each one was quieter than the last. You've been merciful, and I'm grateful, even if it's a hard mercy." },
@@ -665,6 +667,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Plenty, while they were chasing me, and none of it kind, because Hearthglen thinks anything that isn't the Light is the Scourge in disguise. If they ever caught a dwarf calling down lightning, they'd burn you twice, once for heresy and once for being from Ironforge." } },
+      choices = {
+        { text = "They're zealots, but they fight the Scourge. Leave them be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Zealots like that need tearing down, Scourge or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Strong enough that I'm sitting here bleeding instead of reporting from inside. They keep watchmen on the walls day and night and a hall full of knights besides, and every one of them believes the Light personally signed his orders." } },
@@ -688,6 +699,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! If you've anything that stops bleeding, {class}, I'll take it gladly, and if it involves chanting, I promise not to laugh." },
         { id = "h_default", key = true,
           text = "Kirsta Deepshadow, scout. I was sent to test Hearthglen's defenses and they tested me right back, and somebody in Stormwind thinks that little town matters, though it's not my job to ask why." },
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("Unfinished Business") },
@@ -721,6 +733,7 @@ P:NPC {
         { text = "How bad were Hearthglen's defenses, really?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How strong is Hearthglen's garrison?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The Crusade hunts spies with dogs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did the Crusade say anything about shamans, Kirsta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -910,6 +923,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with spirits, here at Caer Darrow. The master had dwarven guests now and then, {class}, and not one of them believed in spirits, though I daresay this house would have taught them otherwise by now." },
         { id = "h_default", key = true,
           text = "I am Eva Sarkhoff, and this is my husband, Lucien. We served House Barov for many years, I as head maid and Lucien as Master Barov's butler, and we kept the house until the house became something else." },
         { id = "h_butcher", tags = { "news" }, when = { questActive = TODO_QUEST("Doctor Theolen Krastinov, the Butcher") },
@@ -931,7 +945,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The master's hunting horns still hang in the long gallery, {class}, and on certain nights they sound by themselves, though no one living has blown them in years." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at Caer Darrow? The gardens were lovely once, and Lucien and I tended them ourselves, but they've gone wild and wrong since the Scholomance took the house." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde, here at Caer Darrow. The house never had your kind under its roof in my day, {class}, though I daresay it's had far worse since." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde, here at Caer Darrow. The house never had your kind under its roof in my day, {class}, though I daresay it's had far worse since." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you wish to know? I shall answer as well as I'm able." },

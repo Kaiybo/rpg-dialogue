@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Anything the orcs down there say to their spirits, if they say anything at all, for I've watched one of them walk the fences at dusk and I've no idea what he's asking for. Phin would give his last silver to know, and I'd give mine to know whether it's about us." } },
+      choices = {
+        { text = "Spying on a shaman's prayers is wrong, Quae. I won't.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll listen in and tell you everything. War is war.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because there are more orcs down there than either of us could fight, and because Phin wants to know what they're doing, not merely stop it. Kinelory has a plan for the courier, and she'll need someone loud when it goes wrong, so stay close to her." } },
@@ -82,6 +91,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, of all the things to come up this ridge! Keep your voice down, {class}, and if the wind tells you anything about that farm down there, tell me first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, keep low! If the Forsaken really are brewing plague down at Go'Shek Farm, we'll want someone who knows the Light when it's all over, so please don't get yourself spotted." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Could you not slip into Go'Shek Farm as a cat and see what the Forsaken are hiding? Kinelory would sleep easier, and so would I." },
@@ -111,6 +121,7 @@ P:NPC {
         { text = "What should I watch for at Go'Shek Farm, Quae?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have a paladin do about Go'Shek Farm, Quae?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a demon make a good scout down at Go'Shek, Quae?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What should I listen for at Go'Shek Farm, Quae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay low, then. Farewell.", next = "END" },
       },
       again = {
@@ -199,6 +210,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Terribly, yes, because if those papers say what Phin thinks they say, the Forsaken are planning something for Hillsbrad that none of us will like. I'd feel braver if the earth itself were on our side, and I suppose with you here, it rather is." } },
+      choices = {
+        { text = "We'll stop them. Hillsbrad's people won't suffer this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever they plan, it's Hillsbrad's problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd thought to ambush him, but if you could follow him without his noticing, perhaps we could learn where he goes, which would be cleverer. Oh, I do wish I were braver about it all." } },
@@ -249,6 +269,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, and a dwarven one, that's, well, that's wonderful, {class}, and if you could ask the wind to slow that Forsaken courier down, I'd be terribly grateful." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest, that's, well, that's a comfort, because if I'm going after that Forsaken courier I'd rather someone said a prayer over me first, just in case it goes the way Quae thinks it will." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, thank the Light, because I've been working up my courage to go after that courier for days, and it would be a great deal easier with someone in plate walking beside me." },
         { id = "h_default", key = true,
@@ -275,6 +296,7 @@ P:NPC {
         { text = "Shall I cover you from the trees when you face the courier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should we ambush the courier, or follow him quietly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why does Phin set such store by mages, Kinelory?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Are you frightened of what that courier carries, Kinelory?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },

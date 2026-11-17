@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some would, and with the best intentions, because the magi have long thought of the elements as forces to be measured rather than spirits to be asked. Dalaran needs friends just now more than it needs curiosities, so if anyone in a violet robe asks to take notes, remember that I warned you kindly." } },
+      choices = {
+        { text = "Knowledge shared helps everyone. Let them take their notes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements aren't for measuring. Dalaran can keep its notes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Because the Syndicate and the ogres don't care which of us they hurt, and the forests around Alterac suffer as much as our walls. I know the kaldorei mistrust magic, and I don't blame them, but I'd ask you to judge us by what we do now." } },
@@ -89,6 +98,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, here in Southshore. The Kirin Tor would give a great deal to study you, {class}, though I'd advise you never to let them, for they rarely give anything back." },
         { id = "h_default", key = true,
           text = "I am Jacques, emissary of the Kirin Tor. Dalaran needs the aid of the Alliance's kingdoms, and I've been sent to ask for it quietly, which is harder than it sounds in a town this size." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("An Alarming Request") },
@@ -122,6 +132,7 @@ P:NPC {
         { text = "What would Dalaran do with soldiers, Emissary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Shall I look for your missing courier on the Alterac roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why should the Circle help Dalaran, Emissary?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would Dalaran's mages truly want to study me?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll think on it, Emissary.", next = "END" },
       },
     },
@@ -250,6 +261,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That a dwarf came through talking to the wind, and that the town didn't know what to make of it, which is the most honest sentence a historian can write. The last shamans Hillsbrad saw came with the Horde in the Second War, so you'll forgive the old folk if they look twice." } },
+      choices = {
+        { text = "Write that I came in peace and kept it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Write what you like. History belongs to the winners anyway.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "That they came out of the forests to fight the Legion on Hyjal, from what the few Lordaeron men who came back from Kalimdor told me, and then went back in and shut the door. A historian hates a shut door, but I suppose your people have reasons for every one of them." } },
@@ -327,6 +347,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll have to note the date, {class}, because in all my years of writing down Southshore's history, I've never once had cause to put those words together." },
         { id = "h_default", text = "Kundric Zanden, historian of Southshore. Everyone else in town fishes, farms or fights, and someone has to write down what happened while they were doing it." },
         { id = "h_strahn_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Strahnbrad Mystery"), days = 7 } },
           text = "What you brought me from Strahnbrad has kept me up two nights running. Alterac's old roads still have stories in them, and the Syndicate would rather they stayed buried." },
@@ -360,6 +381,7 @@ P:NPC {
         { text = "What do the Southshore records say about the beasts here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you write about the druids, historian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do Hillsbrad's histories say about warlocks, Kundric?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would you write about me, Kundric?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -476,6 +498,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Bilger says you're a sign the world's gone strange, the fishermen want to know if you can call up a good wind, and somebody at the back swears you're an orc in a false beard. I've told them all you're a paying customer, which in this inn outranks everything else." } },
+      choices = {
+        { text = "Tell them the truth. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them guess. A rumour's worth more than the truth.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "That you're tall, quiet and polite, and you tip in silver, which makes you better than most. The fishermen think you can call the fish, and the soldiers think you can't hold a line, and I think both of them are drunk." } },
@@ -544,6 +575,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Half the bar will be talking about you before you've finished your first drink, {class}, so you may as well give them something worth repeating." },
         { id = "h_default", text = "Kelly's the name, and I keep the bar. Anderson keeps the beds, Bilger keeps the cellar, and I keep track of who's saying what about whom, which is the real business of any inn." },
         { id = "h_talk_done", when = { questDone = TODO_QUEST("Talk of the Town") },
           text = "You saw to that business of mine, and folk have been talking about you since, so you're part of the talk of the town now. Enjoy it while it lasts." },
@@ -575,6 +607,7 @@ P:NPC {
         { text = "Who's been picking fights with Tarren Mill, then?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's the town saying about the hills these days, Kelly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does Southshore say about my people, Kelly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What are they saying about me already, Kelly?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -667,6 +700,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They might, if the earth around Tarren Mill feels as wrong to you as their cauldrons look to me. My band has been chasing rumours of a new plague with nothing but spyglasses and good intentions, so a dwarf who can ask the ground what's buried in it would be worth a dozen of my notes." } },
+      choices = {
+        { text = "Then I'll help you stop it. The living must be protected.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the Forsaken poison their own hill. It's not my fight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Spiders bigger than they've any right to be in the Alterac foothills, and wolves that hunt by day near Dalaran's dome. My thought is the magic is souring something, but I've no proof, and a druid's eye might settle it." } },
@@ -735,6 +777,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, of all things, {class}, and a dwarf at that, which is a pairing I'd have bet against before today. Tell me, can the spirits smell what the Forsaken are brewing up the hill?" },
         { id = "h_default", key = true,
           text = "Phin Odelic. I lead a small group of adventurers looking into odd happenings around Hillsbrad, and lately there have been more odd happenings than I'm comfortable with." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Hints of a New Plague?") },
@@ -769,6 +812,7 @@ P:NPC {
         { text = "Does your band need someone to stand in front, Phin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for near Tarren Mill, Phin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What odd happenings have you seen in Hillsbrad?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could the elements help your investigation, Phin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good hunting, Phin.", next = "END" },
       },
     },
@@ -878,6 +922,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I would, and if they don't listen, you can let 'em have one of those lightning bolts, because they've had foals off me this season and I've had nothin' but grief. I swear on my granddaddy's grave they're the worst thieves in Hillsbrad, worse than the Syndicate, and the Syndicate's pretty bad." } },
+      choices = {
+        { text = "They're hungry beasts, Darren. I'll drive them off, not slaughter them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A lion that takes foals gets a lightning bolt. Simple.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I've one or two big enough, though I'll not part with 'em lightly, 'cause plate an' a heavy rider wear a horse down quicker than anythin'. Merideth's the one who sells, an' she'll want to know you'll treat the beast right before she even names a price." } },
@@ -942,6 +995,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, well I'll be! My granddaddy said a shaman could talk to beasts, {class}, so you tell these mountain lions to leave my horses be, and I'll think kindly of you forever." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Now you're the one I want to talk to, because those mountain lions have been at my horses again, and I reckon you know what goes on in a lion's head." },
         { id = "h_default", key = true,
@@ -976,6 +1030,7 @@ P:NPC {
         { text = "Did many Silver Hand knights ride through Southshore, Darren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you a horse that could carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could magic keep the lions off your horses, Darren?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you really have me talk to the mountain lions?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -1067,6 +1122,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, or so I believe, for the murlocs eat everything that crawls up the beach, and the turtles have more sense than to come where they're eaten. If a shaman can't call them back, perhaps you can thin out the murlocs, and then the sea might forgive us for my bisque." } },
+      choices = {
+        { text = "I'll clear the shore properly, so it stays safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the sea sort itself out, Jessen. It always does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The murlocs and the naga have pushed them up the coast, I think, and the ones that are left are snappish and tough. I could hunt the last of them, I suppose, but then there'd be no turtles at all, and no bisque next year either." } },
@@ -1132,6 +1196,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I don't suppose you can ask the sea to send the turtles back, {class}, because my bisque hasn't been the same since the murlocs took the shore." },
         { id = "h_default", key = true,
           text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof. Or it was, when I could make it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Soothing Turtle Bisque"), days = 5 } },
@@ -1164,6 +1229,7 @@ P:NPC {
         { text = "What does a warrior need to eat, Chef?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What has happened to the turtles here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you really cook for anyone, Jessen, even warlocks?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the turtles really stay away because of the murlocs?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Smells good. Goodbye.", next = "END" },
       },
     },
@@ -1245,6 +1311,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "My steeds go to Stormwind's people and to those Stormwind trusts, and you'd be the first of your kind to ask, which I'll admit makes me hesitate. But a rider who can hear the wind will hear a horse well enough, I expect, and that counts for more with me than whatever the paladins would say." } },
+      choices = {
+        { text = "Rules are rules, Merideth. I'd not ask you to bend yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules be hanged. A good horse knows a good rider.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Hard enough to make them ready for war, which is what Stormwind pays for. I'll not pretend they love the work, but they're fed better than half of Southshore, and they've the sea air." } },
@@ -1313,6 +1388,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to spirits, is it? The Silver Hand called me mad for talking to my horses, {class}, so I'll not be the one to call you strange." },
         { id = "h_default", key = true,
           text = "Merideth Carlson, horse breeder. My steeds go to the people of Stormwind, and to those Stormwind trusts completely, and to no one else, because I won't see them in an enemy's hands." },
         { id = "h_human", when = { race = "Human" },
@@ -1350,6 +1426,7 @@ P:NPC {
         { text = "Is a hunter's beast so different from one of your horses?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you work your horses too hard, Merideth?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your horses mind a mage on their backs, Merideth?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Would you trust a dwarf shaman with one of your horses?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Fine horses. Good day.", next = "END" },
       },
     },
@@ -1438,6 +1515,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not in words, but every fisherman learns to hear it in the tide and the gulls, and I'd guess that's a small cousin of what you do. The difference is that I only ask it for fish, and I suspect a shaman asks it for a great deal more." } },
+      choices = {
+        { text = "Ask the sea for what you need, and no more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The sea's there to be used. Take all it gives.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Patience, mostly, and knowing when to strike, which I'm told matters on a battlefield as much as on the bay. The best soldier I ever taught fished off this dock every morning before his patrol, and he never once lost his temper with a murloc." } },
@@ -1514,6 +1600,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman on my docks! The bay's seen murlocs, naga and refugees come in on the same tide, {class}, so it'll not mind you, and neither will I." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, eh? I hear some of your folk can take the shape of a sea lion and swim like one, and I'd give a great deal for a lesson in that, if it could be taught." },
         { id = "h_default", text = "Donald Rabonne. I teach fishing, and Lindea there sells the gear, and the bay pays both of us if we're patient. It's been a fishing town longer than anything else, Southshore, and it'll be one after." },
@@ -1546,6 +1633,7 @@ P:NPC {
         { text = "Can fishing really teach a warrior anything, Donald?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing the bay so different from hunting the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can a warlock learn anything from fishing, Donald?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the bay ever speak to you, Donald?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Tight lines.", next = "END" },
       },
     },

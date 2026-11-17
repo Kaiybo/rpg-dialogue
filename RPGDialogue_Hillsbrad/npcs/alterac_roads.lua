@@ -111,7 +111,8 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with the elements, at Ravenholdt. Ironforge does not often produce anything my house cannot predict, {class}, so you have my attention, which is rarer than my courtesy." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of Thrall's Horde, at Ravenholdt. The Warchief's people rebuilt an old faith out of ashes in a few short years, and I respect anyone who builds something that lasts." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Ravenholdt. My guests usually arrive in shadow, but few of them arrive on four paws, and I confess I find it refreshing." },
@@ -219,6 +220,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some of my colleagues certainly do, and they say so at length over dinner, because they cannot imagine power that is asked for rather than taken. I'm less sure, for I've seen a bound elemental slip its wards, and I've wondered since whether it was simply refusing to be spoken to rudely." } },
+      choices = {
+        { text = "Power should be studied and governed, as Dalaran does.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The elements aren't yours to bind. Ask, or leave them be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The great ward over the city drinks deep, I'll admit, and the trees nearest the dome have grown pale. We rebuild as gently as we can, though gentleness is not a thing the Syndicate respects." } },
@@ -287,6 +297,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarven shaman, at the walls of Dalaran. The Kirin Tor have spent centuries bending the elements to formula, {class}, and I find myself curious what they'd say if the elements could argue back." },
         { id = "h_default", key = true,
           text = "Archmage Ansirem Runeweaver of the Kirin Tor, at your service, within reason. Dalaran is closed while we rebuild, and I keep an eye on those who would rather it stayed broken." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing outside Dalaran's dome. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
@@ -310,6 +321,7 @@ P:NPC {
         { text = "Did Dalaran have no soldiers when Archimonde came, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hunts the hills around Dalaran these days, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does Dalaran's magic harm the land around it, Archmage?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the Kirin Tor think shamans lesser casters, Archmage?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },
@@ -433,7 +445,8 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls the spirits? I did not know Ironforge had any shamans, {class}, but I have asked the earth to send help for many nights, and it seems the earth does not care what race it sends." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde, here in these camps. I have asked the spirits of the earth to break these chains for many nights now, and perhaps they sent you instead." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, come to a chained orc. Whether you serve the loa or the Light the dead still whisper to, I don't care, so long as you can mend these wrists once the iron comes off." },

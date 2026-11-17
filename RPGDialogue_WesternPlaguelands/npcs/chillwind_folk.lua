@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not in the slightest, for my ledger records names and deeds, not prayers, and it's never once asked whether someone kneels to the Light or to the earth. Some of the soldiers mutter, I'll grant you, but they muttered about the Forsaken in the Dawn's ranks too, and they've mostly got over that." } },
+      choices = {
+        { text = "Deeds should be all that matter. The Dawn has it right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Belief matters, Quartermaster. A ledger can't see a heart.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "With all who fight the Scourge, yes, but not with all who ask, for the stores are thin and the war is long. I'd give you anything on my shelves if I could, but I've got to keep something for tomorrow." } },
@@ -133,8 +142,9 @@ P:NPC {
         { text = "What does the Dawn give the soldiers who fight for it?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why are the Dawn's stores short on arrows?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should the Dawn share its stores with all who ask?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Does the Dawn truly serve the Horde as well, Quartermaster?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the Dawn truly serve the Horde as well, Quartermaster?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Does the Dawn really trust warlocks, Quartermaster?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the Dawn care what a dwarf shaman believes, Quartermaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -212,6 +222,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Because I've been working hides for twenty years and never gave it a second thought, until the wolves around here started getting up again after they'd died. If a shaman can tell the clean ones from the tainted, I'd sleep better, and so would my customers." } },
+      choices = {
+        { text = "Every beast deserves thanks for its hide, Porter.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hide's a hide. Skin it and sell it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every plate you wear hangs off a leather strap somewhere, and soldiers forget it until one snaps in the middle of a fight. I saw a fellow lose his breastplate on Sorrow Hill, and he only lived because the skeletons were as surprised as he was." } },
@@ -262,6 +281,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarven one even! Tell me, {class}, do the beasts out here still have spirits, or has the plague taken those too?" },
         { id = "h_default", key = true,
           text = "Leonard Porter, leatherworking supplies. The soldiers here go through boots and jerkins faster than you'd believe, so I keep the tanners in thread and salt, and I keep a careful eye on what they bring me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -294,6 +314,7 @@ P:NPC {
         { text = "Does leather really matter to a warrior in plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the clean wolves still run, Leonard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why would anyone freeze a hide, Leonard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do you ask about the beasts' spirits, Porter?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

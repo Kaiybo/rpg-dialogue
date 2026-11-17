@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Once I'd have said the Light was the only true path, and then an orc showed me more honour than my own order did, and it cost me everything I had. I've learned to judge a soul by what it does, and if the spirits lead you against the Scourge, then we walk the same road, whatever we call the one who lit it." } },
+      choices = {
+        { text = "The Light and the spirits both guard this world, Tirion.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith is only a weapon, Tirion. Use whichever cuts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tirion.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -58,6 +67,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits, here by my river. I fought beside many dwarves in the Second War, {class}, stout friends every one, though none of them ever spoke to the wind the way you seem to." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, by the look of you. I've watched this river run grey with plague for a long while now, and I'd give a great deal to hear from someone who knows whether it will ever run clean." },
         { id = "h_default", key = true,
@@ -82,7 +92,7 @@ P:NPC {
           text = "You came down the bank so quietly the fish never noticed, {class}, and neither did I until just now. That's a rare gift, and I hope you use it kindly." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Mirador doesn't startle at you, {class}, which tells me you've a quiet way with beasts, and I've always trusted people the animals trust." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde, here by my river. Sit, {class}, if you like; an orc once taught me more about honour than my own order ever did, and I've never been sorry I listened." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde, here by my river. Sit, {class}, if you like; an orc once taught me more about honour than my own order ever did, and I've never been sorry I listened." },
       },
       again = { { id = "h_again", text = "Sit a while longer; the fish aren't biting anyway." } },
       choices = {
@@ -99,7 +109,8 @@ P:NPC {
         { text = "Do you blame Dalaran for not stopping the plague?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a paladin think less of someone who works unseen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you still hunt these woods, Tirion?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Do you mean Eitrigg, Tirion?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you mean Eitrigg, Tirion?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
+        { text = "Does a paladin of the old Hand trust a shaman, Tirion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },

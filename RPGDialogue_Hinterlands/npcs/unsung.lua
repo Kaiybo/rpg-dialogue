@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Gladly, if ye treat 'em as comrades an' no' as mounts, an' I'd wager ye already do, for a shaman knows the wind's no' a servant. The Wildhammer were talkin' tae the sky before Ironforge ever looked up, an' it does my heart good tae see one o' ye finally lookin'." } },
+      choices = {
+        { text = "Comrades, always. I'd never treat one as a mount.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A gryphon's a gryphon. It flies where I tell it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "We do, for the Hinterlands are wild an' we mean tae keep them that way. Ironforge would have tunnels under every hill if it could, an' we'd rather have sky an' trees, which is why we left them in the first place." } },
@@ -87,6 +96,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "An Ironforge dwarf who hears the wind! The gryphons'll fly ye gentler than most, {class}, for they know a friend o' the sky when one comes up the steps." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, an' in full plate! The birds'll grumble at the weight, {class}, but they've carried heavier, an' they're proud tae carry one o' the Light's own." },
         { id = "h_default", key = true,
@@ -121,6 +131,7 @@ P:NPC {
         { text = "Do the Wildhammer worry about the land, Guthrum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How many riders have you lost to Jintha'Alor, Guthrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do gryphons always know what a warlock is, Guthrum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would a Wildhammer gryphon carry an Ironforge shaman gladly, Guthrum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Fair winds.", next = "END" },
       },
     },
@@ -229,6 +240,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Never once, an' I've asked it nicely an' rudely an' every way between, but Fraggar says the earth only answers them that listen first. Ye've the knack o' listenin', by the look o' ye, so mebbe ye could put in a word for a tired old cart on a bad road." } },
+      choices = {
+        { text = "Hard work honours the earth more than any favour, Harggan.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Next time, just steal a mule from the trolls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Some, aye, for every mine leaves a hole, and some leave a scar. But the Wildhammer mine less than Ironforge an' they put back what they can, an' I'd say we're kinder tae the hills than most." } },
@@ -288,6 +308,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman from Ironforge, is it? If ye can ask the earth tae carry my carts up that mountain path, {class}, I'll be the first Wildhammer tae say Ironforge did somethin' useful." },
         { id = "h_default", key = true,
           text = "Harggan, blacksmithing supplies. Every bar of iron and every sack of coal in Aerie Peak came through my door, and most of it came up that mountain path on a cart that nearly went over the edge twice." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -319,6 +340,7 @@ P:NPC {
         { text = "Does Aerie Peak get many paladins, Harggan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the mountain road so dangerous, Harggan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could magic help you haul supplies, Harggan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the earth ever help with your hauling, Harggan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

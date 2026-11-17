@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Bother's no' the word, but it's strange, I'll grant ye, for I grew up on stone the priests said the Titans shaped, an' nobody ever told me it talked. Still, if the earth here'll tell ye where the Witherbark set their ambushes, I'll stop sayin' it's strange an' start sayin' it's useful." } },
+      choices = {
+        { text = "Ironforge's old ways still matter. I honour both.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The priests were wrong. The earth was always alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Skuerto.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, once the scoutin's over an' the Witherbark have spotted us, which they do sooner or later. Then I want a {g:lad|lass} wi' a shield between me an' their axes while Kryten reads whatever we came for." } },
@@ -64,6 +73,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' from the mountain by the look o' ye! I've heard the Wildhammer do this sort o' thing, {class}, but an Ironforge dwarf callin' the wind would've made me mother faint." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Well, ye'll be less trouble than most, an' if a Witherbark arrow finds me while I'm scoutin', I'd as soon it was you that pulled it out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Aye, now that's a face I can work wi', because the Boulderfist won't give up Trelane's wand for a polite word, an' Kryten's no' much use wi' anythin' heavier than a quill." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Does anyone pray for the fallen of Stromgarde, Skuerto?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you want Kor'gresh's wand taken back?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a warrior be any use to a scout, Skuerto?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does a dwarf shaman bother you, Skuerto?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Off I go.", next = "END" },
       },
     },
@@ -205,6 +216,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The tower's defenses, mostly, for when I read Trelane's notes on them, the bindings sound almost like bargains. If Archmage Malin is right, they're tools, but if you're right, they're something that agreed to help, and I can't decide which frightens me more." } },
+      choices = {
+        { text = "Malin's right. Bindings keep power in proper hands.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They're bargains, Kryten. Keep yours, or the elements won't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sometimes, when the Witherbark are howling and my best spell is still halfway through its first syllable. Archmage Malin says a mage who needs a sword has already made a mistake, but I don't think he's ever been chased through a troll village." } },
@@ -236,6 +256,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, a shaman, and a dwarven one! Forgive me for staring, {class}, only Archmage Malin says the elements can be bound but never reasoned with, and I've always wanted to ask someone who'd know." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "Oh, a druid, and from Darnassus, I'd guess! I have a hundred questions about how your magic differs from ours, though Skuerto says I ask too many." },
         { id = "h_default", key = true,
@@ -268,6 +289,7 @@ P:NPC {
         { text = "Do you need anything taken from the Witherbark camps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you ever wish you'd trained with a sword, Kryten?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does your journal say about the Highland beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What made you wonder about the elements, Kryten?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -361,6 +383,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every day, for the winds come down off Thoradin's Wall sudden and hard, and a gryphon caught in one ends up halfway to Hammerfall before it rights itself. The Wildhammer say a shaman can ask the wind's leave before flying, and if that's true, I'd like you to ask for all of us." } },
+      choices = {
+        { text = "I'll ask its leave politely. The wind deserves respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The wind will carry us whether it likes it or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Not in a cage, they don't, for the gryphons think the hippogryphs are showing off. In the air they leave each other alone, which is more than I can say for the Syndicate and the Forsaken around here." } },
@@ -420,6 +451,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! If you can calm the Highlands' winds, {class}, my gryphons will love you better than they love me, and they don't love me much." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! If you're flying south, I'll ask you to say a word for the birds before you go, because the Highland wind is a cruel thing and my gryphons have been through enough of it this season." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, good, because my gryphons trust plate and polish more than they trust most riders, and they settle quicker with you on their back than with some nervous courier." },
         { id = "h_default", key = true,
@@ -450,6 +482,7 @@ P:NPC {
         { text = "What do you feed the gryphons at Refuge Pointe?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do gryphons and hippogryphs get along, Cedrik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your gryphons carry a warlock at all, Cedrik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the Highland winds trouble your gryphons, Cedrik?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -519,6 +552,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Most of them are too tired to trust or distrust anybody, and they'll trust you the first time you pull one of them out of a Witherbark ambush. A few of the older ones remember orc shamans from the war and won't sit near you, so I'd let them come round on their own." } },
+      choices = {
+        { text = "I'll earn their trust in the field, Vikki.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need their trust, only their coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Plenty, if you know where to look, though the League of Arathor wants to plough most of them back into farmland. I sell to both sides of that argument, so I try not to have an opinion." } },
@@ -569,6 +611,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! I don't stock totems, {class}, but I've plenty of rope and bandages, and I find most people need those whatever they pray to." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've bandages if you're running short, and I'd take it kindly if you looked in on the wounded before you buy anything, because they're the ones using most of what I stock." },
         { id = "h_default", key = true,
           text = "Vikki Lonsav, general goods. If the Pointe runs out of something, it's my fault, so I make sure it doesn't run out of much." },
@@ -598,6 +641,7 @@ P:NPC {
         { text = "Can a hunter help with your supplies, Vikki?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Highlands still have wild places worth saving?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is Refuge Pointe short of more than bandages, Vikki?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the soldiers here trust a dwarf shaman, Vikki?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },

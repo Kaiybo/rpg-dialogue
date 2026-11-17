@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They fear it more than anything, and I don't blame them, for the wind off the Plaguewood carries things no living creature should breathe. Georgia's bats don't mind it at all, which tells you something about bats, and something about this land too." } },
+      choices = {
+        { text = "Then I'll ask the wind to carry them gently home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear keeps them sharp, Khaelyn. Let them fear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "For weeks, and they'll drop you a little too fast over Chillwind to prove it. The Wildhammer say a gryphon remembers every kindness and every slight, and after a year at Light's Hope I'm inclined to agree." } },
@@ -84,6 +93,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, at Light's Hope! The birds hate the air up here, {class}, but they'll fly calmer with someone aboard who knows what the wind's thinking." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
@@ -118,6 +128,7 @@ P:NPC {
         { text = "Do gryphons hold grudges against careless riders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do gryphons and hunters' beasts get along up here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you had trouble with warlocks before, Khaelyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons fear this land, Khaelyn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -371,6 +382,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "One or two of the older Silver Hand men gave me a look when I said a shaman was staying, until I told them you were from Ironforge, and then they only looked more confused. They'll get used to you, for they got used to Leonid in the chapel, and if they can manage that, they can manage anything." } },
+      choices = {
+        { text = "I'll earn their respect plainly, at your table.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them stare. Their respect means nothing to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jessica.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "A few of the younger knights flinch, but they'll learn, because this chapel's seen stranger things than you. The Revered Leonid sits right over there with his face falling off, and he's the gentlest soul in the place, so I tell them to mind their manners and eat their soup." } },
@@ -478,8 +498,9 @@ P:NPC {
         { text = "What do the Dawn's knights talk about over supper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the soldiers need most when they come in?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where does the inn's meat come from, Jessica?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Do the soldiers mind a Horde guest at the inn, Jessica?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the soldiers mind a Horde guest at the inn, Jessica?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Does anyone at Light's Hope mind a Forsaken paladin at table?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do the soldiers mind a dwarf shaman at the inn, Jessica?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

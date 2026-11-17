@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "That the earth was always talkin', {g:lad|lass}, an' most of us were too busy hammerin' to listen, which is a fair description o' my whole life. My forge fire's never once said a word to me, but I'll not tell ye it isn't listenin', for it's been in a mood all week." } },
+      choices = {
+        { text = "Hammer and stone served Ironforge well. I honour them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ironforge has hammered too long. It's time we listened.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, they suit it well, for an ogre's skull doesn't care much for a sword. The League means to take the whole of Arathor back, every hill, and they'll need every mace I can make to do it." } },
@@ -87,6 +96,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' one o' our own! I've seen a lot o' strange things in three wars, {class}, but a mountain dwarf callin' the lightning is a new one on me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, welcome! Ye'll want a mace, then, for every priest I knew in Ironforge carried one, an' a good weight in the hand does wonders for a sermon when the Witherbark aren't listenin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a customer who knows what a hammer's for, an' ye'll forgive an old dwarf for lookin' at yer weapon before he looks at yer face." },
         { id = "h_default", key = true,
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Do you forge arrowheads as well as maces, Jannos?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do maces suit the work of taking back the Highlands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you forge a mace for a warlock, Jannos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does an old smith make of a dwarf shaman, Jannos?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

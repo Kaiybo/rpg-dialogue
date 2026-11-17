@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Whether the spirits of Darrowshire are at peace, I think, because that's what he'd want to know above everything else. He held that town to the last, and I lived, so if you ever hear anything from the earth there, I'd be grateful if you told me, even if it's hard." } },
+      choices = {
+        { text = "The dead deserve peace. I'll help them find it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are past helping, Carlin. Look to the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Carlin.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd like to think so, after what the Scourge made of Darrowshire. If the Light can find you after death, then perhaps it can find him too, and I'd sleep better believing that than believing he's lost for good." } },
@@ -100,6 +109,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My brother Joseph fought beside dwarves in the Second War, {class}, and he'd have had a hundred questions for you, for he never could leave a puzzle alone." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. Darrowshire had good fields once, and you might know whether anything could grow there again, now that the dead walk its lanes every night." },
         { id = "h_default", key = true,
@@ -122,7 +132,7 @@ P:NPC {
           text = "A warrior. Joseph would have liked you, {class}, because he always said a town is only as safe as the last person still standing in its square." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll not turn you away, {class}, for the Dawn doesn't, but I saw the Cult of the Damned's necromancers at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin who died and came back with the Light still in hand. Joseph would have given anything to see that, because he always said the Light never truly leaves those who stand their ground." },
       },
@@ -138,9 +148,10 @@ P:NPC {
         { text = "Did Joseph stay loyal to the Silver Hand until the end?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Was Joseph much of a fighter, Carlin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "The hounds knew the Scourge was coming before you did?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What would Joseph have made of the Horde today, Carlin?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What would Joseph have made of the Horde today, Carlin?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Were the Cult's necromancers at Darrowshire, Carlin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you think the Light could find Joseph too, Carlin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What would Joseph have asked me, Carlin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },
@@ -223,6 +234,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "He said the dwarves helped him in the big war a long time ago, and they sang very loud songs and never got tired. I tried singing loud like that while I was hiding, but Auntie Marlene said hush, so I hushed, and then everything went quiet." } },
+      choices = {
+        { text = "You were very brave, Pamela. Your papa would be proud.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hiding was a mistake, Pamela. You should have run.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pamela.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Papa said the knights of the Silver Hand were never afraid of the dark, and you're not either, I can tell. Are you here to take me to Papa? Because I'd go, I think, if a glowing knight was the one who came for me." } },
@@ -300,6 +320,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Oh, you're a dwarf, and you've got sparkles on your hands! Papa said dwarves were all hammers and loud songs, but he never said they could make sparkles, and you smell like rain." },
         { id = "h_default", key = true,
           text = "I'm Pamela, and this is my house, only it's broken now. Papa told me to hide and wait, so I did, and I'm still waiting, but he hasn't come." },
         { id = "h_doll", tags = { "news" }, when = { questActive = TODO_QUEST("Pamela's Doll") },
@@ -311,7 +332,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "Are you a hunter? Papa said hunters can follow anything, even rabbits, and I had a kitten once that ran off when the pale people came." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're good at hiding! I'm good at hiding too, because Papa taught me, and I've been hiding for ever so long, only nobody's come to find me yet." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, you're from the Horde! Papa said the Horde was scary, but you don't look scary, you look nice, and you smell like rain." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "Oh, you're from the Horde! Papa said the Horde was scary, but you don't look scary, you look nice, and you smell like rain." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Can you do magic? Real magic? Auntie Marlene said mages could make sparkles come out of their fingers, and I always wanted to see." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that a little monster? It's got horns, but it's ever so small, and I don't think it'll hurt me, will it? Will it?" },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Can you really turn into animals? I had a kitten once, and she ran away when the pale people came, and I miss her ever so much." },
@@ -325,11 +346,12 @@ P:NPC {
         { text = "Did your papa have many soldiers, Pamela?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What happened to your kitten, Pamela?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Where did you hide when the pale people came, Pamela?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Did your papa tell you stories about the Horde, Pamela?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Did your papa tell you stories about the Horde, Pamela?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Would you like to see some sparkles, Pamela?", next = "xmage", when = { class = "MAGE" } },
         { text = "Are you frightened of my little friend, Pamela?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What was your kitten's name, Pamela?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you know any stories about knights, Pamela?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Did your papa tell you stories about dwarves, Pamela?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I have to go now, Pamela.", next = "END" },
       },
       again = { { id = "h_again", text = "Do you want to hear something else? I know lots of things, mostly about dollies." } },

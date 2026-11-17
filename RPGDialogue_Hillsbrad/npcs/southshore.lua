@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Worry's a strong word, but I'll own the first thing I thought of was the orcs that burned these hills in the Second War, for their shamans came first. Then I remembered you're standing in my town and not burning it, so I'll judge you by that, same as I judged the refugees." } },
+      choices = {
+        { text = "Then I'll keep your laws while I'm in Southshore, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I answer to the elements, Marshal, not to a town's laws.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The Forsaken poison what they can't hold and the Syndicate burn what they can't steal, and between them the farms up the valley are going back to thorn. I'd sooner have thorns than Forsaken, but I'd sooner have farms than either." } },
       choices = {
@@ -65,6 +74,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on the storm, the guards tell me. Dun Garok's lot pray to their stone and their forefathers, {class}, and I never heard of one talking to the wind before today." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "The Magistrate says you've been a great help with his papers. Good, somebody has to read them, while the rest of us stand on the road where the Syndicate actually is." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "How bad is the Syndicate in Hillsbrad these days, Marshal?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Will the Alliance help Dalaran, Marshal?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will Southshore fight beside a warlock, Marshal?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does a dwarf shaman worry you, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -378,6 +389,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Honestly, I'd have to file you under 'other', which never feels like the right answer for anyone. Southshore's law doesn't care what you pray to, only whether you pay your dues and stay clear of the Syndicate's business, and I'd be grateful if you did both." } },
+      choices = {
+        { text = "The law's the law. I'll keep to it, Magistrate.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forms are for clerks. The earth keeps no ledgers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I have reports on everything else, so I suppose I should have one on that. The farmers clear more of the hills every spring, and the ogres take it badly, and so do the wolves. I'd never thought of the land itself having an opinion." } },
@@ -437,6 +457,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I'm afraid I've no form for this, {class}, and I've a form for nearly everything, so you'll forgive me if I stare a little." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "Redpath tells me you've been out on the road with his men. Good work, I'm sure, but the Syndicate is beaten in my ledgers as much as on the road, and the Marshal never quite believes that." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -484,6 +505,7 @@ P:NPC {
         { text = "Which Syndicate camp would you send a warrior to first, Magistrate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you want the lions dealt with, Magistrate?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Southshore farms trouble the land here, Magistrate?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would your forms make of me, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },
@@ -629,6 +651,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd love to know whether a shaman can ask the tide to carry them off somewhere else, Menethil perhaps, because I've tried asking politely and they only gurgle at me. Failing that, I'll take a dwarf with a lightning bolt over three of my own guards any day." } },
+      choices = {
+        { text = "I'll fight them on the shore, fair and in the open.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd sooner catch them sleeping in their huts, Lieutenant.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -687,6 +718,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in Southshore! Finally something new walks through that door, {class}, for I've been staring at the same murloc reports since spring." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Tell me you speak murloc, because I've been trying to reason with them for a year and they only ever answer in that dreadful gurgle." },
         { id = "h_default", key = true,
@@ -730,6 +762,7 @@ P:NPC {
         { text = "Have you asked the Light for help with your murlocs, Lieutenant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I hunt your murlocs for you, Lieutenant?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could my imp handle your murlocs for you, Lieutenant?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Could a shaman help with your murlocs, Lieutenant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your chair.", next = "END" },
       },
     },
@@ -899,6 +932,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "We didn't think, we knew: the Light was the one true thing, an' orc shamans were the enemy, hic. Then the Hand broke an' I found out I'd been sure about a lot o' things I'd never tasted, so if a dwarf can hear the earth, who am I to tell the earth it's wrong?" } },
+      choices = {
+        { text = "The Hand was right about one thing: faith needs rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Certainty was the Hand's problem. Taste everything, I say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "More than ye'd think! There's a bitter moss up by the Alterac falls that turns a plain ale into somethin' the Light itself would blush at. Course, I'm not supposed tae pick it, the ogres say, but I don't speak ogre, so who's to say?" } },
@@ -958,6 +1000,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to storms instead o' the Light, hic! The old Hand would've had a fit, {class}, but I'm not the Hand anymore, so come an' tell me what the spirits think o' my stout." },
         { id = "h_default", key = true,
           text = "Bilger, brewmeister, hic. Used to be a knight o' the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin'." },
         { id = "h_moonshine", tags = { "news" }, when = { questActive = TODO_QUEST("MacKreel's Moonshine") },
@@ -994,6 +1037,7 @@ P:NPC {
         { text = "Do you want game for the inn's kitchen, Bilger?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do you know of brewing with wild herbs, Bilger?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did the Silver Hand really think thieves could be saved, Bilger?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What did the Silver Hand think of shamans, Bilger?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },
@@ -1127,6 +1171,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd like to, if you'll sit still for it, because history has a habit of forgetting the first of anything. The old kingdom's scribes wrote down every orc shaman's curse in the Second War and never once asked what the elements thought of it, and I'd rather not make the same mistake." } },
+      choices = {
+        { text = "Write it plainly. Truth should be kept for those who come after.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things shouldn't be written down. Let the spirits keep them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Very little, I'm afraid, for Arathor's scholars thought the forest was a thing to be cleared. There's one fragment about sacred groves in Lordaeron's north, before the cities came, but the ogres used most of that scroll to light a cookfire." } },
@@ -1195,6 +1248,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, truly? I've three books on Ironforge's lore and not one of them mentions you, {class}, which means either the books are wrong or you're about to be very interesting." },
         { id = "h_default", text = "I'm Dibbs. I collect what's left of the old kingdom's knowledge before the ogres finish using it to start their fires, and it's slow work, for they're quick readers, in their way." },
         { id = "h_milton", when = { heardLine = "milton.h_default" },
           text = "Milton Sheaf sent you? Of course he did, bless him. Tell him I've three crates of Alterac's records waiting, and one of them is mostly soot." },
@@ -1235,6 +1289,7 @@ P:NPC {
         { text = "Shall I fight the ogres for your books, Loremaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does Alterac's history say anything about hunting, Loremaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Did the old kingdom know anything of druids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you write me into your books, Loremaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the books.", next = "END" },
       },
     },
@@ -1346,6 +1401,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "There's always one who mutters, mind, but I've had dwarves through here from Dun Garok for as long as I've kept the place, and most of them talked to their ale more than to any spirit. So you're an improvement, as far as I'm concerned." } },
+      choices = {
+        { text = "Let them mutter. I'll answer them to their faces.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them mutter. I'll quietly sour their ale.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'd guess it's the noise, the fish smell and the soldiers, though I'm biased toward the fish. One of yours stayed a week last summer and spent every evening out by the shore, talking to the turtles, and I never did find out what they said back." } },
@@ -1423,6 +1487,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! If you've any pull with the rain, {class}, I'd take it kindly if you'd ask it to fall somewhere other than through my roof." },
         { id = "h_default", text = "Anderson's the name, and I keep the inn: fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
         { id = "h_bilger", when = { heardLine = "bilger.h_default" },
           text = "Bilger told you he was a paladin? He was, and a good one, folk here say. I keep the cellar unlocked for him, because somebody should be kind to him." },
@@ -1457,6 +1522,7 @@ P:NPC {
         { text = "Would you buy game for the inn, Anderson?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do so few of my people stay in Southshore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have you had many warlocks under your roof, Anderson?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do your guests mind a dwarf who talks to the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

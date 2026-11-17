@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I'd rather you bought a good line first and asked the fish after, so we both come out of it well. Donald would tell you it's about patience and respect for the bay, and he'd be right, though I'd add that it's also about my rent." } },
+      choices = {
+        { text = "Then I'll fish the honest way, with hook and line.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the spirits can save me the wait, I'll use them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "There was a time I'd have laughed at the question, but the catches are smaller every year, and the murlocs are fighting us for what's left. I don't know if it's us or them, but somebody's taking too much." } },
@@ -105,6 +114,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, buying hooks? I'd have thought you could just ask the fish to jump into the basket, {class}, but I suppose that would put me out of business." },
         { id = "h_default", key = true,
           text = "Lindea Rabonne, fishing supplies. Donald teaches the lessons, I sell the gear, and between us we've put a pole in the hands of half of Southshore. The other half are soldiers, and they never have the time." },
         { id = "h_coast", when = { questDone = TODO_QUEST("Down the Coast") },
@@ -138,6 +148,7 @@ P:NPC {
         { text = "Do hunters buy fishing gear from you, Lindea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the fishermen take too much from the bay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has a warlock ever bought fishing gear from you, Lindea?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would you rather I didn't ask the fish, Lindea?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },
@@ -231,6 +242,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A plague, I think, a new one worse than the last, and every barrel that rolls past Southshore on its way up that hill makes me read my labels twice. If you ever ask the earth what's buried under Tarren Mill, I'd rather you didn't tell me the answer before bed." } },
+      choices = {
+        { text = "Then it must be stopped before it leaves that hill.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them brew. A plague can be turned on its makers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Freely? Never, for the hills are full of ogres and Syndicate. If you mean whether we should pick everything we find, I've seen fields of briarthorn stripped bare in a season, and they never came back." } },
@@ -290,6 +310,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I don't suppose the spirits can tell you what the Forsaken are mixing up at Tarren Mill, {class}, because I've been reading the wind for weeks and it only smells of rot." },
         { id = "h_default", key = true,
           text = "Nandar Branson, alchemy supplies. I keep the vials clean and the reagents dry, and I try not to think too much about what the apothecaries in Tarren Mill are mixing up there in their cauldrons." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, and I'll warn you that the good ones come from the Alterac hills, which means they're expensive and hard won." },
@@ -315,6 +336,7 @@ P:NPC {
         { text = "Which streams have the Forsaken fouled, Nandar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should herbs be gathered freely in the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you sell poison vials to anyone who asks, Nandar?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do you think they're brewing up there, Nandar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -406,6 +428,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not a thing until today, and some of the town says I shouldn't, because they remember orc totems from the war. I told them coin is coin and wood is wood, and a dwarf's money spends as well as anyone's." } },
+      choices = {
+        { text = "Old fears aren't foolish, Micha. Listen to the town.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Coin is coin. Don't let the town tell you otherwise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "From the hills, mostly, and from the hunters who bring in the deer and the bears. There are fewer of both these days, and the price is going up, which is good for me and bad for everyone else." } },
@@ -483,6 +514,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! If you're carving totems, {class}, I've good chisels and better varnish, and I'll not ask what the spirits think of either." },
         { id = "h_default", key = true,
           text = "Micha Yance, trade supplies. If you're stitching, tanning, smithing or tinkering, I've got the bits you need, and if I don't, it's on the next cart from Menethil." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want leather, thread and maybe a lockpick or two, though I'll say I only sell the first two, and I'd prefer you didn't ask about the third." },
@@ -513,6 +545,7 @@ P:NPC {
         { text = "What hides do Southshore's crafters need most, Micha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Where does Southshore's leather come from, Micha?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does a warlock buy from a trade supplier, Micha?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does Southshore sell much to shamans, Micha?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -594,6 +627,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Southshore buys my lamp oil, Tarren Mill buys my rope, and Dun Garok buys whatever's shiny, so yes, and gladly. I don't see why a dwarf who talks to the wind should mind, either, since the wind blows on both towns the same." } },
+      choices = {
+        { text = "The Alliance should hold these hills, and you should pick a side.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair enough. Sides are for people who can't count.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only what's lying about and nobody's using! Fallen branches, dropped arrows, the odd lost boot. I'm a merchant, not a logger, and I'd never cut down a tree when there's one already lying on the ground." } },
@@ -705,7 +747,7 @@ P:NPC {
         { id = "h_again2", text = "Anything else? The robots are getting bored." },
       },
       choices = {
-        { text = "Do the spirits care who wins in Hillsbrad, Zixil?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the spirits care who wins in Hillsbrad, Zixil?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Ever sold anything magical to Southshore, Zixil?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Show me what you're carrying.", next = "BUSINESS" },
         { text = "You trade with both towns?", next = "both" },
@@ -719,6 +761,7 @@ P:NPC {
         { text = "What does a goblin sell a warrior, Zixil?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do your robots ever scare off the game, Zixil?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you take anything from the land you walk, Zixil?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Would you really sell to both sides of this war, Zixil?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe travels.", next = "END" },
       },
     },
