@@ -13,6 +13,16 @@ About a hundred new people to talk to, and a writing pass across every pack. **N
 - **Fewer stock phrases.** About 1,700 lines rewritten. "Fair enough" went from over 240 uses to a handful, and "I won't pretend", "if I'm honest", "truly", "worth more than" and "the hard way" are mostly gone, along with tidy morals like "Quiet work wins wars. Glory is for songs." Replies you pick now say something specific to whoever you're talking to.
 - **More grit and humour.** Everyday lines have more texture: a Booty Bay trader whose panther ate the parrots, a Frostmane troll wearing a camper's good boots, an Undercity apprentice whose fingers keep coming loose, guards with wet boots and dice debts, and a Light's Hope garrison short of shovels for both the latrines and the graves. Grief and solemn scenes are left as they were.
 
+## 0.72.0 (2026-11-17)
+A better "What I've done" in the journal (Myself page). Core only, no new files: /reload is enough.
+
+- **Organised, not one long list.** A short summary line on top (lands walked, dungeons, foes felled, deaths), then Milestones, Lands I've walked, Dungeons and Foes I've faced most.
+- **Lands grouped by day.** "Today: Badlands, Loch Modan and Ironforge" instead of a "today" after every line.
+- **One line per dungeon.** Trips in and the clear sit together ("Scarlet Monastery: cleared (3 trips in)"); the dungeon no longer also shows up as a first visit.
+- **Foes you've fought most**, with counts; the rest are summed in one line.
+- **Fix: rooms counted as lands.** Walking into an indoor room (Southshore Town Hall, The Great Arena) no longer logs a "first visit"; old entries like these are hidden.
+- **Fix: dungeon trips over-counted.** Each room change inside a dungeon counted as entering again (the ×14). Now it counts once per trip; old counts start over at one.
+
 ## 0.71.0 (2026-11-17)
 Where you come from, more to say to the people on duty, and seven people with a lot more to say. No new files: /reload is enough.
 

@@ -79,6 +79,110 @@ local function refreshInk()
   local okN, note = pcall(Theme.Hex, "reaction")
   if okN and note then NOTE = note end
 end
+-- "What I've done" (0.72.0): a summary line, then milestones, the lands walked grouped by
+-- day, dungeons (trips in and clears on one line each) and the foes met most often.
+local FOES_SHOWN = 8
+
+local function looksLikeLand(name, c)
+  local Wd = ns.World or {}
+  if (Wd.ZONE_LEVELS and Wd.ZONE_LEVELS[name]) or (Wd.CAPITALS and Wd.CAPITALS[name]) then return true end
+  -- Before 0.72.0 indoor rooms ("Southshore Town Hall") could be logged as a first visit.
+  return not (c.places and c.places[name])
+end
+
+local function joinList(list)
+  if #list <= 1 then return list[1] or "" end
+  return table.concat(list, ", ", 1, #list - 1) .. L.J_AND .. list[#list]
+end
+
+local function deedsPage(add, c)
+  local deeds = c.deeds or {}
+  local milestones, lands, dungeons, foes = {}, {}, {}, {}
+  local dungeonSeen, unnamed, foeKills = {}, 0, 0
+  for id, d in pairs(deeds) do
+    local kind, arg = id:match("^(%a+):(.+)$")
+    local t, n = d.t or 0, d.n or 1
+    if id == "first_death" or kind == "level" then
+      milestones[#milestones + 1] = { text = deedName(id, d), t = t }
+    elseif kind == "dungeon" or kind == "cleared" then
+      local e = dungeonSeen[arg]
+      if not e then e = { name = arg, t = t, n = 0 }; dungeonSeen[arg] = e; dungeons[#dungeons + 1] = e end
+      if kind == "dungeon" then e.n = n; e.t = math.min(e.t, t) else e.cleared = t end
+    elseif kind == "zone" then
+      if not deeds["dungeon:" .. arg] and looksLikeLand(arg, c) then lands[#lands + 1] = { name = arg, t = t } end
+    elseif kind == "kill" then
+      local cap = ns.db and ns.db.capture and ns.db.capture.npcs[tonumber(arg)]
+      local foe = d.name or (cap and cap.name)
+      if foe then
+        local e = foes[foe]
+        if not e then e = { name = foe, n = 0, t = t }; foes[foe] = e end
+        e.n = e.n + n
+        foeKills = foeKills + n
+      else
+        unnamed = unnamed + 1
+      end
+    end
+  end
+  local foeList = {}
+  for _, e in pairs(foes) do foeList[#foeList + 1] = e end
+  if #milestones + #lands + #dungeons + #foeList + unnamed == 0 and (c.deathCount or 0) == 0 then return end
+  add(L.J_DEEDS, "section")
+
+  -- At a glance.
+  local bits = {}
+  if #lands > 0 then bits[#bits + 1] = L.J_DEEDS_LANDS:format(#lands) end
+  if #dungeons > 0 then bits[#bits + 1] = L.J_DEEDS_DUNGEONS:format(#dungeons) end
+  local total = (c.kills and c.kills.total) or foeKills
+  if total > 0 then bits[#bits + 1] = L.J_DEEDS_FOES:format(total) end
+  if (c.deathCount or 0) > 0 then bits[#bits + 1] = L.J_DEEDS_DIED:format(c.deathCount) end
+  if #bits > 0 then add(table.concat(bits, "  ·  "), "dim") end
+
+  if #milestones > 0 or (c.deathCount or 0) > 0 then
+    add(L.J_DEEDS_MILESTONES, "place")
+    table.sort(milestones, function(x, y) return x.t > y.t end)
+    for _, m in ipairs(milestones) do add(m.text .. "  " .. DIM .. when(m.t) .. "|r") end
+    if (c.deathCount or 0) > 1 then add(L.J_DEATHS:format(c.deathCount)) end
+  end
+
+  if #lands > 0 then
+    add(L.J_DEEDS_LANDS_HEAD, "place")
+    table.sort(lands, function(x, y) return x.t > y.t end)
+    local day, list = nil, {}
+    local function flush()
+      if day and #list > 0 then
+        add(DIM .. day:sub(1, 1):upper() .. day:sub(2) .. ":|r  " .. joinList(list))
+      end
+    end
+    for _, l in ipairs(lands) do
+      local w = when(l.t)
+      if w ~= day then flush(); day, list = w, {} end
+      list[#list + 1] = l.name
+    end
+    flush()
+  end
+
+  if #dungeons > 0 then
+    add(L.J_DEEDS_DUNGEONS_HEAD, "place")
+    table.sort(dungeons, function(x, y) return (x.cleared or x.t) > (y.cleared or y.t) end)
+    for _, e in ipairs(dungeons) do
+      local trips = e.n > 1 and L.J_DEEDS_TRIPS:format(e.n) or L.J_DEEDS_TRIP
+      local line = e.cleared and L.J_DEEDS_CLEARED:format(e.name, trips) or L.J_DEEDS_ENTERED:format(e.name, trips)
+      add(line .. "  " .. DIM .. when(e.cleared or e.t) .. "|r")
+    end
+  end
+
+  if #foeList > 0 or unnamed > 0 then
+    add(L.J_DEEDS_FOES_HEAD, "place")
+    table.sort(foeList, function(x, y) if x.n ~= y.n then return x.n > y.n end return x.name < y.name end)
+    for i = 1, math.min(FOES_SHOWN, #foeList) do
+      local e = foeList[i]
+      add(e.name .. (e.n > 1 and ("  " .. DIM .. "×" .. e.n .. "|r") or ""))
+    end
+    if #foeList > FOES_SHOWN then add(L.J_DEEDS_MORE_FOES:format(#foeList - FOES_SHOWN), "dim") end
+    if unnamed > 0 then add(L.J_UNNAMED_KILLS:format(unnamed), "dim") end
+  end
+end
+
 local MONTHS = { "January", "February", "March", "April", "May", "June", "July", "August",
                  "September", "October", "November", "December" }
 local DAYS = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
@@ -330,20 +434,7 @@ local function myself(add, c)
   for title in pairs(c.books) do lines[#lines + 1] = title end
   table.sort(lines)
   section(L.J_BOOKS, lines)
-  local deeds = {}
-  for id, d in pairs(c.deeds) do deeds[#deeds + 1] = { id = id, t = d.t or 0, n = d.n or 1 } end
-  table.sort(deeds, function(x, y) return x.t > y.t end)
-  lines = {}
-  -- Kills from before 0.69.0 kept no name; they're counted at the end instead of "#681".
-  local unnamed = 0
-  for _, d in ipairs(deeds) do
-    local name = deedName(d.id, c.deeds[d.id])
-    if name then lines[#lines + 1] = name .. (d.n > 1 and (" ×" .. d.n) or "") .. "  " .. DIM .. when(d.t) .. "|r"
-    else unnamed = unnamed + 1 end
-  end
-  if unnamed > 0 then lines[#lines + 1] = L.J_UNNAMED_KILLS:format(unnamed) end
-  if (c.deathCount or 0) > 0 then lines[#lines + 1] = L.J_DEATHS:format(c.deathCount) end
-  section(L.J_DEEDS, lines)
+  deedsPage(add, c)
   add(L.J_ORIGIN, "section")
   heading(add, c.origin and c.origin.name or L.J_NO_ORIGIN)
   if c.origin and c.origin.blurb then add(c.origin.blurb) end
