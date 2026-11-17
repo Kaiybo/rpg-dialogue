@@ -409,6 +409,8 @@ P:NPC {
       text = "Oh, you've a heavy purse, I can hear it from here. We should be partners, you and I, and I mean that in the most expensive way." },
     { id = "n_scholar", cat = "class", when = { class = { "MAGE", "PRIEST" } },
       text = "You've the look of someone who reads things, and reading things is how goblins get rich, eventually. Do you read dwarven?" },
+    { id = "n_scav", cat = "origin", when = { origin = "gnome_scavenger" },
+      text = "A gnome who goes back into Gnomeregan for parts, they tell me! Now that's my kind of business, my friend, because a ruin nobody's brave enough to rob is just a treasure vault with bad manners." },
   },
 
   start = "hello",

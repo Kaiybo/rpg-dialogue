@@ -808,6 +808,8 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Innkeeper Thulfram, at yer service. Gryphon riders, hunters, wanderers: they all end up at my bar. Stay as long as ye like." },
         { id = "h_tale", when = { metBefore = true }, text = "A rider came in last night swearin' his gryphon talked tae him, though he'd had three ales first. Still, I've no' heard a better story all week." },
+        { id = "h_mountaineer", when = { origin = "dwarf_mountaineer" },
+          text = "A Dun Morogh mountaineer, at the Peak! Our riders hunt the same trolls from the air that ye hunted on foot in the passes, so ye'll find plenty tae argue about wi' them over an ale, an' they'll tell ye the gryphon's the better way." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The gryphons settle late, an' ye can hear 'em croonin' in the aviary if the fire's low. It's the best sound in the Hinterlands." },
         { id = "h_xkin", when = { origin = "dwarf_wildhammer_kin" },
           text = "Yer Aerie Peak kin have drunk at this very bar, I'd wager, by the look o' ye. Sit by the fire, an' if anyone from Ironforge gives ye grief about yer kin, send them to me." },

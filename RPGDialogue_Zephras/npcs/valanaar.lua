@@ -45,6 +45,10 @@ P:NPC {
           text = "You have both of them now, Eluvi'tor and Eluvi'ana, the twin blades of Luminarian. Keep them safe, because one day there may be a way to make them whole again." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "You're a smith's people, I've heard, and you look at metal the way I do. Our finest craftsmen were the magesmiths of Ban'aethal, and I'd have loved to show you their forges before they fell." },
+        { id = "h_highorder", when = { origin = "skyborne_high_order" },
+          text = "You're of one of the old magister lines, aren't you? Your families kept the books, and Ban'aethal's magesmiths kept the forges, and between you we remembered a little of what we were. Half the forges are in the sky now, so I hope your books came through better." },
+        { id = "h_blades", when = { origin = "skyborne_empyrean_recruit" },
+          text = "You trained with the Empyrean Blades, didn't you? Their oldest swords were Ban'aethal work, some of them Luminarian's own, and I used to watch the recruits come to have them sharpened and pretend they weren't nervous." },
       },
       again = {
         { id = "h_again", text = "What else? It helps, a little, to talk." },
@@ -239,6 +243,7 @@ P:NPC {
         { text = "What did you see in the forest?", next = "forest" },
         { text = "What do you think you're not being told?", next = "secret" },
         { text = "I came up on a skycutter from below.", next = "xcame", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "I walked the Peacekeepers' line at Shadowgale, Swimmers.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
         { text = "Perhaps you've had enough, Swimmers.", next = "enough" },
         { text = "Good night, Swimmers.", next = "END" },
       },
@@ -343,6 +348,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xpeace = {
+      lines = {
+        { id = "xpc_default", text = "<He grabs your sleeve with both hands.> Then you've SEEN it, haven't you, the black one on the wind! You kept folk out of that forest for a reason, Peacekeeper, so you tell Donaal what the reason was, because he'll believe a badge before he believes me." },
+      },
+      choices = {
+        { text = "I saw things in there I can't explain.", next = "xpeace_saw", fx = { affinity = 2 } },
+        { text = "We kept people out because the paths were falling, Swimmers.", next = "xpeace_saw", fx = { affinity = -1, trait = { cautious = 1 } } },
+      },
+    },
+    xpeace_saw = {
+      lines = {
+        { id = "xps_default", text = "<He sags back into his chair, looking oddly sober.> Either way, you had orders and nobody told you why, same as me with my skycutter, and that's the whole trouble with this isle, isn't it? Everybody's keeping somebody safe from something they won't name." },
+      },
+      choices = {
+        { text = "Maybe so. Get some sleep, Swimmers.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -374,6 +397,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before the Swimmers start in on their ghost stories." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone came into the inn tonight in a fine mood and said it was your doing, and a good mood is good for business, so I'm grateful, truly." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone was in here tonight grumbling about you over their cup, and I'd much rather they grumbled about Swimmers' ghosts, so whatever it was, I'd smooth it over." },
+    { id = "g_peace", when = { origin = "skyborne_peacekeeper" }, text = "A Peacekeeper at the Calmbreeze, and off duty, I hope. Sit where Swimmers can see you, would you? He behaves a little better when there's a badge in the room." },
   },
 
   notice = {

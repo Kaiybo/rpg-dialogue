@@ -59,6 +59,7 @@ P:NPC {
         { id = "h_pala", when = { class = "PALADIN" }, text = "You wear your faith like armor, guest. We've nothing like you on Zephras, and I'll admit I'm curious what holds it up." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "There's a smell of the Nether about you, guest. Our ancestors fled a prince who meddled with such things, and the grove remembers it even if you don't." },
         { id = "h_oshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } }, text = "A shaman from below the clouds! Boro will want to talk your ears off, because the spirits stopped speaking to us years ago and you may still hear them." },
+        { id = "h_rangerorigin", when = { origin = "skyborne_thendal_ranger" }, text = "You walked the paths round this village longer than most of the rangers, child, and you brought back more lost young than any of them. The forests below will be bigger than ours, I'm told, but a path is a path, and you never once lost yours." },
       },
       again = {
         { id = "h_again", text = "What else, child? The day doesn't wait, and nor do the vuldren." },
@@ -310,7 +311,7 @@ P:NPC {
   key = "zep_aetheen", id = TODO_NPC("Aetheen of the Gales"), name = "Aetheen of the Gales", title = "Elder of Zephras Isle",
   bible = "bibles/zephras.md", role = "questgiver", tier = "quest",
   communities = { "zephras_isle" }, temper = { "steady", "sharp" }, values = { "wise", "dutiful" },
-  notices = { "kin", "stranger", "race" },
+  notices = { "kin", "stranger", "race", "origin" },
 
   impression = {
     first = "Aetheen of the Gales sits on the Council of Elders and came to Thendal Grove to read the winds and weigh the young. She watches before she speaks, and when she speaks it sounds like a test.",
@@ -334,6 +335,8 @@ P:NPC {
       text = "One of the Kirin Tor's people? They opened the way for us, so the Council owes your kind a debt, whether or not you had a hand in it." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "You've been dead, I think, and come back. We scatter our dead to the winds so they can't return, and I confess I'm not sure what we'd do with you." },
+    { id = "n_blade", cat = "origin", when = { origin = "skyborne_empyrean_recruit" },
+      text = "You hold that blade the way Valennia Stormfist's Empyrean Blades were taught to, with the guard high and the weight on the back foot. There's no Shal'nan left to guard, but the habit suits you, and I'd keep it." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc of the Horde. Ayessa's Windshapers went to your people's allies, so I expect I'll see more of you, and I'd like to start with good manners on both sides." },
   },
@@ -353,6 +356,8 @@ P:NPC {
           text = "A druid from the mainland, and of the Cenarion Circle, I'd guess. Our own are few and keep their own counsel, so you may find them friendlier to the beasts than to you." },
         { id = "h_hunter", when = { class = "HUNTER", ["not"] = { race = "Skyborne" } },
           text = "A hunter, with a beast at your heel. The Rangers of Thendal Grove will want to see how your mainland animal takes to our wind, and so, frankly, do I." },
+        { id = "h_peace", when = { origin = "skyborne_peacekeeper" },
+          text = "A Peacekeeper, come to the grove to be weighed like a child at the coming of age. You kept the peace on this isle when there was precious little of it, and I wonder whether you know yet whose peace you mean to keep below the clouds." },
       },
       again = {
         { id = "h_again", text = "Ask what you need to; the winds won't change while we talk." },
@@ -366,6 +371,7 @@ P:NPC {
         { text = "How do your people see us outsiders?", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
         { text = "We kaldorei remember Eldre'Thalas too.", next = "xnelf", when = { race = "NightElf" } },
         { text = "Why would the dead trouble you?", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "I don't know whose peace I'm keeping anymore, Elder.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
         { text = "Winds be with you, Elder.", next = "END" },
       },
     },
@@ -513,6 +519,26 @@ P:NPC {
       choices = {
         { text = "Neither. I endure, and that's enough.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Pity it. Your way is kinder.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpeace = {
+      big = true,
+      lines = {
+        { id = "xp_default", text = "Good, because a Peacekeeper who's certain is a dangerous thing. Up here you kept the Council's peace against bandits and cultists, and some of those bandits were refugees from Shen'dramar with nowhere else to go, so tell me honestly, did the law always feel like justice to you?" },
+      },
+      choices = {
+        { text = "The law held the isle together. That was justice enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "No. Some I arrested deserved bread, not chains.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "What would you have me keep below the clouds?", next = "xpeace_below" },
+      },
+    },
+    xpeace_below = {
+      lines = {
+        { id = "xpb_default", text = "The peace of whoever is weakest in the room, I think, since that's the only kind worth the trouble. The mainlanders have kings and warchiefs enough to keep their own, and you'll do more good standing between a farmer and a bandit than between two orders shouting at each other." },
+      },
+      choices = {
+        { text = "Then I'll stand with the weakest.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -745,6 +771,7 @@ P:NPC {
         { text = "Tell me about your gift.", next = "gift" },
         { text = "Myriaal calls you a stuffy old wretch.", next = "myriaal" },
         { text = "Do your eyes reach as far as mine, ranger?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "The forests below are bigger than ours, Halaan, and quieter.", next = "xranger", when = { origin = "skyborne_thendal_ranger" } },
         { text = "Farewell, Halaan.", next = "END" },
       },
     },
@@ -845,6 +872,24 @@ P:NPC {
       choices = {
         { text = "Wider. You'd like it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Smaller, somehow. Full of walls.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xranger = {
+      lines = {
+        { id = "xr_default", text = "Quieter, you said, and I believe it, because a forest that size has room to swallow a sound before it reaches you. Out here the wind always carried a warning, so you'll have to learn to listen to the ground instead, and to the birds, which is slower but no less honest." },
+      },
+      choices = {
+        { text = "Then I'll learn the ground, as you taught me the wind.", next = "BACK", fx = { affinity = 2, trait = { patient = 1 } } },
+        { text = "Did you ever want to see the forests below?", next = "xranger_see" },
+      },
+    },
+    xranger_see = {
+      lines = {
+        { id = "xrs_default", text = "Every day of my youth, and none since, or so I tell myself when the skycutter leaves without me. Walk them well for both of us, and if you find a tree taller than the greatfather, don't tell Rorian; he'd never forgive it." },
+      },
+      choices = {
+        { text = "I'll keep that secret, Halaan.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

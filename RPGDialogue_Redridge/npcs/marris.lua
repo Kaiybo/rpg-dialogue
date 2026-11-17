@@ -27,6 +27,8 @@ P:NPC {
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 18 },
       text = "You hold that blade like someone who's stood in a shield wall. I could use ten of you, but I'll gladly take one." },
+    { id = "n_lakeborn", cat = "origin", when = { origin = "human_redridge_born" },
+      text = "The bailiff tells me you were born on this lake. Good, because folk from Lakeshire fight harder for it than anyone Stormwind sends me, and they don't ask how long the posting is." },
     { id = "n_trophy", cat = "trophy", place = "before", when = { questReady = TODO_QUEST("Blackrock Menace") },
       text = "That's Blackrock work on your armor, and Blackrock blood on your sleeve. I'd call that a good trade." },
   },

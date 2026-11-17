@@ -393,6 +393,8 @@ P:NPC {
           text = "You found the prismatic card and brought back the data, data so important I haven't a big enough word for it! Gnomeregan will remember you, and so will I, every time I open the archive." },
         { id = "h_low", when = { maxLevel = 24 },
           text = "You're keen, I can see that, but Gnomeregan would eat you whole just now. Come back when you've a few more scars, and some friends who have more." },
+        { id = "h_rearguard", when = { origin = "gnome_rearguard" },
+          text = "Oh! You were with the rearguard, weren't you? I'd know that look anywhere, because half my volunteers have it, the look of somebody who's already measured every corridor down there for how long it can be held." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and just when I needed one! The punch cards in Gnomeregan are stored behind arcane locks, and my last team couldn't open them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -421,7 +423,27 @@ P:NPC {
         { text = "Would you send a team down without a paladin, Castpipe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is anything still living in Gnomeregan besides the troggs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a shaman help your teams inside Gnomeregan, Castpipe?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I held a corridor while the city emptied. I could go back.", next = "xorig_rear", when = { origin = "gnome_rearguard" } },
         { text = "I'll be back.", next = "END" },
+      },
+    },
+    xorig_rear = {
+      lines = {
+        { id = "xor_default", text = "You could, and I'd be glad of you, but I have to ask, and the procedure says I must: are you going back for the data, or for the corridor? Because the ones who go back for the corridor tend to stay in it." },
+      },
+      choices = {
+        { text = "For the data. The corridor's behind me.", next = "xorig_rear2", fx = { trait = { cautious = 1 } } },
+        { text = "For the corridor. I ran once. I won't again.", next = "xorig_rear2", fx = { trait = { brave = 1 } } },
+        { text = "I don't know yet, Castpipe.", next = "xorig_rear2" },
+      },
+    },
+    xorig_rear2 = {
+      lines = {
+        { id = "xor2_default", text = "That's an honest answer, and honest answers come back up the tunnel more often than brave ones. The radiation's no kinder than it was the day you ran, so whatever you're going back for, wear the mask and count your cards." },
+      },
+      choices = {
+        { text = "I will.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -655,6 +677,10 @@ P:NPC {
           text = "How are the gauntlets? Furen's process worked brilliantly; a siege engine could roll over them and they'd pop back into shape. Please don't test that." },
         { id = "h_artificials", tags = { "news" }, when = { questActive = TODO_QUEST("Essential Artificials") },
           text = "The essential artificials are in the deep parts of Gnomeregan, in big steam-powered cabinets called artificial extrapolators. Nobody thought to bring any when we fled, and now I need twelve." },
+        { id = "h_scavenger", when = { origin = "gnome_scavenger" },
+          text = "You're the one who goes back down for parts, aren't you? Oh my, don't look like that, everybody in Tinker Town knows, and half of them are jealous, and the other half have a shopping list." },
+        { id = "h_apprentice", when = { origin = "gnome_tinker_apprentice" },
+          text = "An apprentice! I can always tell, because you've got the singed eyebrows and the expression of someone counting how many explosions they're allowed before the master stops being patient." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! You'd be perfect for slipping into Gnomeregan and fetching Furen's notes without waking the troggs." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -685,7 +711,27 @@ P:NPC {
         { text = "Would you really use fel fire at your forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you have a shaman find ore for your alloys, Klockmort?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through Gnomeregan to the end, Klockmort.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
+        { text = "I go back into Gnomeregan for parts. What do you need?", next = "xorig_scav", when = { origin = "gnome_scavenger" } },
         { text = "Good luck with your quest.", next = "END" },
+      },
+    },
+    xorig_scav = {
+      lines = {
+        { id = "xsc_default", text = "Artificials, extrapolators, anything with a gear in it that isn't glowing! But I'll only buy what the troggs had, mind you, and not what some poor family left on a workbench, because the High Tinker says that's the difference between salvage and theft." },
+      },
+      choices = {
+        { text = "Parts don't belong to anyone once the city falls.", next = "xorig_scav2", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "I leave the workbenches alone. Some of them were friends'.", next = "xorig_scav2", fx = { align = { honor = 1 } } },
+        { text = "How would you even tell the difference?", next = "xorig_scav2" },
+      },
+    },
+    xorig_scav2 = {
+      lines = {
+        { id = "xsc2_default", text = "Oh, I can't, not really, and that's what keeps me up at night between quenches. Bring me what you find and tell me where you found it, and I'll try not to ask the questions I can't answer." },
+      },
+      choices = {
+        { text = "That's fair, Klockmort.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -2,6 +2,22 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.71.0 (2026-11-17)
+Where you come from, more to say to the people on duty, and seven people with a lot more to say. No new files: /reload is enough.
+
+### Your origin comes up
+- **People notice where you're from.** About 260 new lines across 37 packs. Townsfolk in your home town recognise one of their own. Lakeshire folk remember a Lakeshire child, Thelsamar knows a Loch smuggler, the Spirit Rise remembers its water-carrier, and Brill knows its farmers. Named people react to your past now and then: some recognise you, some share a memory, some are suspicious, and some ask you about it. It happens sporadically, never every conversation.
+- **Every origin gets its moments.** Origins that were rarely or never mentioned (the Hyjal survivors, Elune's priestesses, the Skyborne orders, the loa-speakers, the chapel priest risen in Lordaeron, the gnome at the altar and more) now come up as often as the familiar ones.
+
+### Guards, stable masters, vendors and bruisers
+- **Guards talk now.** Alliance and Horde guards, in towns and in the capitals, have whole conversations: directions and where the danger is, life on the watch, the roads, reporting trouble, what they did with a thief or a captured scout, and questions about you. There are replies for warriors, rogues, Forsaken and several origins.
+- **Stable masters** talk about stabling, their own animals (and the wolf nobody came back for), the dangers of the road, your companion, and whether wild things belong in pens. Hunters get loyalty, feeding and taming advice.
+- **Vendors** talk about where their stock comes from, the caravans, town gossip and who a merchant should sell to. You can try to haggle (they won't budge). Food, drink and reagent sellers each have conversations of their own.
+- **Goblin bruisers** in Booty Bay, Gadgetzan, Ratchet and Everlook explain the town's rules, who runs the place, its troubles, and the Cartel's neutrality. Ratchet is now a town with its own standing.
+
+### Deeper conversations
+- **Thrall, Lady Sylvanas, Cairne, Lady Jaina, Rexxar, Gazlowe, Gryan Stoutmantle and Marshal Dughan** each have twenty to forty-five more nodes: their pasts, their opinions of the other leaders, their doubts, questions back to you, new hard choices, confidences for people they trust, and new Persuade or Deceive checks.
+
 ## 0.69.0 (2026-11-17)
 A proper origin picker. No new files: /reload is enough.
 

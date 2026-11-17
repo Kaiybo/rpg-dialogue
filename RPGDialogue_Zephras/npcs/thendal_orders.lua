@@ -12,7 +12,7 @@ P:NPC {
   key = "zep_ventaari", id = TODO_NPC("Ventaari Brightwish"), name = "Ventaari Brightwish", title = "Windshapers",
   bible = "bibles/zephras.md", role = "questgiver", tier = "quest",
   communities = { "zephras_isle" }, temper = { "sharp", "proud" }, values = { "devout", "loyal" },
-  notices = { "kin", "race", "class" },
+  notices = { "kin", "race", "class", "origin" },
 
   impression = {
     first = "Ventaari Brightwish of the Windshapers reads a stranger's aura before their face, and she does not hide which order she belongs to. She speaks of the lost wind spirits as a debt still owed.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "I can tell from your aura that your line runs back to the Highborne, yes? Mind yourself, then, because once you're beyond the grove you'll find very little common ground between your order and mine." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the tauren of Mulgore! Grand Skyseer Ayessa speaks well of your people's welcome, and I'd hoped to meet one of you before I was much older." },
+    { id = "n_peace", cat = "origin", when = { origin = "skyborne_peacekeeper" },
+      text = "You stand like a Peacekeeper, feet apart and one eye on the road. Your kind kept the High Order's apprentices off our stones more than once, and I never thanked any of you for it." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Your people speak with the spirits too, I'm told, and with a good deal less ceremony than mine. I should like to hear how you do it someday." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } },
@@ -51,6 +53,8 @@ P:NPC {
           text = "You carry death about with you, and the winds around you go very still. I'll speak with you, since the Horde has been good to my order, but forgive me if I stand upwind." },
         { id = "h_orc", when = { race = "Orc" },
           text = "An orc, and one who walked through the grove without starting a fight, which is more than I can say for the High Order's apprentices. Winds guide you." },
+        { id = "h_wsorigin", when = { origin = "skyborne_windshaper" },
+          text = "I remember your face from the trials, pale as cloud after the sapta and still standing. The winds that sheltered us are gone, but an oath sworn to the absent is still an oath, and you swore it well." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask while the grove is quiet." },
@@ -63,6 +67,7 @@ P:NPC {
         { text = "Why warn me off the Windshapers?", next = "xwarn", when = { race = "Skyborne", faction = "Alliance" } },
         { text = "How do your shaman differ from mine?", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "My people have welcomed yours in Mulgore.", next = "xmulgore", when = { race = "Tauren" } },
+        { text = "I drank the sapta, Ventaari. The winds still don't answer me.", next = "xsapta", when = { origin = "skyborne_windshaper" } },
         { text = "Winds guide you, Ventaari.", next = "END" },
       },
     },
@@ -184,6 +189,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xsapta = {
+      big = true,
+      lines = {
+        { id = "xsa_default", text = "Nor me, initiate, nor anyone who's taken the sapta these last years, and I won't tell you otherwise to make you feel better. We drink it so the spirits will know us when they come home, not so they'll answer today, so tell me, do you still mean to keep the oath with nobody listening?" },
+      },
+      choices = {
+        { text = "I do. A debt doesn't lapse because the creditor's gone.", next = "BACK", fx = { affinity = 3, align = { honor = 1 }, trait = { pious = 1 } } },
+        { text = "I'll honor them, but I won't wait on them forever.", next = "BACK", fx = { affinity = -1, align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "Did anyone ever hear an answer after the sapta?", next = "xsapta_heard" },
+      },
+    },
+    xsapta_heard = {
+      lines = {
+        { id = "xsh_default", text = "Once, an old Windshaper told me, a breath of wind that smelled of rain on the highlands, and nothing after it. He spent the rest of his life listening for a second breath, and I've never been certain whether that was faith or grief, though I suspect the spirits can't tell the difference either." },
+      },
+      choices = {
+        { text = "Then I'll keep listening for the second breath.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -214,6 +239,7 @@ P:NPC {
     { id = "g_default", text = "Greetings. Mind the books; they're older than you are." },
     { id = "g_ho", when = { race = "Skyborne", faction = "Alliance" }, text = "Well met, fellow initiate. The High Order has been watching your progress." },
     { id = "g_ws", when = { race = "Skyborne", faction = "Horde" }, text = "Ah. A Windshaper, in my corner of the grove. Greetings, I suppose." },
+    { id = "g_peace", when = { origin = "skyborne_peacekeeper" }, text = "A Peacekeeper in the grove, is it? If you've come about the standing stones again, I'll have you know my apprentices were reading, not trampling." },
   },
 
   notice = {
@@ -244,6 +270,8 @@ P:NPC {
           text = "A priest, and not one of Lorthuna's, by the look of you. You'll find we're a suspicious lot about robes and prayers up here, but I'm a scholar, so I'm suspicious of everything equally." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! I'm told your people dig up old things and study them, which makes us colleagues of a sort. Do you have any notion how deep your ley lines run?" },
+        { id = "h_hoorigin", when = { origin = "skyborne_high_order" },
+          text = "Your family is one of the old lines, the ones that kept the magisters' books through every drift of the isles. I've wanted a look at those books for years, and I'd settle for knowing which pages your elders say are missing." },
       },
       again = {
         { id = "h_again", text = "What else? Knowledge never waits politely." },
@@ -256,6 +284,7 @@ P:NPC {
         { text = "Why warn me away from your order?", next = "xwarn", when = { race = "Skyborne", faction = "Horde" } },
         { text = "How did your order find the Kirin Tor?", next = "keyhole", when = { faction = "Alliance" } },
         { text = "Does my fel magic interest you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My family's books have gaps. I'm going below to fill them.", next = "xbooks", when = { origin = "skyborne_high_order" } },
         { text = "Farewell, Falorne.", next = "END" },
       },
     },
@@ -375,6 +404,26 @@ P:NPC {
       choices = {
         { text = "Discipline. The demons serve me, never the reverse.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'm not sure. That's what makes it worth doing.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbooks = {
+      big = true,
+      lines = {
+        { id = "xb_default", text = "Good, because every old line has the same complaint: a spell that stops halfway down the page, a ward with no key, a history that skips a century. The Kirin Tor's libraries may hold the other halves, so when you find them, will you bring them home to the Order, or keep them for your family?" },
+      },
+      choices = {
+        { text = "To the Order. Knowledge hoarded is knowledge lost.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, trait = { generous = 1 } } },
+        { text = "My line kept them alive. My line keeps what I find.", next = "BACK", fx = { affinity = -1, align = { order = -1 }, trait = { ambitious = 1 } } },
+        { text = "Which gaps worry you most?", next = "xbooks_gap" },
+      },
+    },
+    xbooks_gap = {
+      lines = {
+        { id = "xbg_default", text = "The anchoring spells, without question. Our ancestors must have understood how the spirits held the isles aloft, at least a little, and somewhere between Eldre'Thalas and here that understanding fell out of the books, which is a gap we're now paying for one broken cliff at a time." },
+      },
+      choices = {
+        { text = "Then I'll look for the anchoring spells first.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 }, learn = { "two_orders" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -16,6 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Need a bird out of this blighted country? I don't blame you, and the gryphons don't either." },
+    { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "Took the oath back home in Ironforge, did you? Good on you, lad or lass, and the Dawn could use a dozen more like you, so mind you come back out of this country in one piece." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds won't take you, friend, but Georgia's bats will. She's just over there, and she doesn't bite, though her bats might." },
   },
 

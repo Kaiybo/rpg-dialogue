@@ -159,6 +159,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of the woods, walking under Elune's own light. Praise be to her, {class}, and to every beast you spare." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Praise Elune, a druid in her Temple. The Circle and the Sisterhood have kept faith beside each other since Malfurion first went into the Dream, and you are as welcome here as any of my priestesses." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elune and the Light both bless the faithful. Your spirits I am less certain of, but I do not condemn them." },
+        { id = "h_novice", when = { origin = "nightelf_priestess" }, text = "One of our own novices, home from the road. I remember the night Elune's light first found you, child, because you were so startled you dropped the water jug in the moonwell, and the elder sisters have never let me forget it." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time; the moon is patient, and so am I." },
@@ -170,6 +171,7 @@ P:NPC {
         { text = "Why would you teach a priest of the Light?", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "What gifts does Elune give her own priests?", next = "gifts", when = { class = "PRIEST", race = "NightElf" } },
         { text = "What does the Sisterhood teach?", next = "sisterhood" },
+        { text = "Elune found me young, Priestess. Why is she so silent now?", next = "xsilence", when = { origin = "nightelf_priestess" } },
         { text = "You don't trust arcane magic, do you?", next = "arcane" },
         { text = "How is the High Priestess?", next = "tyrande" },
         { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
@@ -181,6 +183,27 @@ P:NPC {
         { text = "Do druids and priestesses guard against the same old danger, Priestess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you trust shamans as you trust priests, Alathea?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune be with you, Priestess.", next = "END" },
+      },
+    },
+
+    xsilence = {
+      big = true,
+      lines = {
+        { id = "xsi_default", text = "Because she isn't silent, child, only quiet, and the two sound alike for the first few centuries. Her light found you before you knew how to ask for it, so now she waits to hear what you'll ask for when you do know. Tell me, when she says nothing, what do you do?" },
+      },
+      choices = {
+        { text = "I keep praying. Her quiet is an answer of its own.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "I act on my own judgment and trust she'd approve.", next = "BACK", fx = { affinity = -1, align = { light = -1 }, trait = { ambitious = 1 } } },
+        { text = "Did she ever speak plainly to you, Priestess?", next = "xsilence_you" },
+      },
+    },
+    xsilence_you = {
+      lines = {
+        { id = "xsy_default", text = "Once, on the road from Ashenvale with a dying Sentinel in my arms, and all she said was that I should keep walking. I've wondered for a long age whether I imagined it, and I've decided it doesn't matter, because I kept walking and the Sentinel lived." },
+      },
+      choices = {
+        { text = "Then I'll keep walking too.", next = "BACK", fx = { affinity = 2, trait = { patient = 1 } } },
+        { text = "Something else, Priestess.", next = "BACK" },
       },
     },
 
@@ -349,7 +372,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "gentle", "earnest" }, values = { "devout", "kind" },
-  notices = { "class", "light" },
+  notices = { "class", "light", "origin" },
 
   impression = {
     first = "Astarii Starseeker believes no soul is too far gone for Elune to hear, not even one that served the Twilight's Hammer. She says it gently, and she plainly means it.",
@@ -364,6 +387,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
       text = "Another priest! Whatever we each pray to, we both get called out of bed at the same hours, and I think that makes us family of a sort." },
+    { id = "n_novice", cat = "origin", when = { origin = "nightelf_priestess" },
+      text = "A novice of the Temple, back from the world. You've got the look we all get in the first years, as if you're listening for something just past the edge of hearing, and I'll tell you a secret: it doesn't go away, but you stop minding it." },
     { id = "n_human", cat = "light", when = { race = "Human", class = { "PALADIN", "PRIEST" } },
       text = "You carry the Light like a lantern, the way your people do. Ours is more like moonlight on water, but I've seen both find the way home." },
   },
@@ -942,6 +967,7 @@ P:NPC {
   greetings = {
     { id = "g_garden", text = "Oh, hello! Isn't the garden lovely tonight? I come here to study where it's quiet." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! I was hoping you'd come by; I've been thinking about what you said." },
+    { id = "g_novice", when = { origin = "nightelf_priestess" }, text = "Oh, it's you! We sat the same lessons, do you remember, and you were the only novice who admitted you couldn't hear Elune at all yet. I've been so glad of that ever since, because I couldn't either." },
   },
 
   notice = {

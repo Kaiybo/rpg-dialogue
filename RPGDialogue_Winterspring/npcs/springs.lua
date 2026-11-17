@@ -339,6 +339,8 @@ P:NPC {
           text = "Luck, you want? Mau'ari got plenty, so bring de right E'ko, and maybe some find its way to you." },
         { id = "h_cold", when = { metBefore = true }, text = "Mau'ari been up here a long time, mon, long enough to stop complainin' about de cold, but not long enough to stop feelin' it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, come up de mountain! Mau'ari can feel de loa on you, or maybe somethin' colder, and either way you be welcome by her fire." },
+        { id = "h_loa", when = { origin = "troll_loa_speaker" }, text = "Ah, a speaker for de loa! Mau'ari can tell, because you got dat look like somebody just told you a joke at your own expense. De loa be colder up here, mon, and dey laugh slower, so you got time to think before you repeat what dey say." },
+        { id = "h_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "You ground roots for an old witch doctor at Sen'jin, eh? Mau'ari can smell it on your hands. Good, den you already know de first rule, mon: every spirit want somethin', and you find out what before you ask it for juju." },
       },
       again = { { id = "h_again", text = "More questions? Mau'ari got answers, and some of dem even true." } },
       choices = {
@@ -346,6 +348,7 @@ P:NPC {
         { text = "What does the juju do?", next = "juju" },
         { text = "Why come all the way up here?", next = "why" },
         { text = "A Darkspear in the snow. Why?", next = "troll", when = { race = "Troll" } },
+        { text = "What do the loa want from an E'ko, Mau'ari?", next = "xekowant", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "Does my beast carry E'ko too?", next = "hunter_ma", when = { class = "HUNTER", pet = true } },
         { text = "Is your juju so different from my magic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does your juju cost?", next = "xmage", when = { class = "MAGE" } },
@@ -380,6 +383,17 @@ P:NPC {
     troll = {
       lines = { { id = "t_default", text = "Same reason as you be anywhere, mon: somethin' called and you answer, and de cold just come with it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    xekowant = {
+      big = true,
+      lines = {
+        { id = "xek_default", text = "Ha! Your old master teach you right. De E'ko be a little spirit dat want to finish what de beast was doin' when it died, mon, runnin' or huntin' or keepin' warm, so Mau'ari give it a job in de juju and it go quiet and happy. Some witch doctors say dat be a kindness, and some say it be a leash, so which you think?" },
+      },
+      choices = {
+        { text = "A kindness. A spirit with work is a spirit at rest.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "A leash, and leashes are useful. That's the craft.", next = "BACK", fx = { affinity = 1, align = { light = -1 }, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

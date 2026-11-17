@@ -14,6 +14,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Do come in, and don't mind the smell. The tauren tell me it's an acquired tolerance." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. How refreshing." },
+    { id = "g_rise", when = { origin = "tauren_spirit_rise" }, text = "Ah, the water-carrier! You used to haul jugs past my door for the seers every morning, and now I'm told the elements speak to you. Do tell them the smell from my workshop is entirely deliberate." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and you're still breathing, which is more than I can say for most of my samples. Do come in." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The tauren are whispering that one of them believed a tale of yours, and I find that terribly amusing. They're such trusting creatures, aren't they?" },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear one of your fibs was seen through up on the rises. A pity, really, because a lie should be handled with the same care as any other poison." },
@@ -306,6 +307,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. In my grandfather's day nobody walked among us to tell the hunters how many plainstriders were too many, and some of my students still miss those days." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock on Hunter Rise. My students' beasts will bristle at you, so walk slowly." },
+        { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Narache blood, by the way you came up the ramp, slow and watching the ground for tracks. Your mother tracked the mesa for the Hawkwind's camp, I think, and the old hunters still argue over whether she or a Thunderhorn took the most plainstriders in a season." },
       },
       choices = {
         { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -462,6 +464,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, for my students learn to take a blow before they learn to give one, and someone must patch them up afterward." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll stand as a bear before the herd one day, so you're closer to my warriors than you know, and I'll expect the same restraint of you that I expect of them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Strength is for protecting the herd, and your magic is a kind of strength, so I'll expect you to use it that way." },
+        { id = "h_grim", when = { origin = "tauren_grimtotem_born" }, text = "You were born Grimtotem, and the whole city knows it, so I'll say plainly that you're welcome in my ring. Your old kin will come for you one day because you left, and I mean you to be standing when they do." },
+        { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked out of the Barrens with the rest of us, young one, and you'll remember the centaur better than my students do. Stand firm, then, because you know already what it costs when the herd breaks." },
       },
       choices = {
         { text = "Should a priest stand in the line beside your warriors, Ker?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

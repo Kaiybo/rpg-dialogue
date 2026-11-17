@@ -931,6 +931,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! Jin'Zil got empty cages need fillin', and da forest out dere be full of fine ingredients." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, eh? You be talking to beasts and I be talking to spirits, so maybe we gonna get along, as long as you don't be asking what's in da cages." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon! Jin'Zil heal better than any priest, but you can stay anyway." },
+        { id = "h_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "Ha! A Sen'jin root-grinder, all grown up! Jin'Zil know dat look, mon, because Jin'Zil boil things dat still moved for an old witch doctor too, and look how well he turned out." },
       },
       again = {
         { id = "h_again", text = "What else you want, mon? Jin'Zil got all day and a pot on da boil." },
@@ -943,6 +944,7 @@ P:NPC {
         { text = "What became of the elves in the cages?", next = "after", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
         { text = "The Echo Isles send their greetings, uncle.", next = "troll", when = { race = "Troll" } },
         { text = "I hear another voice when I cast, uncle. Not the loa.", next = "warlock_j", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "Want an extra pair of hands at the pot, uncle?", next = "xpot", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "Who caught the elves for your cages, Jin'Zil?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is your magic so different from mine, Jin'Zil?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do you need a warrior for, Jin'Zil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -1024,6 +1026,26 @@ P:NPC {
       choices = {
         { text = "Not well, uncle. Not yet.", next = "BACK", fx = { affinity = 2, learn = { "echo_isles" } } },
         { text = "Another time.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xpot = {
+      big = true,
+      lines = {
+        { id = "xpt_default", text = "Uncle again! Fine, fine, a root-grinder can call Jin'Zil what dey like. Your old master teach you every loa want somethin', yes? Well, dis pot want harpy feathers and an elf's patience, and Jin'Zil got neither, so tell me, mon, would you stir a pot if you didn't know what was in it?" },
+      },
+      choices = {
+        { text = "Never. You learn what a brew wants before you stir.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "Sometimes stirring is how you find out, Jin'Zil.", next = "BACK", fx = { affinity = 2, align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "What is in it, then?", next = "xpot_what" },
+      },
+    },
+    xpot_what = {
+      lines = {
+        { id = "xpw_default", text = "Ha! A good apprentice always ask, and a good witch doctor never tell da whole of it. Some of it be for Darsok's sore knees and some of it be for da elves up at da peak, and you can guess which half Jin'Zil enjoy more." },
+      },
+      choices = {
+        { text = "I'll leave the guessing to you, uncle.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

@@ -180,6 +180,7 @@ P:NPC {
         { text = "Tell me about Hogger.", next = "hogger", when = { questBefore = TODO_QUEST("WANTED: \"Hogger\"") } },
         { text = "How bad is Elwynn, really?", next = "threats" },
         { text = "Where's the rest of the army?", next = "army" },
+        { text = "Tell me about yourself, Marshal.", next = "dg_self" },
         { text = "I'm from Westfall. Nobody came for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "My family has a name in the city.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "I could say words for the footmen you lost.", next = "footmen", when = { class = "PRIEST", questDone = TODO_QUEST("Discover Rolf's Fate") } },
@@ -468,6 +469,235 @@ P:NPC {
     dwarf2 = {
       lines = { { id = "dwarf2_l", text = "Once, over a song, and the song started it. If you want work, the Jasperlode and Fargodeep mines are full of kobolds, and a dwarf knows a mine better than any footman I've got." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    -- 0.71.0 depth: Dughan himself (sub-hub): his past, his guards and Stormwind's answer, his neighbours, a farmers' militia, what he asks of you.
+    dg_self = {
+      hub = true,
+      lines = {
+        { id = "dxs_default", text = "About me? There's a desk, a town and not enough guards, and that's most of it. Still, you've asked civilly, which is rarer in this office than you'd think, so go on." },
+        { id = "dxs_warm", when = { disposition = { min = 70 } }, text = "For you I'll put the pen down, which I don't do for the Regent's couriers. Ask what you like." },
+      },
+      again = {
+        { id = "dxs_again", text = "What else? I've a report to sign, but it'll keep a minute." },
+        { id = "dxs_again2", text = "Go on, and be quick about it, because McBride's runner is due." },
+      },
+      choices = {
+        { text = "How did you come to be marshal here?", next = "dg_past" },
+        { text = "How many guards do you really have?", next = "dg_guards" },
+        { text = "What do you make of McBride and Stoutmantle?", next = "dg_others" },
+        { text = "What do you need from me, Marshal?", next = "dg_ask" },
+        { text = "Should Elwynn's farmers arm themselves, Marshal?", next = "dg_militia" },
+        { text = "I walked the Trade District for the Watch, Marshal.", next = "dg_watch", when = { origin = "human_city_guard" } },
+        { text = "My family came through Goldshire on the road east.", next = "dg_road", when = { origin = "human_westfall_farmhand" } },
+        { text = "My training stopped when the Silver Hand broke apart.", next = "dg_squire", when = { origin = "human_paladin_squire" } },
+        { text = "The brothers of Northshire raised me, Marshal.", next = "dg_novice", when = { origin = "human_abbey_novice" } },
+        { text = "When did you last sleep, Marshal?", next = "dg_tired", when = { disposition = { min = 65 } } },
+        { text = "Back to business.", next = "hello" },
+      },
+    },
+
+    dg_past = {
+      lines = {
+        { id = "dxp_default", text = "I was a sergeant in the Second War, and when the army went abroad and somebody had to stay and mind Elwynn, they gave the job to the man with the neatest reports. I've regretted keeping neat reports ever since." },
+      },
+      choices = {
+        { text = "And before the war?", next = "dg_past2" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    dg_past2 = {
+      lines = {
+        { id = "dxp2_default", text = "Goldshire born, over the smithy, and I learned my letters from the old marshal before me, who said a town runs on ledgers and lanterns. I've kept the lanterns lit and the ledgers straight, and some weeks that's all the law there is between here and Westbrook." },
+      },
+      choices = {
+        { text = "Ledgers and lanterns. That's good advice.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dg_guards = {
+      lines = {
+        { id = "dxg_default", text = "Fewer than you'd guess and more than Stormwind thinks I need, and that's the whole of the quarrel. I've a few men in town, Thomas at the bridge and Rainer at Westbrook with a handful, so if three things go wrong on the same night, one of them waits until morning." },
+      },
+      choices = {
+        { text = "What did Stormwind say when you asked for more?", tag = "Persuade", next = "dg_letter",
+          check = { pass = { any = { { disposition = { min = 65 } }, { origin = "human_city_guard" }, { townStanding = { town = "goldshire", min = 30 } } } } },
+          fail = { next = "dg_letter_no", fx = { affinity = -1 } } },
+        { text = "Then count me as one more pair of hands.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_letter = {
+      lines = {
+        { id = "dxl_default", text = "...Fine, but it doesn't leave this office. I wrote to the Keep three times this year, and the third answer came from a clerk I'd never heard of, saying the council judged Elwynn adequately garrisoned and thanking me for my diligence, and I keep it in the drawer for whenever I'm tempted to think someone's coming." },
+      },
+      choices = {
+        { text = "Adequately garrisoned? With what?", next = "dg_letter2" },
+        { text = "It stays here, Marshal. You have my word.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+      },
+    },
+    dg_letter2 = {
+      lines = {
+        { id = "dxl2_default", text = "With me and a desk, apparently, and whoever wanders through that door. I'm not a man who sees plots in the shadows, I leave that to McBride, but somebody in that city has decided Elwynn can manage on promises, and I'd dearly like to know who." },
+      },
+      choices = {
+        { text = "So would I, Marshal.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_letter_no = {
+      lines = {
+        { id = "dxln_default", text = "What Stormwind said is between Stormwind and this desk. Take a number if you want the gossip, and you'll find the line's very long and moves very slowly." },
+      },
+      choices = {
+        { text = "Fair enough, Marshal.", next = "BACK" },
+      },
+    },
+
+    dg_others = {
+      lines = {
+        { id = "dxo_default", text = "McBride's a good soldier who sees an army behind every bandit, and Stoutmantle's a good soldier holding Westfall with pitchforks, and between the two of them I sometimes think I'm the only one who's noticed there's paperwork. Ask about either, if you like." },
+      },
+      choices = {
+        { text = "What about McBride?", next = "dg_mcbride" },
+        { text = "And Gryan Stoutmantle?", next = "dg_gryan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_mcbride = {
+      lines = {
+        { id = "dxm_default", text = "McBride and I go back to the Second War, and he's been right about the Defias more often than I'd like, which I'll deny if you repeat it. He sends me his recruits with their papers in order, and I send him back my worst news along with his own." },
+      },
+      choices = {
+        { text = "He thinks you're playing the Defias down.", next = "confront" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    dg_gryan = {
+      lines = {
+        { id = "dxgr_default", text = "Stoutmantle went to Lordaeron a farm boy and came home a knight to find Westfall in thieves' hands, and he's never once written to ask me for soldiers, because he knows I haven't any. I send him every volunteer I can spare, and I'd send more if Elwynn didn't need them too." },
+      },
+      choices = {
+        { text = "Do you think he can hold?", next = "dg_gryan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_gryan2 = {
+      lines = {
+        { id = "dxgr2_default", text = "If anyone can, though that's not the same as yes. If Westfall falls, the Brotherhood's on my western border with nothing between them and Goldshire but Rainer and a fence, so every volunteer I send west is one I'm sending to guard this town as well." },
+      },
+      choices = {
+        { text = "Then send me west when I'm ready.", next = "BACK", fx = { affinity = 1, learn = { "westfall", "people_militia" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dg_militia = {
+      big = true,
+      lines = {
+        { id = "dxmi_default", text = "That's the very question that's been sitting on my desk a fortnight. Some of the farm families south of town want to arm their hands and ride the roads themselves, the way Stoutmantle does in Westfall, and I've to say yes or no by the month's end, so what would you tell me?" },
+      },
+      choices = {
+        { text = "Keep the law in the Guard's hands, Marshal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them arm. Folk have a right to defend their own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What will you tell them?", next = "dg_militia2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_militia2 = {
+      lines = {
+        { id = "dxmi2_default", text = "I'll tell them yes, so long as every man of them answers to my guard, and that anyone who rides into the Riverpaw camps on his own will be fined before the gnolls can get to him. It isn't what Stoutmantle would do, but Stoutmantle hasn't a town full of old feuds that would love an excuse to carry pitchforks." },
+      },
+      choices = {
+        { text = "That sounds like a marshal's answer.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dg_ask = {
+      lines = {
+        { id = "dxa_default", text = "I'll ask you one first, since you're in a talking mood. You've walked more of Elwynn this month than my guards have, so tell me honestly: what are folk saying about Goldshire out on the roads?" },
+      },
+      choices = {
+        { text = "That it's safe, and that's thanks to you.", next = "dg_ask2", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "That the Guard's stretched thin, and everyone knows it.", next = "dg_ask2", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "That the Defias are coming, and you won't admit it.", next = "dg_ask2", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "I don't repeat road gossip, Marshal.", next = "dg_ask2", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    dg_ask2 = {
+      lines = {
+        { id = "dxa2_default", text = "Hm. That's worth knowing, and I thank you for it, because my guards only tell me what they think I'd like to hear. What I need from you is simple: scout before you fight, report before you rest, and if you see a red bandana east of Westbrook, I want to hear it from you before I hear it at the inn." },
+      },
+      choices = {
+        { text = "You'll hear it from me first, Marshal.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    dg_watch = {
+      lines = {
+        { id = "dxw_default", text = "Then you know how it works: the Trade District gets the lanterns and the halberds, and the rest of the kingdom gets a letter. Tell me, did your sergeants ever mention Elwynn without sighing?" },
+      },
+      choices = {
+        { text = "Only to complain about the mud on the road.", next = "dg_watch2", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Never, Marshal. The Watch only looks inward.", next = "dg_watch2", fx = { affinity = 1, trait = { stern = 1 } } },
+      },
+    },
+    dg_watch2 = {
+      lines = {
+        { id = "dxw2_default", text = "That's about what I expected. If you've kept the Watch's habits, do me a kindness and walk the square at dusk once or twice while you're in town, because folk sleep better for seeing a soldier in the lamplight, even one who isn't mine." },
+      },
+      choices = {
+        { text = "I'll walk it tonight, Marshal.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_road = {
+      lines = {
+        { id = "dxr_default", text = "A great many came through that way, families with carts and families without, and I gave what the town could give, which was a night in Farley's stable and directions to the city. I kept a list of names for a while in case anyone came asking after them, and I stopped when the list grew longer than the town." },
+      },
+      choices = {
+        { text = "Did anyone ever come asking?", next = "dg_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_road2 = {
+      lines = {
+        { id = "dxr2_default", text = "Two or three, and I was glad of every one. The list is still in the bottom drawer, though I'll warn you that most of the entries end with 'went on to Stormwind' and nothing after it." },
+      },
+      choices = {
+        { text = "Thank you for keeping it, Marshal.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_squire = {
+      lines = {
+        { id = "dxq_default", text = "The Silver Hand's squires used to pass through Goldshire on their way north, every one of them very sure of himself and very fond of Farley's pies. You kept the oaths with nobody left to hold you to them, and that's the kind of soldier I'd put on the Westbrook road tomorrow." },
+      },
+      choices = {
+        { text = "Then put me there, Marshal.", next = "BACK", fx = { affinity = 2, standing = { goldshire = 1 } } },
+        { text = "The oaths are mine to keep, not the Guard's.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    dg_novice = {
+      lines = {
+        { id = "dxn_default", text = "Then you'll know the brothers better than I do, and you'll know McBride sends every recruit down to me with a note on how they behaved in chapel. Northshire's quieter than Goldshire and I expect you miss it, though I'd be grateful for a prayer for my guards before you go back." },
+      },
+      choices = {
+        { text = "I'll pray for them, Marshal.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_tired = {
+      lines = {
+        { id = "dxt_default", text = "Two nights ago, I think, and only because Farley came over and turned my lamp down himself. Since you ask kindly, I'll tell you what I don't tell the guards: some nights I sit here in the dark and count the farms I couldn't send anyone to, and I wonder how many more seasons Elwynn can be held together with adventurers and luck." },
+      },
+      choices = {
+        { text = "Then let me carry some of it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Elwynn's held this long, Marshal. It'll hold.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
     },
   },
 

@@ -30,6 +30,8 @@ P:NPC {
       text = "An engineer! No, don't tell me what you're working on, let me guess: something that explodes. Everyone starts with something that explodes." },
     { id = "n_gnome_rad", cat = "kin", when = { race = "Gnome", deed = "dungeon:Gnomeregan" },
       text = "You've seen the city, haven't you, our city. It's there in your face; I know that look, because I see it in the mirror most mornings." },
+    { id = "n_texts", cat = "origin", when = { origin = "gnome_forbidden_texts" },
+      text = "Do you know, the archivists tell me a few volumes never made it out of the old library, the locked shelf, the ones with the clasps. I'm sure you wouldn't know anything about that, being so busy, but if you did, I'd only ask that you read them very carefully." },
   },
 
   start = "hello",
@@ -114,6 +116,8 @@ P:NPC {
           text = "A people whose island the winds carried into the sky! I have so many questions, about winds and loads and whether the islands creak. Do they creak?" },
         { id = "h_refugee", when = { origin = "gnome_gnomeregan_refugee" },
           text = "You got out. I say it to everyone who did: you got out, and I'm glad. The rest we'll sort out together." },
+        { id = "h_firstaltar", when = { origin = "gnome_first_altar" },
+          text = "Ah, our priest! Rohan writes me the kindest notes about you, which is more than he writes about my engineers, and I keep meaning to come down to the Hall and see what all the fuss over the Light is about. Perhaps you'll explain it with diagrams." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, splendid! Gnomes never kept priests of our own, we kept wrenches, so the dwarves in the Hall of Mysteries have had to be very patient with us." },
         { id = "h_warm", when = { disposition = { min = 70 } },
@@ -144,7 +148,27 @@ P:NPC {
         { text = "What does Gnomeregan make of dwarven shamans, High Tinker?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Gnomeregan, High Tinker.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
         { text = "Why do gnomes make such good companions on the road?", next = "xpt_mekkatorque", when = { party = { race = "Gnome" } } },
+        { text = "I held the rearguard, High Tinker. Then the radiation came.", next = "xorig_rear", when = { origin = "gnome_rearguard" } },
         { text = "I'll let you work.", next = "END" },
+      },
+    },
+    xorig_rear = {
+      lines = {
+        { id = "xor_default", text = "The rearguard. Oh, my dear, I've read every name on that roster and I still read it most nights, because the radiation was my decision, made to drive out the troggs, and it drove out a great many of my own people with them. You held while the others ran, and then you had to run from me." },
+      },
+      choices = {
+        { text = "You did what you thought would save the city.", next = "xorig_rear2", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "It cost us everything. I haven't forgiven it.", next = "xorig_rear2", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "What happened to the others in my corridor?", next = "xorig_rear2" },
+      },
+    },
+    xorig_rear2 = {
+      lines = {
+        { id = "xor2_default", text = "Some came up after you, and some we're still waiting for, and I won't pretend to know which is which until we're back inside. When we go home, and we will, I'd like the rearguard at the front this time, if you'll have the honour." },
+      },
+      choices = {
+        { text = "I'll be there, High Tinker.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -1691,6 +1715,8 @@ P:NPC {
           text = "Brought some friends, have ye? Good, the Stonefire's too quiet wi' only the regulars, an' they've told all their stories twice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Stonefire! Ye'll forgive the noise, I hope, for my patrons sing louder than any choir, an' worse." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somebody who'll add tae the noise, for yer sort always tell the best war stories, an' they're half true, which is better than most." },
+        { id = "h_brewer", when = { origin = "dwarf_brewer" },
+          text = "A brewer's youngest, out in the world! I can always tell, for ye taste my ale like ye're markin' it out o' ten. Go on, then, give us the number, an' I'll pretend I don't care." },
         { id = "h_default", text = "Firebrew, an' I keep the Stonefire. The beer's strong an' the fire's stronger, an' the stories get taller as the kegs get lighter." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Well now, an elf from the clouds, in my tavern! Sit near the fire, for ye'll be cold up here, or down here, or under here, wherever this is tae you." },

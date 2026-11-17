@@ -80,7 +80,27 @@ P:NPC {
         { text = "Why let the Horde through your sewers?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Isn't so much magic in one place dangerous?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Are there other gnomes in the Kirin Tor?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "My masters in Stormwind studied here. They never let me forget it.", next = "xorig_mq", when = { origin = "human_mage_quarter" } },
         { text = "I'll leave you to your wards.", next = "END" },
+      },
+    },
+    xorig_mq = {
+      lines = {
+        { id = "xmq_default", text = "Stormwind's Mage Quarter is full of our old students, and most of them still write to us as though the Violet Citadel had been waiting by the door for their letters. I'd wager your masters told you Dalaran was the finest city in the world, and that it would never fall." },
+      },
+      choices = {
+        { text = "They did. Now I'm standing in what's left of it.", next = "xorig_mq2", fx = { trait = { skeptical = 1 } } },
+        { text = "They said it would rise again. I believed them.", next = "xorig_mq2", fx = { trait = { brave = 1 }, affinity = 1 } },
+        { text = "What would you have told me, in their place?", next = "xorig_mq2", fx = { trait = { curious = 1 } } },
+      },
+    },
+    xorig_mq2 = {
+      lines = {
+        { id = "xmq2_default", text = "That a city of mages is only as wise as its least careful student, and that we had a great many careless ones, Kel'Thuzad among them. Write that to your masters, if you like; they won't enjoy it, but it's the truest thing I know." },
+      },
+      choices = {
+        { text = "I think I'll enjoy writing that letter.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
       },
     },
 
@@ -346,6 +366,8 @@ P:NPC {
       text = "A mage. Then you can hear the wards humming, and you'll understand why I can't stop to chat while they do." },
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
       text = "Horde, in the Citadel. I'll be counting the books on my shelves after you leave, so don't take it personally." },
+    { id = "n_texts", cat = "origin", when = { origin = "gnome_forbidden_texts" },
+      text = "You have the look of a reader who doesn't ask permission first. Dalaran lost a great many books when it fell, and some of the worst of them turned up later in hands that shouldn't have held them, so keep yours away from my shelves." },
   },
 
   start = "hello",
@@ -361,6 +383,8 @@ P:NPC {
           text = "You brought the mote back on your master's terms, which was clever and also rather rude. The Kirin Tor will remember both." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A magus. Then you'll forgive me for not looking up, because if I look away from this circle, it unravels." },
+        { id = "h_quarter", when = { origin = "human_mage_quarter" },
+          text = "Stormwind-trained, by that accent and that very particular way of standing back from a ward. Your masters were ours once, so tell them from me that the circle is still drawn clockwise, whatever they've been teaching." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. If you're looking for the apprentices who were hurt, they're in the lower halls; Modera will have told you." },
         { id = "h_skyborne", when = { race = "Skyborne" },

@@ -21,6 +21,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Welcome, friend. Your vault is safe, as it was when you left it." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your things have waited patiently for you. Shall I open the vault?" },
+    { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "Welcome, friend. You came here on the long walk, so you'll remember when everything a family owned fit on one kodo's back, and you'll forgive an old banker for marvelling at how full these vaults have grown." },
   },
 
   start = "hello",
@@ -190,6 +191,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "The wind is good today. Where shall it carry you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back on the tower. The wind riders remember you, friend." },
+    { id = "g_windshaper", when = { origin = "skyborne_windshaper" }, text = "One of Ayessa's Windshapers, up on my tower again. You stand into the wind like my riders do, as if you're listening for something in it, and I hope one day it tells you what you want to hear." },
   },
 
   notice = {

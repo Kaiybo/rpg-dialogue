@@ -560,6 +560,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Come to found a clan of your own? Or have you come to see what one costs?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you gathered your names yet, or are you still persuading them?" },
+    { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people don't wait for a charter, I know, but you'll find one costs less than a war with the Sentinels." },
   },
 
   start = "hello",
@@ -1037,6 +1038,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The wolves know your kind, because the Frostwolves have run with shamans for as long as there have been Frostwolves, and see, they're already watching you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you'll be wanting a wolf to ride into battle, I'd wager. Every warrior does, once they've crossed the Barrens on their own feet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. My wolves don't like the smell of burnt air, so keep your hands still while you're in the kennels." },
+        { id = "h_frostwolf", when = { origin = "orc_frostwolf" }, text = "A Frostwolf, in my kennels! Look at them, they've all come to the bars, because they smell Alterac snow on you even after all this way. I've never raised a white one, and I won't pretend I'm not jealous." },
       },
       again = { { id = "h_again", text = "Anything else? The wolves are listening, so ask nicely." } },
       choices = {
@@ -1048,6 +1050,7 @@ P:NPC {
         { text = "How do you train a wolf to carry a rider?", next = "train" },
         { text = "Orcs have always ridden wolves, haven't they?", next = "history" },
         { text = "My companion is a wolf too.", next = "hunter", when = { class = "HUNTER", pet = { family = "Wolf" } } },
+        { text = "The Frostwolves raise theirs differently, Ogunaro.", next = "xfrost", when = { origin = "orc_frostwolf" } },
         { text = "Your wolves would make good lookouts for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do your wolves fight beside their riders, Ogunaro?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wolves fear demons, Ogunaro?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -1082,10 +1085,21 @@ P:NPC {
       lines = { { id = "hu_default", text = "So I see, and a fine one. Bring {pet} round to the kennels any time; mine will want to smell your wolf, and your wolf will want to show off. Feed it before you leave, though, or it'll steal from mine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
+    xfrost = {
+      big = true,
+      lines = {
+        { id = "xfr_default", text = "Do they? Then tell me, because I've only heard it third-hand from a grunt who'd been to Alterac once. I raise mine for the Horde's charges, to carry anyone the city trusts, but I've heard your clan keeps a wolf for one rider all its life and won't let another touch it. Which way is right, do you think?" },
+      },
+      choices = {
+        { text = "One wolf, one rider. That's a bond, not a mount.", next = "BACK", fx = { affinity = 1, align = { order = -1 }, learn = { "alterac" } } },
+        { text = "Your way. The Horde needs wolves more than bonds now.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, learn = { "alterac" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
-    alterac = { { id = "tp_alterac", text = "The Frostwolves' mountains. The wolves there are bigger than mine, and I'm not too proud to say so." } },
+    alterac ={ { id = "tp_alterac", text = "The Frostwolves' mountains. The wolves there are bigger than mine, and I'm not too proud to say so." } },
     _none = { { id = "tp_none", text = "I know wolves, and that's about all. Ask the wolves; they're better company than half this city." } },
   },
 }
@@ -1104,6 +1118,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Sit if you like. Fishing teaches you to sit still before it teaches you anything else." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything, or only the weeds and the Barrens' boots?" },
+    { id = "g_camp", when = { origin = "orc_camp_born" }, text = "Sit down, camp child. You'll not remember a river from behind the fence either, I'd guess, only the trough, so let me show you what water is for when nobody's guarding it." },
   },
 
   notice = {
@@ -1837,6 +1852,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Come, come. The beasts be calm today, so don't you be the one to change that." },
     { id = "g_back", when = { metBefore = true }, text = "Back for your beast, or leavin' it with me? Either be fine." },
+    { id = "g_sailed", when = { origin = "troll_sailed_with_thrall" }, text = "You was on the beach when the Warchief's ships come, eh? Me too, mon, and I been looking after the Horde's beasts ever since, because that be one way to pay a debt that big." },
   },
 
   notice = {

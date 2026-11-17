@@ -624,6 +624,8 @@ P:NPC {
         { id = "h_default", text = "Vernon Hale. I sell fishing tackle to anyone fool enough to fish Lake Everstill with the murlocs about, and there are more fools in Lakeshire than you'd think." },
         { id = "h_poachers", when = { questDone = TODO_QUEST("Murloc Poachers") }, text = "You're the one who cleared the murlocs off the shore for Baren! My customers have started catching fish again, and I'm selling hooks faster than I can bend them." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf on the docks! Your people fish Loch Modan, don't they? Then you'll find Everstill a good deal less friendly, I'm afraid." },
+        { id = "h_lakeborn", when = { origin = "human_redridge_born" },
+          text = "You don't need me to tell you about Everstill, do you? You've the look of somebody who learned to fish off this very dock, back before the murlocs got so bold." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, on my dock? You'll not catch much with that sword, though you might scare the murlocs off long enough for someone else to." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know patience, then, and patience is the whole of fishing, so you're halfway to being a customer." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the docks. If you've a blessing for fishermen, there are a few here who'll need it before the murlocs are done." },

@@ -117,6 +117,8 @@ P:NPC {
           text = "Ye went in where Hammertoe went, an' ye went all the way down an' came back out. I keep tellin' myself that's somethin' like justice, an' some days I almost believe it." },
         { id = "h_default", key = true,
           text = "Prospector Ryedol, Explorers' League. We came out here tae dig for the past, an' the past dug back; my partner, Hammertoe, went into the digsite an' didn't come out." },
+        { id = "h_listener", when = { origin = "dwarf_stone_listener" },
+          text = "Ye're one o' those who hears the stone, aren't ye? Hammertoe used tae say the rock out here hummed under his boots near the old gates, an' I laughed at him, so if it's sayin' anythin' tae you, I'll no' laugh twice." },
         { id = "h_tools", tags = { "news" }, when = { questActive = TODO_QUEST("A Dwarf and His Tools") },
           text = "I left my pack behind when we ran, an' every tool I own's in it. A prospector without his tools is just a dwarf standin' in the dirt." },
         { id = "h_hope", when = { any = { { questActive = TODO_QUEST("A Sign of Hope") }, { questActive = TODO_QUEST("Prospect of Faith") } } },
@@ -334,6 +336,8 @@ P:NPC {
           text = "Ah, a warrior! You'd make a splendid control for my experiments, being so very solid, and the elementals only hit hard when they're agitated." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You must have noticed that the beasts out here avoid the elementals, which is a fascinating behaviour I haven't been able to explain." },
+        { id = "h_texts", when = { origin = "gnome_forbidden_texts" },
+          text = "Oh! You're the one who reads the books with the clasps on, aren't you? Word gets round the Assembly, you know. I'm all for every discipline sitting at the same table, but I do wish yours didn't keep bringing guests that set the tablecloth on fire." },
       },
       again = { { id = "h_again", text = "More? Wonderful, but mind the sample tray." } },
       choices = {
@@ -350,7 +354,26 @@ P:NPC {
         { text = "Why would holy light make a rock elemental flinch, Lotwil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why doesn't your elemental like prayer, Lotwil?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I've been to the bottom of Uldaman, Lotwil.", next = "xcl_ulda", when = { cleared = "Uldaman" } },
+        { text = "I apprenticed to a tinker. Three explosions and one workshop fire.", next = "xorig_appr", when = { origin = "gnome_tinker_apprentice" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
+      },
+    },
+    xorig_appr = {
+      lines = {
+        { id = "xap_default", text = "Only three? Oh, you're well ahead of where I was, because I'd set fire to two workshops before anyone let me near a third. Did your master write down what went wrong each time? That's the whole secret, you know, because an explosion you've written down is an experiment, and one you haven't is just noise." },
+      },
+      choices = {
+        { text = "Every time, in great detail.", next = "xorig_appr2", fx = { trait = { curious = 1 }, affinity = 1 } },
+        { text = "We mostly just put the fires out.", next = "xorig_appr2", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xorig_appr2 = {
+      lines = {
+        { id = "xap2_default", text = "Then start a notebook today, and number the explosions, because you'll want to compare them later! Lucien keeps mine, and he says it's the most frightening book in the Badlands, which I take as a professional compliment." },
+      },
+      choices = {
+        { text = "I'll start one tonight.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Lotwil.", next = "BACK" },
       },
     },
     assembly = {

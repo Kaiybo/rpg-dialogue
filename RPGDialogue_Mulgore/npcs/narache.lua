@@ -6,7 +6,7 @@ P:NPC {
   key = "hawkwind", id = TODO_NPC("Chief Hawkwind"), name = "Chief Hawkwind",
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "narache" }, temper = { "resolute" }, values = { "dutiful", "protective" },
-  notices = { "greenness", "race" },
+  notices = { "greenness", "race", "origin" },
   impression = {
     first = "Since the Bristleback killed his mother, the Greatmother, Chief Hawkwind has mourned her by standing straighter. Every task he gives seems meant to teach the young of his camp to do the same.",
     third = "{name} met Chief Hawkwind at Camp Narache, who leads the young of his tribe through their first rites.",
@@ -19,11 +19,14 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You came to my fire young and untried, and now you stand straighter than many of my own hunters. The Greatmother would have been glad to see it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp tells me of the work you've done for us. You honour the Hawkwind's fire, and we will remember it." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your words in this camp was found false. The young learn from what they see, so I'd ask you to show them better." },
+    { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "Your mother's child, come back to the fire. She brought in more plainstriders off Red Cloud Mesa than any hunter of her season, and she thanked the Earth Mother for every one, loud enough that the whole camp heard." },
   },
 
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 3 },
       text = "So young, and already sent to me. Good. The Earth Mother tests early those she means to keep." },
+    { id = "n_walk", cat = "origin", when = { origin = "tauren_long_migration" },
+      text = "You were a calf on the long walk, weren't you? I can always tell, because those who crossed the Barrens with the centaur behind them still look over their shoulder before they sit down." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A child of the plains. Every one of you who stands up makes the Greatmother's absence lighter." },
   },
@@ -107,6 +110,7 @@ P:NPC {
         { text = "Where should a hunter go first, Chief?", next = "hunter", when = { class = "HUNTER" } },
         { text = "The trainer says I'm to be a druid.", next = "druid", when = { race = "Tauren", class = "DRUID" } },
         { text = "I was born Grimtotem, Chief. I chose Bloodhoof.", next = "grimtotem", when = { origin = "tauren_grimtotem_born" } },
+        { text = "My mother hunted the mesa for this camp, Chief.", next = "xmother", when = { origin = "tauren_narache_hunter" } },
         { text = "Did the Greatmother walk with the spirits, Chief?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Bristleback won't see me coming, Chief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could the arcane have saved the Greatmother, Chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -145,6 +149,26 @@ P:NPC {
       choices = {
         { text = "My tribe is the Bloodhoof now.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "The Grimtotem aren't all wrong, Chief.", next = "BACK", fx = { affinity = -2, align = { order = -1 } } },
+      },
+    },
+    xmother = {
+      big = true,
+      lines = {
+        { id = "xmo_default", text = "She did, and she never once came home without saying the words over what she'd taken, even in the lean years when the braves were too hungry to wait. Some of the young ones skip the thanks now, because the Bristleback keep them in a hurry, so tell me, do you still say them?" },
+      },
+      choices = {
+        { text = "Every time. She'd haunt me if I didn't.", next = "BACK", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "When there's time. A hungry camp can't wait on prayers.", next = "BACK", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "What would she say about the Bristleback?", next = "xmother_boar" },
+      },
+    },
+    xmother_boar = {
+      lines = {
+        { id = "xmb_default", text = "That a boar is a boar whether it walks on two legs or four, and that you thank the Earth Mother for neither of those. She was never a gentle woman about the quilboar, and after what they did to the Greatmother, I find I agree with her more every year." },
+      },
+      choices = {
+        { text = "Then I'll hunt them the way she would.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else, Chief.", next = "BACK" },
       },
     },
     greatmother = {
@@ -283,10 +307,12 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you light a fire without flint? My hunters would trade a lot for that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My father would want me to send you away, but I'd rather see what you can do." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Battleboar", min = 20 } }, text = "You've been thinning out the battleboars, and the hunters say the plains around the camp are safer for it. I'll make a hunter of you yet, whatever you call yourself." },
+        { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Ha, the mesa hunter's calf! Your mother let me carry her spears once when I was small, and I dropped every one of them in the creek, so I've been trying to outhunt her ever since." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
         { text = "Can my beast hunt beside your braves?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Race you to Red Cloud Mesa, Grull. My mother would want it.", next = "xmesa", when = { origin = "tauren_narache_hunter" } },
         { text = "Should a shaman hunt, Grull, or only bless the hunters?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Rite of Strength ask of a warrior, Grull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Will you take a priest on your next hunt, Grull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -321,6 +347,15 @@ P:NPC {
       choices = {
         { text = "I'll hunt beside the braves and earn my place there.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let the spirits strike from afar. I won't risk my own hide.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmesa = {
+      lines = {
+        { id = "xme_default", text = "She would, and she'd bet against me, because she always did. I'll race you gladly once the battleboars are thinned, though, and the loser carries the plainstriders home and thanks the Earth Mother for every one out loud." },
+      },
+      choices = {
+        { text = "Agreed. Start practising your thanks, Grull.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

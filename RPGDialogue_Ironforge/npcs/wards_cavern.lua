@@ -323,7 +323,26 @@ P:NPC {
         { text = "Is a thrown weapon an honourable way to fight, Bixi?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a druid ever need to learn the dagger, Bixi?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the wind guide a thrown dagger, Bixi?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I grew up in Tinker Town. Small weapons were all anyone let me hold.", next = "xorig_tt", when = { origin = "gnome_ironforge_raised" } },
         { text = "Thanks, Bixi.", next = "END" },
+      },
+    },
+    xorig_tt = {
+      lines = {
+        { id = "xtt_default", text = "Oh, me too, and every dwarf in the Ward tried to hand me an axe twice my height and then laughed when I fell over! So I learned the dagger, and then I learned to throw it, and then they stopped laughing, which I think is the whole lesson of Tinker Town, really." },
+      },
+      choices = {
+        { text = "Twice as clever and half as loud. That's what I learned.", next = "xorig_tt2", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "The stares never stopped bothering me.", next = "xorig_tt2", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    xorig_tt2 = {
+      lines = {
+        { id = "xtt2_default", text = "They stare at everyone who's short and doesn't have a beard, so don't take it to heart. Mind you, a well-thrown dagger from someone they weren't watching is the best answer to a stare I've ever found." },
+      },
+      choices = {
+        { text = "I'll remember that, Bixi.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -848,6 +867,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I don't sell hammers, but I sell a line that'll hold an ogre's weight, if you ever need to tie one up before the guards arrive." },
         { id = "h_default", key = true,
           text = "Tansy Puddlefizz, fishing supplies, and assistant to Grimnur, who teaches the fishing. I sell the rods and the lures, and I tinker with them when nobody's looking, which is most of the time down here." },
+        { id = "h_tinkertown", when = { origin = "gnome_ironforge_raised" },
+          text = "Hello, neighbour! You grew up in Tinker Town too, didn't you? Then you know why I came out to the Forlorn Cavern, because it's the one place in the city where nobody stares at a gnome with a fishing rod." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! You'll be wanting a fishing line that doesn't squeak, I expect, and I've just the thing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },

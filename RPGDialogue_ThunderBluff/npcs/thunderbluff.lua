@@ -120,6 +120,268 @@ P:NPC {
         { text = "Why do you follow Thrall at all?", next = "thrall" },
       },
     },
+    -- 0.71.0 depth: the long walk, the Horde's leaders, the chieftain's burdens.
+    walk1 = {
+      lines = { { id = "wk1_default", text = "Long, and hungry, and loud with mourning. The Kolkar and their kin rode us down across the Barrens for more generations than our songs can count, and every season we lost the slowest of the herds, and sometimes the slowest of our own, and we buried our dead quickly because we could never stay to mourn them." } },
+      choices = {
+        { text = "How did Thrall come into it?", next = "walk_thrall" },
+        { text = "What did it cost you, Chieftain?", next = "walk2" },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    walk_thrall = {
+      lines = { { id = "wkt_default", text = "He came upon my people as the centaur fell on us, and he and his orcs fought as though our calves were their own, though they owed us nothing. Afterwards I told him of the Oracle on Stonetalon Peak, because he was searching for a road for his people, and I think that small kindness was the beginning of everything since." } },
+      choices = {
+        { text = "That's a debt I'd honor too, Chieftain.", next = "BACK", fx = { affinity = 1 } },
+        { text = "And the Horde has had your word ever since?", next = "thrall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    walk2 = {
+      lines = { { id = "wk2_default", text = "Friends of my youth lie somewhere in the grass between the Gold Road and the Stonetalon foothills, and I could not tell you the places, because we left them at a run. That is what wandering costs a people: you cannot visit your dead, so you learn to carry them in your songs instead, and Mulgore is the first land where our dead can lie still." } },
+      choices = {
+        { text = "I'm sorry, Chieftain. That's a heavy thing to carry.", next = "walk3", fx = { trait = { kind = 1 } } },
+        { text = "Songs are a strong way to remember them.", next = "walk3", fx = { trait = { curious = 1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    walk3 = {
+      lines = {
+        { id = "wk3_default", text = "You listen well, young one, so let me ask you a thing in turn, as the old are allowed to do. Where is your home, and what would you give to keep it?" },
+        { id = "wk3_tauren", when = { race = "Tauren" }, text = "You are tauren, so Mulgore is yours as much as mine, but I'll ask you all the same, because every calf must answer it once. What would you give to keep this home of ours?" },
+      },
+      choices = {
+        { text = "Wherever my people stand. I'd give my life for it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I haven't found one yet, Chieftain. I'm still looking.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Home is a place you take, and then hold.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "My wits, long before my life, Chieftain.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I walked that road too, as a calf.", next = "walk_calf", when = { origin = "tauren_long_migration" } },
+      },
+    },
+    walk_calf = {
+      lines = { { id = "wkc_default", text = "Then you remember the dust and the drums, and the nights we slept with our weapons in our hands. I walked at the back of that column with the warriors, so I never saw the calves' faces, but I heard them singing to keep their feet moving, and I have never heard a braver sound in all my years." } },
+      choices = {
+        { text = "We sang because you told us Mulgore was waiting.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I still dream of the dust some nights.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    o_narache = {
+      lines = { { id = "on_default", text = "Red Cloud Mesa raises good hunters, because the plainstriders there are quick and the cliffs are unkind to the careless. Does your mother still hunt, or has she put the bow down for the fire and the stories?" } },
+      choices = {
+        { text = "She still hunts, Chieftain, and she still gives thanks.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "She's gone to the Earth Mother now.", next = "o_narache2" },
+        { text = "She taught me well. That's all I'll say.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    o_narache2 = {
+      lines = { { id = "on2_default", text = "Then she walks the plains with An'she's light on her back, and every plainstrider you take with thanks is a word sent after her. The tauren do not believe our dead go far, young one, so speak to her when you hunt, and she'll hear you." } },
+      choices = {
+        { text = "I will, Chieftain. Thank you.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    o_runner = {
+      lines = { { id = "or_default", text = "Then you know the Barrens better than half my council, so tell me true, because runners see what chieftains are not shown. Does Camp Taurajo hold, and do the orcs at the Crossroads treat my people as kin or as couriers?" } },
+      choices = {
+        { text = "Taurajo holds, and the orcs treat us as kin.", next = "BACK", fx = { affinity = 1, opinion = { crossroads = "kin" } } },
+        { text = "They're good allies, but they forget we aren't orcs.", next = "BACK", fx = { trait = { skeptical = 1 }, opinion = { crossroads = "careless" } } },
+        { text = "Taurajo needs more spears, Chieftain. The Barrens are hungry.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    o_spirit = {
+      lines = { { id = "osr_default", text = "The seers told me of a water-carrier who heard the elements before the elements were finished speaking, and they laughed about it for days, which seers rarely do. Tell me, what did the spirits say first, when you finally listened?" } },
+      choices = {
+        { text = "Mostly that I'd spilled the water, Chieftain.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "That the land remembers everything we do to it.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "I'd rather keep that between me and them.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    leaders = {
+      hub = true,
+      lines = { { id = "ld_default", text = "The Horde is many peoples with many voices, and I have sat at the fire with most of its leaders. Ask, and I'll tell you what an old bull thinks of them, though I'd ask you to carry it carefully." } },
+      again = {
+        { id = "ld_again", text = "Who else would you hear of, young one?" },
+        { id = "ld_again2", text = "Ask on. I've known them all longer than you've been walking." },
+      },
+      choices = {
+        { text = "What do you make of Thrall himself?", next = "ld_thrall" },
+        { text = "What about Sylvanas and her Forsaken?", next = "ld_sylvanas" },
+        { text = "And the Darkspear trolls?", next = "ld_voljin" },
+        { text = "What does Hamuul mean to you?", next = "ld_hamuul" },
+        { text = "What do you think of the Alliance, Chieftain?", next = "ld_alliance" },
+        { text = "Enough of leaders, Chieftain.", next = "BACK" },
+      },
+    },
+    ld_thrall = {
+      lines = { { id = "ldt_default", text = "He is young, and he carries his whole people's shame on his shoulders as though he alone drank the demon's blood, which he did not. I counsel him as I would a son, and he listens more than he lets his warriors see, which is the mark of a leader who will last." } },
+      choices = {
+        { text = "Do you ever disagree with him, Chieftain?", next = "ld_thrall2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ld_thrall2 = {
+      lines = { { id = "ldt2_default", text = "Often, and quietly, which is how friends ought to disagree. I've told him that Durotar is a hard land and his people will be tempted by softer ones, and that the night elves' forests are not empty simply because the elves are quiet. But tell me, young one, what do you make of him?" } },
+      choices = {
+        { text = "He's the best thing that ever happened to the Horde.", next = "BACK", fx = { affinity = 1, opinion = { warchief = "trust" } }, when = { faction = "Horde" } },
+        { text = "He's too soft on the humans, Chieftain.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { warchief = "soft" } }, when = { faction = "Horde" } },
+        { text = "He keeps faith with Theramore. That earns my respect.", next = "BACK", fx = { affinity = 1, opinion = { warchief = "respect" } }, when = { faction = "Alliance" } },
+        { text = "I don't know him well enough to judge.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    ld_sylvanas = {
+      lines = {
+        { id = "lds_default", text = "She is sharp as winter, and she gives her trust to no one, which I understand better than my elders think, because her people were betrayed by their own prince. I spoke for the Forsaken, not for her alone, and I watch her as I watch every new ally, with an open hand and open eyes." },
+        { id = "lds_scourge", when = { race = "Scourge" }, text = "Your Dark Lady is sharp as winter and trusts no one, and after what your prince did to you all, I cannot blame her. I spoke for your people, young one, and I watch her as I watch every new ally, with an open hand and open eyes." },
+      },
+      choices = {
+        { text = "An open hand and open eyes. I'll remember that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    ld_voljin = {
+      lines = { { id = "ldv_default", text = "The Darkspear lost their islands to a sea witch and the murlocs, and Vol'jin's father gave his life so that his people could go free with Thrall. A people who know what it is to lose a home are a people the tauren understand, and Vol'jin is wiser than his tusks and his temper make him look." } },
+      choices = {
+        { text = "The trolls and the tauren have that in common, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ld_hamuul = {
+      lines = { { id = "ldh_default", text = "Hamuul is the oldest friend I have left on this Bluff, and the bravest, because he went to the night elves and asked to learn their ways when some of our own elders called it shameful. Malfurion Stormrage said yes, which surprised us all, and now there are young druids on Elder Rise again." } },
+      choices = {
+        { text = "Why would the elders call it shameful?", next = "ld_hamuul2" },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    ld_hamuul2 = {
+      lines = { { id = "ldh2_default", text = "Because a proud people does not like to admit it has forgotten something, and the tauren had forgotten the druid's path for twenty generations. Hamuul swallowed that pride for all of us, and the ones who mocked him then now send their grandchildren up the lift to learn from him." } },
+      choices = {
+        { text = "Pride's a hard thing to swallow. He did well.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ld_alliance = {
+      lines = { { id = "lda_default", text = "I've no love for the humans who herded the orcs into camps, and no hatred either, because Jaina Proudmoore keeps faith with Thrall from Theramore, and that is worth more than old grudges. What troubles me lies closer to home, for the dwarves dig at Bael'dun in Mulgore's own earth and never asked whose land it was." } },
+      choices = {
+        { text = "My people mean the tauren no harm, Chieftain.", next = "ld_alliance2", when = { faction = "Alliance" } },
+        { text = "Should the Horde drive the dwarves out?", next = "ld_alliance2", when = { faction = "Horde" } },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    ld_alliance2 = {
+      lines = {
+        { id = "lda2_default", text = "Not while Theramore keeps faith with us, because a war over a hole in the ground would cost more lives than the hole is worth. My son Baine watches the digsite from Bloodhoof Village, and he has more patience for diplomats than I ever did, which is a gift I'm glad he didn't get from me." },
+        { id = "lda2_alliance", when = { faction = "Alliance" }, text = "Words are light, young one, and the earth at Bael'dun is heavy with their machines. If your kings mean what you say, let their diggers ask before they dig, as a guest asks before he sits at a fire, and I will answer them as a host. Would you tell your own kings that?" },
+      },
+      choices = {
+        { text = "I would, Chieftain. A guest should ask first.", next = "BACK", fx = { affinity = 1, trait = { honest = 1 } }, when = { faction = "Alliance" } },
+        { text = "I'm no diplomat, Chieftain. I only fight.", next = "BACK", fx = { trait = { blunt = 1 } }, when = { faction = "Alliance" } },
+        { text = "Patience, then. Baine sounds wise.", next = "BACK", fx = { affinity = 1 }, when = { faction = "Horde" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    burdens = {
+      hub = true,
+      lines = { { id = "bd_default", text = "More than an old bull lets the council see, young one, though I'll name a few if you'll hear them. The tauren have a home now, and a home has more enemies than a wandering herd ever did." } },
+      again = {
+        { id = "bd_again", text = "What else would you have me set down, young one?" },
+        { id = "bd_again2", text = "Go on, then. It does me good to say these things aloud." },
+      },
+      choices = {
+        { text = "Tell me about the Grimtotem.", next = "bd_grimtotem" },
+        { text = "What did the Venture Company do here?", next = "bd_venture" },
+        { text = "Will the centaur ever leave you be?", next = "bd_centaur" },
+        { text = "Magatha says the tauren should reclaim the old lands.", next = "bd_lands" },
+        { text = "And what weighs on you yourself, Chieftain?", next = "bd_age" },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    bd_grimtotem = {
+      lines = { { id = "bdg_default", text = "They are tauren, and they are proud, and they believe the orcs and the humans and every other young race are a sickness on the land that ought to be burned out of it. They keep to the high places, in Thousand Needles and Stonetalon and further, and they have never forgiven me for bringing the tauren into the Horde." } },
+      choices = {
+        { text = "Are they a danger to Thunder Bluff?", next = "bd_grimtotem2" },
+        { text = "I was born among them, Chieftain. I left.", next = "bd_grimtotem_born", when = { origin = "tauren_grimtotem_born" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bd_grimtotem2 = {
+      lines = {
+        { id = "bdg2_default", text = "To the Bluff, not while Magatha sits on Elder Rise and they wait to see what she can win for them with words. To travellers on the roads through the Needles, and to any orc who walks alone near their camps, they are a danger already, and I've lost more sleep over that than I admit at the council fire." },
+        { id = "bdg2_warm", when = { disposition = { min = 70 } }, text = "To the Bluff, not while Magatha sits on Elder Rise, but I'll tell you what I tell no elder. Some nights I wonder whether I should have gone up into the high places myself, years ago, and argued with them until they listened, instead of leaving it all to Magatha's bridge." },
+      },
+      choices = {
+        { text = "You can't argue with people who won't listen.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "It isn't too late to try, Chieftain.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bd_grimtotem_born = {
+      lines = { { id = "bdgb_default", text = "Then you have done a harder thing than most warriors ever do, because it is easy to leave strangers and hard to leave kin. They will call you a traitor, and some of them will mean it with spears, so walk carefully in the high places. Tell me, young one, is there anyone among them still worth calling family?" } },
+      choices = {
+        { text = "Many of them. They aren't all like Magatha.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, opinion = { grimtotem = "redeemable" } } },
+        { text = "No one, Chieftain. They chose hatred over kin.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { grimtotem = "lost" } } },
+        { text = "I'd rather not speak of them, Chieftain.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    bd_venture = {
+      lines = { { id = "bdv_default", text = "The goblins of the Venture Company came asking to dig in Mulgore, and when we told them the land was not for sale, they fouled the wells our herds drink from and set their machines on our hills anyway. They are a people who think everything has a price, and they are learning that the tauren do not." } },
+      choices = {
+        { text = "Are all goblins like that, Chieftain?", next = "bd_venture2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bd_venture2 = {
+      lines = { { id = "bdv2_default", text = "No, and I try to remember it, because the goblins of Ratchet built Orgrimmar for Thrall and dealt honestly with him. A goblin treats you as well as you make it worth his while, and the Venture Company decided that cheating the tauren was worth more than our friendship. Do you trust them, young one, the goblins?" } },
+      choices = {
+        { text = "As far as the contract, Chieftain, and no further.", next = "BACK", fx = { trait = { practical = 1 }, opinion = { goblins = "contract" } } },
+        { text = "Not one of them, Chieftain.", next = "BACK", fx = { trait = { skeptical = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "Gazlowe in Ratchet seemed fair enough to me.", next = "BACK", fx = { affinity = 1, opinion = { goblins = "fair" } }, when = { heardLine = "gazlowe.h_default" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bd_centaur = {
+      lines = { { id = "bdc_default", text = "Not while either of us lives, I think, because the centaur have hated the tauren longer than our oldest songs reach back. The Kolkar still ride the Barrens, the Galak raid the Needles, and the Magram and Gelkis fight each other in Desolace when they are not fighting us, and not one of them has ever asked for peace." } },
+      choices = {
+        { text = "Have you ever offered them peace?", next = "bd_centaur2" },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    bd_centaur2 = {
+      lines = { { id = "bdc2_default", text = "Once, when I was young and certain, I rode out with an open hand to a Kolkar khan, and he gave me the scar along my flank for my trouble. I don't regret trying, young one, but I learned that peace needs two open hands, and theirs have only ever held spears." } },
+      choices = {
+        { text = "Then keep your hand on your spear, Chieftain.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "One day, one of them might open his hand.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bd_age = {
+      lines = {
+        { id = "bda_default", text = "Age, mostly, though I don't say so in front of the young braves. I was made for the open plains and the hunt, and I spend my days on the High Rise listening to elders argue about water and bridges, so some mornings I envy every kodo in Mulgore." },
+        { id = "bda_warm", when = { disposition = { min = 70 } }, text = "I'll tell you a thing I've told only Hamuul. Some nights I wonder whether I bound my people to the Horde too quickly, out of gratitude, and whether our calves will pay for wars that were never theirs, but then morning comes and I remember who stood with us when no one else would." },
+      },
+      choices = {
+        { text = "You chose rightly, Chieftain. The Horde stood with you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then go hunt. The council can argue without you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    bd_lands = {
+      big = true,
+      lines = { { id = "bdl_default", text = "Magatha says the tauren should take back the lands we wandered before the centaur scattered us, and she is not wrong that we walked them once. But we walked them, young one, we never owned them, and I will not send our calves to die for a map drawn by pride when the Earth Mother has already given us Mulgore." } },
+      choices = {
+        { text = "Mulgore is enough. The tauren have bled sufficiently.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Land that was yours is worth taking back, Chieftain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Which lands does Magatha mean, exactly?", next = "bd_lands2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bd_lands2 = {
+      lines = { { id = "bdl2_default", text = "The high mesas of Thousand Needles, where the Grimtotem already camp, and the Stonetalon peaks, where the night elves and the goblins quarrel over the trees, and the green hills of Feralas, where our people are few. Every one of them has someone living on it now, and that is the part of the argument Magatha never speaks aloud." } },
+      choices = {
+        { text = "So the argument is about blood, not land.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
@@ -144,6 +406,13 @@ P:NPC {
         { text = "Do the tauren have room for priests, Chieftain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
         { text = "Why do you follow Thrall?", next = "thrall" },
+        { text = "Tell me of the Horde's other leaders, Chieftain.", next = "leaders" },
+        { text = "What weighs on you, Chieftain?", next = "burdens" },
+        { text = "I was a calf on the long walk, Chieftain.", next = "walk_calf", when = { origin = "tauren_long_migration" } },
+        { text = "My mother hunted plainstriders at Red Cloud Mesa.", next = "o_narache", when = { origin = "tauren_narache_hunter" } },
+        { text = "I ran messages between Taurajo and the Crossroads, Chieftain.", next = "o_runner", when = { origin = "tauren_plains_runner" } },
+        { text = "I carried water for the seers on the Spirit Rise.", next = "o_spirit", when = { origin = "tauren_spirit_rise" } },
+        { text = "I was born Grimtotem, Chieftain, and I chose the Bloodhoof.", next = "bd_grimtotem_born", when = { origin = "tauren_grimtotem_born" } },
         { text = "Why do you let Magatha live on Elder Rise?", tag = "Persuade", next = "magatha_close",
           check = { pass = { any = { { disposition = { min = 65 } }, { heardLine = "magatha.h_default" }, { race = "Tauren", trait = "kind" } } } },
           fail = { next = "magatha_closed", fx = { affinity = -1 } } },
@@ -248,6 +517,7 @@ P:NPC {
       },
       choices = {
         { text = "A good home.", next = "BACK", fx = { affinity = 2 } },
+        { text = "What was the long walk like, Chieftain?", next = "walk1" },
         { text = "And you swore to the Horde.", next = "thrall" },
       },
     },

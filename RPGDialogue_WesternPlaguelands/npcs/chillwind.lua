@@ -16,6 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
+    { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "A Silver Hand initiate out of Ironforge! Your Order held together under the mountain when ours came apart up here, soldier, and Chillwind is glad of anyone who kept the oath." },
     { id = "g_hero", when = { questDone = TODO_QUEST("Mission Accomplished!") }, text = "There's the hero of the cauldrons! Somebody find this soldier a stool, and don't let anyone tell you it isn't earned." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "I counted you out of that gate {away} ago, and I'm glad to count you back in. Get some food, then report." },
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been gone {away} and come back a good deal tougher than you left. Chillwind can use every bit of that, soldier." },
@@ -354,6 +355,7 @@ P:NPC {
 
   greetings = {
     { id = "g_light", text = "The Light keep you, friend, and keep you upwind of the farms while it's at it." },
+    { id = "g_xsquire", when = { origin = "human_paladin_squire" }, text = "A squire of the old Order, still keeping the oaths with nobody left to swear them to? The Light keep you, friend, and point you at a cauldron, because that's the finest prayer I know." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Tell me a cauldron coughed and choked out there, and you'll have made my whole day." },
     { id = "g_away", when = { away = 14 }, text = "The Light be thanked, you're back after {away} away! I kept you in my prayers the whole time, and I meant every one." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone in camp is hurt and angry after speaking with you. The Light asks us to mend what we break, so perhaps you'll find them before you go." },
@@ -1147,6 +1149,7 @@ P:NPC {
 
   greetings = {
     { id = "g_dawn", text = "For the Dawn, friend, and whatever else you fight for, add that to it." },
+    { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You took the oath once, I think, back in Uther's day, and the Light still answers you. The Dawn doesn't ask what you are now, friend, only what you fight." },
     { id = "g_back", when = { metBefore = true }, text = "Well met again. Have you any scourgestones in your pack? The Dawn will always take them off your hands." },
   },
 

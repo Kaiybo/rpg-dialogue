@@ -15,6 +15,7 @@ P:NPC {
   greetings = {
     { id = "g_chapel", text = "Light keep you, friend. Sit a moment, if you're not in a hurry; few people stop to talk to an old man about an old battle." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. I'd hoped you would, though I couldn't say why." },
+    { id = "g_xrefugee", when = { origin = "human_lordaeron_refugee" }, text = "You came out of Lordaeron as a child, didn't you? Then you got further than most of Darrowshire did, and I'm glad of it, so sit and let me tell you about the town your family never got to see." },
     { id = "g_away", when = { away = 14 }, text = "You came back after {away} away, and I'd hoped you would. Sit with me, for an old man has few visitors and fewer who return." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you gave someone at the chapel a kind word, and they've been smiling about it since. My Pamela would have liked you, I think." },
   },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-17)
+- Lady Jaina has a great deal more to say: harder questions about Thrall, Bolvar, Magni, Tyrande and Stratholme (a Persuade), and what she wants from you.
+
 ## 1.23.0 (2026-11-17)
 - The town's leading people greet you differently when you come back after a fortnight or more, notice how far you've come since they last saw you, and have heard what you did with their neighbours. Needs RPG Dialogue 0.67.0.
 

@@ -148,6 +148,7 @@ P:NPC {
     { id = "g_default", text = "Ey, mon. Ya got arrows, or ya got news?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' still breathin'. Dat makes ya lucky up here." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear face! Come sit by da fire, cousin, an' tell me how da islands be." },
+    { id = "g_loa", when = { origin = "troll_loa_speaker" }, text = "Ey, you be da one da loa talk to, I can tell by how ya keep smilin' at nothin'. Ask 'em what dey want for lettin' us off dis mountain, mon, an' if it be funny, don't tell me." },
   },
 
   notice = {

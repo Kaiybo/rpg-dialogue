@@ -117,6 +117,10 @@ P:NPC {
           text = "A paladin wi' that look about ye usually wants my censer. Shadowbreaker's sendin' them up the tram again, I suppose." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There ye are! I was hopin' ye'd come by, for I've a question that's been botherin' me all week an' the young ones are tired o' hearin' it." },
+        { id = "h_acolyte", when = { origin = "dwarf_mystic_acolyte" },
+          text = "Well, if it isnae my old broom-pusher! I'd know that walk anywhere, all corners an' no grace, an' I'll wager ye still pray the same way. Fall in beside me an' tell me what the road's taught ye." },
+        { id = "h_firstaltar", when = { origin = "gnome_first_altar" },
+          text = "There's my first gnome! I still remember ye at the altar rail askin' the acolytes what we prayed to, an' askin' again when ye didnae like the answer. Walk wi' me, for ye've earned a lap." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in the Mystic Ward! The Light an' the wild aren't the same thing, but I've always thought they're both a kind o' care for the world." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -150,7 +154,46 @@ P:NPC {
         { text = "Does the Light favour warriors, High Priest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you like to know about the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who mends the mender, High Priest?", next = "xpt_rohan", when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
+        { text = "Do I still pray like I'm sweeping, High Priest?", next = "xorig_sweep", when = { origin = "dwarf_mystic_acolyte" } },
+        { text = "Did you know I'd start praying, when I first came to ask?", next = "xorig_altar", when = { origin = "gnome_first_altar" } },
         { text = "Light keep you, High Priest.", next = "END" },
+      },
+    },
+    xorig_sweep = {
+      lines = {
+        { id = "xsw_default", text = "Every word o' it, an' I'll no' pretend otherwise! Ye go intae a prayer like ye're chasin' dust intae the corners, an' there's nae grace in it, but I'll tell ye a secret: the Light's never once complained about a clean floor." },
+      },
+      choices = {
+        { text = "Then I'll keep sweeping. It's honest work.", next = "xorig_sweep2", fx = { trait = { stern = 1 }, affinity = 1 } },
+        { text = "I've been trying to learn some grace, out on the road.", next = "xorig_sweep2", fx = { trait = { pious = 1 } } },
+        { text = "You never told me that when I was sweeping.", next = "xorig_sweep2", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xorig_sweep2 = {
+      lines = {
+        { id = "xsw2_default", text = "O' course I didnae, for ye'd have stopped sweepin'. The acolytes who come up through the broom make the steadiest priests in the Hall, because they learned early that most o' the Light's work is done on yer knees an' nobody watchin'." },
+      },
+      choices = {
+        { text = "Thank you, High Priest.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorig_altar = {
+      lines = {
+        { id = "xal_default", text = "Know it? I'd have wagered against it, an' lost my beard. Ye came in wi' a notebook an' a list o' questions as long as the tram, an' I thought ye wanted tae take the Light apart an' see how it worked, the way yer people do wi' everythin'." },
+      },
+      choices = {
+        { text = "I did, at first. Then it stopped feeling like a machine.", next = "xorig_altar2", fx = { trait = { pious = 1 } } },
+        { text = "I still have the notebook. I'm still asking.", next = "xorig_altar2", fx = { trait = { curious = 1 } } },
+      },
+    },
+    xorig_altar2 = {
+      lines = {
+        { id = "xal2_default", text = "Good, keep askin', for a priest who stops askin' starts preachin', an' I've enough o' those. There's more o' yer people at the rail every season now, an' half o' them say a gnome told them it was worth a look, so I've a fair idea who that was." },
+      },
+      choices = {
+        { text = "The dwarves gave us a home. I wanted to understand why.", next = "BACK", fx = { affinity = 2, standing = { ironforge = 1 } } },
+        { text = "Something else, High Priest.", next = "BACK" },
       },
     },
 
@@ -549,6 +592,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't turn yer back on the Light out in the snows, for it's colder out there than ye think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll say tae ye what I say tae everyone: don't turn yer back on the Light, whatever goddess ye pray to." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I'll say what I say tae everyone: dinnae turn yer back on the Light, even if ye've found somethin' else tae listen tae." },
+        { id = "h_acolyte", when = { origin = "dwarf_mystic_acolyte" },
+          text = "I remember ye wi' a broom in yer hands an' yer ears flappin' at every lesson ye werenae meant tae hear. Ye've the vestments now, so I'll expect ye tae have learned the warnin' as well as the prayers." },
+        { id = "h_firstaltar", when = { origin = "gnome_first_altar" },
+          text = "The gnome who asked me what the Light wanted in return, an' didnae like it when I said nothin'. I'll grant ye've stuck at it longer than I wagered, so don't turn yer back on it now." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Speak up; I've students waitin'." },
@@ -928,6 +975,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know the roads better than any courier, an' I've letters that need a sure foot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've had letters from the Temple o' the Moon pass through my hands, though I'm no' sure the sisters meant them for a dwarf tae sort." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If ye've come tae read the Hall's letters, I'll save ye the trouble, for half o' them are night elves askin' about the weather on Teldrassil." },
+        { id = "h_firstaltar", when = { origin = "gnome_first_altar" },
+          text = "Oh, it's you! I've had two letters from the Cathedral in Stormwind askin' whether it's true a gnome took vows in this Hall, an' I keep meanin' tae write back that the gnome's real an' standin' at my desk, only the letters keep pilin' up on top o' theirs." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've letters from three temples askin' what the Hall makes o' dwarves takin' up the old ways, an' I still havenae answered any o' them." },
       },
       again = {
