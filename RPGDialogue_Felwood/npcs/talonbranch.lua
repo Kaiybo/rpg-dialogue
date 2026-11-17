@@ -153,11 +153,67 @@ P:NPC {
       lines = {
         { id = "w_default", text = "Because a forest this sick needs druids who aren't afraid of it. I can't make the young ones unafraid, but I can make them used to it." },
       },
-      choices = { { text = "That's a hard lesson.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } } },
+      choices = {
+        { text = "That's a hard lesson.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
+        { text = "Do many of them stay?", next = "why_stay" },
+      },
+    },
+    why_stay = {
+      lines = {
+        { id = "ws_default", text = "Two in five, perhaps, and the ones who leave aren't worse druids for it. Some go back to Moonglade and some go to the Emerald Sanctuary, where the work is harder still, and I don't ask which they chose until they're ready to say." },
+      },
+      choices = {
+        { text = "And the ones who stay?", next = "why_young" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_young = {
+      big = true,
+      lines = {
+        { id = "wy_default", text = "They learn to hear the forest without weeping at it, which takes most of a year. I'm never sure whether I've taught them strength or only taught them to stop feeling, and I don't have an answer for that under the hood either." },
+      },
+      choices = {
+        { text = "A healer has to bear the pain. That is strength.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them weep. A druid who stops feeling is lost.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     glade = {
       lines = { { id = "g_default", text = "It's a clearing that's held out longer than most, and the moonwell keeps it clean, mostly. We guard the well, and the well guards us." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who else keeps the glade?", next = "glade_folk" },
+        { text = "What threatens it?", next = "glade_threat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glade_folk = {
+      lines = {
+        { id = "gf_default", text = "Mishellena and her hippogryphs, who carry everything we eat, and Malygen, who sells reagents and fusses about the damp. Taronn Redfeather studies the wildkin of Winterspring and talks about them to anyone who sits still, so don't sit still near him unless you have an afternoon to give." },
+      },
+      choices = {
+        { text = "I'll keep moving, then.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glade_threat = {
+      lines = {
+        { id = "gt_default", text = "The Deadwood to the north, the satyrs to the south, and the slow rot of the streams, which is the worst of them because it never sleeps. The Sentinels keep the first two off, and the moonwell keeps the third, for now." },
+      },
+      choices = {
+        { text = "For now?", next = "glade_now" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glade_now = {
+      big = true,
+      lines = {
+        { id = "gn_default", text = "Each year the moonwell's light reaches a step less far into the trees. One day it will reach only the water's edge, and then we'll have to choose whether to stay and keep it, or carry what we can south and let the forest have the glade." },
+      },
+      choices = {
+        { text = "Stay. Abandoning the well is giving Felwood to the demons.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Go south. A druid alive does more good than a dead one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
