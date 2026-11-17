@@ -16,3 +16,7 @@ npcs\deathknell.lua
 npcs\brill.lua
 npcs\roads.lua
 npcs\unsung.lua
+npcs\dillinger.lua
+npcs\gunther.lua
+npcs\gordo.lua
+npcs\austil.lua

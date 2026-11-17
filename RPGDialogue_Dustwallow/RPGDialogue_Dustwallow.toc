@@ -17,3 +17,7 @@ npcs\theramore_more.lua
 npcs\brackenwall.lua
 npcs\marsh.lua
 npcs\unsung.lua
+npcs\tharg.lua
+npcs\dogol.lua
+npcs\mudcrush.lua
+npcs\nat_pagle.lua

@@ -15,3 +15,6 @@ pools.lua
 npcs\thelsamar.lua
 npcs\loch_roads.lua
 npcs\thelsamar_shops.lua
+npcs\hornhelm.lua
+npcs\farstrider.lua
+npcs\bluntnose.lua

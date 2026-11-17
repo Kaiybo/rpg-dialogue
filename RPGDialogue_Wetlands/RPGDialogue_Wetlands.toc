@@ -16,3 +16,7 @@ npcs\menethil.lua
 npcs\menethil_more.lua
 npcs\wetlands_roads.lua
 npcs\menethil_shops.lua
+npcs\dunmodr.lua
+npcs\greenwarden.lua
+npcs\halloran.lua
+npcs\merrin.lua

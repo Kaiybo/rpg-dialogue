@@ -14,3 +14,7 @@ pack.lua
 npcs\morgans_vigil.lua
 npcs\flame_crest.lua
 npcs\steppes.lua
+npcs\morzul.lua
+npcs\gorzeeki.lua
+npcs\shani.lua
+npcs\grark.lua

@@ -25,3 +25,9 @@ npcs\great_forge_crafts.lua
 npcs\tinker_town_shops.lua
 npcs\wards_cavern.lua
 npcs\kharanos_shops.lua
+npcs\talin_keeneye.lua
+npcs\balir_frosthammer.lua
+npcs\nori_pridedrift.lua
+npcs\mountaineer_thalos.lua
+npcs\pilot_stonegear.lua
+npcs\razzle_sprysprocket.lua

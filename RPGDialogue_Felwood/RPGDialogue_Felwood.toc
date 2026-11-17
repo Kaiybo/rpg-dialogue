@@ -17,3 +17,7 @@ npcs\bloodvenom.lua
 npcs\talonbranch.lua
 npcs\timbermaw.lua
 npcs\felwood_posts.lua
+npcs\jessir.lua
+npcs\arkonarin.lua
+npcs\dreka.lua
+npcs\arei.lua
