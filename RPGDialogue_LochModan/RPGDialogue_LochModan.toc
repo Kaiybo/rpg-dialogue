@@ -21,3 +21,6 @@ npcs\bluntnose.lua
 npcs\excavation.lua
 npcs\thelsamar_folk.lua
 npcs\valley_patrols.lua
+npcs\thelsamar_trades.lua
+npcs\stoutlager_stalls.lua
+npcs\loch_edges.lua

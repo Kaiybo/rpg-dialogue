@@ -20,3 +20,5 @@ npcs\zamael.lua
 npcs\nilith.lua
 npcs\dying_archaeologist.lua
 npcs\maltrake.lua
+npcs\thoriumpoint_works.lua
+npcs\tanner_camp.lua

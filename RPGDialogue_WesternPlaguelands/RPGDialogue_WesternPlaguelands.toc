@@ -19,3 +19,5 @@ npcs\wilds.lua
 npcs\roads.lua
 npcs\theldanis.lua
 npcs\lucien.lua
+npcs\chillwind_scouts.lua
+npcs\bulwark_folk.lua

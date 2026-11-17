@@ -21,3 +21,5 @@ npcs\theldurin.lua
 npcs\sigrun.lua
 npcs\thaltrak.lua
 npcs\gorn.lua
+npcs\badlands_wanderers.lua
+npcs\kargath_force.lua

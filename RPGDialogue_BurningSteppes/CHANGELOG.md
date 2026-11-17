@@ -5,6 +5,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.17.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 
+## 1.17.0 (2026-11-17)
+- New people to talk to: Gabrielle Chase, Felder Stover, Gruna. New files: restart the game fully (a /reload won't load them).
+
 ## 1.16.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

@@ -5,6 +5,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.18.0 (2026-11-17)
 - Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
 
+## 1.18.0 (2026-11-17)
+- New people to talk to: Flint Shadowmore, Alexia Ironknife, Argent Quartermaster Hasana, Bardu Sharpeye, Werg Thickblade. New files: restart the game fully (a /reload won't load them).
+
 ## 1.17.1 (2026-11-17)
 - Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
 

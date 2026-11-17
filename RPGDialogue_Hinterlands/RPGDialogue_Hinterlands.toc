@@ -19,3 +19,6 @@ npcs\unsung.lua
 npcs\shindigger.lua
 npcs\agnar.lua
 npcs\exile.lua
+npcs\wildhammer_keep.lua
+npcs\aerie_riders.lua
+npcs\revantusk_kin.lua

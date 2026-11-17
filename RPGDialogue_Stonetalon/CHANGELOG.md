@@ -14,6 +14,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.22.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Tuu'li and Xaphod Bizznox.
 
+## 1.22.0 (2026-11-17)
+- New people to talk to: Grawnal, Kulwia, Krond, Borand, Tharm, Gereck, Hgarth, Jeeda, Chylina, Illyanie, Piznik. New files: restart the game fully (a /reload won't load them).
+
 ## 1.21.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

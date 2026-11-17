@@ -24,3 +24,7 @@ npcs\bandarion_keep.lua
 npcs\deathknell_forever.lua
 npcs\brill_forever.lua
 npcs\glades_forever.lua
+npcs\brill_watch.lua
+npcs\brill_trainers.lua
+npcs\brill_market.lua
+npcs\deathknell_trainers.lua

@@ -18,3 +18,4 @@ npcs\morzul.lua
 npcs\gorzeeki.lua
 npcs\shani.lua
 npcs\grark.lua
+npcs\steppes_traders.lua

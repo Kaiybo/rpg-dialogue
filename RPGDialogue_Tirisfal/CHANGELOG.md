@@ -14,6 +14,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.20.0 (2026-11-17)
 - New Forever-only characters (new files: full game restart): Bandarion Keep's Forsaken paladins (Danitha Morr, Breton Samuels, Jorin Croge, Ephram Barbaro, Hilda the Breaker, Billmuth, Ander Solliden, Angus Hammerhand, Evin Schmidtt) and Bareth Dawnstone; Deathknell's trainers, Shari Stilwell, William Pickman and Angie Cilas in Brill, Hadric Harlson, Deathguard Kristof, Lizabetha and Falgan, Deyrek Duke, Relreo Emberlight, and the Bulwark's Adelbert Edmunds and Rickard Hardee. Forsaken paladins get their own lines throughout.
 
+## 1.20.0 (2026-11-17)
+- New people to talk to: Deathguards Simmer, Burgess and Linnea, a captured Scarlet zealot, Dark Cleric Beryl, Cain Firesong, Marion Call, Faruza, Abigail Shiel, Mrs. Winters, Morganus, Venya Marthand, David Trias, Isabella. New files: restart the game fully (a /reload won't load them).
+
 ## 1.19.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

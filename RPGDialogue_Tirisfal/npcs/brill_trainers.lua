@@ -1,0 +1,381 @@
+-- Brill's teachers: the priest trainer who tests the Light before the dark, and the mage,
+-- rogue and herbalist trainers at the Gallows' End and around the square.
+-- Voices: bibles/brill_trainers.md
+local P = RPGDialogueAPI:Pack("rpgd.tirisfal")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+-- Dark Cleric Beryl: Brill's priest trainer.
+P:NPC {
+  key = "tir_beryl", id = TODO_NPC("Dark Cleric Beryl"), name = "Dark Cleric Beryl", title = "Priest Trainer",
+  bible = "bibles/brill_trainers.md", role = "trainer", tier = "quest",
+  communities = { "brill" }, temper = { "calm", "cold" }, values = { "wise", "stern" },
+  notices = { "class", "race", "light", "form" },
+  impression = {
+    first = "Dark Cleric Beryl teaches the Forsaken priests of Brill, and she insists they master the Light before she lets them near the shadow. She is cool and exact, and she seems to find the Light more useful than holy.",
+    third = "{name} met Dark Cleric Beryl, Brill's priest trainer, who tests her students on the Light before teaching them darker things.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Speak plainly and quietly. I've students who are trying to listen to things you can't hear." },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "A priest. Good; come closer, and let me see how much of the Light still answers you." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Garments of Darkness") }, text = "Deathguard Kel is north of the cemetery, waiting on a healer. Mend him, shield him, and come back to me." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Garments of Darkness") }, text = "You passed my little test easily enough. Wear the robe as though you meant it, because others will be watching." },
+    { id = "g_away", when = { away = 14 }, text = "{away} gone. I hope you've been practising, because the shadow doesn't wait for anyone who stops." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry more power than when I first tested you. Be careful with it, because power is the easy part." },
+  },
+
+  notice = {
+    { id = "n_shadow", cat = "form", when = { form = "shadow" },
+      text = "You wear the shadow openly in the street. Bold, but I'd sooner my students learned discretion before they learned to show off." },
+    { id = "n_troll", cat = "race", when = { class = "PRIEST", race = "Troll" },
+      text = "A troll priest, in Brill. Your loa are not my concern, but I'll teach you what I know of the Light and the dark both, if you've the patience." },
+    { id = "n_light", cat = "light", when = { class = "PALADIN" },
+      text = "A paladin, among the Forsaken. You'll find we have a more practical relationship with the Light than you were taught, and fewer hymns." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Dark Cleric Beryl. I teach the priests of Brill, and before I teach them anything of the shadow, I make certain they understand the Light, since you can't master the dark if you don't know what it's the absence of." },
+        { id = "h_before", when = { class = "PRIEST", race = "Scourge", questBefore = TODO_QUEST("Garments of Darkness") },
+          text = "I have a test for you, and it isn't the one you're expecting. You'll heal with the Light first, and shield with it, and only then will I trust you with anything darker." },
+        { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Garments of Darkness"), days = 3 } },
+          text = "Kel says you mended him well, and he isn't easily impressed. Take the robe, and know that more will be asked of you, and darker powers offered, soon enough." },
+        { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } },
+          text = "You're no priest, so I've nothing to teach you, but I don't mind questions as long as they're quiet ones." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep it brief, and keep it low." },
+        { id = "h_again2", text = "Ask, then. Silence is a lesson too, but not one you seem ready for." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "Why test the Light, if we serve the shadow?", next = "test" },
+        { text = "Who is Deathguard Kel?", next = "kel" },
+        { text = "Does the Light still answer the dead?", next = "light" },
+        { text = "What is the Forgotten Shadow?", next = "shadow" },
+        { text = "What becomes of a priest after your robe?", next = "after", when = { questDone = TODO_QUEST("Garments of Darkness") } },
+        { text = "I'll go.", next = "END" },
+      },
+    },
+
+    test = {
+      lines = { { id = "t_default", text = "Because the Light is a tool, and a good one, and I'll not have my students throw it away out of spite. A priest who can't mend a wounded Deathguard is no use to anyone, however dark the words she whispers." } },
+      choices = {
+        { text = "Isn't the Light our enemy now?", next = "test_enemy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    test_enemy = {
+      lines = { { id = "te_default", text = "The Crusade is our enemy, and it wields the Light, but that's not the same thing. The Light didn't burn us; men did, and they'd have burned us with torches if they'd had no prayers at all." } },
+      choices = {
+        { text = "So the Light is only a weapon?", next = "test_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    test_stance = {
+      big = true,
+      lines = { { id = "ts_default", text = "It's a power, and powers don't care who uses them. That troubles some of my students, who want the Light to have hated them, because then their anger would have somewhere to go." } },
+      choices = {
+        { text = "The Light abandoned us. I'll not forgive it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The Light didn't abandon us. People did.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    kel = {
+      lines = { { id = "k_default", text = "A Deathguard who keeps watch north of the cemetery, and comes off worse from it more often than he admits. He's my test because he's honest, and he'll tell me whether your healing held or whether he had to bandage himself afterwards." } },
+      choices = {
+        { text = "Does he mind being practised on?", next = "kel_mind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kel_mind = {
+      lines = { { id = "km_default", text = "He minds the clumsy ones. He told me last month that one of my students healed him so hard his teeth rattled, which I'm told isn't possible, though I wasn't there to see it." } },
+      choices = { { text = "I'll be gentle with him.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    light = {
+      lines = {
+        { id = "l_default", text = "It does, though it stings us to call it, and some can't bear the sting. The Light doesn't seem to ask whether the hand reaching for it is warm or cold, and I find that more interesting than the priests of Lordaeron ever did." },
+        { id = "l_scourge", when = { race = "Scourge", class = "PRIEST" }, text = "You know it does, because you've felt it burn in your hands when you heal. The Light doesn't ask whether the hand is warm or cold, only whether it's willing to bear the pain." },
+      },
+      choices = {
+        { text = "Why does it sting?", next = "light_sting" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_sting = {
+      lines = { { id = "ls_default", text = "I have a theory, and Sarvis in Deathknell has a different one, and we argue about it whenever we meet. Mine is that the Light remembers what we were made by, and it hurts to be reminded of the Scourge's touch, even for the Light." } },
+      choices = {
+        { text = "And Sarvis's theory?", next = "light_sarvis" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_sarvis = {
+      lines = { { id = "lsa_default", text = "Sarvis says it stings because we won't be afraid of it, and fear is what it's used to being given. He's a better priest than he is a philosopher, but I'll admit his theory is the more cheerful of the two." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    shadow = {
+      lines = { { id = "sh_default", text = "Our faith, such as it is. The Cult of Forgotten Shadow teaches that death is a door we've already walked through, so there's nothing left behind it to fear, and the shadow is simply the power of standing on the other side." } },
+      choices = {
+        { text = "Is it a faith or a philosophy?", next = "shadow_faith" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shadow_faith = {
+      big = true,
+      lines = { { id = "sf_default", text = "Both, and neither, depending on which of us you ask and how late it is. I've no gods to offer you, only the knowledge that you've already lost everything once and you're still here, which is more comfort than most gods give." } },
+      choices = {
+        { text = "That's comfort enough for me.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'd rather have something to believe in.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    after = {
+      lines = { { id = "a_default", text = "More lessons, and harder ones, and the Undercity's priests will start to notice you. The robe tells them you've been tested and passed, which is more than many who wear one can say." } },
+      choices = {
+        { text = "What will they ask of me?", next = "after_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    after_ask = {
+      big = true,
+      lines = { { id = "aa_default", text = "Obedience, at first, and then judgement, and the hard part is knowing which one they want on a given day. Serve the Dark Lady well and the cult will reward you, but serve your own mind first, or you'll make a poor priest of any kind." } },
+      choices = {
+        { text = "I'll serve the cult as it asks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My own mind first, then. Always.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "Not a matter for a priest. Ask the magistrate, or ask nobody." } },
+  },
+}
+
+-- Cain Firesong: mage trainer at the Gallows' End.
+P:NPC {
+  key = "tir_cain", id = TODO_NPC("Cain Firesong"), name = "Cain Firesong", title = "Mage Trainer",
+  bible = "bibles/brill_trainers.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "chatty", "proud" }, values = { "curious", "ambitious" },
+  notices = { "class", "arcane" },
+  impression = {
+    first = "Cain Firesong teaches magic in the back of the Gallows' End and talks about fire the way other men talk about old sweethearts. He is vain, quick and good company, and he has not forgiven Dalaran for anything.",
+    third = "{name} met Cain Firesong, who trains mages at the Gallows' End in Brill.",
+  },
+  greetings = {
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Sit down, sit down, and mind Renee's tablecloth, she's very particular after last time." },
+    { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "You're not one of mine, but you may watch, provided you stand well back. My students have enthusiasm, and not all of it aims where they mean it to." },
+    { id = "g_anastasia", when = { questActive = TODO_QUEST("Speak with Anastasia") }, text = "Anastasia Hartwell, in the Undercity's Magic Quarter. Go, and give her my regards, and don't tell her about the tablecloth." },
+  },
+  notice = {
+    { id = "n_arcane", cat = "arcane", when = { class = { "MAGE", "WARLOCK" }, race = "Scourge" },
+      text = "Your hands still remember the gestures, I can see it. Death steals the names and faces, but it leaves the spellwork, which tells you something about where the mind keeps its treasures." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Cain Firesong, at your service, and yes, it's the name I chose. When you come back from the grave you may as well come back as something memorable." },
+        { id = "h_troll", when = { race = "Troll", class = "MAGE" }, text = "A troll mage, and I'm told your people's magic is mostly whispers and bones. Let me show you what a Lordaeron education can do, and you can tell me which you prefer." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I'm happy to talk; it's the listening I've trouble with." },
+        { id = "h_again2", text = "Go on. The fire's warm, or so they tell me." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "Why Firesong?", next = "name" },
+        { text = "What do you think of Dalaran?", next = "dalaran" },
+        { text = "Why teach in a tavern?", next = "tavern" },
+        { text = "Who is Anastasia Hartwell?", next = "anastasia", when = { class = "MAGE" } },
+        { text = "Farewell, Cain.", next = "END" },
+      },
+    },
+    name = {
+      lines = { { id = "n_default", text = "Because I couldn't remember my old one, and fire is the first spell I remembered when I woke. It seemed only polite to take the name of the friend who came back with me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dalaran = {
+      lines = { { id = "d_default", text = "I think they sat behind their walls arguing about protocol while Kel'Thuzad walked out of their halls with the plague in his pocket. Then they sent mages to Ambermill to guard a ruin, which tells you everything about their priorities." } },
+      choices = {
+        { text = "They suffered too, Cain.", next = "dalaran_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dalaran_stance = {
+      big = true,
+      lines = { { id = "ds_default", text = "They did, and the demons laid their city low, and I'm not cruel enough to cheer it. But they had the knowledge to see it coming and the pride not to, and pride is a sin I'm qualified to recognise." } },
+      choices = {
+        { text = "Dalaran's pride doomed Lordaeron. They earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Hindsight is cheap. They did what they could.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tavern = {
+      lines = { { id = "t_default", text = "Because the Undercity has proper tutors, and Brill has me, and I'm cheaper and better company. Also, Renee keeps a bucket of water by the door, which is the most useful teaching aid I've ever had." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    anastasia = {
+      lines = { { id = "a_default", text = "A tutor in the Undercity's Magic Quarter, and a much more serious mage than me. When you're ready, I'll send you to her, and she'll set you a task that will teach you something I can't, mostly patience." } },
+      choices = {
+        { text = "I'll be ready soon.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Not my subject. Mine is fire, and occasionally frost, when Renee complains." } },
+  },
+}
+
+-- Marion Call: rogue trainer at the Gallows' End.
+P:NPC {
+  key = "tir_marion", id = TODO_NPC("Marion Call"), name = "Marion Call", title = "Rogue Trainer",
+  bible = "bibles/brill_trainers.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "smooth", "watchful" }, values = { "cunning", "careful" },
+  notices = { "class", "stealth" },
+  impression = {
+    first = "Marion Call trains rogues in a quiet corner of the Gallows' End and notices everything said within earshot. She is soft-spoken and amused, and I had the feeling she knew more about me after five minutes than I'd meant to tell her.",
+    third = "{name} met Marion Call, who trains rogues at the Gallows' End in Brill.",
+  },
+  greetings = {
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "There you are. I heard you on the stairs, which we'll work on." },
+    { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You've walked into the wrong corner, friend, but sit if you like. I don't bite, and I only listen when it's worth it." },
+    { id = "g_mennet", when = { questActive = TODO_QUEST("Mennet Carkad") }, text = "Mennet Carkad, in the Undercity's Rogues' Quarter. He'll find you before you find him, so don't worry about the finding." },
+  },
+  notice = {
+    { id = "n_stealth", cat = "stealth", when = { stealthed = true },
+      text = "Very good, but your shadow's on the wall behind you. Lamps, {class}; always know where the lamps are." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Marion Call. I teach the quiet arts to anyone with quick hands and a reason to use them. Brill's a small town, so I also hear most of what's said in it, and I tell the magistrate the parts that matter." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep your voice low; Renee's tables have ears." },
+        { id = "h_again2", text = "Go on. I'm listening, as always." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
+        { text = "Who is Mennet Carkad?", next = "mennet", when = { class = "ROGUE" } },
+        { text = "You report to the magistrate?", next = "sevren" },
+        { text = "What's worth hearing in Brill?", next = "gossip" },
+        { text = "Who were you before?", next = "past" },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    mennet = {
+      lines = { { id = "m_default", text = "A deathstalker, and a teacher of the sharper sort, in the Undercity. When you've learned what I can show you, he'll show you what the Dark Lady needs from people like us, which is mostly letters that aren't ours to read." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } } },
+    },
+    sevren = {
+      lines = { { id = "s_default", text = "I tell him what matters, and he pretends he'd have found it out anyway. It's a good arrangement; he keeps his town, and I keep my corner, and the deathstalkers don't have to bother either of us." } },
+      choices = {
+        { text = "So you're an informer.", next = "sevren_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sevren_stance = {
+      big = true,
+      lines = { { id = "ss_default", text = "I'm a citizen with good hearing, and that's a much nicer word for it. Every town needs someone who listens, and I'd rather it was me than someone with a grudge." } },
+      choices = {
+        { text = "Someone has to keep order. Good on you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A thief who reports to magistrates isn't much of one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gossip = {
+      lines = { { id = "g_default", text = "Coleman Farthing still talks to the Agamands' portrait when he thinks nobody's listening, and Johaan's been buying more vials than his work could possibly need. There's also a courier who passes through from the Sepulcher with very clean boots, and I don't trust clean boots." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    past = {
+      lines = { { id = "p_default", text = "Someone who knew which windows in Lordaeron's merchant quarter didn't latch. I don't miss it, though I miss the bread from the bakery across the way, which I never once paid for." } },
+      choices = {
+        { text = "Then you were a thief.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    syndicate = { { id = "tp_syndicate", text = "Alterac's old nobles playing at thieves. Not as clever as they think, and cleverer than the Deathguard think." } },
+    _none = { { id = "tp_none", text = "Haven't heard that one. Give me a day." } },
+  },
+}
+
+-- Faruza: Brill's herbalism trainer.
+P:NPC {
+  key = "tir_faruza", id = TODO_NPC("Faruza"), name = "Faruza", title = "Herbalism Trainer",
+  bible = "bibles/brill_trainers.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "calm", "earnest" }, values = { "craft", "patient" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Faruza teaches herbalism in Brill and knows every weed in the Glades by its smell. She is calm and earnest, and she treats the blighted plants of Tirisfal as patients rather than lost causes.",
+    third = "{name} met Faruza, Brill's herbalism trainer.",
+  },
+  greetings = {
+    { id = "g_default", text = "Wipe your boots, please; you've brought half of the cemetery in on them." },
+    { id = "g_herb", when = { profession = "Herbalism" }, text = "An herbalist! Let me smell your satchel. Peacebloom, earthroot, and something that's gone off at the bottom." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren, in Brill! Your people know more about growing things than all of Lordaeron ever did. I'd learn from you, if you'd let me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Faruza, and I teach herbalism to anyone patient enough to kneel in the mud for it. Tirisfal's soil is sick, but things still grow in it, and the apothecaries pay well for the ones that grow strangely." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know? I've seeds to sort." },
+        { id = "h_again2", text = "Go on. Plants don't mind waiting." },
+      },
+      choices = {
+        { text = "Teach me herbalism.", next = "BUSINESS" },
+        { text = "What grows in Tirisfal?", next = "grows" },
+        { text = "Do the apothecaries buy from you?", next = "apoth" },
+        { text = "Why herbs, for one of the dead?", next = "why" },
+        { text = "Good day, Faruza.", next = "END" },
+      },
+    },
+    grows = {
+      lines = { { id = "g_default", text = "Peacebloom and silverleaf near the roads, earthroot in the hills, and mageroyal by the water if you're lucky. Then there's doom weed, which Holland pays for, and which you should never, ever touch without gloves." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    apoth = {
+      lines = { { id = "a_default", text = "Johaan does, and Holland, for anything that grew in plague-soaked ground. I sell them what they ask for and I don't ask what it's for, because I've learned the answers are usually long and full of words I don't like." } },
+      choices = {
+        { text = "You should ask, Faruza.", next = "apoth_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    apoth_stance = {
+      big = true,
+      lines = { { id = "as_default", text = "Perhaps, but I'm one woman with a basket, and they're the Royal Apothecary Society. I'll grow what grows, and leave the questions to someone with more to lose than I have." } },
+      choices = {
+        { text = "Knowledge is never wasted. Ask them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Wise. Leave the Society to its work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because they're alive, and I'm not, and I like to be near something that is. When a seed I planted comes up green, I feel a little less like what I am." } },
+      choices = {
+        { text = "That's a gentle way to live.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    new_plague = { { id = "tp_plague", text = "I sell weeds. Ask Johaan what he does with them." } },
+    _none = { { id = "tp_none", text = "I know plants and not much else. Ask Renee at the inn." } },
+  },
+}

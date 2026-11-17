@@ -20,3 +20,8 @@ npcs\felgur.lua
 npcs\uthek.lua
 npcs\warug.lua
 npcs\desolace_forever.lua
+npcs\ghost_walker_post.lua
+npcs\shadowprey_elders.lua
+npcs\shadowprey_docks.lua
+npcs\nijels_point_watch.lua
+npcs\cavindra.lua

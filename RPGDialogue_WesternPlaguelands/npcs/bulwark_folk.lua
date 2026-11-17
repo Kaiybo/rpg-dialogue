@@ -1,0 +1,284 @@
+-- The Bulwark's other residents: Argent Quartermaster Hasana, the troll who keeps the Dawn's stores on the
+-- Horde side of the wall; Bardu Sharpeye, a tauren bound for Hearthglen; Werg Thickblade, the orc who sells
+-- leather to anyone who'll stop long enough to buy. Voice: bibles/bulwark_folk.md
+local P = RPGDialogueAPI:Pack("rpgd.westernplaguelands")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+P:NPC {
+  key = "hasana", id = TODO_NPC("Argent Quartermaster Hasana"), name = "Argent Quartermaster Hasana",
+  title = "The Argent Dawn",
+  bible = "bibles/bulwark_folk.md", role = "vendor", tier = "service",
+  communities = { "bulwark", "argent_dawn" }, temper = { "cheerful", "shrewd" }, values = { "dutiful", "practical" },
+  notices = { "status", "race" },
+
+  impression = {
+    first = "Argent Quartermaster Hasana keeps the Dawn's stores at the Bulwark and laughs more than anyone else behind that wall. She sells only to those the Dawn trusts, and she says it with a grin that makes it hard to argue.",
+    third = "{name} met Argent Quartermaster Hasana, the troll who keeps the Argent Dawn's stores at the Bulwark.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Ey, welcome to de Dawn's stores, mon. Everyting here be for de Dawn's friends, so tell me, be you one?" },
+    { id = "g_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } }, text = "De Dawn don't know you yet, mon. Go see Garush, bring him some scourgestones, an' den come back to Hasana." },
+    { id = "g_honored", when = { reputation = { faction = "Argent Dawn", min = "honored" } }, text = "Dere be one de officers talk about! Come, come, Hasana got good tings for you." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, mon. De dead still walkin', an' you still breathin', so dat be a good day." },
+  },
+
+  notice = {
+    { id = "n_revered", cat = "status", when = { reputation = { faction = "Argent Dawn", min = "revered" } },
+      text = "Revered by de Dawn, eh? Den we should be talkin' about de mantles, mon." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear, so far from de islands! Dis wall be cold for de likes of us, ya?" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Hasana, quartermaster for de Argent Dawn here at de Bulwark. Bandages, holy water, an' all de little tings dat keep a body alive, for dem dat de Dawn trust." },
+        { id = "h_mantle", when = { reputation = { faction = "Argent Dawn", min = "revered" } },
+          text = "You revered among us now, mon, so I can sell you de mantles of de Dawn, if you bring me ten valor tokens first. De tokens be your tribute, an' de tribute show you mean it." },
+        { id = "h_mantle_done", when = { questDone = TODO_QUEST("Mantles of the Dawn") },
+          text = "Your name be in de book now, mon, an' any quartermaster of de Dawn sell you a mantle while you keep your standin'." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "An Alliance face at de Bulwark! De Forsaken be twitchy about dat, so you best keep close to me an' Garush, mon." },
+      },
+      again = { { id = "h_again", text = "What else, mon? Hasana got time for you." } },
+      choices = {
+        { text = "Show me your stores.", next = "BUSINESS" },
+        { text = "Why does a troll serve the Argent Dawn?", next = "why" },
+        { text = "How do the Forsaken treat the Dawn here?", next = "forsaken" },
+        { text = "Tell me about these mantles.", next = "mantles", when = { reputation = { faction = "Argent Dawn", min = "honored" } } },
+        { text = "Which of your wares sells best?", next = "wares" },
+        { text = "Farewell, Hasana.", next = "END" },
+      },
+    },
+
+    why = {
+      lines = { { id = "wy_default", text = "Because de Scourge don't care what tusks you got, mon, it eat everybody de same. De Dawn be de only ones fightin' it for everybody, an' Hasana like dat kind of fight." } },
+      choices = {
+        { text = "Does your tribe mind?", next = "why_tribe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_tribe = {
+      big = true,
+      lines = { { id = "wt_default", text = "Some say I should be fightin' for de Horde first an' de Dawn second. I say de Horde need a world to live in, an' dat come first, mon." } },
+      choices = {
+        { text = "You're right. The world first, banners second.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your tribe has a point. Loyalty starts at home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "argent_dawn" } } },
+      },
+    },
+
+    forsaken = {
+      big = true,
+      lines = { { id = "fs_default", text = "Dey be cold, but dey be fair, an' dey fight harder dan anybody on dis wall, because dey know what de Scourge do to you. De apothecaries, though, I keep my stores far from dem, mon." } },
+      choices = {
+        { text = "Wise. The apothecaries can't be trusted.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The apothecaries' work keeps this wall standing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    mantles = {
+      lines = { { id = "mn_default", text = "Mantles to put on your shoulders, mon, against fire, frost, shadow, nature an' de arcane. Revered with de Dawn, ten valor tokens, an' dey yours to buy from any of us quartermasters." } },
+      choices = {
+        { text = "I'll start collecting tokens.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    wares = {
+      lines = { { id = "wr_default", text = "Bandages, mon, always bandages, an' de holy water for dem dat need to burn a ghoul in a hurry. De Forsaken don't buy de bandages, of course, dey just stitch demselves back up an' keep walkin'." } },
+      choices = {
+        { text = "Handy trick, that.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Darkspear, mon, from de islands, an' now quartermaster on a cold wall. Life be funny." } },
+    argent_dawn = { { id = "tp_ad", text = "Everybody fightin' de Scourge together, mon. It be de only good idea dis land had in years." } },
+    _none = { { id = "tp_none", text = "Hasana don't know dat one, mon. Ask Derrington, he know everyting an' tell nuttin'." } },
+  },
+}
+
+P:NPC {
+  key = "bardu", id = TODO_NPC("Bardu Sharpeye"), name = "Bardu Sharpeye",
+  bible = "bibles/bulwark_folk.md", role = "citizen", tier = "service",
+  communities = { "bulwark" }, temper = { "calm", "patient" }, values = { "curious", "careful" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "Bardu Sharpeye is a tauren resting at the Bulwark before going on to Hearthglen, after a Scarlet mage's lost weapons. He speaks slowly and seems to have thought about every word first.",
+    third = "{name} met Bardu Sharpeye, a tauren at the Bulwark preparing to search Hearthglen for a murdered Scarlet mage's weapons.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hello, {class}. I've set up camp here to make my preparations, so forgive me if I talk while I pack." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "One of the shu'halo, here among the dead! The Earth Mother walks a long way with us, it seems." },
+    { id = "g_back", when = { metBefore = true }, text = "Still packing, yes. A tauren carries a great deal, and forgets it all the same." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Your bow has a good bend to it. Mine is older, but it shoots straight, and that's all I ask of it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Bardu Sharpeye, of the tauren tribes. I've heard that before the Scarlet Crusade lost their minds, they kept a mage who made bows and guns finer than any I've seen, and that they killed him before his work could leave Hearthglen." },
+      },
+      again = { { id = "h_again", text = "Something more? I have a little time yet." } },
+      choices = {
+        { text = "Why does a tauren care about Scarlet weapons?", next = "why" },
+        { text = "How do the Forsaken treat you here?", next = "forsaken" },
+        { text = "Do you miss Mulgore?", next = "mulgore" },
+        { text = "How will you get into Hearthglen?", next = "hearthglen" },
+        { text = "Earth Mother guide you, Bardu.", next = "END" },
+      },
+    },
+
+    why = {
+      big = true,
+      lines = { { id = "wy_default", text = "Because a weapon that good shouldn't sit in the hands of men who burn the living for being afraid. I'd rather it were buried, or used against the Scourge, than left for them." } },
+      choices = {
+        { text = "Use it against the Scourge. That's what it's for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Bury it. Weapons made by murderers carry their stain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "scarlet_crusade" } } },
+      },
+    },
+
+    forsaken = {
+      lines = { { id = "fs_default", text = "Politely, and from a distance. They smell of the grave and I smell of the plains, and we've agreed not to mention it." } },
+      choices = {
+        { text = "Do you trust them?", next = "forsaken_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken_trust = {
+      big = true,
+      lines = { { id = "ft_default", text = "Cairne trusts them, and so I give them the trust I'd give a stranger at a fire, which is enough to sit by and not enough to sleep by. Perhaps that will change, if they earn it." } },
+      choices = {
+        { text = "They're Horde. That should be enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust is earned, not owed to a banner.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    mulgore = {
+      lines = { { id = "mu_default", text = "Every day, and most of all at dusk, when the plains would be turning gold. Here the dusk is grey, and so is the dawn, and so is everything in between." } },
+      choices = {
+        { text = "You'll see the plains again.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hearthglen = {
+      lines = { { id = "hg_default", text = "Slowly, and at night, and around the long way through the hills. A tauren is not easy to hide, so I'll rely on the Scarlets looking for the dead instead of the living." } },
+      choices = {
+        { text = "Be careful. They hate the living too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "A hunter of the plains who followed a rumour too far east. My mother would laugh at me." } },
+    scarlet_crusade = { { id = "tp_sc", text = "They fear everything, and fear makes them cruel. I pity them, a little, though I'd not turn my back on one." } },
+    _none = { { id = "tp_none", text = "I don't know, {class}. I'm only a traveller here, as you are." } },
+  },
+}
+
+P:NPC {
+  key = "werg", id = TODO_NPC("Werg Thickblade"), name = "Werg Thickblade", title = "Leatherworking Supplies",
+  bible = "bibles/bulwark_folk.md", role = "vendor", tier = "service",
+  communities = { "bulwark" }, temper = { "gruff", "blunt" }, values = { "practical", "trade" },
+  notices = { "craft", "race" },
+
+  impression = {
+    first = "Werg Thickblade sells leatherworking supplies at the Bulwark and complains about the smell of the place in the same breath. He's the only orc I've met who misses the Barrens' heat.",
+    third = "{name} met Werg Thickblade, an orc selling leatherworking supplies at the Bulwark.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Thread, dye, salt, the lot. Buy something or move along, because the Forsaken don't like crowds at the wall." },
+    { id = "g_orc", when = { race = "Orc" }, text = "Lok'tar! A proper orc, at last, and not another walking corpse. What do you need?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good; you paid last time." },
+  },
+
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "A leatherworker! Then you know what I mean about the hides here. Half of them are rotten before you skin them." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Werg Thickblade. I sell leatherworking supplies to whoever stands still long enough, which out here is mostly the dead." },
+      },
+      again = { { id = "h_again", text = "What else? Make it quick." } },
+      choices = {
+        { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "How's trade at the Bulwark?", next = "trade" },
+        { text = "Why would an orc come here?", next = "why" },
+        { text = "What do you think of the Forsaken?", next = "forsaken" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    trade = {
+      lines = { { id = "tr_default", text = "Bad, and the hides are worse. Every wolf in the Plaguelands has the rot in it, and the Forsaken buy nothing but thread, because they don't feel the cold enough to want fur." } },
+      choices = {
+        { text = "What should I skin, then?", next = "trade_skin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade_skin = {
+      lines = { { id = "ts_default", text = "Anything that runs away from you instead of toward you, because it's still healthy. If it shambles, leave it be, and wash your hands after." } },
+      choices = {
+        { text = "Good advice. I'll remember it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    why = {
+      big = true,
+      lines = { { id = "wy_default", text = "Thrall said the Forsaken are Horde, so somebody had to come and sell them things. I drew the short straw, and I'm not ashamed to say I miss the Barrens' heat." } },
+      choices = {
+        { text = "Thrall was right. The Forsaken are our kin now.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thrall asks a lot. I'd have refused the straw.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    forsaken = {
+      lines = { { id = "fs_default", text = "They pay on time and they never haggle, which is more than I can say for most orcs. But they smell like a week-old kill, and I've never once seen one eat." } },
+      choices = {
+        { text = "Does that bother you?", next = "forsaken_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken_stance = {
+      big = true,
+      lines = { { id = "fst_default", text = "Some days. A warrior wants to know what drives the one standing next to him, and with them I can't tell, but they hold the wall, so I hold my tongue." } },
+      choices = {
+        { text = "They hold the wall. That's all that matters.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A comrade's heart matters as much as his blade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Grew up in the camps, skinned my first boar in Durotar, and now I sell thread to corpses. That's my life." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care. Ask the Forsaken; they know everything and say it slowly." } },
+  },
+}

@@ -22,3 +22,6 @@ npcs\egan.lua
 npcs\darrowshire_joseph.lua
 npcs\terrordale_augustus.lua
 npcs\lightshope_dawn.lua
+npcs\terrordale.lua
+npcs\darrowshire.lua
+npcs\lightshope_dawn.lua
