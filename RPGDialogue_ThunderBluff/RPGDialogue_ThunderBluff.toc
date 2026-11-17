@@ -22,3 +22,5 @@ npcs\elder_rise.lua
 npcs\hunter_rise.lua
 npcs\lower_rise.lua
 npcs\spirit_rise.lua
+npcs\bluff_craftsfolk.lua
+npcs\bluff_callers.lua

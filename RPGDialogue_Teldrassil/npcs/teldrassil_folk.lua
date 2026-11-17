@@ -363,7 +363,7 @@ P:NPC {
       },
     },
     stories = {
-      lines = { { id = "st_default", text = "Old ones, about Goldrinn the wolf and Ursoc the bear, and how they fought beside our people long ago. The wolves like Goldrinn best, and the bears pretend not to care which, which is very like a bear." } },
+      lines = { { id = "st_default", text = "Old ones, about Cenarius and Aessina and the great spirit beasts who fought beside our people long ago. The wolves like the wolf stories best, and the bears pretend not to care which, which is very like a bear." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnarlpine = {
