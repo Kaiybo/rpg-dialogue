@@ -14,3 +14,6 @@ pack.lua
 npcs\feralas.lua
 npcs\wilds.lua
 npcs\unsung.lua
+npcs\uzeri.lua
+npcs\talo.lua
+npcs\moonspear.lua

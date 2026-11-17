@@ -1,0 +1,153 @@
+-- Mor'zul Bloodbringer: the warlock at the Altar of Storms who teaches the binding of a dreadsteed of Xoroth, for blood and a very great deal of effort. Voice: bibles/morzul.md
+local P = RPGDialogueAPI:Pack("rpgd.burningsteppes")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+P:NPC {
+  key = "morzul", id = TODO_NPC("Mor'zul Bloodbringer"), name = "Mor'zul Bloodbringer",
+  bible = "bibles/morzul.md", role = "questgiver", tier = "quest",
+  communities = { "altar_of_storms" }, temper = { "silky", "menacing" }, values = { "ambitious", "cruel" },
+  notices = { "class", "arcane" },
+
+  impression = {
+    first = "Mor'zul Bloodbringer speaks softly and smiles at the word blood. He'll teach a warlock to bind a dreadsteed, and I suspect he enjoys the price he names more than the lesson.",
+    third = "{name} met Mor'zul Bloodbringer, a warlock at the Altar of Storms in the Burning Steppes who knows the ritual of the dreadsteed.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "The Altar of Storms receives few visitors, and fewer still who leave the way they came. Speak, and let us see which kind you are." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole. How encouraging." },
+    { id = "g_away", when = { away = 14 }, text = "You have been gone {away}. The circle doesn't care, but I confess I noticed." },
+    { id = "g_lock_back", when = { metBefore = true, class = "WARLOCK" }, text = "Ah, my student returns. Have you brought me something red?" },
+  },
+
+  notice = {
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "Your demon has grown fat on your power, and that pleases me. A dreadsteed needs a master who has fed many things." },
+    { id = "n_paladin", cat = "arcane", when = { class = "PALADIN" },
+      text = "A paladin at the Altar of Storms. You'll forgive me if I don't bow; this ground has seen your kind burn before." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I am Mor'zul Bloodbringer, and I study what lies between this world and the burning ones beyond it. If you aren't a warlock, I'll thank you to keep your distance from the circle, for it bites." },
+        { id = "h_lock", when = { class = "WARLOCK" },
+          text = "Your mastery over the denizens of other worlds has grown, I see, and you've come to me for the greatest of steeds. The dreadsteeds dwell on the Plains of Xoroth, and binding one is not a task for the impatient." },
+        { id = "h_blood", tags = { "news" }, when = { questActive = TODO_QUEST("Rage of Blood") },
+          text = "Thirty bottles of raging beast's blood, from the maddened owlkin of Winterspring. The ink for your glyphs must be strong, and nothing is stronger than madness in the veins." },
+        { id = "h_blood_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rage of Blood"), days = 3 } },
+          text = "The blood is distilling nicely. I may have kept a little aside for myself, for I hear its taste is quite euphoric, and I'll not apologise for it." },
+        { id = "h_steed_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dreadsteed of Xoroth") },
+          text = "Read my instructions closely, and perform every step exactly as written. A circle half-made is a door half-open, and things come through half-open doors." },
+        { id = "h_steed_done", tags = { "news" }, when = { questDone = TODO_QUEST("Dreadsteed of Xoroth") },
+          text = "You've bound a dreadsteed, and lived, and I'll admit some of my students have managed only one of those. Ride it well, and let it remind everyone who sees you what you are." },
+      },
+      again = {
+        { id = "h_again", text = "Something more? Ask, while my patience lasts." },
+        { id = "h_again2", text = "Go on. The storm is quiet tonight, and I am feeling generous." },
+      },
+      choices = {
+        { text = "What is the Altar of Storms?", next = "altar" },
+        { text = "Why do you love blood so much?", next = "blood" },
+        { text = "Who is Gorzeeki?", next = "gorzeeki" },
+        { text = "Teach me to bind a dreadsteed.", next = "xsteed", when = { class = "WARLOCK" } },
+        { text = "Your craft is an abomination.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "I'll leave you to your circle.", next = "END" },
+      },
+    },
+
+    altar = {
+      lines = {
+        { id = "al_default", text = "Where the old Horde's warlocks worked their darkest rites, in the days of the Shadow Council, and the stones still remember it. The air here is thin between worlds, which makes it the finest workroom in the Steppes, if you don't mind the dragons overhead." },
+      },
+      choices = {
+        { text = "The Shadow Council worked here?", next = "altar_council" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    altar_council = {
+      lines = {
+        { id = "ac_default", text = "Among other places, and some of them still work, in Jaedenar in Felwood, under Lord Banehollow. I've no love for the Council, but I'll use their stardust and their roads, for knowledge owes nothing to the hands that hold it." },
+      },
+      choices = {
+        { text = "Knowledge is knowledge. Use what works.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some knowledge stains whoever touches it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    blood = {
+      lines = {
+        { id = "bl_default", text = "Because it's honest, and nothing else in this world is. Blood tells you what a creature is, how strong, how mad, how afraid, and it never lies about it the way words do." },
+      },
+      choices = {
+        { text = "You drink it, don't you?", next = "blood_drink" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blood_drink = {
+      lines = {
+        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is also a kind of science. Gorzeeki prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    gorzeeki = {
+      lines = {
+        { id = "go_default", text = "My servant, a goblin alchemist of some skill and no manners. He brews my inks and makes my candles and keeps his imps in jars, and he's just to the west, if you can bear the smell of beetles." },
+      },
+      choices = {
+        { text = "A goblin, serving a warlock?", next = "gorzeeki_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gorzeeki_why = {
+      lines = {
+        { id = "gw_default", text = "Goblins serve whoever pays, and I pay well, and I'm the only master he's ever had who doesn't mind his diet. It's the most stable arrangement I've ever made, and I've bound infernals." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    xsteed = {
+      big = true,
+      lines = {
+        { id = "xs_default", text = "It's long, and costly, and it will send you to Winterspring, to the Scholomance and to Jaedenar, and finally into a circle with every demon of Xoroth trying to break it. When it's done, you'll have a steed of fire and shadow, and you'll have earned it." },
+        { id = "xs_done", when = { questDone = TODO_QUEST("Dreadsteed of Xoroth") },
+          text = "I've nothing more to teach you about steeds, for you've done the thing itself. Go and show the world what a warlock is, and don't let them forget it." },
+      },
+      choices = {
+        { text = "Power like that is worth any price.", next = "xsteed_price", fx = { align = { light = -1 } } },
+        { text = "I'll bind it, but I won't let it rule me.", next = "xsteed_price", fx = { align = { light = 1 } } },
+        { text = "What sort of price?", next = "xsteed_price" },
+      },
+    },
+    xsteed_price = {
+      lines = {
+        { id = "xp_default", text = "Gold, blood, weeks of your life, and one moment in the circle when you'll feel everything in Xoroth looking at you at once. Most remember that moment for the rest of their lives, and the wise ones are glad of it." },
+      },
+      choices = {
+        { text = "I'm ready.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    xpaladin = {
+      big = true,
+      lines = {
+        { id = "xpa_default", text = "Abomination is a word for what frightens you, holy one. My students bind demons and ride them against the Legion's own servants, which is more than your sermons have managed lately." },
+      },
+      choices = {
+        { text = "Demons can't be tamed. You'll learn that too late.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it works against the Legion, I'll hold my tongue.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "A scholar of the nether, a teacher of warlocks, and a connoisseur of blood. The rest is no concern of yours." } },
+    advice = { { id = "tp_ad", text = "Never step into a circle you didn't draw yourself." } },
+    _none = { { id = "tp_none", text = "I haven't troubled to learn that, and I doubt it would have been worth the trouble." } },
+  },
+}

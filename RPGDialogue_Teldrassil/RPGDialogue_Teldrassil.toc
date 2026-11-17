@@ -16,3 +16,8 @@ npcs\shadowglen.lua
 npcs\dolanaar.lua
 npcs\teldrassil_wilds.lua
 npcs\unsung.lua
+npcs\zenn.lua
+npcs\gaerolas.lua
+npcs\oben.lua
+npcs\amara.lua
+npcs\erelas.lua

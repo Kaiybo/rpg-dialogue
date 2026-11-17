@@ -17,3 +17,5 @@ npcs\springs.lua
 npcs\everlook_folk.lua
 npcs\everlook_trades.lua
 npcs\wilds.lua
+npcs\starfall.lua
+npcs\everlook_gossips.lua

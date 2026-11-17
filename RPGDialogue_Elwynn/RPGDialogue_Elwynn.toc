@@ -51,3 +51,7 @@ npcs\roadside.lua
 npcs\eastvale_trades.lua
 npcs\azora.lua
 npcs\herb_house.lua
+npcs\guard_roberts.lua
+npcs\daniel_library.lua
+npcs\sergeant_de_vries.lua
+npcs\clara_charles.lua

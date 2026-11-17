@@ -1,0 +1,111 @@
+-- Guard Berton, outside the Lakeshire Inn. Voice: bibles/guard_berton.md
+-- Wants Targorr the Dread dead in the Stockade: sentenced to die, kept alive as some noble's pawn.
+local P = RPGDialogueAPI:Pack("rpgd.redridge")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+P:NPC {
+  key = "guard_berton", id = TODO_NPC("Guard Berton"), name = "Guard Berton",
+  bible = "bibles/guard_berton.md", role = "guard", tier = "quest",
+  communities = { "lakeshire" }, temper = { "sharp" }, values = { "justice", "stern" },
+  notices = { "soldier", "stealth" },
+
+  impression = {
+    first = "Guard Berton wants a condemned orc dead and doesn't much care whether a court agrees. He spoke of justice like a man who has watched it bought and sold.",
+    third = "{name} met Guard Berton of Lakeshire, who wants Targorr the Dread killed in the Stockade before politics sets him free.",
+  },
+
+  greetings = {
+    { id = "g_inn", text = "Move along, unless you've business in Lakeshire. If you have, state it." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Have you been to Stormwind yet, to the Stockade?" },
+    { id = "g_active", when = { questActive = TODO_QUEST("What Comes Around...") }, text = "Targorr still breathes, then. Every day he does is a day the wrong people are winning." },
+    { id = "g_done", when = { questDone = TODO_QUEST("What Comes Around...") }, text = "I sleep better since Targorr's head came back to Lakeshire. I won't pretend otherwise." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}. The Blackrock weren't, and neither was I." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you first stood here. Good; Redridge does that to the ones it doesn't bury." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The town says you've done right by it. I don't hand out thanks lightly, so take that as one." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you lied to somebody in town. Don't try it with me; I've heard better liars at a hanging." },
+  },
+
+  notice = {
+    { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "You carry yourself like you've stood a line. Then you'll know what it is to watch a guilty man walk." },
+    { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
+      text = "One of the quiet ones. I don't trust your sort as a rule, but the Stockade might need exactly your sort." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Guard Berton, Lakeshire watch. There's an orc in the Stormwind Stockade named Targorr the Dread, sentenced to die for what he did, and somebody keeps putting his execution off." },
+        { id = "h_before", when = { questBefore = TODO_QUEST("What Comes Around...") },
+          text = "Put an end to Targorr the Dread, {name}. Go to the Stockade and take his head before whatever trickery keeps him alive sets him loose." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("What Comes Around...") },
+          text = "He was sentenced to die, not to sit in a cell as a pawn for some noble's whims. Bring me his head, and Lakeshire will know it's done." },
+        { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("What Comes Around..."), days = 3 } },
+          text = "So Targorr's met his end, and now he knows what it's like on the other side of the axe. Sometimes the truest justice is found outside the courtroom." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf. Your king hangs his traitors, I've heard, and doesn't keep them as bargaining chips. I envy you that." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again2", text = "Go on. I'm on watch, not deaf." },
+      },
+      choices = {
+        { text = "What did Targorr do?", next = "targorr" },
+        { text = "Why hasn't he been executed?", next = "delay" },
+        { text = "Isn't killing him a matter for the courts?", next = "courts" },
+        { text = "I've been in the Stockade. I know the cells.", next = "stockade", when = { questDone = TODO_QUEST("What Comes Around...") } },
+        { text = "I'll deal with him.", next = "BUSINESS" },
+        { text = "Carry on, Guard.", next = "END" },
+      },
+    },
+    targorr = {
+      lines = { { id = "t_default", text = "He was a Blackrock, and a cruel one even for them. He came down on these mountains with the rest, and the folk he caught didn't die quickly." },
+      },
+      choices = {
+        { text = "Did you know any of them?", next = "targorr_known" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    targorr_known = {
+      lines = { { id = "tk_default", text = "Everyone in Lakeshire knew someone. I'll leave it there, if it's all the same to you." },
+      },
+      choices = { { text = "Of course. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    delay = {
+      lines = { { id = "d_default", text = "Ask the House of Nobles. They say he has information, or he's worth something to someone, or it isn't the right time, and every month there's a new reason." },
+      },
+      choices = {
+        { text = "You think he'll be freed?", next = "delay_freed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    delay_freed = {
+      lines = { { id = "df_default", text = "I think a man kept alive for politics is a man who'll be traded for politics. And when he walks, he'll walk straight back up this valley." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    courts = {
+      big = true,
+      lines = { { id = "c_default", text = "The court already decided; he was sentenced. All I'm asking is that someone carries out what the law already said, since the law won't do it itself." },
+      },
+      choices = {
+        { text = "Justice delayed is still justice. Let the crown decide.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the law won't act, someone must.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stockade = {
+      lines = { { id = "s_default", text = "Then you saw what passes for justice in there: killers fed and housed while the families in Lakeshire bury what's left. I hope you didn't stay long." },
+      },
+      choices = { { text = "Not long. Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Lakeshire born, Lakeshire watch. I've stood outside this inn through two winters of Blackrock raids." } },
+    advice = { { id = "tp_ad", text = "Don't trust a sentence until you've seen it carried out." } },
+    blackrock = { { id = "tp_blackrock", text = "Targorr was one of theirs, and there's plenty more up the valley.", next = "targorr" } },
+    _none = { { id = "tp_none", text = "Not my concern. Ask the Magistrate; he's paid to know things." } },
+  },
+}

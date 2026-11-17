@@ -17,3 +17,6 @@ npcs\hammerfall.lua
 npcs\refugepointe.lua
 npcs\roads.lua
 npcs\unsung.lua
+npcs\faldirs_cove.lua
+npcs\mackreel.lua
+npcs\zaruk.lua

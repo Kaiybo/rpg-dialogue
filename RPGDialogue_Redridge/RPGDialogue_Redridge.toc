@@ -25,3 +25,7 @@ npcs\lakeshire_more.lua
 npcs\lakeshire_trades.lua
 npcs\lakeshire_market.lua
 npcs\bridge_crew.lua
+npcs\guard_berton.lua
+npcs\guard_howe.lua
+npcs\dorin_songblade.lua
+npcs\gerald_crawley.lua
