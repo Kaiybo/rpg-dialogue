@@ -18,5 +18,5 @@ tests/out/
 *.SavedVariables.lua
 WTF/
 
-# If this repo is ever made public, captured Blizzard text must stay out. Uncomment then:
-# reference/
+# Captured Blizzard text (tools/export_reference.py) is writing reference only and never goes in git.
+reference/

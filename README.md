@@ -6,7 +6,9 @@ Everything is pre-written and ships with the addon. Nothing is sent anywhere, an
 
 ## Install
 
-Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOns/`:
+Download the latest zip from the [Releases page](https://github.com/Kaiybo/rpg-dialogue/releases) and unzip it into `World of Warcraft/<your Forever folder>/Interface/AddOns/`. Restart the game fully (not `/reload`) the first time and after any update that adds new folders.
+
+Or, from a copy of this repository, copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOns/`:
 
 - `RPGDialogue`: the addon itself
 - `RPGDialogue_World`: shared dialogue (role pools, spirit healers, towns, topics, rumors, origins)
@@ -55,6 +57,9 @@ Copy these folders into `World of Warcraft/<your Forever folder>/Interface/AddOn
 - `RPGDialogue_Moonglade`: Nighthaven, Keeper Remulos and the druids' trials (neutral: Alliance and Horde)
 - `RPGDialogue_Wetlands`: Menethil Harbor, the Dragonmaw in the hills and the drowned fleet in the bay
 - `RPGDialogue_Ironforge`: King Magni, Tinker Town, the Hall of Explorers, the High Seat, the Commons, the gates and Gol'Bolar Quarry
+- `RPGDialogue_Dalaran`: Dalaran and the Alterac Mountains (Forever's rebuilt city)
+- `RPGDialogue_Hyjal`: Mount Hyjal
+- `RPGDialogue_Shendralas`: Shen'dralas
 
 Content packs load by zone, so only the dialogue for where you are is in memory.
 
@@ -96,17 +101,23 @@ Settings > Readability and accessibility: text speed, instant text, auto-advance
 
 ## Known issues
 
-Nothing has been tested in the game yet; see `HANDOFF.md` for what needs checking first. Please report problems with the flag button on the dialogue window (it saves the line and everything about the moment), or with BugSack + !BugGrabber error text.
+This is an early (0.x) release, tested by one player on the Alliance side; Horde and other-class content has had less play. See `HANDOFF.md` for features not yet verified in game. Please report problems in [GitHub Issues](https://github.com/Kaiybo/rpg-dialogue/issues), ideally with the flag button on the dialogue window (it saves the line and everything about the moment), or with BugSack + !BugGrabber error text.
 
 ## For developers and pack authors
 
 - `PACK_AUTHORING.md`: making a content pack, and the step-by-step zone workflow
 - `CONTENT_GUIDE.md`: how to write dialogue (required reading)
 - `DESIGN.md`: architecture, data schema, scoring, risks · `HANDOFF.md`: current state and next step
+- `CONTRIBUTING.md`: reporting bugs, suggesting lines, sending pull requests
 - Every check in one command: `python3 tools/check_all.py` (needs Python 3, Lua 5.1 and luacheck)
 - Develop from the repo by linking the addon folders into your AddOns folder: `tools/link_addons.sh "/.../_forever_/Interface/AddOns"` (macOS/Linux) or `tools\link_addons.bat "C:\...\_forever_\Interface\AddOns"` (Windows)
+- CurseForge page kit (logo, description, setup steps): `curseforge/README.md`
 - Releases: tag `vX.Y.Z` and push; `.github/workflows/release.yml` runs the release checks and the BigWigs packager, which builds one zip with the core and every pack as separate addon folders.
 
-## License
+## License and credits
 
 MIT (see `LICENSE`). The bundled fonts are under the SIL Open Font License 1.1, each with its licence file in `RPGDialogue/Media/Fonts/`: Atkinson Hyperlegible (© Braille Institute of America), Crimson Pro and Cinzel.
+
+Lore research draws on [warcraft.wiki.gg](https://warcraft.wiki.gg) (sources are listed in `LORE_NOTES.md` and each pack's `bibles/`). All dialogue is original writing; no Blizzard text ships with the addon.
+
+World of Warcraft and Warcraft are trademarks of Blizzard Entertainment, Inc. RPG Dialogue is a fan-made addon and is not affiliated with or endorsed by Blizzard Entertainment.

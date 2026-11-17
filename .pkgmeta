@@ -67,6 +67,7 @@ ignore:
   - "**/bibles"
   - banned_phrases.txt
   - .github
+  - curseforge
 
 manual-changelog:
   filename: CHANGELOG.md
