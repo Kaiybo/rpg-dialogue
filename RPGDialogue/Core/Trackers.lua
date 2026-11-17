@@ -124,13 +124,30 @@ function T.Kill(guid, name)
   k.total = (k.total or 0) + 1
   if type(name) == "string" and name ~= "" and not C.IsSecret(name) then
     k.byName[name] = (k.byName[name] or 0) + 1
-    for place, bosses in pairs(W.DUNGEON_BOSSES or {}) do
-      for i = 1, #bosses do
-        if bosses[i] == name then T.Deed("cleared:" .. place); break end
+    T.BossDown(name)
+  end
+end
+
+-- A dungeon's last boss is down: deed "cleared:<place>" (journal + diary). Idempotent.
+function T.BossDown(name)
+  for place, bosses in pairs(W.DUNGEON_BOSSES or {}) do
+    for i = 1, #bosses do
+      if bosses[i] == name then
+        if not char().deeds["cleared:" .. place] then T.Deed("cleared:" .. place) end
+        break
       end
     end
   end
 end
+
+-- Kills from before 0.58.0 (tallied by name since 0.54.0) get their journal deed too.
+ns.OnLogin(function()
+  local c = ns.char
+  if not (c and c.kills and c.kills.byName) then return end
+  for name, n in pairs(c.kills.byName) do
+    if (n or 0) > 0 then T.BossDown(name) end
+  end
+end)
 
 -- Classic clients report kills through the combat log (subevent PARTY_KILL); Midnight
 -- closed the combat log and added a PARTY_KILL event instead (no name).
@@ -144,7 +161,13 @@ local function onCombatLog(_, ...)
     local _, s, _, _, _, _, _, dg, dn = ...
     sub, destGUID, destName = s, dg, dn
   end
-  if sub == "PARTY_KILL" then T.Kill(destGUID, destName) end
+  if sub == "PARTY_KILL" then
+    T.Kill(destGUID, destName)
+  elseif sub == "UNIT_DIED" and type(destName) == "string" and C.InInstance() then
+    -- The killing blow went to a pet, a totem, a raid member outside your party or the
+    -- fight itself: if you were there when the boss fell, it still counts.
+    if not C.IsSecret(destName) then T.BossDown(destName) end
+  end
 end
 if not ns.On("COMBAT_LOG_EVENT_UNFILTERED", onCombatLog) then
   ns.On("PARTY_KILL", function(_, _, targetGUID) T.Kill(targetGUID) end)

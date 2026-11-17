@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; use `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.58.0)
+## State (0.60.0)
+- 0.60.0 (user: "proceed with release 0.60.0, focus on areas you believe are necessary"): core-only reliability fix for dungeon clears. `T.BossDown(name)` writes `cleared:<place>`; called from `T.Kill`, from combat-log `UNIT_DIED` while in an instance (pet/totem/raid/environment killing blows), and on login to backfill deeds from `kills.byName` (pre-0.58.0 kills). No pack changes; no 0.59.0 release.
 - 0.58.0 (user: "proceed with release 0.58.0, focus on areas you believe are necessary"): dungeon reactions. Core: `World.DUNGEON_BOSSES` (place -> exact final-boss names), condition `cleared` (any boss of the place in `char.kills.byName`, or deed `cleared:<place>`), `Trackers.Kill` writes the deed, journal "Cleared %s", diary line. Content: `h_cl_<x>` greeting + hub reply + `xcl_<x>`/`xcl_<x>2` nodes for ~132 NPCs in 40 zone packs (Teldrassil, Arathi, Un'Goro got none); World pools got `cat = "dungeon"` notices for guards/citizens/innkeepers. Bolvar's Onyxia line is gated on The Great Masquerade; Prestor has no raid line. Thrall (Rend) and Rok Orhan (King Gordok) use `killed` instead.
   - Lore to confirm (invented, small): Ragged John's cask from the Depths; Klockmort's ban on contaminated metal; Malyfous leaving the Emperor's halls; Loramus as Highborne; Thelwater's lamp-oil letter; Laurena on Benedictus writing to the Crusade; Glynda's lost sisters; Mok'Morokk becoming boss when Onyxia burned the old chief; Weldon taught to read by Jandice; Sylvanas once in Stratholme on a Silvermoon errand; Dalar a fellow student of Arugal; Hadrec on Adamant/Vincent; Yayo'jin's mojo offer; Runthak hinting at Onyxia's brother.
 - Per-release notes before 0.58.0 (0.36.0-0.57.0, lore questions included) are in git: `git show ab37c40:HANDOFF.md`. Core 0.58.0; every pack's version: `python3 tools/version.py`. 47 folders.
@@ -21,12 +22,9 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - "auto" with DialogueUI renders our conversations inside its window; Immersion: we step back.
 
 ## Not verified in game
-Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon.
-
-## Not verified in game
-Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon. New: whether boss names in `DUNGEON_BOSSES` match the combat log exactly on Forever (after a run, the boss should appear under `kills.byName` in the character's SavedVariables).
+Right-click on untitled townsfolk opening the box (citizen role via `UnitCreatureType`, which is localized: non-English clients may treat beasts as citizens); the journal button's count badge; Shadowform as form 28; most of `Compat.lua` beyond `/rpgd probe`; the DialogueUI paged Ask list in the real addon. Also: whether boss names in `DUNGEON_BOSSES` match the combat log exactly on Forever, and whether `UNIT_DIED` reaches us for bosses (after a run, the boss should appear under `kills.byName` in the character's SavedVariables).
 
 ## Next step
-0. User installs 0.58.0 (no new files: /reload is enough). Ask: after a dungeon run (Scarlet Monastery, Uldaman, Zul'Farrak, Blackrock Depths are in the priest's range), does the journal show "Cleared ..." and do Crowley/Laurena (Stormwind Cathedral), Magni, the Explorers' League, Gadgetzan greet it? If a boss isn't counted, fix its name in `World.DUNGEON_BOSSES`.
+0. User installs 0.60.0 (no new files: /reload is enough). On login, any earlier clears should appear in the journal. Ask: after a dungeon run (Scarlet Monastery, Uldaman, Zul'Farrak, Blackrock Depths are in the priest's range), does the journal show "Cleared ..." and do Crowley/Laurena (Stormwind Cathedral), Magni, the Explorers' League, Gadgetzan greet it? If a boss isn't counted, fix its name in `World.DUNGEON_BOSSES`.
 1. Natural next: a voice pass on the bulk 0.57.0/0.58.0 lines; the other ideas from the 0.55.0 list (alt awareness via the account-wide `RPGDialogueDB`, letters at inns, party reactions); Alterac/Dalaran (Forever) once documented; lines the user flags.
 2. Older lore lists (0.39.0 and before) are in git: `git show ab37c40:HANDOFF.md`.
