@@ -10,6 +10,7 @@ Everyone in Booty Bay now has something to say. **New files: restart the game fu
 - **The Salty Sailor:** Catelyn the Blade (her knife, "Pretty Boy" Duncan and a hint for rogues), Deeg, Dizzy One-Eye, Sly Garrett and his "shady goods", and Pix Xizzix.
 - **The wharf:** Crazk Sparks (fireworks), Wigcik and Myizz Luckycatch (fish and fishing), Grimestack the stable master, Scooty and his transporter to Gadgetzan (sign the waiver), and the three auctioneers, Graves, Kresky and O'reely.
 - **Visitors and dockside:** the Zandalarian Emissary (Zul'Gurub, Hakkar, and a word for Darkspear "little cousins"), Dudd Fizzlescroll and his "aspirational" treasure maps, Rix Xizzix's Lost and Found, Privateer Bloads ("Akiris by the Bundle"), Caravaneer Ruzzgot ("The Caravan Road") and Grizzlowe of the Maiden's Fancy, who will tell you about the chowder.
+- **Flora Silverwind**, the herbalism trainer at All Things Flora: Stranglethorn's herbs, where not to pick them, and a sailor who never came home.
 - Each has class and race replies, and Grimestack and Crazk talk to hunters' pets by name.
 
 ## 0.77.0 (2026-11-17)
