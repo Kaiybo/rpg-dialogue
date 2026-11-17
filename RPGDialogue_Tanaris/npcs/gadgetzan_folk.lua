@@ -121,8 +121,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_gimblethorn = {
+      lines = {
+        { id = "xalt_gimblethorn_default", text = "I'll tell you what I tell everyone, friend, which is that an account is private, and {alt}'s box is as closed to you as yours is to {alt}. What I can say is that the deposits were regular, which in Gadgetzan is a rarer quality than courage." },
+        { id = "xalt_gimblethorn_other", when = { alt = { faction = "other" } }, text = "A {altrace}, from the other side, and the Cartel keeps that box on the same shelf as yours, three slots apart, which I find very restful. Wars end, friend, but compound interest goes on forever." },
+      },
+      choices = {
+        { text = "Good. A banker should keep every secret, whoever's asking.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "In this town, secrets are for sale like anything else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "That's all I wanted to know.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" } },
+          text = "Hm, I've a {altrace} on my books by the name of {alt}, from the other side of the war, and the signature looks oddly like yours would, if you signed anything. Both sides bank with the Cartel, friend, and I keep their boxes on the same shelf, which is nobody's business but mine." },
+        { id = "h_alt_same", when = { alt = { faction = "same" }, metBefore = false },
+          text = "{alt} opened a box with me not long ago, and you've the same way of leaning on my counter, which I notice, because counters cost money. A relation, perhaps, or simply a careful sort of customer, and I like those either way." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, friend, but in here the earth is a floor, the Bruisers stand on it, and the Cartel owns it." },
         { id = "h_default", key = true,
           text = "Gimblethorn, banker to the Steamwheedle Cartel in Gadgetzan. Horde gold and Alliance gold weigh the same on my scales, to the grain, and both go in the same vault behind the same Bruisers for the same fee." },
@@ -163,6 +178,7 @@ P:NPC {
         { text = "What happened with the beast that ate the deposit slip?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Doesn't it bother you to hold the Horde's gold, Gimblethorn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has someone tried to bank something cursed, Gimblethorn?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Tell me about this other customer of yours, Gimblethorn.", next = "xalt_gimblethorn", when = { alt = true } },
         { text = "That's all.", next = "END" },
       },
     },

@@ -82,8 +82,21 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xalt_solomon = {
+      big = true,
+      lines = { { id = "xalt_solomon_default", text = "{alt}, a {altclass}, who read my letters to Stormwind without once telling me they were too long. Lakeshire remembers the few who came when the Regent did not, and that name is written in the court's book in my own hand." } },
+      choices = {
+        { text = "The Crown will answer in its time, Magistrate. Keep writing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget Stormwind. Free swords will serve Lakeshire better.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "The court has had dealings with a {altrace} {altclass} called {alt}, and I note for the record that you bear a strong resemblance. If you share that one's sense of duty, Lakeshire will be glad of you." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} called on the court only recently, and I put that visit in the record beside yours. It is a sad thing when a magistrate can count his town's friends by name, but Lakeshire has so few that I can." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
           text = "The court is informed that General Drakkisath is dead in Blackrock Spire, and that you were present. The court would like it entered in the record that Lakeshire said so first, and was told it lacked proof." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -145,6 +158,7 @@ P:NPC {
         { text = "Morganth's tower belonged to a wizard once, didn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has Stormwind answered your letters, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Magistrate. Dragons stood behind the orcs, as you said.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
+        { text = "Who is this other visitor in your record, Magistrate?", next = "xalt_solomon", when = { alt = true } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },

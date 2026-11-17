@@ -124,8 +124,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_marin = {
+      lines = {
+        { id = "xalt_marin_default", text = "{alt}, a regular, or as regular as anyone gets when the side effects vary, and I wrote down everything that happened after the third bottle. Floated for an hour, shrank for ten minutes and paid in full, which is the only result I really care about." },
+        { id = "xalt_marin_other", when = { alt = { faction = "other" } }, text = "{alt}, the {altrace}, a customer from the other side of the war, which in Gadgetzan means exactly nothing, pal, because the Bruisers don't check banners and my elixir doesn't either. If anything it's my best advertising, because both sides keep coming back." },
+      },
+      choices = {
+        { text = "You shouldn't sell untested brews to anyone, Marin, either side.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they paid and walked away, that's business done right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Hold still, pal, because I'd swear I sold three bottles to a {altrace} by the name of {alt} not long ago, and you've got the very same look of somebody about to say no. {alt} said yes, flying the other banner and all, so let's see if it runs in the family!" },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
+          text = "Another one! I had a {altclass} named {alt} in here with the same face, give or take a skeleton, and that one drank the elixir and walked off almost entirely normal. Now that's a testimonial, and you could be the sequel!" },
+        { id = "h_alt_notkin", when = { alt = { notKin = true }, metBefore = false },
+          text = "You know {alt}, don't you? Don't tell me, I can see it, because you both look at my bottles like they owe you money, and that's a family look, even if {alt}'s a {altrace}." },
         { id = "h_pt_marin", tags = { "news" }, when = { party = { size = 4 } },
           text = "Well now, a whole company at once! Gadgetzan loves a crowd with full purses, and I love Gadgetzan, so you'll understand why I'm smiling and doing sums." },
         { id = "h_default", key = true,
@@ -182,6 +199,7 @@ P:NPC {
         { text = "You haven't actually tested the elixir on animals, have you?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Have you ever tested the elixir on a demon, Marin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "We're here on business, Baron. Keep your bruisers off us.", next = "xpt_marin", when = { party = { size = 4 } } },
+        { text = "Who was this other customer of yours, Marin?", next = "xalt_marin", when = { alt = true } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -437,6 +455,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh, sweetie, you look just like a {altrace} who ate at my table not long ago, {alt}, from the other side of the war and hungry as a hyena. I fed {alt} the same as I'd feed anybody, because nobody fights well on a full stomach, and that's my little contribution to the peace." },
+        { id = "h_alt_kin", when = { alt = { kin = true } },
+          text = "You've got the same face as {alt}, sweetie, who sat right there and told me my stew needed salt, which it didn't. Is it a family thing, being wrong about salt?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, sweetie? Then you'll know fire's the most important spirit in any kitchen, and I've a stove back here that could use a stern word from you." },
         { id = "h_default", key = true,
           text = "I'm Sprinkle, sweetie, and I fix things that taste wrong, mostly food, though lately it's mostly Marin's experiments. He calls it a partnership; I call it a favor he owes me, with interest, and I keep the books." },
@@ -1334,6 +1356,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Huh, I sold a crate to a {altrace} named {alt} last week, pal, from the other side of the war, and here you are with the same nose for a bargain. Don't tell me who you're related to, because I don't want to know who I'm selling to, and that's the whole business model." },
+        { id = "h_alt_higher", when = { alt = { higher = true } },
+          text = "{alt} came by, all grown up and carrying a heap of Zul'Farrak's leftovers, and I paid fair, mostly. You've got the same eye for goods, pal, so come back when you're carrying as much." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Word came off the western road that Sandscalp is dead and the Sandfury are counting their losses, so somebody's going to be selling troll goods by the crate soon. I'd like that somebody to be me, friend, and I'd like to hear what you saw down there." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, yes? I've sold to your kind before, totems and skins and a few odd stones, cash only. What you do with them is your business, and what I paid for them is mine." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, and maybe one of my own blood, if that's a troll's face under the hood. I sell what the desert gives up, and I've some Sandfury fetishes you'd do well not to touch." },
@@ -1596,8 +1622,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_fizzgrimble = {
+      lines = {
+        { id = "xalt_fizzgrimble_default", text = "{alt}, and I remember because the room got paid for in advance, which almost never happens. Slept two nights, complained once about the sand and left a tip, so as far as I'm concerned your family's welcome back any time, at the usual rates." },
+        { id = "xalt_fizzgrimble_other", when = { alt = { faction = "other" } }, text = "{alt}, a {altrace} from the other side of the war, sat drinking across the room from a whole table of your lot without a single chair getting broken. In Gadgetzan that's practically a peace treaty, pal, and I didn't even charge extra for it." },
+      },
+      choices = {
+        { text = "Good. The war can wait outside the inn.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd rather not drink across from the other side.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You've a twin on the other side of the war, pal, did you know that? A {altrace} called {alt} drank at that very table and swore at that very sand in the stew, and you've already got the same look on your face." },
+        { id = "h_alt_higher", when = { alt = { higher = true } },
+          text = "{alt} came through not long ago, all battle scars and buying rounds, and you look like you might grow into that if you keep at it. Kin of yours, maybe? The table manners were family, anyway, and so was the habit of tipping in copper." },
+        { id = "h_alt_class", when = { alt = { sameClass = true }, metBefore = false },
+          text = "Another {altclass} at the Road Warrior! The last one, {alt}, broke a chair, apologized and paid for it, which puts your sort ahead of most of my customers already." },
         { id = "h_pt_fizzgrimble", tags = { "news" }, when = { party = { size = { min = 2 } } },
           text = "A table for {companion} and the rest of you, then? Sit anywhere the sand isn't, and mind you settle your shares before you start drinking, not after, because I'm not refereeing for free." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Half the Road Warrior's talking about you tonight, friend, because word is you went all the way down into Zul'Farrak and came back with the chief's head. I've heard the story told four ways already, and in one of them you wrestled a hydra." },
@@ -1645,6 +1688,7 @@ P:NPC {
         { text = "Do you get many warlocks at the Road Warrior, Fizzgrimble?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What are people saying about Zul'Farrak tonight?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
         { text = "What do you mean, settle our shares?", next = "xpt_fizzgrimble", when = { party = { size = { min = 2 } } } },
+        { text = "Someone like me has stayed here before, Fizzgrimble?", next = "xalt_fizzgrimble", when = { alt = true } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },

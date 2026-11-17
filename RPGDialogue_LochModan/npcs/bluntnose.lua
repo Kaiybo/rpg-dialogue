@@ -34,6 +34,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
+          text = "Ye'll forgive me starin', but ye've the look o' {alt}, a {altclass} who sorted out a deal o' trouble round the loch for me an' never once asked when the soldiers were comin'. If that's kin o' yers, Thelsamar's glad tae see the family again." },
+        { id = "h_alt_any", when = { alt = true, metBefore = true }, cooldown = "5d",
+          text = "{alt} stopped by my desk no' long ago, an' I set that one tae work just as I'll set ye. Between the pair o' ye, I might yet manage without Ironforge's soldiers." },
         { id = "h_default", key = true,
           text = "Magistrate Bluntnose, an' Thelsamar's my charge, for my sins. I keep the peace, settle the quarrels an' write tae Ironforge for soldiers who never seem tae come." },
         { id = "h_merc_before", when = { questBefore = TODO_QUEST("Mercenaries"), minLevel = 17 },

@@ -103,6 +103,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You've a face I half know, and it's taken me a moment to place it. There was a {altrace} {altclass} called {alt} who sat by my fire not long back, and you could pass for that one in poor lamplight." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "Back again! {alt} was in only the other night and ate two bowls of the stew, and I said to myself that the Lion's Pride must be getting a name among your sort." },
         { id = "h_pt_farley", tags = { "news" }, when = { party = { size = { min = 2 } } },
           text = "A whole company! Well, I've rooms upstairs and a floor that's seen worse, and the Lion's Pride has never turned a party away yet, so come in and shut the door behind you." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The rowdy ones sit up straighter when there's plate at the bar, so stay as long as you like." },

@@ -136,6 +136,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Whoa, whoa, I've seen that mug before, pal, on a {altrace} named {alt}, other side of the war, who paid the dock toll without arguing, which is how I remember. You two related? Doesn't matter, because Ratchet charges everybody the same, and I mean everybody." },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
+          text = "Another one of your lot! {alt} came through here a little while back, pal, a {altclass}, and asked who built Orgrimmar, so I'll save you the trouble: it was me, and I'm still waiting on the final payment." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "A whole crew! Now that's good business, because five of you need five times the repairs, five times the bandages and five times the boat tickets, and wouldn't ya know it, Ratchet sells all of it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, in my town! Keep that hammer sheathed on the docks like everybody else, pal, and we'll get along fine, glow or no glow." },
@@ -816,6 +820,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "I've had your cargo through my ledger before, pal, or the cargo of a {altrace} called {alt}, other side of the war, with the same habit of not declaring half of it. I've got a column for that, and I've a feeling I'm about to use it again." },
+        { id = "h_alt_same", when = { alt = { faction = "same", days = 30 } },
+          text = "{alt} had crates on the last boat out, pal, all counted and taxed, and every one of 'em arrived, which is more than I can say for most. Same family, maybe? Then let's keep the streak going." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Let me guess, pal, you've come to find my missing crates through the power of the Light, and I suppose you'll want a finder's fee for it too." },
         { id = "h_default", key = true,
           text = "Wharfmaster Dizzywig, and every crate that comes through Ratchet goes through my ledger first, weighed, counted and taxed. Lately too many of 'em have been going missing before they ever reach it, and missing crates don't pay their tolls." },

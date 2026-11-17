@@ -97,6 +97,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You've a look I've seen before at the Refuge, on a {altrace} called {alt}, who came down the ramp under the other banner and was more help with the crates than half my own people. Down here in the crater, friend, I don't much care what flag anyone flies, so long as they come back up." },
+        { id = "h_alt_kin", when = { alt = { kin = true } },
+          text = "Another of your people! {alt} came through not long ago, a {altclass}, and went down into the crater and came back again, which down here is the whole of the praise I have to give." },
         { id = "h_pt_williden", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, and you all made it through the crater's mouth in one piece! That's a better record than my last expedition had, so I'm very glad to see you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gorishi", min = 40 } },
@@ -726,6 +730,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh! You look just like {alt}, friend, the {altrace}, from the other side, who promised to keep an eye out for Ringo and actually did. Are you related? Because if it runs in the family, I could use all of you." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}! {alt} was here a while back, friend, and found two of my supply crates in the ferns, and I wrote the name in my ledger twice because I was so grateful and so tired." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Pterrordax", min = 20 } },
           text = "The pterrordax don't circle the Refuge half so much since you started shooting 'em down, friend, and I can finally sleep without hearing them screech. One of them used to steal my socks off the line, and socks cost money out here, so I'll admit I took that one personally." },
         { id = "h_lockcl", when = { class = "WARLOCK" },

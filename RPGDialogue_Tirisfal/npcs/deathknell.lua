@@ -60,6 +60,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
+          text = "I raised one called {alt} from these same graves, and you came up with the same twist at the corner of the mouth. Perhaps you were family in life, or perhaps the grave just likes a pattern, and I've stopped trying to tell which." },
+        { id = "h_alt_living", tags = { "news" }, when = { alt = { notKin = true, race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
+          text = "A {altrace} came through Deathknell a while ago, {alt} by name, and asked me what it felt like to dig up the dead for a living. I told them it pays about as well as you'd expect, but the company's quieter than most." },
+        { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
+          text = "You've a look of {alt}, one of the risen I dug out of this churchyard myself. If you're kin of theirs from before, go gently, because most of mine don't remember the families they had." },
         { id = "h_default", key = true,
           text = "I'm Undertaker Mordo. I tend the graves here, and sometimes the graves tend to stir, as you did. Welcome back." },
         { id = "h_rude", tags = { "news" }, when = { questActive = TODO_QUEST("Rude Awakening") },

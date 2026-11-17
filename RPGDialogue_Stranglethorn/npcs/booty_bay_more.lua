@@ -487,6 +487,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Interesting, very interesting. I've a {altrace} called {alt} on my books, from the other side, friend, and if I didn't know better I'd say you shared a jaw, a squint and a very cautious way of watching the vault door." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "{alt}, another {altclass}, keeps a box in my vault, pal, so I've some idea what your kind deposit, which is mostly loot and occasionally regret. Both are stored at the same rate, and neither one earns interest." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your coin is welcome in my vault, and I'd guess you've less of it than a pirate and keep it far more carefully, which makes you my favorite kind of customer." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your coin is welcome in my vault, of course, sweetheart, though I've never yet understood why the faithful keep so little of it." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde. Your coin is welcome here, and so are you, provided the lightning stays outside the vault, because the vault isn't insured against weather." },

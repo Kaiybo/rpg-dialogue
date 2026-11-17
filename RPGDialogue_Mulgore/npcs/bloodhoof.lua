@@ -34,6 +34,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_baine = {
+      lines = {
+        { id = "xalt_baine_default", text = "Many pass through Bloodhoof on their way to the Barrens, and I try to learn something from each of them. The one you mean listened more than they spoke, which my father says is the best way to learn anything." },
+        { id = "xalt_baine_kin", when = { alt = { kin = true } }, text = "{alt} asked me why I'd sooner talk with the goblins digging to the east than burn them out. I didn't have a good answer then and I'm not certain I have one now, but I liked being asked." },
+      },
+      choices = {
+        { text = "Talk first. Most fights never need to happen.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some only listen once they're bleeding, Baine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
     xcl_rfk = {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the young braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have had a word with Charlga than a fight, though I know she'd never have allowed it." } },
@@ -112,6 +123,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You have the look of {alt}, who stopped in Bloodhoof Village and helped my people with the wolves on the plains. If you're family, then Mulgore owes your family a little already, and I mean to remember it." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "{alt} came through here a while back, and I've heard since that the {altclass} has gone on to dangerous places. My father says the young ones grow up faster every year, and I'm beginning to think he's right." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. My father says the Horde is made of peoples who were each cast out by someone. I think you were cast out twice." },
         { id = "h_default", key = true,
           text = "Baine Bloodhoof, Cairne's son. Goblins dig to the east, gnolls raid from the west, and dwarves blast the earth at Bael'dun. I'd rather talk them all down than fight them." },
@@ -130,6 +145,7 @@ P:NPC {
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked it too, didn't you, the long road out of the Barrens with the centaur at our heels? You were a calf and I was barely grown, and I remember the orcs' axes better than I remember my own feet, because I never once looked down." },
       },
       choices = {
+        { text = "You've met someone close to me, Baine.", next = "xalt_baine", when = { alt = true } },
         { text = "How did the tauren come to Mulgore?", next = "coming" },
         { text = "Do you remember the walk, Baine? I still dream of it.", next = "xwalk", when = { origin = "tauren_long_migration" } },
         { text = "What troubles the plains?", next = "troubles" },

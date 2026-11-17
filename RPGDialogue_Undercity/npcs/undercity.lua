@@ -36,6 +36,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_sylvanas = {
+      lines = {
+        { id = "xalt_sylvanas_default", text = "Many swear themselves to the Forsaken before this throne, and I forget most of them by the next bell. That one I remember, which should tell you something about them, and perhaps about you." },
+        { id = "xalt_sylvanas_risen", when = { alt = { race = "Scourge" } }, text = "{alt} still clung to some memory of a life before the plague, more tightly than I would advise. If you knew them then, do not expect them to know you now, because the grave takes more than breath." },
+      },
+      choices = {
+        { text = "Whatever they were in life, they serve you now.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They belong to themselves, my Lady, not to any queen.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else, my Lady.", next = "BACK" },
+      },
+    },
     xpt_sylvanas = {
       big = true,
       lines = { { id = "xpt_sylvanas_default", text = "Nothing about the living troubles me any longer, except how quickly they forget. The Horde took us in because we hate the Scourge, and I'm content with that arrangement so long as every one of Thrall's people remembers who stands between Lordaeron's plague and their borders." } },
@@ -90,6 +101,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
+          text = "Another of my Forsaken came before me wearing the name {alt}, and you carry yourself with the same stiffness. Perhaps you shared a street in Lordaeron, or a grave; most of us have forgotten which." },
+        { id = "h_alt_living", tags = { "news" }, when = { alt = { notKin = true, race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
+          text = "A {altrace} called {alt} stood in this chamber not long ago and did not flinch at what they saw. I remember the living who don't flinch, because there are so few of them." },
+        { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
+          text = "One of my Forsaken, {alt}, has a look about the face that I see in yours, as though a sister or brother walked out of the grave ahead of you. Be careful if you go looking for them, because the dead seldom remember the living fondly." },
         { id = "h_pt_living", tags = { "news" }, when = { party = { race = { "Orc", "Troll", "Tauren" } } },
           text = "You walk with the living, I see, and {companion} doesn't keep a hand on their weapon around you. Treasure that while it lasts, because the warmth goes out of most alliances long before it goes out of the body." },
         { id = "h_default", key = true,
@@ -106,6 +123,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I led the rangers of Quel'Thalas once, and I still know an archer by the way they carry their shoulders." },
       },
       choices = {
+        { text = "Someone close to me has stood before you, my Lady.", next = "xalt_sylvanas", when = { alt = true } },
         { text = "Do the spirits trouble you, my lady?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you want from the tauren, my lady?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the Forsaken want?", next = "want" },
@@ -568,6 +586,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_varimathras = {
+      lines = {
+        { id = "xalt_varimathras_default", text = "I keep notes on everyone, and the Dark Lady is grateful for it, or so I choose to believe. Your friend was polite and asked few questions, which is the kind of guest I like best." },
+        { id = "xalt_varimathras_kin", when = { alt = { kin = true } }, text = "{alt} asked a great many questions about the Royal Apothecary Society, and I answered every one of them with a smile and very little else. If you are family, you might tell them that curiosity is not always rewarded in the Undercity." },
+      },
+      choices = {
+        { text = "My kin have nothing to hide from the Dark Lady.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everyone has secrets, Varimathras, yourself most of all.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_varimathras = {
       big = true,
       lines = { { id = "xpt_varimathras_default", text = "Sworn, are you? Oaths are easy things to make in a throne room and hard things to keep in the field, as the Dark Lady learned when Arthas's servants wore her people like puppets. Keep your companions honest, and I'll have no reason to learn their names." } },
@@ -615,6 +644,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", tags = { "news" }, when = { alt = true },
+          text = "How curious. One called {alt} passed through these halls, a {altclass} as I recall, and I made a careful note of them, as I note everyone who comes before the Dark Lady." },
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You bear a remarkable likeness to {alt}, the {altclass} who came here before you. I do so enjoy a family resemblance, since it tells me where to find the rest of the family." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "A whole band of you, filling my lady's halls with your breathing. I do hope you're all as loyal as you look, because the Dark Lady keeps very careful accounts of who comes and goes." },
         { id = "h_default", key = true,
@@ -634,6 +667,7 @@ P:NPC {
           text = "The High Inquisitor has fallen, and her commander with her, and the Dark Lady was pleased to hear it from my lips before anyone else's. I do so enjoy delivering good news, and you have given me a great deal to deliver." },
       },
       choices = {
+        { text = "You've been keeping notes on someone I know?", next = "xalt_varimathras", when = { alt = true } },
         { text = "What do you think of mortal priests, Varimathras?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you miss your hold on my people, dreadlord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does a dreadlord make of the Emerald Dream?", next = "druid_q", when = { class = "DRUID" } },
@@ -823,6 +857,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You've the same build as {alt}, who carried a crate of my reagents across the Quarter without dropping a single vial! Is it family, or has the Society finally learned to breed reliable couriers?" },
+        { id = "h_alt_risen", tags = { "news" }, when = { alt = { race = "Scourge", notKin = true } },
+          text = "One of our own, {alt}, was down here only recently, and between you and me, they asked to see the testing cages and didn't even blanch. If you know them, do tell them the Society has a long memory for steady stomachs." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
           text = "Your companion is a priest, I think, from the way they keep looking at my jars. Tell {companion} that I'm still measuring whether faith slows the decay of the dead, and I'd welcome a priest's help with the trial, so long as they don't mind the smell." },
         { id = "h_default", key = true,
@@ -1194,6 +1232,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
+          text = "Funny, you put me in mind of {alt}, who took the corner chair and sat there a day and a half without a word. Some of us knew each other before, and some of us only think we did, so I never ask." },
+        { id = "h_alt_living", tags = { "news" }, when = { alt = { notKin = true, race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
+          text = "We had a {altclass} named {alt} in here not long ago, one of the living, and they didn't even ask whether the food was safe. I liked them for it, and I'd like you for the same." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "You've a Forsaken friend with you, so I'll not have to explain the rooms twice. {companion} will know they're for resting the bones rather than sleeping, and the living among you can sleep wherever you like, as long as it's quietly." },
         { id = "h_default", text = "Name's Norman, and I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours, and that's what I sell, really." },

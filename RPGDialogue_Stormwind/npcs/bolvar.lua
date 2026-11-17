@@ -136,8 +136,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_bolvar = {
+      big = true,
+      lines = { { id = "xalt_bolvar_default", text = "A {altrace} {altclass} called {alt}, who gave me a plain answer on a day when the court had given me nothing else. I keep a short list of people I'd trust with a hard errand, and that name is on it, so you'll forgive me for hoping you're cut from the same cloth." } },
+      choices = {
+        { text = "Then I'll try to deserve a place on that list.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A borrowed reputation still opens doors. I'll use it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Highlord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Forgive me for staring. A {altrace} named {alt} stood in this hall not long ago, and you carry yourself so much like that one that I took you for kin before you'd said a word." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
+          text = "Your name isn't in my reports yet, but there's a {altclass} called {alt} whose name is in a good many of them. You've something of the same look about you, and I hope you'll earn the same kind of reports." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came through the Keep a little while ago with news from the roads, and it matched yours so closely that I've begun to think the two of you ride the same circuit. Is there a word between you I ought to know about?" },
         { id = "h_pt_bolvar4", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, armed and walking the Keep as one company. That's how Stormwind was held in the Second War, {name}, by small bands who trusted each other more than they trusted orders, and I'm glad to see it hasn't gone out of fashion." },
         { id = "h_pt_bolvar", tags = { "news" }, when = { party = true },
@@ -203,6 +218,7 @@ P:NPC {
         { text = "Onyxia is dead, Highlord. I was there in her lair.", next = "xcl_onyxia", when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") } },
         { text = "Nefarian is dead. What becomes of Blackrock Mountain now?", next = "xcl_bwl", when = { cleared = "Blackwing Lair", faction = "Alliance" } },
         { text = "Do small companies like ours still matter to Stormwind, Highlord?", next = "xpt_bolvar", when = { party = true } },
+        { text = "You mentioned someone else like me, Highlord?", next = "xalt_bolvar", when = { alt = true } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },

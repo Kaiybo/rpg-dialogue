@@ -169,8 +169,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_remulos = {
+      lines = {
+        { id = "xalt_remulos_default", text = "{alt} came by the long road, as you did, rested by the water and asked me very little, which I thought wise. I do not keep accounts of my guests as Rabine does, little one, but I remember faces, and yours is very like." },
+        { id = "xalt_remulos_other", when = { alt = { faction = "other" } }, text = "{alt} wore the other banner, and still sat where you are sitting and watched the moonwell the same way. Your peoples are at war, little one, but when I see faces like yours and {alt}'s, I think the war runs shallower than it looks." },
+      },
+      choices = {
+        { text = "I'd welcome a day when both sides rest here together.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The war is real, Keeper. A shared look won't end it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" } },
+          text = "You remind me of {alt}, little one, a {altrace} who came to my glade under the other banner and sat a long while by the moonwell. The glade does not keep your wars, and I confess I like to see the same quiet look on faces from both sides of them." },
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Another of your people walked here before you, little one, a {altclass} named {alt}, and the trees still speak of the visit. I wonder whether you know one another, or whether the world is simply smaller than it looks from Moonglade." },
+        { id = "h_alt_druid", when = { alt = { class = "DRUID" }, ["not"] = { class = "DRUID" } },
+          text = "{alt} studied in my glade, as every druid does in time, and I see something of the same patience in you. Perhaps the Circle will call to you as well one day, little one, whatever path you walk now." },
         { id = "h_pt_remulos", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "{companion} wears the Circle's teaching lightly, but I can see it, and I'm glad you travel with a druid. Moonglade is quieter when a sister or brother of the Circle walks in it." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "Something in the Dream eased tonight, little one, and I think it was your doing. You have walked to the bottom of the Sunken Temple, where Eranikus's green children keep their long and unhappy watch." },
@@ -233,6 +250,7 @@ P:NPC {
         { text = "Why should a dwarf's spirits interest you, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "What happened to Eranikus, Keeper?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "Why does a druid in our company matter to you, Keeper?", next = "xpt_remulos", when = { party = { class = "DRUID" } } },
+        { text = "You spoke of someone who came here before me, Keeper.", next = "xalt_remulos", when = { alt = true } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -594,6 +612,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Your name isn't in my ledger yet, but I've a {altrace} written down called {alt}, from the other side of the war, and the likeness nearly had me writing you beside it. I don't believe in chance, so I'll assume the resemblance means something." },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
+          text = "Another of your people, and the ledger says {alt} came before you, a {altclass}, quiet, polite and no trouble at all. I don't believe in chance, so I'll assume you'll be the same." },
         { id = "h_pt_rabine", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, all at once, in the Keeper's own glade. Keep your voices low and your weapons sheathed, because Moonglade has been at peace since long before any of your kingdoms were born." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },

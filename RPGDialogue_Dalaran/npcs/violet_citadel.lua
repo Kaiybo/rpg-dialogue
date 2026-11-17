@@ -39,6 +39,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You put me in mind of {alt}, a {altrace} who came into the Citadel by the paths I opened for the other side. I find it oddly reassuring that Dalaran's friends are beginning to look alike, whatever banner they march under." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}, and with the same patient frown I last saw on {alt}, who helped my magi on the upper stairs. If it's a family trait, Dalaran could use rather more of it." },
         { id = "h_default", key = true,
           text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with half our wards held up by tired magi and the other half by stubbornness." },
         { id = "h_helped", key = true, when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },

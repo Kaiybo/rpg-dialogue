@@ -100,6 +100,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Come in and sit, because you've the same hungry look {alt} had when that one came to my door, and I fed that {altclass} until the pot was scraped clean." },
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was by again with a bag of goretusk livers, and I said to Saldean that you two must be kin, the way you both turn up just when I'm short of something." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Goretusk", min = 20 } }, text = "I've heard you've been thinning out the goretusks, and Saldean says the fields are quieter for it. Bring me a liver or two while you're at it, because nothing goes to waste in this kitchen." },
         { id = "h_default", key = true, text = "I'm Salma. My husband farms and I cook, and anyone who comes to that door hungry leaves full. That's the rule of this house." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Westfall Stew") },

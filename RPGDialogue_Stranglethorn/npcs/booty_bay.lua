@@ -138,8 +138,25 @@ P:NPC {
         { text = "Something else, Baron.", next = "BACK" },
       },
     },
+    xalt_revilgaz = {
+      lines = {
+        { id = "xalt_revilgaz_default", text = "A customer of mine, and a good one, which in Booty Bay means someone who settles the account before the ship sails. I keep a page for every face that crosses these piers, friend, and {alt}'s page and yours are starting to look like the same handwriting." },
+        { id = "xalt_revilgaz_other", when = { alt = { faction = "other" } }, text = "{alt}, a {altrace} under the other banner, and a better customer than half the captains in this harbor. The Cartel doesn't care which side of the war a coin comes from, and I'll admit I enjoy charging what looks like the same family twice, once in each color." },
+      },
+      choices = {
+        { text = "A port that treats both sides the same keeps the peace. Good.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fees and ledgers. My kin and I go where we please, Baron.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Funny thing, friend, but I had a {altrace} called {alt} on this balcony not long ago, flying the other banner and haggling over the very same dock fees. You've the same look about the eyes, the one that says the fee is negotiable, and I'll tell you what I told {alt}, which is that it isn't." },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
+          text = "You've a relative who's been through my port, I think, a {altclass} by the name of {alt}, who paid on time and broke nothing. If that runs in the family you're welcome on my piers, and if it doesn't, the Bruisers will let me know soon enough." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true },
+          text = "I was just telling my ledger about {alt}, who's been through again and is moving cargo on a scale you'd envy. Somebody of your acquaintance, unless I miss my guess, because you both stand on my balcony like you own a share of it." },
         { id = "h_pt_revilgaz", tags = { "news" }, when = { party = { size = 4 } },
           text = "A whole crew walks into my town, and I don't recall signing your papers. Booty Bay welcomes any crew that pays its dock fees in full and settles its fights outside the harbor, where the damages aren't mine." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub" }, text = "Word reached my balcony that Hakkar is dead in Zul'Gurub and the Gurubashi priests are scattering into the jungle. That's good for shipping and bad for the price of troll relics, and I'm still running the numbers on which matters more." },
@@ -193,6 +210,7 @@ P:NPC {
         { text = "Does Booty Bay have room for a dwarf shaman, Baron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Hakkar is dead, Baron. Zul'Gurub has fallen.", next = "xcl_zg", when = { cleared = "Zul'Gurub" } },
         { text = "We're no pirates, Baron. We're honest adventurers.", next = "xpt_revilgaz", when = { party = { size = 4 } } },
+        { text = "You mentioned someone who looks like me, Baron. Who?", next = "xalt_revilgaz", when = { alt = true } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -498,6 +516,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Ha! I'd swear I've seen you on my docks before, but that was a {altrace} called {alt}, flying the other banner, with the very same green look about the gills. The sea doesn't care whose colors you're sick over, friend, and neither do I." },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
+          text = "Your people get about, ha! There was a {altclass} called {alt} on my docks not long since, asking after the Bloodsail, and I told {alt} what I'll tell you, which is to come back with a cutlass and a strong stomach." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true },
+          text = "{alt} came through last week, back from past the Cape with a red sail or two on the tally, and stood a head taller for it. You're built of the same timber, {g:lad|lass}, so I'll be waiting to hear your tally next." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodsail", min = 40 } }, text = "Ha! Word on the piers is you've been sending Bloodsail to the bottom by the boatload, and three of my captains have asked me who you are and whether you're for hire." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, ha! I've sailed with worse, though I'll ask you to keep your imp below decks, because the last one set fire to a sail and blamed the parrot." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest ashore, ha! Sailors are a superstitious lot, so if you linger in Booty Bay they'll be lining up to have you bless their hulls, though I doubt any of them will pay you in more than rum." },
@@ -1066,8 +1090,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_krazek = {
+      lines = {
+        { id = "xalt_krazek_default", text = "Oh, plenty, pal, because {alt} talked, tipped and argued about the price of a parrot, and that's a full page in my book. I could sell it to you, but you'd only be buying your own family's gossip, and even I've got a few principles, small ones, priced to move." },
+        { id = "xalt_krazek_other", when = { alt = { faction = "other" } }, text = "{alt}, {altrace}, other side of the war, paid in silver that spends the same as yours, because in Booty Bay it all does. I keep both sides' secrets in the same ledger, kid, two columns, and you two would look very funny side by side." },
+      },
+      choices = {
+        { text = "A body's kin isn't stock to sell, Krazek.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell it, then, and cut me in on the profit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Never mind the notes, Krazek.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Hold on, hold on, I've got you written down already, except you were a {altrace} called {alt} and flying the other colors at the time! I sold that bit of news to both sides by lunchtime, pal, so let's see if you're worth a fresh page or just a footnote." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}! I had one through here called {alt}, kid, who asked all the same questions in nearly the same order, and I charged for every one of 'em, so you'll forgive me if I start the meter early." },
+        { id = "h_alt_recent", when = { alt = { days = 7 }, metBefore = true },
+          text = "{alt} was in only the other day, pal, and stood right where you're standing, with the same elbow on the same sticky bit of counter. I'm starting to think there's a family resemblance in this town that nobody's told me about, and that annoys me, because it's information." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, how nice! I'll note you down under visitors with a conscience, which is a very short list in Booty Bay, and the Baron pays good money to know who's on it." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman! Thrall's people have been coming through more often since he brought the old ways back, and I keep a note of every one, because notes are inventory, see." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Loa or shadow, I don't judge, pal; I only write down which one, because somebody always asks me later and pays to know." },
@@ -1113,6 +1154,7 @@ P:NPC {
         { text = "Which beasts are fetching the best prices this month, Krazek?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the jungle trade pay for, Krazek, and who's buying?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What will you write about me, Krazek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What do your notes say about my look-alike, Krazek?", next = "xalt_krazek", when = { alt = true } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -1579,6 +1621,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You've a look about you I've seen before, pal, on a {altrace} named {alt} who took one of my jungle contracts and brought back more ears than I'd paid for. The other side of the war, sure, but trolls don't check banners before they skin you, so neither do I." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}, and I've already had one on the payroll, a {altrace} called {alt}, who came back from the jungle in one piece, which in my line of work is a gold star. Let's see if you can keep the streak going, friend." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's an agent who'd frighten the Bloodscalp, all that shining plate, though I'd ask you to keep the hammer out of sight in here, chum, because it unsettles the customers and the customers are money." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You're one of Nesingwary's hunters now, I hear. Good for you, but every tiger you skin for him knocks another silver off my pelts, so forgive me if I don't buy you a drink; I'm budgeting." },
@@ -1826,6 +1872,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You're the second one with that face this month, pal, and the first was a {altrace} called {alt}, from the other side of the bar, if you take my meaning. Same scowl at the stairs, same complaint about the rum, and you'll pay what {alt} paid, because I'm fair like that." },
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Your cousin was in, pal, or your brother, or whatever {alt} is to you, and drank the cheap rum and complained about the expensive. I'm guessing it's a family trait, and I've got a whole shelf for it." },
         { id = "h_pt_skindle", tags = { "news" }, when = { class = { "WARRIOR", "ROGUE", "MAGE", "WARLOCK", "HUNTER" }, party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true } },
           text = "No healer among the lot of you? Then you'll be wanting rooms close to the stairs, because I've carried enough half-dead adventurers up them to know how this ends, and I charge a carrying fee now." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Salty Sailor, there's a sight. Keep your blessings quiet near the stairs, if you would, because the Baron's men don't care for anything they can't put a price on." },

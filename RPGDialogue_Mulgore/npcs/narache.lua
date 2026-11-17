@@ -86,6 +86,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another young one with your face came through Camp Narache, the one called {alt}. Our elders say the spirits send kin along the same trail, and I think they've done it again." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "I remember {alt} as a youngling chasing plainstriders below the camp, and now I hear that {altclass} spoken of in Thunder Bluff. Walk as far as that one has, and remember the camp that raised you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. My mother would have wanted to hear your story, and I will listen in her place." },
         { id = "h_default", key = true,
           text = "I am Hawkwind, chief of this camp. The Bristleback took my mother from us, the Greatmother of this tribe, and we mourn her by standing straighter, not by bending." },

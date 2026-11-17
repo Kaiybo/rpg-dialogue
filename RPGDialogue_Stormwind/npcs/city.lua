@@ -98,6 +98,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You've never been in this room, but SI:7 already has a file on someone called {alt} who stood where you're standing, a {altrace} {altclass} with your habit of watching the door. I don't believe in coincidences, so I'll assume you know each other until you tell me otherwise." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
+          text = "{alt}'s file has grown thicker this month, which means that one's been busy in places I'd rather know about. If your paths cross, tell them Shaw is paying attention, and that I mean it kindly." },
         { id = "h_pt_shaw", tags = { "news" }, when = { party = true },
           text = "You travel with company, and company talks, so choose yours carefully. I've had good agents undone by a friend's loose tongue in a Goldshire tavern, and I'd rather it didn't happen to you." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
@@ -1069,6 +1073,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Well, look at you, love, the spit of {alt}, who had the corner room last time the auction house was busy! Sit down and tell me straight whether you're cousins or I've just been working too long." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was in only the other week, love, and sat in that very chair, and I swear the two of you must share a tailor. Now, what'll it be?" },
         { id = "h_pt_allison", tags = { "news" }, when = { party = true },
           text = "Oh, a whole party of you, love! Wipe your boots, the lot of you, and if you're going to argue about how to split the takings, do it at the corner table where the bankers can't hear." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit down, you look like you've been up with the sick all night, and I've a pot of something hot on." },

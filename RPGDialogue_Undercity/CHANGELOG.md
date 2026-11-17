@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+
 ## 1.20.0 (2026-11-17)
 - 24 new people: Carendin Halgar, Jeremiah Payson, Aelthalyste, and the trainers, merchants and banker of every quarter. New files: restart the game fully (a /reload won't load them).
 

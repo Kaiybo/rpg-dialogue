@@ -108,6 +108,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "How curious. A {altrace} called {alt} was presented to me only recently, and you have quite the same face, unless all of your sort simply look alike to me; do forgive me, I'm sure yours is a family of great distinction." },
+        { id = "h_alt_class", when = { alt = { sameClass = true }, metBefore = false },
+          text = "Another {altclass}, how fashionable. One called {alt} came to court not long ago, full of opinions about the crown's business, and I do hope you haven't come to share the same ones." },
+        { id = "h_alt_back", when = { alt = true, metBefore = true }, cooldown = "5d",
+          text = "Your friend {alt} was at court again, I hear, asking the Highlord's clerks the most tiresome questions. One does notice when the same sort of people keep turning up, {name}." },
         { id = "h_pt_katrana", tags = { "news" }, when = { party = true },
           text = "How charming, a little band of heroes in the throne room. Do keep them close, {name}; the court can be so unkind to people it doesn't know, and one never quite knows who's listening." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },

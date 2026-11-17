@@ -33,6 +33,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Whoa, hey, I just sold a stack of fancy books to a {altrace} named {alt}, pal, from the other side, and you've got the exact same disapproving eyebrows. Is there some kinda family of you goin' around Dalaran checkin' up on honest businessgoblins?" },
+        { id = "h_alt_same", when = { alt = { faction = "same" } },
+          text = "{alt} came by, a {altclass}, real friendly, and didn't call the mages on me, so I'm thinkin' good things about your whole family, pal. Don't ruin it, 'cause I got a reputation for bein' trusting, and it's costin' me." },
         { id = "h_default", key = true, text = "Well, hey there, fellow Dalaranian! Just another honest citizen, me, mindin' my own business while the whole city goes kablooey around us, and kablooey's real good for the salvage trade." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Don't gimme that look, pal. The shop's open, the owner ain't, and lettin' good stock go to waste in all this ruckus would be a crime against commerce." },

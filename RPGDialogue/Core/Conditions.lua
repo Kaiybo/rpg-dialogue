@@ -532,6 +532,30 @@ def("word", 30, "hinge", nil, function(ctx, v, env)
   return true, "word: " .. w.kind .. " from " .. tostring(w.name)
 end)
 
+-- Your other characters on this account (0.80.0, Systems/Kin.lua). NPCs don't know they're
+-- yours; lines treat them as kin, a look-alike or someone they remember.
+-- alt = true                 : another of your characters has spoken with this person
+-- alt = false                : none has
+-- alt = { race =, class =, gender =, faction = "same"|"other"|"Horde", kin = true (your race),
+--         notKin = true, sameClass = true, higher = true (above your level), level = 60 or
+--         { min =, max = }, days = 30 (met within), met = false (any character, met or not),
+--         ["not"] = true (nobody like that) }
+-- {alt}, {altrace}, {altclass} name the character it picked out.
+def("alt", 25, "hinge", nil, function(ctx, v, env)
+  local K = ns.Kin
+  if not K then return false, "no kin system" end
+  if v == true or v == false then
+    local e = K.Match(ctx, nil, env)
+    if v then return e ~= nil, e and ("met by " .. tostring(e.name)) or "no other character met them" end
+    return e == nil, e and ("met by " .. tostring(e.name)) or "no other character met them"
+  end
+  if type(v) ~= "table" then return false, "bad alt spec" end
+  local e = K.Match(ctx, v, env)
+  local ok = e ~= nil
+  if v["not"] then ok = not ok end
+  return ok, (e and ("alt " .. tostring(e.name)) or "no alt") .. " for " .. show(v)
+end)
+
 -- { town = , min = , max = } or { town = , tier = "Liked" }
 def("townStanding", 20, "hinge", nil, function(ctx, v, env)
   local town = v.town or v[1] or (env.info and env.info.communities and env.info.communities[1])

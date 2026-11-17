@@ -1224,6 +1224,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Another {altrace}, an' ye've the look o' {alt}, who slept upstairs one cold night an' left the bed made, which nobody does. Kin o' yers, I'd wager, so ye're welcome by the fire." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
+          text = "There was a {altclass} called {alt} who came through Kharanos as green as ye, an' now I hear that name spoken in Ironforge wi' some respect. Mind ye do as well, for the valley likes tae boast about its own." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want a room near the stair, I think, fer that plate makes a racket, an' the brewers sleep light." },
         { id = "h_default", key = true,
           text = "Innkeeper Belm, at yer service. There's beds upstairs, ale downstairs, an' Rhapsody Malt fer anyone brewin' the Thunderbrew way." },

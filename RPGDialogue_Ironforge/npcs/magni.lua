@@ -105,8 +105,23 @@ P:NPC {
         { text = "Then I hope she comes home soon, Your Majesty.", next = "BACK" },
       },
     },
+    xalt_magni = {
+      big = true,
+      lines = { { id = "xalt_magni_default", text = "{alt}, a {altrace} {altclass}, an' as fine a guest as this hall's had in a season. That one brought me word from the road an' stayed for a pint, which is more than the Senate's envoys ever do, an' I've a fondness for folk who'll do both." } },
+      choices = {
+        { text = "Kin should stand together, Your Majesty. Blood comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A body's worth is in their deeds, not their family.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Hold there, I've seen that face afore! A {altclass} called {alt} stood in this very hall, an' ye've the same jaw an' the same stubborn eyes, so ye'll be kin, or I'm no' a Bronzebeard." },
+        { id = "h_alt_dwarf", when = { alt = { race = "Dwarf", notKin = true }, metBefore = false },
+          text = "Ye're no' a dwarf, but ye walk intae my hall the way {alt} did, an' that one's as stout a {altclass} as Khaz Modan ever sent out. Ye wouldnae happen tae know each other?" },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was here no' long ago, drinkin' my health an' tellin' tales o' the road, an' I'll wager half o' them were about ye. Sit down, an' tell me which half were true." },
         { id = "h_pt_magni", tags = { "news" }, when = { party = { race = "Dwarf" }, race = { "Human", "NightElf", "Gnome" } },
           text = "Ye've one o' my own folk at yer side, I see, an' {companion} looks like they've kept ye out o' trouble more than once. That's how it should be; there's no' a road in Azeroth a dwarf cannae make shorter for a friend." },
         { id = "h_pt_magnikin", tags = { "news" }, when = { party = { kin = true }, race = "Dwarf" },
@@ -164,6 +179,7 @@ P:NPC {
         { text = "Do you ever hunt in the high snows, Your Majesty?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thaurissan is dead, Your Majesty. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "What does Ironforge think of the companies that pass through?", next = "xpt_magni", when = { party = true } },
+        { text = "Who's this other one you keep mentioning, Your Majesty?", next = "xalt_magni", when = { alt = true } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

@@ -120,6 +120,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_same", tags = { "news" }, when = { alt = { sameClass = true } },
+          text = "I trained a {altclass} called {alt} not long ago, with the same habit you have of dropping the shield arm when tired. Whoever taught the pair of you, they taught you both the same bad lesson." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true, class = "WARRIOR" } },
+          text = "{alt} still comes back to my yard now and then, and I'd put that {altclass} against most of the Warchief's guard. You'll need a good many more bruises before I say the same about you." },
         { id = "h_pt_pair", tags = { "news" }, when = { class = "WARRIOR", party = { sameClass = true } },
           text = "Two warriors in one company, and both still standing. Most bands I've seen with two of you end up arguing over who goes through the door first, so settle that now, before it gets one of you killed." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in the Valley of Honor. The last knight of the Silver Hand I saw was guarding a camp, recruit, so you'll forgive me if I hit you twice as hard." },

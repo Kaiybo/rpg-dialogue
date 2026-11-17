@@ -32,8 +32,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_eitrigg = {
+      lines = {
+        { id = "xalt_eitrigg_default", text = "I've talked with plenty of young ones who wanted me to swear the old Horde was glorious, and I send them off disappointed. The one you mean asked something better than that, so I remember them." },
+        { id = "xalt_eitrigg_kin", when = { alt = { kin = true } }, text = "{alt}, the {altclass}. They asked me what I regretted from the Second War, and nobody asks an old soldier that, so I told them the truth and they heard me out to the end." },
+      },
+      choices = {
+        { text = "A warrior should hear the hard truths, not the songs.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Songs keep warriors fighting. The truth can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Eitrigg.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "I had a talk not long ago with {alt}, a {altclass} with your look about the eyes. Blood or chance, I can't say, but at my age you notice when the same fire shows up twice." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "{alt} came through here carrying more scars than you have yet, and asked me the same sort of questions you will. Whatever's between the two of you, I hope you're learning from that one and not the other way round." },
         { id = "h_default", key = true, text = "I am Eitrigg. I fought for Blackhand and for Doomhammer, I left the Horde when I learned what it had become, and Thrall brought me home again. Now I stand in his hall and tell him what the old days cost us." },
         { id = "h_rend_q", tags = { "news" }, when = { questActive = TODO_QUEST("Eitrigg's Wisdom") },
           text = "Rend Blackhand alive? We thought him dead for decades, and Goretooth would not write it if he did not believe it. None know the Blackrock better than I do, so sit, and I will tell you what the Warchief must hear." },
@@ -52,6 +67,7 @@ P:NPC {
         { id = "h_again3", when = { disposition = { min = 65 } }, text = "Ask what you will. I find I don't mind your questions." },
       },
       choices = {
+        { text = "You've spoken with someone close to me, Eitrigg.", next = "xalt_eitrigg", when = { alt = true } },
         { text = "You left the Horde? Why?", next = "leaving" },
         { text = "Who saved your life?", next = "tirion" },
         { text = "Tell me about the Blackrock clan.", next = "blackrock" },

@@ -109,6 +109,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You remind me of {alt}, a young {altclass} who learned the balance here in Shadowglen and thinned the boars without any malice in it. If that one is kin to you, I hope you were taught the same gentleness." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Shadowglen! The young ones here learn Elune's ways from the cradle, but they'll be glad of a healer, for the beasts this year bite harder than they should." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in our little glade! You've come a long way from the Eastern Kingdoms, by sea and by rope ladder, and I hope Shadowglen gives you a gentler welcome than the roads did." },
         { id = "h_default", key = true,

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-17)
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+
 ## 1.26.0 (2026-11-17)
 - The Topper McNabb patch: Topper has a conversation of his own now, far deeper than before (see the main changelog for 0.78.0). New file `npcs/topper.lua`: restart the game fully (a /reload won't load it).
 - New: Nikova Raskol in Old Town (see the main changelog for 0.78.0). New file: restart the game fully (a /reload won't load it).

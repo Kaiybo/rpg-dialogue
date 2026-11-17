@@ -99,6 +99,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Another recruit with the look of {alt}, I see. That {altclass} came through Northshire before you and did good work, so I'll expect the same from you." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
+          text = "I hear {alt} has gone a long way since passing through this abbey, and the garrison still talks about it. See that you give them something to talk about as well." },
         { id = "h_pt_mcbride", tags = { "news" }, when = { party = true },
           text = "You've brought a company back to Northshire. Good; the abbey has always done better when its graduates come home with friends than when they come home alone and wounded." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A healer. Anetta will claim you, but the barracks will claim you first, so sleep where you can." },

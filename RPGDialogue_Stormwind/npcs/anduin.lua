@@ -82,8 +82,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_anduin = {
+      big = true,
+      lines = { { id = "xalt_anduin_default", text = "Their name was {alt}, a {altclass}, and they let me hold their gloves while we talked, which the guards didn't like at all. Bolvar says a king mustn't have favourites among his subjects, but I think I'm allowed to have favourite visitors." } },
+      choices = {
+        { text = "I'll pass on your regards, Your Majesty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your guards are right to be careful, Your Majesty.", next = "BACK" },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You look ever so much like {alt}! That one came to see me too, and told me a story about a gryphon that I'm fairly sure wasn't true, but I liked it anyway, so are you related?" },
+        { id = "h_alt_other", when = { alt = { notKin = true }, metBefore = false },
+          text = "Do you know {alt}? I only ask because a {altrace} {altclass} by that name came to visit, and you have the same way of bowing, as if you're not quite sure whether you ought to." },
+        { id = "h_alt_back", when = { alt = { days = 14 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came back to see me not long ago, which hardly anybody does, and now you've come back too. I'm starting to think the two of you are taking turns, and I don't mind at all." },
         { id = "h_pt_anduin", tags = { "news" }, when = { party = true },
           text = "Are all of these your friends? I'm not allowed to go anywhere with friends, only with guards, and the guards are very kind, but they won't play anything." },
         { id = "h_default", text = "I'm the king, at least until my father comes home. Everyone's been very kind about it, though I don't think I'm very good at it yet." },
@@ -124,6 +139,7 @@ P:NPC {
         { text = "Do you know what a warlock is, Your Majesty?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did your books say anything good about shamans, Your Majesty?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do you have friends of your own, Your Majesty?", next = "xpt_anduin", when = { party = true } },
+        { text = "Who was this other visitor, Your Majesty?", next = "xalt_anduin", when = { alt = true } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

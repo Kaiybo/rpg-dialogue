@@ -102,6 +102,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You have the look of {alt}, the {altclass} who helped drive the humans out of Tiragarde Keep. If that's your blood, then Razor Hill already knows what your family is worth." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "{alt} has gone on to fight in places I only read about in Nazgrel's reports, and I'll admit I'm proud of it. Do half as well and I'll be satisfied." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Razor Hill. Nazgrel taught me to judge a soldier by his reports, not his glow, so report, and we'll see what you are." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my grunts come back from Tiragarde with Kul Tiran arrows in them, and I've no use for a grunt who can't stand." },
         { id = "h_default", key = true,
@@ -489,6 +493,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another one with your face slept here, {alt} by name, and left the bed tidier than any grunt ever has. If that's family, I'll expect the same from you." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} named {alt} stopped here out of the sun not long ago and complained about the scorpids the whole night through. You look like you've got complaints of your own, so sit and have them over an ale." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. I've a bed, ale and a roof against the sun, and I don't suppose you need any of them, but the rate's the same." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my inn. The beds are clean, and the ale isn't holy, but it'll do." },
         { id = "h_default", key = true,
