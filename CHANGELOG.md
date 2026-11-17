@@ -2,6 +2,19 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.56.0 (2026-11-17)
+Packs: 18 packs have new versions (`python3 tools/version.py` lists them). Includes 0.55.0 (rivals), which wasn't released on its own. No new files in 0.56.0: /reload is enough if you have 0.39.0 or later.
+
+### Druids across the 30-60 lands
+- **About 210 more people greet a druid as one**, with a question to ask and something to argue about: Hillsbrad and Alterac, Arathi, the Hinterlands, Western Plaguelands, Stranglethorn and Booty Bay, Swamp of Sorrows, the Blasted Lands, Burning Steppes, the Badlands, Dustwallow, Thousand Needles, Tanaris, Silithus, Azshara, Felwood, Winterspring and Moonglade. Every named person in those lands now has something for a druid.
+- Town folk speak to their own faction's druids; Booty Bay, Gadgetzan, Everlook, Cenarion Hold, the raceway and other neutral ground talk to night elf and tauren druids alike.
+
+### Riverglades for every class
+- Everyone at Farholde, on the frontier and at Powderfuse now has a greeting and a conversation for every class: warriors, paladins, hunters (with a word for your pet), rogues, priests, mages, warlocks and druids, plus shamans from the goblins and Gray. About 125 new conversations.
+
+### Fixes
+- Jaina Proudmoore, Keeper Remulos and Knight Commander Demar Brant now give their warm greeting when they think well of you; it had been tucked inside another line and never showed.
+
 ## 0.55.0 (2026-11-17)
 Packs: Darnassus, Thunder Bluff, Thousand Needles, Duskwood, Hillsbrad, Stormwind and Stranglethorn have new versions. No new files in 0.55.0: /reload is enough if you have 0.39.0 or later.
 
