@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The elements came first for my people, and the Light is a stranger to us. But we came to the Horde with our own odd gifts and were given a place to stand, and I would offer you the same welcome the tauren offered us." } },
+      choices = {
+        { text = "Then I'll honour that welcome, and earn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I've earned my place already, Ayessa.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We have those who ask the wind to carry sickness away, and sometimes it listens, though it is a fickle healer. Your way seems steadier to me, and I would be grateful if you shared a little of it with Gev'rek's young ones." } },
@@ -85,6 +94,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Windshapers know something about being strange in the Horde, so I will not stare. Much." },
         { id = "h_default", key = true,
           text = "I'm Ayessa Dawnsinger, and I lead the Windshapers. The Earthen Ring answered when we called, and the Horde gave us a place to stand." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warrior. The Horde gave us a place to stand, and its warriors are the reason that place stays standing." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the Windshapers practise the arcane, Elder?", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do your people fear warlocks, Elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Do the Windshapers find the Light strange, Ayessa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {

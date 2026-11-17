@@ -193,6 +193,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I don't know. The Earth Mother heals slowly, and the Venture Company cuts quickly, and I'll take any help that tips the balance. If your Light mends, come and mend beside me for a day, and we'll see what grows." } },
+      choices = {
+        { text = "I'll mend beside you, Tsunaman. Gladly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My Light's for the Venture Company, not seedlings.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It can quicken them a little, but the earth must still do the real work, because a tree hurried into growing is a tree that breaks in the first hard wind. What the vale needs most from you is to keep the shredders away while the roots go deep." } },
@@ -225,6 +234,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light, here among the stumps. I plant what others cut down, and I wonder whether the Light can plant anything." },
         { id = "h_default", text = "I am Tsunaman, and I plant what others cut down. The Venture Company has stripped the Charred Vale and the woods below, and the Earth Mother will heal them, but she's glad of a little help." },
         { id = "h_cond", when = { race = "Tauren" }, text = "A shu'halo! Then you know the land is our mother, and a child does not stand by while his mother is hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The earth here cries out under the Venture Company's saws, and I'm glad someone who can hear it has come." },
@@ -251,6 +261,7 @@ P:NPC {
         { text = "Should the Venture Company be fought, or driven off, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where have the beasts gone since the vale burned, Tsunaman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a druid's magic help the seedlings take root, Tsunaman?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Can the Light heal the forest, Tsunaman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "May the seeds take root.", next = "END" },
       },
     },
@@ -346,6 +357,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "My uncle told me the Forsaken were our allies, but he never said anything about the Light. I don't care, though, not really. If you'll walk me home to Sun Rock, you can glow all you like." } },
+      choices = {
+        { text = "I'll walk you home and keep you safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep up. I won't wait for stragglers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I did, before the Grimtotem came, because I wanted to run with the plainstriders and listen to the land. Now I only want to get home to Sun Rock, and I'll think about everything else when I'm not afraid any more." } },
@@ -378,6 +398,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're... you're dead, and you're glowing. Are you here to help me, or are you another thing I should hide from?" },
         { id = "h_default", text = "I'm Kaya Flathoof, and the Grimtotem fell on our camp, and I've been hiding ever since. My uncle is at Sun Rock, and I think he must believe I'm dead, so will you walk me home?" },
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo! You'll know the Grimtotem are tauren too, which makes this worse, doesn't it? They're our own people, and they did this." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman, aren't you? The Grimtotem had shamans too, but they never looked at anyone kindly, so please be different." },
@@ -404,6 +425,7 @@ P:NPC {
         { text = "How many Grimtotem attacked your camp, Kaya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Grimtotem hunt along this road, Kaya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you want to become a druid one day, Kaya?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "I'm here to help, Kaya. You're safe.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll take you home soon, Kaya.", next = "END" },
       },
     },

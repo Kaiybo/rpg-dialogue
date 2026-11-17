@@ -257,6 +257,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Some will be wary; the Light and the dead are both strangers to us. But I learned from a teacher who saw past what I was, and I would be a poor student if I did not do the same for you." } },
+      choices = {
+        { text = "Thank you, Arch Druid. I'll be worthy of that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I don't need the druids' acceptance, Arch Druid.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Mine asks the green world to lend its strength, and it does, so long as I remember to thank it. Yours, as I understand it, comes from belief itself, which seems a stranger and lonelier thing to carry. I don't think either is wrong, but I do wonder sometimes who answers a Forsaken when he prays." } },
@@ -322,6 +331,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Malfurion said yes to me when others said no, so I will not be the one who says no to you." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "Magatha has been generous with her time where you are concerned. The Grimtotem give nothing for free, young one, so think on what she may want from you in return." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -356,6 +366,7 @@ P:NPC {
         { text = "Do the druids watch over Mulgore's beasts, Arch Druid?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would the Cenarion Circle ever accept a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a rogue learn from a druid, Arch Druid?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Will the druids accept a Forsaken paladin, Arch Druid?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
       again = {
@@ -456,6 +467,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Perhaps. Death and Light should not walk together, and yet you do. Balance is practised daily, like any honest craft, and I suspect you practise harder than most. Keep at it, and you may find your own." } },
+      choices = {
+        { text = "I'll practise it daily, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is your craft. Mine is the Light.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "There is in everything, though some people try hard to forget it. I'm told a priest can heal with one hand and wound with the other, and that the shadow costs something every time it's used. Practise the mending more often than the wounding, and I think you'll keep your footing." } },
@@ -509,6 +529,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I teach the steps of balance, and you, I think, are a very strange step." },
         { id = "h_default", key = true, text = "I'm Turak Runetotem, and I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "The call reached you, then, and good. Sit, for before you can be more than one creature, you must understand the one you are." },
@@ -541,6 +562,7 @@ P:NPC {
         { text = "Is the arcane part of the Great Balance, Turak?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do druids think of warriors, Turak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a warlock keep the balance, Turak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Am I out of balance, Turak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -637,6 +659,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A creature that should not be, carrying a power that should not answer it. The Earth Mother has nothing to say about you, so I will say it: you are useful, and you are dangerous, and I wonder whether the Horde knows which." } },
+      choices = {
+        { text = "I serve the Horde, Elder Crone. That's what I am.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Useful and dangerous. I'll take both.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "That faith is a tool like any other, and that the dead learned as much when the Light stopped answering them. Cairne would call that a sad lesson, but I think it a useful one, and I find the Forsaken far more practical company than the elders who sit beside me. Remember that, priest, if you ever need a friend on this bluff." } },
@@ -702,6 +733,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. How very interesting. Cairne sees a strange ally, I suspect. I see something else entirely." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have been sitting at Cairne's fire, or at Runetotem's, and they have filled your head with talk of peace and patience. I will not hold it against you, but I will not pretend to be pleased." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -733,6 +765,7 @@ P:NPC {
         { text = "Do you need protection on Elder Rise, Magatha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the Grimtotem hunt, Magatha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the Grimtotem fear demons, Elder Crone?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do you see in me, Magatha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -825,6 +858,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Thunder Bluff welcomes everyone, more or less. Some of my guests will want to see the Light, and some will keep their distance, and both are fine. The orcs who come up the lifts sometimes go quiet around paladins, so give them space." } },
+      choices = {
+        { text = "I'll give them space. They've earned it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll learn to share a room with me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Oh, every night, it seems, and mostly from the Barrens road, with arrows in them or centaur bruises all down their sides. I give them stew and a bed and send for a shaman, but a priest by the hearth would save a great deal of running about. You're welcome to sit with the sore ones, if you'd like, and I'll keep your bowl warm." } },
@@ -899,6 +941,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Everyone gets the same welcome and the same stew at the Cat and the Shaman, even if you don't eat it." },
         { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
           text = "Sky-folk, from down at the camp? Sit by the fire; up here the wind's colder than you'd think, even for you." },
@@ -924,6 +967,7 @@ P:NPC {
         { text = "Do hunters bring you game for the stew, Pala?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the druids and shamans argue about, Pala?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Is a warlock welcome at the Cat and the Shaman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does Thunder Bluff welcome paladins, Pala?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

@@ -23,6 +23,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because the Silver Hand was Lordaeron's, and Lordaeron hunted us when we woke. Some of its knights still ride the Plaguelands against us. You carry their Light, and the Dark Lady likes to know whose loyalties outlived the grave." } },
+      choices = {
+        { text = "Mine belong to the Dark Lady. Write that down.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My loyalty is to the Light, apothecary. Note that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They trust the Earth Mother's healing, and they tolerate ours because Cairne asks them to. A troll's prayer or a Forsaken's shadow both make them twitch, though they'll still bring you a fevered calf when the shaman are out on the plains. I find that rather sweet of them, in a bovine sort of way." } },
@@ -98,6 +107,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, here among our tauren friends. How curious. The Society keeps notes on Forsaken who cling to the old Light, and I'm afraid you've just become one." },
         { id = "h_default", key = true,
           text = "I am Apothecary Zamah, and I represent the Royal Apothecary Society here among our tauren friends. Cairne lets us study, and in return we share our cures, mostly." },
         { id = "h_serpent", when = { questActive = TODO_QUEST("Serpentbloom") },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "What makes the beasts in the Wailing Caverns sick, Zamah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The tauren look at my imp as if it were plague.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do the druids distrust you, Zamah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -185,6 +196,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd hunt beside anyone who respects the beast. The tauren never needed the Light, but I'm curious what it does to a hunter's patience. If it makes you steady, it may do you more good than you think." } },
+      choices = {
+        { text = "It makes me steady. I'll respect the hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm no hunter, Holt. I'll take what I need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "More often than their pride would let them say. A plainstrider's kick or a quilboar's spear in the thigh, and they limp up the lift hoping I won't notice. The shaman mend them well enough, but I've seen a troll priest close a wound in a single breath, and I won't pretend that didn't impress an old hunter." } },
@@ -259,6 +279,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The Thunderhorns have hunted Mulgore for generations, and we've never hunted beside one of you." },
         { id = "h_default", key = true, text = "I am Holt Thunderhorn, and I teach the hunters of Thunder Bluff. The Thunderhorns have hunted Mulgore since long before the bluffs had bridges." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your bow has seen use since we last met, hunter. Let me see what you have learned." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise? You're welcome here, though my students will want to know if you can call the wind to steady an arrow." },
@@ -279,6 +300,7 @@ P:NPC {
         { text = "What makes a Thunderhorn hunter, Holt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the druids tell your hunters how to hunt, Holt?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why do the beasts bristle at me, Holt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would a Thunderhorn hunt beside a paladin, Holt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
@@ -327,6 +349,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Anything that can protect the herd can hurt it. The orcs remember the Light from the camps, where it guarded their cages. Use it to guard the herd, not to cage anyone, and you'll be welcome among my warriors." } },
+      choices = {
+        { text = "I'll guard the herd with it, Ker.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll use it however the fight requires.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Behind it, I would say, close enough to reach the wounded and far enough back that the first charge doesn't fall on you. A warrior who knows a healer stands at his back will hold a little longer, and a little longer is often the whole battle. Strength protects the herd, and so does whoever keeps the strong on their feet." } },
@@ -401,6 +432,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. A tauren's strength is great, and so is the Light, I'm told. Both must be used carefully." },
         { id = "h_default", key = true, text = "I am Ker Ragetotem, and I train the warriors who guard Thunder Bluff. A tauren's strength is great, so we must learn to use it carefully." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Come for more training, warrior? Good, because the centaur do not rest, and neither should we." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. Your strength comes from outside you, so you must learn to carry it even more carefully than a warrior does." },
@@ -421,6 +453,7 @@ P:NPC {
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Grimtotem have druids of their own, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How can a mage protect the herd, Ker?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Must the Light be used carefully, Ker?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },

@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "In what they protect, I think. The orcs say the Silver Hand counted them like coins in the camps, and the tauren never did that to anyone. Count your friends, and keep your coins safe with me." } },
+      choices = {
+        { text = "My friends count more than my coins, Chesmu.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Coins first. Friends come and go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The old way, yes. When the tauren wandered, a family was rich if it had healthy herds and friends who would come when called, and a healer who came was worth more than both. The coins in these vaults are useful, but I have never seen one close a wound." } },
@@ -99,6 +108,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The tauren count wealth in herds and friends, and I wonder how a paladin counts it." },
         { id = "h_default", key = true, text = "I am Chesmu, and I keep the vaults of Thunder Bluff. Whatever you leave here is safe until you return for it, and you may reach the same vault from any bank of the Horde." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "Welcome, child of the Earth Mother. Our grandparents carried everything they owned on a kodo's back, and now we leave it with a stranger on a mesa. The world changes, and we change with it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The elders say the earth keeps its treasures deep, and so do I, though mine have locks on them." },
@@ -122,6 +132,7 @@ P:NPC {
         { text = "Do hunters keep their trophies here, Chesmu?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do druids really own nothing, Chesmu?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you trust warlocks with your vaults, Chesmu?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "How do you count a paladin's wealth, Chesmu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Chesmu.", next = "END" },
       },
     },
@@ -190,6 +201,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "We trust the wind more than any map, and the wind is a kind of spirit. The Light is a stranger, but strangers are not enemies until they prove it. Fly with my riders, and they'll learn your scent." } },
+      choices = {
+        { text = "I'll fly with them and prove no enemy.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fly. Proving myself is a waste of time.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Now and then, when harpies spook a wind rider over the Barrens or a storm catches one above the Needles. The beasts fall harder than their riders do, and I've nursed more than one torn wing with salve and patience. I don't know whether your prayers reach a wind rider, but I'd be grateful if you tried." } },
@@ -264,6 +284,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The wind will carry you anywhere, and it doesn't care what you pray to." },
         { id = "h_default", key = true, text = "I am Tal, and I keep the wind riders of Thunder Bluff. They will carry you to the Crossroads, Camp Taurajo, Sun Rock Retreat, or anywhere else the Horde keeps a roost you've visited." },
         { id = "h_skyborne", when = { race = "Skyborne" }, text = "One of the Windshapers. Your people know the sky better than mine, I think, but the wind riders will still carry you, if you'll let them do the flying." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then you'll enjoy the flight more than most, because the wind riders say your kind talk to the air the whole way." },
@@ -287,6 +308,7 @@ P:NPC {
         { text = "Will your wind riders carry a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do the wind riders settle around druids, Tal?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Will the wind riders carry a mage, Tal?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the tauren trust the Light, Tal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Tal.", next = "END" },
       },
     },
@@ -355,6 +377,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Heavier, I think, because the Light holds you to it. The orcs remember the Silver Hand's promises from the camps, and they were broken ones. Keep yours, and you'll carry a weapon honestly." } },
+      choices = {
+        { text = "I'll keep my promises, Ansekhwa, all of them.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Promises are only as good as the need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "A staff, most often, because it keeps an enemy at arm's length while you work, and it leans well when you're tired. Some trolls carry daggers and some Forsaken prefer a wand, and I'll teach either. What matters is that you can protect yourself long enough to protect someone else." } },
@@ -420,6 +451,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. A weapon is a promise to protect someone, and I imagine a paladin's promise is heavier than most." },
         { id = "h_default", key = true, text = "I am Ansekhwa, and I teach the use of weapons to any who can learn them. A weapon is a tool for protecting the herd, and the more tools you carry, the fewer ways the herd can be hurt." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior. You'll want to know every weapon there is, then, because one day the one in your hand will break, and you'll need to pick up whatever lies nearby." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll need a weapon you trust as much as your totems, and I can teach you one." },
@@ -440,6 +472,7 @@ P:NPC {
         { text = "Which weapon should a warrior master first, Ansekhwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a hunter learn the spear, Ansekhwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should a warlock learn weapons, Ansekhwa?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is a paladin's promise heavier, Ansekhwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Ansekhwa.", next = "END" },
       },
     },
@@ -495,6 +528,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Why not? The humans' paladins fought close, the orcs say, but the Thunderhorns have always believed in knowing more than one way to protect the herd. A bow for a paladin would be a strange thing, but a good one." } },
+      choices = {
+        { text = "Many ways to protect the herd. I'll learn.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A paladin fights close, Kuna. No bows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We thank the beast and the Earth Mother before and after, and my family has done so since long before we had a rise to stand on. I don't know if it's prayer the way you mean it, but it keeps a hunter honest. Holt says a hunter who forgets to give thanks will soon forget to aim." } },
@@ -569,6 +611,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I make bows, not hammers, but I'm curious what a paladin wants on Hunter Rise." },
         { id = "h_default", key = true, text = "I'm Kuna Thunderhorn, and I sell bows, arrows and guns on Hunter Rise. The Thunderhorns have always been hunters, and somebody in the family had to make the bows instead of only using them." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Come and look at the long bows. They're cut from the old trees of Mulgore, and they'll carry an arrow further than anything the orcs make." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise! You'll want a mace more than a bow, I'd wager, but you're welcome to admire the craftsmanship." },
@@ -592,6 +635,7 @@ P:NPC {
         { text = "What makes a Thunderhorn bow special, Kuna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the druids mind you cutting wood for bows, Kuna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Would a warlock ever need a bow, Kuna?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would a paladin carry a Thunderhorn bow, Kuna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -660,6 +704,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Patient ones do, and I imagine the dead are very patient. The Light might scare the fish, though, so keep it dim. Fishing is a quiet thing, and you seem like you've had enough noise." } },
+      choices = {
+        { text = "Quiet would suit me. I'll keep it dim.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The fish can deal with the Light.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Only when the fish in Stonebull Lake are being stubborn, and they usually are. Aska says it's the bait and not the Earth Mother, and she's probably right, but I like to think someone's listening when I sit out there all morning. If a priest wants to bless my hooks, I won't say no." } },
@@ -734,6 +787,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin wants to fish on a mesa! Well, the lakes are only a lift and a walk away, and the fish won't care." },
         { id = "h_default", key = true, text = "I'm Kah Mistrunner, and I teach fishing. It's a strange thing to teach on top of a mesa, I know, but the lakes of Mulgore are only a lift and a walk away." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear! Your people fish the sea, and mine fish the lakes. We should trade secrets, you and I." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then maybe you can tell me why the fish bite better after a rain, because I've wondered for years." },
@@ -759,6 +813,7 @@ P:NPC {
         { text = "Can a rogue make a good angler, Kah?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why fish when a mage can conjure food, Kah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can a warlock learn to fish, Kah?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the dead make good fishermen, Kah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Kah.", next = "END" },
       },
     },
@@ -824,6 +879,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because the orcs remember the Light from the camps, the trolls watch the dead, and the tauren are curious but cautious. A paladin who brings stew to the campfire gets a seat. That's how it works." } },
+      choices = {
+        { text = "Then I'll learn to cook and earn a seat.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A seat's not worth begging for, Aska.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Every winter, dear, when the fevers go round the lower rises. A good broth does half the work of any healer, and I'll argue that with a shaman or a priest alike. Bring me a sick one and I'll feed them, and you can do the other half." } },
@@ -898,6 +962,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I suppose you don't eat, but a warrior who can cook makes friends at every campfire, and you could use friends." },
         { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and those are both worth more than a sharper sword." },
         { id = "h_orc", when = { race = "Orc" }, text = "An orc! Your people eat everything burnt and call it cooked. Sit down, and I'll teach you to roast meat without turning it to charcoal." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and too thin, like all of you who spend your nights talking to campfires instead of cooking on them. Sit, and I'll fix that." },
@@ -921,6 +986,7 @@ P:NPC {
         { text = "What's the best game to cook in Mulgore, Aska?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What should a druid cook out on the plains, Aska?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do warlocks eat properly, Aska?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why would a paladin need friends, Aska?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Aska.", next = "END" },
       },
     },
@@ -987,6 +1053,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I hope so. They make poisons from the Earth Mother's herbs; you carry a Light that heals, the orcs say, even if it burns you. If you use it to mend, you're closer to an alchemist than they'll ever be." } },
+      choices = {
+        { text = "I use it to mend. Always.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I use it to burn, too, when needed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They ought to, if both are used for mending. A potion carries a healer's skill to places the healer can't go, and a priest can mend what no potion reaches. What I won't abide is either one turned to poison, and I've watched the apothecaries on Spirit Rise come very close to that line." } },
@@ -1061,6 +1136,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I've strong opinions about the apothecaries on Spirit Rise, but I'm curious about you." },
         { id = "h_default", key = true, text = "I am Bena Winterhoof, and I teach alchemy. The Earth Mother grows the herbs, and alchemy draws out what she put in them to heal and to strengthen, which is all it should be used for." },
         { id = "h_alch", when = { profession = "Alchemy" }, text = "An alchemist! Tell me you've been making healing draughts, and not anything the Forsaken would be proud of." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because you'll understand that what the Earth Mother grows is meant for healing, whatever the apothecaries on Spirit Rise think." },
@@ -1084,6 +1160,7 @@ P:NPC {
         { text = "Warlocks use reagents too, Bena. Any advice?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Should druids keep an eye on the apothecaries, Bena?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What do you think of mages, Bena?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Am I different from the apothecaries, Bena?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1154,6 +1231,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Both are gifts, and both must be thanked for. The orcs say the Silver Hand never thanked anyone, but I think you might. Gifts that burn are still gifts, if you use them well." } },
+      choices = {
+        { text = "I thank it, every time. It's a gift.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's not a gift. I earned it in pain.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Every one, if you pick it with thanks and leave enough for the next season. Peacebloom and silverleaf grow all over Mulgore, and I've seen them ease a fever when a healer was too tired to pray. I don't think the Earth Mother minds who does the mending, so long as it's done." } },
@@ -1219,6 +1305,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The Earth Mother grows what we need everywhere, and perhaps the Light does the same for you." },
         { id = "h_default", key = true, text = "I am Nida Winterhoof, and I teach herbalism. The Earth Mother grows what we need everywhere, if we only learn to see it, and I teach that seeing." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Then you already know the plants are alive in more ways than one. Come, let me teach you to gather without hurting them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You must feel how glad the earth is when an herb is gathered properly, with thanks." },
@@ -1240,6 +1327,7 @@ P:NPC {
         { text = "Should a warrior learn herbalism, Nida?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Which herbs grow on the plains of Mulgore, Nida?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do plants fear warlocks, Nida?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do herbs and the Light work alike, Nida?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Nida.", next = "END" },
       },
     },
@@ -1305,6 +1393,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not trouble, but it makes me think. The beast gives its hide, and we honour it by wasting nothing. You've been given a second life with the Light in it, and I'd say the same rule applies: waste none of it." } },
+      choices = {
+        { text = "I'll waste none of it, Una.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll spend it as I please.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Every one, though it's more thanks than prayer. The beast gave the hide, and the least I can do is make something worthy of it and say so out loud while my hands work. You priests would call it a blessing, I suppose, and I don't mind the word." } },
@@ -1379,6 +1476,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Every hide was a living beast once, and I suppose you were a living person once too." },
         { id = "h_default", key = true, text = "I am Una, and I teach leatherworking. Every hide that comes to me was a living beast, and I teach my students to use all of it and waste none, because that's how you honour what was given." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll have hides in your packs, then, and you should learn to work them yourself rather than selling them for a few coppers." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll understand better than most that every hide I work once held a spirit, and that spirit deserves respect." },
@@ -1401,6 +1499,7 @@ P:NPC {
         { text = "How should a hunter treat a hide, Una?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the druids object to your work, Una?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do warlocks ever learn leatherworking, Una?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does that trouble you, Una?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Una.", next = "END" },
       },
     },

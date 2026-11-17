@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "She would have been curious, and not afraid. She taught that every creature walks the path the Earth Mother gave it, even those whose path was broken. Yours was broken by death, and still you walk it, straighter than some of the living." } },
+      choices = {
+        { text = "Then I'll walk it straight, Chief.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My path is my own, Chief, not the Earth Mother's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "My people have sung her to the Earth Mother already, but a prayer from a stranger would honour her too, because she always said the Horde would teach us new ways of honouring the dead. Say it standing straight, and she will hear it." } },
@@ -70,6 +79,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. My mother would have wanted to hear your story, and I will listen in her place." },
         { id = "h_default", key = true,
           text = "I am Hawkwind, chief of this camp. The Bristleback took my mother from us, the Greatmother of this tribe, and we mourn her by standing straighter, not by bending." },
         { id = "h_humble", tags = { "news" }, when = { questActive = TODO_QUEST("A Humble Task") },
@@ -98,6 +108,7 @@ P:NPC {
         { text = "Could the arcane have saved the Greatmother, Chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you want a prayer said for the Greatmother, Chief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will you trust a warlock in your camp, Chief?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What would the Greatmother have made of me, Chief?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
       },
       again = {
@@ -185,6 +196,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I would, if you could keep pace. The Bristleback are cunning, and the Light might frighten them out of their dens. My father says I'm too eager, but I'd like to see what you can do against the quilboar." } },
+      choices = {
+        { text = "Then let's hunt them together, Grull.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll hunt them myself. You'll slow me down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "If you can keep up! The Bristleback lurk in Brambleblade Ravine, and the plainstriders kick harder than you'd think, so a healer at my back would let me run straight at them. My father says a leader should know when to call for help, and I'm learning." } },
@@ -238,6 +258,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! I've never hunted beside one of you. Can you even keep up?" },
         { id = "h_default", key = true,
           text = "I'm Grull Hawkwind, the Chief's son. One day I'll lead this camp, and until then, I lead its hunts." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("The Hunt Begins") },
@@ -265,6 +286,7 @@ P:NPC {
         { text = "Could a rogue scout your hunts, Grull?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would a mage be welcome on your hunts, Grull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Your father doesn't trust warlocks, Grull?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you hunt beside a Forsaken paladin, Grull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {

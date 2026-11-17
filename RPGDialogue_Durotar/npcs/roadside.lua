@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The humans' priests prayed over my people in the camps, and nothing came of it but more chains. My son is gone, and no Light will bring him back. If you want to help, bring me his amulet, and keep your prayers for someone who wants them." } },
+      choices = {
+        { text = "Then I'll bring the amulet and keep my prayers.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer would comfort you, Misha, if you let it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I'd like his amulet back more than any prayer, if I'm honest, but I'll not turn one away. Pray that he went quickly, and that he wasn't afraid, because those are the things I think about when the hut is quiet." } },
@@ -104,6 +113,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The dead, carrying the Light. I have no prayers left for anyone since my Kron, so don't offer me yours." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Then you'll know how to speak to a mother who's lost her son, and you'll know not to say it was meant to be." },
         { id = "h_default", key = true,
           text = "I am Misha Tor'kren, and this hut is all the clan I have left. My son Kron went out hunting and never came home, and the beasts of this hill have his amulet still." },
@@ -132,6 +142,7 @@ P:NPC {
         { text = "What did Kron hunt, Misha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you remember of the old warlocks, Misha?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can my spells help you at all, Misha?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Would you have me pray for Kron, Misha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
       again = {
@@ -195,6 +206,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I don't know, and I'd like to. The Silver Hand burned my people with it when we were already beaten, which tells me it burns whoever it's pointed at. Point it at Skull Rock, and I'll count the cultists who come out." } },
+      choices = {
+        { text = "I'll burn the cultists, and gladly, for the Horde.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll burn whoever pays best, Margoz.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Maybe, after they're all dead and gone, and not a moment before. Whatever they call up in there fouls the air for days, and I've seen grunts walk out coughing black, so if you go in, go in with someone who can swing an axe." } },
@@ -267,6 +287,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Good. The Burning Blade at Skull Rock serve demons, and I'd like to see what your Light does to them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You won't change Skull Rock with prayers, but you can keep my scouts alive while they count the cultists, which is more use than most." },
         { id = "h_default", key = true,
           text = "I'm Margoz, and I watch Skull Rock for the Horde. The Burning Blade have dug themselves into that cave like ticks, and someone has to count them." },
@@ -293,6 +314,7 @@ P:NPC {
         { text = "Could arcane magic help you watch Skull Rock?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How many cultists are holed up in Skull Rock, Margoz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What leaves the scorched tracks near Skull Rock, Margoz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does the Light work on demon-worshippers, Margoz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
       },
       again = {
@@ -352,6 +374,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The elements trust no one at first; trust is earned. When the orcs lost them, it was demons who came, and when we were caged, it was the Light that kept the doors shut. I would like to believe the Light can mean something else in your hands." } },
+      choices = {
+        { text = "It can, and I'll show the spirits that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The spirits can believe what they like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not resent, no, though they keep their distance from it the way water keeps its distance from fire. A priest who uses the shadow to heal is welcome among us, but one who uses it to hurt will find the earth less friendly under his feet." } },
@@ -425,6 +456,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who calls on the Light. The elements around you are very still, as though they are listening for what you will do. So am I." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The elements don't answer you, I think, but something does, and I'll not pretend I can't feel it." },
         { id = "h_default", key = true, text = "I am Swart, and I teach those the elements will answer. If you have the gift, I can help you hear it; if not, I can still tell you what the spirits say of this land." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, and let us see what the earth has taught you since we last spoke." },
@@ -445,6 +477,7 @@ P:NPC {
         { text = "Do the spirits of the beasts speak to you, Swart?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a shaman ever trust a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the spirits watch rogues, Swart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the elements trust a Forsaken paladin, Swart?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Swart.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? The elements are patient, and so am I." } },
@@ -484,6 +517,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'll teach anyone to stay alive, and you've had more practice dying than most. The scars I carry came from human knights with hammers like yours, so if you want my respect, earn it out there, not in here." } },
+      choices = {
+        { text = "Then I'll earn it on the field, not with words.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm dead already. Respect is a luxury.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not mid-lesson, no, because a recruit who knows he'll be healed stops being careful. Heal them after, when they've felt it and remembered it, and they'll live longer for both of us." } },
@@ -567,6 +609,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. You stand like a knight of Lordaeron, recruit, and I learned in the camps what those knights stood like. Show me how you fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my recruits learn faster when they know someone will pick them back up." },
         { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. The scars are from the ones who taught me." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back for more lessons, warrior? Good, because the scorpids out there won't wait for you to get better." },
@@ -589,6 +632,7 @@ P:NPC {
         { text = "How do I stay alive longer, Tarshaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What happens when the beast goes down first, Tarshaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What can a warrior teach a warlock, Tarshaw?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you train a paladin, Tarshaw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = { { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." } },

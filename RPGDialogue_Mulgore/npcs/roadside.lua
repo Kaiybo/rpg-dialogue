@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not as much as the dwarves digging to the north. They carry the Light too, I'm told, and they tear the earth open without asking. You I'll watch, but if you help us guard the road, I'll count you as a friend of the braves." } },
+      choices = {
+        { text = "I'll guard the road with you, Morin.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll guard what I choose, not your road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We burned what was left and sang over the ashes as the elders taught us, but it was hurried, and I fear it was not enough. If your prayers can reach the dead, say one on the road where the wagons fell, because I still feel them watching it." } },
@@ -96,6 +105,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I watch this road for strangers, and you are the strangest I have seen." },
         { id = "h_default", key = true,
           text = "I am Morin Cloudstalker, and I watch over the road for the braves of Bloodhoof. Strangers have been tearing at the earth to the north, and a caravan of ours was ravaged not far from here." },
         { id = "h_caravan", when = { questActive = TODO_QUEST("The Ravaged Caravan") },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "Did the dead of the caravan receive their rites, Morin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have the dwarves at Bael'dun done to the land, Morin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Who threatens the road, Morin?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do I worry you, Morin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
       again = {
@@ -187,6 +198,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I do not know. The night elves taught us that healing comes from the land itself, and the Light comes from somewhere else. But if it heals, it heals, and I am curious to see what yours mends." } },
+      choices = {
+        { text = "Then I'll heal the land and its people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light heals people. Land is your business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not quite, I think, because a druid asks the land to mend itself and a priest asks something greater to mend it for them. Both are a kind of asking, though, and I have never thought the land minded who did the asking, so long as it was asked kindly." } },
@@ -252,6 +272,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The Runetotems learned the old ways from strangers, so I will not turn a stranger away." },
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Welcome back, little druid. Show me what the wild has taught you since last we spoke." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
@@ -270,6 +291,7 @@ P:NPC {
         { text = "Is there any balance in what I do, Gennia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do druids and priests heal in the same way, Gennia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What can a rogue learn from a druid, Gennia?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can the Light heal the land as druids do, Gennia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows." } },
@@ -318,6 +340,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Everything worth anything takes something. The plains feed us, and we thank the beast that gives. I expect your Light takes pain, from what the orcs say. If you thank it, as we thank the beasts, I think you're closer to us than you seem." } },
+      choices = {
+        { text = "I thank it, every time it burns.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I thank nothing. I take what I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Some do, and I do not stop them, because a wounded companion deserves every kindness. A troll priest once mended my old cat after a Palemane spear found her, and I have thought better of the loa ever since." } },
@@ -392,6 +423,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. My hunters take only what they need. I wonder what the Light takes from you." },
         { id = "h_default", key = true, text = "I am Yaw Sharpmane, and I teach the hunters of Bloodhoof. The plains feed us, so we take only what we need and thank the beast that gives it." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your companion looks well fed, hunter, and that tells me more about you than your aim." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. You'll understand why we thank the beast after a hunt, because you've heard the spirits that walk beside it." },
@@ -412,6 +444,7 @@ P:NPC {
         { text = "Do hunters here ask a priest to tend their beasts, Yaw?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do hunters and druids ever argue over the beasts, Yaw?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How should a warlock treat a demon, Yaw?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What does the Light take from me, Yaw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting, Yaw.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask on. A hunter learns by asking as much as by tracking." } },

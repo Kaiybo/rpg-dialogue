@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. Zalazane twist the dead on the Echo Isles into his slaves, and you be dead with a power he never touch. Maybe that make you safe, maybe not. The loa decide, and I listen." } },
+      choices = {
+        { text = "I'll prove I'm no one's slave, Master.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I serve the Dark Lady and the Horde. That's enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "He take what the loa give for healin' and turn it to bindin' his own people, mon. Now the Echo Isles be full of Darkspear with his hex on them, and I wake up some nights thinkin' I should have seen it in him when he was small." } },
@@ -65,6 +74,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light. I teach witch doctors, and I tell them always to watch the dead careful. You be the strangest dead I ever see." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one I didn't teach. That be good, because the last few I taught don't make me proud." },
         { id = "h_default", key = true,
           text = "I be Master Gadrin, and I teach the Darkspear witch doctors. I teach Vol'jin once, and Zalazane, and one of them I be proud of." },
@@ -90,6 +100,7 @@ P:NPC {
         { text = "I hunt heads for the tribe, the old way.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "Could a rogue help you against Zalazane?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How do I fight the hexed Darkspear, Master Gadrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should a troll fear a Forsaken paladin, Master?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thank you, Master.", next = "END" },
       },
       again = {

@@ -281,6 +281,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Trouble me? No, mon. I seen the loa ride stranger horses than you. But the Light was the humans' spear, and the orcs remember who held it over the camps, so you be watched in this city until you give them a reason to stop." } },
+      choices = {
+        { text = "Then they can watch me keep faith with the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them watch. I owe the orcs no explanations.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They listen, mon, though they don't always answer the way you be wantin'. Zalazane think the loa give power to whoever shout the loudest, and look where that take him, cursin' his own people on Echo Isles. A priest who listen more than he shout, that one the spirits remember." } },
@@ -333,6 +342,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man carryin' the Light of the humans. Now dat be interestin', and Vol'jin only talks to the interestin' ones." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one of the Horde's own. The loa watch who do the healin' and who do the hurtin', and the best of my people learn to do both when the time be right." },
         { id = "h_default", key = true,
           text = "Vol'jin, chief of the Darkspear. Thrall stand with my people when nobody else would. Now I stand at his side and tell him what he don't want to hear." },
@@ -355,6 +365,7 @@ P:NPC {
         { text = "I strike from the jungle, chief, the old way.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a mage walk beside the loa, chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Who threatens the Darkspear now, Vol'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does a Forsaken with the Light trouble you, Vol'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Vol'jin.", next = "END" },
       },
       again = {
@@ -476,6 +487,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Every power is dangerous in the wrong hands, friend, and the Light has had some very wrong hands in its time. The Silver Hand kept my people in pens with it. I don't say you'd do the same; I only say I will be watching, as I watch everyone." } },
+      choices = {
+        { text = "Watch all you like. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Watch your own hands, Neeru. I'll watch mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I watch everyone, friend, because that is what the Warchief needs from someone like me. Priests are seldom any trouble, though the shadow your kind draws on is a cousin to the fire I keep an eye on, and cousins do have a way of visiting each other." } },
@@ -538,6 +558,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. How very unusual. I make it my business to know everyone in Orgrimmar who handles a dangerous fire, and you are certainly one of them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. How refreshing; most of the Horde's spellcasters come to the Cleft of Shadow for something less wholesome than prayer." },
         { id = "h_default", key = true,
           text = "Neeru Fireblade, loyal servant of the Warchief. I keep an eye on those in the Horde who still play with fire. Someone with experience must, after all." },
@@ -567,6 +588,7 @@ P:NPC {
         { text = "Fire is my craft too, Neeru. Arcane fire, though.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is there work in the Cleft for a warrior, Neeru?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why do beasts shy away from the Cleft, Neeru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is the Light a dangerous fire, Neeru?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -677,6 +699,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Some of them. The old grunts saw that light in the camps, on the guards who kept them there, and they go quiet when it shows. Sit near the door and keep it to yourself after a few drinks, and they'll settle." } },
+      choices = {
+        { text = "I'll keep it quiet. They've earned their peace.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They'll have to learn the Light is mine now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Only after they've lost, and only if nobody's watching, because an orc would sooner bleed than admit he needs mending. If you sit by the door with a bowl of stew, though, you'll find they come to you, and you can tell them the stew did it." } },
@@ -748,6 +779,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Do the dead even eat? Never mind, a paladin is a paladin, and nobody leaves the Broken Tusk hungry, not even one who glows a little." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the Broken Tusk! Good, because half my customers leave with a black eye, and the other half give it to them." },
         { id = "h_default", text = "I'm Gryshka, and I keep the Broken Tusk, and I keep it fed. Nobody leaves my inn hungry, and a few leave too full to walk." },
         { id = "h_zargh", when = { questActive = TODO_QUEST("Meats to Orgrimmar") },
@@ -771,6 +803,7 @@ P:NPC {
         { text = "I could keep your hearth burning with a spell, Gryshka.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warriors cause much trouble in the Broken Tusk, Gryshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Mind if my imp warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does a Forsaken paladin bother your guests, Gryshka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {
@@ -823,6 +856,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Because everyone does, and the last thing I saw with that glow around it was a human knight in Lordaeron putting me on my back for good. I got up then too, though it took the camps and ten years to do it." } },
+      choices = {
+        { text = "I'll not be the next to knock you down.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then stay down this time and save us both trouble.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Because tomorrow somebody will knock me down again, and then the healing's wasted on me. I was a warrior once, you know, and a good one, and I think I'd rather keep the bruises than pretend I'm still that orc." } },
@@ -897,6 +939,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha! A dead paladin. I've been knocked down by everything else in this inn, so I suppose you're next, are you?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
         { id = "h_default", key = true,
           text = "I'm Gamon. I help Tazan with his trade when I'm sober, and I'm usually here, lying on the floor because someone's knocked me down again." },
@@ -917,6 +960,7 @@ P:NPC {
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You were a warrior once. What happened?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Has a mage ever knocked you down, Gamon?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why would I knock you down, Gamon?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Bye, Gamon.", next = "END" },
       },
       again = {

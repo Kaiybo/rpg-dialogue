@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A stranger. The tauren never needed the Light; we live by the Earth Mother and the hunt. But stillness teaches, and you are very still, as the dead are. Perhaps the Light is something like that: a stillness inside that waits." } },
+      choices = {
+        { text = "Perhaps. I'll learn your stillness, Jorn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light isn't stillness. It's a weapon.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "A patient hunter seldom needs one, but the Barrens punishes the impatient, and I have carried more than one young student back from the Gold Road. My people pray to the Earth Mother and not to your loa or your shadow, but I have never turned a healer away from Taurajo." } },
@@ -88,6 +97,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Sit still a moment, if you can, and let the Barrens look at you." },
         { id = "h_default", key = true,
           text = "Jorn Skyseer is my name, and I teach young hunters the ways of the wild, here where it's safe enough to learn. The Barrens are full of life for those with the patience to see it." },
         { id = "h_ishamuhale", tags = { "news" }, when = { questActive = TODO_QUEST("Ishamuhale") },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "What can a warrior learn from you, Jorn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does a hunter have need of a priest, Jorn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there anything a warlock can learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do the Barrens see in me, Jorn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
@@ -210,6 +221,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "*snort* Mangletooth fears nothing in a cage. But shining dead make Razormane nervous, and nervous Razormane talk. Kill Bristlebacks, and Mangletooth will tell you where the Razormane are nervous." } },
+      choices = {
+        { text = "I'll strike at the Bristlebacks, and keep my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll do what I like, pig. Talk now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The Razormane have geomancers who speak with the earth, and Death's Head priests who speak with older things, and Mangletooth does not like either. Charlga Razorflank listens to something under the Razorfen, and it is not the Earth Mother, whatever the tauren say." } },
@@ -282,6 +302,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "*snort* Dead one that shines! Mangletooth has seen many things in this cage, but not this. Shining dead are strange." },
         { id = "h_default", key = true,
           text = "*snort* Mangletooth is of the Razormane, strongest of the quilboar, and the Bristlebacks are weak. Kill them, and Mangletooth will tell you things." },
         { id = "h_tribes", tags = { "news" }, when = { questActive = TODO_QUEST("Tribes at War") },
@@ -309,6 +330,7 @@ P:NPC {
         { text = "Do quilboar keep beasts, Mangletooth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your geomancers would kneel to my demon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Razormane have priests of their own, Mangletooth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does Mangletooth fear the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
       again = {
@@ -370,6 +392,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The weapons first: a paladin's hammer is a human weapon, made by human smiths to break orcs in the old wars. Seeing it in Forsaken hands, for the Horde, tells me more than any book. I'll write it down for the Warchief, who may never read it." } },
+      choices = {
+        { text = "Tell him it swings for the Horde now.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Tell him it swings for the Light, not the Horde.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "More than you'd think, because a priest's staff has cracked more quilboar skulls than any sermon. I've a troll's ritual knife and a Forsaken's chipped mace in my notes already, and both had prayers carved where the grip wears down." } },
@@ -435,6 +466,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! The Warchief sent me to study every people that passes through Taurajo, and you're a people I've never studied." },
         { id = "h_default", key = true,
           text = "Tatternack Steelforge, at your service. The Warchief sent me to study weapons and armor, and to meet everyone who passes through Taurajo, because there's something to learn from every people, even the quilboar." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Weapons of Choice") },
@@ -454,6 +486,7 @@ P:NPC {
         { text = "What does my weapon tell you, Tatternack?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do priests carry weapons worth writing down, Tatternack?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warlocks belong in your study, Tatternack?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What can a paladin teach you, Tatternack?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
       again = {
@@ -507,6 +540,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The tauren welcome travellers, and you are a traveller. We do not know the Light well, so you'll find some of us curious and some uneasy. Don't take offence at the hyenas; they laugh at everyone, even the dead." } },
+      choices = {
+        { text = "I'll take no offence. Thank you for the welcome.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they laugh at me, I'll teach them otherwise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Every night, I'd say, because the hyenas follow the herds and nip at whoever walks last. A priest by my fire would do them more good than another bowl, though don't tell them I said so, because they're proud of their scars." } },
@@ -590,6 +632,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The kodo herders eat first, because they've earned it, but there's stew enough for a curious stranger." },
         { id = "h_default", key = true,
           text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, and I make sure they leave rested." },
         { id = "h_herders", when = { metBefore = true }, text = "The kodo herders come in at sundown smelling of dust and kodo, and I serve them first. They've earned it." },
@@ -611,6 +654,7 @@ P:NPC {
         { text = "Is my demon welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the kodo herders need tending, Byula?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do mages come through Taurajo often, Byula?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does Taurajo welcome a Forsaken paladin, Byula?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
     },

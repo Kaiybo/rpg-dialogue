@@ -29,6 +29,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Strength without patience only breaks things, and I suspect you've had patience forced on you by death. The braves will learn something from watching you, if you stand firm and keep your temper." } },
+      choices = {
+        { text = "I'll stand firm and keep my temper.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them learn from my anger too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Firmer, some of them, because a brave only has to stand his ground, while a priest stands it and keeps everyone else standing too. I saw it on the long walk before Mulgore, and I teach my braves to guard their healers first." } },
@@ -94,6 +103,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Narache. The young braves will stare. Stand firm and let them, since that's a lesson too." },
         { id = "h_default", key = true, text = "I am Harutt Thunderhorn, and I teach the young braves of Narache to stand firm. A tauren is strong from birth, but strength without patience only breaks things." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Your arms are thicker than when you came to me, young one, and your stance is better. Are you ready to learn more?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems on your belt, young one, and that is a heavy load for a brave. Carry it as patiently as you would carry a spear." },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "What could a rogue learn from you, Harutt?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the braves trust mages, Harutt?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do the braves fear warlocks, Harutt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you train beside a paladin, Harutt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Harutt.", next = "END" },
       },
       again = {
@@ -178,6 +189,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They do not resent it; they do not know it. The first lesson I teach is to listen before you ask, and you, I think, had to learn to listen in a very dark place. If the Light is how you listen, I'll not argue with it." } },
+      choices = {
+        { text = "The Light and the spirits can share Mulgore.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The spirits needn't approve of my Light.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Not that I have felt, though fire grows restless near a priest of shadow, and water seems to lean towards a healer. You ask a power that answers, as I do, and I only ask that you never treat it like a servant." } },
@@ -252,6 +272,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The elements are listening to you very carefully, and so am I." },
         { id = "h_default", key = true, text = "I am Meela Dawnstrider, and I teach the young shaman of Narache to hear the earth, fire, water and air. The elements are not tools, and the first lesson is learning to listen before you ask them for anything." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "You have been listening to the spirits, I can tell, because you walk more softly than you did. Are you ready for a new lesson?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The earth holds you up, though you may never have thanked it for that." },
@@ -272,6 +293,7 @@ P:NPC {
         { text = "Do the elements and my prayers ever quarrel, Meela?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does a druid's path differ from a shaman's, Meela?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the spirits forgive a rogue, Meela?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do the elements resent the Light, Meela?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Meela.", next = "END" },
       },
       again = {
@@ -324,6 +346,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Not fear, I think, only uncertainty. They know life and they know death, and you are both and neither. The night elves taught us to see the balance in things, and you are a balance I have not seen before." } },
+      choices = {
+        { text = "Then I'll walk carefully and keep the balance.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Balance is for druids. I'm a paladin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They would sense the healing in you, I think, the same way they sense it in a druid, though yours smells of incense and ours of grass. A hurt beast will come to a gentle hand, so if you find one, kneel and wait." } },
@@ -389,6 +420,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The creatures of Mulgore have gone very quiet around you, and I am curious why." },
         { id = "h_default", key = true, text = "I am Gart Mistrunner, and I teach the young druids of Narache. We learn to take the shapes of the beasts and to heal the land, as the Earth Mother wishes." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Each time you come back, I can see more of the wild in you. What will you learn this time?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The creatures of Mulgore grow calmer when one of your kind walks among them, and I wonder if you've noticed." },
@@ -411,6 +443,7 @@ P:NPC {
         { text = "Could a rogue learn from the creatures, Gart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why are the night elves wary of mages, Gart?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the creatures fear my demon, Gart?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the creatures fear me, Gart?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Gart.", next = "END" },
       },
       again = {
@@ -476,6 +509,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "They'll fight beside anyone who stands with Mulgore. The orcs told us stories of the Silver Hand and the camps, and some braves will be wary. Fight beside them well, and the stories will change." } },
+      choices = {
+        { text = "Then I'll fight beside them and change the stories.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fight my way. They can take it or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They trust what they have seen, and they have seen troll priests pull braves back from death at the edge of the Barrens. A Forsaken priest makes them uneasy still, because the dead should not be walking, but I tell them a healer is a healer." } },
@@ -541,6 +583,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in Bloodhoof. Since Cairne joined the Horde, I've trained braves beside orcs and trolls. I never thought I'd train beside a dead knight." },
         { id = "h_default", key = true, text = "I am Krang Stonehoof, and I train the warriors of Bloodhoof Village. Since Cairne joined the Horde, our braves fight beside orcs and trolls, and they must learn to fight as well as any of them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? The orcs taught us that a shaman can fight as hard as any warrior, and I'll expect you to prove it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The orcs and trolls fight beside us now, and so must our hunters and warriors, so come and learn how a shield-wall works." },
@@ -559,6 +602,7 @@ P:NPC {
         { text = "Do your warriors trust priests, Krang?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should druids fight in the Horde's battles, Krang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do mages belong at the borders, Krang?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Will the braves fight beside a paladin, Krang?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it." } },
@@ -614,6 +658,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Of course! The orcs say the Silver Hand used hammers in the old wars, so maybe a paladin knows something about them I don't. A tauren hammer swings for the herd, though, so swing it well." } },
+      choices = {
+        { text = "It'll swing for the herd and the Horde.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It'll swing for whatever I choose.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Because the gnolls never stop to ask whether you're a healer, and a priest with a heavy staff lives long enough to finish the prayer. My braves laugh when I say so, but they don't laugh when the gnolls come." } },
@@ -688,6 +741,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You'll want a hammer, I expect, and I've got some heavy ones, though they might be a bit big for you." },
         { id = "h_default", key = true, text = "I am Mahnott Roughwound, and I sell weapons to the braves of Bloodhoof. Most of what I have is heavy, because a tauren with a little dagger looks like a kodo wearing a hat." },
         { id = "h_small", when = { race = { "Troll", "Scourge" } }, text = "I am Mahnott Roughwound, and I sell weapons, though most of mine are made for tauren hands. Look anyway, because I keep a few smaller ones for our friends from the Horde." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman, eh? Then you'll want a good mace or a heavy axe, and I have both, because a totem alone won't stop a charging quilboar." },
@@ -709,6 +763,7 @@ P:NPC {
         { text = "Why would a priest need a big weapon, Mahnott?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a druid need your weapons, Mahnott?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you sell weapons to warlocks, Mahnott?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you sell a hammer to a paladin, Mahnott?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or are you ready to buy something heavy?" } },
@@ -763,6 +818,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Mind? No, only curious. You smell of grave and the Light both, and I've never smelled that before. But the wheat doesn't mind who walks past it, and neither do I." } },
+      choices = {
+        { text = "Thank you, Jhawna. You're kind to strangers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take my leave. I don't need kindness.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Oh, I'd not say no, though the Earth Mother has kept them warm so far and I'd not want her to feel slighted. Say it softly, and maybe say it over the wheat fields too, because the Venture Company's dust has been settling on the eastern farms." } },
@@ -837,6 +901,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! I don't suppose you eat bread? The farms grow it for the living, but I'd share with anyone." },
         { id = "h_default", key = true, text = "I am Jhawna Oatwind, and I bake for Bloodhoof Village. The wheat comes from the farms around us, and if you have ever wondered why Mulgore smells so sweet in the morning, it's my ovens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The old ones used to sing over the first wheat of the season, and I always thought the bread tasted better for it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You look like you've been living on jerky and pride, and that's no way for anyone to fight." },
@@ -858,6 +923,7 @@ P:NPC {
         { text = "Would you want a blessing on your ovens, Jhawna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a druid help the eastern farms, Jhawna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do warlocks buy your bread, Jhawna?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the tauren mind a paladin's company, Jhawna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Jhawna.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, little one? The ovens are warm, and so am I." } },

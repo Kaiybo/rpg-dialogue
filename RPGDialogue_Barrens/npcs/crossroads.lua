@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The kind I haven't seen before. Every orc my age remembers the Silver Hand riding past the camp fences with that glow, and now it walks into my fort wearing Horde colours. If you hold these roads with me, I'll call you an ally and mean it." } },
+      choices = {
+        { text = "I'll hold the roads with you, Thork.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I hold to the Light, Thork, not to your roads.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Hands for the wounded and a steady voice for the dying, because the Razormane don't leave many clean cuts. I care little whether your prayers go to the loa or to the shadow, so long as my grunts get back on the wall." } },
@@ -103,6 +112,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the Crossroads. Every kind of trouble meets here, and I'm not yet sure which kind you are." },
         { id = "h_default", key = true,
           text = "I'm Thork, and I keep the Crossroads for the Warchief. Every road in the Barrens meets here, and so does every kind of trouble." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to the Crossroads") },
@@ -134,6 +144,7 @@ P:NPC {
         { text = "Do you trust the Forsaken at your crossroads?", next = "forsaken", when = { race = "Scourge" } },
         { text = "What does the Crossroads need from a priest, Thork?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Where would a mage do the most good, Thork?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What kind of trouble am I, Thork?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Thork.", next = "END" },
       },
       again = {
@@ -217,6 +228,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Gladly. The Silver Hand used to decide where orcs could walk, and now I decide where a paladin walks. I'd call that justice, if I cared for the word. Go and tame some of the Barrens, and come back and tell me about it." } },
+      choices = {
+        { text = "Then send me. I'll gladly earn my place.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll go where I please, not where I'm sent.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "I send anyone who'll go, and a priest who can keep a grunt breathing until the kodo cart reaches the gate is worth three axes out there. The Razormane have their own geomancers, so if you meet one, show it what real power looks like." } },
@@ -289,6 +309,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now that's a sight for the Barrens. I'll bet you've never been sent past these walls by an orc before." },
         { id = "h_default", key = true,
           text = "I'm Sergra Darkthorn, and I run the Crossroads. Thork holds the walls and I send people out past them, since the Barrens doesn't tame itself." },
         { id = "h_plainstrider", tags = { "news" }, when = { questActive = TODO_QUEST("Plainstrider Menace") },
@@ -319,6 +340,7 @@ P:NPC {
         { text = "Where does the Barrens bite hardest, Sergra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you ever send priests past the walls, Sergra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will a warlock find work at the Crossroads, Sergra?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you send a paladin out past the walls, Sergra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -398,6 +420,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Sorry doesn't find her. I've no use for prayers, dead man, and less for the Light. If you want to do something holy, go out into the grass and find out what the quilboar did with her. That's the only miracle I'm waiting for." } },
+      choices = {
+        { text = "Then I'll search for her, and pray as I go.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No miracles. Just a sword and a search.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "If you find her, say what you like over her, and say it loud enough for the quilboar to hear. She'd have laughed at a priest fussing over her, but I wouldn't laugh, and I'd owe you for it." } },
@@ -473,6 +504,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The Light. The humans' priests never saved anyone in the camps, and your Light didn't save my Olgra either." },
         { id = "h_default", key = true,
           text = "I'm Mankrik. My wife Olgra and I fought the quilboar side by side until they split us up and swarmed us. A tauren found me half-dead on the road, but nobody ever found her." },
         { id = "h_hatred", tags = { "news" }, when = { questActive = TODO_QUEST("Consumed by Hatred") },
@@ -500,6 +532,7 @@ P:NPC {
         { text = "My demons could hunt the ones who took her.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you want a prayer said over Olgra, Mankrik?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could my spells help you find Olgra?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'm sorry about Olgra, Mankrik.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep an eye out.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -584,6 +617,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "To a tauren, yes. The Earth Mother gives life, and the Light is a stranger to us, and you are a stranger still: death that carries the Light. Yet you do not feel like the poison in the oases, and I am curious what you are instead." } },
+      choices = {
+        { text = "Something that heals, I hope. Watch and judge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm a weapon, Tonga. Point me at the poison.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Perhaps the creatures that drink from them, if not the water itself, because what sickens the oases comes from under the earth and does not answer to prayers. The druids who went down into the Wailing Caverns meant to heal the land, and something answered them that should not have. Mend what you can on the surface, and leave the deep places to us." } },
@@ -650,6 +692,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. Thunder Bluff sent me to find a strange power in the Barrens, and I did not expect to meet another one at the Crossroads." },
         { id = "h_default", key = true,
           text = "My name is Tonga Runetotem. Thunder Bluff sent me to find where a strange power in the Barrens was coming from, and I found it, though I wish I hadn't." },
         { id = "h_oases", tags = { "news" }, when = { questActive = TODO_QUEST("The Barrens Oases") },
@@ -675,6 +718,7 @@ P:NPC {
         { text = "I know the feel of corruption. Mine is leashed, at least.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can a priest help heal the poisoned oases, Tonga?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a rogue learn what's happening in the caverns?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Am I a strange power, Tonga?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Tonga.", next = "END" },
       },
       again = {
@@ -754,6 +798,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Doubt is a scientific virtue. The Silver Hand served Terenas and the living, and many of its knights still hunt us in Lordaeron. You carry their Light, and I'm merely curious whether you carry their loyalties too. The Society would love to know." } },
+      choices = {
+        { text = "My loyalty is to the Dark Lady and the Horde.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My loyalty is to the Light, not any Lady.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Use? Certainly, though perhaps not the one you'd hope, because a priest who can keep a test subject alive a little longer is worth a great deal to our work. Master Faranell would say the same, and he'd mean it more than I do." } },
@@ -838,6 +891,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. How quaint. Some of us remember the Silver Hand from before the plague, and we wonder which side of that memory you stand on." },
         { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful, and a great deal does, it turns out." },
         { id = "h_spores", tags = { "news" }, when = { questActive = TODO_QUEST("Fungal Spores") },
           text = "Spores from the fungus out by the water are what I need, and don't breathe near them. Well, you do still breathe, I suppose, so I'll simply advise against it." },
@@ -864,6 +918,7 @@ P:NPC {
         { text = "Do the Forsaken trust warlocks more than the orcs do?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Society have any use for priests, Helbrim?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Society trust mages, Helbrim?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you doubt my loyalty to the Dark Lady, Helbrim?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with your work.", next = "END" },
       },
       again = {
@@ -929,6 +984,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Only when it's pointed at me. Paladins don't usually approve of my line of work, and I don't usually approve of glowing at people in the dark. But you're Horde, so we'll call it professional courtesy and leave it there." } },
+      choices = {
+        { text = "Professional courtesy, then. Neither of us lectures.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I don't approve of backstabbing, Darsok.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Only the clumsy ones, and I don't keep the clumsy ones long. Still, a troll priest pulled me back from a Kolkar spear once, and I've been politer to your sort ever since." } },
@@ -1002,6 +1066,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. Now there's a customer I've never had. Do you need a throat cut, or are you here to tell me off for cutting them?" },
         { id = "h_default", key = true,
           text = "The name's Darsok Swiftdagger. Throats, backs and the soft bits between armour plates are my trade, and I'm good at it." },
         { id = "h_harpy", tags = { "news" }, when = { questActive = TODO_QUEST("Harpy Raiders") },
@@ -1030,6 +1095,7 @@ P:NPC {
         { text = "Are the harpies worth hunting, Darsok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "My imp does the dirty work for me. Jealous, Darsok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your students ever need a priest, Darsok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does the Light bother you, Darsok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll handle the harpies.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -1084,6 +1150,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Gryshka told me once that the old grunts go quiet when that light shows, because they saw it on the guards at the camps. I was one of those grunts. But you didn't guard anyone, and meat's meat. Buy something and we're square." } },
+      choices = {
+        { text = "Then I'll buy, and keep the light out of it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll not hide the Light to sell meat.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The tauren do, and they look at me sideways when I don't, so lately I mutter a word over every kodo before the cleaver comes down. I don't know who's listening, but the meat tastes no worse for it." } },
@@ -1155,6 +1230,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. I sell meat to everyone who passes the Crossroads, and that's everyone, even you, I suppose." },
         { id = "h_default", key = true, text = "Name's Zargh, and I'm the butcher. I sell meat to everyone who passes through the Crossroads, which is everyone, so business is good. Everything else is the Barrens." },
         { id = "h_meats", tags = { "news" }, when = { questActive = TODO_QUEST("Meats to Orgrimmar") },
           text = "Take these choice cuts to Gryshka at the inn in Orgrimmar, and get them there fresh. And tell her, well, tell her they're from me; she'll know what that means." },
@@ -1178,6 +1254,7 @@ P:NPC {
         { text = "Do warlocks ever buy meat to feed their demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you ever pray over the beasts you butcher, Zargh?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you sell meat to a mage, Zargh?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you mind serving a paladin, Zargh?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not hungry.", next = "END" },
       },
       again = {
@@ -1230,6 +1307,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Fear it? No. We simply never needed it; the Earth Mother gives what we need. I'm curious, though, because the orcs go quiet when your kind come in, and the trolls watch your hands. I'd like to know what the Light feels like, if you'll tell me over stew." } },
+      choices = {
+        { text = "It burns, but it's right. I'll tell you over stew.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's power, Boorand, and nothing more than that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "More often than for a second bowl, which tells you something about the Barrens. Mankrik won't let anyone near him, though, so if you've a gentle way with the grieving, he's up on the wall, and I've run out of stew to bring him." } },
@@ -1314,6 +1400,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! The odd Forsaken sleeps here often enough, but never one who glows. Come in, the roof leaks, but the stars are fine." },
         { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough." },
         { id = "h_mankrik", when = { heardLine = "mankrik.h_default" },
           text = "Mankrik's been on that wall since before I got here. He eats when someone puts food in his hands, so I put food in his hands." },
@@ -1338,6 +1425,7 @@ P:NPC {
         { text = "Do hunters bring you game, Boorand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do travellers ever ask you for a priest, Boorand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is a warlock welcome at your inn, Boorand?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the tauren fear the Light, Boorand?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

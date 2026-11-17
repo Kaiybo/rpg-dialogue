@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Every recruit belongs here until they prove otherwise. When I came out of the camps the humans kept, I had nothing, and someone took me in anyway. You come with the Light that guarded those camps, and I'm taking you in anyway. Remember that." } },
+      choices = {
+        { text = "I'll remember, and I'll prove worthy of it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I didn't ask for anyone's charity, Kaltunk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "A few trolls each season, and the odd Forsaken who walked a long way to get here. They're quieter than the orcs and they take longer to settle, but by the time they leave the valley the grunts are asking for them by name." } },
@@ -107,6 +116,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin walks into the Valley of Trials. Someone greeted me once when I came out of the camps, so I'll greet you, glow and all." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, walking into the valley like everyone else. I'll send you to Gornek the same as the rest, but I'm glad you came." },
         { id = "h_default", key = true,
           text = "I'm Kaltunk, and every recruit who walks into this valley starts with me. I send you to Gornek in the Den, and he sends you to work." },
@@ -134,6 +144,7 @@ P:NPC {
         { text = "Why do warriors start with boars, Kaltunk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a new hunter tame first, Kaltunk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why won't Gornek like a warlock, Kaltunk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do I belong in the Valley of Trials, Kaltunk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm on my way.", next = "END" },
       },
       again = {
@@ -202,6 +213,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It's made Horde of stranger. The Silver Hand made orcs into prisoners, and the Valley makes prisoners' sons into warriors. If it can turn the Light into something that serves the Horde, then it's done its best work yet." } },
+      choices = {
+        { text = "Then I'll serve the Horde with the Light.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light serves no Horde. It serves me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The same as everyone, which is getting back up after you're knocked down, and helping the next one up after you. A priest who can do both will never want for friends in the Horde, though Frang will still shout at you." } },
@@ -242,6 +262,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Valley makes Horde out of whatever walks in, and today that's you. Let's see how long it takes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Den makes Horde out of whatever walks in, and I'll be glad when what walks in can mend the rest of them." },
         { id = "h_default", key = true,
           text = "I'm Gornek, and I run the Den. The Valley of Trials makes Horde out of whatever walks in, though some days that takes longer than others." },
@@ -265,6 +286,7 @@ P:NPC {
         { text = "An orc with a spellbook. Say what you're thinking.", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = "My people hunted the jungles long before this valley.", next = "headhunter", when = { race = "Troll", class = "HUNTER" } },
         { text = "Will you give a rogue the same work as a warrior?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Can the Valley make Horde of a paladin, Gornek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll get to work.", next = "END", fx = { affinity = 1, standing = { valley_of_trials = 1 } } },
       },
       again = {
@@ -363,6 +385,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Every power is dangerous if you let it own you. The Burning Blade let the fel own them; the Silver Hand let the Light make them jailers. Don't let it own you, and point it at the caves to the north." } },
+      choices = {
+        { text = "I'll master it, and burn the cultists.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light owns me already. I'm glad of it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Prayer alone won't, but a priest who keeps the recruits alive while they burn out the caves will do more than any prayer. I've watched too many young ones die in that smoke, so if you're going north, keep them breathing." } },
@@ -426,6 +457,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I watch cultists who want the old fire back, so I know a dangerous power when it walks in." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade want the old fire back, the one that nearly burned us down, and I'd like to see what your prayers make of that." },
         { id = "h_default", key = true,
           text = "I'm Zureetha Fargaze. The Burning Blade have taken the caves to the north and they're spilling into the valley, so I watch them, and I send recruits to thin them." },
@@ -451,6 +483,7 @@ P:NPC {
         { text = "Could the arcane help you fight the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What waits in the Burning Blade caves, Zureetha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What have you missed in the caves, Zureetha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is the Light dangerous, Zureetha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go north.", next = "END" },
       },
       again = {
@@ -521,6 +554,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Ha! I'd pay to see it. But don't, because half of them were born to parents who remember the Light in the camps, and I'd have a riot instead of a nap. Just walk past and look holy. They'll work out of nerves." } },
+      choices = {
+        { text = "I'll leave them in peace. They've earned rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A little fright will do them good.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd probably sleep through it, because I once watched one nap through a scorpid crawling up his back, and honestly I was almost proud of him." } },
@@ -584,6 +626,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Perfect. Maybe your glow will wake my peons up. Nothing else has." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You wouldn't happen to know a prayer for waking up lazy peons, would you, because I've tried everything else." },
         { id = "h_default", key = true,
           text = "I'm Foreman Thazz'ril. My peons are meant to be gathering lumber, but mostly they're gathering naps." },
@@ -608,6 +651,7 @@ P:NPC {
         { text = "Would you really want me to frighten your peons?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the beasts here bother your peons, Foreman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the peons fear warlocks more than you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Shall I wake your peons with the Light, Foreman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll wake them.", next = "END" },
       },
       again = {
@@ -658,6 +702,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd feed anyone. The Silver Hand fed us in the camps, gruel and grudges both, and I swore my pot would never be like theirs. Eat or don't, but sit by the fire. That much nobody here will refuse you." } },
+      choices = {
+        { text = "I'll sit, and thank you for the kindness.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep my distance. I'm not your guest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "They eat the same, but they complain less, which is a blessing of its own. The trolls always say a word over their bowls, and I've started saying one over the pot too, though I'd thank you not to tell Gornek." } },
@@ -729,6 +782,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. I don't suppose you eat, but nobody thanks the cook anyway, so I'll offer you scorpid tail and see what happens." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my fire! Bless the pot if you like; it could use the help, and so could the scorpid tails." },
         { id = "h_default", key = true,
           text = "I'm Galgar, and I feed the Den: recruits, grunts and peons alike. Nobody thanks the cook, but everybody notices when the pot's empty." },
@@ -754,6 +808,7 @@ P:NPC {
         { text = "What do you feed the recruits, Galgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do rogues steal from your pot, Galgar?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would you feed a paladin, Galgar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Thanks, Galgar.", next = "END" },
       },
       again = {
@@ -809,6 +864,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I arm anyone with coin. Plenty of recruits have dropped weapons in the scrub, and I suspect you'll drop yours too. The old grunts won't like seeing a paladin's hammer in the Valley, but they don't buy from me, so I don't care." } },
+      choices = {
+        { text = "I'll pay a fair price for a good hammer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Give me the cheapest one. I'll make it holy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Everyone asks that, and the answer's no, because a discount for one is a discount for all. That said, a healer who's kept my customers alive has kept my trade alive, so I'll throw in a strap for your mace and call it even." } },
@@ -872,6 +936,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. You'll want a hammer, I suppose, and you'll pay for it like everyone else." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll sell you a mace, and I'll charge you for it, because the Light or the loa don't pay my rent." },
         { id = "h_default", key = true,
           text = "I'm Kzan Thornslash, and I keep the recruits armed while they keep dropping their weapons in the scrub. One of those jobs is harder than the other." },
@@ -893,6 +958,7 @@ P:NPC {
         { text = "Do mages really drop their weapons so often?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a hunter need from you, Kzan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you sell to warlocks as freely as anyone?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you arm a Forsaken paladin, Kzan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll find them.", next = "END" },
       },
       again = {

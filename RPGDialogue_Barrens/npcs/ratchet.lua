@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Ratchet welcomes coin. I've built for orcs, sold to humans and haggled with pirates, so a dead paladin is barely a novelty. Just don't go smiting anybody on my docks, because the Cartel charges for cleanup, and it's not cheap." } },
+      choices = {
+        { text = "I'll keep the peace on your docks, Gazlowe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll smite whoever deserves it, docks or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Pay? Pal, I'd put you on retainer if the Cartel let me, because every sailor the Southsea pirates carve up is a sailor I'm not shipping cargo with. Heal 'em quick and heal 'em cheap, and we'll get along fine." } },
@@ -105,6 +114,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, in my town! Keep that hammer sheathed on the docks like everyone else, and we'll get along fine, glow or no glow." },
         { id = "h_default", key = true,
           text = "Name's Gazlowe, and Ratchet's my town, so whatever you need, it goes through me eventually. Keep your blades sheathed on the docks and we'll get along just fine." },
         { id = "h_pirates", when = { questActive = TODO_QUEST("Southsea Freebooters") },
@@ -128,6 +138,7 @@ P:NPC {
         { text = "Is there good hunting near Ratchet, Gazlowe?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "A warlock walks into Ratchet. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Would Ratchet pay for a priest, Gazlowe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does Ratchet welcome paladins, Gazlowe?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
       again = {
@@ -190,6 +201,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Probably not, but I'd love to try, mostly. I once tried to make a lamp that runs on prayer, and it exploded, which I think means it worked a little. You wouldn't happen to want to pray at my Samophlange, if I ever find it?" } },
+      choices = {
+        { text = "The Light isn't a tool for gadgets, Sputtervalve.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If it pays, I'll pray at your contraption.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Well, I don't know how prayer works, exactly, or at all, but I've tried wrenches and maps and shouting, so it can't do any worse! If your loa or your shadow or whatever you've got happens to see a big brass contraption out in the Barrens, you'd tell me, wouldn't you?" } },
@@ -251,6 +271,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Fascinating, absolutely fascinating, mostly. Does the Light run on anything? Gears? Faith? Something I could build?" },
         { id = "h_default", key = true,
           text = "Sputtervalve, inventor and tinker, at your service, mostly. You wouldn't happen to have seen a Samophlange lying around out in the Barrens, would you?" },
         { id = "h_samo", when = { questActive = TODO_QUEST("Samophlange") },
@@ -272,6 +293,7 @@ P:NPC {
         { text = "What happened to your last assistants, Sputtervalve?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have beasts troubled your inventions, Sputtervalve?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think prayer could find your Samophlange?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could you build something with the Light, Sputtervalve?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "More questions? I love questions, almost as much as I love gears, almost." } },
@@ -324,6 +346,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Of course! I always have something. The question is whether you want to know what's in it, and most of my customers don't. A paladin might, of course, being so very honest, but honesty is terrible for business." } },
+      choices = {
+        { text = "I'll want to know what's in it, Mebok.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Don't tell me. I'll just drink it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Anything a priest gives away for free, I sell in a bottle, which is why your lot and I don't always get along. But a long day of healing grunts leaves anybody dry, and there's nothing a little raptor horn can't fix, if you catch my meaning." } },
@@ -407,6 +438,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now there's a customer with special needs. My tonics refresh the living, but I'm sure I can find something for you." },
         { id = "h_default", key = true,
           text = "Mebok Mizzyrix, purveyor of fine tonics and quality refreshment. I'm always looking for a few special ingredients, and the Barrens is full of them, if you've got the stomach to collect." },
         { id = "h_horns", when = { questActive = TODO_QUEST("Raptor Horns") },
@@ -431,6 +463,7 @@ P:NPC {
         { text = "What ingredients do you need from the Barrens, Mebok?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would a priest want with your tonics, Mebok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warlocks ever buy your tonics, Mebok?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Do you have anything for a Forsaken, Mebok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Maybe later.", next = "END" },
       },
       again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok." } },
@@ -483,6 +516,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I doubt it, but the pirates do take the crates, and I'd love to see a paladin explain to them that stealing is wrong. They'd laugh, and then you'd hit them, and then I'd get my crates back. That's my kind of sermon." } },
+      choices = {
+        { text = "Then I'll give the pirates a sermon they won't forget.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find your crates, for a share of them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Three of my dockhands came back from a run past the Southsea pirates with cuts I didn't want to look at, and I had to mark them down as 'damaged' like a split crate. If you've any healing left in you, they're resting in the warehouse, and I'd write that down as a kindness." } },
@@ -566,6 +608,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Let me guess: you've come to find my missing crates through the power of the Light. That would be a first." },
         { id = "h_default", key = true,
           text = "Wharfmaster Dizzywig, and every crate that comes through Ratchet goes through my ledger first. Lately too many of them have been going missing before they ever reach it." },
         { id = "h_ship", when = { questActive = TODO_QUEST("The Missing Shipment") },
@@ -590,6 +633,7 @@ P:NPC {
         { text = "Do hunters' goods sell well off Ratchet's docks, Dizzywig?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Has anyone on the docks needed a priest lately?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a demon help guard your docks, Dizzywig?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Can the Light help find your crates, Dizzywig?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll let you work.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Make it quick, because the tide doesn't wait and neither do my crews." } },
