@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The court has a use for everyone, little one, which is the whole art of governing. A mage who keeps to the Sanctum and minds the Regent's business will find me very patient, though I've noticed that clever people rarely manage either." } },
+      choices = {
+        { text = "Magic should serve the crown, my lady.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My magic answers to me, not to the court.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },
@@ -45,6 +54,8 @@ P:NPC {
           text = "You again, and I find I don't mind. You have the look of someone who understands how things are actually decided, which is rarer at this court than gold." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "Oh, it's you. I had hoped the guards were better at their work than this." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage of the Sanctum, or one who wishes to be. Dalaran's children do so love to remind the court how clever they are." },
       },
       again = { { id = "h_again", text = "Something else? Do be quick." } },
       choices = {
@@ -59,6 +70,7 @@ P:NPC {
         { text = "A rogue hears a great deal at court, my lady.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Gnomeregan needs Stormwind's help, my lady.", next = "gnome", when = { race = "Gnome" } },
         { text = "Ironforge's gold paid for much of this city, my lady.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Does the court have any use for mages, my lady?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Excuse me.", next = "END" },
       },
     },

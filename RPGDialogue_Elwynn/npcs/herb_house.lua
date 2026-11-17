@@ -25,6 +25,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a potion's a patient thing, and every mage who's tried to hurry one with a fireball has blown the lid off my best still. Pomeroy still finds bits of copper in the herb beds from the last one." } },
+      choices = {
+        { text = "Patience in the craft. I'll leave my spells out of it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a spell does it faster, the risk is worth it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." } },
+      choices = {
+        { text = "That's a wise rule, Mallory. Keep the poisons high.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Nightshade has its uses. You're too careful by half.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mallory, alchemist, and I'd offer you my hand if it weren't busy keeping this from boiling over. If you've come to learn the craft, you've found the right house; Pomeroy over there teaches you to gather, and I teach you what to do after." },
@@ -32,6 +50,10 @@ P:NPC {
           text = "Sam Sarsaparilla sent you up from the road, did he? He does like his campfires. Well, a camp is no use if nobody in it can mix a remedy, so let's see what you can do." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! Your prayers do quicker work than my potions, I'll grant, but a potion doesn't run dry when you're tired, so I like to think we're partners." },
         { id = "h_troll", when = { race = "Troll" }, text = "A troll, of all things, at my door! Your people's witch doctors know a great deal about herbs that I'd dearly love to learn, though I doubt they'd teach a human." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Your kind make the best alchemists, if only you'd stop trying to do everything with a spell." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You'll not be wanting anything off my top shelf, I hope, because I keep the nightshade up there for a reason." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the green flask; it isn't finished." },
@@ -43,6 +65,8 @@ P:NPC {
         { text = "Why work out here instead of the city?", next = "house" },
         { text = "What are you brewing now?", next = "brew" },
         { text = "Sam sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Alchemy") } },
+        { text = "Why shouldn't a mage use spells in alchemy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What reason would you have to keep nightshade high?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -119,6 +143,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Peacebloom and silverleaf and earthroot, which mend more than they harm, and that's all I'll put in the ground. The Defias pay well for nastier things, I'm told, but they'll have to dig them up somewhere else." } },
+      choices = {
+        { text = "Mending herbs are worth more than poison. I respect that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Poison pays better, Pomeroy. You're leaving coin in the ground.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the best ones go to Mallory for the gate guards' draughts, and a guard on his feet is worth more than a spell on a page. You can have the second best, and they'll still write better than anything you'd buy in Stormwind." } },
+      choices = {
+        { text = "The guards come first. The second best will do me fine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My research matters more than a guard's sore feet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Pomeroy, and I teach herbalism, which is a grand name for knowing where to look and when to pick. Mallory brews and I gather, and between us we keep half the gate guards on their feet." },
@@ -126,6 +168,10 @@ P:NPC {
           text = "Sam's sent you, has he? He wants every camp to have someone who can tell a healing leaf from a bellyache, and he's right about that, bless him." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "One of the kaldorei! I've heard your forests grow herbs I've never seen, and I'll confess I'm a little jealous of you for it." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter. You walk the woods anyway, so you might as well learn what you're stepping on, and I'll wager half of it's useful." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in an herb house. You'll be after something for your blades, I'd wager, and I'll tell you now I don't grow that sort of thing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I've roots drying and nowhere to be." },
@@ -137,6 +183,8 @@ P:NPC {
         { text = "How do you and Mallory get along?", next = "mallory" },
         { text = "Is gathering ever dangerous?", next = "danger" },
         { text = "Sam sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
+        { text = "What do you grow, if not something for blades?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why won't you spare the best herbs for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },

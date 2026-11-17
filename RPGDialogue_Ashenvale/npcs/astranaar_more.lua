@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "We make use of them when they serve the kaldorei, because the Warsong scouts can't be caught by arrows alone. But a blade in the dark can serve anyone who pays for it, so I judge a rogue by whose coin they carry, and I watch them longer than most." } },
+      choices = {
+        { text = "My blade serves Ashenvale, not whoever pays most.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin. I take the best offer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because Queen Azshara and her Highborne drew on the Well of Eternity until the Legion heard them, and the Sundering that followed drowned half our homeland. The Sisterhood has never forgotten it, and the arcane has been forbidden among us ever since." } },
+      choices = {
+        { text = "Then your law was wise. I'll respect it here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ten thousand years is long enough to forgive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -38,6 +56,10 @@ P:NPC {
           text = "Faldreas crossed you off his list with a smile, and Keeper Albagorm speaks well of you from Stonetalon Peak. The Sentinels keep a list of their own, and your name is on it now." },
         { id = "h_tyrande", when = { questDone = TODO_QUEST("Reception from Tyrande") },
           text = "You stood before the High Priestess, and she sent word back that she was not disappointed. From her that is high praise, so take it as such." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk like one of our Watchers, though I don't think the Sisterhood trained you. The Sentinels note who moves unseen in Astranaar, and now I've noted you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "There's arcane on you, and I'm sure you know what the kaldorei think of that. You're an ally of my people, so I'll welcome you, though I'll keep an eye on what you do with it." },
       },
       again = {
         { id = "h_again", text = "What else? The watch changes soon." },
@@ -49,6 +71,8 @@ P:NPC {
         { text = "What is the High Priestess like?", next = "tyrande" },
         { text = "I trained as a Sentinel scout before I left.", next = "scout_t", when = { origin = "nightelf_sentinel_scout" } },
         { text = "Would Tyrande truly receive a human?", next = "human_t", when = { race = "Human" } },
+        { text = "What do the Sentinels make of rogues, Thenysil?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why do the kaldorei distrust arcane magic so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Elune keep the watch.", next = "END", fx = { standing = { astranaar = 1 } } },
       },
     },
@@ -154,12 +178,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not on purpose, because the Warsong archers would love nothing more than to shoot a bird out of the sky over their camp. If you want behind their lines you'll walk, and I'll pretend I never heard you ask." } },
+      choices = {
+        { text = "Fair. I won't put your birds in that danger.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A bird or two is a fair price for good scouting.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They mind the smell of frost more than anything, because it reminds them of winter, and they'll sulk all the way to Auberdine if you cast on their backs. Keep your hands in your lap until you land and they'll forgive you anything." } },
+      choices = {
+        { text = "I'll keep my hands still. Your birds, your rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If something attacks mid-air, I'm casting, sulk or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Daelyshia, and I keep Astranaar's hippogryphs. They'll take you north to Auberdine, and to other roosts once you've walked the roads to find them." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I'll fly them by night if you insist, but they don't like the dark over the eastern woods, where the Warsong's fires burn." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've a light step, and the birds can always tell a light rider from a heavy one. They'll like you better than they liked that dwarf last week." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You're a mage, so you'll be wondering why you should ride when you could teleport. The answer is that Astranaar has no portal, and my birds don't ask you for reagents." },
       },
       again = {
         { id = "h_again", text = "Anything else, or are we flying?" },
@@ -171,6 +217,8 @@ P:NPC {
         { text = "How do the birds like Ashenvale?", next = "birds" },
         { text = "Can a hunter's eye help you spot trouble?", next = "hunter_d", when = { class = "HUNTER" } },
         { text = "My home's a long way off. How far can they go?", next = "far_d", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "Do you ever fly rogues behind the Warsong lines?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your birds mind a mage on their backs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

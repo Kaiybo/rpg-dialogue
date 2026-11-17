@@ -370,6 +370,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every year or so, usually someone who's heard a rumour about Dalaran's treasures and has never once read a book. SI:7 returns the books to us afterwards, though rarely in one piece, and I've stopped asking what became of the thief." } },
+      choices = {
+        { text = "Knowledge should be guarded from those who'd misuse it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge locked away does no one any good.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jennea Cannon, of the Wizard's Sanctum. I teach mages who've outgrown the provinces; some have, though most only think they have." },
@@ -387,6 +396,8 @@ P:NPC {
           text = "You call on something that answers, priest. We call on something that only obeys. I've never decided which habit is more dangerous." },
         { id = "h_quarter", when = { origin = "human_mage_quarter" },
           text = "One of the Quarter's own apprentices, and I remember your teachers, who never stopped mentioning Dalaran. You've outgrown them; that doesn't mean they were wrong about everything." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the Sanctum. If you've come for a spellbook, half of them are warded to bite, and the other half are only dull." },
       },
       again = {
         { id = "h_again", text = "Is there more? Stay outside the circles while you ask." },
@@ -402,6 +413,7 @@ P:NPC {
         { text = "Gnomeregan's mages studied differently from yours.", next = "gnome_mage", when = { race = "Gnome", class = "MAGE" } },
         { text = "The High Order studied in Dalaran before coming here.", next = "highorder", when = { race = "Skyborne", class = "MAGE" } },
         { text = "What do you think of the warlocks under the Lamb?", next = "warlocks" },
+        { text = "Do thieves really try to rob the Sanctum?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -541,6 +553,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because we take openly what they only study from a safe distance, and they'd rather not admit the two paths share a door. Every mage who's read too far into a forbidden book knows exactly what waits at the bottom of the stairs." } },
+      choices = {
+        { text = "Some doors should stay shut, Darkbinder.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Any door worth having is worth opening, Darkbinder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gakin. I teach those who bind what others fear to name. Discretion is the first lesson and the last, and I pay well for it." },
@@ -556,6 +577,8 @@ P:NPC {
           text = "Vestments, in the Lamb's cellar? Did the Archbishop send you, or did you find the stairs yourself? Either way, lower your voice." },
         { id = "h_lamb", when = { origin = "human_lamb_cellar" },
           text = "You first came down those stairs with your eyes wide and your mouth shut, and I've never had a better pupil for it. Keep both habits." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, in my cellar. The Quarter sends its apprentices down to sneer at us now and then, but they always leave with more questions than sneers." },
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
@@ -571,6 +594,7 @@ P:NPC {
         { text = "Who's really the master, the warlock or the demon?", next = "master", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's books taught me more than any cellar.", next = "gnome_lock", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "Why do the Quarter's mages look down on you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -715,6 +739,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They try, love, especially on market days when everyone's just been paid, but I've a nose for them now. I don't call the guards, mostly, because I'd rather pour them a bowl of stew and tell them to come back when they can pay for it." } },
+      choices = {
+        { text = "Call the guards, Allison, because thieves should answer to the law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A bowl of stew does more good than the Stockade.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The ones from out of town do, waiting on a place in the Sanctum or a word from Dalaran, and they're quiet guests, mostly. They read by candle till all hours, though, and I've lost more candles to the Kirin Tor than to thieves." } },
+      choices = {
+        { text = "They should pay for every candle they burn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A few candles are a fair price for clever company.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Allison. The Gilded Rose, between the bank and the auction house, which means everyone who comes in has either just got rich or just got poor. I feed both." },
@@ -724,6 +766,10 @@ P:NPC {
           text = "Word for seasoned folk: the Cenarion Circle in Darnassus wants help with some research. Arch Druid Staghelm himself is asking. I only pass it on." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Sit nearer the fire, there's a good soul. The last priest who stayed here blessed the bread, and I swear it rose better for a week." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Between the bank and the auction house, and you've the look of someone who knows exactly why that matters. Keep your hands to yourself in my common room, love." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! The last one of yours who stayed here conjured water for the whole kitchen, and I've been half in love with the Mage Quarter ever since." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've bread in the oven." },
@@ -735,6 +781,8 @@ P:NPC {
         { text = "Who stays at the Gilded Rose?", next = "guests" },
         { text = "I'm from Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
         { text = "Do you get many kaldorei at the Gilded Rose?", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Do pickpockets work your common room, Allison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do many mages stay at the Gilded Rose?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

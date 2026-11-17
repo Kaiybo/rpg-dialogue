@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-17)
+- Rogues, mages and warlocks get a greeting, a question and something to argue about with about 110 people across the city, from the Keep and the Cathedral to the Mage Quarter, Old Town and the Slaughtered Lamb.
+
 ## 1.12.0 (2026-11-16)
 - New people with no quests, who had nothing to say until now: Lucan Cordell, Jessara Cordell, Catherine Leland, Lisbeth Schneider, Agustus Moulaine, Theresa Moulaine, Jenova Stoneshield, Billibub Cogspinner, Lilyssia Nightbreeze, Eldraeith, Georgio Bolero, Alexandra Bolero, Lawrence Schneider, Ardwyn Cailen, Charys Yserian, Wynne Larson, Gerik Koen, Maris Granger, Jillian Tanner, Alyssa Griffith, Kendor Kabonka, Olivia Burnside, Newton Burnside, John Burnside, Auctioneer Chilton, Auctioneer Fitch, Auctioneer Jaxon, Aldwin Laughlin, Woo Ping, Marda Weller, Keldric Boucher, Kyra Boucher.
 - New files: exit the game fully and restart.

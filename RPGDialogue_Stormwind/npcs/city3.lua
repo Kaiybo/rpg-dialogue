@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Shaw, I imagine, or someone in the House who owes him a favour, which is everyone eventually. Tell them I read history, mostly, because history is where the House keeps its debts." } },
+      choices = {
+        { text = "I answer to the crown, my lord, not to anyone's favours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I answer to nobody, my lord, and nobody sent me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The House trusts whoever pays its bills, and Dalaran has never once offered to pay for anything in Stormwind. Lady Prestor says the crown must keep its friends close and its creditors closer, and I find she's usually right." } },
+      choices = {
+        { text = "Friendship shouldn't be measured in coin, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin is the only friendship that lasts, my lord.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +63,10 @@ P:NPC {
           text = "Clergy, in the library, how refreshing. The Cathedral is so generous with its opinions on the treasury; do give the Archbishop my regards." },
         { id = "h_baros", when = { heardLine = "baros.e_default" },
           text = "Alexston told you his sad story, I see. He kept his post and his friend kept his pride. Both have done rather well out of the arrangement." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've been looking at my satchel since you came in. It contains nothing of interest, which you may tell whoever asked." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, in the Royal Library. Let me guess that Dalaran wants a book back, and the Kirin Tor are too grand to ask in person." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I do have reading to do." },
@@ -57,6 +79,8 @@ P:NPC {
         { text = "The Church says the masons were wronged.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Defias took my family's farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I found papers in the Deadmines.", next = "papers", when = { deed = "dungeon:The Deadmines" } },
+        { text = "Who do you think sent me, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the House of Nobles trust Dalaran, my lord?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
@@ -173,6 +197,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not trouble, more an understandin'. They don't pick my pockets, an' I don't pick them up by the ankles an' shake." } },
+      choices = {
+        { text = "A fair arrangement. Everyone should know where they stand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Arrangements are made to be broken, Dashel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Twice, an' the second time I bit him, which a sheep's no' supposed to do. He bought me a drink after, so I reckon I won that one too." } },
+      choices = {
+        { text = "A mage who needs a spell to win a brawl isn't worth fighting.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A spell's just a fist you throw from further off.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dashel. Folk call me Fist, on account o' the fists. I drink in Old Town and I settle arguments in Old Town. Usually the same evening." },
@@ -184,6 +226,10 @@ P:NPC {
           text = "Pig an' Whistle's still pourin'. That's the only clock I keep." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Did Ironforge send ye tae fetch me home? Tell 'em I'm busy, an' tell 'em I'm winnin'." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Old Town's full o' your lot, an' they all think they're clever. Try anythin' clever in here an' I'll show ye somethin' simple." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Go on, then, try that sheep spell on me, because the last fella who did it found me still punchin' when I came back." },
       },
       again = {
         { id = "h_again", text = "What else? Talk's thirsty work." },
@@ -195,6 +241,8 @@ P:NPC {
         { text = "What's Old Town like?", next = "oldtown" },
         { text = "What was your part in it, Fist?", next = "plan", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "Fancy a round? The other kind.", next = "spar", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Do you have trouble with the rogues in Old Town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have you really been polymorphed, Dashel?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'm not looking for trouble.", next = "END" },
       },
     },
@@ -299,6 +347,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every one I've sold it tae has come back alive, which is more than I can say for the ones who wanted tae stay light. Elmore says it's no' proper work, but Elmore never had a knife come at him in an alley." } },
+      choices = {
+        { text = "Elmore's right that proper work is done the proper way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tradition be hanged. If it keeps you alive, wear it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ye could, but it'd fight wi' every spell ye cast, or so the Quarter's lot tell me, an' I've no' the learnin' tae argue. I've often thought there's a fortune in it for whoever solves that, though." } },
+      choices = {
+        { text = "Some limits are there for good reason, Furen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every limit's only waiting for someone to break it, Furen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Furen Longbeard. Shields an' armour. I learned from Grimand Elmore, an' I'm still learning, which he tells me daily." },
@@ -312,6 +378,10 @@ P:NPC {
           text = "Is that Barleybrew Scalder? So Yorus sent ye, did he? Then I owe him, an' you'll have yer shield, so sit, sit." },
         { id = "h_mail", when = { questActive = TODO_QUEST("Fire Hardened Mail") },
           text = "Spider fangs from the Wetlands, chimaera horn from Stonetalon, an' that vial from the Kraul, an' I'll have the forge ready. Mind the chimaeras." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Leather, is it? I dinnae work leather, but I'll put a mail linin' in a jerkin if ye want somethin' that turns a knife." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Ye'll no' want my armour, then, an' I'll no' be offended, much." },
       },
       again = {
         { id = "h_again", text = "Aye? What else needs fixin'?" },
@@ -323,6 +393,8 @@ P:NPC {
         { text = "Why live so far from Ironforge?", next = "why_here" },
         { text = "Can you make me something harder than this?", next = "mail", when = { class = "WARRIOR", minLevel = 22 } },
         { text = "Can you fix this?", next = "BUSINESS" },
+        { text = "Would a rogue really want mail under leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could a mage ever wear mail, Furen?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -402,11 +474,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a loaf, and I got caught before I'd eaten half of it, which taught me I was a farmer and not a thief. I've begged ever since, because at least the guards only laugh at a beggar." } },
+      choices = {
+        { text = "Begging's more honest than thieving, Topper, so you chose well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You were only caught once. You could have learned the trade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It's bread, isn't it, and bread's bread, though I've heard it sits in your belly like a promise from the House of Nobles. I'd still take it, because an hour's a long time when you're hungry." } },
+      choices = {
+        { text = "A hungry man deserves real bread, not a spell.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Conjured or not, a meal's a meal, so take what you can.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Topper McNabb, at your service, and a farmer once. Now I sit here and let the city walk past, and it never stops, but it rarely tips." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Bless me, would you, holy one? Go on, because I've been told I need it, mostly by the guards." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Now, I know that look, friend, because I had it myself in the lean year after the farm. Don't do it, because the Stockade's colder than the street." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Could you conjure me a bit of bread, friend? I hear your lot can make it out of nothing, and nothing's exactly what I have." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? I've all day, and I've had all day for years." },
@@ -416,6 +510,8 @@ P:NPC {
         { text = "What happened to your farm?", next = "farm" },
         { text = "Here's a coin.", next = "coin", fx = { affinity = 2, trait = { generous = 1 } } },
         { text = "I lost a farm too, to the Defias.", next = "farmer", when = { origin = "human_westfall_farmhand" } },
+        { text = "Did you ever steal, Topper?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would conjured bread really fill you up?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -474,6 +570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." } },
+      choices = {
+        { text = "Chains and gags are wise, Warden. Better safe than burned.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Warden Thelwater, of the Stockade. I keep Stormwind's worst under its canals most days, and the other days I'd thank you not to mention." },
@@ -495,6 +600,8 @@ P:NPC {
           text = "Oh, thank the Light, it's you. You're the one person in this city I'm actually glad to see coming down those stairs." },
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I know your face from the canal sweeps, years back; you were too small to keep and too quick to catch. Don't make me regret letting you go, please, not this week." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Please don't summon anything in here. I've had a warlock in the cells before, and the thing he called up didn't care which side of the bars it was on." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? Be quick about it, please." },
@@ -506,6 +613,7 @@ P:NPC {
         { text = "Who was Thredd's visitor?", next = "visitor", when = { questDone = TODO_QUEST("The Stockade Riots") } },
         { text = "Your prisoners could use a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've seen the inside of a cell or two, Warden.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Who was the warlock in your cells?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be discreet.", next = "END", fx = { affinity = 2 } },
       },
     },

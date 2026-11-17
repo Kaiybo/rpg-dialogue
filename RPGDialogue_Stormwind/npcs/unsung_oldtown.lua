@@ -26,11 +26,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a Defias lad who got it as far as the door and then couldn't lift it over the step. The Watch found him sitting on it in the street, too proud to leave it and too tired to carry it." } },
+      choices = {
+        { text = "Poor lad. I hope the Watch went easy on him.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Stockade's full of fools like that, and rightly so.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I'd rather not meet the warlock who taught one to swing an axe." } },
+      choices = {
+        { text = "I'll keep my voidwalker away from your axes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A voidwalker with an axe would be something to see.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gerik Koen, of Heavy Handed Weapons. Greatswords, great axes, mauls and polearms, and nothing you can hold in one hand, because one-handed folk can shop at Weller's." },
         { id = "h_priest", when = { class = { "PRIEST", "MAGE", "WARLOCK" } }, text = "You've wandered into the wrong shop, I think, unless you're buying for a friend. A greatsword would only drag you over, but you're welcome to look." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! I've a fine staff or two at the back, heavy enough to put a bear to sleep, though I suppose you'd rather be the bear." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in a shop full of greatswords? You'll want daggers, friend, and Weller sells those, because nothing in here fits up a sleeve." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -40,6 +60,8 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why only two-handed weapons?", next = "why" },
         { text = "Who buys from you?", next = "buyers" },
+        { text = "Has anyone ever tried to steal a greatsword?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would a greatsword serve a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Gerik.", next = "END" },
       },
     },
@@ -91,9 +113,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It's slower, and the beast's already dead, which is the main difference I can see. A skinner and a cutpurse both live by a steady blade, but only one of us does honest work." } },
+      choices = {
+        { text = "Then I'll learn the honest kind, Maris.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Honest work doesn't pay the way a purse does.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a fireball ruins a hide from the inside out, and I've had more charred leather from mages than I can count. If you want a clean pelt, use frost, or better still, let someone else do the killing." } },
+      choices = {
+        { text = "Then I'll hunt properly, with a clean kill.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll kill how I like. The pelts are secondary.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maris Granger. Do I look like I have the time to coddle every tourist who wanders through that door? I teach skinning, and I don't get many skinners asking, so if you're serious, I'll teach you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You've a knife already, so you're halfway to a skinner, if you can stomach the rest of it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, in my shop? You'll be wanting to skin something you've already roasted, I expect, and I'll tell you now that it doesn't work." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you need while I sharpen this knife." },
@@ -103,6 +147,8 @@ P:NPC {
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "Why don't you get many skinners?", next = "why" },
         { text = "Any advice for a beginner?", next = "advice" },
+        { text = "Is skinning so different from my trade?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why can't I skin something I've burned?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -152,10 +198,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd sell to anyone who pays, because thread doesn't know who's sewing with it. If the Watch wants to chase thieves, that's their trade, and mine is thread, dye and a fair price." } },
+      choices = {
+        { text = "The Watch can't do it alone. Merchants should help.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair enough. A merchant's no constable.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, which is more than I can say for Bartleby's crowd." } },
+      choices = {
+        { text = "I'd use your dye for honest work, Jillian.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better you don't know what the red's for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jillian Tanner. Simon teaches the craft, Randal helps, and I sell the thread, the dye and the salt, at a price that's fair and doesn't move." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid in a leather shop. I've seen your sort wince at the pelts, so I'll say plainly that we waste nothing and kill nothing for sport." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so you'll want soft leather and dark dye, and plenty of both. I sell them at the same price to everyone, thieves included." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I've dye for every colour except the one your demons leave on a rug, so mind where it stands." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -165,6 +233,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why won't you haggle?", next = "haggle" },
         { text = "Are you and Simon related?", next = "simon" },
+        { text = "You'd sell to a thief knowingly, Jillian?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warlocks buy much from you, Jillian?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Jillian.", next = "END" },
       },
     },
@@ -214,10 +284,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the loudest thing about any thief is what they've just stolen, and I've seen more than one caught by the jingle in their pack. A good bag keeps its secrets, which is the whole point of a bag." } },
+      choices = {
+        { text = "My pack holds nothing I'd need to hide, Alyssa.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A quiet bag is worth its weight in coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "If you could, I'd be out of business and so would the Sanctum's tailors, because they sew the enchanted bags. Until someone conjures a pocket that holds its shape, you'll carry your things like everyone else." } },
+      choices = {
+        { text = "Then I'll pack carefully and plan ahead.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I travel light and trust my wits on the road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Alyssa Griffith. I sell bags, and I'll tell you for nothing that half of what goes wrong on the road goes wrong because somebody had to leave something behind." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want a quiver as well as a bag, and you'll need both bigger than you think." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so you'll want a bag that doesn't rattle. I've a few lined with felt, and they're the quietest in the city." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll need room for reagents, scrolls and three days of conjured bread, I expect. Mages always pack like they're leaving forever." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -227,6 +319,8 @@ P:NPC {
         { text = "Show me your bags.", next = "BUSINESS" },
         { text = "What have people had to leave behind?", next = "left" },
         { text = "What makes a good bag?", next = "good" },
+        { text = "Why should a rogue worry about a rattling bag?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can't I carry everything with a spell?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -276,10 +370,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A Westfall stew that the old farmers cooked over embers for a whole day, before the Defias burned half their kitchens. I've got the words but not the patience, and I suspect a mage could hold the heat steadier than I ever could." } },
+      choices = {
+        { text = "Keep the farmers' recipes alive. They've lost enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A recipe's a recipe. Who made it hardly matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world. Stephen says I'm mad, and he's probably right, but I'd still like to see the little thing's face." } },
+      choices = {
+        { text = "Don't feed it, Kendor. It'll only want more than food.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll bring it by. Feed it whatever you like.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kendor Kabonka. Stephen downstairs teaches the cooking, and I sell the recipes I've gathered from every farm kitchen and soldier's camp in the kingdom." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! I'd trade three of my best recipes for one of your people's ale-and-meat secrets, and nobody from Ironforge will ever take me up on it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I've a recipe that wants a very steady flame, and I've never once got it right on a stove, so you might be the one to try it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock! Does your imp eat, I wonder? I've always wanted to cook for something that's never tasted a proper meal." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry, not with the kitchen smelling like that." },
@@ -289,6 +405,8 @@ P:NPC {
         { text = "Show me your recipes.", next = "BUSINESS" },
         { text = "Where do you find them all?", next = "find" },
         { text = "What's your favourite dish?", next = "favourite" },
+        { text = "What recipe needs a mage's flame?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would you want to cook for a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Kendor.", next = "END" },
       },
     },

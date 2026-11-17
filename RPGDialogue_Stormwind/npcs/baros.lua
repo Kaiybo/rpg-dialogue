@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Edwin did, and every mason who walked out with him, which is why the Defias come and go under this city as they please. I gave SI:7 copies of the old plans, though I suspect Shaw had them before I did." } },
+      choices = {
+        { text = "Then the plans should be locked away, and the drains watched.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every city needs back doors. Leave some of them open.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Spilled reagents, mostly, and whatever the apprentices pour down the gutters when their masters aren't looking. The stone was laid for rain, not arcane runoff, though nobody on the council wants to pay for the difference." } },
+      choices = {
+        { text = "The Quarter should answer to the city's rules like anyone else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mages have better things to worry about than mortar.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Baros Alexston, City Architect. Every street you walked to get here, someone drew first, and usually it was me." },
@@ -51,6 +69,10 @@ P:NPC {
           text = "My report is sealed, and with the King away, Lady Prestor will receive it for the crown. She'll know what to do with it; she always seems to." },
         { id = "h_lescovar", tags = { "news" }, when = { questActive = TODO_QUEST("Brotherhood's End") },
           text = "I heard Lord Lescovar was found dead. I won't ask. I'll only say I've slept better this week than in years." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk like someone who knows which drains run under which streets, and very few people do, because I drew most of them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, good. Your Quarter's drains are giving me headaches, because something in them keeps eating the mortar." },
       },
       again = {
         { id = "h_again", text = "What else? I've drains to redraw." },
@@ -64,6 +86,8 @@ P:NPC {
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Your arches are fair work, for human stone.", next = "dwarf_stone", when = { race = "Dwarf" } },
         { text = "My father was a Stonemason. He was never paid either.", next = "mason_child", when = { origin = "human_stonemason_child" } },
+        { text = "Who else knows the city's drains as well as you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What's eating the Mage Quarter's mortar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

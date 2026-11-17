@@ -37,6 +37,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Bolvar says they keep the kingdom safe in ways that wouldn't look very nice if I saw them, and that's why he doesn't let me see them. I think a king ought to know, though, even if he's only ten." } },
+      choices = {
+        { text = "A king should know what's done in his name, Your Majesty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some things are better left in the dark, Your Majesty.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Yes, please, only a small one, so the guards don't come running! Bolvar says magic is like a sword, because it's only as good as the person holding it, and I've decided that's true of kings as well." } },
+      choices = {
+        { text = "Power is only good when it serves others, Your Majesty.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is its own reward, Your Majesty, so use it freely.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The Archbishop says warlocks call on demons, the same kind the orcs used in the war, and that it's terribly dangerous. You don't look like a bad person, though, so I suppose it depends on why you do it." } },
+      choices = {
+        { text = "It does. I bind them so they can't harm anyone else.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's power, Your Majesty, and I take it where I find it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm the king, at least until my father comes home. Everyone's been very kind about it, though I don't think I'm very good at it yet." },
@@ -48,6 +75,12 @@ P:NPC {
           text = "The Highlord reads your name out at council sometimes. I always sit up straighter when he does." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "It's you! I asked the guards to tell me if you came, and they did, so I'm not supposed to run but I nearly did." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Are you one of Master Shaw's people? He never tells me who works for him, though I think he tells Bolvar." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Can you really make water out of nothing? The mages who come to court never show me anything, because Lady Prestor says it isn't dignified." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You smell a bit like the candles in the Cathedral crypt. I'm sorry, that was rude, and a king shouldn't say things like that." },
       },
       again = { { id = "h_again", text = "Do you have another question? I like questions, and hardly anybody asks me any." } },
       choices = {
@@ -65,6 +98,9 @@ P:NPC {
         { text = "Would you like to meet {pet}, Your Majesty?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Shall I show you a proper sword stance?", next = "sword", when = { class = "WARRIOR" } },
         { text = "Would you like to see me turn into a bear, Your Majesty?", next = "bear", when = { class = "DRUID" } },
+        { text = "Do you know what SI:7 does, Your Majesty?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you like to see a little magic, Your Majesty?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you know what a warlock is, Your Majesty?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

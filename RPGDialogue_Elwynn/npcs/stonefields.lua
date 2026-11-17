@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I think everyone who's ever walked past this window has thought about it, and half of them have tried, including Billy Maclure. You'd be the first rogue to resist, and I'd like to see it." } },
+      choices = {
+        { text = "I'll leave your pie alone, Auntie. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every pie on a sill is an invitation, Auntie.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Gramma says it would, because she says magic leaves a taste, but Gramma also says the Maclures put curses on our turnips. I'm willing to try it once, if you are." } },
+      choices = {
+        { text = "Gramma knows best. Bake it the old way, Auntie.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let's try it. Old wives' tales shouldn't stop good bread.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard." },
@@ -40,6 +58,10 @@ P:NPC {
         { id = "h_bread", when = { metBefore = true }, text = "The bread rose proper this morning, first time all week, so don't you dare let that door slam." },
         { id = "h_billy_pie", when = { questActive = TODO_QUEST("Back to Billy") },
           text = "There, take it to him, and tell him it's poisoned. No, don't; tell him it's good. It is good, and that's the worst of it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Quick hands, I see, and I've a pie cooling on the sill, so I'll be watching both of them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Could you warm my oven a little faster, dear? The wood's damp, and the bread won't rise without heat." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I knead; I can do both." },
@@ -52,6 +74,8 @@ P:NPC {
         { text = "Billy let slip he dropped it.", next = "billy_slip", when = { heardLine = "billy.s_slip" } },
         { text = "You said those were your husband's.", next = "husband", when = { questDone = TODO_QUEST("Goldtooth") } },
         { text = "A gnome could build you a better oven, Auntie.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Do you really think I'd steal your pie, Auntie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Wouldn't a spell spoil the bread somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
     },
@@ -202,6 +226,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd want it killed any way at all, because that sow's eaten more of my cabbages than my family has, but I'd rather it was done quietly so the neighbours don't talk. Whoever's left over there can think she wandered off." } },
+      choices = {
+        { text = "I'll kill her openly, Ma. No need for sneaking.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet's best. Nobody needs to know who did it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." } },
+      choices = {
+        { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon would make short work of her. Your loss.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ma Stonefield. This is my field, or it was, until the Brackwells' prize pig found it." },
@@ -212,6 +254,10 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Princess Must Die!"), days = 3 } },
           text = "I pulled my first whole carrot of the season this morning and nearly cried, and I'm not a crier." },
         { id = "h_billy", when = { metBefore = true }, text = "Tommy Joe's mooning by the fence again over that Maclure girl. A Stonefield and a Maclure, I ask you!" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You could slip into the Brackwell patch and do away with that pig, couldn't you, without anyone the wiser?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Whatever that is at your heel, keep it out of my field, because I've enough trouble with one beast eating my crop." },
       },
       again = {
         { id = "h_again", text = "What else? I've weeding, and the weeds don't wait." },
@@ -225,6 +271,8 @@ P:NPC {
         { text = "My pet could deal with her.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Westfall lost whole farms to the Defias.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I could ask Princess to leave, the druid's way.", next = "druid", when = { class = "DRUID" } },
+        { text = "Would you really want the pig killed in secret?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could my demon deal with the Brackwells' pig?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the crop.", next = "END" },
       },
     },
@@ -351,6 +399,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only for a little while, just long enough for everyone to laugh, and then you could turn him back. Pa would say it's wicked, but Pa says everything's wicked when it's about Stonefields." } },
+      choices = {
+        { text = "Magic isn't for pranks, Billy. It's dangerous.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little prank never hurt anyone. I'll consider it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Billy Maclure, and everybody at the Stonefields thinks I'm a thief, but I'm not. I just know things." },
@@ -361,6 +418,8 @@ P:NPC {
         { id = "h_tell", tags = { "news" }, when = { questActive = TODO_QUEST("Goldtooth") },
           text = "Goldtooth's got it; I saw, and he likes shiny things. Don't tell anyone I told you, and don't tell anyone I was there." },
         { id = "h_denial", when = { metBefore = true }, text = "I didn't eat the pie, I didn't! Ma says I did, but Ma's wrong, mostly." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A real mage! Can you do the thing where you turn somebody into a sheep? I know a Stonefield who'd look good as a sheep." },
       },
       again = {
         { id = "h_again", text = "What? I'm listening, I'm always listening, that's how I know things." },
@@ -372,6 +431,7 @@ P:NPC {
         { text = "Tell me about your sister.", next = "maybell" },
         { text = "Aren't you scared of kobolds?", next = "kobolds" },
         { text = "I could teach you to lift a purse.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Would you really want a Stonefield turned into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "See you, Billy.", next = "END" },
       },
     },

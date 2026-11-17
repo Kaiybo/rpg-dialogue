@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A rogue could slip into their camp and take back what's mine without the whole vineyard catching fire, which is more than the guards can promise. I don't care how it's done, so long as my grapes come home." } },
+      choices = {
+        { text = "I'll bring back your grapes, Milly, and take nothing else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring back your grapes and whatever else they have.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." } },
+      choices = {
+        { text = "Trust carefully, Milly. I'll earn yours honestly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Desperate folk can't be choosy. Take whatever help comes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "The Defias walked in like they owned the place and now they mostly do. My harvest's sitting in their camp." },
@@ -45,6 +63,10 @@ P:NPC {
           text = "Willem sent you? Bless him, he'd come himself if they didn't keep him nailed to the Abbey door, and this trouble's past him anyway." },
         { id = "h_garrick_done", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
           text = "No more Garrick in the shack past my rows. The rest of them are still across the river, mind. But I sleep a bit better." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've the look of someone who knows how the Defias think, and I'll not ask why, so long as you're on my side." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There's something about you that makes the vines droop, and I don't like it, but I'll take any help I can get with the Defias." },
       },
       again = {
         { id = "h_again", text = "What else? You can talk while I sort these." },
@@ -58,6 +80,8 @@ P:NPC {
         { text = "I worked fields like these, before the Defias came.", next = "farm",
           when = { origin = "human_westfall_farmhand" } },
         { text = "I'll pray the Light watches over your vineyard.", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Could a rogue help you get your harvest back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you truly accept a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

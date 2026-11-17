@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the Defias carry knives just like yours, and I'd sooner not learn I've put an edge on one that ended up in a farmer. A smith can't choose who buys from him, but he can choose what he listens to." } },
+      choices = {
+        { text = "My blades won't touch an honest farmer, Argus.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A blade's a blade, and who it cuts is my business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "There's iron for the foot of a staff, which I'll forge for anyone who asks, but your lot mostly buy from the tower and leave the honest work to me. When the kobolds come up out of Fargodeep, though, I notice it's my steel they hide behind." } },
+      choices = {
+        { text = "Steel and spells both keep Goldshire standing. I respect your trade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Steel's a blunt answer. A good spell does the work cleaner.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Argus. I mend what's bent and make what's needed, but I don't do miracles." },
@@ -46,6 +64,10 @@ P:NPC {
           text = "Eh? Speak up, the anvil's had my good ear for years, and the other one's only for show." },
         { id = "h_plate", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 20 },
           text = "Now that's plate that's been somewhere, dented in all the honest places. Whoever mended it last knew their trade, nearly as well as me." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Soft boots and a short blade, so you're one of Jorik's lot or one of Sylvius's. I'll mend your knives, but I don't want to hear what they were for." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and not a scrap of steel on you anywhere. You'll want a stout staff and somebody tall to stand in front of you." },
       },
       again = {
         { id = "h_again", text = "What else? Talk over the hammer and I'll catch most of it." },
@@ -57,6 +79,8 @@ P:NPC {
         { text = "Who are all these horseshoes for?", next = "shoes" },
         { text = "Your quench is too fast.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Can a priest learn anything at a forge?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Why don't you want to know what my knives are for?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there nothing at your forge for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

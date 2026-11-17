@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They're digging under the vines and stealing candles from the Abbey, and the Marshal's short of men to deal with them. A mage who can clear a burrow without burning the grapes would make my tally a lot shorter." } },
+      choices = {
+        { text = "I'll clear the kobolds without harming the vines, deputy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a few vines burn, the kobolds burn with them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when La Salle's students are on the far side of the Abbey. The Marshal says they're useful, and I take him at his word, mostly." } },
+      choices = {
+        { text = "I'll prove myself useful and keep my demon leashed, deputy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your trust doesn't matter. The Marshal's word is enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Willem, deputy to the Marshal. If it's trouble in this valley, I've likely heard of it already." },
@@ -64,6 +82,10 @@ P:NPC {
           text = "One of the brothers' novices, out the front door with a weapon? The Abbey must be emptying its pews for the Marshal. I'm not complaining." },
         { id = "h_veteran", when = { minLevel = 20, metBefore = true },
           text = "Look at you! I sent you up those steps with nothing but a shirt and a stick, and now look at you. I'll be telling the new ones about you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage on the Abbey road. Khelden's sent you down to the vineyard, I'd wager, because the kobolds have been at it again." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, coming down from La Salle's graveyard. I'll ask you to keep that thing on a short leash, because the horses don't like it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a road to watch, and it won't watch itself." },
@@ -76,6 +98,8 @@ P:NPC {
         { text = "You don't sound like a deputy.", next = "beat" },
         { text = "The Defias took my farm in Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
         { text = "Does Stormwind take volunteers from far away?", next = "far", when = { race = { "Dwarf", "Gnome", "NightElf", "Skyborne" } } },
+        { text = "Are the kobolds giving the vineyard much trouble?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you trust La Salle's students, deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

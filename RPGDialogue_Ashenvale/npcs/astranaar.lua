@@ -32,6 +32,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A frost spell that pins a Warsong runner to the road would be worth a dozen of my arrows, and I'll say so to the Sentinels' faces. But you'll fight beside my scouts and not in front of them, because fire in these trees could do more harm than any orc axe." } },
+      choices = {
+        { text = "I'll fight beside your scouts and keep my fire close.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll use whatever spell wins the fight, fire included.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I judge you by the same thing the satyrs started with, which was a bargain with the Legion that they swore they could control. Prove me wrong out in the forest where my scouts can see it, and I'll be the first to say so." } },
+      choices = {
+        { text = "Watch me, then. I'll never let it master me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The satyrs were weak. I'm not, and I won't apologise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warrior_r = {
       lines = {
         { id = "wr_default", text = "There is no front, warrior, and that's the trouble with this war. The Warsong come through the trees from the east wherever they like, so a good warrior here learns to fight from behind a trunk, the way my scouts do." },
@@ -90,6 +108,10 @@ P:NPC {
           text = "Thundris Windweaver sent you down from Auberdine? Then he thinks well of you, and he doesn't think well of many." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, good. My scouts come back from the Thistlefur hills with wounds that need more than bandages." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "There's a mage in Astranaar, and the Sentinels are already watching you, I'd wager. My people learned what the arcane costs when the Well of Eternity swallowed half the world, so don't take the stares personally." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "So you're the warlock Korra has been growling at since you crossed the bridge. I've buried scouts the satyrs of Satyrnaar tore open, and I won't pretend your craft doesn't remind me of them." },
       },
       again = {
         { id = "h_again", text = "What else? Korra's getting restless, and so am I." },
@@ -106,6 +128,8 @@ P:NPC {
         { text = "Put me at the front when the Warsong come.", next = "warrior_r", when = { class = "WARRIOR" } },
         { text = "I could get into their lumber camps unseen.", next = "rogue_r", when = { class = "ROGUE" } },
         { text = "My people fought the orcs in our own fields.", next = "human_r", when = { race = "Human" } },
+        { text = "Can a mage be of use to your scouts, Raene?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you judge me by what the satyrs did?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },
@@ -242,6 +266,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Orendil once told me the Shadethicket Oracle hoards her moonstones deep in their camp by Fallen Sky Lake, where no honest fighter could reach them without a battle. I'd never ask anyone to steal, but I've stopped pretending I'd mind." } },
+      choices = {
+        { text = "I'll fight for the stone openly, Pelturas.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll slip in and take it unseen.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know what reaches into her dreams, and that is what frightens me most, because whatever it is came out of this forest's sickness. If your craft can feel such things, tell me honestly, and then please stand a little further from the door." } },
+      choices = {
+        { text = "I'll keep my distance from her room, Pelturas.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let me sit by her. I might hear what whispers to her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mage_p = {
       lines = {
         { id = "mp_default", text = "A spell? My mother would have thrown you out of the house for saying it, and the Sentinels would agree with her. But I've tried every herb in Ashenvale, so tell me plainly: can your magic touch a fever that comes from a dream?" },
@@ -265,6 +307,10 @@ P:NPC {
           text = "Her fever has passed, but she is so weak. We used to gather moonstones together at Fallen Sky Lake before the Shadethicket came, and now their Oracle hoards every one; I need one to give her strength back." },
         { id = "h_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") },
           text = "She's eating! She asked for honey cakes this morning, and I cried in front of the baker, and I don't care who knows it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came in so softly that Relara didn't stir, and for that I could almost thank you. Most visitors clatter in like Sentinels at the changing of the watch." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There's a coldness about you that I don't like near my daughter's room, and forgive me for saying so. Her dreams are dark enough already without anything darker standing at her door." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? Forgive me, I keep listening for her." },
@@ -276,6 +322,8 @@ P:NPC {
         { text = "Fallen Sky Lake?", next = "lake" },
         { text = "Let me look at her.", next = "look", when = { class = { "PRIEST", "DRUID", "PALADIN" } } },
         { text = "I'm a mage. Let me try a spell on her fever.", next = "mage_p", when = { class = "MAGE" } },
+        { text = "Is there anything quiet feet could fetch for Relara?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think my craft could reach into her dreams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -347,6 +395,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because he always looks so sad when he thinks I'm sleeping, and if I sneak up quietly I can see whether he smiles when nobody's watching. The Sentinels walk quietly too, so it's good practice for being a Sentinel." } },
+      choices = {
+        { text = "Better to just ask him. Honest is braver than sneaky.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sneaking's a fine skill. Practise on everyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Yes, please, but only a small one, because Papa will be cross if anything catches fire. Could you make it look like the moon, so it's as if Elune came to visit me?" } },
+      choices = {
+        { text = "Better ask your papa first. Rules keep you safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A small light, then, and we won't tell your papa.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_r = {
       lines = {
         { id = "gnr_default", text = "Yes! Is it that you're all really children? Papa says you're not, but you're the same size as me, and you've got a much better hat." },
@@ -362,6 +428,10 @@ P:NPC {
         { id = "h_better", when = { questDone = TODO_QUEST("Fallen Sky Lake") },
           text = "The bad dreams stopped, and now I just dream about honey cakes. Papa says that's normal, but I think it's the best dream there is." },
         { id = "h_sentinel", when = { metBefore = true }, text = "When I'm better, Papa says I can watch the Sentinels practise, and I'm going to be a Sentinel, or a hippogryph, whichever one gets to fly." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walked in without making any noise at all! Can you teach me how, so I can sneak up on Papa when I'm better?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Are you a real mage? Papa says magic is dangerous, but I think a tiny bit of light to keep the bad dreams away wouldn't hurt anybody." },
       },
       again = {
         { id = "h_again", text = "Are you still here? Good, then tell me something." },
@@ -373,6 +443,8 @@ P:NPC {
         { text = "Do you like the Sentinels?", next = "sentinels_r" },
         { text = "Would you like to meet my companion?", next = "pet_r", when = { pet = true } },
         { text = "Want to know a secret about gnomes?", next = "gnome_r", when = { race = "Gnome" } },
+        { text = "Why do you want to sneak up on your papa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you like to see a little magic, Relara?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -427,6 +499,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because when someone doesn't come back, the first thing the Sentinels ask me is where they were going, and I hate having no answer. The forest spirits can't always tell me, and a name with no road beside it is a name nobody goes out to find." } },
+      choices = {
+        { text = "Fair enough. I'll tell you where I'm going.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My roads are my own business, Faldreas.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They mind it the way an old hound minds thunder, because they remember the Sundering and they've never quite trusted the arcane since. They've told me nothing bad of you yet, though, and I'll take that as a good sign." } },
+      choices = {
+        { text = "I'll walk your roads gently, so they've nothing bad to tell.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The spirits' memories aren't my concern, Faldreas.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     pet_f = {
       lines = {
         { id = "pf_default", text = "Nobody has ever asked me that. Very well; {pet}, out on the roads with you, and I'll want to see both names come back through this gate, so look after each other." },
@@ -444,6 +534,10 @@ P:NPC {
         { id = "h_crossed", when = { metBefore = true }, text = "Three travellers came back yesterday and I crossed them off the list. Crossing names off the right way is the best part of my day." },
         { id = "h_albagorm", when = { questDone = TODO_QUEST("Journey to Stonetalon Peak") },
           text = "Keeper Albagorm sent word that you arrived, and that I'd listened well to the forest spirits. I usually do; they're better at keeping lists than I am." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You'll be the kind who leaves Astranaar without telling me, I can see it already. Do me a kindness and stop at my gate first, so I know which list to put you on." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You're a mage, so I suppose you'll be stepping in and out of the world without ever passing my gate. The forest spirits find that very confusing, and so do I." },
       },
       again = {
         { id = "h_again", text = "What else? I've a list to keep." },
@@ -455,6 +549,8 @@ P:NPC {
         { text = "Where do the roads go from here?", next = "roads" },
         { text = "I'm a long way from home. Will you remember me?", next = "far", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Put my companion on your list too.", next = "pet_f", when = { class = "HUNTER", pet = { named = true } } },
+        { text = "Why does it matter if I slip out unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the forest spirits mind the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -521,6 +617,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, because Raene sends a few out to watch the Warsong camps, and they come back hungry and won't tell me a thing. I've learned to feed them first and ask nothing, and they always leave a little extra on the table that way." } },
+      choices = {
+        { text = "Then I'll tell you what I can, and thank you properly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Asking nothing is wise. Rogues remember who's curious.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the satyrs out east were kaldorei once, before they bargained with demons, and some of the older Sentinels were alive to see it happen. Your imp may be harmless, but to them it looks like the start of the same sad road." } },
+      choices = {
+        { text = "Then my imp stays outside, for their sakes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your scouts will have to get used to it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Kimlya, and I keep the inn for scouts, healers, travellers and the occasional lost adventurer. Most of them leave in better shape than they came." },
@@ -528,6 +642,10 @@ P:NPC {
           text = "So Pelturas told you about Relara. I send broth up for her every night, and she doesn't eat it, but he does, and someone has to look after him." },
         { id = "h_sentinel", when = { metBefore = true }, text = "A Sentinel fell asleep at that table last night, sitting up with her spear still in her hand, and I didn't have the heart to wake her." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "The lake's black as ink at night, and Astranaar's lanterns float on it. It's the prettiest thing in Ashenvale, and nobody stops to look." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You slipped in past the scouts at the door, and they'll be sulking about it all evening. Sit down before they notice, and I'll bring you something hot." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'll give you a room like anyone else, but I'd ask you to leave your companion outside the door. The scouts sleeping upstairs have seen enough of demons out at Satyrnaar." },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
@@ -538,6 +656,8 @@ P:NPC {
         { text = "How is Relara?", next = "relara_k" },
         { text = "I can tend wounds. Do your scouts need a healer?", next = "healer_k", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "It's a long way from Stormwind to here.", next = "far_k", when = { race = "Human" } },
+        { text = "Do you get many rogues at your inn, Kimlya?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why do the scouts fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -617,6 +737,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They could, because the cult posts lookouts round the Tower of Althalaxx and they always see my lads coming. Get close enough to learn their numbers and I'll bring the Light down on them openly, as it ought to be done." } },
+      choices = {
+        { text = "I'll count them, and leave the fighting to your hammer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Lookouts die quietly. I'll thin them before you arrive.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "All the difference in the world, friend, though from a distance it can look the same. Your power comes from study and discipline and theirs comes from the Legion, and I've watched more than one proud mage cross that line thinking he could step back." } },
+      choices = {
+        { text = "I'll never cross it. Study is enough for me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A wise mage studies both sides of that line.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warlock_d = {
       big = true,
       lines = {
@@ -638,6 +776,10 @@ P:NPC {
           text = "Feero is carrying supplies and messages to Sentinel Starbreeze in Auberdine. The elves there have been generous to us, and it's time we returned the favour." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Sky-elves, truly! I'd heard of you, and the Light shines in strange places these days, which is all the more reason to look for it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Light keep you, friend, though you came up so quietly I nearly greeted you with my hammer. Forgive me, because the Dark Strand have taught us all to jump at shadows." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, out here in elf country, and that's a cheering sight! The Dark Strand work their spells in that old tower, and I'd welcome someone who understands how such magic thinks." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The cult won't wait on us." },
@@ -650,6 +792,8 @@ P:NPC {
         { text = "I'm a paladin too. How can I help?", next = "pal_d", when = { class = "PALADIN" } },
         { text = "Would your company welcome a priest's blessing?", next = "priest_d", when = { class = "PRIEST" } },
         { text = "I know the Dark Strand's craft. I could read their tomes.", next = "warlock_d", when = { class = "WARLOCK" } },
+        { text = "Could someone quiet help you against the Dark Strand?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is my magic so different from the Dark Strand's?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Light keep you.", next = "END", fx = { affinity = 1 } },
       },
     },

@@ -31,6 +31,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It watches over everyone, though some walk in its sight more easily than others, and your trade doesn't make it easy. I'd ask you to remember that every purse you lift belongs to someone the Light loves just as much as you." } },
+      choices = {
+        { text = "I'll remember that, Brother. My knives will serve the innocent.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light can love whom it likes. I'll lift what I need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They share this one, though not always comfortably, and Khelden and I have had words over whose candles burn in the Library Wing. The Light asks for faith, and the arcane asks for will, and I think a person can have both." } },
+      choices = {
+        { text = "Both serve the Abbey. Faith and will in their proper place.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The arcane needs no faith. My will is enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
+      choices = {
+        { text = "Keep praying, Brother. I may need it one day.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your prayers for those who want them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I wouldn't go that far, but I've seen the Light heal and I've seen druids heal, and I'm not sure the wounded can tell the difference." } },
       choices = {
@@ -61,6 +88,12 @@ P:NPC {
           text = "You've come back to the Abbey, as people do after they've seen what's out there. The floor's the same as it was, but you aren't." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid in Northshire! The Light has many faces, I'm told, and perhaps nature is one of them." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the Abbey. Jorik's student, I suppose, and the Light watches over you as well, though it sometimes looks away." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Khelden's student, I suppose, and you'll want to know whether the Light and the arcane can share a roof." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You come from the graveyard, and I can feel the darkness on you. I'll still pray for you, though I suspect you'd rather I didn't." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind?" },
@@ -75,6 +108,9 @@ P:NPC {
         { text = "I was a novice here, Brother.", next = "novice", when = { origin = "human_abbey_novice" } },
         { text = "I fled Lordaeron as a child.", next = "lordaeron", when = { origin = "human_lordaeron_refugee" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
+        { text = "Does the Light truly watch over rogues, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can the Light and the arcane share a roof, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },

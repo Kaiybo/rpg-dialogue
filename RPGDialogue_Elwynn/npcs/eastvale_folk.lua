@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More than you'd think, because every apprentice from the tower comes down the road with a scorch mark somewhere they'd rather not explain. I mend it and don't ask, which is half of what they're paying for." } },
+      choices = {
+        { text = "Your discretion's worth paying for, Sara. I'll pay fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Discretion's cheap. I'll mend my own robes and keep my coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Sara Timberlain. The loggers cut wood; I cut cloth. Somebody in this camp has to make something you'd want to wear." },
@@ -43,6 +52,8 @@ P:NPC {
           text = "Sit, if you like. Don't mind the needle; I can sew and listen at once. Most of this camp's news comes past my front step." },
         { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
           text = "Look who's come down out of the pines with a bow instead of an axe! Your old crew still asks after you at the camp, and still says you were wasted on felling." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and in a robe that's seen some road. If you've singed the hem, I can match the cloth, though I can't promise the color will forgive you." },
       },
       again = {
         { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
@@ -55,6 +66,7 @@ P:NPC {
         { text = "I'm a tailor myself.", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Robes from thieves' cloth, for a priest?", next = "priest", when = { class = "PRIEST" } },
         { text = "Red's a poor colour for sneaking.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Do mages bring you much mending work out here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll keep an eye out for red.", next = "END" },
       },
     },
@@ -167,6 +179,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Twice this season, and they take the good grapes from the south rows and leave the sour ones for us. The guards from Stormwind come when they can, but they can't come often, so mostly we just count what's left." } },
+      choices = {
+        { text = "Then I'll keep watch on your rows tonight, Gerard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave the Guard out of it. The Defias need a quieter answer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I could, if I had another pair of arms and a back that didn't creak, but a man can only carry so many pails before noon. I know a spell isn't the honest way to water a vineyard, but a thirsty man asks anyway." } },
+      choices = {
+        { text = "Honest work is slow but sure. Keep carrying those pails.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If magic can save your back, use it and hang tradition.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gerard, and I work the vines. The sun's hot, the rows are long and the well's a long walk, so a man could die of thirst out here, slowly." },
@@ -175,6 +205,10 @@ P:NPC {
         { id = "h_lovers", when = { topicKnown = "maybell_tommy" },
           text = "Miss Maybell goes down to the river most evenings, says she's counting grapes, though there are no grapes by the river. I don't say anything, since it's not my business." },
         { id = "h_vines", when = { metBefore = true }, text = "The vines are coming on. Another month and we'll have grapes, if the crows don't find them first. The crows always find them first." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came up the rows without rustling a single vine, which is more than the Defias manage. They trample half of what they steal." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You don't know a spell that makes rain fall on purpose, do you? The well's a long walk and the sun doesn't care." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slow, it saves water." },
@@ -188,6 +222,8 @@ P:NPC {
         { text = "I worked Westfall fields before the Defias came.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Here, have a drink.", next = "BUSINESS" },
         { text = "Your vines are tired, Gerard. I can feel it.", next = "druid", when = { class = "DRUID" } },
+        { text = "Have the Defias been taking from your vines too?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can't you simply carry more water from the well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Keep at it, Gerard.", next = "END" },
       },
     },

@@ -26,10 +26,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the vaults were built by the same stonemasons who built the walls, and they did a very good job before the crown stopped paying them. I do sometimes wonder whether any of them still remember the plans." } },
+      choices = {
+        { text = "The crown should have paid them. That was dishonourable.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The crown pays what it can. Masons are masons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I've never looked, and I never will, because a bank that looks inside its boxes is just a cupboard. The boxes are warm to the touch, mind, and one of them hums on rainy days." } },
+      choices = {
+        { text = "Good. A trust kept is worth more than curiosity.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd have peeked by now. Curiosity's half of magic.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Olivia Burnside, at your service. We keep accounts and safe deposit boxes, and no one has ever stolen a thing out of this bank, not in its whole history." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Ah, a dwarf! You'll want to see our vaults, I expect, and compare them with Ironforge's. I promise ours will stand the comparison." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. I'll say it again, because it bears repeating: no one has ever stolen a thing from this bank, and I'd rather you weren't the first." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! We keep a few boxes for the Sanctum, and they always come with a note asking us not to open them, which I think is rather sweet." },
       },
       again = {
         { id = "h_again", text = "Is there something more the Bank of Stormwind can do for you?" },
@@ -39,6 +61,8 @@ P:NPC {
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Nothing has ever been stolen, not even once?", next = "thief" },
         { text = "Who keeps their money here?", next = "who" },
+        { text = "How has nobody ever robbed this bank?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What does the Sanctum keep in your boxes?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Olivia.", next = "END" },
       },
     },
@@ -95,10 +119,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Soldiers keep letters, nobles keep jewels, and the quietest customers keep nothing at all, which tells me most of all. I suspect at least one of the city's quieter offices rents a box here under a very dull name." } },
+      choices = {
+        { text = "A banker's silence is a matter of honour.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Secrets are worth something. I'd sell that one.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A gentleman from the Mage Quarter tried to deposit a small bound box that scratched at night, and we gave it back to him the very next morning. I've stopped asking what people keep, but I do still listen." } },
+      choices = {
+        { text = "You were right to refuse it. Some things don't belong here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A scratching box is harmless if it's bound properly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Newton Burnside. I keep boxes and accounts for half the Trade District, and I've learned that what people put away tells you more about them than anything they say across a counter." },
         { id = "h_lowlevel", when = { maxLevel = 15 }, text = "A new face, and a young one. Most of our new customers start with a few spare linen shirts and a sword they've outgrown, so don't be shy about what you bring." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. I can tell a great deal from what someone puts in a box, and I'll be very interested to see what you put in yours." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I've a rule that nothing alive goes in the boxes, and I'd like to remind you of it before you ask." },
       },
       again = {
         { id = "h_again", text = "Something else? I have time, and the ledger certainly isn't going anywhere." },
@@ -108,6 +154,8 @@ P:NPC {
         { text = "Open my box, please.", next = "BUSINESS" },
         { text = "So what do people put away?", next = "boxes" },
         { text = "What does my box say about me?", next = "mine" },
+        { text = "What can you tell about people from their boxes?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Has anyone tried to store something alive?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Newton.", next = "END" },
       },
     },
@@ -167,10 +215,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only as a joke, mostly, though my uncle lost a ring across this counter years ago and never found out how. We've all smiled a little more carefully since, and kept our rings in our pockets." } },
+      choices = {
+        { text = "Robbing a banker at his own window is a mean trick.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whoever did it had skill. You have to admire that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only the queue, because nobody wants to stand behind a thing with horns for ten minutes. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." } },
+      choices = {
+        { text = "I'll send it away while I'm here. Your customers deserve that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they mind, they can let me go first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "John Burnside. I've the first window, so I see everyone before my kin do, and I like to think I give the city a friendly face when they've only come to count their coin." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome! We've had a few of your people in since Gnomeregan, and every one of them has asked to see how the locks work. I'm not allowed to show you, I'm sorry to say." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue at the first window! I'll give you the same smile I give everyone, but I'll be counting my fingers when you go." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Hello there! I'll smile at you the same as anyone, but I'll ask your little companion to stay out of the queue, if it's no trouble." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The others can wait." },
@@ -180,6 +250,8 @@ P:NPC {
         { text = "Just my box, John.", next = "BUSINESS" },
         { text = "The orcs burned the old bank?", next = "old" },
         { text = "Who comes in through that door?", next = "door" },
+        { text = "Do you really count your fingers, John?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do my companions bother your customers, John?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -236,10 +308,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Always, and sometimes better than they deserve, because buyers see a glow and stop asking questions. I warn them when I can, but an auctioneer can only call what's put in front of him." } },
+      choices = {
+        { text = "Then sellers should be honest about their glow.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If buyers don't ask, that's their own fault.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a great deal of gold to a buyer I never saw, and I've tried very hard not to wonder where it went." } },
+      choices = {
+        { text = "You should have burned it, Chilton.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A book like that deserves a worthy owner.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Chilton, at the left podium. Leave your goods with me, set your price and your deposit, and every buyer in Stormwind will have the chance to fight over them." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Your people do run a fine auction in Ironforge, but I'll wager ours is warmer, and the bidders here haven't learned to haggle as hard." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Enchanted goods always fetch a fine price at my podium, so if you've anything that glows, I'd be delighted to see it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I'll list your goods like anyone's, though I'd ask that nothing you consign is still moving." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The hall never closes, but my voice does." },
@@ -249,6 +343,8 @@ P:NPC {
         { text = "Let me see the auctions.", next = "BUSINESS" },
         { text = "Why do I have to pay a deposit?", next = "deposit" },
         { text = "What sells best here?", next = "sells" },
+        { text = "Do enchanted goods sell better than plain ones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has anyone consigned something that moved?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Chilton.", next = "END" },
       },
     },
@@ -304,10 +400,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, and only once, because the Sanctum enchanted my ink after an apprentice tried changing his figures with a cantrip. Now the ledger simply refuses to be wrong, and I find that very restful." } },
+      choices = {
+        { text = "Good. Honest records keep a city honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A ledger that can't be changed makes me nervous.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger. But the law says I must take your goods, and I'm a man who follows the law to the letter." } },
+      choices = {
+        { text = "The law protects everyone, warlocks too. You're right to follow it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The law's only ink, Fitch. Some days it bends.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Fitch. Chilton calls the bids and Jaxon charms the buyers, and I write everything down, which is why nobody in this hall has ever been cheated on my watch." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "I'll note your name very carefully, if you don't mind. It isn't an accusation; it's simply that the book has a long memory and I'd like you to know that." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll be the first to write the correct price down without my help, I expect. Most of our customers can't do sums." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I'll write your name in the book like anyone's, though I'll admit my quill hesitates a little." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I'd like to finish this page before the ink dries." },
@@ -317,6 +435,8 @@ P:NPC {
         { text = "Show me what's up for auction.", next = "BUSINESS" },
         { text = "Has anyone tried to cheat the hall?", next = "cheat" },
         { text = "Why keep such a careful book?", next = "book" },
+        { text = "Has anyone tried to fool your ledger with magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why should your quill hesitate, Fitch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Fitch.", next = "END" },
       },
     },
@@ -366,10 +486,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every day, dear, because a crowd of excited bidders is the easiest crowd in the city to rob. I keep an eye on the doors and a word with the Watch, and I warn the young ones to keep their purses inside their coats." } },
+      choices = {
+        { text = "I'll watch out for them too, Jaxon.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A careless bidder deserves to lose a purse.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not you, dear, but someone tried it last winter, and the coins vanished from Chilton's tray while he was counting them. He's never been the same, and he weighs every purse twice now." } },
+      choices = {
+        { text = "That's shameful. No true mage would cheat like that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Chilton should have checked more carefully.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Jaxon. I have the right-hand podium, and I'll tell you honestly what your goods will fetch, which is more than Chilton will, bless him." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "Hello, dear. Your people bring the loveliest things in from Darnassus, and they never know what to charge for them, so do ask me before you list anything." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Hello, dear. You've a sharp eye for a bargain, I can tell, and I'd rather you used it on the listings than on the bidders' purses." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "Hello, dear. A mage at the auction always makes me a little nervous, because I'm never quite sure the gold you bid is really there." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -379,6 +521,8 @@ P:NPC {
         { text = "Let me browse the auctions.", next = "BUSINESS" },
         { text = "So how do I price something?", next = "price" },
         { text = "Who are your regulars?", next = "regulars" },
+        { text = "Do thieves really work the auction floor?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think I'd bid with conjured gold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thanks, Jaxon.", next = "END" },
       },
     },
@@ -431,10 +575,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, and they always want crests with no animals, no colours and nothing anyone could recognise. I design them anyway, and I sign them properly, because a charter's a charter whoever holds it." } },
+      choices = {
+        { text = "A charter should be honest about who signs it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A crest nobody recognises is a sensible crest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Lord Wishock would try, and loudly, but the law says a guild is a guild so long as it pays its fee and breaks no statute. I've already had to talk him out of burning one crest, which was a very handsome crest." } },
+      choices = {
+        { text = "The law protects every guild equally. Good.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let Wishock rage. A crest is my own affair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Aldwin Laughlin, guild master of the Stormwind registry. I keep the charters of every guild that calls this city home, and I design their crests, which I'll admit is the part I enjoy." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "One of the Silver Hand! Your order is the oldest brotherhood I can think of, so you'll understand better than most why I insist that a charter be signed properly." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You'll be wanting to register a guild with a very dull name, I expect, and I'll tell you now that I've seen them all." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I'll register your guild like any other, but I'll warn you that the House of Nobles reads my charters, and they're not fond of horns on a crest." },
       },
       again = {
         { id = "h_again", text = "What else may the registry help you with, friend?" },
@@ -444,6 +610,8 @@ P:NPC {
         { text = "I'd like to see about a charter or crest.", next = "BUSINESS" },
         { text = "How does someone found a guild?", next = "found" },
         { text = "What makes a good crest?", next = "crest" },
+        { text = "Do rogues form many guilds, Aldwin?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the House refuse a warlocks' guild?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Aldwin.", next = "END" },
       },
     },
@@ -502,11 +670,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because one day you will be seen, and on that day you will need reach as well as surprise. The SI:7 agents who train with me learn the sword first and the dagger last, and the ones who complain the loudest live the longest." } },
+      choices = {
+        { text = "Then I'll learn to fight in the open as well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better never to be seen at all, Woo Ping.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a master who cannot defend himself is only a prisoner who has not been caught yet, and your demon knows this better than you. Learn the staff, so that your servant has a reason to stay obedient." } },
+      choices = {
+        { text = "I'll learn, then, and depend less on my demons.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demons obey me. They'll never need a reason.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Woo Ping, and I teach the weapons this arsenal sells: swords, staves, daggers, polearms and the crossbow. Gunther sells the steel and I teach the hand, and between us we make soldiers out of shopkeepers." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior should know every weapon, because the one you favour will break at the worst moment. Learn the polearm from me, and learn it well." },
         { id = "h_mage", when = { class = "MAGE" }, text = "A mage at my door is rare, and welcome. I can teach you the sword or the staff, so that when your spells are spent, you are not yet helpless." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You will want the dagger, of course, but I will teach you the sword too, because a dagger alone is a very short argument." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. Your demons fight for you, I know, but I will teach you the staff all the same, so that you are never only the master of something else." },
       },
       again = {
         { id = "h_again", text = "Ask. A student who asks learns twice as fast." },
@@ -517,6 +707,8 @@ P:NPC {
         { text = "Where do I learn axes, maces or bows?", next = "elsewhere" },
         { text = "What's the first thing you teach?", next = "first" },
         { text = "Which weapon do you prefer?", next = "prefer" },
+        { text = "Why should a rogue learn the sword?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why does it matter if I fight for myself?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, master.", next = "END" },
       },
     },
@@ -572,10 +764,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not twice, because I keep a ledger, a cudgel and a cousin in the Watch, in that order. The ledger is usually enough, because nobody wants their name written down in a weapons shop." } },
+      choices = {
+        { text = "A ledger and the Watch are what keep a city honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ledgers only catch the careless ones, Marda.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some of the old Dalaran masters do, because they think a mage holding a sword is a mage who's given up on thinking. The young ones disagree, mostly because they've been to Westfall and seen what the Defias do to anyone who runs out of mana." } },
+      choices = {
+        { text = "The old masters are right. A mage should trust their art.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The young ones have it right. Survive first, theory later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Marda Weller. Gunther forges and fusses, Woo Ping teaches, and I keep the counter and the ledger, which is why this shop still has a roof." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, so it's a mace or a two-hander you're after. We've a few heavy pieces on the back wall, though Gerik Koen in Old Town has more if ours don't suit you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so you'll be after the daggers, which Gunther will have told you I count. He's right, and I count the coin too." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in an arsenal. Woo Ping will want to teach you the staff, and you'd do well to listen, whatever the Sanctum says." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've a customer waiting at the other counter." },
@@ -585,6 +799,8 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How's business since the auction house opened?", next = "auction" },
         { text = "Who buys the most weapons?", next = "buyers" },
+        { text = "Has anyone stolen from you, Marda?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Sanctum disapprove of weapons training?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to it, Marda.", next = "END" },
       },
     },
@@ -643,9 +859,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Sand from the Westfall shore, blown thick and cooled slowly, the way the old Dalaran glassblowers did it before they went home behind their wall. Kyra says I lecture, and she's right, but glass deserves a lecture." } },
+      choices = {
+        { text = "Craft done slowly and properly is worth the price.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fast and cheap serves most people well enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, and I didn't ask, but the glass frosted over from the inside and I had to throw the whole case in the canal. I've had my doubts about the fish ever since." } },
+      choices = {
+        { text = "I'm sorry for that. I'll fill mine far from here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A screaming vial sounds rather useful to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Keldric Boucher. Morgan Pestle has the potions, Kyra has the reagents by the door, and I keep the vials and the finer arcane goods for alchemists and spellcasters who know what they're doing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You'll know your reagents, then, and you'll know that cheap vials crack under a heating charm, though mine don't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I sell you the same vials as anyone, but I'll ask you not to fill them in my shop, because the last time, one of them screamed." },
       },
       again = {
         { id = "h_again", text = "Anything else? I do enjoy a question I can answer." },
@@ -655,6 +893,8 @@ P:NPC {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What makes a vial so special?", next = "vial" },
         { text = "Where does your stock come from?", next = "stock" },
+        { text = "What makes your vials better, Keldric?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What screamed in your vial, Keldric?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Keldric.", next = "END" },
       },
     },
@@ -713,10 +953,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, and it keeps my door busy." } },
+      choices = {
+        { text = "The paladin was only doing his duty, Kyra.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Plain paper's wise. Paladins should mind their own business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Mine comes with a receipt, and his comes with a wink and a question you'd better not answer. I've nothing against Jasper, mind, but I'd rather my powder ended up in an honest pocket." } },
+      choices = {
+        { text = "I'll take the receipt, Kyra. Honest trade suits me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the wink. Receipts leave trails.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kyra Boucher. Reagents for every kind of spellcaster, right by the door so nobody has to walk past Keldric's lectures on glass. Keldric is my kin, so I'm allowed to say that." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. You'll want symbols of divinity, I expect, though I hope you never need to use one. The Silver Hand's people always look so solemn when they buy them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, so you'll want your reagents quickly and quietly, and I've learned to wrap them in plain paper for your sort." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so you'll want flash powder, and I'd like you to buy it from me rather than Jasper Fel. His is good, but mine's honest." },
       },
       again = {
         { id = "h_again", text = "Who's next, then? Oh, still you; what else have you run short of?" },
@@ -727,6 +989,8 @@ P:NPC {
         { text = "What do priests buy from you?", next = "priest", when = { class = "PRIEST" } },
         { text = "What do mages run out of?", next = "mage", when = { class = "MAGE" } },
         { text = "Who are your best customers?", next = "customers" },
+        { text = "Why wrap a warlock's reagents in plain paper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What's the difference between yours and Jasper's?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, Kyra.", next = "END" },
       },
     },

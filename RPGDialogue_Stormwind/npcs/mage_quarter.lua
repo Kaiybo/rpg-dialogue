@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a spell read by the wrong eyes is worse than a dagger in the wrong hand, and this city already has enough daggers. SI:7 understands that, and I'm told Master Shaw keeps a shelf of his own that nobody is allowed to read." } },
+      choices = {
+        { text = "Some knowledge should stay locked away. You're right to chain it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge locked up only helps whoever holds the key.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maginor Dumas, Master Mage of the Sanctum. My advice to you is this: as you travel the world, be wary of magic, for it will burn the untrained, and most of the world is untrained." },
@@ -44,6 +53,8 @@ P:NPC {
           text = "Stormwind's magi have stood on their own since Dalaran closed its gates to the world. The Sanctum is all the kingdom has now, and I intend it to be enough." },
         { id = "h_quarter", when = { origin = "human_mage_quarter" },
           text = "One of the Quarter's own apprentices, grown up and come back through the front door. Your old masters still mention Dalaran at every supper, I'm afraid; some habits outlive cities." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the Sanctum. You'll find our doors open and our books chained, and I'd ask you to remember the difference between the two." },
       },
       again = {
         { id = "h_again", text = "Is there more? I have students waiting, but they can wait." },
@@ -58,6 +69,7 @@ P:NPC {
         { text = "The Kirin Tor sent the High Order to Stormwind's mages.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "Gnomeregan's mages need a new home, Master Dumas.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Does the Sanctum know what goes on under the Lamb?", next = "lamb", when = { class = "WARLOCK" } },
+        { text = "Why chain the books, Master Dumas?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },
@@ -187,6 +199,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every spring, and every spring I let them, because a student who learns the city's alleys learns caution faster than any lesson of mine. They come back with cut purses and humbled pride, and then they listen." } },
+      choices = {
+        { text = "You should keep them in. The alleys aren't a classroom.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them roam. The streets teach what books can't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It saddens me more than it frightens me, because I've seen what that path did to others who were sure they were its master. My people learned that lesson once, long ago, and I'd spare you the price of learning it again." } },
+      choices = {
+        { text = "I'll walk carefully, then, and remember your warning.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Others failed because they were weak. I'm not.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Elsharin. I teach the apprentices of the Sanctum their first spells, and I try to teach them patience, which is harder. Humans are always in such a hurry." },
@@ -194,6 +224,10 @@ P:NPC {
           text = "The fundamentals never stop mattering, whatever the more senior magi tell their students. Come back to me whenever a spell feels wrong in your hands, and we'll find out why." },
         { id = "h_human", when = { race = "Human" },
           text = "I've lived among your people for a long time now, and I've grown fond of the haste. Everything you build, you build as if you'd never get another chance." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You walk very quietly, and I notice it because my apprentices walk like a herd of goats. Do you need something from the Sanctum?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I can feel the fel on you, faint as old smoke, and I won't pretend it doesn't trouble me. Even so, I'd rather talk to you than about you." },
       },
       again = {
         { id = "h_again", text = "Yes? There is no hurry." },
@@ -207,6 +241,8 @@ P:NPC {
         { text = "Why do you speak to a kaldorei so carefully?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Do you teach gnomes differently?", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "What do you think of the other teachers here?", next = "others" },
+        { text = "Do your apprentices ever try to sneak out?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does my kind of magic frighten you, Elsharin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -315,11 +351,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only by bribing a mage to open one, and the Sanctum would hear of it within the hour. We keep a record of every portal opened from this tower, and I keep it personally." } },
+      choices = {
+        { text = "Good. A portal is too dangerous to leave unrecorded.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Every record has a gap, if someone looks hard enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They're entirely different, and the difference matters. A portal folds this world onto itself, while your circles open a door to somewhere else entirely and invite whatever waits on the other side to step through." } },
+      choices = {
+        { text = "You're right. I'll treat every door I open as a danger.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever comes through my door answers to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Larimaine Purdue. I teach the conjuring of portals, which is to say I teach a select few mages how to fold the world in half and step across the crease. I don't believe you're one of them." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "As a mage, you belong to a select group that can conjure a portal back to this very place. I'll teach you when you're ready, and I'll tell you honestly if you aren't." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, and so not a portal mage, whatever you may hope. I'll answer you briefly, if you'll keep your fingers off the focusing stones." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in a portal mage's tower. I'll be civil, but you'll forgive me if I watch what you do with your hands." },
       },
       again = {
         { id = "h_again", text = "Something further? Concisely, please." },
@@ -328,6 +386,8 @@ P:NPC {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
         { text = "How does a portal work?", next = "how" },
         { text = "Why so sure I couldn't learn it?", next = "acuity" },
+        { text = "Could a thief ever make use of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Surely your portals and my summonings aren't so different?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -387,6 +447,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Of course they do, and we let them, because there's nothing in our ledgers that Shaw hasn't read already. He knows exactly what we are, and he's decided we're worth more to him alive and indoors." } },
+      choices = {
+        { text = "Then I'll keep the watch honest and report what I see.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep your secrets, Zardeth, if the price is right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because he'd rather know where we are than wonder, and because he's a sensible man under all that disapproval. The Sanctum and the cellar are two floors of the same house, my friend, and both of us know it, even if he'll never say so." } },
+      choices = {
+        { text = "The Sanctum should have shut you down long ago.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Better you down here than scattered and hidden. That's sense.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Zardeth, of the Black Claw. I attend to the cellar's more delicate affairs, so that my colleagues may attend to their studies undisturbed. You'd be surprised how often studies are disturbed." },
@@ -398,6 +476,10 @@ P:NPC {
           text = "The House has gone remarkably quiet on the subject of taverns. We're very grateful, you and I, and we'll leave it at that." },
         { id = "h_human", when = { race = "Human" },
           text = "Stormwind likes to think its magic all lives upstairs in the Sanctum. The city has always had a cellar, my friend; it's simply learned not to look." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, and one who found the stairs. Shaw's people come down here now and again to count us, and they always leave having counted wrong." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage from upstairs, slumming in the cellar. The Sanctum sends someone down to disapprove of us every few months, and I've grown rather fond of the visits." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all evening." },
@@ -409,6 +491,8 @@ P:NPC {
         { text = "What's in the brew, Zardeth?", next = "brew", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "I know what you are. The Light will find you.", next = "priest", when = { class = "PRIEST" } },
         { text = "I'm one of the cellar's own. What do you need?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Does SI:7 watch the Lamb's cellar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why does Master Dumas tolerate you down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -512,6 +596,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because what I teach can burn a street to the ground, and the crown would like to know whose street. I don't resent the watching, so long as Shaw's people remember that I'm watching them back." } },
+      choices = {
+        { text = "The crown is right to watch you. Somebody must.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What you teach down here is nobody's business but yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a mage who loses control burns a curtain, while a warlock who loses control is eaten, so we're not permitted to be careless. Dumas teaches caution as a virtue, and I teach it as a means of staying alive." } },
+      choices = {
+        { text = "Then I'll keep to my own path and leave yours alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your discipline sounds worth learning, Ursula, whatever it costs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ursula Deline. I teach discipline to those who would command what lies beyond the world. The darkness doesn't embrace everyone, so if it doesn't embrace you, I'd ask you to leave before it notices." },
@@ -519,6 +621,10 @@ P:NPC {
           text = "You've come to learn, then, not to gawk. Keep up your training, because the arcane only corrupts those who are weak, and I don't intend to lose another student to weakness." },
         { id = "h_lamb", when = { origin = "human_lamb_cellar" },
           text = "The child who kept coming back down the stairs. Gakin wanted to send you home, and I said the curious ones are either the best or the dead, and here you are, not dead." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue on my stairs, which means Shaw is curious again or you're lost. Either way, keep to the lamplight and don't touch the circles." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, come down from the Sanctum to see how the other half studies. Look all you like, though you'll find our discipline is stricter than yours." },
       },
       again = {
         { id = "h_again", text = "More? Be brief." },
@@ -531,6 +637,8 @@ P:NPC {
         { text = "Is the power worth what it costs?", next = "price", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's warlocks were stronger than you think.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "What do you think of Gakin?", next = "gakin" },
+        { text = "Why would SI:7 care what you teach?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Stricter than the Sanctum's? How so?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -620,6 +728,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Fewer than you'd think, because the stairs are dark and the imps are nosy, and nobody likes being shouted at in Infernal. The last one tried to pocket a grimoire, and it bit him, which taught us both something." } },
+      choices = {
+        { text = "Then I'll keep my hands to myself, Spackle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A book that bites is just a challenge, really.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Oh, they know, and they pretend not to, and every so often an apprentice creeps down the stairs for a look and goes back up very pale. I think it's good for them, honestly, because a mage should know what's waiting at the far end of ambition." } },
+      choices = {
+        { text = "Some things a mage is better off never knowing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowing is never wasted, Spackle. Not even about demons.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Spackle Thornberry, purveyor of fine grimoires! Each one teaches a demon a new trick, which I'm sorry to say is only of any use to warlocks, but I'll happily talk about them to anyone." },
@@ -627,6 +753,10 @@ P:NPC {
           text = "Your mastery over the denizens of other worlds has grown very strong, and I think you're ready to bind a dreadsteed. Speak to Mor'zul Bloodbringer, at the Altar of Storms in the Burning Steppes, and bring plenty of gold." },
         { id = "h_morzul_done", when = { questDone = TODO_QUEST("Mor'zul Bloodbringer") },
           text = "Did you meet Mor'zul? Charming fellow, in an orcish sort of way. Whatever he asks of you, it'll cost blood, sweat and a great deal of money, and it's worth every bit." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Oh, a rogue! I had a rogue customer once who wanted a grimoire to teach his lockpicks to talk, and I had to tell him, very sadly, that no such book exists." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Don't look so stern; my grimoires are perfectly respectable by the standards of this cellar, and they're very well bound." },
       },
       again = {
         { id = "h_again", text = "What else? I love a good chat between customers." },
@@ -639,6 +769,8 @@ P:NPC {
         { text = "Which grimoire should I start with?", next = "first", when = { class = "WARLOCK" } },
         { text = "I studied Gnomeregan's forbidden shelves too.", next = "shelves", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "What do the other trainers make of you?", next = "others" },
+        { text = "Do you get many thieves down here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Sanctum know what you sell down here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Spackle.", next = "END" },
       },
     },

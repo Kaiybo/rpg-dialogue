@@ -38,6 +38,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Old ones, old ones, from before the Second War, with pages that whisper when you turn them, or so my fellow tells me. I don't read them myself, I only know a fellow who knows a fellow who does." } },
+      choices = {
+        { text = "Books that whisper are best left on the shelf, Remy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Tell your fellow I'm interested. Whispering books sound useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell half of it, and the cellar's in the other half." } },
+      choices = {
+        { text = "Your secret's safe with me, Remy. I won't tell Farley.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your silence has a price, Remy. Mine does too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Remy, at your service, at your service! Whatever you need, I know a fellow who knows a fellow." },
@@ -56,6 +74,10 @@ P:NPC {
           text = "Did you tell him, did you tell him? The Marshal, about the murlocs? Tell him twice, because he only hears things the second time." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf! Dwarves know gold, know gold! You wouldn't have a little dust in that beard, would you, a little dust?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, a mage! I know a fellow in Stormwind who sells books that would curl your hair, curl your hair, if that's the sort of thing you're after." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, a warlock! You'll want to speak to Marcot down in the cellar, and I didn't tell you, I didn't tell you." },
       },
       again = {
         { id = "h_again", text = "What else, what else? Time's money, friend, and money's money too." },
@@ -71,6 +93,8 @@ P:NPC {
           when = { thread = { id = "elwynn_gold", beat = "b1_dust" } },
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { band = { "Seasoned", "Veteran", "Champion" } } } } },
           fail = { next = "clams", fx = { affinity = -1 } } },
+        { text = "What sort of books would curl my hair, Remy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why are you so worried about telling me, Remy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Remy.", next = "END" },
       },
     },

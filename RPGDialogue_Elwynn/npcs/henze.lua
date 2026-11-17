@@ -26,6 +26,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Cold, an' boring, an' then suddenly very warm an' very loud, which is how I ended up lyin' here. The Defias have folk watchin' the watchers, so if ye ever do that work, look behind ye more than ye look ahead." } },
+      choices = {
+        { text = "I'd serve the king's eyes proudly, Henze.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd never spy for nobles. The work's thankless and deadly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. If there's somethin' waitin' on the other side wi' horns like yer friend there, I'm glad I didnae stay long enough tae meet it." } },
+      choices = {
+        { text = "The dead deserve their peace. I'll not disturb it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Death's just a door. Some of us go through on purpose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Henze Faulk. Gazin an' me were watchin' the Defias for the king's advisors, an' when they near enough caught Gazin, I went in after him. They caught me properly." },
@@ -40,6 +58,10 @@ P:NPC {
         { id = "h_dead", when = { metBefore = true }, text = "Still dead-ish? No, still alive; I check every mornin'. It's a good habit once ye've been the other thing." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest. If ye've come to read me the last rites, ye're late. Somebody already read me the first ones again." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Ye walk like Gazin does, quiet as a cat. Are ye one o' the king's eyes as well, or just a thief wi' good manners?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Is that a demon ye've got wi' ye? I've been dead once already, so I'd be obliged if ye'd keep it from takin' an interest." },
       },
       again = {
         { id = "h_again", text = "What else? I'm no' goin' anywhere, mind, since my legs are still on strike." },
@@ -53,6 +75,8 @@ P:NPC {
         { text = "Let me tend to your wounds.", next = "heal", when = { class = "PRIEST" } },
         { text = "Need a drink, kinsman?", next = "drink", when = { race = "Dwarf" } },
         { text = "The stone remembers you, Henze. It told me where you fell.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "What was it like watching the Defias for the king?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you remember anything from when you were dead, Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Rest easy, Henze.", next = "END" },
       },
     },

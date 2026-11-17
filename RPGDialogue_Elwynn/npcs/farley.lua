@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not the ones who stay, because Keryn Sylvius keeps his students in line and I keep the ale flowing, and we understand each other. It's the Defias passing through I worry about, though they never seem to stay for a second drink." } },
+      choices = {
+        { text = "Your spoons are safe with me, Farley. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If you've spoons worth counting, someone will find a way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The quiet of it, when the woodcutters aren't at it. The trees are friendly here, and the deer walk right up to the inn's back door some evenings." } },
       choices = {
@@ -64,6 +73,8 @@ P:NPC {
           text = "From the north, are you? I can always tell. Northerners take the seat nearest the fire and never quite sit back in it." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Well, Elwynn's a fine forest to visit, though I expect ye've seen far older ones in Ashenvale." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Welcome, welcome! I don't mind telling you I count the spoons at night, and it's nothing against you, it's only habit." },
       },
       again = {
         { id = "h_again", text = "What else, friend? So much to do, and I'd rather talk." },
@@ -82,6 +93,7 @@ P:NPC {
         { text = "What ale do you keep, Farley?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Can {pet} sleep in my room?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Does the mage upstairs ever complain?", next = "mage", when = { class = "MAGE" } },
+        { text = "Do rogues give you much trouble at the Lion's Pride?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Just stopping in.", next = "END" },
       },
     },

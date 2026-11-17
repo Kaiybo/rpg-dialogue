@@ -29,6 +29,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I'd send you down into the Charred Vale ahead of the braves, because the Bloodfuries scatter when they see spears coming and stand when they don't. Find where the Ripper roosts and come back to tell me, and leave the killing to whoever I send after you." } },
+      choices = {
+        { text = "I'll bring you her roost, and the braves can finish it openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If she sleeps when I find her, she won't wake again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No, I blame the hands that lit it and the greed that fed it, though fire never cared much whose hands those were. If you fight the harpies with flame, fight them on the bare rock, so whatever's growing back in the vale keeps growing." } },
+      choices = {
+        { text = "I'll keep my fire off the green ground.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Harpies first. The vale will grow back either way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." } },
+      choices = {
+        { text = "Fair. My servant will keep well away from your braves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My servant goes where I send it, Maggran.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warrior_mg = {
       lines = {
         { id = "wmg_default", text = "Windshear Crag, where the Bloodfury nest, and the Webwinder Path, where the spiders take whoever the harpies miss. I lost my patience for small fights long ago, warrior, so take the big ones and leave the small ones to the braves." },
@@ -84,6 +111,12 @@ P:NPC {
           text = "Grish Longrunner has guarded the Great Lift a long while and asked to see his family. Take him my letter; it tells him a reserve warrior is coming to relieve him." },
         { id = "h_ripper_dead", when = { questDone = TODO_QUEST("Bloodfury Bloodline") },
           text = "Since the Ripper fell, the anger's gone quiet in me, and I hardly know what to do with the silence. Perhaps it's time I looked to the good, as a tauren should." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You came up the rock without the wind giving you away, and the harpies would pay well to learn that trick. Use it on them before they learn it from someone else." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "So you're a mage, and the Venture Company's fires are still smoking in the vale below us. I hope you keep a tighter hold on yours than the goblins did on theirs." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "So you're a warlock, and Cairne has told me what demon blood did to the orcs before Thrall freed them. I'll not see that sickness carried onto Sun Rock in anyone's bag." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plainly; I've no patience left for riddles." },
@@ -100,6 +133,9 @@ P:NPC {
         { text = "I'm a warrior. Put me where the harpies hit hardest.", next = "warrior_mg", when = { class = "WARRIOR" } },
         { text = "Do the spirits of this mountain speak to you?", next = "shaman_mg", when = { class = "SHAMAN" } },
         { text = "I was gentle once too, before I died.", next = "forsaken_mg", when = { race = "Scourge" } },
+        { text = "How would you use a rogue on Sun Rock, Maggran?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do you blame all fire for the Charred Vale?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Will you take a warlock's help against the harpies?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Sun Rock can hold itself. I have my own road.", next = "END", fx = { align = { honor = -1 } } },
       },
     },
@@ -259,6 +295,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They could, because the Venture Company still sends men into the Charred Vale to cut whatever has the nerve to grow back. If you could learn which of their foremen gives those orders, I'd know who to plead with, or who to send Maggran after." } },
+      choices = {
+        { text = "I'll learn his name, and you can plead with him first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Pleading's wasted on goblins. I'll deal with him quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. Death feeds life when it comes honestly, and I'm not sure your kind of death does." } },
+      choices = {
+        { text = "Then I'll keep my craft well away from your garden.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     shaman_ta = {
       lines = {
         { id = "sta_default", text = "I thought so, though I've only the dirt under my nails to tell me. If you could ask them to be patient a little longer, I'd be grateful, because these shoots need a spring without the ground shaking under them." },
@@ -278,6 +332,10 @@ P:NPC {
         { id = "h_newlife", when = { questActive = TODO_QUEST("New Life") },
           text = "Plant them gently, and water them more gently still; they're the future of these slopes." },
         { id = "h_shoots", when = { metBefore = true }, text = "Two of the new shoots died in the night, but five lived, and I'll take five." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You came up so quietly I nearly mistook you for the wind, and I'd thank you to walk that softly through my rows of seedlings." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "There's a warlock's chill about you, and I don't think the little shoots will like it. Stand a pace back from the rows, if you would, and I'll gladly talk with you all the same." },
       },
       again = {
         { id = "h_again", text = "Anything else, while my hands are in the dirt? I can listen and plant at once." },
@@ -291,6 +349,8 @@ P:NPC {
         { text = "I'm a druid. Could I help the shoots along?", next = "druid", when = { class = "DRUID" } },
         { text = "Did the seeds take, in the Charred Vale?", next = "future", when = { questDone = TODO_QUEST("New Life") } },
         { text = "The earth spirits here are angry. I can feel it.", next = "shaman_ta", when = { class = "SHAMAN" } },
+        { text = "Could quiet feet be any use to your garden?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Does my magic truly harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good luck with your garden.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -614,6 +674,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A few quiet friends, mon, who walk up by da peak at night while da Sentinels be watching da wrong path. Jin'Zil could use one more pair of quiet feet, if you don't mind da sound of cages rattlin'." } },
+      choices = {
+        { text = "I'll fight the elves, but I won't catch them for your pot.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Show me the path. The rattling won't bother me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Very different, mon, because you pull your magic out of books and Jin'Zil pull his out of da forest and da loa. Da elves up by da peak say your kind of magic broke da whole world once, and for once Jin'Zil think dey might be right." } },
+      choices = {
+        { text = "The arcane is a tool, and I use it carefully.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it broke the world once, it can break the Alliance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warlock_j = {
       big = true,
       lines = {
@@ -638,6 +716,10 @@ P:NPC {
         { id = "h_darsok", when = { heardLine = "darsok.h_default" },
           text = "You met Darsok at da Crossroads? Ha! He tell you he the best? He always say dat, but he be second best, and Jin'Zil be first." },
         { id = "h_quiet", when = { metBefore = true }, text = "De spirits been quiet today. Quiet spirits make Jin'Zil nervous, mon, like a cage that stop rattlin'." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
+          text = "You be a sneaky one, eh? Jin'Zil like sneaky, mon, because sneaky be how dem elves end up in Jin'Zil's cages." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Ah, Jin'Zil can smell da arcane on you like burnt hair, mon. Don't go pointin' dat fire at da cauldron, because dis stew been bubblin' three days." },
       },
       again = {
         { id = "h_again", text = "What else you want, mon? Jin'Zil got all day and a pot on da boil." },
@@ -650,6 +732,8 @@ P:NPC {
         { text = "What became of the elves in the cages?", next = "after", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
         { text = "The Echo Isles send their greetings, uncle.", next = "troll", when = { race = "Troll" } },
         { text = "I hear another voice when I cast, uncle. Not the loa.", next = "warlock_j", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "Who caught the elves for your cages, Jin'Zil?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Is your magic so different from mine, Jin'Zil?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -889,6 +973,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "No, little one, though I've learned that quiet feet and quick hands can go either way, as all hands do. The Venture Company sends men up the slopes to mark the oldest trees for cutting, and someone who could take their markers down unseen would do this mountain a great kindness." } },
+      choices = {
+        { text = "I'll pull their markers and harm none of them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll pull their markers, and the men who set them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They hold nothing against you, little one, but they remember the Well of Eternity, and so do the kaldorei who were alive to see it drown. Use your gift to help the vale grow back and the grove will think well of you, whatever the old memories say." } },
+      choices = {
+        { text = "Then I'll use my gift as the grove asks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Old memories shouldn't chain my magic, Keeper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." } },
+      choices = {
+        { text = "Then it stays bound, and far from your trees.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The trees will have to learn to bear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     tauren_al = {
       lines = {
         { id = "tal_default", text = "And I return them, gladly. Malfurion chose well when he taught your people, whatever the Archdruid in Darnassus says about it, and this grove has seen tauren druids walk its paths with more care than some of my own kind." },
@@ -919,6 +1030,12 @@ P:NPC {
           text = "The Charred Vale was green once. Those who burn it must be driven out, and then we can begin again. Will you help?" },
         { id = "h_falfindel", when = { questDone = TODO_QUEST("Reclaiming the Charred Vale") },
           text = "The Bloodfuries are broken for now, but they will gather again unless we move quickly. If Falfindel can call the forest's spirits to the vale, the regrowth can finally begin." },
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "You came through the grove so softly that even the birds kept singing, little one. I'd ask only that you bring nothing out of it that you didn't carry in." },
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "There's arcane in you, little one, and the old trees here remember what such power did to the world before the Sundering. They'll forgive you if you're gentle, because they're very old and very patient." },
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "Something dark walks a step behind you, little one, and the grove has gone very still to watch it. I won't turn you away, because what you do matters more to me than what you carry, but please keep it out of the trees." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },
@@ -934,6 +1051,9 @@ P:NPC {
         { text = "I'll help the grove.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Hamuul Runetotem sends his respects, Keeper.", next = "tauren_al", when = { race = "Tauren", class = "DRUID" } },
         { text = "My people's druids honour the Circle too.", next = "sky_al", when = { race = "Skyborne", class = "DRUID" } },
+        { text = "Do you think I'd steal from the grove, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the trees truly hold the arcane against me?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What does the grove fear from my demon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The vale's already burned, and I've no time for trees.", next = "END", fx = { align = { light = -1 } } },
       },
     },
@@ -1061,11 +1181,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Hardly ever, because there's little to steal on a mountaintop but the view and the Keeper's patience. The last one came up to watch the goblins at Windshear Crag from above, and he paid for his bed, which was more than I expected." } },
+      choices = {
+        { text = "I'd pay for my bed, the same as anyone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A rogue who pays his way isn't trying hard enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The druids of the Talon Den don't love the arcane, and they're too polite to say so, so mages tend to feel unwelcome without anyone telling them why. I don't mind it myself, as long as nothing in my inn starts glowing." } },
+      choices = {
+        { text = "I'll respect the druids' wishes while I'm on their mountain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The druids can say it to my face, or not at all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Faralia, and I keep a small inn for those who climb up to the grove. Not many do, and the ones who do usually need the bed." },
         { id = "h_druid", when = { metBefore = true }, text = "A druid came up from the grove at dawn and sat on my step without a word, watching the mountain, and then she left. I've decided it was a compliment." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Up here the stars are near enough to count, and I've tried, but I always lose my place somewhere past the ridge." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I didn't hear the door at all, so you must be either a druid or a rogue, and I don't see any fur. Either way the bed's warm and the kettle's on." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You'd be the first mage I've seen up on the peak in a long while, and I'm glad of the company. The wind finds every crack in these walls, so sit close to the hearth." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry, and neither is the peak." },
@@ -1076,6 +1218,8 @@ P:NPC {
         { text = "How do people get up and down the peak?", next = "roads" },
         { text = "You pray to Elune? I pray to the Light.", next = "elune", when = { class = "PRIEST" } },
         { text = "Make this my home.", next = "BUSINESS" },
+        { text = "Do rogues often climb this far up the peak?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why are mages so rare on the peak?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

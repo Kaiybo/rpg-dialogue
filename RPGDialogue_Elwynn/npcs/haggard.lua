@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Forty years in the Guard teaches you that honest men make noise, and the ones who don't are either rogues or Defias. You'd better be the first sort, because I've still a sword under this blanket." } },
+      choices = {
+        { text = "I'm no Defias, Marshal. You have my word on that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Honest men make noise, and they die young, Marshal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In the Second War, aye, and a mage from Dalaran saved my company in the Hillsbrad foothills by setting a whole hillside on fire. Mind you, she set half my tents on fire as well, and we never let her forget it." } },
+      choices = {
+        { text = "She saved your company. The tents were a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "She should have been more careful. Mistakes cost lives.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Haggard. I ran the Stormwind Guard once, back when I could read a duty roster. Now I sit here and listen to the loggers swear." },
@@ -47,6 +65,10 @@ P:NPC {
           text = "Burlguard, is that you? No, it isn't; walking up like that, I took you for a gnoll. So Burlguard sent you, did he? Come closer." },
         { id = "h_woodsman", when = { origin = "human_eastvale_woodsman" },
           text = "That voice. You're one of the Eastvale woodsfolk who used to bring wolf pelts to the logging camp, aren't you? Grown, and with a bow; my eyes can't see you, but my ears remember." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I can't see you, but I can't hear you either, which tells me plenty. You're one of the quiet ones, aren't you?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "There's a hum in the air when you're near, like a hive. That'll be a mage, then, or else my ears are going the way of my eyes." },
       },
       again = {
         { id = "h_again", text = "If you're still there, speak up, will you?" },
@@ -60,6 +82,8 @@ P:NPC {
         { text = "I've been to Darkshire.", next = "darkshire", when = { visited = "Darkshire" } },
         { text = "Who was Stalvan Mistmantle?", next = "stalvan", when = { topicKnown = "stalvan" } },
         { text = "My family's name opens doors at the Keep.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "How did you know I was a rogue, Marshal?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did you ever fight beside mages in the Guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Rest easy, Marshal.", next = "END" },
       },
     },

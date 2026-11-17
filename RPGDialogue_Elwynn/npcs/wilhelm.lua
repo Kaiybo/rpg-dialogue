@@ -32,6 +32,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not through your stealth, but through your intentions, sometimes, because the Light shows me the shape of a person's heart if I look. Yours seems decent enough, though I'd be lying if I said I couldn't see a few shadows in it." } },
+      choices = {
+        { text = "I'll try to keep those shadows from growing, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Shadows keep me alive, Brother. I'll keep them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Patience under pressure, and how to keep your head when a gnoll's swinging at it, which is more than your books will teach you. The Light and the arcane aren't so different, because both ask you to hold steady when everything around you is breaking." } },
+      choices = {
+        { text = "Steadiness is worth learning. I'll heed your lesson, Brother.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Books teach me well enough. I need no sermons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." } },
+      choices = {
+        { text = "Perhaps one day I'll turn, Brother. Keep the door open.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I've no need of redemption. My path is chosen.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I teach the paladins who come through Goldshire. Most of them stand a little straighter when they leave, and some only limp less." },
@@ -53,6 +80,12 @@ P:NPC {
           text = "I hear things, here behind the forge. Not all of them about you were kind. Tell me they were wrong." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest, behind the smithy. Josetta's at the inn, if you're looking for your own. If you've come to compare notes, sit. I don't get many." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in my yard. Most of your kind avoid me, because they think a paladin can see straight through them, and they're half right." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You'll find no books here, only sweat and the Light, though a mage could do worse than learn a little of both." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, here at my door. I'll not turn you away, but I'll ask you to keep that creature beyond the fence, because the Light and it don't agree." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time. The forge doesn't, but I do." },
@@ -69,6 +102,9 @@ P:NPC {
         { text = "Ironforge has plenty of anvils, Brother. I came to learn.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "Du Lac says a paladin is a warrior who prays.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you know what goes on in the inn's cellar?", next = "cellar" },
+        { text = "Can a paladin truly see through a rogue, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think a warlock can ever be redeemed, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },

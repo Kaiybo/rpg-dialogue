@@ -25,10 +25,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the arcane nearly destroyed my people once, long ago, and the Sentinels have long memories. I don't share their fear entirely, but I won't pretend I don't understand it." } },
+      choices = {
+        { text = "Their caution is wise. Magic should never be trusted lightly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear never built anything, Lilyssia. Mages build.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They would, and they'd be right to, for the Legion's creatures burned Ashenvale once and would do it again. I'm kept here among potions while they hold the line, so I fight the only way I can, by teaching you to heal rather than to burn." } },
+      choices = {
+        { text = "Then teach me to heal. I'll take the lesson.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Burning has its uses too, Lilyssia.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Lilyssia Nightbreeze. I teach alchemy here, shut up among the humans' stone, while others fight the battles I dream of every night. Still, someone must teach, so I do." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "A child of the forest! Then you understand what it is to be kept from the fight while our sisters stand watch in Ashenvale. Sit, and let me teach you something useful at least." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. My sisters would frown at me for teaching your kind, but alchemy needs a steady hand, and yours look steady enough." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You bring the fel into my workshop, and the herbs wilt on the bench. I will teach you, because I must, but my sisters in Ashenvale would not." },
       },
       again = {
         { id = "h_again", text = "Speak, and I will answer while the still drips; the forest taught me to listen and work at once." },
@@ -39,6 +61,8 @@ P:NPC {
         { text = "Why not go and fight, then?", next = "fight" },
         { text = "What should I brew first?", next = "brew" },
         { text = "Who works here with you?", next = "shop" },
+        { text = "Why would your sisters frown at teaching mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would your sisters fight a warlock, Lilyssia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Lilyssia.", next = "END" },
       },
     },
@@ -92,10 +116,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "We do, though we call them other things, and they walk the shadows of Ashenvale far more quietly than any human. Our Sentinels and your SI:7 would understand each other well, I think, if they ever stopped watching each other." } },
+      choices = {
+        { text = "Allies should trust each other, not spy on each other.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Allies always watch each other. That's simple sense.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Perhaps, and the Sanctum's mages have offered, but a gift carried by hand means more than one sent through a door in the air. My people value the long road, because the journey is part of the gift." } },
+      choices = {
+        { text = "The old way has meaning. Carry your gifts by hand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A faster road helps more people. Take the portal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Eldraeith. Our finest craftsmen on Teldrassil made these tools, and I carried them across the sea myself, as a sign of the friendship between the Great Tree's people and the humans of this land." },
         { id = "h_human", when = { race = "Human" }, text = "Welcome, child of Stormwind. Your city has been kind to us, and I hope these gifts from Teldrassil repay a little of that kindness." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. I carried these tools across the sea, and I would be very sad to see them leave without being paid for." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. My people do not love the arcane, but I was taught to be courteous to guests, and you are a guest here, as I am." },
       },
       again = {
         { id = "h_again", text = "What else may I tell you?" },
@@ -105,6 +151,8 @@ P:NPC {
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why carry them all this way?", next = "why" },
         { text = "How do you find Stormwind?", next = "city" },
+        { text = "Do night elves have rogues of their own?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Couldn't a portal to Darnassus have spared you the voyage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Eldraeith.", next = "END" },
       },
     },
@@ -156,11 +204,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a tailor remembers every measurement he takes, and a careful man in your trade shouldn't want to be remembered. The SI:7 people sew their own, you know, and I've always taken that as a compliment to the craft." } },
+      choices = {
+        { text = "I've nothing to hide, Georgio. Measure away.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll learn to sew and stay forgotten.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "More than you'd think, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." } },
+      choices = {
+        { text = "Then I'll sew for protection, not for anything darker.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The purpose is mine, Georgio. The stitch is enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Georgio Bolero. I've been teaching tailoring in this shop for some years, and business has been very good lately, with so many new adventurers coming through and tearing their clothes." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! Your people wear robes more than anyone, so learn to stitch your own and you'll never again wear something the Cathedral's tailors cut for somebody shorter." },
         { id = "h_mage", when = { class = "MAGE" }, text = "A mage, and in a robe that fits you badly, which is the curse of your profession. Learn to make your own, and you'll cast better simply for being comfortable." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! You'll want dark cloth that doesn't shine in the lamplight, and I can teach you to sew it yourself, so nobody knows your size." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, and your cuffs are singed exactly where the shadow bolts leave your hands. I can teach you to line them, which will save you a fortune in sleeves." },
       },
       again = {
         { id = "h_again", text = "What else? I've a bolt of wool waiting." },
@@ -171,6 +241,8 @@ P:NPC {
         { text = "Why so many new adventurers?", next = "new" },
         { text = "Who else works here?", next = "shop" },
         { text = "What makes good tailoring?", next = "good" },
+        { text = "Why would it matter who knows my size?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do many warlocks learn tailoring from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Georgio.", next = "END" },
       },
     },
@@ -224,9 +296,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because mages wear it and mages pay more for things with their name on, and someone in Dalaran worked that out long before I did. I've never told a buyer it was enchanted, mind, and I never will." } },
+      choices = {
+        { text = "Good. Honest trade is the only kind worth having.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good name sells cloth. There's no harm in that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every month, in black and red, and it all goes down the stairs under that tavern in a covered basket. I've never asked what they make with it, and nobody's ever offered to tell me." } },
+      choices = {
+        { text = "You'd do well to ask what it's used for.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Not asking is wise. Their business is their own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Alexandra Bolero. Georgio teaches, I supply, and between us we keep half the tailors in Stormwind from tying their seams with string." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll want mageweave, of course, because they all do once they've heard the name. It isn't magic, you know; it's just very good thread." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I'll sell you thread and dye like anyone else, though I'd sooner you didn't stitch anything into it that whispers." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -236,6 +330,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Where does your stock come from?", next = "stock" },
         { text = "What's it like working with Georgio?", next = "georgio" },
+        { text = "If mageweave isn't magic, why call it that?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have you sold thread to the Lamb's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Alexandra.", next = "END" },
       },
     },
@@ -285,9 +381,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It's meant as one, though I'd rather you used those hands on a needle than on someone's purse. Every seam can be unpicked and sewn again, and every life can too, if you start soon enough." } },
+      choices = {
+        { text = "My hands are honest, Lawrence. I'd swear to it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Purses and needles both pay, in their way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I do, because both of them want patience and a steady hand, and I've never met a mage with too much of either. Master Bolero thinks I'm being fanciful, but his best students have always been mages." } },
+      choices = {
+        { text = "Discipline in one craft carries to another. I'll learn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spells come from talent, Lawrence, not from stitching.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lawrence Schneider. I teach the beginners here, so Master Bolero can save his patience for the experts. I always say a life is like a bolt of good cloth: every thread matters, and one weak one can ruin the whole." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! I always say a good thief is like a good seamstress, because both of them can slip in and out without anyone seeing the join." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, here to learn tailoring? I always say a spell is like a stitch, because a careless one comes undone just when you need it most." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a lesson in a moment." },
@@ -297,6 +415,8 @@ P:NPC {
         { text = "Teach me tailoring.", next = "BUSINESS" },
         { text = "Schneider, like the tailors down on the canals?", next = "family" },
         { text = "Do you mean that about the threads?", next = "threads" },
+        { text = "Is that meant as a compliment, Lawrence?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think sewing could improve my spellwork?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Lawrence.", next = "END" },
       },
     },
@@ -348,10 +468,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A well-made wand is silent until you call on it, while a cheap one hums all the time because the enchantment's leaking out through the grain. Half the wands sold on the canal stalls would empty themselves in a month, and the sellers know it." } },
+      choices = {
+        { text = "Someone should warn buyers about those stalls.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Buyers should know better. That's the market.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once. Dalaran's enchanters could have solved it, but they never cared to, since they never cared much for your sort." } },
+      choices = {
+        { text = "Maybe some magic shouldn't be bottled in a wand.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then Dalaran missed a chance. Shadow deserves good tools.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ardwyn Cailen. Allan sells the staves and I sell the wands, and I'll tell you honestly that since Dalaran fell, a wand made by a real enchanter is hard to find anywhere in the world." },
         { id = "h_warrior", when = { class = { "WARRIOR", "ROGUE" } }, text = "I'm sorry, friend, but a wand will do nothing in your hands except look pretty. Allan might have a staff for you, though, if you fancy one." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Then you'll appreciate a wand made properly, with a true core, and you'll know a cheap one by the way it hums." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, so you'll want a wand that can bear a shadow without cracking, and I'll admit I've only a few that can." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about wands all day." },
@@ -361,6 +503,8 @@ P:NPC {
         { text = "Show me your wands.", next = "BUSINESS" },
         { text = "Who makes them, now Dalaran's gone?", next = "makers" },
         { text = "Which wand would you choose?", next = "choose" },
+        { text = "How can you tell a cheap wand by its hum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do shadow wands crack, Ardwyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Ardwyn.", next = "END" },
       },
     },
@@ -410,9 +554,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They send their apprentices, who swear the purchases are for study, and I've sold the same lucky charm three times to the same master's three apprentices. Even the wise like a little luck, it seems, now that Dalaran's gates are closed to them." } },
+      choices = {
+        { text = "Luck is a crutch. I'd rather trust my training.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little luck never hurt anyone, master or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things that matter a great deal to a summoning circle. Anything stronger you'll have to find in the cellar under the Lamb, and I'd rather not know the price." } },
+      choices = {
+        { text = "Dull and safe suits me. Keep it that way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll find something stronger. Dull doesn't get results.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Charys Yserian. I sell reagents and arcane trinkets, the small and curious leftovers of a great deal of magic, made by the crafters and mages here in Stormwind." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, so you'll want reagents and the kind of trinkets your masters swear they never use. I keep both, and I keep quiet about who buys which." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I keep a few things at the back for your people, though nothing that would trouble the Watch, and I'd rather keep it that way." },
       },
       again = {
         { id = "h_again", text = "Have you another question for me, or for the curios?" },
@@ -422,6 +588,8 @@ P:NPC {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "What's the strangest thing you've sold?", next = "strange" },
         { text = "Where do your curios come from?", next = "source" },
+        { text = "Do the Sanctum's masters really buy trinkets?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What sort of things do you keep at the back?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Charys.", next = "END" },
       },
     },
@@ -473,10 +641,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I could, and I'd rather not, because the last fellow who borrowed a priest's robe got as far as the Cathedral steps before a novice asked him to lead the evening prayer. The Watch still laughs about it." } },
+      choices = {
+        { text = "Wearing a priest's robe falsely is wrong, Wynne.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good disguise is worth a little blasphemy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "To anyone with coin, and their coin spends the same as a bishop's. I'd only ask that you don't try them on in the shop, because the last one made my apprentice faint with a single word." } },
+      choices = {
+        { text = "I'll keep my words to myself, Wynne. Your apprentice is safe.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your apprentice needs a stronger stomach, frankly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Wynne Larson, of Larson Clothiers. We sell robes to the Mage Quarter's scholars and the Cathedral's priests, and I keep an apprentice who forgets his sewing kit whenever he hopes for a day off." },
         { id = "h_mage", when = { class = "MAGE" }, text = "A mage, so you'll want a robe that doesn't catch fire the first time you miscast. I've a few lined with something the Quarter's enchanters swear by." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in a robe shop, which is either a disguise or a mistake. If it's a disguise, I can help, but you'll have to tell me what you're pretending to be." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, and you'll want something dark and loose, so you can move your hands. My apprentice keeps those at the back, assuming he's remembered where he put them." },
       },
       again = {
         { id = "h_again", text = "Is there something else? Mind the pins on the counter, Thurman never puts them away." },
@@ -486,6 +676,8 @@ P:NPC {
         { text = "Show me your robes.", next = "BUSINESS" },
         { text = "Tell me about your apprentice.", next = "thurman" },
         { text = "Who buys the most robes?", next = "buyers" },
+        { text = "Could you dress me as a priest, Wynne?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you sell robes to the Lamb's people too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Wynne.", next = "END" },
       },
     },

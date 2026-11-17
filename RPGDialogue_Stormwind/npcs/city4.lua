@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I trust Shaw to do his work and my soldiers to do theirs, but I'd rather the two didn't meet in a dark street. An army needs to know who's standing beside it, and SI:7 never tells anyone." } },
+      choices = {
+        { text = "Then SI:7 should sign the book like everyone else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "SI:7 works best when nobody knows it's there, General.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because the Mage Quarter answers to its own masters as much as to the crown, and half of them still look to Dalaran before they look to us. I don't blame them for it, but I can't hold a wall with men who are waiting for a letter." } },
+      choices = {
+        { text = "A mage of Stormwind should serve Stormwind first, General.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A mage serves knowledge first, General, not any crown.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +63,10 @@ P:NPC {
           text = "The statues look taller at night. I walk the valley before the watch changes and say good evening to each of them, though they never answer." },
         { id = "h_guard", when = { origin = "human_city_guard" },
           text = "One of the Watch's own, come back up the valley with a warrior's kit. I remember the recruits who leave for the provinces; you were right to go, and I'm sorry we couldn't keep you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "SI:7's people come through my gate at odd hours and never sign the book, and I've given up asking them to. Are you one of theirs, or only shy?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
       },
       again = {
         { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
@@ -63,6 +85,8 @@ P:NPC {
         { text = "Ironforge's soldiers would come if you asked, General.", next = "dwarves", when = { race = "Dwarf" } },
         { text = "The Sentinels hold Ashenvale with fewer than you have.", next = "sentinels", when = { race = "NightElf" } },
         { text = "Ironforge's shamans could help guard your walls, General.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Do you trust SI:7, General?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why doesn't the army have more mages, General?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -256,6 +280,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once or twice, sure, when the boss needed somethin' read that was written in sparkles. Renzik likes his secrets dark, though, 'cause a secret that glows ain't a secret for long." } },
+      choices = {
+        { text = "SI:7 has its rules, Renzik, and I'll keep to them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I work my own way, Renzik, glow and all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -272,6 +305,8 @@ P:NPC {
           text = "Long trip from Darnassus, huh? Erion says you're good, but Renzik decides what good means around here." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Holy robes, in SI:7? Now Renzik's seen everything, so are you here to bless the knives or confess to somethin'?" },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, in SI:7? Renzik don't like mages, 'cause they make everything glow, and glowing's bad for business." },
       },
       again = {
         { id = "h_again", text = "What else? Renzik's got a schedule." },
@@ -283,6 +318,7 @@ P:NPC {
         { text = "Where do SI:7's rogues come from?", next = "recruits" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Bless the knives, then?", next = "bless", when = { class = "PRIEST" } },
+        { text = "Has SI:7 ever worked with a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -357,6 +393,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every day, and more so since the king vanished on the road to Theramore, because a boy on a throne is an easy target. Lady Prestor tells me the court is quite safe, and I keep my men exactly where they are regardless." } },
+      choices = {
+        { text = "Vigilance is right, Major. The king's safety comes first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No guard stops a blade that's patient enough, Major.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because I can't tell a parlour trick from an attack until it's too late, and neither can my men. The Regent agreed with me and Lady Prestor agreed with the Regent, so it's the rule, and it'll stay one." } },
+      choices = {
+        { text = "A sensible rule, Major, and I'll keep to it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules like that make a court weaker, not safer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -369,6 +423,10 @@ P:NPC {
           text = "Clergy approach the court through Bishop DeLavey in the Petitioner's Chamber, not through me, and certainly not today." },
         { id = "h_guard", when = { origin = "human_city_guard" },
           text = "I remember you from the Trade District rolls; you were one of the few recruits who could stand a whole night watch without leaning on the lamp-post. Don't lean on anything in here, either." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I've a guard at every pillar in this room for a reason, so whatever you're thinking of doing, my guards have already thought of it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "No spells in the throne room. The last mage who thought to show off for the young king spent a night in the guardroom." },
       },
       again = {
         { id = "h_again", text = "Anything else? Briefly." },
@@ -381,6 +439,8 @@ P:NPC {
         { text = "Lieutenant Orinelle speaks of you.", next = "farren",
           when = { any = { { heardLine = "farren.h_default" }, { questActive = TODO_QUEST("Reassignment") } } } },
         { text = "Has the Keep guard room for a warrior, Major?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Do you worry about assassins in the throne room?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why are spells forbidden in the throne room?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -469,11 +529,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "A few a day, mostly to canal children, and I've stopped chasing them because my feet won't take it. I count it as charity, and I tell myself the Light keeps a tally." } },
+      choices = {
+        { text = "That's a good heart, Thomas. Let them eat.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Chase them down, because theft is theft, even of bread.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not much, because it's dry as parchment and tastes of nothing, and folk come back to mine within the week. Still, every time I see a mage pull a loaf from the air, my feet ache a little more." } },
+      choices = {
+        { text = "A good trade is worth keeping, even when magic is easier.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If magic does the job better, the trade should change.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket, and my feet hate me but my customers love me, so it evens out." },
         { id = "h_foot", when = { metBefore = true }, text = "My left foot's been talking to me all morning, telling me to sit down, but my basket says keep walking, and the basket wins." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "These are the last loaves of the day, a bit squashed, but they taste the same, mostly." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Mind your hands near the basket, friend, because a roll that walks off without paying is a roll I've baked for nothing." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Don't you go conjuring bread in front of me, because I've been baking since before dawn and it's bad for a baker's spirits." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? Walk with me; I can't stop." },
@@ -484,6 +566,8 @@ P:NPC {
         { text = "Why not open a shop?", next = "shop" },
         { text = "Where does your flour come from?", next = "flour" },
         { text = "My family grew wheat in Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
+        { text = "Do many rolls walk off without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does conjured bread hurt your trade, Thomas?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Not hungry.", next = "END" },
       },
     },

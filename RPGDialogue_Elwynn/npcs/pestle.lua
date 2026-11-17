@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Tinctures for sleeping and salves for climbing, mostly, which is all I'll admit to with the Guard so thin on the ground. I sell them to anyone who asks, but I'd like to think they're used on Defias rather than farmers." } },
+      choices = {
+        { text = "They'll only be used on the Defias, Pestle.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Use is the buyer's business, not the seller's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Peacebloom and silverleaf, mostly, though I've heard of a kaldorei herb that only grows under moonlight. I'd give a great deal for a single leaf." } },
       choices = {
@@ -53,6 +62,8 @@ P:NPC {
           text = "Straight to Morgan at the shop, please, and don't sit on the crate; candles bruise. Well, they dent, which is much the same to a candle." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Now, I'll wager you know the herbs of the wild better than any alchemist, and I'd love to compare notes." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Quick hands and a quiet step. I've a few things on the back shelf that your sort might find useful, if you're asking." },
       },
       again = {
         { id = "h_again", text = "Hmm? Sorry, I was counting drops; do go on." },
@@ -69,6 +80,7 @@ P:NPC {
         { text = "Can your tinctures do what prayer can't?", next = "priest", when = { class = "PRIEST" } },
         { text = "Invisibility's usually a mage's trick.", next = "mage", when = { class = "MAGE" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What sort of things do you keep on the back shelf?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Nothing for now.", next = "END" },
       },
     },

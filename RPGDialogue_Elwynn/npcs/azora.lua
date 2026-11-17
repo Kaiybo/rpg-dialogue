@@ -25,11 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because Morganth was a sorcerer of your sort once, and he's camped across the river in Redridge wanting this tower for his own. My master looks at every warlock and sees Morganth, which isn't fair to you, though I can't say it's unwise of him." } },
+      choices = {
+        { text = "He's right to be careful. I'd never bargain the way Morganth did.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Morganth's only crime was losing. Power goes to those who take it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dawn Brightstar. I keep the tower's stores and sell what we can spare to whoever climbs this far, which is mostly alchemists after empty vials and travellers after a scroll to see them home." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "Oh, a gnome who isn't carrying a tray! Forgive me; the tower's servants are your people, and I forget there are gnomes who aren't sweeping our stairs." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, up here among the scrolls? We don't get many of the Cathedral's people, though Master Theocritus would say the Light and the arcane are cousins who don't speak." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You've the smell of a cellar about you, and I don't mean the inn's ale. Theocritus won't want you near his books, so let's keep our business to the counter." },
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
@@ -41,6 +52,7 @@ P:NPC {
         { text = "Who are the gnomes in the tower?", next = "gnomes" },
         { text = "What sells best?", next = "sales" },
         { text = "I'm a mage. What would you recommend?", next = "mage", when = { class = "MAGE" } },
+        { text = "Why would Theocritus mind a warlock in his tower?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
@@ -111,11 +123,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every mage should at least try, because a spell lasts a moment but an enchantment lasts as long as the blade does. Theocritus says it's a craft for people who can't hold their concentration, which I think is exactly why he's never managed it." } },
+      choices = {
+        { text = "A disciplined mage should master the patient crafts too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Spells are for living in the moment. Leave the runes to crafters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It doesn't ruin the craft, but it changes it, and what it changes it into isn't anything the Kirin Tor would put their name to. I've seen a sword enchanted with something from your side of the line, and it hummed at night like it was hungry." } },
+      choices = {
+        { text = "Then I'll keep the fel well away from your bench.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hungry blade sounds like a better blade to me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kitta Firewind, and I teach enchanting, which is the finest craft there is, whatever the blacksmiths say. If you've come to learn, you've climbed to exactly the right floor." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "A night elf! Your people never did care for our sort of magic, did they? I'd love to know what you think of it, honestly, even if you think it's dreadful." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior! You'll want your sword to cut a little deeper, I expect, and that's where an enchanter comes in, so you'll be glad you climbed the stairs." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and a young one! Enchanting comes easiest to your sort, because you already know what a rune wants before you've drawn it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I'd ask that you keep your imp away from my dust, because a spark in the wrong pouch costs me a week of work." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about this all afternoon, and I usually do." },
@@ -127,6 +161,8 @@ P:NPC {
         { text = "Why teach in this tower?", next = "tower" },
         { text = "Where do I get the materials?", next = "dust" },
         { text = "Isn't the arcane dangerous to toy with?", next = "danger" },
+        { text = "Should every mage learn enchanting, then?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is fel magic truly so dangerous to enchanting?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll come back another time.", next = "END" },
       },
     },

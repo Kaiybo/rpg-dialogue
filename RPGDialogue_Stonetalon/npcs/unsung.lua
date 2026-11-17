@@ -28,11 +28,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, because the Venture Company sends scouts up the cliffs to see what the druids are planting, and my birds can't follow them into the rocks. If you find one, tell me where he climbed, so I can watch that path from the air." } },
+      choices = {
+        { text = "I'll find the path and tell you, nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find the scout, and he won't climb back down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "No, because a portal can't see the Charred Vale burning from above, and a hippogryph's rider sees everything on the way. You'd be surprised how much of what the Keeper knows came to him from someone looking down out of the sky." } },
+      choices = {
+        { text = "The old ways have a wisdom no spell replaces.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Quicker roads will win out in the end, Teloren.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Teloren, and I keep the hippogryphs here on Stonetalon Peak. From here they'll carry you to Auberdine, to Astranaar or down to Nijel's Point in Desolace, which is a great deal quicker than the paths." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, come to see the Keeper? He'll be glad of it. Most who climb this far come for the Peak's sake, but few of them can feel what the Vale has lost." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You came up the last switchback so quietly the birds didn't stir, and they hear nearly everything. I'd like to know where you learned that, though I don't suppose you'll tell me." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "So you're a mage, and I've heard your kind can open doorways across the whole world. I hope you never teach that trick to too many people, or my hippogryphs and I will have nothing to do but watch the smoke." },
       },
       again = {
         { id = "h_again", text = "What else? The wind's steady, so there's no hurry." },
@@ -43,6 +65,8 @@ P:NPC {
         { text = "What do you see from up here?", next = "see" },
         { text = "Is it hard to fly in the mountains?", next = "fly" },
         { text = "Why keep a post this high?", next = "post" },
+        { text = "Would a quiet walker be any use to you up here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you really think magic could replace your hippogryphs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Teloren.", next = "END" },
       },
     },
