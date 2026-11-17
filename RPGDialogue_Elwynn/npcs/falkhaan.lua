@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_falkhaan = {
+      big = true,
+      lines = { { id = "xpt_falkhaan_default", text = "More than anyone gives you credit for, because every gnoll you put down on your way to Goldshire is one that won't trouble a farmer's cart next week. Mind you, a company that rides through too fast doesn't see the trouble at all, so slow down now and then." } },
+      choices = {
+        { text = "We'll take the time to deal with what we find.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We've places to be. The guards can clear the roads.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They come every day, from every corner of the Alliance. A dwarf shaman is a new one, I'll grant you, but the inn's welcome is the same for all." } },
@@ -108,6 +117,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_falkhaan", tags = { "news" }, when = { party = true },
+          text = "A company on the road! You'll want rooms at the Lion's Pride, all of you, and do tell Farley that Falkhaan sent you, because he likes to know I'm doing my job." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, down from the Abbey! Rest at the inn tonight, because I've seen Brother Sammuel's students, and they never know when to stop." },
         { id = "h_default", text = "Falkhaan Isenstrider, at your service. I stand by this road and tell tired people where to sleep, because somebody has to and it may as well be me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Rest and Relaxation") },
@@ -156,6 +167,7 @@ P:NPC {
         { text = "Is there anywhere quiet in Elwynn, away from the road?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does it bother you, sending warlocks down to the inn's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many travellers come through Goldshire, Falkhaan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do companies like ours keep the roads safe, Falkhaan?", next = "xpt_falkhaan", when = { party = true } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },

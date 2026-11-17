@@ -746,6 +746,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_runthak = {
+      big = true,
+      lines = { { id = "xpt_runthak_default", text = "Choose one voice to follow when the blades come out, and argue about it afterwards over grog. I've watched brave orcs die because three of them shouted three different orders, and the enemy only needed to hear one of them." } },
+      choices = {
+        { text = "One leader, one order. That's how a band survives.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We decide together. Nobody owns our band.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Thank you, Overlord.", next = "BACK" },
+      },
+    },
     xcl_ony = {
       big = true,
       lines = { { id = "xcl_ony_default", text = "Then you've done what most warriors in this city only boast about. That beast sat in her swamp in Dustwallow for too long, close enough to Theramore and to our own outposts to be trouble for both. When a dragon's head goes up over the city gates, the recruits stand straighter for a month, and I make sure of it." } },
@@ -839,6 +848,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A full war band, and eager by the look of you. When I marched under Doomhammer, a band your size held a ridge for three days against Lordaeron's knights, so make sure you're worth the comparison before you go boasting in the Drag." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin in the Valley of Strength. I fought the humans' knights in the Second War, recruit, and I know that glow. Mind yourself here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Keep your prayers quiet in the Valley of Strength, because the recruits will think you're casting at them and start a fight over it." },
         { id = "h_default", key = true, text = "Overlord Runthak. I keep the peace in the Valley of Strength, which mostly means stopping new recruits from fighting each other outside the inn. What do you want?" },
@@ -864,6 +875,7 @@ P:NPC {
         { text = "Is there game worth hunting near Orgrimmar, Overlord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you trust a Forsaken paladin, Overlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Onyxia is dead, Overlord.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Horde" } },
+        { text = "We're gathering a war band, Overlord. Any counsel?", next = "xpt_runthak", when = { party = { size = { min = 2 } } } },
         { text = "Dismissed, Overlord.", next = "END" },
       },
     },

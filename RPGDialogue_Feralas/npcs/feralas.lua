@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_shandris = {
+      big = true,
+      lines = { { id = "xpt_shandris_default", text = "We trust them a little more, which is all anyone should ask of a Sentinel. The humans fought beside us at Hyjal, and I honor that, but this forest was ours for ten thousand years before any of them crossed the sea." } },
+      choices = {
+        { text = "Trust has to be earned, General. That's only fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We bled at Hyjal too. Your caution insults your allies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The Sentinels trust those who keep their word. The naga twist the waters around Sardor Isle, and if your spirits can tell me where they gather, you'll have more than my trust." } },
@@ -130,6 +139,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_shandris", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
+          text = "You ride with one of my people, I see. I trust {companion} has told you that the forests of Feralas do not forgive carelessness, and that the Sentinels expect better than that from their friends." },
         { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul", faction = "Alliance" }, text = "My scouts say you went into the ruins of Eldre'Thalas, the place the ogres call Dire Maul, and came back out of its depths. Few of my Sentinels have walked those halls and lived, so forgive me if I look at you more carefully now." },
         { id = "h_default", key = true,
           text = "Shandris Feathermoon, General of the Sentinels. This stronghold watches over Feralas for the High Priestess. The naga stir along the coast, and the ogres in the hills; we watch them both." },
@@ -167,6 +178,7 @@ P:NPC {
         { text = "What ground would you have me hold, General?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sentinels trust a shaman, General?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through Dire Maul, General. Eldre'Thalas is less crowded now.", next = "xcl_dm", when = { cleared = "Dire Maul", faction = "Alliance" } },
+        { text = "Do the Sentinels trust outsiders who travel with your people, General?", next = "xpt_shandris", when = { party = { race = "NightElf" }, faction = "Alliance" } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -656,6 +668,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_rokorhan = {
+      big = true,
+      lines = { { id = "xpt_rokorhan_default", text = "Then take it to them properly, as a band and not as five heroes chasing their own glory. I've seen good fighters die in Dire Maul because each of them wanted to be the one who killed the chief." } },
+      choices = {
+        { text = "The band comes first. Glory is shared or it's nothing.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Every warrior earns their own glory. That's the Horde's way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "If it hits hard, it helps. The Gordunni are many and foul, and I don't care whose god you swing for as long as you swing at them. Someday this land will heal, but not while the ogres hold the north." } },
@@ -742,6 +763,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rokorhan", tags = { "news" }, when = { party = { size = 4 }, faction = "Horde" },
+          text = "A full war band, here at Camp Mojache. Good, because the Gordunni don't fear one orc, but they learn to fear five." },
         { id = "h_cl_dm", tags = { "news" }, when = { killed = { name = "King Gordok" }, faction = "Horde" }, text = "They say you went into the ruins the Gordok call home and pulled down their king. Good, because every Gordunni in these hills looks at that ruin like it's a throne, and now it's an empty chair." },
         { id = "h_default", key = true,
           text = "Rok Orhan. Belgrom Rockmaul sent me to break the Gordunni ogres of Feralas, and they're many, and foul, and nearly broken." },
@@ -787,6 +810,7 @@ P:NPC {
         { text = "How badly are the Gordunni hurting your braves, Rok Orhan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would the Light help you break the Gordunni, Rok Orhan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "King Gordok is dead, Rok Orhan. I killed him in Dire Maul.", next = "xcl_dm", when = { killed = { name = "King Gordok" }, faction = "Horde" } },
+        { text = "We'll take the fight to the Gordunni, Rok Orhan.", next = "xpt_rokorhan", when = { party = { size = 4 }, faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } },
       },
     },

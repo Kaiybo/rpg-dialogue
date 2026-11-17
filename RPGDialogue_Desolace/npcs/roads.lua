@@ -816,6 +816,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_rexxar = {
+      big = true,
+      lines = { { id = "xpt_rexxar_default", text = "Because people ask things of you when you stay among them, and I've given the Horde all I mean to give. Misha asks for nothing but meat and quiet, and the wilds are honest in a way that cities never are." } },
+      choices = {
+        { text = "A pack is stronger than a lone wolf, Rexxar.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I understand. Some of us are meant to walk alone.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust anyone who has walked the wilds long enough to know the elements are not servants. Banners mean little to Misha and me, but the ones who wave them hardest usually listen least." } },
@@ -883,6 +892,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rexxar", tags = { "news" }, when = { party = { size = { min = 1 } }, faction = "Horde" },
+          text = "You travel with others. Misha and I walk alone and like it that way, but I won't tell you how to choose your pack." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You carry yourself like one of Orgrimmar's, all shoulders and orders, and Misha has already decided she doesn't trust you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -912,6 +923,7 @@ P:NPC {
         { text = "How did you and Misha come to hunt together, Rexxar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you judge a creature by, Rexxar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do you trust a shaman of the Alliance, Rexxar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why do you walk alone, Rexxar?", next = "xpt_rexxar", when = { party = { size = { min = 1 } }, faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

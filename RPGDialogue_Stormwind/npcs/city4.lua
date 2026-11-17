@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_marcus = {
+      big = true,
+      lines = { { id = "xpt_marcus_default", text = "Because the levies we raise now are farmers' sons who've never held a line, and too many of our veterans are buried in Lordaeron or guarding the roads to Lakeshire. A pair who already know how to fight together would teach a company more in a week than my sergeants manage in a season." } },
+      choices = {
+        { text = "Then perhaps we owe the kingdom a season of service.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We do more good on the road than drilling farm boys.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_brd = {
       big = true,
       lines = { { id = "xcl_brd_default", text = "Then you've been where the Dark Irons have hidden since the Second War, when they threw in with the Horde and made Ironforge pay for it. They held Reginald Windsor in that mountain too, an old comrade of mine, and I'll not pretend to mourn the man who kept him there." } },
@@ -91,6 +100,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_marcus", tags = { "news" }, when = { party = { class = "WARRIOR" } },
+          text = "{companion} has the look of a soldier, and you've the look of someone who keeps soldiers alive. If you ever tire of wandering, the Stormwind army would take the pair of you and be glad of it." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
           text = "Word came up from the Burning Steppes that Thaurissan is dead in his own throne room, and that you were standing in it. I marched under Turalyon to the foot of that mountain once, and none of us ever went down into it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I could use a dozen of you on the walls, and the Keep sends me letters about the budget instead." },
@@ -140,6 +151,7 @@ P:NPC {
         { text = "Would the army ever march beside druids, General?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has the army any place for warlocks, General?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Emperor Thaurissan is dead, General. I went down into the Depths.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
+        { text = "Why does the army want people like us, General?", next = "xpt_marcus", when = { party = { class = "WARRIOR" } } },
         { text = "Good day, General.", next = "END", fx = { affinity = 1 } },
       },
     },

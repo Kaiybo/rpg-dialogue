@@ -417,6 +417,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_gregor = {
+      big = true,
+      lines = { { id = "xpt_gregor_default", text = "I'd never tell anyone who to trust, because trust is earned at the campfire and not at the cradle. But the Dawn takes dwarf and human, elf and orc alike, and we've found the fight against the dead goes better when nobody is fighting the living too." } },
+      choices = {
+        { text = "Kin first. A company works best when it shares a home.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Dawn is right. Fight beside anyone who stands against the dead.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_scholo = {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Its master, yes, but not its pupils, and the Scourge never has trouble finding more. Caer Darrow was a quiet town once, with the Barov family up in the keep, and they handed it to the Cult of the Damned to save their own skins." } },
@@ -519,6 +528,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_gregor", tags = { "news" }, when = { party = { kin = true } },
+          text = "You travel with your own kin, I see, and there's comfort in that this far north. Still, the Argent Dawn would remind you that the Scourge doesn't care whose cousin you are." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" }, text = "Word has reached even Everlook that Darkmaster Gandling is dead and Scholomance has lost its headmaster. The Dawn owes you more than I can say, and I'll say it anyway, to anyone who'll listen." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, and welcome. The Dawn has learned that the Scourge's servants hide among the living, and it takes a quiet hand and a sharp eye to find them before they find us." },
@@ -554,6 +565,7 @@ P:NPC {
         { text = "Would the Argent Dawn take a Horde priest's help, Gregor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the Dawn need from a warrior, Gregor?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could the Dawn use a hunter in the Plaguelands?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Should a company keep to its own kind, Gregor?", next = "xpt_gregor", when = { party = { kin = true } } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "What use does the Argent Dawn have for a rogue, Gregor?", next = "xrogue", when = { class = "ROGUE" } },

@@ -22,6 +22,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_gazlowe = {
+      big = true,
+      lines = { { id = "xpt_gazlowe_default", text = "Ratchet loves crews, pal, as long as they pay their tabs and keep their quarrels off my docks. Crews from both sides come through here, and the only rule I care about is that nobody starts a war where my boats can see it." } },
+      choices = {
+        { text = "Neutral ground is worth protecting. We'll keep the peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If trouble starts, we'll finish it, docks or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
     xcl_dm = {
       big = true,
       lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never got paid, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, which is why I'm running a port and not hiding in a mine with a rag over my face." } },
@@ -127,6 +136,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A whole crew! Now that's good business, because five of you need five times the repairs, five times the bandages and five times the boat tickets, and Ratchet sells all of it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, in my town! Keep that hammer sheathed on the docks like everyone else, and we'll get along fine, glow or no glow." },
         { id = "h_default", key = true,
           text = "Name's Gazlowe, and Ratchet's my town, so whatever you need, it goes through me eventually. Keep your blades sheathed on the docks and we'll get along just fine." },
@@ -154,6 +165,7 @@ P:NPC {
         { text = "Would Ratchet pay for a priest, Gazlowe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Ratchet welcome paladins, Gazlowe?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I cleared out VanCleef's crew in the Deadmines, Gazlowe.", next = "xcl_dm", when = { cleared = "The Deadmines" } },
+        { text = "We're a crew now. What does Ratchet think of crews?", next = "xpt_gazlowe", when = { party = { size = { min = 2 } } } },
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
       again = {

@@ -17,6 +17,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_grezz = {
+      big = true,
+      lines = { { id = "xpt_grezz_default", text = "One of you holds the line and the other breaks it, and you take turns, because nobody can do either all day. The best pair I ever trained were a brother and sister from the Frostwolf clan, and they never once argued over glory, which is why they're both still alive." } },
+      choices = {
+        { text = "Glory can be shared. We fight as one shield.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The stronger warrior leads, and glory goes to whoever earns it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grezz.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I train anyone who can take a bruise and get back up. The humans' paladins never fought fair with my people; they fought us chained and starving. Show me you can fight fair for the Horde, and I'll call you a warrior like any other." } },
@@ -108,6 +117,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_pair", tags = { "news" }, when = { class = "WARRIOR", party = { sameClass = true } },
+          text = "Two warriors in one company, and both still standing. Most bands I've seen with two of you end up arguing over who goes through the door first, so settle that now, before it gets one of you killed." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in the Valley of Honor. The last knight of the Silver Hand I saw was guarding a camp, recruit, so you'll forgive me if I hit you twice as hard." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in the Valley of Honor! Good, because my warriors bleed faster than they learn, and I'm tired of carrying them to the Valley of Spirits." },
         { id = "h_default", key = true, text = "I'm Grezz Ragefist, and I train the Warchief's warriors. The Valley of Honor is named for what we earn here, so don't waste my time with anything less." },
@@ -130,6 +141,7 @@ P:NPC {
         { text = "Do warlocks have any honor, Grezz?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do your warriors think of mages, Grezz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you train beside a paladin, Grezz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Two warriors in one band. How should we fight together?", next = "xpt_grezz", when = { class = "WARRIOR", party = { sameClass = true } } },
         { text = "Farewell, Grezz.", next = "END" },
       },
       again = { { id = "h_again", text = "Still standing there? Then ask, and ask loudly." } },
@@ -322,6 +334,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_kardris = {
+      big = true,
+      lines = { { id = "xpt_kardris_default", text = "Respect, first and always, because the elements answer a shaman's call as a favour and never as a duty. A shaman who must heal a careless war band again and again begins to wonder whom the spirits are really serving, so be a companion worth the trouble." } },
+      choices = {
+        { text = "We'll honour the spirits and the one who speaks to them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The spirits answer strength. That's the way of things.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kardris.", next = "BACK" },
+      },
+    },
     xcl_mc = {
       big = true,
       lines = { { id = "xcl_mc_default", text = "Then you did not kill him, because nobody can kill an elemental lord, but you sent him back to the realm of fire where he belongs, and that is a great thing. The Dark Iron dwarves tore him into this world centuries ago, and he has burned in the mountain ever since, angry and hungry and out of his place. The elements are not evil, but fire torn from its place goes mad, and that is what you faced." } },
@@ -417,6 +438,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_sham", tags = { "news" }, when = { party = { class = "SHAMAN" } },
+          text = "The spirits sit easier around you, and I think it's because you travel with a shaman. {companion} has a steady way about them, so listen when they tell you the land is uneasy, because they'll hear it long before you do." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who wields the Light. The spirits around you are quiet and uneasy, as though they cannot decide what you are. I find I cannot decide either." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The spirits speak to me, and something else speaks to you, and I would very much like to hear what it says." },
         { id = "h_default", key = true, text = "I am Kardris Dreamseeker, and I guide the shaman of the Horde. The Valley of Wisdom is where the orcs came to remember what they were before the demons." },
@@ -439,6 +462,7 @@ P:NPC {
         { text = "Do the elements care what a rogue does?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the spirits reject a Forsaken paladin, Kardris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I faced Ragnaros in the Molten Core, Kardris.", next = "xcl_mc", when = { cleared = "Molten Core", faction = "Horde" } },
+        { text = "Our shaman keeps us alive. What do they owe the spirits?", next = "xpt_kardris", when = { party = { class = "SHAMAN" } } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you wish. Wisdom grows by sharing it." } },

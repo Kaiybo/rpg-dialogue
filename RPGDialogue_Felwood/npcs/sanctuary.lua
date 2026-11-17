@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_eridan = {
+      big = true,
+      lines = { { id = "xpt_eridan_default", text = "I think it has to be, because if a forest this old can be poisoned past saving, then nothing is safe anywhere. The demons left their filth in the water and the roots, and every seed I plant that comes up green is one small argument against despair." } },
+      choices = {
+        { text = "Keep planting. Hope is worth more than any spell.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some places are lost. Burn it and start over.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Because Eranikus guarded that temple for Ysera, and he was her consort before he was its jailer. Something in the long watch poisoned his sleep, and a poisoned dreamer reaches into every dream that touches his, which is not so different from what the fel did to these trees." } },
@@ -119,6 +128,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_eridan", tags = { "news" }, when = { party = { class = "DRUID" } },
+          text = "You've brought a druid with you! Ask {companion} to put a hand on the soil here, because I'd like a second opinion on whether I'm only imagining the green coming back." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "The Dream feels a little less troubled tonight, and they say you went all the way to the bottom of the Sunken Temple. If the green dragons there are less tormented for it, you've done Felwood a kindness without setting foot in it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jadefire", min = 30 } },
           text = "The Jadefire satyrs are fewer, and I swear one of my seedlings sprouted the morning after you came back from their camps. I'll not call it a coincidence." },
@@ -163,6 +174,7 @@ P:NPC {
         { text = "Could a priest's prayer help your seedlings take root, Eridan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What kills your seedlings, Eridan?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have you seen any of Felwood's beasts recover, Eridan?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you think Felwood can be healed, Eridan?", next = "xpt_eridan", when = { party = { class = "DRUID" } } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you truly believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },

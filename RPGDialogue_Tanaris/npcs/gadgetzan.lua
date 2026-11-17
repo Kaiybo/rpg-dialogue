@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_marin = {
+      big = true,
+      lines = { { id = "xpt_marin_default", text = "My bruisers keep the peace, friend, and peace is the best business there is in this desert. You'd be amazed how polite a company becomes once it learns that drawing steel on my streets costs more than anything it could steal." } },
+      choices = {
+        { text = "Fair enough, Baron. Rules keep trade honest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules for us and gold for you. We'll do as we please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Well, you might shrink, which makes you harder to hit, or you might float, which makes you very hard to reach! The skeleton effect's not much use in a brawl, but I've seen a Wastewanderer run screaming from it, so I'm calling it a feature." } },
@@ -113,6 +122,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_marin", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Well now, a whole company at once! Gadgetzan loves a crowd with full purses, and I love Gadgetzan, so you'll understand why I'm smiling." },
         { id = "h_default", key = true,
           text = "Marin Noggenfogger, alchemist and businessgoblin, at your service. I'm working on an elixir that's going to make me rich, and maybe leave you a bit thirstier, but that's a small price." },
         { id = "h_thirsty", tags = { "news" }, when = { questActive = TODO_QUEST("The Thirsty Goblin") },
@@ -166,6 +177,7 @@ P:NPC {
         { text = "Would your elixir help me in a fight, Marin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "You haven't actually tested the elixir on animals, have you?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Have you ever tested the elixir on a demon, Marin?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "We're here on business, Baron. Keep your bruisers off us.", next = "xpt_marin", when = { party = { size = 4 } } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -549,6 +561,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_bilgewhizzle = {
+      big = true,
+      lines = { { id = "xpt_bilgewhizzle_default", text = "Nothing at all, as long as they stay out of my machinery, because a gnome builds to see if a thing can be done and a goblin builds to see if it'll pay. The pump that keeps this town alive has to do both, and it has to do them every single day." } },
+      choices = {
+        { text = "A machine should work first and dazzle later.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Curiosity built Gnomeregan. Profit never invented anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_zf = {
       big = true,
       lines = { { id = "xcl_zf_default", text = "Broken for a season, maybe, and a season is all the Water Company needs to run new pipe out toward the west. The Sandfury have been fouling springs out there since before I owned my first wrench, so you'll forgive me if I wait for the gauges before I celebrate." } },
@@ -649,6 +670,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_bilgewhizzle", tags = { "news" }, when = { party = { race = "Gnome" } },
+          text = "Is that a gnome in your company? Tell {companion} to keep their hands off my water pump, because every gnome who comes through here wants to improve it, and I like it working." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "You've been to the bottom of Zul'Farrak and come back with your boots on, which is more than Sergeant Bly's crew can say. If Sandscalp's really dead, I can stop doubling the guard on the western pipes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you talk to water? Because I've got wells that have stopped listening to me, and the Wastewanders are sitting on the ones that still do." },
         { id = "h_default", key = true,
@@ -690,6 +713,7 @@ P:NPC {
         { text = "What's been getting at the Water Company's pipes, Chief?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Could my magic help with the Wastewanders, Chief Engineer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Chief Ukorz Sandscalp is dead, Bilgewhizzle. Zul'Farrak is broken.", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
+        { text = "What do you have against gnomish engineers, Chief Engineer?", next = "xpt_bilgewhizzle", when = { party = { race = "Gnome" } } },
         { text = "Good luck with the pressure.", next = "END" },
       },
     },
@@ -1439,6 +1463,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_fizzgrimble = {
+      big = true,
+      lines = { { id = "xpt_fizzgrimble_default", text = "I mean I've watched more companies break up over loot than over any monster, and it always starts at my tables after the third drink. The smart ones decide who gets what before they go out, and the rest end up asking me to hold a grudge for them." } },
+      choices = {
+        { text = "We split everything evenly. That's the only fair way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whoever does the most work should take the most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_zf = {
       big = true,
       lines = { { id = "xcl_zf_default", text = "That the Sandfury are pulling back from the road, that the Bruisers are drinking on duty to celebrate, and that a dwarf at table three is selling a map to the chief's treasure. The map's a fake, because I watched him draw it, but he's sold two already." } },
@@ -1549,6 +1582,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_fizzgrimble", tags = { "news" }, when = { party = { size = { min = 2 } } },
+          text = "A table for {companion} and the rest of you, then? Sit anywhere the sand isn't, and mind you settle your shares before you start drinking, not after." },
         { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak" }, text = "Half the Road Warrior's talking about you tonight, friend, because word is you went all the way down into Zul'Farrak and came back with the chief's head. I've heard the story told four ways already, and in one of them you wrestled a hydra." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in the Road Warrior! If you can call up a bit of rain, I'll stop calling the sand in the stew seasoning and start calling it soup." },
         { id = "h_default", key = true,
@@ -1593,6 +1628,7 @@ P:NPC {
         { text = "Do you mind beasts at the Road Warrior, Fizzgrimble?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you get many warlocks at the Road Warrior, Fizzgrimble?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What are people saying about Zul'Farrak tonight?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
+        { text = "What do you mean, settle our shares?", next = "xpt_fizzgrimble", when = { party = { size = { min = 2 } } } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },

@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_magni = {
+      big = true,
+      lines = { { id = "xpt_magni_default", text = "We think the same as we always have: a company's a clan ye choose, an' ye owe it what ye'd owe yer kin. My brothers an' I fought back tae back long before any o' us wore a crown, an' I'd still trust a band o' honest travellers over half the Senate." } },
+      choices = {
+        { text = "Then I'll stand by my company as I would by kin.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Kin is kin. A company is just a contract that lasts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Do you miss your brothers, Your Majesty?", next = "xpt_magni2" },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xpt_magni2 = {
+      lines = { { id = "xpt_magni2_default", text = "Every day, though in different ways, for Brann's off diggin' somewhere an' writes when he remembers, an' Muradin went north wi' Prince Arthas an' never came home. I keep a chair for each o' them at the table, an' the servants have stopped askin' why." } },
+      choices = {
+        { text = "Perhaps one of them will come home yet, Your Majesty.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -87,6 +103,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_magni", tags = { "news" }, when = { party = { race = "Dwarf" }, race = { "Human", "NightElf", "Gnome" } },
+          text = "Ye've one o' my own folk at yer side, I see, an' {companion} looks like they've kept ye out o' trouble more than once. That's how it should be; there's no' a road in Azeroth a dwarf cannae make shorter for a friend." },
+        { id = "h_pt_magnikin", tags = { "news" }, when = { party = { kin = true }, race = "Dwarf" },
+          text = "A company o' dwarves walkin' intae the Great Forge together! That's a sight tae warm an old king, an' it puts me in mind o' the days when the clans still marched as one." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
           text = "They tell me ye went down intae the Depths an' Thaurissan didnae come back up. I've waited a long while tae hear that, an' I've no' yet decided what I feel about it." },
         { id = "h_default", key = true, text = "Magni Bronzebeard, King o' Ironforge. We pledged our axes tae the Alliance after the Second War, an' we've no' regretted it, mostly." },
@@ -139,6 +159,7 @@ P:NPC {
         { text = "How do you see the gnome mages in your city?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you ever hunt in the high snows, Your Majesty?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thaurissan is dead, Your Majesty. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
+        { text = "What does Ironforge think of the companies that pass through?", next = "xpt_magni", when = { party = true } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

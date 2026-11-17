@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_nesingwary = {
+      big = true,
+      lines = { { id = "xpt_nesingwary_default", text = "It depends on the quarry, my friend. A panther is best hunted alone, one hunter against one beast, but a raptor pack would eat a lone hunter for breakfast, and there's no shame in bringing friends to that sort of party." } },
+      choices = {
+        { text = "A fair hunt is one hunter against one beast.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clean kill matters, not how many hands it took.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I think about them every time I write a trophy into the book. A hunter honors his quarry by takin' it clean, an' if the spirits mind, they've never said so tae me." } },
@@ -125,6 +134,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_nesingwary", tags = { "news" }, when = { party = { class = "HUNTER" } },
+          text = "Ah, a fellow hunter in your company! {companion} has a good eye, I can tell from the way they look at my trophies, so you must bring them along on a proper safari." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "I hear you've been doing business with that Kebok fellow in Booty Bay. Mind his tiger fangs, because I've seen the tusks they're carved from, and no tiger ever wore them." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -174,6 +185,7 @@ P:NPC {
         { text = "Is there no cruelty in hunting for sport, Nesingwary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there honor in the hunt, Nesingwary?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Is there any use for a warrior on a hunt, Nesingwary?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is hunting together better sport than hunting alone, Hemet?", next = "xpt_nesingwary", when = { party = { class = "HUNTER" } } },
         { text = "I'll hunt for you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
         { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },

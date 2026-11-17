@@ -664,7 +664,7 @@ function Conv.ShowNode(nodeId)
   else
     winner = Engine.PickLine(info, nodeId, ctx, env, node.big)
   end
-  local main = winner and Tokens.Render(winner.line.text, ctx, env) or L.FALLBACK_LINE
+  local main = winner and Tokens.Render(winner.line.text, ctx, env, winner.line.when) or L.FALLBACK_LINE
   Conv.Shown(winner)
   s.lastLine = winner and winner.gid or s.lastLine
 
@@ -679,7 +679,7 @@ function Conv.ShowNode(nodeId)
     if notice then
       Engine.UseNotice(notice, info, env)
       Conv.Shown(notice)
-      local text = Tokens.Render(notice.line.text, ctx, env)
+      local text = Tokens.Render(notice.line.text, ctx, env, notice.line.when)
       local place = notice.line.place or "before"
       if place == "replace" then main = text
       elseif place == "after" then after = text
@@ -694,7 +694,7 @@ function Conv.ShowNode(nodeId)
     if rumor then
       Conv.Shown(rumor)
       ns.Rumors.Used(info, env)
-      local text = Tokens.Render(rumor.line.text, ctx, env)
+      local text = Tokens.Render(rumor.line.text, ctx, env, rumor.line.when)
       after = after and (after .. "\n\n" .. text) or text
     end
   end
@@ -956,7 +956,7 @@ function Conv.AskKnows()
   if w then
     Conv.Shown(w)
     s.lastLine = w.gid
-    text = Tokens.Render(w.line.text, s.ctx, s.env)
+    text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
   elseif #ids == 0 then
     text = L.FALLBACK_LINE
   end
@@ -985,7 +985,7 @@ function Conv.Ask(topic)
   if w then
     Conv.Shown(w)
     s.lastLine = w.gid
-    text = Tokens.Render(w.line.text, s.ctx, s.env)
+    text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
   end
   if w and not brushoff then ns.Topics.RecordAnswer(topic, s.memKey, s.info and s.info.name, w.gid) end
   local linked = Conv.Hear(text, topic)
@@ -1026,7 +1026,7 @@ function Conv.OpenCompact()
   s.lastLine = winner.gid
   local anchor = otherAddonMode() == "normal" and Conv.BlizzardFrame(s) or nil
   ns.UI.Compact.Show({
-    name = info.name, text = Tokens.Render(winner.line.text, ctx, env), anchor = anchor,
+    name = info.name, text = Tokens.Render(winner.line.text, ctx, env, winner.line.when), anchor = anchor,
     autoHide = anchor == nil and 12 or nil,
   })
 end
@@ -1479,7 +1479,7 @@ local function live(event, keys, changed)
     local w = Engine.PickReaction(s.info, event, ctx, s.env)
     if w then
       Conv.Shown(w)
-      View(s).ShowReaction(Tokens.Render(w.line.text, ctx, s.env))
+      View(s).ShowReaction(Tokens.Render(w.line.text, ctx, s.env, w.line.when))
     end
   end
 end

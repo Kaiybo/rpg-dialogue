@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_sylvanas = {
+      big = true,
+      lines = { { id = "xpt_sylvanas_default", text = "Nothing about the living troubles me any longer, except how quickly they forget. The Horde took us in because we hate the Scourge, and I'm content with that arrangement so long as every one of Thrall's people remembers who stands between Lordaeron's plague and their borders." } },
+      choices = {
+        { text = "The Forsaken have earned their place in the Horde, my lady.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Horde owes you nothing. You need it more than it needs you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What do you want from the Horde, my lady?", next = "xpt_sylvanas2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    xpt_sylvanas2 = {
+      lines = { { id = "xpt_sylvanas2_default", text = "Time, and room to work, and the Lich King's head on a spike above the gates of this city. Thrall gives me the first two well enough, and the third I will take for myself." } },
+      choices = {
+        { text = "Then I hope you get it, my lady.", next = "BACK" },
+      },
+    },
     xcl_strat = {
       big = true,
       lines = { { id = "xcl_strat_default", text = "Then the Baron has rejoined his master's servants in the only way left to him, and the city where Arthas began has one less of his creatures in it. I take no joy in ruins, but I take a great deal in seeing his work undone, one stone at a time." } },
@@ -70,6 +86,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_living", tags = { "news" }, when = { party = { race = { "Orc", "Troll", "Tauren" } } },
+          text = "You walk with the living, I see, and {companion} doesn't keep a hand on their weapon around you. Treasure that while it lasts, because the warmth goes out of most alliances long before it goes out of the body." },
         { id = "h_default", key = true,
           text = "I am Sylvanas Windrunner, once Ranger-General of Silvermoon and now queen of the Forsaken. Arthas made me this, and one day I will show him what he made." },
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme", faction = "Horde" },
@@ -97,6 +115,7 @@ P:NPC {
         { text = "What do you ask of your warriors, my lady?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What did the rangers of Quel'Thalas teach their hunters, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Stratholme has fallen silent, my lady. I saw to it.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Horde" } },
+        { text = "My companion is living. Does that trouble you, my lady?", next = "xpt_sylvanas", when = { party = { race = { "Orc", "Troll", "Tauren" } } } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -269,6 +288,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_varimathras = {
+      big = true,
+      lines = { { id = "xpt_varimathras_default", text = "Sworn, are you? Oaths are easy things to make in a throne room and hard things to keep in the field, as the Dark Lady learned when Arthas's servants wore her people like puppets. Keep your companions honest, and I'll have no reason to learn their names." } },
+      choices = {
+        { text = "We keep our oaths. Watch us all you like.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Oaths bend when they must. Surviving comes first.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_cath = {
       big = true,
       lines = { { id = "xcl_cath_default", text = "And how splendidly you managed it. The Crusade believed its faith made it untouchable, and there is nothing quite so instructive as watching a zealot discover she was wrong. The Dark Lady's enemies in Tirisfal have lost their heart, and I shall make certain she remembers whose hand held the knife." } },
@@ -307,6 +335,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A whole band of you, filling my lady's halls with your breathing. I do hope you're all as loyal as you look, because the Dark Lady keeps very careful accounts of who comes and goes." },
         { id = "h_default", key = true,
           text = "You address Varimathras, majordomo to the Dark Lady and her most loyal servant. I keep her city safe from its many enemies, and serve her in all things." },
         { id = "h_deathstalkers", tags = { "news" }, when = { questActive = TODO_QUEST("The Deathstalkers") },
@@ -335,6 +365,7 @@ P:NPC {
         { text = "I'd serve the Dark Lady from your shadow, Varimathras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does a dreadlord know of the hunt, Varimathras?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Whitemane is dead, Lord Varimathras. The cathedral is silent.", next = "xcl_cath", when = { cleared = "Scarlet Cathedral", faction = "Horde" } },
+        { text = "We're a company sworn to the Dark Lady's cause.", next = "xpt_varimathras", when = { party = { size = { min = 2 } } } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -453,6 +484,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_faranell = {
+      big = true,
+      lines = { { id = "xpt_faranell_default", text = "Only a little of their time and a few of their prayers, said over subjects in the next room. If faith truly holds the rot at bay in the Forsaken, the Royal Apothecary Society should know it, and if it doesn't, the priests should know that too." } },
+      choices = {
+        { text = "Knowledge is worth having, whatever it costs your subjects.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Prayers aren't instruments for your experiments, Faranell.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Master Apothecary.", next = "BACK" },
+      },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "Wonderful! The Crusade's hearts are remarkable specimens, you know, so swollen with zeal that I've had to send for bigger jars, and every one of them beats the same way when it's frightened. If they ever learn to be afraid sensibly, I'll be out of a research topic." } },
@@ -500,6 +540,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
+          text = "Your companion is a priest, I think, from the way they keep looking at my jars. Tell {companion} that I'm still measuring whether faith slows the decay of the dead, and I'd welcome a priest's help with the trial, so long as they don't mind the smell." },
         { id = "h_default", key = true,
           text = "Faranell, Master Apothecary, master of every bottle in this room, keeper of the Royal Apothecary Society's finest work, at your service! The Dark Lady wants weapons against the Scourge, and I make them, and it's a joy." },
         { id = "h_recipe", tags = { "news" }, when = { questActive = TODO_QUEST("A Recipe For Death") },
@@ -529,6 +571,7 @@ P:NPC {
         { text = "Do you need samples from the beasts I hunt, Faranell?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What does the Apothecarium want with a paladin, Master Apothecary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the bottom of the Scarlet Monastery, Master Apothecary.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
+        { text = "My companion is a priest. What do you want with them?", next = "xpt_faranell", when = { party = { class = "PRIEST" } } },
         { text = "I'll leave you to your work.", next = "END" },
       },
       again = {
@@ -641,6 +684,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_bethor = {
+      big = true,
+      lines = { { id = "xpt_bethor_default", text = "I miss the library and very little else, because the Kirin Tor were never kind to anyone who asked uncomfortable questions. I'd tell your friend to learn what they can and to trust no council that claims to know what magic is for." } },
+      choices = {
+        { text = "No one should tell a mage what to study.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Magic needs a council to govern it, or it runs wild.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Bethor.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "My oath did not, and Thule's certainly didn't, so I have reason to be cold about it. But if the Light still answers you after everything Lordaeron's dead have suffered, then perhaps loyalty is something we choose, rather than something we're owed." } },
@@ -670,6 +722,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mage", tags = { "news" }, when = { party = { class = "MAGE" } },
+          text = "There's a mage among your company; I can feel {companion}'s mana from here, like a candle in the next room. Dalaran trained a great many of us once, and I wonder sometimes how many of my old classmates now walk beside the living without knowing what became of me." },
         { id = "h_default", key = true,
           text = "My name is Bethor Iceshard. I studied at Dalaran with two friends, and we crossed our wands as apprentices and swore we'd always stand together. One of them sold his soul to the Lich King, and his name was Thule Ravenclaw." },
         { id = "h_renferrel", when = { heardLine = "renferrel.h_default" },
@@ -698,6 +752,7 @@ P:NPC {
         { text = "Have you ever had a use for a thief, Bethor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would a warrior be any use against a lich, Bethor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Has any power ever kept faith with the dead, Bethor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "My companion is a mage. Do you miss Dalaran?", next = "xpt_bethor", when = { party = { class = "MAGE" } } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -806,6 +861,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_norman = {
+      big = true,
+      lines = { { id = "xpt_norman_default", text = "More than you'd think and fewer than we'd like. Most of the orcs who come down here stand very close to the door, but now and again a troll sits at my counter with a Forsaken friend and tells jokes until closing, and I count those as good nights." } },
+      choices = {
+        { text = "The living and the dead should stand together against the Scourge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The living will never truly trust the dead, and why should they?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Thanks, Norman.", next = "BACK" },
+      },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "I knew a few of the Crusade, back before, when I kept a different inn and everyone in it was breathing. They were decent lads at the start, most of them, and it's a strange thing to hear their halls are emptying and feel glad and sorry in the same chair." } },
@@ -841,6 +905,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
+          text = "You've a Forsaken friend with you, so I'll not have to explain the rooms twice. {companion} will know they're for resting the bones rather than sleeping, and the living among you can sleep wherever you like, as long as it's quietly." },
         { id = "h_default", text = "Name's Norman, and I keep the inn by the Trade Quarter. We don't sleep, most of us, but we like a chair and a place that's ours, and that's what I sell, really." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
           text = "Somebody's been telling stories about the Scarlet Monastery at the bar all night, and every one of them has you in it. Pull up your chair and set them straight, because one of them had you riding a bat into the cathedral." },
@@ -862,6 +928,7 @@ P:NPC {
         { text = "A warm fire would suit your common room, Norman.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is there a chair for my demon too, Norman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the regulars truly mind a paladin among them, Norman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do many living folk travel with the Forsaken, Norman?", next = "xpt_norman", when = { party = { race = "Scourge" } } },
         { text = "Just resting.", next = "END" },
       },
     },

@@ -20,6 +20,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_warrior = {
+      big = true,
+      lines = { { id = "xpt_warrior_default", text = "Aye, it was, and it still is when the Dark Irons come down out of Dun Modr, though my knees have their own opinions now. A warrior's whole trade is standing between the ones behind him and whatever's in front, and if your friend understands that, you're in good hands." } },
+      choices = {
+        { text = "A good shield wall beats any hero. We fight as one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Heroes win wars. Shield walls only hold them off.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Powder broke the Span, I'm told, but I saw what came after, an' it wasnae powder. They came through the smoke callin' fire like their grandsires under Thaurissan, an' good dwarves burned. If ye can talk tae that fire, tell it Longbraid wants Dun Modr back." } },
@@ -107,6 +116,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_warrior", tags = { "news" }, when = { party = { class = "WARRIOR" }, faction = "Alliance" },
+          text = "That one with you, {companion}, holds a shield like someone who's stood in a line before, and I've a soft spot for anyone who has. I lost too much of my company at Grim Batol to think a lone hero is worth half a good shield wall." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, out here? I've wounded enough tae keep ye busy, an' dead enough tae keep ye prayin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The Light's a long way from Dun Modr these days, so ye're welcome tae bring some o' it with ye." },
         { id = "h_default", key = true,
@@ -138,6 +149,7 @@ P:NPC {
         { text = "What would you ask of a paladin, Longbraid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a warlock be any use against the Dark Irons, Longbraid?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call fire at Dun Modr, Longbraid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My companion is a warrior. Was that your trade too?", next = "xpt_warrior", when = { party = { class = "WARRIOR" }, faction = "Alliance" } },
         { text = "Hold fast, Longbraid.", next = "END" },
       },
     },

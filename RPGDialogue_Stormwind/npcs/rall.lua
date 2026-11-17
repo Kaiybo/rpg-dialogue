@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_rall = {
+      big = true,
+      lines = { { id = "xpt_rall_default", text = "Because pride tells you to stand in front of every blow, and the Light has no need of your pride. A company where one person insists on bearing everything loses that person first, and then everyone else after." } },
+      choices = {
+        { text = "We each bear our share, as a company should.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd take every blow myself, whatever anyone says.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Service without reward. If your spirits demand the same, we may be closer than either of us thinks." } },
@@ -99,6 +108,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rall", tags = { "news" }, when = { party = true },
+          text = "You've brought a company with you, and I'll ask you what I ask every paladin who comes before me with friends: would you die for them, and would you let them die for you? The second is the harder question, and most fail it." },
         { id = "h_default", text = "Duthorian Rall. I test the paladins Brother Wilhelm and Brandur Ironhammer send me, and most pass, though not all the same way." },
         { id = "h_other", when = { ["not"] = { class = "PALADIN" } },
           text = "You're not one of mine, but the Cathedral's doors are open to everyone. Even the ones who only come to look at the windows." },
@@ -149,6 +160,7 @@ P:NPC {
         { text = "Does the Light ask a debt of druids too, Duthorian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light ever test a mage, Rall?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do your tests ask of paladins, Duthorian?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why is letting them die for you the harder question?", next = "xpt_rall", when = { party = true } },
         { text = "I'll go, Rall.", next = "END" },
       },
     },

@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_winna = {
+      big = true,
+      lines = { { id = "xpt_winna_default", text = "Research, darling, the very best kind, the kind nobody will pay for until it works! Corruption makes things bigger and meaner, and if I can learn how, my kitten will grow up to be the biggest and meanest cat in Kalimdor." } },
+      choices = {
+        { text = "That's madness. Some things shouldn't be meddled with.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Brilliant. Somebody should profit from this mess.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Everything! The Light ought to burn you and it doesn't, and Felwood ought to kill everything and it doesn't, so you and the forest have a great deal in common. I'd love a sample, just a small one, of whatever you are." } },
@@ -103,6 +112,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_winna", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Five of you! Oh, that's wonderful, because I need a great many samples from the Bloodvenom and nobody ever volunteers twice." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior! Oh, splendid, you look sturdy enough to carry my kitten when it gets much bigger, and it is going to get much bigger. *cackles*" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, do tell me what the fire spirits think of my cauldron, because it bubbles in colours I've never seen and I'd love a second opinion. *cackles*" },
@@ -144,6 +155,7 @@ P:NPC {
         { text = "How big is your kitten going to get, Winna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "You treat Felwood's corruption like a curiosity, Winna.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What's so wonderful about a Forsaken paladin, Winna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What are you doing with all those samples, Winna?", next = "xpt_winna", when = { party = { size = 4 } } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },

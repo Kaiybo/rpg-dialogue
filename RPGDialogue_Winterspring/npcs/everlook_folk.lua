@@ -675,6 +675,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_malyfous = {
+      big = true,
+      lines = { { id = "xpt_malyfous_default", text = "Most of them do, and I can hardly blame them, given what Thaurissan's people have done since the War of the Three Hammers. But the Brotherhood left the Emperor's halls to work for ourselves, and I'll not apologize for the blood of a clan I walked away from." } },
+      choices = {
+        { text = "A dwarf should be judged by his own deeds, not his clan's.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Blood is blood. The Dark Irons earned that mistrust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_brd = {
       big = true,
       lines = { { id = "xcl_brd_default", text = "Free of him, not free, and you surface folk always confuse the two. Ragnaros still burns beneath the mountain, and the Dark Irons who knelt to the Emperor will kneel to the fire next, while the Thorium Brotherhood goes on working metal and keeping its own counsel." } },
@@ -776,6 +785,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_malyfous", tags = { "news" }, when = { party = { race = "Dwarf" } },
+          text = "You bring a dwarf of the mountain with you, and {companion} is looking at me the way they all do, as though a Dark Iron at a forge must be hiding a knife in his apron." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" }, text = "So the Emperor's dead in his own throne room, ant, and Shadowforge City has no king. The Brotherhood will be drinking to it, and I will be at my forge, because a king dying never made one bar of iron better." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, ant. You spin fire out of nothing and call it craft, and I've spent my life coaxing it from coal and bellows, so don't expect me to be impressed." },
@@ -821,6 +832,7 @@ P:NPC {
         { text = "Do you feel the mountain's fire up here, Malyfous?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Is a mage's fire really so different from a forge's, Malyfous?", next = "xmage", when = { class = "MAGE" } },
         { text = "Thaurissan is dead, Malyfous. Your clan is free of him.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
+        { text = "Do the other dwarves still treat you as an enemy, Malyfous?", next = "xpt_malyfous", when = { party = { race = "Dwarf" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

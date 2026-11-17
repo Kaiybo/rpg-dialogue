@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Darnassus |cff8a8a8a1.15.0|r
+## Title: RPG Dialogue: Darnassus |cff8a8a8a1.16.0|r
 ## Notes: The night elves' capital in Teldrassil's branches: Tyrande in the Temple of the Moon, Fandral in the Cenarion Enclave, and the quarrel between them.
 ## Author: RPG Dialogue
-## Version: 1.15.0
+## Version: 1.16.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.darnassus

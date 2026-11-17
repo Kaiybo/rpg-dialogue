@@ -29,6 +29,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_jaina = {
+      big = true,
+      lines = { { id = "xpt_jaina_default", text = "That's the Alliance as it should be, and I wish Stormwind's lords could see it more often. When Lordaeron fell, it was elves who held the forests and dwarves who held the mountains, and we only lost ground when we stopped trusting each other." } },
+      choices = {
+        { text = "Every people has its strengths. Together we're stronger.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Friendship is fine, but each people must look after its own first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Could the Horde ever travel beside us like this, my lady?", next = "xpt_jaina2" },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xpt_jaina2 = {
+      lines = { { id = "xpt_jaina2_default", text = "I stood beside Thrall at Hyjal, so I know they can, at least for a day and against a common enemy. Whether they can do it on an ordinary morning, with nothing to fight but old grudges, is the question I've staked this whole city on." } },
+      choices = {
+        { text = "I see. Let me ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I think it's hopeful, if I'm honest. Thrall told me the shamans were his people's conscience before the Legion came, and if Ironforge can learn something from them, perhaps Alliance and Horde can learn a little more from each other." } },
@@ -95,6 +111,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_jaina", tags = { "news" }, when = { race = "Human", party = { race = { "Dwarf", "Gnome", "NightElf" } }, faction = "Alliance" },
+          text = "You've brought {companion} with you, I see, and I'm glad of it. Theramore was built by people who learned the hard way that no race survives this world alone." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "Archmage Tervosh tells me the black dragon of the Wyrmbog is dead, and that you were there when she fell. Theramore has lived under Onyxia's shadow since the day we landed, so I'll thank you myself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter of the Alliance. The marsh is full of creatures that would rather we'd never come, and I'm grateful to anyone who keeps them from our gates without hating them for it." },
@@ -137,6 +155,7 @@ P:NPC {
         { text = "Does the Silver Hand still mean something to you, my lady?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you make of a dwarf shaman, my lady?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Onyxia is dead, my lady. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
+        { text = "My companions come from every corner of the Alliance, my lady.", next = "xpt_jaina", when = { race = "Human", party = { race = { "Dwarf", "Gnome", "NightElf" } }, faction = "Alliance" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -366,6 +385,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_tervosh = {
+      big = true,
+      lines = { { id = "xpt_tervosh_default", text = "I think it's the best schooling there is, though the Kirin Tor would never admit it. A mage who has only ever cast at practice dummies learns caution late, and usually at someone else's expense." } },
+      choices = {
+        { text = "Magic needs discipline. Some things should stay in the academy.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Magic is learned by using it, not by reading about it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Very little that agrees with itself. The Kirin Tor bound elementals for centuries and called it scholarship, and here you are asking them politely, which I suspect would offend several of my old masters." } },
@@ -459,6 +487,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_tervosh", tags = { "news" }, when = { party = { class = "MAGE" }, faction = "Alliance" },
+          text = "Another student of the arcane in your company, I see. {companion} has the look of someone trained in Dalaran's habits, or at least someone who has read the right books." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "You've come back from the Wyrmbog with Onyxia dead behind you and the smell of dragonfire still on your cloak. I've studied black dragons from a respectful distance for years, and I find I'm a little jealous." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll forgive me if I keep this brief, because the last time a soldier stood in my study he knocked over a shelf of reagents with his scabbard." },
@@ -498,6 +528,7 @@ P:NPC {
         { text = "What creatures trouble your garden, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do your books say of dwarves and the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I was there when Onyxia fell, Archmage.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
+        { text = "What do you make of mages who travel with adventurers, Archmage?", next = "xpt_tervosh", when = { party = { class = "MAGE" }, faction = "Alliance" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -597,6 +628,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_vimes = {
+      big = true,
+      lines = { { id = "xpt_vimes_default", text = "Companies are useful, and I've borrowed a few in my time for work the garrison couldn't spare men for. The trouble is the ones who answer to nobody, because the deserters out past the Shady Rest started as a company too, before they decided Theramore's peace wasn't theirs to keep." } },
+      choices = {
+        { text = "A company working here should answer to Theramore, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We answer to each other, Captain, and to no one else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What became of those deserters, Captain?", next = "xpt_vimes2" },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xpt_vimes2 = {
+      lines = { { id = "xpt_vimes2_default", text = "Some of them are dead, some are still out in the marsh, and a few are drinking in Theramore under other names, I'd wager. I watch the ones I can find, and I keep a list of the ones I can't." } },
+      choices = {
+        { text = "I see. Let me ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd take evidence from a spirit if it would stand up in front of the Lady. Everyone wants to blame the Horde, and if the marsh itself saw who set that fire, I want to hear what it says." } },
@@ -661,6 +708,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_vimes", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "Five of you, armed and moving together through my gate. You'd look like a raiding party if you weren't wearing the right colors, so keep your weapons sheathed on the causeway, if you please." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "My guards are telling each other that you went into Onyxia's lair and came back without her. I'd call it a tavern story if Tervosh hadn't confirmed it, so well done, and don't let it go to your head." },
         { id = "h_default", key = true,
           text = "Someone burned the Shady Rest Inn on the road north, and James Hyal lost his wife and child in it. Everyone says the Horde did it, but I'm not everyone." },
@@ -690,6 +739,7 @@ P:NPC {
         { text = "What did the ashes tell you, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What happened to the Hyal family, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Onyxia is dead, Captain. Your patrols should have an easier time.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
+        { text = "We're a company, Captain. We go where we're needed.", next = "xpt_vimes", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
         { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you suspect magic started the inn fire, Captain?", next = "xmage", when = { class = "MAGE" } },

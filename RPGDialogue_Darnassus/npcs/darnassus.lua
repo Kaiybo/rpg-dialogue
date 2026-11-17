@@ -42,6 +42,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_tyrande = {
+      big = true,
+      lines = { { id = "xpt_tyrande_default", text = "Some do, and some remember that the outsiders who stood beside us at Hyjal came only because their own lands had fallen. I choose to remember that they stood, whatever the reason, and I would ask the same of you." } },
+      choices = {
+        { text = "They stood, and that is what matters, High Priestess.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your kin are right to be wary. Alliances are convenient things.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Elune's light touches every living thing, and the spirits you speak with are part of the world she watches over. Still, the orcs who burned our forests spoke to spirits too. I would see what you do with yours." } },
@@ -176,6 +185,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_tyrande", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
+          text = "You bring {companion} with you into Darnassus, and the sentinels at the gate tell me they were courteous. Elune smiles on friendships between our peoples, though I know not every one of my kin agrees." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "The Sentinels on the Zoram Strand tell me someone went down into Blackfathom and came back up again. That was a temple of Elune once, before the sea took it, and I am grateful to whoever reminded its new tenants of that." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have spent your time at the Enclave, and Fandral speaks well of you, which tells me what you said to him. I will still hear you out, but I will listen more carefully." },
@@ -231,6 +242,7 @@ P:NPC {
         { text = "Where would you send a paladin, High Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Elune look kindly on a shaman, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Blackfathom Deeps, High Priestess.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
+        { text = "Do the Kaldorei truly welcome our allies here, High Priestess?", next = "xpt_tyrande", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -495,6 +507,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_fandral = {
+      big = true,
+      lines = { { id = "xpt_fandral_default", text = "Because every race that has ever come to Kalimdor has wanted something from its forests, and few of them have asked. The humans fell trees to build walls, the dwarves dig until the mountains bleed, and I am expected to call them friends because a war made us share a hill." } },
+      choices = {
+        { text = "Teldrassil should stay a home for the Kaldorei alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your people need allies more than pride, Arch Druid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "You ask the elements for favours, as children ask their parents. We were taught by Cenarius himself. I do not doubt your sincerity, only your understanding." } },
@@ -610,6 +631,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_fandral", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
+          text = "You've brought outsiders into Teldrassil's boughs, I see. {companion} is welcome as a guest, but I hope you've told them that the World Tree is no human orchard for them to climb about in." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Alliance" }, text = "So you went into the Wailing Caverns and dragged Naralex out of his nightmare, I am told. He was always a dreamer with more ambition than sense, and I am glad someone with a blade cleaned up after him." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "The High Priestess has taken a liking to you, I'm told. Her priestesses keep the temple well, but the forest is not tended by prayer, and you would do well to remember that here." },
@@ -661,6 +684,7 @@ P:NPC {
         { text = "What would you have a paladin defend here, Archdruid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a shaman's path truly so crude, Arch Druid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Naralex is awake, Archdruid. The Caverns are quieter now.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Alliance" } },
+        { text = "Why are you so wary of outsiders, Arch Druid?", next = "xpt_fandral", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -833,6 +857,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mathrengyl = {
+      big = true,
+      lines = { { id = "xpt_mathrengyl_default", text = "Everything you'd want and none of it at once: a healer in one breath and a bear in the next, and a cat when you need someone to scout ahead. The difficulty is that a druid can be all of those things, so the company forgets they are one person who also gets tired." } },
+      choices = {
+        { text = "We'll give them one role and keep to it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We'll let them choose their shape. That's their gift.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They are as close as neighbours who speak different tongues. We listen to the Dream and to Cenarius; you listen to the world's own voices. Neither is wrong, but both can be misheard." } },
@@ -933,6 +966,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mathrengyl", tags = { "news" }, when = { party = { class = "DRUID" } },
+          text = "{companion} is a druid, I think; I felt the bear in them before I saw them. Druids travel well with others, though they'll go quiet for days and then speak to a tree, so be patient." },
         { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "Word came up from Desolace that someone reached the heart of Maraudon and put an end to Princess Theradras. Zaetar was Cenarius's own son, and every druid in this Enclave has grieved for him at some point, so I find I am grateful to you in a very old way." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Cenarion Enclave. Sit, if you like, for I've long wanted to ask one of your order how you decide when to heal and when to strike." },
         { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
@@ -974,6 +1009,7 @@ P:NPC {
         { text = "Does the Circle have any use for a rogue, Mathrengyl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are the druid's way and the shaman's truly so close, Mathrengyl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Princess Theradras is dead, Mathrengyl. Maraudon is broken.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
+        { text = "What does a druid give to a company like ours?", next = "xpt_mathrengyl", when = { party = { class = "DRUID" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1058,6 +1094,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_amoora = {
+      big = true,
+      lines = { { id = "xpt_amoora_default", text = "She watches over whoever walks under her light, little star, which is everyone who walks at night, and I think that includes your friends whether they pray or not. The faithful only notice it more." } },
+      choices = {
+        { text = "Then I'll pray for them, whether they ask or not.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They'd rather trust their blades than any goddess, Priestess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Elune is patient with all who seek her. Your spirits are part of the world she cradles. But I ask you to keep them quiet within the Temple, little star." } },
@@ -1159,6 +1204,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_amoora", tags = { "news" }, when = { party = true },
+          text = "Little star, you've brought friends to the Temple pool! Let them rest a while; I can see the road on all your faces, and Elune doesn't mind how many of you sit by the water." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Welcome, priest. Come and sit by the pool a while, for those who heal others are the last to rest, and Elune knows it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Temple of the Moon! You're welcome here, {class}, and I hope you'll let me tend to you as gladly as you tend to others." },
         { id = "h_default", text = "I am A'moora, a priestess of the Sisterhood, and I tend the Temple's pool and those who come to it. Most come tired, and I try to send them out less so." },
@@ -1201,6 +1248,7 @@ P:NPC {
         { text = "Do the priestesses and the druids truly pray to the same goddess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will Elune turn me away, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Elune mind the spirits that walk with me, Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does Elune watch over a whole company, or only the faithful?", next = "xpt_amoora", when = { party = true } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -1531,6 +1579,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_saelienne = {
+      big = true,
+      lines = { { id = "xpt_saelienne_default", text = "More every season, now that the boats run from Auberdine, and most of them are terrified of the height for their first night and charmed by it by their third. I like having them; a tree this tall gets lonely when only the Kaldorei sleep in it." } },
+      choices = {
+        { text = "Darnassus should stay your people's home. Outsiders can stay in Auberdine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Open the city to everyone. It's better for it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Never, though some come close. Your spirits might steady them. Rest well, and do not look down." } },
@@ -1623,6 +1680,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_saelienne", tags = { "news" }, when = { party = { race = "Dwarf" } },
+          text = "You've a dwarf with you! Tell {companion} the beds don't fold into the walls and the branches don't fall, because the last dwarf who stayed here slept on the floor with his boots on." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The travelers who come up from the boats are often more tired than they'll admit, and a kind word from a healer does them good." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your kind don't come up from the boats often, so forgive the stares on the Terrace, for they're curious rather than rude." },
         { id = "h_default", text = "Saelienne. I keep the inn on the Craftsmen's Terrace. Travellers come up from the boats looking lost. I make sure they leave looking rested." },
@@ -1654,6 +1713,7 @@ P:NPC {
         { text = "Do druids often stay at your inn, Saelienne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why must my servant sleep out on the branch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do travellers ever fall from your terrace, Saelienne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do many outsiders stay at your inn?", next = "xpt_saelienne", when = { party = { race = "Dwarf" } } },
         { text = "Just resting.", next = "END" },
       },
     },

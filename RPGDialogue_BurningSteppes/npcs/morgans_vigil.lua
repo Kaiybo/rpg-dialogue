@@ -35,6 +35,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Then you'll fight them on their ground, which is ash and fire and slopes that favour whoever stands highest, and they always stand highest. I'd ask you to hold the road to Redridge before you go hunting glory at the Spire, because if the Vigil falls, Lakeshire is next." } },
+      choices = {
+        { text = "We'll hold the road. Lakeshire's people come first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We'll take the fight to the Spire. Waiting never won a war.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why does the Vigil hold so few soldiers?", next = "xpt_company2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_company2 = {
+      lines = { { id = "xpt_company2_default", text = "Because Stormwind's soldiers are spread from Westfall to Duskwood, the King's been gone a long while, and nobody in the city likes signing for men they'll never see. We hold with what we have, which is mostly stubbornness and a very good gryphon master." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "What troubles me is a mountain full of orcs and a dragon on top of it. If your spirits can tell me when the Blackrock are moving, I'll put that in a report too, and nobody will read that one either." } },
@@ -79,6 +95,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "A full company at Morgan's Vigil, and you've no notion how rare that is. Most who come up from Redridge come in ones and twos, and the Blackrock see them coming from the mountain." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 40 } }, text = "The scouts tell me you've been cutting down Blackrock orcs all across the Steppes, and the camps are quieter for it. Keep at it, but don't get careless, because Rend notices when his numbers drop." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stormwind pretends your kind don't exist, and out here I'm too short of soldiers to pretend anything at all." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
@@ -126,6 +144,7 @@ P:NPC {
         { text = "Does Stormwind ever send anything to help this land, Marshal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does it trouble you, Marshal, that I fight with the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Marshal. The upper Spire is broken.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
+        { text = "We've come to fight the Blackrock, Marshal.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll see what I can do, Marshal.", next = "END", fx = { affinity = 1, standing = { morgans_vigil = 1 } } },
       },
     },
@@ -416,6 +435,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_kaldorei = {
+      big = true,
+      lines = { { id = "xpt_kaldorei_default", text = "Because the black dragonflight is old, older than the humans can easily imagine, and my people remember what its master did in the War of the Ancients. Someone who remembers ought to be watching from this ridge." } },
+      choices = {
+        { text = "Old wars are best watched by those who remember them. Stay.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The past is past. Your people should tend their own forests.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "As a people someone else is spending, the way a merchant spends coin. Rend feeds them to the war and the black dragons feed on what's left, and every warrior who cuts them down only makes the account a little shorter." } },
@@ -463,6 +491,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_kaldorei", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
+          text = "{companion} is of my people, and far from the forests, as I am. It is strange to meet a kaldorei among the ash, but I am glad of it, for the humans here do not understand why I flinch when the mountain breathes fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of our Sentinels, rogue, though I suspect your teachers were less particular about whom you watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, among the Alliance. I won't pretend that sits easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned long ago what the arcane can draw down on a world, so forgive me if I watch your hands while we talk." },
@@ -502,6 +532,7 @@ P:NPC {
         { text = "You've been watching someone. Who?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Blackrock orcs be fought, or only watched, Helendis?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do you see the Blackrock orcs, Helendis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why did you come so far from Kalimdor?", next = "xpt_kaldorei", when = { party = { race = "NightElf" }, faction = "Alliance" } },
         { text = "Elune keep you, Helendis.", next = "END" },
       },
     },

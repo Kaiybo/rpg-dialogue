@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_gnome = {
+      big = true,
+      lines = { { id = "xpt_gnome_default", text = "Always, but what it needs most is clever hands and quiet feet, because the troggs come up out of Uldaman whenever we make too much noise. A gnome or two with sense and a few fighters to keep the troggs off them would set the dig forward a month." } },
+      choices = {
+        { text = "Knowledge is worth the risk. The League should dig deeper.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Some vaults were sealed for a reason. Leave them shut.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some o' the scholars would want tae write ye down in a book, an' some would call it orc magic an' spit. Me, I've a partner lost under the digsite, so if the stone's talkin', ask it where Hammertoe is." } },
@@ -94,6 +103,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" }, faction = "Alliance" },
+          text = "Is that a gnome with you? Grand, because {companion} might be able to tell me what that blasted carved lock wants, and I've been staring at it for three days." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Shadowforge", min = 30 } }, text = "Word from the dig road is ye've been thinnin' out the Shadowforge, an' I'll drink tae that tonight, though no' too much, for Hammertoe's sake." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, is it? I'll no' pretend I like it, but there's worse than demons in Uldaman just now, an' Hammertoe's still down there somewhere." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -126,6 +137,7 @@ P:NPC {
         { text = "What's in Uldaman that's worse than demons, Prospector?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the League make anything of a dwarf who hears the stone?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I went down into Uldaman, Ryedol, to the very bottom.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
+        { text = "Does the League need help at the dig, Prospector?", next = "xpt_gnome", when = { party = { race = "Gnome" }, faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },

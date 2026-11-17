@@ -694,6 +694,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_mokmorokk = {
+      big = true,
+      lines = { { id = "xpt_mokmorokk_default", text = "Ha! Then you know being boss is hard work, because every gang has one who wants to be boss next. Mok'Morokk keeps his gang loyal by keeping the food coming and hitting the clever ones first." } },
+      choices = {
+        { text = "A good leader earns loyalty. Fear only breeds traitors.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You're right, Overlord. Fear keeps a gang in line.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Mok'Morokk not scared! Mok'Morokk boss! But dead things should stay dead, and shiny things should stay shiny, and you is both, so Mok'Morokk keep one eye on you." } },
@@ -788,6 +797,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mokmorokk", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Mok'Morokk sees you come with many friends! A big boss always has a big gang, so maybe you are a bigger boss than you look." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair" }, text = "You the one who kill the black dragon in her cave? The orcs say so, and now Mok'Morokk believe it, because the Stonemaul not hear her roar for many days." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "Hunter! Mok'Morokk like hunter, because hunter bring meat, and Mok'Morokk always hungry." },
@@ -817,6 +828,7 @@ P:NPC {
         { text = "What does the overlord like to hunt, then?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does a shining dead thing scare Mok'Morokk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Onyxia is dead, Overlord. Your chief is avenged.", next = "xcl_ony", when = { cleared = "Onyxia's Lair" } },
+        { text = "My friends follow me, Overlord. I'm the boss of this gang.", next = "xpt_mokmorokk", when = { party = { size = 4 } } },
         { text = "Farewell.", next = "END" },
       },
     },

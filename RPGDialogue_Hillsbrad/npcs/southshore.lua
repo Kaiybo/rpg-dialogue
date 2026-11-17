@@ -28,6 +28,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "I'd send the lot of you at the Mill tomorrow if the Magistrate would sign for it, but Maleb counts coin before he counts graves. Still, a company that holds together does more good on the Hillsbrad road than any order I could write, and the farmers notice." } },
+      choices = {
+        { text = "Then we'll go to Tarren Mill, whether the Magistrate signs or not.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "We'll wait for proper orders. A town needs its law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Why won't the Magistrate sign for it?", next = "xpt_company2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_company2 = {
+      lines = { { id = "xpt_company2_default", text = "Because a battle costs money, and Maleb has never once had to bury anyone, so the Forsaken are a line in his ledger to him. I don't hold it against him as much as I should, though I'd like to see him walk the Mill road just once." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "When the plague came, the Crusade marched through Hillsbrad promising to burn the dead out of Lordaeron, and some of our own lads went north with them. A few came home and couldn't say what they'd seen, and the rest never came home at all, so I'll thank you for whatever justice you carried in there." } },
@@ -89,6 +105,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "Five of you, armed and fed and walking in step, and you've no idea how good that looks from my wall. If you're heading up toward Tarren Mill, I'd ask you to come back the same number you left with." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on the storm, the guards tell me. Dun Garok's lot pray to their stone and their forefathers, {class}, and I never heard of one talking to the wind before today." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "The Magistrate says you've been a great help with his papers. Good, somebody has to read them, while the rest of us stand on the road where the Syndicate actually is." },
@@ -141,6 +159,7 @@ P:NPC {
         { text = "Will the Alliance help Dalaran, Marshal?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will Southshore fight beside a warlock, Marshal?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does a dwarf shaman worry you, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "We're a full company, Marshal. Put us to use.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -407,6 +426,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_rogue = {
+      big = true,
+      lines = { { id = "xpt_rogue_default", text = "There's no such creature in my experience, though I'll grant there are useful ones, and Southshore has needed a few of those since Ravenholdt started sending its people down the hill. Keep yours on a short leash, and I'll pretend I didn't see them standing by the strongbox." } },
+      choices = {
+        { text = "You're right to be careful. I'll keep an eye on them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I trust my companions. Their past is their own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What does Ravenholdt want with Southshore?", next = "xpt_rogue2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_rogue2 = {
+      lines = { { id = "xpt_rogue2_default", text = "Ravenholdt wants what every lord in Alterac wants, which is to be left alone and paid, and I'd sooner pay than find out what happens when I don't. Lord Jorach writes very polite letters, and that frightens me more than all of Marshal Redpath's shouting." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Honestly, I'd have to file you under 'other', which never feels like the right answer for anyone. Southshore's law doesn't care what you pray to, only whether you pay your dues and stay clear of the Syndicate's business, and I'd be grateful if you did both." } },
@@ -475,6 +510,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rogue", tags = { "news" }, when = { party = { class = "ROGUE" }, faction = "Alliance" },
+          text = "You travel with {companion}, I see, and I'd know that soft step anywhere. I've nothing against rogues as such, but I keep the town's ledgers locked whenever one comes into my hall, and I'd thank you not to take it personally." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I'm afraid I've no form for this, {class}, and I've a form for nearly everything, so you'll forgive me if I stare a little." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "Redpath tells me you've been out on the road with his men. Good work, I'm sure, but the Syndicate is beaten in my ledgers as much as on the road, and the Marshal never quite believes that." },
@@ -524,6 +561,7 @@ P:NPC {
         { text = "Do you want the lions dealt with, Magistrate?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Southshore farms trouble the land here, Magistrate?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would your forms make of me, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My friend's a rogue, but an honest one, Magistrate.", next = "xpt_rogue", when = { party = { class = "ROGUE" }, faction = "Alliance" } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },
@@ -669,6 +707,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_pair = {
+      big = true,
+      lines = { { id = "xpt_pair_default", text = "Maybe it is, if you're quick and you keep off the roads, because the Syndicate fight like cutpurses and they scatter when the odds turn. Just don't go chasing them up into Strahnbrad, for that's where they want you, and that's where my last patrol went quiet." } },
+      choices = {
+        { text = "You're right. We'll find more swords before we go.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Two who move quickly beat a slow column of soldiers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What happened to your last patrol?", next = "xpt_pair2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_pair2 = {
+      lines = { { id = "xpt_pair2_default", text = "We found their horses grazing outside Strahnbrad with the saddles still on, and that's all we found, though I've written to Stormwind twice. The Syndicate wear the old Alterac colours and call themselves nobles, but nobles don't leave a man's horse to starve." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd love to know whether a shaman can ask the tide to carry them off somewhere else, Menethil perhaps, because I've tried asking politely and they only gurgle at me. Failing that, I'll take a dwarf with a lightning bolt over three of my own guards any day." } },
@@ -736,6 +790,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_pair", tags = { "news" }, when = { party = { size = 1 }, faction = "Alliance" },
+          text = "Just you and {companion} against the Syndicate? I've seen braver plans, but not many, and most of them ended in the Alterac foothills with the crows." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in Southshore! Finally something new walks through that door, {class}, for I've been staring at the same murloc reports since spring." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Tell me you speak murloc, because I've been trying to reason with them for a year and they only ever answer in that dreadful gurgle." },
@@ -781,6 +837,7 @@ P:NPC {
         { text = "Shall I hunt your murlocs for you, Lieutenant?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could my imp handle your murlocs for you, Lieutenant?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a shaman help with your murlocs, Lieutenant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Two of us is enough for the Syndicate, Lieutenant.", next = "xpt_pair", when = { party = { size = 1 }, faction = "Alliance" } },
         { text = "I'll leave you to your chair.", next = "END" },
       },
     },
@@ -1419,6 +1476,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_inn = {
+      big = true,
+      lines = { { id = "xpt_inn_default", text = "More than they used to, now that the Forsaken sit in Tarren Mill and the Syndicate sit in Alterac, and everyone wants a soft bed between the two. Most of them are good for trade and a few are good for nothing, and I can usually tell which by how they treat the serving girl." } },
+      choices = {
+        { text = "We'll treat your house well, Innkeeper. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A company that's paid its coin keeps its own rules.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "There's always one who mutters, mind, but I've had dwarves through here from Dun Garok for as long as I've kept the place, and most of them talked to their ale more than to any spirit. So you're an improvement, as far as I'm concerned." } },
@@ -1505,6 +1571,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_inn", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "A whole company at once! Let me guess: you'll want the long table and five bowls of the chowder, and I'll warn you now that we've only three rooms left." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! If you've any pull with the rain, {class}, I'd take it kindly if you'd ask it to fall somewhere other than through my roof." },
         { id = "h_default", text = "Anderson's the name, and I keep the inn: fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
         { id = "h_bilger", when = { heardLine = "bilger.h_default" },
@@ -1541,6 +1609,7 @@ P:NPC {
         { text = "Why do so few of my people stay in Southshore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Have you had many warlocks under your roof, Anderson?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do your guests mind a dwarf who talks to the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do companies like ours come through Southshore often?", next = "xpt_inn", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

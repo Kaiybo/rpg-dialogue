@@ -29,6 +29,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_bolvar = {
+      big = true,
+      lines = { { id = "xpt_bolvar_default", text = "More than the army would like to admit. The regulars hold the roads and the walls, but it's companies like yours that go into the Deadmines and the Stockade and come back with what we needed to know, and half my reports these days are written by people who never swore an oath to anyone." } },
+      choices = {
+        { text = "Then the Crown should bring free companies under its banner.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We fight better without the Crown's leash, Highlord.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who were the companies you remember from the Second War?", next = "xpt_bolvar2" },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
+    xpt_bolvar2 = {
+      lines = { { id = "xpt_bolvar2_default", text = "Ten men from Lordaeron with a cart and one good bowman held a bridge on the Thandol Span for two days while Lothar's lines reformed, and I never learned most of their names. I think of them whenever someone tells me that wars are won by kings." } },
+      choices = {
+        { text = "Someone ought to remember their names, Highlord.", next = "BACK" },
+      },
+    },
     xcl_bwl = {
       big = true,
       lines = { { id = "xcl_bwl_default", text = "The Blackrock orcs have lost their master, and the Dark Irons below them have lost an ally, so for a season the Burning Steppes may be quieter than they've been since the Second War. I'd send men to hold the passes if I had them, but the honest answer is that I'll send letters and hope Lakeshire holds." } },
@@ -118,6 +134,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_bolvar4", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Five of you, armed and walking the Keep as one company. That's how Stormwind was held in the Second War, {name}, by small bands who trusted each other more than they trusted orders, and I'm glad to see it hasn't gone out of fashion." },
+        { id = "h_pt_bolvar", tags = { "news" }, when = { party = true },
+          text = "You've brought companions to the Keep, I see. Good; I'd rather hear a report from a band who watched each other's backs than from one tired soul who's been riding alone." },
         { id = "h_cl_bwl", tags = { "news" }, when = { cleared = "Blackwing Lair", faction = "Alliance" },
           text = "Nefarian's head hangs at the city gate, and the guards have stopped making jokes about it, which tells me they understand what it means. You were at the top of Blackrock Mountain when he fell, and Stormwind won't forget it." },
         { id = "h_cl_onyxia", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") },
@@ -178,6 +198,7 @@ P:NPC {
         { text = "Does Stormwind truly mean to stand by the night elves, Highlord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Onyxia is dead, Highlord. I was there in her lair.", next = "xcl_onyxia", when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") } },
         { text = "Nefarian is dead. What becomes of Blackrock Mountain now?", next = "xcl_bwl", when = { cleared = "Blackwing Lair", faction = "Alliance" } },
+        { text = "Do small companies like ours still matter to Stormwind, Highlord?", next = "xpt_bolvar", when = { party = true } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },
