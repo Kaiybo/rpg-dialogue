@@ -47,11 +47,11 @@ P:NPC {
       },
       choices = {
         { text = "How long have you served Kalaran?", next = "service" },
-        { text = "What does the torch do?", next = "torch" },
+        { text = "That torch must be something out of the ordinary.", next = "torch" },
         { text = "Did the Dark Iron really kill his father?", next = "father" },
         { text = "What happens when the towers burn?", next = "towers" },
         { text = "Your master isn't what he seems.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
-        { text = "Who are you really serving, Maltrake?", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
+        { text = "You serve someone greater than yourself, Maltrake, I'd guess.", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -81,13 +81,13 @@ P:NPC {
         { id = "to_default", text = "It burns with a flame that no element or force can subdue, not water, not ice, not the Dark Iron's sorcery. You helped make it, so you should know, though I don't think you understood what you were making." },
       },
       choices = {
-        { text = "Where does a fire like that come from?", next = "torch_source" },
+        { text = "Nothing in any forge burns like that.", next = "torch_source" },
         { text = "Something else.", next = "BACK" },
       },
     },
     torch_source = {
       lines = {
-        { id = "ts_default", text = "From the same place my master's strength comes from, and that's all I'll say. Some fires are older than forges, and some families are older than kingdoms, and my master belongs to one." },
+        { id = "ts_default", text = "No forge made it. It came from the same place my master's strength comes from, and that's all I'll say. Some fires are older than forges, and some families are older than kingdoms, and my master belongs to one." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

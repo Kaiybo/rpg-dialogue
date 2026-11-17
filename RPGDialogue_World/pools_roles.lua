@@ -62,8 +62,8 @@ P:Pool {
       choices = {
         { text = "Just the stable.", next = "BUSINESS" },
         { text = "How does stabling work, exactly?", next = "how" },
-        { text = "Are any of these animals yours?", next = "own" },
-        { text = "Is the road hard on animals?", next = "road" },
+        { text = "Some of these animals must be yours.", next = "own" },
+        { text = "The road must be hard on animals.", next = "road" },
         { text = "What do you make of {pet}?", next = "mypet", when = { pet = { type = "Beast" } } },
         { text = "Do you ever mind keeping wild things penned?", next = "cages" },
         { text = "Good day to you.", next = "END" },
@@ -136,7 +136,7 @@ P:Pool {
         { id = "o_default", text = "Two of them are mine: the old mule at the end, who's older than my apprentice and twice as sensible, and the hound under the trough, who thinks the whole yard is his. The rest belong to folk who'll be back for them, or so they promised." },
       },
       choices = {
-        { text = "Has anyone never come back for theirs?", next = "unclaimed" },
+        { text = "Surely everyone comes back for their animals.", next = "unclaimed" },
         { text = "Got any rams in there?", next = "own_rams", when = { race = "Dwarf" } },
         { text = "Something else.", next = "BACK" },
       },
@@ -329,8 +329,8 @@ P:Pool {
       choices = {
         { text = "I'll take some.", next = "BUSINESS" },
         { text = "Where does it all come from?", next = "source" },
-        { text = "What would you pack for a long road?", next = "road" },
-        { text = "Do you ever feed folk who can't pay?", next = "needy" },
+        { text = "I've a long road ahead and little to pack.", next = "road" },
+        { text = "There must be folk round here who can't pay.", next = "needy" },
         { text = "I don't eat much these days.", next = "undead", when = { race = "Scourge" } },
         { text = "Good day.", next = "END" },
       },
@@ -398,7 +398,7 @@ P:Pool {
       choices = {
         { text = "Pour me something.", next = "BUSINESS" },
         { text = "What's actually worth drinking?", next = "best" },
-        { text = "Heard anything interesting over the bar?", next = "gossip" },
+        { text = "You must hear a lot over the bar.", next = "gossip" },
         { text = "Do you ever stop pouring for someone?", next = "cutoff" },
         { text = "Got any proper dwarven stout?", next = "stout", when = { race = "Dwarf" } },
         { text = "I'll be going.", next = "END" },
@@ -483,8 +483,8 @@ P:Pool {
       },
       choices = {
         { text = "Let me see the shelves.", next = "BUSINESS" },
-        { text = "What do people use all this for?", next = "uses" },
-        { text = "Where do you get it all?", next = "source" },
+        { text = "Half of this I couldn't put a name to.", next = "uses" },
+        { text = "You've a great deal of stock in here.", next = "source" },
         { text = "Do you ask what your customers do with it?", next = "asking" },
         { text = "Do you sell soul shards?", next = "shards", when = { class = "WARLOCK" } },
         { text = "Good day.", next = "END" },
@@ -570,8 +570,8 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "What should I be practising?", next = "practise", when = { class = "PALADIN" } },
-        { text = "Mercy or judgement: which does the Light ask of us?", next = "mercy", when = { class = "PALADIN", minLevel = 10 } },
-        { text = "Do you ever doubt the Light?", next = "doubt" },
+        { text = "I can't decide whether the Light asks mercy or judgement.", next = "mercy", when = { class = "PALADIN", minLevel = 10 } },
+        { text = "Even a priest must doubt the Light sometimes.", next = "doubt" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -664,9 +664,9 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What should I be practising?", next = "practise", when = { class = "PRIEST" } },
-        { text = "Light or shadow. Which should I study?", next = "shadow", when = { class = "PRIEST", minLevel = 10 } },
+        { text = "I'm torn between studying the Light and the shadow.", next = "shadow", when = { class = "PRIEST", minLevel = 10 } },
         { text = "Does the shadow frighten you?", next = "shadow_fear", when = { form = "shadow" } },
-        { text = "Do you ever get tired of healing?", next = "tired" },
+        { text = "Healing all day must wear you down.", next = "tired" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -755,8 +755,8 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
-        { text = "What does all this knowledge cost?", next = "price", when = { class = "MAGE", minLevel = 10 } },
-        { text = "Do you ever think about Dalaran?", next = "dalaran" },
+        { text = "All this knowledge must come at a cost.", next = "price", when = { class = "MAGE", minLevel = 10 } },
+        { text = "You must think about Dalaran often.", next = "dalaran" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -855,8 +855,8 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
-        { text = "Who's the master: you, or the demon?", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
-        { text = "How do you justify this work?", next = "justify" },
+        { text = "I'd guess the demon is never truly the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "Some would call this work hard to justify.", next = "justify" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -955,8 +955,8 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What should I be practising?", next = "practise", when = { class = "HUNTER" } },
-        { text = "Do you hunt for need, or for sport?", next = "sport", when = { class = "HUNTER", minLevel = 10 } },
-        { text = "Have you ever lost a companion?", next = "lose" },
+        { text = "I'd guess you hunt for sport as much as need.", next = "sport", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "You must have lost a companion or two.", next = "lose" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1172,7 +1172,7 @@ P:Pool {
       choices = {
         { text = "The wild must be protected, even from us.", next = "BACK", fx = { align = { order = -1 }, trait = { stern = 1 } } },
         { text = "People belong in the balance. Teach them; don't wall them out.", next = "BACK", fx = { align = { order = 1 }, trait = { kind = 1 } } },
-        { text = "Who wins those arguments?", next = "wild_who" },
+        { text = "Those arguments sound as though they never end.", next = "wild_who" },
       },
     },
     wild_who = {
@@ -1255,8 +1255,8 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What should I be practising?", next = "practise", when = { class = "ROGUE" } },
-        { text = "Who do you really work for?", next = "loyalty", when = { class = "ROGUE", minLevel = 10 } },
-        { text = "Do you ever trust anyone?", next = "trust" },
+        { text = "A rogue works for whoever pays, I've heard.", next = "loyalty", when = { class = "ROGUE", minLevel = 10 } },
+        { text = "You don't seem the trusting sort.", next = "trust" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1514,7 +1514,7 @@ P:Pool {
       },
       choices = {
         { text = "What's around here worth knowing?", next = "around" },
-        { text = "How's life in the watch?", next = "watch" },
+        { text = "Life in the watch looks hard.", next = "watch" },
         { text = "Seen anything on the roads lately?", next = "roads" },
         { text = "I've some trouble to report.", next = "report" },
         { text = "Do you ever have to bend the law?", next = "law" },
@@ -1550,8 +1550,8 @@ P:Pool {
         { id = "w_default", text = "Long hours, cold suppers and boots that never quite dry, and the pay comes late more often than not. Still, somebody has to stand here, and it may as well be someone who cares." },
       },
       choices = {
-        { text = "What's the worst of it?", next = "watch_hard" },
-        { text = "Why do you do it?", next = "watch_why" },
+        { text = "Some nights must be worse than others.", next = "watch_hard" },
+        { text = "It seems a thankless job.", next = "watch_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1748,10 +1748,10 @@ P:Pool {
       },
       choices = {
         { text = "What's around here worth knowing?", next = "around" },
-        { text = "How does guard duty treat you?", next = "watch" },
+        { text = "Guard duty looks a hard life.", next = "watch" },
         { text = "What's been moving on the roads?", next = "roads" },
         { text = "I've seen trouble you should know about.", next = "report" },
-        { text = "What happens to the prisoners you take?", next = "prisoners" },
+        { text = "You must take prisoners now and then.", next = "prisoners" },
         { text = "Does the watch need another blade?", next = "recruit", when = { class = "WARRIOR" } },
         { text = "I stood the Razor Hill watch myself.", next = "razor", when = { origin = "orc_razor_hill_grunt" } },
         { text = "I grew up behind human walls, in the internment camps.", next = "camp", when = { origin = "orc_camp_born" } },
@@ -1766,7 +1766,7 @@ P:Pool {
         { id = "ar_capital", when = { capital = true }, text = "Ask any guard and you'll be pointed right, because the city is big and the crowds don't wait for the lost. Keep your coin close in the markets, since not everyone in the Horde is honest." },
       },
       choices = {
-        { text = "Where's the danger, then?", next = "danger" },
+        { text = "There must be danger somewhere, then.", next = "danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2065,8 +2065,8 @@ local function sentinelTree()
       },
       choices = {
         { text = "Who are the Sentinels, exactly?", next = "who" },
-        { text = "What troubles these woods?", next = "trouble" },
-        { text = "What do you make of your new allies?", next = "allies" },
+        { text = "Something seems to trouble these woods.", next = "trouble" },
+        { text = "You don't seem fond of your new allies.", next = "allies" },
         { text = "I grew up under these boughs too.", next = "kin", when = { race = "NightElf" } },
         { text = "Could you teach me to track the way you do?", next = "hunt", when = { class = "HUNTER" } },
         { text = "I scouted for the Sentinels before I took this road.", next = "scout", when = { origin = "nightelf_sentinel_scout" } },
@@ -2094,7 +2094,7 @@ local function sentinelTree()
       choices = {
         { text = "A vow is a vow, however long it runs.", next = "vigil_after", fx = { align = { honor = 1 }, trait = { stern = 1 }, affinity = 1 } },
         { text = "No vow is worth ten thousand thankless years.", next = "vigil_after", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
-        { text = "Did you ever think of leaving?", next = "vigil_leave" },
+        { text = "You must have thought of leaving, once.", next = "vigil_leave" },
       },
     },
     vigil_after = {
@@ -2128,7 +2128,7 @@ local function sentinelTree()
         { id = "cm_default", text = "Tyrande Whisperwind, High Priestess of Elune, and beneath her General Shandris Feathermoon, who would be a legend among your people if she ever sat still long enough to be sung about. The druids answer to Archdruid Staghelm, and that is a separate matter." },
       },
       choices = {
-        { text = "A separate matter?", next = "staghelm" },
+        { text = "I didn't know the druids were a separate matter.", next = "staghelm" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2194,7 +2194,7 @@ local function sentinelTree()
         { id = "al_kin", when = { race = "NightElf" }, text = "You know my mind already, because it is the mind of every one of us. We needed them, we still need them, and we have not yet learned how to be gracious about it." },
       },
       choices = {
-        { text = "Will they keep faith with you, do you think?", next = "faith" },
+        { text = "I wonder whether they'll keep faith with you.", next = "faith" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2555,7 +2555,7 @@ P:Pool {
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
         { text = "Who runs Ratchet?", next = "boss" },
-        { text = "Any trouble lately?", next = "trouble" },
+        { text = "I'd guess a port like this sees its share of trouble.", next = "trouble" },
         { text = "Where does that boat go?", next = "boat" },
         { text = "Doesn't staying neutral ever bother you?", next = "neutral" },
         { text = "Do the Alliance give you trouble here?", next = "sides", when = { faction = "Horde" } },
@@ -2587,7 +2587,7 @@ P:Pool {
         { id = "bo_default", text = "Gazlowe, and he'll tell you himself that he built Orgrimmar for the Warchief, usually before you've said hello. Truth is he's a good boss, loud and cheap and sharper than he looks, and he pays us on time, which is all a bruiser asks." },
       },
       choices = {
-        { text = "Did he really build Orgrimmar?", next = "boss_orgrimmar" },
+        { text = "I can't believe he really built Orgrimmar.", next = "boss_orgrimmar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2623,7 +2623,7 @@ P:Pool {
         { id = "bt_default", text = "Across the sea to Booty Bay, another Cartel port, and it's the one thing in the Cartel nobody charges you for, so enjoy it, pal. Hang onto the rail, though, because the captain doesn't stop for anybody who falls off." },
       },
       choices = {
-        { text = "What's Booty Bay like?", next = "boat_bay" },
+        { text = "I've heard Booty Bay is a lot like Ratchet.", next = "boat_bay" },
         { text = "Something else.", next = "BACK" },
       },
     },

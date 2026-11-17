@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "What did you see in Felwood?", next = "felwood" },
         { text = "What's this about a wrecked camp to the south?", next = "camp" },
-        { text = "How do you hear so much?", next = "ears" },
+        { text = "You seem to hear everything that goes on.", next = "ears" },
         { text = "What's the news in Everlook?", next = "everlook" },
         { text = "I can find things out quietly, Harlo.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Later, Harlo.", next = "END" },
@@ -202,7 +202,7 @@ P:NPC {
       choices = {
         { text = "What trouble, Meggi?", next = "trouble" },
         { text = "Why do you love the wilds so much?", next = "hills" },
-        { text = "A goblin who likes the outdoors?", next = "goblin" },
+        { text = "I never thought I'd meet a goblin who likes the outdoors.", next = "goblin" },
         { text = "I know the wilds too. I'm a hunter.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll let you get on, Meggi.", next = "END" },
       },
@@ -212,7 +212,7 @@ P:NPC {
         { id = "t_default", text = "The furbolgs, the Winterfall, out east by the hot springs. Something's got into them, and they've gone savage, and Donova Snowden's out there watching them and getting more worried by the day." },
       },
       choices = {
-        { text = "Who's Donova Snowden?", next = "donova" },
+        { text = "You keep mentioning Donova Snowden.", next = "donova" },
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
       },
     },

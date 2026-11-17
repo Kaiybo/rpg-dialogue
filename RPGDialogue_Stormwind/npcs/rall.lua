@@ -146,14 +146,14 @@ P:NPC {
         { id = "h_again2", text = "Go on; I've time for questions, though not for excuses." },
       },
       choices = {
-        { text = "What does the Light ask of a paladin?", next = "ask" },
+        { text = "The Light must ask a great deal of a paladin.", next = "ask" },
         { text = "Why test us at all?", next = "why" },
         { text = "Tell me about the Tome of Divinity.", next = "tome" },
         { text = "You spoke of a test of valor.", next = "valor", when = { class = "PALADIN", minLevel = 20 } },
-        { text = "Henze lives. What became of the Defias script?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
+        { text = "Henze lives. That Defias script must have reached someone.", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "I was a squire when the Order fell.", next = "squire", when = { origin = "human_paladin_squire" } },
-        { text = "Do priests and paladins learn the same Light?", next = "priest", when = { class = "PRIEST" } },
-        { text = "Does the Light have any use for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Priests and paladins must learn the same Light.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I doubt the Light has much use for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What separates a warrior from a paladin, Duthorian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would a paladin learn from a hunter, Duthorian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -225,7 +225,7 @@ P:NPC {
     valor = {
       lines = { { id = "v_default", text = "Daphne Stilwell's farm, in Westfall above the shore, and the Defias want it. Stand with her, and afterwards her husband in Ironforge will want to hear it from you." } },
       choices = {
-        { text = "Who's her husband?", next = "valor_jordan" },
+        { text = "I don't think I know her husband.", next = "valor_jordan" },
         { text = "Something else.", next = "BACK" },
       },
     },

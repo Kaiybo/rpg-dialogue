@@ -122,13 +122,13 @@ P:NPC {
         { id = "h_again2", text = "I am listening, though my mind is half on the soil." },
       },
       choices = {
-        { text = "What is wrong with the timberlings?", next = "timber" },
+        { text = "The timberlings here seem angry.", next = "timber" },
         { text = "Why study plants out here, not in Darnassus?", next = "why" },
         { text = "Tell me about Lake Al'Ameth.", next = "lake" },
         { text = "As a druid, I feel something amiss in the land.", next = "druid", when = { class = "DRUID" } },
         { text = "Something arcane may be twisting your timberlings.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your timberlings never hear me. I could watch them for you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What's wrong with the timberlings, Denalan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The timberlings by the lake look anything but gentle, Denalan.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the timberlings stalk prey like true beasts now?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can a sickness like the timberlings' be healed, Denalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the timberlings evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
@@ -293,7 +293,7 @@ P:NPC {
       },
       choices = {
         { text = "Why were you near the cave?", next = "cave" },
-        { text = "Who is Dirania to you?", next = "dirania" },
+        { text = "You speak of Dirania warmly.", next = "dirania" },
         { text = "What lives in Shadowglen?", next = "glen" },
         { text = "Let me see the wound. I'm a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know poisons. I could tell you what this is.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -470,8 +470,8 @@ P:NPC {
       },
       choices = {
         { text = "What is the kaldorei recipe?", next = "recipe" },
-        { text = "Who comes to eat here?", next = "guests" },
-        { text = "What was it like before Teldrassil?", next = "before" },
+        { text = "You must cook for a good many hungry folk.", next = "guests" },
+        { text = "You must remember life before Teldrassil.", next = "before" },
         { text = "I cook too. Any secrets to share?", next = "cook", when = { profession = "Cooking" } },
         { text = "I can conjure bread. You needn't cook for me.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your spice cupboard is very poorly guarded.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -488,7 +488,7 @@ P:NPC {
     recipe = {
       lines = { { id = "r_default", text = "A stew we made under the stars of Kalimdor, before the World Tree was planted. The ingredients are found here now, so the taste is a little different, but the heart is the same." } },
       choices = {
-        { text = "Should the old ways change for a new land?", next = "recipe_change" },
+        { text = "Perhaps the old ways should change for a new land.", next = "recipe_change" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -497,7 +497,7 @@ P:NPC {
       choices = {
         { text = "The old ways are worth keeping exactly as they were.", next = "recipe_end", fx = { align = { order = 1 } } },
         { text = "A recipe should change with the land.", next = "recipe_end", fx = { align = { order = -1 } } },
-        { text = "And you?", next = "recipe_end" },
+        { text = "I'd like to know where you stand.", next = "recipe_end" },
       },
     },
     recipe_end = {

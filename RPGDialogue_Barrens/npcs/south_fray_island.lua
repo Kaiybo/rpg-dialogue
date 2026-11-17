@@ -47,7 +47,7 @@ P:NPC {
         { text = "Why fight out here on an island?", next = "island" },
         { text = "Who is Big Will?", next = "will" },
         { text = "Who's the goblin shouting by the grate?", next = "twiggy" },
-        { text = "Horde and Alliance both fight here?", next = "factions" },
+        { text = "So Horde and Alliance both fight here.", next = "factions" },
         { text = "I'm a warrior. Test me.", next = "test", when = { class = "WARRIOR" } },
         { text = "I'm ready for the grate.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "I'll leave you to it, Klannoc.", next = "END" },
@@ -56,7 +56,7 @@ P:NPC {
     island = {
       lines = { { id = "is_default", text = "Because nobody bothers us out here, and nobody can run. An island tells you the truth about a fighter, because the only way off is through the challengers or into the sea." } },
       choices = {
-        { text = "Has anyone tried swimming for it?", next = "island2" },
+        { text = "Someone must have tried swimming for it.", next = "island2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -159,9 +159,9 @@ P:NPC {
       choices = {
         { text = "How do your odds work?", next = "odds" },
         { text = "Who are the challengers?", next = "challengers" },
-        { text = "How does a goblin end up on Fray Island?", next = "how" },
+        { text = "I'd guess you came to Fray Island for the money.", next = "how" },
         { text = "What are my odds, Twiggy?", next = "myodds", when = { class = "WARRIOR" } },
-        { text = "Ever had a fight fixed, Twiggy?", next = "fixed", when = { class = "ROGUE" } },
+        { text = "I'd bet some of these fights get fixed, Twiggy.", next = "fixed", when = { class = "ROGUE" } },
         { text = "See you at ringside, Twiggy.", next = "END" },
       },
     },
@@ -191,7 +191,7 @@ P:NPC {
     challengers = {
       lines = { { id = "ch_default", text = "Sellswords, brawlers, a few old fighters who never got off the island, and Big Will, who's the main event and the main reason I can afford a boat. They each get a cut if they win, pal, so they don't hold back." } },
       choices = {
-        { text = "Where does Big Will come from?", next = "will" },
+        { text = "Nobody seems to know where Big Will came from.", next = "will" },
         { text = "Something else.", next = "BACK" },
       },
     },

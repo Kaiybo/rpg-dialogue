@@ -49,8 +49,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Talkin's better than lookin' down." },
       },
       choices = {
-        { text = "How did you end up out here?", next = "stranded" },
-        { text = "What happened to the Span?", next = "span" },
+        { text = "You look like you've been stranded up here a while.", next = "stranded" },
+        { text = "The Span looks like it was blown apart.", next = "span" },
         { text = "Tell me about this moonshine.", next = "moonshine" },
         { text = "Who's Brewmeister Bilger to you?", next = "bilger" },
         { text = "How do I get back down?", next = "down" },
@@ -64,7 +64,7 @@ P:NPC {
         { id = "st_default", text = "I was on watch, which is tae say I was sittin' wi' the jug, an' I nodded off. When I woke up, the bridge on both sides o' me was gone, an' here I am." },
       },
       choices = {
-        { text = "You slept through the explosion?", next = "stranded_slept" },
+        { text = "So you slept through the explosion.", next = "stranded_slept" },
         { text = "Something else.", next = "BACK" },
       },
     },

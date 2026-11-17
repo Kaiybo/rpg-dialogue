@@ -56,7 +56,7 @@ P:NPC {
         { text = "What is the Crown of Will?", next = "crown" },
         { text = "Who is Mug'thol?", next = "mugthol" },
         { text = "Who is Sharlindra?", next = "sharlindra" },
-        { text = "What is it like, being a banshee?", next = "banshee" },
+        { text = "I can't imagine what it's like, being a banshee.", next = "banshee" },
         { text = "I know what it is to be bound.", next = "bound", when = { race = "Scourge" } },
         { text = "I'll take my leave, Melisara.", next = "END" },
       },
@@ -88,7 +88,7 @@ P:NPC {
         { id = "mu_default", text = "An ogre, and a Crushridge chief, who was sent with his warband into Alterac to retrieve the crown for the Dark Lady. Instead the fool tried it on, as ogres can't resist anything shiny, and it let him slip the possession that bound him to our service." },
       },
       choices = {
-        { text = "So the Forsaken had an ogre under their control?", next = "mugthol_control" },
+        { text = "So the Forsaken had an ogre under their control.", next = "mugthol_control" },
         { text = "Something else.", next = "BACK" },
       },
     },

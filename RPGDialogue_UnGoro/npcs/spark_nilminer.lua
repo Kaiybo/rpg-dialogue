@@ -50,9 +50,9 @@ P:NPC {
       },
       choices = {
         { text = "Why did you sign on, if you hate it?", next = "why" },
-        { text = "What's in Terror Run?", next = "terror" },
+        { text = "Terror Run sounds like a cheerful place.", next = "terror" },
         { text = "What do you think of Dadanga?", next = "dadanga" },
-        { text = "Do the Marshals know where the bones come from?", next = "marshals" },
+        { text = "The Marshals can't know where these bones come from.", next = "marshals" },
         { text = "I dig for a living too. Any tips?", next = "miner", when = { profession = "Mining" } },
         { text = "Hunting those beasts for bones is wrong.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "What do you need?", next = "BUSINESS" },

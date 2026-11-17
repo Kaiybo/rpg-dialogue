@@ -65,7 +65,7 @@ P:NPC {
         { text = "What do the Windshapers want?", next = "order" },
         { text = "What is skysight?", next = "skysight" },
         { text = "Why warn me off the Windshapers?", next = "xwarn", when = { race = "Skyborne", faction = "Alliance" } },
-        { text = "How do your shaman differ from mine?", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
+        { text = "Your shaman must differ from mine.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "My people have welcomed yours in Mulgore.", next = "xmulgore", when = { race = "Tauren" } },
         { text = "I drank the sapta, Ventaari. The winds still don't answer me.", next = "xsapta", when = { origin = "skyborne_windshaper" } },
         { text = "Winds guide you, Ventaari.", next = "END" },
@@ -86,7 +86,7 @@ P:NPC {
         { id = "is_default", text = "Silent. The few Windshapers who still hold the gift of skysight have reached out to our kin on the other islands, again and again, and nobody has answered." },
       },
       choices = {
-        { text = "Do you think anyone's left out there?", next = "islands_left" },
+        { text = "Someone must be left out there.", next = "islands_left" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -115,7 +115,7 @@ P:NPC {
       },
       choices = {
         { text = "And the High Order wants something else?", next = "highorder" },
-        { text = "How do you call a spirit home?", next = "callhome" },
+        { text = "Calling a spirit home can't be simple.", next = "callhome" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,7 +147,7 @@ P:NPC {
           text = "A gift some shen'dorei carry, to see past this world and hear the spirits behind it. I doubt you have it, traveller, though your shaman may have something like it under another name." },
       },
       choices = {
-        { text = "Can it fade?", next = "skysight_fade" },
+        { text = "A gift like that could fade, I'd guess.", next = "skysight_fade" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -283,7 +283,7 @@ P:NPC {
         { text = "Tell me about the ley lines.", next = "leylines" },
         { text = "Why warn me away from your order?", next = "xwarn", when = { race = "Skyborne", faction = "Horde" } },
         { text = "How did your order find the Kirin Tor?", next = "keyhole", when = { faction = "Alliance" } },
-        { text = "Does my fel magic interest you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My fel magic seems to interest you.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "My family's books have gaps. I'm going below to fill them.", next = "xbooks", when = { origin = "skyborne_high_order" } },
         { text = "Farewell, Falorne.", next = "END" },
       },
@@ -344,7 +344,7 @@ P:NPC {
       },
       choices = {
         { text = "Why are they breaking through?", next = "leylines_why" },
-        { text = "Is it safe to draw on them?", next = "leylines_safe" },
+        { text = "It can't be safe to draw on them.", next = "leylines_safe" },
         { text = "Something else.", next = "BACK" },
       },
     },

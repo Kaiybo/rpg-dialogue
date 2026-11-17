@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "What is the Rite of Strength?", next = "rite" },
-        { text = "Why do you hate the Bristleback?", next = "bristleback" },
+        { text = "You seem to hate the Bristleback.", next = "bristleback" },
         { text = "Tell me of the Earth Mother.", next = "earthmother" },
         { text = "I walk the druid's path, Seer.", next = "druid", when = { class = "DRUID" } },
         { text = "I'm not tauren. Will the Rites still count?", next = "outsider", when = { ["not"] = { race = "Tauren" } } },
@@ -82,7 +82,7 @@ P:NPC {
     bristleback = {
       lines = { { id = "b_default", text = "I do not hate them, any more than I hate a fire. But a fire must be put out before it reaches the village, and the Bristleback burn through the plains, digging and fouling, and they leave nothing growing behind them." } },
       choices = {
-        { text = "Could they be reasoned with?", next = "reason" },
+        { text = "Perhaps they could be reasoned with.", next = "reason" },
         { text = "Then they must be stopped.", next = "BACK", fx = { affinity = 1 } },
       },
     },

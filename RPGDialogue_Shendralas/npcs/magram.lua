@@ -92,10 +92,10 @@ P:NPC {
       },
       choices = {
         { text = "Why raise the dead at all?", next = "why" },
-        { text = "Who are these outcasts?", next = "outcasts" },
-        { text = "What happened to your khan?", next = "khan" },
-        { text = "Where do the Magram stand with the other clans?", next = "clans" },
-        { text = "What lies in this valley?", next = "valley" },
+        { text = "These outcasts seem to trouble the clan.", next = "outcasts" },
+        { text = "Something has happened to your khan.", next = "khan" },
+        { text = "The Magram can't have many friends among the clans.", next = "clans" },
+        { text = "This valley is full of bones.", next = "valley" },
         { text = "What did raising your khan mean to the clan?", next = "after_jehn", when = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Return to Orgrul") } } } },
         { text = "I killed Khan Jehn. You know that, don't you?", next = "xjehn", when = { killed = { name = "Khan Jehn" }, ["not"] = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Return to Orgrul") } } } } },
         { text = "The Light forbids what you do here.", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
@@ -115,7 +115,7 @@ P:NPC {
         { id = "wh_default", text = "Because the dead do not tire, do not desert and do not beg for food when the hunting is poor. A clan that respects only strength would be foolish to leave so much strength lying in the dirt." },
       },
       choices = {
-        { text = "And the dead have no say in it?", next = "why_say" },
+        { text = "The dead have no say in it, then.", next = "why_say" },
         { text = "Who taught the Magram necromancy?", next = "why_taught" },
         { text = "Something else.", next = "BACK" },
       },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "oc_default", text = "Necromancers who left the clan, or were thrown out of it, and kept the craft anyway. They hide away in their little hole and raise what they please, and every skeleton they steal from this valley is one the Magram will not have." },
       },
       choices = {
-        { text = "Why were they cast out?", next = "outcasts_why" },
+        { text = "They must have done something bad to be cast out.", next = "outcasts_why" },
         { text = "Couldn't they be brought back into the clan?", next = "outcasts_back" },
         { text = "Something else.", next = "BACK" },
       },
@@ -217,7 +217,7 @@ P:NPC {
         { id = "cl_default", text = "The Gelkis are our enemies, and the Kolkar and the Maraudine are no friends either. The Gelkis respect the earth and trust Theradras to protect them, and the Magram respect strength, and only one of those has ever kept a clan alive." },
       },
       choices = {
-        { text = "And the quilboar at Bristleback Retreat?", next = "quilboar" },
+        { text = "There are quilboar at Bristleback Retreat too.", next = "quilboar" },
         { text = "What of the Highborne ruins to the south?", next = "highborne" },
         { text = "Something else.", next = "BACK" },
       },
@@ -241,7 +241,7 @@ P:NPC {
         { id = "va_default", text = "Bones, more than any clan could count, and two great skeletons against the cliffs that no one living can put a name to. The ghosts of our own dead walk here too, and they do not always remember which side they are on." },
       },
       choices = {
-        { text = "What were the great skeletons?", next = "goliaths" },
+        { text = "Those great skeletons belonged to something enormous.", next = "goliaths" },
         { text = "Desolace once claimed this valley, didn't it?", next = "desolace" },
         { text = "Something else.", next = "BACK" },
       },
@@ -286,7 +286,7 @@ P:NPC {
       choices = {
         { text = "The dead deserve rest. I won't help you disturb it.", next = "BACK", fx = { affinity = -1, align = { light = 2 } } },
         { text = "If the dead can save the living, so be it.", next = "BACK", fx = { affinity = 1, align = { light = -2 } } },
-        { text = "What do the Crusaders want here?", next = "crusade" },
+        { text = "I've seen Crusaders in red down here.", next = "crusade" },
       },
     },
     crusade = {
@@ -435,7 +435,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
-        { text = "What's the fight with the Bristleback about?", next = "fight" },
+        { text = "You and the Bristleback seem to be at war.", next = "fight" },
         { text = "Why are your warriors starving?", next = "hunger" },
         { text = "What do you make of Orgrul?", next = "orgrul" },
         { text = "The quilboar have troubled my people too.", next = "xtauren", when = { race = "Tauren" } },
@@ -585,7 +585,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? We should not linger here long." } },
       choices = {
-        { text = "What are the Magram doing in the valley?", next = "valley" },
+        { text = "The Magram seem busy in the valley.", next = "valley" },
         { text = "Why do the Gelkis and Magram fight?", next = "feud" },
         { text = "Who are your elders?", next = "elders" },
         { text = "Jehn is dead. What happens now?", next = "after", when = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Checking Things Out") } } } },
@@ -599,7 +599,7 @@ P:NPC {
         { id = "va_default", text = "Raising bones and putting them to work, the way a farmer puts oxen to the plough. They think it makes them strong, but a clan that needs the dead to fight for it is a clan running out of the living." },
       },
       choices = {
-        { text = "And while they're busy?", next = "valley_opening" },
+        { text = "That keeps them busy elsewhere, then.", next = "valley_opening" },
         { text = "Something else.", next = "BACK" },
       },
     },

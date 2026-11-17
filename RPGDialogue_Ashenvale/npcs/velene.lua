@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the elementals?", next = "elementals" },
-        { text = "Who is Sarilus Foulborne?", next = "sarilus", when = { any = { { questDone = TODO_QUEST("Elemental Bracers") }, { questActive = TODO_QUEST("Mage Summoner") } } } },
+        { text = "I've never heard of Sarilus Foulborne.", next = "sarilus", when = { any = { { questDone = TODO_QUEST("Elemental Bracers") }, { questActive = TODO_QUEST("Mage Summoner") } } } },
         { text = "Tell me about Silverwind Refuge.", next = "refuge" },
         { text = "Could my magic cleanse the elementals?", next = "mage_v", when = { class = { "MAGE", "SHAMAN" } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -75,7 +75,7 @@ P:NPC {
         { id = "es_default", text = "Because they wear bracers, {class}, and water doesn't forge its own jewellery. Whoever bound them left his mark on every one, and a mark can be read." },
       },
       choices = {
-        { text = "And then?", next = "elementals_then" },
+        { text = "There must be more to it than that.", next = "elementals_then" },
         { text = "Something else.", next = "BACK" },
       },
     },

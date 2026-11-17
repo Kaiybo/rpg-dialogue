@@ -134,8 +134,8 @@ P:NPC {
       },
       choices = {
         { text = "Where's the deputy?", next = "rainer" },
-        { text = "Who's all this lumber for?", next = "order" },
-        { text = "What's chasing your workers off?", next = "animals" },
+        { text = "That's a great deal of lumber.", next = "order" },
+        { text = "Something seems to be chasing your workers off.", next = "animals" },
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },
         { text = "Your lads look done in. Let me tend them.", next = "priest", when = { class = "PRIEST" } },
         { text = "Westfall folk would work for you.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
@@ -143,10 +143,10 @@ P:NPC {
         { text = "Would you rather have magic than honest lumberjacks?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you rather I cut wood or fight bears?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many bears are we talking about, Raelen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Has Stormwind sent you any protection, Raelen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Stormwind doesn't seem to have sent you any protection, Raelen.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would it take to make the mill cut fewer trees?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really hire a demon, Raelen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you have enough workers for the deadlines, Raelen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You look short of workers for these deadlines, Raelen.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -178,7 +178,7 @@ P:NPC {
 
     order = {
       lines = {
-        { id = "o_default", text = "Buyers. More of them than I can count. Orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
+        { id = "o_default", text = "It's all for buyers, more of them than I can count. Orders come in faster than my lads can swing. Miss a deadline and the next order goes to someone else." },
       },
       choices = {
         { text = "Why not hire more lads?", next = "order_hire" },

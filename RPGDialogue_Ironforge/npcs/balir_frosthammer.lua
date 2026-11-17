@@ -53,9 +53,9 @@ P:NPC {
         { id = "h_again2", text = "Ask away. I'll keep one eye on the hill while ye do." },
       },
       choices = {
-        { text = "What happened at the western camp?", next = "camp" },
+        { text = "Something seems to have gone wrong at the western camp.", next = "camp" },
         { text = "Where are the troggs coming from?", next = "where" },
-        { text = "Does the King know about this?", next = "king" },
+        { text = "Surely the King has heard about this by now.", next = "king" },
         { text = "A dwarf should be out there, not waiting on recruits.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll drive them back.", next = "BUSINESS" },
         { text = "Farewell, Balir.", next = "END" },
@@ -91,7 +91,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Out o' the ground, from cracks an' caves that weren't there last year. Sten says they come through Coldridge Pass as well, an' Thalos has his hands full keepin' the tunnel." },
       },
       choices = {
-        { text = "Why would they come up now?", next = "where_why" },
+        { text = "It's strange they'd come up now, after so long.", next = "where_why" },
         { text = "Something else.", next = "BACK" },
       },
     },

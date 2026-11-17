@@ -56,7 +56,7 @@ P:NPC {
       choices = {
         { text = "What are the naga doing at Solarsal?", next = "naga" },
         { text = "Shandris says you complain more than she does.", next = "shandris" },
-        { text = "Who's this Vestia?", next = "vestia" },
+        { text = "You speak fondly of this Vestia.", next = "vestia" },
         { text = "Any word of the missing courier?", next = "courier" },
         { text = "Night elves aren't warmongers. Why strike first?", next = "strike" },
         { text = "I've fought naga before. What should I know?", next = "veteran", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
@@ -161,7 +161,7 @@ P:NPC {
         { text = "What do you make of the relic?", next = "relic", when = { questDone = TODO_QUEST("Delivering the Relic") } },
         { text = "What are you studying?", next = "study" },
         { text = "Tell me about Latro.", next = "latro" },
-        { text = "Why do the naga dig in the ruins?", next = "naga" },
+        { text = "The naga seem to be digging in the ruins.", next = "naga" },
         { text = "How do you balance prayer and study?", next = "priest", when = { class = "PRIEST" } },
         { text = "Do you have anything for me?", next = "BUSINESS" },
         { text = "I'll leave you to your books.", next = "END" },
@@ -206,7 +206,7 @@ P:NPC {
       choices = { { text = "He seems lucky to have you.", next = "BACK", fx = { affinity = 1 } } },
     },
     naga = {
-      lines = { { id = "n_default", text = "That is the question I lose sleep over. They're not simply raiding; they're excavating, carefully, as if they know exactly what they're looking for." } },
+      lines = { { id = "n_default", text = "They are, and that is what I lose sleep over. They're not simply raiding; they're excavating, carefully, as if they know exactly what they're looking for." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     priest = {

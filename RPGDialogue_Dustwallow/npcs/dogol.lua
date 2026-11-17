@@ -49,9 +49,9 @@ P:NPC {
       },
       choices = {
         { text = "What did the black shield tell you?", next = "shield" },
-        { text = "Why do you make shields and not axes?", next = "craft" },
+        { text = "Most smiths here would rather make axes than shields.", next = "craft" },
         { text = "You don't like the spiders?", next = "spiders" },
-        { text = "What do you make of Krog?", next = "krog" },
+        { text = "Krog seems to have a lot on his mind.", next = "krog" },
         { text = "I'm a smith too. What's your secret?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "What makes a good shield, for a warrior?", next = "warrior", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -61,7 +61,7 @@ P:NPC {
     shield = {
       lines = { { id = "s_default", text = "It is a good shield, heavy and strong, the kind Do'gol would make if Do'gol had better iron. Somebody important carried it, and somebody important dropped it in the burned inn, and that is all a shield can say by itself." } },
       choices = {
-        { text = "Who do you think it belonged to?", next = "shield_who" },
+        { text = "Somebody important must have carried that shield.", next = "shield_who" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "How do you know what you're selling?", next = "blades" },
-        { text = "You live out here alone?", next = "alone" },
+        { text = "You seem to live out here alone.", next = "alone" },
         { text = "Do you know who your customers are?", next = "customers" },
         { text = "Let me see your weapons.", next = "BUSINESS" },
         { text = "Good day, Wallace.", next = "END" },
@@ -64,7 +64,7 @@ P:NPC {
     alone = {
       lines = { { id = "al_default", text = "Alone with the gulls and the murlocs down at the tide line, who gurgle all night and never buy anything. Folk come by often enough, and they're always polite to a blind man, which is more than I can say for the sighted world." } },
       choices = {
-        { text = "Aren't you afraid, with what walks these woods?", next = "alone_afraid" },
+        { text = "I'd be afraid, with what walks these woods.", next = "alone_afraid" },
         { text = "Something else.", next = "BACK" },
       },
     },

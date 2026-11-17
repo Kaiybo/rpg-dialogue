@@ -149,7 +149,7 @@ P:NPC {
       choices = {
         { text = "Meet the Warsong in the open and break them.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
         { text = "Strike their camps by night. Let them fear the dark.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Why so few warriors among the kaldorei?", next = "warrior_t2" },
+        { text = "There seem to be few warriors among the kaldorei.", next = "warrior_t2" },
       },
     },
     warrior_t2 = {
@@ -230,9 +230,9 @@ P:NPC {
       },
       choices = {
         { text = "Where is Malfurion?", next = "malfurion" },
-        { text = "What troubles Darnassus?", next = "troubles" },
+        { text = "Darnassus seems troubled, for all its beauty.", next = "troubles" },
         { text = "The Horde is in Ashenvale. What will you do?", next = "ashenvale" },
-        { text = "What does Elune ask of her priestesses?", next = "elune" },
+        { text = "Elune must ask a great deal of her priestesses.", next = "elune" },
         { text = "Every year since Hyjal feels borrowed, High Priestess.", next = "xborrowed", when = { origin = "nightelf_hyjal_survivor" } },
         { text = "They say you once had no use for humans.", next = "hyjal", when = { race = "Human" } },
         { text = "I serve the Light, High Priestess. Is that so different?", next = "light",
@@ -282,13 +282,13 @@ P:NPC {
       choices = {
         { text = "He'll come back.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "What happened to him?", next = "barrow" },
-        { text = "Can nothing be done?", next = "done" },
+        { text = "Surely something can be done for him.", next = "done" },
       },
     },
     barrow = {
       lines = { { id = "ba_default", text = "He went walking in the Dream, as druids do, and his spirit never came home. His body sleeps untouched by time. My sisters see that it stays so." } },
       choices = {
-        { text = "Do the druids still look for him?", next = "barrow_search" },
+        { text = "I'd guess the druids still look for him.", next = "barrow_search" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -320,7 +320,7 @@ P:NPC {
       },
       choices = {
         { text = "The Archdruid?", next = "fandral" },
-        { text = "Immortality, at any price?", next = "immortal" },
+        { text = "Immortality at any price sounds a dangerous wish.", next = "immortal" },
         { text = "I'll help where I can.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Kaldorei troubles are for the kaldorei to settle.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -335,7 +335,7 @@ P:NPC {
     fandral2 = {
       lines = { { id = "f2_default", text = "About nearly everything. He wants more druids, more groves, more of Kalimdor under our hand. I want us to stop repeating the mistakes that sank the old world." } },
       choices = {
-        { text = "Which mistakes?", next = "mistakes" },
+        { text = "You haven't said which mistakes.", next = "mistakes" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -383,7 +383,7 @@ P:NPC {
     elune = {
       lines = { { id = "e_default", text = "She asks us to protect. Every prayer, every arrow and every healing comes back to that, and it has been enough to fill ten thousand years." } },
       choices = {
-        { text = "Her priestesses lead the Sentinels too?", next = "sentinels" },
+        { text = "So her priestesses lead the Sentinels too.", next = "sentinels" },
         { text = "Then I'll protect whoever needs it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Protecting alone won't win a war, High Priestess.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -443,7 +443,7 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "Heed him on druids' matters. That is his charge, and he knows it well. When he speaks of the future of all our people, listen politely, then come and tell me." } },
       choices = {
-        { text = "You don't trust him?", next = "druid2" },
+        { text = "You don't sound as though you trust him.", next = "druid2" },
         { text = "I'll do that.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -700,9 +700,9 @@ P:NPC {
       },
       choices = {
         { text = "Why did you grow Teldrassil?", next = "tree" },
-        { text = "What of Moonglade?", next = "moonglade" },
+        { text = "Moonglade seems to go its own way.", next = "moonglade" },
         { text = "The High Priestess has her doubts about you.", next = "priestess" },
-        { text = "What was Malfurion like?", next = "malf" },
+        { text = "You must have known Malfurion well.", next = "malf" },
         { text = "I serve the Light, Archdruid. Not the Temple.", next = "priest_f",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "Teach me, Archdruid.", next = "kin", when = { class = "DRUID", race = "NightElf" } },
@@ -727,7 +727,7 @@ P:NPC {
       },
       choices = {
         { text = "It's magnificent.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Without their blessing?", next = "blessing", fx = { trait = { skeptical = 1 } } },
+        { text = "So you did it without their blessing.", next = "blessing", fx = { trait = { skeptical = 1 } } },
         { text = "Has it given back what you lost?", next = "immortal" },
       },
     },
@@ -787,7 +787,7 @@ P:NPC {
     malf = {
       lines = { { id = "ma_default", text = "My teacher, and the greatest of us. He would have argued against this tree; he argued against most things. Until he wakes, someone must decide." } },
       choices = {
-        { text = "Do you think he'll wake?", next = "malf2" },
+        { text = "I'd hope he wakes one day.", next = "malf2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1036,7 +1036,7 @@ P:NPC {
         { text = "What is a Druid of the Claw?", next = "claw" },
         { text = "You serve the Archdruid?", next = "second" },
         { text = "Which parts of this world are mine, Mathrengyl? I can't tell yet.", next = "xwoke", when = { origin = "nightelf_druid_initiate" } },
-        { text = "What's wrong in Auberdine?", next = "auberdine" },
+        { text = "I've heard there's trouble in Auberdine.", next = "auberdine" },
         { text = "What can a priest learn from a druid?", next = "healers", when = { class = "PRIEST" } },
         { text = "Bear and warrior both stand in front. What's the difference?", next = "claw_w", when = { class = "WARRIOR" } },
         { text = "Why do the old druids step aside from a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1300,7 +1300,7 @@ P:NPC {
       choices = {
         { text = "What do you pray for?", next = "pray" },
         { text = "Tell me about Elune.", next = "elune" },
-        { text = "Who was Lady Sathrah?", next = "sathrah" },
+        { text = "Lady Sathrah sounds like a name from an old story.", next = "sathrah" },
         { text = "Does Elune hear a priest of the Light?", next = "light",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "I'm a long way from Gnomeregan, Priestess.", next = "gnome_a", when = { race = "Gnome" } },
@@ -1533,10 +1533,10 @@ P:NPC {
       },
       choices = {
         { text = "What are you studying?", next = "study" },
-        { text = "What frightens you?", next = "fear" },
+        { text = "Something must frighten even you.", next = "fear" },
         { text = "What are the silithid?", next = "silithid" },
         { text = "I carried that report. What now?", next = "silithid_done", when = { questDone = TODO_QUEST("Rise of the Silithid") } },
-        { text = "A priestess who studies insects?", next = "priest_g", when = { class = "PRIEST" } },
+        { text = "I've never met a priestess who studies insects.", next = "priest_g", when = { class = "PRIEST" } },
         { text = "I've tracked beasts across Kalimdor. These insects too.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "What creatures does the arcane draw into this world?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you want a warrior to bring back specimens, Gracina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1774,7 +1774,7 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How do outsiders find Darnassus?", next = "outsiders" },
-        { text = "What's the talk on the Terrace?", next = "talk" },
+        { text = "You must hear all the Terrace's talk from here.", next = "talk" },
         { text = "Why would a rogue want the back window?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are mages often trouble at your inn?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is it safe to sleep unarmed up here, Saelienne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1791,7 +1791,7 @@ P:NPC {
     outsiders = {
       lines = { { id = "o_default", text = "By boat to Rut'theran, then through the portal, and they arrive looking dazed. Dwarves look down from the terrace once. Humans ask where the walls are." } },
       choices = {
-        { text = "Where are the walls?", next = "walls" },
+        { text = "I haven't seen a single wall in this city.", next = "walls" },
         { text = "Something else.", next = "BACK" },
       },
     },

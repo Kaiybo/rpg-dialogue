@@ -92,14 +92,14 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Go on. The moon is high, and I am in no hurry to go back to the halls." },
       },
       choices = {
-        { text = "What was this place?", next = "place" },
+        { text = "This place was grand once, by the look of it.", next = "place" },
         { text = "Why do you stand watch out here alone?", next = "alone" },
-        { text = "Who are the Shen'dralar?", next = "order" },
-        { text = "What do you look at, down there?", next = "grave" },
+        { text = "I know nothing of the Shen'dralar.", next = "order" },
+        { text = "You keep staring at something down there.", next = "grave" },
         { text = "I have something you should see.", next = "tome", when = { carrying = 282404 } },
         { text = "What do we need for the ritual again?", next = "ritual", when = { npcFlagBefore = "ritual" } },
         { text = "I found the Star of Elune.", next = "star", when = { carrying = 282548 } },
-        { text = "What is this globe I'm carrying?", next = "globe", when = { carrying = 282337, ["not"] = { carrying = 282404 } } },
+        { text = "This globe I'm carrying hums with something strange.", next = "globe", when = { carrying = 282337, ["not"] = { carrying = 282404 } } },
         { text = "I've faced Prince Tortheldrin.", next = "after_prince", when = { killed = { name = "Prince Tortheldrin" } } },
         { text = "My people were exiled for what yours did.", next = "xnelf", when = { race = "NightElf" } },
         { text = "My ancestors fled Eldre'Thalas. We are the Skyborne.", next = "xsky", when = { race = "Skyborne" } },
@@ -123,7 +123,7 @@ P:NPC {
           fx = { learn = { "highborne" } } },
       },
       choices = {
-        { text = "Why not call it by its true name, then?", next = "name" },
+        { text = "You could call it by its true name, then.", next = "name" },
         { text = "Tell me about the temple below.", next = "temple" },
         { text = "How did any of it survive the Sundering?", next = "sundering" },
         { text = "Something else.", next = "BACK" },
@@ -160,7 +160,7 @@ P:NPC {
         { id = "su_default", text = "That is the cruel part. Eldre'Thalas survived the Great Sundering when it should have killed us all, and then it fell anyway, slowly, not by the catastrophe but by what came after it. The moment the world broke changed my people's fate forever." },
       },
       choices = {
-        { text = "What came after it?", next = "prince" },
+        { text = "Something worse must have come after it.", next = "prince" },
         { text = "Surviving is a victory. You should honor that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some cities deserve to fall.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
       },
@@ -193,7 +193,7 @@ P:NPC {
         { id = "al_default", text = "Because it pains me to walk the halls below now, though I still count myself one of the order that keeps them. I spend most of my days away from the library I once called home, and this hill is as far as I can bring myself to go." },
       },
       choices = {
-        { text = "What pains you about the halls?", next = "halls" },
+        { text = "Something about the halls pains you.", next = "halls" },
         { text = "Have you met anyone else out here?", next = "others" },
         { text = "Something else.", next = "BACK" },
       },
@@ -233,7 +233,7 @@ P:NPC {
         { id = "mg_default", text = "The centaur keep to their valley and their front, and they leave a lone old elf on a hill alone, which suits us both. Their shamans raise the dead in the Valley of Bones, though, and I like that a great deal less than I like their manners." },
       },
       choices = {
-        { text = "And the quilboar to the south?", next = "quilboar" },
+        { text = "There are quilboar to the south as well.", next = "quilboar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -250,7 +250,7 @@ P:NPC {
         { id = "or_default", text = "The Shen'dralar are the scholars and magi of Eldre'Thalas, the keepers of its library and the last of its Highborne who still keep their wits. We were the brightest minds of a bright city, once, and now we are mostly a habit of reading by candlelight." },
       },
       choices = {
-        { text = "What do you keep in that library?", next = "library" },
+        { text = "That library is said to hold a great many books.", next = "library" },
         { text = "Why do the night elves hate you?", next = "kaldorei" },
         { text = "Something else.", next = "BACK" },
       },
@@ -372,7 +372,7 @@ P:NPC {
           fx = { npcFlag = { set = { "ritual" } } } },
       },
       choices = {
-        { text = "What will we need?", next = "ritual" },
+        { text = "This will need more than research, I'd guess.", next = "ritual" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -384,7 +384,7 @@ P:NPC {
       },
       again = { { id = "ri_again", text = "The star, the mote and the tears. Which would you hear of?" } },
       choices = {
-        { text = "Where would I find a Star of Elune?", next = "ritual_star" },
+        { text = "A Star of Elune won't be easy to find.", next = "ritual_star" },
         { text = "An Abyssal Mote? From where?", next = "ritual_mote" },
         { text = "What dilutes corruption like that?", next = "ritual_tears" },
         { text = "I have the reagents. What now?", next = "ritual_ready", when = { carrying = 282548 } },

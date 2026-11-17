@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "Who was Ur?", next = "ur" },
-        { text = "What do you keep here?", next = "collection" },
+        { text = "You keep a strange collection here.", next = "collection" },
         { text = "Who are these \"certain parties\"?", next = "parties" },
         { text = "Some knowledge is forbidden for a reason.", next = "forbidden", when = { class = { "PRIEST", "PALADIN", "MAGE" } } },
         { text = "Do you have work for me?", next = "BUSINESS" },
@@ -59,7 +59,7 @@ P:NPC {
     ur = {
       lines = { { id = "ur_default", text = "A mage of Dalaran who looked beyond this world and wrote down what he saw. He studied the places past the edges, and then he stopped short, as good men do, and died with his best work unfinished." } },
       choices = {
-        { text = "Why is his book in Shadowfang Keep?", next = "ur_sfk" },
+        { text = "Shadowfang Keep seems an odd place for his book.", next = "ur_sfk" },
         { text = "Something else.", next = "BACK" },
       },
     },

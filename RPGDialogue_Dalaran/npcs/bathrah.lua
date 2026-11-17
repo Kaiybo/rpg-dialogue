@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. Old Bath'rah got time." },
       },
       choices = {
-        { text = "Who is Cyclonian?", next = "cyclonian" },
+        { text = "You keep speaking of Cyclonian.", next = "cyclonian" },
         { text = "Why do you watch this place?", next = "watch" },
         { text = "Why are the spirits angry with you?", next = "spirits" },
         { text = "How do you forge a weapon from a storm?", next = "forge" },

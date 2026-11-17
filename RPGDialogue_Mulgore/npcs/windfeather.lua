@@ -56,7 +56,7 @@ P:NPC {
     sharptusk = {
       lines = { { id = "s_default", text = "Chief of the Bristleback in Brambleblade Ravine, east of here, in a camp of thorns and stolen hides. He sends his raiders up onto the mesa, and when they come back with blood on them, he gives them bigger tusks to wear." } },
       choices = {
-        { text = "Others have tried to kill him?", next = "others" },
+        { text = "So others have tried to kill him.", next = "others" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -64,7 +64,7 @@ P:NPC {
       lines = { { id = "o_default", text = "Two braves from Narache, last season, and they came back carried. Sharptusk is cunning for a quilboar, and he never fights at the edge of his camp, only in the middle where his warriors are thickest." } },
       choices = {
         { text = "Then I'll go through his warriors first.", next = "others_end" },
-        { text = "Were the braves badly hurt?", next = "others_end" },
+        { text = "The braves must have been badly hurt.", next = "others_end" },
       },
     },
     others_end = {

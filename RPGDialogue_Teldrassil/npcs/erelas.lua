@@ -60,7 +60,7 @@ P:NPC {
       choices = {
         { text = "Where do the hippogryph eggs come from?", next = "eggs" },
         { text = "Why study the wildkin?", next = "wildkin" },
-        { text = "Who is Ranshalla?", next = "ranshalla", when = { any = { { questActive = TODO_QUEST("Find Ranshalla") }, { questDone = TODO_QUEST("Moontouched Wildkin") } } } },
+        { text = "You speak of Ranshalla as though you miss her.", next = "ranshalla", when = { any = { { questActive = TODO_QUEST("Find Ranshalla") }, { questDone = TODO_QUEST("Moontouched Wildkin") } } } },
         { text = "What did the altar tell you?", next = "altar", when = { questDone = TODO_QUEST("Wildkin of Elune") } },
         { text = "Can I hold one of the chicks?", next = "chick" },
         { text = "How does a moonkin form compare?", next = "druid_e", when = { class = "DRUID" } },

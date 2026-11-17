@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did Aerie Peak let you go?", next = "grounded" },
-        { text = "What happened in the swamp?", next = "swamp" },
+        { text = "Something must have happened in the swamp.", next = "swamp" },
         { text = "Tell me about your brews.", next = "brews" },
         { text = "What's the elf next door selling?", next = "gilveradin" },
         { text = "I ride gryphons too, Rhapsody.", next = "rider", when = { origin = "dwarf_wildhammer_kin" } },
@@ -66,7 +66,7 @@ P:NPC {
         { id = "gr_default", text = "I took tae the liquor like a gryphon takes tae the sky, an' a rider who cannae stay in the saddle is a danger tae his bird. Talonaxe had nae choice, an' I've told him so, though I was drunk when I told him." },
       },
       choices = {
-        { text = "Do you miss flying?", next = "grounded_miss" },
+        { text = "You must miss flying.", next = "grounded_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "br_default", text = "Rhapsody Malt's my finest, an' the Thunderbrews use it for their ales, so ye've likely tasted it without knowin'. The Kalimdor Kocktail's a different beast: roc gizzards an' groddoc an' ironfur livers, an' it'll make a troll talk." },
       },
       choices = {
-        { text = "Livers and gizzards? In a drink?", next = "brews_livers" },
+        { text = "Livers and gizzards seem an odd thing to put in a drink.", next = "brews_livers" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -201,8 +201,8 @@ P:NPC {
       },
       choices = {
         { text = "What exactly is Honey Ripple?", next = "ripple" },
-        { text = "You're friends with orcs?", next = "orcs" },
-        { text = "Isn't selling empty bottles a swindle?", next = "swindle" },
+        { text = "I hear you're friends with orcs.", next = "orcs" },
+        { text = "Selling empty bottles sounds like a swindle.", next = "swindle" },
         { text = "What brings a high elf out here?", next = "here" },
         { text = "Shouldn't you be with the other elves at Quel'Danil?", next = "queldanil", when = { faction = "Alliance" } },
         { text = "Farewell, Gilveradin.", next = "END" },

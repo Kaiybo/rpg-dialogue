@@ -54,7 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened with the harpies?", next = "ambush" },
-        { text = "Who is Edana Hatetalon?", next = "edana" },
+        { text = "I've heard the name Edana Hatetalon.", next = "edana" },
         { text = "What makes a good hunter, elder?", next = "hunting" },
         { text = "Tell me one of your stories.", next = "story" },
         { text = "I am a hunter too. Teach me something.", next = "teach", when = { class = "HUNTER" } },
@@ -116,7 +116,7 @@ P:NPC {
     story = {
       lines = { { id = "st_default", text = "When I was young, I tracked a great cat through these hills for six days, and on the seventh I found it watching me from a branch above my head. It had been hunting me the whole time, and it let me go." } },
       choices = {
-        { text = "Why did it let you go?", next = "story_why" },
+        { text = "It let you go, for some reason.", next = "story_why" },
         { text = "Something else.", next = "BACK" },
       },
     },

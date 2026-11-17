@@ -51,8 +51,8 @@ P:NPC {
       },
       choices = {
         { text = "What are scourgestones?", next = "stones" },
-        { text = "What do you make of the Scarlet Crusade?", next = "crusade" },
-        { text = "You're a linguist?", next = "linguist" },
+        { text = "You don't seem to think much of the Scarlet Crusade.", next = "crusade" },
+        { text = "I hear you're a linguist.", next = "linguist" },
         { text = "What did the Balnazzar business mean for the Crusade?", next = "balnazzar", when = { questDone = TODO_QUEST("The Truth Comes Crashing Down") } },
         { text = "I study the Light, Duke. Does the Dawn need priests?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm here to trade.", next = "BUSINESS" },

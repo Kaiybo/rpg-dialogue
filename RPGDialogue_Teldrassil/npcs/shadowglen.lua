@@ -84,7 +84,7 @@ P:NPC {
       choices = {
         { text = "Only as many as you ask, Conservator.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whatever I hunt, I'll hunt my own way.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What does the balance ask of me?", next = "balance" },
+        { text = "I'm not sure what the balance asks of me.", next = "balance" },
       },
     },
     hunter_i = {
@@ -136,7 +136,7 @@ P:NPC {
       },
       choices = {
         { text = "What does keeping the balance mean?", next = "balance" },
-        { text = "Why so many beasts this year?", next = "rains" },
+        { text = "There seem to be more beasts than the glade can feed.", next = "rains" },
         { text = "Who sends the sigils?", next = "sigils" },
         { text = "I've seen the world since. It's not balanced.", next = "world", when = { minLevel = 20 } },
         { text = "I'm a long way from home here.", next = "stranger", when = { ["not"] = { race = "NightElf" } } },
@@ -333,7 +333,7 @@ P:NPC {
       },
       choices = {
         { text = "What's it like, tending Aldrassil?", next = "tending" },
-        { text = "Are you kin to the Arch Druid?", next = "kin" },
+        { text = "You share a name with the Arch Druid, I think.", next = "kin" },
         { text = "Who is Tarindrella?", next = "dryad" },
         { text = "Teach me what you know.", next = "druid_m", when = { class = "DRUID" } },
         { text = "Even a rogue can feel Aldrassil hum.", next = "rogue_m", when = { class = "ROGUE" } },
@@ -348,7 +348,7 @@ P:NPC {
       },
     },
     kin = {
-      lines = { { id = "k_default", text = "Everyone asks me that. My work is here, at the roots, and whatever name I carry, the tree doesn't care, and neither should you." } },
+      lines = { { id = "k_default", text = "Everyone points that out. My work is here, at the roots, and whatever name I carry, the tree doesn't care, and neither should you." } },
       choices = {
         { text = "Then I'll stop asking.", next = "BACK" },
         { text = "Would you tell me if you were?", next = "kin2", fx = { trait = { witty = 1 } } },
@@ -550,9 +550,9 @@ P:NPC {
       },
       choices = {
         { text = "What lies beyond the glade?", next = "beyond" },
-        { text = "Why fill a phial at the moonwell?", next = "crown" },
+        { text = "Filling a phial seems a small errand for a first lesson.", next = "crown" },
         { text = "What happened at Hyjal?", next = "hyjal" },
-        { text = "What do you see from up here?", next = "view" },
+        { text = "You must see the whole glade from up here.", next = "view" },
         { text = "I've been down in the world. It's hard.", next = "world_t", when = { minLevel = 20 } },
         { text = "I'm not kaldorei. Am I welcome here?", next = "welcome", when = { ["not"] = { race = "NightElf" } } },
         { text = "Corithras told me the rest of the story.", next = "story", when = { questDone = TODO_QUEST("Crown of the Earth") } },
@@ -576,7 +576,7 @@ P:NPC {
       choices = {
         { text = "Thank you.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, standing = { shadowglen = 1 } } },
         { text = "I'll go, but I'll make my own way, blessing or not.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Which parts are sick?", next = "sick" },
+        { text = "You make it sound as if parts of the tree are sick.", next = "sick" },
       },
     },
     sick = {
@@ -600,7 +600,7 @@ P:NPC {
     hyjal = {
       lines = { { id = "hy_default", text = "We fought the Legion beside orcs and humans, and the World Tree gave everything it had to end Archimonde. We won, and we have been paying for it ever since." } },
       choices = {
-        { text = "Paying how?", next = "hyjal2" },
+        { text = "I don't understand what you've been paying.", next = "hyjal2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -614,7 +614,7 @@ P:NPC {
     view = {
       lines = { { id = "v_default", text = "Every path in Shadowglen, the spider cave to the north, the road south to Dolanaar. And every young elf who walks it. I watch until the trees take them." } },
       choices = {
-        { text = "Do they come back?", next = "view2" },
+        { text = "Not all of them come back, I'd guess.", next = "view2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -815,7 +815,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Iverron.", next = "iverron" },
         { text = "What's wrong in Shadowglen?", next = "glen" },
-        { text = "Where do I find what the antidote needs?", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
+        { text = "The antidote needs a fair few ingredients, it seems.", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
         { text = "I know a thing or two about poisons.", next = "rogue_d", when = { class = "ROGUE" } },
         { text = "Is Iverron's poison beyond a priest's help, Dirania?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who needs protecting here, Dirania?", next = "xapala", when = { class = "PALADIN" } },
@@ -999,7 +999,7 @@ P:NPC {
       choices = {
         { text = "Why study spiders?", next = "why" },
         { text = "Why sit out here on the steps?", next = "steps" },
-        { text = "What's in Shadowthread Cave?", next = "cave" },
+        { text = "Something nasty must live in Shadowthread Cave.", next = "cave" },
         { text = "I'm an alchemist. Venom interests me.", next = "alch", when = { profession = "Alchemy" } },
         { text = "My companion could take a spider's measure for you.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "I could slip into the spider cave and count the eggs.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1019,7 +1019,7 @@ P:NPC {
       },
       choices = {
         { text = "Good luck with that.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Has the tree really changed them?", next = "tree_g" },
+        { text = "It's hard to believe the tree changed them.", next = "tree_g" },
       },
     },
     tree_g = {

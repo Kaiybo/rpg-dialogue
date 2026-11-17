@@ -59,9 +59,9 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the deer?", next = "deer" },
-        { text = "What's in the strider stew?", next = "stew" },
-        { text = "How did the Cenarion Circle get involved?", next = "circle" },
-        { text = "What's fouling Cliffspring Falls?", next = "falls", when = { questDone = TODO_QUEST("The Principal Source") } },
+        { text = "That strider stew smells better than it has any right to.", next = "stew" },
+        { text = "I'm surprised the Cenarion Circle took an interest here.", next = "circle" },
+        { text = "Something seems to be fouling Cliffspring Falls.", next = "falls", when = { questDone = TODO_QUEST("The Principal Source") } },
         { text = "Could I heal the deer myself?", next = "heal_a", when = { class = { "DRUID", "PRIEST", "SHAMAN", "PALADIN" } } },
         { text = "Have you work for me?", next = "BUSINESS" },
         { text = "Goodbye, Alanndarian.", next = "END" },

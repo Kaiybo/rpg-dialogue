@@ -130,8 +130,8 @@ P:NPC {
       },
       choices = {
         { text = "What's cooking?", next = "pot" },
-        { text = "How do you keep going out here?", next = "going" },
-        { text = "Do you need help around the farm?", next = "help" },
+        { text = "I don't know how you keep going out here.", next = "going" },
+        { text = "You look like you could use help around the farm.", next = "help" },
         { text = "Tell me about the Furlbrows.", next = "furlbrows" },
         { text = "You do a priest's work with that ladle.", next = "priest", when = { class = "PRIEST" } },
         { text = "Any tricks for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
@@ -139,7 +139,7 @@ P:NPC {
         { text = "I could conjure bread for your pot, Salma.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does your kindness feed strays like me too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the militia warriors eat at your table, Salma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you ever turn anyone away from your table, Salma?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess you never turn anyone away from your table, Salma.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you grow anything yourself, Salma, or is it all gathered?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Doesn't feeding everyone mean feeding Defias too, Salma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's in today's stew, Salma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -153,7 +153,7 @@ P:NPC {
       choices = {
         { text = "Smells wonderful.", next = "BACK", fx = { affinity = 1 } },
         { text = "Buzzard?", next = "vulture", fx = { trait = { witty = 1 } } },
-        { text = "What goes in Westfall stew?", next = "recipe" },
+        { text = "Westfall stew must have a recipe of its own.", next = "recipe" },
       },
     },
     vulture = {

@@ -59,7 +59,7 @@ P:NPC {
       choices = {
         { text = "What are you, Rethiel?", next = "what" },
         { text = "What wounds the land?", next = "wounds" },
-        { text = "Why do the Mosshides trouble you?", next = "gnolls" },
+        { text = "The Mosshides seem to trouble you.", next = "gnolls" },
         { text = "Why do you hate fire so?", next = "fire" },
         { text = "How does the marsh speak to you?", next = "druid", when = { class = "DRUID" } },
         { text = "I will tread softly. Farewell, Rethiel.", next = "END" },
@@ -71,7 +71,7 @@ P:NPC {
         { id = "wh_default", text = "A warden, grown from the marsh and bound to it, as old as the oldest roots beneath your feet. The townsfolk call me a beast and tell travellers to leave their gold behind, and I let them, for fear keeps them out of my grove." },
       },
       choices = {
-        { text = "How old are you?", next = "what_old" },
+        { text = "You must be very old.", next = "what_old" },
         { text = "Something else.", next = "BACK" },
       },
     },

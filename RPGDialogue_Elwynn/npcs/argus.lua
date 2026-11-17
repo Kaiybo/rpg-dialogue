@@ -81,7 +81,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because the Defias carry knives just like yours, and I'd sooner not learn I've put an edge on one that ended up in a farmer. A smith can't choose who buys from him, but he can choose what he listens to." } },
+      lines = { { id = "xrogue_default", text = "I don't, because the Defias carry knives just like yours, and I'd sooner not learn I've put an edge on one that ended up in a farmer. A smith can't choose who buys from him, but he can choose what he listens to." } },
       choices = {
         { text = "My blades won't touch an honest farmer, Argus.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A blade's a blade, and who it cuts is my business.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -139,16 +139,16 @@ P:NPC {
       choices = {
         { text = "Let's see what you have.", next = "BUSINESS" },
         { text = "What makes good steel?", next = "steel" },
-        { text = "Who are all these horseshoes for?", next = "shoes" },
+        { text = "That's a great many horseshoes for one smithy.", next = "shoes" },
         { text = "Your quench is too fast.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Can a priest learn anything at a forge?", next = "priest", when = { class = "PRIEST" } },
-        { text = "Why don't you want to know what my knives are for?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Is there nothing at your forge for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You don't seem to want to know what my knives are for.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "There's little at a forge for a mage, I'd think.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does a smith wish warriors knew about their steel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge anything a hunter would want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does a paladin's armor need from a smith, Argus?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Is there anything at your forge for someone who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do you get many warlocks at your forge, Argus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt your forge has much for someone who fights as a bear.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "I'd guess you get a few warlocks at your forge, Argus.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a shaman's fire spirit help at your forge, Argus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
@@ -167,10 +167,10 @@ P:NPC {
     },
     shoes = {
       lines = {
-        { id = "sh_default", text = "Verner Osgood, in Lakeshire. He spent his iron outfitting the Stormwind Guard over there, and now his horses go barefoot, so he wants fifty shoes." },
+        { id = "sh_default", text = "They're for Verner Osgood, in Lakeshire. He spent his iron outfitting the Stormwind Guard over there, and now his horses go barefoot, so he wants fifty shoes." },
       },
       choices = {
-        { text = "Is he paying for them?", next = "shoes_pay" },
+        { text = "I'd guess he isn't paying for them.", next = "shoes_pay" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -125,14 +125,14 @@ P:NPC {
         { text = "What does the Silver Hand stand for now?", next = "hand" },
         { text = "What is a paladin's charger?", next = "charger" },
         { text = "Where is a paladin needed most?", next = "needed" },
-        { text = "Why keep King Terenas's statuette here?", next = "terenas",
+        { text = "King Terenas's statuette seems an odd thing to keep here.", next = "terenas",
           when = { any = { { questActive = TODO_QUEST("A Friend of the Family") }, { questDone = TODO_QUEST("A Friend of the Family") } } } },
-        { text = "Do priests and paladins serve the same Light?", next = "priest", when = { class = "PRIEST" } },
-        { text = "What should I practise, my lord?", next = "practise", when = { class = "PALADIN" } },
-        { text = "Is the Light a weapon, my lord?", next = "weapon", when = { class = "PALADIN" } },
+        { text = "Priests and paladins must serve the same Light.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I'm ready to practise whatever you set me, my lord.", next = "practise", when = { class = "PALADIN" } },
+        { text = "The Light seems a weapon in your hands, my lord.", next = "weapon", when = { class = "PALADIN" } },
         { text = "Why does a dwarf need a human's Silver Hand?", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "What does a paladin have that a warrior doesn't?", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "Do the Silver Hand look down on rogues, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Silver Hand need hunters, Lord Shadowbreaker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -171,7 +171,7 @@ P:NPC {
     hand_oath = {
       lines = { { id = "ho_default", text = "By blood and honour we serve. It's cut into the stone under Turalyon's statue in the valley. The rest of the oath is longer, and harder to keep." } },
       choices = {
-        { text = "Which part is hardest?", next = "hand_hardest" },
+        { text = "One part of it must be harder than the rest.", next = "hand_hardest" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -268,7 +268,7 @@ P:NPC {
       choices = {
         { text = "Then I'll carry it as a shield.", next = "BACK", fx = { affinity = 1, align = { light = 2 } } },
         { text = "The undead don't need shielding. They need breaking.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
-        { text = "Who teaches the other way?", next = "weapon_who" },
+        { text = "Someone here must teach the other way.", next = "weapon_who" },
       },
     },
     weapon_who = {
@@ -446,14 +446,14 @@ P:NPC {
         { id = "h_again2", text = "Go on. The candles will wait." },
       },
       choices = {
-        { text = "How long have you served here?", next = "served" },
-        { text = "Why do they call you the Faithful?", next = "name" },
+        { text = "You've served here a long while, by the look of you.", next = "served" },
+        { text = "They call you the Faithful, I hear.", next = "name" },
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "Will you pray with me?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "What should I be practising, Arthur?", next = "practise", when = { class = "PALADIN" } },
+        { text = "I'd welcome your advice on my practice, Arthur.", next = "practise", when = { class = "PALADIN" } },
         { text = "Can the Light forgive anything, Arthur?", next = "forgive", when = { class = "PALADIN" } },
         { text = "I took the oath in Ironforge, Arthur.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
-        { text = "What do you think of Lord Shadowbreaker?", next = "grayson" },
+        { text = "Lord Shadowbreaker seems a hard man to please.", next = "grayson" },
         { text = "Would the Light forgive the things I've done, Arthur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you pray for your enemies, Arthur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light teach anything about the hunt, Arthur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -472,7 +472,7 @@ P:NPC {
       choices = {
         { text = "Maybe they're just as good.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Marble or rubble, prayers are only words.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Who did the rebuilding?", next = "served_masons" },
+        { text = "Someone must have worked hard to rebuild all this.", next = "served_masons" },
       },
     },
     served_masons = {
@@ -526,7 +526,7 @@ P:NPC {
       choices = { { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2 } } },
     },
     grayson = {
-      lines = { { id = "grayson_l", text = "That he's harder on himself than on any of you, and that's saying a great deal. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
+      lines = { { id = "grayson_l", text = "He's harder on himself than on any of you, and that's saying a great deal. He tests the young ones until they hate him, and then he prays for them by name, every night." } },
       choices = {
         { text = "How do you know?", next = "grayson_know" },
         { text = "Something else.", next = "BACK" },
@@ -679,10 +679,10 @@ P:NPC {
       choices = {
         { text = "Let me see your work.", next = "BUSINESS" },
         { text = "Tell me about Furen.", next = "furen" },
-        { text = "Barding? For horses?", next = "barding" },
-        { text = "Who buys from you?", next = "buyers" },
-        { text = "Why work here and not in Ironforge?", next = "home", when = { race = "Dwarf" } },
-        { text = "What can lightforge iron do?", next = "lightforge", when = { questActive = TODO_QUEST("Blessed Arm") } },
+        { text = "Barding must be for horses, then.", next = "barding" },
+        { text = "Your work looks good enough to find plenty of buyers.", next = "buyers" },
+        { text = "I'd have expected to find you in Ironforge.", next = "home", when = { race = "Dwarf" } },
+        { text = "Lightforge iron must be something special.", next = "lightforge", when = { questActive = TODO_QUEST("Blessed Arm") } },
         { text = "Your forge fire has a spirit in it, Elmore. It likes you.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do you ever forge daggers, Elmore?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you ever forged anything enchanted, Elmore?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -725,7 +725,7 @@ P:NPC {
     buyers = {
       lines = { { id = "bu_default", text = "Paladins, lords, the odd mountaineer with taste. The Stormpikes send orders all the way down from Loch Modan. A clan with taste, an' the coin tae back it." } },
       choices = {
-        { text = "And the humans?", next = "buyers_humans" },
+        { text = "I expect the humans buy from you too.", next = "buyers_humans" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -884,10 +884,10 @@ P:NPC {
       },
       choices = {
         { text = "Need anything found?", next = "BUSINESS" },
-        { text = "What are you hoping to find?", next = "wanted" },
-        { text = "Which book here is the best?", next = "best" },
-        { text = "Who's the lord in the reading corner?", next = "lord" },
-        { text = "Have you anything for a priest?", next = "priest", when = { class = "PRIEST" } },
+        { text = "You're hoping to find something particular, I'd guess.", next = "wanted" },
+        { text = "Some of these books must be better than others.", next = "best" },
+        { text = "There's a lord sitting in the reading corner.", next = "lord" },
+        { text = "A priest might find something worth reading here.", next = "priest", when = { class = "PRIEST" } },
         { text = "Does the library keep anything from Dalaran?", next = "dalaran", when = { class = "MAGE" } },
         { text = "Have thieves ever robbed the Royal Library?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the library hold any books on warfare, Milton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -925,7 +925,7 @@ P:NPC {
     lord = {
       lines = { { id = "lo_default", text = "Lord Lescovar. He comes to meditate, he says. In a library! In all that time he's never once borrowed so much as a pamphlet." } },
       choices = {
-        { text = "Is that strange?", next = "lord_strange" },
+        { text = "That seems strange.", next = "lord_strange" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1097,11 +1097,11 @@ P:NPC {
       },
       choices = {
         { text = "I'll take some cheese.", next = "BUSINESS" },
-        { text = "What do you recommend?", next = "cheese" },
-        { text = "You're not just a cheesemaker, are you?", next = "cover" },
+        { text = "I'd like whatever you'd recommend.", next = "cheese" },
+        { text = "You're not just a cheesemaker, I think.", next = "cover" },
         { text = "Jorgen sent a note.", next = "jorgen", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
         { text = "I work in the dark myself.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Does the Mage Quarter buy much cheese?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd wager the Mage Quarter buys a good deal of cheese.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers really buy cheese for the march, Elling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever trade cheese for game, Elling?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is cheesemaking all you do, Elling?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1144,12 +1144,12 @@ P:NPC {
     jorgen = {
       lines = { { id = "j_default", text = "Jorgen. Of course it's Jorgen. Very well: my contacts, your legs, and I save on couriers. Darkshire, the north road, a Night Watchman called Backus." } },
       choices = {
-        { text = "What do I ask Backus?", next = "jorgen_backus" },
+        { text = "I'll need to know what to ask Backus.", next = "jorgen_backus" },
         { text = "Something else.", next = "BACK" },
       },
     },
     jorgen_backus = {
-      lines = { { id = "jb_default", text = "About Defias near Darkshire. Tell him I sent you; he'll be friendlier. He owes me cheese, and he knows it.",
+      lines = { { id = "jb_default", text = "Ask him about Defias near Darkshire. Tell him I sent you; he'll be friendlier. He owes me cheese, and he knows it.",
         fx = { learn = { "night_watch", "defias" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },

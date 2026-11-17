@@ -51,7 +51,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened with Ivar?", next = "ivar" },
-        { text = "You don't trust Renferrel's potions?", next = "renferrel" },
+        { text = "You don't seem to trust Renferrel's potions.", next = "renferrel" },
         { text = "Tell me about your sister.", next = "rane" },
         { text = "Let me look at that wound.", next = "wound", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -62,7 +62,7 @@ P:NPC {
     ivar = {
       lines = { { id = "iv_default", text = "Ivar owned this farm before the plague, and when it took him, it took his family and his farmhands too. They still work the patch, after a fashion, and they didn't like a stranger in their yard." } },
       choices = {
-        { text = "They're still working the farm?", next = "ivar_farm" },
+        { text = "So they're still working the farm.", next = "ivar_farm" },
         { text = "Something else.", next = "BACK" },
       },
     },

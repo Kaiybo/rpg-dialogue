@@ -47,7 +47,7 @@ P:NPC {
       choices = {
         { text = "Why the Windfury harpies?", next = "harpies" },
         { text = "What makes someone ready to leave Mulgore?", next = "ready" },
-        { text = "You have a brother?", next = "eyahn" },
+        { text = "So you have a brother.", next = "eyahn" },
         { text = "Teach me something, as one warrior to another.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm ready for a trial.", next = "BUSINESS" },
         { text = "Farewell, Ruul.", next = "END" },
@@ -63,7 +63,7 @@ P:NPC {
     practice = {
       lines = { { id = "p_default", text = "Practice, yes, and also a danger to our people that needs answering. I don't send the young to fight anything that doesn't need fighting." } },
       choices = {
-        { text = "And if someone fails the trial?", next = "fail" },
+        { text = "Surely someone fails the trial now and then.", next = "fail" },
         { text = "Something else.", next = "BACK" },
       },
     },

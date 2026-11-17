@@ -62,7 +62,7 @@ P:NPC {
     caravans = {
       lines = { { id = "c_default", text = "The Dustwind harpies nest in Razorwind Canyon, pal, right where the road squeezes between the walls. A kodo can't turn around in there, and a harpy can drop on you from three sides, so every caravan's a coin toss, and I keep losing the toss and the coin." } },
       choices = {
-        { text = "Why not hire guards?", next = "guards" },
+        { text = "You should hire guards.", next = "guards" },
         { text = "Then go around the canyon.", next = "around" },
       },
     },
@@ -90,7 +90,7 @@ P:NPC {
       lines = { { id = "o_default", text = "Orgrimmar didn't build itself, pal. Gazlowe put his boys to work on it back when the Warchief first landed, and the orcs have been good customers ever since, which in my line of work is the same as being friends, only with invoices." } },
       choices = {
         { text = "So you're friends with whoever pays.", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "Do the orcs trust you?", next = "trust" },
+        { text = "The orcs can't trust you much.", next = "trust" },
       },
     },
     trust = {

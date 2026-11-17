@@ -53,7 +53,7 @@ P:NPC {
     fed = {
       lines = { { id = "fe_default", text = "Fish from the sea, boar from the hills when the hunters are lucky, and bread from flour that comes in by sea and costs too much. I stretch it, and I stretch it, and somehow it stretches." } },
       choices = {
-        { text = "Is it ever not enough?", next = "fed_enough" },
+        { text = "It can't always be enough.", next = "fed_enough" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -77,7 +77,7 @@ P:NPC {
     gossip = {
       lines = { { id = "go_default", text = "Who's courting whom, who drank too much at the port, and whether the Commander's ever going to sleep. Mostly it's worry, love, dressed up as gossip." } },
       choices = {
-        { text = "What are they worried about?", next = "gossip_worry" },
+        { text = "Folk here seem worried about something.", next = "gossip_worry" },
         { text = "Something else.", next = "BACK" },
       },
     },

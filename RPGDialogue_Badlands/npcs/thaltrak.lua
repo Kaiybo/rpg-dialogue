@@ -51,7 +51,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Sha'ni.", next = "shani" },
-        { text = "What was her platoon doing out there?", next = "mission" },
+        { text = "Her platoon must have been sent out for a reason.", next = "mission" },
         { text = "Why don't you go after her yourself?", next = "post" },
         { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Krom'Grul") } },
         { text = "The spirits might know where she is.", next = "xspirit", when = { class = { "SHAMAN", "PRIEST" } } },

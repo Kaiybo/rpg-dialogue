@@ -140,11 +140,11 @@ P:NPC {
       choices = {
         { text = "Westfall needs the crown's help.", next = "plead" },
         { text = "The Church would say mercy is never wasted.", next = "mercy", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "How did you come to court, my lady?", next = "court" },
-        { text = "And the young king?", next = "king" },
-        { text = "What of the Defias, my lady?", next = "defias" },
+        { text = "You must have come a long way to court, my lady.", next = "court" },
+        { text = "The young king seems a bright boy.", next = "king" },
+        { text = "The Defias seem a real danger, my lady.", next = "defias" },
         { text = "Lakeshire is begging for soldiers.", next = "letters", when = { visited = "Lakeshire" } },
-        { text = "What do you advise, my lady?", next = "advise" },
+        { text = "Your advice must carry weight, my lady.", next = "advise" },
         { text = "Power is power, my lady, wherever it comes from.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "A rogue hears a great deal at court, my lady.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Gnomeregan needs Stormwind's help, my lady.", next = "gnome", when = { race = "Gnome" } },
@@ -213,7 +213,7 @@ P:NPC {
     },
     advise = {
       lines = {
-        { id = "a_default", text = "Strength and order, and not wasting either on causes that cannot repay them. The Regent finds that cold, but the Regent also sleeps very well." },
+        { id = "a_default", text = "I advise strength and order, and not wasting either on causes that cannot repay them. The Regent finds that cold, but the Regent also sleeps very well." },
       },
       choices = {
         { text = "Wise counsel.", next = "BACK", fx = { affinity = 1, align = { order = 1, light = -1 } } },
@@ -258,7 +258,7 @@ P:NPC {
       choices = {
         { text = "The strong rule, and the rest pray.", next = "warlock_strong", fx = { align = { light = -2 } } },
         { text = "Power needs a leash, my lady, even mine.", next = "warlock_leash", fx = { align = { light = 1 } } },
-        { text = "And what kind of power do you hold?", next = "warlock_hers" },
+        { text = "You seem to hold some power of your own.", next = "warlock_hers" },
       },
     },
     warlock_strong = {

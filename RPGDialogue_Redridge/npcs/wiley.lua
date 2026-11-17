@@ -135,7 +135,7 @@ P:NPC {
         { text = "I could get you out of here unseen, as a cat.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What do you know about the Defias?", next = "defias" },
         { text = "What favor did Gryan do you?", next = "favor" },
-        { text = "Why this corner?", next = "corner" },
+        { text = "You've picked a good corner to sit in.", next = "corner" },
         { text = "I could use a man with your ears.", next = "rogue", when = { class = "ROGUE" } },
         { text = "VanCleef's dead. I was there.", next = "vancleef", when = { deed = "dungeon:The Deadmines" } },
         { text = "The Defias drove my family off our farm.", next = "farm", when = { origin = "human_westfall_farmhand" } },
@@ -157,7 +157,7 @@ P:NPC {
       },
       choices = {
         { text = "And their leader?", next = "leader" },
-        { text = "How big are they?", next = "network" },
+        { text = "They sound bigger than a few bandits.", next = "network" },
         { text = "Thanks, Wiley.", next = "BACK", fx = { learn = { "defias" } } },
       },
     },
@@ -200,7 +200,7 @@ P:NPC {
       choices = {
         { text = "Sounds like you respect him.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Sounds like you owe him.", next = "BACK", fx = { trait = { stern = 1 } } },
-        { text = "Were you in some kind of trouble?", next = "favor_rot" },
+        { text = "You sound like you were in some kind of trouble.", next = "favor_rot" },
       },
     },
     favor_rot = {

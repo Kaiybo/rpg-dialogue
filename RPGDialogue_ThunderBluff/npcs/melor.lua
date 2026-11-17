@@ -81,7 +81,7 @@ P:NPC {
     steelsnap = {
       lines = { { id = "s_default", text = "A hyena who kills for the pleasure of it, and teaches others to do the same. The Needles have enough cruelty in them already without a beast like that leading packs through the canyons." } },
       choices = {
-        { text = "Can a beast be cruel?", next = "cruel" },
+        { text = "I didn't think a beast could be cruel.", next = "cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },

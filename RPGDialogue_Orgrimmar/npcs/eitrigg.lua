@@ -59,7 +59,7 @@ P:NPC {
         { text = "Goretooth sent me. Rend Blackhand lives.", next = "rend", when = { questActive = TODO_QUEST("Eitrigg's Wisdom") } },
         { text = "Rend Blackhand is dead. I was there.", next = "rend_dead", when = { killed = { name = "Rend Blackhand" } } },
         { text = "How should a warrior carry his honor?", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Do you hate my kind, being human once?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "You must hate my kind, since I was human once.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll leave you to the Warchief.", next = "END" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
       choices = {
         { text = "Honor doesn't care what race it's born in.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "Humans killed our people. Debts to them are foolish.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
-        { text = "Does Thrall share your view?", tag = "Persuade", next = "thrall_secret",
+        { text = "I'd guess Thrall shares your view.", tag = "Persuade", next = "thrall_secret",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Scourge" }, { trait = "kind" }, { class = "PALADIN" } } } },
           fail = { next = "thrall_closed", fx = { affinity = -1 } } },
       },
@@ -122,7 +122,7 @@ P:NPC {
       lines = { { id = "br_default", text = "My father was a Blackrock, and his father before him, and so am I. But before anything else I am an orc, and that means honor first, and the Blackrock who follow Rend in the mountains have forgotten it." } },
       choices = {
         { text = "Where are the Blackrock now?", next = "blackrock_now", fx = { learn = { "blackrock" } } },
-        { text = "Do you still feel bound to them?", next = "blackrock_bound" },
+        { text = "You still seem bound to them.", next = "blackrock_bound" },
       },
     },
     blackrock_now = {
@@ -161,7 +161,7 @@ P:NPC {
       lines = { { id = "re_default", text = "Rend was Blackhand's son, and he and his brother Maim fled into the mountain when the Horde fell. If he lives and leads the Blackrock, then every Blackrock in that mountain is a sword pointed at this city, so take this to the Warchief at once and tell him Eitrigg agrees: no orc should be denied his vengeance." } },
       choices = {
         { text = "I'll go to the Warchief now.", next = "END", fx = { affinity = 1 } },
-        { text = "You knew Rend?", next = "rend_knew" },
+        { text = "So you knew Rend.", next = "rend_knew" },
       },
     },
     rend_knew = {

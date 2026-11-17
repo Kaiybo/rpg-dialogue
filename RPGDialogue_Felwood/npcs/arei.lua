@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "What was Felwood like before?", next = "before" },
-        { text = "What happened to you here?", next = "fall" },
+        { text = "Something terrible happened to you here.", next = "fall" },
         { text = "Where do you want to go?", next = "home" },
         { text = "What did the flute do to you?", next = "flute" },
         { text = "Can Felwood be healed?", next = "xdruid", when = { class = "DRUID" } },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "f_default", text = "The demons came through these woods on their way to the mountain, and the skull of Gul'dan poisoned everything it touched. My kin and I fought, and we fell, and the sickness took our bodies and twisted them into the things you see walking Irontree now." },
       },
       choices = {
-        { text = "The corrupted ancients are your kin?", next = "fall_kin" },
+        { text = "So the corrupted ancients are your kin.", next = "fall_kin" },
         { text = "Something else.", next = "BACK" },
       },
     },

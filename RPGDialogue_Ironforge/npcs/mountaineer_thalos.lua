@@ -53,7 +53,7 @@ P:NPC {
         { text = "What's waiting in the pass?", next = "pass" },
         { text = "What's on the other side?", next = "kharanos" },
         { text = "Who decides what counts as a good reason?", next = "reason" },
-        { text = "Grelin's report. Is it trouble?", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
+        { text = "Grelin's report looks like trouble.", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "Any errands before I go through?", next = "BUSINESS" },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -62,7 +62,7 @@ P:NPC {
       lines = { { id = "p_default", text = "Troggs, dug intae the walls like ticks in a hide. The tunnel was built fer carts an' travellers, an' now it's full o' the ugly beasts, comin' up from somewhere deeper." },
       },
       choices = {
-        { text = "Why not clear them out?", next = "pass_clear" },
+        { text = "Someone ought to clear them out.", next = "pass_clear" },
         { text = "How do I get through alive?", next = "pass_alive" },
       },
     },

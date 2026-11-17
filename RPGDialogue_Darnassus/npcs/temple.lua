@@ -170,10 +170,10 @@ P:NPC {
         { text = "I'm ready for my training.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why would you teach a priest of the Light?", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "What gifts does Elune give her own priests?", next = "gifts", when = { class = "PRIEST", race = "NightElf" } },
-        { text = "What does the Sisterhood teach?", next = "sisterhood" },
+        { text = "The Sisterhood must teach more than prayer.", next = "sisterhood" },
         { text = "Elune found me young, Priestess. Why is she so silent now?", next = "xsilence", when = { origin = "nightelf_priestess" } },
         { text = "You don't trust arcane magic, do you?", next = "arcane" },
-        { text = "How is the High Priestess?", next = "tyrande" },
+        { text = "The High Priestess must carry a heavy load.", next = "tyrande" },
         { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
         { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
         { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
@@ -226,7 +226,7 @@ P:NPC {
         { id = "ls_default", text = "I don't know, and I distrust anyone who says they do. I've seen both heal the same wounds and both comfort the dying, and for now that's as far as I'll walk out on that branch." },
       },
       choices = {
-        { text = "How do your priests pray, then?", next = "light_pray" },
+        { text = "Your priests must pray differently, then.", next = "light_pray" },
         { text = "Some questions should stay open.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "The Church would want a firmer answer than that.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
@@ -339,7 +339,7 @@ P:NPC {
         { id = "ty_default", text = "She carries the whole of our people while the Arch Druid carries the tree, and Malfurion sleeps in the Emerald Dream. She hears the Sentinels' reports at moonrise and prays after, and I've never once seen her hurry the prayer." },
       },
       choices = {
-        { text = "Will Malfurion wake?", next = "tyrande_dream" },
+        { text = "I hope Malfurion wakes one day.", next = "tyrande_dream" },
         { text = "She should lean on the Arch Druid more.", next = "BACK", fx = { align = { order = 1 }, learn = { "malfurion" } } },
         { text = "She shouldn't wait on anyone, druid or not.", next = "BACK", fx = { align = { order = -1 }, learn = { "malfurion" } } },
       },
@@ -510,7 +510,7 @@ P:NPC {
       choices = {
         { text = "Train me, please.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What is this golden tablet?", next = "tablet", when = { any = { { questActive = TODO_QUEST("Prayer to Elune") }, { questDone = TODO_QUEST("Prayer to Elune") } } } },
-        { text = "Can anyone be forgiven?", next = "forgive" },
+        { text = "Surely some deeds can't be forgiven.", next = "forgive" },
         { text = "What do the people who can't sleep tell you?", next = "listen" },
         { text = "Could Elune hear a warlock, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
         { text = "Do priestesses hear confessions from rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -557,7 +557,7 @@ P:NPC {
       choices = {
         { text = "Mercy should be earned, not given.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Mercy freely given is the only kind that heals.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Who thinks you're soft?", next = "forgive2" },
+        { text = "I'd guess someone thinks you're soft.", next = "forgive2" },
       },
     },
     forgive2 = {
@@ -720,7 +720,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
-        { text = "Who do you heal most often?", next = "wounded" },
+        { text = "You must heal a great many here.", next = "wounded" },
         { text = "What advice would a priestess give a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior know about fighting beside a healer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will your priestesses heal a hunter's companion too?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1112,7 +1112,7 @@ P:NPC {
       },
       choices = {
         { text = "Who was Lady Sathrah?", next = "sathrah" },
-        { text = "What are you studying?", next = "study" },
+        { text = "You look deep in your studies.", next = "study" },
         { text = "What's it like, training at the Temple?", next = "training" },
         { text = "We study the Light much the same way.", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "My people lived on islands in the sky.", next = "sky_a", when = { race = "Skyborne" } },
@@ -1133,14 +1133,14 @@ P:NPC {
         { id = "sa_default", text = "A great spider beloved of Elune, who spun silver threads through the moonlight. The dew that gathered on them healed the sick in the Temple, and now she's gone mad, and nobody can tell me why." },
       },
       choices = {
-        { text = "Why would a holy creature go mad?", next = "sathrah2" },
+        { text = "It's strange that a holy creature would go mad.", next = "sathrah2" },
         { text = "Then ending her suffering is a mercy.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Then she's a danger, and must be stopped.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     sathrah2 = {
       lines = {
-        { id = "s2_default", text = "I asked A'moora that, and she only said the tree is young. The Temple's waters can cleanse whatever's in her, though, and then Elune will let her be born again, at peace." },
+        { id = "s2_default", text = "I asked A'moora about it, and she only said the tree is young. The Temple's waters can cleanse whatever's in her, though, and then Elune will let her be born again, at peace." },
       },
       choices = {
         { text = "I hope she spins again someday.", next = "BACK", fx = { affinity = 2, learn = { "teldrassil" } } },
@@ -1353,7 +1353,7 @@ P:NPC {
         { id = "ac_default", text = "Priestesses, druids, craftsmen and a great many visitors from your kingdoms. Scholars use us most, oddly; Gracina Spiritmight has more specimens in her box than coins." },
       },
       choices = {
-        { text = "Specimens? In a bank?", next = "accounts2" },
+        { text = "I wouldn't have expected specimens in a bank.", next = "accounts2" },
         { text = "Something else.", next = "BACK" },
       },
     },

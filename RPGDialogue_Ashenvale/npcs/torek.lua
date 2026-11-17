@@ -53,9 +53,9 @@ P:NPC {
       choices = {
         { text = "Why attack Silverwing Outpost?", next = "why" },
         { text = "Who is Duriel Moonfire?", next = "duriel" },
-        { text = "Why do you want scars?", next = "scars" },
+        { text = "You seem eager for scars.", next = "scars" },
         { text = "Thrall wants peace. Is this wise?", next = "thrall" },
-        { text = "I'm a warrior too. What's your plan?", next = "warrior_t", when = { class = "WARRIOR" } },
+        { text = "I'm a warrior too, and I'd like to hear your plan.", next = "warrior_t", when = { class = "WARRIOR" } },
         { text = "I'm with you.", next = "BUSINESS" },
         { text = "Not today, Torek.", next = "END" },
       },

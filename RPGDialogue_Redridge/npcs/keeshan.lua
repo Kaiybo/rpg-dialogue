@@ -118,7 +118,7 @@ P:NPC {
         { text = "Can you walk?", next = "walk" },
         { text = "Hold still. Let me see to that head.", next = "priest", when = { class = "PRIEST" } },
         { text = "Shield up, Corporal. We go together.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "How are you holding up, Corporal?", next = "after", when = { questDone = TODO_QUEST("Missing In Action") } },
+        { text = "You look like you haven't slept in days, Corporal.", next = "after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "The Light kept you alive, Corporal. Stand with me.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I'll scout ahead. Stay in my shadow.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'd have burned your cell door off, Corporal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -136,7 +136,7 @@ P:NPC {
         { id = "s_default", text = "There are more of them than Lakeshire thinks, and better armed. And they take orders from someone who isn't an orc; I heard them argue about it." },
       },
       choices = {
-        { text = "Someone's directing them?", next = "who", fx = { learn = { "blackrock" } } },
+        { text = "It sounds as if someone's directing them.", next = "who", fx = { learn = { "blackrock" } } },
         { text = "How many more?", next = "numbers" },
         { text = "Tell the Marshal.", next = "BACK" },
       },

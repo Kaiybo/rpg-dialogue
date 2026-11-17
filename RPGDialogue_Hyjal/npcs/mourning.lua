@@ -62,8 +62,8 @@ P:NPC {
         { id = "h_again2", text = "Another question. Very well, I have nothing else to eat at present." },
       },
       choices = {
-        { text = "Who were these dead?", next = "dead" },
-        { text = "Why do they walk?", next = "why" },
+        { text = "These dead were soldiers once, by the look of them.", next = "dead" },
+        { text = "The dead here should not be walking.", next = "why" },
         { text = "What does a Wild God want with carrion?", next = "cycle" },
         { text = "What's this ring I found?", next = "ring", when = { any = { { questActive = TODO_QUEST("Belle's Ring") }, { questDone = TODO_QUEST("Belle's Ring") }, { questActive = TODO_QUEST("Disturbed Grave") } } } },
         { text = "I'm a priest. I can lay them to rest.", next = "xpriest", when = { class = "PRIEST" } },
@@ -97,7 +97,7 @@ P:NPC {
         { id = "w_default", text = "I do not know, and I am a vulture, not a scholar. The Legion's rot soaked into this ground, and the Scourge marched with the demons when they came, and either one might be to blame. I only know that the dead here are hungry, and the dead should not be hungry; that is my job." },
       },
       choices = {
-        { text = "What are the flayed ones?", next = "why_raveners" },
+        { text = "Those flayed ones are the worst of them.", next = "why_raveners" },
         { text = "Does it matter who raised them?", next = "why_matter" },
         { text = "Something else.", next = "BACK" },
       },

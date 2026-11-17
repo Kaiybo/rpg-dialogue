@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Questions are the best reagent of all." },
       },
       choices = {
-        { text = "How do you make a spell from scales?", next = "craft" },
+        { text = "I don't see how you make a spell from scales.", next = "craft" },
         { text = "Who is Gaxim Rustfizzle?", next = "gaxim" },
         { text = "Why the Charred Vale basilisks?", next = "vale" },
         { text = "Show me how you work your reagents.", next = "mage", when = { class = "MAGE" } },

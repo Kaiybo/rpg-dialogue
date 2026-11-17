@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "I'll keep the fire off the wheat, Captain. You have my word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Wheat grows back. I'll burn whatever needs burning.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why do the gnolls come down here?", next = "gnolls" },
+        { text = "The gnolls seem bolder down here than anywhere.", next = "gnolls" },
       },
     },
     xlock = {
@@ -119,10 +119,10 @@ P:NPC {
       },
       choices = {
         { text = "I can track the Defias where your soldiers can't.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "Why fight for Westfall?", next = "why" },
+        { text = "Most men would have left Westfall long ago.", next = "why" },
         { text = "Tell me about the gnolls.", next = "gnolls" },
         { text = "You'll never forgive Stormwind, will you?", next = "city" },
-        { text = "How do you make soldiers out of farmers?", next = "drill" },
+        { text = "Making soldiers out of farmers can't be easy.", next = "drill" },
         { text = "Let me drill your recruits a while.", next = "teach", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My family farmed out here. I've come back.", next = "home", when = { origin = "human_westfall_farmhand" } },
         { text = "A hunter could teach your recruits to track.", next = "hunter", when = { class = "HUNTER" } },
@@ -130,7 +130,7 @@ P:NPC {
         { text = "A few fire spells would thin the gnolls quickly, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I bargain with darker things than gnolls, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your farmer soldiers have anyone to pray with before a patrol?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What becomes of the Defias your militia captures, Captain?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your militia must take Defias prisoners now and then, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your militia fight beside a shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -171,7 +171,7 @@ P:NPC {
         { id = "gn_default", text = "Riverpaw, they call themselves, and they're bigger and bolder than Elwynn's lot. They don't take farms; they just make sure nobody keeps one." },
       },
       choices = {
-        { text = "Who's feeding them?", next = "gnoll_work" },
+        { text = "Somebody must be feeding them.", next = "gnoll_work" },
         { text = "I'll thin them out.", next = "BACK", fx = { learn = { "riverpaw" } } },
       },
     },

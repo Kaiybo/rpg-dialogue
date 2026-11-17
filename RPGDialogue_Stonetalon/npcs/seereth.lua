@@ -55,7 +55,7 @@ P:NPC {
       },
       choices = {
         { text = "What do the spirits say?", next = "spirits" },
-        { text = "Why do goblins want this forest?", next = "venture" },
+        { text = "The goblins seem to want this whole forest.", next = "venture" },
         { text = "Why go to the tauren elders?", next = "elders", when = { any = { { questDone = TODO_QUEST("Goblin Invaders") }, { questActive = TODO_QUEST("The Elder Crone") } } } },
         { text = "Tell me about your vision.", next = "vision", when = { any = { { questActive = TODO_QUEST("Shredding Machines") }, { questDone = TODO_QUEST("Shredding Machines") } } } },
         { text = "I hear them too, Seereth.", next = "shaman_s", when = { class = "SHAMAN" } },

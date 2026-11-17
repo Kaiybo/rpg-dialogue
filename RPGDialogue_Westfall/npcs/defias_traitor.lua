@@ -110,7 +110,7 @@ P:NPC {
       },
       choices = {
         { text = "Why did you turn on them?", next = "why" },
-        { text = "What's waiting in Moonbrook?", next = "moonbrook" },
+        { text = "Something must be waiting for us in Moonbrook.", next = "moonbrook" },
         { text = "Tell me about Edwin VanCleef.", next = "vancleef" },
         { text = "I ran with the Brotherhood too, once.", next = "kin", when = { class = "ROGUE" } },
         { text = "The Brotherhood have spellcasters of their own, don't they?", next = "xmage", when = { class = "MAGE" } },
@@ -118,7 +118,7 @@ P:NPC {
         { text = "How do the Defias fight, if they fight dirty?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where would the Brotherhood set an ambush on our road?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you want to make your peace before we walk, friend?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why should I trust a man who betrayed his own crew?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I can't trust a man who betrayed his own crew.", next = "xapala", when = { class = "PALADIN" } },
         { text = "I could prowl ahead as a cat and find their lookouts.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why did you turn on the Defias?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My father was a Stonemason. He never went west in a mask.", next = "xorig_mason", when = { origin = "human_stonemason_child" } },

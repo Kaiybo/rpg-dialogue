@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you hate the Blackrock so much?", next = "why" },
-        { text = "Why champions and not the rest?", next = "champions" },
+        { text = "Killing the champions alone won't stop the rest of them.", next = "champions" },
         { text = "Can the orcs ever be driven out for good?", next = "forgood" },
         { text = "I've fought orcs before, and they bleed like anyone.", next = "veteran", when = { minLevel = 20 } },
         { text = "I'll take the bounty.", next = "BUSINESS" },
@@ -60,7 +60,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Because they burned the farms up the valley, and because they're on land that isn't theirs. Some men here want coin for it, or glory, and I just want them gone." },
       },
       choices = {
-        { text = "Just gone? Or revenge?", next = "why_revenge" },
+        { text = "That sounds more like revenge than duty.", next = "why_revenge" },
         { text = "Something else.", next = "BACK" },
       },
     },

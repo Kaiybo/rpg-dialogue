@@ -63,7 +63,7 @@ P:NPC {
       },
       choices = {
         { text = "Can they be saved?", next = "temple_saved" },
-        { text = "What became of the Atal'ai?", next = "temple_atalai" },
+        { text = "I'd guess the Atal'ai are long gone now.", next = "temple_atalai" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "vi_default", text = "Because a dragon in a cave frightens mortals into foolishness, and an elf in a cave merely puzzles them. The quel'dorei are a graceful people, and their shape suits my temper well enough." },
       },
       choices = {
-        { text = "Do other dragons walk among us like this?", next = "visage_others" },
+        { text = "Other dragons must walk among us like this.", next = "visage_others" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -181,7 +181,7 @@ P:NPC {
         { id = "dr_default", text = "The Dream is the world as it was meant to be, untouched by mortal hands, and Ysera dreams it and keeps it. Your druids walk its edges in their sleep, and my flight walks its heart." },
       },
       choices = {
-        { text = "Is something wrong in the Dream?", next = "dream_wrong" },
+        { text = "Something feels wrong in the Dream.", next = "dream_wrong" },
         { text = "Something else.", next = "BACK" },
       },
     },

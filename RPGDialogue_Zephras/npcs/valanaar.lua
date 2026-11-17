@@ -57,7 +57,7 @@ P:NPC {
       choices = {
         { text = "What happened to Ban'aethal?", next = "banaethal" },
         { text = "Who was Luminarian?", next = "luminarian" },
-        { text = "How are the refugees managing?", next = "refugees" },
+        { text = "The refugees don't seem to be managing well.", next = "refugees" },
         { text = "Is Zephras safe?", next = "zephras" },
         { text = "I'm glad Resaan's heirloom came home.", next = "heirloom", when = { questDone = TODO_QUEST("The Fate of a Loved One") } },
         { text = "Take care, Ealaane.", next = "END" },
@@ -68,7 +68,7 @@ P:NPC {
         { id = "ba_default", text = "The islands began to drift apart a few years ago, and great pieces of Zephras have been breaking away ever since. Ban'aethal went in the night, slowly enough to run and too quickly to take much with us, and we left nearly everything behind." },
       },
       choices = {
-        { text = "Did everyone get out?", next = "resaan" },
+        { text = "I hope everyone got out.", next = "resaan" },
         { text = "What's left of it now?", next = "ruins" },
         { text = "Something else.", next = "BACK" },
       },
@@ -125,7 +125,7 @@ P:NPC {
       },
       choices = {
         { text = "How do you know his work?", next = "luminarian_mark" },
-        { text = "Did he make anything famous?", next = "twins" },
+        { text = "A smith like that must have made something famous.", next = "twins" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,7 +153,7 @@ P:NPC {
         { id = "rf_default", text = "Badly, for the most part. Valanaar has taken in everyone it can, but there's never enough, and some who came from the fallen places have turned to banditry, or to the Al'Aketh, just to eat." },
       },
       choices = {
-        { text = "Can you blame them?", next = "bandits" },
+        { text = "It's hard to blame them.", next = "bandits" },
         { text = "How can I help?", next = "help" },
         { text = "Something else.", next = "BACK" },
       },
@@ -240,7 +240,7 @@ P:NPC {
       },
       choices = {
         { text = "You sailed between the islands?", next = "sailing" },
-        { text = "What did you see in the forest?", next = "forest" },
+        { text = "You look like you saw something in that forest.", next = "forest" },
         { text = "What do you think you're not being told?", next = "secret" },
         { text = "I came up on a skycutter from below.", next = "xcame", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I walked the Peacekeepers' line at Shadowgale, Swimmers.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
@@ -254,7 +254,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the skystreams?", next = "skystreams" },
-        { text = "Why do they call you Swimmers?", next = "name" },
+        { text = "Swimmers seems an odd name for a sailor.", next = "name" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -415,7 +415,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? I've glasses to wipe and a sailor to hush." } },
       choices = {
-        { text = "What's the trouble with Swimmers?", next = "swimmers" },
+        { text = "Swimmers looks like a man with troubles.", next = "swimmers" },
         { text = "What's good to eat here?", next = "food" },
         { text = "Anything worth seeing in the inn?", next = "crystal" },
         { text = "I'd like a room, please.", next = "BUSINESS" },
@@ -511,7 +511,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can stir and talk at once; it's most of the job." },
       },
       choices = {
-        { text = "What kind of recipes do you teach?", next = "recipes" },
+        { text = "Your recipes must be very old.", next = "recipes" },
         { text = "Why is crab a delicacy elsewhere?", next = "crab" },
         { text = "What grows on Zephras?", next = "produce" },
         { text = "I could tell you about moonberries.", next = "xnelf", when = { race = "NightElf" } },

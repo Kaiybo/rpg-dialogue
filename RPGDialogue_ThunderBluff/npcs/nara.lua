@@ -66,7 +66,7 @@ P:NPC {
     turned = {
       lines = { { id = "t_default", text = "They started dreaming his nightmare instead of their own dreams. Now they call themselves the Druids of the Fang, and they twist the caverns' beasts into serpents and raptors that obey them, and they think it's healing." } },
       choices = {
-        { text = "Can they be saved?", next = "saved" },
+        { text = "Perhaps they can still be saved.", next = "saved" },
         { text = "Something else.", next = "BACK" },
       },
     },

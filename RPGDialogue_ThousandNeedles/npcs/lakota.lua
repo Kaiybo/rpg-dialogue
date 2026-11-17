@@ -47,7 +47,7 @@ P:NPC {
       choices = {
         { text = "Why did Arnak take you?", next = "arnak" },
         { text = "Tell me about your brother.", next = "brother" },
-        { text = "Who's waiting for you at Freewind?", next = "thalia" },
+        { text = "Someone must be waiting for you at Freewind.", next = "thalia" },
         { text = "I can get us past the guards unseen.", next = "sneak", when = { class = { "ROGUE", "DRUID" } } },
         { text = "I'll get you out of here.", next = "BUSINESS" },
         { text = "Hold on a little longer.", next = "END" },

@@ -51,8 +51,8 @@ P:NPC {
       },
       choices = {
         { text = "Why do you live out here alone?", next = "alone" },
-        { text = "You knew Bethor Iceshard?", next = "bethor" },
-        { text = "What were you, before the plague?", next = "dalaran" },
+        { text = "So you knew Bethor Iceshard.", next = "bethor" },
+        { text = "You have the look of a scholar.", next = "dalaran" },
         { text = "Lillith Nefara. Who was she?", next = "lillith", when = { questDone = TODO_QUEST("Proving Allegiance") } },
         { text = "I was Kirin Tor too, before I died.", next = "kirin", when = { class = "MAGE", race = "Scourge" } },
         { text = "Necromancy, then. Is that what you study?", next = "necro", when = { class = { "WARLOCK", "PRIEST" } } },
@@ -112,7 +112,7 @@ P:NPC {
     dalaran = {
       lines = { { id = "da_default", text = "A student of the Kirin Tor, and a better one than my tutors liked to admit. My field was the boundary between life and death, which Dalaran pretended was not a field at all." } },
       choices = {
-        { text = "Necromancy is forbidden in Dalaran, isn't it?", next = "necro" },
+        { text = "Necromancy is forbidden in Dalaran.", next = "necro" },
         { text = "Something else.", next = "BACK" },
       },
     },

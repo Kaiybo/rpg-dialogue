@@ -48,7 +48,7 @@ P:NPC {
       choices = {
         { text = "Why does Dadanga dislike smoke?", next = "smoke" },
         { text = "How did an orc end up with Marshal Expeditions?", next = "orc" },
-        { text = "What does a pack kodo do out here?", next = "work" },
+        { text = "A pack kodo seems out of place down here.", next = "work" },
         { text = "Spark says Dadanga needs a bath.", next = "spark", when = { heardLine = "spark_nilminer.d_default" } },
         { text = "May I greet her?", next = "greet", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
         { text = "What does Dadanga eat?", next = "BUSINESS" },
@@ -69,7 +69,7 @@ P:NPC {
     orc = {
       lines = { { id = "o_default", text = "The Marshals needed somebody who knew kodos and wasn't afraid of the road from Gadgetzan, and I needed work that didn't involve an axe. It's been a fair trade on both sides." } },
       choices = {
-        { text = "You didn't want to fight?", next = "orc_fight" },
+        { text = "I'd guess you didn't want to fight.", next = "orc_fight" },
         { text = "Something else.", next = "BACK" },
       },
     },

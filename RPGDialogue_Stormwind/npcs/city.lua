@@ -144,16 +144,16 @@ P:NPC {
         { id = "h_again3", when = { class = "ROGUE" }, text = "Something else? Ask it as if someone's listening. Someone usually is." },
       },
       choices = {
-        { text = "What does SI:7 do?", next = "si7" },
-        { text = "Who do you answer to?", next = "answer" },
-        { text = "What do you know about the Defias?", next = "defias" },
+        { text = "I don't know much about what SI:7 does.", next = "si7" },
+        { text = "Even you answer to someone, I expect.", next = "answer" },
+        { text = "The Defias seem better organized than common bandits.", next = "defias" },
         { text = "I'm a rogue. Does SI:7 have work?", next = "rogue", when = { class = "ROGUE" } },
-        { text = "What use is a priest to SI:7?", next = "priest", when = { class = "PRIEST" } },
+        { text = "I doubt a priest is much use to SI:7.", next = "priest", when = { class = "PRIEST" } },
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Lescovar is dead.", next = "lescovar", when = { questDone = TODO_QUEST("The Head of the Beast") } },
         { text = "Does SI:7 watch the Slaughtered Lamb?", next = "lamb", when = { class = "WARLOCK" } },
         { text = "I track things for a living. Any use to you?", next = "hunter", when = { class = "HUNTER" } },
-        { text = "What's in your file on the Skyborne?", next = "skyfile", when = { race = "Skyborne" } },
+        { text = "I'd guess you keep a file on the Skyborne.", next = "skyfile", when = { race = "Skyborne" } },
         { text = "The Watchers taught me to move quietly, Master Shaw.", next = "watchers", when = { race = "NightElf", class = "ROGUE" } },
         { text = "Does SI:7 work with the Mage Quarter?", next = "magequarter", when = { class = "MAGE" } },
         { text = "Does SI:7 ever use warriors, Master Shaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -170,20 +170,20 @@ P:NPC {
       lines = { { id = "s_default", text = "We worry, so the king doesn't have to. Currently that's a regent and a boy. So we worry twice as hard." } },
       choices = {
         { text = "That's a heavy job.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Can I help?", next = "help" },
+        { text = "I'd like to help, if I can.", next = "help" },
         { text = "And the King himself?", next = "si7_king" },
       },
     },
     help = {
-      lines = { { id = "hp_default", text = "Probably. Keep your eyes open and your mouth shut, and we'll find you when we need you. Don't come looking." } },
+      lines = { { id = "hp_default", text = "You probably can. Keep your eyes open and your mouth shut, and we'll find you when we need you. Don't come looking." } },
       choices = {
         { text = "Understood.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll come looking whenever I please, Shaw.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "How will you find me?", next = "help_find" },
+        { text = "You'll have a hard time finding me.", next = "help_find" },
       },
     },
     help_find = {
-      lines = { { id = "hf_default", text = "The same way I knew you were coming before you reached the door: someone told me, as someone always does." } },
+      lines = { { id = "hf_default", text = "I'll find you the same way I knew you were coming before you reached the door: someone told me, as someone always does." } },
       choices = {
         { text = "That isn't comforting.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Then I'll be easy to find.", next = "BACK", fx = { affinity = 1, standing = { stormwind = 1 } } },
@@ -248,7 +248,7 @@ P:NPC {
     court = {
       lines = { { id = "c_default", text = "The nobles mean well, mostly. Lady Prestor means very well indeed. She's the only one who never asks me for anything." } },
       choices = {
-        { text = "Doesn't that make you suspicious?", next = "court_prestor" },
+        { text = "That would make me suspicious.", next = "court_prestor" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -289,7 +289,7 @@ P:NPC {
     rogue = {
       lines = { { id = "r_default", text = "Everyone with light fingers wants in, and Renzik decides whether you live long enough. He'll send you to Lucius in Redridge first, so do what Lucius says." } },
       choices = {
-        { text = "And if I'm caught on a job?", next = "rogue_caught" },
+        { text = "I could get caught on a job.", next = "rogue_caught" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -398,7 +398,7 @@ P:NPC {
     magequarter = {
       lines = { { id = "magequarter_l", text = "When it suits both of us. Jennea Cannon and I trade favours the way merchants trade grain: carefully, and with a long memory of who got the better end." } },
       choices = {
-        { text = "Who usually gets the better end?", next = "magequarter_end" },
+        { text = "One of you must get the better end.", next = "magequarter_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -546,14 +546,14 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "Why test the water at Mirror Lake?", next = "currents" },
-        { text = "What happened at the Blue Recluse?", next = "recluse" },
-        { text = "Is magic really so dangerous?", next = "danger", when = { ["not"] = { class = "MAGE" } } },
+        { text = "Testing the water at Mirror Lake seems an odd task.", next = "currents" },
+        { text = "Something went badly wrong at the Blue Recluse.", next = "recluse" },
+        { text = "Magic can't be that dangerous.", next = "danger", when = { ["not"] = { class = "MAGE" } } },
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
         { text = "Should a mage's learning have any limits?", next = "limits", when = { class = "MAGE" } },
         { text = "Gnomeregan's mages studied differently from yours.", next = "gnome_mage", when = { race = "Gnome", class = "MAGE" } },
         { text = "The High Order studied in Dalaran before coming here.", next = "highorder", when = { race = "Skyborne", class = "MAGE" } },
-        { text = "What do you think of the warlocks under the Lamb?", next = "warlocks" },
+        { text = "You can't think much of the warlocks under the Lamb.", next = "warlocks" },
         { text = "Do thieves really try to rob the Sanctum?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Sanctum's wards really dislike iron, Magus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do mages and hunters ever work together, Magus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -618,7 +618,7 @@ P:NPC {
       choices = {
         { text = "Knowledge itself is never the danger.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Some doors should stay locked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Who decides where the line is?", next = "limits_who" },
+        { text = "Someone has to decide where the line is.", next = "limits_who" },
       },
     },
     limits_who = {
@@ -653,7 +653,7 @@ P:NPC {
     },
     warlocks = {
       lines = {
-        { id = "warlocks_l", text = "That they're a door this city keeps propped open because it's afraid of the draught. I'd close it, and nobody asks me, and the Lamb keeps pouring." },
+        { id = "warlocks_l", text = "I think they're a door this city keeps propped open because it's afraid of the draught. I'd close it, and nobody asks me, and the Lamb keeps pouring." },
         { id = "warlocks_lock", when = { class = "WARLOCK" },
           text = "You're one of Gakin's, and you came up the stairs to ask me that? Then here's the truth of it: you're a door this city keeps propped open because it's afraid of the draught." },
       },
@@ -808,14 +808,14 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "What is this place?", next = "lamb" },
-        { text = "Why so many dwarves and gnomes down here?", next = "khaz" },
-        { text = "Who was Surena?", next = "surena", when = { questDone = TODO_QUEST("Surena Caledon") } },
+        { text = "This place feels like more than a tavern cellar.", next = "lamb" },
+        { text = "There are a lot of dwarves and gnomes down here.", next = "khaz" },
+        { text = "You spoke of Surena as if she mattered.", next = "surena", when = { questDone = TODO_QUEST("Surena Caledon") } },
         { text = "The Church would shut this place down.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "I should be practising something, I suppose.", next = "practise", when = { class = "WARLOCK" } },
         { text = "Who's really the master, the warlock or the demon?", next = "master", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's books taught me more than any cellar.", next = "gnome_lock", when = { race = "Gnome", class = "WARLOCK" } },
-        { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "Why do the Quarter's mages look down on you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have warlocks any use for warriors, Gakin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a hunter's bond anything like a warlock's binding?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -854,7 +854,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     surena = {
-      lines = { { id = "s_default", text = "A good student, better than good, and that's what made it hurt. Don't ask me again." } },
+      lines = { { id = "s_default", text = "A good student, better than good, and that's what made it hurt. Don't bring her up again." } },
       choices = {
         { text = "She ran off with a Defias thief.", next = "surena_erlan", fx = { affinity = -1 } },
         { text = "I won't. Something else.", next = "BACK", fx = { affinity = 1 } },
@@ -897,7 +897,7 @@ P:NPC {
       choices = {
         { text = "Then I'll never forget.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little freedom makes a demon more useful.", next = "master_free", fx = { align = { order = -1 } } },
-        { text = "And if it stops hating me?", next = "master_hate" },
+        { text = "It might stop hating me one day.", next = "master_hate" },
       },
     },
     master_free = {
@@ -1096,12 +1096,12 @@ P:NPC {
       },
       choices = {
         { text = "A room, please.", next = "BUSINESS" },
-        { text = "Heard anything?", next = "news" },
-        { text = "Who stays at the Gilded Rose?", next = "guests" },
+        { text = "You must hear all sorts in here.", next = "news" },
+        { text = "The Gilded Rose sees all sorts, I'd wager.", next = "guests" },
         { text = "I'm from Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
         { text = "Do you get many kaldorei at the Gilded Rose?", next = "kaldorei", when = { race = "NightElf" } },
-        { text = "Do pickpockets work your common room, Allison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do many mages stay at the Gilded Rose?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Pickpockets must love your common room, Allison.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I've seen a few mages staying at the Gilded Rose.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do many soldiers stay at the Gilded Rose, Allison?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you cook up venison if a hunter brought it, Allison?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do people bring their troubles to the Gilded Rose, Allison?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

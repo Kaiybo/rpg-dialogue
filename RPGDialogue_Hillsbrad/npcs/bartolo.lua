@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask! Bartolo is generous with his wisdom." },
       },
       choices = {
-        { text = "What makes your cloaks so special?", next = "cloak" },
+        { text = "Your cloaks look warmer than most.", next = "cloak" },
         { text = "Where do I find yeti fur?", next = "yeti" },
         { text = "Do you sell to anyone outside Southshore?", next = "fame" },
         { text = "Why do you talk about yourself like that?", next = "third" },
@@ -85,7 +85,7 @@ P:NPC {
         { id = "ye_default", text = "North into Alterac, where the yetis keep to the caves and the snow. They are large and angry and smell of wet dog, so bring friends, and do not bring the smell back to my shop." },
       },
       choices = {
-        { text = "Isn't it cruel to hunt them for cloaks?", next = "yeti_cruel" },
+        { text = "It seems cruel to hunt them for cloaks.", next = "yeti_cruel" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "How did a dwarf end up in Farholde?", next = "how" },
-        { text = "How do the walls hold up?", next = "walls" },
+        { text = "These walls look sturdy enough.", next = "walls" },
         { text = "What happened during the siege?", next = "siege" },
         { text = "Ironforge would build it differently, wouldn't it?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll let you work.", next = "END" },
@@ -56,7 +56,7 @@ P:NPC {
     how = {
       lines = { { id = "ho_default", text = "Same as Thaddeus, more or less: came for a job and stayed for the company, and the company keeps needing walls. Ironforge has a thousand masons; Farholde has me, and that's a better count for a craftsman." } },
       choices = {
-        { text = "Do you miss the mountain?", next = "how_miss" },
+        { text = "You must miss the mountain.", next = "how_miss" },
         { text = "Something else, Bertrand.", next = "BACK" },
       },
     },
@@ -95,7 +95,7 @@ P:NPC {
     siege = {
       lines = { { id = "si_default", text = "The Horde hammered the front gate, and while every eye was there, they came round by the water and burned the ships at the docks. Nobody got out and no word went for help, and we sat on half rations till the Brotherhood rode out and broke them." } },
       choices = {
-        { text = "Were you here for it?", next = "siege_here" },
+        { text = "You must have been here for it.", next = "siege_here" },
         { text = "Something else.", next = "BACK", fx = { learn = { "siege_of_farholde" } } },
       },
     },

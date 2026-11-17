@@ -50,7 +50,7 @@ P:NPC {
       },
       choices = {
         { text = "Who actually wears pirate hats?", next = "hats" },
-        { text = "Do kings really buy from you?", next = "kings" },
+        { text = "I doubt kings really buy from you.", next = "kings" },
         { text = "Why set up shop at Steamwheedle Port?", next = "port" },
         { text = "What's wrong with how I dress?", next = "dress" },
         { text = "As a tailor, what's your secret?", next = "tailor", when = { profession = "Tailoring" } },
@@ -93,7 +93,7 @@ P:NPC {
       lines = { { id = "d_default", text = "Where to begin, sweetie? You dress for fighting things, which is fine for fighting things, but nobody will ever invite you anywhere twice." } },
       choices = {
         { text = "I'm happy as I am, thank you.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "What would you suggest?", next = "dress_suggest" },
+        { text = "I suppose you have a suggestion.", next = "dress_suggest" },
       },
     },
     dress_suggest = {

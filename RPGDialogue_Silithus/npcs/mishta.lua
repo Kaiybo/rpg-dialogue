@@ -41,8 +41,8 @@ P:NPC {
       choices = {
         { text = "Who is this goblin?", next = "goblin" },
         { text = "Why keep shop in Silithus?", next = "why" },
-        { text = "What's running lowest?", next = "low" },
-        { text = "Couldn't I bring supplies from Gadgetzan?", next = "help", when = { minLevel = 55 } },
+        { text = "You look to be running low on a few things.", next = "low" },
+        { text = "I could bring supplies from Gadgetzan.", next = "help", when = { minLevel = 55 } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Good luck with the shipment.", next = "END" },
       },

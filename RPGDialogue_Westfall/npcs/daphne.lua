@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. They won't come while we're talking, because they don't like witnesses." },
       },
       choices = {
-        { text = "Aren't you afraid out here?", next = "afraid" },
+        { text = "You must be afraid out here.", next = "afraid" },
         { text = "Tell me about Jordan.", next = "jordan" },
         { text = "Why would the Defias want your farm?", next = "farm" },
         { text = "You fight them yourself?", next = "fought" },
@@ -128,7 +128,7 @@ P:NPC {
         { text = "Do the murlocs come up as far as your farm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your orchard lives where the rest of Westfall died. How?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Defias below fear something like my imp?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you ever fear the Defias down the hill, Daphne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You don't seem to fear the Defias down the hill, Daphne.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },
     },
@@ -173,7 +173,7 @@ P:NPC {
     farm = {
       lines = { { id = "fa_default", text = "Look down the hill, love. That's the Longshore, and the way to it runs past my gate. Whatever goes in and out of their holes in these hills, I see it." } },
       choices = {
-        { text = "What have you seen?", next = "farm_seen" },
+        { text = "You must have seen a thing or two from up here.", next = "farm_seen" },
         { text = "Something else.", next = "BACK" },
       },
     },

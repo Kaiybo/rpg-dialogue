@@ -55,8 +55,8 @@ P:NPC {
       },
       choices = {
         { text = "What happened to your father?", next = "father" },
-        { text = "Why join the Watch that hunts him?", next = "watch" },
-        { text = "What's it like, keeping the Watch?", next = "duty" },
+        { text = "Strange that you'd join the Watch that hunts him.", next = "watch" },
+        { text = "Keeping the Watch must be hard work.", next = "duty" },
         { text = "He spoke your name at the grave.", next = "grave", when = { questDone = TODO_QUEST("A Daughter's Love") } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "Stay safe, Sarah.", next = "END" },
@@ -92,7 +92,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Because somebody had to keep the town safe from what he became, and I'd rather it was someone who remembered him as he was. The Commander understood that." },
       },
       choices = {
-        { text = "Commander Ebonlocke took you in?", next = "watch_althea" },
+        { text = "So Commander Ebonlocke took you in.", next = "watch_althea" },
         { text = "Something else.", next = "BACK" },
       },
     },

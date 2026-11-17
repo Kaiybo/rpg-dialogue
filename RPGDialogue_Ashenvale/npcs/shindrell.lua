@@ -58,7 +58,7 @@ P:NPC {
       choices = {
         { text = "Why are the naga on the Zoram Strand?", next = "naga" },
         { text = "Are we at war with the Horde or not?", next = "horde" },
-        { text = "Who is Kayneth Stillwind?", next = "kayneth" },
+        { text = "I don't know this Kayneth Stillwind.", next = "kayneth" },
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
         { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What work do you have?", next = "BUSINESS" },
@@ -80,7 +80,7 @@ P:NPC {
         { id = "nw_default", text = "I don't know, and I like not knowing even less than I like the naga. There's a deep place under the strand that the Horde's scouts have been poking at too, and I'd rather we found its secrets first." },
       },
       choices = {
-        { text = "The Horde are there as well?", next = "naga_horde" },
+        { text = "So the Horde are there as well.", next = "naga_horde" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "You're a gnome pirate?", next = "pirate" },
         { text = "Tell me about your first mate.", next = "mate" },
-        { text = "What happened to your ship?", next = "ship" },
+        { text = "You look like a sailor without a ship.", next = "ship" },
         { text = "How did you build a machine like that?", next = "eng_g", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need, Captain?", next = "BUSINESS" },
         { text = "Fair winds, Captain.", next = "END" },

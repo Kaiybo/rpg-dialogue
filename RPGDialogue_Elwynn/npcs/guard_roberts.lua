@@ -50,7 +50,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. It takes my mind off the leg." },
       },
       choices = {
-        { text = "What happened to you?", next = "hurt" },
+        { text = "You look like you've taken a beating.", next = "hurt" },
         { text = "Why hasn't anyone carried you to Goldshire?", next = "carried" },
         { text = "What's there to watch out here?", next = "watch" },
         { text = "Hold still. Let me heal you.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },

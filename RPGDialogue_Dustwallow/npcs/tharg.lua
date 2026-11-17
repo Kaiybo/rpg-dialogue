@@ -55,7 +55,7 @@ P:NPC {
       choices = {
         { text = "What happened to the Stonemaul village?", next = "village" },
         { text = "You lost someone to the dragons.", next = "wife" },
-        { text = "What do you think of Mok'Morokk?", next = "overlord" },
+        { text = "You don't seem to think much of Mok'Morokk.", next = "overlord" },
         { text = "You were there when Rexxar came?", next = "rexxar" },
         { text = "I hunt beasts too. Tell me about Rexxar's way.", next = "rexxar_hunt", when = { class = "HUNTER" } },
         { text = "Could the spirits carry a word to your wife?", next = "spirits", when = { class = "SHAMAN" } },
@@ -67,7 +67,7 @@ P:NPC {
     village = {
       lines = { { id = "v_default", text = "Stonemaul village sat in the south, with dry stone and good hunting and ogres who were proud. Then the black dragons came down out of the bog, and fire came with them, and now Tharg's home is ruins full of dragon whelps." } },
       choices = {
-        { text = "Who drove you out?", next = "village_who" },
+        { text = "Somebody must have driven you out.", next = "village_who" },
         { text = "Something else, Tharg.", next = "BACK" },
       },
     },
@@ -110,7 +110,7 @@ P:NPC {
     overlord = {
       lines = { { id = "o_default", text = "Mok'Morokk was made Overlord by Rexxar, and Mok'Morokk cares more for being Overlord than for ogres. When the dragons came, Mok'Morokk told the Stonemaul to run, and so we ran, and Tharg is still ashamed." } },
       choices = {
-        { text = "Does anyone else in Brackenwall feel the same?", next = "overlord_who" },
+        { text = "You can't be the only one who feels that way.", next = "overlord_who" },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },

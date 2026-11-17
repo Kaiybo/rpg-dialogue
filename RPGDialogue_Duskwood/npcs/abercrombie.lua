@@ -115,10 +115,10 @@ P:NPC {
       },
       choices = {
         { text = "The trees around your shack are dead, and not from age.", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "What are you working on?", next = "work" },
+        { text = "You look busy with some work of your own.", next = "work" },
         { text = "Tell me about your wife.", next = "wife" },
         { text = "Don't the dead bother you, up here?", next = "dead" },
-        { text = "Why not live in Darkshire?", next = "town" },
+        { text = "Darkshire's a long walk from here.", next = "town" },
         { text = "Let me say the rites at her grave.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know necromancy when I smell it.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "What do you preserve, exactly?", next = "alchemy", when = { profession = "Alchemy" } },
@@ -126,7 +126,7 @@ P:NPC {
         { text = "You've a lot of locked crates for a lonely old man.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "There's a strange smell of preservatives here, Abercrombie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the dead around Raven Hill trouble you, old man?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "You live alone among the graves. Do you need protecting, old man?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You live alone among the graves. You need protecting, old man.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever feel the spirits near your hut, Abercrombie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Abercrombie.", next = "END" },
       },
@@ -141,7 +141,7 @@ P:NPC {
       choices = {
         { text = "I'm sure they'll love it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something about this feels wrong.", next = "wrong", fx = { trait = { skeptical = 1 } } },
-        { text = "What's all the thread for?", next = "work_thread" },
+        { text = "There's thread strung all over this place.", next = "work_thread" },
       },
     },
     wrong = {
@@ -219,7 +219,7 @@ P:NPC {
         { id = "to_default", text = "It's a long road, and I'm not getting any younger. Besides, Darkshire has been unkind about my hobbies, with all its whispers and its looks." },
       },
       choices = {
-        { text = "Who's been unkind?", next = "town_unkind" },
+        { text = "Darkshire's folk seem to talk about you.", next = "town_unkind" },
         { text = "Something else.", next = "BACK" },
       },
     },

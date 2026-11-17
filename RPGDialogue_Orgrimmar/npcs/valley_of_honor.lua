@@ -63,7 +63,7 @@ P:NPC {
     gulch_carrier = {
       lines = { { id = "gc_default", text = "Whoever can take the most punishment and still run, so usually a warrior or a druid in bear's hide. The rest of you keep the carrier alive, and if you don't, you'll be running back to fetch the banner yourselves." } },
       choices = {
-        { text = "Who decides who carries it?", next = "gulch_glory" },
+        { text = "Someone must decide who carries it.", next = "gulch_glory" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -172,7 +172,7 @@ P:NPC {
       choices = {
         { text = "Why do orcs ride wolves?", next = "wolves" },
         { text = "What does it take to learn riding?", next = "learn" },
-        { text = "Can anyone buy a wolf?", next = "buy" },
+        { text = "I'd like a wolf of my own someday.", next = "buy" },
         { text = "Would you teach a Forsaken to ride, Kildar?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm ready to learn.", next = "BUSINESS", when = { minLevel = 40 } },
         { text = "Farewell, Kildar.", next = "END" },
@@ -284,7 +284,7 @@ P:NPC {
     hardest = {
       lines = { { id = "ha_default", text = "Patience, every time. A young orc wants to charge everything he sees, and it takes a dozen bruises before he understands that waiting for the right moment wins more fights than rushing." } },
       choices = {
-        { text = "Was it hard for you to learn?", next = "hardest_self" },
+        { text = "It must have been hard for you to learn.", next = "hardest_self" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -345,7 +345,7 @@ P:NPC {
     why = {
       lines = { { id = "wy_default", text = "Because the best axe in the world breaks, and when it does, you pick up whatever's lying on the ground. If you know how to use it, you live, and if you don't, you become a lesson for the next recruit." } },
       choices = {
-        { text = "Has that happened to you?", next = "why_self" },
+        { text = "You sound like that's happened to you.", next = "why_self" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -394,7 +394,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, mon? The spirits be waiting." } },
       choices = {
-        { text = "Do weapons really have spirits?", next = "spirits" },
+        { text = "I've never heard of a weapon with a spirit.", next = "spirits" },
         { text = "What was it like on the islands?", next = "islands" },
         { text = "I want to learn a new weapon.", next = "BUSINESS" },
         { text = "Farewell, Hanashi.", next = "END" },
@@ -412,7 +412,7 @@ P:NPC {
     islands = {
       lines = { { id = "is_default", text = "Hard, and then very hard, because the murlocs came and the sea witch came after them. We learned to fight with anything we could hold, and the ones who couldn't learn didn't come to Durotar with us." } },
       choices = {
-        { text = "Do you miss the Echo Isles?", next = "islands_miss" },
+        { text = "You must miss the Echo Isles.", next = "islands_miss" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -520,7 +520,7 @@ P:NPC {
       choices = {
         { text = "Where do your guns come from?", next = "where" },
         { text = "Orcs don't seem to like guns much.", next = "orcs" },
-        { text = "Do you sell guns to dwarves too?", next = "dwarves" },
+        { text = "I'd bet you sell guns to dwarves too.", next = "dwarves" },
         { text = "Show me the guns.", next = "BUSINESS" },
         { text = "Not today, Kaja.", next = "END" },
       },
@@ -528,7 +528,7 @@ P:NPC {
     where = {
       lines = { { id = "wh_default", text = "Ratchet, Booty Bay, Undermine, and a few places I can't name without paying a fee to the people who'd find out. The good stuff comes by boat, and the cheap stuff comes from my cousin, who's missing two fingers but still swears by his designs." } },
       choices = {
-        { text = "Two fingers? From the guns?", next = "where_cousin" },
+        { text = "Two fingers lost to the guns, then.", next = "where_cousin" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -581,7 +581,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? I've got strings to wax." } },
       choices = {
-        { text = "Why are bows better than guns?", next = "guns" },
+        { text = "Most hunters I've met seem to favor guns.", next = "guns" },
         { text = "Where does your wood come from?", next = "wood" },
         { text = "I'm a hunter. What bow would you recommend?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Show me your bows.", next = "BUSINESS" },

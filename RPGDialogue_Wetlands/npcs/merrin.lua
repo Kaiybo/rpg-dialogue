@@ -51,7 +51,7 @@ P:NPC {
         { id = "h_again2", text = "Ask on. There's little else tae do up here but talk an' wait." },
       },
       choices = {
-        { text = "What happened at the dig?", next = "attack" },
+        { text = "Something terrible must have happened at the dig.", next = "attack" },
         { text = "What were you digging for?", next = "dig" },
         { text = "Tell me about Ormer.", next = "ormer" },
         { text = "Tarrel misses you.", next = "tarrel" },
@@ -65,7 +65,7 @@ P:NPC {
         { id = "at_default", text = "We'd begun tae find bones, great big ones, an' then the mottled raptors were all over the site before anyone could shout. Many lives were lost, an' Ormer held them off long enough for the Prospector an' me tae reach the ridge." },
       },
       choices = {
-        { text = "Why did the raptors come?", next = "attack_why" },
+        { text = "The raptors must have come for a reason.", next = "attack_why" },
         { text = "Something else, Merrin.", next = "BACK" },
       },
     },
@@ -102,7 +102,7 @@ P:NPC {
         { id = "or_default", text = "So brave, an' he'd hate me sayin' it. He stood between the raptors an' the rest o' us wi' nothin' but a pick an' his own stubbornness, an' he lost friends down there he'll no' talk about." },
       },
       choices = {
-        { text = "How is he holding up?", next = "ormer_how" },
+        { text = "He doesn't seem to be holding up well.", next = "ormer_how" },
         { text = "Something else.", next = "BACK" },
       },
     },

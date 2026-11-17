@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "You know Kurzen's soldiers personally?", next = "known" },
         { text = "Why do you need his remedies?", next = "medicine" },
-        { text = "How do you fight a man who outnumbers you?", next = "tactics" },
+        { text = "Fighting a man who outnumbers you can't be easy.", next = "tactics" },
         { text = "Why did you leave Kurzen?", next = "leave" },
         { text = "I could help make your remedies.", next = "xalchemy", when = { profession = "Alchemy" } },
         { text = "Let me tend your wounded, Sergeant.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },

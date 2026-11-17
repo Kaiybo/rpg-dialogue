@@ -123,13 +123,13 @@ P:NPC {
         { id = "h_again2", text = "Go on. The petitioners can wait a little longer; they're used to it." },
       },
       choices = {
-        { text = "Who is this missing diplomat?", next = "diplomat" },
-        { text = "What does the Church want from the court?", next = "court" },
+        { text = "This missing diplomat must be someone important.", next = "diplomat" },
+        { text = "The Church wants something from the court, I'd wager.", next = "court" },
         { text = "Why trust a fisherman over the guard?", next = "contacts" },
         { text = "Your Grace, how does a priest serve at court?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Does the Church trust the Mage Quarter, Your Grace?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "I'd guess the Church is wary of the Mage Quarter, Your Grace.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -168,7 +168,7 @@ P:NPC {
     court = {
       lines = { { id = "c_default", text = "Bread for the poor, a voice for the stonemasons nobody paid, and a seat when the Regent decides things that touch the faithful. We get perhaps half of that in a good year, and this hasn't been a good year." } },
       choices = {
-        { text = "Who truly decides at court?", next = "court_regent" },
+        { text = "I'd like to know who truly decides at court.", next = "court_regent" },
         { text = "The stonemasons?", next = "court_masons" },
         { text = "Something else.", next = "BACK" },
       },
@@ -229,7 +229,7 @@ P:NPC {
       choices = {
         { text = "Listening is the same work, whoever pays.", next = "BACK", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
         { text = "The Church's way is the honest one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Who else listens for the Church?", next = "rogue2" },
+        { text = "I'd wager the Church has other ears in the city.", next = "rogue2" },
       },
     },
     rogue2 = {
@@ -396,10 +396,10 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about your museum.", next = "museum" },
-        { text = "Why would you want a traitor's tiara?", next = "tiara" },
-        { text = "Who is Mayara Brightwing?", next = "mayara" },
-        { text = "Dwarves made it, you said?", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "Which house do you think I'm from?", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "That's a traitor's tiara you're after.", next = "tiara" },
+        { text = "I don't know this Mayara Brightwing.", next = "mayara" },
+        { text = "So dwarves made it.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "You seem to have guessed my house already.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Has anyone ever tried to rob your museum, Count?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you like me to look over your collection?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you collect arms and armour too, Count?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -452,7 +452,7 @@ P:NPC {
       lines = { { id = "ma_default", text = "My agent, and a marvel: she goes where I'd never dream of going and writes me the most thrilling letters. She's in the Burning Steppes now, among the ruins of the Dark Iron capital, looking for things that ought to be in a museum.",
         fx = { learn = { "thaurissan" } } } },
       choices = {
-        { text = "Isn't that dangerous?", next = "mayara_danger" },
+        { text = "That sounds dangerous.", next = "mayara_danger" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -603,8 +603,8 @@ P:NPC {
       },
       choices = {
         { text = "What dark practitioners?", next = "coven" },
-        { text = "How did you find them?", next = "found" },
-        { text = "Will the House listen?", next = "house" },
+        { text = "You must have stumbled on them somehow.", next = "found" },
+        { text = "The House may not listen.", next = "house" },
         { text = "Don't drink anything sent from the Mage Quarter.", next = "warn", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "The Church stands with you, my lord.", next = "priest", when = { class = "PRIEST" } },
         { text = "The Mage Quarter isn't all demon-callers, my lord.", next = "mage", when = { class = "MAGE" } },
@@ -648,7 +648,7 @@ P:NPC {
     house = {
       lines = { { id = "h2_default", text = "They will, if I shout long enough, and I've a very good voice for shouting. Half of them are afraid of the magi and the other half are afraid of me, so I expect a full investigation by the end of the season." } },
       choices = {
-        { text = "Aren't you worried they'll come for you?", next = "house_fear" },
+        { text = "They might come for you.", next = "house_fear" },
         { text = "Something else.", next = "BACK" },
       },
     },

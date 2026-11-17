@@ -53,7 +53,7 @@ P:NPC {
         { text = "Why do the Wastewanderers steal water?", next = "bandits" },
         { text = "Do you ever stop saying huzzah?", next = "huzzah" },
         { text = "Show me those spigots.", next = "spigots", when = { profession = "Engineering" } },
-        { text = "Couldn't the water just be shared, Luglunket?", next = "share", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
+        { text = "The water could just be shared, Luglunket.", next = "share", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Keep up the good work.", next = "END" },
       },

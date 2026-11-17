@@ -54,7 +54,7 @@ P:NPC {
         { text = "How do I fish?", next = "howto" },
         { text = "Tell me about crab.", next = "crab" },
         { text = "Tell me about your family.", next = "family" },
-        { text = "Why don't the boats go out?", next = "murlocs" },
+        { text = "The boats here never seem to go out.", next = "murlocs" },
         { text = "I've fished all my life too, Gubber.", next = "fisher_g", when = { profession = { name = "Fishing", min = 75 } } },
         { text = "Can you teach me, or sell me a pole?", next = "BUSINESS" },
         { text = "Bye, Gubber.", next = "END" },
@@ -66,7 +66,7 @@ P:NPC {
         { id = "ho_default", text = "It's real easy. You take a pole with a line on it, put some bait on if you got some, and cast it out in the water, and sure enough, them fish start biting." },
       },
       choices = {
-        { text = "What if they don't bite?", next = "howto_wait" },
+        { text = "They might not bite at all.", next = "howto_wait" },
         { text = "I don't have a pole.", next = "BUSINESS" },
       },
     },
@@ -96,7 +96,7 @@ P:NPC {
         { id = "cr_default", text = "You can bake it, boil it, grill it, fry it, and you can put it in a pie or a soup or a stew. There's crab cakes and crab on a stick and Ironforge surprise crab, which is my favourite, 'cause it's a surprise." },
       },
       choices = {
-        { text = "What's the surprise?", next = "crab_surprise" },
+        { text = "I hope the surprise is a good one.", next = "crab_surprise" },
         { text = "Something else.", next = "BACK" },
       },
     },

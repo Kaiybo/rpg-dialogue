@@ -136,7 +136,7 @@ P:NPC {
         { text = "Someone has to keep the law.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Death warrants for orcs who'll never read them are a waste of ink.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Sounds like a lot of paper.", next = "paper" },
-        { text = "Who's on your docket?", next = "docket" },
+        { text = "Your docket must be a full one these days.", next = "docket" },
       },
     },
     paper = {
@@ -331,7 +331,7 @@ P:NPC {
       choices = {
         { text = "How bad is it?", next = "bad" },
         { text = "Why count gnolls at all?", next = "counting" },
-        { text = "Who watches the road south?", next = "parker" },
+        { text = "Someone must be watching the road south.", next = "parker" },
         { text = "I'm good with numbers. Let me help.", next = "gnome", when = { race = "Gnome" } },
         { text = "I counted them for you. What now?", next = "after", when = { questDone = TODO_QUEST("Assessing the Threat") } },
         { text = "I track things for a living. Want help counting?", next = "hunter", when = { class = "HUNTER" } },
@@ -340,7 +340,7 @@ P:NPC {
         { text = "How many gnolls are out there now, Deputy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you count the fallen as carefully as the gnolls, Deputy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has Stormwind answered any of your reports, Deputy?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why have the gnolls grown so bold, Deputy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The gnolls seem to have grown bold, Deputy.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Which column would you put a warlock in, Deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many gnolls are there now, Deputy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
@@ -371,7 +371,7 @@ P:NPC {
     counting = {
       lines = { { id = "c_default", text = "Because a report without numbers is only a complaint. Stormwind ignores complaints, and it ignores numbers more slowly." } },
       choices = {
-        { text = "Who reads your reports?", next = "reports" },
+        { text = "I'd guess nobody in Stormwind reads your reports.", next = "reports" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -544,7 +544,7 @@ P:NPC {
       choices = {
         { text = "What's out on the road?", next = "road" },
         { text = "So, Darcy...", next = "darcy" },
-        { text = "What's the trouble in Redridge?", next = "trouble" },
+        { text = "Redridge seems full of trouble these days.", next = "trouble" },
         { text = "Darcy made you lunch.", next = "lunch", when = { questActive = TODO_QUEST("A Free Lunch") } },
         { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I came up that road and you never saw me.", next = "rogue", when = { class = "ROGUE" } },
@@ -554,7 +554,7 @@ P:NPC {
         { text = "Your road would be safer with a demon walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you worry about not coming back from the road, Parker?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should someone walk the road with you, Parker?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "What worries you most about the hills, Parker?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Something about these hills worries you, Parker.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the hills hold more trouble than usual, Parker?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Carry on.", next = "END" },
       },
@@ -563,7 +563,7 @@ P:NPC {
       lines = { { id = "r_default", text = "Gnolls in the hills, worse in the woods past the Duskwood line. Things come up out of that fog I don't have names for." } },
       choices = {
         { text = "Stay sharp.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
-        { text = "Gnolls this close to Elwynn?", next = "elwynn" },
+        { text = "That's far too close to Elwynn for gnolls.", next = "elwynn" },
       },
     },
     elwynn = {
@@ -754,7 +754,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm all ears, love. Well, ears and plates." },
       },
       choices = {
-        { text = "Anything good tonight?", next = "food" },
+        { text = "Something smells good tonight.", next = "food" },
         { text = "Heard any gossip?", next = "gossip" },
         { text = "So... Parker.", next = "parker" },
         { text = "I delivered the lunch. He ate every bite.", next = "lunch_done", when = { questDone = TODO_QUEST("A Free Lunch") } },
@@ -806,14 +806,14 @@ P:NPC {
       lines = { { id = "g2_default", text = "Martie's boar's been in her garden again, and the Marshal's gone and named it Bellygrub. Now nobody can take it seriously, which is a problem, because it's enormous." } },
       choices = {
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
-        { text = "What about Martie herself?", next = "martie" },
+        { text = "Martie herself seems a sweet sort.", next = "martie" },
       },
     },
     martie = {
       lines = { { id = "m_default", text = "Martie Jainrose? Sweet as honey to your face. I'd count my flowers after, that's all." } },
       choices = {
         { text = "That's unkind, Darcy.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
-        { text = "You think she likes Parker?", next = "martie_parker" },
+        { text = "It sounds as if she likes Parker.", next = "martie_parker" },
       },
     },
     martie_parker = {
@@ -994,7 +994,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The weeds will wait, and so will that great lump of a boar, right until I turn my back." },
       },
       choices = {
-        { text = "What grows well here?", next = "grow" },
+        { text = "Your garden seems to grow well, for Redridge.", next = "grow" },
         { text = "I grew up on this lake, Martie. Is the garden what it was?", next = "xorig_home", when = { origin = "human_redridge_born" } },
         { text = "Tell me about Bellygrub.", next = "boar" },
         { text = "You seem sad about the flowers.", next = "sad" },
@@ -1004,9 +1004,9 @@ P:NPC {
           fx = { align = { honor = -1 } } },
         { text = "Why do you grow flowers for nobody, Martie?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Somebody asked me to deliver daffodils, and I won't say who.", next = "END", when = { questDone = TODO_QUEST("Delivering Daffodils") }, fx = { align = { honor = 1 } } },
-        { text = "Could I tame Bellygrub?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I could tame Bellygrub, I think.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Some of your herbs would make fine poisons.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the gnolls come near your garden, Martie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The gnolls must come near your garden at times, Martie.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your garden is the only thing in Redridge that isn't frightened.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Which of your herbs go to the wounded, Martie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the guard post someone at your garden, Martie?", next = "xapala", when = { class = "PALADIN" } },
@@ -1018,7 +1018,7 @@ P:NPC {
       lines = { { id = "g_default", text = "Peacebloom, silverleaf, a little briarthorn by the wall. Anything, really, if the boars and the orcs leave it alone." } },
       choices = {
         { text = "Thanks.", next = "BACK" },
-        { text = "Who uses your herbs?", next = "buyers" },
+        { text = "Your herbs must go to the healers.", next = "buyers" },
       },
     },
     buyers = {
@@ -1043,7 +1043,7 @@ P:NPC {
       },
       choices = {
         { text = "Here you are.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Is it about Parker?", next = "parker" },
+        { text = "I'd guess this is about Parker.", next = "parker" },
       },
     },
     parker = {
@@ -1206,7 +1206,7 @@ P:NPC {
       },
       choices = {
         { text = "How are the soldiers?", next = "soldiers" },
-        { text = "What goes in the goulash?", next = "goulash" },
+        { text = "That goulash smells of something I can't place.", next = "goulash" },
         { text = "Who works your kitchen?", next = "kitchen" },
         { text = "I cook. Can I lend a hand?", next = "cook", when = { profession = "Cooking" } },
         { text = "Shall I bless the pot?", next = "priest", when = { class = "PRIEST" } },
@@ -1215,7 +1215,7 @@ P:NPC {
         { text = "What meat do you need for the soldiers' stew, Chef?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your kitchen could use a fire that never goes out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers you feed get enough to fight on, Chef?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why are the hills so empty of game this season?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "The hills seem empty of game this season.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is food really that short in Lakeshire, Breanna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are there too few soldiers in Lakeshire, Chef?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },

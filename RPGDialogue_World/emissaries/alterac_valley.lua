@@ -58,10 +58,10 @@ P:NPC {
       },
       choices = {
         { text = "Why does Ironforge care about a valley in Alterac?", next = "valley" },
-        { text = "What's your quarrel with the Frostwolves?", next = "foe" },
+        { text = "You and the Frostwolves seem to have a long quarrel.", next = "foe" },
         { text = "Why stand here in the city, and not up there?", next = "post" },
         { text = "I've got some of these Alterac marks.", next = "marks", when = { carrying = 20560 } },
-        { text = "What do these marks of honor actually mean?", next = "marks", when = { ["not"] = { carrying = 20560 } } },
+        { text = "These marks of honor must mean something to the Guard.", next = "marks", when = { ["not"] = { carrying = 20560 } } },
         { text = "Who's in charge up there, besides Vanndar?", next = "officers" },
         { text = "I'm a Bronzebeard. Why should I bleed for the Stormpike?", next = "k_dwarf", when = { race = "Dwarf" } },
         { text = "Do the Stormpike take gnomes, or just dwarves?", next = "k_gnome", when = { race = "Gnome" } },
@@ -84,7 +84,7 @@ P:NPC {
       },
       choices = {
         { text = "What sort of older things?", next = "valley_relics" },
-        { text = "Where do you dig?", next = "valley_mine" },
+        { text = "You must dig somewhere in all that snow.", next = "valley_mine" },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -92,7 +92,7 @@ P:NPC {
       lines = { { id = "vm_default", text = "Irondeep Mine is the best of it, though we've had to fight the troggs for every cart that comes out. The orcs hold Coldtooth on their side, and more often than not the two mines change hands before the week is out." } },
       choices = {
         { text = "Troggs? In Alterac too?", next = "valley_troggs", fx = { learn = { "troggs" } } },
-        { text = "And the relics? What's buried up there?", next = "valley_relics" },
+        { text = "There must be relics buried up there too.", next = "valley_relics" },
         { text = "Something else, Emissary.", next = "BACK" },
       },
     },
@@ -128,7 +128,7 @@ P:NPC {
     foe_drekthar = {
       lines = { { id = "fd_default", text = "An old shaman called Drek'Thar, blind as a stone and sharper than most who can see. Captain Galvangar holds Iceblood for him, and when things go badly for the orcs, the old one calls up Lokholar the Ice Lord out of the snow itself." } },
       choices = {
-        { text = "An ice lord? How do you fight that?", next = "foe_ivus" },
+        { text = "An ice lord sounds like a hard thing to fight.", next = "foe_ivus" },
         { text = "A blind shaman leading a war. I'd respect that.", next = "foe_claim", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -182,7 +182,7 @@ P:NPC {
       lines = { { id = "of_default", text = "Captain Balinda Stonehearth holds the outpost that carries her name, and she's a mage who'd sooner freeze an orc than argue with one. Vanndar keeps Dun Baldar himself, and he's never once retreated a step past his own bridge." } },
       choices = {
         { text = "A mage captain among dwarves? That's unusual.", next = "officers_balinda" },
-        { text = "What happens if Dun Baldar falls?", next = "officers_fall" },
+        { text = "Dun Baldar must fall now and then.", next = "officers_fall" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -361,7 +361,7 @@ P:NPC {
       },
       choices = {
         { text = "How did the Frostwolves come to Alterac?", next = "clan" },
-        { text = "What do the dwarves want there?", next = "foe" },
+        { text = "The dwarves must want something in your valley.", next = "foe" },
         { text = "Who leads the clan now?", next = "drek" },
         { text = "I carry marks from the valley.", next = "marks", when = { carrying = 20560 } },
         { text = "What are these marks of honor?", next = "marks", when = { ["not"] = { carrying = 20560 } } },
@@ -384,7 +384,7 @@ P:NPC {
       lines = { { id = "cl_default", text = "We were sent there in chains of a kind, when Gul'dan cast our chieftain Durotan out of the Horde for speaking against him. Alterac was meant to be our grave, but the mountains took us in, and the white wolves taught us to live where no orc had lived before." } },
       choices = {
         { text = "Why did Durotan speak against Gul'dan?", next = "clan_durotan" },
-        { text = "The wolves taught you?", next = "clan_wolves" },
+        { text = "I'd not have thought wolves could teach anyone.", next = "clan_wolves" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -420,7 +420,7 @@ P:NPC {
       lines = { { id = "fo_default", text = "Ore, they say, and old stones, and they dig both out of our valley without asking. They built their fortress at Dun Baldar and named it as if the land had been waiting for them, and now they march south with their rams and their cannons." } },
       choices = {
         { text = "The dwarves say you attacked first.", next = "foe_claim" },
-        { text = "Where does the fighting happen?", next = "foe_field" },
+        { text = "The fighting must be fierce up there.", next = "foe_field" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -449,7 +449,7 @@ P:NPC {
       lines = { { id = "dr_default", text = "Drek'Thar, the eldest of our shamans, who lost his sight long ago and sees more without it than most do with two eyes. He holds Frostwolf Keep and speaks with the spirits of the valley, and the clan obeys him without question." } },
       choices = {
         { text = "What do the spirits tell him?", next = "drek_lokholar" },
-        { text = "Who fights for him?", next = "drek_galvangar" },
+        { text = "A blind shaman must have warriors to fight for him.", next = "drek_galvangar" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -470,7 +470,7 @@ P:NPC {
     drek_lokholar = {
       lines = { { id = "dl_default", text = "When the clan is in greatest need, Drek'Thar calls on Lokholar the Ice Lord, an old spirit of the mountain's winter, and it rises out of the snow to fight beside us. The dwarves call up a forest spirit of their own, but Lokholar was there long before the dwarves had a name for it." } },
       choices = {
-        { text = "A forest spirit, fighting for the dwarves?", next = "xdruid" },
+        { text = "A forest spirit fighting for the dwarves seems strange.", next = "xdruid" },
         { text = "Something else.", next = "BACK" },
       },
     },

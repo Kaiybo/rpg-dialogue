@@ -59,8 +59,8 @@ P:NPC {
       },
       choices = {
         { text = "What business does a satyr have in this forest?", next = "business" },
-        { text = "Why do the night elves let you stay here?", next = "council" },
-        { text = "What happened to your kind?", next = "satyrs" },
+        { text = "I'm surprised the night elves let you stay here.", next = "council" },
+        { text = "Your kind weren't always satyrs, I've heard.", next = "satyrs" },
         { text = "You were one of us once.", next = "kin", when = { race = "NightElf" } },
         { text = "You reek of fel, Zenn.", next = "druid_z", when = { class = "DRUID" } },
         { text = "What do you know of my sort of magic?", next = "lock_z", when = { class = "WARLOCK" } },
@@ -85,7 +85,7 @@ P:NPC {
         { id = "bw_default", text = "Now that would be telling, and I'd have no customers left if I told. Let's say not everyone in Teldrassil is as pure as the Temple would like." },
       },
       choices = {
-        { text = "You're lying, aren't you?", next = "business_lie" },
+        { text = "You're lying to me.", next = "business_lie" },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -106,7 +106,7 @@ P:NPC {
       choices = {
         { text = "Tiresome? You're a satyr. You should be driven out.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If you've done no harm, they've no right to chase you.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What does the Council think you're doing?", next = "council_think" },
+        { text = "The Council must wonder what you're up to.", next = "council_think" },
       },
     },
     council_think = {

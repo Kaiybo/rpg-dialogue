@@ -56,9 +56,9 @@ P:NPC {
       },
       choices = {
         { text = "Why do they call you 'the Lost'?", next = "lost" },
-        { text = "What doom are you talking about?", next = "doom" },
+        { text = "You talk of doom like a man who's seen it.", next = "doom" },
         { text = "Tell me about the Scroll of Myzrael.", next = "scroll" },
-        { text = "What is this place?", next = "agmond" },
+        { text = "This place has the feel of a grave about it.", next = "agmond" },
         { text = "Shouldn't a priest tell you the stone is silent?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I've heard the stone speak too, Theldurin.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "The Hammer could be using you, even now.", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
@@ -71,7 +71,7 @@ P:NPC {
         { id = "lo_default", text = "Because I ran with the Twilight's Hammer when I was young and stupid, and they promised me the end of the world as if it were a gift. I believed them, friend, for longer than I like to admit." },
       },
       choices = {
-        { text = "What made you leave them?", next = "lost_why" },
+        { text = "Something must have turned you against them.", next = "lost_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -135,7 +135,7 @@ P:NPC {
       },
       choices = {
         { text = "Where is the scroll now?", next = "scroll_torn" },
-        { text = "Why not destroy it outright?", next = "scroll_burn" },
+        { text = "I'd burn a thing like that outright.", next = "scroll_burn" },
         { text = "Something else.", next = "BACK" },
       },
     },

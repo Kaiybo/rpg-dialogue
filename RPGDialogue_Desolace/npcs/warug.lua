@@ -50,7 +50,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do the Magram hate the Gelkis?", next = "gelkis", when = { reputation = { faction = "Magram Clan Centaur", min = "neutral" } } },
-        { text = "Where do the centaur come from?", next = "origin", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
+        { text = "The centaur must have come from somewhere.", next = "origin", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
         { text = "Why do you like gnomish gadgets?", next = "gizmo", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
         { text = "The tauren remember your raids, Warug.", next = "tauren_w", when = { race = "Tauren", reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
         { text = "What would the Magram have me do?", next = "BUSINESS", when = { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } },
@@ -63,7 +63,7 @@ P:NPC {
         { id = "ge_default", text = "The Gelkis think our mother, Theradras, protects us. They are stupid! No one protects the centaur, and the Magram do not need protecting, because we are the strongest." },
       },
       choices = {
-        { text = "And if Theradras is real?", next = "gelkis_real" },
+        { text = "Theradras may be real all the same.", next = "gelkis_real" },
         { text = "Something else.", next = "BACK" },
       },
     },

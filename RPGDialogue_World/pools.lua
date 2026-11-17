@@ -195,7 +195,7 @@ P:Pool {
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Where does your stock come from?", next = "trade" },
-        { text = "How are the roads for trade?", next = "roads" },
+        { text = "I'd guess the roads are hard on trade.", next = "roads" },
         { text = "Surely you could do a better price.", next = "haggle" },
         { text = "What's the talk around town?", next = "gossip" },
         { text = "Who do you sell to, mostly?", next = "whom" },
@@ -229,7 +229,7 @@ P:Pool {
         { id = "r_horde", when = { faction = "Horde" }, text = "The Barrens roads are long and dry, and between the quilboar, the centaur and the heat, I lose a cart a season. The goblins at Ratchet charge me for the privilege of selling to me, too." },
       },
       choices = {
-        { text = "Ever lose a caravan outright?", next = "roads_caravan" },
+        { text = "Caravans must go missing on roads like those.", next = "roads_caravan" },
         { text = "Something else.", next = "BACK" },
       },
     },

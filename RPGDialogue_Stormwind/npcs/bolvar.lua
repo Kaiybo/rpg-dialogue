@@ -181,13 +181,13 @@ P:NPC {
         { id = "h_again2", text = "Go on. I have a moment, for once." },
       },
       choices = {
-        { text = "What of Westfall?", next = "westfall" },
+        { text = "Westfall seems left to fend for itself.", next = "westfall" },
         { text = "What do you make of Lady Prestor?", next = "prestor" },
-        { text = "Does the Church have the crown's ear?", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "The Church seems to have the crown's ear.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Stormwind took my family in, after Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
-        { text = "Any word of King Varian?", next = "varian" },
-        { text = "How do you bear it?", next = "bear" },
-        { text = "I'm a soldier, Highlord. Where do you want me?", next = "soldier", when = { class = "WARRIOR" } },
+        { text = "There's still no word of King Varian, I take it.", next = "varian" },
+        { text = "I don't know how you bear it.", next = "bear" },
+        { text = "I'm a soldier, Highlord, and I'm yours to send.", next = "soldier", when = { class = "WARRIOR" } },
         { text = "Ironforge stands with Stormwind, Highlord.", next = "ironforge", when = { race = "Dwarf" } },
         { text = "My people lost Gnomeregan. Will Stormwind help take it back?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Why should the kaldorei trust Stormwind, Highlord?", next = "kaldorei", when = { race = "NightElf" } },
@@ -283,7 +283,7 @@ P:NPC {
       choices = {
         { text = "I pray for them every day.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Prayers won't bring a king home, my lord.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "And for the people outside the walls?", next = "church_outside" },
+        { text = "The people outside the walls need it too.", next = "church_outside" },
       },
     },
     church_outside = {

@@ -56,7 +56,7 @@ P:NPC {
       choices = {
         { text = "Why did you leave the dig in such a hurry?", next = "dig" },
         { text = "Who is Feranor Steeltoe?", next = "feranor" },
-        { text = "What do you need for the camp?", next = "needs" },
+        { text = "This camp looks short of nearly everything.", next = "needs" },
         { text = "What do you make of the Badlands?", next = "land" },
         { text = "Teach me something about the forge.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "I could hunt you something to eat.", next = "xhunt", when = { class = { "HUNTER", "DRUID" } } },
@@ -142,7 +142,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you need salt?", next = "needs_salt" },
-        { text = "What would you build with the scrap?", next = "needs_build" },
+        { text = "That scrap could make something useful.", next = "needs_build" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -57,7 +57,7 @@ P:NPC {
       },
       choices = {
         { text = "What grows out there in the jungle?", next = "herbs" },
-        { text = "Is picking herbs in Stranglethorn dangerous?", next = "danger" },
+        { text = "Picking herbs in Stranglethorn must be dangerous work.", next = "danger" },
         { text = "Why does a human herbalist live in a goblin port?", next = "why" },
         { text = "Tell me about your neighbours.", next = "neighbours" },
         { text = "You keep looking at the harbour. Waiting for someone?", next = "harbour" },
@@ -78,7 +78,7 @@ P:NPC {
       },
       choices = {
         { text = "Which of them is the most valuable?", next = "herbs_lotus" },
-        { text = "What's the strangest one you've picked?", next = "herbs_kelp" },
+        { text = "You must have picked some strange ones out here.", next = "herbs_kelp" },
         { text = "Something else, Flora.", next = "BACK" },
       },
     },
@@ -165,7 +165,7 @@ P:NPC {
     },
     nb_glyx = {
       lines = { { id = "ng_default", text = "Glyx buys more from me than anyone, and complains about every bundle, because he wants his roots washed twice and wrapped in clean linen like newborns. I've learned to rinse everything before he sees it, and in return he sells me the good vials at a price he swears is ruining him." } },
-      choices = { { text = "Who else?", next = "neighbours" } },
+      choices = { { text = "There must be other neighbours worth knowing.", next = "neighbours" } },
     },
     nb_goodstitch = {
       lines = { { id = "ngs_default", text = "Grarnik Goodstitch once offered to make me a proper dress for the Baron's parties, and I told him I'd sooner wear Stranglekelp, which he has never forgiven. Blixrez is kinder, though the smell from the tannery climbs these stairs every afternoon, and I've had to hang mint over the door to fight it." } },
@@ -197,7 +197,7 @@ P:NPC {
       },
       choices = {
         { text = "Have you asked the Blackwater Raiders?", next = "harbour_raiders" },
-        { text = "Do you think he's still alive?", next = "harbour_hope" },
+        { text = "You must wonder if he's still alive.", next = "harbour_hope" },
         { text = "Something else.", next = "BACK" },
       },
     },

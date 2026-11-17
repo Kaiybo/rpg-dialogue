@@ -46,9 +46,9 @@ P:NPC {
       },
       choices = {
         { text = "Who is buried at Red Rocks?", next = "buried" },
-        { text = "Why would quilboar dig up graves?", next = "quilboar" },
+        { text = "It's strange that quilboar would dig up graves.", next = "quilboar" },
         { text = "What does a lorekeeper do?", next = "lorekeeper" },
-        { text = "Do the spirits here speak to you?", next = "spirits", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
+        { text = "The spirits here must speak to you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
         { text = "How can I help the honored dead?", next = "BUSINESS" },
         { text = "Rest well, Lorekeeper.", next = "END" },
       },

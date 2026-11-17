@@ -48,7 +48,7 @@ P:NPC {
       },
       choices = {
         { text = "Why keep a census of the dead?", next = "census" },
-        { text = "People really change their names?", next = "names" },
+        { text = "I'd not have thought people would change their names.", next = "names" },
         { text = "Who asks you if people are dead?", next = "asks" },
         { text = "Am I in your records?", next = "me", when = { race = "Scourge" } },
         { text = "Tell me about Jeremiah Payson.", next = "payson", when = { questDone = TODO_QUEST("Better Late Than Never") } },
@@ -60,14 +60,14 @@ P:NPC {
     census = {
       lines = { { id = "ce_default", text = "Because a city that doesn't know who lives in it, in whatever sense, is not a city but a crowd. The Dark Lady wishes to rule a people, and a people must first be counted." } },
       choices = {
-        { text = "How do you count people who don't want to be found?", next = "census_hidden" },
+        { text = "Counting people who don't want to be found must be hard.", next = "census_hidden" },
         { text = "Something else.", next = "BACK" },
       },
     },
     census_hidden = {
       lines = { { id = "ch_default", text = "With considerable patience and the occasional deathstalker. Most of them turn up eventually, usually at the bank, because even the dead like to know where their money is." } },
       choices = {
-        { text = "So your records serve the Deathstalkers too?", next = "census_serve" },
+        { text = "So your records serve the Deathstalkers too.", next = "census_serve" },
         { text = "Something else.", next = "BACK" },
       },
     },

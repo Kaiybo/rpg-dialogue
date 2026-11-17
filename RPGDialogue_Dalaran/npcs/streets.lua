@@ -36,7 +36,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else catch yer eye?" } },
       choices = {
-        { text = "Where do your antiques come from?", next = "where" },
+        { text = "These antiques have come from a good many places, I'd wager.", next = "where" },
         { text = "What's a dwarf doing among wizards?", next = "dwarf" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Good day.", next = "END" },
@@ -47,7 +47,7 @@ P:NPC {
         { id = "wh_default", text = "Here and there, from magi clearing out their cellars and families who'd rather have coin than grandfather's candlesticks. The city's being put back together, and folk find all sorts when they move the stones." },
       },
       choices = {
-        { text = "Anything that hums is staying on that shelf, then?", next = "where_hum" },
+        { text = "Anything that hums stays on that shelf, then.", next = "where_hum" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -106,7 +106,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes." } },
       choices = {
-        { text = "A gnome in the Kirin Tor?", next = "gnome" },
+        { text = "I didn't expect to find a gnome in the Kirin Tor.", next = "gnome" },
         { text = "Why are there so many cats in Dalaran?", next = "cats" },
         { text = "Good luck with your work.", next = "END" },
       },
@@ -168,7 +168,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Zara's waiting for her share of my attention." } },
       choices = {
         { text = "Why call it the Path of Renewal?", next = "name" },
-        { text = "Is that your cat?", next = "zara" },
+        { text = "That cat seems very much at home here.", next = "zara" },
         { text = "Good day.", next = "END" },
       },
     },

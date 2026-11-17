@@ -123,12 +123,12 @@ P:NPC {
         { text = "Read my cards.", next = "cards" },
         { text = "What waits in the night?", next = "night" },
         { text = "Who is Blind Mary?", next = "mary" },
-        { text = "Why does Stalvan frighten you?", next = "granddaughter", when = { questActive = TODO_QUEST("The Legend of Stalvan") } },
+        { text = "Stalvan's name seems to frighten you.", next = "granddaughter", when = { questActive = TODO_QUEST("The Legend of Stalvan") } },
         { text = "What is ghost hair thread really for?", next = "thread", when = { questDone = TODO_QUEST("Return the Comb") } },
         { text = "The Light doesn't need cards.", next = "priest", when = { class = "PRIEST" } },
         { text = "Deal for me. If you dare.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The spirits speak to me too, madame.", next = "dwarf_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
-        { text = "You knew I'd come. Did your cards see my knives too?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "You knew I'd come. Your cards must have seen my knives too.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fortune telling isn't magic, Madame. It's guesswork.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did the cards show about my sword, Madame?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -197,7 +197,7 @@ P:NPC {
       choices = {
         { text = "I'll remember.", next = "BACK", fx = { learn = { "stalvan" } } },
         { text = "Which men?", next = "night_men" },
-        { text = "And the dead? Are they restless?", next = "night_spirits" },
+        { text = "The dead must be restless here.", next = "night_spirits" },
       },
     },
     night_men = {
@@ -239,10 +239,10 @@ P:NPC {
     granddaughter = {
       big = true,
       lines = {
-        { id = "gd_default", text = "Because of Alyssa, my granddaughter. Death lay on the table for her, and after a long trance I found one name beside it, Stalvan, so bring me proof he can harm no one." },
+        { id = "gd_default", text = "It does, because of Alyssa, my granddaughter. Death lay on the table for her, and after a long trance I found one name beside it, Stalvan, so bring me proof he can harm no one." },
       },
       choices = {
-        { text = "Does she know?", next = "granddaughter_know" },
+        { text = "I'd guess she doesn't know.", next = "granddaughter_know" },
         { text = "I'll find him.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I won't hunt a man down on the word of a card.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
       },

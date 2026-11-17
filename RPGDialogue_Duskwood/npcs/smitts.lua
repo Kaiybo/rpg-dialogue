@@ -135,17 +135,17 @@ P:NPC {
         { text = "Heard anything?", next = "rumors" },
         { text = "Who drinks here these days?", next = "regulars" },
         { text = "I found your jumpy writer.", next = "jitters", when = { questDone = TODO_QUEST("Finding the Shadowy Figure") } },
-        { text = "Would your regulars take a blessing?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Your regulars look like they could use a blessing.", next = "priest", when = { class = "PRIEST" } },
         { text = "Was it Mistmantle? Be honest.", next = "suspect", when = { topicKnown = "stalvan" } },
         { text = "That juice you sent the hermit...", next = "juice", when = { questDone = TODO_QUEST("Juice Delivery") } },
         { text = "People tell barkeeps things. Tell me what they don't say.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You serve dwarven stout here, I hope.", next = "dwarf", when = { race = "Dwarf" } },
-        { text = "A gnome in Darkshire. Does anyone notice?", next = "gnome", when = { race = "Gnome" } },
+        { text = "A gnome in Darkshire must turn a few heads.", next = "gnome", when = { race = "Gnome" } },
         { text = "What does Darkshire make of mages, Smitts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do the Watch talk about over a drink, Smitts?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do hunters tell tall tales in your tavern, Smitts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "I'd wager hunters tell tall tales in here, Smitts.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do you still want justice for those murdered nobles, Smitts?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You still want justice for those murdered nobles, I'd wager.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you write down about the forest, Smitts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does Darkshire want to forget, Smitts?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },
@@ -162,7 +162,7 @@ P:NPC {
         { text = "I'll find out who did it.", next = "BACK", fx = { affinity = 2, learn = { "stalvan" }, trait = { curious = 1 } } },
         { text = "Some things stay buried.", next = "buried" },
         { text = "What was on the pages?", next = "murders_pages" },
-        { text = "What was Haggard like, then?", next = "murders_haggard" },
+        { text = "Haggard must have been quite a man, then.", next = "murders_haggard" },
       },
     },
     buried = {
@@ -174,7 +174,7 @@ P:NPC {
         { id = "mp_default", text = "A man's hand, neat and schooled and careful with its letters, going on about tears and blood. We showed it round half the county and nobody knew it." },
       },
       choices = {
-        { text = "Schooled. A teacher, then?", next = "murders_teacher" },
+        { text = "Schooled. Sounds like a teacher's hand.", next = "murders_teacher" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -267,7 +267,7 @@ P:NPC {
 
     priest = {
       lines = {
-        { id = "pr_default", text = "Take one? Look at them. Bless the room if you like, but quietly, because some of them lost friends up at Raven Hill and haven't said a word since." },
+        { id = "pr_default", text = "They could. Look at them. Bless the room if you like, but quietly, because some of them lost friends up at Raven Hill and haven't said a word since." },
       },
       choices = {
         { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },

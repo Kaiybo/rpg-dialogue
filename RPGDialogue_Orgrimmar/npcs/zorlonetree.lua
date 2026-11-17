@@ -45,9 +45,9 @@ P:NPC {
         { id = "h_again2", text = "What more would you hear?" },
       },
       choices = {
-        { text = "What's happening in Stonetalon?", next = "stonetalon" },
+        { text = "Something seems to be wrong in Stonetalon.", next = "stonetalon" },
         { text = "They say you know the Alliance well.", next = "alliance" },
-        { text = "What does a far seer do?", next = "farseer" },
+        { text = "I've never known what a far seer does.", next = "farseer" },
         { text = "Teach me to listen to the land, Far Seer.", next = "listen", when = { class = "SHAMAN" } },
         { text = "What would you have of me?", next = "BUSINESS" },
         { text = "Spirits guide you, Far Seer.", next = "END" },

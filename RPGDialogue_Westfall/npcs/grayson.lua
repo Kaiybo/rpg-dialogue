@@ -123,9 +123,9 @@ P:NPC {
       },
       choices = {
         { text = "Why do you stay?", next = "stay" },
-        { text = "Were you really a pirate?", next = "pirate" },
+        { text = "You have the look of a pirate about you.", next = "pirate" },
         { text = "Tell me about Old Murk-Eye.", next = "murkeye" },
-        { text = "What's it like, being dead?", next = "dead" },
+        { text = "Being dead can't be pleasant.", next = "dead" },
         { text = "I could help you find rest, captain.", next = "priest", when = { class = "PRIEST" } },
         { text = "We're both dead. Why aren't you bitter?", next = "scourge", when = { race = "Scourge" } },
         { text = "My people scatter the dead to the wind, Captain.", next = "skyborne", when = { race = "Skyborne" } },
@@ -133,7 +133,7 @@ P:NPC {
         { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can my beast actually see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Does the Light trouble you, Captain, being what you are?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd think the Light would trouble one like you, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "My people teach that every spirit should pass on. Why do you stay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you mind being a ghost, Captain Grayson?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest easy, captain.", next = "END" },
@@ -191,7 +191,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll put him down.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
-        { text = "Why does he hate the lighthouse?", next = "murkeye_why" },
+        { text = "He seems to hate the lighthouse.", next = "murkeye_why" },
       },
     },
     murkeye_why = {

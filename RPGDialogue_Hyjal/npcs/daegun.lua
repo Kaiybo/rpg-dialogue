@@ -73,8 +73,8 @@ P:NPC {
       },
       choices = {
         { text = "Why do you hunt these demons?", next = "why" },
-        { text = "What are the bonfires for?", next = "bonfires" },
-        { text = "What is Dae'gun?", next = "daegun" },
+        { text = "Those bonfires are no cooking fires.", next = "bonfires" },
+        { text = "I don't know this Dae'gun you speak of.", next = "daegun" },
         { text = "What does a blademaster do?", next = "path" },
         { text = "Tell me about the spirit bead you offered.", next = "bead", when = { questDone = TODO_QUEST("Yashiro's Windwalk") } },
         { text = "Our peoples fought together here, didn't they?", next = "xally", when = { faction = "Alliance" } },
@@ -131,7 +131,7 @@ P:NPC {
         { id = "bf_done", when = { questDone = TODO_QUEST("Blademaster's Bonfires") }, text = "You lit them well. I watched the smoke from the ridge, and I watched the demons stir under it like ants under a kicked hill." },
       },
       choices = {
-        { text = "Won't the fires hurt the forest?", next = "bonfires_forest" },
+        { text = "Those fires will hurt the forest.", next = "bonfires_forest" },
         { text = "And when the warlord comes?", next = "windwalk" },
         { text = "Something else.", next = "BACK" },
       },

@@ -59,7 +59,7 @@ P:NPC {
         { text = "Tell me about your friends.", next = "friends" },
         { text = "What is the Shadow Council?", next = "council" },
         { text = "What do you know about Jaedenar?", next = "jaedenar" },
-        { text = "Who's this wolf?", next = "della" },
+        { text = "That's a fine wolf at your side.", next = "della" },
         { text = "What happened to Trey in there?", next = "trey", when = { questDone = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "Trey was of my order. I'll see him avenged.", next = "xpala", when = { class = "PALADIN" } },
         { text = "I know warlocks. The Council isn't what I am.", next = "xlock", when = { class = "WARLOCK" } },
@@ -73,14 +73,14 @@ P:NPC {
         { id = "f_after", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Arko'narin is young and fierce and far too brave for her own good, and Trey was a human who followed her everywhere and pretended it was his idea. I still talk about him as if he'll come up the road, and I don't know how to stop." },
       },
       choices = {
-        { text = "How did a night elf and a human become friends?", next = "friends_how" },
+        { text = "A night elf and a human make unlikely friends.", next = "friends_how" },
         { text = "Why didn't you go in with them?", next = "friends_stay" },
         { text = "Something else.", next = "BACK" },
       },
     },
     friends_how = {
       lines = {
-        { id = "fh_default", text = "Over a fight, as most good friendships start, though I'll let them tell you which of them lost. Trey says the Light and Elune are only two names for the same lamp, and Arko pretends to roll her eyes and then repeats it to everyone she meets." },
+        { id = "fh_default", text = "They became friends over a fight, as most good friendships start, though I'll let them tell you which of them lost. Trey says the Light and Elune are only two names for the same lamp, and Arko pretends to roll her eyes and then repeats it to everyone she meets." },
       },
       choices = {
         { text = "That sounds like a good friendship.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -153,7 +153,7 @@ P:NPC {
       },
       choices = {
         { text = "Who did it to him?", next = "trey_who" },
-        { text = "How is Arko'narin bearing it?", next = "trey_arko" },
+        { text = "Arko'narin must be taking it hard.", next = "trey_arko" },
         { text = "Something else.", next = "BACK" },
       },
     },

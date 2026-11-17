@@ -58,7 +58,7 @@ P:NPC {
       choices = {
         { text = "What is the Enlightened Assembly?", next = "eaaaes" },
         { text = "Explosives? In a forest?", next = "boom" },
-        { text = "Who is Lomac Gearstrip?", next = "lomac" },
+        { text = "I've never heard of Lomac Gearstrip.", next = "lomac" },
         { text = "How do you and Kaela get along?", next = "kaela_g" },
         { text = "Show me what you're building.", next = "eng_gx", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -214,7 +214,7 @@ P:NPC {
       choices = {
         { text = "What happened to the Charred Vale?", next = "vale" },
         { text = "You miss Ashenvale.", next = "home" },
-        { text = "What do you make of Gaxim?", next = "gaxim_k" },
+        { text = "You seem unsure of Gaxim.", next = "gaxim_k" },
         { text = "Why are the treants corrupted?", next = "treants", when = { any = { { questActive = TODO_QUEST("Wounded Ancients") }, { questDone = TODO_QUEST("Enraged Spirits") } } } },
         { text = "I know Thenysil in Astranaar.", next = "thenysil", when = { questDone = TODO_QUEST("On Guard in Stonetalon") } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -227,7 +227,7 @@ P:NPC {
         { id = "va_default", text = "The goblins came for the trees and found more than they bargained for, and when the Vale fought back, they burned it. The first time I saw it, {class}, I almost wept." },
       },
       choices = {
-        { text = "Can it ever heal?", next = "vale_heal" },
+        { text = "It might heal, in time.", next = "vale_heal" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -264,7 +264,7 @@ P:NPC {
     gaxim_k = {
       big = true,
       lines = {
-        { id = "gk_default", text = "That he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
+        { id = "gk_default", text = "I'm sure he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
       },
       choices = {
         { text = "His way works. Let him blast the goblins out.", next = "BACK", fx = { align = { order = -1 } } },

@@ -45,7 +45,7 @@ P:NPC {
       },
       choices = {
         { text = "Why would the Light answer the dead?", next = "light" },
-        { text = "You teach shadow as well, don't you?", next = "shadow" },
+        { text = "I'd guess you teach shadow as well.", next = "shadow" },
         { text = "What do you make of the Scarlet Crusade?", next = "scarlets" },
         { text = "I served in a chapel, before.", next = "chapel", when = { origin = "forsaken_chapel_priest" } },
         { text = "Does my faith still matter here?", next = "living", when = { class = "PRIEST", race = "Troll" } },
@@ -84,7 +84,7 @@ P:NPC {
     shadow = {
       lines = { { id = "sh_default", text = "Of course. The shadow is the other side of the same coin, and our priests learn both, because the Scourge doesn't wait for us to settle our theology. The Devouring Plague we teach is the Lich King's own sickness turned back against his servants." } },
       choices = {
-        { text = "Using the plague doesn't trouble you?", next = "shadow_plague" },
+        { text = "I'd have thought using the plague would trouble you.", next = "shadow_plague" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -169,7 +169,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you still believe, Father?", next = "believe" },
-        { text = "Is the collar from your old church?", next = "collar" },
+        { text = "That collar looks like it came from an old church.", next = "collar" },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Goodbye, Father.", next = "END" },
       },
@@ -227,7 +227,7 @@ P:NPC {
         { id = "h_again", text = "Speak. I have a sermon to finish, but it will keep." },
       },
       choices = {
-        { text = "Tested? By the plague?", next = "tested" },
+        { text = "The plague must have been a hard test.", next = "tested" },
         { text = "What do you think of the Dark Lady?", next = "lady" },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Good day, Father.", next = "END" },
@@ -287,7 +287,7 @@ P:NPC {
         { id = "h_again", text = "Something else? Quick, I've a recruit out there holding his shield upside down." },
       },
       choices = {
-        { text = "You held a gate here, in life?", next = "gate" },
+        { text = "So you held a gate here, in life.", next = "gate" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "I'll go.", next = "END" },
@@ -351,7 +351,7 @@ P:NPC {
         { id = "h_again", text = "Something more? I've time, if not much patience." },
       },
       choices = {
-        { text = "You fought the orcs?", next = "orcs" },
+        { text = "So you fought the orcs.", next = "orcs" },
         { text = "What's the first thing you teach?", next = "first" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Goodbye.", next = "END" },
@@ -413,7 +413,7 @@ P:NPC {
         { id = "h_again", text = "More questions? Ask away, I love a chat between bruises." },
       },
       choices = {
-        { text = "What was the worst thing that ever hit you?", next = "worst" },
+        { text = "You look like you've taken some hard hits.", next = "worst" },
         { text = "Why are you so cheerful?", next = "cheer" },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Farewell, Baltus.", next = "END" },

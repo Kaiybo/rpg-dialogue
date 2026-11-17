@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you die?", next = "death" },
-        { text = "What is the relic in the chest?", next = "relic" },
+        { text = "That chest holds something precious to you.", next = "relic" },
         { text = "Tell me about your captain.", next = "captain" },
         { text = "How did a tauren come to serve in Thrall's Grasp?", next = "grasp" },
         { text = "The Earth Mother waits for you, Thund.", next = "xtauren", when = { race = "Tauren" } },
@@ -59,7 +59,7 @@ P:NPC {
         { id = "de_default", text = "In the Blasted Lands, holding a line we'd been told to hold, waiting for orders that never came. The demons came instead, and we did our duty until there was no one left to do it." },
       },
       choices = {
-        { text = "Were you angry, waiting?", next = "death_wait" },
+        { text = "You must have been angry, waiting.", next = "death_wait" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -79,7 +79,7 @@ P:NPC {
         { id = "re_default", text = "The Shard of the Splithooves, carried by my family for longer than anyone remembers, and brought to war because my grandfather said it brought luck. It didn't, but it's still a fine thing, and you'll make better use of it than a ghost." },
       },
       choices = {
-        { text = "Shouldn't it go back to your family?", next = "relic_family" },
+        { text = "It ought to go back to your family.", next = "relic_family" },
         { text = "Something else.", next = "BACK" },
       },
     },

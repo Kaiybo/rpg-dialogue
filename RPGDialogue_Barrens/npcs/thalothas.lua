@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened with Northwatch Hold?", next = "northwatch" },
-        { text = "A high elf captain in a goblin port?", next = "exile" },
+        { text = "A high elf captain in a goblin port is a strange sight.", next = "exile" },
         { text = "Who are the Thalo'dan Privateers?", next = "crew" },
         { text = "Northwatch answers to Theramore. I'm Alliance.", next = "alliance", when = { faction = "Alliance" } },
         { text = "What is it you need?", next = "BUSINESS" },
@@ -60,7 +60,7 @@ P:NPC {
       lines = { { id = "n_default", text = "We were running a cargo between Ratchet and Booty Bay, nothing more dangerous than moonshine, when Northwatch's guns opened on us from the cliffs. They called us a threat to the Alliance, which would be funny if I hadn't lost a ship and a crew." } },
       choices = {
         { text = "Why would they fire on a trade ship?", next = "why" },
-        { text = "Did anyone survive?", next = "firebough" },
+        { text = "I'd guess no one survived.", next = "firebough" },
       },
     },
     why = {
@@ -89,7 +89,7 @@ P:NPC {
     exile = {
       lines = { { id = "e_default", text = "Where else would I be, friend? Quel'Thalas burned in the war, and the elves who are left either cling to the Alliance or go their own way. I chose a deck and a crew, and a goblin's coin spends as well as a king's." } },
       choices = {
-        { text = "Do you miss your homeland?", next = "home" },
+        { text = "You must miss your homeland.", next = "home" },
         { text = "Something else.", next = "BACK" },
       },
     },

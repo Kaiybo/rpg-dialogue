@@ -49,7 +49,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Uther.", next = "uther" },
         { text = "Why do you stay here, alone?", next = "stay" },
-        { text = "How do you keep the garden alive?", next = "garden" },
+        { text = "I'm surprised a garden lives up here at all.", next = "garden" },
         { text = "What do you see from this hill?", next = "hill" },
         { text = "Lightbringer. Did he teach you, too?", next = "paladin", when = { class = "PALADIN" } },
         { text = "The Light seems far away out here.", next = "faith", when = { class = "PRIEST" } },
@@ -93,7 +93,7 @@ P:NPC {
     stay = {
       lines = { { id = "st_default", text = "The Silver Hand broke, and half of what was left took up the red and went to Hearthglen and the Monastery. Someone had to stay and sweep the floor, and I found the broom fit my hand." } },
       choices = {
-        { text = "Do you ever think of leaving?", next = "stay_leave" },
+        { text = "You must think of leaving sometimes.", next = "stay_leave" },
         { text = "Did the Crusade never ask you to join them?", tag = "Persuade", next = "stay_red",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = { "PALADIN", "PRIEST" } } } } },
           fail = { next = "stay_red_no", fx = { affinity = -1 } } },
@@ -149,7 +149,7 @@ P:NPC {
     hill = {
       lines = { { id = "hi_default", text = "Andorhal smouldering away to the north, the Scourge walking their rounds, and now and then a pair of red cloaks riding hard for Hearthglen. Travelers come up the hill too, and I give them bread and send them on." } },
       choices = {
-        { text = "Do the Scourge ever come near?", next = "hill_scourge" },
+        { text = "The Scourge must come near at times.", next = "hill_scourge" },
         { text = "Something else.", next = "BACK", fx = { learn = { "andorhal" } } },
       },
     },

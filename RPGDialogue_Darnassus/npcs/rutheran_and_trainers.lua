@@ -293,7 +293,7 @@ P:NPC {
       choices = {
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "What do the Sentinels favor?", next = "a" },
-        { text = "Who else trains here?", next = "b" },
+        { text = "You can't be the only trainer here.", next = "b" },
         { text = "Do the Sentinels train with daggers as rogues do?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Will I really need a staff in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which weapon should a warrior master first, Ilyenia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -309,7 +309,7 @@ P:NPC {
     a = {
       lines = { { id = "a_default", text = "The glaive and the bow, for they keep the enemy at a distance and the forest quiet. Our sisters have fought with them since long before your kingdoms rose." } },
       choices = {
-        { text = "Is distance not a coward's way?", next = "a2" },
+        { text = "Fighting from a distance seems a coward's way.", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -458,7 +458,7 @@ P:NPC {
       choices = {
         { text = "I want training.", next = "BUSINESS" },
         { text = "How do you bond with a beast?", next = "a" },
-        { text = "Where should a young hunter go?", next = "b" },
+        { text = "A young hunter needs somewhere to start.", next = "b" },
         { text = "What would a hunter teach a rogue about tracking?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there anything a warrior can learn from hunters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter of Darnassus learn first, Jeen'ra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },

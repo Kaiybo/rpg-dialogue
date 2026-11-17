@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "Why do the centaur hate us?", next = "hate" },
         { text = "Why collect ears?", next = "ears" },
-        { text = "What do you know of the clans?", next = "clans" },
+        { text = "You must know the clans well by now.", next = "clans" },
         { text = "Why do they call you Twocuts?", next = "name" },
         { text = "The Earth Mother weeps for this killing.", next = "tauren_f", when = { race = "Tauren" } },
         { text = "Give me a target.", next = "BUSINESS" },

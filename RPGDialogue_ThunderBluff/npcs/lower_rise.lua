@@ -131,14 +131,14 @@ P:NPC {
         { id = "ds_done", when = { questDone = TODO_QUEST("The Platinum Discs") }, text = "They spoke of the titans, the makers who shaped the world before any of us walked it, and of the earthen they made out of stone to tend it. The dwarves will tell you that's their history, and I suspect it's everybody's." },
       },
       choices = {
-        { text = "Do the tauren tell of the titans?", next = "discs_titans", fx = { learn = { "uldaman" } } },
+        { text = "The tauren must tell of the titans too.", next = "discs_titans", fx = { learn = { "uldaman" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "uldaman" } } },
       },
     },
     discs_titans = {
       lines = { { id = "dt_default", text = "Not by that name. We say the Earth Mother shaped the land and An'she and Mu'sha watch it, and the elders don't care for anyone suggesting builders came first. I care a great deal, because a story that disagrees with ours is the one most worth hearing." } },
       choices = {
-        { text = "Does it shake your faith?", next = "discs_faith" },
+        { text = "That must shake your faith.", next = "discs_faith" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -175,7 +175,7 @@ P:NPC {
     sage = {
       lines = { { id = "sg_default", text = "Listens, mostly, and reads what other people would rather nobody read. The druids on Elder Rise keep the old ways and the shaman keep the spirits, and someone has to keep track of the world that's changing around both of them." } },
       choices = {
-        { text = "Is that why the council distrusts you?", next = "sage_council" },
+        { text = "That must be why the council distrusts you.", next = "sage_council" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -280,7 +280,7 @@ P:NPC {
     ruul_proud = {
       lines = { { id = "rp_default", text = "I am, though I'll deny it if you tell him. When we were calves he was the one who climbed after eagle nests, and I was the one who sat below holding the feathers he threw down, and in a way that's still how it is." } },
       choices = {
-        { text = "And do you mind that?", next = "ruul_mind" },
+        { text = "I'd guess you mind that.", next = "ruul_mind" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -296,7 +296,7 @@ P:NPC {
     ceremony = {
       lines = { { id = "c_default", text = "Namings, honorings, the rites for the dead out at the burial grounds. Every one needs the right paint, the right feathers and the right words, and if any of them is wrong the old ones notice, even if the young ones don't." } },
       choices = {
-        { text = "Do the dead really notice?", next = "ceremony_dead" },
+        { text = "I doubt the dead really notice.", next = "ceremony_dead" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -365,7 +365,7 @@ P:NPC {
       choices = {
         { text = "What happened to the Stonespire?", next = "tribe" },
         { text = "Who is Charlga Razorflank?", next = "charlga" },
-        { text = "Do the elders think you should forgive?", next = "forgive" },
+        { text = "The elders must think you should forgive.", next = "forgive" },
         { text = "I've been to Razorfen Kraul.", next = "kraul", when = { cleared = "Razorfen Kraul" } },
         { text = "I'll bring you her heart.", next = "BUSINESS" },
         { text = "Earth Mother keep you, Auld.", next = "END" },
@@ -381,7 +381,7 @@ P:NPC {
     tribe_rest = {
       lines = { { id = "trr_default", text = "Some to Cairne's banner, some to Camp Taurajo, and a few to the Grimtotem, who promised them they'd take the old lands back. I don't speak to those ones, but I understand them better than I'd like to." } },
       choices = {
-        { text = "You understand the Grimtotem?", next = "tribe_grim", fx = { learn = { "grimtotem" } } },
+        { text = "You sound like you understand the Grimtotem.", next = "tribe_grim", fx = { learn = { "grimtotem" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
@@ -463,7 +463,7 @@ P:NPC {
       choices = {
         { text = "What makes good leather?", next = "leather" },
         { text = "Why do the young start with a kodo bag?", next = "bag" },
-        { text = "Do tauren still hunt kodo?", next = "kodo" },
+        { text = "I'd guess tauren no longer hunt kodo.", next = "kodo" },
         { text = "I'm a druid. Does skinning bother me?", next = "druid", when = { class = "DRUID" } },
         { text = "Have you work for me?", next = "BUSINESS" },
         { text = "Farewell, Veren.", next = "END" },

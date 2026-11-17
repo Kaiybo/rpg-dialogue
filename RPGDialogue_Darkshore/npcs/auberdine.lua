@@ -170,11 +170,11 @@ P:NPC {
         { id = "h_again2", text = "Go on. An elder's work is mostly listening." },
       },
       choices = {
-        { text = "What's sickening the land?", next = "sick" },
+        { text = "The land here looks sick.", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand" },
-        { text = "What lies in the old ruins nearby?", next = "ruins" },
-        { text = "What is at the Master's Glaive?", next = "glaive" },
-        { text = "I'm a paladin. What can I do?", next = "paladin", when = { class = "PALADIN" } },
+        { text = "There are old ruins all along this coast, I've noticed.", next = "ruins" },
+        { text = "I keep hearing travellers speak of the Master's Glaive.", next = "glaive" },
+        { text = "I'm a paladin, and I'd like to help.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Can a priest help against this corruption?", next = "priest_t", when = { class = "PRIEST" } },
         { text = "I came over on the Bravery from Menethil.", next = "boat", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Auberdine needs blades on its walls. I have one.", next = "warrior_th", when = { class = "WARRIOR" } },
@@ -196,13 +196,13 @@ P:NPC {
       choices = {
         { text = "I'll find the source.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Felwood's rot is the kaldorei's trouble, not mine.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Felwood?", next = "felwood" },
+        { text = "I've heard Felwood is a sick place.", next = "felwood" },
       },
     },
     felwood = {
       lines = { { id = "f_default", text = "Felwood is where the demons trod during the Third War, and the forest there never healed. Now its sickness runs down the rivers into its neighbours, and I have seen its like before, long ago." } },
       choices = {
-        { text = "You've seen it before?", next = "felwood2" },
+        { text = "You speak as if you've seen it before.", next = "felwood2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -449,7 +449,7 @@ P:NPC {
       choices = {
         { text = "What is Fel Moss?", next = "moss" },
         { text = "Who is Volcor?", next = "volcor" },
-        { text = "Why do the furbolgs turn?", next = "turn" },
+        { text = "The furbolgs here seem to have turned savage.", next = "turn" },
         { text = "I can feel the sickness in the land.", next = "druid_t", when = { class = "DRUID" } },
         { text = "I know fel when I see it. This moss is fel.", next = "warlock_te", when = { class = "WARLOCK" } },
         { text = "This moss isn't arcane. I'd know if it were.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -470,7 +470,7 @@ P:NPC {
       choices = {
         { text = "Then we cut it out.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Then the furbolgs who've turned savage have to be put down.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Can it be cured?", next = "moss2" },
+        { text = "I'd guess it can't simply be cured.", next = "moss2" },
       },
     },
     moss2 = {
@@ -656,14 +656,14 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like; the poor creatures aren't going anywhere." },
       },
       choices = {
-        { text = "Do you miss the Temple?", next = "temple" },
+        { text = "You must miss the Temple.", next = "temple" },
         { text = "What's killing them?", next = "killing" },
-        { text = "Why do the murlocs gather on them?", next = "murlocs" },
-        { text = "Could a priest of the Light help you?", next = "priest_g", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
+        { text = "The murlocs seem to gather on the carcasses.", next = "murlocs" },
+        { text = "A priest of the Light might be of help to you.", next = "priest_g", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "I've swum out to the great bodies in seal form.", next = "druid_gw", when = { class = "DRUID" } },
         { text = "Death on that shore. There's power in it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Sisterhood object to mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Could whatever killed the sea creatures come ashore?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Whatever killed those creatures could come ashore next.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter tell what killed the sea creatures?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What should a priest pray for over these dead creatures?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could something on this coast threaten Auberdine itself?", next = "xapala", when = { class = "PALADIN" } },
@@ -697,7 +697,7 @@ P:NPC {
       choices = { { text = "Elune keep you.", next = "BACK", fx = { affinity = 2 } } },
     },
     priest_g = {
-      lines = { { id = "pg_default", text = "You could. Walk the shore with me some evening and tell me what you sense in those remains; your Light and our Mother Moon may notice different things." } },
+      lines = { { id = "pg_default", text = "You might, at that. Walk the shore with me some evening and tell me what you sense in those remains; your Light and our Mother Moon may notice different things." } },
       choices = {
         { text = "I'd be glad to.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll leave the dead creatures to your Mother Moon.", next = "BACK", fx = { align = { light = -1 } } },
@@ -865,8 +865,8 @@ P:NPC {
       choices = {
         { text = "What happened to the moonkin?", next = "moonkin" },
         { text = "Who is Murkdeep?", next = "murkdeep" },
-        { text = "Where are the Sentinels stretched thinnest?", next = "thin" },
-        { text = "What did the crystal hide?", next = "crystal", when = { questDone = TODO_QUEST("The Fragments Within") } },
+        { text = "Your Sentinels look stretched thin.", next = "thin" },
+        { text = "Whatever was in that crystal, someone wanted it hidden.", next = "crystal", when = { questDone = TODO_QUEST("The Fragments Within") } },
         { text = "Put me on the watch. I can hold a line.", next = "warrior_gl", when = { class = "WARRIOR" } },
         { text = "Where do you need a bow most?", next = "thin", when = { class = "HUNTER" } },
         { text = "I can thin the murlocs without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -887,7 +887,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll be careful.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Shouldn't we pity them?", next = "moonkin2" },
+        { text = "I can't help pitying them.", next = "moonkin2" },
       },
     },
     moonkin2 = {
@@ -1049,9 +1049,9 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Anaya.", next = "anaya" },
-        { text = "How did you find her spirit?", next = "found" },
-        { text = "What was Ameth'Aran?", next = "ameth" },
-        { text = "Should I fear the long sleep?", next = "sleep_d", when = { class = "DRUID" } },
+        { text = "Finding her spirit can't have been easy.", next = "found" },
+        { text = "Ameth'Aran must have been grand once.", next = "ameth" },
+        { text = "I'm not sure I'd fear the long sleep.", next = "sleep_d", when = { class = "DRUID" } },
         { text = "I'd have fought for her, in your place.", next = "warrior_ce", when = { class = "WARRIOR" } },
         { text = "Ameth'Aran was a Highborne city, wasn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I could slip into Ameth'Aran and find what you're looking for.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1236,7 +1236,7 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who comes through the inn?", next = "guests" },
-        { text = "Any news from the boats?", next = "news" },
+        { text = "I'd guess you hear the boats' news before anyone.", next = "news" },
         { text = "The crossing from Menethil nearly finished me.", next = "seasick", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "You pray over your guests' dreams?", next = "dreams_s", when = { class = { "PRIEST", "DRUID" } } },
         { text = "Your guests leave their bags lying about, I noticed.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1253,12 +1253,12 @@ P:NPC {
     guests = {
       lines = { { id = "gu_default", text = "Sailors from the Bravery, dwarves from the smithy, Sentinels off watch and young elves bound for Ashenvale. They all want the same thing, which is a dry bed." } },
       choices = {
-        { text = "Dwarves, here?", next = "dwarves" },
+        { text = "I didn't expect to find dwarves this far from home.", next = "dwarves" },
         { text = "Something else.", next = "BACK" },
       },
     },
     dwarves = {
-      lines = { { id = "dw_default", text = "Oh yes, they keep a little forge in town, and the Explorers' League digs to the south at Remtravel's Excavation. They complain about the damp and never leave." } },
+      lines = { { id = "dw_default", text = "Oh, they're about; they keep a little forge in town, and the Explorers' League digs to the south at Remtravel's Excavation. They complain about the damp and never leave." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
     news = {

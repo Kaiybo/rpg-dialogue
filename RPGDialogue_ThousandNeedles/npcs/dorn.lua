@@ -51,7 +51,7 @@ P:NPC {
       choices = {
         { text = "Why test anyone at all?", next = "why" },
         { text = "Tell me about the leap.", next = "leap" },
-        { text = "What comes after the tests?", next = "after" },
+        { text = "Something must come after the tests.", next = "after" },
         { text = "You said failing teaches the vastness of the Nether?", next = "nether" },
         { text = "I took the leap. Why did I live?", next = "lived", when = { questDone = TODO_QUEST("Test of Faith") } },
         { text = "I'm ready to be tested.", next = "BUSINESS" },

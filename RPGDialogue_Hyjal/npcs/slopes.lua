@@ -50,9 +50,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Be quick, or something will have grown over your boots." } },
       choices = {
-        { text = "What is Celastrus?", next = "celastrus" },
+        { text = "I've heard the name Celastrus on the slopes.", next = "celastrus" },
         { text = "How did the plants turn so foul?", next = "fel" },
-        { text = "What grows back once they're cleared?", next = "regrow" },
+        { text = "I'd like to see what grows back once they're cleared.", next = "regrow" },
         { text = "Why not just burn it all?", next = "xburn", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Can the Light cleanse the ground?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Good luck with the weeding.", next = "END" },
@@ -79,14 +79,14 @@ P:NPC {
         { id = "f_default", text = "When the Legion came up the mountain, its fire fell on the forest, and the poison soaked into the soil. The trees mostly endured, but the small, quick-growing things drank it down and changed, and they've been spreading ever since." },
       },
       choices = {
-        { text = "Can they be saved?", next = "fel_saved" },
+        { text = "Those brambles look past saving.", next = "fel_saved" },
         { text = "Something else.", next = "BACK" },
       },
     },
     fel_saved = {
       big = true,
       lines = {
-        { id = "fs_default", text = "I don't think so. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
+        { id = "fs_default", text = "I fear you're right. A druid might try to coax the poison out of a single bush, but there are thousands of them, and every day spent coaxing one is a day the rest spread further. I cut them out, and I don't apologise for it." },
       },
       choices = {
         { text = "Cut them out. The mountain comes first.", next = "BACK", fx = { align = { light = -1 } } },
@@ -177,7 +177,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Somethin' else, mon? Talk while I fletch." } },
       choices = {
-        { text = "Why can't you leave?", next = "leave" },
+        { text = "You'd have left this place long ago if you could.", next = "leave" },
         { text = "Why owl feathers?", next = "owls" },
         { text = "What's attacking the camp?", next = "threat" },
         { text = "How fare the Darkspear here?", next = "xtroll", when = { race = "Troll" } },

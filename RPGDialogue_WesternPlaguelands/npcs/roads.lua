@@ -84,13 +84,13 @@ P:NPC {
       },
       choices = {
         { text = "I serve the Light. Your craft makes my skin crawl.", next = "paladin", when = { class = "PALADIN" } },
-        { text = "How do you know the Crusade so well?", next = "crusade" },
+        { text = "You seem to know the Crusade very well.", next = "crusade" },
         { text = "How does your illusion work?", next = "illusion" },
         { text = "Why help Tirion Fordring?", next = "tirion" },
         { text = "What do you know of shadow magic, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "Who taught you to work illusions, Myranda?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Someone must have taught you to work illusions, Myranda.", next = "xmage", when = { class = "MAGE" } },
         { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Could your seeming really pass me off as a Crusader?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "I doubt your seeming could pass me off as a Crusader.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can your seemings fool a beast's nose, Myranda?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do your seemings deceive the beasts as well as people?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits really dislike your seemings, Myranda?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -132,7 +132,7 @@ P:NPC {
       lines = {
         { id = "cr_default", text = "I studied with their priests, back when they still pretended they were saving people. They taught me to see the dark in others, and I found I was rather better at using it." },
       },
-      choices = { { text = "Why did you leave them?", next = "crusade_left" } },
+      choices = { { text = "You must have had reason to leave them.", next = "crusade_left" } },
     },
     crusade_left = {
       lines = {
@@ -281,14 +281,14 @@ P:NPC {
       choices = {
         { text = "Fellow gnome, you're hiding something.", next = "gnome", when = { race = "Gnome" } },
         { text = "What happened at Darrowshire?", next = "darrowshire" },
-        { text = "Who are you, really?", next = "who" },
+        { text = "There's more to you than you let on.", next = "who" },
         { text = "Why stay in Andorhal of all places?", next = "andorhal" },
         { text = "You talk like someone who's studied time, Chromie.", next = "xmage", when = { class = "MAGE" } },
         { text = "Few people catch me coming. How did you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Were the dead of Darrowshire never given proper rites?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did Joseph Redpath die a knight of the Silver Hand?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "How long did Darrowshire's defenders hold?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "What is it you track, Chromie?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Darrowshire's defenders must have held as long as they could.", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You seem to be tracking something, Chromie.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should the dead of Darrowshire be left to rest?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why do you care what the ground remembers, Chromie?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you know what's good for anyone in the long run?", next = "xlock", when = { class = "WARLOCK" } },

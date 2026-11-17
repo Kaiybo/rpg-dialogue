@@ -121,9 +121,9 @@ P:NPC {
       choices = {
         { text = "What's wrong with the wells?", next = "wells" },
         { text = "Tell me the story Tenaron began.", next = "story" },
-        { text = "Which wells do you watch?", next = "which" },
+        { text = "You must have more than one well to watch over.", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
-        { text = "Could the Light help guard your moonwells, Corithras?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The Light could help you guard your moonwells, Corithras.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the moonwells feel wrong to you, Corithras?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll carry the vial.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If something fouls the wells, I'll cut it down.", next = "warrior_c", when = { class = "WARRIOR" } },
@@ -269,7 +269,7 @@ P:NPC {
       choices = {
         { text = "I'll only watch. They deserve a chance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the shaman's to blame, I'll remove him quietly.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Were they really your friends?", next = "friends" },
+        { text = "It's hard to believe they were ever your friends.", next = "friends" },
       },
     },
     hunter_a = {
@@ -320,12 +320,12 @@ P:NPC {
       choices = {
         { text = "Were the Gnarlpine ever friends?", next = "friends" },
         { text = "Can the furbolgs be saved?", next = "saved" },
-        { text = "Who are the sleeping druids?", next = "talon" },
+        { text = "I've heard there are druids sleeping somewhere near here.", next = "talon" },
         { text = "I can tell a sick beast from an angry one.", next = "druidtest", when = { class = "DRUID" } },
         { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
         { text = "That fel moss. I know the stink of it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Must I fight the Gnarlpine, Athridas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "I'd rather not fight the Gnarlpine, Athridas.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can prayer reach the Gnarlpine, Athridas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Gnarlpine guilty, or only sick, Athridas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you blame mages for what the Highborne did?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -342,7 +342,7 @@ P:NPC {
     },
     friends = {
       lines = {
-        { id = "f_trade", text = "When the tree was young, yes. They kept to their hills in peace, and the Sentinels called them friends. I miss that more than I expected to." },
+        { id = "f_trade", text = "They were, when the tree was young. They kept to their hills in peace, and the Sentinels called them friends. I miss that more than I expected to." },
       },
       choices = {
         { text = "What changed them?", next = "moss" },
@@ -359,7 +359,7 @@ P:NPC {
     talon = {
       lines = { { id = "t_default", text = "They are the Druids of the Talon, hibernating in the Ban'ethil Barrow Den by a pact with Ysera, and Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
       choices = {
-        { text = "Lost in the Dream?", next = "talon2" },
+        { text = "Being lost in the Dream sounds a lonely fate.", next = "talon2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -527,9 +527,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
-        { text = "What was the dreamcatcher to you?", next = "dreamcatcher" },
-        { text = "What happened to Starbreeze Village?", next = "starbreeze" },
-        { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
+        { text = "That dreamcatcher must have meant a great deal to you.", next = "dreamcatcher" },
+        { text = "You speak of Starbreeze Village as if it were lost.", next = "starbreeze" },
+        { text = "I keep hearing the name of Lord Melenas.", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
         { text = "I could slip into Starbreeze and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
         { text = "Who tends the wounded the Gnarlpine leave behind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin face the Gnarlpine, Tallonkai?", next = "xapala", when = { class = "PALADIN" } },
@@ -715,9 +715,9 @@ P:NPC {
         { text = "What is the Council of the Forest?", next = "council" },
         { text = "Who is Denalan?", next = "denalan" },
         { text = "Who is Zenn Foulhoof?", next = "zenn" },
-        { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
+        { text = "I'm an herbalist, and the plants here look strange to me.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Has the Council any orders for a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Does the Council trust a paladin's oath, Syral?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd hope the Council trusts a paladin's oath, Syral.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which order is most urgent, Syral?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll take on the Council's orders.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Give me the orders nobody else will take.", next = "warrior_sy", when = { class = "WARRIOR" } },
@@ -854,7 +854,7 @@ P:NPC {
       choices = {
         { text = "Of course. Your house, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My spells go where I go, innkeeper.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who usually stays here?", next = "inn" },
+        { text = "You must see all sorts pass through here.", next = "inn" },
       },
     },
     xlock = {
@@ -910,7 +910,7 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "How's the inn?", next = "inn" },
-        { text = "Any word from the road?", next = "road" },
+        { text = "I'd guess you hear all the road's news in here.", next = "road" },
         { text = "Is a mage welcome under your roof?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do many warriors stop here on the way to Darnassus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters stay at the inn, or sleep in the woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1017,7 +1017,7 @@ P:NPC {
       choices = {
         { text = "Teach me properly. I'll do it your way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll take the useful bits and leave the rest.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Why sleep outside at all?", next = "why" },
+        { text = "Most folk would take a roof over the open sky.", next = "why" },
       },
     },
     xmage = {
@@ -1081,7 +1081,7 @@ P:NPC {
       choices = {
         { text = "Teach me.", next = "teach", fx = { affinity = 2, learn = { "camping" } } },
         { text = "Why sleep outdoors?", next = "why" },
-        { text = "Where have you camped?", next = "where" },
+        { text = "You look like you've camped in a good many places.", next = "where" },
         { text = "I'm a cook. What can I bring to a camp?", next = "cook", when = { profession = "Cooking" } },
         { text = "A hunter sleeps outdoors already.", next = "hunter_ly", when = { class = "HUNTER" } },
         { text = "I sleep light and move quietly. What else is there to learn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

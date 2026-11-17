@@ -49,7 +49,7 @@ P:NPC {
       },
       choices = {
         { text = "What sort of things do you deal in?", next = "trade" },
-        { text = "Who are these people you know?", next = "friends" },
+        { text = "You seem to know a great many people.", next = "friends" },
         { text = "You drink a lot for a dead man.", next = "drink" },
         { text = "Tell me about the Tablet of Markri.", next = "markri", when = { questDone = TODO_QUEST("Delivery to Andron Gant") } },
         { text = "Our acquaintances want more from you, Andron.", next = "ledger", when = { questActive = TODO_QUEST("The Deathstalkers"), class = "ROGUE" } },
@@ -61,7 +61,7 @@ P:NPC {
     trade = {
       lines = { { id = "tr_default", text = "Old books, old stones, old anything, really, as long as some scholar upstairs thinks it'll tell him how the world works. I don't ask what they do with it, because the answers are always longer than the questions." } },
       choices = {
-        { text = "Where do you find these things?", next = "trade_find" },
+        { text = "You must travel far to find these things.", next = "trade_find" },
         { text = "Something else.", next = "BACK" },
       },
     },

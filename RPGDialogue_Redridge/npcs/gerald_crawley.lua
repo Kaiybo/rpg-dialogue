@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "Who buys poison in a town like this?", next = "who" },
-        { text = "Isn't this trade a little dishonourable?", next = "honour" },
+        { text = "This trade seems a little dishonourable to me.", next = "honour" },
         { text = "What do you use against orcs?", next = "orcs", when = { class = "ROGUE" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "I'll be going.", next = "END" },
@@ -56,7 +56,7 @@ P:NPC {
       lines = { { id = "w_default", text = "Rogues, mostly, and the odd hunter with a gnoll problem. Some of the guards, though they'd never say so, because orcs don't fight fair either." },
       },
       choices = {
-        { text = "The guards buy from you?", next = "who_guards" },
+        { text = "So the guards buy from you.", next = "who_guards" },
         { text = "Something else.", next = "BACK" },
       },
     },

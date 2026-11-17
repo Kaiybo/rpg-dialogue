@@ -51,8 +51,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend; spirits have time for conversation." },
       },
       choices = {
-        { text = "How did they take your body?", next = "ritual" },
-        { text = "What is it like, being caught outside the Dream?", next = "dream" },
+        { text = "I can't see how they took your body.", next = "ritual" },
+        { text = "It must be strange, being caught outside the Dream.", next = "dream" },
         { text = "Why were you sleeping here?", next = "sleepers" },
         { text = "You really want me to kill your body?", next = "body", when = { any = { { questActive = TODO_QUEST("Druid of the Claw") }, { questDone = TODO_QUEST("The Sleeping Druid") } } } },
         { text = "Could this happen to me?", next = "druid_o", when = { class = "DRUID" } },
@@ -93,11 +93,11 @@ P:NPC {
 
     dream = {
       lines = {
-        { id = "dr_default", text = "Like standing at a window, with the whole green world of the Dream on the other side of the glass. I can see my brothers sleeping there, and I cannot reach them." },
+        { id = "dr_default", text = "It is like standing at a window, with the whole green world of the Dream on the other side of the glass. I can see my brothers sleeping there, and I cannot reach them." },
       },
       choices = {
         { text = "I'm sorry, Oben.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Can they not help you from inside it?", next = "dream_help" },
+        { text = "I'd have thought they could help you from inside it.", next = "dream_help" },
       },
     },
     dream_help = {
@@ -137,7 +137,7 @@ P:NPC {
       choices = {
         { text = "Then I'll do it quickly, and with respect.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A body's a body. It won't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Is there really no other way?", next = "body_other" },
+        { text = "There must be some other way.", next = "body_other" },
       },
     },
     body_other = {

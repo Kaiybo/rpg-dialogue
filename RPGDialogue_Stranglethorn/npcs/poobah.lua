@@ -46,7 +46,7 @@ P:NPC {
       choices = {
         { text = "Princess of what, exactly?", next = "princess" },
         { text = "Who is King Mukla?", next = "mukla" },
-        { text = "How did you end up here?", next = "captive" },
+        { text = "You look like you've had a hard time of it.", next = "captive" },
         { text = "How did you throw bottles all the way to the shore?", next = "bottles" },
         { text = "Mulgore's a long way from here, Princess.", next = "xtauren", when = { race = "Tauren" } },
         { text = "I'll see what I can do.", next = "END" },

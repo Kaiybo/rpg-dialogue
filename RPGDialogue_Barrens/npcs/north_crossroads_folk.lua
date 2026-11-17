@@ -110,7 +110,7 @@ P:NPC {
     beasts = {
       lines = { { id = "b_default", text = "Kodo and plainstrider mostly, with zhevra for the light pieces. Zhevra hide is tough and thin, which is why the hunters here chase them, and why the zhevra kick so hard when they're caught." } },
       choices = {
-        { text = "Do you hunt them yourself?", next = "hunt" },
+        { text = "You look like you've hunted them yourself.", next = "hunt" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -166,7 +166,7 @@ P:NPC {
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why sell cloth out here?", next = "why" },
-        { text = "Where does your dye come from?", next = "dye" },
+        { text = "Those dyes didn't come from anywhere in the Barrens.", next = "dye" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -229,7 +229,7 @@ P:NPC {
       choices = {
         { text = "I'll buy some bread.", next = "BUSINESS" },
         { text = "Where do you get grain out here?", next = "grain" },
-        { text = "Do the orcs like tauren bread?", next = "orcs" },
+        { text = "I'd guess the orcs aren't used to tauren bread.", next = "orcs" },
         { text = "Earthmother keep you.", next = "END" },
       },
     },
@@ -363,7 +363,7 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What do you think of Sergra?", next = "sergra" },
-        { text = "How did you get your name?", next = "name" },
+        { text = "There must be a story behind your name.", next = "name" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -428,14 +428,14 @@ P:NPC {
       choices = {
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Who are your two friends?", next = "guards" },
-        { text = "Isn't the road dangerous for a merchant?", next = "road" },
+        { text = "The road must be dangerous for a merchant.", next = "road" },
         { text = "Not interested.", next = "END" },
       },
     },
     guards = {
       lines = { { id = "g2_default", text = "Bodyguards, hired by the month, with a bonus for every raider they scare off and a penalty clause for every crate they drop. Cheaper than a caravan, cheaper than an army, and they don't ask for days off." } },
       choices = {
-        { text = "Do they ever fight?", next = "fight" },
+        { text = "They look like they've never had to fight.", next = "fight" },
         { text = "Something else.", next = "BACK" },
       },
     },

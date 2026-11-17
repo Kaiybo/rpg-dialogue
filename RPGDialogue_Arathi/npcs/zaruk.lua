@@ -58,7 +58,7 @@ P:NPC {
         { text = "Who is the Lady?", next = "lady" },
         { text = "What higher cause do you serve?", next = "hammer" },
         { text = "Who is Theldurin?", next = "theldurin" },
-        { text = "Does Drum Fel know what you are?", next = "drum" },
+        { text = "I doubt Drum Fel knows what you are.", next = "drum" },
         { text = "What does the earth tell you?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your stones, Zaruk.", next = "END" },
       },
