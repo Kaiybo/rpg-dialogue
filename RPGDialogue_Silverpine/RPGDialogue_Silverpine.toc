@@ -21,3 +21,5 @@ npcs\podrig.lua
 npcs\wallace.lua
 npcs\shadowfang.lua
 npcs\sawyer.lua
+npcs\sepulcher_forever.lua
+npcs\modera_image.lua

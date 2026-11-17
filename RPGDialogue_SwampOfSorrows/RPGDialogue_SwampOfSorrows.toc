@@ -21,3 +21,4 @@ npcs\itharius.lua
 npcs\thund.lua
 npcs\stonard_trainers.lua
 npcs\stonard_traders.lua
+npcs\pelluk.lua

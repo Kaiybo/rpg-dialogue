@@ -21,3 +21,4 @@ npcs\graytongue.lua
 npcs\raintotem.lua
 npcs\ruuleagletalon.lua
 npcs\windfeather.lua
+npcs\narache_forever.lua

@@ -11,6 +11,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.6.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
 
+## 1.6.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Archivists Delv Fortuz and Helm Anvilhand, Ranath Nightstride, Spellweaver Thaldris, the Skyborne scholars of Tempered Tomes (Kae'la, La'tanja, Ysa'bel), the Seasoned Adventurer, and the Orphanage's children and staff.
+
 ## 1.5.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

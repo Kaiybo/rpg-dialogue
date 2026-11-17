@@ -32,3 +32,5 @@ npcs\mountaineer_thalos.lua
 npcs\pilot_stonegear.lua
 npcs\razzle_sprysprocket.lua
 npcs\barin_redstone.lua
+npcs\old_ironforge_forever.lua
+npcs\dunmorogh_forever.lua

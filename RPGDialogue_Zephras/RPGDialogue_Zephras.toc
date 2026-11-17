@@ -17,3 +17,7 @@ npcs\thendal.lua
 npcs\thendal_orders.lua
 npcs\valanaar.lua
 npcs\thendal_grove.lua
+npcs\thendal_village.lua
+npcs\valanaar_high_order.lua
+npcs\valanaar_hall.lua
+npcs\wilds.lua

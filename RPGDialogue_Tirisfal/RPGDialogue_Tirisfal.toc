@@ -20,3 +20,7 @@ npcs\dillinger.lua
 npcs\gunther.lua
 npcs\gordo.lua
 npcs\austil.lua
+npcs\bandarion_keep.lua
+npcs\deathknell_forever.lua
+npcs\brill_forever.lua
+npcs\glades_forever.lua

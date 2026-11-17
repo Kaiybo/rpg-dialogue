@@ -27,3 +27,4 @@ npcs\north_naralex.lua
 npcs\south_fray_island.lua
 npcs\south_ratchet_folk.lua
 npcs\south_roads.lua
+npcs\barrens_forever.lua

@@ -21,3 +21,4 @@ npcs\tharg.lua
 npcs\dogol.lua
 npcs\mudcrush.lua
 npcs\nat_pagle.lua
+npcs\doraan.lua

@@ -46,3 +46,4 @@ npcs\gilroy.lua
 npcs\mazen.lua
 npcs\malin.lua
 npcs\osric_strang.lua
+npcs\stormwind_forever.lua

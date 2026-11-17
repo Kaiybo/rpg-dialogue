@@ -22,3 +22,4 @@ npcs\greywhisker.lua
 npcs\raedon.lua
 npcs\dorion.lua
 npcs\prejudices.lua
+npcs\teuren.lua

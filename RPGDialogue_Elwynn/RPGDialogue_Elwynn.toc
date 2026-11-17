@@ -55,3 +55,4 @@ npcs\guard_roberts.lua
 npcs\daniel_library.lua
 npcs\sergeant_de_vries.lua
 npcs\clara_charles.lua
+npcs\elwynn_forever.lua

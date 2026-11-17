@@ -21,3 +21,4 @@ npcs\hanazua.lua
 npcs\larprowltusk.lua
 npcs\rezlak.lua
 npcs\rhinag.lua
+npcs\durotar_forever.lua

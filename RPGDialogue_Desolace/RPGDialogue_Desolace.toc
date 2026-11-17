@@ -19,3 +19,4 @@ npcs\maurin.lua
 npcs\felgur.lua
 npcs\uthek.lua
 npcs\warug.lua
+npcs\desolace_forever.lua

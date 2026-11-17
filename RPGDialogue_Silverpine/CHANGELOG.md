@@ -11,6 +11,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.19.0 (2026-11-17)
 - Prejudices (0.80.0): High Executor Hadrec (mages). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.19.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Deathguard Baldren, Tabitha Heartweaver, Trevan Rol and Lumina Windsinger at the Sepulcher, and the Image of Archmage Modera.
+
 ## 1.18.0 (2026-11-17)
 - Wallace the Blind reacts to the new story "Arugal's children".
 

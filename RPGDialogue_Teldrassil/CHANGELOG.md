@@ -14,6 +14,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.17.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
 
+## 1.17.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Sylassa Moonglow and the Aldrassil trainers Eleyna Duskbreeze, Fanorran Stilloak, Terunne Bearshaper.
+
 ## 1.16.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

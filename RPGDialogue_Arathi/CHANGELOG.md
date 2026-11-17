@@ -8,6 +8,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.25.0 (2026-11-17)
 - Prejudices (0.80.0): Captain Nials (rogues) and Gor'mul (the Forsaken). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.25.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Muggol Breezebeard.
+
 ## 1.24.0 (2026-11-17)
 - Shakes O'Breen and Captain Steelgut at Faldir's Cove have much more to say about the Raiders, the wreck and each other.
 

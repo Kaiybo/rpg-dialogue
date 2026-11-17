@@ -11,6 +11,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.21.0 (2026-11-17)
 - People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
 
+## 1.21.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Camp Narache's Forever trainers: Karne Grayhoof, Garan Sunstrider, Nawka Wildsong, Vartha Rockmane.
+
 ## 1.20.0 (2026-11-17)
 - New story "The Venture Company's reach": Baine asks your counsel on the Venture Company, and remembers it.
 

@@ -24,3 +24,5 @@ npcs\rogues_quarter.lua
 npcs\trade_quarter.lua
 npcs\war_quarter.lua
 npcs\gordon.lua
+npcs\uc_forever_folk.lua
+npcs\uc_forever_quests.lua
