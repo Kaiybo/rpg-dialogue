@@ -505,7 +505,7 @@ P:NPC {
         { id = "h_recipe", tags = { "news" }, when = { questActive = TODO_QUEST("A Recipe For Death") },
           text = "Bear hearts, spider blood, a journal from Pyrewood and a bit of murloc tumour: bring me everything on the list. Together they make something wonderful, for the Scourge, naturally." },
         { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
-          text = "You've been to the Monastery, haven't you? You've the look of someone who's seen zealots up close, which is a very particular look, and I've been hoping someone would bring me news from inside!" },
+          text = "You've been to the Monastery, haven't you? You've the look of someone who's seen zealots up close, which is a very particular look. I've been hoping someone would bring me news from inside!" },
         { id = "h_agony", when = { questActive = TODO_QUEST("Elixir of Agony") },
           text = "Lydon's colloid, applied correctly, and then a few reagents to wake the mixture! Don't sniff it, though; Lydon sniffed it, and Lydon has been melancholy ever since." },
         { id = "h_lydon", when = { heardLine = "lydon.h_default" },

@@ -593,7 +593,7 @@ P:NPC {
         { id = "h_cousins_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cannibalistic Cousins"), days = 3 } },
           text = "The smoke over Agol'watha be thinner today, and I know whose work that be. Zul'jin himself would nod at you, and he don't nod for much." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" },
-          text = "The candles on my platform all bent south one night, every one of them, and then they stood up straight like nothin' happened. I hear Hakkar fell that same night, and I hear you were there, so you better sit and tell Yayo'jin what you saw." },
+          text = "The candles on my platform all bent south one night, every one of them, and then they stood up straight like nothin' happened. I hear Hakkar fell that same night, and they tell me you were there, so you better sit and tell Yayo'jin what you saw." },
         { id = "h_malkhor", when = { questDone = TODO_QUEST("Separation Anxiety") },
           text = "I prepared Malkhor for the earth with my own hands. His brother wept the whole night, and that be how it should be." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
