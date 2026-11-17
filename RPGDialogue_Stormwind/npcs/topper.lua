@@ -292,7 +292,7 @@ P:NPC {
       big = true,
       lines = { { id = "fl_default", key = true, text = "I write to her every Winter Veil, friend, a good long letter, and I keep them all in my coat, because I've never once had anything good to put in one. Six letters, and every one of them says I'm doing very well in the city." } },
       choices = {
-        { text = "Send them anyway. She'd rather have the truth than nothing.", next = "f_letter_read", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Send them anyway. She'd rather have the truth than nothing.", next = "f_letter_read", fx = { affinity = 2, align = { honor = 1 }, letter = "topper_true_letter" } },
         { text = "Keep them. Some things are kinder left unsaid.", next = "f_letter_read", fx = { align = { honor = -1 } } },
         { text = "Would you read me one?", next = "f_letter_read" },
       },
