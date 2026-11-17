@@ -1666,13 +1666,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Customer! Or student! Either way, don't touch the red one." },
-    { id = "g_back", when = { metBefore = true }, text = "Still got all your fingers? Excellent, that puts you ahead of my last three apprentices!" },
+    { id = "g_hi", text = "Customer, or student? Either way, chum, step right in and don't touch the red one, because the red one's not paid for yet." },
+    { id = "g_back", when = { metBefore = true }, text = "Still got all your fingers, pal? Excellent, that puts you ahead of my last three apprentices, and they paid in advance!" },
   },
 
   notice = {
     { id = "n_eng", cat = "profession", when = { profession = { name = "Engineering", min = 100 } },
-      text = "Oh, look at those singed eyebrows! You're an engineer, all right, and a dedicated one." },
+      text = "Oh, look at those singed eyebrows! You're an engineer, all right, chum, and a dedicated one, and dedication is my favourite thing to sell supplies to." },
   },
 
   start = "hello",
@@ -1769,18 +1769,18 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now there's a market I never thought to tap. Light-powered explosives, maybe? No? Pity. What can I sell you?" },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Excellent, because my last apprentice set his eyebrows on fire, and I'd like someone handy who can grow them back." },
-        { id = "h_default", key = true, text = "Nogg, engineer and proprietor! I teach engineering to anyone with the coin and the nerve, and the orcs here have plenty of nerve. Want to learn how to make things that go boom on purpose?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now there's a market I never thought to tap, pal, and I'm already wondering what Light-powered explosives would fetch. Until then, what can I sell you?" },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Excellent, chum, because my last apprentice set his eyebrows on fire, and I'd like someone handy who can grow 'em back at a reasonable rate." },
+        { id = "h_default", key = true, text = "Nogg, engineer and proprietor, chum! I teach engineering to anyone with the coin and the nerve, and the orcs here have plenty of nerve and just enough coin. Want to learn how to make things that go boom on purpose?" },
         { id = "h_goblin", when = { race = "Goblin" }, text = "A fellow goblin! You know how it is: these orcs think a wrench is a club, but they pay on time, so I'm not complaining." },
         { id = "h_eng", when = { profession = "Engineering" }, text = "Ah, a colleague! How are your bombs holding up? Not too stable, I hope, because a stable bomb is a boring bomb." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call lightning out of the sky for free, and I spend a fortune on copper wire to do half as much, so we should talk business sometime." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call lightning out of the sky for free, pal, and I spend a fortune on copper wire to do half as much, so we should talk business sometime, because that's a margin I'd love to have." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I've always wanted to ask one of you how the shapeshifting works, because I tried it once with a stolen gnomish gadget and spent most of a day as a chicken." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You know what's better than a big axe? A big axe with a bomb on the end of it, and I've been working on that design for months." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Ever thought about a scope on that gun? I can make you hit a plainstrider from so far away it'll never know you were there." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Don't touch anything on the bench, friend, because half of it explodes and the other half isn't paid for." },
       },
-      again = { { id = "h_again", text = "Got another question? Ask quick; something's smoking in the back." } },
+      again = { { id = "h_again", text = "Got another question, chum? Ask quick, because somethin's smoking in the back and I've only got the one fire bucket." } },
       choices = {
         { text = "Do your students really need a priest on hand, Nogg?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have you ever tried to bottle lightning, Nogg?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1806,21 +1806,21 @@ P:NPC {
       },
     },
     why_trust = {
-      lines = { { id = "wt_default", text = "They trust me exactly as much as they trust any goblin, which is to say not at all, but they need me. In my experience that's a much better arrangement than trust." } },
+      lines = { { id = "wt_default", text = "They trust me exactly as much as they trust any goblin, pal, which is to say not at all, but they need me. In my experience that's a much better arrangement than trust, and it bills more reliably." } },
       choices = {
         { text = "I'd rather be trusted.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Being needed is safer.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
       },
     },
     danger = {
-      lines = { { id = "d_default", text = "Dangerous? It's only dangerous if you do it wrong, and you'll do it wrong a few times first. Keep a bandage handy and don't light anything near your face." } },
+      lines = { { id = "d_default", text = "Dangerous? It's only dangerous if you do it wrong, chum, and you'll do it wrong a few times first, so think of the burns as tuition. Keep a bandage handy and don't light anything near your face." } },
       choices = {
         { text = "Have you ever blown yourself up?", next = "danger_self" },
         { text = "Something else.", next = "BACK" },
       },
     },
     danger_self = {
-      lines = { { id = "ds_default", text = "Only twice, and once was a misunderstanding about which fuse was which. The shop's been rebuilt since then and it's better than ever." } },
+      lines = { { id = "ds_default", text = "Only twice, pal, and once was a misunderstanding about which fuse was which. The shop's been rebuilt since then, the orcs paid for half of it, and it's better than ever." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     make = {
@@ -1834,7 +1834,7 @@ P:NPC {
 
   topics = {
     steamwheedle = { { id = "tp_steam", text = "Good people, rich people, and they'd want me to say I don't work for them. I don't, at least not officially." } },
-    _none = { { id = "tp_none", text = "Never heard of it, but if you find out what it's worth, let me know!" } },
+    _none = { { id = "tp_none", text = "Never heard of it, chum, but if you find out what it's worth, let me know first, before anybody else gets the chance to sell it!" } },
   },
 }
 

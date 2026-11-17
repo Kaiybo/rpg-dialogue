@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
+
 ## 1.22.1 (2026-11-17)
 - Fix: Harlo Wigglesworth in Everlook shared an internal name with Harlo Barnaby in Menethil, so the two were merged into one person (shared memory, mixed conversations). They're separate now. Anything Wigglesworth remembered about you starts fresh.
 

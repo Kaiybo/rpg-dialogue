@@ -14,26 +14,26 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in and shut the door, shut it, before the cold gets in, and the bugs! You didn't bring any bugs, did you?" },
-    { id = "g_home", when = { homeInn = { "Everlook" } }, text = "Welcome back! There's a warm bed, a hot drink and no bugs, because I checked, twice." },
-    { id = "g_away", when = { away = 14 }, text = "Shut the door, shut it, you've been gone {away} and you're letting all the warm out! Let me look at you, sugar, and make sure you didn't bring any bugs back." },
-    { id = "g_away_long", when = { away = 60 }, text = "Sugar, you've been gone {away}, and I'd half given your room to a trapper. Come in and get warm, and tell me there were no bugs where you've been." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody came in here smiling about something you told them, sugar, and in this cold a smile's harder to come by than a dry pair of socks. Whatever you said, say it more often." },
+    { id = "g_inn", text = "Come in and shut the door, shut it, sugar, before the cold gets in, and the bugs, because I pay good gold for firewood and I'm not heatin' the whole mountain! You didn't bring any bugs, did you?" },
+    { id = "g_home", when = { homeInn = { "Everlook" } }, text = "Welcome back, sugar! There's a warm bed, a hot drink and no bugs, because I checked twice, and the room rate's the same as last time, which in Everlook is practically a miracle." },
+    { id = "g_away", when = { away = 14 }, text = "Shut the door, shut it, you've been gone {away} and you're letting all the warm out, and warm costs money up here! Let me look at you, sugar, and make sure you didn't bring any bugs back." },
+    { id = "g_away_long", when = { away = 60 }, text = "Sugar, you've been gone {away}, and I'd half rented your room to a trapper, because an empty bed earns nothin'. Come in and get warm, and tell me there were no bugs where you've been." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody came in here smiling about something you told them, sugar, and in this cold a smile's harder to come by than a dry pair of socks. Whatever you said, say it more often, because happy customers order seconds." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I heard you gave somebody a fright in town, sugar, and they were telling it at my bar for an hour, so save it for my beetle, would you?" },
   },
 
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look frozen through and then some, sugar. Sit by the fire, but slowly, because thawing hurts." },
+      text = "You look frozen through and then some, sugar. Sit by the fire, but slowly, because thawing hurts, and I can't bill you for the screaming." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Careful out there in that state. People fall asleep in the snow and wake up as a furbolg's breakfast." },
+      text = "Careful out there in that state, sugar. People fall asleep in the snow and wake up as a furbolg's breakfast, and then who pays for the room?" },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Oh, all the time, sugar, mostly on their way to fight the Winterfall or coming back from them with claw marks. They eat like bears and sleep like bears, and every one of them swears they'll kill my beetle and then leaves it alive." } },
+      lines = { { id = "xwarcl_default", text = "Oh, all the time, sugar, mostly on their way to fight the Winterfall or coming back from them with claw marks. They eat like bears, sleep like bears and tip like bears, which is to say not at all, and every one of 'em swears they'll kill my beetle and then leaves it alive." } },
       choices = {
         { text = "In a neutral town, a warrior keeps the blade sheathed and the temper too.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If someone starts trouble at your fire, I'll finish it, Bruisers or no.", next = "BACK", fx = { align = { order = -1 } } },
@@ -41,7 +41,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Something in their firewater, the trappers say, and it's made them nasty all the way up the valley. They used to come and trade at the gate, and now nobody goes past the edge of town without a sword." } },
+      lines = { { id = "dq_default", text = "Something in their firewater, the trappers say, and it's made 'em nasty all the way up the valley. They used to come and trade pelts at the gate, and good pelts at that, and now nobody goes past the edge of town without a sword." } },
       choices = {
         { text = "They're sick, not wicked. They can be saved.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Sick or not, they're dangerous. Keep the door shut.", next = "BACK", fx = { align = { light = -1 } } },
@@ -59,7 +59,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Not in my inn, they don't, because the Cartel's bruisers stand at the gate and every goblin in town counts their coin twice. Pick a pocket in Everlook and you'll be walking back to Felwood in your smallclothes, and that's a long, cold walk." } },
+      lines = { { id = "xrogue_default", text = "Not in my inn, sugar, because the Cartel's bruisers stand at the gate and every goblin in town counts their coin twice, and I count mine three times. Pick a pocket in Everlook and you'll be walking back to Felwood in your smallclothes, and that's a long, cold walk." } },
       choices = {
         { text = "Good. A neutral town needs rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Bruisers can't watch every pocket, though.", next = "BACK", fx = { align = { order = -1 } } },
@@ -68,7 +68,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I did, and I was told nothing creepy could live in the cold, and then the yetis brought in fleas and the frostsabers brought in ticks. A mage could freeze the lot of them solid, I suppose, but then I'd have a frozen inn, and that's bad for business." } },
+      lines = { { id = "xmage_default", text = "I did, sugar, and the fella who sold me this place swore nothing creepy could live in the cold, and then the yetis brought in fleas and the frostsabers brought in ticks, so I'm still waiting on my refund. A mage could freeze the lot of 'em solid, I suppose, but then I'd have a frozen inn, and that's bad for business." } },
       choices = {
         { text = "I'll freeze any bug that bothers you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bugs are your problem, not mine.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -77,7 +77,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mostly is the word that worries me, sweetie. The last warlock who stayed here let his little friend sleep by the fire, and I found singe marks on the rug for a week, so your demon stays on your side of the room." } },
+      lines = { { id = "xlock_default", text = "Mostly is the word that worries me, sweetie. The last warlock who stayed here let his little friend sleep by the fire, and I found singe marks on the rug for a week and put the rug on his bill, so your demon stays on your side of the room." } },
       choices = {
         { text = "I'll keep it off your rug, I promise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where I go.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
@@ -95,7 +95,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Less than you'd think, because the Bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind them the inn's neutral and the snow outside isn't." } },
+      lines = { { id = "xapala_default", text = "Less than you'd think, sugar, because the bruisers are bigger than anybody, and the cold puts everyone in a mood to share a fire. Now and then somebody starts a quarrel over an old war, and I remind 'em the inn's neutral, the snow outside isn't, and broken chairs go on the tab." } },
       choices = {
         { text = "Good. Old grudges should stay outside your door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some grudges are earned. This truce won't last.", next = "BACK", fx = { align = { order = -1 } } },
@@ -114,20 +114,20 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half." },
+          text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half, just not the hearth." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! You've got good eyes and quick hands, so if you see anything with too many legs scuttling about my rafters, you squash it, and I'll love you forever." },
+          text = "A rogue! You've got good eyes and quick hands, sugar, so if you see anything with too many legs scuttling about my rafters, you squash it, and I'll love you forever, though I'll still charge you for the room." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "Oh, a mage, thank goodness. Could you conjure a little fire for the back room? The hearth never reaches that far, and the bugs love a cold corner." },
+          text = "Oh, a mage, thank goodness! Could you conjure a little fire for the back room, sugar? The hearth never reaches that far, the bugs love a cold corner, and firewood up here costs more than the furniture." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, and is that an imp? Keep it off the tables, please, because it looks exactly like a big red beetle, and I'll scream if it so much as twitches." },
         { id = "h_default", key = true,
-          text = "I'm Innkeeper Vizzie, and this is the best inn in Everlook; it's the only inn in Everlook, but that doesn't make it not the best. It's the warmest place for a hundred miles, and the cold keeps the creepy-crawlies down, mostly." },
+          text = "I'm Innkeeper Vizzie, sugar, and this is the best inn in Everlook, and sure, it's the only inn in Everlook, but that doesn't make it not the best. It's the warmest place for a hundred miles at a very fair rate, and the cold keeps the creepy-crawlies down, mostly." },
         { id = "h_bugs", tags = { "gossip" },
-          text = "People ask why a goblin would run an inn at the top of the world, and it's two words: no bugs. Well, fewer bugs, anyway, because there's still that one beetle, and I know it's in here." },
-        { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle, behind the bar! It looked at me and I looked at it, and we've agreed to stay out of each other's way." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid in my inn! You'll be wanting to know about the furbolgs, I bet, since everybody from the Circle does, and the answer is they've gone mean and I keep the door shut." },
+          text = "People ask why a goblin would run an inn at the top of the world, sugar, and it's two words: no bugs. Well, fewer bugs, anyway, because there's still that one beetle, and I know it's in here eatin' my profits." },
+        { id = "h_beetle", when = { metBefore = true }, text = "I found the beetle, behind the bar! It looked at me and I looked at it, and we've agreed to stay out of each other's way, which is the cheapest contract I ever signed." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid in my inn! You'll be wanting to know about the furbolgs, I bet, sugar, since everybody from the Circle does, and the answer is they've gone mean and I keep the door shut and the bolt oiled." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Oh, sugar, you don't know a prayer against beetles, do you? I'd light a candle every night for one, because that bug by the hearth has outlived three traps and a boot." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up in the snow with the rest of us! Warm yourself at the fire, and if your loa or your Light have anything to say about beetles, I'd dearly love to hear it." },
       },
       again = {
-        { id = "h_again", text = "More? Sit by the fire, then, only not too close, because the beetle lives there." },
-        { id = "h_again2", text = "What else, sugar? I've got gossip and soup, and both are hot." },
+        { id = "h_again", text = "More? Sit by the fire, then, sugar, only not too close, because the beetle lives there and it doesn't pay rent." },
+        { id = "h_again2", text = "What else, sugar? I've got gossip and soup, both of 'em hot, and only one of 'em costs you." },
       },
       choices = {
         { text = "Does the wind up here ever let up, Vizzie?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -157,12 +157,12 @@ P:NPC {
       },
     },
     guests = {
-      lines = { { id = "g_default", text = "Traders, mostly, and Argent Dawn folk, with Horde and Alliance at the same tables glaring at each other over the soup. Nobody fights, though; the Bruisers see to that, and so does the soup." } },
+      lines = { { id = "g_default", text = "Traders, mostly, and Argent Dawn folk, with Horde and Alliance at the same tables glaring at each other over the soup. Nobody fights, though, because the bruisers see to that, and so does the soup, and so does the bill for the furniture." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     neighbours = {
       lines = {
-        { id = "nb_default", text = "Umi's building something furry, Legacki's laughing at it, and Felnok won't let anybody near his bench without gloves. Then there's the Dark Iron fellow, who calls my customers ants and still tips better than any of them." },
+        { id = "nb_default", text = "Umi's building something furry, Legacki's laughing at it, and Felnok won't let anybody near his bench without gloves. Then there's the Dark Iron fellow, who calls my customers ants and still tips better than any of 'em, so he can call 'em whatever he likes." },
         { id = "nb_yeti", when = { questDone = TODO_QUEST("Are We There, Yeti?") }, text = "Legacki hasn't stopped glaring at the door since that yeti came through it, and Umi hasn't stopped grinning. I serve them at opposite ends of the bar now." },
       },
       choices = {
@@ -171,7 +171,7 @@ P:NPC {
       },
     },
     neighbours_dark = {
-      lines = { { id = "nd_default", text = "Malyfous, of the Thorium Brotherhood, and he's polite to nobody, but he pays on time and he's never once brought a bug in. In my book that makes him a model guest." } },
+      lines = { { id = "nd_default", text = "Malyfous, of the Thorium Brotherhood, and he's polite to nobody, but he pays on time and he's never once brought a bug in, sugar. In my ledger that makes him a model guest." } },
       choices = {
         { text = "Coin's coin. Whoever pays is welcome.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A Dark Iron should earn his welcome first.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -179,7 +179,7 @@ P:NPC {
       },
     },
     beetle_hunt = {
-      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, because we've got a truce, and if you scare it off it'll only come back angrier with its cousins. Just keep your pet off the bar, sugar, that's all I ask." } },
+      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, sugar, because we've got a truce, and if you scare it off it'll only come back angrier with its cousins and I'll be payin' for traps all winter. Just keep your pet off the bar, that's all I ask." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     bugs = {
@@ -189,10 +189,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "Tanaris girl, bug survivor, innkeeper at the top of the world. I followed the cold, and the cold was hiring." } },
+    background = { { id = "tp_ba", text = "Tanaris girl, bug survivor, innkeeper at the top of the world. I followed the cold, sugar, and the cold was hiring." } },
     advice = { { id = "tp_ad", text = "Shake out your bedroll before you sleep in it, sugar. Up here it's yetis; anywhere else, it's worse." } },
-    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel set this place up for trade, and I set up the inn because traders need beds. It's good business, if cold business." } },
-    _none = { { id = "tp_none", text = "No idea, sugar, so ask a trader; they know everything worth money." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel set this place up for trade, and I set up the inn because traders need beds and beds pay by the night. It's good business, sugar, if cold business." } },
+    _none = { { id = "tp_none", text = "No idea, sugar, so ask a trader, because they know everything worth money and charge for the rest." } },
   },
 }
 

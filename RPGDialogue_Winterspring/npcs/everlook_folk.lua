@@ -15,17 +15,17 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Cold enough for you? I've had three cups of something hot, and one of them was supposed to be for washing, and I still can't feel my ears." },
+    { id = "g_default", text = "Cold enough for you, darling? I've had three cups of something hot at Vizzie's prices, and one of 'em was supposed to be for washing, and I still can't feel my ears." },
     { id = "g_scared", when = { questRecent = { TODO_QUEST("Are We There, Yeti?"), days = 7 } },
-      text = "Don't you come near me with anything furry, you hear? I know it was you, and I know who put you up to it." },
+      text = "Don't you come near me with anything furry, you hear? I know it was you, darling, and I know who put you up to it, and I'd bet my last gold piece she didn't even pay you properly." },
     { id = "g_away", when = { away = 14 }, text = "Oh, it's you, back after {away}, and I've still not got any feeling in my ears! You didn't bring anything furry back with you, did you?" },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Darling, I hear you told someone in town a whopper and they swallowed it whole, and I'm not saying I'm impressed, but I'm not saying I'm not." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Darling, I hear you told someone in town a whopper and they swallowed it whole, and I'm not saying I'm impressed, but I'd pay good silver for lessons." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round today, darling, which is more than I've ever managed with Umi, so go and tell her that yeti isn't funny, would you?" },
   },
 
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! You're not one of Umi's, are you? Every time a tinkerer smiles at me lately, I check behind me." },
+      text = "A gnome! You're not one of Umi's, are you, darling? Every time a tinkerer smiles at me lately, I check behind me and count my purse." },
   },
 
   start = "hello",
@@ -41,7 +41,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Of course I would, darling, because that's what warriors are for, isn't it? You stand at the front looking grim and dented, and clever goblins like me stand at the back looking lovely." } },
+      lines = { { id = "xwarcl_default", text = "Of course I would, darling, because that's what warriors are for, isn't it? You stand at the front looking grim and dented, and clever goblins like me stand at the back looking lovely and holding the purse." } },
       choices = {
         { text = "Gladly. Standing in front of people is the whole point of the job.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Only if you pay me. Shields aren't free, Legacki.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -51,7 +51,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I think Umi wants me to think so, which is worse! There were tracks in the snow outside my window this morning, big ones, and if they're real yeti tracks I'll scream, and if they're Umi's I'll scream louder." },
+        { id = "xhuntcl_default", text = "I think Umi wants me to think so, darling, which is worse! There were tracks in the snow outside my window this morning, big ones, and if they're real yeti tracks I'll scream, and if they're Umi's I'll scream louder and send her the bill for my nerves." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if {pet} could sniff around my door and tell me whether those tracks smell of fur or of oil, I'd be ever so grateful." },
       },
       choices = {
@@ -61,7 +61,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "The Cartel cares about anything that pays, and the woods don't, so that's the short answer. The long answer is that if the furbolgs keep going mad, nobody will come up the pass to buy anything, and that's bad for everyone." } },
+      lines = { { id = "dq_default", text = "The Cartel cares about anything that pays, darling, and the woods don't, so that's the short answer. The long answer is that if the furbolgs keep going mad, nobody will come up the pass to buy anything, and an empty market's bad for everyone." } },
       choices = {
         { text = "The woods deserve care whether they pay or not.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Coin keeps the fires lit. The woods can wait.", next = "BACK", fx = { align = { light = -1 } } },
@@ -79,7 +79,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Hiding? Me? I'm simply keeping out of the way of an engineer with too much spare fur and not enough sense. If you see it creaking about, you could always give it a nudge into a snowdrift, and I'd never tell a soul who did it." } },
+      lines = { { id = "xrogue_default", text = "Hiding? Me? I'm simply keeping out of the way of an engineer with too much spare fur and not enough sense, darling. If you see it creaking about, you could always give it a nudge into a snowdrift, and I'd never tell a soul who did it, not even for money." } },
       choices = {
         { text = "I'll warn you if it comes, fair and square.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll tip it over myself. Sounds like fun.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -88,7 +88,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because Umi's been building one for weeks and swears it'll scare me silly, and I'd rather it never got the chance. Mind you, if it's made of the junk she buys from Felnok, it'll fall apart without your help." } },
+      lines = { { id = "xmage_default", text = "Because Umi's been building one for weeks and swears it'll scare me silly, and I'd rather it never got the chance. Mind you, if it's made of the junk she buys cheap from Felnok, it'll fall apart without your help, and I've got a gold piece riding on it." } },
       choices = {
         { text = "I won't wreck someone else's work for you.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "One fireball, for the fun of it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -97,7 +97,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Dangerous, no, but it's the principle of the thing, because a lady shouldn't have to scream in front of the whole of Everlook. Mind you, I've seen worse things come down off that mountain, and none of them were made of tin." } },
+      lines = { { id = "xapala_default", text = "Dangerous, no, but it's the principle of the thing, darling, because a lady shouldn't have to scream in front of the whole of Everlook, it's bad for her credit. Mind you, I've seen worse things come down off that mountain, and none of 'em were made of tin." } },
       choices = {
         { text = "Then laugh it off. A good prank deserves a good sport.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then get her back. Every prank deserves a sharper reply.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -116,27 +116,27 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "Ooh, a warlock! Now there's somebody who knows what real scary looks like, and I bet you wouldn't jump at Umi's silly yeti, would you?" },
+          text = "Ooh, a warlock! Now there's somebody who knows what real scary looks like, darling, and I'd wager you wouldn't jump at Umi's silly yeti, would you?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "Ooh, a warrior, all muscle and buckles! If Umi's yeti comes clanking round the corner, I'm hiding behind you, and I'm not ashamed of it one bit." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You've tracked everything in Winterspring, I bet, so tell me, did you ever see Umi's yeti out in the snow, because I swear it moved by itself last night." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, a shaman, all bones and feathers and totems! It's a look, I'll give you that, though I'd lose a few of the teeth." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue! Well, aren't you dashing. If Umi asks whether you've seen me, you haven't, because I'd rather she didn't know where to send her silly yeti." },
+          text = "A rogue! Well, aren't you dashing, darling. If Umi asks whether you've seen me, you haven't, and I'll make it worth your while to keep forgettin'." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage, how fancy! Do you think a fireball would melt a mechanical yeti? I'm only asking out of curiosity, you understand." },
+          text = "A mage, how fancy! Do you think a fireball would melt a mechanical yeti, darling? I'm only asking out of curiosity, you understand, and maybe a small wager." },
         { id = "h_default", key = true,
-          text = "Legacki, at your service, and the only goblin in Everlook with any taste. You've met Umi? Then you've seen her latest toy, and I'll bet you a gold piece it falls apart before the thaw." },
+          text = "Legacki, at your service, darling, and the only goblin in Everlook with any taste. You've met Umi? Then you've seen her latest toy, and I'll bet you a gold piece it falls apart before the thaw, and I always collect." },
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Are We There, Yeti?") },
-          text = "All right, all right, I screamed, and the whole of Everlook heard it. Umi's never going to let me forget it, and neither are the Bruisers, who laughed until they wept." },
+          text = "All right, all right, I screamed, and the whole of Everlook heard it, and now Umi says a yeti that makes me scream hasn't fallen apart, so she wants her gold piece. She's never going to let me forget it, and neither are the bruisers, who laughed until they wept." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now there's a fashion I appreciate, all leaves and antlers and nobody telling you it's too much. What brings you to the frozen end of the world?" },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, how grand! You'll protect a poor goblin girl from a mechanical yeti, won't you? I'm joking, mostly, though I'd feel better with you standing between me and Umi's workbench." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in Everlook! You'll be wanting a quiet corner for prayers, and I'll tell you now there isn't one, because Umi's built something that clanks." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've got gossip to spare and nobody worth sharing it with." },
+        { id = "h_again", text = "Anything else, darling? I've got gossip to spare, and nobody else in this town is worth sharing it with for free." },
         { id = "h_again2", text = "Ask away, but stand where I can see your hands." },
       },
       choices = {
@@ -156,7 +156,7 @@ P:NPC {
       },
     },
     umi = {
-      lines = { { id = "u_default", text = "Nothing, if you like smoke, springs and loud noises in the middle of the night. She's sweet, really, but she thinks a joke's not finished until somebody's fallen over." } },
+      lines = { { id = "u_default", text = "Nothing, darling, if you like smoke, springs and loud noises in the middle of the night. She's sweet, really, but she thinks a joke's not finished until somebody's fallen over, and somebody's usually me." } },
       choices = {
         { text = "You laugh at her, though.", next = "umi_laugh" },
         { text = "Something else.", next = "BACK" },
@@ -171,11 +171,11 @@ P:NPC {
       },
     },
     town = {
-      lines = { { id = "t_default", text = "Drink at Vizzie's, freeze, drink again, and watch the Horde and the Alliance pretend not to see each other across the square. It's the best show in Winterspring, and the Bruisers keep it civil." } },
+      lines = { { id = "t_default", text = "Drink at Vizzie's, freeze, drink again, and watch the Horde and the Alliance pretend not to see each other across the square. It's the best show in Winterspring, darling, the bruisers keep it civil, and nobody even charges admission." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     yetis = {
-      lines = { { id = "y_default", text = "Me? Scared? The yetis stay up in the hills where they belong, and anything that comes down into town gets a Bruiser's boot. Why do you ask, exactly?" } },
+      lines = { { id = "y_default", text = "Me? Scared? The yetis stay up in the hills where they belong, darling, and anything that comes down into town gets a bruiser's boot. Why do you ask, exactly, and who's paying you to?" } },
       choices = {
         { text = "No reason at all.", next = "END", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -184,9 +184,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I came north for the Cartel's trade and stayed because nobody up here ever banged on anything. Then Umi arrived with a hammer and a mechanical yeti." } },
-    advice = { { id = "tp_ad", text = "Never turn your back on a goblin who's whistling. That's free, and it's the best advice you'll get here." } },
-    _none = { { id = "tp_none", text = "No idea, sugar, and if Umi told you about it, don't believe a word." } },
+    background = { { id = "tp_ba", text = "I came north for the Cartel's trade, darling, and stayed because nobody up here ever banged on anything. Then Umi arrived with a hammer and a mechanical yeti, and the rent went up besides." } },
+    advice = { { id = "tp_ad", text = "Never turn your back on a goblin who's whistling, darling. That's free, and it's the best bargain you'll get up here." } },
+    _none = { { id = "tp_none", text = "No idea, sugar, and if Umi told you about it, don't believe a word, and don't pay for any of it either." } },
   },
 }
 

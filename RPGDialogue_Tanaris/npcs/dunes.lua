@@ -512,14 +512,14 @@ P:NPC {
     third = "{name} met Jabbey, a vendor in Gadgetzan.",
   },
   greetings = {
-    { id = "g_main", text = "Step right up, step right up! Jabbey's got what you need, even if you don't know you need it." },
-    { id = "g_back", when = { metBefore = true }, text = "My favorite customer! What can Jabbey sell you today?" },
+    { id = "g_main", text = "Step right up, step right up, pal! Jabbey's got what you need, even if you don't know you need it, and Jabbey's got it at a price you'll only regret a little." },
+    { id = "g_back", when = { metBefore = true }, text = "My favorite customer, back again! What can Jabbey sell you today, buddy, and how much have you got?" },
   },
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Bandages, mostly, because the Wastewanderers fight dirty and the Bruisers won't patch you up for free. And a spare waterskin, since a warrior who runs dry halfway to Noonshade Ruins ends up a skeleton the hyenas argue over." } },
+      lines = { { id = "xwarcl_default", text = "Bandages, mostly, because the Wastewanderers fight dirty and the Bruisers won't patch you up for free. And a spare waterskin, pal, since a warrior who runs dry halfway to Noonshade Ruins ends up a skeleton the hyenas argue over, and skeletons don't buy anything." } },
       choices = {
         { text = "I fight fair, even against bandits who don't.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Against bandits, I'll fight every bit as dirty as they do.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -529,7 +529,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Arrows, shot, and a salve for blistered paws, which out here sells faster than the arrows. By noon the sand gets so hot I've watched a hunter's wolf hop from foot to foot all the way down the main street." },
+        { id = "xhuntcl_default", text = "Arrows, shot, and a salve for blistered paws, which out here sells faster than the arrows and at a better margin. By noon the sand gets so hot I've watched a hunter's wolf hop from foot to foot all the way down the main street." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it's been walking on that sand all day, friend, and Jabbey would say it's earned a tin of the good salve." },
       },
       choices = {
@@ -549,7 +549,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Depends who's talking. The caravan folk swear the dust devils out past the Noonshade Ruins follow wagons on purpose, and one fellow told me the wind stole his hat and gave it back a mile on, though I sold him a new one anyway, just in case." } },
+      lines = { { id = "xhsham_default", text = "Depends who's talking. The caravan folk swear the dust devils out past the Noonshade Ruins follow wagons on purpose, and one fellow told me the wind stole his hat and gave it back a mile on, though I sold him a new one anyway, just in case, full price." } },
       choices = {
         { text = "The wind keeps its own accounts. Respect it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Dust devils are just hot air, like most travellers' tales.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -567,7 +567,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Booty Bay, mostly, and Ratchet when the boats are kind. Jabbey doesn't ask where Booty Bay gets them, and Booty Bay doesn't ask where Jabbey sends them, and that's how reagents get across the sea in one piece." } },
+      lines = { { id = "xmage_default", text = "Booty Bay, mostly, and Ratchet when the boats are kind and the pirates are busy. Jabbey doesn't ask where Booty Bay gets them, and Booty Bay doesn't ask where Jabbey sends them, and that's how reagents get across the sea in one piece and at a profit." } },
       choices = {
         { text = "Good trade keeps the world turning, whoever's on the other end.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You should know who you're buying from.", next = "BACK", fx = { align = { order = 1 } } },
@@ -594,7 +594,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Here and there, mostly there, which is to say I don't ask the pickers too many questions. Some of it comes up from Un'Goro in crates, and anything that still bites when it arrives goes in the back." } },
+      lines = { { id = "xdruid_default", text = "Here and there, mostly there, which is to say I don't ask the pickers too many questions, pal. Some of it comes up from Un'Goro in crates, and anything that still bites when it arrives goes in the back at a premium." } },
       choices = {
         { text = "Trade is trade. Don't ask, don't worry.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Ask questions. Stolen herbs are still stolen.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -612,12 +612,12 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll be wanting ankhs, and I keep a few under the counter for your sort, priced like everything else here: fair, more or less." },
-        { id = "h_default", key = true, text = "Name's Jabbey, and I sell a little of everything: reagents, odds, ends and the occasional thing I can't explain. Gadgetzan's the crossroads of Tanaris, and everything passes through my stall sooner or later." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll be wanting ankhs, pal, and I keep a few under the counter for your sort, priced like everything else here: fair, more or less, mostly more." },
+        { id = "h_default", key = true, text = "Name's Jabbey, pal, and I sell a little of everything: reagents, odds, ends and the occasional thing I can't explain. Gadgetzan's the crossroads of Tanaris, and everything passes through my stall sooner or later, and pays a toll on the way." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "Flash powder and blinding powder, friend, and Jabbey asks no questions about who you plan to blind. That's what makes Jabbey a reliable vendor." },
+          text = "Flash powder and blinding powder, friend, and Jabbey asks no questions about who you plan to blind. That's what makes Jabbey a reliable vendor, and reliability costs a little extra." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Jabbey keeps runes and feathers for your kind, and arcane powder when the boats bring it, because mages always run out right before they need it most." },
+          text = "A mage! Jabbey keeps runes and feathers for your kind, and arcane powder when the boats bring it, because mages always run out right before they need it most, and that's when Jabbey's prices are best, for Jabbey." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Jabbey doesn't sell soul shards, friend, so don't ask. Jabbey sells a lot of strange things, but even Jabbey has a line, and that line is anything that used to be somebody." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Jabbey has candles, holy water of mostly reliable origin, and a very nice skull that a Forsaken gentleman almost bought last month." },
@@ -626,7 +626,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and a thirsty one by the look of you! Jabbey's got whetstones, bandages and a tonic that'll put the fight back in your arms, all at a very reasonable markup." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Now, Jabbey doesn't sell meat, but if your beast's hungry I know a fellow named Dirge who asks very few questions about where his comes from." },
+          text = "A hunter! Now, Jabbey doesn't sell meat, buddy, but if your beast's hungry I know a fellow named Dirge who asks very few questions about where his comes from, and he gives Jabbey a little something for the referral." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've got seeds, herbs, and something in a jar I'm told used to be a cactus, so you'll find something here, I promise." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Jabbey's stall! Jabbey sells honest goods to honest folk, mostly, and Jabbey would like you to remember the honest part." },
       },
@@ -649,23 +649,23 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Water, friend, by a long way, then cooling potions and anything that keeps the scorpids off you. After that, it's whatever the adventurers are hunting this week." } },
+      lines = { { id = "b1_1_l", text = "Water, friend, by a long way, then cooling potions and anything that keeps the scorpids off you. After that, it's whatever the adventurers are hunting this week, and Jabbey stocks it the week before." } },
       choices = { { text = "Turtle shells?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Last month it was snake bits, this month it's turtle shells. Next month, who knows, but Jabbey'll have it." } },
+      lines = { { id = "b1_2_l", text = "Last month it was snake bits, this month it's turtle shells, pal. Next month, who knows, but Jabbey'll have it, and Jabbey'll have it first." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Here and there, from traders and travelers and the port. Jabbey doesn't ask, and Jabbey doesn't tell, which is how business works in Gadgetzan." } },
+      lines = { { id = "b2_1_l", text = "Here and there, from traders and travelers and the port. Jabbey doesn't ask, and Jabbey doesn't tell, pal, which is how business works in Gadgetzan." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Jabbey charges what the market bears, friend. If you call that overcharging, take it up with the market." } },
+      lines = { { id = "s_1_l", text = "Jabbey charges what the market bears, friend, and the market is very strong in the desert. If you call that overcharging, take it up with the market." } },
       choices = { { text = "Fair prices build loyal customers.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "A goblin should get what he can.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Jabbey doesn't sell that, but Jabbey might know a guy." } } },
+  topics = { _none = { { id = "tp_none", text = "Jabbey doesn't sell that, pal, but Jabbey might know a guy, and the guy gives Jabbey a cut." } } },
 }
 
 P:NPC {
@@ -676,14 +676,14 @@ P:NPC {
     third = "{name} met Vizzklick, the cloth vendor in Gadgetzan.",
   },
   greetings = {
-    { id = "g_main", text = "Welcome, welcome! Oh dear, look at the state of your robes." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! And still in those clothes, I see." },
+    { id = "g_main", text = "Welcome, welcome, dearie! Oh dear, look at the state of your robes, and look at the state of my shelves, which are full of exactly what you need." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, dearie! And still in those clothes, I see, which is a lost sale every single day you wear them." },
   },
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Everything under the plate is cloth, friend, and everything under the cloth is you, slowly roasting. Half the Bruisers wear my linings under their mail now, and not one of them has fainted on duty since." } },
+      lines = { { id = "xwarcl_default", text = "Everything under the plate is cloth, friend, and everything under the cloth is you, slowly roasting. Half the Bruisers wear my linings under their mail now, on a Cartel contract, and not one of them has fainted on duty since." } },
       choices = {
         { text = "Discipline means caring for your kit, even the parts nobody sees.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Comfort makes soldiers soft. I'll sweat and fight anyway.", next = "BACK", fx = { align = { order = -1 } } },
@@ -693,8 +693,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Hides, now and then, though I'm a tailor and not a leatherworker, so mostly I get hunters asking me to mend what their own beasts chewed. Every one of them swears the beast is house-trained, and every sleeve tells me otherwise." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from my bolts, please, because I've lost a whole roll of silk to a curious nose before, and I don't sell it by the chewed yard." },
+        { id = "xhuntcl_default", text = "Hides, now and then, though I'm a tailor and not a leatherworker, so mostly I get hunters asking me to mend what their own beasts chewed, at the chewed-sleeve rate. Every one of them swears the beast is house-trained, and every sleeve tells me otherwise." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from my bolts, please, dearie, because I've lost a whole roll of silk to a curious nose before, twelve gold of it, and I don't sell it by the chewed yard." },
       },
       choices = {
         { text = "A beast should be trained to leave other folk's goods alone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -722,7 +722,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "They're fine for Stormwind, or Undercity, or wherever you come from, but the desert sand gets into every seam and eats them. A mage who looks like a scarecrow doesn't get much respect at the auction house, and that's free advice." } },
+      lines = { { id = "xmage_default", text = "They're fine for Stormwind, or Undercity, or wherever you come from, but the desert sand gets into every seam and eats them. A mage who looks like a scarecrow doesn't get much respect at the auction house, dearie, and that's free advice, which is rare in this town." } },
       choices = {
         { text = "A mage's worth is in the spell, not the robe.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Fine. Appearances matter, even out here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -731,7 +731,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It wears beautifully, and that's the trouble, because it hums when I hold it. I sell to warlocks the same as anyone, but I keep their cloth at the back of the shelf where it can't touch my good silk." } },
+      lines = { { id = "xlock_default", text = "It wears beautifully, and sells beautifully, and that's the trouble, because it hums when I hold it. I sell to warlocks the same as anyone, but I keep their cloth at the back of the shelf where it can't touch my good silk." } },
       choices = {
         { text = "Then your prejudice costs you good customers.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "That's sensible. Fel taints whatever it touches.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -758,7 +758,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "It can, dearie, because it's what's under the plate that matters in this heat. A good linen padding, washed every few days, and you'll stop smelling like a forge, which the Road Warrior would appreciate." } },
+      lines = { { id = "xapala_default", text = "It can, dearie, because it's what's under the plate that matters in this heat. A good linen padding, washed every few days, and you'll stop smelling like a forge, which the Road Warrior would appreciate, and I'll sell you three so you can rotate." } },
       choices = {
         { text = "Comfort keeps a fighter going. I'll take your advice.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Plate is meant to be endured, not made comfortable.", next = "BACK", fx = { align = { order = -1 } } },
@@ -767,7 +767,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Cloth is cloth, dearie, and I don't ask what it's going to be used for. Dark wool for a cloak keeps the night cold out, and if it also keeps the Bruisers from seeing someone, that's hardly my stitching's fault." } },
+      lines = { { id = "xrogue_default", text = "Cloth is cloth, dearie, and coin is coin, and I don't ask what it's going to be used for. Dark wool for a cloak keeps the night cold out, and if it also keeps the Bruisers from seeing someone, that's hardly my stitching's fault." } },
       choices = {
         { text = "You should ask. Somebody pays for what's done in the dark.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Good. A tailor sells cloth, not judgment.", next = "BACK", fx = { align = { order = -1 } } },
@@ -776,19 +776,19 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, with totems clattering off your belt and a hem the wind's been chewing on. I'd ask the spirits for better tailoring, if I were you." },
-        { id = "h_default", key = true, text = "Vizzklick, cloth and thread and the finest tailoring supplies in Tanaris! Desert living is hard on clothes, and I keep half of Gadgetzan dressed, whether they like it or not." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, with totems clattering off your belt and a hem the wind's been chewing on. I'd ask the spirits for better tailoring, dearie, or ask me, since I'm cheaper and I'm right here." },
+        { id = "h_default", key = true, text = "Vizzklick, cloth and thread and the finest tailoring supplies in Tanaris, priced for the desert! Desert living is hard on clothes, and I keep half of Gadgetzan dressed, whether they like it or not, and they always pay." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage, dearie, and in robes that have seen far too much sand! Mageweave holds up better in this heat, if you'd let me show you some proper cloth." },
+          text = "A mage, dearie, and in robes that have seen far too much sand! Mageweave holds up better in this heat, if you'd let me show you some proper cloth, and it's practically an investment." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Felcloth, is that? No, don't tell me where it came from, dearie, because I've heard the stories about the satyrs, and I'd sooner not know." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and in robes that have seen more sand than soap, dearie. Whether you pray to the Light or to something gloomier, I can at least make you look the part." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, in robes cut for cool stone halls! Your order makes a fine garment, I'll grant you, but its tailors never met a sandstorm, and it shows on every hem you're wearing." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior, and wearing a padded gambeson under all that in Tanaris, by the look of the sweat! I could line that armor with something that breathes, and you'd stop cooking inside it." },
+          text = "A warrior, and wearing a padded gambeson under all that in Tanaris, by the look of the sweat! I could line that armor with something that breathes, pal, and you'd stop cooking inside it for a very reasonable fee." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! I can always tell, because you're the only folk who walk in with fur on your sleeves that isn't part of the design." },
+          text = "A hunter! I can always tell, dearie, because you're the only folk who walk in with fur on your sleeves that isn't part of the design, and I charge to take it off." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You wear fur half the time and robes the other half, so I'm guessing you're hard on clothes, and I can help with that." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, dearie, and baking inside all that plate! Let me line it with something cool, or at least something that doesn't chafe, because I can see you walking stiff from here." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, dearie, in leathers that creak in this heat! Let me show you some dark cloth that doesn't make a sound, because you'll hear your own sleeves before you hear the guards." },
@@ -812,21 +812,21 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Light, tight and pale, dearie, unless you enjoy roasting in your own boots. The sand gets into everything, so a good weave keeps it out." } },
+      lines = { { id = "b1_1_l", text = "Light, tight and pale, dearie, unless you enjoy roasting in your own boots. The sand gets into everything, so a good weave keeps it out, and a good weave costs a little more." } },
       choices = { { text = "And mageweave?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Silk's lovely, but it tears on the rocks, so most folks out here settle for mageweave and pray." } },
+      lines = { { id = "b1_2_l", text = "Silk's lovely, but it tears on the rocks, and torn silk is gold down a hole, so most folks out here settle for mageweave and pray." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Of course! Selling cloth without knowing how to sew is like selling water without knowing how to drink." } },
+      lines = { { id = "b2_1_l", text = "Of course! Selling cloth without knowing how to sew is like selling water without knowing how to drink, dearie, and nobody'd pay for that." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Some say a fighter shouldn't care about looks. I say a well-dressed fighter frightens enemies twice as much." } },
+      lines = { { id = "s_1_l", text = "Some say a fighter shouldn't care about looks. I say a well-dressed fighter frightens enemies twice as much and gets better prices at the auction house." } },
       choices = { { text = "Looking sharp is half the battle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "A blade matters more than a hem.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open." } } },
+  topics = { _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open, and ears cost nothing." } } },
 }

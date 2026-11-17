@@ -1229,18 +1229,18 @@ P:NPC {
     third = "{name} met Kzixx, a goblin trader selling rare goods by the Darkened Bank road in Duskwood.",
   },
   greetings = {
-    { id = "g_default", text = "Rare goods, friend, rare goods! Can't find these anywhere else, guaranteed." },
-    { id = "g_back", when = { metBefore = true }, text = "My favourite customer, back again! I've new stock, and it's even rarer." },
+    { id = "g_default", text = "Rare goods, friend, rare goods, step right up! You can't find these anywhere else this side of Booty Bay, guaranteed, and if you can, they're cheap knockoffs of mine." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, my favourite customer, back again! I got new stock since you left, pal, and it's even rarer, which means, sadly for both of us, it's pricier too." },
   },
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
-      text = "Ha! Another goblin out in this wet dump? Don't you dare undercut me, pal; this road's mine." },
+      text = "Ha! Another goblin out in this wet dump? Don't you dare undercut me, pal, 'cause this road's mine, bought and paid for, and I got the receipts around here somewhere." },
   },
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Business worries me, friend. The dead don't buy much. Your spirits might help sales, though." } },
+      lines = { { id = "xdsham_default", text = "Business worries me, friend, 'cause the dead don't buy much and the livin' are in too much of a hurry to haggle. Your spirits might help sales, though, if they'd work on commission." } },
       choices = {
         { text = "Honest scales, Kzixx, or the Watch hears about it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sell to the dead, then. They've coin in their graves.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1250,7 +1250,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "For you, friend, I got shards, real ones, maybe, and a book with a lock on it I never opened because the lock's warm. Business is business and Kzixx doesn't ask, but if that book starts whispering to you, you didn't buy it from me." },
+        { id = "xlock_default", text = "For you, chum, I got shards, real ones, maybe, and a book with a lock on it I never opened 'cause the lock's warm. Business is business and Kzixx doesn't ask, but if that book starts whisperin' to you, you didn't buy it from me, and there's no returns on whisperin' goods." },
       },
       choices = {
         { text = "I'll take your word on the shards, Kzixx, and pay fair.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1260,7 +1260,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Unique to this side of the Darkened Bank, at least, which is all a fighter really needs. Don't go asking where I got it, because the answer's a long story involving an ogre, a swamp and a very angry dwarf." } },
+      lines = { { id = "xwarcl_default", text = "Unique to this side of the Darkened Bank, at least, pal, which is all a fighter really needs. Don't go askin' where I got it, 'cause the answer's a long story involvin' an ogre, a swamp, a very angry dwarf and a keg of blasting powder I'm still payin' off." } },
       choices = {
         { text = "I'll pay a fair price for it, no questions asked.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll pay half, since you probably stole it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1270,8 +1270,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Do I buy them? I buy anything rare, pal, and a pelt off one of those big worgs would sell twice over in Booty Bay. Keep it clean and keep it whole, and Kzixx will make you a deal you'll talk about for years." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would fetch a fortune in Booty Bay, pal. No offence, I'm only saying what I see." },
+        { id = "xhuntcl_default", text = "Do I buy 'em? I buy anything rare, pal, and a pelt off one of those big worgs would sell twice over in Booty Bay, so there's margin in it for both of us. Keep it clean and keep it whole, and Kzixx'll make you a deal you'll talk about for years." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would fetch a fortune in Booty Bay, pal, no offence. I'm only sayin' what I see, and everything I see comes with a price tag." },
       },
       choices = {
         { text = "I'll bring you pelts, but I'll set the price myself.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1280,7 +1280,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "Three? Then two of them are fakes, my friend, and I'd be happy to sell you the real one at a modest markup. You've a good eye, which I respect, though not so much that I'll lower my prices." } },
+      lines = { { id = "xro_default", text = "Three? Then two of 'em are fakes, my friend, and I'd be happy to sell you the real one at a modest markup. You got a good eye, which I respect, though not so much that I'll lower my prices." } },
       choices = {
         { text = "Fine. Show me the real one, honestly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll buy all three and sell them back to you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1288,7 +1288,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "Arcane curios! I've a crystal from up Karazhan way that hums when you hold it, or at least it hummed when I bought it. No refunds, no questions and no casting near the merchandise." } },
+      lines = { { id = "xma_default", text = "Arcane curios, sure! I got a crystal from up Karazhan way that hums when you hold it, or at least it hummed when I bought it, and on my mother's ledger it'll hum again for the right buyer. No refunds, no questions and no castin' near the merchandise." } },
       choices = {
         { text = "Show me its provenance first, then.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "No questions suits me. Let's see it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1297,7 +1297,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Here and there, you know how it is: refugees from Lordaeron selling what they carried south, a sailor who owed me money. No questions asked, which is how I get the good stuff, pal." } },
+      lines = { { id = "xapriest_default", text = "Here and there, pal, you know how it is: refugees from Lordaeron sellin' what they carried south, and a sailor who owed me money and paid in candlesticks. No questions asked, which is how I get the good stuff." } },
       choices = {
         { text = "Holy things shouldn't be sold off a cart, Kzixx.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "If it's blessed, it's blessed. Let me take a look.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -1306,7 +1306,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "I sell to anybody with gold, pal, and I don't check for red masks at the door. Course, if you're asking where they shop, that's information, and information's the rarest stock I've got." } },
+      lines = { { id = "xapala_default", text = "I sell to anybody with gold, pal, and I don't check for red masks at the door, 'cause a mask don't change the colour of the coin. Course, if you're askin' where they shop, that's information, and information's the rarest stock I got." } },
       choices = {
         { text = "Selling to bandits makes you one of them, Kzixx.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Gold's gold. Your business is your own, Kzixx.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1315,7 +1315,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Once, pal, a carved bow that a sailor swore came off a sentinel, and I sold it to a Stormwind lordling inside the hour. I didn't ask how the sailor got it, and I'm betting you'd rather I didn't find out." } },
+      lines = { { id = "xdruid_default", text = "Once, pal, a carved bow a sailor swore came off a sentinel, and I flipped it to a Stormwind lordling inside the hour at three times what I paid. I didn't ask how the sailor got it, and I'm bettin' you'd rather I didn't find out." } },
       choices = {
         { text = "Stolen goods should go back where they belong.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A bow's a bow. Whoever pays for it owns it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1324,20 +1324,20 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I got holy relics, real ones, mostly, and blessed by somebody, I'm almost sure of it." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Shiny armour, shiny hammer, and I bet a shiny purse to go with 'em." },
-        { id = "h_default", text = "Kzixx, purveyor of rare goods to the discerning traveller, and the less discerning ones too. Everything I sell is one of a kind, or at least one of a few, which is still pretty rare." },
-        { id = "h_horde", when = { faction = "Horde" }, text = "Horde, huh? Out here in Alliance country? Never mind, I don't care who you fight, I care who you pay, and your gold's as shiny as theirs." },
-        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You folks appreciate quality, and quality's what I've got, at a quality price." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You've got the look of someone who needs a one-of-a-kind blade, and it just so happens I've got one, or one of a few." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and a beast besides! I've got a rare collar here that'll fit it, guaranteed, and if it doesn't, it's an even rarer belt." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I got holy relics, real ones, mostly, and blessed by somebody, I'm almost sure of it, so step up before the miracles get marked up." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, pal! Shiny armour, shiny hammer, and I bet a shiny purse to go with 'em, so let's see if we can't lighten that load a little." },
+        { id = "h_default", text = "Kzixx, purveyor of rare goods to the discernin' traveller, and the less discernin' ones too, 'cause their gold spends just the same. Everything I sell is one of a kind, or at least one of a few, which is still pretty rare." },
+        { id = "h_horde", when = { faction = "Horde" }, text = "Horde, huh, out here in Alliance country? Never mind, pal, I don't care who you fight, I care who you pay, and your gold's every bit as shiny as theirs." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You folks appreciate quality, chum, and quality's what I got, at a quality price, with quality interest if you're buyin' on account." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You got the look of somebody who needs a one-of-a-kind blade, pal, and it just so happens I got one, or one of a few, sharpened and priced to move." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and a beast besides! I got a rare collar here that'll fit it, guaranteed, and if it doesn't, it's an even rarer belt, and the price stays the same either way." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, now there's a customer! I don't suppose you'd want a genuine Ashenvale acorn, pal, guaranteed authentic and only slightly nibbled." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Hey, a warlock! I got candles, I got skulls, I got a very rare black stone that's definitely not from the riverbank." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Unique goods, every one. Nothing in the forest worries me, so long as business is good." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Hey, a warlock, my kind of customer! I got candles, I got skulls, and I got a very rare black stone that's definitely not from the riverbank, so don't go checkin' the riverbank." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, huh? Unique goods, every one, pal, and nothin' in this forest worries me so long as business is good, and business is always good when the forest's this scary." },
       },
       again = {
-        { id = "h_again", text = "What else, pal? Time's money, and I'm losing both." },
-        { id = "h_again2", text = "Ask away! Questions are free, but answers might cost ya." },
+        { id = "h_again", text = "What else? Time is money, friend, and I'm losin' both standin' here." },
+        { id = "h_again2", text = "Ask away, chum! Questions are free, but answers might cost ya, and the good ones cost ya double." },
       },
       choices = {
         { text = "Show me what's rare.", next = "BUSINESS" },
@@ -1357,7 +1357,7 @@ P:NPC {
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because nobody else is out here, so I've got no competition! Everybody passing through this forest is scared and in a hurry, and scared, hurried people buy things." } },
+      lines = { { id = "w_default", text = "'Cause nobody else is out here, pal, so I got no competition! Everybody passin' through this forest is scared and in a hurry, and scared, hurried people buy things without readin' the price tag." } },
       choices = {
         { text = "That's taking advantage of frightened people.", next = "why_advantage" },
         { text = "Something else.", next = "BACK" },
@@ -1365,7 +1365,7 @@ P:NPC {
     },
     why_advantage = {
       big = true,
-      lines = { { id = "wa_default", text = "Taking advantage? I'm providing a service! They need something rare and powerful to get through this dump, and I happen to have it, at a fair price, considering the risk." } },
+      lines = { { id = "wa_default", text = "Takin' advantage? I'm providin' a service, pal! They need somethin' rare and powerful to get through this dump, and I happen to have it, at a fair price once you count the risk, the overhead and the worgen." } },
       choices = {
         { text = "A fair price would be lower.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Business is business. I respect that.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -1373,24 +1373,24 @@ P:NPC {
       },
     },
     stock = {
-      lines = { { id = "s_default", text = "Here and there, pal, here and there. Adventurers sell me what they don't want, traders bring things up from Booty Bay, and sometimes a thing just turns up and I don't ask too many questions about where." } },
+      lines = { { id = "s_default", text = "Here and there, pal, here and there. Adventurers sell me what they don't want, traders bring things up from Booty Bay, and sometimes a thing just turns up and I don't ask where, 'cause questions cut into the margin." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     worgen = {
-      lines = { { id = "wo_default", text = "Afraid? Sure, a little. But a worgen doesn't want my wares, and a goblin with a loud enough voice and a fast enough pair of legs can outrun most things in this forest." } },
+      lines = { { id = "wo_default", text = "Afraid? Sure, a little, but a worgen doesn't want my wares, and you can't sell nothin' to somethin' that wants to eat you. A goblin with a loud enough voice and a fast enough pair of legs can outrun most things in this forest, and I got both." } },
       choices = {
         { text = "Has it come to running before?", next = "worgen_run" },
         { text = "Something else.", next = "BACK" },
       },
     },
     worgen_run = {
-      lines = { { id = "wr_default", text = "Twice! Once from a worgen, once from a customer who didn't like the price. The customer was faster, if you can believe it." } },
+      lines = { { id = "wr_default", text = "Twice! Once from a worgen and once from a customer who didn't like the price, and the customer was faster, if you can believe it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Booty Bay born, Duskwood stuck, and rich enough to leave whenever I want, which is never, because business is good." } },
-    advice = { { id = "tp_ad", text = "Never pay the first price, pal, unless it's mine; mine's always fair." } },
-    _none = { { id = "tp_none", text = "Never heard of it, but if you find one, I'll buy it from you." } },
+    background = { { id = "tp_bg", text = "Booty Bay born, Duskwood stuck, and rich enough to leave whenever I want, pal, which is never, 'cause business is good and nobody out here charges rent." } },
+    advice = { { id = "tp_ad", text = "Never pay the first price, pal, unless it's mine, 'cause mine's always fair, and on my last copper I'd never lie to a payin' customer." } },
+    _none = { { id = "tp_none", text = "Never heard of it, pal, but if you find one, bring it here and I'll make you an offer." } },
   },
 }

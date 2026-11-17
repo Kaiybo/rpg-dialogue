@@ -16,21 +16,21 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Deposit, withdrawal, or are you just here for the shade? The shade's free, the vault isn't." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and your box is right where you left it, which in this town counts as a minor miracle." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and your box is right where you left it, which in this town counts as a minor miracle, and miracles are not included in the standard fee." },
   },
 
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "That's a heavy purse to carry across a desert full of Wastewanders, friend. I'd let the vault carry it, if I were you." },
     { id = "n_poor", cat = "purse", when = { money = { max = 500 } },
-      text = "You can keep the vault for your things even with an empty purse, so don't look so worried; nobody here charges you for being broke." },
+      text = "You can keep the vault for your things even with an empty purse, so don't look so worried, friend; nobody here charges you for being broke, though we do note it." },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I trust a warrior exactly as far as the Bruisers can throw one, and they're very strong. It's nothing personal, but a sword is a key that fits every lock, and I've spent my life keeping keys away from the vault." } },
+      lines = { { id = "xwarcl_default", text = "I trust a warrior exactly as far as the Bruisers can throw one, and they're very strong. It's nothing personal, but a sword is a key that fits every lock, and I've spent my life, and a good deal of the Cartel's money, keeping keys away from the vault." } },
       choices = {
         { text = "Laws and walls keep gold safe. I respect the Bruisers.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Gold belongs to whoever's strong enough to hold it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -60,7 +60,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every one of them is staying right here, where the earth can't reach it. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
+      lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every one of them is staying right here, where the earth can't reach it and the interest can. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
       choices = {
         { text = "Walls and Bruisers. That's how you keep what's yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The desert eats every vault eventually, banker.", next = "BACK", fx = { align = { order = -1 } } },
@@ -69,7 +69,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Tried, three times, and the Bruisers caught every one of them before they reached the second lock. The fourth one is the one I worry about, because the fourth one will have learned from the first three." } },
+      lines = { { id = "xrogue_default", text = "Tried, three times, and the Bruisers caught every one of them before they reached the second lock, and billed them for the Bruisers' time. The fourth one is the one I worry about, because the fourth one will have learned from the first three." } },
       choices = {
         { text = "Your vault is safe. Rogues know better than to try.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No lock is perfect, banker. Remember that.", next = "BACK", fx = { align = { order = -1 } } },
@@ -123,11 +123,11 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, but in here the earth is a floor, and the Bruisers stand on it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, friend, but in here the earth is a floor, the Bruisers stand on it, and the Cartel owns it." },
         { id = "h_default", key = true,
-          text = "Gimblethorn, banker to the Steamwheedle Cartel in Gadgetzan. Horde gold and Alliance gold weigh the same on my scales, and both go in the same vault behind the same Bruisers." },
+          text = "Gimblethorn, banker to the Steamwheedle Cartel in Gadgetzan. Horde gold and Alliance gold weigh the same on my scales, to the grain, and both go in the same vault behind the same Bruisers for the same fee." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "The vault never closes, because a goblin bank that closes is a goblin bank somebody else is opening. Make it quick, though; I'm on my third pot of coffee." },
+          text = "The vault never closes, because a goblin bank that closes is a goblin bank somebody else is opening. Make it quick, though, pal; I'm on my third pot of coffee and coffee's dear out here." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "I'll ask you to keep both hands on the counter, friend. I'm sure you're an honest customer, but I'm surer still that my vault has seen your sort before." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -136,7 +136,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You'll forgive me if I don't ask you to bless the vault, because the last holy man through here asked how much the Cartel set aside for the poor, and I had no good answer for him." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior. Kindly keep your weapon sheathed in the bank, since the Bruisers count a drawn blade as a withdrawal from your good standing." },
+          text = "A warrior. Kindly keep your weapon sheathed in the bank, friend, since the Bruisers count a drawn blade as a withdrawal from your good standing, with penalties." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your beast stays outside the vault, I'm afraid, because the last one that came in ate a deposit slip and the dispute is still unresolved." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the bank. Bears don't carry much gold, I'd have thought, but you're welcome to keep what you have here, safe behind the Bruisers." },
@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll take your gold and keep it safe, but anything that glows, smokes or whispers stays out of my vault, by order of the Cartel." },
       },
       again = {
-        { id = "h_again", text = "Anything else, or shall I open your box?" },
+        { id = "h_again", text = "Anything else, or shall I open your box? Opening's included, closing's included, and everything else is itemized." },
         { id = "h_again2", text = "Still here? Time is money, friend, and so is the lamp oil." },
       },
       choices = {
@@ -167,7 +167,7 @@ P:NPC {
       },
     },
     safe = {
-      lines = { { id = "s_default", text = "The vault is safe, because the Cartel pays the Bruisers to make it safe, and the Bruisers don't care what colour your tabard is. Everything outside the walls belongs to the bandits and the sun." } },
+      lines = { { id = "s_default", text = "The vault is safe, because the Cartel pays the Bruisers to make it safe, and pays them well, and the Bruisers don't care what colour your tabard is. Everything outside the walls belongs to the bandits and the sun, and neither one issues receipts." } },
       choices = {
         { text = "What about the Wastewanders?", next = "safe_bandits" },
         { text = "Something else.", next = "BACK" },
@@ -178,7 +178,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     clients = {
-      lines = { { id = "c_default", text = "Everyone who means to come back. I won't name names, because a banker who talks about his customers doesn't stay a banker long, but Marin's box is very full of receipts." } },
+      lines = { { id = "c_default", text = "Everyone who means to come back. I won't name names, because a banker who talks about his customers doesn't stay a banker long, but Marin's box is very full of receipts and very short of gold." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     both_sides = {
@@ -194,10 +194,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I counted coins in Booty Bay until the Cartel needed a careful pair of hands out here, and careful hands are rare in a desert." } },
-    advice = { { id = "tp_ad", text = "Out in the dunes, a smart traveler buries half his coin and remembers where." } },
+    background = { { id = "tp_ba", text = "I counted coins in Booty Bay until the Cartel needed a careful pair of hands out here, at a slightly better rate, and careful hands are rare in a desert." } },
+    advice = { { id = "tp_ad", text = "Out in the dunes, a smart traveler buries half his coin and remembers where, and a smarter one leaves it with me and pays the fee." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the peace because peace is good for business, and the vault is where that business ends up." } },
-    _none = { { id = "tp_none", text = "That isn't something I can put a price on, so I don't know anything about it." } },
+    _none = { { id = "tp_none", text = "That isn't something I can put a price on, friend, so I don't know anything about it." } },
   },
 }
 
@@ -581,13 +581,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hungry? Course you're hungry; everyone who smells my kitchen is hungry, even the Bruisers, and they pay with bruises." },
-    { id = "g_chops", when = { questActive = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") }, text = "Tenderloins! Tell me you brought tenderloins, because the pan's hot and my patience isn't." },
+    { id = "g_default", text = "Hungry? Course you're hungry, pal; everyone who smells my kitchen is hungry, even the Bruisers, and they pay with bruises, which I've stopped accepting." },
+    { id = "g_chops", when = { questActive = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") }, text = "Tenderloins! Tell me you brought tenderloins, buddy, because the pan's hot and my patience isn't, and I pay top copper for good ones." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Then you know good meat when you skin it, and you know my prices are fair for it, more or less." },
+      text = "A hunter! Then you know good meat when you skin it, pal, and you know my prices are fair for it, more or less, mostly less." },
   },
 
   start = "hello",
@@ -604,7 +604,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I buy meat from everyone and ask no one where it came from, which is the secret of a stocked kitchen in a drought. But a hunter's meat I trust, because you know the difference between a fresh kill and something the hyenas have already had a go at." },
+        { id = "xhuntcl_default", text = "I buy meat from everyone and ask no one where it came from, which is the secret of a stocked kitchen in a drought and a very healthy margin. But a hunter's meat I trust, because you know the difference between a fresh kill and something the hyenas have already had a go at." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like a connoisseur, so if it ever turns its nose up at one of my chops, I want to know, because I'll fire whoever cut it." },
       },
       choices = {
@@ -624,7 +624,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The desert, my friend, which holds more meat than anyone thinks. Basilisk, scorpid, the odd roc that strays too close, and if you've a problem with any of it, the fire certainly doesn't." } },
+      lines = { { id = "xhsham_default", text = "The desert, pal, which holds more meat than anyone thinks, and all of it free for the catching. Basilisk, scorpid, the odd roc that strays too close, and if you've a problem with any of it, the fire certainly doesn't." } },
       choices = {
         { text = "Thank the beasts' spirits for what you take, chef.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Meat is meat. The spirits can find their own supper.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -660,7 +660,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Not a scrap, because nothing comes cheap in this desert! The hide goes to the leatherworkers, the bones go in the stock, and the bits nobody wants go to the vultures, and they're my best critics." } },
+      lines = { { id = "xdruid_default", text = "Not a scrap, because nothing comes cheap in this desert, pal! The hide goes to the leatherworkers at a profit, the bones go in the stock, and the bits nobody wants go to the vultures, and they're my best critics." } },
       choices = {
         { text = "Using everything honors the beast. Well done.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast is meat. It doesn't need honoring.", next = "BACK", fx = { align = { light = -1 } } },
@@ -678,7 +678,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "One or two a season, mostly after my chimaerok chops, because word gets round. The last one got away with a whole rack, and the next week I saw it on a menu in Booty Bay, and that's the only time I've ever wanted to leave Gadgetzan." } },
+      lines = { { id = "xrogue_default", text = "One or two a season, mostly after my chimaerok chops, because word gets round. The last one got away with a whole rack, and the next week I saw it on a menu in Booty Bay at twice my price, and that's the only time I've ever wanted to leave Gadgetzan." } },
       choices = {
         { text = "Stealing a chef's recipe is low. I'd never do it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If it's good enough to steal, it's good enough to sell.", next = "BACK", fx = { align = { order = -1 } } },
@@ -689,13 +689,13 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to fire and I cook with it, and between the two of us I'll bet the fire likes me better, because I feed it the finest cuts in Azeroth." },
         { id = "h_default", key = true,
-          text = "Dirge Quikcleave, greatest living chef in all of Azeroth, and the living part matters, because the competition keeps dying in the desert. Water's short in Gadgetzan, but meat isn't, so what'll it be?" },
+          text = "Dirge Quikcleave, greatest living chef in all of Azeroth, and the living part matters, pal, because the competition keeps dying in the desert. Water's short in Gadgetzan, but meat isn't, so what'll it be, and how much are you spending?" },
         { id = "h_chops_before", when = { minLevel = 58, questBefore = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") },
-          text = "You look like somebody who goes to dangerous places, and I've got a recipe that needs a dangerous place. Chimaerok, friend, off the Isle of Dread, and nobody's tasted it the way I cook it." },
+          text = "You look like somebody who goes to dangerous places, buddy, and I've got a recipe that needs a dangerous place. Chimaerok, off the Isle of Dread, and nobody's tasted it the way I cook it, and nobody's paid what they'll pay for it." },
         { id = "h_chops_during", tags = { "news" }, when = { questActive = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") },
           text = "The Isle of Dread's off the Feralas coast, and the chimaerok there are the size of houses and twice as mean. Bring me their tenderloins, and the rest of the recipe's my secret." },
         { id = "h_chops_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dirge's Kickin' Chimaerok Chops"), days = 3 } },
-          text = "Kickin' Chimaerok Chops, made right, for the first time this side of the sea! I'd frame the pan if I didn't need it for dinner." },
+          text = "Kickin' Chimaerok Chops, made right, for the first time this side of the sea! I'd frame the pan if I didn't need it for dinner, and dinner's at a premium tonight." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Don't you dare conjure your little bread rolls in front of the greatest living chef in Azeroth, because I'll take it as a personal insult." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -704,16 +704,16 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Wonderful, you can tell everybody my meat is perfectly clean, because I swear on my cleaver it comes from honest beasts and not from anywhere a priest wouldn't like." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You look like you eat for three, and I cook for six, so you and I are going to be very good friends." },
+          text = "A warrior! You look like you eat for three, pal, and I cook for six and charge for nine, so you and I are going to be very good friends." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Ah, a fellow professional of the meat trade, and don't let anybody tell you otherwise." },
+          text = "A hunter! Ah, a fellow professional of the meat trade, buddy, and don't let anybody tell you otherwise." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Don't tell me you're one of those who won't eat meat, because I'll take it personally, and I've a cleaver right here." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now you look like someone who appreciates a proper meal, because nobody swings a hammer that size on a stomach full of conjured bread." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Hands off the cleaver, friend, because I'll know if it's moved, and I'll know who moved it, and I'm faster with it than you'd think." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk fast, the grill's on." },
-        { id = "h_again2", text = "Still standing there? Either buy something or tell me a secret ingredient." },
+        { id = "h_again", text = "What else, pal? Talk fast, the grill's on and the grill's eating coal I paid for." },
+        { id = "h_again2", text = "Still standing there? Either buy something or tell me a secret ingredient, and the ingredient had better be good." },
         { id = "h_again3", text = "Go on, I can chop and listen at the same time." },
       },
       choices = {
@@ -736,7 +736,7 @@ P:NPC {
       },
     },
     meat = {
-      lines = { { id = "m_default", text = "Basilisks, mostly, and the odd hyena, and a few things the hunters bring in that I don't ask about. Out here you don't ask the meat where it's been, you ask how long it's been dead." } },
+      lines = { { id = "m_default", text = "Basilisks, mostly, and the odd hyena, and a few things the hunters bring in that I don't ask about. Out here you don't ask the meat where it's been, pal, you ask how long it's been dead and how much it costs." } },
       choices = {
         { text = "And how long has it been dead?", next = "meat_age" },
         { text = "Something else.", next = "BACK" },
@@ -750,7 +750,7 @@ P:NPC {
       },
     },
     boast = {
-      lines = { { id = "b_default", text = "Says me, and says every Bruiser who's ever eaten here and come back for seconds. Show me another cook in Kalimdor who can make a basilisk taste like a holiday, and I'll hand him my cleaver." } },
+      lines = { { id = "b_default", text = "Says me, and says every Bruiser who's ever eaten here and come back for seconds at full price. Show me another cook in Kalimdor who can make a basilisk taste like a holiday, and I'll hand him my cleaver." } },
       choices = {
         { text = "I've eaten better in Stormwind.", next = "boast_rival", when = { faction = "Alliance" } },
         { text = "I've eaten better in Orgrimmar.", next = "boast_rival", when = { faction = "Horde" } },
@@ -769,7 +769,7 @@ P:NPC {
       },
     },
     chops_who = {
-      lines = { { id = "cw_default", text = "People with money, friend, and people with money don't say why they're hungry. That's my favourite kind of customer, and I'd advise you not to ask either." } },
+      lines = { { id = "cw_default", text = "People with money, pal, and people with money don't say why they're hungry. That's my favourite kind of customer, and I'd advise you not to ask either." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     cook = {
@@ -779,9 +779,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I cooked for pirates, for the Cartel and once for a trogg, who ate the plate. Now I cook for Gadgetzan, which is all of those at once." } },
+    background = { { id = "tp_ba", text = "I cooked for pirates, for the Cartel and once for a trogg, who ate the plate and didn't pay for it. Now I cook for Gadgetzan, which is all of those at once." } },
     advice = { { id = "tp_ad", text = "In the desert, salt the meat and not your wounds. Learn that one the easy way." } },
-    _none = { { id = "tp_none", text = "If I can't fry it, then I don't know a thing about it." } },
+    _none = { { id = "tp_none", text = "If I can't fry it or sell it, pal, then I don't know a thing about it." } },
   },
 }
 
@@ -797,12 +797,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Looking for a boomstick? You came to the right goblin, and the only one, so either way you're in luck." },
+    { id = "g_default", text = "Looking for a boomstick, pal? You came to the right goblin, and the only one, so either way you're in luck, and luck's included in the price." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter, and I can tell from the squint! Somebody who aims for a living deserves better than that rusty thing on your back." },
+      text = "A hunter, and I can tell from the squint! Somebody who aims for a living deserves better than that rusty thing on your back, buddy, and I'll give you a fair trade-in, by goblin standards." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf in my shop, so I'll keep my prices honest and my mouth shut about Ironforge barrels. Mostly shut." },
   },
@@ -811,7 +811,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "To shoot the ogre before it gets close enough to make you regret your armor, of course! A few of the Dunemaul have learned to fear my test dune, and I'd like the rest of the tribe to feel the same way." } },
+      lines = { { id = "xwarcl_default", text = "To shoot the ogre before it gets close enough to make you regret your armor, of course, pal! A few of the Dunemaul have learned to fear my test dune, and I'd like the rest of the tribe to feel the same way, at forty silver a rifle." } },
       choices = {
         { text = "I meet my enemy face to face. I'll leave the guns to others.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If a rifle ends a fight sooner, I'll carry one.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -832,7 +832,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Only when they're pointed at me, friend, and that dune's never once fired back. Sandfury, Wastewanderers, pirates down at the port, they all get what's coming, and if a priest wants to patch up whoever's left, that's good for repeat business." } },
+      lines = { { id = "xhcast_default", text = "Only when they're pointed at me, friend, and that dune's never once fired back. Sandfury, Wastewanderers, pirates down at the port, they all get what's coming, and if a priest wants to patch up whoever's left, that's good for repeat business on both sides of the counter." } },
       choices = {
         { text = "Every life you end, someone has to mourn. Think on that.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Sell me your loudest. Shadow and powder go well together.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -859,7 +859,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "And a gun never runs out of whatever magic is, which I'll admit I don't understand. Still, I've watched a mage freeze a Wastewander solid at fifty paces, and I'll allow that was a good shot, for something that wasn't a gun." } },
+      lines = { { id = "xmage_default", text = "And a gun never runs out of whatever magic is, which I'll admit I don't understand and can't sell. Still, I've watched a mage freeze a Wastewander solid at fifty paces, and I'll allow that was a good shot, for something that wasn't a gun." } },
       choices = {
         { text = "Magic needs discipline. Guns are crude.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A gun's simpler. Anyone can use it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -877,7 +877,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Everyone, friend, Horde and Alliance both, and they all ask me not to sell to the other lot. I tell them yes and sell to both, because that's what neutral means, and because the Bruisers are better armed than either." } },
+      lines = { { id = "xapala_default", text = "Everyone, friend, Horde and Alliance both, and they all ask me not to sell to the other lot. I tell them yes and sell to both, because that's what neutral means and that's where the money is, and because the Bruisers are better armed than either." } },
       choices = {
         { text = "Selling to both sides keeps the peace here.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You profit from both sides killing each other.", next = "BACK", fx = { align = { order = -1 } } },
@@ -895,7 +895,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Not much, because a rifle in the right hands keeps the bandits off the road. I'll admit I don't sleep well when I hear about a raid that used my rifles on the wrong side, but I can't follow every gun out of the shop." } },
+      lines = { { id = "xapriest_default", text = "Not much, because a rifle in the right hands keeps the bandits off the road. I'll admit I don't sleep well when I hear about a raid that used my rifles on the wrong side, but I can't follow every gun out of the shop, pal, and a sale's a sale." } },
       choices = {
         { text = "You can choose who to sell to. That's on you.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A gunsmith can't answer for every buyer.", next = "BACK", fx = { align = { light = -1 } } },
@@ -904,28 +904,28 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, and lightning's the only thing in Tanaris louder than my rifles." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, pal, and lightning's the only thing in Tanaris louder than my rifles, which I take as a professional challenge." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You heal 'em and I shoot 'em, and between us we've got the whole business of Zul'Farrak sewn up, if you'd like to talk partnership." },
         { id = "h_default", key = true,
-          text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, and every one of them tested on that dune out back." },
+          text = "Blizrik Buckshot, gunsmith! Rifles, ammunition, and the occasional something special when a crate turns up from Booty Bay, priced to move, and every one of them tested on that dune out back." },
         { id = "h_bruisers", when = { metBefore = true },
-          text = "The Bruisers came round again about my testing, so I'm aiming further left now. The dune didn't complain, but the goat behind it did." },
+          text = "The Bruisers came round again about my testing, so I'm aiming further left now and I've paid the fine, again. The dune didn't complain, but the goat behind it did." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You know the trick, then: a rifle for the first shot from the dark, and the knives for when they get close. I'll sell you both, but only one of 'em gets tested on my dune." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage, eh? I'll bet you think a wand is better than a gun. Wrong, friend, because a gun never asks you to stop and think before it goes bang." },
+          text = "A mage, eh? I'll bet you think a wand is better than a gun. Wrong, pal, because a gun never asks you to stop and think before it goes bang." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You know, a rifle's just a sword that reaches further, and I've got a few in here that reach clear across the Shimmering Flats." },
+          text = "A warrior! You know, a rifle's just a sword that reaches further, chum, and I've got a few in here that reach clear across the Shimmering Flats, for a price that reaches about as far." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Now you're a customer who understands craftsmanship, because a hunter's rifle has to work every time, not just on the test dune." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've got claws, so I don't suppose you'll buy a rifle, but I've seen druids pay good coin to keep a hunter friend in shot." },
+          text = "A hunter! Now you're a customer who understands craftsmanship, buddy, because a hunter's rifle has to work every time, not just on the test dune." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've got claws, so I don't suppose you'll buy a rifle, but I've seen druids pay good coin to keep a hunter friend in shot, so think of it as a gift." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You're a hammer sort, I can tell, but have you ever thought about the advantages of hitting someone from a very long way off?" },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Keep your little friend away from the powder kegs, please, because I don't want to find out what happens when an imp sneezes near them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in a gun shop! I won't ask you to buy anything, but if you could bless a crate of powder so it doesn't go off on the boat, I'd consider that a great service." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got powder drying and it doesn't like to wait." },
-        { id = "h_again2", text = "Go ahead, ask, but keep your fingers off the triggers." },
+        { id = "h_again", text = "What else, pal? I've got powder drying and it doesn't like to wait, and when it gets impatient it gets loud." },
+        { id = "h_again2", text = "Go ahead, ask, buddy, but keep your fingers off the triggers, because the triggers are hair-fine and the walls are new." },
       },
       choices = {
         { text = "Do your guns frighten the desert beasts?", next = "xdruid", when = { class = "DRUID" } },
@@ -945,7 +945,7 @@ P:NPC {
       },
     },
     peace = {
-      lines = { { id = "p_default", text = "The Bruisers ban shooting people inside the walls, not selling the means to shoot them outside. That's a distinction worth a great deal of money, and I live in it." } },
+      lines = { { id = "p_default", text = "The Bruisers ban shooting people inside the walls, pal, not selling the means to shoot them outside. That's a distinction worth a great deal of money, and I live in it." } },
       choices = {
         { text = "A neat loophole. Good for you.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Seems the Bruisers should close it.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -963,15 +963,15 @@ P:NPC {
       },
     },
     rivals_powder = {
-      lines = { { id = "rp_default", text = "Only a little too much, and only on the cheaper ones, and the eyebrows grow back in a month. I tell every customer that before they buy, which makes me the most honest gunsmith in Tanaris." } },
+      lines = { { id = "rp_default", text = "Only a little too much, and only on the cheaper ones, and the eyebrows grow back in a month. I tell every customer that before they buy, it's in the small print, which makes me the most honest gunsmith in Tanaris." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I blew up my first workshop in Ratchet and my second in Booty Bay, so Gadgetzan's got lots of open space, which I appreciate." } },
-    advice = { { id = "tp_ad", text = "Clean the barrel after the sandstorm, not before the next one." } },
-    _none = { { id = "tp_none", text = "Never heard of it, but if it needs shooting, I know a goblin." } },
+    background = { { id = "tp_ba", text = "I blew up my first workshop in Ratchet and my second in Booty Bay, so Gadgetzan's got lots of open space, which I appreciate, and cheaper rent, which I appreciate more." } },
+    advice = { { id = "tp_ad", text = "Clean the barrel after the sandstorm, pal, not before the next one." } },
+    _none = { { id = "tp_none", text = "Never heard of it, pal, but if it needs shooting, I know a goblin, and he's got a sale on." } },
   },
 }
 

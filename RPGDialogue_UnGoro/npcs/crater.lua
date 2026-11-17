@@ -503,14 +503,14 @@ P:NPC {
     third = "{name} met Ringo, a lost member of the Marshal Expedition in Un'Goro Crater.",
   },
   greetings = {
-    { id = "g_main", text = "Oh, thank goodness, a person! I thought I'd never see another face." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back! I wasn't sure you would." },
+    { id = "g_main", text = "Oh, thank the Cartel, a person! I thought I'd never see another face, buddy, let alone one that might have a canteen." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, buddy! I wasn't sure you would, and I'd have bet against it, which shows what I know." },
   },
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days, and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." } },
+      lines = { { id = "xlock_default", text = "I don't know, buddy, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." } },
       choices = {
         { text = "Your soul is safe, Ringo. I'll help you home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You should be frightened. It keeps you careful.", next = "BACK", fx = { align = { light = -1 } } },
@@ -519,7 +519,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Not yet, but I think one of them was about to, and that worries me more than anything else. Please, a little water, and then help me back to Spraggle at the Refuge, because she must be worried sick, and I'm too tired to find the way." } },
+      lines = { { id = "xmage_default", text = "Not yet, but I think one of 'em was about to, and that worries me more than anything else. Please, buddy, a little water, and then help me back to Spraggle at the Refuge, because she must be worried sick, and I'm too tired to find the way." } },
       choices = {
         { text = "Here's water, Ringo. I'll see you safely home.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Drink up, and then find your own way back.", next = "BACK", fx = { align = { light = -1 } } },
@@ -528,7 +528,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "I wandered off to look at a crystal, and then a pterrordax looked at me, and I ran, and when I stopped running, nothing looked familiar. Spraggle must be worried sick, and I'd so like to see her again, so if you can get me home, I'll owe you everything I've got, which isn't much." } },
+      lines = { { id = "xrogue_default", text = "I wandered off to look at a crystal I thought might fetch a good price, and then a pterrordax looked at me, and I ran, and when I stopped running, nothing looked familiar. Spraggle must be worried sick, buddy, so if you can get me home, I'll owe you everything I've got, which isn't much, but it's yours." } },
       choices = {
         { text = "I'll get you home safe, Ringo. Stay close.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Next time, stay with the expedition. You'll get yourself killed.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -537,7 +537,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "A raptor, then another raptor, then something so big the trees moved out of its way, and I didn't stop to see what it was. I've slept in hollow logs ever since, and I'd give anything for someone to watch the dark while I close my eyes." } },
+      lines = { { id = "xwarcl_default", text = "A raptor, then another raptor, then something so big the trees moved out of its way, and I didn't stop to price it. I've slept in hollow logs ever since, buddy, and I'd give anything for somebody to watch the dark while I close my eyes." } },
       choices = {
         { text = "I'll stand watch while you rest. Nobody gets left behind.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "You wandered off alone. You'll have to keep up.", next = "BACK", fx = { align = { light = -1 } } },
@@ -547,8 +547,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Everything has seen me, I think, and most of it was hungry, but the gorillas were the worst because they kept throwing things. I tried following a stegodon back to water once, and it turned round and looked at me like I owed it money." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} friendly? Please say yes, because I've been lonely enough out here to talk to the ferns, and I'd much rather talk to something on our side." },
+        { id = "xhuntcl_default", text = "Everything has seen me, I think, and most of it was hungry, but the gorillas were the worst because they kept throwin' things. I tried following a stegodon back to water once, and it turned round and looked at me like I owed it money, and believe me, I know that look." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} friendly? Please say yes, buddy, because I've been lonely enough out here to talk to the ferns, and I'd much rather talk to something on our side." },
       },
       choices = {
         { text = "Stay close and follow my lead. That's how we get home.", next = "BACK", fx = { align = { order = 1 } } },
@@ -558,7 +558,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "I followed a pterrordax because I wanted to see where it nested, which was foolish, and by the time I stopped running I couldn't see the Refuge at all. Spraggle will be frantic, and I'd much rather she didn't end up praying over me." } },
+      lines = { { id = "xhcast_default", text = "I followed a pterrordax because I wanted to see where it nested, and nests have eggs, and eggs have buyers, which was foolish, and by the time I stopped running I couldn't see the Refuge at all. Spraggle will be frantic, buddy, and I'd much rather she didn't end up praying over me." } },
       choices = {
         { text = "Nobody's praying over you today. Lean on me, Ringo.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Foolishness has a price. Walk, and pay it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -567,7 +567,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The springs, honestly; I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
+      lines = { { id = "xhsham_default", text = "The springs, honestly, buddy: I wanted to see the steam vents near the volcano up close, and then the ground got hotter and the paths kept changing. I'd swear the crater moved its trails about behind me, just to be unkind." } },
       choices = {
         { text = "The crater was warning you. You should have turned back.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You followed your curiosity. That's no crime.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -577,21 +577,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You haven't come to take my soul, have you, because I'm lost, and thirsty, and I don't think it's worth much just now." },
+          text = "A warlock! You haven't come to take my soul, have you, buddy, because I'm lost, and thirsty, and I don't think it's worth much just now, not even wholesale." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage, oh, please tell me you can conjure water, because I've been wandering this crater for days and I'm so thirsty I've started talking to the ferns." },
+          text = "A mage, oh, please tell me you can conjure water, buddy, because I've been wandering this crater for days and I'm so thirsty I've started talking to the ferns." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "A rogue, oh, thank goodness, can you sneak me back to the Refuge without the raptors noticing, because I've been hiding in these ferns for days and I'm so thirsty." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, oh, thank goodness, can you call up some water, even a little? I've been talking to the rocks myself for two days, and they haven't said a single helpful thing." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, oh, please say you've a little water, or at least a prayer for some, because I've been lost so long I've started talking to the ferns." },
-        { id = "h_default", key = true, text = "Ringo, of the Marshal Expedition, or I was until I got lost. I've been wandering for days, and I'm so tired and thirsty I can barely stand." },
-        { id = "h_c0", when = { questActive = TODO_QUEST("A Little Help From My Friends") }, text = "You'll take me back to the Refuge? Please, and if I faint, use the water from the spring, it brings me round." },
+          text = "A rogue, oh, thank the Cartel, can you sneak me back to the Refuge without the raptors noticing, buddy? I've been hiding in these ferns for days and I'm so thirsty." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, oh, thank the Cartel, can you call up some water, even a little? I've been talking to the rocks myself for two days, buddy, and they haven't said a single helpful thing." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, oh, please say you've a little water, buddy, or at least a prayer for some, because I've been lost so long I've started talking to the ferns." },
+        { id = "h_default", key = true, text = "Ringo, of the Marshal Expedition, or I was until I got lost, buddy. I've been wandering for days, and I'm so tired and thirsty I can barely stand, and I didn't even find the crystal." },
+        { id = "h_c0", when = { questActive = TODO_QUEST("A Little Help From My Friends") }, text = "You'll take me back to the Refuge? Please, buddy, and if I faint, use the water from the spring, it brings me round." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior, oh, thank goodness. If anything comes out of those ferns, could you please stand in front of it, because I don't think I can run another step." },
+          text = "A warrior, oh, thank goodness. If anything comes out of those ferns, buddy, could you please stand in front of it, because I don't think I can run another step." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter? Then you must know how to get out of here, because I've been following my own footprints in circles for days." },
+          text = "A hunter? Then you must know how to get out of here, buddy, because I've been following my own footprints in circles for days." },
       },
-      again = { { id = "h_again", text = "What else? I'm listening, barely." }, { id = "h_again2", text = "Go on, I'm just resting my eyes." } },
+      again = { { id = "h_again", text = "What else, buddy? I'm listening, barely, and I'm not charging for it." }, { id = "h_again2", text = "Go on, I'm just resting my eyes." } },
       choices = {
         { text = "What drove you so far into the crater, Ringo?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you get lost?", next = "b1_1" },
@@ -609,35 +609,35 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "I was looking for crystals out past the ridge, and I followed a trail I shouldn't have. By the time I turned back, everything looked the same." } },
+      lines = { { id = "b1_1_l", text = "I was looking for crystals out past the ridge, buddy, the kind that sell, and I followed a trail I shouldn't have. By the time I turned back, everything looked the same." } },
       choices = { { text = "Drinking from puddles?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "I've been hiding from the raptors and drinking from puddles, and one puddle had a frog in it that I'm fairly sure I swallowed. Spraggle must be frantic." } },
+      lines = { { id = "b1_2_l", text = "I've been hiding from the raptors and drinkin' from puddles, buddy, and one puddle had a frog in it that I'm fairly sure I swallowed. Spraggle must be frantic." } },
       choices = { { text = "Owe me everything?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "If you get me home, I'll owe you everything, and Spraggle will too." } },
+      lines = { { id = "b1_3_l", text = "If you get me home, buddy, I'll owe you everything, and Spraggle will too, and she keeps better books than I do." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Spraggle Frock, my friend at the Refuge, and the worrier of the expedition. If anyone's been looking for me, it's Spraggle." } },
+      lines = { { id = "b2_1_l", text = "Spraggle Frock, my friend at the Refuge, and the worrier of the expedition, buddy. If anybody's been looking for me, it's Spraggle." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
-      lines = { { id = "b3_1_l", text = "Not badly, just exhausted and very, very thirsty. The crater's heat takes everything out of you." } },
+      lines = { { id = "b3_1_l", text = "Not badly, buddy, just exhausted and very, very thirsty. The crater's heat takes everything out of you." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Oh, that feels better already. Thank you, friend, I didn't think I'd last another night." } },
+      lines = { { id = "x_1_l", text = "Oh, that feels better already. Thank you, buddy, I didn't think I'd last another night, and I'll remember this." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Williden told us to always go in pairs. I didn't listen, and look where it got me." } },
+      lines = { { id = "s_1_l", text = "Williden told us to always go in pairs, buddy. I didn't listen, and look where it got me." } },
       choices = { { text = "Rules exist for good reason. Follow them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Sometimes you have to take your own path.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, I'm too tired to think about it." } } },
+  topics = { _none = { { id = "tp_none", text = "I don't know, buddy, I'm too tired to think about it." } } },
 }
 
 P:NPC {
@@ -648,8 +648,8 @@ P:NPC {
     third = "{name} met Krakle, a goblin near the hot springs of Un'Goro Crater.",
   },
   greetings = {
-    { id = "g_main", text = "Hey, careful there, friend! The water's hotter than it looks." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Got any readings for me?" },
+    { id = "g_main", text = "Hey, careful there, friend! The water's hotter than it looks, and I can't afford the lawsuit." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, friend! Got any readings for me? Readings are money, and money's the only thing hotter than this water." },
   },
   start = "hello",
   nodes = {
@@ -752,21 +752,21 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, perfect! Tell me, would a hot spring blessed by a paladin sell better than an ordinary one, because I'm thinking holy bathwater could be the next big thing." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, perfect! You talk to water spirits, right? Ask the ones in Golakka what they'd want for exclusive bottling rights, because I'm prepared to negotiate." },
-        { id = "h_default", key = true, text = "Krakle's the name, and the hot springs are my game. These springs are boiling with heat and minerals, and somebody's going to figure out how to sell them." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "Ooh, a druid! Your folks love a good hot spring, right, all that steam and nature? I could use an endorsement once I figure out how to bottle these." },
+        { id = "h_default", key = true, text = "Krakle's the name, and the hot springs are my game! These springs are boilin' with heat and minerals, friend, and somebody's going to figure out how to sell 'em, and that somebody is me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Ooh, a druid! Your folks love a good hot spring, right, all that steam and nature? I could use an endorsement once I figure out how to bottle these, and I pay endorsements in exposure." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "You've got the look of someone who finds things before anybody else does, friend. I've got a hot spring here that's worth a fortune, and I'd hate for it to wander off while I'm not looking." },
+          text = "You've got the look of somebody who finds things before anybody else does, friend. I've got a hot spring here that's worth a fortune, and I'd hate for it to wander off while I'm not lookin'." },
         { id = "h_magecl", when = { class = "MAGE" },
-          text = "A mage! Tell me, can you make water hot or cold on command, because if you can, I've got a business proposition that'll make the springs look like small change." },
+          text = "A mage! Tell me, can you make water hot or cold on command, because if you can, pal, I've got a business proposition that'll make the springs look like small change." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, perfect! Tell me, would a blessed hot spring sell better than an ordinary one, because I'm thinking holy bathwater could be the next big thing." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say, would you bless my springs? Holy hot springs, blessed by the Light, would sell like water in Tanaris, which is to say very well." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You know what soothes aching muscles after a day of swinging at dinosaurs? Hot springs, friend, and I'm standing right on top of the best ones in the crater." },
+          text = "A warrior! You know what soothes aching muscles after a day of swingin' at dinosaurs? Hot springs, friend, and I'm standing right on top of the best ones in the crater, with a very reasonable soak fee." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Just the customer I need, because the springs keep scaring off the beasts, and I'd love to know if it's the heat or the smell." },
+          text = "A hunter! Just the customer I need, pal, because the springs keep scaring off the beasts, and I'd love to know if it's the heat or the smell before I print the brochure." },
       },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Talk quick, the springs won't wait." } },
+      again = { { id = "h_again", text = "What else, friend? Ask quick, because every minute I stand here talkin' is a minute I'm not selling." }, { id = "h_again2", text = "Talk quick, pal, because the springs won't wait and neither will my investors." } },
       choices = {
         { text = "What makes the Golakka Hot Springs boil, Krakle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Should the springs really be sold, Krakle?", next = "druid_q", when = { class = "DRUID" } },
@@ -785,19 +785,19 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "They're hot, they're full of strange minerals, and some of them glow. Something's heating them from deep underground, and I'd love to know what." } },
+      lines = { { id = "b1_1_l", text = "They're hot, they're full of strange minerals, and some of 'em glow, which is a selling point. Somethin's heating them from deep underground, friend, and I'd love to know what, and whether it's for sale." } },
       choices = { { text = "Something bigger?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "Maybe it's the Fire Plume, or maybe it's something bigger. Either way, heat like that is worth money." } },
+      lines = { { id = "b1_2_l", text = "Maybe it's the Fire Plume, or maybe it's something bigger, pal. Either way, heat like that is worth money, and nobody's put up a fence yet." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Safe enough, if you don't fall in. The bigger danger is the beasts that come to drink, so keep your eyes open." } },
+      lines = { { id = "b2_1_l", text = "Safe enough, if you don't fall in, and if you do, it's not my liability. The bigger danger is the beasts that come to drink, friend, so keep your eyes open." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Some at the Refuge say the crater shouldn't be bought and sold. I say everything's for sale, if the price is right." } },
+      lines = { { id = "s_1_l", text = "Some at the Refuge say the crater shouldn't be bought and sold, pal. I say everything's for sale, if the price is right and the paperwork's quick." } },
       choices = { { text = "Nature shouldn't be for sale.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Profit is how anything gets done.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },

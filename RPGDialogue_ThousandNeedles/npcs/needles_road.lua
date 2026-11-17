@@ -455,8 +455,8 @@ P:NPC {
     third = "{name} met Razzeric, a goblin racer at the Mirage Raceway in Thousand Needles.",
   },
   greetings = {
-    { id = "g_main", text = "Hey! You lookin' at my car? Don't touch, it's still warm." },
-    { id = "g_back", when = { metBefore = true }, text = "My biggest fan's back! Ha, I knew you'd come round." },
+    { id = "g_main", text = "Hey! You lookin' at my car, pal? Don't touch, it's still warm, and the last fella who touched it is still payin' off the burn ointment." },
+    { id = "g_back", when = { metBefore = true }, text = "My biggest fan's back! Ha, I knew you'd come round, buddy, they always do once they've seen me crash." },
   },
   start = "hello",
   nodes = {
@@ -472,8 +472,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "All the time! Last week a tortoise sat right on the finish line, and I swerved so hard I took out the timing post, and Daisy still hasn't let me forget it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the track, all right? I like animals fine, I just don't wanna hit one at full throttle, because that's a mess nobody wants to clean up." },
+        { id = "xhuntcl_default", text = "All the time, pal! Last week a tortoise sat right on the finish line, and I swerved so hard I took out the timing post, and Daisy still hasn't let me forget it or stopped billing me for the post." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the track, all right, buddy? I like animals fine, I just don't wanna hit one at full throttle, because that's a mess nobody wants to clean up and the repairs come outta my wages." },
       },
       choices = {
         { text = "The beasts were here first. Slow down for them.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -483,7 +483,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "That's what the last one said too! Still, if you're honest, you're welcome to watch me win, because I don't need sabotage when I've got this engine." } },
+      lines = { { id = "xrogue_default", text = "That's what the last one said too, pal! Still, if you're honest, you're welcome to watch me win, because I don't need sabotage when I've got this engine, and this engine cost more than my house." } },
       choices = {
         { text = "Fair races are the only ones worth winning.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A win's a win, however you get it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -492,7 +492,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "That's the risk I take every lap anyway, friend! Pozzik won't let me try it, says it's cheating, but I say it's just engineering with a bit of sparkle." } },
+      lines = { { id = "xmage_default", text = "That's the risk I take every lap anyway, buddy! Pozzik won't let me try it, says it's cheating, but I say it's just engineering with a bit of sparkle, and sparkle sells tickets." } },
       choices = {
         { text = "Pozzik's right. Magic in a race is cheating.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Rules are for slow racers. Try it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -510,7 +510,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "There's no wildlife on the Flats worth mentioning, unless you count the gnomes, and they frighten easily. A few basilisks come round to watch sometimes, and I swear one of them cheers." } },
+      lines = { { id = "xdruid_default", text = "There's no wildlife on the Flats worth mentioning, pal, unless you count the gnomes, and they frighten easily. A few basilisks come round to watch sometimes, and I swear one of 'em cheers, though it never buys a ticket." } },
       choices = {
         { text = "Race where you like. The flats belong to no one.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Mind the beasts. Even a salt flat has its residents.", next = "BACK", fx = { align = { order = 1 } } },
@@ -529,14 +529,14 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
-          text = "You've been hanging around the gnome pit, I hear. That's fine, everybody loves a sad story, but come and watch a real car when you're done." },
+          text = "You've been hangin' around the gnome pit, I hear. That's fine, pal, everybody loves a sad story, but come and watch a real car when you're done." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "The gnomes can't stand you, which means you've got taste. Want to see where I scraped the wall last heat?" },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "Whoa, armor! Hey, you wanna sit in the car? No? Smart, because the last guy in plate who sat in it cracked the axle clean through." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Hey, can you track a thief? Because somebody keeps moving my spare parts, and I'm pretty sure it's a gnome." },
-        { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, and every time I take the car out, the gnomes start sweating, and so does my mechanic, 'cause I still owe him for the last engine." },
+        { id = "h_default", key = true, text = "Razzeric, the fastest goblin on the Shimmering Flats! I race for the goblin team, pal, and every time I take the car out, the gnomes start sweating, and so does my mechanic, 'cause I still owe him for the last engine and the one before that." },
         { id = "h_c0", when = { race = "Gnome" }, text = "Uh-oh, a gnome. You here to sabotage my car, or just to watch me beat your friends?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, huh? Can you make the wind blow at the gnomes' car and not mine? I'm kidding, mostly, unless you can." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless the car, would ya? I don't care which god does it, as long as the gnomes' car doesn't get blessed too." },
@@ -550,7 +550,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How fast can you run in that cat shape of yours, anyway? Because I bet I can beat you, and I know the gnomes can't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You've come to bless the car, I hope, because the gnomes have been at it with their spanners and I could use all the help I can get." },
       },
-      again = { { id = "h_again", text = "What else? Talk quick, like me." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
+      again = { { id = "h_again", text = "What else, pal? Talk quick, like me, because the next heat won't wait." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
       choices = {
         { text = "Doesn't the racing frighten the wildlife out here?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do you race here?", next = "b1_1" },
@@ -570,7 +570,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "You strap yourself into the fastest machine money can buy, point it at the far end of the Flats, and pray. The salt's flat, but the rocks aren't, and neither are the gnomes." } },
+      lines = { { id = "b1_1_l", text = "You strap yourself into the fastest machine money can buy, or the fastest Pozzik could afford, point it at the far end of the Flats, and pray. The salt's flat, pal, but the rocks aren't, and neither are the gnomes." } },
       choices = { { text = "The gnomes cheat?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
@@ -582,11 +582,11 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Safe? Friend, I've crashed more times than I've won, and I've won a lot. That's just racing." } },
+      lines = { { id = "b2_1_l", text = "Safe? Buddy, I've crashed more times than I've won, and I've won a lot, and every crash comes with a repair bill. That's just racing." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
-      lines = { { id = "b3_1_l", text = "Glory, money and bragging rights over the gnomes, mostly the last one. Pozzik keeps the books, and he says we're up this season." } },
+      lines = { { id = "b3_1_l", text = "Glory, money and braggin' rights over the gnomes, mostly the last one. Pozzik keeps the books, pal, and he says we're up this season, though he says that every season." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
@@ -594,7 +594,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Pozzik says I'm crazy to keep racing. I say a goblin without risk is just a banker with a hat." } },
+      lines = { { id = "s_1_l", text = "Pozzik says I'm crazy to keep racing, pal. I say a goblin without risk is just a banker with a hat." } },
       choices = { { text = "Life's short. Race fast.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "You'll get killed for nothing. Slow down.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
     xhcast = {
@@ -616,7 +616,7 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Never heard of it, but if it's fast, I want to drive it." } } },
+  topics = { _none = { { id = "tp_none", text = "Never heard of it, pal, but if it's fast, I want to drive it, and if it explodes, I want to drive it twice." } } },
 }
 
 P:NPC {
@@ -627,14 +627,14 @@ P:NPC {
     third = "{name} met Daisy, the timekeeper at the Mirage Raceway.",
   },
   greetings = {
-    { id = "g_main", text = "Hey! Step back from the line, the next lap's coming through." },
+    { id = "g_main", text = "Hey! Step back from the line, hon, because the next lap's coming through, and I'm not paying for anybody's funeral." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Watching the races, or getting in the way?" },
   },
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "They try, but I keep the stopwatch running whatever happens, and a racer who stops to throw a punch loses the heat. It's done wonders for the peace around here, because nobody fights while the clock's still ticking." } },
+      lines = { { id = "xwarcl_default", text = "They try, hon, but I keep the stopwatch running whatever happens, and a racer who stops to throw a punch loses the heat and the purse. It's done wonders for the peace around here, because nobody fights while there's money on the clock." } },
       choices = {
         { text = "Rules keep the peace. Good for you, Daisy.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some fights matter more than any race.", next = "BACK", fx = { align = { order = -1 } } },
@@ -655,7 +655,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Far enough to cross the finish line before anyone else, and past that it's somebody else's problem. I've got enough trouble keeping the goblins and gnomes honest without mages making it worse." } },
+      lines = { { id = "xmage_default", text = "Far enough to cross the finish line before anyone else, hon, and past that it's somebody else's problem and somebody else's insurance. I've got enough trouble keeping the goblins and gnomes honest without mages making it worse." } },
       choices = {
         { text = "I'd never cheat a race with magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If you can't catch it, it's not cheating.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -664,7 +664,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Both crews, on a bad day, and Kravel always seems to know who. I don't trust him, and I don't trust anyone who looks at my stopwatch too long, so keep your eyes on the track." } },
+      lines = { { id = "xrogue_default", text = "Both crews, on a bad day, and Kravel always seems to know who and for how much. I don't trust him, hon, and I don't trust anyone who looks at my stopwatch too long, so keep your eyes on the track." } },
       choices = {
         { text = "Fixed times ruin the race. I'd never touch it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Everything's for sale out here.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -682,7 +682,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "After every race, from whoever came second. Pozzik and Fizzle both swear I favour the other side, which I take as proof I'm doing the job right, because if only one of them were angry I'd be in trouble." } },
+      lines = { { id = "xapala_default", text = "After every race, hon, from whoever came second and lost their bet. Pozzik and Fizzle both swear I favour the other side, which I take as proof I'm doing the job right, because if only one of 'em were angry I'd be in trouble." } },
       choices = {
         { text = "Fair times are worth a little anger. Stay honest.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Tilt the clock a little. Nobody would know.", next = "BACK", fx = { align = { order = -1 } } },
@@ -704,19 +704,19 @@ P:NPC {
           text = "A warrior. If you're here to brawl with the gnome crew, do it off the track, because I'm not stopping the clock for anybody's broken nose." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? Good eyes, then, and you'll know how hard it is to watch something moving fast, which is my whole job." },
-        { id = "h_default", key = true, text = "I'm Daisy, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won. The goblins argue anyway, mostly with the stopwatch." },
+        { id = "h_default", key = true, text = "I'm Daisy, hon, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won or who gets paid, and the goblins argue anyway, mostly with the stopwatch." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then don't go calling lightning down on my track, because the last storm cost me a whole afternoon of times." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're praying for one team or the other, kindly do it off the track, because I don't time prayers." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your demon off the track, because if it runs across during a heat it's getting a time, and you won't like what I write next to it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Don't you dare blink across my finish line, because I can't time a racer who skips half a length, and the gnomes would argue about it for a week." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "You've got quick hands, I can tell. Keep them away from my stopwatch, because there's more than one crew that would pay to have it run slow." },
+          text = "You've got quick hands, hon, I can tell. Keep 'em away from my stopwatch, because there's more than one crew that would pay good gold to have it run slow, and I've turned down better offers than yours." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! If you ever want your running shape timed on the track, I'll do it, though the racers might get jealous." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good, maybe the drivers will stop accusing me of fixing the times if someone like you is standing next to me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Stand over here, by the clock, because I'd rather you were close when the next car comes off the track." },
       },
-      again = { { id = "h_again", text = "What else, hon?" }, { id = "h_again2", text = "Make it fast; the cars sure are." } },
+      again = { { id = "h_again", text = "What else, hon? Make it quick, because the clock is running and it never stops for anybody." }, { id = "h_again2", text = "Make it fast; the cars sure are." } },
       choices = {
         { text = "What's the strangest thing you've timed out here?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Who's winning?", next = "b1_1" },
@@ -734,7 +734,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b1_1_l", text = "Depends on the day and who's been tinkering with what. The goblins are fast, but the gnomes are clever, and clever wins when the goblins blow an engine." } },
+      lines = { { id = "b1_1_l", text = "Depends on the day and who's been tinkering with what, hon. The goblins are fast, but the gnomes are clever, and clever wins when the goblins blow an engine, which is about every third heat." } },
       choices = { { text = "You don't take sides?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
@@ -746,7 +746,7 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     s_1 = {
-      lines = { { id = "s_1_l", text = "Everybody tries something, hon, from tweaked engines to bent fuel. My job's to time them, not to judge them, but I see it." } },
+      lines = { { id = "s_1_l", text = "Everybody tries something, hon, from tweaked engines to bent fuel to a little gold slipped to the wrong official. My job's to time 'em, not to judge 'em, but I see it all." } },
       choices = { { text = "Cheaters should be disqualified. Fair is fair.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } }, { text = "Racing's about winning. Let them cheat.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
     xhcast = {
@@ -768,7 +768,7 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't tell you. I only know what happens on the track." } } },
+  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, hon. I only know what happens on the track, and what it pays." } } },
 }
 
 P:NPC {

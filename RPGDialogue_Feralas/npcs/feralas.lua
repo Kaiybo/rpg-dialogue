@@ -961,22 +961,22 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_ore", text = "You look like someone who can carry rocks: valuable rocks, mysterious rocks, rocks I can sell to a dwarf for twice what they're worth!" },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! Did you bring rocks, because a friend who comes back after that long usually brings rocks, or at least I like to think so." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you talked somebody in camp into believing something they shouldn't have, and I have to say I'm impressed! Never on me, of course, because I'm a goblin, and we invented that trick." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round to your view, and I'd love to know how, because I've been trying to sell this camp on my ore for months and nobody's bought a single stone." },
+    { id = "g_ore", text = "You look like somebody who can carry rocks, my friend: valuable rocks, mysterious rocks, rocks I can sell to a dwarf for twice what they're worth!" },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, my friend! Did you bring rocks? A friend who comes back after that long usually brings rocks, or at least I like to think so, and I've already set the price." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you talked somebody in camp into believin' something they shouldn't have, and I have to say I'm impressed! Never on me, of course, because I'm a goblin, and we invented that trick and we hold the patent." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked someone round to your view, and I'd love to know how, my friend, because I've been trying to sell this camp on my ore for months and nobody's bought a single stone." },
   },
 
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = { "Mining", "Engineering" } },
-      text = "A miner! Have you ever seen Gordunni cobalt? Nobody has, well, except the ogres, and that's the problem." },
+      text = "A miner! Have you ever seen Gordunni cobalt? Nobody has, my friend, well, except the ogres, and that's the problem with the supply chain." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Everybody is, friend, but you're more interesting than most, because nobody understands you yet. The ogres guard an ore nobody understands either, and I'd like to study both of you, though I'll settle for selling the ore." } },
+      lines = { { id = "xfpala_default", text = "Everybody is, my friend, but you're more interesting than most, because nobody understands you yet. The ogres guard an ore nobody understands either, and I'd like to study both of you, though I'll settle for sellin' the ore." } },
       choices = {
         { text = "Study the ore properly, Orwin, and share what you learn.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sell it first, Orwin, and study it after.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -985,7 +985,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Nobody knows, which is exactly what makes it special, and exactly why I want to be the first to sell it. The Gordunni dig it out with their big hands and do something odd with it, and I'd dearly love a sample a warrior pried out of their grip." } },
+      lines = { { id = "xwarcl_default", text = "Nobody knows, which is exactly what makes it special, and exactly why I want to be the first to sell it. The Gordunni dig it out with their big hands and do somethin' odd with it, and I'd dearly love a sample a warrior pried out of their grip, my friend." } },
       choices = {
         { text = "I'll fight the ogres for the Horde, not for your profit.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If there's coin in it, I'll break the ogres for you.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -995,8 +995,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because I'm a goblin, and goblins who follow ogre trails end up as ogre suppers, which is bad for business and worse for the goblin. You hunters can step around a sleeping ogre without waking it, and that's a talent I'd happily rent." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it could sniff out cobalt in an ogre camp, if cobalt smells of anything, which I'm going to assume it does, because I want it to." },
+        { id = "xhuntcl_default", text = "Because I'm a goblin, and goblins who follow ogre trails end up as ogre suppers, which is bad for business and worse for the goblin. You hunters can step around a sleeping ogre without waking it, my friend, and that's a talent I'd happily rent by the hour." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it could sniff out cobalt in an ogre camp, if cobalt smells of anything, which I'm going to assume it does, because I want it to and because it'd double the profits." },
       },
       choices = {
         { text = "I hunt for Camp Mojache first. Your ore comes second.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1006,7 +1006,7 @@ P:NPC {
     },
     rogue_or = {
       lines = {
-        { id = "ror_default", text = "Now you're talking my language! Quiet is good, quiet means nobody else hears about the cobalt before I've set a price on it. Bring me enough and I won't ask whose cart it fell off." },
+        { id = "ror_default", text = "Now you're talkin' my language, my friend! Quiet is good, because quiet means nobody else hears about the cobalt before I've set a price on it. Bring me enough and I won't ask whose cart it fell off." },
       },
       choices = {
         { text = "I'll steal it. Ogres don't need it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 2 } },
@@ -1015,7 +1015,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Because the ogres don't guard anything unless it hums, and this hums! Orgrimmar wants to know if it's useful, and I want to know if it's sellable, and you might be the one who can tell us both." } },
+      lines = { { id = "xmage_default", text = "Because the ogres don't guard anything unless it hums, and this hums, my friend! Orgrimmar wants to know if it's useful, and I want to know if it's sellable, and you might be the one who can tell us both." } },
       choices = {
         { text = "Some things shouldn't be sold, Orwin.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Sell it. Let the buyers worry about the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1024,7 +1024,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Steal is a strong word for taking something from an ogre who'd crack your skull for looking at it. I'd call it fair collection on behalf of the Horde, with a little left over for a goblin's curiosity." } },
+      lines = { { id = "xrogue_default", text = "Steal is a strong word for taking somethin' from an ogre who'd crack your skull for looking at it. I'd call it collection on behalf of the Horde, my friend, with a small handling fee left over for a goblin's curiosity." } },
       choices = {
         { text = "I'll do it for the Horde, not your purse.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll do it for whoever pays the most.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1033,7 +1033,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "If it does, it hasn't said so, and I've been listening very carefully. The ogres tear whole hillsides open for that cobalt, though, and leave the rest to wash into the streams, and even I can see that's no way to treat a place." } },
+      lines = { { id = "xdruid_default", text = "If it does, it hasn't said so, and I've been listening very carefully, my friend. The ogres tear whole hillsides open for that cobalt, though, and leave the rest to wash into the streams, and even I can see that's no way to treat a place, or a resource." } },
       choices = {
         { text = "Then take only what you need, and leave the hills whole.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The ogres started it. Take everything you can carry.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1043,25 +1043,25 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Orwin Gizzmick, here on Orgrimmar's business and a bit of my own. The ogres guard an ore up north nobody understands, and I'd like to understand it. Then sell it." },
+          text = "Orwin Gizzmick, here on Orgrimmar's business and a bit of my own, my friend, mostly my own. The ogres guard an ore up north nobody understands, and I'd like to understand it, and then sell it." },
         { id = "h_cobalt", tags = { "news" }, when = { questActive = TODO_QUEST("Gordunni Cobalt") },
-          text = "Gordunni cobalt, from their compound. They guard it jealously, which is how you know it's worth something." },
+          text = "Gordunni cobalt, from their compound, my friend. They guard it jealously, which is how you know it's worth something, and worth something is my favourite kind of rock." },
         { id = "h_cobalt_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Gordunni Cobalt"), days = 3 } },
-          text = "Twelve samples, all glowing, all mine! Somewhere out there is a buyer who'll pay a pretty penny for these, and I mean to find them before the glow wears off." },
-        { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks. Science is mostly waiting to find out." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the earth spirits know anything about the ore the ogres guard up north? Because the rocks under my bed won't tell me." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and here I thought this camp was all braves and drums. Do your gods care about ore, I wonder? I've a sample that could use a blessing, or at least an explanation." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Well, I won't ask where your power comes from if you don't ask where my samples come from, and I think that's a fair trade." },
+          text = "Twelve samples, all glowin', all mine! Somewhere out there is a buyer who'll pay a pretty penny for these, my friend, and I mean to find them before the glow wears off." },
+        { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks, my friend. Science is mostly waiting to find out, and business is mostly pretending you already know." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the earth spirits know anything about the ore the ogres guard up north? Because the rocks under my bed won't tell me, my friend, and I've asked nicely and offered a cut." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and here I thought this camp was all braves and drums! Do your gods care about ore, I wonder? I've a sample that could use a blessing, my friend, or at least an appraisal." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Well, I won't ask where your power comes from if you don't ask where my samples come from, my friend, and that's what we in the trade call a mutual understanding." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
-          text = "A mage! Tell me what you feel off this lump of cobalt, would you? The Gordunni guard it like their mothers' bones, and I'd like to know why before I price it." },
+          text = "A mage! Tell me what you feel off this lump of cobalt, would you, my friend? The Gordunni guard it like their mothers' bones, and I'd like to know why before I price it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
-          text = "A rogue! You know, the Gordunni keep their best cobalt in the deepest parts of their camps, and I'd pay very well for a sample that didn't come with an ogre attached." },
+          text = "A rogue! You know, my friend, the Gordunni keep their best cobalt in the deepest parts of their camps, and I'd pay very well for a sample that didn't come with an ogre attached." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
-          text = "A warrior! Perfect, the ogres up north are sitting on a cave full of ore, and somebody's going to have to ask them politely, by which I mean with an axe." },
+          text = "A warrior! Perfect, my friend, the ogres up north are sitting on a cave full of ore, and somebody's going to have to ask them politely, by which I mean with an axe." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
-          text = "A hunter! You'll have seen the ogre trails through the woods, then, and I'd bet you could follow them straight to my ore." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Now, I know what you're going to say about digging, so let me get in first: the ogres dug it up before me, and I'm only taking it off their hands." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, now there's a curiosity, and you know how I feel about curiosities, which is that they're worth something to somebody." },
+          text = "A hunter! You'll have seen the ogre trails through the woods, then, my friend, and I'd bet my best sample you could follow them straight to my ore." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Now, I know what you're going to say about digging, my friend, so let me get in first: the ogres dug it up before me, and I'm only taking it off their hands, as a public service." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, now there's a curiosity, my friend, and you know how I feel about curiosities, which is that they're worth somethin' to somebody." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
@@ -1087,7 +1087,7 @@ P:NPC {
 
     cobalt = {
       lines = {
-        { id = "c_default", text = "Some kind of mineral the Gordunni dig up near their outpost, and it glows blue, which is never nothing. The trouble is they don't leave it lying around; they bury it again." },
+        { id = "c_default", text = "Some kind of mineral the Gordunni dig up near their outpost, my friend, and it glows blue, which is never nothing in my experience. The trouble is they don't leave it lying around; they bury it again, like misers." },
       },
       choices = {
         { text = "Why would ogres bury it?", next = "cobalt_bury" },
@@ -1096,14 +1096,14 @@ P:NPC {
     },
     cobalt_bury = {
       lines = {
-        { id = "cb_default", text = "To keep it away from folks like me, obviously, which only proves it's valuable. I'll lend you my shovel; look for the blue glow at the outpost north of here and start digging." },
+        { id = "cb_default", text = "To keep it away from folks like me, obviously, which only proves it's valuable. I'll lend you my shovel, my friend, deposit waived, so look for the blue glow at the outpost north of here and start diggin'." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     sell = {
       lines = {
-        { id = "s_default", text = "Whoever pays, my friend, whoever pays! I'll take it along on my travels, and somewhere between here and the sea there's always someone with more gold than sense." },
+        { id = "s_default", text = "Whoever pays, my friend, whoever pays! I'll take it along on my travels, and somewhere between here and the sea there's always somebody with more gold than sense." },
       },
       choices = {
         { text = "And if it's worthless?", next = "sell_worthless" },
@@ -1112,33 +1112,33 @@ P:NPC {
     },
     sell_worthless = {
       lines = {
-        { id = "sw_default", text = "Then it's worthless blue rocks that glow, which is still a very good story to sell with them. A goblin never carries anything he can't sell one way or another." },
+        { id = "sw_default", text = "Then it's worthless blue rocks that glow, which is still a very good story to sell with them, my friend. A goblin never carries anything he can't sell one way or another." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
 
     why = {
       lines = {
-        { id = "w_default", text = "I just got here, and I heard the ogres have interesting minerals in their hills, so here I am. Feralas is wet, and loud, and everything wants to bite me, but nobody else is digging, and that's my favorite kind of market." },
+        { id = "w_default", text = "I just got here, my friend, and I heard the ogres have interesting minerals in their hills, so here I am. Feralas is wet, and loud, and everything wants to bite me, but nobody else is diggin', and that's my favourite kind of market." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     miner = {
       lines = {
-        { id = "mi_default", text = "That a rock that glows and a rock that's buried are two different kinds of valuable, and one that does both is a treasure. Bring me cobalt, and keep a piece for yourself; I won't count too carefully." },
+        { id = "mi_default", text = "That a rock that glows and a rock that's buried are two different kinds of valuable, and one that does both is a treasure, my friend. Bring me cobalt, and keep a piece for yourself, because I won't count too carefully, and that's a rare thing for a goblin to say." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     tauren = {
       lines = {
-        { id = "t_default", text = "And very fine land it is, with very generous hosts, and I'm only digging in the ogres' corner of it! Nobody here's going to miss a few rocks from the Gordunni." },
+        { id = "t_default", text = "And very fine land it is, with very generous hosts, and I'm only digging in the ogres' corner of it! Nobody here's going to miss a few rocks from the Gordunni, my friend, and the Gordunni can file a complaint." },
       },
       choices = { { text = "See that nobody does.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "That's exactly what I'm trying to find out, and the ogres aren't telling. It's heavy and it's blue, and I've a hunch it would take an enchantment better than iron, so somebody in Orgrimmar is going to want a great deal of it." } },
+      lines = { { id = "xhcast_default", text = "That's exactly what I'm trying to find out, my friend, and the ogres aren't telling. It's heavy and it's blue, and I've a hunch it would take an enchantment better than iron, so somebody in Orgrimmar is going to want a great deal of it at a great deal of gold." } },
       choices = {
         { text = "Sell it first. The study can wait.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Study it properly before you sell a single stone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1147,7 +1147,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Digging, studying and then selling, in that order, and the ogres haven't the faintest idea what they're guarding. If the earth spirits object, they're welcome to tell me themselves, and I'll gladly take notes." } },
+      lines = { { id = "xhsham_default", text = "Digging, studying and then selling, in that order, my friend, and the ogres haven't the faintest idea what they're sitting on. If the earth spirits object, they're welcome to tell me themselves, and I'll gladly take notes and offer terms." } },
       choices = {
         { text = "Ask the earth's leave first, Orwin. It's only courteous.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If the ogres can't use it, somebody should profit.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1158,11 +1158,11 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I keep my ears open for anything that might be worth money, which is nearly everything. Ask!" },
+      { id = "tp_knows", text = "I keep my ears open for anything that might be worth money, my friend, which is nearly everything. Ask!" },
     },
-    background = { { id = "tp_ba", text = "A goblin with a shovel, a sack and a nose for things that glow. That's the whole of the story, and the rest is profit." } },
-    advice = { { id = "tp_ad", text = "Always dig where somebody else has been guarding. Nobody guards dirt." } },
-    _none = { { id = "tp_none", text = "If it's not a rock, it's not my business." } },
+    background = { { id = "tp_ba", text = "A goblin with a shovel, a sack and a nose for things that glow, my friend. That's the whole of the story, and the rest is profit." } },
+    advice = { { id = "tp_ad", text = "Always dig where somebody else has been guarding, my friend, because nobody guards dirt." } },
+    _none = { { id = "tp_none", text = "If it's not a rock, my friend, it's not my business, and if it is, it's for sale." } },
   },
 }
 

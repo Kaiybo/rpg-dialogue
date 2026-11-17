@@ -225,22 +225,22 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Guns, shot, powder, everything that goes bang! Step right up, pal, and don't touch the hair triggers." },
+    { id = "g_default", text = "Guns, shot, powder, everything that goes bang, all priced to move! Step right up, pal, and don't touch the hair triggers, because those are a deposit." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite customer's back! You always need more shot, pal, so let's see what you're short of." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Now there's somebody who appreciates a fine barrel, so take a look at the long rifles." },
+      text = "A hunter! Now there's somebody who appreciates a fine barrel, buddy, so take a look at the long rifles, and don't look at the price tag till you've held one." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf! You folks know your guns, so don't go telling me Ironforge makes them better, because I've heard it." },
+      text = "A dwarf! You folks know your guns, so don't go telling me Ironforge makes them better, because I've heard it, and Ironforge charges twice as much for the beard on the stock." },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "You pull a raptor off the healer from across the clearing, that's what, and then it comes running at you instead of at somebody squishy. Every warrior I've sold a blunderbuss to has come back for more shot, which tells you everything." } },
+      lines = { { id = "xwarcl_default", text = "You pull a raptor off the healer from across the clearing, that's what, and then it comes running at you instead of at somebody squishy. Every warrior I've sold a blunderbuss to has come back for more shot, which is what I call recurring revenue." } },
       choices = {
         { text = "A warrior should meet the enemy close, steel to steel.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A shot from range is smart fighting. I'll take a rifle.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -261,7 +261,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "The Kurzen deserters, if you can believe it, and they pay in Stormwind silver, so draw your own conclusions. Second place is the Bloodsail, who buy through middlemen and think I don't notice. I sell to both and sleep fine." } },
+      lines = { { id = "xhcast_default", text = "The Kurzen deserters, if you can believe it, and they pay in Stormwind silver, so draw your own conclusions. Second place is the Bloodsail, who buy through middlemen and think I don't notice, and I mark it up twenty percent for the insult. I sell to both and sleep fine." } },
       choices = {
         { text = "Selling to both sides is just good business.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Arming the Bloodsail puts all of Booty Bay at risk.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -270,7 +270,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Because spirits get moody and powder doesn't, friend, or not often anyway. Half my customers swear by their totems and the other half swear by my blunderbusses, and the second half complains a lot less." } },
+      lines = { { id = "xhsham_default", text = "Because spirits get moody and powder doesn't, friend, or not often anyway, and when it does, well, you only need eyebrows for show. Half my customers swear by their totems and the other half swear by my blunderbusses, and the second half complains a lot less." } },
       choices = {
         { text = "I trust the elements over powder. They've never misfired on me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll use whatever works. Show me a blunderbuss.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -279,7 +279,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because a dagger only works up close, and sometimes the trouble's across the room, and that's when you want something that goes bang. I've sold pistols to half the Bloodsail captains on this coast, and they're still alive, so that's proof enough." } },
+      lines = { { id = "xrogue_default", text = "Because a dagger only works up close, and sometimes the trouble's across the room, and that's when you want something that goes bang. I've sold pistols to half the Bloodsail captains on this coast, and to the Blackwater captains who shoot at them, and that's what I call a healthy market." } },
       choices = {
         { text = "I'd sell to Booty Bay, not the Bloodsail. Pick a side.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Gold's gold. Sell to whoever has it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -316,20 +316,20 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Hammers are fine, friend, but have you ever thought about what you could do with a hammer that fires? Don't answer yet, just let it sink in." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, but it never lands quite where you point it, and that's why I sell guns." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, chum, but it never lands quite where you point it, and that's why I sell guns." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be needing protection, pal, because prayers are slow and a blunderbuss isn't." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Fireballs are flashy, pal, but when you're out of mana, a pistol's still loaded." },
         { id = "h_default", key = true,
-          text = "Mazk Snipeshot, gunsmith to the finest pirates, hunters and lunatics in the South Seas. Everything on this table shoots straight, mostly, and anything that doesn't is on sale." },
+          text = "Mazk Snipeshot, gunsmith to the finest pirates, hunters and lunatics in the South Seas! Everything on this table shoots straight, mostly, and anything that doesn't is on sale, no refunds on eyebrows." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I know your sort likes things quiet, but let me tell you, pal, nothing ends an argument faster than a nice loud gun." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's something I've never sold a gun to, pal, though I'd bet a demon would look mighty fine with a blunderbuss on its shoulder." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Swords are lovely, pal, really, but a warrior with a good rifle on his back can start the argument from forty yards off and finish it up close." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Swords are lovely, chum, really, but a warrior with a good rifle on his back can start the argument from forty yards off and finish it up close." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now, I know some of you are bow people, but believe me, pal, nothing introduces you to a tiger like a nice loud gun." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I know your kind doesn't care for guns, but hear me out: a rifle never once turned into a bear and ate its owner." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I know your kind doesn't care for guns, buddy, but hear me out: a rifle never once turned into a bear and ate its owner." },
       },
       again = {
-        { id = "h_again", text = "What else can I sell you, pal? I mean, help you with?" },
-        { id = "h_again2", text = "Anything else? I've got time, and I've got stock." },
+        { id = "h_again", text = "What else can I sell you, pal? I mean, help you with? It's the same thing, really." },
+        { id = "h_again2", text = "Anything else? I've got time, sparks and sprockets, I've got stock, and stock's money sitting still." },
       },
       choices = {
         { text = "Why would a shaman ever need one of your guns?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -348,7 +348,7 @@ P:NPC {
     },
     buyers = {
       lines = {
-        { id = "bu_default", text = "Everybody, pal! Hunters going after Nesingwary's tigers, sailors who've seen too many Bloodsail flags, and once a troll who wanted to shoot a raptor that ate his hat. A town like this runs on shot and grog." },
+        { id = "bu_default", text = "Everybody, pal! Hunters going after Nesingwary's tigers, sailors who've seen too many Bloodsail flags, and once a troll who wanted to shoot a raptor that ate his hat. A town like this runs on shot and grog, and I've cornered the shot." },
       },
       choices = {
         { text = "You'd sell to anybody?", next = "buyers_anyone" },
@@ -357,7 +357,7 @@ P:NPC {
     },
     buyers_anyone = {
       lines = {
-        { id = "ba_default", text = "Anybody the Baron lets through the gate, and the Baron lets in anybody with coin. Booty Bay doesn't care if your money's Horde or Alliance, so long as it's gold." },
+        { id = "ba_default", text = "Anybody the Baron lets through the gate, and the Baron lets in anybody with coin. Booty Bay doesn't care if your money's Horde or Alliance, buddy, so long as it's gold, and neither do I." },
       },
       choices = {
         { text = "Fair trade is fair trade.", next = "BACK", fx = { align = { order = -1 } } },
@@ -367,14 +367,14 @@ P:NPC {
     },
     source = {
       lines = {
-        { id = "so_default", text = "Some from Undermine, some from Ironforge by way of people who don't ask questions, and some I put together myself in the back. The ones I make myself are the loudest, which is how you know they're good." },
+        { id = "so_default", text = "Some from Undermine, some from Ironforge by way of people who don't ask questions, and some I put together myself in the back, which is why the back wall's newer than the front. The ones I make myself are the loudest, which is how you know they're good." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I came to Booty Bay to sell guns, and I stayed because nobody here complains about the noise." } },
+    background = { { id = "tp_ba", text = "I came to Booty Bay to sell guns, and I stayed because nobody here complains about the noise, or the occasional small fire." } },
     advice = { { id = "tp_ad", text = "Always carry more shot than you think you need, pal. The jungle's got more teeth than you've got bullets." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if I can't shoot it or sell it, I can't help you." } },
   },

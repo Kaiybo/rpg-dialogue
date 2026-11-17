@@ -4,24 +4,24 @@ local P = RPGDialogueAPI:Pack("rpgd.stranglethorn")
 P:Pool {
   id = "guard_bootybay", role = "guard", community = "booty_bay",
   barks = {
-    { id = "b_ship", text = "Ship's in. Watch your purse, watch your back, watch the water." },
-    { id = "b_steel", text = "Somebody drew steel on the pier last week. We fished him out eventually." },
+    { id = "b_ship", text = "Ship's in, pal, so watch your purse, watch your back and watch the water, because the Cartel doesn't refund any of 'em." },
+    { id = "b_steel", text = "Somebody drew steel on the pier last week. We fished him out eventually, and the Baron billed his widow for the rope." },
   },
   greetings = {
-    { id = "g_bay", text = "This is Booty Bay. Spend money, don't start trouble, and we'll get along fine." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Tavern's up that way. Everything else is shut, or ought to be, and if you hear singing under the pier, that's a drunk, not a mermaid." },
+    { id = "g_bay", text = "This is Booty Bay, pal. Spend money, don't start trouble, and we'll get along fine, which is the cheapest deal in town." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Tavern's up that way, buddy, and everything else is shut, or ought to be. If you hear singing under the pier, that's a drunk, not a mermaid, and he owes me two silver." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Rough day in the jungle? There's a smith on the boardwalk, but bring coin; he doesn't do charity." },
+      text = "Rough day in the jungle, pal? There's a smith on the boardwalk, but bring coin, because he doesn't do charity and neither does anybody else in this town." },
     { id = "n_horde", cat = "status", when = { faction = "Horde" },
-      text = "Horde, huh? In here you're a customer like anybody else, but past the shark's teeth you're on your own." },
+      text = "Horde, huh? In here you're a paying customer like anybody else, pal, but past the shark's teeth you're on your own, and the Cartel's insurance doesn't follow you." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
-      text = "Alliance, huh? Inside these walls nobody cares, and if you keep it that way, neither will we." },
+      text = "Alliance, huh? Inside these walls nobody cares, chum, and if you keep it that way, neither will we, and that's the best price you'll get on peace anywhere." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Hey, I saw that shimmer! Sneaking about is your own business, but sneaking with your hand in somebody's pocket is ours." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Hey, I saw that shimmer, pal! Sneaking about is your own business, but sneaking with your hand in somebody's pocket is ours, and we bill by the bruise." } },
   lines = {
-    { id = "l_default", text = "The Cartel says this town's neutral, but we're the ones who make it neutral. Draw a weapon in town and see how quick we get there." },
+    { id = "l_default", text = "The Cartel says this town's neutral, but we're the ones who make it neutral, and we're paid by the day to do it. Draw a weapon in town and see how quick we earn our wages." },
   },
   -- 0.71.0: the bruisers' own conversation (community pool, so it beats the faction guard tree).
   tier = "service",
@@ -30,13 +30,13 @@ P:Pool {
     hello = {
       lines = {
         { id = "h_default", text = "Keep your weapon put away and your coin out, and we'll be the best of friends. What do you want, pal?" },
-        { id = "h_horde", when = { faction = "Horde" }, text = "Horde coin spends the same as anybody's in this port, so spend it, and leave the grudges outside the shark's teeth. What do you need?" },
+        { id = "h_horde", when = { faction = "Horde" }, text = "Horde coin spends the same as anybody's in this port, buddy, so spend it, and leave the grudges outside the shark's teeth. What do you need?" },
         { id = "h_alliance", when = { faction = "Alliance" }, text = "Stormwind's a long boat ride from here, pal, and in this port the Baron's word is the only law there is. What do you need?" },
-        { id = "h_rep", when = { reputation = { faction = "Booty Bay", min = "honored" } }, text = "Hey, it's you! The Baron's people speak well of you, which means I speak well of you, so what can I do for you, pal?" },
+        { id = "h_rep", when = { reputation = { faction = "Booty Bay", min = "honored" } }, text = "Hey, it's you! The Baron's people speak well of you, which means I speak well of you, since he signs my wages, so what can I do for you, pal?" },
       },
       again = {
-        { id = "a_clock", text = "What else? Time's money, and I'm on the clock." },
-        { id = "a_ship", text = "Anything else? Make it quick, because there's a ship coming in." },
+        { id = "a_clock", text = "What else? Time is money, friend, and I'm on the clock." },
+        { id = "a_ship", text = "Anything else? Make it quick, pal, because there's a ship coming in and ships mean fights and fights mean overtime." },
       },
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
@@ -53,7 +53,7 @@ P:Pool {
     },
     rules = {
       lines = {
-        { id = "ru_default", text = "One rule, really, and it's that nobody fights in town. You can hate whoever you like, but you hate them quietly, you pay your bills, and your blade stays in its sheath until you're past the shark's teeth." },
+        { id = "ru_default", text = "One rule, really, and it's that nobody fights in town. You can hate whoever you like, pal, but you hate them quietly, you pay your bills, and your blade stays in its sheath until you're past the shark's teeth." },
       },
       choices = {
         { text = "And if someone does start something?", next = "rules_fight" },
@@ -62,7 +62,7 @@ P:Pool {
     },
     rules_fight = {
       lines = {
-        { id = "rf_default", text = "Then a dozen of us turn up all at once, and we don't ask who started it, because we don't care. Whoever's still standing gets thrown off the pier, and whoever's lying down gets billed for the mess." },
+        { id = "rf_default", text = "Then a dozen of us turn up all at once, and we don't ask who started it, because we don't care and we're not paid to. Whoever's still standing gets thrown off the pier, and whoever's lying down gets billed for the mess." },
       },
       choices = {
         { text = "Harsh, but I can see why it works.", next = "BACK" },
@@ -71,7 +71,7 @@ P:Pool {
     },
     boss = {
       lines = {
-        { id = "bo_default", text = "Baron Revilgaz runs the port from up top, where he can see every ship in the bay, and he answers to the Cartel, and the Cartel answers to money. Mind your manners if you go up there, because the Baron's got a long memory and a short temper." },
+        { id = "bo_default", text = "Baron Revilgaz runs the port from up top, where he can see every ship in the bay, and he answers to the Cartel, and the Cartel answers to money. Mind your manners if you go up there, chum, because the Baron's got a long memory, a short temper and a very long ledger." },
       },
       choices = {
         { text = "What's he like to work for?", next = "boss_like" },
@@ -89,7 +89,7 @@ P:Pool {
     },
     trouble = {
       lines = {
-        { id = "tr_default", text = "The Bloodsail Buccaneers, always the Bloodsail. They've wanted this port ever since they first sailed into the bay, and every so often they try their luck on the piers with their cutlasses out." },
+        { id = "tr_default", text = "The Bloodsail Buccaneers, always the Bloodsail. They've wanted this port ever since they first sailed into the bay, and every so often they try their luck on the piers with their cutlasses out, and we try ours with the cannons, and the cannons win." },
       },
       choices = {
         { text = "Why do they want it so badly?", next = "trouble_deep" },
@@ -98,7 +98,7 @@ P:Pool {
     },
     trouble_deep = {
       lines = {
-        { id = "td_default", text = "Because whoever holds Booty Bay holds the trade of the whole southern sea, and the Bloodsail would rather steal it than earn it. Fleet Master Seahorn's the one to see if you want to make them pay, since he's always looking for hands." },
+        { id = "td_default", text = "Because whoever holds Booty Bay holds the trade of the whole southern sea, pal, and the Bloodsail would rather steal it than earn it. Fleet Master Seahorn's the one to see if you want to make them pay, since he's always hiring hands." },
       },
       choices = {
         { text = "I might pay him a visit.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -107,7 +107,7 @@ P:Pool {
     },
     pay = {
       lines = {
-        { id = "pa_default", text = "The Cartel pays on time, in gold, and nobody asks me to die for a flag. My cousin worked for the Venture Company once, and he's still paying off the boots they sold him." },
+        { id = "pa_default", text = "The Cartel pays on time, in gold, and nobody asks me to die for a flag, just for a decent wage. My cousin worked for the Venture Company once, and he's still paying off the boots they sold him, with interest." },
       },
       choices = {
         { text = "Sounds like a sweet deal.", next = "BACK", fx = { trait = { greedy = 1 } } },
@@ -127,7 +127,7 @@ P:Pool {
     },
     neutral_drag = {
       lines = {
-        { id = "nd_default", text = "All the time, and we smile and sell them both more swords. The day the Cartel picks a side is the day half its customers stop coming, and nobody in this town is that stupid." },
+        { id = "nd_default", text = "All the time, and we smile and sell them both more swords. The day the Cartel picks a side is the day half its customers stop coming, pal, and nobody in this town is that bad at arithmetic." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -136,7 +136,7 @@ P:Pool {
     },
     arena = {
       lines = {
-        { id = "ar_default", text = "The Gurubashi Arena, up the coast in the old troll ruins. Every so often somebody drops a chest in the middle of it, everybody inside tries to kill everybody else to get it, and folks pay good money just to watch." },
+        { id = "ar_default", text = "The Gurubashi Arena, up the coast in the old troll ruins. Every so often somebody drops a chest in the middle of it, everybody inside tries to kill everybody else to get it, and folks pay good money just to watch, and better money to bet." },
       },
       choices = {
         { text = "Sounds like my kind of fun.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -145,7 +145,7 @@ P:Pool {
     },
     sides = {
       lines = {
-        { id = "si_default", text = "Out there you can do what you like to each other, but in here nobody gets anything but a price." },
+        { id = "si_default", text = "Out there you can do what you like to each other, pal, but in here nobody gets anything but a price." },
         { id = "si_horde", when = { faction = "Horde" }, text = "Alliance folk come through all the time, and they glare at you the same as you glare at them, but nobody draws, because they've all seen what happens. In here you're both just customers, pal." },
         { id = "si_alliance", when = { faction = "Alliance" }, text = "Orcs and trolls come off the boat from Ratchet every other day, and they glare at you the same as you glare at them, but nobody draws, because they've all seen what happens. In here you're both just customers, pal." },
       },
@@ -164,9 +164,9 @@ P:Pool {
     },
   },
   topics = {
-    bloodsail = { { id = "t_bloodsail", text = "Let 'em come. We've got cannons and a grudge." } },
-    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and docks a copper every time a gull messes on the cannons. That's all I need to know about the Cartel." } },
-    _none = { { id = "t_none", text = "Ask Krazek up at the tavern. He'll tell you whatever you want to know, and then he'll bill you for it." } },
+    bloodsail = { { id = "t_bloodsail", text = "Let 'em come, pal. We've got cannons, a grudge and a whole cellar of powder that's dying to go off." } },
+    steamwheedle = { { id = "t_cartel", text = "The Cartel pays us, and docks a copper every time a gull messes on the cannons, by my last copper. That's all I need to know about the Cartel." } },
+    _none = { { id = "t_none", text = "Ask Krazek up at the tavern, buddy. He'll tell you whatever you want to know, and then he'll bill you for it." } },
   },
 }
 

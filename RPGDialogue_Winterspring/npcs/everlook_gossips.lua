@@ -19,37 +19,37 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hey there! You look like somebody who wants to hear who's been stealing the inn's pickled herring." },
-    { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet her yet? No, don't tell me, I want to imagine your face." },
-    { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Found that survivor yet? Starfall Village, west of here, you can't miss it." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you didn't send me so much as a postcard! What's new out there?" },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, all grown and dangerous since I first talked your ear off. That's a story I'd like to hear." },
-    { id = "g_word_any", when = { word = { "pleased", "helped" } }, text = "I heard something nice about you today, from {source}! Don't ask me to repeat it, though; I like you better a little nervous." },
-    { id = "g_word_bad", when = { word = { "angered", "intimidated" } }, text = "Word is you rubbed somebody the wrong way. I'm not judging, friend, I'm only collecting." },
+    { id = "g_default", text = "Hey there, pal, hey! You look like somebody who wants to hear who's been stealin' the inn's pickled herring, and I've got it on good authority, which is to say mine." },
+    { id = "g_winna", when = { questActive = TODO_QUEST("A Strange One") }, text = "Did you meet her yet? No, no, don't tell me, chum, I want to imagine your face, and I'm savin' the story for a rainy day." },
+    { id = "g_wildkin", when = { questActive = TODO_QUEST("Enraged Wildkin") }, text = "Found that survivor yet, pal? Starfall Village, west of here, you can't miss it, and I've got a whole page waiting for whatever you hear." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you didn't send me so much as a postcard! What's new out there, pal, and don't leave out the good parts, because I'll know." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, all grown and dangerous since I first talked your ear off. That's a story I'd pay for, pal, and I don't pay for anything." },
+    { id = "g_word_any", when = { word = { "pleased", "helped" } }, text = "I heard something nice about you today, from {source}! Don't ask me to repeat it, though, pal, because I like you better a little nervous, and nervous folks always come back for more." },
+    { id = "g_word_bad", when = { word = { "angered", "intimidated" } }, text = "Word is you rubbed somebody the wrong way. I'm not judging, chum, I'm only collecting, and that one's already worth its weight in gossip." },
   },
 
   notice = {
     { id = "n_travel", cat = "travel", when = { minLevel = 55, timesTalked = { min = 2 } },
-      text = "You've been everywhere, haven't you? I can tell by the boots. Next time you go somewhere strange, come straight back and tell me." },
+      text = "You've been everywhere, haven't you, pal? I can tell by the boots. Next time you go somewhere strange, come straight back here and tell me first, before you go selling it to anybody else." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Tell me, is it true Gnomeregan's still full of your own folk gone strange? People say all sorts and I'd like it from someone who'd know." },
+      text = "A gnome! Tell me, pal, is it true Gnomeregan's still full of your own folk gone strange? People say all sorts, and I'd like it from someone who'd know, because first-hand news is worth triple." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Harlo Wigglesworth, and I'm the one in Everlook who knows what's going on, mostly because I ask. I've just got back from a trip through Felwood, and I've got news that'd curl your toes." },
+        { id = "h_default", key = true, text = "Harlo Wigglesworth, pal, and I'm the one in Everlook who knows what's going on, mostly because I ask and partly because I never stop. I've just got back from a trip through Felwood, and I've got news that'd curl your toes and probably your boots too." },
         { id = "h_strange", tags = { "news" }, when = { questDone = TODO_QUEST("A Strange One") },
-          text = "So you met Winna at Bloodvenom! Isn't she something? I couldn't decide if I wanted to help her or run, so I did the sensible thing and sent you instead." },
+          text = "So you met Winna at Bloodvenom! Isn't she somethin'? I couldn't decide if I wanted to help her or run, so I did the sensible goblin thing and subcontracted the job to you." },
         { id = "h_wildkin_done", when = { questDone = TODO_QUEST("Enraged Wildkin") },
-          text = "You went and found that dwarf at Starfall, didn't you? Jaron, that's the one. He tells the wildkin story better every time I hear it, and the wildkin get bigger." },
+          text = "You went and found that dwarf at Starfall, didn't you? Jaron, that's the one, and he tells the wildkin story better every time I hear it, and the wildkin get bigger, which is how you know a story's appreciating in value." },
         { id = "h_horde", when = { faction = "Horde" },
-          text = "Horde or Alliance, it's all the same to me in Everlook; you've all got ears, and that's what I'm interested in." },
+          text = "Horde or Alliance, it's all the same to me in Everlook, pal, because you've all got ears, and ears are my whole market." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got more, I've always got more." },
-        { id = "h_again2", text = "Go on, ask me anything, as long as you trade me something back." },
+        { id = "h_again", text = "What else, pal? I've got more, I've always got more, and the stock never runs out." },
+        { id = "h_again2", text = "Go on, ask me anything, chum, as long as you trade me something back, because even I've got to turn a profit somewhere." },
       },
       choices = {
         { text = "What did you see in Felwood?", next = "felwood" },
@@ -62,7 +62,7 @@ P:NPC {
     },
     felwood = {
       lines = {
-        { id = "f_default", text = "I stopped at Bloodvenom Post on the way, and I met a very odd character there, a woman who seemed intent on one thing and one thing only. I could tell you what it is, but I think she'd like to explain it to you herself." },
+        { id = "f_default", text = "I stopped at Bloodvenom Post on the way, pal, and I met a very odd character there, a woman who seemed intent on one thing and one thing only. I could tell you what it is, but I think she'd like to explain it to you herself, and I'd hate to undercut her." },
       },
       choices = {
         { text = "Just tell me, Harlo.", next = "felwood_tell" },
@@ -71,7 +71,7 @@ P:NPC {
     },
     felwood_tell = {
       lines = {
-        { id = "ft_default", text = "And spoil it? Never! Her name's Winna Hazzard, and she laughs at the end of every other sentence. Go and see her, and come back and tell me if I was right to be nervous." },
+        { id = "ft_default", text = "And spoil it? Never, pal, not for all the gold in Undermine! Her name's Winna Hazzard, and she laughs at the end of every other sentence, so go and see her, and come back and tell me if I was right to be nervous." },
       },
       choices = {
         { text = "Is she dangerous?", next = "felwood_danger" },
@@ -81,7 +81,7 @@ P:NPC {
     felwood_danger = {
       big = true,
       lines = {
-        { id = "fd_default", text = "Dangerous? Maybe, though she seemed mostly interested in the forest, and in what it does to things. Felwood's poison, and she's got a gleam about it, and I'm still not sure if that's science or madness." },
+        { id = "fd_default", text = "Dangerous? Maybe, though she seemed mostly interested in the forest, and in what it does to things. Felwood's poison, pal, and she's got a gleam about it like a goblin looking at an unclaimed mine, and I'm still not sure if that's science or madness." },
       },
       choices = {
         { text = "Someone has to study the poison. Good for her.", next = "BACK", fx = { align = { order = -1 } } },
@@ -91,7 +91,7 @@ P:NPC {
     },
     camp = {
       lines = {
-        { id = "c_default", text = "Have you seen it, the abandoned camp south of here? The wildkin went crazy and wrecked just about everything they could get their claws on. I heard one of the survivors is resting at Starfall Village, west of here, and I'm dying to know what happened." },
+        { id = "c_default", text = "Have you seen it, the abandoned camp south of here? The wildkin went crazy and wrecked just about everything they could get their claws on, crates, tents, the lot, and somebody's insurance won't cover it. I heard one of the survivors is resting at Starfall Village, west of here, and I'm dyin' to know what happened." },
       },
       choices = {
         { text = "Why not go and ask yourself?", next = "camp_why" },
@@ -100,7 +100,7 @@ P:NPC {
     },
     camp_why = {
       lines = {
-        { id = "cw_default", text = "Because it's cold out there, friend, and there are wildkin, and I'm a goblin of delicate constitution. You, on the other hand, look like the cold's afraid of you." },
+        { id = "cw_default", text = "Because it's cold out there, pal, and there are wildkin, and I'm a goblin of delicate constitution and no hazard pay. You, on the other hand, look like the cold's afraid of you." },
       },
       choices = {
         { text = "Fine, I'll go. Keep your delicate toes warm.", next = "BACK", fx = { affinity = 1 } },
@@ -109,7 +109,7 @@ P:NPC {
     },
     ears = {
       lines = {
-        { id = "e_default", text = "Everlook's where everybody ends up, sooner or later, and everybody needs a drink when they get here. I just happen to be standing near the drinks, and I'm very good at looking like I'm not listening." },
+        { id = "e_default", text = "Everlook's where everybody ends up, sooner or later, and everybody needs a drink when they get here. I just happen to be standing near the drinks, pal, and I'm very good at looking like I'm not listening, which is a skill worth more than gold up here." },
       },
       choices = {
         { text = "Do you sell what you hear?", next = "ears_sell" },
@@ -119,7 +119,7 @@ P:NPC {
     ears_sell = {
       big = true,
       lines = {
-        { id = "es_default", text = "Sell it? I give it away, mostly, which is a terrible way for a goblin to do business. My cousins say I'm a disgrace to the cartel, but news is more fun when it's moving." },
+        { id = "es_default", text = "Sell it? I give it away, mostly, which is a terrible way for a goblin to do business, and believe me, I've done the sums. My cousins say I'm a disgrace to the Cartel, pal, but news is more fun when it's moving." },
       },
       choices = {
         { text = "Secrets should cost something. Charge for them.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -129,7 +129,7 @@ P:NPC {
     },
     everlook = {
       lines = {
-        { id = "ev_default", text = "Umi's building something furry again, and Legacki's going to scream about it, which is the best news I've had all week. And the furbolgs out at Winterfall have gone nasty, which Donova Snowden at the hot springs can tell you more about than me." },
+        { id = "ev_default", text = "Umi's building something furry again, and Legacki's going to scream about it, which is the best news I've had all week, pal. And the furbolgs out at Winterfall have gone nasty, which Donova Snowden at the hot springs can tell you more about than me, and for once I mean that." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
@@ -137,7 +137,7 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xr_default", text = "I bet you can, and I bet you've heard things I'd give my back teeth for. Tell you what, you bring me something good one day, and I'll owe you a story you can't get anywhere else." },
+        { id = "xr_default", text = "I bet you can, pal, and I bet you've heard things I'd give my back teeth for. Tell you what, you bring me somethin' good one day, and I'll owe you a story you can't get anywhere else, and a goblin always settles his debts, eventually." },
       },
       choices = {
         { text = "Deal.", next = "BACK", fx = { affinity = 1 } },
@@ -147,11 +147,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born in a cartel town, raised on gossip, and I came to Everlook because it's where all the roads end. Best place in the world to listen." } },
-    advice = { { id = "tp_ad", text = "Always ask one more question than is polite. That's where the good stuff lives." } },
-    steamwheedle = { { id = "tp_sw", text = "Everlook's a Steamwheedle town, so nobody fights in it, and everybody talks in it. Perfect, really." } },
+    background = { { id = "tp_bg", text = "Born in a cartel town, raised on gossip, and I came to Everlook because it's where all the roads end, pal. Best place in the world to listen, and the cheapest." } },
+    advice = { { id = "tp_ad", text = "Always ask one more question than is polite, pal, because that's where the good stuff lives and nobody charges for it." } },
+    steamwheedle = { { id = "tp_sw", text = "Everlook's a Steamwheedle town, pal, so nobody fights in it and everybody talks in it, and the talk's tax-free. Perfect, really." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall used to trade a little, I hear, and now they bite. Something's got into them, and Donova's trying to find out what." } },
-    _none = { { id = "tp_none", text = "I haven't heard about that one yet! Find out and come back and tell me, would you?" } },
+    _none = { { id = "tp_none", text = "I haven't heard about that one yet! Find out and come back and tell me, would you, pal, because I hate being outbid on news." } },
   },
 }
 
@@ -170,17 +170,17 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "There's trouble in Winterspring, you know! Oh, and hello." },
+    { id = "g_default", text = "There's trouble in Winterspring, you know, sweetie! Oh, and hello, and you didn't come to buy anything, did you, because I've left the shop somewhere." },
     { id = "g_donova", when = { questActive = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova Snowden, at the hot springs. That was it. I knew I'd remember." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova says you've been a help with the furbolgs. I knew you had the look of someone who appreciates the hills." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Trouble in Winterspring!") }, text = "Donova says you've been a help with the furbolgs, sweetie. I knew you had the look of someone who appreciates the hills, and that's worth more than a pocketful of thorium, nearly." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were you? Out in the hills, I hope, cultivating your reflexes." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've got that keen eye now, the one I was talking about. Was I talking about it?" },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, you've got that keen eye now, the one I was talking about, the one you can't buy for any price. Was I talking about it?" },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I heard good things about you, from someone, about something. It was good, anyway." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Look at the state of your gear! That's what the hills do to you, and it's marvelous, though you'll want it mended before you go back out." },
+      text = "Look at the state of your gear, sweetie! That's what the hills do to you, and it's marvelous, though you'll want it mended before you go back out, and Everlook's smith don't work for smiles." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter! Then you'll understand, won't you, what it is to spend golden hours out there with nothing but the snow and your own wits?" },
   },
@@ -189,15 +189,15 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Meggi Peppinrocker, and I'm always mighty proud to say I spend my time out in the wilds. It takes a cool head and a keen eye to appreciate the hills the way I do, and now, what was I talking about?" },
+        { id = "h_default", key = true, text = "Meggi Peppinrocker, sweetie, and I'm always mighty proud to say I spend my time out in the wilds instead of behind a counter like the rest of my family. It takes a cool head and a keen eye to appreciate the hills the way I do, and now, what was I talking about?" },
         { id = "h_before", when = { questBefore = TODO_QUEST("Trouble in Winterspring!") },
           text = "Trouble! That's what it was, trouble in Winterspring. Donova Snowden at the hot springs can tell you all about it, because she was the one who told me, I'm nearly sure." },
         { id = "h_druid", when = { class = "DRUID" },
-          text = "A druid, so you'll know about the hills already, though not the way a goblin knows them, I'd wager. We notice where the good rocks are." },
+          text = "A druid, so you'll know about the hills already, sweetie, though not the way a goblin knows 'em, I'd wager. We notice where the good rocks are and what they'd fetch in Booty Bay." },
       },
       again = {
         { id = "h_again", text = "Where was I? Oh, yes, you were asking something." },
-        { id = "h_again2", text = "Ask away. I've got all day, and most of the night too." },
+        { id = "h_again2", text = "Ask away, sweetie. I've got all day, and most of the night too, and neither one costs a copper." },
       },
       choices = {
         { text = "What trouble, Meggi?", next = "trouble" },
@@ -238,7 +238,7 @@ P:NPC {
     },
     hills = {
       lines = {
-        { id = "hi_default", text = "Because the hours I spend out there are golden, and I mean that! You learn quick reflexes, and judgement, and a sort of maturity you can't buy in Booty Bay, though people have tried." },
+        { id = "hi_default", text = "Because the hours I spend out there are golden, sweetie, and I mean that, golden! You learn quick reflexes, and judgement, and a sort of maturity you can't buy in Booty Bay, though, by my mother's ledger, people have tried." },
       },
       choices = {
         { text = "What's the best spot you've found?", next = "hills_spot" },
@@ -247,7 +247,7 @@ P:NPC {
     },
     hills_spot = {
       lines = {
-        { id = "hs_default", text = "There's a ridge above the hot springs where you can see clear to Mazthoril on a good morning, with the steam rising and the snow going pink. Of course, the last time I was up there I forgot why I'd gone, but the view was worth it." },
+        { id = "hs_default", text = "There's a ridge above the hot springs where you can see clear to Mazthoril on a good morning, with the steam rising and the snow going pink, and you couldn't put a price on it if you tried, and I did try. Of course, the last time I was up there I forgot why I'd gone, but the view was worth it." },
       },
       choices = {
         { text = "That sounds worth the climb.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -256,7 +256,7 @@ P:NPC {
     },
     goblin = {
       lines = {
-        { id = "go_default", text = "I know, I know, everyone says goblins only like gold and explosions, and I like those too. But you can't find the best ore veins from inside a shop, and once I got out there, I found I liked it better than the ore." },
+        { id = "go_default", text = "I know, I know, everyone says goblins only like gold and explosions, and I like those too, sweetie, especially the explosions. But you can't find the best ore veins from inside a shop, and once I got out there, I found I liked it better than the ore." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -274,10 +274,10 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Goblin, Everlook, the hills. In that order, though some days I'd swap the first two." } },
+    background = { { id = "tp_bg", text = "Goblin, Everlook, the hills, sweetie, in that order, though some days I'd swap the first two and sell the third." } },
     advice = { { id = "tp_ad", text = "Take your time out there, and keep your eyes open, and write down what you meant to do before you set out. I never do, but you should." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone wrong, and it's a shame, because they used to keep to themselves. Donova knows why, or she will soon." } },
-    steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, and very safe, and very dull, which is why I go out into the hills." } },
-    _none = { { id = "tp_none", text = "I knew that once, I'm sure of it. It'll come back to me, probably when you've gone." } },
+    steamwheedle = { { id = "tp_sw", text = "Everlook's a cartel town, sweetie, and very safe, and very dull, and everything in it costs double, which is why I go out into the hills." } },
+    _none = { { id = "tp_none", text = "I knew that once, sweetie, I'm sure of it, and it was probably worth somethin'. It'll come back to me, probably when you've gone." } },
   },
 }

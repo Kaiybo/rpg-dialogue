@@ -14,21 +14,21 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hands off the walls, pal; I built those." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Spending today, or just admiring?" },
-    { id = "g_engineer", when = { profession = "Engineering" }, text = "A fellow engineer! That's lovely, but touch nothing anyway." },
+    { id = "g_default", text = "Hands off the walls, pal, I built those, and every fingerprint's a cleaning fee." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, kid! Spending today, or just admiring? Because admiring's how the gnomes do it, and look where it got them." },
+    { id = "g_engineer", when = { profession = "Engineering" }, text = "A fellow engineer! That's lovely, pal, really lovely, but touch nothin' anyway." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, pal, and in that time I've put up two new walls, so keep your hands off those too." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the port is you sold somebody a story and they paid full price for it, which is good business, I gotta say. Just don't try it on me, because I own the building you'd be lying in." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round down at the port, kid, and talent like that's worth coin, so I'd hate to see you give it away for free." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word around the port is you sold somebody a story and they paid full price for it, which is good business, I gotta say. Just don't try it on me, kid, because I own the building you'd be lying in." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round down at the port, kid, and talent like that's worth coin, so I'd hate to see you give it away for nothin'." },
   },
 
   notice = {
     { id = "n_engineer", cat = "craft", when = { profession = "Engineering" },
       text = "So you're an engineer, are you? Gnomish or goblin... no, don't answer, I can tell by the eyebrows, since some of yours are missing." },
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "Rich, eh? I like you, and I like your purse even more. Ever thought about property? I've got some; all of it, actually." },
+      text = "Rich, eh? I like you, pal, and I like your purse even more. Ever thought about property? I've got some, all of it, actually, and it's very reasonably priced for the right buyer." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome, in MY port, measuring things with your eyes; I can see you doing it, so stop it." },
+      text = "A gnome, in MY port, measuring things with your eyes; I can see you doing it, kid, so stop it, or I start charging by the inch." },
   },
 
   start = "hello",
@@ -36,23 +36,23 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Melbin Powderfuse, Master Goblin Engineer. The docks, the inn, every plank and every nail: mine, and I built it all. Before me there was nothing here but sand and murlocs.",
+          text = "Melbin Powderfuse, Master Goblin Engineer, and before you ask, yes, the docks, the inn, every plank and every nail are mine, and I built it all. Before me there was nothin' here but sand and murlocs, and the murlocs weren't paying rent either.",
           fx = { hear = "melbin_built_port", learn = { "powderfuse_port" } } },
         { id = "h_partner", when = { townStanding = { town = "powderfuse_port", min = 30 } },
-          text = "My favourite customer! Everybody in the port says so, because I told them to." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You look like you break things, so let's agree right now that anything you break in MY port, you pay for." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Shiny armour, honest face, and a terrible negotiator, I'd bet; I like you already." },
+          text = "My favourite customer! Everybody in the port says so, pal, because I told them to, and I don't tell 'em that for free." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You look like you break things, pal, so let's agree right now that anything you break in MY port, you pay for, at replacement cost plus labour." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Shiny armour, honest face, and a terrible negotiator, I'd bet my last copper, so I like you already." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with a pet. If that beast sheds on my dock, it's a cleaning fee, and if it bites a customer, it's a bigger fee." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light! Bless the docks if you like, but the blessing becomes MY property the moment it lands." },
-        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest! Doesn't matter which flavour, your gold's the same colour as anyone's. Pray all you want, just not near the cash box." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Tell your elements this coast is zoned for business, and no earthquakes without a permit." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Don't you go portalling my customers out of here before they've spent anything." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, and an imp, or whatever that thing is. It doesn't pay rent, so it doesn't stay." },
+        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest! Doesn't matter which flavour, pal, your gold's the same colour as anybody's. Pray all you want, just not near the cash box." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Tell your elements this coast is zoned for business, kid, and no earthquakes without a permit, which I sell." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, eh? Don't you go portallin' my customers out of here before they've spent anything, pal, because that's theft with extra steps." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, and an imp, or whatever that thing is. It doesn't pay rent, pal, so it doesn't stay, unless you're payin' for it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! If you're going to complain about the trees, get in line; the line is long, and it's also mine." },
       },
       again = {
         { id = "h_again", text = "More questions? Questions are free, and answers are free too, but the building you're standing in is not." },
-        { id = "h_again2", text = "Go on, go on. I'm listening and invoicing at the same time." },
+        { id = "h_again2", text = "Go on, go on, kid, I'm listening and invoicing at the same time." },
       },
       choices = {
         { text = "You really built all of this yourself?", next = "built" },
@@ -77,7 +77,7 @@ P:NPC {
       },
     },
     built = {
-      lines = { { id = "b_default", text = "Every board! Well, I designed every board, and some goblins I paid did the nailing. Paid them well, too, so ask them... actually, don't ask them." } },
+      lines = { { id = "b_default", text = "Every board, pal! Well, I designed every board, and some goblins I paid did the nailing, and I paid 'em well, too, so ask them... actually, don't ask them." } },
       choices = {
         { text = "So you didn't build it.", next = "built_push", fx = { affinity = -1, trait = { skeptical = 1 } } },
         { text = "Impressive.", next = "BACK", fx = { affinity = 1 } },
@@ -88,25 +88,25 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     deal = {
-      lines = { { id = "d_default", text = "Now you're talking. The Brotherhood buys, the Horde buys, the pirates buy when they think I'm not looking. I need hands that can carry things past all three without getting stabbed." } },
+      lines = { { id = "d_default", text = "Now you're talkin', pal. The Brotherhood buys, the Horde buys, the pirates buy when they think I'm not looking, and I need hands that can carry things past all three without getting stabbed, because stabbings are bad for the insurance." } },
       choices = {
         { text = "What's the pay?", next = "deal_pay", fx = { trait = { greedy = 1 } } },
         { text = "I don't work for goblins.", next = "BACK", fx = { affinity = -2 } },
       },
     },
     deal_pay = {
-      lines = { { id = "dp_default", text = "Fair. Goblin fair, which means you'll complain and come back anyway." } },
+      lines = { { id = "dp_default", text = "Fair pay, pal: goblin fair, which means you'll complain and come back anyway, and I'll have the contract ready when you do." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     why = {
-      lines = { { id = "w_default", text = "Rivers! Three of them, bending like a drunk's walk home, all coming down to this coast. Timber, ore, pelts, they all float to me, and I just had to be here first." } },
+      lines = { { id = "w_default", text = "Rivers, kid! Three of 'em, bending like a drunk's walk home, all coming down to this coast, so timber, ore and pelts all float right to me. All I had to do was be here first and put up a sign." } },
       choices = {
         { text = "Smart.", next = "BACK", fx = { affinity = 1 } },
         { text = "And the Steamwheedle Cartel?", next = "why_cartel" },
       },
     },
     why_cartel = {
-      lines = { { id = "wc_default", text = "The Cartel says I owe them a cut, and I do: a small one, a very carefully calculated small one.",
+      lines = { { id = "wc_default", text = "The Cartel says I owe 'em a cut, and I do, pal: a small one, a very carefully calculated small one, by my last copper.",
         fx = { learn = { "steamwheedle" } } } },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -126,18 +126,18 @@ P:NPC {
       },
     },
     neighbors_pirates = {
-      lines = { { id = "np_default", text = "They're customers, is what they are, so don't you go telling the Brotherhood." } },
+      lines = { { id = "np_default", text = "They're customers, is what they are, pal, and good ones, so don't you go telling the Brotherhood, or I'll be charging you for the lost business." } },
       choices = {
         { text = "My lips are sealed.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "I might.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
       },
     },
     gnome = {
-      lines = { { id = "gn_default", text = "Faster, sure, and then it'd explode. Mine's only exploded twice, and once was on purpose." } },
+      lines = { { id = "gn_default", text = "Faster, sure, and then it'd explode, kid, because they always do. Mine's only exploded twice, and once was on purpose, for the insurance." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     partner = {
-      lines = { { id = "p_default", text = "Partner? Ha! No, but you're a valued customer, and in Powderfuse that's better, because partners pay rent." } },
+      lines = { { id = "p_default", text = "Partner? Ha! No, pal, but you're a valued customer, and in Powderfuse that's better, because partners pay rent." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     audit = {
@@ -230,7 +230,7 @@ P:NPC {
     xhsham = {
       big = true,
       lines = {
-        { id = "xsc_default", text = "The spirits? I asked the murlocs, and they said 'mrgl', which I took as a yes. If the earth's got a complaint, it can file it with me like everybody else." },
+        { id = "xsc_default", text = "The spirits? I asked the murlocs, pal, and they said 'mrgl', which I took as a yes and had notarised. If the earth's got a complaint, it can file it with me like everybody else." },
       },
       choices = {
         { text = "Respect the land, Melbin, or it'll take its due.", next = "BACK", fx = { align = { light = 1 } } },
@@ -275,14 +275,14 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "Information's like timber: it floats down to me eventually, and I sell it on. Ask, and we'll talk terms later." },
+      { id = "tp_knows", text = "Information's like timber, pal: it floats down to me eventually, and I sell it on at a markup. Ask, and we'll talk terms later." },
     },
-    background = { { id = "tp_bg", text = "Born with nothing, somewhere with less, and now I own a port. Do the sums; it's a very inspiring story." } },
-    advice = { { id = "tp_ad", text = "Never build on land somebody else owns. Build first, and make them prove it." } },
-    powderfuse_port = { { id = "tp_port", text = "Mine, all of it, so next question." } },
-    steamwheedle = { { id = "tp_cartel", text = "Fine people, thirsty people, and every cut they take, I take back from the boat fares." } },
-    twilights_hammer = { { id = "tp_hammer", text = "Terrible customers. They never buy anything, and they keep looking at the sky like it owes them money." } },
-    _none = { { id = "tp_none", text = "Is it for sale? If it isn't, I haven't got an opinion." } },
+    background = { { id = "tp_bg", text = "Born with nothin', somewhere with less, and now I own a port, kid. Do the sums; it's a very inspiring story, and I'll sell you the book when I write it." } },
+    advice = { { id = "tp_ad", text = "Never build on land somebody else owns, pal. Build first, and make them prove it, and bill them for the inconvenience." } },
+    powderfuse_port = { { id = "tp_port", text = "Mine, all of it, every grain of sand, so next question, pal." } },
+    steamwheedle = { { id = "tp_cartel", text = "Fine people, thirsty people, and every cut they take, I take back from the boat fares, so it all comes out in the wash." } },
+    twilights_hammer = { { id = "tp_hammer", text = "Terrible customers, pal. They never buy anything, and they keep looking at the sky like it owes 'em money, which, I mean, I understand the feeling." } },
+    _none = { { id = "tp_none", text = "Is it for sale? If it isn't, kid, I haven't got an opinion, and if it is, it's probably mine." } },
   },
 }
 
@@ -298,37 +298,37 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another explorer! Come in, come in, and mind the smell; it's the sea, mostly." },
-    { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready! I aired it out, but the air came back in, so it smells like fish again." },
-    { id = "g_away", when = { away = 14 }, text = "You're back after {away}, explorer, and right on time, because I aired your room this morning and only the fish smell came back." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word off the boat is somebody caught you in a fib, explorer, and in this port a rumor gets round faster than Argo's sea monsters, so I'd lie low a while." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody sat at the bar tonight grinning about something you'd said, explorer, and good moods sell stew, so come in and say something nice to me too." },
+    { id = "g_default", text = "Another explorer! Come in, come in, honey, and mind the smell, because it's the sea, mostly, and the sea doesn't pay for cleaning." },
+    { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready, explorer! I aired it out, but the air came back in, so it smells like fish again, and I'm not knocking anything off for that." },
+    { id = "g_away", when = { away = 14 }, text = "You're back after {away}, explorer, and right on time, because I aired your room this mornin' and only the fish smell came back, which is half the rent's worth of fresh air." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word off the boat is somebody caught you in a fib, explorer, and in this port a rumour gets round faster than Argo's sea monsters, so I'd lie low a while and keep your tab paid." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody sat at the bar tonight grinning about somethin' you'd said, explorer, and good moods sell stew, so come in and say something nice to me too, honey, it's good for business." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Oh, you've been at Argo's bottle! Sit down before the floor comes up to meet you; it does that here." },
+      text = "Oh, you've been at Argo's bottle! Sit down before the floor comes up to meet you, honey, because it does that here, and broken chairs go on the bill." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Zizplink, innkeeper. Beds upstairs, food down here, and everybody off the Tanaris boat comes through that door. You hear things, running the inn at the end of a boat route." },
+        { id = "h_default", key = true, text = "Zizplink, innkeeper, at your service and at very fair rates! Beds upstairs, food down here, and everybody off the Tanaris boat comes through that door, so you hear things, explorer, and a good rumour's worth more than a bed." },
         { id = "h_list", tags = { "news" }, when = { questActive = TODO_QUEST("Zizplink's Grocery List") },
-          text = "You've got my list! Don't lose it, and don't read it out loud; some of those are for Fimbo, and he's sensitive." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, back from the fields! Sit down, explorer; the stew's hot and the chairs are sturdy, mostly." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We don't get many of you down here, explorer; the Brotherhood's knights mostly stay up at their keep." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "Oh, a hunter, and a pet! Your friend can sleep by the fire, explorer, so long as it leaves Fimbo's fish alone." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! I didn't hear you come in, explorer, and I hear everything, so that's a real talent." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way from Stormwind, I'd guess! Sit; the Brotherhood boys at the bar could use a kind word." },
-        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest, off the Tanaris boat? Welcome, explorer; the inn's neutral, and so's the stew." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you smell the sea in here? Of course you can; everyone can, and the spirits must love it." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! If you can conjure water, I'll trade you a room for a barrel; the well's gone brackish again." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Oh my, a warlock, and your little friend too. Welcome, explorer, but the little one sleeps outside, and that's a house rule I just made." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Please don't turn into anything in the dining room, explorer; Argo gets confused enough as it is." },
+          text = "You've got my list! Don't lose it, explorer, and don't read it out loud, because some of those are for Fimbo, and he's sensitive about his budget." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, back from the fields! Sit down, explorer, the stew's hot and the chairs are sturdy, mostly, and if one breaks under you, we'll talk." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We don't get many of you down here, explorer, because the Brotherhood's knights mostly stay up at their keep and drink their own ale, which is a terrible loss of custom." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "Oh, a hunter, and a pet! Your friend can sleep by the fire, explorer, for a small fee, so long as it leaves Fimbo's fish alone." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! I didn't hear you come in, explorer, and I hear everything, so that's a real talent, and talents like that could make somebody a lot of money." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way from Stormwind, I'd guess! Sit, honey, sit, because the Brotherhood boys at the bar could use a kind word, and they drink more when they're cheered up." },
+        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest, off the Tanaris boat? Welcome, explorer, the inn's neutral, and so's the stew, and so's the price." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you smell the sea in here? Course you can, honey, everybody can, and the spirits must love it, so tell 'em the rooms are cheap." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! If you can conjure water, explorer, we can talk about a room for a barrel, because the well's gone brackish again and Melbin won't pay to fix it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Oh my, a warlock, and your little friend too. Welcome, explorer, but the little one sleeps outside, and that's a house rule I just made and I'll be charging for." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Please don't turn into anything in the dining room, explorer, because Argo gets confused enough as it is, and he never pays for what he breaks." },
       },
-      again = { { id = "h_again", text = "Anything else, explorer?" }, { id = "h_again2", text = "More? I'll top you up while you think." } },
+      again = { { id = "h_again", text = "Anything else, explorer? Ask away, honey, the questions are free and the soup is not." }, { id = "h_again2", text = "More? I'll top you up while you think, and I'll only charge you for half." } },
       choices = {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Heard anything?", next = "gossip" },
@@ -348,21 +348,21 @@ P:NPC {
       },
     },
     gossip = {
-      lines = { { id = "gs_default", text = "Plenty! Most of it's Argo's, so half of it's sea monsters. Sit a while; the other half comes round eventually." } },
+      lines = { { id = "gs_default", text = "Plenty, honey! Most of it's Argo's, so half of it's sea monsters, but sit a while, have a bowl, and the other half comes round eventually." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gray = {
-      lines = { { id = "gr_default", text = "Gray? He's Brotherhood. He comes down from the keep, drinks, grumbles, tips well and goes back up again. Don't sit in his chair; he doesn't own it, but don't anyway." } },
+      lines = { { id = "gr_default", text = "Gray? He's Brotherhood, honey. He comes down from the keep, drinks, grumbles, tips well and goes back up again, and don't sit in his chair, because he doesn't own it, but a good tipper gets a chair." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } } },
     },
     melbin = {
-      lines = { { id = "m_default", text = "He owns the land, or so he says. I own the stew pot and the good blankets, and I never once let him forget it." } },
+      lines = { { id = "m_default", text = "He owns the land, or so he says, explorer. I own the stew pot and the good blankets, and I never once let him forget it, especially on rent day." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xwarcl = {
       big = true,
       lines = {
-        { id = "xwc_default", text = "Who hit who, mostly, and who's paying for the next round. The Brotherhood boys tell the same siege stories every night and the Horde ones off the boat tell theirs, and somehow they never sit at the same table." },
+        { id = "xwc_default", text = "Who hit who, mostly, and who's paying for the next round, which is the important bit. The Brotherhood boys tell the same siege stories every night and the Horde ones off the boat tell theirs, and somehow they never sit at the same table, which is lovely, because I sell twice the ale." },
       },
       choices = {
         { text = "Maybe one day they'll share a table.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -373,7 +373,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Oh, Melbin's prices, and their Commander, who thinks goblins are only one step up from the Horde. Gray comes down, though, and he's Brotherhood through and through, whatever he says when he's had a few." },
+        { id = "xpa_default", text = "Oh, Melbin's prices, and their Commander, who thinks goblins are only one step up from the Horde, honey. Gray comes down, though, and he's Brotherhood through and through, whatever he says when he's had a few and run up a tab." },
       },
       choices = {
         { text = "Demar's right to be careful. Goblins sell to everyone.", next = "BACK", fx = { align = { order = 1 } } },
@@ -384,7 +384,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhc_default", text = "Big cats in the hills, catfish in the rivers with whiskers like Melbin's, and ogres up north who've started trading with the Horde instead of eating them. That last one's my favourite." },
+        { id = "xhc_default", text = "Big cats in the hills, catfish in the rivers with whiskers like Melbin's, and ogres up north who've started tradin' with the Horde instead of eating them. That last one's my favourite, explorer, because it means more customers." },
       },
       choices = {
         { text = "Hunt only what you need out there.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -395,7 +395,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "Ooh, a quiet one? Gray's been writing letters he doesn't send, and Melbin's been counting boat fares twice, once out loud and once under his breath. That's all I'll say, explorer, because I like my customers coming back." },
+        { id = "xro_default", text = "Ooh, a quiet one? Gray's been writing letters he doesn't send, and Melbin's been counting boat fares twice, once out loud and once under his breath. That's all I'll say, explorer, because gossip's free but I like my customers coming back." },
       },
       choices = {
         { text = "I'll keep that to myself, Zizplink.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -406,7 +406,7 @@ P:NPC {
     xpriest = {
       big = true,
       lines = {
-        { id = "xpr_default", text = "Gray, every night, though he'd throw his mug at you for saying so. And Argo, who laughs a little too loud for a man who's not frightened of anything." },
+        { id = "xpr_default", text = "Gray, every night, though he'd throw his mug at you for saying so, and I'd charge him for the mug. And Argo, who laughs a little too loud for a man who's not frightened of anything." },
       },
       choices = {
         { text = "Then I'll sit with them both tonight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -417,7 +417,7 @@ P:NPC {
     xhsham = {
       big = true,
       lines = {
-        { id = "xsc_default", text = "That it's bigger than it used to be, which is silly, and that something lives off the murloc islands, which is Argo's story, so that's silly too, except his boat came back with teeth marks. I keep the shutters closed on stormy nights, explorer, just in case." },
+        { id = "xsc_default", text = "That it's bigger than it used to be, which is silly, and that somethin' lives off the murloc islands, which is Argo's story, so that's silly too, except his boat came back with teeth marks. I keep the shutters closed on stormy nights, explorer, just in case, because shutters are cheaper than walls." },
       },
       choices = {
         { text = "Respect the sea, and it'll leave you be.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -428,7 +428,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "The tide gets into it, because Melbin dug it too close to the shore to save on rope. He says it's a feature, a saltwater well, very fashionable, and I say it makes the tea taste like Argo's boots." },
+        { id = "xmg_default", text = "The tide gets into it, honey, because Melbin dug it too close to the shore to save on rope. He says it's a feature, a saltwater well, very fashionable, and I say it makes the tea taste like Argo's boots and costs me customers." },
       },
       choices = {
         { text = "Make Melbin dig a proper well.", next = "BACK", fx = { align = { order = 1 } } },
@@ -439,7 +439,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlk_default", text = "Because the last guest with a little friend like that let it loose in the pantry, and Fimbo didn't speak to me for a week! I'm sure yours is lovely, explorer, but rules are rules." },
+        { id = "xlk_default", text = "Because the last guest with a little friend like that let it loose in the pantry, and it ate three silver's worth of cheese and Fimbo didn't speak to me for a week! I'm sure yours is lovely, explorer, but rules are rules." },
       },
       choices = {
         { text = "Fair. It'll stay outside.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -450,7 +450,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Murlocs, more than anybody wants, and crabs the size of cartwheels off the islands, and once a turtle so old it had barnacles on its barnacles. Fimbo wanted to cook it, and I wouldn't let him." },
+        { id = "xdr_default", text = "Murlocs, more than anybody wants, and crabs the size of cartwheels off the islands, and once a turtle so old it had barnacles on its barnacles. Fimbo wanted to cook it, and I wouldn't let him, honey, and that's the only meal I ever turned down for free." },
       },
       choices = {
         { text = "Good. Something that old deserves to live.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -459,14 +459,14 @@ P:NPC {
       },
     },
     origin = {
-      lines = { { id = "or_default", text = "I was cooking in a galley on the Tanaris run, explorer, and the day the boat first tied up here, Melbin said he needed an innkeeper and I said I needed a kitchen that didn't roll. That was that, and I've not been seasick once since." } },
+      lines = { { id = "or_default", text = "I was cooking in a galley on the Tanaris run, explorer, and the day the boat first tied up here, Melbin said he needed an innkeeper and I said I needed a kitchen that didn't roll. We shook on it, haggled for a week, and I've not been seasick once since." } },
       choices = {
         { text = "Do you miss the sea?", next = "origin_sea" },
         { text = "Something else.", next = "BACK" },
       },
     },
     origin_sea = {
-      lines = { { id = "orb_default", text = "Miss it? I can smell it from every room! But I do miss the stars from a deck at night, and some evenings I sit at the end of the dock and pretend the whole port is rocking." } },
+      lines = { { id = "orb_default", text = "Miss it? I can smell it from every room, honey! But I do miss the stars from a deck at night, and some evenings I sit at the end of the dock and pretend the whole port is rocking." } },
       choices = {
         { text = "A home that stays put is worth a lot.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd have stayed on the boat and kept moving.", next = "BACK", fx = { align = { order = -1 } } },
@@ -477,12 +477,12 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "Everybody off the Tanaris boat comes through that door with a story! Ask, explorer, and I'll tell you everything I've heard." },
+      { id = "tp_knows", text = "Everybody off the Tanaris boat comes through that door with a story, and half of 'em pay for their bed in gossip! Ask, explorer, and I'll tell you everything I've heard." },
     },
-    background = { { id = "tp_bg", text = "I ran a kitchen, then a galley, and now an inn, and every step was a bigger pot." } },
-    advice = { { id = "tp_ad", text = "Breathe through your mouth on the docks at low tide. Trust me." } },
-    powderfuse_port = { { id = "tp_port", text = "Best little port on the coast! It's the only little port on the coast, but that still counts." } },
-    _none = { { id = "tp_none", text = "Never heard of it! Ask me tomorrow, though; somebody'll have told me by then." } },
+    background = { { id = "tp_bg", text = "I ran a kitchen, then a galley, and now an inn, honey, and every step was a bigger pot and a bigger profit." } },
+    advice = { { id = "tp_ad", text = "Breathe through your mouth on the docks at low tide, explorer, and never let Melbin hold your coin purse." } },
+    powderfuse_port = { { id = "tp_port", text = "Best little port on the coast, honey! It's the only little port on the coast, but that still counts, and the rent says so." } },
+    _none = { { id = "tp_none", text = "Never heard of it, explorer! Ask me tomorrow, though, because somebody'll have told me by then over a bowl of stew." } },
   },
 }
 
@@ -750,21 +750,21 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "No fights today, pal, but soon, very soon!" },
+    { id = "g_default", text = "No fights today, pal, but soon, very soon, and you can get in on the ground floor!" },
   },
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "Look at the shoulders on you! I can see the poster already." },
+      text = "Look at the shoulders on you, champ! I can see the poster already, and I can hear the ticket booth ringin'." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
-      text = "A bear! A talking bear? Could you do that on command, twice a night, maybe with a little hat?" },
+      text = "A bear! A talking bear? Could you do that on command, pal, twice a night, maybe with a little hat? Hats sell." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Jazzle Cheapshot, and this is my arena. It's empty, yeah, for now, while the Horde and the Alliance are out in the fields killing each other for free. For free!" },
+        { id = "h_default", key = true, text = "Jazzle Cheapshot, and this is my arena! It's empty, yeah, for now, while the Horde and the Alliance are out in the fields killing each other for free. For free, pal, with no ticket sales, no snack cart, nothin'!" },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter with a beast! Two fighters for the price of one ticket, and I can sell that, pal, oh, I can sell that." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Every arena needs a healer by the ring, and the crowd loves a comeback, so you'd be the comeback." },
         { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest! Ringside healer, pal, that's the job; somebody's gotta patch them up for round two." },
@@ -773,7 +773,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock with a demon! Now that's a headliner: Bring Your Own Monster Night." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've got your poster half-painted already, 'The Bear Who Was a Person', and you'd be perfect." },
       },
-      again = { { id = "h_again", text = "What else? Make it quick, I've posters to paint." } },
+      again = { { id = "h_again", text = "What else, champ? Make it quick, I've posters to paint and a crowd to invent." } },
       choices = {
         { text = "When does it open?", next = "open" },
         { text = "Who would even fight here?", next = "fighters" },
@@ -790,29 +790,29 @@ P:NPC {
       },
     },
     open = {
-      lines = { { id = "o_default", text = "When I've got fighters, a crowd, and Melbin off my back about the rent, so soon. Goblin soon!" } },
+      lines = { { id = "o_default", text = "When I've got fighters, a crowd, and Melbin off my back about the rent, so soon, pal. Goblin soon, which means as soon as somebody pays a deposit!" } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fighters = {
-      lines = { { id = "f_default", text = "Ogres, if Bolder'ok'll sign, and Brotherhood knights, if they'd stop being so noble. Pirates, if I can get 'em to fight one at a time, and you, if you've got a gimmick." } },
+      lines = { { id = "f_default", text = "Ogres, if Bolder'ok'll sign, and Brotherhood knights, if they'd stop bein' so noble about it. Pirates, if I can get 'em to fight one at a time, and you, champ, if you've got a gimmick." } },
       choices = {
         { text = "A gimmick?", next = "gimmick" },
         { text = "Something else.", next = "BACK" },
       },
     },
     gimmick = {
-      lines = { { id = "gm_default", text = "Everybody needs one! 'The Bear Who Was a Person', say, or 'The Gnome With the Big Hammer'. Think on it, and come back with a name." } },
+      lines = { { id = "gm_default", text = "Everybody needs one, pal! 'The Bear Who Was a Person', say, or 'The Gnome With the Big Hammer', so think on it, and come back with a name I can sell." } },
       choices = {
         { text = "'The One Who Gets On With It.'", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
         { text = "I'll pass.", next = "BACK" },
       },
     },
     card = {
-      lines = { { id = "c_default", text = "Opening night, top of the bill. There's no opening night yet, but you're on it." } },
+      lines = { { id = "c_default", text = "Opening night, top of the bill, champ! There's no opening night yet, but you're on it, and that's a promise from a promoter, which is worth exactly what you think it is." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     grim = {
-      lines = { { id = "gr_default", text = "Grim? It's the same fighting with a roof and a snack cart, so I'm civilizing it." } },
+      lines = { { id = "gr_default", text = "Grim? It's the same fighting with a roof and a snack cart, pal, so I'm civilizing it, and I'm charging admission for the civilization." } },
       choices = {
         { text = "Selling seats to a bloodbath isn't civilizing it, Jazzle.", next = "BACK", fx = { align = { honor = 1 }, trait = { skeptical = 1 } } },
         { text = "Fair point, actually.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -912,36 +912,36 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Table for one? Every table's for one, since nobody eats here in pairs, and the chowder's only got the one bone in it this week." },
-    { id = "g_menu", text = "It's boar or fish, same as yesterday, and same as forever." },
+    { id = "g_default", text = "Table for one, buddy? Every table's for one, since nobody eats here in pairs, and the chowder's only got the one bone in it this week, which I'm calling a special." },
+    { id = "g_menu", text = "It's boar or fish, buddy, same as yesterday, same as forever, and same price, so at least it's consistent." },
   },
 
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
-      text = "A cook! Finally, somebody who'll understand my suffering." },
+      text = "A cook! Finally, somebody who'll understand my sufferin', and maybe split the cost of a peppercorn." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Fimbo Greasemitz, and welcome to my cafe on the water! Today we have roast boar and roast fish, and tomorrow, roast boar and roast fish. I'm dying inside." },
+        { id = "h_default", key = true, text = "Fimbo Greasemitz, and welcome to my cafe on the water, buddy! Today we have roast boar and roast fish, and tomorrow, roast boar and roast fish, and I'm dyin' inside, but the prices are very reasonable." },
         { id = "h_stew", tags = { "news" }, when = { questActive = TODO_QUEST("A Taste of the Sea") },
-          text = "Murloc eyes and crab meat, off the beaches. Fast in the pan with the eyes; that's the secret, because it keeps the sea in them." },
+          text = "Murloc eyes and crab meat, off the beaches, buddy. Fast in the pan with the eyes, that's the secret, because it keeps the sea in 'em, and the sea's the only ingredient I get for free." },
         { id = "h_stew_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("A Taste of the Sea"), days = 3 } },
-          text = "Seafood stew, on the menu! Three customers tried it and two came back, which is the best this cafe has ever done." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You look hungry, and hungry is my favourite kind of customer. Boar or fish? I already know your answer." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Do you bless food? Because my boar could use a miracle, honestly." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Please, please tell me you've brought something that isn't boar." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You snuck up on my kitchen! Good; I like a customer who doesn't knock over the pans." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Say grace over my roast, would you? It's the only thing that'll make it taste different." },
-        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A priest off the Horde boat! Do your people say grace? Say it, please, because the boar needs all the help it can get." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can the spirits make a fish taste like something other than fish? I'd pay." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you conjure food? Don't answer, because if you can, I'm out of business." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Does your little friend eat? Please say it eats, because I've got so much boar." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You know herbs, wild ones, out of the glades. Please tell me you know herbs." },
+          text = "Seafood stew, on the menu, at two silver a bowl! Three customers tried it and two came back, which is the best return this cafe has ever done." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! You look hungry, buddy, and hungry is my favourite kind of customer, because hungry doesn't haggle. Boar or fish? I already know your answer." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Do you bless food, buddy? Because my boar could use a miracle, and I can't afford a priest." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Please, please tell me you've brought somethin' that isn't boar, because I'll pay good coin for it." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You snuck up on my kitchen, buddy! Good, I like a customer who doesn't knock over the pans, because pans cost money." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Say grace over my roast, would you, buddy? It's the only thing that'll make it taste different, and I'd put it on the menu as a blessed special." },
+        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A priest off the Horde boat! Do your people say grace? Say it, please, buddy, because the boar needs all the help it can get and I need the repeat business." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can the spirits make a fish taste like somethin' other than fish? I'd pay, buddy, I'd pay a lot." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you conjure food? Don't answer, buddy, because if you can, I'm out of business, and I've still got a loan on the stove." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Does your little friend eat? Please say it eats, buddy, because I've got so much boar and nobody to sell it to." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You know herbs, wild ones, out of the glades, and herbs are worth their weight in silver to a cook like me, so please tell me you know herbs." },
       },
-      again = { { id = "h_again", text = "What else? The pot's on, so I can talk." } },
+      again = { { id = "h_again", text = "What else, buddy? The pot's on, so I can talk, and talkin' is cheaper than eating." } },
       choices = {
         { text = "Why not cook something else?", next = "menu" },
         { text = "Murloc eyes? Really?", next = "eyes" },
@@ -961,33 +961,33 @@ P:NPC {
       },
     },
     menu = {
-      lines = { { id = "m_default", text = "Because boars walk up to the door and fish jump in the pot! Everything else costs money and imagination. I've got the imagination." } },
+      lines = { { id = "m_default", text = "Because boars walk up to the door and fish jump in the pot, and both of 'em are free, buddy! Everything else costs money and imagination, and I've only got the imagination." } },
       choices = {
         { text = "What would you cook, if you could?", next = "menu_dream" },
         { text = "Something else.", next = "BACK" },
       },
     },
     menu_dream = {
-      lines = { { id = "md_default", text = "A stew so good the Brotherhood and the Horde sit at the same table to eat it. They'd fight over seconds, sure, but at the same table!" } },
+      lines = { { id = "md_default", text = "A stew so good the Brotherhood and the Horde sit at the same table to eat it, and pay full price for the privilege. They'd fight over seconds, sure, buddy, but at the same table!" } },
       choices = {
         { text = "I'd eat that.", next = "BACK", fx = { affinity = 2, opinion = { peace = "for" } } },
         { text = "They'd fight over the table first.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     eyes = {
-      lines = { { id = "e_default", text = "Really! Crunchy outside, salty inside, like the sea gave you a little kiss... a wet, crunchy kiss." } },
+      lines = { { id = "e_default", text = "Really, buddy! Crunchy outside, salty inside, like the sea gave you a little kiss, a wet, crunchy kiss, and it costs me nothin' but a walk on the beach." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     customers = {
-      lines = { { id = "c_default", text = "Sailors, goblins, Gray when Zizplink cuts him off, and Argo, who eats anything if you call it a toast." } },
+      lines = { { id = "c_default", text = "Sailors, goblins, Gray when Zizplink cuts him off, and Argo, who eats anything if you call it a toast and never asks the price, bless him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     recipes = {
-      lines = { { id = "r_default", text = "Yes! Give me something with a sauce, anything with a sauce, and I'll give you the boar. You'll never need another boar recipe as long as you live." } },
+      lines = { { id = "r_default", text = "Yes! Give me somethin' with a sauce, buddy, anything with a sauce, and I'll give you the boar, as a straight trade. You'll never need another boar recipe as long as you live." } },
       choices = { { text = "Deal.", next = "BACK", fx = { affinity = 2 } } },
     },
     xtroll = {
-      lines = { { id = "xtr_default", text = "Pepper! Real pepper, the hot kind? I haven't seen a peppercorn since the last Tanaris boat, and that one went into the stew before anyone could stop me." } },
+      lines = { { id = "xtr_default", text = "Pepper! Real pepper, the hot kind? I haven't seen a peppercorn since the last Tanaris boat, buddy, and that one cost me a week's takings and went into the stew before anyone could stop me." } },
       choices = {
         { text = "I'll bring you some next time.", next = "BACK", fx = { affinity = 2 } },
         { text = "What would you cook with it?", next = "menu" },
@@ -996,7 +996,7 @@ P:NPC {
     xwarcl = {
       big = true,
       lines = {
-        { id = "xwc_default", text = "Boar, because it's always boar, but cooked slow overnight with river onions so it sits in you like a brick and keeps you standing. The Brotherhood boys eat it before patrols, and they've never once complained, at least not to my face." },
+        { id = "xwc_default", text = "Boar, because it's always boar, but cooked slow overnight with river onions so it sits in you like a brick and keeps you standing, and it's cheap, buddy. The Brotherhood boys eat it before patrols, and they've never once complained, at least not to my face." },
       },
       choices = {
         { text = "Plain food for plain work. That's how it should be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1007,7 +1007,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Maybe! Sister Rowland sends a lad down for my broth sometimes, and they tell me the sick up at the keep ask for it by name. I'd like to think that's my seasoning, but I'd take a blessing too." },
+        { id = "xpa_default", text = "Maybe! Sister Rowland sends a lad down for my broth sometimes, and they tell me the sick up at the keep ask for it by name, which is the best advertising I ever got for free. I'd like to think that's my seasoning, buddy, but I'd take a blessing too." },
       },
       choices = {
         { text = "Your broth is a blessing all its own.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1018,7 +1018,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhc_default", text = "Venison with juniper, river duck in a salt crust, or a big cat from the hills, if they're edible, which nobody's told me. Anything with a new taste, and I'll cook it so well you'll cry." },
+        { id = "xhc_default", text = "Venison with juniper, river duck in a salt crust, or a big cat from the hills, if they're edible, which nobody's told me. Anything with a new taste, buddy, and I'll cook it so well you'll cry, and then you'll pay." },
       },
       choices = {
         { text = "I'll bring game, hunted fair and clean.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -1029,7 +1029,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "One, and I'll tell you because you look like you can keep it: a splash of Argo's rum in every stew. That's why the stew's good, and it's why Argo thinks he's buying his own rum back from me at a markup." },
+        { id = "xro_default", text = "One, and I'll tell you because you look like you can keep it, buddy: a splash of Argo's rum in every stew. That's why the stew's good, and it's why Argo thinks he's buying his own rum back from me at a markup, which he is." },
       },
       choices = {
         { text = "You should tell Argo. It's his rum.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1040,7 +1040,7 @@ P:NPC {
     xpriest = {
       big = true,
       lines = {
-        { id = "xpr_default", text = "Every day, the stew nobody bought by closing. Melbin says it's bad business, so I tell him it's spoiled and give it to the dockhands, and they've never once got sick from it." },
+        { id = "xpr_default", text = "Every day, the stew nobody bought by closing. Melbin says it's bad business, so I tell him it's spoiled and write it off, and give it to the dockhands, and they've never once got sick from it." },
       },
       choices = {
         { text = "That's kindness, Fimbo. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1051,7 +1051,7 @@ P:NPC {
     xhsham = {
       big = true,
       lines = {
-        { id = "xsc_default", text = "Thank it? I've thanked it, cursed it, sung to it, and once threw a whole boar in as a trade, and it still sends me the same fish every morning. If you can talk it round, I'll name a soup after you." },
+        { id = "xsc_default", text = "Thank it? I've thanked it, cursed it, sung to it, and once threw a whole boar in as a trade, buddy, and it still sends me the same fish every mornin'. If you can talk it round, I'll name a soup after you." },
       },
       choices = {
         { text = "The sea gives what it gives. Be grateful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1062,7 +1062,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "Because it tastes of nothing! It fills you up and leaves your tongue lonely, and if people start eating air-bread, nobody will ever need a cook again, and then where will I be?" },
+        { id = "xmg_default", text = "Because it tastes of nothing, buddy! It fills you up and leaves your tongue lonely, and if people start eating air-bread, nobody will ever pay a cook again, and then where will I be?" },
       },
       choices = {
         { text = "Conjured bread feeds the hungry. That matters more.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1073,7 +1073,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlk_default", text = "Would I! Boar, fish, yesterday's boar, last week's fish, whatever it likes. Does it eat bones? Please say it eats bones, because I've got barrels of bones." },
+        { id = "xlk_default", text = "Would I! Boar, fish, yesterday's boar, last week's fish, whatever it likes, buddy. Does it eat bones? Please say it eats bones, because I've got barrels of bones and nobody buying." },
       },
       choices = {
         { text = "Keep your scraps for the dockhands, Fimbo.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1084,7 +1084,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Wild thyme, sage, anything green that isn't seaweed. The glades are full of it, but the Brotherhood says the woods are dangerous, and the Horde says the same, and I'm a cook, not a fighter." },
+        { id = "xdr_default", text = "Wild thyme, sage, anything green that isn't seaweed, and I'd pay by the bunch. The glades are full of it, buddy, but the Brotherhood says the woods are dangerous, and the Horde says the same, and I'm a cook, not a fighter." },
       },
       choices = {
         { text = "I'll gather some, and only what grows back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1095,9 +1095,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A cook, always a cook. This cafe's the first kitchen that's mine, and it's on the water, which counts as floating." } },
-    advice = { { id = "tp_ad", text = "Murloc eyes go in last. Everything goes in before the murloc eyes." } },
-    _none = { { id = "tp_none", text = "Is it a recipe? If it isn't, it's wasted on me." } },
+    background = { { id = "tp_bg", text = "A cook, always a cook, buddy. This cafe's the first kitchen that's mine, paid off nearly, and it's on the water, which counts as floating." } },
+    advice = { { id = "tp_ad", text = "Murloc eyes go in last, buddy. Everything goes in before the murloc eyes, including the bill." } },
+    _none = { { id = "tp_none", text = "Is it a recipe? If it isn't, buddy, it's wasted on me." } },
   },
 }
 
@@ -1113,36 +1113,36 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ahoy! *hic* Pull up a crate." },
+    { id = "g_default", text = "Ahoy, matey! *hic* Pull up a crate, and the crate's free, which is more than I can say for the rum." },
   },
 
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
-      text = "Ha! You're keeping up, and nobody keeps up! Have another, have mine." },
+      text = "Ha! You're keepin' up, and nobody keeps up! Have another, matey, have mine, and I'll put it on Zizplink's tab." },
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
-      text = "A fisher! Good, then you know there's things in this water bigger than your pole." },
+      text = "A fisher! Good, matey, then you know there's things in this water bigger than your pole and a lot more expensive to replace." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Argo Brinewhistle, captain of the finest boat in the port. *hic* Well, the finest boat with a monster problem." },
+        { id = "h_default", key = true, text = "Argo Brinewhistle, captain of the finest boat in the port, matey. *hic* Well, the finest boat with a monster problem, which is the only kind of boat I can afford." },
         { id = "h_monster", tags = { "news" }, when = { questActive = TODO_QUEST("The Monster Surfaces") },
-          text = "The bait goes in by the fresh wreckage off the murloc islands, not here, out there! Then it comes up, and you take its head for my stern!" },
+          text = "The bait goes in by the fresh wreckage off the murloc islands, matey, not here, out there! Then it comes up, and you take its head for my stern, and I'll pay in rum till you can't stand." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("The Monster Surfaces"), days = 3 } },
-          text = "Look at 'er, up on my stern! Ugliest, finest figurehead on the whole coast, and drinks are on me, again." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! *hic* You've got the arms for a harpoon, and I've got a harpoon, so that's fate, that is." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! *hic* Bless my boat, would you? She's leaky, but she's got a good heart." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Ever hunted something with more teeth than a shark's grandmother? *hic* I have, and I'm doing it now." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Whoa! *hic* Don't sneak up on a sailor, friend; we throw things." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! *hic* Come to save my soul? It's pickled, friend, but you're welcome to try." },
-        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest on my dock! *hic* Never mind, the monster doesn't care who's who, and neither do I." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you freeze the sea? *hic* Just a bit, just round my boat?" },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that a demon? *hic* Can it swim? Because I've got a job for something that swims and bites." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! *hic* Turn into a seal and go have a look at my monster for me, would you?" },
+          text = "Look at 'er, up on my stern! Ugliest, finest figurehead on the whole coast, worth more than the boat, and drinks are on me, again, matey." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A fighter! *hic* You've got the arms for a harpoon, matey, and I've got a harpoon, slightly used, so that's fate, that is." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! *hic* Bless my boat, would you, matey? She's leaky, but she's got a good heart and a very reasonable mooring fee." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Ever hunted somethin' with more teeth than a shark's grandmother? *hic* I have, matey, and I'm doing it now, on credit." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Whoa, whoa! *hic* Don't sneak up on a sailor, matey, because we throw things, and then we charge you for 'em." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! *hic* Come to save my soul? It's pickled, matey, and probably mortgaged, but you're welcome to try." },
+        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A Horde priest on my dock! *hic* Never mind, matey, the monster doesn't care who's who, and neither do I, so long as you tip." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you freeze the sea? *hic* Just a bit, matey, just round my boat? I'd pay you in fish." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that a demon? *hic* Can it swim? Because I've got a job for somethin' that swims and bites, matey, and the pay's rum." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! *hic* Turn into a seal and go have a look at my monster for me, would you, matey? I'll make it worth your while, somehow." },
       },
-      again = { { id = "h_again", text = "What else can I do for you, matey? *hic*" } },
+      again = { { id = "h_again", text = "What else can I do for you, matey? *hic* Speak up, the rum's wearin' off and that costs money." } },
       choices = {
         { text = "What kind of monster?", next = "monster" },
         { text = "Are you ever sober?", next = "sober" },
@@ -1161,30 +1161,30 @@ P:NPC {
       },
     },
     monster = {
-      lines = { { id = "m_default", text = "Big, with teeth, and more teeth than that. It sank three boats I know of, and one I made up to scare Gritta." } },
+      lines = { { id = "m_default", text = "Big, with teeth, and more teeth than that, matey. It sank three boats I know of, and one I made up to scare Gritta into lowerin' her chum prices." } },
       choices = {
         { text = "Which one did you make up?", next = "monster_lie" },
         { text = "Something else.", next = "BACK" },
       },
     },
     monster_lie = {
-      lines = { { id = "ml_default", text = "Ha! Wouldn't you like to know? *hic* The third, or maybe the second." } },
+      lines = { { id = "ml_default", text = "Ha! Wouldn't you like to know, matey? *hic* The third, or maybe the second, but I've only paid for one." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     sober = {
-      lines = { { id = "s_default", text = "Once, and I didn't care for it; everything was so... clear." } },
+      lines = { { id = "s_default", text = "Once, matey, and I didn't care for it, because everything was so clear, and I could see my debts." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     boat = {
-      lines = { { id = "b_default", text = "Little, leaky and loyal, like me! She's never sunk, though she's thought about it." } },
+      lines = { { id = "b_default", text = "Little, leaky and loyal, like me, matey! She's never sunk, though she's thought about it, and she's paid for, mostly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fish = {
-      lines = { { id = "f_default", text = "Then stay off the murloc islands at dusk, friend, because that's when it feeds, and not on fish, on fishermen." } },
+      lines = { { id = "f_default", text = "Then stay off the murloc islands at dusk, matey, because that's when it feeds, and not on fish, on fishermen, and fishermen are expensive to replace." } },
       choices = { { text = "Noted.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     xshaman = {
-      lines = { { id = "xsh_default", text = "Not happy? Hic. Well, neither's the monster, and neither am I, so that's all of us. You tell those spirits that Argo Brinewhistle tips a drop overboard every night, which is more than most sailors do." } },
+      lines = { { id = "xsh_default", text = "Not happy? *hic* Well, neither's the monster, and neither am I, so that's all of us, matey. You tell those spirits that Argo Brinewhistle tips a drop overboard every night, which is more than most sailors do, and at these prices that's generous." } },
       choices = {
         { text = "They'd like you sober.", next = "sober" },
         { text = "I'll tell them.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -1193,7 +1193,7 @@ P:NPC {
     xwarcl = {
       big = true,
       lines = {
-        { id = "xwc_default", text = "Kill it? *hic* No, but it'd make it very cross, and a cross monster comes up to see who did it. That's when you take its head for my stern, friend, and I'll steer, and scream." },
+        { id = "xwc_default", text = "Kill it? *hic* No, matey, but it'd make it very cross, and a cross monster comes up to see who did it. That's when you take its head for my stern, and I'll steer, and scream." },
       },
       choices = {
         { text = "Face to face, a fair fight. That's my way.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -1204,7 +1204,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Because she's carried me home drunk more times than I can count, *hic*, and never once complained. A boat like that deserves a blessing more than I do." },
+        { id = "xpa_default", text = "Because she's carried me home drunk more times than I can count, matey, *hic*, and never once charged me for it. A boat like that deserves a blessing more than I do." },
       },
       choices = {
         { text = "Then I'll bless her, and you as well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1215,7 +1215,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhc_default", text = "Same as anything, friend: bait, patience, and a big stick. *hic* Chum by the fresh wreckage, wait for the bubbles, and don't, whatever you do, lean over to look." },
+        { id = "xhc_default", text = "Same as anything, matey: bait, patience, and a big stick. *hic* Chum by the fresh wreckage, wait for the bubbles, and don't, whatever you do, lean over to look." },
       },
       choices = {
         { text = "Patience and bait. I'll wait it out.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1226,7 +1226,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "Steal her? *hic* Who'd want her? Well, a pirate did once, and got as far as the harbour mouth, then bailed for an hour and rowed her back to apologize." },
+        { id = "xro_default", text = "Steal her? *hic* Who'd want her, matey? Well, a pirate did once, and got as far as the harbour mouth, then bailed for an hour and rowed her back to apologize, and I charged him for the bailing." },
       },
       choices = {
         { text = "He brought her back. Give the man some credit.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1237,7 +1237,7 @@ P:NPC {
     xpriest = {
       big = true,
       lines = {
-        { id = "xpr_default", text = "Brined, friend, like a good herring. *hic* Boats have gone down out there, and I'm the only one who keeps sailing, so I drink to the lads who didn't come back, because somebody has to." },
+        { id = "xpr_default", text = "Brined, matey, like a good herring. *hic* Boats have gone down out there, and I'm the only one who keeps sailing, so I drink to the lads who didn't come back, because somebody has to, and the rum's on my tab." },
       },
       choices = {
         { text = "Drink to them, then, and pray for them too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1248,7 +1248,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "So the monster can't get under her! *hic* Freeze a ring round my boat, she sits pretty, the monster bangs its head, and I sell tickets to Jazzle's lot." },
+        { id = "xmg_default", text = "So the monster can't get under her, matey! *hic* Freeze a ring round my boat, she sits pretty, the monster bangs its head, and I sell tickets to Jazzle's lot at two silver a head." },
       },
       choices = {
         { text = "Ice won't hold it. Face the thing properly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1259,7 +1259,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlk_default", text = "Swim out, find the beastie, and bite it somewhere it'll remember. *hic* I'll pay in rum, or in fish, or in the eternal gratitude of a very drunk man." },
+        { id = "xlk_default", text = "Swim out, find the beastie, and bite it somewhere it'll remember, matey. *hic* I'll pay in rum, or in fish, or in the eternal gratitude of a very drunk goblin, which is worth more than it sounds." },
       },
       choices = {
         { text = "I'll do it myself, without the demon.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1270,7 +1270,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Off the murloc islands, *hic*, by the fresh wreckage. Swim careful, though; it likes things that swim, and you'd look like a snack in that shape, no offense." },
+        { id = "xdr_default", text = "Off the murloc islands, *hic*, by the fresh wreckage, matey. Swim careful, though, because it likes things that swim, and you'd look like a snack in that shape, no offence." },
       },
       choices = {
         { text = "I'll look, and leave it be if it's only hungry.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1281,9 +1281,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born on a boat, *hic* and I'll die on a boat, and in between, I'm on a boat." } },
-    advice = { { id = "tp_ad", text = "Never trust a calm sea or a sober sailor." } },
-    _none = { { id = "tp_none", text = "Don't know! *hic* Ask me after the next one." } },
+    background = { { id = "tp_bg", text = "Born on a boat, matey, *hic*, and I'll die on a boat, and in between, I'm on a boat, owin' money to somebody." } },
+    advice = { { id = "tp_ad", text = "Never trust a calm sea or a sober sailor, matey, and never lend either of 'em coin." } },
+    _none = { { id = "tp_none", text = "Don't know, matey! *hic* Ask me after the next one, and you're buyin'." } },
   },
 }
 
@@ -1299,31 +1299,31 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Chum's fresh, or as fresh as chum gets." },
+    { id = "g_default", text = "Chum's fresh, kid, or as fresh as chum gets, and it's priced by the bucket." },
   },
 
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
-      text = "You've got a fisher's squint, good. The catfish up the rivers bite like dogs, so you'll want a better pole." },
+      text = "You've got a fisher's squint, kid, good. The catfish up the rivers bite like dogs, so you'll want a better pole, and I happen to sell 'em." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Gritta Chumwater. I sell chum, lures, fish and advice, and only the advice is free." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll want something to do between fights, so take up fishing; it'll teach you patience, which you lack." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Fish don't care how holy you are, so don't stand over the water glowing." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Keep your pet off my chum barrel, or it pays for what it eats." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet feet, good. Fish hear clumsy people from the next cove." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Fishing's the closest thing to prayer I know: you sit, you wait, and mostly nothing happens." },
-        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A priest off the Horde boat. Sit and fish a while; it's the same as praying, only you get supper." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Tell the water to send me bigger fish, would you? It never listens to me." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Don't freeze my bait, don't boil my chum, and we'll get on fine." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Whatever that is, it's scaring off the fish, so stand back from the water." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you talk to fish? No? Then you're no use to me, but you can buy something anyway." },
+        { id = "h_default", key = true, text = "Gritta Chumwater, kid. I sell chum, lures, fish and advice, and only the advice is free, so don't get used to it." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? You'll want somethin' to do between fights, kid, so take up fishing, because it'll teach you patience, which you lack, and the pole's three silver." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Fish don't care how holy you are, kid, so don't stand over the water glowing, because it's costing me customers." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? Keep your pet off my chum barrel, kid, or it pays for what it eats, at full price." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet feet, good. Fish hear clumsy people from the next cove, kid, and clumsy people don't buy bait twice." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Fishing's the closest thing to prayer I know, kid: you sit, you wait, and mostly nothing happens, except fishing pays better." },
+        { id = "h_hpriest", when = { class = "PRIEST", faction = "Horde" }, text = "A priest off the Horde boat, eh? Sit and fish a while, kid, because it's the same as praying, only you get supper, and I sell the bait." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Tell the water to send me bigger fish, would you, kid? It never listens to me, and bigger fish sell for more." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, eh? Don't freeze my bait, don't boil my chum, kid, and we'll get on fine." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, eh? Whatever that is, kid, it's scaring off the fish, so stand back from the water before I start billing you for the catch." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Can you talk to fish, kid? No? Then you're no use to me, but you can buy something anyway." },
       },
-      again = { { id = "h_again", text = "What else? Buy something while you think." } },
+      again = { { id = "h_again", text = "What else, kid? Buy somethin' while you think." }, { id = "h_again2", text = "Still standin' there, kid? Standin's free, but the dock space isn't, so buy a lure." } },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where's the best fishing?", next = "fishing" },
@@ -1342,17 +1342,17 @@ P:NPC {
       },
     },
     fishing = {
-      lines = { { id = "f_default", text = "Where the rivers come down to the sea. The catfish up there have whiskers like Melbin's, but don't tell him." } },
+      lines = { { id = "f_default", text = "Where the rivers come down to the sea, kid. The catfish up there have whiskers like Melbin's, but don't tell him, or he'll claim he owns 'em." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     chum = {
-      lines = { { id = "c_default", text = "Fimbo buys it for soup and Argo for his monster. I don't ask which pot it ends up in, and neither should you." } },
+      lines = { { id = "c_default", text = "Fimbo buys it for soup and Argo for his monster, and they both pay on time, kid, which is all I need to know. I don't ask which pot it ends up in, and neither should you." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xwarcl = {
       big = true,
       lines = {
-        { id = "xwc_default", text = "Because you swing first and look second, same as every fighter I've sold a pole to. A fish teaches you to wait, and waiting's what keeps you alive when the swinging's done." },
+        { id = "xwc_default", text = "Because you swing first and look second, kid, same as every fighter I've sold a pole to. A fish teaches you to wait, and waiting's what keeps you alive when the swinging's done." },
       },
       choices = {
         { text = "Fair. Patience wins more fights than strength.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1363,7 +1363,7 @@ P:NPC {
     xapala = {
       big = true,
       lines = {
-        { id = "xpa_default", text = "Everything scares fish: shadows, boots, loud prayers, Argo. Stand back from the edge and keep the shine down, and you'll do." },
+        { id = "xpa_default", text = "Everything scares fish, kid: shadows, boots, loud prayers, Argo. Stand back from the edge and keep the shine down, and you'll do, and so will my sales." },
       },
       choices = {
         { text = "I'll dim it. Your water, your rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1374,7 +1374,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhc_default", text = "The catfish up the rivers, whiskers and all. They'll take a hand off if you're slow, and the old ones are bigger than your pet." },
+        { id = "xhc_default", text = "The catfish up the rivers, whiskers and all, kid. They'll take a hand off if you're slow, and the old ones are bigger than your pet and worth twice as much at market." },
       },
       choices = {
         { text = "Then I'll leave the old ones be.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1385,7 +1385,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xro_default", text = "Pirates from Windstead, when they think nobody's watching, and they're always watching. They pay in good coin and never haggle, so I don't ask where the coin came from." },
+        { id = "xro_default", text = "Pirates from Windstead, when they think nobody's watching, and they're always watching, kid. They pay in good coin and never haggle, so I don't ask where the coin came from, because that's bad for business." },
       },
       choices = {
         { text = "Coin from pirates is still stolen coin.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1396,7 +1396,7 @@ P:NPC {
     xpriest = {
       big = true,
       lines = {
-        { id = "xpr_default", text = "Believe it? I've sat on that dock every dawn for years, and I've never felt closer to anything than I do with a line in the water. Call it what you like." },
+        { id = "xpr_default", text = "Believe it? I've sat on that dock every dawn for years, kid, and I've never felt closer to anything than I do with a line in the water. Call it what you like, but I don't charge for it." },
       },
       choices = {
         { text = "That sounds like faith to me, Gritta.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1407,7 +1407,7 @@ P:NPC {
     xhsham = {
       big = true,
       lines = {
-        { id = "xsc_default", text = "Because I take from it every day and never give anything back but chum. If I were the water, I wouldn't listen to me either." },
+        { id = "xsc_default", text = "Because I take from it every day and never give anything back but chum, kid, and that's a lousy deal for the water. If I were the water, I wouldn't listen to me either." },
       },
       choices = {
         { text = "Give something back, then. Respect the water.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1418,7 +1418,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmg_default", text = "Some fool off the Tanaris boat, showing off for Jazzle. He froze my bait barrel solid and laughed about it, and I charged him for the barrel, the bait and the laugh." },
+        { id = "xmg_default", text = "Some fool off the Tanaris boat, showin' off for Jazzle, kid. He froze my bait barrel solid and laughed about it, and I charged him for the barrel, the bait and the laugh." },
       },
       choices = {
         { text = "Good. Show-offs should pay for their fun.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1429,7 +1429,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlk_default", text = "Fish sense everything. A demon's a big wrong shadow on the water, and every fish in the cove goes to the bottom and sulks, so stand back, like I said." },
+        { id = "xlk_default", text = "Fish sense everything, kid. A demon's a big wrong shadow on the water, and every fish in the cove goes to the bottom and sulks, so stand back, like I said, because sulking fish don't sell." },
       },
       choices = {
         { text = "Fair. I'll keep it well back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1440,7 +1440,7 @@ P:NPC {
     xdruid = {
       big = true,
       lines = {
-        { id = "xdr_default", text = "Because they won't bite, and I want to know why. Three days now I've pulled up nothing but weed, and Argo's blaming his monster, which I'd rather not believe." },
+        { id = "xdr_default", text = "Because they won't bite, kid, and I want to know why, since I'm losin' money every day they don't. Three days now I've pulled up nothing but weed, and Argo's blaming his monster, which I'd rather not believe." },
       },
       choices = {
         { text = "Maybe they're frightened. Give the cove a rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -1449,14 +1449,14 @@ P:NPC {
       },
     },
     biggest = {
-      lines = { { id = "bg_default", text = "A river catfish as long as Melbin's dock is wide, up where the rivers meet. It took me all morning to land and all afternoon to sell, and Fimbo cried when he cooked it, though he says that was the onions." } },
+      lines = { { id = "bg_default", text = "A river catfish as long as Melbin's dock is wide, kid, up where the rivers meet. It took me all morning to land and all afternoon to sell, for a very nice sum, and Fimbo cried when he cooked it, though he says that was the onions." } },
       choices = {
         { text = "Do you ever let the big ones go?", next = "biggest_go" },
         { text = "Something else.", next = "BACK" },
       },
     },
     biggest_go = {
-      lines = { { id = "bgb_default", text = "Once. She was old and scarred and fought like she'd done it a hundred times before, so I cut the line. Don't tell anyone; it's bad for business." } },
+      lines = { { id = "bgb_default", text = "Once, kid. She was old and scarred and fought like she'd done it a hundred times before, so I cut the line and wrote off the lure. Don't tell anybody, because it's bad for business." } },
       choices = {
         { text = "Good. Some fights are worth letting go.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A catch is a catch. I'd have kept her.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1466,8 +1466,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I've fished every coast a boat can reach, and came here because the fish are stupider. Don't tell them." } },
-    advice = { { id = "tp_ad", text = "Fish at dawn, sell by noon, and never eat what you can't name." } },
-    _none = { { id = "tp_none", text = "Fish don't talk about that, so neither do I." } },
+    background = { { id = "tp_bg", text = "I've fished every coast a boat can reach, kid, and came here because the fish are stupider and the rent's cheaper. Don't tell them." } },
+    advice = { { id = "tp_ad", text = "Fish at dawn, sell by noon, kid, and never eat what you can't name or can't sell." } },
+    _none = { { id = "tp_none", text = "Fish don't talk about that, kid, so neither do I, unless you're buyin'." } },
   },
 }

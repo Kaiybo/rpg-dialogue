@@ -547,13 +547,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Psst! Over here, before the elves see you; I've got a business opportunity with your name on it!" },
+    { id = "g_default", text = "Psst! Over here, partner, before the elves see you, because I've got a business opportunity with your name on it and only a small administrative fee attached!" },
     { id = "g_back", when = { metBefore = true }, text = "My favourite employee! Back for more profitable danger? Mostly profitable for me, but you get to keep your limbs, usually." },
   },
 
   notice = {
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
-      text = "Whoa, an elf! You're not one of Rimtori's, right? You don't look stuck-up enough. No offence." },
+      text = "Whoa, whoa, an elf! You're not one of Rimtori's, right? You don't look stuck-up enough, partner, and no offence, which is free." },
     { id = "n_purse", cat = "purse", when = { money = { min = 1000000 } },
       text = "Now there's somebody who knows what a gold coin's for! Let's talk, partner, let's talk." },
   },
@@ -637,7 +637,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because my equipment's still out there, and a goblin doesn't walk away from that much good gear just because somebody pointed a knife at him. Besides, I've been stabbed at by better than a few sulky elves, though I'll admit I can't remember when." } },
+      lines = { { id = "xapriest_default", text = "Because my equipment's still out there, partner, and a goblin doesn't walk away from that much good gear just because somebody pointed a knife at him, not on my mother's ledger. Besides, I've been stabbed at by better than a few sulky elves, though I'll admit I can't remember when." } },
       choices = {
         { text = "Then I'll help you get it back, fair and square.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Take back twice what they took. They owe you that.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -672,7 +672,7 @@ P:NPC {
           text = "A warrior! Good, very good, valuable employee, because Kim'jael needs his equipment back and the elves who took it are big, and mean, and very rude." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! You track things, yes? Then track Kim'jael's equipment, because those elves hid it all over their camp, and I swear they did it to spite me." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, you can tell me if this place is cursed, partner, because I've been robbed, stabbed at and called a rat, and I'm starting to take it personally and itemize it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Kim'jael indeed, a rogue! Now you're the sort who knows the value of an employee's equipment, and how easily it goes missing." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -689,7 +689,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Oh, a druid! You've got that leafy look about you, which I like, because leaves don't shout at Kim'jael or call him little rat." },
       },
       again = {
-        { id = "h_again", text = "Something more? Talk fast, friend; every minute here costs me a little." },
+        { id = "h_again", text = "Something more? Talk fast, partner, because every minute here costs me a little and I'm keeping count." },
         { id = "h_again2", text = "Go on, go on. I'm all ears, and the ears are worth a fortune." },
       },
       choices = {
@@ -722,7 +722,7 @@ P:NPC {
       },
     },
     hired_rage = {
-      lines = { { id = "hr_default", text = "Isn't it? You can't trust an elf, I always say, I said it before and I'll say it again. Well, I said it after, mostly, but that's when it counts." } },
+      lines = { { id = "hr_default", text = "Isn't it? You can't trust an elf, partner, I always say, I said it before and I'll say it again. Well, I said it after, mostly, but that's when it counts, and that's when the invoice goes out." } },
       choices = {
         { text = "Betrayal deserves payback.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "A bargain's a bargain. They should've paid.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -769,10 +769,10 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Information costs money, partner, but for you, a free sample. Here's what I've got." } },
-    background = { { id = "tp_bg", text = "A Booty Bay goblin with an eye for treasure and terrible taste in employers.", next = "hired" } },
+    background = { { id = "tp_bg", text = "A Booty Bay goblin with an eye for treasure, a head for figures and terrible taste in employers.", next = "hired" } },
     advice = { { id = "tp_ad", text = "Get paid half up front. Then get the other half up front too, if you can." } },
     rimtori = { { id = "tp_rimtori", text = "She hired me, she cheated me, she tried to have me killed. I'd write her a bad reference if anyone asked.", next = "hired" } },
-    eldarath = { { id = "tp_eld", text = "Naga, ghosts and treasure. Two out of three of those I could do without." } },
+    eldarath = { { id = "tp_eld", text = "Naga, ghosts and treasure, partner, and two out of three of those I could do without, unless the ghosts are selling." } },
     _none = { { id = "tp_none", text = "Never heard of it, and if it's not for sale, I don't care." } },
   },
 }

@@ -29,6 +29,13 @@ How to write dialogue for RPG Dialogue, for people and for AI sessions. Read it 
   - Before: "Light preserve us. Oh. One of the Cathedral's. Carry on. Slowly." After: "Light preserve us! Oh, you're one of the Cathedral's lot. Carry on, then, but go gently; you'll frighten the canal folk."
   - Before: "I'm the king. For now. Until my father comes back. Everyone's been very kind about it." After: "I'm the king, at least until my father comes home. Everyone's been very kind about it, though I don't think I'm very good at it yet."
   - Replies the player picks stay short: about 15 words or fewer.
+- **Goblins (0.76.0).** Hide the name and a goblin should still be unmistakable. Their own cadence, layered on each one's bible (Sprinkle stays warm, Bilgewhizzle harried, Renzik third person):
+  - **Everything is a deal.** They price things out loud: costs, margins, interest, overhead, liability, invoices, the small print, "on account". Danger is a cost line; kindness is "an investment"; a friend is "a valued customer".
+  - **Fast and pushy.** Long, quick sentences that run on with *and* and *so*, interrupting themselves ("whoa, whoa", "listen, listen"), selling while they talk. Still whole sentences, never stacked fragments.
+  - **Street talk.** "Pal", "friend", "chum", "buddy", "boss", "kid", "sweetheart"; the odd dropped g ("somethin'", "nothin'") or "ya", one or two per line at most, never every word. Oaths by money and machinery: "by my last copper", "on my mother's ledger", "sparks and sprockets".
+  - **Casual about explosions.** Things blow up, rockets misfire, cousins lose eyebrows, and nobody thinks that's strange.
+  - **Neutral and shameless.** Steamwheedle goblins sell to both sides and say so; Venture Company goblins are harder, crueller company men. A Cartel catchphrase ("Time is money, friend!") at most once per character.
+  - **Classic only:** the Steamwheedle Cartel, the Venture Company, the trade princes, Undermine by name only. No Kezan, Gallywix, Bilgewater homeland or Kaja'Cola.
 - **Original writing.** Read Blizzard's text in `reference/` to learn a voice; never copy it. Reference events in your own words.
 - **Timeline discipline.** Year 1 only: after *Forsaken Kingdom*, before Molten Core and the Dark Portal reopening. Nothing from Burning Crusade onward, nothing from retail Cataclysm-era Elwynn. Unsure? Leave it out.
 - **Hyper-specific beats generic.** Nearby place names, the quest just finished, the player's pet's name (`{pet}`).

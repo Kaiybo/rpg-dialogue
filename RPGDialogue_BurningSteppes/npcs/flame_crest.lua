@@ -400,15 +400,15 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome, welcome. Are you here to make me rich? Please say yes." },
-    { id = "g_back", when = { metBefore = true }, text = "My favourite scribe returns! Do you have anything shiny, or only your charming face?" },
+    { id = "g_default", text = "Welcome, welcome, my friend! Are you here to make me rich? Please say yes, because I've already budgeted for it." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite scribe returns! Do you have anything shiny, buddy, or only your charming face, which I can't sell?" },
   },
 
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
-      text = "Oh, you've a heavy purse, I can hear it from here. We should be partners, you and I, and I mean that in the most expensive way." },
+      text = "Oh, you've a heavy purse, my friend, I can hear it clinkin' from here. We should be partners, you and I, and I mean that in the most expensive way possible." },
     { id = "n_scholar", cat = "class", when = { class = { "MAGE", "PRIEST" } },
-      text = "You've the look of someone who reads things, and reading things is how goblins get rich, eventually. Do you read dwarven?" },
+      text = "You've the look of somebody who reads things, and reading things is how goblins get rich, eventually, with interest. Do you read dwarven, by any chance?" },
     { id = "n_scav", cat = "origin", when = { origin = "gnome_scavenger" },
       text = "A gnome who goes back into Gnomeregan for parts, they tell me! Now that's my kind of business, my friend, because a ruin nobody's brave enough to rob is just a treasure vault with bad manners." },
   },
@@ -417,7 +417,7 @@ P:NPC {
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Anything with old script on it, anything that glows, and anything the Dark Irons look particularly cross about losing. The Seven left their works scattered all over these ruins, and a strong arm is worth more to me than a clever tongue, since I already have the tongue." } },
+      lines = { { id = "xwarcl_default", text = "Anything with old script on it, anything that glows, and anything the Dark Irons look particularly cross about losing, and I pay by the pound. The Seven left their works scattered all over these ruins, and a strong arm is worth more to me than a clever tongue, since I already own the tongue." } },
       choices = {
         { text = "I'll fight for the relics, but they go to scholars, not buyers.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Treasure's treasure. I'll carry it out and we'll split the gold.", next = "BACK", fx = { align = { light = -1 } } },
@@ -427,8 +427,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I don't see why not, for Kibler swears his worg pups can find a scrap of meat under a yard of ash. If they can find meat they can find a buried Dark Iron coffer, and if they can find a coffer, I can retire." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet} sniff at this old Dark Iron coin, would you? If its tail wags, I'll know I've been carrying the real thing about all along." },
+        { id = "xhuntcl_default", text = "I don't see why not, buddy, since Kibler swears his worg pups can find a scrap of meat under a yard of ash. If they can find meat they can find a buried Dark Iron coffer, and if they can find a coffer, I can retire somewhere with a balcony." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet} sniff at this old Dark Iron coin, would you? If its tail wags, I'll know I've been carrying the real thing about all along, and I'll stop insuring the fake." },
       },
       choices = {
         { text = "My beast won't dig up the dead for coin, Maxwort.", next = "BACK", fx = { align = { light = 1 } } },
@@ -438,7 +438,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Dangerous, yes, and profitable, which is how I prefer my work. The Dark Irons called up something in the mountain that burned their own city, and anything that survived that fire is worth a fortune to the right collector in Stormwind." } },
+      lines = { { id = "xapala_default", text = "Dangerous, yes, and profitable, which is how I take my work and my coffee. The Dark Irons called up something in the mountain that burned their own city, and anything that survived a fire like that is worth a fortune to the right collector in Stormwind, or Orgrimmar, whoever bids higher." } },
       choices = {
         { text = "Some things are cursed for a reason. Leave them buried.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If it can be sold, someone will. Better you than them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -447,7 +447,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Whatever glitters, my friend, and whatever's written down, because one makes you rich and the other tells you where to find more. I'd never ask you to break any laws, of course, but I don't believe the Dark Irons have any laws worth mentioning." } },
+      lines = { { id = "xrogue_default", text = "Whatever glitters, my friend, and whatever's written down, because one makes you rich and the other tells you where to find more. I'd never ask you to break any laws, of course, but the Dark Irons haven't got any laws worth the paper, so the books are clean." } },
       choices = {
         { text = "Robbing the Dark Irons is practically a public service.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I'm nobody's burglar, Maxwort, not even a goblin's.", next = "BACK", fx = { align = { order = 1 } } },
@@ -456,7 +456,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I don't know, I've never had one try, but I've seen your kind find water in a desert, and gold can't be any harder. The Seven buried their secrets in the ash, and I'd split a fair share with anyone who could find them faster than my shovel." } },
+      lines = { { id = "xdruid_default", text = "I don't know, buddy, I've never had one try, but I've seen your kind find water in a desert, and gold can't be any harder. The Seven buried their secrets in the ash, and I'd cut a fair share for anyone who could find them faster than my shovel." } },
       choices = {
         { text = "My gifts are not for treasure-hunting, Maxwort. Find another partner.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A fair share is a fair share. I'll keep my nose open.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -465,7 +465,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Where the Seven hid their best work, for a start, because the Dark Irons buried half their history under Blackrock Mountain and the other half under rubble. You talk to stone and I sell what's under it, so we'd make a fine pair, if your spirits don't mind a modest commission." } },
+      lines = { { id = "xhsham_default", text = "Where the Seven hid their best work, for a start, because the Dark Irons buried half their history under Blackrock Mountain and the other half under rubble. You talk to stone and I sell what's under it, so we'd make a fine pair, my friend, if your spirits don't mind a modest commission." } },
       choices = {
         { text = "The earth's secrets aren't for sale, Maxwort.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "For a fair cut, I might ask the stones for you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -474,29 +474,29 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The earth here is full of Dark Iron secrets, and if it's ever in the mood to whisper one, I'd pay handsomely to hear what it says." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a professional I respect, because the Dark Irons won't sell me what I want, and you look like someone who doesn't take no for an answer." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The earth here is full of Dark Iron secrets, my friend, and if it's ever in the mood to whisper one, I'd pay handsomely to hear it, cash on delivery." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a professional I respect, buddy, because the Dark Irons won't sell me what I want, and you look like somebody who's never paid full price for anything." },
         { id = "h_default", key = true,
-          text = "Maxwort Uberglint, treasure hunter. I came to the Steppes chasing the legends of the Seven, because where you find old knowledge you find power, and where you find power, my friend, you find wealth." },
+          text = "Maxwort Uberglint, treasure hunter, finder of things and seller of the things I find. I came to the Steppes chasing the legends of the Seven, because where you find old knowledge you find power, and where you find power, my friend, you find wealth." },
         { id = "h_tablet", when = { questActive = TODO_QUEST("Tablet of the Seven") },
-          text = "The tablet's in the ruins of Thaurissan, under the statue of a dwarf, if the stories are right. Copy every mark on it, every last scratch, and bring it to me." },
+          text = "The tablet's in the ruins of Thaurissan, under the statue of a dwarf, if the stories are right, and I've paid good silver for those stories. Copy every mark on it, every last scratch, and bring it to me, buddy." },
         { id = "h_tablet_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tablet of the Seven"), days = 5 } },
-          text = "Your transcription is beautiful, by the way, better than any scribe I could hire. I'm still reading it, and every line makes me poorer in patience and richer in hope." },
+          text = "Your transcription is beautiful, by the way, better than any scribe I could hire and cheaper, too. I'm still reading it, and every line makes me poorer in patience and richer in hope." },
         { id = "h_heart", when = { questActive = TODO_QUEST("The Heart of the Mountain") },
-          text = "The Dark Irons keep the Heart in the vault deep in their city, behind a guard who won't show himself until every coffer's open. I tried to buy it, honestly I did, but they wouldn't sell." },
+          text = "The Dark Irons keep the Heart in the vault deep in their city, behind a guard who won't show himself until every coffer's open. I tried to buy it, honestly I did, and made them a very generous offer, but they wouldn't sell." },
         { id = "h_heart_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Heart of the Mountain"), days = 7 } },
-          text = "I take it out every night and just look at it, the size of your fist and twice as beautiful as I imagined. Don't tell anyone where I keep it, and don't ask." },
+          text = "I take it out every night and just look at it, the size of your fist and twice as beautiful as I imagined, and I haven't once worked out its price, which worries me. Don't tell anybody where I keep it, my friend, and don't ask." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Now there's a fine thing, because the Dark Irons have a great many relics of Thaurissan's old faith, and I could use someone who'll tell me which ones are cursed before I sell them." },
+          text = "A paladin! Now there's a fine thing, because the Dark Irons have a great many relics of Thaurissan's old faith, and I could use somebody who'll tell me which ones are cursed before I sell them and get sued." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Good, because the Dark Irons guard their old relics with hammers the size of my cave, and I need someone who can stand up to that and still carry treasure." },
+          text = "A warrior! Good, buddy, because the Dark Irons guard their old relics with hammers the size of my cave, and I need somebody who can stand up to that and still carry the treasure out in one piece." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter, eh? I've no interest in pelts, my friend, but if your beasts can sniff out old gold, you and I are about to become very good partners." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I don't suppose you can sniff out buried treasure in that bear shape? I'd make it very much worth your while." },
+          text = "A hunter, eh? I've no interest in pelts, my friend, but if your beasts can sniff out old gold, you and I are about to become very good partners, junior partners on your side." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I don't suppose you can sniff out buried treasure in that bear shape? I'd make it very much worth your while, my friend, on a sliding scale." },
       },
       again = {
-        { id = "h_again", text = "What else? Time is money, and I'm generously giving you mine for free." },
-        { id = "h_again2", text = "Ask away. Every question is an investment, I always say." },
+        { id = "h_again", text = "What else, my friend? Time is money, and I'm generously givin' you mine for nothing." },
+        { id = "h_again2", text = "Ask away, buddy. Every question is an investment, I always say, and I always collect." },
       },
       choices = {
         { text = "Who were the Seven?", next = "seven" },
@@ -517,46 +517,46 @@ P:NPC {
 
     seven = {
       lines = { { id = "s_default", fx = { learn = { "thaurissan" } },
-        text = "Dwarves of great knowledge and greater power, from the old days before the city burned, and that's about all anyone agrees on. The ruins of Thaurissan are said to keep their tablet, which is where you come in." } },
+        text = "Dwarves of great knowledge and greater power, from the old days before the city burned, and that's about all anyone agrees on for free. The ruins of Thaurissan are said to keep their tablet, which is where you come in, my friend." } },
       choices = {
         { text = "What did the Seven do?", next = "seven_did" },
         { text = "Knowledge for knowledge's sake?", next = "seven_wealth" },
       },
     },
     seven_did = {
-      lines = { { id = "sd_default", text = "Something big enough that the stones still whisper about it two hundred years later, and I mean to find out exactly what. If it melted mountains once, imagine what it'd fetch at auction." } },
+      lines = { { id = "sd_default", text = "Something big enough that the stones still whisper about it two hundred years later, and I mean to find out exactly what. If it melted mountains once, buddy, imagine what it'd fetch at auction." } },
       choices = {
         { text = "That's a terrible idea.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     seven_wealth = {
-      lines = { { id = "sw_default", text = "There's no such thing, my friend, there's only knowledge nobody's found a buyer for yet. The quest for wealth is the only proper goal for a goblin, and I'm a very proper goblin." } },
+      lines = { { id = "sw_default", text = "There's no such thing, my friend, there's only knowledge nobody's found a buyer for yet. The quest for wealth is the only proper goal for a goblin, and I'm a very proper goblin with very proper ledgers." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { greedy = 1 } } } },
     },
 
     heart = {
       lines = { { id = "he_default", fx = { learn = { "blackrock_depths" } },
-        text = "A gem the size of your fist, locked in the Dark Iron vault under Blackrock Depths, and I've wanted it for years. To me its value is beyond any price, which is a strange thing for a goblin to say, so you know I mean it." } },
+        text = "A gem the size of your fist, locked in the Dark Iron vault under Blackrock Depths, and I've wanted it for years. To me its value is beyond any price, which is a strange thing for a goblin to say, so you know I mean it, on my mother's ledger." } },
       choices = {
         { text = "Why that gem?", next = "heart_why" },
         { text = "Something else.", next = "BACK" },
       },
     },
     heart_why = {
-      lines = { { id = "hw_default", text = "Some things you want because they'll make you rich, and some because they're beautiful and nobody else can have them. That one's both, and I've been chasing it longer than I've been chasing anything." } },
+      lines = { { id = "hw_default", text = "Some things you want because they'll make you rich, buddy, and some because they're beautiful and nobody else can have them. That one's both, and I've been chasing it longer than I've been chasing anything, debts included." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     cave = {
-      lines = { { id = "c_default", text = "Cheap rent, no tax collectors, and nobody bothers you here except adventurers, who are the best customers in the world. And if the mountain goes up one day, well, I'll have had a front seat." } },
+      lines = { { id = "c_default", text = "Cheap rent, no tax collectors, and nobody bothers you here except adventurers, who are the best customers in the world. And if the mountain goes up one day, well, my friend, I'll have had a front seat, and you can't buy a ticket like that." } },
       choices = {
         { text = "You'd die.", next = "cave_death" },
         { text = "Something else.", next = "BACK" },
       },
     },
     cave_death = {
-      lines = { { id = "cd_default", text = "Wealth, my friend, and maybe one big, loud death at the very end: that's the goblin dream. Quietly in bed is for gnomes and accountants." } },
+      lines = { { id = "cd_default", text = "Wealth, my friend, and maybe one big, loud death at the very end, with fireworks and a crowd: that's the goblin dream. Quietly in bed is for gnomes and accountants." } },
       choices = {
         { text = "To a big, loud death, then.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "I'll take quietly in bed.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -564,11 +564,11 @@ P:NPC {
     },
 
     scholar = {
-      lines = { { id = "sc_default", text = "Then you're worth twice what I'd pay a sword! Go to the ruins, copy that tablet, and if your transcription's good I'll pay you like a scribe and thank you like a partner." } },
+      lines = { { id = "sc_default", text = "Then you're worth twice what I'd pay a sword, buddy! Go to the ruins, copy that tablet, and if your transcription's good I'll pay you like a scribe and thank you like a partner." } },
       choices = { { text = "Partner, you said?", next = "BACK", fx = { affinity = 1, trait = { greedy = 1 } } } },
     },
     archesonus = {
-      lines = { { id = "ar_default", text = "The blind historian in Ironforge? She knows more about that city than anyone alive, and she'll never sell a word of it, which I find personally offensive. Did she mention the Seven at all?" } },
+      lines = { { id = "ar_default", text = "The blind historian in Ironforge? She knows more about that city than anyone alive, and she'll never sell a word of it, which I find personally offensive as a businessman. Did she mention the Seven at all?" } },
       choices = {
         { text = "She said the accounts all stop at the blast.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'm not telling you.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
@@ -576,7 +576,7 @@ P:NPC {
     },
     k_lock = {
       lines = {
-        { id = "xlk_default", text = "Professionally! Now that's a word I like, my friend, because professionals pay for what they want and don't ask silly questions about the price. The Seven called up something big under that mountain, and you can bet they wrote down how." },
+        { id = "xlk_default", text = "Professionally! Now that's a word I like, my friend, because professionals pay for what they want and don't ask silly questions about the price. The Seven called up something big under that mountain, and you can bet your last copper they wrote down how." },
       },
       choices = {
         { text = "Find me the tablet and name your price.", next = "BACK", fx = { align = { light = -1 }, affinity = 2 } },
@@ -588,12 +588,12 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I know what's worth money around here, and that's most things, if you look properly. Ask me about any of these." },
+      { id = "tp_knows", text = "I know what's worth money around here, buddy, and that's most things, if you look at 'em properly. Ask me about any of these." },
     },
     background = { { id = "tp_bg", text = "Booty Bay born, by way of every ruin that ever had a rumour attached to it. The Seven are just the latest rumour.", next = "seven" } },
-    advice = { { id = "tp_ad", text = "Never pay for anything you can find, and never find anything you can't sell." } },
+    advice = { { id = "tp_ad", text = "Never pay for anything you can find, my friend, and never find anything you can't sell." } },
     thaurissan = { { id = "tp_thaurissan", text = "A dwarven city that went up in one great flash, leaving nothing but ash and treasure for patient goblins.", next = "seven" } },
-    _none = { { id = "tp_none", text = "Is there money in it? If not, I'm afraid I've never looked." } },
+    _none = { { id = "tp_none", text = "Is there money in it? If not, buddy, I'm afraid I've never looked." } },
   },
 }
 
@@ -609,22 +609,22 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello, hello! Don't touch anything on that bench; some of it is very nearly stable." },
-    { id = "g_back", when = { metBefore = true }, text = "It's you! I have a new device, and it needs testing, and you're so good at testing things." },
+    { id = "g_default", text = "Hello, hello! Don't touch anything on that bench, sweetie, because some of it is very nearly stable and all of it is very nearly paid for." },
+    { id = "g_back", when = { metBefore = true }, text = "It's you! I've got a new device and it needs testing, and you're so good at testing things, and you've hardly exploded at all!" },
   },
 
   notice = {
     { id = "n_engineer", cat = "craft", when = { profession = "Engineering" },
-      text = "Oh, an engineer! You'll appreciate the Draco-Incarcinatrix 900; nobody else here appreciates it at all, they just ask whether it explodes." },
+      text = "Oh, an engineer! You'll appreciate the Draco-Incarcinatrix 900, pal, because nobody else here appreciates it at all, they just ask whether it explodes, and it only does that on Tuesdays." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Please, please don't look at my wiring, because I know you'll want to fix it, and it's fine, it's perfectly fine." },
+      text = "A gnome! Please, please don't look at my wiring, because I know you'll want to fix it, and it's fine, it's perfectly fine, and I'd have to charge you for the lookin' anyway." },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Everything, but mostly that they come in fours and fives, and their mothers come in ones that are much, much bigger. A warrior with a good shield could hold the little ones off for a minute or two, which is all I need to get the Draco-Incarcinatrix running." } },
+      lines = { { id = "xwarcl_default", text = "Everything, but mostly that they come in fours and fives, and their mothers come in ones that are much, much bigger. A warrior with a good shield could hold the little ones off for a minute or two, pal, which is all I need to get the Draco-Incarcinatrix runnin'." } },
       choices = {
         { text = "I'll hold them off while you work. We stick to your plan.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Holding back's for cowards. I'll charge the nest and clear it.", next = "BACK", fx = { align = { order = -1 } } },
@@ -633,7 +633,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A very generous gentleman who pays very generously and doesn't like his name in anyone's mouth, so I'll just call him my patron. He wants to know about dragonkin, and I want to know about dragonkin, so we get along wonderfully, I'm sure." } },
+      lines = { { id = "xapala_default", text = "A very generous gentleman who pays very generously, on time and in full, and doesn't like his name in anybody's mouth, so I'll just call him my patron. He wants to know about dragonkin, and I want to know about dragonkin, so the contract's lovely, I'm sure, completely lovely." } },
       choices = {
         { text = "A patron who hides his name hides worse. Be careful.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Gold's gold, Tinkee. Take it and ask no questions.", next = "BACK", fx = { align = { order = -1 } } },
@@ -642,7 +642,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because if they do, then my patron's experiments are a very different matter, and I'd rather not think about that too long. It's all for science, of course, and science doesn't need to worry about souls, I've been told, quite firmly." } },
+      lines = { { id = "xapriest_default", text = "Because if they do, then my patron's experiments are a very different line item, and I'd rather not think about that too long. It's all for science, of course, and science doesn't need to worry about souls, I've been told, quite firmly, by the fellow paying." } },
       choices = {
         { text = "Every soul matters, Tinkee. Science answers to the Light.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Your patron's right. Study first, worry later.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -651,7 +651,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "For study, of course, and because my patron wants them kept fresh, very fresh, for reasons he says are scholarly. Frozen eggs don't hatch, you see, which is the only thing that makes collecting them safe at all." } },
+      lines = { { id = "xmage_default", text = "For study, of course, and because my patron wants them kept fresh, very fresh, for reasons he says are scholarly and I'm not paid to question. Frozen eggs don't hatch, you see, which is the only thing that makes collecting them safe, or insurable." } },
       choices = {
         { text = "Dragon eggs for a stranger? Be careful, Tinkee.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Science first. What your patron wants is his affair.", next = "BACK", fx = { align = { light = -1 } } },
@@ -660,7 +660,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Everyone in Flame Crest, I think, and Felnok up in Everlook would only steal them to tell me they're wrong. The only one who never asks is my patron, because he says the eggs are all he needs, which is very generous of him, or very strange." } },
+      lines = { { id = "xrogue_default", text = "Everybody in Flame Crest, I think, and Felnok up in Everlook would only steal them to tell me they're wrong and then charge me for the corrections. The only one who never asks is my patron, because he says the eggs are all he needs, which is very generous of him, or very strange." } },
       choices = {
         { text = "Trust nobody, Tinkee, least of all your patron.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A patron who pays deserves your loyalty.", next = "BACK", fx = { align = { order = 1 } } },
@@ -669,7 +669,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "That they're cleverer than anyone gives them credit for, and that the black ones nest in the mountain and send their whelps to bother everyone else. I'd love to know whether your Circle studies dragons too, because I've a few notes I'd trade, though only for good ones." } },
+      lines = { { id = "xdruid_default", text = "That they're cleverer than anybody gives them credit for, and that the black ones nest in the mountain and send their whelps to bother everybody else. I'd love to know whether your Circle studies dragons too, pal, because I've a few notes I'd trade, though only note for note, and only for good ones." } },
       choices = {
         { text = "Dragons should be studied carefully, not provoked. Mind your experiments.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Dragons are beasts like any other. Study them however you like.", next = "BACK", fx = { align = { order = -1 } } },
@@ -678,7 +678,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "For science, and for my patron, who pays for every measurement I send him and never says what he does with them. I'd rather be studying the dragons, but fire is fire, and if I understand how it moves, I might keep my eyebrows a little longer." } },
+      lines = { { id = "xhsham_default", text = "For science, and for my patron, who pays for every measurement I send him and never says what he does with them, which is fine, a customer's a customer. I'd rather be studying the dragons, but fire is fire, and if I understand how it moves, I might keep my eyebrows a little longer this time." } },
       choices = {
         { text = "If he pays, that's his business, Tinkee.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Ask your patron what he wants with it, Tinkee.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -687,7 +687,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster. The whelps keep scorching my workbench, you see, and if I can build something an imp can't burn through, I'll have something a whelp can't either, which is the theory." } },
+      lines = { { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster, and I'd pay it in coal. The whelps keep scorching my workbench, you see, and if I can build somethin' an imp can't burn through, I'll have something a whelp can't either, which is the theory." } },
       choices = {
         { text = "My imp isn't a test subject, Tinkee.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Go ahead. It could use the discipline.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -696,7 +696,7 @@ P:NPC {
     },
     xcl_ubrs = {
       big = true,
-      lines = { { id = "xcl_ubrs_default", text = "Then you've seen the black dragonflight's own nursery, which is the most important place in all of dragonkin studies and the least safe! General Drakkisath kept that whole floor running like a goblin factory, so I expect there's a terrible muddle up there now, scientifically speaking." } },
+      lines = { { id = "xcl_ubrs_default", text = "Then you've seen the black dragonflight's own nursery, which is the most important place in all of dragonkin studies and the least safe! General Drakkisath kept that whole floor runnin' like a goblin factory, so I expect there's a terrible muddle up there now, scientifically speaking, and probably a few fires nobody's paying to put out." } },
       choices = {
         { text = "Even dragon whelps don't choose who hatched them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Those eggs should be smashed before a single one hatches.", next = "BACK", fx = { align = { light = -1 } } },
@@ -704,44 +704,45 @@ P:NPC {
       },
     },
     xcl_ubrs2 = {
-      lines = { { id = "xcl_ubrs2_default", text = "Study, of course, and my patron wants them too, which pays for the study. I measure the warmth and the shell and the way the essence moves inside, and nobody's ever done it properly, because nobody else has been mad enough to try." } },
+      lines = { { id = "xcl_ubrs2_default", text = "Study, of course, and my patron wants them too, which pays for the study, which is how science works, pal. I measure the warmth and the shell and the way the essence moves inside, and nobody's ever done it properly, because nobody else has been mad enough or funded enough to try." } },
       choices = {
         { text = "Do be careful with them, Tinkee.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Is it true imps can breathe fire? I've been trying to build a whelp-proof furnace, and an imp would make a lovely test subject, if it doesn't mind." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the fire elementals around the mountain would hold still long enough for me to measure them? No? I didn't think so either, but I had to ask." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ooh, are you here to steal my schematics? You can't, because I keep them in my head, mostly, and the rest are on fire." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you do frost? My device is supposed to freeze dragon eggs, but you could probably do it with a flick of your wrist, and I'd love to compare results." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Is it true imps can breathe fire? I've been trying to build a whelp-proof furnace, and an imp would make a lovely test subject, if it doesn't mind, and I'd pay a reasonable fee." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the fire elementals around the mountain would hold still long enough for me to measure 'em? No? I didn't think so either, pal, but asking's free." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ooh, are you here to steal my schematics? You can't, sweetie, because I keep them in my head, mostly, and the rest are on fire, which is cheaper than a lockbox." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you do frost? My device is supposed to freeze dragon eggs, but you could probably do it with a flick of your wrist, and I'd love to compare results, and maybe your rates." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire" },
-          text = "You've been up to the very top of the Spire, where the rookery is? Oh, did you see the eggs, and were any of them glowing? I need to know whether they glow." },
+          text = "You've been up to the very top of the Spire, where the rookery is? Oh, did you see the eggs, and were any of them glowin'? I need to know whether they glow, pal, it's worth a whole chapter." },
         { id = "h_default", key = true,
-          text = "Tinkee Steamboil, scholar of dragonkin! The Burning Steppes are dangerous, but a real scholar will do almost anything to learn something new, and I've learned so much here already." },
+          text = "Tinkee Steamboil, scholar of dragonkin, inventor, and very reasonable rates! The Burning Steppes are dangerous, but a real scholar will do almost anything to learn somethin' new, and I've learned so much here already, mostly about burns." },
         { id = "h_essence", when = { questActive = TODO_QUEST("Broodling Essence") },
-          text = "Zap a broodling with the device, defeat it while it's still glowing, and the essence should come right out. Should, I said; that's what the testing is for." },
+          text = "Zap a broodling with the device, defeat it while it's still glowing, and the essence should come right out, pal. Should, I said, because that's what the testing is for, and you're the testing." },
         { id = "h_felnok", when = { questActive = TODO_QUEST("Felnok Steelspring") },
-          text = "Felnok's in Everlook, up in Winterspring, where it's lovely and cold and nothing is on fire. Give him my letter and he'll know exactly which parts to make." },
+          text = "Felnok's in Everlook, up in Winterspring, where it's lovely and cold and nothing is on fire, which must be awful for business. Give him my letter and he'll know exactly which parts to make, and exactly what to charge me." },
         { id = "h_parts", tags = { "news" }, when = { questRecent = { TODO_QUEST("Return to Tinkee"), days = 5 } },
-          text = "Felnok's parts are perfect, and he says I owe him, which is true, and which I'll never admit to his face. The eggscilloscope is nearly ready!" },
+          text = "Felnok's parts are perfect, and he says I owe him, which is true, and which I'll never admit to his face or in writing. The eggscilloscope is nearly ready, and it's only smoked a little!" },
         { id = "h_freeze", when = { questActive = TODO_QUEST("Egg Freezing") },
-          text = "The dragons hatch their eggs in a rookery high up in Blackrock Spire. Freeze one, just one, and come back and tell me it worked." },
+          text = "The dragons hatch their eggs in a rookery high up in Blackrock Spire, pal. Freeze one, just one, and come back and tell me it worked, and that you've still got all your fingers." },
         { id = "h_collect", when = { questActive = TODO_QUEST("Egg Collection") },
-          text = "Freeze them first, then collect them, never the other way round! My patron's heard you're getting them for me, and he's very eager, very eager, and he's already built a shelf for them." },
+          text = "Freeze them first, then collect them, never the other way round, unless you want your eyebrows on account! My patron's heard you're getting them for me, and he's very eager, very eager, and he's already built a shelf for them." },
         { id = "h_leonid", tags = { "news" }, when = { questActive = TODO_QUEST("Leonid Barthalomew") },
-          text = "Why would my master want the eggs sent to you, and not to me? Never mind, just take them to this Leonid and tell him I did everything I was told." },
+          text = "Why would my master want the eggs sent to you, and not to me? Never mind, pal, never mind, just take them to this Leonid and tell him I did everything I was told and kept every receipt." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! Do dragons have souls, do you think? I've been meaning to ask someone qualified, and nobody at Flame Crest is qualified for anything." },
+          text = "A priest! Do dragons have souls, do you think? I've been meaning to ask somebody qualified, and nobody at Flame Crest is qualified for anything except overcharging." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin, all shining and serious! You won't smash my gadgets, will you? They're perfectly harmless, mostly, and the ones that aren't are for dragons." },
+          text = "A paladin, all shining and serious! You won't smash my gadgets, will you, pal? They're perfectly harmless, mostly, and the ones that aren't are for dragons and they cost a fortune." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Oh, excellent, could you stand between me and the whelps while I take a measurement? They're only small, but they bite, and they're on fire, which hardly seems fair." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, here! Tell me, have you ever turned into a dragon? No? Pity, because I'd have a thousand questions, and you'd have been my favorite subject." },
+          text = "A warrior! Oh, excellent, could you stand between me and the whelps while I take a measurement? They're only small, but they bite and they're on fire, which hardly seems fair, and I'm not insured for either." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, here! Tell me, have you ever turned into a dragon? No? Pity, pal, because I'd have a thousand questions, and you'd have been my favourite subject, and I'd even have paid you." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm all ears, and only slightly singed ones." },
-        { id = "h_again2", text = "Go on! Questions are my favourite thing after dragons and gadgets." },
+        { id = "h_again", text = "What else, pal? I'm all ears, and only slightly singed ones." },
+        { id = "h_again2", text = "Go on, go on! Questions are my favourite thing after dragons and gadgets and getting paid." },
+        { id = "h_again3", text = "Ask, ask, pal! I think faster when somebody's asking, and I explode less, too." },
       },
       choices = {
         { text = "What are you studying?", next = "study" },
@@ -766,18 +767,18 @@ P:NPC {
 
     study = {
       lines = { { id = "s_default", fx = { learn = { "black_dragonflight" } },
-        text = "The black dragonkin of the Steppes: the whelps, the broodlings, the drakes, and how they grow. If I could learn to capture a living whelp, or an egg, I'd be the envy of every dragon scholar in the world." } },
+        text = "The black dragonkin of the Steppes: the whelps, the broodlings, the drakes, and how they grow. If I could learn to capture a living whelp, or an egg, I'd be the envy of every dragon scholar in the world, and I could charge admission." } },
       choices = {
         { text = "Isn't that dangerous?", next = "study_danger" },
         { text = "Why eggs?", next = "study_eggs" },
       },
     },
     study_danger = {
-      lines = { { id = "sd_default", text = "Extremely, which is why I send adventurers! I'm a scholar, not a lunatic, though the others in this cave would argue about that." } },
+      lines = { { id = "sd_default", text = "Extremely, which is why I send adventurers, pal! I'm a scholar, not a lunatic, though the others in this cave would argue about that, and they'd lose." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     study_eggs = {
-      lines = { { id = "se_default", text = "A frozen egg stays an egg, and an egg can be studied, and carried, and kept. Frozen eggs are harmless, you see; it's the warm ones you need to worry about." } },
+      lines = { { id = "se_default", text = "A frozen egg stays an egg, and an egg can be studied, and carried, and kept, and shipped. Frozen eggs are harmless, you see, and it's the warm ones you need to worry about, because they hatch, and then they bill you." } },
       choices = {
         { text = "And what does your patron want with them?", next = "patron" },
         { text = "Something else.", next = "BACK" },
@@ -785,52 +786,52 @@ P:NPC {
     },
 
     gadgets = {
-      lines = { { id = "g2_default", text = "It catches the essence of a dragon broodling at the moment of its defeat! After that came the eggscilloscope, which freezes eggs, and then the collectronic module, which collects them, and I named every one of them myself." } },
+      lines = { { id = "g2_default", text = "It catches the essence of a dragon broodling at the moment of its defeat! After that came the eggscilloscope, which freezes eggs, and then the collectronic module, which collects them, and I named every one of them myself, pal, and trademarked 'em too." } },
       choices = {
         { text = "The names are... something.", next = "gadgets_names" },
         { text = "Does any of it explode?", next = "gadgets_boom" },
       },
     },
     gadgets_names = {
-      lines = { { id = "gn_default", text = "They're wonderful names, and you know it. Felnok wanted to call the eggscilloscope 'the cold thing', which tells you everything about Felnok." } },
+      lines = { { id = "gn_default", text = "They're wonderful names, and you know it, and good names sell. Felnok wanted to call the eggscilloscope 'the cold thing', which tells you everything about Felnok and nothing about marketing." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     gadgets_boom = {
-      lines = { { id = "gb_default", text = "Not yet! Well, not much, and never while anyone important was standing near it." } },
+      lines = { { id = "gb_default", text = "Not yet! Well, not much, and never while anybody important was standing near it, and the scorch marks wash right off." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     patron = {
       big = true,
-      lines = { { id = "p_default", text = "Oh, he's... a very important man, a scholar much grander than me, and he pays very well for my research. He's not the sort of person you want to disappoint, so I try very hard never to." } },
+      lines = { { id = "p_default", text = "Oh, he's... a very important man, a scholar much grander than me, and he pays very well for my research, always on time, always in gold. He's not the sort of client you want to disappoint, pal, so I try very hard never to." } },
       choices = {
         { text = "You sound frightened of him.", next = "patron_fear" },
         { text = "What's his name?", next = "patron_name" },
       },
     },
     patron_fear = {
-      lines = { { id = "pf_default", text = "Frightened? No, no, respectful, very respectful, which is a different thing entirely. Could we talk about broodlings instead, please?" } },
+      lines = { { id = "pf_default", text = "Frightened? No, no, respectful, very respectful, which is a different thing entirely and a very sensible business practice. Could we talk about broodlings instead, please?" } },
       choices = {
         { text = "Of course.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Tinkee, who is he?", next = "patron_name" },
       },
     },
     patron_name = {
-      lines = { { id = "pn_default", text = "I call him my master, and he likes it that way. Nobody knows him unless he wants them to, so please don't go asking around about him." } },
+      lines = { { id = "pn_default", text = "I call him my master, and he likes it that way, and the customer is always right. Nobody knows him unless he wants them to, pal, so please don't go asking around about him." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
 
     felnok = {
-      lines = { { id = "f_default", text = "My colleague in Everlook, and the best engineer north of anywhere, which he'll tell you himself if you stand still long enough. He makes the parts I'm too busy to make." } },
+      lines = { { id = "f_default", text = "My colleague in Everlook, and the best engineer north of anywhere, which he'll tell you himself if you stand still long enough, and then he'll invoice you for the conversation. He makes the parts I'm too busy to make." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     engineer = {
-      lines = { { id = "e_default", text = "You may look, but not touch, and not laugh at my soldering. The trick with the cold coil is that it has to be colder than the egg is hot, which sounds obvious but took me eleven tries." } },
+      lines = { { id = "e_default", text = "You may look, pal, but not touch, and not laugh at my soldering. The trick with the cold coil is that it has to be colder than the egg is hot, which sounds obvious but took me eleven tries and one workbench." } },
       choices = { { text = "That's clever work.", next = "BACK", fx = { affinity = 2 } } },
     },
     leonid = {
       big = true,
-      lines = { { id = "l_default", text = "He did? I... I'd rather you didn't tell me, if it's anything dreadful, and I can see by your face that it is. I only wanted to study dragons, honestly I did." } },
+      lines = { { id = "l_default", text = "He did? I... I'd rather you didn't tell me, if it's anything dreadful, and I can see by your face that it is. I only wanted to study dragons, pal, honestly I did, and get paid a little for it." } },
       choices = {
         { text = "The eggs are safe now. You did well.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Next time, ask who's paying.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -839,7 +840,7 @@ P:NPC {
     },
     k_hunter = {
       lines = {
-        { id = "xhu_default", text = "Tame one! Oh, I'd love to see you try, and I'd write it all down, every scream. A black whelp has a dragon's temper in a dog's body, and I've lost three gloves and a very good hat learning that much." },
+        { id = "xhu_default", text = "Tame one! Oh, I'd love to see you try, and I'd write it all down, every scream, and sell the notes. A black whelp has a dragon's temper in a dog's body, pal, and I've lost three gloves and a very good hat learning that much." },
       },
       choices = {
         { text = "Some beasts aren't meant to be tamed.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
@@ -850,12 +851,12 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "I've written notes on nearly everything in the Steppes, and drawn little pictures in the margins too! Ask me about any of these." },
+      { id = "tp_knows", text = "I've written notes on nearly everything in the Steppes, pal, and drawn little pictures in the margins too, and the pictures cost extra! Ask me about any of these." },
     },
     background = { { id = "tp_bg", text = "A goblin who'd rather study than sell, which most goblins find about as sensible as giving away free samples. The Steppes have the best dragonkin anywhere, so here I am.", next = "study" } },
-    advice = { { id = "tp_ad", text = "Freeze it first, then pick it up. That rule has saved my life more than once." } },
+    advice = { { id = "tp_ad", text = "Freeze it first, then pick it up, sweetie. That rule has saved my life more than once, and my eyebrows twice." } },
     black_dragonflight = { { id = "tp_dragons", text = "Fascinating creatures, terribly clever and terribly rude, and they grow so fast you can almost watch it happen.", next = "study" } },
-    _none = { { id = "tp_none", text = "Is it a dragon? If it isn't, then I'm afraid I haven't studied it at all." } },
+    _none = { { id = "tp_none", text = "Is it a dragon? If it isn't, pal, then I'm afraid I haven't studied it, and nobody's paid me to." } },
   },
 }
 
@@ -871,24 +872,24 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Supplies in hot demand at rock-bottom prices! Well, rock-bottom for a volcano." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more? Of course you are, everybody runs out of blasting powder up here." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and blasting powder's gone up twice since! For you, though, I'll only charge the first increase." },
-    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is somebody up here got taken for a ride, and your name came up. I don't judge, pal, but I do count my coins twice." },
+    { id = "g_default", text = "Supplies in hot demand at rock-bottom prices, pal! Well, rock-bottom for a volcano, and the volcano's not charging rent." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more? Course you are, sweetheart, everybody runs out of blasting powder up here, and I'm the only one who sells it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, pal, and blasting powder's gone up twice since! For you, though, I'll only charge the first increase, because loyalty's good for repeat business." },
+    { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is somebody up here got taken for a ride, and your name came up. I don't judge, pal, but I do count my coins twice and my fingers once." },
   },
 
   notice = {
     { id = "n_engineer", cat = "craft", when = { profession = "Engineering" },
-      text = "An engineer! You'll want tubes, flux and powder, and you'll want them now, before your next explosion, so step right up." },
+      text = "An engineer! You'll want tubes, flux and powder, and you'll want 'em now, before your next explosion, so step right up and bring the purse." },
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "My, what a lovely full purse you've got there. It'd look even lovelier half empty and my till half full." },
+      text = "My, what a lovely full purse you've got there, sweetheart. It'd look even lovelier half empty, and my till half full, and wouldn't that be nice for both of us?" },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Only when they want something, which is always, so I sell to them too. Don't look at me like that, because a merchant who only sells to her friends doesn't stay a merchant for long, and the Dark Irons pay in good iron." } },
+      lines = { { id = "xwarcl_default", text = "Only when they want somethin', which is always, so I sell to them too, pal. Don't look at me like that, because a merchant who only sells to her friends doesn't stay a merchant for long, and the Dark Irons pay in good iron." } },
       choices = {
         { text = "Selling to the Dark Irons arms the enemy. That's wrong, Yuka.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Good business is good business. I'd do the same.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -898,8 +899,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because it comes up the road through Searing Gorge, past more Dark Irons than you'd believe, and every cart I lose puts up the price of the rest. You'd be amazed how many carts the worgs have eaten this season, and they don't even like the taste." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't let {pet} chew on the blasting powder, please. I know it smells interesting, but the last beast that tried it learned to fly, very briefly." },
+        { id = "xhuntcl_default", text = "Because it comes up the road through Searing Gorge, past more Dark Irons than you'd believe, and every cart I lose goes on the price of the rest. You'd be amazed how many carts the worgs have eaten this season, pal, and they don't even like the taste." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't let {pet} chew on the blasting powder, please, sweetheart. I know it smells interesting, but the last beast that tried it learned to fly, very briefly, and its owner still owes me for the crate." },
       },
       choices = {
         { text = "A fair price for a hard road. I'll pay it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -909,7 +910,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A paladin would ask a lot of questions about it first, I'd guess, and I'd answer them straight, because I've nothing to hide. Ribbly owes the family, the family wants him home, and how he comes home is up to Ribbly." } },
+      lines = { { id = "xapala_default", text = "A paladin would ask a lot of questions about it first, I'd guess, and I'd answer 'em straight, because my books are clean. Ribbly owes the family, the family wants him home, and how he comes home is up to Ribbly, pal." } },
       choices = {
         { text = "Justice isn't a family's to buy. I won't hunt him.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "He broke faith with his kin. That's his own doing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -918,7 +919,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Family counts for everything, which is exactly why Ribbly has to pay, because he cheated his own kin and ran off to hide with the Dark Irons. A goblin who cheats strangers is a businessman, but a goblin who cheats his family is a debt, and debts get collected." } },
+      lines = { { id = "xapriest_default", text = "Family counts for everything, which is exactly why Ribbly has to pay, because he cheated his own kin and ran off to hide with the Dark Irons. A goblin who cheats strangers is a businessman, pal, but a goblin who cheats his family is a debt, and debts get collected." } },
       choices = {
         { text = "Forgive him. Mercy costs less than a bounty.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A debt's a debt. Fair is fair, Yuka.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -927,7 +928,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "He's paying it now, a little every month, through his cousin in Booty Bay, with interest. The Screwspigots never forget a debt, friend, and that's why we're still in business while everyone else in Flame Crest is on their third shop." } },
+      lines = { { id = "xmage_default", text = "He's paying it now, a little every month, through his cousin in Booty Bay, with interest compounded. The Screwspigots never forget a debt, friend, and that's why we're still in business while everybody else in Flame Crest is on their third shop." } },
       choices = {
         { text = "Debts get paid. Ribbly should've known that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "He blew up a crate. Call it a lesson and move on.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -936,7 +937,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anyone anything, least of all something that lives in a fire. Find him yourself, if you like, and leave the imp out of the family business." } },
+      lines = { { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anybody anything, least of all somethin' that lives in a fire and charges in souls. Find him yourself if you like, pal, and leave the imp out of the family business." } },
       choices = {
         { text = "Then I'll find him myself, no demons involved.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Use every tool you've got, Yuka. Demons included.", next = "BACK", fx = { align = { light = -1 } } },
@@ -945,7 +946,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Because they were rusted, mostly, and because the Steppes eat metal faster than anywhere else I've traded. The druid said the ash would make good soil one day, if anyone waited long enough, and I said I'd be long dead and rich by then, so it wasn't my problem." } },
+      lines = { { id = "xdruid_default", text = "Because they were rusted, mostly, and because the Steppes eat metal faster than anywhere else I've traded, which is murder on the margins. The druid said the ash would make good soil one day, if anybody waited long enough, and I said I'd be long dead and rich by then, so it wasn't my problem." } },
       choices = {
         { text = "It is everyone's problem, Yuka. The land outlasts all of us.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Make your fortune while there's ash to stand on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -954,7 +955,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Only near the stock, friend, because one spark in the wrong place and Flame Crest gets a new crater. Otherwise I'd sell to a shaman as happily as anyone, since your coin spends like everybody's, and my dear brother Ribbly never paid me in anything but excuses." } },
+      lines = { { id = "xhsham_default", text = "Only near the stock, friend, because one spark in the wrong place and Flame Crest gets a new crater and I get a new shop. Otherwise I'd sell to a shaman as happily as anybody, since your coin spends like everybody's, and my dear brother Ribbly never paid me in anything but excuses." } },
       choices = {
         { text = "I'll keep my lightning to myself in here, Yuka.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If your stock can't take a spark, that's your trouble.", next = "BACK", fx = { align = { order = -1 } } },
@@ -963,30 +964,30 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Mind your lightning near the blasting powder, friend, because I've a whole crate of it under the counter and my insurance is very particular about weather." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Lovely, though I'm told imps are terrible around engineering supplies, so do keep yours outside where it can't ruin my stock." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't conjure anything in my shop, please, because the last mage who did set off a crate of sappers, and I'm still billing him for it." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Mind your lightning near the blasting powder, pal, because I've a whole crate of it under the counter and my insurance is very particular about weather." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Lovely, sweetheart, though I'm told imps are terrible around engineering supplies, so do keep yours outside where it can't ruin my stock or my eyebrows." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't conjure anything in my shop, please, because the last mage who did set off a crate of sappers, and I'm still billing him for the ceiling." },
         { id = "h_default", key = true,
-          text = "Yuka Screwspigot, engineering supplies, best prices this side of the mountain, mostly because I'm the only supplier this side of the mountain. What can I sell you?" },
+          text = "Yuka Screwspigot, engineering supplies, best prices this side of the mountain, mostly because I'm the only supplier this side of the mountain. What can I sell you, pal?" },
         { id = "h_sought", tags = { "news" }, when = { questActive = TODO_QUEST("Yuka Screwspigot") },
-          text = "Yorba sent you? Good old Yorba; she always did know who'd be useful. Yes, I'm looking for our brother, bless his worthless little heart." },
+          text = "Yorba sent you? Good old Yorba, she always did know who'd be useful and what they'd cost. Yes, I'm looking for our brother, bless his worthless little heart and his overdue accounts." },
         { id = "h_ribbly", when = { questActive = TODO_QUEST("Ribbly Screwspigot") },
-          text = "Ribbly's hiding somewhere deep in Blackrock Depths with the Dark Irons. Bring him back to me, or if he won't come along quietly, his head will do nicely." },
+          text = "Ribbly's hiding somewhere deep in Blackrock Depths with the Dark Irons, pal. Bring him back to me, or if he won't come along quietly, his head will do nicely, and it's lighter to carry." },
         { id = "h_ribbly_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Ribbly Screwspigot"), days = 7 } },
-          text = "The Baron's paid, the family's happy, and little Ribbly's never looked so peaceful. You've done the Screwspigots a great service." },
+          text = "The Baron's paid, the family's happy, and little Ribbly's never looked so peaceful, pal. You've done the Screwspigots a great service, and we remember our creditors and our friends." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! If you're here to pray for Ribbly, don't bother, because the Screwspigot family has already decided what he's owed, and it's not a prayer." },
+          text = "A priest! If you're here to pray for Ribbly, don't bother, sweetheart, because the Screwspigot family has already decided what he's owed, and it's not a prayer, it's an invoice." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Lovely armour, and very shiny, and if it ever needs bolts or a new hinge, I'm the only shop for leagues that sells them." },
+          text = "A paladin! Lovely armour, pal, very shiny, and if it ever needs bolts or a new hinge, I'm the only shop for leagues that sells 'em." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! Your armour's been chewed on by Dark Irons, I can tell from here, and I've got rivets, plates and a very reasonable price list for exactly that." },
+          text = "A warrior! Your armour's been chewed on by Dark Irons, I can tell from here, pal, and I've got rivets, plates and a very reasonable price list for exactly that." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Ammunition's two shelves down, and I'll warn you now, it's dearer up here, because every bullet in the Steppes had to climb a mountain to reach me." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I sell gears and bolts, friend, so I doubt we'll do business, but you're welcome to stand here and frown at my wares like the last one did." },
+          text = "A hunter! Ammunition's two shelves down, sweetheart, and I'll warn you now, it's dearer up here, because every bullet in the Steppes had to climb a mountain to reach me and I pay it by the step." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I sell gears and bolts, friend, so I doubt we'll do business, but you're welcome to stand here and frown at my wares like the last one did, and frowning's still free." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Browsing's free, but only for so long." },
-        { id = "h_again2", text = "What else can I do for you? I'm very reasonable, for a price." },
+        { id = "h_again", text = "Anything else, pal? Browsing's free, but only for so long." },
+        { id = "h_again2", text = "What else can I do for you, sweetheart? I'm very reasonable, for a price." },
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -1008,14 +1009,14 @@ P:NPC {
     },
 
     shop = {
-      lines = { { id = "s_default", text = "Because everyone who comes through here is about to walk into Blackrock Mountain, and everyone who walks into Blackrock Mountain runs out of something. Location, location, lava." } },
+      lines = { { id = "s_default", text = "Because everybody who comes through here is about to walk into Blackrock Mountain, pal, and everybody who walks into Blackrock Mountain runs out of something. Location, location, lava, that's the whole secret." } },
       choices = {
         { text = "Your prices are steep.", next = "shop_prices" },
         { text = "Something else.", next = "BACK" },
       },
     },
     shop_prices = {
-      lines = { { id = "sp_default", text = "Steep? Have you seen how I get my stock up here? Every crate comes past the Blackrock, the ogres and the dragons, and every one of them wants a cut." } },
+      lines = { { id = "sp_default", text = "Steep? Have you seen how I get my stock up here, pal? Every crate comes past the Blackrock, the ogres and the dragons, and every one of them wants a cut, so you're paying for a very dangerous delivery route." } },
       choices = {
         { text = "Suits me.", next = "BACK", fx = { affinity = 1 } },
         { text = "Still steep.", next = "BACK", fx = { affinity = -1, trait = { greedy = 1 } } },
@@ -1023,7 +1024,7 @@ P:NPC {
     },
 
     ribbly = {
-      lines = { { id = "r_default", text = "My little brother, and a drain on the family since the day he could walk. He took our money and wasted it on one scheme after another, and his last scheme must have been the worst of the lot." } },
+      lines = { { id = "r_default", text = "My little brother, and a drain on the family books since the day he could walk. He took our money and wasted it on one scheme after another, and his last scheme must have been the worst of the lot, because it worked on a baron." } },
       choices = {
         { text = "What did he do?", next = "ribbly_bounty" },
         { text = "That's harsh, about your own brother.", next = "ribbly_family" },
@@ -1031,7 +1032,7 @@ P:NPC {
     },
     ribbly_bounty = {
       lines = { { id = "rb_default", fx = { learn = { "blackrock_depths" } },
-        text = "Whatever it was, Baron Revilgaz of Booty Bay put a price on his head, and for the first time in his life Ribbly's finally worth something. Now he's hiding with the Dark Irons, of all people, in Blackrock Depths." } },
+        text = "Whatever it was, Baron Revilgaz of Booty Bay put a price on his head, and for the first time in his life Ribbly's finally worth somethin'. Now he's hiding with the Dark Irons, of all people, in Blackrock Depths, which is a terrible place to hide a valuable asset." } },
       choices = {
         { text = "And you'll collect the bounty?", next = "ribbly_family" },
         { text = "Something else.", next = "BACK" },
@@ -1039,18 +1040,18 @@ P:NPC {
     },
     ribbly_family = {
       big = true,
-      lines = { { id = "rf_default", text = "Harsh? Family's a business, friend, and Ribbly's been running at a loss for years. Yorba and I are simply closing the account, and I'll even shed a tear about it, once the gold's counted." } },
+      lines = { { id = "rf_default", text = "Harsh? Family's a business, pal, and Ribbly's been running at a loss for years. Yorba and I are simply closing the account, and I'll even shed a tear about it, once the gold's counted." } },
       choices = {
         { text = "That's cold, Yuka.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Business is business.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },
       },
     },
     yorba = {
-      lines = { { id = "y_default", text = "Hello right back, and tell her I want my share of the bounty in gold, not in IOUs, because I know her. Steamwheedle Port's treating her well, I hope?" } },
+      lines = { { id = "y_default", text = "Hello right back, and tell her I want my share of the bounty in gold, not in IOUs, because I know her, pal. Steamwheedle Port's treating her well, I hope?" } },
       choices = { { text = "She seemed well.", next = "BACK", fx = { affinity = 1 } } },
     },
     engineer = {
-      lines = { { id = "e_default", text = "Flux, tubes, powder, the odd schematic that fell off the back of a caravan, nothing too exotic. Have a look, and don't ask where the schematic came from." } },
+      lines = { { id = "e_default", text = "Flux, tubes, powder, the odd schematic that fell off the back of a caravan, nothing too exotic, sweetheart. Have a look, and don't ask where the schematic came from, because that's extra." } },
       choices = {
         { text = "Show me.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },
@@ -1058,7 +1059,7 @@ P:NPC {
     },
     k_rogue = {
       lines = {
-        { id = "xro_default", text = "Quietly's how you'd have to do it, because he's down in the Depths with the Dark Irons and a price on his head big enough to buy this shop twice. Family's family, but a bounty's a bounty, and I haven't decided which I like better." },
+        { id = "xro_default", text = "Quietly's how you'd have to do it, pal, because he's down in the Depths with the Dark Irons and a price on his head big enough to buy this shop twice. Family's family, but a bounty's a bounty, and I haven't decided which I like better." },
       },
       choices = {
         { text = "Family first, Yuka.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
@@ -1070,9 +1071,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A Screwspigot, which means I sell things and my family owes people money. One of those is improving.", next = "ribbly" } },
-    advice = { { id = "tp_ad", text = "Buy your powder before you need it, because the moment you need it, I double the price." } },
-    blackrock_depths = { { id = "tp_depths", text = "Where my brother's hiding, and where most of my customers go to spend what they buy from me." } },
-    _none = { { id = "tp_none", text = "I don't sell that, so I don't know about it. Want some flux?" } },
+    advice = { { id = "tp_ad", text = "Buy your powder before you need it, pal, because the moment you need it, I double the price." } },
+    blackrock_depths = { { id = "tp_depths", text = "Where my brother's hiding, sweetheart, and where most of my customers go to spend what they buy from me." } },
+    _none = { { id = "tp_none", text = "I don't sell that, so I don't know about it, pal. Want some flux?" } },
   },
 }
 
@@ -1088,24 +1089,24 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Kibler's Exotic Pets! How can you help me today?" },
-    { id = "g_back", when = { metBefore = true }, text = "My favourite supplier's back! Opus, say hello, and say it nicely." },
-    { id = "g_away", when = { away = 14 }, text = "My favourite supplier, back after {away} away! Business has been terrible without you, so let's fix that." },
-    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone round to your side of a deal, and I like that in a supplier. Just don't use it on me, because Opus bites." },
+    { id = "g_default", text = "Welcome, welcome to Kibler's Exotic Pets, my friend! How can you help me today, and how much can you help me?" },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite supplier's back! Opus, say hello, and say it nicely, because this one pays." },
+    { id = "g_away", when = { away = 14 }, text = "My favourite supplier, back after {away} away! Business has been terrible without you, buddy, so let's fix that before Opus eats the profits." },
+    { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked somebody round to your side of a deal, and I like that in a supplier, buddy. Just don't use it on me, because Opus bites and I don't refund." },
   },
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
-      text = "Oh, look at that beauty at your heel! Good coat, clear eyes, nice manners; somebody's been taking proper care of that one." },
+      text = "Oh, look at that beauty at your heel! Good coat, clear eyes, nice manners, my friend, and somebody's been taking proper care of that one, which is worth more than gold, nearly." },
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
-      text = "Now there's a customer who could afford one of my finest. Ever thought about a pet worg? Very loyal, very fierce, very, very expensive." },
+      text = "Now there's a customer who could afford one of my finest! Ever thought about a pet worg, buddy? Very loyal, very fierce, very, very expensive." },
   },
 
   start = "hello",
   nodes = {
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "With the right handling it would fight beside you and die for you, which is what the Blackrock orcs know and Stormwind has forgotten. I once watched a Blackrock rider and his worg fight back to back, and Opus kept quiet for a whole day afterwards." } },
+      lines = { { id = "xwarcl_default", text = "With the right handling it would fight beside you and die for you, which is what the Blackrock orcs know and Stormwind has forgotten. I once watched a Blackrock rider and his worg fight back to back, my friend, and Opus kept quiet for a whole day afterwards, which is worth a fortune all by itself." } },
       choices = {
         { text = "A fighting beast should be raised with care, not cruelty.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Worgs are weapons. Train them hard and point them at the enemy.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1114,7 +1115,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Stolen's a strong word, my friend, when the alternative is the pups growing up to carry orcs into Lakeshire. I'd call it rescue, and a profitable rescue at that, which is the best kind." } },
+      lines = { { id = "xapala_default", text = "Stolen's a strong word, my friend, when the alternative is the pups growin' up to carry orcs into Lakeshire. I'd call it rescue, and a profitable rescue at that, which is the best kind of charity there is." } },
       choices = {
         { text = "Then it's a rescue. Better a pet than a war beast.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "A rescue for profit is still a theft.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1123,7 +1124,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "If you get 'em young enough, before the orcs teach 'em to hate, then yes, they're as sweet as hounds. That's the trick with most creatures, I find, and maybe with folk too, though I sell pets, not sermons." } },
+      lines = { { id = "xapriest_default", text = "If you get 'em young enough, before the orcs teach 'em to hate, then yes, they're as sweet as hounds. That's the trick with most creatures, buddy, and maybe with folk too, though I sell pets, not sermons, and sermons don't sell anyway." } },
       choices = {
         { text = "Every creature can be redeemed. The Light sees to that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some things are bred for war. Kindness won't change that.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1132,7 +1133,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "No? How long does it last, then? Never mind, don't tell me, because I've already promised two, and I'd rather not know what my clients would wake up to. Opus thinks it's funny, but then Opus thinks everything is funny." } },
+      lines = { { id = "xmage_default", text = "No? How long does it last, then? Never mind, don't tell me, buddy, because I've already promised two and taken the deposits, and I'd rather not know what my clients would wake up to. Opus thinks it's funny, but then Opus thinks everything is funny." } },
       choices = {
         { text = "Tell your clients the truth, Kibler. It's only fair.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Buyer beware. That's their problem, not yours.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1141,7 +1142,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "They're Blackrock worgs, raised to follow a scent across the whole of the Steppes, and the first scent they learn in my shop is mine. Somebody pinched one last spring, and it walked back in the next morning with his boot in its mouth." } },
+      lines = { { id = "xrogue_default", text = "They're Blackrock worgs, raised to follow a scent across the whole of the Steppes, and the first scent they learn in my shop is mine, which is my theft insurance. Somebody pinched one last spring, my friend, and it walked back in the next morning with his boot in its mouth." } },
       choices = {
         { text = "Then I'll pay for one honestly, like a proper customer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Clever pup. I'd still have tried, Kibler.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1150,7 +1151,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I reckon they smell the wolves on you, friend, since your people ride them, and a pup knows its betters by the smell. These are Blackrock worgs, mind you, bred mean by Rend's handlers, so if you can gentle one with a look, I'll want to know how you do it." } },
+      lines = { { id = "xhsham_default", text = "I reckon they smell the wolves on you, friend, since your people ride 'em, and a pup knows its betters by the smell. These are Blackrock worgs, mind you, bred mean by Rend's handlers, so if you can gentle one with a look, I'll want to know how you do it and what you'd charge to teach it." } },
       choices = {
         { text = "Pups taken from their pack shouldn't be sold, Kibler.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A pup's a pup. Sell them to whoever pays.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1159,7 +1160,7 @@ P:NPC {
     },
     xcl_lbrs = {
       big = true,
-      lines = { { id = "xcl_lbrs_default", text = "Then you've seen where my best stock comes from, and where most of my suppliers stop coming back from! The Blackrock raise those worgs for war and the poor things never hear a kind word, so every pup I gentle is one less beast that ends up eating a scout." } },
+      lines = { { id = "xcl_lbrs_default", text = "Then you've seen where my best stock comes from, buddy, and where most of my suppliers stop coming back from! The Blackrock raise those worgs for war and the poor things never hear a kind word, so every pup I gentle is one less beast that ends up eatin' a scout." } },
       choices = {
         { text = "You're giving those pups a kinder life, Kibler. Keep at it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A worg's a beast of war. Train them mean and sell them dear.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1167,36 +1168,36 @@ P:NPC {
       },
     },
     xcl_lbrs2 = {
-      lines = { { id = "xcl_lbrs2_default", text = "All over! Stormwind nobles, Orgrimmar captains, a baron in Gadgetzan who dresses his in a tiny hat. I don't ask what side anyone's on, because a worg doesn't either, and that's good business." } },
+      lines = { { id = "xcl_lbrs2_default", text = "All over, my friend! Stormwind nobles, Orgrimmar captains, a baron in Gadgetzan who dresses his in a tiny hat. I don't ask what side anybody's on, because a worg doesn't either, and gold doesn't either, and that's good business." } },
       choices = {
         { text = "I'd like to see the one in the tiny hat.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The worg pups go quiet when your sort walks in, which is either respect or fear, and Opus says it's fear, but Opus says a lot of things." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not here to pinch a worg pup out of the cage, are you? They bite, they howl, and they always find their way back to me." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn things into sheep? I've had clients ask for a sheep that used to be a worg, and I haven't the faintest idea where to start." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The worg pups go quiet when your sort walks in, buddy, which is either respect or fear, and Opus says it's fear, but Opus says a lot of things, most of 'em bad for business." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not here to pinch a worg pup out of the cage, are you, buddy? They bite, they howl, and they always find their way back to me, which makes 'em the worst investment a thief ever made." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn things into sheep? I've had clients ask for a sheep that used to be a worg, my friend, and I haven't the faintest idea where to start, or what to charge." },
         { id = "h_cl_lbrs", tags = { "news" }, when = { cleared = "Lower Blackrock Spire" },
-          text = "Word is you went all the way through the lower Spire and came out with the overlord dead behind you! Did you see any worg pups in there? Asking for business reasons, purely." },
+          text = "Word is you went all the way through the lower Spire and came out with the overlord dead behind you! Did you see any worg pups in there, buddy? Askin' for business reasons, purely." },
         { id = "h_default", key = true,
-          text = "Kibler, at your service, animal lover by nature and salesman by trade. I find exotic beasts for the rich and famous and teach them to behave like proper pets, more or less." },
+          text = "Kibler, at your service, animal lover by nature and salesman by trade, and very good at both. I find exotic beasts for the rich and famous, my friend, and teach 'em to behave like proper pets, more or less." },
         { id = "h_pups", when = { questActive = TODO_QUEST("Kibler's Exotic Pets") },
-          text = "Worg pups, from the Spire, in that cage, and get 'em young or they're untrainable! Bring me one and I'll gentle a worg just for you." },
+          text = "Worg pups, from the Spire, in that cage, buddy, and get 'em young or they're untrainable and unsellable! Bring me one and I'll gentle a worg just for you." },
         { id = "h_eggs", when = { questActive = TODO_QUEST("En-Ay-Es-Tee-Why") },
-          text = "Spire spider eggs, fifteen of 'em, from wherever the spiders are nastiest. Believe it or not, there are folk who'll pay for the vilest beast you can imagine, as long as it's housebroken." },
+          text = "Spire spider eggs, fifteen of 'em, from wherever the spiders are nastiest. Believe it or not, my friend, there are folk who'll pay a fortune for the vilest beast you can imagine, as long as it's housebroken." },
         { id = "h_pup_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Kibler's Exotic Pets"), days = 7 } },
-          text = "How's the little fella settling in? Feed him twice a day and don't let him near your boots; worgs love boots." },
+          text = "How's the little fella settling in? Feed him twice a day and don't let him near your boots, buddy, because worgs love boots and I don't sell replacements." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest! You'll bless my little worgs, won't you? They've had a hard start in life up in the Spire, and a blessing couldn't hurt their prospects with the buyers." },
+          text = "A priest! You'll bless my little worgs, won't you? They've had a hard start in life up in the Spire, my friend, and a blessing couldn't hurt their prospects with the buyers." },
         { id = "h_apaladin", when = { class = "PALADIN" },
-          text = "A paladin! Mind the worg cage, if you please, because the pups can smell holy folk, and they get excited about it in a way I haven't worked out yet." },
+          text = "A paladin! Mind the worg cage, if you please, buddy, because the pups can smell holy folk, and they get excited about it in a way I haven't worked out how to sell yet." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! I don't suppose you've come for a pet, but I always say there's a beast for every soldier, and a well-raised worg pup is the finest shield-mate in the Steppes." },
+          text = "A warrior! I don't suppose you've come for a pet, but I always say there's a beast for every soldier and a price for every beast, and a well-raised worg pup is the finest shield-mate in the Steppes." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? Opus is listening, so mind your language; he'll repeat it to customers." },
-        { id = "h_again2", text = "Go on, ask me anything. Except about G.E.T.A.; we don't talk about them." },
+        { id = "h_again", text = "What else, buddy? Opus is listening, so mind your language, because he'll repeat it to customers and I'll lose the sale." },
+        { id = "h_again2", text = "Go on, ask me anything, my friend. Except about G.E.T.A., because we don't talk about them." },
       },
       choices = {
         { text = "Exotic pets? In a volcano?", next = "pets" },
@@ -1218,18 +1219,18 @@ P:NPC {
 
     pets = {
       lines = { { id = "p_default", fx = { learn = { "blackrock_spire" } },
-        text = "Where else? Blackrock Spire's full of worgs, spiders and things nobody's even named yet, and every one of them is a pet waiting to happen. Look at the cages; ain't it obvious?" } },
+        text = "Where else, buddy? Blackrock Spire's full of worgs, spiders and things nobody's even named yet, and every one of 'em is a pet waiting to happen and a price tag waiting to be written. Look at the cages, ain't it obvious?" } },
       choices = {
         { text = "Who buys a pet worg?", next = "pets_clients" },
         { text = "That's cruel to the beasts.", next = "pets_cruel" },
       },
     },
     pets_clients = {
-      lines = { { id = "pc_default", text = "Nobles, merchant princes, the odd baron with a big house and a small reason to feel important. A worg at the gate says more than a dozen guards, and it doesn't ask for wages." } },
+      lines = { { id = "pc_default", text = "Nobles, merchant princes, the odd baron with a big house and a small reason to feel important, my friend. A worg at the gate says more than a dozen guards, and it doesn't ask for wages, which is my whole sales pitch." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     pets_cruel = {
-      lines = { { id = "pcr_default", text = "Cruel? I feed 'em better than the orcs do, and I never send 'em out to die for a warchief, so I'd say I'm the kindest thing that ever happened to a worg pup." } },
+      lines = { { id = "pcr_default", text = "Cruel? I feed 'em better than the orcs do, buddy, and I never send 'em out to die for a warchief, so I'd say I'm the kindest thing that ever happened to a worg pup, and the most expensive." } },
       choices = {
         { text = "I suppose that's true.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'm not convinced.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
@@ -1237,19 +1238,19 @@ P:NPC {
     },
 
     opus = {
-      lines = { { id = "o_default", text = "That's Opus, the most expensive mistake I ever made, because nobody will buy him. He smokes, he swears, and he tells every customer I'm being investigated by G.E.T.A., which I am not, probably." } },
+      lines = { { id = "o_default", text = "That's Opus, the most expensive mistake I ever made, because nobody will buy him, not even at a loss. He smokes, he swears, and he tells every customer I'm being investigated by G.E.T.A., which I am not, probably." } },
       choices = {
         { text = "What's G.E.T.A.?", next = "opus_geta" },
         { text = "He seems lovely.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     opus_geta = {
-      lines = { { id = "og_default", text = "Nobody knows, friend, and that's what worries me. Opus heard it somewhere and won't stop saying it, and I'd swear he gets louder whenever a customer walks in." } },
+      lines = { { id = "og_default", text = "Nobody knows, my friend, and that's what worries me. Opus heard it somewhere and won't stop saying it, and I'd swear on my best cage he gets louder whenever a customer walks in." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     bijou = {
-      lines = { { id = "b_default", text = "A goblin I hired to fetch spider eggs from the Spire, and a very capable one, for an operative. I haven't heard from her in weeks, and Opus won't stop saying she's lost." } },
+      lines = { { id = "b_default", text = "A goblin I hired to fetch spider eggs from the Spire, and a very capable one, for an operative, at a very capable rate. I haven't heard from her in weeks, buddy, and Opus won't stop saying she's lost." } },
       choices = {
         { text = "Are you worried about her?", next = "bijou_worry" },
         { text = "Something else.", next = "BACK" },
@@ -1257,9 +1258,9 @@ P:NPC {
     },
     bijou_worry = {
       lines = {
-        { id = "bw_default", text = "Worried about her and about my eggs, in that order, mostly. If you're going into the Spire anyway, keep an eye out for a goblin with a lot of notes and not much patience." },
+        { id = "bw_default", text = "Worried about her and about my eggs, in that order, mostly, and the eggs are paid for. If you're going into the Spire anyway, my friend, keep an eye out for a goblin with a lot of notes and not much patience." },
         { id = "bw_found", when = { questDone = TODO_QUEST("Bijou's Belongings") },
-          text = "You found her, alive and scribbling? Ha! I knew it, and she still owes me fifteen eggs, so tell her that next time you see her." },
+          text = "You found her, alive and scribbling? Ha! I knew it, buddy, and she still owes me fifteen eggs, so tell her that next time you see her, and tell her I'm counting." },
       },
       choices = { { text = "I'll look for her.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -1268,7 +1269,7 @@ P:NPC {
       choices = { { text = "That's surprisingly kind.", next = "BACK", fx = { affinity = 2 } } },
     },
     druid = {
-      lines = { { id = "dr_default", text = "I'm sure you could, but could you teach a spider to sit? No? Then we're both still learning, and I'll stick to cages." } },
+      lines = { { id = "dr_default", text = "I'm sure you could, buddy, but could you teach a spider to sit? No? Then we're both still learning, and I'll stick to cages and you stick to buying from 'em." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     k_lock = {
@@ -1284,12 +1285,12 @@ P:NPC {
 
   topics = {
     knows = {
-      { id = "tp_knows", text = "A good dealer knows his territory, friend, and I know mine. Ask about any of these, no charge for the talk." },
+      { id = "tp_knows", text = "A good dealer knows his territory, my friend, and I know mine down to the last spider. Ask about any of these, no charge for the talk." },
     },
     background = { { id = "tp_bg", text = "Booty Bay's finest dealer in beasts, now operating from a cave for reasons that have nothing to do with G.E.T.A.", next = "pets" } },
-    advice = { { id = "tp_ad", text = "Get 'em young, feed 'em well, and never let 'em see you scared. Works on worgs, works on customers." } },
-    blackrock_spire = { { id = "tp_spire", text = "The best hunting ground in the world, if you don't mind most of the stock trying to eat you." } },
-    _none = { { id = "tp_none", text = "Can I sell it? If I can't, then I wouldn't know the first thing about it, friend." } },
+    advice = { { id = "tp_ad", text = "Get 'em young, feed 'em well, and never let 'em see you scared, buddy. Works on worgs, and it works on customers too." } },
+    blackrock_spire = { { id = "tp_spire", text = "The best hunting ground in the world, my friend, if you don't mind most of the stock trying to eat you before you can price it." } },
+    _none = { { id = "tp_none", text = "Can I sell it? If I can't, buddy, then I wouldn't know the first thing about it." } },
   },
 }
 

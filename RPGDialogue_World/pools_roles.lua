@@ -2239,38 +2239,38 @@ P:Town {
 P:Pool {
   id = "guard_ratchet", role = "guard", community = "ratchet",
   barks = {
-    { id = "b_boat", text = "Boat's in from Booty Bay. Everybody keep your hands where I can see 'em, and your purses where you can." },
-    { id = "b_pirates", text = "Sails on the horizon again. If they're black, somebody ring the bell." },
+    { id = "b_boat", text = "Boat's in from Booty Bay, so everybody keep your hands where I can see 'em and your purses where you can, because I don't get paid extra for finding 'em." },
+    { id = "b_pirates", text = "Sails on the horizon again, boys, and if they're black, somebody ring the bell before they start chargin' us for the privilege." },
   },
   greetings = {
-    { id = "g_ratchet", text = "Welcome to Ratchet, pal: Cartel port, neutral ground. You trade here and you fight somewhere else." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Pirates like the dark, so stay off the beach till sunup if you've got any sense." },
+    { id = "g_ratchet", text = "Welcome to Ratchet, pal, Cartel port and neutral ground. You trade here, you pay your fees here, and you do your fighting somewhere that isn't on my shift." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Pirates like the dark, chum, so stay off the beach till sunup if you've got any sense, because I'm not hauling your body back up for free." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Somebody's been rolling around in the Barrens with the quilboar, by the look of you. There's a smith on the docks, but he takes cash, not stories." },
+      text = "Somebody's been rolling around in the Barrens with the quilboar, by the look of you, pal. There's a smith on the docks, but he takes cash, not stories, and so do I." },
     { id = "n_horde", cat = "status", when = { faction = "Horde" },
-      text = "Horde, sure, half our customers walk down from the Crossroads. In town, though, you're a customer first and a grunt second." },
+      text = "Horde, sure, half our customers walk down from the Crossroads. In town, though, buddy, you're a customer first and a grunt second, and customers keep their axes on their backs." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
-      text = "Alliance, this deep in the Barrens? Brave or lost, pal, and either way you're safe inside the town, so spend something." },
+      text = "Alliance, this deep in the Barrens? Brave or lost, pal, and either way you're safe inside the town, so do us both a favour and spend somethin'." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Hey, I saw that! Sneak all you like, but sneak somewhere that isn't the Cartel's warehouse." } },
+  react = { { id = "r_stealth", on = "stealth", text = "Hey, I saw that! Sneak all you like, pal, but sneak somewhere that isn't the Cartel's warehouse, because the Cartel bills thieves by the knuckle." } },
   lines = {
-    { id = "l_default", text = "Gazlowe built this port out of nothing but sand and nerve, and we keep it neutral for him. Draw steel in town and you'll be swimming back to wherever you came from." },
+    { id = "l_default", text = "Gazlowe built this port out of nothing but sand and nerve, and we keep it neutral for him, because neutral pays. Draw steel in town, pal, and you'll be swimming back to wherever you came from." },
   },
   tier = "service",
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Weapons stay sheathed, coin stays moving, and everybody goes home happy. What do you want, pal?" },
-        { id = "h_horde", when = { faction = "Horde" }, text = "Down from the Crossroads, are you? Leave the war on the road outside, pal, because in Ratchet the only thing anybody fights over is the price. What do you need?" },
-        { id = "h_alliance", when = { faction = "Alliance" }, text = "Off the boat, or did you really walk through the whole Barrens? Either way, nobody here will touch you while you're spending money, pal. What do you need?" },
-        { id = "h_rep", when = { reputation = { faction = "Ratchet", min = "honored" } }, text = "Hey, the boss likes you, and the boss doesn't like anybody, so you must be doing something right. What can I do for you?" },
+        { id = "h_default", text = "Weapons stay sheathed, coin stays moving, and everybody goes home happy and a little lighter in the purse. What do you want, pal?" },
+        { id = "h_horde", when = { faction = "Horde" }, text = "Down from the Crossroads, are ya? Leave the war on the road outside, pal, because in Ratchet the only thing anybody fights over is the price. What do you need?" },
+        { id = "h_alliance", when = { faction = "Alliance" }, text = "Off the boat, or did you really walk through the whole Barrens? Either way, nobody here will touch you while you're spending money, pal, and I'd keep spending if I were you. What do you need?" },
+        { id = "h_rep", when = { reputation = { faction = "Ratchet", min = "honored" } }, text = "Hey, the boss likes you, and the boss doesn't like anybody who isn't paying him, so you must be doing somethin' right. What can I do for you, boss?" },
       },
       again = {
-        { id = "a_clock", text = "What else? I'm watching the water while we talk." },
-        { id = "a_go", text = "Anything else, pal? Make it quick, because the boat's due." },
+        { id = "a_clock", text = "What else? Talk while I watch the water, pal, because I get paid to watch the water." },
+        { id = "a_go", text = "Anything else, pal? Make it quick, because the boat's due and every crate on it pays a fee." },
       },
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
@@ -2286,7 +2286,7 @@ P:Pool {
     },
     rules = {
       lines = {
-        { id = "ru_default", text = "Nobody fights in town, nobody robs the warehouses, and everybody pays the dock fees. That's it, pal, and you'd be amazed how many folks can't manage all three." },
+        { id = "ru_default", text = "Nobody fights in town, nobody robs the warehouses, and everybody pays the dock fees. That's it, pal, and you'd be amazed how many folks can't manage all three without gettin' sat on." },
       },
       choices = {
         { text = "And if someone does start something?", next = "rules_fight" },
@@ -2295,7 +2295,7 @@ P:Pool {
     },
     rules_fight = {
       lines = {
-        { id = "rf_default", text = "Then every bruiser on the docks shows up at once, and we sort out who started it after we've sat on everybody. The Cartel doesn't do trials, pal; it does invoices." },
+        { id = "rf_default", text = "Then every bruiser on the docks shows up at once, and we sort out who started it after we've sat on everybody. The Cartel doesn't do trials, pal, it does invoices, and the invoice includes the sitting." },
       },
       choices = {
         { text = "Efficient.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -2304,7 +2304,7 @@ P:Pool {
     },
     boss = {
       lines = {
-        { id = "bo_default", text = "Gazlowe, and he'll tell you himself that he built Orgrimmar for the Warchief, usually before you've said hello. Truth is he's a good boss, loud and cheap and sharper than he looks, and Ratchet wouldn't be here without him." },
+        { id = "bo_default", text = "Gazlowe, and he'll tell you himself that he built Orgrimmar for the Warchief, usually before you've said hello. Truth is he's a good boss, loud and cheap and sharper than he looks, and he pays us on time, which is all a bruiser asks." },
       },
       choices = {
         { text = "Did he really build Orgrimmar?", next = "boss_orgrimmar" },
@@ -2313,7 +2313,7 @@ P:Pool {
     },
     boss_orgrimmar = {
       lines = {
-        { id = "bg_default", text = "He did, or a good chunk of it, back when the orcs first landed and needed walls up fast. He got paid well for it too, so you could say the Horde's been a good customer from the very start." },
+        { id = "bg_default", text = "He did, or a good chunk of it, back when the orcs first landed and needed walls up fast. He got paid well for it too, pal, so you could say the Horde's been a good customer from the very first invoice." },
       },
       choices = {
         { text = "Good to know.", next = "BACK" },
@@ -2322,7 +2322,7 @@ P:Pool {
     },
     trouble = {
       lines = {
-        { id = "tr_default", text = "The Southsea pirates, mostly, raiding ships off the coast and camping on the beaches south of here like they own the place. Then there's the Venture Company sniffing around the Barrens, and they'd buy the whole port if Gazlowe let them." },
+        { id = "tr_default", text = "The Southsea pirates, mostly, raiding ships off the coast and camping on the beaches south of here like they own the place and owe nobody rent. Then there's the Venture Company sniffing around the Barrens, and they'd buy the whole port out from under us if Gazlowe let 'em." },
       },
       choices = {
         { text = "Why don't you deal with the pirates?", next = "trouble_deep" },
@@ -2331,7 +2331,7 @@ P:Pool {
     },
     trouble_deep = {
       lines = {
-        { id = "td_default", text = "Because we're paid to guard the town, pal, not to chase pirates up and down the beach. That's what adventurers are for, and Gazlowe's always got work for anybody willing to go." },
+        { id = "td_default", text = "Because we're paid to guard the town, pal, not to chase pirates up and down the beach for nothin'. That's what adventurers are for, and Gazlowe's always got work for anybody willing to go." },
       },
       choices = {
         { text = "Maybe I'll pay the beach a visit.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -2340,7 +2340,7 @@ P:Pool {
     },
     boat = {
       lines = {
-        { id = "bt_default", text = "Across the sea to Booty Bay, another Cartel port, and it's the one thing in the Cartel nobody charges you for. Hang onto the rail, though, because the captain doesn't stop for anybody who falls off." },
+        { id = "bt_default", text = "Across the sea to Booty Bay, another Cartel port, and it's the one thing in the Cartel nobody charges you for, so enjoy it, pal. Hang onto the rail, though, because the captain doesn't stop for anybody who falls off." },
       },
       choices = {
         { text = "What's Booty Bay like?", next = "boat_bay" },
@@ -2349,7 +2349,7 @@ P:Pool {
     },
     boat_bay = {
       lines = {
-        { id = "bb_default", text = "Like Ratchet, only bigger, wetter and full of Bloodsail instead of Southsea. The Baron runs it tight, so the same rules hold there: no fighting in town, and everybody pays." },
+        { id = "bb_default", text = "Like Ratchet, only bigger, wetter and full of Bloodsail instead of Southsea. The Baron runs it tight, chum, so the same rules hold there: no fighting in town, and everybody pays." },
       },
       choices = {
         { text = "Sounds like home away from home.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -2359,7 +2359,7 @@ P:Pool {
     neutral = {
       big = true,
       lines = {
-        { id = "ne_default", text = "Bother me? Pal, the war's the best thing that ever happened to Ratchet, because both sides need boats and both sides need goods. We sell to everybody, we side with nobody, and the gold keeps rolling in." },
+        { id = "ne_default", text = "Bother me? Pal, the war's the best thing that ever happened to Ratchet, because both sides need boats and both sides need goods. We sell to everybody, we side with nobody, and the gold keeps rollin' in, which is more than you can say for most wars." },
       },
       choices = {
         { text = "Smart. Wars end, but trade doesn't.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
@@ -2369,7 +2369,7 @@ P:Pool {
     },
     neutral_take = {
       lines = {
-        { id = "nt_default", text = "Not yet, because both sides know the other one would lose its boats the same day. Neutral's the only thing everybody can agree on, pal, and that's what keeps us standing." },
+        { id = "nt_default", text = "Not yet, because both sides know the other one would lose its boats the same day, and nobody can afford that. Neutral's the only thing everybody can agree on, pal, and that's what keeps us standing." },
       },
       choices = {
         { text = "Neutral and profitable. Makes sense.", next = "BACK" },
@@ -2378,9 +2378,9 @@ P:Pool {
     },
     sides = {
       lines = {
-        { id = "si_default", text = "Not in town, they don't, because we're standing right here." },
-        { id = "si_horde", when = { faction = "Horde" }, text = "A few come in off the Booty Bay boat, nervous as cats, and they keep to the docks. Nobody bothers them and they don't bother anybody, and that's how Gazlowe likes it." },
-        { id = "si_alliance", when = { faction = "Alliance" }, text = "Horde come down from the Crossroads every day, pal, and they look at you funny, but they won't start anything here. Out on the road past the gate, though, you're on your own." },
+        { id = "si_default", text = "Not in town they don't, pal, because we're standing right here and we bill by the bruise." },
+        { id = "si_horde", when = { faction = "Horde" }, text = "A few come in off the Booty Bay boat, nervous as cats, and they keep to the docks and pay their fees. Nobody bothers 'em and they don't bother anybody, and that's how Gazlowe likes it, because quiet customers spend more." },
+        { id = "si_alliance", when = { faction = "Alliance" }, text = "Horde come down from the Crossroads every day, pal, and they look at you funny, but they won't start anything here. Out on the road past the gate, though, you're on your own, and the Cartel doesn't insure that stretch." },
       },
       choices = {
         { text = "Good to know.", next = "BACK" },
@@ -2388,7 +2388,7 @@ P:Pool {
     },
     rogue = {
       lines = {
-        { id = "ro_default", text = "Gazlowe would, pal, because he counts every coin in this town twice before bed. Try the pirates on the beach instead; they've got plenty of loot and nobody's going to file a complaint." },
+        { id = "ro_default", text = "Gazlowe would, pal, because he counts every coin in this town twice before bed. Try the pirates on the beach instead, since they've got plenty of loot and nobody's going to file a complaint." },
       },
       choices = {
         { text = "Just asking.", next = "BACK" },
@@ -2397,7 +2397,7 @@ P:Pool {
     },
   },
   topics = {
-    steamwheedle = { { id = "t_cartel", text = "Same Cartel as Booty Bay, Gadgetzan and Everlook, and Ratchet's the one that keeps the Barrens supplied. Everything that crosses the sea comes through our docks first." } },
-    _none = { { id = "t_none", text = "Ask Gazlowe, pal. He knows everything, and he'll tell you, whether you asked or not." } },
+    steamwheedle = { { id = "t_cartel", text = "Same Cartel as Booty Bay, Gadgetzan and Everlook, pal, and Ratchet's the one that keeps the Barrens supplied. Everything that crosses the sea comes through our docks first and pays its toll on the way." } },
+    _none = { { id = "t_none", text = "Ask Gazlowe, pal. He knows everything, and he'll tell you whether you asked or not, and then he'll tell you what it cost him." } },
   },
 }
