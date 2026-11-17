@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_swarm", when = { questActive = TODO_QUEST("The Swarm Grows") }, text = "Is that Korran's seal I see? Hand it over, then, and let's see what the troll has to say." },
     { id = "g_away", when = { away = 14 }, text = "{away} away, and you come back looking for work, I suppose. Everyone does, sooner or later." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown since I last saw you, and I suppose I've had a hand in that. Most of the strong ones in this city have passed through my errands once." },
-    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear you've been throwing your weight around the city. Throw it at the Horde's enemies, not at its shopkeepers." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "Word is you've been throwing your weight around the city. Throw it at the Horde's enemies, not at its shopkeepers." },
   },
 
   notice = {

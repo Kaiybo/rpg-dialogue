@@ -16,3 +16,7 @@ npcs\freewind.lua
 npcs\raceway.lua
 npcs\needles_folk.lua
 npcs\needles_road.lua
+npcs\dorn.lua
+npcs\moonhorn.lua
+npcs\zherin.lua
+npcs\lakota.lua

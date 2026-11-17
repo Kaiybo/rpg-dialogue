@@ -20,3 +20,4 @@ npcs\southshore_more.lua
 npcs\alterac_roads.lua
 npcs\melisara.lua
 npcs\voidglare.lua
+npcs\bartolo.lua

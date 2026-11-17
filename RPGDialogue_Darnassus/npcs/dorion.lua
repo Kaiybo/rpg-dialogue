@@ -14,10 +14,10 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Shadow's decided you're harmless. I'll take her word for it, for now." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "Back for more, hunter? Good. Let's see what the forest has taught you since I last did." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "Back for more, hunter? Good, then let's see what the forest has taught you since I last did." },
     { id = "g_away", when = { away = 14 }, text = "Shadow noticed you were gone {away} before I did. She always does." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 10, class = "HUNTER" }, text = "You've grown into your bow since we last met. Shadow has stopped watching your hands, which means she trusts them." },
-    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you've been leaning on folk about the city. A good hunter doesn't need to frighten what it isn't hunting, remember that." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you've been leaning on folk about the city. A good hunter doesn't need to frighten what it isn't hunting, remember that." },
   },
 
   notice = {
@@ -39,7 +39,7 @@ P:NPC {
           text = "A druid of the Enclave visiting the hunters? Shadow can tell, you know. She sniffs at druids as if she's not sure which one of you is the wolf." },
       },
       again = {
-        { id = "h_again", text = "Something else? Shadow's in no hurry." },
+        { id = "h_again", text = "Something else? Shadow's in no hurry, and neither am I." },
         { id = "h_again2", text = "Ask. I'm listening, and so is she." },
       },
       choices = {

@@ -1,4 +1,4 @@
-# Harlo Wigglesworth  (key: harlo)
+# Harlo Wigglesworth  (key: harlo_w)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Harlo_Wigglesworth (read: goblin, Everlook, quests)

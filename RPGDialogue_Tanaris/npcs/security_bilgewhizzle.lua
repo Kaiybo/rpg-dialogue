@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_shake_done", when = { questDone = TODO_QUEST("Southsea Shakedown") }, text = "My favourite deputy! The Cartel's been off my back for days, and I've been sleeping like a baby." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the pirates haven't. Glad you're back, deputy." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word on the dock is you've been helpful. I like helpful; it's cheaper than hiring." },
-    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you've been leaning on folks around the port. Leaning is my job, so leave some for me." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Folks on the dock say you've been leaning on people around the port. Leaning is my job, so leave some for me." },
   },
 
   notice = {

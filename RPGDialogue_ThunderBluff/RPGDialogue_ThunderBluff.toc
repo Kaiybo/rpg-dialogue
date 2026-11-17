@@ -16,3 +16,5 @@ npcs\rises.lua
 npcs\townsfolk.lua
 npcs\clarice.lua
 npcs\zangen.lua
+npcs\melor.lua
+npcs\nara.lua

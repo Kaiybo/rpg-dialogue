@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_crate", when = { questActive = TODO_QUEST("Return to Podrig") }, text = "Have you got Gordon's crate? You appear to be on official business, which is how I like people to appear." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time we lost six blades and a shield in the woods, plus one helmet a ghoul is still wearing. I'm keeping a list." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're better armed than when you first ran errands for me. I'd like to know where it came from, purely for the records." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been useful about the Sepulcher. Useful people are the only kind my ledger has room for." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Word is you've been useful about the Sepulcher. Useful people are the only kind my ledger has room for." },
   },
 
   notice = {

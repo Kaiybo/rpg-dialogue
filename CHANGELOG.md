@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+69 more new people, written in the same pass as 0.73.0's but finished after it shipped. **New files: restart the game fully.** Not yet given a version or a voice pass.
+
+- Azuregos, Itharius and High Priest Thel'danis (each with a Persuade check); Duke Zverenhoff, Caretaker Alen and Egan at Light's Hope; the Alterac Valley recruiters and Bath'rah; Brohann Caskbelly, Collin Mauren and Angus Stern in Stormwind; Mennet Carkad, Andron Gant, Bauhaus and Bel'dugur in the Undercity; Galvan, Yohwa, Unbagwa and Princess Poobah in Stranglethorn; Zephras's Yala, Elatrell, Valreaa and Dalia; and more in Ashenvale, Azshara, Darkshore, Desolace, Hinterlands, Riverglades, Silithus, Stonetalon, Thousand Needles, Un'Goro and others.
+- Fixed: eleven 0.73.0 characters missing from their pack's file list (Gelkak, Gubber, Barithras, Lars, Bartolo, Itharius, Thund, the Haughty Modiste, Luglunket, Melor, Nara).
+
 ## 0.73.0 (2026-11-17)
 About a hundred new people to talk to, and a writing pass across every pack. **New files: restart the game fully (a /reload won't load them).**
 

@@ -16,3 +16,6 @@ npcs\aeriepeak.lua
 npcs\revantusk.lua
 npcs\roads.lua
 npcs\unsung.lua
+npcs\shindigger.lua
+npcs\agnar.lua
+npcs\exile.lua

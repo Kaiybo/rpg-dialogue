@@ -17,3 +17,7 @@ npcs\hold_circle.lua
 npcs\desert.lua
 npcs\hold_folk.lua
 npcs\hold_trades.lua
+npcs\vargus.lua
+npcs\mishta.lua
+npcs\aendel.lua
+npcs\hold_flight.lua

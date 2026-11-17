@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_active", when = { questActive = TODO_QUEST("Blackrock Bounty") }, text = "Return once you've slain fifteen of their champions. Not before." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. They raided twice while you were away, and I counted every torch." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're a different fighter than the one who first stopped at this bridge. The Blackrock will learn that too." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been serving the township well. That's what I like to hear." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They tell me you've been serving the township well. That's what I like to hear." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody in Lakeshire has a grievance with you. Settle it, because I need this town of one mind against the orcs." },
   },
 
@@ -51,7 +51,7 @@ P:NPC {
         { text = "Why do you hate the Blackrock so much?", next = "why" },
         { text = "Why champions and not the rest?", next = "champions" },
         { text = "Can the orcs ever be driven out for good?", next = "forgood" },
-        { text = "I've fought orcs before. They bleed like anyone.", next = "veteran", when = { minLevel = 20 } },
+        { text = "I've fought orcs before, and they bleed like anyone.", next = "veteran", when = { minLevel = 20 } },
         { text = "I'll take the bounty.", next = "BUSINESS" },
         { text = "Stay vigilant, Howe.", next = "END" },
       },

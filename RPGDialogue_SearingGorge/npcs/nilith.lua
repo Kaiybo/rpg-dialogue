@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_default", text = "Mind Raze; he's harmless unless I say otherwise, and I rarely say otherwise to people who are useful." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. Good, I prefer my helpers that way." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the spiders have spun a great deal in that time. Someone always comes to take it, so I'm glad you're back." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've annoyed someone in the Gorge. That's fine, so long as it wasn't one of my spiders." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word is you've annoyed someone in the Gorge. That's fine, so long as it wasn't one of my spiders." },
   },
 
   notice = {

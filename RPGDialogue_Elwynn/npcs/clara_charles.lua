@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. Markus will be pleased; he's been playing at being you all week." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nothing's changed here, which out on this road counts as good news." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your boots since you last came by, if you don't mind me saying. Markus says you'll be a hero, and I'm starting to think he's right." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping folk along the road. It's good to know somebody is." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "They tell me you've been helping folk along the road. It's good to know somebody is." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Folk on the road say you've upset somebody. I'll judge you as I find you, but do mind your temper near the boy." },
   },
 
@@ -42,7 +42,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've the washing to see to." },
-        { id = "h_again2", text = "Go on, I'm listening. Markus, stop that." },
+        { id = "h_again2", text = "Go on, I'm listening, though Markus will need shouting at in a moment." },
       },
       choices = {
         { text = "Who's hiding in the bushes by your well?", next = "well" },

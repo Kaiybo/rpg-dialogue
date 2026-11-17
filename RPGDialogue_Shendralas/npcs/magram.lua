@@ -574,7 +574,7 @@ P:NPC {
         { id = "h_jehn_active", when = { questActive = TODO_QUEST("Khan Jehn"), questDone = TODO_QUEST("Checking Things Out") },
           text = "Swift, outsider, but do not underestimate him. A khan is not a thing to be trifled with, and Jehn least of all." },
         { id = "h_jehn_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Khan Jehn"), days = 7 }, questDone = TODO_QUEST("Checking Things Out") },
-          text = "Jehn is dead? Then the Earth Mother guided your hand, and Uthek can scold me all he likes, because a dead Magram khan is worth a scolding." },
+          text = "Jehn is dead? Then the Earth Mother guided your hand, and Uthek can scold me all she likes, because a dead Magram khan is worth a scolding." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "One who walks with Cenarius's teaching. The Gelkis honor the earth as you do, outsider, and the Magram mock us for it." },
         { id = "h_priest", when = { class = { "PRIEST", "PALADIN" } },
@@ -635,7 +635,7 @@ P:NPC {
     after = {
       big = true,
       lines = {
-        { id = "af_default", text = "Now the Magram choose a new khan, and we prepare for whatever they do next. Uthek says I had no authority to suggest it, and he is right, and I would do it again." },
+        { id = "af_default", text = "Now the Magram choose a new khan, and we prepare for whatever they do next. Uthek says I had no authority to suggest it, and she is right, and I would do it again." },
       },
       choices = {
         { text = "You were right to act. Victory needs no permission.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -660,6 +660,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am a Gelkis, a child of the earth, and I watch the Magram so my clan does not have to." } },
     advice = { { id = "tp_ad", text = "Never trust a Magram who smiles at you. They only smile when they have already decided what you are worth." } },
-    _none = { { id = "tp_none", text = "Ask Uthek at Gelkis Village. He knows everything, given enough time to think about it." } },
+    _none = { { id = "tp_none", text = "Ask Uthek at Gelkis Village. She knows everything, given enough time to think about it." } },
   },
 }

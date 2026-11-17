@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good. The ones who stop coming back are usually the ones who stopped getting up." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. I hope you were fighting and not drinking, though in Brill it's hard to tell the difference." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've put on some steel since I last saw you. Show me your guard... yes, much better." },
-    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "I hear you made someone in town back down without a fight. Fine work, but don't make a habit of winning that way, or you'll forget how to win the other way." },
+    { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you made someone in town back down without a fight. Fine work, but don't make a habit of winning that way, or you'll forget how to win the other way." },
   },
 
   notice = {

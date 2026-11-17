@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_shop", text = "Careful, that's live! No, the other one. Yes, that one's fine, mostly." },
+    { id = "g_shop", text = "Careful, that's live! No, not that one, the other one, though that one's only mostly fine." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you! Good, good, I've had three new ideas since you left and only one of them caught fire." },
     { id = "g_op", when = { questActive = TODO_QUEST("Operation Recombobulation") }, text = "Cogs and gears, cogs and gears! The Recombobulator won't recombobulate itself." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}! Ozzie and I recalibrated the whole thing twice while you were away, and we're very nearly where we started." },
@@ -49,7 +49,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I can talk and solder at the same time." },
-        { id = "h_again2", text = "Go on, go on! Ozzie's not listening anyway." },
+        { id = "h_again2", text = "Go on, go on, for Ozzie's not listening anyway!" },
       },
       choices = {
         { text = "What happened at Gnomeregan?", next = "gnomeregan" },

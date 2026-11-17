@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_ore", when = { questActive = TODO_QUEST("Search for Incendicite") }, text = "Where's that ore? Trollplow's cannon is waitin', an' so am I." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've had naught but Fizzer's engine talk tae listen to. Thank the mountain ye're back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown some grit since I first sent ye after wendigos. I said I'd see great things from ye, an' I'm startin' tae." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear ye've been makin' friends round Kharanos. Good, but don't let it soften ye." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "They tell me ye've been makin' friends round Kharanos. Good, but don't let it soften ye." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "Word is ye've been leanin' on folk. Try leanin' on Trollplow an' see who gives first." },
   },
 
@@ -79,7 +79,7 @@ P:NPC {
       lines = { { id = "ta_default", text = "No! Armour an' cannon both, an' that's where Fizzer an' I part ways. Some fools are strippin' armour off their engines tae make them lighter, an' I call that nonsense." },
       },
       choices = {
-        { text = "Speed wins fights. Lighter is smarter.", next = "trollplow_debate" },
+        { text = "Speed wins fights, so lighter is smarter.", next = "trollplow_debate" },
         { text = "Something else.", next = "BACK" },
       },
     },

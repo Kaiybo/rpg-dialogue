@@ -17,3 +17,5 @@ npcs\stonard_more.lua
 npcs\swamp_wilds.lua
 npcs\katar.lua
 npcs\tokkar.lua
+npcs\itharius.lua
+npcs\thund.lua

@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time the council has met four times and decided nothing. Welcome back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've made a name for yourself since you first came into this hall. I wish I could say the same for the council." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard your name spoken kindly in town, which is rarer here than you'd think." },
-    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear you've been threatening folk. I want action in Darkshire, but not that kind." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "They tell me you've been threatening folk. I want action in Darkshire, but not that kind." },
   },
 
   notice = {

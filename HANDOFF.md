@@ -9,6 +9,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Uses DialogueUI. Tests in game and sends screenshots.
 
 ## State (0.73.0)
+- Unreleased (after 0.73.0): 69 NPC files from the 0.72/0.73 new-NPC pass that landed after 0.73.0 shipped (list in CHANGELOG "Unreleased"); not voice-passed or version-bumped yet. Ship them in the next release (bump the packs that have them). Their bibles list invented lore (Shakes O'Breen/Zaruk and Thal'trak/Gorn were added against older bible rulings).
 - 0.73.0 (user: "proceed with release 0.73.0. Have a pass where you add a bit more grit and whimsy... eliminate cliche or AI sounding phrases"). Content only, no core code changes. Every pack got a minor bump.
   - Ships the new-NPC work committed as "0.72.0 (in progress)" (separate from the 0.72.0 journal release below): ~100 new NPC files (+ bibles) across 29 packs. 30 of them were missing from their `.toc` (fixed); new files need a full restart.
   - Voice pass (9 parallel agents, text strings only): ~1,700 lines. "Fair enough" 241 -> 3, "I won't pretend" 67 -> 0, "truly" 261 -> 17; tidy morals/aphorisms rewritten; ~10-15 grit/whimsy lines per pack. Small invented colour only (no new named characters): dice debts, latrine/scorpid jokes, lost boots, a panther eating Booty Bay's parrots, Light's Hope's corporal dead of Corin's Crossing water, Tinkmaster naming Thermaplugg outright.

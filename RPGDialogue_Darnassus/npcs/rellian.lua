@@ -47,7 +47,7 @@ P:NPC {
           text = "A druid; good. You'll understand that cutting down a creature of the forest is never a light thing, even when it's the only kindness left." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? I'm only sorting seeds." },
+        { id = "h_again", text = "What else, friend? I'm only sorting seeds, so I've time to talk." },
         { id = "h_again2", text = "Ask away. Talking is better than staring at these tumors." },
       },
       choices = {

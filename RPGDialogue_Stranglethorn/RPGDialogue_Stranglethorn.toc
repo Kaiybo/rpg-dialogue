@@ -20,3 +20,7 @@ npcs\rebel_camp.lua
 npcs\nesingwary.lua
 npcs\booty_bay_docks.lua
 npcs\unsung.lua
+npcs\yohwa.lua
+npcs\poobah.lua
+npcs\unbagwa.lua
+npcs\galvan.lua

@@ -14,3 +14,7 @@ pack.lua
 npcs\undercity.lua
 npcs\undercity_quarters.lua
 npcs\townsfolk.lua
+npcs\mennet.lua
+npcs\andron.lua
+npcs\bauhaus.lua
+npcs\beldugur.lua

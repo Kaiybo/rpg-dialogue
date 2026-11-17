@@ -17,3 +17,6 @@ npcs\auberdine_more.lua
 npcs\between.lua
 npcs\unsung.lua
 npcs\alanndarian.lua
+npcs\barithras.lua
+npcs\gelkak.lua
+npcs\gubber.lua
