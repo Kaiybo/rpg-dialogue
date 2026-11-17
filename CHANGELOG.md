@@ -18,6 +18,11 @@ Where you come from, more to say to the people on duty, and seven people with a 
 ### Deeper conversations
 - **Thrall, Lady Sylvanas, Cairne, Lady Jaina, Rexxar, Gazlowe, Gryan Stoutmantle and Marshal Dughan** each have twenty to forty-five more nodes: their pasts, their opinions of the other leaders, their doubts, questions back to you, new hard choices, confidences for people they trust, and new Persuade or Deceive checks.
 
+## 0.70.0 (2026-11-17)
+More origins to choose from. No new files: /reload is enough.
+
+- **Origins for every race and class.** 72 new backgrounds. Every race now has at least four general origins, and every race and class pairing has two of its own, so each character sees six to eight choices in the picker (plus "Other"). This includes the newer pairings: human hunters, dwarf shamans, gnome priests, orc mages, troll warlocks, undead paladins, and every Skyborne class.
+
 ## 0.69.0 (2026-11-17)
 A proper origin picker. No new files: /reload is enough.
 
