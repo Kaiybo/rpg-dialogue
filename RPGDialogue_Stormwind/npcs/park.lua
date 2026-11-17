@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because my people once drank too deeply of it, and the world still remembers the wound, though few of the young ever learn why. I don't ask you to put your magic down, only to remember that it has a cost the world pays, and not always you." } },
+      choices = {
+        { text = "I'll use it carefully, Sheldras, and remember the cost.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The arcane is a tool. The world can bear it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I fear what it hungers for, which is everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and every door you open invites them back a little further." } },
+      choices = {
+        { text = "Then I'll open my doors rarely, and close them firmly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Legion's servants serve me now. That's the difference.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Sheldras Moontree. Even within cold stone walls like these, one may find tranquillity, and in truth you may find it anywhere at all, if you look inside yourself for balance. The Park only makes it easier." },
@@ -44,6 +62,10 @@ P:NPC {
           text = "Your people planted these trees inside your walls, which tells me you missed the forest even while you were building against it. I find that very human, and rather touching." },
         { id = "h_dusk", when = { timeOfDay = "dusk" },
           text = "Listen: the Cathedral's sunset bell. Your priests ring it for my people, so we remember the day is ending. In Darnassus we'd only look at the sky." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "You carry the arcane with you like a lamp, young one, and the trees lean away from it a little. They mean no offence by it, and neither do I." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "There is something burning in your shadow, young one, and the birds have gone quiet in the branches above you. Sit, if you wish, but sit gently." },
       },
       again = {
         { id = "h_again", text = "What else would you ask beneath the leaves?" },
@@ -61,6 +83,8 @@ P:NPC {
         { text = "Do you mind a hunter's beast in your Park?", next = "hunter", when = { class = "HUNTER" } },
         { text = "What do you think of the city's other teachers?", next = "others" },
         { text = "Humans planted these trees for you, didn't they?", next = "human", when = { race = "Human" } },
+        { text = "Why do the trees shy from the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you fear what I've summoned, Sheldras?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Peace be with you.", next = "END" },
       },
     },
@@ -212,6 +236,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It does, which is exactly why I want Dalaran's garden, because mana seeps into the soil and the roots drink it like rain. The Mage Quarter's own window boxes grow stranger every year, and nobody there has noticed but me." } },
+      choices = {
+        { text = "Magic shouldn't seep into living things. It's unnatural.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Stranger is often stronger, Shylamiir. Let it grow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Cuttings from gardens whose owners won't share, mostly, and the nobles of this city keep some very jealous gardens. I've never stolen a leaf in my life, and I'm beginning to think that's been a mistake." } },
+      choices = {
+        { text = "A garden's owner deserves to be asked first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A cutting isn't really theft. The plant won't mind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Shylamiir. I train herbalists, when they can be trained, and in between I study what grows here, which is more than you'd think for a park full of humans." },
@@ -223,6 +265,10 @@ P:NPC {
           text = "That blossom is wrong in a dozen fascinating ways; the mana has twisted it into something the Kirin Tor surely never planted on purpose. I haven't slept, and I'm delighted." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest. Your healers in the Cathedral buy my peacebloom by the basket and never once ask how it grows. You might, as a novelty." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and the Sanctum's apprentices trample my silverleaf every time they cut through the Park. You might mention it to them, since they won't listen to me." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so I'll assume you know your way into places that aren't yours. I may have work for you one day, though I'd rather not admit it." },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly." },
@@ -232,6 +278,8 @@ P:NPC {
         { text = "What grows in a park like this?", next = "grows" },
         { text = "Why do you want Dalaran's plants?", next = "dalaran" },
         { text = "How does peacebloom grow, then?", next = "peacebloom", when = { class = "PRIEST" } },
+        { text = "Does magic change how your plants grow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What would a herbalist want from a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

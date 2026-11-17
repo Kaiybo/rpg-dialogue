@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Light has a use for anyone willing to stand where they're needed, and some of the bravest people I've known worked in the dark. It asks you the same thing it asks a paladin, which is who your work protects." } },
+      choices = {
+        { text = "My work protects people who can't protect themselves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My work protects me, Rall. That's enough for now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd test anyone who asked, though I doubt you'd enjoy it, because my tests are about what you give away and yours is a path of taking. Still, I've seen stranger roads lead back to the Light, and I won't say yours can't." } },
+      choices = {
+        { text = "Maybe one day I'll take your test, Rall.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll keep my road, and you can keep your tests.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Duthorian Rall. I test the paladins Brother Wilhelm and Brandur Ironhammer send me, and most pass, though not all the same way." },
@@ -52,6 +70,10 @@ P:NPC {
           text = "So Arthur sent you, and not a day too soon. Much has happened lately, and not all of it in the open; the Light has enemies closer to home than you'd like, so sit." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "You were taught that the Light is a gift, I expect. I teach that it's a test. We're both right, and the novices hate it." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in the Cathedral district. The Light doesn't mind where you've been, but it does ask where you're going." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "The Cathedral's doors are open to you as they are to everyone, though you'll understand if I stand beside them while you're here." },
       },
       again = {
         { id = "h_again", text = "What else? Ask it straight." },
@@ -65,6 +87,8 @@ P:NPC {
         { text = "Henze lives. What became of the Defias script?", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "I was a squire when the Order fell.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Do priests and paladins learn the same Light?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Does the Light have any use for a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go, Rall.", next = "END" },
       },
     },

@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.48.0 (2026-11-17)
+Packs: Stormwind, Elwynn, Stonetalon and Ashenvale have new versions. No new files in 0.48.0: /reload is enough if you have 0.39.0 or later.
+
+### Rogues, mages and warlocks in Stormwind and Elwynn
+- **Stormwind notices the three classes**: about 110 people across the city greet a rogue, mage or warlock as one, with a question to ask and something to argue about. Bolvar, Anduin, Lady Prestor, the Mage Quarter trainers, the Slaughtered Lamb, SI:7's neighbours, the Cathedral, Old Town, the canals and the Trade District's shopkeepers all have lines.
+- **Elwynn Forest**: every named person from Northshire to Goldshire and Eastvale now does the same, and the class trainers notice all three.
+- **Stonetalon and Ashenvale**: twenty more people in Astranaar, Sun Rock, Stonetalon Peak and on the roads, Alliance and Horde alike.
+
 ## 0.47.0 (2026-11-16)
 Packs: 10 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.47.0: /reload is enough if you have 0.39.0 or later.
 

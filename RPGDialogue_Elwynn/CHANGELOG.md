@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.20.0 (2026-11-17)
+- Rogues, mages and warlocks get a greeting, a question and something to argue about with every named person in the forest, from Northshire to Goldshire and Eastvale.
+
 ## 1.19.0 (2026-11-16)
 - Druids get their own greeting, question and short conversation with several people here.
 

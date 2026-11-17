@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The Church trusts the Sanctum, mostly, because Master Dumas keeps his students honest and his doors open. It's the cellar under the Lamb that troubles us, though Lord Wishock's shouting about it does more harm than good." } },
+      choices = {
+        { text = "The cellar should be cleared, Your Grace, quietly or not.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every power has its use, even what's under the Lamb.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd speak with anyone who walks into this room on their own feet, because that's what the Light asks of me. I'll pray that your shadows stay on their leash, though, and I'll pray it every evening whether you like it or not." } },
+      choices = {
+        { text = "Pray if you like. I'll keep the leash tight.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save your prayers. The shadows serve me well enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Bishop DeLavey, and I represent the Church of the Holy Light at the King's court. Which is to say I sit in this chamber, I listen, and I remind the court now and then that the Light has opinions." },
@@ -42,6 +60,10 @@ P:NPC {
           text = "You'll know how this city talks: everything is a rumour by noon and a scandal by supper. My work is mostly keeping the Church out of both." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Ironforge's envoys come through here often, and they're refreshingly plain about what they want. I wish the House of Nobles would take lessons." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at court is usually here to petition about the Slaughtered Lamb, and I confess I'm usually on their side. Speak plainly, and quietly." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "I can tell what you are, and I'll not pretend otherwise in my own chamber. You're welcome to speak, though, because the Light has never closed its ears to anyone." },
       },
       again = {
         { id = "h_again", text = "Something else? Speak softly." },
@@ -54,6 +76,8 @@ P:NPC {
         { text = "Your Grace, how does a priest serve at court?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Does the Church trust the Mage Quarter, Your Grace?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "You'd speak with a warlock, Your Grace?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your petitions.", next = "END" },
       },
     },
@@ -197,6 +221,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Twice, and both times the Watch caught the thieves before they reached the stairs, which cost me a fortune in grateful dinners. Still, I sometimes think the best pieces in any collection were stolen by somebody, once upon a time." } },
+      choices = {
+        { text = "Then they belong with whoever came by them honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then a clever thief is only a collector in a hurry.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I'd adore it, though I warn you that every mage who's looked has told me my Alterac silver is only silver. One of them said it was cursed, actually, and I've never been so thrilled in my life." } },
+      choices = {
+        { text = "I'd tell you the truth, Count, even if it's dull.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd say it's cursed too. You'd enjoy that more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Count Remington Ridgewell, at your service! My family boasts the finest collection of jewellery and fine art among all the nobles of Stormwind, and we are always, always looking to make it larger." },
@@ -210,6 +252,10 @@ P:NPC {
           text = "Mayara writes from the Burning Steppes that she's found something marvellous, though not in Thaurissan after all, and she'll need help fetching it. Do go and see her, would you?" },
         { id = "h_human", when = { race = "Human" },
           text = "Every family in this city has a story, and ours happens to be told in gold and gemstones. You must come and see the museum; I'll give you the long tour." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Oh, I know that light step; I've had my collection guarded against it for years! Do keep your hands where I can admire them, friend." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! The Sanctum sends someone round now and then to tell me whether my pieces are enchanted, and they always say no, which is terribly disappointing." },
       },
       again = {
         { id = "h_again", text = "What else, what else? I do so love a little company." },
@@ -221,6 +267,8 @@ P:NPC {
         { text = "Who is Mayara Brightwing?", next = "mayara" },
         { text = "Dwarves made it, you said?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Which house do you think I'm from?", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "Has anyone ever tried to rob your museum, Count?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would you like me to look over your collection?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Count.", next = "END" },
       },
     },
@@ -326,6 +374,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Dozens, and every one of them pretends to be my friend at supper. I suspect half of them drink at the Lamb themselves, which is precisely why nobody wants an inquiry." } },
+      choices = {
+        { text = "Then let the inquiry go ahead and shame them all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them keep their secrets. Everyone's entitled to a few.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Shut your cellar, burn your books and send you out of the gates in the clothes you're wearing. The law protects you for now, I know, but laws can be rewritten when enough of us are frightened." } },
+      choices = {
+        { text = "Burn the worst books, then. Some knowledge shouldn't survive.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear makes bad law, my lord. Leave my books alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lord Baurles K. Wishock, of the House of Nobles, and I am about to cause a great deal of trouble for some very deserving people. There is a nest of dark practitioners in this city, and I mean to have it cleared out." },
@@ -335,6 +401,8 @@ P:NPC {
           text = "You're a Stormwind citizen, so you'll want your city free of witches and devil-callers, I trust. Write to the House; tell them Wishock sent you, and tell them loudly." },
         { id = "h_warlock", when = { class = "WARLOCK" },
           text = "I'll speak to you, since the law says I must, but I'll keep this chair between us, if it's all the same to you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You have a furtive look about you, and I'll thank you not to stand behind my chair. The House is full of enough knives as it is." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I've a speech to polish." },
@@ -347,6 +415,8 @@ P:NPC {
         { text = "Don't drink anything sent from the Mage Quarter.", next = "warn", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "The Church stands with you, my lord.", next = "priest", when = { class = "PRIEST" } },
         { text = "The Mage Quarter isn't all demon-callers, my lord.", next = "mage", when = { class = "MAGE" } },
+        { text = "Have you many enemies in the House, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What would you have the House do with my kind, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with your speech.", next = "END" },
       },
     },

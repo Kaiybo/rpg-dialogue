@@ -25,10 +25,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because Dalaran shut its gates and the Alliance still needed its blades enchanted, and somebody had to keep the old methods alive. I wasn't the best student in my year, but I was the one who stayed in Stormwind." } },
+      choices = {
+        { text = "Someone has to keep the old ways going. Good for you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The old masters are gone. Make new methods.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They twist them, which is worse, because a twisted enchantment looks perfectly sound until the day it fails. I once had a warlock's cloak come back to me burning green at the hem, and I've kept the scorch mark on my bench as a warning." } },
+      choices = {
+        { text = "I'll keep my demon away from your bench, Lucan.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A little green flame never hurt anyone worth worrying about.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lucan Cordell. I teach enchanting, and since Dalaran fell, much of the enchanted work sold in this city has passed through this shop first. It's more responsibility than I asked for, but someone had to take it." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "A kaldorei. Your people distrust the arcane, I know, and I won't try to argue you out of it. Enchanting is a careful craft, and I think even your elders would find little in it to fear." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, and you'll know the difference between enchanting a blade and blasting a hole in one. Most of my customers don't, sadly." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I'll enchant your gear like anyone's, but I'll ask you to keep your demon outside the shop, because the essences react badly to fel." },
       },
       again = {
         { id = "h_again", text = "Is there more you'd learn? I have a little time before the next rod needs charging." },
@@ -38,6 +60,8 @@ P:NPC {
         { text = "Teach me enchanting.", next = "BUSINESS" },
         { text = "What does an enchanter actually do?", next = "craft" },
         { text = "You supply the whole Mage Quarter?", next = "supply" },
+        { text = "Why take on Dalaran's work yourself, Lucan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do fel energies really spoil your enchantments?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Lucan.", next = "END" },
       },
     },
@@ -94,9 +118,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Every day, and always the same three, so I could recite their names in my sleep. He's proud of where he learned, and I don't begrudge him that, but someone has to look forward while he looks back." } },
+      choices = {
+        { text = "Remembering the masters keeps the craft honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. The future matters more than old names.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The illusion dust, oddly, because the Defias pay twice its worth to hide their camps from the Westfall patrols. I won't sell it to anyone I don't know, which loses me money, but I sleep well." } },
+      choices = {
+        { text = "Good. Sleeping well is worth more than coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin's coin. You could sleep on the money.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jessara Cordell. Lucan teaches and I sell, and I keep the shop running while he talks about the old masters." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage, so you'll want dust and essences, and you'll want to tell me how to sort them. Lucan's already told me, thank you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue in an enchanting shop is usually after something shiny, so I'll keep the cases locked. Ask, though, and I'll show you anything." },
       },
       again = {
         { id = "h_again", text = "Rods, vials or Lucan's time: which do you need next?" },
@@ -106,6 +152,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Whose orders are you filling?", next = "orders" },
         { text = "You keep Lucan's time well.", next = "lucan" },
+        { text = "Does Lucan talk about the old masters often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What's the most valuable thing you keep here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, Jessara.", next = "END" },
       },
     },
@@ -155,10 +203,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than you'd think, because the best catch always goes to whoever sits stillest and strikes last. Arnold says the canal fish are cleverer than the Westfall ones, because they've watched a whole city's worth of tricks go by." } },
+      choices = {
+        { text = "Patience and method win. I'll learn to sit still.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strike first and ask questions later, I say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It froze half of Arnold's lines and none of the fish, and the Watch fined him for blocking the barges. Fishing doesn't care how clever you are, which is the thing I like best about it." } },
+      choices = {
+        { text = "The Watch was right to fine him. Rules are rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A fine for trying something new seems unfair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Catherine Leland. Arnold there teaches the fishing and I sell the poles, the line and the bait, and between us we've fished every water a day's walk from this city." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Your lot fish Loch Modan like it owes you money, and I respect that. You'll want a strong pole, then." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue at the bait counter. You've the patience for fishing, I'd wager, since your trade is mostly waiting for the right moment." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. Don't freeze my canal, please; the last mage who tried it thought he'd catch fish easier through a hole in the ice." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -168,6 +238,8 @@ P:NPC {
         { text = "Let me see your poles.", next = "BUSINESS" },
         { text = "Is there anything in these canals?", next = "canals" },
         { text = "What's the best fish you've caught?", next = "best" },
+        { text = "Is fishing so much like my trade, then?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did freezing the canal actually work?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Catherine.", next = "END" },
       },
     },
@@ -217,10 +289,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I can make one that scorches less, and I can make one that looks better scorched, but nobody's managed a robe that won't burn at all. The Sanctum's tailors claim otherwise, and I've seen their hems." } },
+      choices = {
+        { text = "I'll wear my scorch marks honestly. They're earned.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take whichever one hides the scorching best.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I say a little prayer after the cellar's lot leave. A seam doesn't care who wears it, and I try to be like a seam." } },
+      choices = {
+        { text = "Say the prayer, Lisbeth. I could probably use it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Keep your prayers. I didn't come here for those.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! The Cathedral sends us all its novices, and they come in looking like sacks of flour tied in the middle. Let me find you something that fits." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Let me guess: everything you own has a scorch mark on the left sleeve, because you cast with your right hand." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. I measure all sorts here, and I'll measure you too, though I'd thank you to keep anything with horns outside the curtain." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? I'll keep measuring you while you think of it." },
@@ -230,6 +324,8 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why does everyone want armour lately?", next = "armour" },
         { text = "What's the canal like to work on?", next = "canal" },
+        { text = "Can you make a robe that won't scorch?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you mind dressing someone like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Lisbeth.", next = "END" },
       },
     },

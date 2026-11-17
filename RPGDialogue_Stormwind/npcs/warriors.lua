@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Nothing, until the day you must stand, and on that day your feet will not know how. Every rogue I have watched die died running, because he had never learned the stance that would have saved him." } },
+      choices = {
+        { text = "Then I'll learn to stand when it matters.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Running has saved me more often than standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because a spell cast from a fallen body goes nowhere, and every mage I have trained in footwork has outlived the ones who laughed at me. The Sanctum teaches the mind, and I teach the ground beneath it." } },
+      choices = {
+        { text = "Then I'll learn footwork too. Discipline in everything.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My spells keep enemies at bay. My feet don't matter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -41,6 +59,10 @@ P:NPC {
           text = "Wu Shen. I train warriors, and you aren't one, but sit by the wall if you like; there's a great deal to learn from watching someone fall over properly." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The hall's quiet at this hour, and the Champions' Hall next door has emptied into the Pig and Whistle. This is when I practise, so the students can't see me make mistakes." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. Your feet are light, which is good, but they are always ready to run, which is not, and I can see it from here." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. You stand like a candle in a draught, and I could knock you over with one finger, though I suspect you'd set my sleeve alight on the way down." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your weight on the balls of your feet while you ask." },
@@ -55,6 +77,8 @@ P:NPC {
         { text = "The kaldorei trained me to fight.", next = "kaldorei", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "I trained with the Empyrean Blades.", next = "empyrean", when = { race = "Skyborne", class = "WARRIOR" } },
         { text = "What do you make of the other trainers here?", next = "others" },
+        { text = "What's wrong with being ready to run?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why should a mage care how they stand?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your drills.", next = "END" },
       },
     },
@@ -216,6 +240,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Anger, love, the honest kind they train you to bottle up in the Sanctum. A mage who's never been angry casts like a clerk, but one who knows how to use it casts like a storm, and I know which I'd rather stand beside." } },
+      choices = {
+        { text = "I'll keep my anger in check. Control is everything.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll let it out, and let them feel it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. I'd say the same to you, except that your anger has a voice of its own, and it talks back." } },
+      choices = {
+        { text = "Then I'll aim it, and never let it rule me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My anger and I get along well enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -226,6 +268,10 @@ P:NPC {
           text = "A gnome with a greatsword? Oh, I like you already, and I want to see you swing it, even if it takes both of us to lift." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
           text = "Ilsa Corbin, warrior trainer. You're not one of mine, but if you ever get tired of whatever you are, come back and I'll find you a sword." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! You've got all that fire in your hands and none of it in your belly, and I'd like to fix that." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, and you've the same look as half my students, all that anger with nowhere to put it. Yours just happens to have horns." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? Quick, my arm's getting cold." },
@@ -239,6 +285,8 @@ P:NPC {
         { text = "Why does a gnome need a greatsword?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "I held a corridor in Gnomeregan.", next = "rearguard", when = { origin = "gnome_rearguard" } },
         { text = "Do you fight the rogues for fun?", next = "rogues", when = { class = "ROGUE" } },
+        { text = "What do you mean, fire in my belly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you see anger in everyone, Ilsa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -355,6 +403,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not in a line, but beside one, because the man with the shield holds while the man with the knife finds the gap. I've seen SI:7's people work beside a shield wall, and the good ones never forgot who was holding the front." } },
+      choices = {
+        { text = "I'd never leave the shield-bearer to fall alone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The shield-bearer's job is to hold. Mine is to win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I trust the ones who tell me before they cast, and I don't stand in front of the others twice. A line is only as strong as the trust behind it, and that goes for the ones throwing fire as well as the ones holding shields." } },
+      choices = {
+        { text = "I'll always warn the line before I cast.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The line can watch out for itself, Ander.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -365,6 +431,10 @@ P:NPC {
           text = "You've been through Lakeshire, so tell me how the bridge is holding. I trained three of the watchmen there, and I haven't had a letter since spring." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
           text = "Ander Germaine, warrior trainer. You've your own teachers, I'm sure, but if you ever need someone to stand in front of you, warriors are good for that." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue. You work alone, I expect, and I'll tell you what I tell everyone: nobody's as alone as they think." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage. I've stood in front of a good many of your kind, and I've only been set on fire twice, which I count as a fine record." },
       },
       again = {
         { id = "h_again", text = "What else? I've time; the recruits are running laps." },
@@ -378,6 +448,8 @@ P:NPC {
         { text = "Do gnomes and dwarves fit in your line?", next = "allies", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Can a hunter hold your line?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I walked the Trade District with a halberd once.", next = "guard", when = { origin = "human_city_guard" } },
+        { text = "Do you think rogues should fight in a line?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you trust the mages you protect, Ander?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

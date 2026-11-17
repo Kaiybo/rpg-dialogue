@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not at first, because a soldier likes to see the man next to him, and your lot never stayed where I could see. But one of them cut a troll's throat before it reached my sergeant, and after that I stopped asking where they'd been." } },
+      choices = {
+        { text = "I'd rather fight where my allies can see me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Results matter more than where anyone was standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "We loved them when the fire was landing on the orcs and cursed them when it wasn't, which was more often than you'd think. Dalaran's lot pulled my company out of the Alterac foothills once, though, so I'll not hear a word against a mage in this tavern." } },
+      choices = {
+        { text = "A mage should stand with the soldiers, not behind them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mage's job is to win, not to stand anywhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -45,6 +63,10 @@ P:NPC {
           text = "Haggard's manor is out by the Eastvale lumber camp, in Elwynn. Tell him Burlguard sent you, and if he's in a good mood, he'll find you a blade worth carrying." },
         { id = "h_haggard_done", when = { questDone = TODO_QUEST("Marshal Haggard") },
           text = "Haggard looked after you, then? He's kept more spare swords than any man I know, and I'm glad one of them found its way to you." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, is it? I fought beside a few of your sort in the Second War, and they were always somewhere else when the charge came, though they always turned up when it mattered." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in the Pig and Whistle, and you're not here for the ale, I'll wager. Sit down anyway; you look like you could use a stool that doesn't float." },
       },
       again = {
         { id = "h_again", text = "What else? I've half a pint left and all evening." },
@@ -57,6 +79,8 @@ P:NPC {
         { text = "Do you miss soldiering?", next = "soldiering" },
         { text = "Who's Marshal Haggard?", next = "haggard",
           when = { any = { { questActive = TODO_QUEST("Marshal Haggard") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
+        { text = "Did you trust the rogues you fought beside?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What did soldiers think of mages in the war?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Enjoy your pint.", next = "END" },
       },
     },
@@ -152,6 +176,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, when I was asleep, which isn't fair and doesn't count. I found the lad two days later down by the canals drinking out of it, and I took it back, and I didn't ask nicely." } },
+      choices = {
+        { text = "Robbing a sleeping man is cowardly. You were right.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mug left unguarded is anyone's mug, Bartleby.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Bother me? It drank half my pint the last time one of you lot sat down, and then it laughed about it, and I've never been so insulted by something knee-high. Burlguard says I should be grateful it wasn't the big blue one." } },
+      choices = {
+        { text = "I'll keep it on a short leash. Sorry about the pint.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My imp drinks what it likes. You'll get over it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -164,6 +206,10 @@ P:NPC {
           text = "There's more to you than clean boots, I'll say that. Take the mug back to Harry, then, and tell him I'm expecting my round." },
         { id = "h_mug_done", when = { questDone = TODO_QUEST("Bartleby's Mug") },
           text = "Harry gave it back, see, and filled it. Every one of you lot ends up buying me a drink eventually, one way or another." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "Don't even think about it; I've seen your sort eyeing my mug. Better thieves than you have tried and gone home with nothing but a sore head." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You smell like burnt hair and bad decisions, and I'd know, because I've made most of them. Keep that little beast of yours away from my ale." },
       },
       again = {
         { id = "h_again", text = "What? I'm busy drinking." },
@@ -174,6 +220,8 @@ P:NPC {
         { text = "Hand it over, Bartleby.", next = "fight" },
         { text = "How many fights have you lost?", next = "record" },
         { text = "Shouldn't you go home?", next = "home" },
+        { text = "Has anyone ever stolen that mug off you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does my imp bother you, Bartleby?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Enjoy your drink.", next = "END" },
       },
     },
@@ -260,10 +308,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Half of Old Town's quiet folk drink here and the other half drink at the Lamb, though I'd not say which half's better company. The SI:7 lads tip well and never say where they've been, so I like them fine." } },
+      choices = {
+        { text = "I'll pay my tab and tip well, Elly. Count on it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pay when you catch me, Elly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." } },
+      choices = {
+        { text = "I'll leave the imp outside. It's only polite.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My companions drink where I drink, and that's that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Elly Langston, and I run the drinks round the Pig and Whistle while Reese keeps the taps. Sit where you like, except Bartleby's stool, because he bites." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Busy tonight, love, the soldiers are in. Shout if you need me and duck if you hear a stool." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "I count the mugs when your sort comes in, love, and I count them again when you leave. Nothing personal; I do it to Bartleby too." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You're one of the Lamb's lot, aren't you? I can always tell, because you never sit with your back to the door." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've six mugs in each hand." },
@@ -273,6 +343,8 @@ P:NPC {
         { text = "Let me see your drinks.", next = "BUSINESS" },
         { text = "Who are the regulars?", next = "regulars" },
         { text = "Is the food any good?", next = "food" },
+        { text = "Do many rogues drink at the Pig and Whistle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you mind serving the Lamb's crowd, Elly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not tonight.", next = "END" },
       },
     },
@@ -329,10 +401,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I wasn't always behind a grill, so yes, I notice hands, and I notice who keeps them near a blade. Old habits are like a good stock, because the longer you leave them, the stronger they get." } },
+      choices = {
+        { text = "A past is nothing to hide, Stephen.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Everyone has a past they'd rather keep quiet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "You can, and it'll fill you up and taste of nothing at all, like eating a cloud. A meal cooked properly over a real fire does something for a soldier that no spell's ever managed, and I'll argue that with any archmage." } },
+      choices = {
+        { text = "Then I'll learn the long way, over a proper fire.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Conjured bread keeps me alive. That's all I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Stephen Ryback. I cook for the Pig and Whistle and teach anybody who wants to learn, which isn't many, because most folk would rather eat than learn to." },
         { id = "h_back", when = { metBefore = true }, text = "You're back. Did the last lesson take, or did you burn it?" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "You've got quick hands, and a cook notices hands. If they're as quick with a knife on an onion, I could make something of you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Every mage who comes in here asks whether they can cook with a fireball, and the answer's yes, once, badly." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the smoke, because those ribs want me back at the grill." },
@@ -342,6 +436,8 @@ P:NPC {
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's in the ribs?", next = "ribs" },
         { text = "The guards say you weren't always a cook.", next = "past" },
+        { text = "Is that how you size people up, by their hands?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Can't I just conjure my food?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -404,10 +500,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a creak at the wrong moment has killed more of your kind than any guard's sword, or so the SI:7 lads tell me when they come in for repairs. They're very particular about their boots, and I like that in a customer." } },
+      choices = {
+        { text = "A quiet boot is for scouting, not for burglary.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A quiet boot is for whatever I need it for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and they all learn that the hard way. I sell them leather and I don't ask what they keep at home, and that suits all of us." } },
+      choices = {
+        { text = "I'd rather my demons never touched anyone. I'll take care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let the felhunter tear what it likes. Leather's cheap.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Simon Tanner. I teach leatherworking, Randal helps when he's not admiring himself, and Jillian sells the thread and the dye if you've a project of your own." },
         { id = "h_skin", when = { profession = "Skinning" }, text = "You skin, I can tell; there's always a little of the job left under a skinner's nails. Hides want working, and I can teach you how." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so you'll want soft leather that doesn't creak. I can teach you to make it, though I can't promise you'll sit still long enough to learn." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, and there's ash on your sleeves, which makes three of you this week. Leather doesn't like fire, whatever you may have heard." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a hide soaking." },
@@ -417,6 +535,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS" },
         { text = "Tell me about Randal.", next = "randal" },
         { text = "Do your students stay?", next = "students" },
+        { text = "Why does creaking leather matter so much?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warlocks come to you often, Simon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -471,6 +591,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "When it must, though Shaw says a mage leaves a trail like a lit lantern, because every spell has a smell to it. The quiet ones are worth their weight in gold, but the quiet ones are rare." } },
+      choices = {
+        { text = "Then I'll learn to be quiet, for the kingdom's sake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd work for SI:7 only if it suited me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." } },
+      choices = {
+        { text = "The arrangement keeps the city safe. I'll honour it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Arrangements are for people who fear each other. I don't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -485,6 +623,10 @@ P:NPC {
           text = "This is my hour. The city's asleep and the alleys are honest about what they are, which is more than the day can say." },
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I know you; you were the canal brat who lifted a sergeant's purse off his belt in broad daylight, and I was the one who told Shaw to let it go. Don't make a liar of me, now." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage in Old Town after dark is either lost or brave, and the Sanctum doesn't teach brave. I'll assume you've a reason." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock out of the Lamb's cellar, two streets from my door. You lot and SI:7 have an understanding, and I'd like it to stay understood." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quietly, now." },
@@ -501,6 +643,8 @@ P:NPC {
         { text = "Ironforge taught me a smuggler's tricks. Any use here?", next = "dwarf_rogue", when = { race = "Dwarf", class = "ROGUE" } },
         { text = "A gnome can go where your people can't.", next = "gnome_rogue", when = { race = "Gnome", class = "ROGUE" } },
         { text = "What do you make of the other trainers in the city?", next = "others" },
+        { text = "Does SI:7 ever use mages, Osborne?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What understanding does SI:7 have with the Lamb?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -648,6 +792,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "SI:7 knows where everything in Old Town comes from, so I keep my books neat and my sources outside the King's lands. A man in my trade stays in business by being useful to Shaw and invisible to everyone else." } },
+      choices = {
+        { text = "Then you're on the right side, Jasper. Keep it that way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Invisible to Shaw would be better still.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "A distraction that leaves no trace of the arcane behind, which is worth more than you'd think in this city. Every guard in the Mage Quarter can smell a spell, but none of them can smell powder once the smoke has cleared." } },
+      choices = {
+        { text = "I'd rather face my enemies with my own magic.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A clean escape is worth any trick, Jasper.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They buy candles, chalk and quiet, and they pay in coin that's always a little warm, which I've decided not to wonder about. I keep their business and SI:7's business on separate shelves, and so far nobody has asked me to choose." } },
+      choices = {
+        { text = "Keep it that way. The city needs its balance.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "When they ask you to choose, choose the Lamb.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -658,6 +829,10 @@ P:NPC {
           text = "I heard a bang from Westfall went off nicely. You were outside the caves, I trust, since you're standing here." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "One of ours. You'll want poisons, flash powder and the like, and I've the best in the city, at a fair price for a colleague." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage at my stall, which is rare, because your people buy their tricks upstairs in the Sanctum. Still, a bit of flash powder never hurt anyone who threw it the right way." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "One of the Lamb's people, and you'll want something for your shadows, I expect. I don't sell soul shards, mind; you'll have to gather your own." },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -670,6 +845,9 @@ P:NPC {
         { text = "Why keep quiet from my elf friend?", next = "alba",
           when = { any = { { questActive = TODO_QUEST("Detonation at a Distance") }, { questDone = TODO_QUEST("Detonation at a Distance") } } } },
         { text = "Want a gnome to look over that powder?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Does SI:7 know where your stock comes from?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What would a mage want with flash powder?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Lamb's people trade with you often?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

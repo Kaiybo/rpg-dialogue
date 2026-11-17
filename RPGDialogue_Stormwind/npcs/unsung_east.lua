@@ -25,11 +25,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only once, a man who wanted mail for under his coat and swore he was bound for the Westfall front. I sold it to him, and I've wondered ever since whether I armoured a hero or a Defias." } },
+      choices = {
+        { text = "A merchant should ask more questions before he sells.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coin's coin, Agustus. What he did after isn't on you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only the ones who walk in smelling of brimstone, and they do it with a look rather than a word. Most of the Silver Hand's lads are good men, but they've heard what demons did in the Third War, and they don't forget it." } },
+      choices = {
+        { text = "They're right to remember. I'll keep my demons from their sight.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their memories are their problem, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Agustus Moulaine. Theresa sells the robes for the clergy, and I sell the plate and mail for those who stand in front of them. Between us, we dress the whole Cathedral." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior, so you'll be wanting mail now and plate when you're seasoned enough to wear it. Come back when you're ready, and I'll have something waiting." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, so it's Theresa you want, at the other counter. My plate would only weigh down your prayers." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, so you'll not want my plate, because it clanks louder than a cathedral bell. Theresa might have something quieter for you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock in the Cathedral district. You're within the law, and I'll serve you within the law, but the paladins next door will look at you sideways." },
       },
       again = {
         { id = "h_again", text = "Ask, friend, while the Cathedral bells are quiet and I can hear you." },
@@ -39,6 +61,8 @@ P:NPC {
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "Why call it Righteous Plates?", next = "name" },
         { text = "Who buys your armour?", next = "buyers" },
+        { text = "Do rogues ever buy from you, Agustus?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the paladins give your customers trouble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Agustus.", next = "END" },
       },
     },
@@ -90,10 +114,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Near enough, though the priests want white and the mages want violet, and both of them want me to say theirs is the holier colour. I've learned to tell each of them exactly that." } },
+      choices = {
+        { text = "You should tell them the truth, Theresa. They'd respect it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wise of you. A little flattery keeps the peace.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the last warlock who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." } },
+      choices = {
+        { text = "Wearing it to a sermon was cruel. I'd never do that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The deacon's fright was his own affair. It's only a robe.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Theresa Moulaine. I sell robes for the clergy and the scholars, and Agustus sells the plate, so between us we dress the faithful from the altar to the front line." },
         { id = "h_dwarf_priest", when = { race = "Dwarf", class = "PRIEST" }, text = "A dwarf priest! We don't see many of you this far from Ironforge's temple. I'll find you something short enough not to trip over, if you'll forgive me saying so." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! I sell more robes to the Sanctum than to the Cathedral these days, because priests mend theirs and mages simply burn through them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock. You'll want something dark, I suppose, and I've a few in black, though I keep them at the back so the clergy don't fret." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you'd like?" },
@@ -104,6 +150,8 @@ P:NPC {
         { text = "Do the priests buy much from you?", next = "priests" },
         { text = "How do you know Agustus?", next = "agustus" },
         { text = "Who do you see go out to the front?", next = "front", when = { class = "PRIEST" } },
+        { text = "Do priests and mages wear the same robes?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why do the clergy fret about black robes?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Light keep you, Theresa.", next = "END" },
       },
     },
@@ -157,11 +205,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Never past a good one, for a beast trusts its nose, an' a nose can't be fooled by soft boots. The SI:7 lads borrow my hounds now an' then for trailin' Defias, an' they bring 'em back better fed than they left." } },
+      choices = {
+        { text = "A beast deserves kindness, whoever borrows it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast's a tool like any other, Jenova.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Fear 'em? They'd tear 'em apart if I let 'em, for an animal knows an unnatural thing when it smells one. I'll not let 'em, so long as ye keep yer friend at a polite distance from my stalls." } },
+      choices = {
+        { text = "I'll keep it well away. Your beasts shouldn't suffer for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon could take your whole stable, Jenova.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jenova Stoneshield, stable master. I keep the hunters' beasts when they've too many to take on the road, and I treat every one as if it were me own." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Well met, kin! It's good to hear a proper voice in this district. I came down on the tram from Ironforge with the smiths, and I've kept the stables here ever since." },
         { id = "h_notHunter", when = { ["not"] = { class = "HUNTER" } }, text = "I keep beasts for hunters, so unless ye've taken up the bow, there's not much I can do for ye. But ye can stay and talk, if ye like." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue, aye, I can tell by how quiet ye came in. The beasts heard ye anyway, mind, for there's no sneakin' past a stable full o' noses." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "Hold there, the beasts are restless, an' I'd wager it's whatever's followin' at yer heels. Keep it back from the pens, if ye please." },
       },
       again = {
         { id = "h_again", text = "What else? The ram in the third stall wants his supper." },
@@ -172,6 +242,8 @@ P:NPC {
         { text = "What's the strangest beast you've kept?", next = "strange" },
         { text = "Why keep stables in Stormwind?", next = "why" },
         { text = "Any advice for my pet?", next = "advice", when = { class = "HUNTER" } },
+        { text = "Can a rogue ever sneak past a beast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your beasts fear my demons, Jenova?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Jenova.", next = "END" },
       },
     },
@@ -227,10 +299,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Absolutely not, it's magic for people who want to know why it works, and that's a much better kind! Gnomeregan built wonders out of gears and steam, though I'll admit some of them also exploded." } },
+      choices = {
+        { text = "Understanding why it works matters more than raw power.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it works, I don't much care why.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Miners and dwarves, mostly, and once a very polite man in a red bandana who wanted enough to bring down a mine in Westfall. I told him we were out, and then I told the Watch, which I thought was very clever of me." } },
+      choices = {
+        { text = "You did right to tell the Watch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "His coin was good. The rest was his business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Billibub Cogspinner! If you insert tab A into slot B, then of course it goes boom, so let me show you what I have, and then go and ask Lilliam how to put it together so it doesn't." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! You'll want blasting powder and a gun stock, I expect, because your people's idea of engineering is something that goes bang very loudly. I approve completely." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
+          text = "A mage! Did you know an arcane focus and a gnomish capacitor are nearly the same thing? Lilliam says they aren't, but she's wrong about that." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
+          text = "A rogue! You'll be wanting blasting powder for doors, I expect, and I'm not supposed to ask what doors, so I won't." },
       },
       again = {
         { id = "h_again", text = "What else? I've a gyromatic thingamajig that needs looking at." },
@@ -240,6 +334,8 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Does everything you sell explode?", next = "boom" },
         { text = "Why sell in Stormwind, not Ironforge?", next = "why" },
+        { text = "Is engineering just magic for people without spells?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Who usually buys your blasting powder?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good day, Billibub.", next = "END" },
       },
     },
