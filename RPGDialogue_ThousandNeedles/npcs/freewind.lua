@@ -324,6 +324,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "I watch the cliffs for Freewind, and I have a brother in Desolace who thinks I've forgotten him. I'm better at one of those duties than the other.", next = "nataka" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, smile at the Grimtotem and keep your back to the wall." } },
     grimtotem = { { id = "tp_grimtotem", text = "Watch them. Smile if you must, but watch them." } },
+    centaur = { { id = "tp_centaur", text = "The Galak think the Needles are theirs, and they'll fight for every mesa. I see them long before they see me, and I make them pay for every step." } },
+    razorfen = { { id = "tp_razorfen", fx = { learn = { "scourge" } }, text = "The Razorfen Downs sit right on our northern edge, and the quilboar there have taken up with something dead and cold. My scouts won't go near it, and I don't blame them." } },
+    cairne = { { id = "tp_cairne", text = "Cairne set Freewind Post here to hold the Needles for the tauren. I hold it for him, and I hold it hard." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's orcs helped us drive off the centaur once. I'd like their help again, but I'll settle for their good wishes." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's soldiers come down through the Needles sometimes, on their way south to Gadgetzan. They keep to the road, and so do I, which is the closest thing to peace I've seen." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's south of the Shimmering Flats, through Tanaris, and every caravan that goes there passes under my watch. The goblins pay for a safe road, and I don't mind taking their coin." } },
     _none = { { id = "tp_none", text = "That is beyond what I can see from this mesa." } },
   },
 }
@@ -543,6 +549,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I study the centaur from up here, and the Circle's teachers taught me to listen before I study anything." } },
     advice = { { id = "tp_ad", text = "Never fight the Galak on open ground. Make them come up to you; centaur hate a slope." } },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul's teachers. I owe them more than I can say; the land speaks to me because they taught me to listen." } },
+    centaur = { { id = "tp_centaur", text = "The Galak carvings tell a story older than the tauren, older than the centaur's own memory of it. I want to read every line before the Galak decide I've read too much." } },
+    maraudon = { { id = "tp_maraudon", text = "The centaur say they were born in Maraudon, in Desolace, from a son of Cenarius and a princess of the earth. I believe their carvings, and I'd give a great deal to see the place." } },
+    cairne = { { id = "tp_cairne", text = "Cairne understands the value of the past, and he lets me study it. I only wish he could come and see these carvings for himself." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother keeps her secrets in the stone, and I am trying to read them. It's slow work, but I am a patient bull." } },
     _none = { { id = "tp_none", text = "I don't know, but now I want to. Thank you for that." } },
   },
 }
@@ -759,6 +769,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a scholar from Thunder Bluff with a weakness for strange eggs. That's how I came to be sitting on a mesa." } },
     advice = { { id = "tp_ad", text = "If a wind serpent is guarding something, there's a reason, and it's usually a good one. Go carefully." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother lays every egg in the world, in a way, and I find that very comforting. Have you seen a very large egg, by any chance?" } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a nuisance, but they don't eat eggs, which is the most important thing. I'd forgive them a great deal for that." } },
+    cairne = { { id = "tp_cairne", text = "Cairne once told me a story about an egg the size of a kodo calf, and I've been looking for it ever since. I'm almost certain he was joking, but I'm not entirely certain." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid, unless it hatches, and then it's my field." } },
   },
 }
@@ -979,6 +992,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "Lakota Windsong is my friend, and that's all you need to know about me right now.", next = "lakota" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, don't trust a single smile you see there." } },
     grimtotem = { { id = "tp_grimtotem", text = "Ask me again when they've answered for it." } },
+    centaur = { { id = "tp_centaur", text = "The Galak are a danger, but they kill quickly and in the open. The Grimtotem took my friend in the dark, and that is what I cannot forgive." } },
+    cairne = { { id = "tp_cairne", text = "Cairne knows what the Grimtotem are doing, I think, and he hasn't stopped them. I don't understand it, but I don't understand much since my friend was taken." } },
+    earth_mother = {
+      { id = "tp_earth_mother", text = "The Earth Mother sees everything, and she saw what the Grimtotem did. I hope she remembers, because I won't forget." },
+      { id = "tp_earth_mother2", when = { disposition = { min = 65 } }, text = "You ask as a friend, so I'll tell you I haven't prayed since they took her. The Earth Mother saw it happen, and I'm still waiting for her to explain herself." },
+    },
     _none = { { id = "tp_none", text = "I don't care about that, not today." } },
   },
 }
@@ -1183,6 +1202,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the inn at Freewind, and I keep it high and dry. That's the whole of me, friend." } },
     advice = { { id = "tp_ad", text = "Hold the rope rail on the bridges, and never cross one after a second mug." } },
     grimtotem = { { id = "tp_grimtotem", text = "I feed whoever comes to my door, but I've never fed a Grimtotem, and I don't expect to." } },
+    centaur = { { id = "tp_centaur", text = "The Galak raid the canyon roads, and the travellers come up the lift with their stories. I give them a dry blanket and a hot bowl, and the stories always get smaller after that." } },
+    cairne = { { id = "tp_cairne", text = "Cairne stayed at my inn once, on his way south. He said the wind sounded like music, and I've never been prouder of my mesa." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Half my guests are on their way to Gadgetzan, and the other half are coming back sunburned. I sell them both a drink and a warning." } },
+    mirage_raceway = { { id = "tp_mirage_raceway", text = "The racers' engines on the Shimmering Flats echo up the canyon on a quiet night. My guests ask about it, and I tell them it's goblins, and that explains everything." } },
     _none = { { id = "tp_none", text = "Ask the Cliffwatcher; little happens in the Needles that he misses." } },
   },
 }

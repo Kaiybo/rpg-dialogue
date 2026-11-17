@@ -299,6 +299,10 @@ P:NPC {
     al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads and a High Priestess at the Shrine of Akir. We watched them too long.", next = "cult" } },
     two_orders = { { id = "tp_orders", text = "In my grove they share a roof. Outside it, they'd rather share nothing at all." } },
     windstones = { { id = "tp_stones", text = "Dalia the Collector has the young gathering them all over the grove, because the isle's magic is fading and every stone counts." } },
+    highborne = { { id = "tp_highborne", text = "Our ancestors were Highborne, child of Zephras, and they wielded gifts so great they broke the world with them. That is why I scold you when you play with yours." } },
+    the_elements = { { id = "tp_the_elements", text = "The wind spirits gave us these islands and the gifts we carry, and they asked only that we honor them. They have gone quiet now, and I still honor them, because a debt doesn't vanish when the lender leaves the room." } },
+    elune = { { id = "tp_elune", text = "The moon is lovely, and our cousins on the ground pray to it, but here we answered to the winds first. I won't stop anyone from praying, so long as they don't stop listening." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The Highborne served a queen who thought herself greater than the sky, and the sky remembered. Don't ever let me hear you speak her name with admiration." } },
     _none = { { id = "tp_none", text = "That's beyond the grove, child, and I keep to the grove. Ask in Valanaar." } },
   },
 }
@@ -552,6 +556,10 @@ P:NPC {
     shal_nan = { { id = "tp_shal", text = "He gave up his rule when the Shrine of the Four Winds was begun. Then he gave up us, or we lost him.", next = "shalnan" } },
     al_aketh = { { id = "tp_aketh", text = "Zealots of a Windlord our spirits wouldn't even name. Brutal, and growing bolder." } },
     two_orders = { { id = "tp_orders", text = "Two halves of one people, and both certain the other half is the trouble." } },
+    highborne = { { id = "tp_highborne", text = "The High Order says we are Highborne and should reclaim it, and the Windshapers say we are Highborne and should repent of it. Tell me which you think, and I'll learn more about you than you mean me to." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds speak in patterns, and I read them as others read a page. Lately the page is half blank, and that is a message of its own." } },
+    elune = { { id = "tp_elune", text = "A few of our young have taken to praying to the moon, as our cousins do. I watch to see whether the moon answers, and so far she's been quiet, like everything else." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Our oldest stories speak of a queen who wanted the sky as her crown. Ask yourself whether you would have followed her, and answer honestly." } },
     _none = { { id = "tp_none", text = "The winds don't carry that to me, and I don't guess for the Council." } },
   },
 }
@@ -719,6 +727,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the grove, the gossip, and exactly where Rorian stands every afternoon." } },
     advice = { { id = "tp_ad", text = "Take your fun where you can get it, because the island certainly won't hand you any." } },
     al_aketh = { { id = "tp_aketh", text = "Shaved heads and long faces. They'd be terrible at my game." } },
+    highborne = { { id = "tp_highborne", text = "Our ancestors were Highborne, and from what I hear they wore enormous hats and never once laughed. I'm doing my part to correct the family record." } },
+    the_elements = { { id = "tp_the_elements", text = "The sprites used to play with us up here, little gusts that tugged your hair and stole your hat. Now they just sulk, and I miss them, and don't tell Halaan I said so." } },
+    elune = { { id = "tp_elune", text = "Halaan says I should take up prayer to keep me out of trouble. I told him I'd pray to whatever spirit gets me off this tower first." } },
     _none = { { id = "tp_none", text = "No idea, but if you find out, come and tell me, because I'm bored." } },
   },
 }
@@ -899,6 +910,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the pylon, the grove, and how to keep still, which is rarer than you'd think." } },
     advice = { { id = "tp_ad", text = "Be grateful for what you have. I spent years wishing for the mainland, and all it gave me was a crick in my neck from staring at clouds." } },
     windstones = { { id = "tp_stones", text = "They hold the winds' strength, and they grow more precious as the pylons weaken." } },
+    the_elements = { { id = "tp_the_elements", text = "The pylon still stands because the winds once willed it, and I watch it so I'll know if they ever stop willing. Be grateful for what holds, I tell the young, and do not ask too much of it." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were our ancestors, and they took everything they wanted. I'd rather be grateful for less, and I'd rather Myriaal were grateful for anything at all." } },
+    elune = { { id = "tp_elune", text = "The moon rises over the pylon each night, and I find it steadying. Whether it is a goddess or only a moon, I am grateful for the light." } },
     _none = { { id = "tp_none", text = "That's beyond what I can see from here, and I can see a long way." } },
   },
 }

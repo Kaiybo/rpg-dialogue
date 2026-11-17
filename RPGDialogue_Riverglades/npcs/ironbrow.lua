@@ -121,6 +121,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Check your footing before ye build anything, a wall or a friendship or a plan. Everything falls from the bottom." } },
     siege_of_farholde = { { id = "tp_siege", text = "They came by the water when everyone watched the gate. I build the shore wall twice as thick now, and I'll not apologize for it." } },
     brotherhood_horse = { { id = "tp_brother", text = "Good folk, terrible builders. They ride better than they lay stone, and thank the Titans for that, or I'd be out of work." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, and he'd want a dwarf to keep these walls standin' properly. Aye, I'm doin' it for him as much as for the humans." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a blight on the name of dwarf, and I'll hear no different. They're to the west, in their burnin' mountain, and they can stay there." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are a bit wild for my taste, but they're dwarves, and that counts for somethin'. They'd make better neighbors than the Dark Irons, at any rate." } },
+    second_war = { { id = "tp_second_war", text = "The old war cracked these walls, and I read the whole story in the stones when I came. A crack will teach ye more than any book will, if ye know how to look." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and every gnome in the world wants to improve my scaffoldin' because of it. I'll thank them to keep their hands off." } },
     _none = { { id = "tp_none", text = "No idea, {g:lad|lass}. Ask Ashe Amberhall; she knows everything and says it twice as fast as anyone." } },
   },
 }

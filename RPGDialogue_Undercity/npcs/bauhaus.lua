@@ -136,7 +136,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Write things down. Memory is unreliable in the living and positively treacherous in the dead." } },
     forsaken = { { id = "tp_forsaken", text = "Every Forsaken has a name, and every name goes into my census, whether its owner remembers it or not. It is a very great work, and nobody appreciates it, and I've learned to live with that, so to speak." } },
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron kept excellent records, and the plague burned half of them. I'm rebuilding the rest from gravestones, tax rolls and the memories of people who'd rather forget." } },
-    scourge = { { id = "tp_scourge", text = "The Scourge never kept a single record of whom it took, which I consider its most unforgivable crime, though I'm told I'm in the minority. Every one of them had a name." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never kept a single record of whom it took. I consider that its most unforgivable crime, though I'm told I'm in the minority. Every one of them had a name." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady commissioned the census herself, and I like to think she reads it, though I suspect she has more pressing concerns. I'll keep it accurate either way." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme's rolls are the hardest to complete, because the prince killed so many in a single day. I'm still adding names, and I expect to be adding them for years." } },
     _none = { { id = "tp_none", text = "That falls outside the census, and therefore outside my interest, though not, I fear, outside your curiosity." } },

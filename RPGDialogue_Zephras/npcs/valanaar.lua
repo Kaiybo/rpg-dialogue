@@ -194,6 +194,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know Ban'aethal, what's left of it, and old craftsmanship. Ask about those." } },
     advice = { { id = "tp_ad", text = "Hold on to the people you love, and if they go back for supplies, go with them." } },
     windstones = { { id = "tp_stones", text = "Men have killed for them since the islands began to fall. That tells you what they're worth now." } },
+    highborne = { { id = "tp_highborne", text = "Our Highborne ancestors made things that outlast us, and I've spent my life learning how they did it. The craft is worthy, whatever we think of the crafters." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds held Ban'aethal up until the night they didn't, and then it fell into the sky. I don't know whether they let go or were made to." } },
+    elune = { { id = "tp_elune", text = "I prayed to the winds the night he went back for supplies, and they gave no answer. Lately I've tried the moon, and she gives no answer either, but she's gentler about it." } },
     _none = { { id = "tp_none", text = "I'm sorry; I've no answer for that. Most of what I knew fell with Ban'aethal." } },
   },
 }
@@ -373,6 +376,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Stay out of Shadowgale Forest, unless you want your ankles gnawed." } },
     two_orders = { { id = "tp_orders", text = "They've got skycutters and secrets, and I've got neither. That's the orders for you." } },
     al_aketh = { { id = "tp_aketh", text = "Shaved heads! Why would anyone shave a perfectly good head? Madness, I tell you." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne! Fancy folk, all spells and no seamanship, and not one of 'em could sail a skycutter through a squall. Donaal, another, and don't make that face!" } },
+    the_elements = { { id = "tp_the_elements", text = "The winds used to carry my skycutter between the islands as sweet as you please, and now they won't even fill a sail. Something spooked 'em, mark me, the same thing that haunts Shadowgale." } },
+    elune = { { id = "tp_elune", text = "The moon? She's pretty, I'll grant you, but she never once filled my sails. Donaal, the moon wants a drink, and so do I!" } },
     _none = { { id = "tp_none", text = "<He squints.> Never heard of it, and I've heard of everything, twice." } },
   },
 }
@@ -461,6 +467,9 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I hear everything said at the Calmbreeze, and believe about a third of it." } },
+    the_elements = { { id = "tp_the_elements", text = "When the winds were with us, the skycutters ran and the inn was full every night. Now it's mostly Swimmers, and Swimmers doesn't pay." } },
+    highborne = { { id = "tp_highborne", text = "Our ancestors were Highborne, and they'd have had servants to wipe these tables. I've got a rag and a sore back." } },
+    elune = { { id = "tp_elune", text = "A few of my guests have taken to raising a cup to the moon. I don't mind what they toast, so long as they pay for the cup." } },
     _none = { { id = "tp_none", text = "Not that I've heard over the bar, and I hear a good deal over the bar." } },
   },
 }
@@ -618,6 +627,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Food, mostly, and who eats what, which tells you more about people than you'd think." } },
     advice = { { id = "tp_ad", text = "Eat something before you go out there. The last fellow who went to Shadowgale hungry fainted at his first vuldren and was carried home over a Peacekeeper's shoulder, complaining all the way." } },
     windstones = { { id = "tp_stones", text = "They keep my stove hot when the wood runs short. I treat them like gold, because they nearly are." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne ate off silver and never cooked a meal in their lives, and I'd wager their food was dreadful. Mine's better, and I made it from crab and stubbornness." } },
+    the_elements = { { id = "tp_the_elements", text = "The winds used to dry the herbs and fish for us, and now I hang them by the fire and hope. Hard times make clever cooks." } },
+    elune = { { id = "tp_elune", text = "My grandmother had a kaldorei recipe for moon cakes, baked for Elune's feast. I still make them, with whatever we have, and they still taste of her." } },
     _none = { { id = "tp_none", text = "If it isn't food, I'm the wrong person to ask, but come back hungry." } },
   },
 }

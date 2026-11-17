@@ -182,6 +182,10 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the landing, the ship and the way to every exit, and a little gossip besides. What would you like?" } },
     advice = { { id = "tp_ad", text = "Walk, don't run, and always know where the nearest magus is. That's the whole of the procedure, really." } },
+    dalaran = { { id = "tp_dalaran", text = "Welcome, welcome, and yes, it's still being rebuilt, and no, that tower isn't supposed to lean like that! We're doing our best, and the dome came down only lately, so mind the scaffolding and smile at the magi." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor run Dalaran, and they're very wise and very busy, so please don't interrupt any of them mid-spell. I'm one rung below an archmage, which means I get all the greeting and none of the authority." } },
+    scourge = { { id = "tp_scourge", when = { faction = "Horde" }, text = "I'm told we're to be polite to you, and I'm trying, so please don't make me regret it! The Scourge came within sight of these walls once, and I'd rather we kept our enemies to the dead ones." }, { id = "tp_scourge2", text = "The Scourge came within sight of these very walls, and we lost good magi stopping them. I still check the north road from the landing every morning, though I'm told that's not my job." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Oh, please don't say that name too loudly, everyone here gets twitchy. He was one of ours once, a member of the council, and he left with his necromancy and our secrets." } },
     _none = { { id = "tp_none", text = "Oh, I couldn't say! Try one of the magi in the Citadel; they know everything, or say they do." } },
   },
 }
@@ -301,6 +305,10 @@ P:NPC {
 
   topics = {
     two_orders = { { id = "tp_orders", text = "Our cousins chose the Horde and the old spirits; we chose the Alliance and the arcane. I'd rather not say more than that in a city that's been kind to us." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran is a city of wonders, and I've counted every flagstone in this hall twice. The magi here are kind to us, and I'm grateful, though I do miss the winds of home." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor welcomed my people when we needed allies, and I'll not forget it. They're careful, and they keep their secrets close, but they keep their word too." } },
+    holy_light = { { id = "tp_holy_light", text = "The humans in Stormwind pray to the Light, and their great cathedral is full of it, warm and golden. I don't understand it, but I stood in the doorway for an hour and didn't want to leave." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord of Stormwind received our envoys himself, and he was courteous and very tired. He holds a kingdom for a boy king, and it shows in his face." } },
     _none = { { id = "tp_none", text = "I'm afraid I've only been on Azeroth a little while. Ask one of the Kirin Tor." } },
   },
 }
@@ -356,6 +364,9 @@ P:NPC {
 
   topics = {
     two_orders = { { id = "tp_orders", text = "I keep the High Order's accounts, not its quarrels. Ask someone with a louder voice than mine." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are generous with their halls and careful with their questions, and I respect that. I gather cloth for the High Order, and they let me work in peace." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's tailors are fine, but they've never seen silk from home. I don't speak of our crafts to outsiders, but I'll admit their stitching is very good." } },
+    scourge = { { id = "tp_scourge", text = "The magi say the dead walk to the north and east of here, and I've seen the soldiers come back from it. I gather cloth for bandages too, now, and I thank everyone who brings it." } },
     _none = { { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it." } },
   },
 }
@@ -477,6 +488,11 @@ P:NPC {
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the balance where it can, and it would like to know what grows in a city like this one." } },
+    elune = { { id = "tp_elune", text = "Elune watches over us all, even in a city of mages, and I pray to her every night. The Skyborne honour her less than the winds, and I've learned to leave that between them and the Dream." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it should be, and the Cenarion Circle guards its paths. Something troubles it lately, and the magic of this city doesn't help." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the World Tree, and it binds the Dream to the waking world. We fought the Legion beneath it, and I'll not forget the sight of it burning." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind leads my people, priestess and general both, and she does not trust the Kirin Tor any more than I do. I came here anyway, because the Skyborne asked and the Circle should know what they learn." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons guard the Dream, and lately their guardians have gone strange near the great trees. I'd like to know why, and I've written to Moonglade twice asking." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask the trees, if you can find one here." } },
   },
 }

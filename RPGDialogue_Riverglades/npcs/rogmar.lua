@@ -318,6 +318,16 @@ P:NPC {
     brotherhood_horse = { { id = "tp_bh", text = "Stubborn humans on an island, and brave enough, I'll give them that. They kill cultists too, so I let them be." } },
     siege_of_farholde = { { id = "tp_sf", text = "The old Horde's war, not ours. They say a human assassin killed the chieftains in one night, and the warband ran without them." } },
     sunnyglade = { { id = "tp_sg", text = "Ruins full of cultists, with a human tower still standing in the middle. Someone in Krol'dok wants that tower, and I want to know why." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief freed us from the camps and gave us a land of our own, and I owe him my life many times over. He sent me here to hold the Riverglades, and I'll hold them until he tells me otherwise." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the Warchief, so serve him here. The cult is his enemy as much as ours, and Rog'mar is his blade in these glades." },
+    },
+    internment = { { id = "tp_internment", text = "I spent years in the human camps after the old war, and I came out of them hungry for something to fight. The cult gives me that, and I'm grateful." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the old war under Doomhammer, and I lost friends in these very glades. Now I fight a different enemy here, and I like this one better." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock clan was strong once, and some of them still wander the mountains, serving whoever pays. Some of them serve the cult, and those I kill gladly." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the wisest of the Warchief's allies, and his warriors are strong. I'd welcome a tauren or two in Rog'mar." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen is the Warchief's ally, not mine. I'll fight beside her people, but I'll watch them while I do it." } },
+    bolvar = { { id = "tp_bolvar", text = "The human Regent holds Stormwind and sends nothing here, which suits me fine. The fewer humans in these glades, the fewer I have to watch." } },
     _none = { { id = "tp_none", text = "That's no concern of mine. Ask Neza, who listens to everything." } },
   },
 }
@@ -463,6 +473,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've hunted since I could hold a bow, and I've never once gone hungry, which is all the history I need." } },
     advice = { { id = "tp_ad", text = "Learn which way the wind blows before you learn anything else. Most beasts will smell you long before they see you." } },
     krol_dok = { { id = "tp_kd", text = "I don't hunt in caves. Krom'rosh sends others for that, and fewer of them come back than I'd like." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a hunter at heart, whatever else he is, and he knows how to wait for the right moment. I respect that more than all his speeches." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of the wind tell a hunter where the beasts are, if she listens. I listen, and I never go hungry." } },
+    cairne = { { id = "tp_cairne", text = "The tauren hunt like we do, with patience and respect. Cairne's people could teach most orcs a thing or two." } },
     _none = { { id = "tp_none", text = "I don't track that. Ask Krom'rosh, or ask the wind." } },
   },
 }
@@ -599,6 +612,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Darkspear, born on de islands, throwin' spears since before I could walk proper. Dat's all ya need to know, mon." } },
     advice = { { id = "tp_ad", text = "Aim for de middle, mon. De head be a fine target, but de middle be bigger." } },
     brotherhood_horse = { { id = "tp_bh", text = "Humans on horses! A horse be a big target, mon, so dey not as scary as dey think." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be da leader of da Darkspear, and he be a smart one, mon. He keep us alive when nobody else would." } },
+    darkspear = { { id = "tp_darkspear", text = "Da Darkspear be proud, and we stand with da Horde because da Warchief saved us. I be throwin' spears for him until I die, and maybe after." } },
+    thrall = { { id = "tp_thrall", text = "Thrall be da Warchief, and he be good to da trolls. Dat's all I need to know, mon." } },
+    echo_isles = { { id = "tp_echo_isles", text = "Da Echo Isles be our home, mon, and one day we take dem back. Until den, I throw spears here." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, mon. Ask Krom'rosh, he like answerin' questions." } },
   },
 }
@@ -722,6 +739,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've kept forges burning for the Horde since before Orgrimmar had walls. This one's smaller, and wetter, but it'll do." } },
     advice = { { id = "tp_ad", text = "Oil your blade after every fight in the glades. The damp here eats steel faster than ogres do." } },
     krol_dok = { { id = "tp_kd", text = "Ogre work, all of it, crude but heavy. If you're going in, take a shield, because nothing they make is subtle." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built Orgrimmar out of the desert, and I forged steel for its walls. He's a good leader, and he pays his smiths on time." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock smiths were the best in the old Horde, and I learned from one of them. He was a brute, but he knew his steel." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons forge with fire from the mountain's heart, and their steel is better than mine. I'd give a lot to see one of their forges, from a safe distance." } },
+    second_war = { { id = "tp_second_war", text = "I kept forges burning in the old war, and I've kept them burning since. Steel doesn't care whose war it is." } },
     _none = { { id = "tp_none", text = "If I can't hammer it, I don't know it. Ask somebody else." } },
   },
 }

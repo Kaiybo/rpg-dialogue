@@ -595,7 +595,7 @@ P:NPC {
   },
 
   topics = {
-    scourge = { { id = "tp_scourge", text = "The Scourge leaves good parts lyin' about if ye know where to look, and I know where to look. The Dawn pays well for 'em, and I don't ask what they do with 'em." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge leaves good parts lyin' about all over these fields, and I know every spot. The Dawn pays well for 'em, and I don't ask what they do with 'em." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme's full o' Scourge parts, more than I could carry in a lifetime. I'd go myself, if my knees were younger." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "That lich up in his floatin' tomb is the source o' all this mess. I'd like a pipe of whatever he's smokin'." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, an' ye're blockin' me light." } },

@@ -140,6 +140,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Lieutenant o' the Stormpike Guard, an' I've been signin' up soldiers since the first shovel went intae that valley." } },
     advice = { { id = "tp_ad", text = "Hold the graveyards, soldier, an' ye hold the valley." } },
     alterac = { { id = "tp_alterac", text = "Cold, rich an' full o' enemies. Just the way a dwarf likes it." } },
+    magni = { { id = "tp_magni", text = "King Magni wants that valley back fer Ironforge, an' so do I, an' every Stormpike under Vanndar would march through the snow barefoot if he asked. That's a king worth soldierin' fer." } },
+    thrall = { { id = "tp_thrall", text = "The Frostwolves are Thrall's kin, his father's clan, so the Horde'll never let them lose that valley without a fight. Good, fer I'd hate tae win it cheap." }, { id = "tp_thrall2", when = { disposition = { min = 65 } }, text = "Between us, the Frostwolves were livin' in Alterac long before we came lookin' fer iron, an' their warchief was born there. I'll fight them fer it all the same, but I'll no' pretend the snow's only ours." } },
+    second_war = { { id = "tp_second_war", text = "Alterac was Perenolde's kingdom in the Second War, an' he sold the Alliance tae the Horde from right up there in those hills. Ironforge has a long memory fer traitors, an' a longer one fer good iron." } },
+    wildhammer = { { id = "tp_wildhammer", text = "A few Wildhammer riders fly fer Dun Baldar, an' they're welcome, fer a gryphon's worth ten scouts in a blizzard. Dinnae tell them I said so, fer they're insufferable enough already." } },
     _none = { { id = "tp_none", text = "No' my concern, soldier. Mine's the valley." } },
   },
 }
@@ -275,6 +279,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A warrior of the Frostwolf, born in the snow and raised on the hunt." } },
     advice = { { id = "tp_ad", text = "Respect the cold, and it will kill the Stormpike before it kills you." } },
     alterac = { { id = "tp_alterac", text = "Our home, and we will not give it up to dwarves with shovels." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a Frostwolf by blood, son of Durotan and Draka, and Alterac was the cradle of his clan. When you fight for the Frostwolves, you fight for his family." }, { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You ask about the Warchief at the gate of his father's valley? He is a Frostwolf, and that is all you need to know about why we will not leave." } },
+    second_war = { { id = "tp_second_war", text = "Gul'dan exiled the Frostwolves to Alterac for speaking against him, and the clan survived the snow when the rest of the Horde fell. That is where our strength comes from, and it is why the dwarves will not move us." } },
+    the_elements = { { id = "tp_the_elements", text = "Drek'Thar speaks with the spirits of these mountains, and they answer him even blind. The snow is ours because the spirits know us." } },
+    internment = { { id = "tp_internment", text = "The Frostwolves were never in the camps, for we were here in the mountains. But we took in those who broke free, and the Warchief does not forget it." } },
     _none = { { id = "tp_none", text = "That matters little in the valley. Ask elsewhere." } },
   },
 }

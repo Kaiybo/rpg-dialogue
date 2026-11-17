@@ -169,6 +169,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've kept wind riders on these mesas for many seasons. That's my life, and I'm content with it." } },
     advice = { { id = "tp_ad", text = "Stay off the canyon floor at night. That's when the centaur ride." } },
+    cairne = { { id = "tp_cairne", text = "Cairne flew from here once, and he said the drop made his stomach turn. I've never heard a chieftain admit that before, and I liked him better for it." } },
+    centaur = { { id = "tp_centaur", text = "The Galak shoot at my riders when they fly low, but they never hit. A wind rider climbs faster than any centaur can aim." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "The flight to Gadgetzan is long and hot, and my riders hate it. I send them anyway, because the goblins pay well." } },
     _none = { { id = "tp_none", text = "I don't know, friend. The wind carries a great deal past this mesa, but not that." } },
   },
 }
@@ -310,6 +313,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've always been better with animals than with people, and Freewind needed someone with patience." } },
     advice = { { id = "tp_ad", text = "Keep your companion close on the rope bridges, because a frightened animal doesn't look where it's stepping." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every beast, and she made them to be loved. I love every one that comes through my stables, and they know it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride their own bodies, and they don't need stables. I find that a little sad, though I wouldn't say so to a centaur." } },
+    cairne = { { id = "tp_cairne", text = "Cairne has a kodo that he's ridden for twenty years, and he still calls it by name. That's the kind of chieftain I trust." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask me about the animals, though, and I'll tell you everything." } },
   },
 }
@@ -497,6 +503,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I sell parts. Wherever there are engineers breaking things, there's somebody like me selling them the bits to fix it." } },
     advice = { { id = "tp_ad", text = "Always carry a spare tube, because the one you need is always the one you didn't bring." } },
     mirage_raceway = { { id = "tp_race", text = "The best place in Kalimdor to watch things explode at speed, and the best place to sell bolts." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost, and I'm not going to talk about it, except to say that we'll get it back one day. Until then, I sell bolts to everyone, because bolts don't care where you're from." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, and I'll admit that even though it's full of goblins. They buy my bolts and I buy their gears, and nobody gets hurt, mostly." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's neutral, and so am I, which is why I sell to gnomes and goblins both. Business doesn't take sides, and neither does a good wrench." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a goblin port, but they've got a few gnome engineers working the cranes. I hear they're paid better than the goblins, though nobody will admit it." } },
     _none = { { id = "tp_none", text = "Oh, I don't know about that, but I'd be happy to sell you something that does!" } },
   },
 }

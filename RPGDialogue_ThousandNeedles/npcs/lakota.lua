@@ -100,6 +100,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a tauren of Thunder Bluff, and a prisoner, for now. I'll tell you the rest when we're somewhere safe." } },
     advice = { { id = "tp_ad", text = "If someone won't take no for an answer, don't wait for them to change. Get away, and get help." } },
     grimtotem = { { id = "tp_grim", text = "They're still tauren, but they've forgotten what that means. Arnak certainly has." } },
+    cairne = { { id = "tp_cairne", text = "Cairne would never allow what Arnak has done to me, if he knew. But the Grimtotem hide their crimes well, and Cairne is far away." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave me the strength to refuse Arnak, and she will give me the strength to escape. I pray to her every night, and she answers." } },
+    centaur = { { id = "tp_centaur", text = "The centaur are dangerous, but they are honest about it. The Grimtotem smile and lie, and that is worse." } },
     _none = { { id = "tp_none", text = "I don't know. Please, can we talk about it after we're out of here?" } },
   },
 }

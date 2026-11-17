@@ -246,6 +246,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never bet against a goblin on a straight line. Corners, maybe, but straight lines, never." } },
     mirage_raceway = { { id = "tp_raceway", text = "Best thing ever built on a salt flat! Also the only thing, but that counts." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel likes anything that sells tickets. We sell tickets." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's gone, and the gnomes ain't gettin' it back anytime soon, which is a shame, because I'd like to see 'em try. Until then, they race me, and they lose." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the Cartel's best town, and the bookies there love my team. I'd love 'em back if they'd stop takin' bets on the gnomes." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I got my first engine, pal, off a ship that sank in the harbour. It still smells of salt, and it still runs like a dream." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company tried to buy my team once, pal, and I told 'em where to put their offer. They don't know a thing about speed, only about cutting down trees." } },
     _none = { { id = "tp_none", text = "Does it go fast? If not, kid, I don't follow it and I don't bet on it." } },
   },
 }
@@ -492,6 +496,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Goggles, always! I can't say it enough, and some of my colleagues can't see it at all, any more." } },
     mirage_raceway = { { id = "tp_raceway", text = "My finest achievement, shared, regrettably, with a goblin." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I'd rather not. Let's talk about rockets instead, because rockets go up, and things should go up." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan is a goblin town full of goblin engineering, which is to say it is held together with spit and hope. I visit only when I need parts, and I wash my hands afterward." } },
+    magni = { { id = "tp_magni", text = "King Magni is a great friend to the gnomes, and he gave us a home in Ironforge when we had none. I'm grateful, though the forge noise does nothing for my concentration." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel sponsors Pozzik's team, which gives them an unfair advantage in funding. We gnomes rely on superior engineering, which is much more reliable, if less well funded." } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up out of the deep earth and took Gnomeregan, and our own engineers made it worse trying to drive them out. I don't like to talk about it, and I like troggs even less." } },
     _none = { { id = "tp_none", text = "Not my department, unless it has an engine!" } },
   },
 }
@@ -708,6 +716,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "A dwarf who found the flats more profitable than the mountain. That's all the story ye need." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' at a racetrack ye didnae pour yerself. Trust me on that one." } },
     mirage_raceway = { { id = "tp_raceway", text = "Two crews, one track, an' a crowd that'll bet on anything. Paradise." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best bookies in Kalimdor, and I know every one of them by name. I'd tell you which ones to trust, but then I'd have to charge you." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel likes a sure thing, and so do I. That's why I bet on both teams, and I always come out ahead." } },
+    magni = { { id = "tp_magni", text = "King Magni is a fine dwarf, and he runs a fine city. I left it because the bets were too small." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost their city, and now they've got nothing to do but race. I bet on them sometimes, when the odds are good." } },
     _none = { { id = "tp_none", text = "That one's not for sale, an' the trouble is, I don't have it." } },
   },
 }

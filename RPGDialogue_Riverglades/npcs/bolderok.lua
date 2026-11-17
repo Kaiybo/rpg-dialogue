@@ -155,6 +155,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If the Twilight say they want to help you, run away. Clugfist did not run fast enough the first time." } },
     twilights_hammer = { { id = "tp_th", text = "Liars with robes and altars. They tell ogres the sky will fall, and they make ogres bleed to help it fall faster." } },
     krol_dok = { { id = "tp_kd", text = "Caves in the mountains, full of Twilight ogres and their slaves. Clugfist does not go there any more." } },
+    second_war = { { id = "tp_second_war", text = "Clugfist's grandfather marched with the orcs in the big war and came home with one arm and many stories. Clugfist liked the stories, and did not like the arm." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock orcs used ogres like hammers in the old wars and threw them away when they broke. Clugfist does not miss the Blackrock, and the Blackrock do not miss Clugfist." } },
+    thrall = { { id = "tp_thrall", text = "Little ones say the new orc chief does not make slaves of ogres. Clugfist has not met him, but Clugfist likes what little ones say about him." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves live in the burning mountain to the west, and they have fire in their eyes and no friends. Clugfist stays away, and so should little one." } },
     _none = { { id = "tp_none", text = "Clugfist does not know that, so little one should ask an orc. Orcs know many things." } },
   },
 }
@@ -258,6 +262,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Jom-jom is from the mound, and then from Bolder'ok. Jom-jom is not very old, Clugfist says, and not very clever either." } },
+    twilights_hammer = { { id = "tp_twilights_hammer", text = "Jom-jom went to the robe men because they said they were friends, and they were not friends. Jom-jom does not want to talk about it, please." } },
+    second_war = { { id = "tp_second_war", text = "Clugfist tells stories about the big war, with orcs and dragons and fire. Jom-jom likes the stories, but Jom-jom would not like to be in one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Jom-jom heard about a fair with lights and music and little ones who juggle fire. Jom-jom would like to see it, if they let ogres in." } },
     _none = { { id = "tp_none", text = "Jom-jom does not know. Ask Clugfist; Clugfist knows everything." } },
   },
 }

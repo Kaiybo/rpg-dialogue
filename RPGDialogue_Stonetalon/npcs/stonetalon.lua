@@ -323,6 +323,12 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't walk the Webwinder Path at night, and if you must, don't walk it alone." } },
     venture_company = { { id = "tp_venture", text = "Goblins with saws who think a mountain's worth what they can cut off it. We spend our days mending after them." } },
     cenarion_circle = { { id = "tp_circle", text = "Their keeper watches the peak to the north. We leave each other be, mostly. Mostly is a fragile word up here." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent me to Sun Rock because the wind and sun ease my old pains, he said. He did not say that the Venture Company would ease them too, by giving me something to hate." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a strong orc and a fair one. He came to the tauren's aid against the centaur, and I would follow him into battle without question." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided the tauren for generations, and I fought them for most of my life. That is where my gentleness went, if you want to know." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem attacked Camp Aparaje and killed tauren who had done them no wrong. Magatha sits on Elder Rise and pretends to know nothing about it, and Cairne lets her." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us this land to protect, and the goblins are tearing it apart. I fight for her, though I am no druid." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are Horde, and I will not question the Warchief's choice. But I have seen what the dead can do, and I do not sleep easily near them." } },
     _none = { { id = "tp_none", text = "That's not my concern. Ask Tammra; she has more patience than I do." } },
   },
 }
@@ -569,6 +575,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never step on a green shoot up here. It might be the only one for a mile." } },
     venture_company = { { id = "tp_venture", text = "They cut until there's nothing left to cut, and then they move on and leave the burning for us." } },
     cenarion_circle = { { id = "tp_circle", text = "They want the same thing I want, a living mountain. I wish we could plant side by side instead of glaring across the ridges." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem took my niece Kaya from Camp Aparaje, and they would have killed her if no one had come. I do not know what has become of the tauren who could do that." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is patient, and so am I. Five shoots living and two dead is a good night, and the next night will be better." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts us to heal Stonetalon, and I mean to prove him right. Every shoot I raise is a promise to him." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is greener than the waking world, and I believe them. I would like Stonetalon to look like the Dream one day, and I mean to help it." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid; I mostly know seeds." } },
   },
 }
@@ -801,6 +811,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a mage, and I'm here on business that isn't yours. That's all the story you'll get." } },
     advice = { { id = "tp_ad", text = "Never let anyone tell you which magic you're allowed to love." } },
     cenarion_circle = { { id = "tp_circle", text = "Gardeners with claws, so don't let their smiles fool you." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the greatest city of magic in the world, and the Legion burned it to ash. The Kirin Tor are rebuilding, but they will never be what they were, and they do not deserve to be." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor were arrogant, and the Legion punished them for it. I knew some of them, long ago, and I do not miss them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge burned my homeland, and the prince who led them burned it with a smile. I do not speak of it often, and I will not speak of it now." } },
+    arthas = { { id = "tp_arthas", text = "Arthas Menethil killed my people and defiled the Sunwell, and I would see him dead a thousand times over. I hope he is suffering in the north, wherever he went." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a practical orc, and he does not ask too many questions about my magic. I respect that, and I serve him well for it." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is a green paradise, and they walk it in their sleep. I have seen what their arrogance costs others, and I do not trust their paradise." } },
     _none = { { id = "tp_none", text = "Irrelevant, unless it's magic, and then it's mine." } },
   },
 }
@@ -1053,6 +1069,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Jin'Zil be a witch doctor of da Darkspear, mon. Dat be all da story you need, and most of it true." } },
     advice = { { id = "tp_ad", text = "Never eat nothin' in a witch doctor's cave, mon, not even if he say it be stew, and especially if it blink at you." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be the finest witch doctors in Kalimdor, mon, and Jin'Zil be the finest of the Darkspear. Darsok will tell you different, but Darsok be wrong." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be a good chief, and he lets Jin'Zil do his work without asking too many questions. That's the best kind of chief, if you ask me." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits and the loa be different things, mon, and a witch doctor knows both. The spirits be the wind and the rain, and the loa be older and hungrier." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi be fools, trying to wake the blood god in Zul'Gurub. Hakkar don't care who feeds him, mon, and he'll eat the Gurubashi first." } },
     _none = { { id = "tp_none", text = "Da spirits don't say, mon. Ask again tomorrow; maybe dey change dey minds." } },
   },
 }
@@ -1233,6 +1253,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the inn on Sun Rock, and I've heard more battle stories than any war chronicler alive." } },
     advice = { { id = "tp_ad", text = "Sleep while you can up here. The harpies don't keep regular hours, and they shriek like a kodo with its tail in a door." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built a home for the orcs, and he gave me the chance to build one too. My inn is small, but it's mine, and that's thanks to him." } },
+    cairne = { { id = "tp_cairne", text = "Cairne's tauren built Sun Rock, and they let me run the inn. They're good folk, though they eat more than orcs." } },
+    second_war = { { id = "tp_second_war", text = "Half my guests are old soldiers from the Second War, and they tell the same stories every night. I don't mind, because the stories get better every time." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken stop at my inn sometimes, and they don't eat or drink or sleep. I charge them for the chair anyway, because it's still my chair." } },
     _none = { { id = "tp_none", text = "Ask Maggran. He knows the mountain; he just doesn't like saying much about it until his third mug." } },
   },
 }
@@ -1529,6 +1553,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go around the Charred Vale if you can, little one, and if you can't, go quickly and look up. The harpies come from above." } },
     venture_company = { { id = "tp_venture", text = "They brought fire and machines to a sacred mountain and called it business. The mountain will outlast them, but not without help." } },
     cenarion_circle = { { id = "tp_circle", text = "My father's children and their students. We keep the old places, and not everyone thanks us for it." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is the high priestess of Elune and the leader of the Sentinels. She is wise, little one, though some say she is too quick to draw her glaive." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion Stormrage sleeps in the Dream, and the Circle waits for him to wake. I have waited a long time, little one, and I will wait longer." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the night elves and the druids both, and her light guides us in the dark. I pray to her, though I am more of the forest than of the temple." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the world as it was meant to be, little one, and the druids walk it in their sleep. Something troubles it now, and I fear for those who sleep there." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' Warchief is wiser than the last, I am told, and he keeps a peace with Theramore. But his people still cut our forests, little one, and crimes are done with hands, not banners." } },
     _none = { { id = "tp_none", text = "The grove doesn't know, little one. Nor do I." } },
   },
 }
@@ -1708,6 +1737,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I keep the inn on the peak. There isn't much more to it than that, and I like it that way." } },
     advice = { { id = "tp_ad", text = "You look worn through. Rest under a roof tonight, and let Elune see to your dreams." } },
+    elune = { { id = "tp_elune", text = "Elune watches over the travellers who sleep beneath her stars. I ask her to guide your dreams each night, and I hope she listens." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is our high priestess and our leader, and she watches over us all. I have seen her only once, in Darnassus, and I have never forgotten it." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is the new World Tree, and Darnassus sits in its branches. It is beautiful, but I prefer the stars here on the peak." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids walk the Dream in their sleep, and they say it is greener than anything in this world. I dream of the stars instead, and I think they are just as beautiful." } },
     _none = { { id = "tp_none", text = "Ask the Keeper. He's lived here longer than the trees." } },
   },
 }

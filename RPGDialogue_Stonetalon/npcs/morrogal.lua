@@ -145,6 +145,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A shaman of Thunder Bluff who came to Sun Rock to listen to the mountains. Lately they've had too much to say." } },
     advice = { { id = "tp_ad", text = "If the ground hums under your hooves, step back and listen before you take another step." } },
+    the_elements = { { id = "tp_the_elements", text = "The earth spirits under Stonetalon are uneasy, as if something old were stirring beneath them and they did not like it. I can feel it in my hooves, and I cannot name it, which is worse." } },
+    uldaman = { { id = "tp_uldaman", text = "The dwarves say there is a titan vault in the Badlands called Uldaman, full of stone guardians like the ones in our legends. If the earthen sleep there, they may sleep here too, and that is what troubles me." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the mountains, and the titans shaped them, or so the old stories say. I do not know which is true, and I am beginning to fear both are." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent us to Sun Rock to heal the land, and I mean to do it. But the land does not always want healing, and sometimes it wants to be left alone." } },
     _none = { { id = "tp_none", text = "I cannot say, {class}. The earth is my study, and that is not of the earth." } },
   },
 }

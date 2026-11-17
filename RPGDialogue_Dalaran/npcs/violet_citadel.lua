@@ -337,6 +337,14 @@ P:NPC {
     alterac = { { id = "tp_alterac", text = "A dead kingdom on our doorstep, and its thieves in our hills. We kept them out with the dome, and now we keep them out with patrols." } },
     burning_legion = { { id = "tp_legion", text = "Archimonde stood in our streets and broke this city with a gesture. I don't speak of it lightly, and I'd rather not speak of it at all." } },
     two_orders = { { id = "tp_orders", text = "The High Order came to us; their cousins went to the Horde. I'm told the two don't speak, and I'm in no position to lecture anyone about family quarrels." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran fell to Archimonde, and we raised it again with our own hands and every spell we had. I bent the council's rules to save this city, and I'd do it again, and I'll not apologize for it." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are fewer than we were, and wiser, I hope, though that remains to be proven. Antonidas led us well, and we're still learning to walk without him." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on our council and walked away with our secrets and our shame. He commands the Scourge from Naxxramas now, and we'll answer for him until the day he's stopped." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came within sight of these walls, and Arthas took what he wanted from us and left. We've raised the city again, but every mage in it remembers that day." } },
+    arthas = { { id = "tp_arthas", text = "Prince Arthas came to Dalaran for the Book of Medivh and took it from us, and we couldn't stop him. I don't speak of him often, and I'll not start now." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore was one of Antonidas's best students, and she leads Theramore now. She writes to the council, and her letters are always sensible, which is more than I can say for most." } },
+    thrall = { { id = "tp_thrall", when = { faction = "Horde" }, text = "Your Horde burned a good part of Lordaeron in the Second War, and some here remember it, and some would rather not. I've opened the gates to the Horde because the dead are a greater enemy than old grudges." }, { id = "tp_thrall2", text = "The Warchief of the Horde is an orc of uncommon sense, by every account, and I've let his people through our gates. I'll judge him by them, as I'd judge any king by his envoys." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was where Arthas turned, and the Scourge hold it now with the Scarlet zealots in the other half. I've sent magi there, and few came back." } },
     _none = { { id = "tp_none", text = "That's outside what I can speak to, I'm afraid. Try the library, once it has a roof." } },
   },
 }
@@ -525,6 +533,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've been Kirin Tor since before the dome, and I'll be Kirin Tor when it's long forgotten. That's all the history I have time for." } },
     trade = { { id = "tp_trade", text = "Wards today, and portals when the city stops shaking. Neither is a trade for the impatient." } },
     burning_legion = { { id = "tp_legion", text = "I was here when Archimonde came. I'll not describe it, and you shouldn't ask anyone else who was." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are rebuilding, and every ward in this city needs tending, and I'm the one who tends them. Antonidas would have done it better, and faster, and I miss him every day." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran stands again, and I'll keep it standing if it's the last thing I do. The wards are mine to watch, and I watch them every minute." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad took our secrets and our trust, and he left us to the Scourge. I'd see him unmade, and I'd do it myself if I could." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came within sight of these walls, and we lost good magi stopping them. I'll not lose any more, if I can help it." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and less time to find out." } },
   },
 }
@@ -595,6 +607,9 @@ P:NPC {
 
   topics = {
     trade = { { id = "tp_trade", text = "Tabards, patterns and whatever the vaults can spare, which this season is mostly tabards." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor's stores are mine to keep, and I count everything twice. Antonidas trusted me with them, and I'll not let him down, even now." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's rebuilding, and every crate that comes through my door is precious. I apologize for the state of the stores, but we're doing our best." } },
+    scourge = { { id = "tp_scourge", text = "When Archimonde fell on the city our stores burned with everything else, and I've rebuilt them from a single ledger. I'll not lose them again, if I have to sleep on the crates." } },
     _none = { { id = "tp_none", text = "If it isn't in my ledger, I couldn't tell you about it." } },
   },
 }

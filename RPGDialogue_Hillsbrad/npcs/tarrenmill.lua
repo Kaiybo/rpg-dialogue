@@ -799,7 +799,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn. What came before that I don't talk about, and nobody here does." } },
     advice = { { id = "tp_ad", text = "Don't sit by the window after dark. Southshore's scouts like windows." } },
-    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and my inn is for the living allies and the dead who still like to sit down. The chairs are comfortable, even if we don't need them." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are whatever's left of Lordaeron once you take away the breathing, and my inn serves both kinds. The chairs are very comfortable, though none of my regulars can tell." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady rules from the Undercity, and Tarren Mill is her front against Southshore. She's never visited my inn, and I'd not expect her to." } },
     scourge = { { id = "tp_scourge", text = "The Scourge come down from the north sometimes, and we put them back in the ground. It's a dry business, but someone has to do it." } },
     _none = { { id = "tp_none", text = "Ask the High Executor, or better, don't; she doesn't like questions." } },

@@ -108,6 +108,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a tauren who sits in a cave and tests travelers. Where I came from matters less than where you're going." } },
     advice = { { id = "tp_ad", text = "When you don't know what's below you, step anyway, but step on purpose." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother tests every one of her children, and I only pass her tests along. Spirit, body and mind, and she watches how you take each one." } },
+    cairne = { { id = "tp_cairne", text = "Cairne passed every test the Earth Mother set him, and he still says he is learning. That is the answer to the third test, though I would not tell you which one that is." } },
+    centaur = { { id = "tp_centaur", text = "The Galak believe the canyons belong to them, and they test anyone who walks here with a spear. Their tests are simpler than mine, and much less kind." } },
+    razorfen = { { id = "tp_razorfen", text = "The quilboar warrens at the canyon's northern edge have grown cold, and the dead walk among the thorns now. Whoever passes my tests may find a harder one waiting there." } },
     _none = { { id = "tp_none", text = "That's not one of the facets I test. Ask at Freewind Post." } },
   },
 }
