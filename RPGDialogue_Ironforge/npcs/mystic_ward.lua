@@ -39,7 +39,7 @@ P:NPC {
   nodes = {
     xpt_rohan = {
       big = true,
-      lines = { { id = "xpt_rohan_default", text = "The Light does, if you let it, and a pint and a good night's sleep do the rest. I've seen healers pour themselves out for their friends until there was nothing left, and the Light never asked that of them; they asked it of themselves." } },
+      lines = { { id = "xpt_rohan_default", text = "The Light does, if ye let it, an' a pint an' a good night's sleep do the rest. I've seen healers pour themselves out for their friends till there was nothin' left, an' the Light never asked that o' them; they asked it o' themselves." } },
       choices = {
         { text = "I'll rest when I must, and trust the Light for the rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll lean on my own strength. Faith doesn't turn a blade.", next = "BACK", fx = { align = { light = -1 } } },
@@ -96,7 +96,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_rohan", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
-          text = "You're the only one in your company who mends, aren't you? I can tell by how you stand, a little behind and watching everyone, and I'll tell you what I tell my acolytes: watch yourself too, because nobody else will." },
+          text = "Ye're the only one in yer company who mends, aren't ye? I can tell by how ye stand, a wee bit behind an' watchin' everyone, an' I'll tell ye what I tell my acolytes: watch yerself too, because nobody else will." },
         { id = "h_default", key = true,
           text = "Rohan, High Priest o' the Hall o' Mysteries. I walk this floor from mornin' tae night, because the young priests ask better questions when they have tae keep up." },
         { id = "h_fear", tags = { "news" }, when = { questActive = TODO_QUEST("A Lack of Fear") },

@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xpt_therum = {
       big = true,
-      lines = { { id = "xpt_therum_default", text = "Because we've had to, {g:lad|lass}, ever since the Second War, when Lothar's men and Ironforge's hammers held the same line. Humans are quick and we're stubborn, and between quick and stubborn there's not much an orc could ever find to break." } },
+      lines = { { id = "xpt_therum_default", text = "Because we've had tae, {g:lad|lass}, ever since the Second War, when Lothar's men an' Ironforge's hammers held the same line. Humans are quick an' we're stubborn, an' between quick an' stubborn there's no' much an orc could ever find tae break." } },
       choices = {
         { text = "The bond of hammer and sword should never be broken.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Alliances last as long as they're useful, and no longer.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -117,7 +117,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_therum", tags = { "news" }, when = { party = { race = "Dwarf" } },
-          text = "There's a dwarf in your company, I see, and {companion} has the good sense to wear proper Ironforge steel. Bring them by if their armour ever needs work, because I'll not have one of my own folk walking about Stormwind in human tin." },
+          text = "There's a dwarf in yer company, I see, an' {companion} has the good sense tae wear proper Ironforge steel. Bring them by if their armour ever needs work, because I'll no' have one o' my own folk walkin' about Stormwind in human tin." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a customer worth the coal, for I've fitted plate tae the Silver Hand since afore ye were born, an' I'll fit ye too." },
         { id = "h_default", text = "Therum Deepforge, armourer tae the House o' Wrynn, though these days that means fittin' guards more than kings. If ye want tae learn the hammer, I'll teach ye, an' if ye don't, mind the sparks." },
         { id = "h_priest", when = { class = "PRIEST" },

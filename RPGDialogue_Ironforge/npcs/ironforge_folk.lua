@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     xpt_brandur = {
       big = true,
-      lines = { { id = "xpt_brandur_default", text = "Heal them before they ask, and never tell them they'd have died without you, because they'll know, and that does more than any lecture. If they still strut after that, put a little salt in their ale." } },
+      lines = { { id = "xpt_brandur_default", text = "Heal them before they ask, an' never tell them they'd have died without ye, because they'll know, an' that does more than any lecture. If they still strut after that, put a wee bit o' salt in their ale." } },
       choices = {
         { text = "I'll tell them plainly when they're wrong. Friends should.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Quiet hints work better. Let them think it was their idea.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -108,7 +108,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_brandur", tags = { "news" }, when = { party = { class = "PALADIN" } },
-          text = "There's a paladin in your company, I see, and {companion} wears it well, beard or no beard. Mind you keep them humble; the young ones forget the Light shines on the whole company, not just whoever's holding the hammer." },
+          text = "There's a paladin in yer company, I see, an' {companion} wears it well, beard or no beard. Mind ye keep them humble; the young ones forget the Light shines on the whole company, no' just whoever's holdin' the hammer." },
         { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. Dwarves I send on tae Tiza Battleforge an' humans tae Duthorian Rall, for the Light's no' fussy about beards." },
         { id = "h_dwarf", when = { race = "Dwarf", class = "PALADIN" },
           text = "Ye've a dwarf's stubbornness an' a paladin's oath. That's a fine pair, as long as the oath wins the arguments." },

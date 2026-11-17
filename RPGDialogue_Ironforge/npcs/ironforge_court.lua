@@ -1326,7 +1326,7 @@ P:NPC {
   nodes = {
     xpt_stonehallow = {
       big = true,
-      lines = { { id = "xpt_stonehallow_default", text = "Because the Senate prefers to argue about the quarry from a warm room in the High Seat, and I prefer to be cold and right. If it weren't for wandering companies like yours, Gol'Bolar would have been lost to the troggs a season ago." } },
+      lines = { { id = "xpt_stonehallow_default", text = "Because the Senate prefers tae argue about the quarry from a warm room in the High Seat, an' I prefer tae be cold an' right. If it weren't for wanderin' companies like yers, Gol'Bolar would've been lost tae the troggs a season ago." } },
       choices = {
         { text = "The Senate should send soldiers. That's what it's for.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Companies like ours get it done faster than any Senate.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -1419,7 +1419,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_stonehallow", tags = { "news" }, when = { party = true },
-          text = "You've brought friends to the quarry, which is more than the Senate ever does. If any of them can swing an axe, the troggs are on the lower shelf, and I'll not complain if you thin them out on your way through." },
+          text = "Ye've brought friends tae the quarry, which is more than the Senate ever does. If any o' them can swing an axe, the troggs are on the lower shelf, an' I'll no' complain if ye thin them out on yer way through." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my quarry! Well, ye'll find plenty tae mend, for the troggs bite an' my diggers bleed, an' the Senate sends nothin' but letters." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somethin' the Senate never sends me, though I've asked, in writin', three times." },
         { id = "h_default", text = "Senator Mehr Stonehallow, o' Ironforge's Senate, an' a League man besides. I could be debatin' in the warm, but instead I'm countin' heads in a quarry, because someone has to." },
@@ -1592,7 +1592,7 @@ P:NPC {
   nodes = {
     xpt_firebrew = {
       big = true,
-      lines = { { id = "xpt_firebrew_default", text = "A band of four once swore to me they'd routed a whole Dark Iron war party with a single keg of Thunderbrew and a lit candle, and the worst of it is I half believe them. The second best was a gnome who said he'd been swallowed by a basilisk and complained that it was boring." } },
+      lines = { { id = "xpt_firebrew_default", text = "A band o' four once swore tae me they'd routed a whole Dark Iron war party wi' a single keg o' Thunderbrew an' a lit candle, an' the worst of it is I half believe them. The second best was a gnome who said he'd been swallowed by a basilisk an' complained that it was borin'." } },
       choices = {
         { text = "Stick to what happened. The truth is story enough.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A good story beats the truth in a tavern.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1678,9 +1678,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_firebrew", tags = { "news" }, when = { party = { size = 4 } },
-          text = "Five of ye! Now that's a proper party, and the Stonefire's the place for it. Sit yourselves down by the big hearth, and the first one who tells a lie about a dragon has to tell a better one after." },
+          text = "Five o' ye! Now that's a proper party, an' the Stonefire's the place for it. Sit yerselves down by the big hearth, an' the first one who tells a lie about a dragon has tae tell a better one after." },
         { id = "h_pt_firebrew2", tags = { "news" }, when = { party = { size = { min = 1, max = 3 } } },
-          text = "Brought some friends, have ye? Good, the Stonefire's too quiet with only the regulars, and they've told all their stories twice." },
+          text = "Brought some friends, have ye? Good, the Stonefire's too quiet wi' only the regulars, an' they've told all their stories twice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Stonefire! Ye'll forgive the noise, I hope, for my patrons sing louder than any choir, an' worse." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's somebody who'll add tae the noise, for yer sort always tell the best war stories, an' they're half true, which is better than most." },
         { id = "h_default", text = "Firebrew, an' I keep the Stonefire. The beer's strong an' the fire's stronger, an' the stories get taller as the kegs get lighter." },

@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     xpt_thorius = {
       big = true,
-      lines = { { id = "xpt_thorius_default", text = "A crew of four came back from Uldaman with a stone tablet carved in a script nobody in the Hall could read, and they argued for an hour over whether to sell it to me or keep it. In the end they gave it to the museum for nothing, and I still think of them every time I dust it." } },
+      lines = { { id = "xpt_thorius_default", text = "A crew o' four came back from Uldaman wi' a stone tablet carved in a script nobody in the Hall could read, an' they argued for an hour over whether tae sell it tae me or keep it. In the end they gave it tae the museum for nothin', an' I still think o' them every time I dust it." } },
       choices = {
         { text = "Finds like that belong in the museum, for everyone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They should have sold it. Crews have to eat.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -114,7 +114,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_thorius", tags = { "news" }, when = { party = true },
-          text = "You've brought your friends to the museum! Wonderful, because I've a great many things to show and hardly anyone stays for all of it. Do keep them clear of the cases by the far wall, though; the last adventurer who leaned on one set off a curse we're still cataloguing." },
+          text = "Ye've brought yer friends tae the museum! Wonderful, because I've a great many things tae show an' hardly anyone stays for all o' it. Do keep them clear o' the cases by the far wall, though; the last adventurer who leaned on one set off a curse we're still cataloguin'." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the museum! Mind the cases, friend, for some o' these relics are older than any temple, an' a few o' them were holy tae somebody once." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll want the case by the north wall, then, for we've a Silver Hand gauntlet there from the Second War, an' I polish it myself." },
         { id = "h_default", key = true,
