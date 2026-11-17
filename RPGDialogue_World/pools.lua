@@ -199,6 +199,7 @@ P:Pool {
         { text = "Surely you could do a better price.", next = "haggle" },
         { text = "What's the talk around town?", next = "gossip" },
         { text = "Who do you sell to, mostly?", next = "whom" },
+        { text = "Do your customers argue about politics?", next = "v_pol" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -301,6 +302,86 @@ P:Pool {
       choices = {
         { text = "Coin is coin, whoever's holding it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Your own people should always come first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- 0.80.0: politics, from behind the counter.
+    v_pol = {
+      lines = {
+        { id = "vp_default", text = "Every day, and loudest when they're buying the least. A merchant learns to nod at everything, but I'll tell you how the talk runs, if you're curious." },
+        { id = "vp_g_peace", when = { gossip = { topic = "peace", stance = "for" } }, text = "A customer told me you'd spoken up for the peace between Theramore and Orgrimmar. Peace is good for trade, so you'll get no argument from this side of the counter." },
+        { id = "vp_g_nopeace", when = { gossip = { topic = "peace", stance = "against" } }, text = "I heard you'd been running down the peace with the other side. Folk who want a war don't usually think about who sells the boots and bandages for it, but I do." },
+        { id = "vp_g_nobles", when = { gossip = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Somebody said you think the nobles ought to pay the war debts before the rest of us. Half my customers want to buy you a drink, and the other half are the nobles' stewards." },
+        { id = "vp_contra", when = { contradiction = "peace" }, text = "Two customers this week told me two different things about what you think of the peace. A merchant notices when someone's prices change depending on who's buying." },
+      },
+      choices = {
+        { text = "What does the war cost a merchant these days?", next = "v_pol_tax", when = { faction = "Alliance" } },
+        { text = "Should we trade with the goblin cartels?", next = "v_pol_goblins", when = { faction = "Horde" } },
+        { text = "Is peace with the other side good for trade?", next = "v_pol_peace" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    v_pol_tax = {
+      big = true,
+      lines = {
+        { id = "vpt_default", text = "The crown's still paying for the last war, and for the camps they kept the orcs in after it. Every crate off a ship pays a toll, and the toll goes up every time the Keep comes up short. Some say the nobles should pay their share first. What's your view?" },
+        { id = "vpt_noble", when = { origin = "human_minor_noble" }, text = "You'll forgive me saying it to someone from the old houses, but the crown's still paying for the last war, and the tolls land on folk like me while the manors pay what they please. Some say the nobles should pay first. What's your view?" },
+      },
+      choices = {
+        { text = "The nobles should pay first. They've dodged it long enough.", next = "v_pol_tax_said", fx = { align = { order = -1, light = 1 }, opinion = { war_taxes = "the_nobles_pay_first" } } },
+        { text = "The crown needs the coin. Pay the toll and keep the walls up.", next = "v_pol_tax_said", fx = { align = { order = 2 }, opinion = { war_taxes = "pay_the_crown" } } },
+      },
+    },
+    v_pol_tax_said = {
+      lines = {
+        { id = "vpts_default", text = "Well, the toll's the toll either way, until somebody at court decides otherwise." },
+        { id = "vpts_nobles", when = { opinion = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Say that loudly enough and you'll have half the Trade District buying you drinks and the other half reporting you. I'll be in the first half, quietly." },
+        { id = "vpts_crown", when = { opinion = { topic = "war_taxes", stance = "pay_the_crown" } }, text = "Spoken like someone who's never had to pay it. Still, I'll grant you that walls come cheaper than whatever climbs over them." },
+      },
+      choices = {
+        { text = "What else are your customers arguing about?", next = "v_pol" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    v_pol_peace = {
+      big = true,
+      lines = {
+        { id = "vpp_default", text = "Peace is good for trade, and war's good for trade, and the bit in between is the only part that's bad for it. If the peace holds, I sell salt and cloth, and if it breaks, I sell arrows and splints. I'd just like to know which a season ahead. Where do you stand?" },
+      },
+      choices = {
+        { text = "Keep the peace. Let your children inherit a shop, not a battlefield.", next = "v_pol_peace_said", fx = { align = { light = 1, order = 1 }, opinion = { peace = "for" } } },
+        { text = "It won't hold. Stock up on arrows.", next = "v_pol_peace_said", fx = { align = { light = -1, honor = -1 }, opinion = { peace = "against" } } },
+      },
+    },
+    v_pol_peace_said = {
+      lines = {
+        { id = "vpps_default", text = "I'll write that down next to everyone else's guess." },
+        { id = "vpps_for", when = { opinion = { topic = "peace", stance = "for" } }, text = "From your lips to whoever's listening up there. I'll order the salt." },
+        { id = "vpps_against", when = { opinion = { topic = "peace", stance = "against" } }, text = "That's the third person this week to tell me so. I'll order the arrows, and if you're wrong, you're buying them." },
+      },
+      choices = {
+        { text = "What else are your customers arguing about?", next = "v_pol" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    v_pol_goblins = {
+      big = true,
+      lines = {
+        { id = "vpg_default", text = "The Steamwheedle goblins sell to anyone with coin, Horde or Alliance, and they do it in Ratchet right under the Warchief's nose. Some say we need them, and some say a goblin who sells us the axe sells the humans the shield. What's your view?" },
+      },
+      choices = {
+        { text = "We need their trade. Keep them close.", next = "v_pol_goblins_said", fx = { align = { order = -1, honor = -1 }, opinion = { goblin_trade = "keep_them_close" } } },
+        { text = "Never trust a merchant who sells to both sides.", next = "v_pol_goblins_said", fx = { align = { honor = 2 }, opinion = { goblin_trade = "never_trust_them" } } },
+      },
+    },
+    v_pol_goblins_said = {
+      lines = {
+        { id = "vpgs_default", text = "Either way, the goblins will be selling long after we've finished arguing." },
+        { id = "vpgs_trade", when = { opinion = { topic = "goblin_trade", stance = "keep_them_close" } }, text = "Spoken like a merchant. They're the only ones who can get silk from Booty Bay to Orgrimmar without it going missing at sea, so I'll drink to that." },
+        { id = "vpgs_distrust", when = { opinion = { topic = "goblin_trade", stance = "never_trust_them" } }, text = "Says the one standing at a merchant's counter! Still, you're not wrong, because the goblins would sell the Warchief his own throne if he left it out overnight." },
+      },
+      choices = {
+        { text = "What else are your customers arguing about?", next = "v_pol" },
         { text = "Something else.", next = "BACK" },
       },
     },

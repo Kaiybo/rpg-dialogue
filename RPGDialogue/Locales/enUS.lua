@@ -272,6 +272,12 @@ L.J_SAID_TO = "Said to %s, %s."
 L.J_CONTRADICTED_WAS = "Though before that I said: %s."
 L.J_SELF_LEARNED = "What I've learned"
 L.J_OPINIONS = "What I've said I believe"
+-- Names for opinion topics that aren't "Ask about" topics (0.80.0).
+L.OPINION_TOPICS = {
+  peace = "Peace with the other side", regency = "Stormwind's regency", refugees = "The refugees from Lordaeron",
+  gilneas = "Gilneas and its wall", war_taxes = "Who pays the war debts", forsaken_in_horde = "The Forsaken in the Horde",
+  old_ways = "The old ways of the Horde", goblin_trade = "Trading with the goblins",
+}
 L.J_CONTRADICTED = "(though I've said otherwise, too)"
 L.J_TOWNS = "What the towns think of me"
 L.J_ORIGIN = "Origin:"

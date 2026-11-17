@@ -91,6 +91,15 @@ A content push across ten zones: about 40 new people to talk to, and longer conv
 - **Moonglade:** Fariel Starsong, the Lunar Festival vendor (Valadar's sister). Sindrayl and Faustron now have real conversations, and each offers flights only to their own faction.
 - **Blasted Lands:** Bloodmage Drazial, Bloodmage Lynnore, Daio the Decrepit and the Spirit of Kirith have about half as much again to say.
 
+## 0.80.0 (2026-11-17)
+People have political opinions, and want yours. No new files: a /reload is enough.
+
+- **Guards argue politics.** Ask any town guard "What do the soldiers say about the court?" (Alliance) or "What are the grunts arguing about around the fires?" (Horde). Alliance: the regency and who has the boy king's ear, Lady Proudmoore's peace with Thrall, the refugees from Lordaeron, Greymane's wall. Horde: the peace with Theramore, the Forsaken in the Horde, the Warsong in Ashenvale, and whether anyone misses the old ways.
+- **Merchants too.** Ordinary vendors answer "Do your customers argue about politics?": war tolls and the nobles (Alliance), the goblin cartels (Horde), and whether peace is good for trade.
+- **Your answers count.** Picking a side shifts your alignment and is remembered. Other people in the same town hear about it later, and say so. Tell one crowd one thing and the next crowd the opposite, and someone will notice.
+- **Townsfolk talk politics** without being asked: the missing king, the war debts, Gilneas, the Warsong, the goblins of Ratchet.
+- The journal's "What I've said I believe" shows these opinions with proper names.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

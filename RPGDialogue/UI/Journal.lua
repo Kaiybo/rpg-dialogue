@@ -512,7 +512,7 @@ local function myself(add, c)
   local beliefs = {}
   for topic, o in pairs(c.opinions or {}) do
     local def = ns.Data.topics[topic]
-    beliefs[#beliefs + 1] = { name = def and def.name or topic, o = o }
+    beliefs[#beliefs + 1] = { name = def and def.name or (L.OPINION_TOPICS or {})[topic] or topic, o = o }
   end
   if #beliefs > 0 then
     add(L.J_OPINIONS, "section")
