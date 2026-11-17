@@ -86,8 +86,11 @@ function Towns.Enter(id, now, level)
   if not c then return end
   local cur = c.curTown
   if cur == id and not loginPending then return end
+  local login = loginPending
   loginPending = false
-  if cur and cur ~= id then
+  -- Leaving a town stamps it; at login PLAYER_LOGOUT already stamped it, and stamping it
+  -- again would hide the time spent logged out.
+  if cur and cur ~= id and not login then
     local r = rec(cur)
     r.visit, r.vlvl = now, level
   end
@@ -96,7 +99,8 @@ function Towns.Enter(id, now, level)
   local r = rec(id)
   if r.visit and now - r.visit >= Towns.RETURN_GAP then
     r.back = { gap = now - r.visit, t = now, lvl = r.vlvl }
-  elseif r.visit then
+  elseif r.back and now - r.back.t > Towns.RETURN_FRESH then
+    -- Only drop a stale return: a /reload or a step outside the gate keeps a fresh one.
     r.back = nil
   end
   r.visit, r.vlvl = now, level
@@ -146,13 +150,16 @@ function Towns.Word(id, kind, info, now)
   local r = rec(id)
   r.word = r.word or {}
   local prev = r.word[kind]
+  local npc = info and (info.key or ("name:" .. tostring(info.name)))
   r.word[kind] = {
     t = now, n = ((prev and prev.n) or 0) + 1,
-    npc = info and (info.key or ("name:" .. tostring(info.name))),
-    name = info and info.name, pooled = info and info.pooled or nil,
+    npc = npc, name = info and info.name, pooled = info and info.pooled or nil,
   }
+  -- The standing nudge counts once a day per person and kind, so repeating the same
+  -- reply (or the same check) can't farm it. Quest turn-ins (no info) always count.
   local d = Towns.WORD_STANDING[kind]
-  if d then ns.Effects.Standing(id, d) end
+  local repeat_ = npc and prev and prev.npc == npc and now - prev.t < 86400
+  if d and not repeat_ then ns.Effects.Standing(id, d) end
 end
 
 -- What a reply did that a town would talk about (nil when nothing).
